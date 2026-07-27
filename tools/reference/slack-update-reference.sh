@@ -16,27 +16,35 @@ IFS=$'\n\t'
 
 print_usage() {
     cat <<EOF
-Usage: ${0##*/} [OPTION]
+Usage: ${0##*/} [--check | --apply]
+       ${0##*/} [--help]
 
 Run the current Slack-Update reference workflow.
 
 Options:
       --check  Check for Slackware repository updates without applying changes
+      --apply  Run the existing update workflow and apply changes
   -h, --help   Show this help message and exit
 
-Running without options preserves the current legacy apply workflow.
-The --apply, --dry-run, and --json options are not available yet.
+Running without an operation preserves the current legacy apply workflow.
+The --dry-run and --json options are not available yet.
 EOF
 }
 
 parse_arguments() {
     SHOW_HELP=0
     OPERATION=apply
+    OPERATION_EXPLICIT=0
 
     while [ "$#" -gt 0 ]; do
         case "$1" in
-            --check)
-                OPERATION=check
+            --check|--apply)
+                if [ "$OPERATION_EXPLICIT" -eq 1 ]; then
+                    echo "Error: only one operation may be specified" >&2
+                    return 1
+                fi
+                OPERATION=${1#--}
+                OPERATION_EXPLICIT=1
                 ;;
             -h|--help)
                 SHOW_HELP=1
