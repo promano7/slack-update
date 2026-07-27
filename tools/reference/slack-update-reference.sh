@@ -16,7 +16,7 @@ IFS=$'\n\t'
 
 print_usage() {
     cat <<EOF
-Usage: ${0##*/} [--check | --apply | --dry-run] [--json]
+Usage: ${0##*/} [--check | --apply | --dry-run] [--json | --events]
        ${0##*/} [--help]
 
 Run the current Slack-Update reference workflow.
@@ -26,16 +26,19 @@ Options:
       --apply    Run the existing update workflow and apply changes
       --dry-run  Produce a complete non-modifying execution plan
       --json     Write the final structured result to standard output
+      --events   Stream provisional NDJSON progress events to standard output
   -h, --help     Show this help message and exit
 
 Running without an operation preserves the current legacy apply workflow.
-With --json, human-readable progress is written to standard error and the log.
+With --json or --events, human-readable progress is written to standard error
+and the log. The two machine-readable output modes are mutually exclusive.
 EOF
 }
 
 parse_arguments() {
     SHOW_HELP=0
     JSON_OUTPUT=0
+    EVENTS_OUTPUT=0
     OPERATION=apply
     OPERATION_EXPLICIT=0
 
@@ -50,7 +53,18 @@ parse_arguments() {
                 OPERATION_EXPLICIT=1
                 ;;
             --json)
+                if [ "$EVENTS_OUTPUT" -eq 1 ]; then
+                    echo "Error: --json and --events are mutually exclusive" >&2
+                    return 1
+                fi
                 JSON_OUTPUT=1
+                ;;
+            --events)
+                if [ "$JSON_OUTPUT" -eq 1 ]; then
+                    echo "Error: --json and --events are mutually exclusive" >&2
+                    return 1
+                fi
+                EVENTS_OUTPUT=1
                 ;;
             -h|--help)
                 SHOW_HELP=1
@@ -117,6 +131,7 @@ initialize_runtime_state() {
     STARTED_AT=$(date -u +%Y-%m-%dT%H:%M:%SZ)
     FINISHED_AT=
     RUNTIME_TMPDIR=
+    EVENT_SEQUENCE=0
 }
 
 initialize_runtime() {
@@ -199,8 +214,8 @@ configure_logging() {
     # FIX #10: Se eliminan emojis del log para evitar problemas de encoding en cron.
     # La salida de consola (si se ejecuta interactivamente) los mostrara igualmente
     # porque el tee escribe a stdout antes del filtro de ANSI.
-    if [ "$JSON_OUTPUT" -eq 1 ]; then
-        # Keep stdout reserved for the final JSON document.
+    if [ "$JSON_OUTPUT" -eq 1 ] || [ "$EVENTS_OUTPUT" -eq 1 ]; then
+        # Keep stdout reserved for machine-readable output.
         exec 3>&1
         exec > >(sed 's/\x1b\[[0-9;]*[mGKHJ]//g; s/\r//' | tee -a "$LOG" >&2) 2>&1
     else
@@ -265,8 +280,22 @@ print_check_summary() {
 
 run_check_workflow() {
     local result=0
+    local state=success
+
+    emit_module_started_event slackware "Slackware update check started"
+    emit_action_started_event slackware check_updates "Checking Slackware repository updates"
 
     check_slackware_updates || result=$?
+
+    if [ "$result" -ne 0 ]; then
+        state=failed
+    fi
+
+    emit_action_completed_event slackware check_updates "$state" \
+        "Slackware repository update check completed" "$CHECK_STATUS"
+    emit_module_completed_event slackware "$state" \
+        "Slackware update check completed" "$CHECK_STATUS"
+
     print_check_summary
 
     return "$result"
@@ -470,13 +499,50 @@ print_dry_run_plan() {
 
 run_dry_run_workflow() {
     local result=0
+    local slackware_state=success
+    local elf_state=success
 
+    emit_module_started_event slackware "Slackware planning probe started"
+    emit_action_started_event slackware check_updates "Checking Slackware repository updates"
     check_slackware_updates || result=$?
+    if [ "$result" -ne 0 ]; then
+        slackware_state=failed
+    fi
+    emit_action_completed_event slackware check_updates "$slackware_state" \
+        "Slackware repository probe completed" "$CHECK_STATUS"
+    emit_module_completed_event slackware "$slackware_state" \
+        "Slackware planning probe completed" "$CHECK_STATUS"
+
+    emit_module_started_event core "Local environment inspection started"
+    emit_action_started_event core inspect_environment "Inspecting optional tools and boot configuration"
     inspect_dry_run_environment
+    emit_action_completed_event core inspect_environment success \
+        "Optional tools and boot configuration inspected" 0
+    emit_module_completed_event core success "Local environment inspection completed" 0
+
+    emit_module_started_event sbo "SBo planning inspection started"
+    emit_action_started_event sbo inspect_queues "Inspecting current SBo queues"
     inspect_current_sbo_queues
     collect_installed_sbo_candidates
+    emit_action_completed_event sbo inspect_queues success \
+        "Current SBo queues and ABI candidates inspected" 0
+    emit_module_completed_event sbo success "SBo planning inspection completed" 0
+
+    emit_module_started_event elf "ELF dependency inspection started"
+    emit_action_started_event elf scan_dependencies "Scanning current ELF dependencies"
     inspect_current_elf_state
+    if [ "$PLAN_READELF_AVAILABLE" -eq 0 ]; then
+        elf_state=skipped
+    elif [ "$PLAN_BROKEN_COUNT" -gt 0 ]; then
+        elf_state=warning
+    fi
+    emit_action_completed_event elf scan_dependencies "$elf_state" \
+        "Current ELF dependency inspection completed" 0
+    emit_module_completed_event elf "$elf_state" "ELF dependency inspection completed" 0
+
+    emit_action_started_event core render_plan "Rendering dry-run plan"
     print_dry_run_plan
+    emit_action_completed_event core render_plan success "Dry-run plan rendered" 0
 
     return "$result"
 }
@@ -1135,6 +1201,108 @@ json_string_array_from_file() {
     printf ']'
 }
 
+# Machine-readable progress event functions
+
+emit_event() {
+    local type=$1
+    local module=${2-}
+    local action=${3-}
+    local state=${4-}
+    local message=${5-}
+    local exit_code=${6-}
+
+    [ "$EVENTS_OUTPUT" -eq 1 ] || return 0
+
+    EVENT_SEQUENCE=$((EVENT_SEQUENCE + 1))
+
+    printf '{' >&3
+    printf '"schema_version":0,' >&3
+    printf '"schema_status":"provisional",' >&3
+    printf '"sequence":%d,' "$EVENT_SEQUENCE" >&3
+    printf '"timestamp":' >&3; json_string "$(date -u +%Y-%m-%dT%H:%M:%SZ)" >&3; printf ',' >&3
+    printf '"operation":' >&3; json_string "$OPERATION" >&3; printf ',' >&3
+    printf '"type":' >&3; json_string "$type" >&3; printf ',' >&3
+
+    printf '"module":' >&3
+    if [ -n "$module" ]; then
+        json_string "$module" >&3
+    else
+        printf 'null' >&3
+    fi
+    printf ',' >&3
+
+    printf '"action":' >&3
+    if [ -n "$action" ]; then
+        json_string "$action" >&3
+    else
+        printf 'null' >&3
+    fi
+    printf ',' >&3
+
+    printf '"state":' >&3
+    if [ -n "$state" ]; then
+        json_string "$state" >&3
+    else
+        printf 'null' >&3
+    fi
+    printf ',' >&3
+
+    printf '"message":' >&3; json_string "$message" >&3; printf ',' >&3
+    printf '"exit_code":' >&3
+    if [ -n "$exit_code" ]; then
+        printf '%d' "$exit_code" >&3
+    else
+        printf 'null' >&3
+    fi
+    printf '}\n' >&3
+}
+
+emit_operation_started_event() {
+    emit_event operation_started '' '' running "Operation started" ''
+}
+
+emit_module_started_event() {
+    emit_event module_started "$1" '' running "$2" ''
+}
+
+emit_module_completed_event() {
+    emit_event module_completed "$1" '' "$2" "$3" "${4-}"
+}
+
+emit_action_started_event() {
+    emit_event action_started "$1" "$2" running "$3" ''
+}
+
+emit_action_completed_event() {
+    emit_event action_completed "$1" "$2" "$3" "$4" "${5-}"
+}
+
+emit_final_events() {
+    local workflow_result=$1
+    local warning
+    local error
+    local final_state=failed
+
+    prepare_json_messages
+    calculate_json_result_state "$workflow_result"
+
+    for warning in "${RESULT_WARNINGS[@]}"; do
+        emit_event warning '' '' warning "$warning" ''
+    done
+
+    for error in "${RESULT_ERRORS[@]}"; do
+        emit_event error '' '' failed "$error" ''
+    done
+
+    if [ "$RESULT_SUCCESS" -eq 1 ]; then
+        final_state=success
+    elif [ "$RESULT_PARTIAL" -eq 1 ]; then
+        final_state=warning
+    fi
+
+    emit_event operation_completed '' '' "$final_state" "Operation completed" "$workflow_result"
+}
+
 prepare_json_messages() {
     RESULT_WARNINGS=()
     RESULT_ERRORS=()
@@ -1417,21 +1585,165 @@ print_json_result() {
 # Workflow coordinators
 
 run_apply_workflow() {
+    local slackware_state=success
+    local flatpak_state=success
+    local sbo_state=success
+    local elf_state=success
+    local cinnamon_state=skipped
+    local boot_state=skipped
+    local action_exit=0
+
+    emit_module_started_event slackware "Slackware update module started"
+    emit_action_started_event slackware snapshot_before "Capturing package snapshot before update"
     capture_package_snapshot_before
+    emit_action_completed_event slackware snapshot_before success \
+        "Package snapshot before update captured" 0
+
+    emit_action_started_event slackware update_packages "Applying Slackware package operations"
     update_slackware_system
+    action_exit=0
+    if [ "$SLACKPKG_UPDATE_STATUS" -gt 0 ]; then
+        action_exit=$SLACKPKG_UPDATE_STATUS
+    elif [ "$SLACKPKG_INSTALL_NEW_STATUS" -gt 0 ]; then
+        action_exit=$SLACKPKG_INSTALL_NEW_STATUS
+    elif [ "$SLACKPKG_UPGRADE_ALL_STATUS" -gt 0 ]; then
+        action_exit=$SLACKPKG_UPGRADE_ALL_STATUS
+    fi
+    if [ "$action_exit" -gt 0 ]; then
+        slackware_state=failed
+    fi
+    emit_action_completed_event slackware update_packages "$slackware_state" \
+        "Slackware package operations completed" "$action_exit"
+
+    emit_action_started_event slackware snapshot_after "Capturing package snapshot after update"
     capture_package_snapshot_after
+    emit_action_completed_event slackware snapshot_after success \
+        "Package snapshot after update captured" 0
+    emit_module_completed_event slackware "$slackware_state" \
+        "Slackware package operations completed" "$action_exit"
+
+    emit_module_started_event flatpak "Flatpak update module started"
+    emit_action_started_event flatpak update "Updating Flatpak installations"
     update_flatpak
+    if [ "$FLATPAK_STATUS" -lt 0 ]; then
+        flatpak_state=skipped
+        action_exit=0
+    elif [ "$FLATPAK_STATUS" -gt 0 ]; then
+        flatpak_state=failed
+        action_exit=$FLATPAK_STATUS
+    else
+        action_exit=0
+    fi
+    emit_action_completed_event flatpak update "$flatpak_state" \
+        "Flatpak update action completed" "$action_exit"
+    emit_module_completed_event flatpak "$flatpak_state" \
+        "Flatpak update module completed" "$action_exit"
+
+    emit_module_started_event core "Package change analysis started"
+    emit_action_started_event core detect_triggers "Detecting ABI and kernel changes"
     detect_abi_changes
     detect_kernel_changes
+    emit_action_completed_event core detect_triggers success \
+        "ABI and kernel change detection completed" 0
+    emit_module_completed_event core success "Package change analysis completed" 0
+
+    emit_module_started_event sbo "SBo update module started"
+    emit_action_started_event sbo synchronize "Synchronizing the configured SBo repository"
     synchronize_sbo_repository
+    action_exit=0
+    if [ "$SBOPKG_SYNC_STATUS" -gt 0 ]; then
+        action_exit=$SBOPKG_SYNC_STATUS
+    elif [ "$SQG_SYNC_STATUS" -gt 0 ]; then
+        action_exit=$SQG_SYNC_STATUS
+    fi
+    if [ "$action_exit" -gt 0 ]; then
+        sbo_state=failed
+    elif [ "$SBOPKG_SYNC_STATUS" -lt 0 ] && [ "$SQG_SYNC_STATUS" -lt 0 ]; then
+        sbo_state=skipped
+    fi
+    emit_action_completed_event sbo synchronize "$sbo_state" \
+        "SBo repository synchronization completed" "$action_exit"
+
+    emit_action_started_event sbo build_queues "Building SBo target queues"
     build_sbo_core_queue
     add_abi_rebuild_targets
+    emit_action_completed_event sbo build_queues success "SBo target queues built" 0
+
+    emit_module_started_event elf "ELF dependency module started"
+    emit_action_started_event elf scan_dependencies "Scanning ELF dependencies statically"
     detect_broken_elf_objects
     map_broken_objects_to_sbo_packages
+    if [ -s "$BROKEN" ]; then
+        elf_state=warning
+    fi
+    emit_action_completed_event elf scan_dependencies "$elf_state" \
+        "ELF dependency scan completed" 0
+    emit_module_completed_event elf "$elf_state" "ELF dependency module completed" 0
+
+    emit_action_started_event sbo process_queue "Processing the final SBo queue"
     build_and_apply_sbo_queue
+    if [ "$SBO_BUILD_STATUS" -gt 0 ]; then
+        sbo_state=failed
+        action_exit=$SBO_BUILD_STATUS
+    else
+        action_exit=0
+    fi
+    emit_action_completed_event sbo process_queue "$sbo_state" \
+        "Final SBo queue processing completed" "$action_exit"
+    emit_module_completed_event sbo "$sbo_state" "SBo update module completed" "$action_exit"
+
+    emit_module_started_event cinnamon "Cinnamon rebuild module started"
+    emit_action_started_event cinnamon rebuild "Evaluating and rebuilding Cinnamon when required"
     rebuild_cinnamon
+    action_exit=0
+    case "$CINNAMON_TRIGGER" in
+        0) cinnamon_state=skipped ;;
+        2) cinnamon_state=success ;;
+        1|3)
+            cinnamon_state=failed
+            action_exit=1
+            ;;
+    esac
+    emit_action_completed_event cinnamon rebuild "$cinnamon_state" \
+        "Cinnamon rebuild action completed" "$action_exit"
+    emit_module_completed_event cinnamon "$cinnamon_state" \
+        "Cinnamon rebuild module completed" "$action_exit"
+
+    emit_module_started_event boot "Boot preparation module started"
+    emit_action_started_event boot regenerate_initrd "Regenerating initrd when required"
     regenerate_initrd
+    if [ "$INITRD_UPDATE" -eq 0 ]; then
+        emit_action_completed_event boot regenerate_initrd skipped \
+            "initrd regeneration was not required" 0
+    elif [ "$INITRD_OK" -eq 1 ]; then
+        boot_state=success
+        emit_action_completed_event boot regenerate_initrd success \
+            "initrd regeneration completed" 0
+    else
+        boot_state=failed
+        emit_action_completed_event boot regenerate_initrd failed \
+            "initrd regeneration failed" 1
+    fi
+
+    emit_action_started_event boot update_grub "Updating GRUB configuration when required"
     update_grub_configuration
+    if [ "$GRUB_UPDATE" -eq 0 ]; then
+        emit_action_completed_event boot update_grub skipped \
+            "GRUB configuration update was not required" 0
+    elif [ "$GRUB_OK" -eq 1 ]; then
+        [ "$boot_state" = skipped ] && boot_state=success
+        emit_action_completed_event boot update_grub success \
+            "GRUB configuration update completed" 0
+    else
+        boot_state=failed
+        emit_action_completed_event boot update_grub failed \
+            "GRUB configuration update failed" 1
+    fi
+    action_exit=0
+    [ "$boot_state" = failed ] && action_exit=1
+    emit_module_completed_event boot "$boot_state" \
+        "Boot preparation module completed" "$action_exit"
+
     print_summary
 }
 
@@ -1463,6 +1775,7 @@ main() {
     rotate_logs
     configure_logging
     print_start_banner
+    emit_operation_started_event
 
     case "$OPERATION" in
         check)
@@ -1480,6 +1793,9 @@ main() {
 
     if [ "$JSON_OUTPUT" -eq 1 ]; then
         print_json_result "$result" >&3
+        exec 3>&-
+    elif [ "$EVENTS_OUTPUT" -eq 1 ]; then
+        emit_final_events "$result"
         exec 3>&-
     fi
 

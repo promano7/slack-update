@@ -366,19 +366,19 @@ Progress should be exposed as events so that the CLI and tray application can di
 - module completed;
 - operation completed.
 
-### Reference-script JSON output
+The current shell reference exposes two provisional machine-readable interfaces:
 
-The shell reference accepts `--json` as an output modifier for `--check`, `--apply`, and `--dry-run`. When enabled, standard output contains exactly one JSON document; human-readable progress remains available through standard error and the normal log file.
+- `--json` writes one final JSON result document to standard output.
+- `--events` streams newline-delimited JSON (NDJSON) progress events to standard output.
+- Human-readable progress is redirected to standard error and the normal log in either mode.
+- `--json` and `--events` are mutually exclusive because each reserves standard output.
+- Both interfaces currently use schema version `0` with status `provisional`; they are not stable APIs yet.
 
-The current reference schema is explicitly provisional. It includes schema and operation metadata, success and partial-result flags, reboot and boot-safety state, timestamps, the log path, per-module results, warnings, and errors. Until stable exit codes are implemented, the document reports both the current process exit code and `"exit_code_stable": false`.
-
-Example:
-
-```text
-slack-update --check --json
-slack-update --dry-run --json
-slack-update --apply --json
-```
+The provisional event records contain a sequence number, UTC timestamp, operation,
+event type, module, action, state, message, and optional exit code. The shell
+reference currently emits operation, module, action, warning, error, and completion
+events; finer-grained progress percentages and log-message events remain part of
+the future core model.
 
 ## Exit codes
 
@@ -489,7 +489,7 @@ The final layout may change during the architecture prototype, but separation be
 - [x] Add `--apply` for approved changes.
 - [x] Add `--dry-run` that produces a complete plan without modifying the system.
 - [x] Add `--json` for structured final output.
-- [ ] Add a machine-readable progress/event mode if practical.
+- [x] Add a machine-readable progress/event mode if practical.
 - [ ] Move hard-coded behavior into a configuration file.
 - [ ] Add `enabled`, `disabled`, and `auto` modes for optional modules.
 - [ ] Add stable exit codes.
@@ -1030,7 +1030,8 @@ Slack-Update 1.0 will be ready when:
 - [x] Implement `--apply` as an explicit selector for the existing update workflow.
 - [x] Implement `--dry-run` as a complete non-modifying plan.
 - [x] Implement `--json` for structured final output.
-- [ ] Add a machine-readable progress/event mode if practical.
+- [x] Implement provisional NDJSON progress events through `--events`.
+- [ ] Move hard-coded reference behavior into a configuration file.
 - [ ] Execute and document the Phase 1 acceptance matrix.
 - [ ] Freeze `reference-v1`.
 - [ ] Begin the C architecture only after the reference gate is complete.
