@@ -12,6 +12,51 @@
 set -uo pipefail
 IFS=$'\n\t'
 
+# Command-line interface functions
+
+print_usage() {
+    cat <<EOF
+Usage: ${0##*/} [OPTION]
+
+Run the current Slack-Update reference workflow.
+
+Options:
+  -h, --help  Show this help message and exit
+
+Operational options such as --check, --apply, --dry-run, and --json are not
+available yet. They will be introduced in their dedicated roadmap steps.
+EOF
+}
+
+parse_arguments() {
+    SHOW_HELP=0
+
+    while [ "$#" -gt 0 ]; do
+        case "$1" in
+            -h|--help)
+                SHOW_HELP=1
+                ;;
+            --)
+                shift
+                if [ "$#" -gt 0 ]; then
+                    echo "Error: unexpected argument: $1" >&2
+                    return 1
+                fi
+                break
+                ;;
+            -*)
+                echo "Error: unknown option: $1" >&2
+                return 1
+                ;;
+            *)
+                echo "Error: unexpected argument: $1" >&2
+                return 1
+                ;;
+        esac
+        shift
+    done
+}
+
 # Runtime setup functions
 
 require_root() {
@@ -653,6 +698,16 @@ print_summary() {
 # Entry point
 
 main() {
+    parse_arguments "$@" || {
+        print_usage >&2
+        return 1
+    }
+
+    if [ "$SHOW_HELP" -eq 1 ]; then
+        print_usage
+        return 0
+    fi
+
     require_root
     acquire_instance_lock
     initialize_runtime
