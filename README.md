@@ -15,9 +15,9 @@ Slack-Update is intended to provide a desktop-oriented update experience similar
 - [x] Modular and configurable design established
 - [x] Reference shell script created
 - [ ] Reference shell script validated on a real Slackware-current installation
-- [ ] Public GitHub repository created: `slack-update`
+- [x] Public GitHub repository created: `slack-update`
 - [ ] Build system selected
-- [ ] License selected
+- [x] License selected: **GNU GPL v3 or later (`GPL-3.0-or-later`)**
 - [ ] First C milestone started
 
 ## Goals
@@ -450,15 +450,15 @@ The final layout may change during the architecture prototype, but separation be
 
 **Goal:** establish a clean project history before writing C code.
 
-- [ ] Create the public GitHub repository `slack-update`.
-- [ ] Add this `README.md`.
-- [ ] Add the corrected shell script under `tools/reference/slack-update-reference.sh`.
-- [ ] Preserve the original script separately if historical comparison is useful.
-- [ ] Add a `.gitignore` suitable for C build outputs and editor files.
-- [ ] Choose a license.
-- [ ] Add `CONTRIBUTING.md` with the English commit-message policy.
-- [ ] Add `CHANGELOG.md` using a consistent release format.
-- [ ] Tag the initial planning state when the repository structure is complete.
+- [x] Create the public GitHub repository `slack-update`.
+- [x] Add this `README.md`.
+- [x] Add the corrected shell script under `tools/reference/slack-update-reference.sh`.
+- [x] Preserve the current reference script byte-for-byte while relocating it; no earlier historical copy was available.
+- [x] Add a `.gitignore` suitable for C build outputs and editor files.
+- [x] Choose a license: GNU GPL v3 or later (`GPL-3.0-or-later`).
+- [x] Add `CONTRIBUTING.md` with the English commit-message policy.
+- [x] Add `CHANGELOG.md` using a consistent release format.
+- [ ] Tag the initial planning state as `planning-v1` when the repository structure is complete.
 
 **Completion gate:** the public repository contains documentation and the untouched reference script, but no premature C implementation.
 
@@ -966,6 +966,10 @@ Commit rules:
 - [ ] Mention incompatible configuration or output changes explicitly.
 - [ ] Keep unrelated changes in separate commits.
 
+## License
+
+Slack-Update is licensed under the GNU General Public License, version 3 or any later version (`GPL-3.0-or-later`). See `LICENSE` for the complete license text.
+
 ## Versioning
 
 The project should use semantic versioning after public interfaces begin to stabilize.
@@ -1003,10 +1007,10 @@ Slack-Update 1.0 will be ready when:
 
 ## Immediate next steps
 
-- [ ] Create the `slack-update` GitHub repository.
-- [ ] Commit this README.
-- [ ] Add the corrected reference script.
-- [ ] Rename and modularize the script without changing validated behavior.
+- [ ] Commit the completed Phase 0 repository structure.
+- [ ] Tag the initial planning state as `planning-v1` after the Phase 0 commit.
+- [ ] Rename `sbo-auto` paths and identifiers to `slack-update` where appropriate, without changing behavior.
+- [ ] Modularize the reference script into clearly named functions without changing behavior.
 - [ ] Implement `--check`, `--apply`, `--dry-run`, and `--json` in the script.
 - [ ] Execute and document the Phase 1 acceptance matrix.
 - [ ] Freeze `reference-v1`.

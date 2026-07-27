@@ -1,0 +1,75 @@
+# Contributing to Slack-Update
+
+Thank you for your interest in Slack-Update. The project is currently preserving and validating its shell reference implementation before any C port begins.
+
+## Development phase gate
+
+The roadmap in `README.md` is authoritative.
+
+- Do not add C implementation code until the Phase 1 reference acceptance gate is complete.
+- Keep the reference script under `tools/reference/slack-update-reference.sh` as the executable specification.
+- During Phase 0, changes to the reference script are not allowed.
+- During Phase 1, behavioral changes must be covered by an acceptance scenario, expected output, and expected exit code.
+- Do not mix work from later roadmap phases into an earlier phase.
+
+## Language policy
+
+Use English for:
+
+- source-code identifiers;
+- source-code comments;
+- commit messages;
+- documentation;
+- developer-facing logs.
+
+Keep user-facing strings suitable for later translation.
+
+## Commit messages
+
+Use the following format when a scope improves clarity:
+
+```text
+<type>(<scope>): <imperative summary>
+```
+
+Common types are `build`, `docs`, `feat`, `fix`, `refactor`, `test`, `chore`, `ci`, and `security`.
+
+Examples:
+
+```text
+docs: complete the initial repository structure
+refactor(reference): split the update workflow into functions
+test(reference): add the no-updates acceptance fixture
+```
+
+Commit subjects must:
+
+- use the imperative mood;
+- remain concise;
+- not end with a period;
+- describe one focused change.
+
+Use the commit body to explain non-obvious decisions, compatibility changes, or safety implications.
+
+## Reference-script changes
+
+Before submitting a change to the reference script:
+
+1. Run `bash -n tools/reference/slack-update-reference.sh`.
+2. Confirm that destructive commands are not exercised outside an isolated Slackware test system.
+3. Record the relevant acceptance scenario.
+4. Preserve deterministic output and exit-code behavior.
+5. Ensure every new or modified comment is written in English.
+
+Never run the apply workflow on a production machine merely to validate a contribution.
+
+## Pull requests
+
+A pull request should include:
+
+- the roadmap item addressed;
+- the reason for the change;
+- the validation performed;
+- any remaining risks or follow-up work.
+
+Keep unrelated changes in separate pull requests and commits.

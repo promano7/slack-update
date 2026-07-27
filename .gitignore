@@ -1,0 +1,50 @@
+# Build directories
+build/
+build-*/
+_build/
+
+# Meson
+meson-private/
+meson-logs/
+meson-info/
+compile_commands.json
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+CTestTestfile.cmake
+Makefile
+
+# Compiled objects and binaries
+*.o
+*.a
+*.so
+*.so.*
+*.dylib
+*.dll
+*.exe
+*.out
+
+# Test and coverage output
+*.gcda
+*.gcno
+*.gcov
+coverage/
+Testing/
+
+# Sanitizer and crash output
+*.log
+core
+core.*
+
+# Editor and IDE files
+*~
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Operating-system metadata
+.DS_Store
+Thumbs.db
