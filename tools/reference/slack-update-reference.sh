@@ -21,18 +21,23 @@ Usage: ${0##*/} [OPTION]
 Run the current Slack-Update reference workflow.
 
 Options:
-  -h, --help  Show this help message and exit
+      --check  Check for Slackware repository updates without applying changes
+  -h, --help   Show this help message and exit
 
-Operational options such as --check, --apply, --dry-run, and --json are not
-available yet. They will be introduced in their dedicated roadmap steps.
+Running without options preserves the current legacy apply workflow.
+The --apply, --dry-run, and --json options are not available yet.
 EOF
 }
 
 parse_arguments() {
     SHOW_HELP=0
+    OPERATION=apply
 
     while [ "$#" -gt 0 ]; do
         case "$1" in
+            --check)
+                OPERATION=check
+                ;;
             -h|--help)
                 SHOW_HELP=1
                 ;;
@@ -108,6 +113,7 @@ initialize_runtime() {
     TOTAL_EN_COLA=0
     TOTAL_CORE=0
     TOTAL_EXTRA=0
+    CHECK_STATUS=0
     CSB_DIR="$WORKDIR/csb"
 }
 
@@ -135,6 +141,64 @@ print_start_banner() {
     echo "================================================"
     echo "START: $(date)"
     echo "================================================"
+}
+
+# Check workflow functions
+
+check_slackware_updates() {
+    echo "[CHECK] Slackware updates"
+
+    if ! command -v slackpkg >/dev/null 2>&1; then
+        CHECK_STATUS=127
+        echo "  [ERROR] slackpkg is not available"
+        return 1
+    fi
+
+    slackpkg -batch=on -default_answer=n check-updates
+    CHECK_STATUS=$?
+
+    case "$CHECK_STATUS" in
+        0|100)
+            ;;
+        *)
+            echo "  [ERROR] slackpkg check-updates failed with exit code $CHECK_STATUS"
+            return 1
+            ;;
+    esac
+}
+
+print_check_summary() {
+    echo
+    echo "=============================="
+    echo "CHECK SUMMARY"
+    echo "=============================="
+    echo
+
+    case "$CHECK_STATUS" in
+        0)
+            echo "[OK] No Slackware repository updates were reported."
+            ;;
+        100)
+            echo "[UPDATES] Slackware repository updates are available."
+            ;;
+        *)
+            echo "[ERROR] The Slackware update check did not complete successfully."
+            ;;
+    esac
+
+    echo
+    echo "[INFO] No packages or optional components were modified."
+    echo "[LOG] Full log: $LOG"
+    echo "[END] Finished: $(date)"
+}
+
+run_check_workflow() {
+    local result=0
+
+    check_slackware_updates || result=$?
+    print_check_summary
+
+    return "$result"
 }
 
 # Update workflow functions
@@ -695,6 +759,27 @@ print_summary() {
     echo "[FIN] Finalizacion: $(date)"
 }
 
+# Workflow coordinators
+
+run_apply_workflow() {
+    capture_package_snapshot_before
+    update_slackware_system
+    capture_package_snapshot_after
+    update_flatpak
+    detect_abi_changes
+    detect_kernel_changes
+    synchronize_sbo_repository
+    build_sbo_core_queue
+    add_abi_rebuild_targets
+    detect_broken_elf_objects
+    map_broken_objects_to_sbo_packages
+    build_and_apply_sbo_queue
+    rebuild_cinnamon
+    regenerate_initrd
+    update_grub_configuration
+    print_summary
+}
+
 # Entry point
 
 main() {
@@ -715,22 +800,15 @@ main() {
     rotate_logs
     configure_logging
     print_start_banner
-    capture_package_snapshot_before
-    update_slackware_system
-    capture_package_snapshot_after
-    update_flatpak
-    detect_abi_changes
-    detect_kernel_changes
-    synchronize_sbo_repository
-    build_sbo_core_queue
-    add_abi_rebuild_targets
-    detect_broken_elf_objects
-    map_broken_objects_to_sbo_packages
-    build_and_apply_sbo_queue
-    rebuild_cinnamon
-    regenerate_initrd
-    update_grub_configuration
-    print_summary
+
+    case "$OPERATION" in
+        check)
+            run_check_workflow
+            ;;
+        apply)
+            run_apply_workflow
+            ;;
+    esac
 }
 
 main "$@"

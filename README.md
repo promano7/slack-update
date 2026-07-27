@@ -471,7 +471,7 @@ The final layout may change during the architecture prototype, but separation be
 - [x] Rename paths and identifiers from `sbo-auto` to `slack-update` where appropriate.
 - [x] Split the script into clearly named functions.
 - [x] Add command-line argument parsing.
-- [ ] Add `--check` for non-destructive update detection.
+- [x] Add `--check` for non-destructive update detection.
 - [ ] Add `--apply` for approved changes.
 - [ ] Add `--dry-run` that produces a complete plan without modifying the system.
 - [ ] Add `--json` for structured final output.
@@ -1012,7 +1012,8 @@ Slack-Update 1.0 will be ready when:
 - [x] Rename `sbo-auto` paths and identifiers to `slack-update` where appropriate, without changing behavior.
 - [x] Modularize the reference script into clearly named functions without changing behavior.
 - [x] Add basic command-line argument parsing without implementing later operation modes.
-- [ ] Implement `--check`, `--apply`, `--dry-run`, and `--json` in the script.
+- [x] Implement `--check` as a non-destructive Slackware repository update check.
+- [ ] Implement `--apply`, `--dry-run`, and `--json` in the script.
 - [ ] Execute and document the Phase 1 acceptance matrix.
 - [ ] Freeze `reference-v1`.
 - [ ] Begin the C architecture only after the reference gate is complete.
