@@ -469,7 +469,7 @@ The final layout may change during the architecture prototype, but separation be
 ### Refactoring and interfaces
 
 - [x] Rename paths and identifiers from `sbo-auto` to `slack-update` where appropriate.
-- [ ] Split the script into clearly named functions.
+- [x] Split the script into clearly named functions.
 - [ ] Add command-line argument parsing.
 - [ ] Add `--check` for non-destructive update detection.
 - [ ] Add `--apply` for approved changes.
@@ -1010,7 +1010,7 @@ Slack-Update 1.0 will be ready when:
 - [x] Commit the completed Phase 0 repository structure.
 - [x] Tag the initial planning state as `planning-v1` after the Phase 0 commit.
 - [x] Rename `sbo-auto` paths and identifiers to `slack-update` where appropriate, without changing behavior.
-- [ ] Modularize the reference script into clearly named functions without changing behavior.
+- [x] Modularize the reference script into clearly named functions without changing behavior.
 - [ ] Implement `--check`, `--apply`, `--dry-run`, and `--json` in the script.
 - [ ] Execute and document the Phase 1 acceptance matrix.
 - [ ] Freeze `reference-v1`.

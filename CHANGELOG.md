@@ -16,6 +16,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 ### Changed
 
 - Renamed the reference script installation target, lock file, work directory, log directory, and runtime identity from `sbo-auto` to `slack-update`, without changing the update workflow.
+- Split the linear reference workflow into 24 clearly named shell functions, including the `main()` coordinator, while preserving command order and observable behavior.
 - Relocated the existing shell implementation to `tools/reference/slack-update-reference.sh` without changing its contents.
 - Updated the roadmap to reflect the repository work completed in Phase 0.
 
@@ -23,7 +24,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 - Current roadmap phase: **Phase 1 — Stabilize and validate the shell reference**.
 - Phase 0 is complete, committed as `3064cfa`, tagged as `planning-v1`, and published to GitHub.
-- The first Phase 1 task is complete: runtime paths and identifiers now use `slack-update` instead of `sbo-auto` where appropriate.
-- No function extraction, command-line parsing, `--check`, `--apply`, `--dry-run`, JSON output, configuration model, or stable exit-code work has been implemented yet.
-- The next development task is to split the reference script into clearly named functions without changing its behavior.
+- The first two Phase 1 refactoring tasks are complete: runtime identifiers use `slack-update`, and the workflow is divided into 24 named functions, including `main()`.
+- No command-line parsing, `--check`, `--apply`, `--dry-run`, JSON output, configuration model, or stable exit-code work has been implemented yet.
+- The next development task is to add command-line argument parsing without implementing later operation modes prematurely.
+- The function-only refactor was checked with `bash -n`, a non-root invocation comparison, and two mocked root execution scenarios; output and exit behavior matched the previous script.
 - The reference script has not yet been validated against the Phase 1 acceptance matrix on a real Slackware-current installation.
