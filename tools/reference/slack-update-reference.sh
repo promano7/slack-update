@@ -16,7 +16,7 @@ IFS=$'\n\t'
 
 print_usage() {
     cat <<EOF
-Usage: ${0##*/} [--check | --apply | --dry-run]
+Usage: ${0##*/} [--check | --apply | --dry-run] [--json]
        ${0##*/} [--help]
 
 Run the current Slack-Update reference workflow.
@@ -25,15 +25,17 @@ Options:
       --check    Check for Slackware repository updates without applying changes
       --apply    Run the existing update workflow and apply changes
       --dry-run  Produce a complete non-modifying execution plan
+      --json     Write the final structured result to standard output
   -h, --help     Show this help message and exit
 
 Running without an operation preserves the current legacy apply workflow.
-The --json option is not available yet.
+With --json, human-readable progress is written to standard error and the log.
 EOF
 }
 
 parse_arguments() {
     SHOW_HELP=0
+    JSON_OUTPUT=0
     OPERATION=apply
     OPERATION_EXPLICIT=0
 
@@ -46,6 +48,9 @@ parse_arguments() {
                 fi
                 OPERATION=${1#--}
                 OPERATION_EXPLICIT=1
+                ;;
+            --json)
+                JSON_OUTPUT=1
                 ;;
             -h|--help)
                 SHOW_HELP=1
@@ -102,6 +107,15 @@ initialize_runtime_state() {
     TOTAL_CORE=0
     TOTAL_EXTRA=0
     CHECK_STATUS=0
+    SLACKPKG_UPDATE_STATUS=-1
+    SLACKPKG_INSTALL_NEW_STATUS=-1
+    SLACKPKG_UPGRADE_ALL_STATUS=-1
+    FLATPAK_STATUS=-1
+    SBOPKG_SYNC_STATUS=-1
+    SQG_SYNC_STATUS=-1
+    SBO_BUILD_STATUS=-1
+    STARTED_AT=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+    FINISHED_AT=
     RUNTIME_TMPDIR=
 }
 
@@ -185,7 +199,13 @@ configure_logging() {
     # FIX #10: Se eliminan emojis del log para evitar problemas de encoding en cron.
     # La salida de consola (si se ejecuta interactivamente) los mostrara igualmente
     # porque el tee escribe a stdout antes del filtro de ANSI.
-    exec > >(sed 's/\x1b\[[0-9;]*[mGKHJ]//g; s/\r//' | tee -a "$LOG") 2>&1
+    if [ "$JSON_OUTPUT" -eq 1 ]; then
+        # Keep stdout reserved for the final JSON document.
+        exec 3>&1
+        exec > >(sed 's/\x1b\[[0-9;]*[mGKHJ]//g; s/\r//' | tee -a "$LOG" >&2) 2>&1
+    else
+        exec > >(sed 's/\x1b\[[0-9;]*[mGKHJ]//g; s/\r//' | tee -a "$LOG") 2>&1
+    fi
 }
 
 print_start_banner() {
@@ -481,9 +501,14 @@ update_slackware_system() {
 
     echo "[1] Slackware update"
 
-    slackpkg -batch=on -default_answer=y update      || true
-    slackpkg -batch=on -default_answer=y install-new || true
-    slackpkg -batch=on -default_answer=y upgrade-all || true
+    SLACKPKG_UPDATE_STATUS=0
+    slackpkg -batch=on -default_answer=y update || SLACKPKG_UPDATE_STATUS=$?
+
+    SLACKPKG_INSTALL_NEW_STATUS=0
+    slackpkg -batch=on -default_answer=y install-new || SLACKPKG_INSTALL_NEW_STATUS=$?
+
+    SLACKPKG_UPGRADE_ALL_STATUS=0
+    slackpkg -batch=on -default_answer=y upgrade-all || SLACKPKG_UPGRADE_ALL_STATUS=$?
 }
 
 capture_package_snapshot_after() {
@@ -503,7 +528,8 @@ update_flatpak() {
     echo "[2] Flatpak update"
 
     if command -v flatpak >/dev/null 2>&1; then
-        flatpak update -y --noninteractive || true
+        FLATPAK_STATUS=0
+        flatpak update -y --noninteractive || FLATPAK_STATUS=$?
     else
         echo "  Flatpak no instalado, omitiendo"
     fi
@@ -613,8 +639,11 @@ synchronize_sbo_repository() {
 
     if command -v sbopkg >/dev/null 2>&1; then
         if command -v sqg >/dev/null 2>&1; then
-            sbopkg -r || true
-            sqg -a    || true
+            SBOPKG_SYNC_STATUS=0
+            sbopkg -r || SBOPKG_SYNC_STATUS=$?
+
+            SQG_SYNC_STATUS=0
+            sqg -a || SQG_SYNC_STATUS=$?
         else
             echo "  sqg no encontrado -- omitiendo sync SBo"
         fi
@@ -765,9 +794,13 @@ build_and_apply_sbo_queue() {
         # Pasar todos los paquetes como un unico string con -i puede superar ARG_MAX
         # cuando la cola es grande. Usar -B con el fichero .sqf es mas robusto y es
         # la forma recomendada por sbopkg para listas de paquetes.
-        sbopkg -b -B "$QUEUE_FINAL" \
-            && echo "  [OK] Cola SBo procesada" \
-            || echo "  [WARN] sbopkg termino con errores -- revisar log: $LOG"
+        SBO_BUILD_STATUS=0
+        if sbopkg -b -B "$QUEUE_FINAL"; then
+            echo "  [OK] Cola SBo procesada"
+        else
+            SBO_BUILD_STATUS=$?
+            echo "  [WARN] sbopkg termino con errores -- revisar log: $LOG"
+        fi
 
         # Verificar si los binarios que estaban rotos antes de sbopkg siguen rotos
         if [ -s "$BROKEN" ]; then
@@ -1019,6 +1052,368 @@ print_summary() {
     echo "[FIN] Finalizacion: $(date)"
 }
 
+# Structured result functions
+
+json_escape() {
+    local value=${1-}
+
+    value=${value//\\/\\\\}
+    value=${value//\"/\\\"}
+    value=${value//$'\b'/\\b}
+    value=${value//$'\f'/\\f}
+    value=${value//$'\n'/\\n}
+    value=${value//$'\r'/\\r}
+    value=${value//$'\t'/\\t}
+
+    printf '%s' "$value"
+}
+
+json_string() {
+    printf '"%s"' "$(json_escape "${1-}")"
+}
+
+json_boolean() {
+    if [ "$1" -eq 1 ]; then
+        printf 'true'
+    else
+        printf 'false'
+    fi
+}
+
+json_nullable_status() {
+    if [ "$1" -lt 0 ]; then
+        printf 'null'
+    else
+        printf '%d' "$1"
+    fi
+}
+
+json_status_state() {
+    case "$1" in
+        -1)
+            printf 'skipped'
+            ;;
+        0)
+            printf 'success'
+            ;;
+        *)
+            printf 'failed'
+            ;;
+    esac
+}
+
+json_string_array() {
+    local first=1
+    local item
+
+    printf '['
+    for item in "$@"; do
+        if [ "$first" -eq 0 ]; then
+            printf ', '
+        fi
+        json_string "$item"
+        first=0
+    done
+    printf ']'
+}
+
+json_string_array_from_file() {
+    local path=$1
+    local first=1
+    local item
+
+    printf '['
+    if [ -f "$path" ]; then
+        while IFS= read -r item || [ -n "$item" ]; do
+            if [ "$first" -eq 0 ]; then
+                printf ', '
+            fi
+            json_string "$item"
+            first=0
+        done < "$path"
+    fi
+    printf ']'
+}
+
+prepare_json_messages() {
+    RESULT_WARNINGS=()
+    RESULT_ERRORS=()
+
+    case "$OPERATION" in
+        check)
+            if [ "$CHECK_STATUS" -ne 0 ] && [ "$CHECK_STATUS" -ne 100 ]; then
+                RESULT_ERRORS+=("slackpkg check-updates failed with exit code $CHECK_STATUS")
+            fi
+            ;;
+        dry-run)
+            if [ "$CHECK_STATUS" -ne 0 ] && [ "$CHECK_STATUS" -ne 100 ]; then
+                RESULT_ERRORS+=("slackpkg check-updates failed with exit code $CHECK_STATUS")
+            fi
+            if [ "$PLAN_READELF_AVAILABLE" -eq 0 ]; then
+                RESULT_WARNINGS+=("readelf is unavailable; ELF dependencies were not inspected")
+            fi
+            RESULT_WARNINGS+=("Exact Slackware package changes remain unresolved until package metadata is refreshed during apply")
+            ;;
+        apply)
+            [ "$SLACKPKG_UPDATE_STATUS" -gt 0 ] \
+                && RESULT_ERRORS+=("slackpkg update failed with exit code $SLACKPKG_UPDATE_STATUS")
+            [ "$SLACKPKG_INSTALL_NEW_STATUS" -gt 0 ] \
+                && RESULT_ERRORS+=("slackpkg install-new failed with exit code $SLACKPKG_INSTALL_NEW_STATUS")
+            [ "$SLACKPKG_UPGRADE_ALL_STATUS" -gt 0 ] \
+                && RESULT_ERRORS+=("slackpkg upgrade-all failed with exit code $SLACKPKG_UPGRADE_ALL_STATUS")
+            [ "$FLATPAK_STATUS" -gt 0 ] \
+                && RESULT_ERRORS+=("flatpak update failed with exit code $FLATPAK_STATUS")
+            [ "$SBOPKG_SYNC_STATUS" -gt 0 ] \
+                && RESULT_ERRORS+=("sbopkg repository synchronization failed with exit code $SBOPKG_SYNC_STATUS")
+            [ "$SQG_SYNC_STATUS" -gt 0 ] \
+                && RESULT_ERRORS+=("sqg queue generation failed with exit code $SQG_SYNC_STATUS")
+            [ "$SBO_BUILD_STATUS" -gt 0 ] \
+                && RESULT_ERRORS+=("sbopkg queue processing failed with exit code $SBO_BUILD_STATUS")
+            [ "$CINNAMON_TRIGGER" -eq 3 ] \
+                && RESULT_ERRORS+=("Cinnamon required rebuilding but the rebuild failed")
+            if [ "$INITRD_UPDATE" -eq 1 ] && [ "$INITRD_OK" -ne 1 ]; then
+                RESULT_ERRORS+=("initrd preparation was required but did not complete successfully")
+            fi
+            if [ "$GRUB_UPDATE" -eq 1 ] && [ "$GRUB_OK" -ne 1 ]; then
+                RESULT_ERRORS+=("GRUB configuration generation was required but did not complete successfully")
+            fi
+            if [ -s "$BROKEN" ]; then
+                RESULT_ERRORS+=("ELF dependency verification still reports broken objects")
+            fi
+            if [ "${#CRITICAL_UPDATED[@]}" -gt 0 ]; then
+                RESULT_WARNINGS+=("Critical system packages were updated; a reboot is recommended")
+            fi
+            ;;
+    esac
+}
+
+calculate_json_result_state() {
+    local workflow_result=$1
+
+    RESULT_SUCCESS=1
+    RESULT_PARTIAL=0
+    RESULT_BOOT_SAFE=1
+    RESULT_REBOOT=none
+
+    if [ "$workflow_result" -ne 0 ]; then
+        RESULT_SUCCESS=0
+    fi
+
+    if [ "$OPERATION" = "apply" ]; then
+        if [ "${#RESULT_ERRORS[@]}" -gt 0 ]; then
+            RESULT_SUCCESS=0
+            RESULT_PARTIAL=1
+        fi
+
+        if { [ "$INITRD_UPDATE" -eq 1 ] && [ "$INITRD_OK" -ne 1 ]; } \
+            || { [ "$GRUB_UPDATE" -eq 1 ] && [ "$GRUB_OK" -ne 1 ]; }; then
+            RESULT_BOOT_SAFE=0
+            RESULT_REBOOT=unsafe
+        elif [ "$KERNEL_TRIGGER" -eq 1 ]; then
+            RESULT_REBOOT=required
+        elif [ "${#CRITICAL_UPDATED[@]}" -gt 0 ]; then
+            RESULT_REBOOT=recommended
+        fi
+    fi
+}
+
+print_check_json_module() {
+    local state=failed
+    local updates_available=null
+
+    if [ "$CHECK_STATUS" -eq 0 ]; then
+        state=success
+        updates_available=false
+    elif [ "$CHECK_STATUS" -eq 100 ]; then
+        state=success
+        updates_available=true
+    fi
+
+    printf '    "slackware": {\n'
+    printf '      "state": '; json_string "$state"; printf ',\n'
+    printf '      "check_exit_code": %d,\n' "$CHECK_STATUS"
+    printf '      "updates_available": %s\n' "$updates_available"
+    printf '    }\n'
+}
+
+print_dry_run_json_modules() {
+    local slackware_state=failed
+    local updates_available=null
+
+    if [ "$CHECK_STATUS" -eq 0 ]; then
+        slackware_state=success
+        updates_available=false
+    elif [ "$CHECK_STATUS" -eq 100 ]; then
+        slackware_state=success
+        updates_available=true
+    fi
+
+    printf '    "slackware": {\n'
+    printf '      "state": '; json_string "$slackware_state"; printf ',\n'
+    printf '      "check_exit_code": %d,\n' "$CHECK_STATUS"
+    printf '      "updates_available": %s,\n' "$updates_available"
+    printf '      "planned_commands": ['
+    json_string 'slackpkg -batch=on -default_answer=y update'; printf ', '
+    json_string 'slackpkg -batch=on -default_answer=y install-new'; printf ', '
+    json_string 'slackpkg -batch=on -default_answer=y upgrade-all'; printf ']\n'
+    printf '    },\n'
+
+    printf '    "flatpak": {\n'
+    printf '      "available": '; json_boolean "$PLAN_FLATPAK_AVAILABLE"; printf ',\n'
+    printf '      "would_update": '; json_boolean "$PLAN_FLATPAK_AVAILABLE"; printf '\n'
+    printf '    },\n'
+
+    printf '    "sbo": {\n'
+    printf '      "sbopkg_available": '; json_boolean "$PLAN_SBOPKG_AVAILABLE"; printf ',\n'
+    printf '      "sqg_available": '; json_boolean "$PLAN_SQG_AVAILABLE"; printf ',\n'
+    printf '      "queue_directory": '; json_string "$SBODIR"; printf ',\n'
+    printf '      "current_queue_targets": '; json_string_array_from_file "$QUEUE_CORE"; printf ',\n'
+    printf '      "abi_rebuild_candidates": '; json_string_array_from_file "$ABI_CANDIDATES"; printf ',\n'
+    printf '      "broken_elf_targets": '; json_string_array_from_file "$QUEUE_EXTRA"; printf '\n'
+    printf '    },\n'
+
+    printf '    "elf": {\n'
+    printf '      "available": '; json_boolean "$PLAN_READELF_AVAILABLE"; printf ',\n'
+    printf '      "broken_objects": '; json_string_array_from_file "$BROKEN"; printf '\n'
+    printf '    },\n'
+
+    printf '    "cinnamon": {\n'
+    printf '      "repository_available": '; json_boolean "$PLAN_CINNAMON_REPOSITORY"; printf ',\n'
+    printf '      "builder_available": '; json_boolean "$PLAN_CINNAMON_BUILDER"; printf '\n'
+    printf '    },\n'
+
+    printf '    "boot": {\n'
+    printf '      "mkinitrd_available": '; json_boolean "$PLAN_MKINITRD_AVAILABLE"; printf ',\n'
+    printf '      "mkinitrd_configured": '; json_boolean "$PLAN_MKINITRD_CONFIGURED"; printf ',\n'
+    printf '      "grub_available": '; json_boolean "$PLAN_GRUB_AVAILABLE"; printf ',\n'
+    printf '      "grub_configured": '; json_boolean "$PLAN_GRUB_CONFIGURED"; printf '\n'
+    printf '    }\n'
+}
+
+print_apply_json_modules() {
+    local slackware_state=success
+    local flatpak_state
+    local sbo_state=success
+    local cinnamon_state=not-required
+    local initrd_state=not-required
+    local grub_state=not-required
+
+    if [ "$SLACKPKG_UPDATE_STATUS" -gt 0 ] \
+        || [ "$SLACKPKG_INSTALL_NEW_STATUS" -gt 0 ] \
+        || [ "$SLACKPKG_UPGRADE_ALL_STATUS" -gt 0 ]; then
+        slackware_state=failed
+    fi
+
+    flatpak_state=$(json_status_state "$FLATPAK_STATUS")
+
+    if [ "$SBOPKG_SYNC_STATUS" -gt 0 ] || [ "$SQG_SYNC_STATUS" -gt 0 ] \
+        || [ "$SBO_BUILD_STATUS" -gt 0 ]; then
+        sbo_state=failed
+    elif [ "$SBOPKG_SYNC_STATUS" -lt 0 ] && [ "$SQG_SYNC_STATUS" -lt 0 ] \
+        && [ "$SBO_BUILD_STATUS" -lt 0 ]; then
+        sbo_state=skipped
+    fi
+
+    case "$CINNAMON_TRIGGER" in
+        1) cinnamon_state=incomplete ;;
+        2) cinnamon_state=success ;;
+        3) cinnamon_state=failed ;;
+    esac
+
+    if [ "$INITRD_UPDATE" -eq 1 ]; then
+        if [ "$INITRD_OK" -eq 1 ]; then
+            initrd_state=success
+        else
+            initrd_state=failed
+        fi
+    fi
+
+    if [ "$GRUB_UPDATE" -eq 1 ]; then
+        if [ "$GRUB_OK" -eq 1 ]; then
+            grub_state=success
+        else
+            grub_state=failed
+        fi
+    fi
+
+    printf '    "slackware": {\n'
+    printf '      "state": '; json_string "$slackware_state"; printf ',\n'
+    printf '      "update_exit_code": '; json_nullable_status "$SLACKPKG_UPDATE_STATUS"; printf ',\n'
+    printf '      "install_new_exit_code": '; json_nullable_status "$SLACKPKG_INSTALL_NEW_STATUS"; printf ',\n'
+    printf '      "upgrade_all_exit_code": '; json_nullable_status "$SLACKPKG_UPGRADE_ALL_STATUS"; printf ',\n'
+    printf '      "abi_changes": '; json_boolean "$ABI_TRIGGER"; printf ',\n'
+    printf '      "kernel_changes": '; json_boolean "$KERNEL_TRIGGER"; printf ',\n'
+    printf '      "critical_packages": '; json_string_array "${CRITICAL_UPDATED[@]}"; printf '\n'
+    printf '    },\n'
+
+    printf '    "flatpak": {\n'
+    printf '      "state": '; json_string "$flatpak_state"; printf ',\n'
+    printf '      "exit_code": '; json_nullable_status "$FLATPAK_STATUS"; printf '\n'
+    printf '    },\n'
+
+    printf '    "sbo": {\n'
+    printf '      "state": '; json_string "$sbo_state"; printf ',\n'
+    printf '      "sync_exit_code": '; json_nullable_status "$SBOPKG_SYNC_STATUS"; printf ',\n'
+    printf '      "queue_generation_exit_code": '; json_nullable_status "$SQG_SYNC_STATUS"; printf ',\n'
+    printf '      "build_exit_code": '; json_nullable_status "$SBO_BUILD_STATUS"; printf ',\n'
+    printf '      "core_queue_count": %d,\n' "$TOTAL_CORE"
+    printf '      "extra_queue_count": %d,\n' "$TOTAL_EXTRA"
+    printf '      "submitted_queue_count": %d\n' "$TOTAL_EN_COLA"
+    printf '    },\n'
+
+    printf '    "elf": {\n'
+    printf '      "broken_objects": '; json_string_array_from_file "$BROKEN"; printf '\n'
+    printf '    },\n'
+
+    printf '    "cinnamon": {\n'
+    printf '      "state": '; json_string "$cinnamon_state"; printf '\n'
+    printf '    },\n'
+
+    printf '    "boot": {\n'
+    printf '      "initrd_state": '; json_string "$initrd_state"; printf ',\n'
+    printf '      "grub_state": '; json_string "$grub_state"; printf '\n'
+    printf '    }\n'
+}
+
+print_json_result() {
+    local workflow_result=$1
+
+    prepare_json_messages
+    calculate_json_result_state "$workflow_result"
+
+    printf '{\n'
+    printf '  "schema_version": 0,\n'
+    printf '  "schema_status": "provisional",\n'
+    printf '  "operation": '; json_string "$OPERATION"; printf ',\n'
+    printf '  "success": '; json_boolean "$RESULT_SUCCESS"; printf ',\n'
+    printf '  "partial": '; json_boolean "$RESULT_PARTIAL"; printf ',\n'
+    printf '  "reboot": '; json_string "$RESULT_REBOOT"; printf ',\n'
+    printf '  "boot_safe": '; json_boolean "$RESULT_BOOT_SAFE"; printf ',\n'
+    printf '  "exit_code": %d,\n' "$workflow_result"
+    printf '  "exit_code_stable": false,\n'
+    printf '  "started_at": '; json_string "$STARTED_AT"; printf ',\n'
+    printf '  "finished_at": '; json_string "$FINISHED_AT"; printf ',\n'
+    printf '  "log_path": '; json_string "$LOG"; printf ',\n'
+    printf '  "modules": {\n'
+
+    case "$OPERATION" in
+        check)
+            print_check_json_module
+            ;;
+        dry-run)
+            print_dry_run_json_modules
+            ;;
+        apply)
+            print_apply_json_modules
+            ;;
+    esac
+
+    printf '  },\n'
+    printf '  "warnings": '; json_string_array "${RESULT_WARNINGS[@]}"; printf ',\n'
+    printf '  "errors": '; json_string_array "${RESULT_ERRORS[@]}"; printf '\n'
+    printf '}\n'
+}
+
 # Workflow coordinators
 
 run_apply_workflow() {
@@ -1043,6 +1438,8 @@ run_apply_workflow() {
 # Entry point
 
 main() {
+    local result=0
+
     parse_arguments "$@" || {
         print_usage >&2
         return 1
@@ -1069,15 +1466,24 @@ main() {
 
     case "$OPERATION" in
         check)
-            run_check_workflow
+            run_check_workflow || result=$?
             ;;
         apply)
-            run_apply_workflow
+            run_apply_workflow || result=$?
             ;;
         dry-run)
-            run_dry_run_workflow
+            run_dry_run_workflow || result=$?
             ;;
     esac
+
+    FINISHED_AT=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+
+    if [ "$JSON_OUTPUT" -eq 1 ]; then
+        print_json_result "$result" >&3
+        exec 3>&-
+    fi
+
+    return "$result"
 }
 
 main "$@"

@@ -366,6 +366,20 @@ Progress should be exposed as events so that the CLI and tray application can di
 - module completed;
 - operation completed.
 
+### Reference-script JSON output
+
+The shell reference accepts `--json` as an output modifier for `--check`, `--apply`, and `--dry-run`. When enabled, standard output contains exactly one JSON document; human-readable progress remains available through standard error and the normal log file.
+
+The current reference schema is explicitly provisional. It includes schema and operation metadata, success and partial-result flags, reboot and boot-safety state, timestamps, the log path, per-module results, warnings, and errors. Until stable exit codes are implemented, the document reports both the current process exit code and `"exit_code_stable": false`.
+
+Example:
+
+```text
+slack-update --check --json
+slack-update --dry-run --json
+slack-update --apply --json
+```
+
 ## Exit codes
 
 The exact values must be finalized before the CLI is considered stable.
@@ -474,7 +488,7 @@ The final layout may change during the architecture prototype, but separation be
 - [x] Add `--check` for non-destructive update detection.
 - [x] Add `--apply` for approved changes.
 - [x] Add `--dry-run` that produces a complete plan without modifying the system.
-- [ ] Add `--json` for structured final output.
+- [x] Add `--json` for structured final output.
 - [ ] Add a machine-readable progress/event mode if practical.
 - [ ] Move hard-coded behavior into a configuration file.
 - [ ] Add `enabled`, `disabled`, and `auto` modes for optional modules.
@@ -1015,7 +1029,8 @@ Slack-Update 1.0 will be ready when:
 - [x] Implement `--check` for non-destructive Slackware repository update detection.
 - [x] Implement `--apply` as an explicit selector for the existing update workflow.
 - [x] Implement `--dry-run` as a complete non-modifying plan.
-- [ ] Implement `--json` for structured final output.
+- [x] Implement `--json` for structured final output.
+- [ ] Add a machine-readable progress/event mode if practical.
 - [ ] Execute and document the Phase 1 acceptance matrix.
 - [ ] Freeze `reference-v1`.
 - [ ] Begin the C architecture only after the reference gate is complete.

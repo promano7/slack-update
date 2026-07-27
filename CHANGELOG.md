@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added
 
+- Added `--json` as an output modifier for check, apply, and dry-run operations. JSON mode reserves standard output for one provisional structured result and routes human-readable progress to standard error and the normal log.
+- Added provisional schema version 0 fields for operation status, partial results, reboot and boot safety, timestamps, log path, per-module results, warnings, errors, and the current non-stable process exit code.
 - Added `--check` as a non-destructive Slackware repository update check using `slackpkg check-updates`.
 - Added `--apply` as an explicit selector for the existing update workflow.
 - Added `--dry-run` to inspect the current host state and print the complete apply sequence, conditional triggers, current SBo queues, ABI rebuild candidates, ELF findings, optional-component availability, and boot preparation actions without executing update, synchronization, build, installation, initrd, or bootloader commands.
@@ -30,13 +32,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 - Current roadmap phase: **Phase 1 — Stabilize and validate the shell reference**.
 - Phase 0 is complete, committed as `3064cfa`, tagged as `planning-v1`, and published to GitHub.
-- The first six Phase 1 refactoring and interface tasks are complete: runtime identifiers use `slack-update`, the script is split into named functions, basic argument parsing is available, `--check` is non-destructive, `--apply` explicitly selects the existing update workflow, and `--dry-run` prints the complete operation plan without applying changes.
-- The script currently contains 39 named functions.
+- The first seven Phase 1 refactoring and interface tasks are complete: runtime identifiers use `slack-update`, the script is split into named functions, basic argument parsing is available, `--check` is non-destructive, `--apply` explicitly selects the existing update workflow, `--dry-run` prints the complete operation plan without applying changes, and `--json` emits the final provisional structured result.
+- The script currently contains 52 named functions.
 - Running without an operation still selects apply for backward compatibility with the original reference behavior.
 - Dry-run uses `slackpkg check-updates` as its only Slackware command and otherwise performs local state inspection. It does not refresh package metadata, so exact changed package names and package-derived ABI or kernel triggers remain conditional until apply compares its before and after snapshots.
 - Dry-run requires root in the current reference implementation because it shares the existing instance lock and system log. Its queue, package-candidate, and ELF scratch files are isolated under a temporary directory and removed at exit.
-- JSON output, machine-readable progress, configuration, optional-module activation modes, and stable exit codes have not been implemented yet.
-- The next development task is to implement `--json` for structured final output without adding later configuration behavior.
+- Machine-readable progress events, configuration, optional-module activation modes, and stable exit codes have not been implemented yet.
+- The next roadmap task is to evaluate and, if practical, add a machine-readable progress/event mode without beginning configuration work.
 - `--dry-run` was tested with mocked repository states, current SBo queues, installed SBo packages, optional tools, an unavailable ELF backend, and a failed Slackware probe. Only `slackpkg check-updates` was invoked; mocked mutating commands were not executed.
-- `--check` and `--apply` were regression-tested against the previous delivery under mocked environments. Their output, command sequence, and exit status remained identical, and the no-argument path still matches `--apply`. Conflicting operation selectors are rejected before privilege checks.
+- `--check`, `--apply`, and `--dry-run` were regression-tested against the previous delivery under deterministic mocked environments. Their human-readable output and command behavior remained unchanged.
+- JSON output was parsed successfully for all three operations. A failed check produces valid JSON and a non-zero current exit code; failures detected inside the legacy apply workflow are represented as `success: false` and `partial: true` while stable exit-code propagation remains pending.
+- Standard output contains only the JSON document in JSON mode; the banner, progress, summaries, and external command output are routed to standard error and the normal log.
 - The reference script has not yet been validated against the Phase 1 acceptance matrix on a real Slackware-current installation.
