@@ -1,13 +1,13 @@
 #!/bin/bash
 #
-# sbo-auto.sh — Actualizacion desatendida de Slackware-current + SBo + Flatpak + Cinnamon
+# slack-update-reference.sh — Actualizacion desatendida de Slackware-current + SBo + Flatpak + Cinnamon
 #
 # Instalacion:
-#   cp sbo-auto.sh /usr/local/sbin/sbo-auto.sh
-#   chmod 700 /usr/local/sbin/sbo-auto.sh
+#   cp slack-update-reference.sh /usr/local/sbin/slack-update
+#   chmod 700 /usr/local/sbin/slack-update
 #
-# Uso manual:   sbo-auto.sh
-# Uso en cron:  0 3 * * 0 /usr/local/sbin/sbo-auto.sh
+# Uso manual:   slack-update
+# Uso en cron:  0 3 * * 0 /usr/local/sbin/slack-update
 
 set -uo pipefail
 IFS=$'\n\t'
@@ -18,20 +18,20 @@ IFS=$'\n\t'
 
 # Evitar ejecuciones simultaneas
 
-LOCKFILE=/var/run/sbo-auto.lock
+LOCKFILE=/var/run/slack-update.lock
 
 exec 9>"$LOCKFILE"
 
 # Asegurar lock estable (evita carreras con rm externo)
 if ! flock -n 9; then
-    echo "Otra instancia de sbo-auto ya esta ejecutandose"
+    echo "Otra instancia de slack-update ya esta ejecutandose"
     exit 1
 fi
 
 # --- Directorios y ficheros ---
 
-WORKDIR=/var/lib/sbo-auto
-LOGDIR=/var/log/sbo-auto
+WORKDIR=/var/lib/slack-update
+LOGDIR=/var/log/slack-update
 
 mkdir -p "$WORKDIR" "$LOGDIR"
 

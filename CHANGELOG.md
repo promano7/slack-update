@@ -15,13 +15,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Changed
 
+- Renamed the reference script installation target, lock file, work directory, log directory, and runtime identity from `sbo-auto` to `slack-update`, without changing the update workflow.
 - Relocated the existing shell implementation to `tools/reference/slack-update-reference.sh` without changing its contents.
 - Updated the roadmap to reflect the repository work completed in Phase 0.
 
 ### Development context
 
-- Current roadmap phase: **Phase 0 — Create the repository and preserve the reference implementation**.
-- Phase 0 file preparation is complete; the remaining manual gate is to commit this state and create the `planning-v1` tag.
-- No Phase 1 behavior has been implemented.
-- The next development task after the planning tag is the first Phase 1 refactor: rename `sbo-auto` paths and identifiers to `slack-update` where appropriate, without changing validated behavior.
+- Current roadmap phase: **Phase 1 — Stabilize and validate the shell reference**.
+- Phase 0 is complete, committed as `3064cfa`, tagged as `planning-v1`, and published to GitHub.
+- The first Phase 1 task is complete: runtime paths and identifiers now use `slack-update` instead of `sbo-auto` where appropriate.
+- No function extraction, command-line parsing, `--check`, `--apply`, `--dry-run`, JSON output, configuration model, or stable exit-code work has been implemented yet.
+- The next development task is to split the reference script into clearly named functions without changing its behavior.
 - The reference script has not yet been validated against the Phase 1 acceptance matrix on a real Slackware-current installation.

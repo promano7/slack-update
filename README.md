@@ -458,7 +458,7 @@ The final layout may change during the architecture prototype, but separation be
 - [x] Choose a license: GNU GPL v3 or later (`GPL-3.0-or-later`).
 - [x] Add `CONTRIBUTING.md` with the English commit-message policy.
 - [x] Add `CHANGELOG.md` using a consistent release format.
-- [ ] Tag the initial planning state as `planning-v1` when the repository structure is complete.
+- [x] Tag the initial planning state as `planning-v1` when the repository structure is complete.
 
 **Completion gate:** the public repository contains documentation and the untouched reference script, but no premature C implementation.
 
@@ -468,7 +468,7 @@ The final layout may change during the architecture prototype, but separation be
 
 ### Refactoring and interfaces
 
-- [ ] Rename paths and identifiers from `sbo-auto` to `slack-update` where appropriate.
+- [x] Rename paths and identifiers from `sbo-auto` to `slack-update` where appropriate.
 - [ ] Split the script into clearly named functions.
 - [ ] Add command-line argument parsing.
 - [ ] Add `--check` for non-destructive update detection.
@@ -1007,9 +1007,9 @@ Slack-Update 1.0 will be ready when:
 
 ## Immediate next steps
 
-- [ ] Commit the completed Phase 0 repository structure.
-- [ ] Tag the initial planning state as `planning-v1` after the Phase 0 commit.
-- [ ] Rename `sbo-auto` paths and identifiers to `slack-update` where appropriate, without changing behavior.
+- [x] Commit the completed Phase 0 repository structure.
+- [x] Tag the initial planning state as `planning-v1` after the Phase 0 commit.
+- [x] Rename `sbo-auto` paths and identifiers to `slack-update` where appropriate, without changing behavior.
 - [ ] Modularize the reference script into clearly named functions without changing behavior.
 - [ ] Implement `--check`, `--apply`, `--dry-run`, and `--json` in the script.
 - [ ] Execute and document the Phase 1 acceptance matrix.
