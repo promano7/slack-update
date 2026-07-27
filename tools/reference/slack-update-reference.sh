@@ -16,18 +16,19 @@ IFS=$'\n\t'
 
 print_usage() {
     cat <<EOF
-Usage: ${0##*/} [--check | --apply]
+Usage: ${0##*/} [--check | --apply | --dry-run]
        ${0##*/} [--help]
 
 Run the current Slack-Update reference workflow.
 
 Options:
-      --check  Check for Slackware repository updates without applying changes
-      --apply  Run the existing update workflow and apply changes
-  -h, --help   Show this help message and exit
+      --check    Check for Slackware repository updates without applying changes
+      --apply    Run the existing update workflow and apply changes
+      --dry-run  Produce a complete non-modifying execution plan
+  -h, --help     Show this help message and exit
 
 Running without an operation preserves the current legacy apply workflow.
-The --dry-run and --json options are not available yet.
+The --json option is not available yet.
 EOF
 }
 
@@ -38,7 +39,7 @@ parse_arguments() {
 
     while [ "$#" -gt 0 ]; do
         case "$1" in
-            --check|--apply)
+            --check|--apply|--dry-run)
                 if [ "$OPERATION_EXPLICIT" -eq 1 ]; then
                     echo "Error: only one operation may be specified" >&2
                     return 1
@@ -88,6 +89,22 @@ acquire_instance_lock() {
     fi
 }
 
+initialize_runtime_state() {
+    KERNEL_TRIGGER=0
+    INITRD_UPDATE=0
+    GRUB_UPDATE=0
+    ABI_TRIGGER=0
+    CINNAMON_TRIGGER=0   # 0=none, 1=needed, 2=ok, 3=fail
+    CINNAMON_OK=0
+    INITRD_OK=0
+    GRUB_OK=0
+    TOTAL_EN_COLA=0
+    TOTAL_CORE=0
+    TOTAL_EXTRA=0
+    CHECK_STATUS=0
+    RUNTIME_TMPDIR=
+}
+
 initialize_runtime() {
     WORKDIR=/var/lib/slack-update
     LOGDIR=/var/log/slack-update
@@ -104,30 +121,56 @@ initialize_runtime() {
     BEFORE_PKGS="$WORKDIR/packages.before"
     AFTER_PKGS="$WORKDIR/packages.after"
 
-    # Tempfiles — se crean aqui para que el trap los cubra desde el inicio
+    # Temporary files are created here so the trap covers them immediately.
     QUEUE_FINAL=$(mktemp)
     BROKEN_NEW=$(mktemp)
     STILL_BROKEN=$(mktemp)
     BROKEN_ERRORS=$(mktemp)
 
-    KERNEL_TRIGGER=0
-    INITRD_UPDATE=0
-    GRUB_UPDATE=0
-    ABI_TRIGGER=0
-    CINNAMON_TRIGGER=0   # 0=none, 1=needed, 2=ok, 3=fail
-    CINNAMON_OK=0
-    INITRD_OK=0
-    GRUB_OK=0
-    TOTAL_EN_COLA=0
-    TOTAL_CORE=0
-    TOTAL_EXTRA=0
-    CHECK_STATUS=0
+    initialize_runtime_state
     CSB_DIR="$WORKDIR/csb"
 }
 
+initialize_dry_run_runtime() {
+    LOGDIR=/var/log/slack-update
+    mkdir -p "$LOGDIR"
+
+    DATE=$(date +%F-%H%M%S)
+    LOG="$LOGDIR/run-$DATE.log"
+
+    RUNTIME_TMPDIR=$(mktemp -d /tmp/slack-update-dry-run.XXXXXX)
+    WORKDIR="$RUNTIME_TMPDIR"
+
+    BROKEN="$WORKDIR/broken.txt"
+    QUEUE_CORE="$WORKDIR/queue-core.sqf"
+    QUEUE_EXTRA="$WORKDIR/queue-extra.sqf"
+    QUEUE_FINAL="$WORKDIR/queue-final.sqf"
+    BROKEN_NEW="$WORKDIR/broken-new.txt"
+    STILL_BROKEN="$WORKDIR/still-broken.txt"
+    BROKEN_ERRORS="$WORKDIR/broken-errors.txt"
+    BEFORE_PKGS="$WORKDIR/packages.before"
+    AFTER_PKGS="$WORKDIR/packages.after"
+    ABI_CANDIDATES="$WORKDIR/abi-rebuild-candidates.txt"
+
+    initialize_runtime_state
+    RUNTIME_TMPDIR="$WORKDIR"
+    CSB_DIR=/var/lib/slack-update/csb
+
+    : > "$BROKEN"
+    : > "$QUEUE_CORE"
+    : > "$QUEUE_EXTRA"
+    : > "$BROKEN_ERRORS"
+}
+
 cleanup() {
-        rm -f "$QUEUE_FINAL" "$BROKEN_NEW" "$STILL_BROKEN" "$BROKEN_ERRORS" 2>/dev/null || true
-        flock -u 9 2>/dev/null || true
+    rm -f "${QUEUE_FINAL:-}" "${BROKEN_NEW:-}" "${STILL_BROKEN:-}" \
+        "${BROKEN_ERRORS:-}" 2>/dev/null || true
+
+    if [ -n "${RUNTIME_TMPDIR:-}" ]; then
+        rm -rf -- "$RUNTIME_TMPDIR" 2>/dev/null || true
+    fi
+
+    flock -u 9 2>/dev/null || true
 }
 
 rotate_logs() {
@@ -205,6 +248,215 @@ run_check_workflow() {
 
     check_slackware_updates || result=$?
     print_check_summary
+
+    return "$result"
+}
+
+# Dry-run workflow functions
+
+inspect_dry_run_environment() {
+    PLAN_FLATPAK_AVAILABLE=0
+    PLAN_SBOPKG_AVAILABLE=0
+    PLAN_SQG_AVAILABLE=0
+    PLAN_READELF_AVAILABLE=0
+    PLAN_MKINITRD_AVAILABLE=0
+    PLAN_GRUB_AVAILABLE=0
+    PLAN_MKINITRD_CONFIGURED=0
+    PLAN_GRUB_CONFIGURED=0
+    PLAN_CINNAMON_REPOSITORY=0
+    PLAN_CINNAMON_BUILDER=0
+
+    command -v flatpak >/dev/null 2>&1 && PLAN_FLATPAK_AVAILABLE=1
+    command -v sbopkg >/dev/null 2>&1 && PLAN_SBOPKG_AVAILABLE=1
+    command -v sqg >/dev/null 2>&1 && PLAN_SQG_AVAILABLE=1
+    command -v readelf >/dev/null 2>&1 && PLAN_READELF_AVAILABLE=1
+    command -v mkinitrd >/dev/null 2>&1 && PLAN_MKINITRD_AVAILABLE=1
+    command -v grub-mkconfig >/dev/null 2>&1 && PLAN_GRUB_AVAILABLE=1
+
+    if [ -f /etc/mkinitrd.conf ] && grep -q '^ROOTDEV=' /etc/mkinitrd.conf 2>/dev/null; then
+        PLAN_MKINITRD_CONFIGURED=1
+    fi
+
+    [ -d /boot/grub ] && PLAN_GRUB_CONFIGURED=1
+    [ -d "$CSB_DIR/.git" ] && PLAN_CINNAMON_REPOSITORY=1
+    [ -x "$CSB_DIR/build-cinnamon.sh" ] && PLAN_CINNAMON_BUILDER=1
+}
+
+inspect_current_sbo_queues() {
+    echo "[PLAN] Inspecting current SBo queues"
+
+    SBODIR=$(grep -E '^QUEUEDIR=' /etc/sbopkg/sbopkg.conf 2>/dev/null \
+        | head -1 | cut -d= -f2- | tr -d "\"'" \
+        | sed 's/^[[:space:]]*//; s/[[:space:]]*$//' || true)
+
+    if [ -z "$SBODIR" ]; then
+        SBODIR=/var/lib/sbopkg/queues
+    fi
+
+    if [ -d "$SBODIR" ]; then
+        find "$SBODIR" -name '*.sqf' -exec cat {} + 2>/dev/null \
+            | awk '{print $1}' | sort -u > "$QUEUE_CORE"
+    else
+        : > "$QUEUE_CORE"
+    fi
+
+    TOTAL_CORE=$(wc -l < "$QUEUE_CORE")
+    echo "  Current local queue targets: $TOTAL_CORE"
+}
+
+collect_installed_sbo_candidates() {
+    find /var/log/packages -maxdepth 1 -name '*_SBo' -printf '%f\n' 2>/dev/null \
+        | rev | cut -d- -f4- | rev | sort -u > "$ABI_CANDIDATES" || true
+
+    PLAN_ABI_SBO_COUNT=$(wc -l < "$ABI_CANDIDATES")
+}
+
+inspect_current_elf_state() {
+    echo "[PLAN] Inspecting current ELF dependency state"
+
+    if [ "$PLAN_READELF_AVAILABLE" -eq 0 ]; then
+        : > "$BROKEN"
+        : > "$QUEUE_EXTRA"
+        PLAN_BROKEN_COUNT=0
+        PLAN_BROKEN_SBO_COUNT=0
+        echo "  readelf is unavailable; the current ELF state cannot be inspected"
+        return 0
+    fi
+
+    detect_broken_elf_objects
+    map_broken_objects_to_sbo_packages
+
+    PLAN_BROKEN_COUNT=$(wc -l < "$BROKEN")
+    PLAN_BROKEN_SBO_COUNT=$(wc -l < "$QUEUE_EXTRA")
+}
+
+print_plan_file() {
+    local path=$1
+
+    if [ -s "$path" ]; then
+        sed 's/^/      - /' "$path"
+    else
+        echo "      (none)"
+    fi
+}
+
+print_dry_run_plan() {
+    echo
+    echo "=============================="
+    echo "DRY-RUN PLAN"
+    echo "=============================="
+    echo
+
+    echo "[1] Slackware"
+    case "$CHECK_STATUS" in
+        0)
+            echo "  Repository status: no updates reported since the last slackpkg update."
+            ;;
+        100)
+            echo "  Repository status: updates are available."
+            ;;
+        *)
+            echo "  Repository status: unavailable because the check failed."
+            ;;
+    esac
+    echo "  Planned commands:"
+    echo "      slackpkg -batch=on -default_answer=y update"
+    echo "      slackpkg -batch=on -default_answer=y install-new"
+    echo "      slackpkg -batch=on -default_answer=y upgrade-all"
+    echo "  Exact changed packages and all package-derived triggers remain conditional"
+    echo "  until the package metadata is refreshed and the apply snapshots are compared."
+    echo
+
+    echo "[2] Flatpak"
+    if [ "$PLAN_FLATPAK_AVAILABLE" -eq 1 ]; then
+        echo "  Planned command: flatpak update -y --noninteractive"
+    else
+        echo "  Flatpak is unavailable; this phase would be skipped."
+    fi
+    echo
+
+    echo "[3] ABI and kernel triggers"
+    echo "  After the Slackware commands, the before/after package snapshots would be"
+    echo "  compared for ABI-sensitive and kernel package changes."
+    echo "  Installed SBo packages eligible for an ABI-triggered rebuild: $PLAN_ABI_SBO_COUNT"
+    print_plan_file "$ABI_CANDIDATES"
+    echo "  Kernel image or module changes would schedule initrd and GRUB processing."
+    echo "  A kernel-headers-only change would only emit the external-module warning."
+    echo
+
+    echo "[4] SBo"
+    if [ "$PLAN_SBOPKG_AVAILABLE" -eq 1 ] && [ "$PLAN_SQG_AVAILABLE" -eq 1 ]; then
+        echo "  Planned repository commands: sbopkg -r, then sqg -a"
+    elif [ "$PLAN_SBOPKG_AVAILABLE" -eq 1 ]; then
+        echo "  sbopkg is available but sqg is missing; repository synchronization would be skipped."
+    else
+        echo "  sbopkg is unavailable; repository synchronization and builds would be skipped."
+    fi
+    echo "  Current local queue directory: $SBODIR"
+    echo "  Current local queue targets: $TOTAL_CORE"
+    print_plan_file "$QUEUE_CORE"
+    echo "  Current broken-ELF SBo targets: $PLAN_BROKEN_SBO_COUNT"
+    print_plan_file "$QUEUE_EXTRA"
+    echo "  The final apply queue would be the sorted union of the current queue,"
+    echo "  ABI-triggered candidates, and broken-ELF package owners determined after update."
+    echo
+
+    echo "[5] ELF diagnostics"
+    if [ "$PLAN_READELF_AVAILABLE" -eq 1 ]; then
+        echo "  Current broken ELF objects detected statically: $PLAN_BROKEN_COUNT"
+        print_plan_file "$BROKEN"
+        echo "  The apply workflow would repeat this scan after Slackware changes."
+    else
+        echo "  readelf is unavailable; the apply workflow cannot perform its current static scan."
+    fi
+    echo
+
+    echo "[6] Cinnamon"
+    echo "  This phase remains conditional on a graphical ABI trigger."
+    if [ "$PLAN_CINNAMON_REPOSITORY" -eq 1 ]; then
+        echo "  Existing CSB repository: $CSB_DIR"
+        echo "  Planned repository action: git fetch followed by reset to origin/master"
+    else
+        echo "  No existing CSB checkout was found; apply would attempt to clone it when triggered."
+    fi
+    if [ "$PLAN_CINNAMON_BUILDER" -eq 1 ]; then
+        echo "  Cinnamon build command: $CSB_DIR/build-cinnamon.sh"
+    else
+        echo "  The Cinnamon build script is not currently executable or present."
+    fi
+    echo
+
+    echo "[7] Boot preparation"
+    echo "  These actions remain conditional on kernel-generic, kernel-huge, or kernel-modules changes."
+    if [ "$PLAN_MKINITRD_AVAILABLE" -eq 1 ] && [ "$PLAN_MKINITRD_CONFIGURED" -eq 1 ]; then
+        echo "  Planned initrd command: mkinitrd -F"
+    elif [ "$PLAN_MKINITRD_AVAILABLE" -eq 0 ]; then
+        echo "  mkinitrd is unavailable; the initrd phase would fail if triggered."
+    else
+        echo "  /etc/mkinitrd.conf is missing or lacks ROOTDEV; the initrd phase would fail if triggered."
+    fi
+    if [ "$PLAN_GRUB_AVAILABLE" -eq 1 ] && [ "$PLAN_GRUB_CONFIGURED" -eq 1 ]; then
+        echo "  Planned GRUB command: grub-mkconfig -o /boot/grub/grub.cfg"
+    else
+        echo "  GRUB is unavailable or /boot/grub is missing; the GRUB phase would fail if triggered."
+    fi
+    echo
+
+    echo "[DRY-RUN] No update, synchronization, build, installation, initrd, or bootloader"
+    echo "          command was executed. Only state inspection and normal logging occurred."
+    echo "[LOG] Full log: $LOG"
+    echo "[END] Finished: $(date)"
+}
+
+run_dry_run_workflow() {
+    local result=0
+
+    check_slackware_updates || result=$?
+    inspect_dry_run_environment
+    inspect_current_sbo_queues
+    collect_installed_sbo_candidates
+    inspect_current_elf_state
+    print_dry_run_plan
 
     return "$result"
 }
@@ -803,7 +1055,13 @@ main() {
 
     require_root
     acquire_instance_lock
-    initialize_runtime
+
+    if [ "$OPERATION" = "dry-run" ]; then
+        initialize_dry_run_runtime
+    else
+        initialize_runtime
+    fi
+
     trap cleanup EXIT INT TERM HUP
     rotate_logs
     configure_logging
@@ -815,6 +1073,9 @@ main() {
             ;;
         apply)
             run_apply_workflow
+            ;;
+        dry-run)
+            run_dry_run_workflow
             ;;
     esac
 }

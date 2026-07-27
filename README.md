@@ -473,7 +473,7 @@ The final layout may change during the architecture prototype, but separation be
 - [x] Add command-line argument parsing.
 - [x] Add `--check` for non-destructive update detection.
 - [x] Add `--apply` for approved changes.
-- [ ] Add `--dry-run` that produces a complete plan without modifying the system.
+- [x] Add `--dry-run` that produces a complete plan without modifying the system.
 - [ ] Add `--json` for structured final output.
 - [ ] Add a machine-readable progress/event mode if practical.
 - [ ] Move hard-coded behavior into a configuration file.
@@ -1014,7 +1014,7 @@ Slack-Update 1.0 will be ready when:
 - [x] Add basic command-line argument parsing without implementing later operation modes.
 - [x] Implement `--check` for non-destructive Slackware repository update detection.
 - [x] Implement `--apply` as an explicit selector for the existing update workflow.
-- [ ] Implement `--dry-run` as a complete non-modifying plan.
+- [x] Implement `--dry-run` as a complete non-modifying plan.
 - [ ] Implement `--json` for structured final output.
 - [ ] Execute and document the Phase 1 acceptance matrix.
 - [ ] Freeze `reference-v1`.
