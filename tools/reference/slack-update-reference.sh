@@ -1125,6 +1125,8 @@ initialize_runtime_state() {
     PACKAGE_SNAPSHOT_AFTER_ERROR=
     PACKAGE_SNAPSHOT_ERROR=
     PACKAGE_SNAPSHOT_RECORD_COUNT=0
+    SECONDARY_MODULES_BLOCKED=0
+    SECONDARY_MODULES_BLOCK_REASON=
     STARTED_AT=$(date -u +%Y-%m-%dT%H:%M:%SZ)
     FINISHED_AT=
     RUNTIME_TMPDIR=
@@ -1698,6 +1700,27 @@ capture_package_snapshot_after() {
     PACKAGE_SNAPSHOT_AFTER_COUNT=$PACKAGE_SNAPSHOT_RECORD_COUNT
 }
 
+block_secondary_modules_after_partial_slackware_update() {
+    SECONDARY_MODULES_BLOCKED=1
+    SECONDARY_MODULES_BLOCK_REASON='Slackware package operations did not complete successfully'
+
+    FLATPAK_MODULE_STATE=blocked
+    FLATPAK_MODULE_REASON=$SECONDARY_MODULES_BLOCK_REASON
+    FLATPAK_MODULE_RUN=0
+    SBO_MODULE_STATE=blocked
+    SBO_MODULE_REASON=$SECONDARY_MODULES_BLOCK_REASON
+    SBO_MODULE_RUN=0
+    ELF_MODULE_STATE=blocked
+    ELF_MODULE_REASON=$SECONDARY_MODULES_BLOCK_REASON
+    ELF_MODULE_RUN=0
+    CINNAMON_MODULE_STATE=blocked
+    CINNAMON_MODULE_REASON=$SECONDARY_MODULES_BLOCK_REASON
+    CINNAMON_MODULE_RUN=0
+    BOOT_MODULE_STATE=blocked
+    BOOT_MODULE_REASON=$SECONDARY_MODULES_BLOCK_REASON
+    BOOT_MODULE_RUN=0
+}
+
 update_flatpak() {
     # ---------------------------
     # [2] FLATPAK
@@ -2143,6 +2166,24 @@ print_summary() {
     fi
 
     echo
+
+    if [ "$SECONDARY_MODULES_BLOCKED" -eq 1 ]; then
+        echo "- [ERROR] Modulos secundarios bloqueados: $SECONDARY_MODULES_BLOCK_REASON"
+        echo "  -> Flatpak, analisis de paquetes, SBo, ELF, Cinnamon y boot no se iniciaron."
+        echo
+        echo "[MODULES] Modos y estado de activacion:"
+        echo
+        echo "- Flatpak: mode=$FLATPAK_MODE, state=$FLATPAK_MODULE_STATE"
+        echo "- SBo: mode=$SBO_MODE, state=$SBO_MODULE_STATE"
+        echo "- ELF: mode=$ELF_MODE, state=$ELF_MODULE_STATE"
+        echo "- Cinnamon: mode=$CINNAMON_MODE, state=$CINNAMON_MODULE_STATE"
+        echo "- Boot: mode=$BOOT_MODE, state=$BOOT_MODULE_STATE"
+        echo
+        echo "[CONFIG] Configuracion: $CONFIG_FILE"
+        echo "[LOG] Log completo: $LOG"
+        echo "[FIN] Finalizacion: $(date)"
+        return
+    fi
 
     echo "- Cambios ABI detectados: $ABI_TRIGGER"
     if [ "$ABI_TRIGGER" -eq 1 ]; then
@@ -2764,7 +2805,11 @@ print_apply_json_modules() {
         fi
     fi
 
-    if [ "$INITRD_REQUIRED" -eq 0 ] && [ "$GRUB_REQUIRED" -eq 0 ]; then
+    if [ "$SECONDARY_MODULES_BLOCKED" -eq 1 ]; then
+        boot_state=blocked
+        initrd_state=blocked
+        grub_state=blocked
+    elif [ "$INITRD_REQUIRED" -eq 0 ] && [ "$GRUB_REQUIRED" -eq 0 ]; then
         boot_state=not-required
     elif [ "$initrd_state" = failed ] || [ "$grub_state" = failed ]; then
         boot_state=failed
@@ -2785,6 +2830,8 @@ print_apply_json_modules() {
     printf '      "snapshot_after_valid": '; json_boolean "$PACKAGE_SNAPSHOT_AFTER_VALID"; printf ',\n'
     printf '      "snapshot_after_records": %d,\n' "$PACKAGE_SNAPSHOT_AFTER_COUNT"
     printf '      "snapshot_after_error": '; json_string "$PACKAGE_SNAPSHOT_AFTER_ERROR"; printf ',\n'
+    printf '      "secondary_modules_blocked": '; json_boolean "$SECONDARY_MODULES_BLOCKED"; printf ',\n'
+    printf '      "secondary_modules_block_reason": '; json_string "$SECONDARY_MODULES_BLOCK_REASON"; printf ',\n'
     printf '      "abi_changes": '; json_boolean "$ABI_TRIGGER"; printf ',\n'
     printf '      "kernel_changes": '; json_boolean "$KERNEL_TRIGGER"; printf ',\n'
     printf '      "critical_packages": '; json_string_array "${CRITICAL_UPDATED[@]}"; printf '\n'
@@ -2934,6 +2981,13 @@ run_apply_workflow() {
         "Package snapshot after update captured and validated ($PACKAGE_SNAPSHOT_AFTER_COUNT records)" 0
     emit_module_completed_event slackware "$slackware_state" \
         "Slackware package operations completed" "$action_exit"
+
+    if [ "$action_exit" -gt 0 ]; then
+        block_secondary_modules_after_partial_slackware_update
+        echo "[ERROR] $SECONDARY_MODULES_BLOCK_REASON; secondary modules were not started"
+        print_summary
+        return 1
+    fi
 
     probe_optional_modules
     print_optional_module_activation

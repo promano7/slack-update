@@ -585,7 +585,7 @@ The final layout may change during the architecture prototype, but separation be
 
 - [x] Validate exact Slackware package-name parsing.
 - [x] Validate package snapshots before and after updates.
-- [ ] Confirm that secondary modules stop after partial Slackware updates.
+- [x] Confirm that secondary modules stop after partial Slackware updates.
 - [ ] Confirm deterministic SBo target selection.
 - [ ] Confirm dependency order is preserved in generated SBo queues.
 - [ ] Confirm custom SBo options are preserved.
@@ -625,6 +625,18 @@ The focused snapshot regression test is:
 
 ```bash
 tests/reference/test-package-snapshots.sh
+```
+
+A non-zero result from any Slackware package operation (`update`, `install-new`,
+or `upgrade-all`) is treated as a partial Slackware update. The post-update
+snapshot is still captured for diagnosis, but Flatpak, package-change analysis,
+SBo, ELF, Cinnamon, initrd, and GRUB work is blocked. Provisional JSON reports
+those modules as `blocked`, and no secondary-module start events are emitted.
+
+The focused partial-update regression test is:
+
+```bash
+tests/reference/test-partial-slackware-update.sh
 ```
 
 ### Real-system acceptance matrix
@@ -1152,7 +1164,7 @@ Slack-Update 1.0 will be ready when:
 - [x] Add stable exit codes.
 - [x] Validate exact Slackware package-name parsing.
 - [x] Validate package snapshots before and after updates.
-- [ ] Confirm that secondary modules stop after partial Slackware updates.
+- [x] Confirm that secondary modules stop after partial Slackware updates.
 - [ ] Execute and document the Phase 1 acceptance matrix on Slackware 15.0 and Slackware-current.
 - [ ] Freeze `reference-v1`.
 - [ ] Begin the C architecture only after the reference gate is complete.

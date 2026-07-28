@@ -76,11 +76,12 @@ Before submitting a change to the reference script:
 1. Run `bash -n tools/reference/slack-update-reference.sh`.
 2. Run `tests/reference/test-package-name-parsing.sh` when package records, package ownership, or SBo detection are affected.
 3. Run `tests/reference/test-package-snapshots.sh` when package snapshot capture, validation, or comparison is affected.
-4. Confirm that destructive commands are not exercised outside an isolated Slackware test system.
-5. Record the relevant acceptance scenario.
-6. Preserve deterministic output and exit-code behavior.
-7. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
-8. Ensure every new or modified comment is written in English.
+4. Run `tests/reference/test-partial-slackware-update.sh` when Slackware failure handling or secondary-module sequencing is affected.
+5. Confirm that destructive commands are not exercised outside an isolated Slackware test system.
+6. Record the relevant acceptance scenario.
+7. Preserve deterministic output and exit-code behavior.
+8. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
+9. Ensure every new or modified comment is written in English.
 
 Never run the apply workflow on a production machine merely to validate a contribution.
 
