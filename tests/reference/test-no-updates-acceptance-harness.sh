@@ -182,6 +182,34 @@ assert_success 'the expected no-updates check fixture should satisfy the validat
     validate_json_result check "$CHECK_FIXTURE" "$FIXTURE_CONFIG"
 assert_success 'the expected no-updates apply fixture should satisfy the validator' \
     validate_json_result apply "$APPLY_FIXTURE" "$FIXTURE_CONFIG"
+
+python3 - "$APPLY_FIXTURE" "$TEST_TMP/apply-zero-noop.json" <<'PYTHON_EOF'
+import json
+import pathlib
+import sys
+
+source, output = map(pathlib.Path, sys.argv[1:])
+data = json.loads(source.read_text(encoding="utf-8"))
+data["modules"]["slackware"]["install_new_exit_code"] = 0
+data["modules"]["slackware"]["upgrade_all_exit_code"] = 0
+output.write_text(json.dumps(data), encoding="utf-8")
+PYTHON_EOF
+assert_success 'legacy zero no-op statuses should also satisfy the validator' \
+    validate_json_result apply "$TEST_TMP/apply-zero-noop.json" "$FIXTURE_CONFIG"
+
+python3 - "$APPLY_FIXTURE" "$TEST_TMP/apply-package-failure.json" <<'PYTHON_EOF'
+import json
+import pathlib
+import sys
+
+source, output = map(pathlib.Path, sys.argv[1:])
+data = json.loads(source.read_text(encoding="utf-8"))
+data["modules"]["slackware"]["install_new_exit_code"] = 21
+output.write_text(json.dumps(data), encoding="utf-8")
+PYTHON_EOF
+assert_failure_status 'a real install-new failure should fail validation' \
+    validate_json_result apply "$TEST_TMP/apply-package-failure.json" "$FIXTURE_CONFIG"
+
 assert_success 'the expected check fixture should be valid JSON' \
     json_is_valid "$CHECK_FIXTURE"
 assert_success 'the expected apply fixture should be valid JSON' \

@@ -91,6 +91,7 @@ prepare_workflow_state() {
     local scenario=$1
 
     initialize_runtime_state
+    OPERATION=apply
     FLATPAK_MODE=auto
     SBO_MODE=auto
     ELF_MODE=auto
@@ -228,8 +229,34 @@ run_partial_scenario() {
 }
 
 run_partial_scenario update 10
-run_partial_scenario install-new 20
+run_partial_scenario install-new 21
 run_partial_scenario upgrade-all 30
+
+if slackpkg_apply_action_failed update 0; then
+    fail "slackpkg update status 0 should be successful"
+else
+    pass
+fi
+if slackpkg_apply_action_failed update 20; then
+    pass
+else
+    fail "slackpkg update status 20 should remain a failure"
+fi
+if slackpkg_apply_action_failed install-new 20; then
+    fail "slackpkg install-new status 20 should be a successful no-op"
+else
+    pass
+fi
+if slackpkg_apply_action_failed upgrade-all 20; then
+    fail "slackpkg upgrade-all status 20 should be a successful no-op"
+else
+    pass
+fi
+if slackpkg_apply_action_failed install-new -1; then
+    fail "a disabled slackpkg action should not be classified as failed"
+else
+    pass
+fi
 
 prepare_workflow_state success
 SUCCESS_PROBE_MARKER="$TEST_TMP/success-probe"
@@ -241,8 +268,8 @@ capture_package_snapshot_before() {
 }
 update_slackware_system() {
     SLACKPKG_UPDATE_STATUS=0
-    SLACKPKG_INSTALL_NEW_STATUS=0
-    SLACKPKG_UPGRADE_ALL_STATUS=0
+    SLACKPKG_INSTALL_NEW_STATUS=20
+    SLACKPKG_UPGRADE_ALL_STATUS=20
 }
 capture_package_snapshot_after() {
     PACKAGE_SNAPSHOT_AFTER_VALID=1
@@ -277,6 +304,22 @@ assert_file_exists "$SUCCESS_PROBE_MARKER" \
     "successful Slackware operations should reach secondary module probing"
 assert_equal 0 "$SECONDARY_MODULES_BLOCKED" \
     "successful Slackware operations should not set the secondary-module guard"
+
+SUCCESS_JSON="$TEST_TMP/success-modules.json"
+print_apply_json_modules > "$SUCCESS_JSON"
+assert_file_contains '"state": "success"' "$SUCCESS_JSON" \
+    "slackpkg no-package statuses should keep the Slackware module successful"
+assert_file_contains '"install_new_exit_code": 20' "$SUCCESS_JSON" \
+    "the raw install-new no-package status should remain observable"
+assert_file_contains '"upgrade_all_exit_code": 20' "$SUCCESS_JSON" \
+    "the raw upgrade-all no-package status should remain observable"
+prepare_json_messages
+assert_equal 0 "${#RESULT_ERRORS[@]}" \
+    "slackpkg no-package statuses should not create structured errors"
+
+determine_stable_exit_code 0
+assert_equal 0 "$STABLE_EXIT_CODE" \
+    "slackpkg no-package statuses should preserve stable success"
 
 printf 'Partial Slackware update tests: %d checks, %d failures\n' "$TEST_COUNT" "$FAILURE_COUNT"
 [ "$FAILURE_COUNT" -eq 0 ]

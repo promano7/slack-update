@@ -2692,6 +2692,26 @@ capture_package_snapshot_before() {
     PACKAGE_SNAPSHOT_BEFORE_COUNT=$PACKAGE_SNAPSHOT_RECORD_COUNT
 }
 
+slackpkg_apply_action_failed() {
+    local action=$1
+    local status=$2
+
+    # slackpkg 15.0 uses status 20 when install-new or upgrade-all has no
+    # matching packages. Preserve that raw status for reporting, but treat the
+    # no-op as a successful package action.
+    case "$action:$status" in
+        update:0|install-new:0|install-new:20|upgrade-all:0|upgrade-all:20)
+            return 1
+            ;;
+        *:-1)
+            return 1
+            ;;
+        *)
+            return 0
+            ;;
+    esac
+}
+
 update_slackware_system() {
     # ---------------------------
     # [1] UPDATE SYSTEM
@@ -4652,11 +4672,11 @@ prepare_json_messages() {
             elif [ "$PACKAGE_SNAPSHOT_AFTER_VALID" -ne 1 ]; then
                 RESULT_ERRORS+=("Package snapshot after update is invalid: ${PACKAGE_SNAPSHOT_AFTER_ERROR:-unknown validation failure}")
             fi
-            [ "$SLACKPKG_UPDATE_STATUS" -gt 0 ] \
+            slackpkg_apply_action_failed update "$SLACKPKG_UPDATE_STATUS" \
                 && RESULT_ERRORS+=("slackpkg update failed with exit code $SLACKPKG_UPDATE_STATUS")
-            [ "$SLACKPKG_INSTALL_NEW_STATUS" -gt 0 ] \
+            slackpkg_apply_action_failed install-new "$SLACKPKG_INSTALL_NEW_STATUS" \
                 && RESULT_ERRORS+=("slackpkg install-new failed with exit code $SLACKPKG_INSTALL_NEW_STATUS")
-            [ "$SLACKPKG_UPGRADE_ALL_STATUS" -gt 0 ] \
+            slackpkg_apply_action_failed upgrade-all "$SLACKPKG_UPGRADE_ALL_STATUS" \
                 && RESULT_ERRORS+=("slackpkg upgrade-all failed with exit code $SLACKPKG_UPGRADE_ALL_STATUS")
             [ "$FLATPAK_STATUS" -gt 0 ] \
                 && RESULT_ERRORS+=("flatpak update failed with exit code $FLATPAK_STATUS")
@@ -4908,9 +4928,9 @@ print_apply_json_modules() {
 
     if [ "$PACKAGE_SNAPSHOT_BEFORE_VALID" -ne 1 ] \
         || [ "$PACKAGE_SNAPSHOT_AFTER_VALID" -ne 1 ] \
-        || [ "$SLACKPKG_UPDATE_STATUS" -gt 0 ] \
-        || [ "$SLACKPKG_INSTALL_NEW_STATUS" -gt 0 ] \
-        || [ "$SLACKPKG_UPGRADE_ALL_STATUS" -gt 0 ]; then
+        || slackpkg_apply_action_failed update "$SLACKPKG_UPDATE_STATUS" \
+        || slackpkg_apply_action_failed install-new "$SLACKPKG_INSTALL_NEW_STATUS" \
+        || slackpkg_apply_action_failed upgrade-all "$SLACKPKG_UPGRADE_ALL_STATUS"; then
         slackware_state=failed
     fi
 
@@ -5230,11 +5250,11 @@ run_apply_workflow() {
     emit_action_started_event slackware update_packages "Applying Slackware package operations"
     update_slackware_system
     action_exit=0
-    if [ "$SLACKPKG_UPDATE_STATUS" -gt 0 ]; then
+    if slackpkg_apply_action_failed update "$SLACKPKG_UPDATE_STATUS"; then
         action_exit=$SLACKPKG_UPDATE_STATUS
-    elif [ "$SLACKPKG_INSTALL_NEW_STATUS" -gt 0 ]; then
+    elif slackpkg_apply_action_failed install-new "$SLACKPKG_INSTALL_NEW_STATUS"; then
         action_exit=$SLACKPKG_INSTALL_NEW_STATUS
-    elif [ "$SLACKPKG_UPGRADE_ALL_STATUS" -gt 0 ]; then
+    elif slackpkg_apply_action_failed upgrade-all "$SLACKPKG_UPGRADE_ALL_STATUS"; then
         action_exit=$SLACKPKG_UPGRADE_ALL_STATUS
     fi
     if [ "$action_exit" -gt 0 ]; then

@@ -344,8 +344,9 @@ if operation == "check":
     require(slackware.get("check_exit_code") == 0, "check-updates did not return 0")
     require(slackware.get("updates_available") is False, "updates are available")
 elif operation == "apply":
-    for key in ("update_exit_code", "install_new_exit_code", "upgrade_all_exit_code"):
-        require(slackware.get(key) == 0, f"{key} is not zero")
+    require(slackware.get("update_exit_code") == 0, "update_exit_code is not zero")
+    for key in ("install_new_exit_code", "upgrade_all_exit_code"):
+        require(slackware.get(key) in (0, 20), f"{key} is neither success nor no-packages")
     require(slackware.get("snapshot_before_valid") is True, "baseline snapshot is invalid")
     require(slackware.get("snapshot_after_valid") is True, "final snapshot is invalid")
     before_count = slackware.get("snapshot_before_records")

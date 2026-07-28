@@ -134,6 +134,10 @@ run_result_case() {
     case "$scenario" in
         check_success|apply_success)
             ;;
+        apply_no_packages)
+            SLACKPKG_INSTALL_NEW_STATUS=20
+            SLACKPKG_UPGRADE_ALL_STATUS=20
+            ;;
         check_failure|dry_run_check_failure)
             CHECK_STATUS=42
             workflow_result=1
@@ -247,7 +251,7 @@ run_result_case() {
         "$scenario should map to the expected stable exit code"
 
     case "$scenario" in
-        check_success|apply_success)
+        check_success|apply_success|apply_no_packages)
             assert_equal 1 "$RESULT_SUCCESS" "$scenario should remain successful"
             ;;
         apply_reboot_recommended|apply_reboot_required)
@@ -266,6 +270,7 @@ run_result_case() {
 
 run_result_case check_success 0
 run_result_case apply_success 0
+run_result_case apply_no_packages 0
 run_result_case check_failure 1
 run_result_case dry_run_check_failure 1
 run_result_case dry_run_workflow_failure 1

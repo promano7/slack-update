@@ -23,6 +23,8 @@ The scenario performs these steps:
    and `upgrade-all` in non-interactive mode.
 5. Require stable exit code `0`, no reboot guidance, valid and equal package
    snapshots, no ABI/kernel/critical-package changes, and no structured errors.
+   Raw `install-new` and `upgrade-all` statuses may be `0` or the Slackware 15.0
+   no-package result `20`; `slackpkg update` must return `0`.
 6. Confirm that `/var/log/packages`, `/boot/initrd.gz`, and
    `/boot/grub/grub.cfg` are unchanged.
 7. Produce a private `.tar.gz` evidence archive and SHA-256 sidecar. When run through `sudo`, publish both files as the invoking user with mode `0600` while keeping the expanded evidence directory root-only.
@@ -54,7 +56,9 @@ By default, evidence is stored below:
 The default parent directory is traversable, the archive and sidecar are owned by the `sudo` caller, and the expanded timestamped directory remains accessible only to root. The harness also prints the stable result and individual Slackware command statuses when structured validation fails.
 
 The reference and host-metadata capture follow `/var/log/packages` when it is a
-command-line compatibility symlink to the real `pkgtools` database. They do not
+command-line compatibility symlink to the real `pkgtools` database. The reference
+also preserves raw `slackpkg` no-package status `20` for `install-new` and
+`upgrade-all` while normalizing it to successful action semantics. They do not
 follow package-record symlinks stored inside that database. `host.txt` records
 both the configured path and its resolved destination for diagnosis.
 

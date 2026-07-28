@@ -17,8 +17,8 @@
     "slackware": {
       "state": "success",
       "update_exit_code": 0,
-      "install_new_exit_code": 0,
-      "upgrade_all_exit_code": 0,
+      "install_new_exit_code": 20,
+      "upgrade_all_exit_code": 20,
       "snapshot_before_valid": true,
       "snapshot_before_records": 1842,
       "snapshot_before_error": "",

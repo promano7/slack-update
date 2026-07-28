@@ -504,7 +504,10 @@ available repository changes. A kernel headers change alone does not produce cod
 The final `exit_code` field emitted by `--json` and the `exit_code` of the final
 `operation_completed` event emitted by `--events` use this stable contract. Exit
 codes attached to intermediate action events remain the raw status of the external
-command represented by that event.
+command represented by that event. For `slackpkg install-new` and
+`slackpkg upgrade-all`, raw status `20` means that no package matched the action;
+the reference preserves `20` in structured output but treats it as a successful
+no-op rather than a partial update. `slackpkg update` still requires status `0`.
 
 - [x] Confirm exit-code semantics.
 - [ ] Ensure shell reference and C implementation return equivalent results.
@@ -910,7 +913,9 @@ requires an explicit `--execute-apply` acknowledgement, first proves that
 `slackpkg check-updates` reports no updates, and then exercises the real apply
 workflow with Flatpak, SBo, ELF, Cinnamon, and boot preparation disabled so the
 case remains isolated. Expected structured check and apply outputs are stored
-under `tests/fixtures/reference/acceptance/no-updates/`.
+under `tests/fixtures/reference/acceptance/no-updates/`. The apply contract
+accepts raw `0` or `20` for `install-new` and `upgrade-all`, while requiring raw
+`0` for `slackpkg update` and stable process code `0` overall.
 
 Run it separately on each mandatory target:
 
@@ -942,7 +947,7 @@ contract.
 
 - [ ] Fully updated system with no available changes.
   - [x] Reproducible scenario, validators, and expected fixtures implemented.
-  - [ ] Slackware 15.0 evidence accepted; the first run passed the no-updates check but returned partial status `2` before `slackpkg` because `/var/log/packages` is a compatibility symlink. Evidence confirmed 1,594 installed records and unchanged package/boot state; the enumerator is fixed and a clean rerun is pending.
+  - [ ] Slackware 15.0 evidence accepted; the first run exposed the `/var/log/packages` compatibility symlink, and the second reached `slackpkg` but exposed its successful no-package status `20` for `install-new` and `upgrade-all`. Both runs preserved the installed package database and observed boot state. Both compatibility fixes are implemented and a third clean run is pending.
   - [ ] Slackware-current evidence accepted.
 - [ ] Normal Slackware package update.
 - [ ] `install-new` introduces new packages.
