@@ -87,11 +87,12 @@ Before submitting a change to the reference script:
 12. Run `tests/reference/test-grub-blocked-after-initrd-failure.sh` when initrd-to-GRUB sequencing, boot action events, GRUB command guards, blocked boot reporting, or boot safety result diagnostics are affected.
 13. Run `tests/reference/test-grub-atomic-replacement.sh` when staged GRUB generation, syntax validation, active-file fingerprinting, temporary-file cleanup, permission preservation, or atomic replacement is affected.
 14. Run `tests/reference/test-signal-cleanup.sh` when signal traps, instance locking, runtime cleanup, GRUB temporary cleanup, SBo workspace cleanup, or interruption statuses are affected.
-15. Confirm that destructive commands are not exercised outside an isolated Slackware test system.
-16. Record the relevant acceptance scenario.
-17. Preserve deterministic output and exit-code behavior.
-18. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
-19. Ensure every new or modified comment is written in English.
+15. Run `tests/reference/test-error-exit-codes.sh` when stable result mapping, early failure handling, runtime setup, logging setup, JSON/NDJSON completion output, or process exit behavior is affected.
+16. Confirm that destructive commands are not exercised outside an isolated Slackware test system.
+17. Record the relevant acceptance scenario.
+18. Preserve deterministic output and exit-code behavior.
+19. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
+20. Ensure every new or modified comment is written in English.
 
 Never run the apply workflow on a production machine merely to validate a contribution.
 

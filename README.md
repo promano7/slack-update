@@ -598,7 +598,7 @@ The final layout may change during the architecture prototype, but separation be
 - [x] Confirm GRUB is not updated after an initrd failure.
 - [x] Confirm staged GRUB configuration is validated before replacement.
 - [x] Confirm interruption signals release locks and terminate execution.
-- [ ] Confirm errors produce non-zero exit codes.
+- [x] Confirm errors produce non-zero exit codes.
 - [ ] Confirm cron execution works with a minimal environment.
 
 Slackware package records are parsed from the rightmost three hyphen-separated
@@ -841,6 +841,24 @@ before runtime state exists:
 
 ```bash
 tests/reference/test-signal-cleanup.sh
+```
+
+Runtime setup now fails closed before the selected operation starts if Slack-Update
+cannot record its start time, create its work or log directories, allocate required
+temporary files, create the private dry-run workspace, initialize dry-run state, or
+open the runtime log. A completion-time capture failure is also included in the final
+result instead of being ignored. These failures return stable code `1` before an
+operation starts; failures discovered during apply continue to use the documented
+partial or boot-unsafe precedence.
+
+The focused exit-code regression suite verifies all stable codes `0` through `8`,
+every current error source represented by the final result model, successful
+non-zero reboot outcomes, early command-line/configuration/privilege/lock failures,
+runtime and logging setup failures, completion-time failure, and consistency between
+the process status, final JSON, and final NDJSON event:
+
+```bash
+tests/reference/test-error-exit-codes.sh
 ```
 
 ### Real-system acceptance matrix

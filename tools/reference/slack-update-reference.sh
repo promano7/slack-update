@@ -1961,19 +1961,32 @@ initialize_runtime_state() {
     PACKAGE_SNAPSHOT_RECORD_COUNT=0
     SECONDARY_MODULES_BLOCKED=0
     SECONDARY_MODULES_BLOCK_REASON=
-    STARTED_AT=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+    if ! STARTED_AT=$(date -u +%Y-%m-%dT%H:%M:%SZ); then
+        echo "Error: cannot record the runtime start time" >&2
+        return 1
+    fi
     FINISHED_AT=
     RUNTIME_TMPDIR=
     EVENT_SEQUENCE=0
 }
 
 initialize_runtime() {
+    if ! initialize_runtime_state; then
+        return 1
+    fi
+
     WORKDIR=$WORKDIR_CONFIG
     LOGDIR=$LOGDIR_CONFIG
 
-    mkdir -p "$WORKDIR" "$LOGDIR"
+    if ! mkdir -p "$WORKDIR" "$LOGDIR"; then
+        echo "Error: cannot create runtime directories: $WORKDIR, $LOGDIR" >&2
+        return 1
+    fi
 
-    DATE=$(date +%F-%H%M%S)
+    if ! DATE=$(date +%F-%H%M%S); then
+        echo "Error: cannot create the runtime timestamp" >&2
+        return 1
+    fi
     LOG="$LOGDIR/run-$DATE.log"
 
     BROKEN="$WORKDIR/broken.txt"
@@ -1986,24 +1999,53 @@ initialize_runtime() {
     AFTER_PKGS="$WORKDIR/packages.after"
 
     # Temporary files are created here so the trap covers them immediately.
-    QUEUE_FINAL=$(mktemp)
-    BROKEN_NEW=$(mktemp)
-    STILL_BROKEN=$(mktemp)
-    BROKEN_ERRORS=$(mktemp)
-    ELF_LIBRARY_CACHE=$(mktemp)
+    if ! QUEUE_FINAL=$(mktemp); then
+        echo "Error: cannot create the final queue temporary file" >&2
+        return 1
+    fi
+    if ! BROKEN_NEW=$(mktemp); then
+        echo "Error: cannot create the broken-object scan temporary file" >&2
+        return 1
+    fi
+    if ! STILL_BROKEN=$(mktemp); then
+        echo "Error: cannot create the broken-object verification temporary file" >&2
+        return 1
+    fi
+    if ! BROKEN_ERRORS=$(mktemp); then
+        echo "Error: cannot create the broken-object diagnostics temporary file" >&2
+        return 1
+    fi
+    if ! ELF_LIBRARY_CACHE=$(mktemp); then
+        echo "Error: cannot create the ELF library-cache temporary file" >&2
+        return 1
+    fi
 
-    initialize_runtime_state
     CSB_DIR=$CSB_DIR_CONFIG
 }
 
 initialize_dry_run_runtime() {
-    LOGDIR=$LOGDIR_CONFIG
-    mkdir -p "$LOGDIR"
+    local runtime_file
 
-    DATE=$(date +%F-%H%M%S)
+    if ! initialize_runtime_state; then
+        return 1
+    fi
+
+    LOGDIR=$LOGDIR_CONFIG
+    if ! mkdir -p "$LOGDIR"; then
+        echo "Error: cannot create the dry-run log directory: $LOGDIR" >&2
+        return 1
+    fi
+
+    if ! DATE=$(date +%F-%H%M%S); then
+        echo "Error: cannot create the dry-run timestamp" >&2
+        return 1
+    fi
     LOG="$LOGDIR/run-$DATE.log"
 
-    RUNTIME_TMPDIR=$(mktemp -d /tmp/slack-update-dry-run.XXXXXX)
+    if ! RUNTIME_TMPDIR=$(mktemp -d /tmp/slack-update-dry-run.XXXXXX); then
+        echo "Error: cannot create the private dry-run workspace" >&2
+        return 1
+    fi
     WORKDIR="$RUNTIME_TMPDIR"
 
     BROKEN="$WORKDIR/broken.txt"
@@ -2020,16 +2062,22 @@ initialize_dry_run_runtime() {
     AFTER_PKGS="$WORKDIR/packages.after"
     ABI_CANDIDATES="$WORKDIR/abi-rebuild-candidates.txt"
 
-    initialize_runtime_state
     RUNTIME_TMPDIR="$WORKDIR"
     CSB_DIR=$CSB_DIR_CONFIG
 
-    : > "$BROKEN"
-    : > "$QUEUE_CORE"
-    : > "$QUEUE_EXTRA"
-    : > "$SBO_OPTION_RECORDS"
-    : > "$BROKEN_ERRORS"
-    : > "$ELF_LIBRARY_CACHE"
+    for runtime_file in \
+        "$BROKEN" \
+        "$QUEUE_CORE" \
+        "$QUEUE_EXTRA" \
+        "$SBO_OPTION_RECORDS" \
+        "$BROKEN_ERRORS" \
+        "$ELF_LIBRARY_CACHE"
+    do
+        if ! : > "$runtime_file"; then
+            echo "Error: cannot initialize dry-run state file: $runtime_file" >&2
+            return 1
+        fi
+    done
 }
 
 remove_owned_sbo_queue_workspace() {
@@ -2093,13 +2141,30 @@ rotate_logs() {
 }
 
 configure_logging() {
+    local logging_command
+
+    for logging_command in sed tee; do
+        if ! command -v "$logging_command" >/dev/null 2>&1; then
+            echo "Error: required logging command is unavailable: $logging_command" >&2
+            return 1
+        fi
+    done
+
+    if ! : >> "$LOG"; then
+        echo "Error: cannot open the runtime log for writing: $LOG" >&2
+        return 1
+    fi
+
     # Redirigir log filtrando codigos ANSI
     # FIX #10: Se eliminan emojis del log para evitar problemas de encoding en cron.
     # La salida de consola (si se ejecuta interactivamente) los mostrara igualmente
     # porque el tee escribe a stdout antes del filtro de ANSI.
     if [ "$JSON_OUTPUT" -eq 1 ] || [ "$EVENTS_OUTPUT" -eq 1 ]; then
         # Keep stdout reserved for machine-readable output.
-        exec 3>&1
+        if ! exec 3>&1; then
+            echo "Error: cannot reserve the machine-readable output descriptor" >&2
+            return 1
+        fi
         exec > >(sed 's/\x1b\[[0-9;]*[mGKHJ]//g; s/\r//' | tee -a "$LOG" >&2) 2>&1
     else
         exec > >(sed 's/\x1b\[[0-9;]*[mGKHJ]//g; s/\r//' | tee -a "$LOG") 2>&1
@@ -5365,13 +5430,17 @@ main() {
     install_runtime_traps
 
     if [ "$OPERATION" = "dry-run" ]; then
-        initialize_dry_run_runtime
-    else
-        initialize_runtime
+        if ! initialize_dry_run_runtime; then
+            return "$EXIT_GENERAL_FAILURE"
+        fi
+    elif ! initialize_runtime; then
+        return "$EXIT_GENERAL_FAILURE"
     fi
 
     rotate_logs
-    configure_logging
+    if ! configure_logging; then
+        return "$EXIT_GENERAL_FAILURE"
+    fi
     print_start_banner
     emit_operation_started_event
 
@@ -5387,7 +5456,10 @@ main() {
             ;;
     esac
 
-    FINISHED_AT=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+    if ! FINISHED_AT=$(date -u +%Y-%m-%dT%H:%M:%SZ); then
+        echo "Error: cannot record the runtime completion time" >&2
+        workflow_result=$EXIT_GENERAL_FAILURE
+    fi
     determine_stable_exit_code "$workflow_result"
     result=$STABLE_EXIT_CODE
     print_stable_exit_code_summary "$result"
