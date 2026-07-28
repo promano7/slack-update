@@ -35,6 +35,7 @@ and the log. The two machine-readable output modes are mutually exclusive.
 Configuration is loaded from /etc/slack-update/slack-update.conf. When the
 script runs from the source tree, data/config/slack-update.conf is used as a
 development fallback. SLACK_UPDATE_CONFIG may select another file for tests.
+Optional modules use enabled, disabled, or auto activation modes in that file.
 EOF
 }
 
@@ -152,9 +153,12 @@ initialize_configuration_state() {
     CONFIG_PACKAGE_DATABASE=
     CONFIG_SLACKWARE_INSTALL_NEW=
     CONFIG_SLACKWARE_UPGRADE_ALL=
+    CONFIG_FLATPAK_MODE=auto
+    CONFIG_SBO_MODE=auto
     CONFIG_SBOPKG_CONFIG=
     CONFIG_SBO_QUEUE_DIR_FALLBACK=
     CONFIG_SBO_PACKAGE_TAG=
+    CONFIG_ELF_MODE=auto
     CONFIG_ELF_SCAN_PATHS=
     CONFIG_ABI_PACKAGES=
     CONFIG_CINNAMON_ABI_PACKAGES=
@@ -162,10 +166,12 @@ initialize_configuration_state() {
     CONFIG_KERNEL_PACKAGES=
     CONFIG_KERNEL_BOOT_PACKAGES=
     CONFIG_KERNEL_HEADERS_PACKAGES=
+    CONFIG_BOOT_MODE=auto
     CONFIG_MKINITRD_CONFIG=
     CONFIG_INITRD_DEFAULT_OUTPUT=
     CONFIG_GRUB_DIRECTORY=
     CONFIG_GRUB_CONFIG=
+    CONFIG_CINNAMON_MODE=auto
     CONFIG_CSB_REPOSITORY=
     CONFIG_CSB_REMOTE=
     CONFIG_CSB_BRANCH=
@@ -197,9 +203,12 @@ assign_configuration_value() {
         core.package_database) CONFIG_PACKAGE_DATABASE=$value ;;
         slackware.install_new) CONFIG_SLACKWARE_INSTALL_NEW=$value ;;
         slackware.upgrade_all) CONFIG_SLACKWARE_UPGRADE_ALL=$value ;;
+        flatpak.mode) CONFIG_FLATPAK_MODE=$value ;;
+        sbo.mode) CONFIG_SBO_MODE=$value ;;
         sbo.sbopkg_config) CONFIG_SBOPKG_CONFIG=$value ;;
         sbo.queue_dir_fallback) CONFIG_SBO_QUEUE_DIR_FALLBACK=$value ;;
         sbo.package_tag) CONFIG_SBO_PACKAGE_TAG=$value ;;
+        elf.mode) CONFIG_ELF_MODE=$value ;;
         elf.scan_paths) CONFIG_ELF_SCAN_PATHS=$value ;;
         packages.abi) CONFIG_ABI_PACKAGES=$value ;;
         packages.cinnamon_abi) CONFIG_CINNAMON_ABI_PACKAGES=$value ;;
@@ -207,10 +216,12 @@ assign_configuration_value() {
         packages.kernel) CONFIG_KERNEL_PACKAGES=$value ;;
         packages.kernel_boot) CONFIG_KERNEL_BOOT_PACKAGES=$value ;;
         packages.kernel_headers) CONFIG_KERNEL_HEADERS_PACKAGES=$value ;;
+        boot.mode) CONFIG_BOOT_MODE=$value ;;
         boot.mkinitrd_config) CONFIG_MKINITRD_CONFIG=$value ;;
         boot.initrd_default_output) CONFIG_INITRD_DEFAULT_OUTPUT=$value ;;
         boot.grub_directory) CONFIG_GRUB_DIRECTORY=$value ;;
         boot.grub_config) CONFIG_GRUB_CONFIG=$value ;;
+        cinnamon.mode) CONFIG_CINNAMON_MODE=$value ;;
         cinnamon.repository) CONFIG_CSB_REPOSITORY=$value ;;
         cinnamon.remote) CONFIG_CSB_REMOTE=$value ;;
         cinnamon.branch) CONFIG_CSB_BRANCH=$value ;;
@@ -244,7 +255,7 @@ parse_configuration_file() {
                 section=${section%']'}
                 section=$(trim_whitespace "$section")
                 case "$section" in
-                    core|slackware|sbo|elf|packages|boot|cinnamon) ;;
+                    core|slackware|flatpak|sbo|elf|packages|boot|cinnamon) ;;
                     *)
                         config_error "$CONFIG_FILE:$line_number: unknown section: $section"
                         return 1
@@ -294,6 +305,19 @@ validate_boolean_configuration() {
         true|false) ;;
         *)
             config_error "$key must be true or false"
+            return 1
+            ;;
+    esac
+}
+
+validate_module_mode_configuration() {
+    local key=$1
+    local value=$2
+
+    case "$value" in
+        enabled|disabled|auto) ;;
+        *)
+            config_error "$key must be enabled, disabled, or auto"
             return 1
             ;;
     esac
@@ -387,6 +411,11 @@ EOF
 
     validate_boolean_configuration slackware.install_new "$CONFIG_SLACKWARE_INSTALL_NEW" || return 1
     validate_boolean_configuration slackware.upgrade_all "$CONFIG_SLACKWARE_UPGRADE_ALL" || return 1
+    validate_module_mode_configuration flatpak.mode "$CONFIG_FLATPAK_MODE" || return 1
+    validate_module_mode_configuration sbo.mode "$CONFIG_SBO_MODE" || return 1
+    validate_module_mode_configuration elf.mode "$CONFIG_ELF_MODE" || return 1
+    validate_module_mode_configuration boot.mode "$CONFIG_BOOT_MODE" || return 1
+    validate_module_mode_configuration cinnamon.mode "$CONFIG_CINNAMON_MODE" || return 1
 
     for required_value in \
         "$CONFIG_WORK_DIR" "$CONFIG_LOG_DIR" "$CONFIG_LOCK_FILE" \
@@ -458,13 +487,18 @@ apply_configuration() {
     PACKAGE_DATABASE=$CONFIG_PACKAGE_DATABASE
     SLACKWARE_INSTALL_NEW=$CONFIG_SLACKWARE_INSTALL_NEW
     SLACKWARE_UPGRADE_ALL=$CONFIG_SLACKWARE_UPGRADE_ALL
+    FLATPAK_MODE=$CONFIG_FLATPAK_MODE
+    SBO_MODE=$CONFIG_SBO_MODE
     SBOPKG_CONFIG=$CONFIG_SBOPKG_CONFIG
     SBO_QUEUE_DIR_FALLBACK=$CONFIG_SBO_QUEUE_DIR_FALLBACK
     SBO_PACKAGE_TAG=$CONFIG_SBO_PACKAGE_TAG
+    ELF_MODE=$CONFIG_ELF_MODE
+    BOOT_MODE=$CONFIG_BOOT_MODE
     MKINITRD_CONFIG=$CONFIG_MKINITRD_CONFIG
     INITRD_DEFAULT_OUTPUT=$CONFIG_INITRD_DEFAULT_OUTPUT
     GRUB_DIRECTORY=$CONFIG_GRUB_DIRECTORY
     GRUB_CONFIG=$CONFIG_GRUB_CONFIG
+    CINNAMON_MODE=$CONFIG_CINNAMON_MODE
     CSB_DIR_CONFIG=$CONFIG_CSB_REPOSITORY
     CSB_REMOTE=$CONFIG_CSB_REMOTE
     CSB_BRANCH=$CONFIG_CSB_BRANCH
@@ -498,6 +532,261 @@ array_contains() {
     return 1
 }
 
+# Optional module activation functions
+
+detect_cinnamon_installation() {
+    if command -v cinnamon >/dev/null 2>&1; then
+        return 0
+    fi
+
+    if [ -d "$PACKAGE_DATABASE" ] \
+        && find "$PACKAGE_DATABASE" -maxdepth 1 -type f -name 'cinnamon-[0-9]*' \
+            -print -quit 2>/dev/null | grep -q .; then
+        return 0
+    fi
+
+    [ -d "$CSB_DIR_CONFIG/.git" ]
+}
+
+probe_flatpak_module() {
+    FLATPAK_MODULE_RUN=0
+    FLATPAK_MODULE_REASON=
+
+    case "$FLATPAK_MODE" in
+        disabled)
+            FLATPAK_MODULE_STATE=disabled
+            FLATPAK_MODULE_REASON="disabled by configuration"
+            ;;
+        enabled|auto)
+            if command -v flatpak >/dev/null 2>&1; then
+                FLATPAK_MODULE_STATE=available
+                FLATPAK_MODULE_RUN=1
+            else
+                FLATPAK_MODULE_STATE=unavailable
+                FLATPAK_MODULE_REASON="flatpak is not installed"
+            fi
+            ;;
+    esac
+}
+
+probe_sbo_module() {
+    SBO_MODULE_RUN=0
+    SBO_MODULE_REASON=
+    SBO_SBOPKG_AVAILABLE=0
+    SBO_SQG_AVAILABLE=0
+
+    if [ "$SBO_MODE" = disabled ]; then
+        SBO_MODULE_STATE=disabled
+        SBO_MODULE_REASON="disabled by configuration"
+        return 0
+    fi
+
+    command -v sbopkg >/dev/null 2>&1 && SBO_SBOPKG_AVAILABLE=1
+    command -v sqg >/dev/null 2>&1 && SBO_SQG_AVAILABLE=1
+
+    if [ "$SBO_SBOPKG_AVAILABLE" -eq 1 ] && [ "$SBO_SQG_AVAILABLE" -eq 1 ]; then
+        SBO_MODULE_STATE=available
+        SBO_MODULE_RUN=1
+    elif [ "$SBO_SBOPKG_AVAILABLE" -eq 0 ] && [ "$SBO_SQG_AVAILABLE" -eq 0 ]; then
+        SBO_MODULE_STATE=unavailable
+        SBO_MODULE_REASON="sbopkg and sqg are not installed"
+    elif [ "$SBO_SBOPKG_AVAILABLE" -eq 0 ]; then
+        SBO_MODULE_STATE=unavailable
+        SBO_MODULE_REASON="sbopkg is not installed"
+    else
+        SBO_MODULE_STATE=unavailable
+        SBO_MODULE_REASON="sqg is not installed"
+    fi
+}
+
+probe_elf_module() {
+    ELF_MODULE_RUN=0
+    ELF_MODULE_REASON=
+    ELF_READELF_AVAILABLE=0
+    ELF_LDCONFIG_AVAILABLE=0
+
+    if [ "$ELF_MODE" = disabled ]; then
+        ELF_MODULE_STATE=disabled
+        ELF_MODULE_REASON="disabled by configuration"
+        return 0
+    fi
+
+    command -v readelf >/dev/null 2>&1 && ELF_READELF_AVAILABLE=1
+    [ -x /sbin/ldconfig ] && ELF_LDCONFIG_AVAILABLE=1
+
+    if [ "$ELF_READELF_AVAILABLE" -eq 1 ] && [ "$ELF_LDCONFIG_AVAILABLE" -eq 1 ]; then
+        ELF_MODULE_STATE=available
+        ELF_MODULE_RUN=1
+    elif [ "$ELF_READELF_AVAILABLE" -eq 0 ] && [ "$ELF_LDCONFIG_AVAILABLE" -eq 0 ]; then
+        ELF_MODULE_STATE=unavailable
+        ELF_MODULE_REASON="readelf and /sbin/ldconfig are unavailable"
+    elif [ "$ELF_READELF_AVAILABLE" -eq 0 ]; then
+        ELF_MODULE_STATE=unavailable
+        ELF_MODULE_REASON="readelf is unavailable"
+    else
+        ELF_MODULE_STATE=unavailable
+        ELF_MODULE_REASON="/sbin/ldconfig is unavailable"
+    fi
+}
+
+probe_cinnamon_module() {
+    CINNAMON_MODULE_RUN=0
+    CINNAMON_MODULE_REASON=
+    CINNAMON_INSTALLED=0
+    CINNAMON_GIT_AVAILABLE=0
+
+    if [ "$CINNAMON_MODE" = disabled ]; then
+        CINNAMON_MODULE_STATE=disabled
+        CINNAMON_MODULE_REASON="disabled by configuration"
+        return 0
+    fi
+
+    detect_cinnamon_installation && CINNAMON_INSTALLED=1
+    command -v git >/dev/null 2>&1 && CINNAMON_GIT_AVAILABLE=1
+
+    if [ "$CINNAMON_MODE" = enabled ]; then
+        if [ "$CINNAMON_GIT_AVAILABLE" -eq 1 ]; then
+            CINNAMON_MODULE_STATE=available
+            CINNAMON_MODULE_RUN=1
+        else
+            CINNAMON_MODULE_STATE=unavailable
+            CINNAMON_MODULE_REASON="git is unavailable"
+        fi
+    elif [ "$CINNAMON_INSTALLED" -eq 0 ]; then
+        CINNAMON_MODULE_STATE=unavailable
+        CINNAMON_MODULE_REASON="no Cinnamon installation or managed CSB checkout was detected"
+    elif [ "$CINNAMON_GIT_AVAILABLE" -eq 0 ]; then
+        CINNAMON_MODULE_STATE=unavailable
+        CINNAMON_MODULE_REASON="git is unavailable"
+    else
+        CINNAMON_MODULE_STATE=available
+        CINNAMON_MODULE_RUN=1
+    fi
+}
+
+probe_boot_module() {
+    BOOT_MODULE_RUN=0
+    BOOT_MODULE_REASON=
+    BOOT_INITRD_AVAILABLE=0
+    BOOT_GRUB_AVAILABLE=0
+
+    if [ "$BOOT_MODE" = disabled ]; then
+        BOOT_MODULE_STATE=disabled
+        BOOT_MODULE_REASON="disabled by configuration"
+        return 0
+    fi
+
+    if command -v mkinitrd >/dev/null 2>&1 \
+        && [ -f "$MKINITRD_CONFIG" ] \
+        && grep -q '^ROOTDEV=' "$MKINITRD_CONFIG" 2>/dev/null; then
+        BOOT_INITRD_AVAILABLE=1
+    fi
+
+    if command -v grub-mkconfig >/dev/null 2>&1 \
+        && [ -d "$GRUB_DIRECTORY" ]; then
+        BOOT_GRUB_AVAILABLE=1
+    fi
+
+    if [ "$BOOT_MODE" = enabled ]; then
+        if [ "$BOOT_INITRD_AVAILABLE" -eq 1 ] && [ "$BOOT_GRUB_AVAILABLE" -eq 1 ]; then
+            BOOT_MODULE_STATE=available
+            BOOT_MODULE_RUN=1
+        elif [ "$BOOT_INITRD_AVAILABLE" -eq 0 ] && [ "$BOOT_GRUB_AVAILABLE" -eq 0 ]; then
+            BOOT_MODULE_STATE=unavailable
+            BOOT_MODULE_REASON="initrd and GRUB preparation requirements are missing"
+        elif [ "$BOOT_INITRD_AVAILABLE" -eq 0 ]; then
+            BOOT_MODULE_STATE=unavailable
+            BOOT_MODULE_REASON="initrd preparation requirements are missing"
+        else
+            BOOT_MODULE_STATE=unavailable
+            BOOT_MODULE_REASON="GRUB preparation requirements are missing"
+        fi
+    elif [ "$BOOT_INITRD_AVAILABLE" -eq 1 ] || [ "$BOOT_GRUB_AVAILABLE" -eq 1 ]; then
+        BOOT_MODULE_STATE=available
+        BOOT_MODULE_RUN=1
+    else
+        BOOT_MODULE_STATE=unavailable
+        BOOT_MODULE_REASON="no supported initrd or GRUB preparation path was detected"
+    fi
+}
+
+probe_optional_modules() {
+    probe_flatpak_module
+    probe_sbo_module
+    probe_elf_module
+    probe_cinnamon_module
+    probe_boot_module
+}
+
+print_optional_module_activation() {
+    local module
+    local mode
+    local state
+    local reason
+
+    echo "[MODULES] Optional module activation"
+
+    for module in flatpak sbo elf cinnamon boot; do
+        case "$module" in
+            flatpak)
+                mode=$FLATPAK_MODE
+                state=$FLATPAK_MODULE_STATE
+                reason=$FLATPAK_MODULE_REASON
+                ;;
+            sbo)
+                mode=$SBO_MODE
+                state=$SBO_MODULE_STATE
+                reason=$SBO_MODULE_REASON
+                ;;
+            elf)
+                mode=$ELF_MODE
+                state=$ELF_MODULE_STATE
+                reason=$ELF_MODULE_REASON
+                ;;
+            cinnamon)
+                mode=$CINNAMON_MODE
+                state=$CINNAMON_MODULE_STATE
+                reason=$CINNAMON_MODULE_REASON
+                ;;
+            boot)
+                mode=$BOOT_MODE
+                state=$BOOT_MODULE_STATE
+                reason=$BOOT_MODULE_REASON
+                ;;
+        esac
+
+        if [ "$state" = unavailable ] && [ "$mode" = enabled ]; then
+            echo "  [ERROR] $module: mode=$mode, state=$state ($reason)"
+        elif [ -n "$reason" ]; then
+            echo "  [INFO] $module: mode=$mode, state=$state ($reason)"
+        else
+            echo "  [OK] $module: mode=$mode, state=$state"
+        fi
+    done
+}
+
+apply_boot_module_policy() {
+    INITRD_REQUIRED=$INITRD_UPDATE
+    GRUB_REQUIRED=$GRUB_UPDATE
+
+    if [ "$INITRD_REQUIRED" -eq 0 ] && [ "$GRUB_REQUIRED" -eq 0 ]; then
+        return 0
+    fi
+
+    case "$BOOT_MODE" in
+        disabled)
+            INITRD_UPDATE=0
+            GRUB_UPDATE=0
+            ;;
+        enabled)
+            ;;
+        auto)
+            [ "$BOOT_INITRD_AVAILABLE" -eq 1 ] || INITRD_UPDATE=0
+            [ "$BOOT_GRUB_AVAILABLE" -eq 1 ] || GRUB_UPDATE=0
+            ;;
+    esac
+}
+
 # Runtime setup functions
 
 require_root() {
@@ -523,6 +812,31 @@ initialize_runtime_state() {
     CINNAMON_OK=0
     INITRD_OK=0
     GRUB_OK=0
+    INITRD_REQUIRED=0
+    GRUB_REQUIRED=0
+    FLATPAK_MODULE_STATE=idle
+    FLATPAK_MODULE_REASON=
+    FLATPAK_MODULE_RUN=0
+    SBO_MODULE_STATE=idle
+    SBO_MODULE_REASON=
+    SBO_MODULE_RUN=0
+    SBO_SBOPKG_AVAILABLE=0
+    SBO_SQG_AVAILABLE=0
+    ELF_MODULE_STATE=idle
+    ELF_MODULE_REASON=
+    ELF_MODULE_RUN=0
+    ELF_READELF_AVAILABLE=0
+    ELF_LDCONFIG_AVAILABLE=0
+    CINNAMON_MODULE_STATE=idle
+    CINNAMON_MODULE_REASON=
+    CINNAMON_MODULE_RUN=0
+    CINNAMON_INSTALLED=0
+    CINNAMON_GIT_AVAILABLE=0
+    BOOT_MODULE_STATE=idle
+    BOOT_MODULE_REASON=
+    BOOT_MODULE_RUN=0
+    BOOT_INITRD_AVAILABLE=0
+    BOOT_GRUB_AVAILABLE=0
     TOTAL_EN_COLA=0
     TOTAL_CORE=0
     TOTAL_EXTRA=0
@@ -722,20 +1036,34 @@ inspect_dry_run_environment() {
     PLAN_CINNAMON_REPOSITORY=0
     PLAN_CINNAMON_BUILDER=0
 
-    command -v flatpak >/dev/null 2>&1 && PLAN_FLATPAK_AVAILABLE=1
-    command -v sbopkg >/dev/null 2>&1 && PLAN_SBOPKG_AVAILABLE=1
-    command -v sqg >/dev/null 2>&1 && PLAN_SQG_AVAILABLE=1
-    command -v readelf >/dev/null 2>&1 && PLAN_READELF_AVAILABLE=1
-    command -v mkinitrd >/dev/null 2>&1 && PLAN_MKINITRD_AVAILABLE=1
-    command -v grub-mkconfig >/dev/null 2>&1 && PLAN_GRUB_AVAILABLE=1
-
-    if [ -f "$MKINITRD_CONFIG" ] && grep -q '^ROOTDEV=' "$MKINITRD_CONFIG" 2>/dev/null; then
-        PLAN_MKINITRD_CONFIGURED=1
+    if [ "$FLATPAK_MODE" != disabled ]; then
+        command -v flatpak >/dev/null 2>&1 && PLAN_FLATPAK_AVAILABLE=1
     fi
 
-    [ -d "$GRUB_DIRECTORY" ] && PLAN_GRUB_CONFIGURED=1
-    [ -d "$CSB_DIR/.git" ] && PLAN_CINNAMON_REPOSITORY=1
-    [ -x "$CSB_DIR/$CSB_BUILDER" ] && PLAN_CINNAMON_BUILDER=1
+    if [ "$SBO_MODE" != disabled ]; then
+        command -v sbopkg >/dev/null 2>&1 && PLAN_SBOPKG_AVAILABLE=1
+        command -v sqg >/dev/null 2>&1 && PLAN_SQG_AVAILABLE=1
+    fi
+
+    if [ "$ELF_MODE" != disabled ]; then
+        command -v readelf >/dev/null 2>&1 && PLAN_READELF_AVAILABLE=1
+    fi
+
+    if [ "$BOOT_MODE" != disabled ]; then
+        command -v mkinitrd >/dev/null 2>&1 && PLAN_MKINITRD_AVAILABLE=1
+        command -v grub-mkconfig >/dev/null 2>&1 && PLAN_GRUB_AVAILABLE=1
+
+        if [ -f "$MKINITRD_CONFIG" ] && grep -q '^ROOTDEV=' "$MKINITRD_CONFIG" 2>/dev/null; then
+            PLAN_MKINITRD_CONFIGURED=1
+        fi
+
+        [ -d "$GRUB_DIRECTORY" ] && PLAN_GRUB_CONFIGURED=1
+    fi
+
+    if [ "$CINNAMON_MODE" != disabled ]; then
+        [ -d "$CSB_DIR/.git" ] && PLAN_CINNAMON_REPOSITORY=1
+        [ -x "$CSB_DIR/$CSB_BUILDER" ] && PLAN_CINNAMON_BUILDER=1
+    fi
 }
 
 inspect_current_sbo_queues() {
@@ -832,10 +1160,16 @@ print_dry_run_plan() {
     echo
 
     echo "[2] Flatpak"
-    if [ "$PLAN_FLATPAK_AVAILABLE" -eq 1 ]; then
+    echo "  Mode: $FLATPAK_MODE"
+    echo "  Activation state: $FLATPAK_MODULE_STATE"
+    if [ "$FLATPAK_MODULE_RUN" -eq 1 ]; then
         echo "  Planned command: flatpak update -y --noninteractive"
+    elif [ "$FLATPAK_MODULE_STATE" = disabled ]; then
+        echo "  The module is disabled; no Flatpak command would run."
+    elif [ "$FLATPAK_MODE" = enabled ]; then
+        echo "  [ERROR] Enabled module requirements are missing: $FLATPAK_MODULE_REASON"
     else
-        echo "  Flatpak is unavailable; this phase would be skipped."
+        echo "  Auto mode found no applicable Flatpak installation: $FLATPAK_MODULE_REASON"
     fi
     echo
 
@@ -849,60 +1183,92 @@ print_dry_run_plan() {
     echo
 
     echo "[4] SBo"
-    if [ "$PLAN_SBOPKG_AVAILABLE" -eq 1 ] && [ "$PLAN_SQG_AVAILABLE" -eq 1 ]; then
+    echo "  Mode: $SBO_MODE"
+    echo "  Activation state: $SBO_MODULE_STATE"
+    if [ "$SBO_MODULE_RUN" -eq 1 ]; then
         echo "  Planned repository commands: sbopkg -r, then sqg -a"
-    elif [ "$PLAN_SBOPKG_AVAILABLE" -eq 1 ]; then
-        echo "  sbopkg is available but sqg is missing; repository synchronization would be skipped."
+        echo "  Current local queue directory: $SBODIR"
+        echo "  Current local queue targets: $TOTAL_CORE"
+        print_plan_file "$QUEUE_CORE"
+        echo "  Current broken-ELF SBo targets: $PLAN_BROKEN_SBO_COUNT"
+        print_plan_file "$QUEUE_EXTRA"
+        echo "  The final apply queue would be the sorted union of the current queue,"
+        echo "  ABI-triggered candidates, and broken-ELF package owners determined after update."
+    elif [ "$SBO_MODULE_STATE" = disabled ]; then
+        echo "  The module is disabled; repository synchronization and builds would not run."
+    elif [ "$SBO_MODE" = enabled ]; then
+        echo "  [ERROR] Enabled module requirements are missing: $SBO_MODULE_REASON"
     else
-        echo "  sbopkg is unavailable; repository synchronization and builds would be skipped."
+        echo "  Auto mode found no applicable SBo toolchain: $SBO_MODULE_REASON"
     fi
-    echo "  Current local queue directory: $SBODIR"
-    echo "  Current local queue targets: $TOTAL_CORE"
-    print_plan_file "$QUEUE_CORE"
-    echo "  Current broken-ELF SBo targets: $PLAN_BROKEN_SBO_COUNT"
-    print_plan_file "$QUEUE_EXTRA"
-    echo "  The final apply queue would be the sorted union of the current queue,"
-    echo "  ABI-triggered candidates, and broken-ELF package owners determined after update."
     echo
 
     echo "[5] ELF diagnostics"
-    if [ "$PLAN_READELF_AVAILABLE" -eq 1 ]; then
+    echo "  Mode: $ELF_MODE"
+    echo "  Activation state: $ELF_MODULE_STATE"
+    if [ "$ELF_MODULE_RUN" -eq 1 ]; then
         echo "  Current broken ELF objects detected statically: $PLAN_BROKEN_COUNT"
         print_plan_file "$BROKEN"
         echo "  The apply workflow would repeat this scan after Slackware changes."
+    elif [ "$ELF_MODULE_STATE" = disabled ]; then
+        echo "  The module is disabled; no ELF object would be inspected."
+    elif [ "$ELF_MODE" = enabled ]; then
+        echo "  [ERROR] Enabled module requirements are missing: $ELF_MODULE_REASON"
     else
-        echo "  readelf is unavailable; the apply workflow cannot perform its current static scan."
+        echo "  Auto mode found no applicable ELF diagnostics backend: $ELF_MODULE_REASON"
     fi
     echo
 
     echo "[6] Cinnamon"
-    echo "  This phase remains conditional on a graphical ABI trigger."
-    if [ "$PLAN_CINNAMON_REPOSITORY" -eq 1 ]; then
-        echo "  Existing CSB repository: $CSB_DIR"
-        echo "  Planned repository action: git fetch followed by reset to origin/$CSB_BRANCH"
+    echo "  Mode: $CINNAMON_MODE"
+    echo "  Activation state: $CINNAMON_MODULE_STATE"
+    if [ "$CINNAMON_MODULE_RUN" -eq 1 ]; then
+        echo "  This phase remains conditional on a graphical ABI trigger."
+        if [ "$PLAN_CINNAMON_REPOSITORY" -eq 1 ]; then
+            echo "  Existing CSB repository: $CSB_DIR"
+            echo "  Planned repository action: git fetch followed by reset to origin/$CSB_BRANCH"
+        else
+            echo "  No existing CSB checkout was found; apply would attempt to clone it when triggered."
+        fi
+        if [ "$PLAN_CINNAMON_BUILDER" -eq 1 ]; then
+            echo "  Cinnamon build command: $CSB_DIR/$CSB_BUILDER"
+        else
+            echo "  The Cinnamon build script is not currently executable or present."
+        fi
+    elif [ "$CINNAMON_MODULE_STATE" = disabled ]; then
+        echo "  The module is disabled; graphical ABI changes would not trigger a rebuild."
+    elif [ "$CINNAMON_MODE" = enabled ]; then
+        echo "  [ERROR] Enabled module requirements are missing: $CINNAMON_MODULE_REASON"
     else
-        echo "  No existing CSB checkout was found; apply would attempt to clone it when triggered."
-    fi
-    if [ "$PLAN_CINNAMON_BUILDER" -eq 1 ]; then
-        echo "  Cinnamon build command: $CSB_DIR/$CSB_BUILDER"
-    else
-        echo "  The Cinnamon build script is not currently executable or present."
+        echo "  Auto mode found no applicable Cinnamon installation: $CINNAMON_MODULE_REASON"
     fi
     echo
 
     echo "[7] Boot preparation"
-    echo "  These actions remain conditional on kernel-generic, kernel-huge, or kernel-modules changes."
-    if [ "$PLAN_MKINITRD_AVAILABLE" -eq 1 ] && [ "$PLAN_MKINITRD_CONFIGURED" -eq 1 ]; then
-        echo "  Planned initrd command: mkinitrd -F"
-    elif [ "$PLAN_MKINITRD_AVAILABLE" -eq 0 ]; then
-        echo "  mkinitrd is unavailable; the initrd phase would fail if triggered."
+    echo "  Mode: $BOOT_MODE"
+    echo "  Activation state: $BOOT_MODULE_STATE"
+    if [ "$BOOT_MODULE_RUN" -eq 1 ]; then
+        echo "  These actions remain conditional on kernel-generic, kernel-huge, or kernel-modules changes."
+        if [ "$BOOT_INITRD_AVAILABLE" -eq 1 ]; then
+            echo "  Planned initrd command: mkinitrd -F"
+        elif [ "$BOOT_MODE" = enabled ]; then
+            echo "  [ERROR] initrd requirements are missing and would fail if triggered."
+        else
+            echo "  Auto mode would omit initrd preparation because it is not applicable."
+        fi
+        if [ "$BOOT_GRUB_AVAILABLE" -eq 1 ]; then
+            echo "  Planned GRUB command: grub-mkconfig -o $GRUB_CONFIG"
+        elif [ "$BOOT_MODE" = enabled ]; then
+            echo "  [ERROR] GRUB requirements are missing and would fail if triggered."
+        else
+            echo "  Auto mode would omit GRUB because no supported GRUB installation was detected."
+        fi
+    elif [ "$BOOT_MODULE_STATE" = disabled ]; then
+        echo "  The module is disabled; kernel changes would not run initrd or GRUB actions."
+    elif [ "$BOOT_MODE" = enabled ]; then
+        echo "  [ERROR] Enabled module requirements are missing: $BOOT_MODULE_REASON"
     else
-        echo "  $MKINITRD_CONFIG is missing or lacks ROOTDEV; the initrd phase would fail if triggered."
-    fi
-    if [ "$PLAN_GRUB_AVAILABLE" -eq 1 ] && [ "$PLAN_GRUB_CONFIGURED" -eq 1 ]; then
-        echo "  Planned GRUB command: grub-mkconfig -o $GRUB_CONFIG"
-    else
-        echo "  GRUB is unavailable or $GRUB_DIRECTORY is missing; the GRUB phase would fail if triggered."
+        echo "  Auto mode found no applicable boot preparation path: $BOOT_MODULE_REASON"
     fi
     echo
 
@@ -916,6 +1282,7 @@ print_dry_run_plan() {
 run_dry_run_workflow() {
     local result=0
     local slackware_state=success
+    local sbo_state=success
     local elf_state=success
 
     emit_module_started_event slackware "Slackware planning probe started"
@@ -932,28 +1299,51 @@ run_dry_run_workflow() {
     emit_module_started_event core "Local environment inspection started"
     emit_action_started_event core inspect_environment "Inspecting optional tools and boot configuration"
     inspect_dry_run_environment
+    probe_optional_modules
+    print_optional_module_activation
     emit_action_completed_event core inspect_environment success \
-        "Optional tools and boot configuration inspected" 0
+        "Optional tools, module modes, and boot configuration inspected" 0
     emit_module_completed_event core success "Local environment inspection completed" 0
 
     emit_module_started_event sbo "SBo planning inspection started"
-    emit_action_started_event sbo inspect_queues "Inspecting current SBo queues"
-    inspect_current_sbo_queues
-    collect_installed_sbo_candidates
-    emit_action_completed_event sbo inspect_queues success \
-        "Current SBo queues and ABI candidates inspected" 0
-    emit_module_completed_event sbo success "SBo planning inspection completed" 0
+    if [ "$SBO_MODULE_RUN" -eq 1 ]; then
+        emit_action_started_event sbo inspect_queues "Inspecting current SBo queues"
+        inspect_current_sbo_queues
+        collect_installed_sbo_candidates
+        emit_action_completed_event sbo inspect_queues success \
+            "Current SBo queues and ABI candidates inspected" 0
+        sbo_state=success
+    else
+        sbo_state=$SBO_MODULE_STATE
+        action_exit=0
+        SBODIR=$SBO_QUEUE_DIR_FALLBACK
+        : > "$QUEUE_CORE"
+        : > "$QUEUE_EXTRA"
+        : > "$ABI_CANDIDATES"
+        TOTAL_CORE=0
+        PLAN_ABI_SBO_COUNT=0
+        PLAN_BROKEN_SBO_COUNT=0
+        emit_action_completed_event sbo inspect_queues "$sbo_state" \
+            "SBo queue inspection was not applicable: $SBO_MODULE_REASON" 0
+    fi
+    emit_module_completed_event sbo "$sbo_state" "SBo planning inspection completed" 0
 
     emit_module_started_event elf "ELF dependency inspection started"
-    emit_action_started_event elf scan_dependencies "Scanning current ELF dependencies"
-    inspect_current_elf_state
-    if [ "$PLAN_READELF_AVAILABLE" -eq 0 ]; then
-        elf_state=skipped
-    elif [ "$PLAN_BROKEN_COUNT" -gt 0 ]; then
-        elf_state=warning
+    if [ "$ELF_MODULE_RUN" -eq 1 ]; then
+        emit_action_started_event elf scan_dependencies "Scanning current ELF dependencies"
+        inspect_current_elf_state
+        if [ "$PLAN_BROKEN_COUNT" -gt 0 ]; then
+            elf_state=warning
+        fi
+        emit_action_completed_event elf scan_dependencies "$elf_state" \
+            "Current ELF dependency inspection completed" 0
+    else
+        elf_state=$ELF_MODULE_STATE
+        : > "$BROKEN"
+        PLAN_BROKEN_COUNT=0
+        emit_action_completed_event elf scan_dependencies "$elf_state" \
+            "ELF dependency inspection was not applicable: $ELF_MODULE_REASON" 0
     fi
-    emit_action_completed_event elf scan_dependencies "$elf_state" \
-        "Current ELF dependency inspection completed" 0
     emit_module_completed_event elf "$elf_state" "ELF dependency inspection completed" 0
 
     emit_action_started_event core render_plan "Rendering dry-run plan"
@@ -1050,8 +1440,12 @@ detect_abi_changes() {
             fi
 
             if array_contains "$p" "${CINNAMON_ABI[@]}"; then
-                CINNAMON_TRIGGER=1
-                echo "   -> Cinnamon rebuild required"
+                if [ "$CINNAMON_MODULE_RUN" -eq 1 ]; then
+                    CINNAMON_TRIGGER=1
+                    echo "   -> Cinnamon rebuild required"
+                else
+                    echo "   -> Cinnamon trigger ignored: mode=$CINNAMON_MODE, state=$CINNAMON_MODULE_STATE"
+                fi
             fi
 
         fi
@@ -1095,6 +1489,19 @@ detect_kernel_changes() {
     done
 
     [ "$KERNEL_TRIGGER" -eq 0 ] && echo "  Sin cambios de kernel"
+
+    apply_boot_module_policy
+
+    if [ "$KERNEL_TRIGGER" -eq 1 ] && [ "$BOOT_MODE" = disabled ]; then
+        echo "  [INFO] Boot preparation disabled by configuration"
+    elif [ "$KERNEL_TRIGGER" -eq 1 ] && [ "$BOOT_MODE" = auto ]; then
+        if [ "$INITRD_REQUIRED" -eq 1 ] && [ "$INITRD_UPDATE" -eq 0 ]; then
+            echo "  [INFO] initrd preparation not applicable in auto mode"
+        fi
+        if [ "$GRUB_REQUIRED" -eq 1 ] && [ "$GRUB_UPDATE" -eq 0 ]; then
+            echo "  [INFO] GRUB preparation not applicable in auto mode"
+        fi
+    fi
 }
 
 synchronize_sbo_repository() {
@@ -1460,16 +1867,20 @@ print_summary() {
 
         echo "  -> Se detecto actualizacion del kernel."
 
-        if [ "$INITRD_UPDATE" -eq 1 ]; then
-            if [ "$INITRD_OK" -eq 1 ]; then
+        if [ "$INITRD_REQUIRED" -eq 1 ]; then
+            if [ "$INITRD_UPDATE" -eq 0 ]; then
+                echo "  -> initrd omitido por el modo del modulo boot ($BOOT_MODE)."
+            elif [ "$INITRD_OK" -eq 1 ]; then
                 echo "  -> initrd regenerado correctamente."
             else
                 echo "  -> initrd requeria regeneracion pero fallo."
             fi
         fi
 
-        if [ "$GRUB_UPDATE" -eq 1 ]; then
-            if [ "$GRUB_OK" -eq 1 ]; then
+        if [ "$GRUB_REQUIRED" -eq 1 ]; then
+            if [ "$GRUB_UPDATE" -eq 0 ]; then
+                echo "  -> GRUB omitido por el modo del modulo boot ($BOOT_MODE)."
+            elif [ "$GRUB_OK" -eq 1 ]; then
                 echo "  -> GRUB actualizado correctamente."
             else
                 echo "  -> GRUB requeria actualizacion pero fallo."
@@ -1512,6 +1923,16 @@ print_summary() {
     else
         echo "- [OK] No se detectaron binarios con librerias rotas (o todos fueron reparados)."
     fi
+
+    echo
+
+    echo "[MODULES] Modos y estado de activacion:"
+    echo
+    echo "- Flatpak: mode=$FLATPAK_MODE, state=$FLATPAK_MODULE_STATE"
+    echo "- SBo: mode=$SBO_MODE, state=$SBO_MODULE_STATE"
+    echo "- ELF: mode=$ELF_MODE, state=$ELF_MODULE_STATE"
+    echo "- Cinnamon: mode=$CINNAMON_MODE, state=$CINNAMON_MODULE_STATE"
+    echo "- Boot: mode=$BOOT_MODE, state=$BOOT_MODULE_STATE"
 
     echo
 
@@ -1705,6 +2126,24 @@ emit_final_events() {
     emit_event operation_completed '' '' "$final_state" "Operation completed" "$workflow_result"
 }
 
+append_enabled_module_requirement_errors() {
+    if [ "$FLATPAK_MODE" = enabled ] && [ "$FLATPAK_MODULE_STATE" = unavailable ]; then
+        RESULT_ERRORS+=("Flatpak module is enabled but unavailable: $FLATPAK_MODULE_REASON")
+    fi
+    if [ "$SBO_MODE" = enabled ] && [ "$SBO_MODULE_STATE" = unavailable ]; then
+        RESULT_ERRORS+=("SBo module is enabled but unavailable: $SBO_MODULE_REASON")
+    fi
+    if [ "$ELF_MODE" = enabled ] && [ "$ELF_MODULE_STATE" = unavailable ]; then
+        RESULT_ERRORS+=("ELF module is enabled but unavailable: $ELF_MODULE_REASON")
+    fi
+    if [ "$CINNAMON_MODE" = enabled ] && [ "$CINNAMON_MODULE_STATE" = unavailable ]; then
+        RESULT_ERRORS+=("Cinnamon module is enabled but unavailable: $CINNAMON_MODULE_REASON")
+    fi
+    if [ "$BOOT_MODE" = enabled ] && [ "$BOOT_MODULE_STATE" = unavailable ]; then
+        RESULT_ERRORS+=("Boot module is enabled but unavailable: $BOOT_MODULE_REASON")
+    fi
+}
+
 prepare_json_messages() {
     RESULT_WARNINGS=()
     RESULT_ERRORS=()
@@ -1719,12 +2158,11 @@ prepare_json_messages() {
             if [ "$CHECK_STATUS" -ne 0 ] && [ "$CHECK_STATUS" -ne 100 ]; then
                 RESULT_ERRORS+=("slackpkg check-updates failed with exit code $CHECK_STATUS")
             fi
-            if [ "$PLAN_READELF_AVAILABLE" -eq 0 ]; then
-                RESULT_WARNINGS+=("readelf is unavailable; ELF dependencies were not inspected")
-            fi
+            append_enabled_module_requirement_errors
             RESULT_WARNINGS+=("Exact Slackware package changes remain unresolved until package metadata is refreshed during apply")
             ;;
         apply)
+            append_enabled_module_requirement_errors
             [ "$SLACKPKG_UPDATE_STATUS" -gt 0 ] \
                 && RESULT_ERRORS+=("slackpkg update failed with exit code $SLACKPKG_UPDATE_STATUS")
             [ "$SLACKPKG_INSTALL_NEW_STATUS" -gt 0 ] \
@@ -1747,7 +2185,7 @@ prepare_json_messages() {
             if [ "$GRUB_UPDATE" -eq 1 ] && [ "$GRUB_OK" -ne 1 ]; then
                 RESULT_ERRORS+=("GRUB configuration generation was required but did not complete successfully")
             fi
-            if [ -s "$BROKEN" ]; then
+            if [ "$ELF_MODULE_RUN" -eq 1 ] && [ -s "$BROKEN" ]; then
                 RESULT_ERRORS+=("ELF dependency verification still reports broken objects")
             fi
             if [ "${#CRITICAL_UPDATED[@]}" -gt 0 ]; then
@@ -1823,17 +2261,28 @@ print_dry_run_json_modules() {
     printf '      "check_exit_code": %d,\n' "$CHECK_STATUS"
     printf '      "updates_available": %s,\n' "$updates_available"
     printf '      "planned_commands": ['
-    json_string 'slackpkg -batch=on -default_answer=y update'; printf ', '
-    json_string 'slackpkg -batch=on -default_answer=y install-new'; printf ', '
-    json_string 'slackpkg -batch=on -default_answer=y upgrade-all'; printf ']\n'
+    json_string 'slackpkg -batch=on -default_answer=y update'
+    if [ "$SLACKWARE_INSTALL_NEW" = true ]; then
+        printf ', '; json_string 'slackpkg -batch=on -default_answer=y install-new'
+    fi
+    if [ "$SLACKWARE_UPGRADE_ALL" = true ]; then
+        printf ', '; json_string 'slackpkg -batch=on -default_answer=y upgrade-all'
+    fi
+    printf ']\n'
     printf '    },\n'
 
     printf '    "flatpak": {\n'
+    printf '      "mode": '; json_string "$FLATPAK_MODE"; printf ',\n'
+    printf '      "activation_state": '; json_string "$FLATPAK_MODULE_STATE"; printf ',\n'
+    printf '      "reason": '; json_string "$FLATPAK_MODULE_REASON"; printf ',\n'
     printf '      "available": '; json_boolean "$PLAN_FLATPAK_AVAILABLE"; printf ',\n'
-    printf '      "would_update": '; json_boolean "$PLAN_FLATPAK_AVAILABLE"; printf '\n'
+    printf '      "would_update": '; json_boolean "$FLATPAK_MODULE_RUN"; printf '\n'
     printf '    },\n'
 
     printf '    "sbo": {\n'
+    printf '      "mode": '; json_string "$SBO_MODE"; printf ',\n'
+    printf '      "activation_state": '; json_string "$SBO_MODULE_STATE"; printf ',\n'
+    printf '      "reason": '; json_string "$SBO_MODULE_REASON"; printf ',\n'
     printf '      "sbopkg_available": '; json_boolean "$PLAN_SBOPKG_AVAILABLE"; printf ',\n'
     printf '      "sqg_available": '; json_boolean "$PLAN_SQG_AVAILABLE"; printf ',\n'
     printf '      "queue_directory": '; json_string "$SBODIR"; printf ',\n'
@@ -1843,16 +2292,27 @@ print_dry_run_json_modules() {
     printf '    },\n'
 
     printf '    "elf": {\n'
-    printf '      "available": '; json_boolean "$PLAN_READELF_AVAILABLE"; printf ',\n'
+    printf '      "mode": '; json_string "$ELF_MODE"; printf ',\n'
+    printf '      "activation_state": '; json_string "$ELF_MODULE_STATE"; printf ',\n'
+    printf '      "reason": '; json_string "$ELF_MODULE_REASON"; printf ',\n'
+    printf '      "readelf_available": '; json_boolean "$PLAN_READELF_AVAILABLE"; printf ',\n'
+    printf '      "ldconfig_available": '; json_boolean "$ELF_LDCONFIG_AVAILABLE"; printf ',\n'
     printf '      "broken_objects": '; json_string_array_from_file "$BROKEN"; printf '\n'
     printf '    },\n'
 
     printf '    "cinnamon": {\n'
+    printf '      "mode": '; json_string "$CINNAMON_MODE"; printf ',\n'
+    printf '      "activation_state": '; json_string "$CINNAMON_MODULE_STATE"; printf ',\n'
+    printf '      "reason": '; json_string "$CINNAMON_MODULE_REASON"; printf ',\n'
+    printf '      "installation_detected": '; json_boolean "$CINNAMON_INSTALLED"; printf ',\n'
     printf '      "repository_available": '; json_boolean "$PLAN_CINNAMON_REPOSITORY"; printf ',\n'
     printf '      "builder_available": '; json_boolean "$PLAN_CINNAMON_BUILDER"; printf '\n'
     printf '    },\n'
 
     printf '    "boot": {\n'
+    printf '      "mode": '; json_string "$BOOT_MODE"; printf ',\n'
+    printf '      "activation_state": '; json_string "$BOOT_MODULE_STATE"; printf ',\n'
+    printf '      "reason": '; json_string "$BOOT_MODULE_REASON"; printf ',\n'
     printf '      "mkinitrd_available": '; json_boolean "$PLAN_MKINITRD_AVAILABLE"; printf ',\n'
     printf '      "mkinitrd_configured": '; json_boolean "$PLAN_MKINITRD_CONFIGURED"; printf ',\n'
     printf '      "grub_available": '; json_boolean "$PLAN_GRUB_AVAILABLE"; printf ',\n'
@@ -1864,7 +2324,9 @@ print_apply_json_modules() {
     local slackware_state=success
     local flatpak_state
     local sbo_state=success
+    local elf_state=success
     local cinnamon_state=not-required
+    local boot_state=not-required
     local initrd_state=not-required
     local grub_state=not-required
 
@@ -1874,36 +2336,72 @@ print_apply_json_modules() {
         slackware_state=failed
     fi
 
-    flatpak_state=$(json_status_state "$FLATPAK_STATUS")
-
-    if [ "$SBOPKG_SYNC_STATUS" -gt 0 ] || [ "$SQG_SYNC_STATUS" -gt 0 ] \
-        || [ "$SBO_BUILD_STATUS" -gt 0 ]; then
-        sbo_state=failed
-    elif [ "$SBOPKG_SYNC_STATUS" -lt 0 ] && [ "$SQG_SYNC_STATUS" -lt 0 ] \
-        && [ "$SBO_BUILD_STATUS" -lt 0 ]; then
-        sbo_state=skipped
+    if [ "$FLATPAK_MODULE_RUN" -eq 1 ]; then
+        flatpak_state=$(json_status_state "$FLATPAK_STATUS")
+    else
+        flatpak_state=$FLATPAK_MODULE_STATE
     fi
 
-    case "$CINNAMON_TRIGGER" in
-        1) cinnamon_state=incomplete ;;
-        2) cinnamon_state=success ;;
-        3) cinnamon_state=failed ;;
-    esac
+    if [ "$SBO_MODULE_RUN" -eq 0 ]; then
+        sbo_state=$SBO_MODULE_STATE
+    elif [ "$SBOPKG_SYNC_STATUS" -gt 0 ] || [ "$SQG_SYNC_STATUS" -gt 0 ] \
+        || [ "$SBO_BUILD_STATUS" -gt 0 ]; then
+        sbo_state=failed
+    fi
 
-    if [ "$INITRD_UPDATE" -eq 1 ]; then
-        if [ "$INITRD_OK" -eq 1 ]; then
+    if [ "$ELF_MODULE_RUN" -eq 0 ]; then
+        elf_state=$ELF_MODULE_STATE
+    elif [ -s "$BROKEN" ]; then
+        elf_state=warning
+    fi
+
+    if [ "$CINNAMON_MODULE_RUN" -eq 0 ]; then
+        cinnamon_state=$CINNAMON_MODULE_STATE
+    else
+        case "$CINNAMON_TRIGGER" in
+            0) cinnamon_state=not-required ;;
+            1) cinnamon_state=incomplete ;;
+            2) cinnamon_state=success ;;
+            3) cinnamon_state=failed ;;
+        esac
+    fi
+
+    if [ "$INITRD_REQUIRED" -eq 1 ]; then
+        if [ "$INITRD_UPDATE" -eq 0 ]; then
+            if [ "$BOOT_MODE" = disabled ]; then
+                initrd_state=disabled
+            else
+                initrd_state=unavailable
+            fi
+        elif [ "$INITRD_OK" -eq 1 ]; then
             initrd_state=success
         else
             initrd_state=failed
         fi
     fi
 
-    if [ "$GRUB_UPDATE" -eq 1 ]; then
-        if [ "$GRUB_OK" -eq 1 ]; then
+    if [ "$GRUB_REQUIRED" -eq 1 ]; then
+        if [ "$GRUB_UPDATE" -eq 0 ]; then
+            if [ "$BOOT_MODE" = disabled ]; then
+                grub_state=disabled
+            else
+                grub_state=unavailable
+            fi
+        elif [ "$GRUB_OK" -eq 1 ]; then
             grub_state=success
         else
             grub_state=failed
         fi
+    fi
+
+    if [ "$INITRD_REQUIRED" -eq 0 ] && [ "$GRUB_REQUIRED" -eq 0 ]; then
+        boot_state=not-required
+    elif [ "$initrd_state" = failed ] || [ "$grub_state" = failed ]; then
+        boot_state=failed
+    elif [ "$initrd_state" = success ] || [ "$grub_state" = success ]; then
+        boot_state=success
+    else
+        boot_state=$BOOT_MODULE_STATE
     fi
 
     printf '    "slackware": {\n'
@@ -1917,11 +2415,17 @@ print_apply_json_modules() {
     printf '    },\n'
 
     printf '    "flatpak": {\n'
+    printf '      "mode": '; json_string "$FLATPAK_MODE"; printf ',\n'
+    printf '      "activation_state": '; json_string "$FLATPAK_MODULE_STATE"; printf ',\n'
+    printf '      "reason": '; json_string "$FLATPAK_MODULE_REASON"; printf ',\n'
     printf '      "state": '; json_string "$flatpak_state"; printf ',\n'
     printf '      "exit_code": '; json_nullable_status "$FLATPAK_STATUS"; printf '\n'
     printf '    },\n'
 
     printf '    "sbo": {\n'
+    printf '      "mode": '; json_string "$SBO_MODE"; printf ',\n'
+    printf '      "activation_state": '; json_string "$SBO_MODULE_STATE"; printf ',\n'
+    printf '      "reason": '; json_string "$SBO_MODULE_REASON"; printf ',\n'
     printf '      "state": '; json_string "$sbo_state"; printf ',\n'
     printf '      "sync_exit_code": '; json_nullable_status "$SBOPKG_SYNC_STATUS"; printf ',\n'
     printf '      "queue_generation_exit_code": '; json_nullable_status "$SQG_SYNC_STATUS"; printf ',\n'
@@ -1932,15 +2436,28 @@ print_apply_json_modules() {
     printf '    },\n'
 
     printf '    "elf": {\n'
+    printf '      "mode": '; json_string "$ELF_MODE"; printf ',\n'
+    printf '      "activation_state": '; json_string "$ELF_MODULE_STATE"; printf ',\n'
+    printf '      "reason": '; json_string "$ELF_MODULE_REASON"; printf ',\n'
+    printf '      "state": '; json_string "$elf_state"; printf ',\n'
     printf '      "broken_objects": '; json_string_array_from_file "$BROKEN"; printf '\n'
     printf '    },\n'
 
     printf '    "cinnamon": {\n'
+    printf '      "mode": '; json_string "$CINNAMON_MODE"; printf ',\n'
+    printf '      "activation_state": '; json_string "$CINNAMON_MODULE_STATE"; printf ',\n'
+    printf '      "reason": '; json_string "$CINNAMON_MODULE_REASON"; printf ',\n'
     printf '      "state": '; json_string "$cinnamon_state"; printf '\n'
     printf '    },\n'
 
     printf '    "boot": {\n'
+    printf '      "mode": '; json_string "$BOOT_MODE"; printf ',\n'
+    printf '      "activation_state": '; json_string "$BOOT_MODULE_STATE"; printf ',\n'
+    printf '      "reason": '; json_string "$BOOT_MODULE_REASON"; printf ',\n'
+    printf '      "state": '; json_string "$boot_state"; printf ',\n'
+    printf '      "initrd_required": '; json_boolean "$INITRD_REQUIRED"; printf ',\n'
     printf '      "initrd_state": '; json_string "$initrd_state"; printf ',\n'
+    printf '      "grub_required": '; json_boolean "$GRUB_REQUIRED"; printf ',\n'
     printf '      "grub_state": '; json_string "$grub_state"; printf '\n'
     printf '    }\n'
 }
@@ -2025,22 +2542,30 @@ run_apply_workflow() {
     emit_module_completed_event slackware "$slackware_state" \
         "Slackware package operations completed" "$action_exit"
 
+    probe_optional_modules
+    print_optional_module_activation
+
     emit_module_started_event flatpak "Flatpak update module started"
-    emit_action_started_event flatpak update "Updating Flatpak installations"
-    update_flatpak
-    if [ "$FLATPAK_STATUS" -lt 0 ]; then
-        flatpak_state=skipped
-        action_exit=0
-    elif [ "$FLATPAK_STATUS" -gt 0 ]; then
-        flatpak_state=failed
-        action_exit=$FLATPAK_STATUS
+    if [ "$FLATPAK_MODULE_RUN" -eq 1 ]; then
+        emit_action_started_event flatpak update "Updating Flatpak installations"
+        update_flatpak
+        if [ "$FLATPAK_STATUS" -gt 0 ]; then
+            flatpak_state=failed
+            action_exit=$FLATPAK_STATUS
+        else
+            flatpak_state=success
+            action_exit=0
+        fi
+        emit_action_completed_event flatpak update "$flatpak_state" \
+            "Flatpak update action completed" "$action_exit"
     else
+        flatpak_state=$FLATPAK_MODULE_STATE
         action_exit=0
+        emit_action_completed_event flatpak update "$flatpak_state" \
+            "Flatpak update was not applicable: $FLATPAK_MODULE_REASON" 0
     fi
-    emit_action_completed_event flatpak update "$flatpak_state" \
-        "Flatpak update action completed" "$action_exit"
     emit_module_completed_event flatpak "$flatpak_state" \
-        "Flatpak update module completed" "$action_exit"
+        "Flatpak update module completed" "${action_exit:-0}"
 
     emit_module_started_event core "Package change analysis started"
     emit_action_started_event core detect_triggers "Detecting ABI and kernel changes"
@@ -2051,73 +2576,120 @@ run_apply_workflow() {
     emit_module_completed_event core success "Package change analysis completed" 0
 
     emit_module_started_event sbo "SBo update module started"
-    emit_action_started_event sbo synchronize "Synchronizing the configured SBo repository"
-    synchronize_sbo_repository
-    action_exit=0
-    if [ "$SBOPKG_SYNC_STATUS" -gt 0 ]; then
-        action_exit=$SBOPKG_SYNC_STATUS
-    elif [ "$SQG_SYNC_STATUS" -gt 0 ]; then
-        action_exit=$SQG_SYNC_STATUS
-    fi
-    if [ "$action_exit" -gt 0 ]; then
-        sbo_state=failed
-    elif [ "$SBOPKG_SYNC_STATUS" -lt 0 ] && [ "$SQG_SYNC_STATUS" -lt 0 ]; then
-        sbo_state=skipped
-    fi
-    emit_action_completed_event sbo synchronize "$sbo_state" \
-        "SBo repository synchronization completed" "$action_exit"
+    if [ "$SBO_MODULE_RUN" -eq 1 ]; then
+        emit_action_started_event sbo synchronize "Synchronizing the configured SBo repository"
+        synchronize_sbo_repository
+        action_exit=0
+        if [ "$SBOPKG_SYNC_STATUS" -gt 0 ]; then
+            action_exit=$SBOPKG_SYNC_STATUS
+        elif [ "$SQG_SYNC_STATUS" -gt 0 ]; then
+            action_exit=$SQG_SYNC_STATUS
+        fi
+        if [ "$action_exit" -gt 0 ]; then
+            sbo_state=failed
+        else
+            sbo_state=success
+        fi
+        emit_action_completed_event sbo synchronize "$sbo_state" \
+            "SBo repository synchronization completed" "$action_exit"
 
-    emit_action_started_event sbo build_queues "Building SBo target queues"
-    build_sbo_core_queue
-    add_abi_rebuild_targets
-    emit_action_completed_event sbo build_queues success "SBo target queues built" 0
+        emit_action_started_event sbo build_queues "Building SBo target queues"
+        build_sbo_core_queue
+        add_abi_rebuild_targets
+        emit_action_completed_event sbo build_queues success "SBo target queues built" 0
+    else
+        sbo_state=$SBO_MODULE_STATE
+        action_exit=0
+        SBODIR=$SBO_QUEUE_DIR_FALLBACK
+        : > "$QUEUE_CORE"
+        : > "$QUEUE_EXTRA"
+        TOTAL_CORE=0
+        TOTAL_EXTRA=0
+        emit_action_completed_event sbo synchronize "$sbo_state" \
+            "SBo repository synchronization was not applicable: $SBO_MODULE_REASON" 0
+        emit_action_completed_event sbo build_queues "$sbo_state" \
+            "SBo queue generation was not applicable: $SBO_MODULE_REASON" 0
+    fi
 
     emit_module_started_event elf "ELF dependency module started"
-    emit_action_started_event elf scan_dependencies "Scanning ELF dependencies statically"
-    detect_broken_elf_objects
-    map_broken_objects_to_sbo_packages
-    if [ -s "$BROKEN" ]; then
-        elf_state=warning
+    if [ "$ELF_MODULE_RUN" -eq 1 ]; then
+        emit_action_started_event elf scan_dependencies "Scanning ELF dependencies statically"
+        detect_broken_elf_objects
+        map_broken_objects_to_sbo_packages
+        if [ -s "$BROKEN" ]; then
+            elf_state=warning
+        else
+            elf_state=success
+        fi
+        emit_action_completed_event elf scan_dependencies "$elf_state" \
+            "ELF dependency scan completed" 0
+    else
+        elf_state=$ELF_MODULE_STATE
+        : > "$BROKEN"
+        emit_action_completed_event elf scan_dependencies "$elf_state" \
+            "ELF dependency scan was not applicable: $ELF_MODULE_REASON" 0
     fi
-    emit_action_completed_event elf scan_dependencies "$elf_state" \
-        "ELF dependency scan completed" 0
     emit_module_completed_event elf "$elf_state" "ELF dependency module completed" 0
 
-    emit_action_started_event sbo process_queue "Processing the final SBo queue"
-    build_and_apply_sbo_queue
-    if [ "$SBO_BUILD_STATUS" -gt 0 ]; then
-        sbo_state=failed
-        action_exit=$SBO_BUILD_STATUS
+    if [ "$SBO_MODULE_RUN" -eq 1 ]; then
+        emit_action_started_event sbo process_queue "Processing the final SBo queue"
+        build_and_apply_sbo_queue
+        if [ "$SBO_BUILD_STATUS" -gt 0 ]; then
+            sbo_state=failed
+            action_exit=$SBO_BUILD_STATUS
+        else
+            action_exit=0
+        fi
+        emit_action_completed_event sbo process_queue "$sbo_state" \
+            "Final SBo queue processing completed" "$action_exit"
     else
-        action_exit=0
+        emit_action_completed_event sbo process_queue "$sbo_state" \
+            "SBo queue processing was not applicable: $SBO_MODULE_REASON" 0
     fi
-    emit_action_completed_event sbo process_queue "$sbo_state" \
-        "Final SBo queue processing completed" "$action_exit"
-    emit_module_completed_event sbo "$sbo_state" "SBo update module completed" "$action_exit"
+    emit_module_completed_event sbo "$sbo_state" "SBo update module completed" "${action_exit:-0}"
 
     emit_module_started_event cinnamon "Cinnamon rebuild module started"
-    emit_action_started_event cinnamon rebuild "Evaluating and rebuilding Cinnamon when required"
-    rebuild_cinnamon
-    action_exit=0
-    case "$CINNAMON_TRIGGER" in
-        0) cinnamon_state=skipped ;;
-        2) cinnamon_state=success ;;
-        1|3)
-            cinnamon_state=failed
-            action_exit=1
-            ;;
-    esac
-    emit_action_completed_event cinnamon rebuild "$cinnamon_state" \
-        "Cinnamon rebuild action completed" "$action_exit"
+    if [ "$CINNAMON_MODULE_RUN" -eq 1 ]; then
+        emit_action_started_event cinnamon rebuild "Evaluating and rebuilding Cinnamon when required"
+        rebuild_cinnamon
+        action_exit=0
+        case "$CINNAMON_TRIGGER" in
+            0) cinnamon_state=skipped ;;
+            2) cinnamon_state=success ;;
+            1|3)
+                cinnamon_state=failed
+                action_exit=1
+                ;;
+        esac
+        emit_action_completed_event cinnamon rebuild "$cinnamon_state" \
+            "Cinnamon rebuild action completed" "$action_exit"
+    else
+        cinnamon_state=$CINNAMON_MODULE_STATE
+        action_exit=0
+        emit_action_completed_event cinnamon rebuild "$cinnamon_state" \
+            "Cinnamon rebuild was not applicable: $CINNAMON_MODULE_REASON" 0
+    fi
     emit_module_completed_event cinnamon "$cinnamon_state" \
-        "Cinnamon rebuild module completed" "$action_exit"
+        "Cinnamon rebuild module completed" "${action_exit:-0}"
 
     emit_module_started_event boot "Boot preparation module started"
+
+    if [ "$INITRD_REQUIRED" -eq 0 ] && [ "$GRUB_REQUIRED" -eq 0 ]; then
+        boot_state=skipped
+    elif [ "$BOOT_MODE" = disabled ]; then
+        boot_state=disabled
+    elif [ "$BOOT_MODULE_RUN" -eq 0 ]; then
+        boot_state=$BOOT_MODULE_STATE
+    fi
+
     emit_action_started_event boot regenerate_initrd "Regenerating initrd when required"
     regenerate_initrd
-    if [ "$INITRD_UPDATE" -eq 0 ]; then
+    if [ "$INITRD_REQUIRED" -eq 0 ]; then
         emit_action_completed_event boot regenerate_initrd skipped \
             "initrd regeneration was not required" 0
+    elif [ "$INITRD_UPDATE" -eq 0 ]; then
+        emit_action_completed_event boot regenerate_initrd "$boot_state" \
+            "initrd regeneration was not applicable: mode=$BOOT_MODE, $BOOT_MODULE_REASON" 0
     elif [ "$INITRD_OK" -eq 1 ]; then
         boot_state=success
         emit_action_completed_event boot regenerate_initrd success \
@@ -2130,11 +2702,14 @@ run_apply_workflow() {
 
     emit_action_started_event boot update_grub "Updating GRUB configuration when required"
     update_grub_configuration
-    if [ "$GRUB_UPDATE" -eq 0 ]; then
+    if [ "$GRUB_REQUIRED" -eq 0 ]; then
         emit_action_completed_event boot update_grub skipped \
             "GRUB configuration update was not required" 0
+    elif [ "$GRUB_UPDATE" -eq 0 ]; then
+        emit_action_completed_event boot update_grub "$boot_state" \
+            "GRUB configuration update was not applicable: mode=$BOOT_MODE, $BOOT_MODULE_REASON" 0
     elif [ "$GRUB_OK" -eq 1 ]; then
-        [ "$boot_state" = skipped ] && boot_state=success
+        [ "$boot_state" != failed ] && boot_state=success
         emit_action_completed_event boot update_grub success \
             "GRUB configuration update completed" 0
     else
@@ -2142,6 +2717,7 @@ run_apply_workflow() {
         emit_action_completed_event boot update_grub failed \
             "GRUB configuration update failed" 1
     fi
+
     action_exit=0
     [ "$boot_state" = failed ] && action_exit=1
     emit_module_completed_event boot "$boot_state" \

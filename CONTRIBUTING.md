@@ -67,7 +67,8 @@ Before submitting a change to the reference script:
 2. Confirm that destructive commands are not exercised outside an isolated Slackware test system.
 3. Record the relevant acceptance scenario.
 4. Preserve deterministic output and exit-code behavior.
-5. Ensure every new or modified comment is written in English.
+5. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
+6. Ensure every new or modified comment is written in English.
 
 Never run the apply workflow on a production machine merely to validate a contribution.
 

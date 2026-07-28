@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added
 
+- Added `enabled`, `disabled`, and `auto` activation modes for the optional Flatpak, SBo, ELF, Cinnamon, and boot modules.
+- Added explicit requirement and applicability probes for every optional module, with activation state and reason reporting in human-readable, JSON, and event output.
+- Added schema-1 compatibility defaults so configurations created before module modes were introduced continue to load with omitted modes interpreted as `auto`.
 - Added `data/config/slack-update.conf` as the schema-versioned system configuration for the shell reference.
 - Added a strict, non-evaluating INI-style parser that rejects unknown sections and keys, duplicates, missing values, invalid booleans, unsafe paths and tokens, and unsupported schema versions.
 - Added Slackware 15.0 and Slackware-current as explicit, mandatory compatibility targets in the roadmap and contribution policy.
@@ -23,6 +26,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Changed
 
+- Optional modules now execute only when permitted by their configured activation mode.
+- `enabled` reports missing module requirements as errors, `disabled` bypasses probing and execution, and `auto` treats unavailable or irrelevant optional software as non-fatal.
+- Cinnamon graphical ABI triggers are ignored when the Cinnamon module is disabled or not applicable.
+- Boot auto mode independently selects validated initrd and GRUB preparation paths after kernel changes; disabled mode suppresses both actions, while enabled mode retains strict failure reporting.
+- Provisional JSON results now include each optional module's configured mode, activation state, reason, and operation-specific final state.
 - Moved runtime paths, log retention, package groups, SBo and boot paths, Cinnamon repository settings, ELF scan roots, and the Slackware `install-new` and `upgrade-all` decisions out of the script and into the configuration file.
 - Kept executable command names and argument structures fixed in the reference script so configuration values cannot introduce arbitrary shell execution.
 - Added the effective configuration path to human-readable summaries and provisional final JSON results.
@@ -41,18 +49,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 - Current roadmap phase: **Phase 1 — Stabilize and validate the shell reference**.
 - Phase 0 is complete, committed as `3064cfa`, tagged as `planning-v1`, and published to GitHub.
-- The first nine Phase 1 refactoring and interface tasks are complete: runtime identifiers use `slack-update`, the script is split into named functions, argument parsing is available, `--check`, `--apply`, and `--dry-run` are implemented, `--json` emits a final structured result, `--events` streams machine-readable progress, and operational settings are loaded from a validated configuration file.
-- The script currently contains 73 named functions.
+- The first ten Phase 1 refactoring and interface tasks are complete: runtime identifiers use `slack-update`, the script is split into named functions, argument parsing is available, `--check`, `--apply`, and `--dry-run` are implemented, `--json` emits a final structured result, `--events` streams machine-readable progress, operational settings are loaded from a validated configuration file, and optional modules implement `enabled`, `disabled`, and `auto`.
+- The script currently contains 84 named functions.
 - Running without an operation still selects apply for backward compatibility with the original reference behavior.
 - `--json` and `--events` both use provisional schema version `0`; neither is a stable API yet. `--json` emits one document, while `--events` emits one JSON object per line with sequence, UTC timestamp, operation, event type, module, action, state, message, and optional exit code.
 - Machine-readable modes reserve standard output. Human-readable progress and external-command output are written to standard error and the normal log.
 - `--json` and `--events` are mutually exclusive. The current event types are `operation_started`, `module_started`, `action_started`, `action_completed`, `module_completed`, `warning`, `error`, and `operation_completed`.
 - Dry-run uses `slackpkg check-updates` as its only Slackware command and otherwise performs local state inspection. It does not refresh package metadata, so exact changed package names and package-derived ABI or kernel triggers remain conditional until apply compares its before and after snapshots.
 - Dry-run requires root in the current reference implementation because it shares the existing instance lock and system log. Its queue, package-candidate, and ELF scratch files are isolated under a temporary directory and removed at exit.
-- Configuration schema version `1` is implemented for the shell reference. Optional-module activation modes and stable exit codes have not been implemented yet.
+- Configuration schema version `1` is implemented for the shell reference. Optional-module activation modes are implemented; stable exit codes remain pending.
 - The system configuration path is `/etc/slack-update/slack-update.conf`; the source-tree fallback is `data/config/slack-update.conf`, and `SLACK_UPDATE_CONFIG` may select an absolute test fixture.
-- The next development task is to add `enabled`, `disabled`, and `auto` modes for optional modules without implementing stable exit codes in the same step.
-- Default configuration was regression-tested against the previous delivery under a deterministic mocked environment; the external command sequence remained unchanged. Human-readable output now additionally identifies the effective configuration file.
-- Configuration tests cover valid loading, source selection, unknown keys, invalid booleans, path validation, `install-new`/`upgrade-all` overrides, JSON parsing, and NDJSON event parsing.
-- JSON output was revalidated for all three operations. NDJSON events were parsed for all operations, checked for contiguous sequence numbers and required first/final event types, and tested with a failed Slackware check. The `--json`/`--events` conflict is rejected before runtime setup.
+- The next development task is to define and implement stable exit codes without beginning the safety-validation matrix in the same step.
+- Module-mode tests cover all modules disabled, all requirements available in auto mode, invalid mode values, enabled modules with missing requirements, non-fatal auto unavailability, kernel changes with boot auto and boot enabled, and schema-1 configurations without explicit mode keys.
+- Disabled modules were verified not to invoke Flatpak, SBo, ELF, Cinnamon, initrd, or GRUB commands in the deterministic mock environment.
+- JSON results were parsed for apply and dry-run activation scenarios. NDJSON events were parsed, checked for contiguous sequence numbers and required first/final event types, and verified to expose disabled module states.
+- Syntax validation passed with `bash -n`; the executable mode remains `0755`, no C source files were added, and no trailing whitespace was detected. ShellCheck was not installed in the validation environment.
 - The reference script has not yet been validated against the Phase 1 acceptance matrix on real Slackware 15.0 or Slackware-current installations.

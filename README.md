@@ -287,7 +287,8 @@ The current reference configuration uses schema version `1` and externalizes:
 - log retention;
 - Slackware `install-new` and `upgrade-all` decisions;
 - ABI, Cinnamon ABI, critical, and kernel package groups;
-- the trusted Cinnamon repository, branch, and relative builder path.
+- the trusted Cinnamon repository, branch, and relative builder path;
+- activation modes for Flatpak, SBo, ELF diagnostics, Cinnamon, and boot preparation.
 
 The parser treats the file strictly as data and never sources it as shell code.
 Unknown sections, unknown keys, duplicates, missing required values, unsupported
@@ -295,11 +296,33 @@ schema versions, unsafe values, invalid booleans, and invalid paths are rejected
 Executable command names and argument structures remain fixed in the script so a
 configuration value cannot inject an arbitrary shell command.
 
-The final module configuration model will support three activation modes:
+The shell reference now implements three activation modes for the optional
+Flatpak, SBo, ELF, Cinnamon, and boot modules:
 
-- `enabled` — always attempt to use the module and report missing requirements as an error.
-- `disabled` — never probe or run the module.
-- `auto` — use the module only when its requirements and relevant local installation are detected.
+- `enabled` — require the module and report missing requirements as an error.
+- `disabled` — do not probe or run the module.
+- `auto` — run the module only when its requirements and an applicable local installation are detected.
+
+All optional modules default to `auto`. Configuration files created before the
+mode keys were added remain valid under schema version `1`; an omitted mode is
+interpreted as `auto`.
+
+The current probes are intentionally explicit:
+
+- Flatpak requires the `flatpak` executable.
+- SBo requires both `sbopkg` and `sqg`.
+- ELF diagnostics require `readelf` and `/sbin/ldconfig`.
+- Cinnamon auto-detection accepts the Cinnamon executable, an installed
+  `cinnamon` package record, or an existing managed CSB checkout, and also
+  requires Git.
+- Boot auto-detection enables each supported path independently: a validated
+  `mkinitrd.conf` for initrd preparation and an installed GRUB directory plus
+  `grub-mkconfig` for GRUB preparation.
+
+An unavailable module in `auto` mode is skipped without becoming a global
+failure. An unavailable module in `enabled` mode is reported as an error in
+human-readable output, provisional JSON, and final NDJSON events. Stable process
+exit-code mapping remains the next roadmap task.
 
 System configuration path:
 
@@ -365,6 +388,8 @@ Configuration requirements:
 
 - [x] Reject unknown sections, keys, duplicate keys, and invalid critical values with a useful error in the shell reference.
 - [ ] Preserve backward compatibility through a configuration schema version.
+  The current schema-1 parser preserves compatibility with configurations that
+  predate module-mode keys by defaulting omitted modes to `auto`.
 - [ ] Distinguish system policy from per-user presentation preferences.
 - [x] Parse the shell-reference configuration as data without evaluating shell syntax.
 - [ ] Provide `slack-update config validate`.
@@ -531,7 +556,7 @@ The final layout may change during the architecture prototype, but separation be
 - [x] Add `--json` for structured final output.
 - [x] Add a machine-readable progress/event mode if practical.
 - [x] Move hard-coded behavior into a configuration file.
-- [ ] Add `enabled`, `disabled`, and `auto` modes for optional modules.
+- [x] Add `enabled`, `disabled`, and `auto` modes for optional modules.
 - [ ] Add stable exit codes.
 - [ ] Ensure every comment added to the script is written in English.
 
@@ -1074,7 +1099,7 @@ Slack-Update 1.0 will be ready when:
 - [x] Implement `--json` for structured final output.
 - [x] Implement provisional NDJSON progress events through `--events`.
 - [x] Move hard-coded reference behavior into a validated configuration file.
-- [ ] Add `enabled`, `disabled`, and `auto` modes for optional modules.
+- [x] Add `enabled`, `disabled`, and `auto` modes for optional modules.
 - [ ] Add stable exit codes.
 - [ ] Execute and document the Phase 1 acceptance matrix on Slackware 15.0 and Slackware-current.
 - [ ] Freeze `reference-v1`.
