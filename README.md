@@ -316,8 +316,9 @@ The current probes are intentionally explicit:
   `cinnamon` package record, or an existing managed CSB checkout, and also
   requires Git.
 - Boot auto-detection enables each supported path independently: a validated
-  `mkinitrd.conf` for initrd preparation and an installed GRUB directory plus
-  `grub-mkconfig` for GRUB preparation.
+  `mkinitrd.conf` for initrd preparation, with the configured kernel validated
+  against the post-update installed package and modules tree, and an installed
+  GRUB directory plus `grub-mkconfig` for GRUB preparation.
 
 An unavailable module in `auto` mode is skipped without becoming a global
 failure. An unavailable module in `enabled` mode is reported as an error in
@@ -592,7 +593,7 @@ The final layout may change during the architecture prototype, but separation be
 - [x] Confirm no personal queue is overwritten.
 - [x] Confirm ELF analysis never executes inspected binaries.
 - [x] Confirm architecture-specific library resolution.
-- [ ] Confirm initrd validation uses the installed kernel.
+- [x] Confirm initrd validation uses the installed kernel.
 - [ ] Confirm GRUB is not updated after an initrd failure.
 - [ ] Confirm staged GRUB configuration is validated before replacement.
 - [ ] Confirm interruption signals release locks and terminate execution.
@@ -750,6 +751,33 @@ AArch64, and opposite-endian cache records sharing the same soname. Together
 they cover the initial scan, symlinked objects, exact identity matching, parser
 and cache failures, and post-rebuild verification while proving that inspected
 objects are never executed.
+
+Initrd validation now derives its target from the exact `kernel-generic` record
+in the validated post-update package snapshot. It does not use `uname -r`,
+because the running kernel may legitimately remain older until reboot. The
+configured `KERNEL_VERSION` must match the installed package version exactly,
+and the corresponding configured modules root must contain a
+`<modules_directory>/<version>` directory before `mkinitrd -F` is allowed to
+run. Missing, unsafe, duplicate, stale, or ambiguous data fails closed.
+
+Schema-1 configuration accepts these optional keys, with backward-compatible
+defaults when older files omit them:
+
+```ini
+[boot]
+kernel_package=kernel-generic
+modules_directory=/lib/modules
+```
+
+`OUTPUT_IMAGE` is the preferred generated-image path from `mkinitrd.conf`; the
+legacy `OUTPUT` assignment remains supported, followed by
+`boot.initrd_default_output` as the fallback. Provisional JSON reports the
+configured and installed versions, the package source, modules path, output
+path, validation status, and diagnostic. The focused regression test is:
+
+```bash
+tests/reference/test-initrd-installed-kernel.sh
+```
 
 ### Real-system acceptance matrix
 
@@ -1283,7 +1311,8 @@ Slack-Update 1.0 will be ready when:
 - [x] Protect personal SBo queues from `sqg` overwrites.
 - [x] Confirm ELF analysis never executes inspected binaries.
 - [x] Confirm architecture-specific library resolution.
-- [ ] Confirm initrd validation uses the installed kernel.
+- [x] Confirm initrd validation uses the installed kernel.
+- [ ] Confirm GRUB is not updated after an initrd failure.
 - [ ] Execute and document the Phase 1 acceptance matrix on Slackware 15.0 and Slackware-current.
 - [ ] Freeze `reference-v1`.
 - [ ] Begin the C architecture only after the reference gate is complete.

@@ -182,6 +182,8 @@ initialize_configuration_state() {
     CONFIG_BOOT_MODE=auto
     CONFIG_MKINITRD_CONFIG=
     CONFIG_INITRD_DEFAULT_OUTPUT=
+    CONFIG_INITRD_KERNEL_PACKAGE=kernel-generic
+    CONFIG_KERNEL_MODULES_DIRECTORY=/lib/modules
     CONFIG_GRUB_DIRECTORY=
     CONFIG_GRUB_CONFIG=
     CONFIG_CINNAMON_MODE=auto
@@ -233,6 +235,8 @@ assign_configuration_value() {
         boot.mode) CONFIG_BOOT_MODE=$value ;;
         boot.mkinitrd_config) CONFIG_MKINITRD_CONFIG=$value ;;
         boot.initrd_default_output) CONFIG_INITRD_DEFAULT_OUTPUT=$value ;;
+        boot.kernel_package) CONFIG_INITRD_KERNEL_PACKAGE=$value ;;
+        boot.modules_directory) CONFIG_KERNEL_MODULES_DIRECTORY=$value ;;
         boot.grub_directory) CONFIG_GRUB_DIRECTORY=$value ;;
         boot.grub_config) CONFIG_GRUB_CONFIG=$value ;;
         cinnamon.mode) CONFIG_CINNAMON_MODE=$value ;;
@@ -404,6 +408,8 @@ packages.kernel_boot|$CONFIG_KERNEL_BOOT_PACKAGES
 packages.kernel_headers|$CONFIG_KERNEL_HEADERS_PACKAGES
 boot.mkinitrd_config|$CONFIG_MKINITRD_CONFIG
 boot.initrd_default_output|$CONFIG_INITRD_DEFAULT_OUTPUT
+boot.kernel_package|$CONFIG_INITRD_KERNEL_PACKAGE
+boot.modules_directory|$CONFIG_KERNEL_MODULES_DIRECTORY
 boot.grub_directory|$CONFIG_GRUB_DIRECTORY
 boot.grub_config|$CONFIG_GRUB_CONFIG
 cinnamon.repository|$CONFIG_CSB_REPOSITORY
@@ -437,7 +443,8 @@ EOF
         "$CONFIG_PACKAGE_DATABASE" "$CONFIG_SBOPKG_CONFIG" \
         "$CONFIG_SBO_QUEUE_DIR_FALLBACK" "$CONFIG_SBO_OPTIONS_FILE" \
         "$CONFIG_MKINITRD_CONFIG" \
-        "$CONFIG_INITRD_DEFAULT_OUTPUT" "$CONFIG_GRUB_DIRECTORY" \
+        "$CONFIG_INITRD_DEFAULT_OUTPUT" "$CONFIG_KERNEL_MODULES_DIRECTORY" \
+        "$CONFIG_GRUB_DIRECTORY" \
         "$CONFIG_GRUB_CONFIG" "$CONFIG_CSB_REPOSITORY"; do
         validate_absolute_path_configuration path "$required_value" || return 1
     done
@@ -481,6 +488,13 @@ EOF
     validate_package_list_configuration packages.kernel "$CONFIG_KERNEL_PACKAGES" || return 1
     validate_package_list_configuration packages.kernel_boot "$CONFIG_KERNEL_BOOT_PACKAGES" || return 1
     validate_package_list_configuration packages.kernel_headers "$CONFIG_KERNEL_HEADERS_PACKAGES" || return 1
+    validate_package_list_configuration boot.kernel_package "$CONFIG_INITRD_KERNEL_PACKAGE" || return 1
+    case "$CONFIG_INITRD_KERNEL_PACKAGE" in
+        *\ * )
+            config_error "boot.kernel_package must contain exactly one package name"
+            return 1
+            ;;
+    esac
 
     IFS=':' read -r -a ELF_SCAN_PATHS <<< "$CONFIG_ELF_SCAN_PATHS"
     IFS=$old_ifs
@@ -513,6 +527,8 @@ apply_configuration() {
     BOOT_MODE=$CONFIG_BOOT_MODE
     MKINITRD_CONFIG=$CONFIG_MKINITRD_CONFIG
     INITRD_DEFAULT_OUTPUT=$CONFIG_INITRD_DEFAULT_OUTPUT
+    INITRD_KERNEL_PACKAGE=$CONFIG_INITRD_KERNEL_PACKAGE
+    KERNEL_MODULES_DIRECTORY=$CONFIG_KERNEL_MODULES_DIRECTORY
     GRUB_DIRECTORY=$CONFIG_GRUB_DIRECTORY
     GRUB_CONFIG=$CONFIG_GRUB_CONFIG
     CINNAMON_MODE=$CONFIG_CINNAMON_MODE
@@ -1704,8 +1720,7 @@ probe_boot_module() {
     fi
 
     if command -v mkinitrd >/dev/null 2>&1 \
-        && [ -f "$MKINITRD_CONFIG" ] \
-        && grep -q '^ROOTDEV=' "$MKINITRD_CONFIG" 2>/dev/null; then
+        && [ -f "$MKINITRD_CONFIG" ]; then
         BOOT_INITRD_AVAILABLE=1
     fi
 
@@ -1850,6 +1865,13 @@ initialize_runtime_state() {
     CINNAMON_TRIGGER=0   # 0=none, 1=needed, 2=ok, 3=fail
     CINNAMON_OK=0
     INITRD_OK=0
+    INITRD_VALIDATION_STATUS=-1
+    INITRD_VALIDATION_ERROR=
+    INITRD_CONFIGURED_KERNEL_VERSION=
+    INITRD_INSTALLED_KERNEL_VERSION=
+    INITRD_INSTALLED_KERNEL_RECORD_COUNT=0
+    INITRD_MODULES_PATH=
+    INITRD_OUTPUT_PATH=
     GRUB_OK=0
     INITRD_REQUIRED=0
     GRUB_REQUIRED=0
@@ -2146,7 +2168,7 @@ inspect_dry_run_environment() {
         command -v mkinitrd >/dev/null 2>&1 && PLAN_MKINITRD_AVAILABLE=1
         command -v grub-mkconfig >/dev/null 2>&1 && PLAN_GRUB_AVAILABLE=1
 
-        if [ -f "$MKINITRD_CONFIG" ] && grep -q '^ROOTDEV=' "$MKINITRD_CONFIG" 2>/dev/null; then
+        if [ -f "$MKINITRD_CONFIG" ]; then
             PLAN_MKINITRD_CONFIGURED=1
         fi
 
@@ -2373,6 +2395,9 @@ print_dry_run_plan() {
         echo "  These actions remain conditional on kernel-generic, kernel-huge, or kernel-modules changes."
         if [ "$BOOT_INITRD_AVAILABLE" -eq 1 ]; then
             echo "  Planned initrd command: mkinitrd -F"
+            echo "  Installed kernel source: validated post-update $INITRD_KERNEL_PACKAGE package record"
+            echo "  Required modules path: $KERNEL_MODULES_DIRECTORY/<installed-version>"
+            echo "  KERNEL_VERSION must match the installed package before mkinitrd can run."
         elif [ "$BOOT_MODE" = enabled ]; then
             echo "  [ERROR] initrd requirements are missing and would fail if triggered."
         else
@@ -3468,43 +3493,265 @@ rebuild_cinnamon() {
     fi
 }
 
+
+is_safe_kernel_version() {
+    local version=$1
+
+    case "$version" in
+        ''|.|..|*/*|*[[:space:]]*|*[!A-Za-z0-9._+-]*) return 1 ;;
+        *) return 0 ;;
+    esac
+}
+
+read_mkinitrd_scalar_assignment() {
+    local config_file=$1
+    local variable_name=$2
+    local raw_line
+    local line
+    local assignment_name
+    local value
+    local quote
+    local match_count=0
+
+    MKINITRD_ASSIGNMENT_VALUE=
+    MKINITRD_ASSIGNMENT_ERROR=
+
+    if [ ! -f "$config_file" ]; then
+        MKINITRD_ASSIGNMENT_ERROR="mkinitrd configuration is not a regular file: $config_file"
+        return 2
+    fi
+    if [ ! -r "$config_file" ]; then
+        MKINITRD_ASSIGNMENT_ERROR="mkinitrd configuration is not readable: $config_file"
+        return 2
+    fi
+
+    while IFS= read -r raw_line || [ -n "$raw_line" ]; do
+        line=${raw_line%$'\r'}
+        line=$(trim_whitespace "$line")
+        case "$line" in
+            ''|'#'*) continue ;;
+        esac
+        case "$line" in
+            *=*) ;;
+            *) continue ;;
+        esac
+
+        assignment_name=${line%%=*}
+        assignment_name=$(trim_whitespace "$assignment_name")
+        case "$assignment_name" in
+            export[[:space:]]*)
+                assignment_name=${assignment_name#export}
+                assignment_name=$(trim_whitespace "$assignment_name")
+                ;;
+        esac
+        [ "$assignment_name" = "$variable_name" ] || continue
+
+        match_count=$((match_count + 1))
+        if [ "$match_count" -gt 1 ]; then
+            MKINITRD_ASSIGNMENT_ERROR="duplicate $variable_name assignment in: $config_file"
+            return 2
+        fi
+
+        value=${line#*=}
+        value=${value%%#*}
+        value=$(trim_whitespace "$value")
+        [ -n "$value" ] || {
+            MKINITRD_ASSIGNMENT_ERROR="empty $variable_name assignment in: $config_file"
+            return 2
+        }
+
+        quote=${value:0:1}
+        case "$quote" in
+            "'"|'"')
+                if [ "${value: -1}" != "$quote" ] || [ "${#value}" -lt 2 ]; then
+                    MKINITRD_ASSIGNMENT_ERROR="unterminated $variable_name assignment in: $config_file"
+                    return 2
+                fi
+                value=${value:1:${#value}-2}
+                ;;
+            *)
+                case "$value" in
+                    *"'"*|*'"'*)
+                        MKINITRD_ASSIGNMENT_ERROR="invalid quoting in $variable_name assignment: $config_file"
+                        return 2
+                        ;;
+                esac
+                ;;
+        esac
+
+        case "$value" in
+            ''|*[!A-Za-z0-9_+.,:/=@%-]*)
+                MKINITRD_ASSIGNMENT_ERROR="unsafe $variable_name assignment in: $config_file"
+                return 2
+                ;;
+        esac
+        MKINITRD_ASSIGNMENT_VALUE=$value
+    done < "$config_file"
+
+    if [ "$match_count" -eq 0 ]; then
+        MKINITRD_ASSIGNMENT_ERROR="$variable_name assignment is missing from: $config_file"
+        return 1
+    fi
+}
+
+resolve_installed_initrd_kernel_version() {
+    local snapshot=$1
+    local package_name=$2
+    local record
+    local version
+    local -A versions=()
+
+    INITRD_INSTALLED_KERNEL_VERSION=
+    INITRD_INSTALLED_KERNEL_RECORD_COUNT=0
+
+    if [ ! -f "$snapshot" ] || [ ! -r "$snapshot" ]; then
+        INITRD_VALIDATION_ERROR="installed package snapshot is unavailable: $snapshot"
+        return 1
+    fi
+
+    while IFS= read -r record || [ -n "$record" ]; do
+        parse_slackware_package_record "$record" || continue
+        [ "$SLACKWARE_PACKAGE_NAME" = "$package_name" ] || continue
+        version=$SLACKWARE_PACKAGE_VERSION
+        if ! is_safe_kernel_version "$version"; then
+            INITRD_VALIDATION_ERROR="installed kernel package has an unsafe version: $record"
+            return 1
+        fi
+        versions[$version]=1
+        INITRD_INSTALLED_KERNEL_RECORD_COUNT=$((INITRD_INSTALLED_KERNEL_RECORD_COUNT + 1))
+    done < "$snapshot"
+
+    if [ "$INITRD_INSTALLED_KERNEL_RECORD_COUNT" -eq 0 ]; then
+        INITRD_VALIDATION_ERROR="installed kernel package was not found in the post-update snapshot: $package_name"
+        return 1
+    fi
+    if [ "${#versions[@]}" -ne 1 ]; then
+        INITRD_VALIDATION_ERROR="installed kernel package has multiple versions in the post-update snapshot: $package_name"
+        return 1
+    fi
+
+    for version in "${!versions[@]}"; do
+        INITRD_INSTALLED_KERNEL_VERSION=$version
+    done
+}
+
+resolve_configured_initrd_output_path() {
+    local status
+
+    INITRD_OUTPUT_PATH=
+
+    if read_mkinitrd_scalar_assignment "$MKINITRD_CONFIG" OUTPUT_IMAGE; then
+        INITRD_OUTPUT_PATH=$MKINITRD_ASSIGNMENT_VALUE
+    else
+        status=$?
+        if [ "$status" -eq 2 ]; then
+            INITRD_VALIDATION_ERROR=$MKINITRD_ASSIGNMENT_ERROR
+            return 1
+        fi
+
+        if read_mkinitrd_scalar_assignment "$MKINITRD_CONFIG" OUTPUT; then
+            INITRD_OUTPUT_PATH=$MKINITRD_ASSIGNMENT_VALUE
+        else
+            status=$?
+            if [ "$status" -eq 2 ]; then
+                INITRD_VALIDATION_ERROR=$MKINITRD_ASSIGNMENT_ERROR
+                return 1
+            fi
+            INITRD_OUTPUT_PATH=$INITRD_DEFAULT_OUTPUT
+        fi
+    fi
+
+    case "$INITRD_OUTPUT_PATH" in
+        /*) ;;
+        *)
+            INITRD_VALIDATION_ERROR="resolved initrd output path is not absolute: $INITRD_OUTPUT_PATH"
+            return 1
+            ;;
+    esac
+}
+
+validate_initrd_kernel_configuration() {
+    INITRD_VALIDATION_STATUS=1
+    INITRD_VALIDATION_ERROR=
+    INITRD_CONFIGURED_KERNEL_VERSION=
+    INITRD_INSTALLED_KERNEL_VERSION=
+    INITRD_INSTALLED_KERNEL_RECORD_COUNT=0
+    INITRD_MODULES_PATH=
+    INITRD_OUTPUT_PATH=
+
+    if ! resolve_installed_initrd_kernel_version "$AFTER_PKGS" "$INITRD_KERNEL_PACKAGE"; then
+        return 1
+    fi
+
+    if read_mkinitrd_scalar_assignment "$MKINITRD_CONFIG" KERNEL_VERSION; then
+        INITRD_CONFIGURED_KERNEL_VERSION=$MKINITRD_ASSIGNMENT_VALUE
+    else
+        INITRD_VALIDATION_ERROR=$MKINITRD_ASSIGNMENT_ERROR
+        return 1
+    fi
+
+    if ! is_safe_kernel_version "$INITRD_CONFIGURED_KERNEL_VERSION"; then
+        INITRD_VALIDATION_ERROR="configured KERNEL_VERSION is unsafe: $INITRD_CONFIGURED_KERNEL_VERSION"
+        return 1
+    fi
+
+    if [ "$INITRD_CONFIGURED_KERNEL_VERSION" != "$INITRD_INSTALLED_KERNEL_VERSION" ]; then
+        INITRD_VALIDATION_ERROR="configured KERNEL_VERSION does not match the installed $INITRD_KERNEL_PACKAGE package: configured=$INITRD_CONFIGURED_KERNEL_VERSION installed=$INITRD_INSTALLED_KERNEL_VERSION"
+        return 1
+    fi
+
+    if ! read_mkinitrd_scalar_assignment "$MKINITRD_CONFIG" ROOTDEV; then
+        INITRD_VALIDATION_ERROR=$MKINITRD_ASSIGNMENT_ERROR
+        return 1
+    fi
+
+    INITRD_MODULES_PATH="$KERNEL_MODULES_DIRECTORY/$INITRD_INSTALLED_KERNEL_VERSION"
+    if [ ! -d "$INITRD_MODULES_PATH" ]; then
+        INITRD_VALIDATION_ERROR="installed kernel modules directory is missing: $INITRD_MODULES_PATH"
+        return 1
+    fi
+
+    resolve_configured_initrd_output_path || return 1
+
+    INITRD_VALIDATION_STATUS=0
+}
+
 regenerate_initrd() {
     # ---------------------------
     # [12] INITRD
     # ---------------------------
 
     if [ "$INITRD_UPDATE" -eq 1 ]; then
-
         echo "[12] Regenerando initrd"
 
-        if command -v mkinitrd >/dev/null 2>&1; then
-            if [ -f "$MKINITRD_CONFIG" ]; then
-                if grep -q '^ROOTDEV=' "$MKINITRD_CONFIG" 2>/dev/null; then
-                    mkinitrd -F \
-                        && {
-                            # FIX #8: Verificar que el initrd existe y no esta vacio
-                            _initrd=$(grep -E '^OUTPUT=' "$MKINITRD_CONFIG" 2>/dev/null \
-                                | cut -d= -f2- | tr -d \"\' | xargs 2>/dev/null)
-                            _initrd=${_initrd:-$INITRD_DEFAULT_OUTPUT}
-                            if [ -s "$_initrd" ]; then
-                                INITRD_OK=1
-                                echo "  [OK] initrd regenerado ($_initrd)"
-                            else
-                                echo "  [ERROR] mkinitrd termino sin errores pero $_initrd esta vacio o no existe"
-                            fi
-                        } \
-                        || echo "  [ERROR] mkinitrd -F fallo"
-                else
-                    echo "  [ERROR] $MKINITRD_CONFIG existe pero no contiene ROOTDEV -- initrd NO regenerado"
-                    echo "          Revisa $MKINITRD_CONFIG antes de continuar"
-                fi
-            else
-                echo "  [ERROR] $MKINITRD_CONFIG no existe -- initrd NO regenerado"
-            fi
-        else
+        INITRD_OK=0
+        if ! command -v mkinitrd >/dev/null 2>&1; then
+            INITRD_VALIDATION_STATUS=1
+            INITRD_VALIDATION_ERROR="mkinitrd is unavailable"
             echo "  [ERROR] mkinitrd no encontrado"
+            return 1
         fi
 
+        if ! validate_initrd_kernel_configuration; then
+            echo "  [ERROR] Validacion de initrd fallida: $INITRD_VALIDATION_ERROR"
+            return 1
+        fi
+
+        echo "  [OK] Kernel instalado validado: $INITRD_INSTALLED_KERNEL_VERSION"
+        echo "  [OK] Modulos instalados validados: $INITRD_MODULES_PATH"
+
+        if mkinitrd -F; then
+            if [ -s "$INITRD_OUTPUT_PATH" ]; then
+                INITRD_OK=1
+                echo "  [OK] initrd regenerado ($INITRD_OUTPUT_PATH)"
+                return 0
+            fi
+            echo "  [ERROR] mkinitrd termino sin errores pero $INITRD_OUTPUT_PATH esta vacio o no existe"
+        else
+            echo "  [ERROR] mkinitrd -F fallo"
+        fi
+
+        return 1
     fi
 }
 
@@ -3623,6 +3870,9 @@ print_summary() {
                 echo "  -> initrd regenerado correctamente."
             else
                 echo "  -> initrd requeria regeneracion pero fallo."
+                if [ -n "$INITRD_VALIDATION_ERROR" ]; then
+                    echo "  -> Validacion: $INITRD_VALIDATION_ERROR"
+                fi
             fi
         fi
 
@@ -3974,7 +4224,11 @@ prepare_json_messages() {
             [ "$CINNAMON_TRIGGER" -eq 3 ] \
                 && RESULT_ERRORS+=("Cinnamon required rebuilding but the rebuild failed")
             if [ "$INITRD_UPDATE" -eq 1 ] && [ "$INITRD_OK" -ne 1 ]; then
-                RESULT_ERRORS+=("initrd preparation was required but did not complete successfully")
+                if [ -n "$INITRD_VALIDATION_ERROR" ]; then
+                    RESULT_ERRORS+=("initrd preparation failed validation: $INITRD_VALIDATION_ERROR")
+                else
+                    RESULT_ERRORS+=("initrd preparation was required but did not complete successfully")
+                fi
             fi
             if [ "$GRUB_UPDATE" -eq 1 ] && [ "$GRUB_OK" -ne 1 ]; then
                 RESULT_ERRORS+=("GRUB configuration generation was required but did not complete successfully")
@@ -4175,6 +4429,10 @@ print_dry_run_json_modules() {
     printf '      "reason": '; json_string "$BOOT_MODULE_REASON"; printf ',\n'
     printf '      "mkinitrd_available": '; json_boolean "$PLAN_MKINITRD_AVAILABLE"; printf ',\n'
     printf '      "mkinitrd_configured": '; json_boolean "$PLAN_MKINITRD_CONFIGURED"; printf ',\n'
+    printf '      "kernel_version_source": '; json_string 'post-update-package-snapshot'; printf ',\n'
+    printf '      "kernel_package": '; json_string "${INITRD_KERNEL_PACKAGE:-}"; printf ',\n'
+    printf '      "modules_directory": '; json_string "${KERNEL_MODULES_DIRECTORY:-}"; printf ',\n'
+    printf '      "kernel_validation_deferred_until_apply": true,\n'
     printf '      "grub_available": '; json_boolean "$PLAN_GRUB_AVAILABLE"; printf ',\n'
     printf '      "grub_configured": '; json_boolean "$PLAN_GRUB_CONFIGURED"; printf '\n'
     printf '    }\n'
@@ -4349,6 +4607,16 @@ print_apply_json_modules() {
     printf '      "state": '; json_string "$boot_state"; printf ',\n'
     printf '      "initrd_required": '; json_boolean "$INITRD_REQUIRED"; printf ',\n'
     printf '      "initrd_state": '; json_string "$initrd_state"; printf ',\n'
+    printf '      "kernel_version_source": '; json_string 'post-update-package-snapshot'; printf ',\n'
+    printf '      "kernel_package": '; json_string "${INITRD_KERNEL_PACKAGE:-}"; printf ',\n'
+    printf '      "configured_kernel_version": '; json_string "${INITRD_CONFIGURED_KERNEL_VERSION:-}"; printf ',\n'
+    printf '      "installed_kernel_version": '; json_string "${INITRD_INSTALLED_KERNEL_VERSION:-}"; printf ',\n'
+    printf '      "installed_kernel_records": %d,\n' "${INITRD_INSTALLED_KERNEL_RECORD_COUNT:-0}"
+    printf '      "modules_directory": '; json_string "${KERNEL_MODULES_DIRECTORY:-}"; printf ',\n'
+    printf '      "installed_modules_path": '; json_string "${INITRD_MODULES_PATH:-}"; printf ',\n'
+    printf '      "initrd_output": '; json_string "${INITRD_OUTPUT_PATH:-}"; printf ',\n'
+    printf '      "initrd_validation_exit_code": '; json_nullable_status "${INITRD_VALIDATION_STATUS:--1}"; printf ',\n'
+    printf '      "initrd_validation_error": '; json_string "${INITRD_VALIDATION_ERROR:-}"; printf ',\n'
     printf '      "grub_required": '; json_boolean "$GRUB_REQUIRED"; printf ',\n'
     printf '      "grub_state": '; json_string "$grub_state"; printf '\n'
     printf '    }\n'
