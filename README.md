@@ -14,16 +14,17 @@ Slack-Update is intended to provide a desktop-oriented update experience similar
 - [x] Core concept defined: Slackware update manager with CLI, tray icon, and notifications
 - [x] Modular and configurable design established
 - [x] Reference shell script created
-- [ ] Reference shell script validated on a real Slackware-current installation
+- [ ] Reference shell script validated on real Slackware 15.0 and Slackware-current installations
 - [x] Public GitHub repository created: `slack-update`
 - [ ] Build system selected
 - [x] License selected: **GNU GPL v3 or later (`GPL-3.0-or-later`)**
+- [x] Supported Slackware targets defined: **Slackware 15.0 and Slackware-current**
 - [ ] First C milestone started
 
 ## Goals
 
 - Provide a reliable and understandable update workflow for Slackware.
-- Support Slackware-current first, without preventing later support for stable releases.
+- Support Slackware 15.0 and Slackware-current as first-class release targets.
 - Keep system updates independent from optional components such as SBo, Cinnamon, and Flatpak.
 - Allow every optional module to be enabled, disabled, or automatically detected.
 - Provide both graphical and command-line frontends over the same core logic.
@@ -33,6 +34,18 @@ Slack-Update is intended to provide a desktop-oriented update experience similar
 - Detect partial updates, broken ELF dependencies, boot preparation failures, and reboot requirements.
 - Avoid systemd-only assumptions.
 - Make update behavior testable without modifying the host system.
+
+## Supported Slackware targets
+
+Slack-Update must support both:
+
+- **Slackware 15.0**, the supported stable-release baseline;
+- **Slackware-current**, the rolling development branch.
+
+Compatibility with both targets is a release requirement, not a best-effort goal.
+Reference acceptance tests, the future C implementation, packaging, and installation
+documentation must cover both systems. A feature that is only available on one target
+must be detected explicitly and must not silently break the other target.
 
 ## Non-goals for the first release
 
@@ -256,13 +269,39 @@ Optional scheduling support without requiring systemd.
 
 ## Configuration model
 
-Modules will support three activation modes:
+The shell reference now reads its operational settings from:
+
+```text
+/etc/slack-update/slack-update.conf
+```
+
+The repository provides the installable default at
+`data/config/slack-update.conf`. When the reference script is run directly from
+the source tree and the system file is absent, it uses that repository copy. The
+`SLACK_UPDATE_CONFIG` environment variable may select an absolute alternative
+path for isolated tests; it is not yet a stable command-line interface.
+
+The current reference configuration uses schema version `1` and externalizes:
+
+- work, log, lock, package-database, SBo, ELF-scan, boot, and Cinnamon paths;
+- log retention;
+- Slackware `install-new` and `upgrade-all` decisions;
+- ABI, Cinnamon ABI, critical, and kernel package groups;
+- the trusted Cinnamon repository, branch, and relative builder path.
+
+The parser treats the file strictly as data and never sources it as shell code.
+Unknown sections, unknown keys, duplicates, missing required values, unsupported
+schema versions, unsafe values, invalid booleans, and invalid paths are rejected.
+Executable command names and argument structures remain fixed in the script so a
+configuration value cannot inject an arbitrary shell command.
+
+The final module configuration model will support three activation modes:
 
 - `enabled` — always attempt to use the module and report missing requirements as an error.
 - `disabled` — never probe or run the module.
 - `auto` — use the module only when its requirements and relevant local installation are detected.
 
-Proposed system configuration path:
+System configuration path:
 
 ```text
 /etc/slack-update/slack-update.conf
@@ -274,7 +313,7 @@ Proposed per-user desktop preferences path:
 ${XDG_CONFIG_HOME:-$HOME/.config}/slack-update/preferences.conf
 ```
 
-Example configuration:
+Proposed final configuration shape:
 
 ```ini
 [core]
@@ -324,10 +363,10 @@ notify_reboot=true
 
 Configuration requirements:
 
-- [ ] Reject unknown critical values with a useful error.
+- [x] Reject unknown sections, keys, duplicate keys, and invalid critical values with a useful error in the shell reference.
 - [ ] Preserve backward compatibility through a configuration schema version.
 - [ ] Distinguish system policy from per-user presentation preferences.
-- [ ] Never allow user-controlled configuration to inject shell syntax.
+- [x] Parse the shell-reference configuration as data without evaluating shell syntax.
 - [ ] Provide `slack-update config validate`.
 - [ ] Provide `slack-update config dump-effective`.
 
@@ -429,6 +468,7 @@ slack-update/
 │   └── tray/
 ├── data/
 │   ├── config/
+│   │   └── slack-update.conf
 │   ├── icons/
 │   ├── desktop/
 │   ├── dbus/
@@ -490,7 +530,7 @@ The final layout may change during the architecture prototype, but separation be
 - [x] Add `--dry-run` that produces a complete plan without modifying the system.
 - [x] Add `--json` for structured final output.
 - [x] Add a machine-readable progress/event mode if practical.
-- [ ] Move hard-coded behavior into a configuration file.
+- [x] Move hard-coded behavior into a configuration file.
 - [ ] Add `enabled`, `disabled`, and `auto` modes for optional modules.
 - [ ] Add stable exit codes.
 - [ ] Ensure every comment added to the script is written in English.
@@ -847,6 +887,7 @@ Tasks:
 
 ### Real-system tests
 
+- [ ] Slackware 15.0 virtual machine snapshots.
 - [ ] Slackware-current virtual machine snapshots.
 - [ ] Clean installation.
 - [ ] Installation with SBo.
@@ -1006,6 +1047,7 @@ Planned compatibility surfaces:
 
 Slack-Update 1.0 will be ready when:
 
+- [ ] Slackware 15.0 and Slackware-current are both covered by the applicable acceptance matrix.
 - [ ] Slackware updates can be checked and applied safely from the CLI.
 - [ ] Optional SBo, Cinnamon, Flatpak, ELF, and boot modules can be independently configured.
 - [ ] Missing optional software does not cause unrelated failures.
@@ -1031,7 +1073,9 @@ Slack-Update 1.0 will be ready when:
 - [x] Implement `--dry-run` as a complete non-modifying plan.
 - [x] Implement `--json` for structured final output.
 - [x] Implement provisional NDJSON progress events through `--events`.
-- [ ] Move hard-coded reference behavior into a configuration file.
-- [ ] Execute and document the Phase 1 acceptance matrix.
+- [x] Move hard-coded reference behavior into a validated configuration file.
+- [ ] Add `enabled`, `disabled`, and `auto` modes for optional modules.
+- [ ] Add stable exit codes.
+- [ ] Execute and document the Phase 1 acceptance matrix on Slackware 15.0 and Slackware-current.
 - [ ] Freeze `reference-v1`.
 - [ ] Begin the C architecture only after the reference gate is complete.

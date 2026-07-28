@@ -12,6 +12,14 @@ The roadmap in `README.md` is authoritative.
 - During Phase 1, behavioral changes must be covered by an acceptance scenario, expected output, and expected exit code.
 - Do not mix work from later roadmap phases into an earlier phase.
 
+## Compatibility policy
+
+Slackware 15.0 and Slackware-current are both mandatory targets. Changes to the
+reference implementation, future C code, packaging, or documentation must not
+assume that behavior observed only on one target is valid on the other. Record
+target-specific requirements and provide detection or a safe fallback where the
+two systems differ.
+
 ## Language policy
 
 Use English for:

@@ -1,13 +1,13 @@
 #!/bin/bash
 #
-# slack-update-reference.sh — Actualizacion desatendida de Slackware-current + SBo + Flatpak + Cinnamon
+# slack-update-reference.sh — Unattended Slackware 15.0/current + SBo + Flatpak + Cinnamon update reference
 #
-# Instalacion:
-#   cp slack-update-reference.sh /usr/local/sbin/slack-update
-#   chmod 700 /usr/local/sbin/slack-update
+# Installation:
+#   install -Dm755 slack-update-reference.sh /usr/local/sbin/slack-update
+#   install -Dm644 data/config/slack-update.conf /etc/slack-update/slack-update.conf
 #
-# Uso manual:   slack-update
-# Uso en cron:  0 3 * * 0 /usr/local/sbin/slack-update
+# Manual use:   slack-update
+# Cron example: 0 3 * * 0 /usr/local/sbin/slack-update
 
 set -uo pipefail
 IFS=$'\n\t'
@@ -32,6 +32,9 @@ Options:
 Running without an operation preserves the current legacy apply workflow.
 With --json or --events, human-readable progress is written to standard error
 and the log. The two machine-readable output modes are mutually exclusive.
+Configuration is loaded from /etc/slack-update/slack-update.conf. When the
+script runs from the source tree, data/config/slack-update.conf is used as a
+development fallback. SLACK_UPDATE_CONFIG may select another file for tests.
 EOF
 }
 
@@ -90,6 +93,411 @@ parse_arguments() {
     done
 }
 
+# Configuration functions
+
+config_error() {
+    echo "Error: $*" >&2
+    return 1
+}
+
+trim_whitespace() {
+    local value=$1
+
+    value=${value#"${value%%[![:space:]]*}"}
+    value=${value%"${value##*[![:space:]]}"}
+    printf '%s' "$value"
+}
+
+resolve_configuration_file() {
+    local script_dir
+    local source_config
+
+    if [ -n "${SLACK_UPDATE_CONFIG:-}" ]; then
+        CONFIG_FILE=$SLACK_UPDATE_CONFIG
+        case "$CONFIG_FILE" in
+            /*) ;;
+            *)
+                config_error "SLACK_UPDATE_CONFIG must be an absolute path"
+                return 1
+                ;;
+        esac
+    else
+        CONFIG_FILE=/etc/slack-update/slack-update.conf
+
+        if [ ! -f "$CONFIG_FILE" ]; then
+            script_dir=$(CDPATH= cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P) || return 1
+            source_config="$script_dir/../../data/config/slack-update.conf"
+            if [ -f "$source_config" ]; then
+                CONFIG_FILE=$(CDPATH= cd -- "$(dirname -- "$source_config")" && pwd -P)/${source_config##*/}
+            fi
+        fi
+    fi
+
+    [ -f "$CONFIG_FILE" ] || {
+        config_error "configuration file not found: $CONFIG_FILE"
+        return 1
+    }
+    [ -r "$CONFIG_FILE" ] || {
+        config_error "configuration file is not readable: $CONFIG_FILE"
+        return 1
+    }
+}
+
+initialize_configuration_state() {
+    CONFIG_SCHEMA_VERSION=
+    CONFIG_WORK_DIR=
+    CONFIG_LOG_DIR=
+    CONFIG_LOCK_FILE=
+    CONFIG_LOG_RETENTION_DAYS=
+    CONFIG_PACKAGE_DATABASE=
+    CONFIG_SLACKWARE_INSTALL_NEW=
+    CONFIG_SLACKWARE_UPGRADE_ALL=
+    CONFIG_SBOPKG_CONFIG=
+    CONFIG_SBO_QUEUE_DIR_FALLBACK=
+    CONFIG_SBO_PACKAGE_TAG=
+    CONFIG_ELF_SCAN_PATHS=
+    CONFIG_ABI_PACKAGES=
+    CONFIG_CINNAMON_ABI_PACKAGES=
+    CONFIG_CRITICAL_PACKAGES=
+    CONFIG_KERNEL_PACKAGES=
+    CONFIG_KERNEL_BOOT_PACKAGES=
+    CONFIG_KERNEL_HEADERS_PACKAGES=
+    CONFIG_MKINITRD_CONFIG=
+    CONFIG_INITRD_DEFAULT_OUTPUT=
+    CONFIG_GRUB_DIRECTORY=
+    CONFIG_GRUB_CONFIG=
+    CONFIG_CSB_REPOSITORY=
+    CONFIG_CSB_REMOTE=
+    CONFIG_CSB_BRANCH=
+    CONFIG_CSB_BUILDER=
+    SEEN_CONFIG_KEYS='|'
+}
+
+assign_configuration_value() {
+    local section=$1
+    local key=$2
+    local value=$3
+    local line_number=$4
+    local full_key="$section.$key"
+
+    case "$SEEN_CONFIG_KEYS" in
+        *"|$full_key|"*)
+            config_error "$CONFIG_FILE:$line_number: duplicate key: $full_key"
+            return 1
+            ;;
+    esac
+    SEEN_CONFIG_KEYS="${SEEN_CONFIG_KEYS}${full_key}|"
+
+    case "$full_key" in
+        core.schema_version) CONFIG_SCHEMA_VERSION=$value ;;
+        core.work_dir) CONFIG_WORK_DIR=$value ;;
+        core.log_dir) CONFIG_LOG_DIR=$value ;;
+        core.lock_file) CONFIG_LOCK_FILE=$value ;;
+        core.log_retention_days) CONFIG_LOG_RETENTION_DAYS=$value ;;
+        core.package_database) CONFIG_PACKAGE_DATABASE=$value ;;
+        slackware.install_new) CONFIG_SLACKWARE_INSTALL_NEW=$value ;;
+        slackware.upgrade_all) CONFIG_SLACKWARE_UPGRADE_ALL=$value ;;
+        sbo.sbopkg_config) CONFIG_SBOPKG_CONFIG=$value ;;
+        sbo.queue_dir_fallback) CONFIG_SBO_QUEUE_DIR_FALLBACK=$value ;;
+        sbo.package_tag) CONFIG_SBO_PACKAGE_TAG=$value ;;
+        elf.scan_paths) CONFIG_ELF_SCAN_PATHS=$value ;;
+        packages.abi) CONFIG_ABI_PACKAGES=$value ;;
+        packages.cinnamon_abi) CONFIG_CINNAMON_ABI_PACKAGES=$value ;;
+        packages.critical) CONFIG_CRITICAL_PACKAGES=$value ;;
+        packages.kernel) CONFIG_KERNEL_PACKAGES=$value ;;
+        packages.kernel_boot) CONFIG_KERNEL_BOOT_PACKAGES=$value ;;
+        packages.kernel_headers) CONFIG_KERNEL_HEADERS_PACKAGES=$value ;;
+        boot.mkinitrd_config) CONFIG_MKINITRD_CONFIG=$value ;;
+        boot.initrd_default_output) CONFIG_INITRD_DEFAULT_OUTPUT=$value ;;
+        boot.grub_directory) CONFIG_GRUB_DIRECTORY=$value ;;
+        boot.grub_config) CONFIG_GRUB_CONFIG=$value ;;
+        cinnamon.repository) CONFIG_CSB_REPOSITORY=$value ;;
+        cinnamon.remote) CONFIG_CSB_REMOTE=$value ;;
+        cinnamon.branch) CONFIG_CSB_BRANCH=$value ;;
+        cinnamon.builder) CONFIG_CSB_BUILDER=$value ;;
+        *)
+            config_error "$CONFIG_FILE:$line_number: unknown configuration key: $full_key"
+            return 1
+            ;;
+    esac
+}
+
+parse_configuration_file() {
+    local raw_line
+    local line
+    local section=
+    local key
+    local value
+    local line_number=0
+
+    while IFS= read -r raw_line || [ -n "$raw_line" ]; do
+        line_number=$((line_number + 1))
+        line=${raw_line%$'\r'}
+        line=$(trim_whitespace "$line")
+
+        case "$line" in
+            ''|'#'*|';'*)
+                continue
+                ;;
+            '['*']')
+                section=${line#'['}
+                section=${section%']'}
+                section=$(trim_whitespace "$section")
+                case "$section" in
+                    core|slackware|sbo|elf|packages|boot|cinnamon) ;;
+                    *)
+                        config_error "$CONFIG_FILE:$line_number: unknown section: $section"
+                        return 1
+                        ;;
+                esac
+                ;;
+            *=*)
+                [ -n "$section" ] || {
+                    config_error "$CONFIG_FILE:$line_number: key outside a section"
+                    return 1
+                }
+                key=${line%%=*}
+                value=${line#*=}
+                key=$(trim_whitespace "$key")
+                value=$(trim_whitespace "$value")
+                case "$key" in
+                    ''|*[!a-z0-9_]* )
+                        config_error "$CONFIG_FILE:$line_number: invalid key: $key"
+                        return 1
+                        ;;
+                esac
+                assign_configuration_value "$section" "$key" "$value" "$line_number" || return 1
+                ;;
+            *)
+                config_error "$CONFIG_FILE:$line_number: invalid configuration line"
+                return 1
+                ;;
+        esac
+    done < "$CONFIG_FILE"
+}
+
+require_configuration_value() {
+    local key=$1
+    local value=$2
+
+    [ -n "$value" ] || {
+        config_error "missing required configuration key: $key"
+        return 1
+    }
+}
+
+validate_boolean_configuration() {
+    local key=$1
+    local value=$2
+
+    case "$value" in
+        true|false) ;;
+        *)
+            config_error "$key must be true or false"
+            return 1
+            ;;
+    esac
+}
+
+validate_absolute_path_configuration() {
+    local key=$1
+    local value=$2
+
+    case "$value" in
+        /*) ;;
+        *)
+            config_error "$key must be an absolute path"
+            return 1
+            ;;
+    esac
+}
+
+validate_package_list_configuration() {
+    local key=$1
+    local value=$2
+    local token
+    local old_ifs=$IFS
+    local tokens=()
+
+    IFS=' ' read -r -a tokens <<< "$value"
+    IFS=$old_ifs
+    [ "${#tokens[@]}" -gt 0 ] || {
+        config_error "$key must contain at least one package name"
+        return 1
+    }
+
+    for token in "${tokens[@]}"; do
+        case "$token" in
+            ''|*[!A-Za-z0-9+_.-]* )
+                config_error "$key contains an invalid package name: $token"
+                return 1
+                ;;
+        esac
+    done
+}
+
+validate_configuration() {
+    local required_key
+    local required_value
+    local scan_path
+    local old_ifs=$IFS
+
+    while IFS='|' read -r required_key required_value; do
+        require_configuration_value "$required_key" "$required_value" || return 1
+    done <<EOF
+core.schema_version|$CONFIG_SCHEMA_VERSION
+core.work_dir|$CONFIG_WORK_DIR
+core.log_dir|$CONFIG_LOG_DIR
+core.lock_file|$CONFIG_LOCK_FILE
+core.log_retention_days|$CONFIG_LOG_RETENTION_DAYS
+core.package_database|$CONFIG_PACKAGE_DATABASE
+slackware.install_new|$CONFIG_SLACKWARE_INSTALL_NEW
+slackware.upgrade_all|$CONFIG_SLACKWARE_UPGRADE_ALL
+sbo.sbopkg_config|$CONFIG_SBOPKG_CONFIG
+sbo.queue_dir_fallback|$CONFIG_SBO_QUEUE_DIR_FALLBACK
+sbo.package_tag|$CONFIG_SBO_PACKAGE_TAG
+elf.scan_paths|$CONFIG_ELF_SCAN_PATHS
+packages.abi|$CONFIG_ABI_PACKAGES
+packages.cinnamon_abi|$CONFIG_CINNAMON_ABI_PACKAGES
+packages.critical|$CONFIG_CRITICAL_PACKAGES
+packages.kernel|$CONFIG_KERNEL_PACKAGES
+packages.kernel_boot|$CONFIG_KERNEL_BOOT_PACKAGES
+packages.kernel_headers|$CONFIG_KERNEL_HEADERS_PACKAGES
+boot.mkinitrd_config|$CONFIG_MKINITRD_CONFIG
+boot.initrd_default_output|$CONFIG_INITRD_DEFAULT_OUTPUT
+boot.grub_directory|$CONFIG_GRUB_DIRECTORY
+boot.grub_config|$CONFIG_GRUB_CONFIG
+cinnamon.repository|$CONFIG_CSB_REPOSITORY
+cinnamon.remote|$CONFIG_CSB_REMOTE
+cinnamon.branch|$CONFIG_CSB_BRANCH
+cinnamon.builder|$CONFIG_CSB_BUILDER
+EOF
+
+    [ "$CONFIG_SCHEMA_VERSION" = 1 ] || {
+        config_error "unsupported configuration schema version: $CONFIG_SCHEMA_VERSION"
+        return 1
+    }
+
+    case "$CONFIG_LOG_RETENTION_DAYS" in
+        ''|*[!0-9]*)
+            config_error "core.log_retention_days must be a non-negative integer"
+            return 1
+            ;;
+    esac
+
+    validate_boolean_configuration slackware.install_new "$CONFIG_SLACKWARE_INSTALL_NEW" || return 1
+    validate_boolean_configuration slackware.upgrade_all "$CONFIG_SLACKWARE_UPGRADE_ALL" || return 1
+
+    for required_value in \
+        "$CONFIG_WORK_DIR" "$CONFIG_LOG_DIR" "$CONFIG_LOCK_FILE" \
+        "$CONFIG_PACKAGE_DATABASE" "$CONFIG_SBOPKG_CONFIG" \
+        "$CONFIG_SBO_QUEUE_DIR_FALLBACK" "$CONFIG_MKINITRD_CONFIG" \
+        "$CONFIG_INITRD_DEFAULT_OUTPUT" "$CONFIG_GRUB_DIRECTORY" \
+        "$CONFIG_GRUB_CONFIG" "$CONFIG_CSB_REPOSITORY"; do
+        validate_absolute_path_configuration path "$required_value" || return 1
+    done
+
+    case "$CONFIG_SBO_PACKAGE_TAG" in
+        *[!A-Za-z0-9_+.-]* )
+            config_error "sbo.package_tag contains unsupported characters"
+            return 1
+            ;;
+    esac
+
+    case "$CONFIG_CSB_BRANCH" in
+        -*|*[^A-Za-z0-9._/-]* )
+            config_error "cinnamon.branch contains unsupported characters"
+            return 1
+            ;;
+    esac
+
+    case "$CONFIG_CSB_BUILDER" in
+        ''|/*|..|../*|*/../*|*/..|*[!A-Za-z0-9._/-]* )
+            config_error "cinnamon.builder must be a safe relative path"
+            return 1
+            ;;
+    esac
+
+    case "$CONFIG_CSB_REMOTE" in
+        *[[:space:]]*|-* )
+            config_error "cinnamon.remote contains unsupported characters"
+            return 1
+            ;;
+        https://*) ;;
+        *)
+            config_error "cinnamon.remote must use an explicit https:// URL"
+            return 1
+            ;;
+    esac
+
+    validate_package_list_configuration packages.abi "$CONFIG_ABI_PACKAGES" || return 1
+    validate_package_list_configuration packages.cinnamon_abi "$CONFIG_CINNAMON_ABI_PACKAGES" || return 1
+    validate_package_list_configuration packages.critical "$CONFIG_CRITICAL_PACKAGES" || return 1
+    validate_package_list_configuration packages.kernel "$CONFIG_KERNEL_PACKAGES" || return 1
+    validate_package_list_configuration packages.kernel_boot "$CONFIG_KERNEL_BOOT_PACKAGES" || return 1
+    validate_package_list_configuration packages.kernel_headers "$CONFIG_KERNEL_HEADERS_PACKAGES" || return 1
+
+    IFS=':' read -r -a ELF_SCAN_PATHS <<< "$CONFIG_ELF_SCAN_PATHS"
+    IFS=$old_ifs
+    [ "${#ELF_SCAN_PATHS[@]}" -gt 0 ] || {
+        config_error "elf.scan_paths must contain at least one path"
+        return 1
+    }
+    for scan_path in "${ELF_SCAN_PATHS[@]}"; do
+        validate_absolute_path_configuration elf.scan_paths "$scan_path" || return 1
+    done
+}
+
+apply_configuration() {
+    local old_ifs=$IFS
+
+    WORKDIR_CONFIG=$CONFIG_WORK_DIR
+    LOGDIR_CONFIG=$CONFIG_LOG_DIR
+    LOCKFILE=$CONFIG_LOCK_FILE
+    LOG_RETENTION_DAYS=$CONFIG_LOG_RETENTION_DAYS
+    PACKAGE_DATABASE=$CONFIG_PACKAGE_DATABASE
+    SLACKWARE_INSTALL_NEW=$CONFIG_SLACKWARE_INSTALL_NEW
+    SLACKWARE_UPGRADE_ALL=$CONFIG_SLACKWARE_UPGRADE_ALL
+    SBOPKG_CONFIG=$CONFIG_SBOPKG_CONFIG
+    SBO_QUEUE_DIR_FALLBACK=$CONFIG_SBO_QUEUE_DIR_FALLBACK
+    SBO_PACKAGE_TAG=$CONFIG_SBO_PACKAGE_TAG
+    MKINITRD_CONFIG=$CONFIG_MKINITRD_CONFIG
+    INITRD_DEFAULT_OUTPUT=$CONFIG_INITRD_DEFAULT_OUTPUT
+    GRUB_DIRECTORY=$CONFIG_GRUB_DIRECTORY
+    GRUB_CONFIG=$CONFIG_GRUB_CONFIG
+    CSB_DIR_CONFIG=$CONFIG_CSB_REPOSITORY
+    CSB_REMOTE=$CONFIG_CSB_REMOTE
+    CSB_BRANCH=$CONFIG_CSB_BRANCH
+    CSB_BUILDER=$CONFIG_CSB_BUILDER
+
+    IFS=' ' read -r -a ABI_PACKAGES <<< "$CONFIG_ABI_PACKAGES"
+    IFS=' ' read -r -a CINNAMON_ABI <<< "$CONFIG_CINNAMON_ABI_PACKAGES"
+    IFS=' ' read -r -a CRITICAL_PACKAGES <<< "$CONFIG_CRITICAL_PACKAGES"
+    IFS=' ' read -r -a KERNEL_PACKAGES <<< "$CONFIG_KERNEL_PACKAGES"
+    IFS=' ' read -r -a KERNEL_BOOT_PACKAGES <<< "$CONFIG_KERNEL_BOOT_PACKAGES"
+    IFS=' ' read -r -a KERNEL_HEADERS_PACKAGES <<< "$CONFIG_KERNEL_HEADERS_PACKAGES"
+    IFS=$old_ifs
+}
+
+load_configuration() {
+    resolve_configuration_file || return 1
+    initialize_configuration_state
+    parse_configuration_file || return 1
+    validate_configuration || return 1
+    apply_configuration
+}
+
+array_contains() {
+    local expected=$1
+    shift
+    local item
+
+    for item in "$@"; do
+        [ "$item" = "$expected" ] && return 0
+    done
+    return 1
+}
+
 # Runtime setup functions
 
 require_root() {
@@ -97,8 +505,6 @@ require_root() {
 }
 
 acquire_instance_lock() {
-    LOCKFILE=/var/run/slack-update.lock
-
     exec 9>"$LOCKFILE"
 
     # Asegurar lock estable (evita carreras con rm externo)
@@ -135,8 +541,8 @@ initialize_runtime_state() {
 }
 
 initialize_runtime() {
-    WORKDIR=/var/lib/slack-update
-    LOGDIR=/var/log/slack-update
+    WORKDIR=$WORKDIR_CONFIG
+    LOGDIR=$LOGDIR_CONFIG
 
     mkdir -p "$WORKDIR" "$LOGDIR"
 
@@ -157,11 +563,11 @@ initialize_runtime() {
     BROKEN_ERRORS=$(mktemp)
 
     initialize_runtime_state
-    CSB_DIR="$WORKDIR/csb"
+    CSB_DIR=$CSB_DIR_CONFIG
 }
 
 initialize_dry_run_runtime() {
-    LOGDIR=/var/log/slack-update
+    LOGDIR=$LOGDIR_CONFIG
     mkdir -p "$LOGDIR"
 
     DATE=$(date +%F-%H%M%S)
@@ -183,7 +589,7 @@ initialize_dry_run_runtime() {
 
     initialize_runtime_state
     RUNTIME_TMPDIR="$WORKDIR"
-    CSB_DIR=/var/lib/slack-update/csb
+    CSB_DIR=$CSB_DIR_CONFIG
 
     : > "$BROKEN"
     : > "$QUEUE_CORE"
@@ -206,7 +612,7 @@ rotate_logs() {
     # Rotacion de logs — conservar solo los ultimos 30 dias.
     # FIX #10: La rotacion se ejecuta ANTES de abrir el log de esta ejecucion,
     # por lo que nunca puede borrar el fichero run-$DATE.log actual.
-    find "$LOGDIR" -name 'run-*.log' -mtime +30 -delete 2>/dev/null || true
+    find "$LOGDIR" -name 'run-*.log' -mtime +"$LOG_RETENTION_DAYS" -delete 2>/dev/null || true
 }
 
 configure_logging() {
@@ -274,6 +680,7 @@ print_check_summary() {
 
     echo
     echo "[INFO] No packages or optional components were modified."
+    echo "[CONFIG] Configuration: $CONFIG_FILE"
     echo "[LOG] Full log: $LOG"
     echo "[END] Finished: $(date)"
 }
@@ -322,24 +729,24 @@ inspect_dry_run_environment() {
     command -v mkinitrd >/dev/null 2>&1 && PLAN_MKINITRD_AVAILABLE=1
     command -v grub-mkconfig >/dev/null 2>&1 && PLAN_GRUB_AVAILABLE=1
 
-    if [ -f /etc/mkinitrd.conf ] && grep -q '^ROOTDEV=' /etc/mkinitrd.conf 2>/dev/null; then
+    if [ -f "$MKINITRD_CONFIG" ] && grep -q '^ROOTDEV=' "$MKINITRD_CONFIG" 2>/dev/null; then
         PLAN_MKINITRD_CONFIGURED=1
     fi
 
-    [ -d /boot/grub ] && PLAN_GRUB_CONFIGURED=1
+    [ -d "$GRUB_DIRECTORY" ] && PLAN_GRUB_CONFIGURED=1
     [ -d "$CSB_DIR/.git" ] && PLAN_CINNAMON_REPOSITORY=1
-    [ -x "$CSB_DIR/build-cinnamon.sh" ] && PLAN_CINNAMON_BUILDER=1
+    [ -x "$CSB_DIR/$CSB_BUILDER" ] && PLAN_CINNAMON_BUILDER=1
 }
 
 inspect_current_sbo_queues() {
     echo "[PLAN] Inspecting current SBo queues"
 
-    SBODIR=$(grep -E '^QUEUEDIR=' /etc/sbopkg/sbopkg.conf 2>/dev/null \
+    SBODIR=$(grep -E '^QUEUEDIR=' "$SBOPKG_CONFIG" 2>/dev/null \
         | head -1 | cut -d= -f2- | tr -d "\"'" \
         | sed 's/^[[:space:]]*//; s/[[:space:]]*$//' || true)
 
     if [ -z "$SBODIR" ]; then
-        SBODIR=/var/lib/sbopkg/queues
+        SBODIR=$SBO_QUEUE_DIR_FALLBACK
     fi
 
     if [ -d "$SBODIR" ]; then
@@ -354,7 +761,7 @@ inspect_current_sbo_queues() {
 }
 
 collect_installed_sbo_candidates() {
-    find /var/log/packages -maxdepth 1 -name '*_SBo' -printf '%f\n' 2>/dev/null \
+    find "$PACKAGE_DATABASE" -maxdepth 1 -name "*${SBO_PACKAGE_TAG}" -printf '%f\n' 2>/dev/null \
         | rev | cut -d- -f4- | rev | sort -u > "$ABI_CANDIDATES" || true
 
     PLAN_ABI_SBO_COUNT=$(wc -l < "$ABI_CANDIDATES")
@@ -410,8 +817,16 @@ print_dry_run_plan() {
     esac
     echo "  Planned commands:"
     echo "      slackpkg -batch=on -default_answer=y update"
-    echo "      slackpkg -batch=on -default_answer=y install-new"
-    echo "      slackpkg -batch=on -default_answer=y upgrade-all"
+    if [ "$SLACKWARE_INSTALL_NEW" = true ]; then
+        echo "      slackpkg -batch=on -default_answer=y install-new"
+    else
+        echo "      (install-new disabled by configuration)"
+    fi
+    if [ "$SLACKWARE_UPGRADE_ALL" = true ]; then
+        echo "      slackpkg -batch=on -default_answer=y upgrade-all"
+    else
+        echo "      (upgrade-all disabled by configuration)"
+    fi
     echo "  Exact changed packages and all package-derived triggers remain conditional"
     echo "  until the package metadata is refreshed and the apply snapshots are compared."
     echo
@@ -464,12 +879,12 @@ print_dry_run_plan() {
     echo "  This phase remains conditional on a graphical ABI trigger."
     if [ "$PLAN_CINNAMON_REPOSITORY" -eq 1 ]; then
         echo "  Existing CSB repository: $CSB_DIR"
-        echo "  Planned repository action: git fetch followed by reset to origin/master"
+        echo "  Planned repository action: git fetch followed by reset to origin/$CSB_BRANCH"
     else
         echo "  No existing CSB checkout was found; apply would attempt to clone it when triggered."
     fi
     if [ "$PLAN_CINNAMON_BUILDER" -eq 1 ]; then
-        echo "  Cinnamon build command: $CSB_DIR/build-cinnamon.sh"
+        echo "  Cinnamon build command: $CSB_DIR/$CSB_BUILDER"
     else
         echo "  The Cinnamon build script is not currently executable or present."
     fi
@@ -482,17 +897,18 @@ print_dry_run_plan() {
     elif [ "$PLAN_MKINITRD_AVAILABLE" -eq 0 ]; then
         echo "  mkinitrd is unavailable; the initrd phase would fail if triggered."
     else
-        echo "  /etc/mkinitrd.conf is missing or lacks ROOTDEV; the initrd phase would fail if triggered."
+        echo "  $MKINITRD_CONFIG is missing or lacks ROOTDEV; the initrd phase would fail if triggered."
     fi
     if [ "$PLAN_GRUB_AVAILABLE" -eq 1 ] && [ "$PLAN_GRUB_CONFIGURED" -eq 1 ]; then
-        echo "  Planned GRUB command: grub-mkconfig -o /boot/grub/grub.cfg"
+        echo "  Planned GRUB command: grub-mkconfig -o $GRUB_CONFIG"
     else
-        echo "  GRUB is unavailable or /boot/grub is missing; the GRUB phase would fail if triggered."
+        echo "  GRUB is unavailable or $GRUB_DIRECTORY is missing; the GRUB phase would fail if triggered."
     fi
     echo
 
     echo "[DRY-RUN] No update, synchronization, build, installation, initrd, or bootloader"
     echo "          command was executed. Only state inspection and normal logging occurred."
+    echo "[CONFIG] Configuration: $CONFIG_FILE"
     echo "[LOG] Full log: $LOG"
     echo "[END] Finished: $(date)"
 }
@@ -556,7 +972,7 @@ capture_package_snapshot_before() {
 
     rm -f "$BEFORE_PKGS" "$AFTER_PKGS"
 
-    find /var/log/packages -maxdepth 1 -type f -printf '%f\n' \
+    find "$PACKAGE_DATABASE" -maxdepth 1 -type f -printf '%f\n' \
         | sort > "$BEFORE_PKGS" || true
 }
 
@@ -570,11 +986,19 @@ update_slackware_system() {
     SLACKPKG_UPDATE_STATUS=0
     slackpkg -batch=on -default_answer=y update || SLACKPKG_UPDATE_STATUS=$?
 
-    SLACKPKG_INSTALL_NEW_STATUS=0
-    slackpkg -batch=on -default_answer=y install-new || SLACKPKG_INSTALL_NEW_STATUS=$?
+    if [ "$SLACKWARE_INSTALL_NEW" = true ]; then
+        SLACKPKG_INSTALL_NEW_STATUS=0
+        slackpkg -batch=on -default_answer=y install-new || SLACKPKG_INSTALL_NEW_STATUS=$?
+    else
+        echo "  install-new disabled by configuration"
+    fi
 
-    SLACKPKG_UPGRADE_ALL_STATUS=0
-    slackpkg -batch=on -default_answer=y upgrade-all || SLACKPKG_UPGRADE_ALL_STATUS=$?
+    if [ "$SLACKWARE_UPGRADE_ALL" = true ]; then
+        SLACKPKG_UPGRADE_ALL_STATUS=0
+        slackpkg -batch=on -default_answer=y upgrade-all || SLACKPKG_UPGRADE_ALL_STATUS=$?
+    else
+        echo "  upgrade-all disabled by configuration"
+    fi
 }
 
 capture_package_snapshot_after() {
@@ -582,7 +1006,7 @@ capture_package_snapshot_after() {
     # SNAPSHOT AFTER
     # ---------------------------
 
-    find /var/log/packages -maxdepth 1 -type f -printf '%f\n' \
+    find "$PACKAGE_DATABASE" -maxdepth 1 -type f -printf '%f\n' \
         | sort > "$AFTER_PKGS" || true
 }
 
@@ -608,18 +1032,6 @@ detect_abi_changes() {
 
     echo "[3] Detectando cambios ABI"
 
-    ABI_PACKAGES=(
-        glibc gcc glib2 dbus libffi zlib zstd lz4
-        mesa gtk+3 gtk4 cairo cairomm1 pango harfbuzz libdrm libinput gtkmm3 openexr
-        ffmpeg gstreamer gst-plugins-base pipewire openssl openssl-solibs gnutls
-        curl libpng libjpeg-turbo libtiff alsa-lib libvorbis libopus flac nss nspr
-    )
-
-    CINNAMON_ABI=(
-        mesa gtk+3 gtk4 cairo pango harfbuzz libdrm libinput ffmpeg openexr gtkmm3 cairomm1
-        libX11 libxcb libXext libXrender atk
-    )
-
     CRITICAL_UPDATED=()
 
     for p in "${ABI_PACKAGES[@]}"; do
@@ -632,20 +1044,15 @@ detect_abi_changes() {
             echo "  ABI change: $p"
             ABI_TRIGGER=1
 
-            # Paquetes criticos que requieren reinicio para ser efectivos
-            case "$p" in
-                glibc|dbus|openssl|openssl-solibs)
-                    CRITICAL_UPDATED+=("$p")
-                    ;;
-            esac
+            # Critical package changes require a restart to become fully effective.
+            if array_contains "$p" "${CRITICAL_PACKAGES[@]}"; then
+                CRITICAL_UPDATED+=("$p")
+            fi
 
-            for c in "${CINNAMON_ABI[@]}"; do
-                if [ "$c" = "$p" ]; then
-                    CINNAMON_TRIGGER=1
-                    echo "   -> Cinnamon rebuild required"
-                    break
-                fi
-            done
+            if array_contains "$p" "${CINNAMON_ABI[@]}"; then
+                CINNAMON_TRIGGER=1
+                echo "   -> Cinnamon rebuild required"
+            fi
 
         fi
 
@@ -666,10 +1073,7 @@ detect_kernel_changes() {
 
     echo "[4] Detectando cambios en kernel"
 
-    # FIX #7: Ampliada la lista de paquetes de kernel vigilados.
-    # kernel-huge: kernel alternativo presente en algunos sistemas.
-    # kernel-headers: su cambio puede requerir recompilacion de modulos externos.
-    KERNEL_PACKAGES=(kernel-generic kernel-huge kernel-modules kernel-headers)
+    # Kernel package groups are loaded from the validated configuration.
 
     for p in "${KERNEL_PACKAGES[@]}"; do
 
@@ -679,16 +1083,13 @@ detect_kernel_changes() {
         if [ "$BEFORE" != "$AFTER" ]; then
             echo "  Kernel actualizado: $p"
             KERNEL_TRIGGER=1
-            # Solo regenerar initrd y grub si cambio el kernel en si, no solo las headers
-            case "$p" in
-                kernel-generic|kernel-huge|kernel-modules)
-                    INITRD_UPDATE=1
-                    GRUB_UPDATE=1
-                    ;;
-                kernel-headers)
-                    echo "  [INFO] kernel-headers actualizado: puede requerir recompilacion de modulos externos"
-                    ;;
-            esac
+            # Only kernel image or module changes schedule boot preparation.
+            if array_contains "$p" "${KERNEL_BOOT_PACKAGES[@]}"; then
+                INITRD_UPDATE=1
+                GRUB_UPDATE=1
+            elif array_contains "$p" "${KERNEL_HEADERS_PACKAGES[@]}"; then
+                echo "  [INFO] $p actualizado: puede requerir recompilacion de modulos externos"
+            fi
         fi
 
     done
@@ -727,10 +1128,10 @@ build_sbo_core_queue() {
 
     # FIX #6: Parseo mas robusto de sbopkg.conf — cubre valores con comillas dobles,
     # comillas simples o sin comillas.
-    SBODIR=$(grep -E '^QUEUEDIR=' /etc/sbopkg/sbopkg.conf 2>/dev/null \
+    SBODIR=$(grep -E '^QUEUEDIR=' "$SBOPKG_CONFIG" 2>/dev/null \
         | head -1 | cut -d= -f2- | tr -d \"\' | xargs 2>/dev/null || true)
     if [ -z "$SBODIR" ]; then
-        SBODIR=/var/lib/sbopkg/queues
+        SBODIR=$SBO_QUEUE_DIR_FALLBACK
         echo "  [WARN] No se pudo leer QUEUEDIR de sbopkg.conf — usando valor por defecto: $SBODIR"
     fi
 
@@ -756,7 +1157,7 @@ add_abi_rebuild_targets() {
 
         echo "[7] ABI trigger -> anadiendo todos los paquetes SBo a cola extra"
 
-        find /var/log/packages -maxdepth 1 -name '*_SBo' \
+        find "$PACKAGE_DATABASE" -maxdepth 1 -name "*${SBO_PACKAGE_TAG}" \
             -printf '%f\n' 2>/dev/null \
             | rev | cut -d- -f4- | rev \
             | sort -u > "$QUEUE_EXTRA" || true
@@ -779,7 +1180,7 @@ detect_broken_elf_objects() {
     # FIX #2: El subshell del pipe hacia 'while | sort' perdía la salida del log.
     # Se redirige la salida de errores del bucle explícitamente al log mediante
     # un fichero temporal de errores, y se procesa después del bucle.
-    find /usr/bin /usr/sbin /usr/libexec /opt \( -type f -o -type l \) -print0 |
+    find "${ELF_SCAN_PATHS[@]}" \( -type f -o -type l \) -print0 |
     while IFS= read -r -d '' f; do
         # FIX #5: Sustituido 'file | ldd' por 'readelf -d' para deteccion segura.
         # ldd puede ejecutar el binario (riesgo con binarios de terceros) y genera
@@ -825,9 +1226,9 @@ map_broken_objects_to_sbo_packages() {
             [ -e "$bin" ] || continue
             # FIX #4: Anclar con grep -P para cubrir rutas con y sin barra inicial
             # en los manifiestos de /var/log/packages (algunos omiten el '/' inicial).
-            grep -rlP "^/?${bin#/}$" /var/log/packages/ 2>/dev/null \
+            grep -rlP "^/?${bin#/}$" "$PACKAGE_DATABASE"/ 2>/dev/null \
                 | sed 's|.*/||' \
-                | grep '_SBo' \
+                | grep -F "$SBO_PACKAGE_TAG" \
                 | rev | cut -d- -f4- | rev
         done < "$BROKEN" | sort -u > "$_BROKEN_PKGS"
 
@@ -905,7 +1306,7 @@ rebuild_cinnamon() {
             echo "  Actualizando repositorio CSB"
 
             git -C "$CSB_DIR" fetch origin 2>&1 \
-                && git -C "$CSB_DIR" reset --hard origin/master 2>&1 \
+                && git -C "$CSB_DIR" reset --hard "origin/$CSB_BRANCH" 2>&1 \
                 && echo "  [OK] Repositorio CSB actualizado" \
                 || echo "  [WARN] No se pudo actualizar CSB -- continuando con copia local"
 
@@ -913,18 +1314,18 @@ rebuild_cinnamon() {
 
             echo "  Clonando repositorio CSB"
 
-            git clone -b master https://github.com/CinnamonSlackBuilds/csb.git "$CSB_DIR" \
+            git clone -b "$CSB_BRANCH" -- "$CSB_REMOTE" "$CSB_DIR" \
                 && echo "  [OK] Repositorio CSB clonado" \
                 || echo "  [ERROR] git clone de CSB fallo -- Cinnamon NO sera reconstruido"
         fi
 
         CINNAMON_OK=0
 
-        if [ -x "$CSB_DIR/build-cinnamon.sh" ]; then
+        if [ -x "$CSB_DIR/$CSB_BUILDER" ]; then
 
             (
                 cd "$CSB_DIR" || exit 1
-                ./build-cinnamon.sh
+                "./$CSB_BUILDER"
             )
             RET=$?
 
@@ -939,7 +1340,7 @@ rebuild_cinnamon() {
 
         else
             CINNAMON_TRIGGER=3
-            echo "  [ERROR] build-cinnamon.sh no existe o no es ejecutable"
+            echo "  [ERROR] $CSB_BUILDER no existe o no es ejecutable"
         fi
 
     fi
@@ -955,14 +1356,14 @@ regenerate_initrd() {
         echo "[12] Regenerando initrd"
 
         if command -v mkinitrd >/dev/null 2>&1; then
-            if [ -f /etc/mkinitrd.conf ]; then
-                if grep -q '^ROOTDEV=' /etc/mkinitrd.conf 2>/dev/null; then
+            if [ -f "$MKINITRD_CONFIG" ]; then
+                if grep -q '^ROOTDEV=' "$MKINITRD_CONFIG" 2>/dev/null; then
                     mkinitrd -F \
                         && {
                             # FIX #8: Verificar que el initrd existe y no esta vacio
-                            _initrd=$(grep -E '^OUTPUT=' /etc/mkinitrd.conf 2>/dev/null \
+                            _initrd=$(grep -E '^OUTPUT=' "$MKINITRD_CONFIG" 2>/dev/null \
                                 | cut -d= -f2- | tr -d \"\' | xargs 2>/dev/null)
-                            _initrd=${_initrd:-/boot/initrd.gz}
+                            _initrd=${_initrd:-$INITRD_DEFAULT_OUTPUT}
                             if [ -s "$_initrd" ]; then
                                 INITRD_OK=1
                                 echo "  [OK] initrd regenerado ($_initrd)"
@@ -972,11 +1373,11 @@ regenerate_initrd() {
                         } \
                         || echo "  [ERROR] mkinitrd -F fallo"
                 else
-                    echo "  [ERROR] /etc/mkinitrd.conf existe pero no contiene ROOTDEV -- initrd NO regenerado"
-                    echo "          Revisa /etc/mkinitrd.conf antes de continuar"
+                    echo "  [ERROR] $MKINITRD_CONFIG existe pero no contiene ROOTDEV -- initrd NO regenerado"
+                    echo "          Revisa $MKINITRD_CONFIG antes de continuar"
                 fi
             else
-                echo "  [ERROR] /etc/mkinitrd.conf no existe -- initrd NO regenerado"
+                echo "  [ERROR] $MKINITRD_CONFIG no existe -- initrd NO regenerado"
             fi
         else
             echo "  [ERROR] mkinitrd no encontrado"
@@ -994,8 +1395,8 @@ update_grub_configuration() {
 
         echo "[13] Actualizando GRUB"
 
-        if command -v grub-mkconfig >/dev/null 2>&1 && [ -d /boot/grub ]; then
-            grub-mkconfig -o /boot/grub/grub.cfg \
+        if command -v grub-mkconfig >/dev/null 2>&1 && [ -d "$GRUB_DIRECTORY" ]; then
+            grub-mkconfig -o "$GRUB_CONFIG" \
                 && {
                     GRUB_OK=1
                     echo "  [OK] GRUB actualizado"
@@ -1003,7 +1404,7 @@ update_grub_configuration() {
                 || echo "  [ERROR] grub-mkconfig fallo"
 
         else
-            echo "  [ERROR] GRUB no encontrado o /boot/grub no existe"
+            echo "  [ERROR] GRUB no encontrado o $GRUB_DIRECTORY no existe"
         fi
 
     fi
@@ -1114,6 +1515,7 @@ print_summary() {
 
     echo
 
+    echo "[CONFIG] Configuracion: $CONFIG_FILE"
     echo "[LOG] Log completo: $LOG"
     echo "[FIN] Finalizacion: $(date)"
 }
@@ -1562,6 +1964,7 @@ print_json_result() {
     printf '  "started_at": '; json_string "$STARTED_AT"; printf ',\n'
     printf '  "finished_at": '; json_string "$FINISHED_AT"; printf ',\n'
     printf '  "log_path": '; json_string "$LOG"; printf ',\n'
+    printf '  "config_path": '; json_string "$CONFIG_FILE"; printf ',\n'
     printf '  "modules": {\n'
 
     case "$OPERATION" in
@@ -1762,6 +2165,7 @@ main() {
         return 0
     fi
 
+    load_configuration || return 1
     require_root
     acquire_instance_lock
 
