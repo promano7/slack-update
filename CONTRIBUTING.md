@@ -74,11 +74,12 @@ Use the commit body to explain non-obvious decisions, compatibility changes, or 
 Before submitting a change to the reference script:
 
 1. Run `bash -n tools/reference/slack-update-reference.sh`.
-2. Confirm that destructive commands are not exercised outside an isolated Slackware test system.
-3. Record the relevant acceptance scenario.
-4. Preserve deterministic output and exit-code behavior.
-5. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
-6. Ensure every new or modified comment is written in English.
+2. Run `tests/reference/test-package-name-parsing.sh` when package records, snapshots, package ownership, or SBo detection are affected.
+3. Confirm that destructive commands are not exercised outside an isolated Slackware test system.
+4. Record the relevant acceptance scenario.
+5. Preserve deterministic output and exit-code behavior.
+6. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
+7. Ensure every new or modified comment is written in English.
 
 Never run the apply workflow on a production machine merely to validate a contribution.
 

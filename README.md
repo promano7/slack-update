@@ -583,7 +583,7 @@ The final layout may change during the architecture prototype, but separation be
 
 ### Safety validation
 
-- [ ] Validate exact Slackware package-name parsing.
+- [x] Validate exact Slackware package-name parsing.
 - [ ] Validate package snapshots before and after updates.
 - [ ] Confirm that secondary modules stop after partial Slackware updates.
 - [ ] Confirm deterministic SBo target selection.
@@ -598,6 +598,21 @@ The final layout may change during the architecture prototype, but separation be
 - [ ] Confirm interruption signals release locks and terminate execution.
 - [ ] Confirm errors produce non-zero exit codes.
 - [ ] Confirm cron execution works with a minimal environment.
+
+Slackware package records are parsed from the rightmost three hyphen-separated
+fields, matching the `name-version-architecture-build` convention used by
+Slackware `pkgtools`. Directory prefixes and the supported package archive
+extensions (`.tgz`, `.tbz`, `.tlz`, and `.txz`) are removed before parsing.
+Package comparisons are literal: similarly prefixed names such as `openssl` and
+`openssl-solibs` remain distinct, and SBo ownership is determined from the build
+field suffix rather than an arbitrary substring match.
+
+The parser regression test covers representative Slackware 15.0,
+Slackware-current, patched-package, multi-hyphen, plus-sign, and `_SBo` records:
+
+```bash
+tests/reference/test-package-name-parsing.sh
+```
 
 ### Real-system acceptance matrix
 
@@ -1122,6 +1137,8 @@ Slack-Update 1.0 will be ready when:
 - [x] Move hard-coded reference behavior into a validated configuration file.
 - [x] Add `enabled`, `disabled`, and `auto` modes for optional modules.
 - [x] Add stable exit codes.
+- [x] Validate exact Slackware package-name parsing.
+- [ ] Validate package snapshots before and after updates.
 - [ ] Execute and document the Phase 1 acceptance matrix on Slackware 15.0 and Slackware-current.
 - [ ] Freeze `reference-v1`.
 - [ ] Begin the C architecture only after the reference gate is complete.

@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added
 
+- Added a reusable Slackware package-record parser that extracts name, version, architecture, and build from the rightmost fields used by `pkgtools`.
+- Added `tests/reference/test-package-name-parsing.sh` and representative Slackware 15.0, Slackware-current, patched-package, multi-hyphen, plus-sign, and SBo fixture records.
 - Added stable process exit codes `0` through `8`, including dedicated statuses for partial updates, unsafe boot preparation, successful reboot guidance, concurrent execution, invalid input, and unavailable privilege.
 - Added stable exit-code descriptions to human-readable summaries and final JSON results.
 - Added `enabled`, `disabled`, and `auto` activation modes for the optional Flatpak, SBo, ELF, Cinnamon, and boot modules.
@@ -28,6 +30,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Changed
 
+- Replaced prefix-based package snapshot matching with literal parsed package-name comparison, preventing collisions such as `openssl` versus `openssl-solibs`.
+- Replaced `rev | cut` SBo-name extraction and arbitrary tag filtering with parsed build-suffix checks for dry-run candidates, ABI rebuild targets, and broken-object ownership.
+- Cinnamon package detection now compares the parsed package name exactly instead of relying on a filename glob.
+- The reference script can now be sourced by regression tests without invoking `main()`; direct execution remains unchanged.
 - Final JSON results now set `exit_code_stable` to `true`, include `exit_code_meaning`, and preserve `success=true` for successful reboot-recommended (`4`) and reboot-required (`5`) outcomes.
 - The final `operation_completed` NDJSON event now carries the stable process exit code; intermediate action events continue to expose raw external-command statuses.
 - Invalid arguments and configuration now return `7`, missing privilege returns `8`, and a concurrent instance returns `6` before workflow execution begins.
@@ -57,7 +63,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Current roadmap phase: **Phase 1 — Stabilize and validate the shell reference**.
 - Phase 0 is complete, committed as `3064cfa`, tagged as `planning-v1`, and published to GitHub.
 - The first eleven Phase 1 refactoring and interface tasks are complete: runtime identifiers use `slack-update`, the script is split into named functions, argument parsing is available, `--check`, `--apply`, and `--dry-run` are implemented, `--json` emits a final structured result, `--events` streams machine-readable progress, operational settings are loaded from a validated configuration file, optional modules implement `enabled`, `disabled`, and `auto`, and process exit codes `0` through `8` are stable.
-- The script currently contains 87 named functions.
+- The script currently contains 93 named functions.
 - Running without an operation still selects apply for backward compatibility with the original reference behavior.
 - `--json` and `--events` both retain provisional schema version `0`; their complete schemas are not stable APIs yet. The final process exit code is stable: `--json` marks it with `exit_code_stable=true`, and the final `operation_completed` event uses the same code. Intermediate event exit codes remain raw external-command statuses.
 - Machine-readable modes reserve standard output. Human-readable progress and external-command output are written to standard error and the normal log.
@@ -66,7 +72,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Dry-run requires root in the current reference implementation because it shares the existing instance lock and system log. Its queue, package-candidate, and ELF scratch files are isolated under a temporary directory and removed at exit.
 - Configuration schema version `1` is implemented for the shell reference. Optional-module activation modes and stable process exit codes are implemented.
 - The system configuration path is `/etc/slack-update/slack-update.conf`; the source-tree fallback is `data/config/slack-update.conf`, and `SLACK_UPDATE_CONFIG` may select an absolute test fixture.
-- The next development task is the first pending safety-validation item: validate exact Slackware package-name parsing without implementing later safety tasks in the same step.
+- Exact Slackware package-name parsing is validated with 71 focused checks. The next development task is to validate package snapshots before and after updates without implementing later safety tasks in the same step.
+- Package-name parsing tests cover path and archive normalization, right-to-left field extraction, malformed records, literal snapshot matching, prefix collisions, plus signs, multi-hyphen names, patched builds, and exact `_SBo` build suffixes.
 - Stable exit-code tests cover all values `0` through `8`, successful non-zero reboot outcomes, check failure, partial update failure, failed initrd preparation, invalid input, invalid configuration, privilege denial, lock contention, kernel headers without reboot, final JSON metadata, and the final NDJSON event.
 - Module-mode tests cover all modules disabled, all requirements available in auto mode, invalid mode values, enabled modules with missing requirements, non-fatal auto unavailability, kernel changes with boot auto and boot enabled, and schema-1 configurations without explicit mode keys.
 - Disabled modules were verified not to invoke Flatpak, SBo, ELF, Cinnamon, initrd, or GRUB commands in the deterministic mock environment.

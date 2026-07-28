@@ -544,6 +544,112 @@ array_contains() {
     return 1
 }
 
+# Slackware package record parsing
+
+parse_slackware_package_record() {
+    local input=$1
+    local base
+    local remainder
+
+    SLACKWARE_PACKAGE_RECORD=
+    SLACKWARE_PACKAGE_NAME=
+    SLACKWARE_PACKAGE_VERSION=
+    SLACKWARE_PACKAGE_ARCH=
+    SLACKWARE_PACKAGE_BUILD=
+
+    base=${input##*/}
+    case "$base" in
+        *.tgz|*.tbz|*.tlz|*.txz)
+            base=${base%.*}
+            ;;
+    esac
+
+    [ -n "$base" ] || return 1
+
+    case "$base" in
+        *[[:space:]]*) return 1 ;;
+    esac
+
+    remainder=${base%-*}
+    [ "$remainder" != "$base" ] || return 1
+    SLACKWARE_PACKAGE_BUILD=${base##*-}
+    [ -n "$SLACKWARE_PACKAGE_BUILD" ] || return 1
+
+    base=$remainder
+    remainder=${base%-*}
+    [ "$remainder" != "$base" ] || return 1
+    SLACKWARE_PACKAGE_ARCH=${base##*-}
+    [ -n "$SLACKWARE_PACKAGE_ARCH" ] || return 1
+
+    base=$remainder
+    remainder=${base%-*}
+    [ "$remainder" != "$base" ] || return 1
+    SLACKWARE_PACKAGE_VERSION=${base##*-}
+    [ -n "$SLACKWARE_PACKAGE_VERSION" ] || return 1
+
+    SLACKWARE_PACKAGE_NAME=$remainder
+    [ -n "$SLACKWARE_PACKAGE_NAME" ] || return 1
+
+    SLACKWARE_PACKAGE_RECORD="${SLACKWARE_PACKAGE_NAME}-${SLACKWARE_PACKAGE_VERSION}-${SLACKWARE_PACKAGE_ARCH}-${SLACKWARE_PACKAGE_BUILD}"
+}
+
+slackware_package_name() {
+    parse_slackware_package_record "$1" || return 1
+    printf '%s\n' "$SLACKWARE_PACKAGE_NAME"
+}
+
+slackware_package_record_has_build_suffix() {
+    local record=$1
+    local suffix=$2
+
+    [ -n "$suffix" ] || return 1
+    parse_slackware_package_record "$record" || return 1
+
+    case "$SLACKWARE_PACKAGE_BUILD" in
+        *"$suffix") return 0 ;;
+        *) return 1 ;;
+    esac
+}
+
+package_snapshot_records_for_name() {
+    local snapshot=$1
+    local expected_name=$2
+    local record
+
+    [ -f "$snapshot" ] || return 0
+
+    while IFS= read -r record || [ -n "$record" ]; do
+        parse_slackware_package_record "$record" || continue
+        if [ "$SLACKWARE_PACKAGE_NAME" = "$expected_name" ]; then
+            printf '%s\n' "$SLACKWARE_PACKAGE_RECORD"
+        fi
+    done < "$snapshot"
+}
+
+package_names_with_build_suffix_from_stream() {
+    local suffix=$1
+    local record
+
+    while IFS= read -r record || [ -n "$record" ]; do
+        slackware_package_record_has_build_suffix "$record" "$suffix" || continue
+        printf '%s\n' "$SLACKWARE_PACKAGE_NAME"
+    done
+}
+
+package_database_contains_name() {
+    local expected_name=$1
+    local record
+
+    [ -d "$PACKAGE_DATABASE" ] || return 1
+
+    while IFS= read -r record; do
+        parse_slackware_package_record "$record" || continue
+        [ "$SLACKWARE_PACKAGE_NAME" = "$expected_name" ] && return 0
+    done < <(find "$PACKAGE_DATABASE" -maxdepth 1 -type f -printf '%f\n' 2>/dev/null)
+
+    return 1
+}
+
 # Optional module activation functions
 
 detect_cinnamon_installation() {
@@ -551,9 +657,7 @@ detect_cinnamon_installation() {
         return 0
     fi
 
-    if [ -d "$PACKAGE_DATABASE" ] \
-        && find "$PACKAGE_DATABASE" -maxdepth 1 -type f -name 'cinnamon-[0-9]*' \
-            -print -quit 2>/dev/null | grep -q .; then
+    if package_database_contains_name cinnamon; then
         return 0
     fi
 
@@ -1112,8 +1216,9 @@ inspect_current_sbo_queues() {
 }
 
 collect_installed_sbo_candidates() {
-    find "$PACKAGE_DATABASE" -maxdepth 1 -name "*${SBO_PACKAGE_TAG}" -printf '%f\n' 2>/dev/null \
-        | rev | cut -d- -f4- | rev | sort -u > "$ABI_CANDIDATES" || true
+    find "$PACKAGE_DATABASE" -maxdepth 1 -type f -printf '%f\n' 2>/dev/null \
+        | package_names_with_build_suffix_from_stream "$SBO_PACKAGE_TAG" \
+        | sort -u > "$ABI_CANDIDATES" || true
 
     PLAN_ABI_SBO_COUNT=$(wc -l < "$ABI_CANDIDATES")
 }
@@ -1449,8 +1554,8 @@ detect_abi_changes() {
 
     for p in "${ABI_PACKAGES[@]}"; do
 
-        BEFORE=$(grep "^${p}-" "$BEFORE_PKGS" || true)
-        AFTER=$(grep  "^${p}-" "$AFTER_PKGS"  || true)
+        BEFORE=$(package_snapshot_records_for_name "$BEFORE_PKGS" "$p")
+        AFTER=$(package_snapshot_records_for_name "$AFTER_PKGS" "$p")
 
         if [ "$BEFORE" != "$AFTER" ]; then
 
@@ -1494,8 +1599,8 @@ detect_kernel_changes() {
 
     for p in "${KERNEL_PACKAGES[@]}"; do
 
-        BEFORE=$(grep "^${p}-" "$BEFORE_PKGS" || true)
-        AFTER=$(grep  "^${p}-" "$AFTER_PKGS"  || true)
+        BEFORE=$(package_snapshot_records_for_name "$BEFORE_PKGS" "$p")
+        AFTER=$(package_snapshot_records_for_name "$AFTER_PKGS" "$p")
 
         if [ "$BEFORE" != "$AFTER" ]; then
             echo "  Kernel actualizado: $p"
@@ -1587,9 +1692,8 @@ add_abi_rebuild_targets() {
 
         echo "[7] ABI trigger -> anadiendo todos los paquetes SBo a cola extra"
 
-        find "$PACKAGE_DATABASE" -maxdepth 1 -name "*${SBO_PACKAGE_TAG}" \
-            -printf '%f\n' 2>/dev/null \
-            | rev | cut -d- -f4- | rev \
+        find "$PACKAGE_DATABASE" -maxdepth 1 -type f -printf '%f\n' 2>/dev/null \
+            | package_names_with_build_suffix_from_stream "$SBO_PACKAGE_TAG" \
             | sort -u > "$QUEUE_EXTRA" || true
 
         TOTAL_EXTRA=$(wc -l < "$QUEUE_EXTRA")
@@ -1657,9 +1761,7 @@ map_broken_objects_to_sbo_packages() {
             # FIX #4: Anclar con grep -P para cubrir rutas con y sin barra inicial
             # en los manifiestos de /var/log/packages (algunos omiten el '/' inicial).
             grep -rlP "^/?${bin#/}$" "$PACKAGE_DATABASE"/ 2>/dev/null \
-                | sed 's|.*/||' \
-                | grep -F "$SBO_PACKAGE_TAG" \
-                | rev | cut -d- -f4- | rev
+                | package_names_with_build_suffix_from_stream "$SBO_PACKAGE_TAG"
         done < "$BROKEN" | sort -u > "$_BROKEN_PKGS"
 
         # Merge: contenido previo de QUEUE_EXTRA (si lo hay) + rotos nuevos, deduplicado
@@ -2867,4 +2969,6 @@ main() {
     return "$result"
 }
 
-main "$@"
+if [ "${BASH_SOURCE[0]}" = "$0" ]; then
+    main "$@"
+fi

@@ -1,0 +1,12 @@
+# input	name	version	architecture	build
+aaa_libraries-15.0-x86_64-19	aaa_libraries	15.0	x86_64	19
+mozilla-firefox-140.13.0esr-x86_64-1_slack15.0.txz	mozilla-firefox	140.13.0esr	x86_64	1_slack15.0
+Cython-0.29.36-i586-1_slack15.0.tgz	Cython	0.29.36	i586	1_slack15.0
+mozilla-firefox-140.13.0esr-i686-1_slack15.0.tbz	mozilla-firefox	140.13.0esr	i686	1_slack15.0
+kernel-generic-6.18.38-aarch64-1.tlz	kernel-generic	6.18.38	aarch64	1
+/var/lib/pkgtools/packages/aaa_libraries-15.1-x86_64-50	aaa_libraries	15.1	x86_64	50
+kernel-generic-6.18.38-x86_64-1	kernel-generic	6.18.38	x86_64	1
+gst-plugins-bad-free-1.28.5-x86_64-1	gst-plugins-bad-free	1.28.5	x86_64	1
+gtk+3-3.24.49-x86_64-1	gtk+3	3.24.49	x86_64	1
+openrsync-20250126_a257c0f-x86_64-1_slack15.0	openrsync	20250126_a257c0f	x86_64	1_slack15.0
+example-package-with-hyphens-1.2.3-noarch-4_SBo	example-package-with-hyphens	1.2.3	noarch	4_SBo
