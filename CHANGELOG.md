@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added
 
+- Added `tests/reference/test-sbo-options.sh` with focused coverage for safe option parsing, quoted values, queue option collection, persistent overrides, duplicate and conflict rejection, atomic failure behavior, ABI/ELF target option application, configuration defaults, provisional output, and final `sbopkg -b -B` submission.
+- Added schema-1 `sbo.options_file` configuration with the backward-compatible default `/etc/slack-update/sbo-options.sqf` and normalized per-package SBo option records.
+- Added reusable SBo build-option parsing, normalization, collection, rendering, and structured-output helpers.
 - Added `tests/reference/test-sbo-dependency-order.sh` with focused coverage for dependency constraints, shared dependencies, deterministic topological ordering, filesystem-order independence, cyclic and invalid queue rejection, atomic replacement, final queue merging, and `sbopkg -b -B` submission.
 - Added reusable SBo queue-graph helpers that combine generated queue constraints and produce one deterministic dependency order.
 - Added `tests/reference/test-sbo-target-selection.sh` with focused coverage for active queue records, build-option syntax, recursive references, deselected records, unsafe names, C-locale normalization, filesystem-order independence, exact installed SBo detection, broken-object ownership, atomic failure behavior, and final target submission.
@@ -37,6 +40,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Changed
 
+- Final SBo queues now preserve safe per-package `NAME=value` build options while retaining dependency order and deterministic ABI/ELF target appending.
+- Options present in current generated queues are deduplicated and checked for conflicts, while the optional persistent `sbo.options_file` takes precedence so custom choices survive `sqg -a` regeneration.
+- Invalid, unsafe, duplicate, or contradictory SBo option records now fail atomically, preserve previous queue state, block `sbopkg`, and appear in dry-run and provisional JSON reporting.
 - Generated SBo queue records are now combined as dependency constraints and resolved with a deterministic topological order instead of being alphabetically reordered.
 - Shared SBo dependencies now appear once, independent packages use a C-locale tie break, and cyclic or contradictory queue constraints fail atomically before `sbopkg` runs.
 - Final SBo queue construction now preserves the dependency-ordered core and appends unique ABI and broken-ELF targets in deterministic order.
@@ -80,8 +86,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 - Current roadmap phase: **Phase 1 — Stabilize and validate the shell reference**.
 - Phase 0 is complete, committed as `3064cfa`, tagged as `planning-v1`, and published to GitHub.
-- The first sixteen Phase 1 refactoring, interface, parsing, and safety tasks are complete: runtime identifiers use `slack-update`, the script is split into named functions, argument parsing is available, `--check`, `--apply`, and `--dry-run` are implemented, `--json` emits a final structured result, `--events` streams machine-readable progress, operational settings are loaded from a validated configuration file, optional modules implement `enabled`, `disabled`, and `auto`, and process exit codes `0` through `8` are stable.
-- The script currently contains 107 named functions.
+- The first seventeen Phase 1 refactoring, interface, parsing, and safety tasks are complete: runtime identifiers use `slack-update`, the script is split into named functions, argument parsing is available, `--check`, `--apply`, and `--dry-run` are implemented, `--json` emits a final structured result, `--events` streams machine-readable progress, operational settings are loaded from a validated configuration file, optional modules implement `enabled`, `disabled`, and `auto`, and process exit codes `0` through `8` are stable.
+- The script currently contains 115 named functions.
 - Running without an operation still selects apply for backward compatibility with the original reference behavior.
 - `--json` and `--events` both retain provisional schema version `0`; their complete schemas are not stable APIs yet. The final process exit code is stable: `--json` marks it with `exit_code_stable=true`, and the final `operation_completed` event uses the same code. Intermediate event exit codes remain raw external-command statuses.
 - Machine-readable modes reserve standard output. Human-readable progress and external-command output are written to standard error and the normal log.
@@ -91,12 +97,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Configuration schema version `1` is implemented for the shell reference. Optional-module activation modes and stable process exit codes are implemented.
 - The system configuration path is `/etc/slack-update/slack-update.conf`; the source-tree fallback is `data/config/slack-update.conf`, and `SLACK_UPDATE_CONFIG` may select an absolute test fixture.
 - Exact Slackware package-name parsing is validated with 71 focused checks.
-- Package snapshots before and after updates are validated with 33 focused checks. Partial Slackware update handling is validated with 66 focused checks across each `slackpkg` operation, blocked module states, event suppression, provisional JSON, and the successful continuation path. Deterministic SBo target selection is validated with 47 focused checks, and dependency-ordered queue construction is validated with 32 focused checks. The next development task is to preserve custom SBo build options without combining personal-queue protection into the same step.
+- Package snapshots before and after updates are validated with 33 focused checks. Partial Slackware update handling is validated with 66 focused checks across each `slackpkg` operation, blocked module states, event suppression, provisional JSON, and the successful continuation path. Deterministic SBo target selection is validated with 47 focused checks, dependency-ordered queue construction is validated with 32 focused checks, and SBo build-option preservation is validated with 57 focused checks. The next development task is to ensure that no personal SBo queue is overwritten.
 - Package-name parsing tests cover path and archive normalization, right-to-left field extraction, malformed records, literal snapshot matching, prefix collisions, plus signs, multi-hyphen names, patched builds, and exact `_SBo` build suffixes.
 - Package snapshot tests cover canonical normalization, deterministic C-locale ordering, duplicate rejection, atomic replacement, missing and empty package databases, malformed and non-canonical records, stale snapshot removal, record counts, and workflow guards before and after Slackware operations.
 - Partial-update tests confirm that a non-zero status from `update`, `install-new`, or `upgrade-all` still permits final snapshot capture but blocks every secondary module, suppresses their start events, reports `blocked` states in provisional JSON, and leaves the successful path unchanged.
 - SBo target-selection tests cover queue options, comments, recursive references, deselected entries, unsafe names, duplicate removal, C-locale ordering, directory-layout independence, exact `_SBo` ownership, installed-package deduplication, deterministic target-set union, and final submission guards.
 - SBo dependency-order tests cover generated precedence constraints, shared dependencies, deterministic topological ordering, non-alphabetical dependencies, cyclic and contradictory constraints, atomic failure behavior, ordered final merging, and the final `sbopkg -b -B` submission file.
+- SBo build-option tests cover safe assignment grammar, quoted values, generated queue options, persistent override precedence, missing optional files, duplicate and conflict rejection, atomic replacement, options on ABI/ELF targets, configuration defaults, and exact final queue submission.
 - Stable exit-code tests cover all values `0` through `8`, successful non-zero reboot outcomes, check failure, partial update failure, failed initrd preparation, invalid input, invalid configuration, privilege denial, lock contention, kernel headers without reboot, final JSON metadata, and the final NDJSON event.
 - Module-mode tests cover all modules disabled, all requirements available in auto mode, invalid mode values, enabled modules with missing requirements, non-fatal auto unavailability, kernel changes with boot auto and boot enabled, and schema-1 configurations without explicit mode keys.
 - Disabled modules were verified not to invoke Flatpak, SBo, ELF, Cinnamon, initrd, or GRUB commands in the deterministic mock environment.

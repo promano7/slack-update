@@ -170,6 +170,7 @@ initialize_configuration_state() {
     CONFIG_SBOPKG_CONFIG=
     CONFIG_SBO_QUEUE_DIR_FALLBACK=
     CONFIG_SBO_PACKAGE_TAG=
+    CONFIG_SBO_OPTIONS_FILE=/etc/slack-update/sbo-options.sqf
     CONFIG_ELF_MODE=auto
     CONFIG_ELF_SCAN_PATHS=
     CONFIG_ABI_PACKAGES=
@@ -220,6 +221,7 @@ assign_configuration_value() {
         sbo.sbopkg_config) CONFIG_SBOPKG_CONFIG=$value ;;
         sbo.queue_dir_fallback) CONFIG_SBO_QUEUE_DIR_FALLBACK=$value ;;
         sbo.package_tag) CONFIG_SBO_PACKAGE_TAG=$value ;;
+        sbo.options_file) CONFIG_SBO_OPTIONS_FILE=$value ;;
         elf.mode) CONFIG_ELF_MODE=$value ;;
         elf.scan_paths) CONFIG_ELF_SCAN_PATHS=$value ;;
         packages.abi) CONFIG_ABI_PACKAGES=$value ;;
@@ -392,6 +394,7 @@ slackware.upgrade_all|$CONFIG_SLACKWARE_UPGRADE_ALL
 sbo.sbopkg_config|$CONFIG_SBOPKG_CONFIG
 sbo.queue_dir_fallback|$CONFIG_SBO_QUEUE_DIR_FALLBACK
 sbo.package_tag|$CONFIG_SBO_PACKAGE_TAG
+sbo.options_file|$CONFIG_SBO_OPTIONS_FILE
 elf.scan_paths|$CONFIG_ELF_SCAN_PATHS
 packages.abi|$CONFIG_ABI_PACKAGES
 packages.cinnamon_abi|$CONFIG_CINNAMON_ABI_PACKAGES
@@ -432,7 +435,8 @@ EOF
     for required_value in \
         "$CONFIG_WORK_DIR" "$CONFIG_LOG_DIR" "$CONFIG_LOCK_FILE" \
         "$CONFIG_PACKAGE_DATABASE" "$CONFIG_SBOPKG_CONFIG" \
-        "$CONFIG_SBO_QUEUE_DIR_FALLBACK" "$CONFIG_MKINITRD_CONFIG" \
+        "$CONFIG_SBO_QUEUE_DIR_FALLBACK" "$CONFIG_SBO_OPTIONS_FILE" \
+        "$CONFIG_MKINITRD_CONFIG" \
         "$CONFIG_INITRD_DEFAULT_OUTPUT" "$CONFIG_GRUB_DIRECTORY" \
         "$CONFIG_GRUB_CONFIG" "$CONFIG_CSB_REPOSITORY"; do
         validate_absolute_path_configuration path "$required_value" || return 1
@@ -504,6 +508,7 @@ apply_configuration() {
     SBOPKG_CONFIG=$CONFIG_SBOPKG_CONFIG
     SBO_QUEUE_DIR_FALLBACK=$CONFIG_SBO_QUEUE_DIR_FALLBACK
     SBO_PACKAGE_TAG=$CONFIG_SBO_PACKAGE_TAG
+    SBO_OPTIONS_FILE=$CONFIG_SBO_OPTIONS_FILE
     ELF_MODE=$CONFIG_ELF_MODE
     BOOT_MODE=$CONFIG_BOOT_MODE
     MKINITRD_CONFIG=$CONFIG_MKINITRD_CONFIG
@@ -786,16 +791,97 @@ is_safe_sbo_target_name() {
     esac
 }
 
-sbo_target_from_queue_line() {
+normalize_sbo_build_options() {
+    local options=$1
+    local rest
+    local name
+    local value
+    local quote
+    local token
+    local character
+    local index
+    local length
+    local quoted_value_pattern='^[A-Za-z0-9_+.,:/@%=~ -]*$'
+    local unquoted_value_pattern='^[A-Za-z0-9_+.,:/@%=~-]*$'
+
+    SBO_NORMALIZED_BUILD_OPTIONS=
+    options=$(trim_whitespace "$options")
+    [ -n "$options" ] || return 1
+    rest=$options
+
+    while [ -n "$rest" ]; do
+        rest=${rest#"${rest%%[![:space:]]*}"}
+        [ -n "$rest" ] || break
+
+        case "$rest" in
+            *=*) ;;
+            *) return 1 ;;
+        esac
+
+        name=${rest%%=*}
+        case "$name" in
+            ''|[!A-Za-z_]*|*[!A-Za-z0-9_]*) return 1 ;;
+        esac
+        rest=${rest#*=}
+
+        case "${rest:0:1}" in
+            "'"|'"')
+                quote=${rest:0:1}
+                rest=${rest:1}
+                value=
+                index=0
+                length=${#rest}
+
+                while [ "$index" -lt "$length" ]; do
+                    character=${rest:index:1}
+                    [ "$character" = "$quote" ] && break
+                    value+=$character
+                    index=$((index + 1))
+                done
+
+                [ "$index" -lt "$length" ] || return 1
+                [[ "$value" =~ $quoted_value_pattern ]] || return 1
+                token="$name=$quote$value$quote"
+                rest=${rest:index+1}
+                case "$rest" in
+                    ''|[[:space:]]*) ;;
+                    *) return 1 ;;
+                esac
+                ;;
+            *)
+                value=${rest%%[[:space:]]*}
+                [[ "$value" =~ $unquoted_value_pattern ]] || return 1
+                token="$name=$value"
+                rest=${rest#"$value"}
+                ;;
+        esac
+
+        if [ -n "$SBO_NORMALIZED_BUILD_OPTIONS" ]; then
+            SBO_NORMALIZED_BUILD_OPTIONS+=" "
+        fi
+        SBO_NORMALIZED_BUILD_OPTIONS+=$token
+    done
+
+    [ -n "$SBO_NORMALIZED_BUILD_OPTIONS" ]
+}
+
+sbo_queue_record_from_line() {
     local line=$1
     local target
+    local options=
 
     SBO_QUEUE_LINE_TARGET=
+    SBO_QUEUE_LINE_OPTIONS=
+    SBO_QUEUE_LINE_RECORD=
     line=${line%$'\r'}
     line=${line%%#*}
     line=$(trim_whitespace "$line")
 
     [ -n "$line" ] || return 1
+
+    case "$line" in
+        *'|'*'|'*) return 2 ;;
+    esac
 
     target=${line%%|*}
     target=$(trim_whitespace "$target")
@@ -809,7 +895,229 @@ sbo_target_from_queue_line() {
     esac
 
     is_safe_sbo_target_name "$target" || return 2
+
+    if [[ "$line" == *'|'* ]]; then
+        options=${line#*|}
+        normalize_sbo_build_options "$options" || return 2
+        options=$SBO_NORMALIZED_BUILD_OPTIONS
+    fi
+
     SBO_QUEUE_LINE_TARGET=$target
+    SBO_QUEUE_LINE_OPTIONS=$options
+    SBO_QUEUE_LINE_RECORD=$target
+    if [ -n "$options" ]; then
+        SBO_QUEUE_LINE_RECORD+=" | $options"
+    fi
+}
+
+sbo_target_from_queue_line() {
+    sbo_queue_record_from_line "$1"
+}
+
+sbo_option_records_from_queue_stream() {
+    local line
+    local status
+
+    while IFS= read -r line || [ -n "$line" ]; do
+        if sbo_queue_record_from_line "$line"; then
+            if [ -n "$SBO_QUEUE_LINE_OPTIONS" ]; then
+                printf '%s\t%s\n' "$SBO_QUEUE_LINE_TARGET" "$SBO_QUEUE_LINE_OPTIONS"
+            fi
+        else
+            status=$?
+            [ "$status" -eq 1 ] || return "$status"
+        fi
+    done
+}
+
+sbo_option_records_from_override_stream() {
+    local line
+    local normalized
+
+    while IFS= read -r line || [ -n "$line" ]; do
+        normalized=${line%$'\r'}
+        normalized=${normalized%%#*}
+        normalized=$(trim_whitespace "$normalized")
+        [ -n "$normalized" ] || continue
+
+        if ! sbo_queue_record_from_line "$line"; then
+            return 2
+        fi
+        [ -n "$SBO_QUEUE_LINE_OPTIONS" ] || return 2
+        printf '%s\t%s\n' "$SBO_QUEUE_LINE_TARGET" "$SBO_QUEUE_LINE_OPTIONS"
+    done
+}
+
+normalize_sbo_option_records_from_stream() {
+    local duplicate_policy=$1
+    local record
+    local target
+    local options
+    local extra
+    local sorted_targets
+    local -A selected_options=()
+
+    SBO_OPTION_NORMALIZATION_ERROR=
+
+    while IFS= read -r record || [ -n "$record" ]; do
+        [ -n "$record" ] || continue
+        IFS=$'\t' read -r target options extra <<< "$record"
+        if [ -z "$target" ] || [ -z "$options" ] || [ -n "${extra:-}" ] \
+            || ! is_safe_sbo_target_name "$target" \
+            || ! normalize_sbo_build_options "$options"; then
+            SBO_OPTION_NORMALIZATION_ERROR="invalid SBo build-option record"
+            return 1
+        fi
+        options=$SBO_NORMALIZED_BUILD_OPTIONS
+
+        if [ -n "${selected_options[$target]+present}" ]; then
+            if [ "$duplicate_policy" = reject ]; then
+                SBO_OPTION_NORMALIZATION_ERROR="duplicate SBo build-option record for target: $target"
+                return 1
+            fi
+            if [ "${selected_options[$target]}" != "$options" ]; then
+                SBO_OPTION_NORMALIZATION_ERROR="conflicting SBo build options for target: $target"
+                return 1
+            fi
+        else
+            selected_options[$target]=$options
+        fi
+    done
+
+    [ "${#selected_options[@]}" -gt 0 ] || return 0
+    sorted_targets=$(printf '%s\n' "${!selected_options[@]}" | LC_ALL=C sort) || return 1
+    while IFS= read -r target; do
+        printf '%s\t%s\n' "$target" "${selected_options[$target]}"
+    done <<< "$sorted_targets"
+}
+
+collect_sbo_option_records_from_sources() {
+    local queue_directory=$1
+    local options_file=$2
+    local destination=$3
+    local queue_listing
+    local queue_raw
+    local queue_normalized
+    local override_raw
+    local override_normalized
+    local candidate
+    local destination_directory
+    local queue_file
+    local record
+    local target
+    local options
+    local -A selected_options=()
+
+    SBO_TARGET_SELECTION_ERROR=
+    SBO_OPTION_RECORD_COUNT=0
+    queue_listing=$(mktemp) || return 1
+    queue_raw=$(mktemp) || {
+        rm -f "$queue_listing"
+        return 1
+    }
+    queue_normalized=$(mktemp) || {
+        rm -f "$queue_listing" "$queue_raw"
+        return 1
+    }
+    override_raw=$(mktemp) || {
+        rm -f "$queue_listing" "$queue_raw" "$queue_normalized"
+        return 1
+    }
+    override_normalized=$(mktemp) || {
+        rm -f "$queue_listing" "$queue_raw" "$queue_normalized" "$override_raw"
+        return 1
+    }
+    destination_directory=$(dirname -- "$destination")
+    candidate=$(mktemp "$destination_directory/.sbo-options.XXXXXX") || {
+        rm -f "$queue_listing" "$queue_raw" "$queue_normalized" \
+            "$override_raw" "$override_normalized"
+        SBO_TARGET_SELECTION_ERROR="cannot create a temporary SBo option map in: $destination_directory"
+        return 1
+    }
+
+    if [ -d "$queue_directory" ]; then
+        if ! find "$queue_directory" -type f -name '*.sqf' -print0 \
+            | LC_ALL=C sort -z > "$queue_listing"; then
+            rm -f "$queue_listing" "$queue_raw" "$queue_normalized" \
+                "$override_raw" "$override_normalized" "$candidate"
+            SBO_TARGET_SELECTION_ERROR="cannot enumerate SBo queue files: $queue_directory"
+            return 1
+        fi
+
+        while IFS= read -r -d '' queue_file; do
+            if ! sbo_option_records_from_queue_stream < "$queue_file" >> "$queue_raw"; then
+                rm -f "$queue_listing" "$queue_raw" "$queue_normalized" \
+                    "$override_raw" "$override_normalized" "$candidate"
+                SBO_TARGET_SELECTION_ERROR="queue contains invalid SBo build options: $queue_file"
+                return 1
+            fi
+        done < "$queue_listing"
+    fi
+
+    if ! normalize_sbo_option_records_from_stream merge \
+        < "$queue_raw" > "$queue_normalized"; then
+        rm -f "$queue_listing" "$queue_raw" "$queue_normalized" \
+            "$override_raw" "$override_normalized" "$candidate"
+        SBO_TARGET_SELECTION_ERROR=${SBO_OPTION_NORMALIZATION_ERROR:-cannot normalize SBo queue options}
+        return 1
+    fi
+
+    if [ -e "$options_file" ] || [ -L "$options_file" ]; then
+        if [ ! -f "$options_file" ] || [ ! -r "$options_file" ]; then
+            rm -f "$queue_listing" "$queue_raw" "$queue_normalized" \
+                "$override_raw" "$override_normalized" "$candidate"
+            SBO_TARGET_SELECTION_ERROR="SBo options file is not a readable regular file: $options_file"
+            return 1
+        fi
+        if ! sbo_option_records_from_override_stream \
+            < "$options_file" > "$override_raw"; then
+            rm -f "$queue_listing" "$queue_raw" "$queue_normalized" \
+                "$override_raw" "$override_normalized" "$candidate"
+            SBO_TARGET_SELECTION_ERROR="SBo options file contains an invalid record: $options_file"
+            return 1
+        fi
+        if ! normalize_sbo_option_records_from_stream reject \
+            < "$override_raw" > "$override_normalized"; then
+            rm -f "$queue_listing" "$queue_raw" "$queue_normalized" \
+                "$override_raw" "$override_normalized" "$candidate"
+            SBO_TARGET_SELECTION_ERROR=${SBO_OPTION_NORMALIZATION_ERROR:-cannot normalize SBo option overrides}
+            return 1
+        fi
+    fi
+
+    while IFS= read -r record || [ -n "$record" ]; do
+        [ -n "$record" ] || continue
+        IFS=$'\t' read -r target options <<< "$record"
+        selected_options[$target]=$options
+    done < "$queue_normalized"
+    while IFS= read -r record || [ -n "$record" ]; do
+        [ -n "$record" ] || continue
+        IFS=$'\t' read -r target options <<< "$record"
+        selected_options[$target]=$options
+    done < "$override_normalized"
+
+    if [ "${#selected_options[@]}" -gt 0 ]; then
+        printf '%s\n' "${!selected_options[@]}" | LC_ALL=C sort \
+            | while IFS= read -r target; do
+                printf '%s\t%s\n' "$target" "${selected_options[$target]}"
+            done > "$candidate" || {
+                rm -f "$queue_listing" "$queue_raw" "$queue_normalized" \
+                    "$override_raw" "$override_normalized" "$candidate"
+                SBO_TARGET_SELECTION_ERROR="cannot write normalized SBo option map"
+                return 1
+            }
+    fi
+
+    if ! mv -f -- "$candidate" "$destination"; then
+        rm -f "$queue_listing" "$queue_raw" "$queue_normalized" \
+            "$override_raw" "$override_normalized" "$candidate"
+        SBO_TARGET_SELECTION_ERROR="cannot install normalized SBo option map: $destination"
+        return 1
+    fi
+
+    SBO_OPTION_RECORD_COUNT=$(wc -l < "$destination")
+    rm -f "$queue_listing" "$queue_raw" "$queue_normalized" \
+        "$override_raw" "$override_normalized"
 }
 
 normalize_sbo_target_names_from_stream() {
@@ -1146,50 +1454,97 @@ merge_sbo_target_sets() {
 merge_ordered_sbo_queue_with_target_sets() {
     local destination=$1
     local ordered_queue=$2
+    local option_records=$3
     local destination_directory
     local normalized_extra
+    local normalized_options
     local candidate
     local source
+    local line
     local target
+    local options
+    local record
+    local extra
+    local status
     local -A seen_targets=()
+    local -A selected_options=()
 
-    shift 2
+    shift 3
     destination_directory=$(dirname -- "$destination")
     normalized_extra=$(mktemp) || return 1
-    candidate=$(mktemp "$destination_directory/.sbo-final-queue.XXXXXX") || {
+    normalized_options=$(mktemp) || {
         rm -f "$normalized_extra"
         return 1
     }
-
-    if ! cat "$@" 2>/dev/null | normalize_sbo_target_names_from_stream > "$normalized_extra"; then
-        rm -f "$normalized_extra" "$candidate"
+    candidate=$(mktemp "$destination_directory/.sbo-final-queue.XXXXXX") || {
+        rm -f "$normalized_extra" "$normalized_options"
         return 1
+    }
+
+    if [ "$#" -gt 0 ]; then
+        if ! cat "$@" 2>/dev/null             | normalize_sbo_target_names_from_stream > "$normalized_extra"; then
+            rm -f "$normalized_extra" "$normalized_options" "$candidate"
+            return 1
+        fi
+    else
+        : > "$normalized_extra"
+    fi
+
+    if [ -f "$option_records" ]; then
+        if ! normalize_sbo_option_records_from_stream merge \
+            < "$option_records" > "$normalized_options"; then
+            rm -f "$normalized_extra" "$normalized_options" "$candidate"
+            return 1
+        fi
+        while IFS= read -r record || [ -n "$record" ]; do
+            [ -n "$record" ] || continue
+            IFS=$'\t' read -r target options extra <<< "$record"
+            [ -z "${extra:-}" ] || {
+                rm -f "$normalized_extra" "$normalized_options" "$candidate"
+                return 1
+            }
+            selected_options[$target]=$options
+        done < "$normalized_options"
     fi
 
     for source in "$ordered_queue" "$normalized_extra"; do
         [ -f "$source" ] || continue
-        while IFS= read -r target || [ -n "$target" ]; do
-            [ -n "$target" ] || continue
-            if ! is_safe_sbo_target_name "$target"; then
-                rm -f "$normalized_extra" "$candidate"
-                return 1
+        while IFS= read -r line || [ -n "$line" ]; do
+            [ -n "$line" ] || continue
+            if sbo_queue_record_from_line "$line"; then
+                target=$SBO_QUEUE_LINE_TARGET
+            else
+                status=$?
+                rm -f "$normalized_extra" "$normalized_options" "$candidate"
+                [ "$status" -eq 1 ] && return 1
+                return "$status"
             fi
-            if [ -z "${seen_targets[$target]+selected}" ]; then
-                printf '%s\n' "$target" >> "$candidate" || {
-                    rm -f "$normalized_extra" "$candidate"
+            if [ -n "${seen_targets[$target]+selected}" ]; then
+                continue
+            fi
+
+            options=${selected_options[$target]:-$SBO_QUEUE_LINE_OPTIONS}
+            if [ -n "$options" ]; then
+                printf '%s | %s\n' "$target" "$options" >> "$candidate" || {
+                    rm -f "$normalized_extra" "$normalized_options" "$candidate"
                     return 1
                 }
-                seen_targets[$target]=1
+            else
+                printf '%s\n' "$target" >> "$candidate" || {
+                    rm -f "$normalized_extra" "$normalized_options" "$candidate"
+                    return 1
+                }
             fi
+            seen_targets[$target]=1
         done < "$source"
     done
 
     if ! mv -f -- "$candidate" "$destination"; then
-        rm -f "$normalized_extra" "$candidate"
+        rm -f "$normalized_extra" "$normalized_options" "$candidate"
         return 1
     fi
 
-    rm -f "$normalized_extra"
+    rm -f "$normalized_extra" "$normalized_options"
 }
 
 package_database_contains_name() {
@@ -1534,6 +1889,7 @@ initialize_runtime_state() {
     SBO_BUILD_STATUS=-1
     SBO_TARGET_SELECTION_STATUS=-1
     SBO_TARGET_SELECTION_ERROR=
+    SBO_OPTION_RECORD_COUNT=0
     PACKAGE_SNAPSHOT_BEFORE_VALID=0
     PACKAGE_SNAPSHOT_AFTER_VALID=0
     PACKAGE_SNAPSHOT_BEFORE_COUNT=0
@@ -1562,6 +1918,7 @@ initialize_runtime() {
     BROKEN="$WORKDIR/broken.txt"
     QUEUE_CORE="$WORKDIR/queue-core.sqf"
     QUEUE_EXTRA="$WORKDIR/queue-extra.sqf"
+    SBO_OPTION_RECORDS="$WORKDIR/sbo-options.normalized"
 
     BEFORE_PKGS="$WORKDIR/packages.before"
     AFTER_PKGS="$WORKDIR/packages.after"
@@ -1589,6 +1946,7 @@ initialize_dry_run_runtime() {
     BROKEN="$WORKDIR/broken.txt"
     QUEUE_CORE="$WORKDIR/queue-core.sqf"
     QUEUE_EXTRA="$WORKDIR/queue-extra.sqf"
+    SBO_OPTION_RECORDS="$WORKDIR/sbo-options.normalized"
     QUEUE_FINAL="$WORKDIR/queue-final.sqf"
     BROKEN_NEW="$WORKDIR/broken-new.txt"
     STILL_BROKEN="$WORKDIR/still-broken.txt"
@@ -1604,6 +1962,7 @@ initialize_dry_run_runtime() {
     : > "$BROKEN"
     : > "$QUEUE_CORE"
     : > "$QUEUE_EXTRA"
+    : > "$SBO_OPTION_RECORDS"
     : > "$BROKEN_ERRORS"
 }
 
@@ -1777,9 +2136,14 @@ inspect_current_sbo_queues() {
         echo "  [ERROR] $SBO_TARGET_SELECTION_ERROR"
         return 1
     fi
+    if ! collect_sbo_option_records_from_sources         "$SBODIR" "$SBO_OPTIONS_FILE" "$SBO_OPTION_RECORDS"; then
+        echo "  [ERROR] $SBO_TARGET_SELECTION_ERROR"
+        return 1
+    fi
 
     TOTAL_CORE=$(wc -l < "$QUEUE_CORE")
     echo "  Current local queue targets: $TOTAL_CORE"
+    echo "  Preserved build-option records: $SBO_OPTION_RECORD_COUNT"
 }
 
 collect_installed_sbo_candidates() {
@@ -1815,6 +2179,21 @@ print_plan_file() {
 
     if [ -s "$path" ]; then
         sed 's/^/      - /' "$path"
+    else
+        echo "      (none)"
+    fi
+}
+
+print_sbo_option_records() {
+    local path=$1
+    local target
+    local options
+
+    if [ -s "$path" ]; then
+        while IFS=$'	' read -r target options; do
+            printf '      - %s | %s
+' "$target" "$options"
+        done < "$path"
     else
         echo "      (none)"
     fi
@@ -1886,6 +2265,9 @@ print_dry_run_plan() {
         echo "  Current local queue directory: $SBODIR"
         echo "  Current local queue targets: $TOTAL_CORE"
         print_plan_file "$QUEUE_CORE"
+        echo "  Persistent build-options file: $SBO_OPTIONS_FILE"
+        echo "  Preserved build-option records: $SBO_OPTION_RECORD_COUNT"
+        print_sbo_option_records "$SBO_OPTION_RECORDS"
         echo "  Current broken-ELF SBo targets: $PLAN_BROKEN_SBO_COUNT"
         print_plan_file "$QUEUE_EXTRA"
         echo "  The final apply queue would preserve dependency constraints from generated queues,"
@@ -2014,8 +2396,10 @@ run_dry_run_workflow() {
             sbo_state=failed
             result=1
             : > "$QUEUE_CORE"
+            [ -n "${SBO_OPTION_RECORDS:-}" ] && : > "$SBO_OPTION_RECORDS"
             : > "$ABI_CANDIDATES"
             TOTAL_CORE=0
+            SBO_OPTION_RECORD_COUNT=0
             PLAN_ABI_SBO_COUNT=0
             emit_action_completed_event sbo inspect_queues failed \
                 "SBo target selection failed: $SBO_TARGET_SELECTION_ERROR" 1
@@ -2026,8 +2410,10 @@ run_dry_run_workflow() {
         SBODIR=$SBO_QUEUE_DIR_FALLBACK
         : > "$QUEUE_CORE"
         : > "$QUEUE_EXTRA"
+        [ -n "${SBO_OPTION_RECORDS:-}" ] && : > "$SBO_OPTION_RECORDS"
         : > "$ABI_CANDIDATES"
         TOTAL_CORE=0
+        SBO_OPTION_RECORD_COUNT=0
         PLAN_ABI_SBO_COUNT=0
         PLAN_BROKEN_SBO_COUNT=0
         emit_action_completed_event sbo inspect_queues "$sbo_state" \
@@ -2290,7 +2676,7 @@ build_sbo_core_queue() {
         echo "  [WARN] No se pudo leer QUEUEDIR de sbopkg.conf — usando valor por defecto: $SBODIR"
     fi
 
-    rm -f "$QUEUE_CORE" "$QUEUE_EXTRA"
+    rm -f "$QUEUE_CORE" "$QUEUE_EXTRA" "$SBO_OPTION_RECORDS"
 
     if [ ! -d "$SBODIR" ]; then
         echo "  [WARN] Directorio de queues no encontrado: $SBODIR"
@@ -2300,9 +2686,14 @@ build_sbo_core_queue() {
         echo "  [ERROR] $SBO_TARGET_SELECTION_ERROR"
         return 1
     fi
+    if ! collect_sbo_option_records_from_sources         "$SBODIR" "$SBO_OPTIONS_FILE" "$SBO_OPTION_RECORDS"; then
+        echo "  [ERROR] $SBO_TARGET_SELECTION_ERROR"
+        return 1
+    fi
 
     TOTAL_CORE=$(wc -l < "$QUEUE_CORE")
     echo "  Cola principal: $TOTAL_CORE paquetes"
+    echo "  Opciones de compilacion preservadas: $SBO_OPTION_RECORD_COUNT"
 }
 
 add_abi_rebuild_targets() {
@@ -2405,6 +2796,8 @@ map_broken_objects_to_sbo_packages() {
 }
 
 build_and_apply_sbo_queue() {
+    local option_records=${SBO_OPTION_RECORDS:-/dev/null}
+
     # ---------------------------
     # [10] BUILD FINAL QUEUE + APPLY
     # ---------------------------
@@ -2412,7 +2805,7 @@ build_and_apply_sbo_queue() {
     echo "[10] Aplicando cola SBo"
 
     if ! merge_ordered_sbo_queue_with_target_sets \
-        "$QUEUE_FINAL" "$QUEUE_CORE" "$QUEUE_EXTRA"; then
+        "$QUEUE_FINAL" "$QUEUE_CORE" "$option_records" "$QUEUE_EXTRA"; then
         SBO_TARGET_SELECTION_ERROR="cannot build the final dependency-ordered SBo queue"
         SBO_BUILD_STATUS=1
         echo "  [ERROR] $SBO_TARGET_SELECTION_ERROR"
@@ -2702,6 +3095,7 @@ print_summary() {
     echo
 
     echo "- Cola principal (repositorios SBo):  $TOTAL_CORE paquetes"
+    echo "- Opciones SBo preservadas:            $SBO_OPTION_RECORD_COUNT registros"
     echo "- Cola extra (ABI + binarios rotos):  $TOTAL_EXTRA paquetes"
     echo "- Total en cola (enviados a sbopkg):  $TOTAL_EN_COLA paquetes"
 
@@ -2812,6 +3206,30 @@ json_string_array_from_file() {
                 printf ', '
             fi
             json_string "$item"
+            first=0
+        done < "$path"
+    fi
+    printf ']'
+}
+
+json_sbo_option_records_from_file() {
+    local path=$1
+    local first=1
+    local target
+    local options
+
+    printf '['
+    if [ -f "$path" ]; then
+        while IFS=$'	' read -r target options; do
+            [ -n "$target" ] || continue
+            if [ "$first" -eq 0 ]; then
+                printf ', '
+            fi
+            printf '{"target":'
+            json_string "$target"
+            printf ',"options":'
+            json_string "$options"
+            printf '}'
             first=0
         done < "$path"
     fi
@@ -3141,6 +3559,9 @@ print_dry_run_json_modules() {
     printf '      "sbopkg_available": '; json_boolean "$PLAN_SBOPKG_AVAILABLE"; printf ',\n'
     printf '      "sqg_available": '; json_boolean "$PLAN_SQG_AVAILABLE"; printf ',\n'
     printf '      "queue_directory": '; json_string "$SBODIR"; printf ',\n'
+    printf '      "options_file": '; json_string "${SBO_OPTIONS_FILE:-}"; printf ',\n'
+    printf '      "build_option_record_count": %d,\n' "${SBO_OPTION_RECORD_COUNT:-0}"
+    printf '      "build_options": '; json_sbo_option_records_from_file "${SBO_OPTION_RECORDS:-}"; printf ',\n'
     printf '      "target_selection_exit_code": '; json_nullable_status "$SBO_TARGET_SELECTION_STATUS"; printf ',\n'
     printf '      "target_selection_error": '; json_string "$SBO_TARGET_SELECTION_ERROR"; printf ',\n'
     printf '      "current_queue_targets": '; json_string_array_from_file "$QUEUE_CORE"; printf ',\n'
@@ -3300,6 +3721,9 @@ print_apply_json_modules() {
     printf '      "state": '; json_string "$sbo_state"; printf ',\n'
     printf '      "sync_exit_code": '; json_nullable_status "$SBOPKG_SYNC_STATUS"; printf ',\n'
     printf '      "queue_generation_exit_code": '; json_nullable_status "$SQG_SYNC_STATUS"; printf ',\n'
+    printf '      "options_file": '; json_string "${SBO_OPTIONS_FILE:-}"; printf ',\n'
+    printf '      "build_option_record_count": %d,\n' "${SBO_OPTION_RECORD_COUNT:-0}"
+    printf '      "build_options": '; json_sbo_option_records_from_file "${SBO_OPTION_RECORDS:-}"; printf ',\n'
     printf '      "target_selection_exit_code": '; json_nullable_status "$SBO_TARGET_SELECTION_STATUS"; printf ',\n'
     printf '      "target_selection_error": '; json_string "$SBO_TARGET_SELECTION_ERROR"; printf ',\n'
     printf '      "build_exit_code": '; json_nullable_status "$SBO_BUILD_STATUS"; printf ',\n'
@@ -3501,7 +3925,9 @@ run_apply_workflow() {
             action_exit=1
             : > "$QUEUE_CORE"
             : > "$QUEUE_EXTRA"
+            [ -n "${SBO_OPTION_RECORDS:-}" ] && : > "$SBO_OPTION_RECORDS"
             TOTAL_CORE=0
+            SBO_OPTION_RECORD_COUNT=0
             TOTAL_EXTRA=0
             emit_action_completed_event sbo build_queues failed \
                 "SBo target selection failed: $SBO_TARGET_SELECTION_ERROR" 1
@@ -3512,7 +3938,9 @@ run_apply_workflow() {
         SBODIR=$SBO_QUEUE_DIR_FALLBACK
         : > "$QUEUE_CORE"
         : > "$QUEUE_EXTRA"
+        [ -n "${SBO_OPTION_RECORDS:-}" ] && : > "$SBO_OPTION_RECORDS"
         TOTAL_CORE=0
+        SBO_OPTION_RECORD_COUNT=0
         TOTAL_EXTRA=0
         emit_action_completed_event sbo synchronize "$sbo_state" \
             "SBo repository synchronization was not applicable: $SBO_MODULE_REASON" 0

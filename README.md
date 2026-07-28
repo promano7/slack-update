@@ -283,7 +283,7 @@ path for isolated tests; it is not yet a stable command-line interface.
 
 The current reference configuration uses schema version `1` and externalizes:
 
-- work, log, lock, package-database, SBo, ELF-scan, boot, and Cinnamon paths;
+- work, log, lock, package-database, SBo, persistent SBo-option, ELF-scan, boot, and Cinnamon paths;
 - log retention;
 - Slackware `install-new` and `upgrade-all` decisions;
 - ABI, Cinnamon ABI, critical, and kernel package groups;
@@ -588,7 +588,7 @@ The final layout may change during the architecture prototype, but separation be
 - [x] Confirm that secondary modules stop after partial Slackware updates.
 - [x] Confirm deterministic SBo target selection.
 - [x] Confirm dependency order is preserved in generated SBo queues.
-- [ ] Confirm custom SBo options are preserved.
+- [x] Confirm custom SBo options are preserved.
 - [ ] Confirm no personal queue is overwritten.
 - [ ] Confirm ELF analysis never executes inspected binaries.
 - [ ] Confirm architecture-specific library resolution.
@@ -652,14 +652,42 @@ deterministic topological order combines all generated queues. C-locale ordering
 is used only to break ties between independent packages. Cyclic, contradictory,
 or unsafe constraints fail atomically and prevent submission to `sbopkg`. The
 final queue retains this dependency-ordered core and appends unique ABI and
-broken-ELF rebuild targets deterministically. Custom build-option preservation
-and personal-queue protection remain separate follow-up tasks.
+broken-ELF rebuild targets deterministically.
+
+Per-package build options are preserved independently from dependency ordering.
+Options already present in generated queues are collected, normalized, and
+checked for conflicts. The optional persistent file configured by
+`sbo.options_file` overlays those generated values, so custom choices survive
+subsequent `sqg -a` regeneration. Its default path is:
+
+```text
+/etc/slack-update/sbo-options.sqf
+```
+
+The persistent file uses normal queue records such as:
+
+```text
+OpenCASCADE | FFMPEG=yes FREEIMAGE=yes TBB=yes
+ffmpeg | CHROMAPRINT=yes CODECS=all
+package | CFLAGS="-O2 -fPIC" TESTS=no
+```
+
+Blank lines and comments are accepted. Every active record must contain one or
+more safe `NAME=value` assignments. Identical options repeated by generated
+queues are deduplicated, conflicting generated values fail closed, and duplicate
+records in the persistent override file are rejected. The persistent file is
+optional; if it does not exist, options found in current generated queues are
+used. Options are applied to both dependency-ordered targets and later ABI or
+broken-ELF rebuild targets without selecting additional packages. Invalid option
+data preserves the previous output atomically and prevents `sbopkg` from running.
+Protection of personal queue files remains the next separate safety task.
 
 The focused SBo regression tests are:
 
 ```bash
 tests/reference/test-sbo-target-selection.sh
 tests/reference/test-sbo-dependency-order.sh
+tests/reference/test-sbo-options.sh
 ```
 
 ### Real-system acceptance matrix

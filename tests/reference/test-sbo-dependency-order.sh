@@ -200,11 +200,13 @@ CORE_QUEUE="$TEST_TMP/core-queue"
 EXTRA_A="$TEST_TMP/extra-a"
 EXTRA_B="$TEST_TMP/extra-b"
 FINAL_QUEUE="$TEST_TMP/final-queue"
+OPTION_RECORDS="$TEST_TMP/option-records"
+: > "$OPTION_RECORDS"
 printf '%s\n' z-dependency b-library m-library a-application y-tool > "$CORE_QUEUE"
 printf '%s\n' z-extra a-application alpha-extra > "$EXTRA_A"
 printf '%s\n' beta-extra alpha-extra > "$EXTRA_B"
 if merge_ordered_sbo_queue_with_target_sets \
-    "$FINAL_QUEUE" "$CORE_QUEUE" "$EXTRA_A" "$EXTRA_B"; then
+    "$FINAL_QUEUE" "$CORE_QUEUE" "$OPTION_RECORDS" "$EXTRA_A" "$EXTRA_B"; then
     pass
 else
     fail 'ordered core and deterministic extra targets should merge successfully'
@@ -218,7 +220,7 @@ assert_equal 1 "$(grep -Fxc a-application "$FINAL_QUEUE")" \
 printf '%s\n' '../escape' > "$CORE_QUEUE"
 printf '%s\n' preserved > "$FINAL_QUEUE"
 if merge_ordered_sbo_queue_with_target_sets \
-    "$FINAL_QUEUE" "$CORE_QUEUE" "$EXTRA_A"; then
+    "$FINAL_QUEUE" "$CORE_QUEUE" "$OPTION_RECORDS" "$EXTRA_A"; then
     fail 'an unsafe ordered core should block final queue construction'
 else
     pass
@@ -232,6 +234,9 @@ printf 'QUEUEDIR="%s"\n' "$QUEUE_DIR_A" > "$SBOPKG_CONFIG"
 QUEUE_CORE="$TEST_TMP/integration-core"
 QUEUE_EXTRA="$TEST_TMP/integration-extra"
 QUEUE_FINAL="$TEST_TMP/integration-final"
+SBO_OPTION_RECORDS="$TEST_TMP/integration-options-normalized"
+SBO_OPTIONS_FILE="$TEST_TMP/integration-options.sqf"
+: > "$SBO_OPTIONS_FILE"
 BROKEN="$TEST_TMP/integration-broken"
 STILL_BROKEN="$TEST_TMP/integration-still-broken"
 LOG="$TEST_TMP/integration.log"
@@ -263,7 +268,7 @@ if build_and_apply_sbo_queue >/dev/null; then
 else
     fail "the final dependency-ordered queue should be submitted: $SBO_TARGET_SELECTION_ERROR"
 fi
-assert_equal $'z-dependency\nb-library\nm-library\na-application\ny-tool\nextra-target' \
+assert_equal $'z-dependency\nb-library\nm-library | TESTS=no\na-application\ny-tool\nextra-target' \
     "$(cat "$QUEUE_FINAL")" \
     'the submitted queue should retain dependency order and append unique extras'
 assert_equal 6 "$TOTAL_EN_COLA" \

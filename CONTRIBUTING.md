@@ -79,11 +79,12 @@ Before submitting a change to the reference script:
 4. Run `tests/reference/test-partial-slackware-update.sh` when Slackware failure handling or secondary-module sequencing is affected.
 5. Run `tests/reference/test-sbo-target-selection.sh` when SBo queue parsing, target discovery, ABI rebuild candidates, broken-object ownership, or deterministic target-set merging is affected.
 6. Run `tests/reference/test-sbo-dependency-order.sh` when generated queue constraints, dependency ordering, final ordered merging, or SBo queue submission is affected.
-7. Confirm that destructive commands are not exercised outside an isolated Slackware test system.
-8. Record the relevant acceptance scenario.
-9. Preserve deterministic output and exit-code behavior.
-10. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
-11. Ensure every new or modified comment is written in English.
+7. Run `tests/reference/test-sbo-options.sh` when queue build options, persistent overrides, option conflict handling, or final option-preserving submission is affected.
+8. Confirm that destructive commands are not exercised outside an isolated Slackware test system.
+9. Record the relevant acceptance scenario.
+10. Preserve deterministic output and exit-code behavior.
+11. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
+12. Ensure every new or modified comment is written in English.
 
 Never run the apply workflow on a production machine merely to validate a contribution.
 
