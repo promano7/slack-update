@@ -777,6 +777,188 @@ package_names_with_build_suffix_from_stream() {
     done
 }
 
+is_safe_sbo_target_name() {
+    local target=$1
+
+    case "$target" in
+        ''|.|..|-*|@*|*[!A-Za-z0-9_+.-]*) return 1 ;;
+        *) return 0 ;;
+    esac
+}
+
+sbo_target_from_queue_line() {
+    local line=$1
+    local target
+
+    SBO_QUEUE_LINE_TARGET=
+    line=${line%$'\r'}
+    line=${line%%#*}
+    line=$(trim_whitespace "$line")
+
+    [ -n "$line" ] || return 1
+
+    target=${line%%|*}
+    target=$(trim_whitespace "$target")
+    case "$target" in
+        *[[:space:]]*) return 2 ;;
+    esac
+
+    # Queue references and deselected entries are control records, not targets.
+    case "$target" in
+        @*|-*) return 1 ;;
+    esac
+
+    is_safe_sbo_target_name "$target" || return 2
+    SBO_QUEUE_LINE_TARGET=$target
+}
+
+normalize_sbo_target_names_from_stream() {
+    local target
+    local temporary
+    local status
+
+    temporary=$(mktemp) || return 1
+
+    while IFS= read -r target || [ -n "$target" ]; do
+        [ -n "$target" ] || continue
+        if ! is_safe_sbo_target_name "$target"; then
+            rm -f "$temporary"
+            return 1
+        fi
+        printf '%s\n' "$target" >> "$temporary"
+    done
+
+    LC_ALL=C sort -u "$temporary"
+    status=$?
+    rm -f "$temporary"
+    return "$status"
+}
+
+sbo_targets_from_queue_stream() {
+    local line
+    local status
+
+    while IFS= read -r line || [ -n "$line" ]; do
+        if sbo_target_from_queue_line "$line"; then
+            printf '%s\n' "$SBO_QUEUE_LINE_TARGET"
+        else
+            status=$?
+            [ "$status" -eq 1 ] || return "$status"
+        fi
+    done
+}
+
+collect_sbo_targets_from_queue_directory() {
+    local queue_directory=$1
+    local destination=$2
+    local queue_listing
+    local raw_targets
+    local candidate
+    local destination_directory
+    local queue_file
+
+    SBO_TARGET_SELECTION_ERROR=
+    queue_listing=$(mktemp) || return 1
+    raw_targets=$(mktemp) || {
+        rm -f "$queue_listing"
+        return 1
+    }
+    destination_directory=$(dirname -- "$destination")
+    candidate=$(mktemp "$destination_directory/.sbo-targets.XXXXXX") || {
+        rm -f "$queue_listing" "$raw_targets"
+        SBO_TARGET_SELECTION_ERROR="cannot create a temporary SBo target set in: $destination_directory"
+        return 1
+    }
+
+    if [ -d "$queue_directory" ]; then
+        if ! find "$queue_directory" -type f -name '*.sqf' -print0 \
+            | LC_ALL=C sort -z > "$queue_listing"; then
+            rm -f "$queue_listing" "$raw_targets" "$candidate"
+            SBO_TARGET_SELECTION_ERROR="cannot enumerate SBo queue files: $queue_directory"
+            return 1
+        fi
+
+        while IFS= read -r -d '' queue_file; do
+            if ! sbo_targets_from_queue_stream < "$queue_file" >> "$raw_targets"; then
+                rm -f "$queue_listing" "$raw_targets" "$candidate"
+                SBO_TARGET_SELECTION_ERROR="queue contains an invalid SBo target: $queue_file"
+                return 1
+            fi
+        done < "$queue_listing"
+    fi
+
+    if ! normalize_sbo_target_names_from_stream < "$raw_targets" > "$candidate"; then
+        rm -f "$queue_listing" "$raw_targets" "$candidate"
+        SBO_TARGET_SELECTION_ERROR="cannot normalize SBo targets from: $queue_directory"
+        return 1
+    fi
+
+    if ! mv -f -- "$candidate" "$destination"; then
+        rm -f "$queue_listing" "$raw_targets" "$candidate"
+        SBO_TARGET_SELECTION_ERROR="cannot install selected SBo targets: $destination"
+        return 1
+    fi
+
+    rm -f "$queue_listing" "$raw_targets"
+}
+
+collect_installed_sbo_targets() {
+    local destination=$1
+    local package_records
+    local candidate
+    local destination_directory
+
+    SBO_TARGET_SELECTION_ERROR=
+    package_records=$(mktemp) || return 1
+    destination_directory=$(dirname -- "$destination")
+    candidate=$(mktemp "$destination_directory/.sbo-targets.XXXXXX") || {
+        rm -f "$package_records"
+        SBO_TARGET_SELECTION_ERROR="cannot create a temporary SBo target set in: $destination_directory"
+        return 1
+    }
+
+    if ! find "$PACKAGE_DATABASE" -maxdepth 1 -type f -printf '%f\n' > "$package_records"; then
+        rm -f "$package_records" "$candidate"
+        SBO_TARGET_SELECTION_ERROR="cannot enumerate installed package records: $PACKAGE_DATABASE"
+        return 1
+    fi
+
+    if ! package_names_with_build_suffix_from_stream "$SBO_PACKAGE_TAG" < "$package_records" \
+        | normalize_sbo_target_names_from_stream > "$candidate"; then
+        rm -f "$package_records" "$candidate"
+        SBO_TARGET_SELECTION_ERROR="cannot normalize installed SBo package targets"
+        return 1
+    fi
+
+    if ! mv -f -- "$candidate" "$destination"; then
+        rm -f "$package_records" "$candidate"
+        SBO_TARGET_SELECTION_ERROR="cannot install selected SBo targets: $destination"
+        return 1
+    fi
+
+    rm -f "$package_records"
+}
+
+merge_sbo_target_sets() {
+    local destination=$1
+    local destination_directory
+    local candidate
+
+    shift
+    destination_directory=$(dirname -- "$destination")
+    candidate=$(mktemp "$destination_directory/.sbo-targets.XXXXXX") || return 1
+
+    if ! cat "$@" 2>/dev/null | normalize_sbo_target_names_from_stream > "$candidate"; then
+        rm -f "$candidate"
+        return 1
+    fi
+
+    if ! mv -f -- "$candidate" "$destination"; then
+        rm -f "$candidate"
+        return 1
+    fi
+}
+
 package_database_contains_name() {
     local expected_name=$1
     local record
@@ -1117,6 +1299,8 @@ initialize_runtime_state() {
     SBOPKG_SYNC_STATUS=-1
     SQG_SYNC_STATUS=-1
     SBO_BUILD_STATUS=-1
+    SBO_TARGET_SELECTION_STATUS=-1
+    SBO_TARGET_SELECTION_ERROR=
     PACKAGE_SNAPSHOT_BEFORE_VALID=0
     PACKAGE_SNAPSHOT_AFTER_VALID=0
     PACKAGE_SNAPSHOT_BEFORE_COUNT=0
@@ -1356,11 +1540,9 @@ inspect_current_sbo_queues() {
         SBODIR=$SBO_QUEUE_DIR_FALLBACK
     fi
 
-    if [ -d "$SBODIR" ]; then
-        find "$SBODIR" -name '*.sqf' -exec cat {} + 2>/dev/null \
-            | awk '{print $1}' | sort -u > "$QUEUE_CORE"
-    else
-        : > "$QUEUE_CORE"
+    if ! collect_sbo_targets_from_queue_directory "$SBODIR" "$QUEUE_CORE"; then
+        echo "  [ERROR] $SBO_TARGET_SELECTION_ERROR"
+        return 1
     fi
 
     TOTAL_CORE=$(wc -l < "$QUEUE_CORE")
@@ -1368,9 +1550,10 @@ inspect_current_sbo_queues() {
 }
 
 collect_installed_sbo_candidates() {
-    find "$PACKAGE_DATABASE" -maxdepth 1 -type f -printf '%f\n' 2>/dev/null \
-        | package_names_with_build_suffix_from_stream "$SBO_PACKAGE_TAG" \
-        | sort -u > "$ABI_CANDIDATES" || true
+    if ! collect_installed_sbo_targets "$ABI_CANDIDATES"; then
+        echo "  [ERROR] $SBO_TARGET_SELECTION_ERROR"
+        return 1
+    fi
 
     PLAN_ABI_SBO_COUNT=$(wc -l < "$ABI_CANDIDATES")
 }
@@ -1588,11 +1771,22 @@ run_dry_run_workflow() {
     emit_module_started_event sbo "SBo planning inspection started"
     if [ "$SBO_MODULE_RUN" -eq 1 ]; then
         emit_action_started_event sbo inspect_queues "Inspecting current SBo queues"
-        inspect_current_sbo_queues
-        collect_installed_sbo_candidates
-        emit_action_completed_event sbo inspect_queues success \
-            "Current SBo queues and ABI candidates inspected" 0
-        sbo_state=success
+        SBO_TARGET_SELECTION_STATUS=0
+        if inspect_current_sbo_queues && collect_installed_sbo_candidates; then
+            emit_action_completed_event sbo inspect_queues success \
+                "Current SBo queues and ABI candidates inspected" 0
+            sbo_state=success
+        else
+            SBO_TARGET_SELECTION_STATUS=1
+            sbo_state=failed
+            result=1
+            : > "$QUEUE_CORE"
+            : > "$ABI_CANDIDATES"
+            TOTAL_CORE=0
+            PLAN_ABI_SBO_COUNT=0
+            emit_action_completed_event sbo inspect_queues failed \
+                "SBo target selection failed: $SBO_TARGET_SELECTION_ERROR" 1
+        fi
     else
         sbo_state=$SBO_MODULE_STATE
         action_exit=0
@@ -1865,15 +2059,17 @@ build_sbo_core_queue() {
 
     rm -f "$QUEUE_CORE" "$QUEUE_EXTRA"
 
-    if [ -d "$SBODIR" ]; then
-        find "$SBODIR" -name '*.sqf' -exec cat {} + 2>/dev/null \
-            | awk '{print $1}' | sort -u > "$QUEUE_CORE"
-        TOTAL_CORE=$(wc -l < "$QUEUE_CORE")
-        echo "  Cola principal: $TOTAL_CORE paquetes"
-    else
+    if [ ! -d "$SBODIR" ]; then
         echo "  [WARN] Directorio de queues no encontrado: $SBODIR"
-        touch "$QUEUE_CORE"
     fi
+
+    if ! collect_sbo_targets_from_queue_directory "$SBODIR" "$QUEUE_CORE"; then
+        echo "  [ERROR] $SBO_TARGET_SELECTION_ERROR"
+        return 1
+    fi
+
+    TOTAL_CORE=$(wc -l < "$QUEUE_CORE")
+    echo "  Cola principal: $TOTAL_CORE paquetes"
 }
 
 add_abi_rebuild_targets() {
@@ -1885,9 +2081,10 @@ add_abi_rebuild_targets() {
 
         echo "[7] ABI trigger -> anadiendo todos los paquetes SBo a cola extra"
 
-        find "$PACKAGE_DATABASE" -maxdepth 1 -type f -printf '%f\n' 2>/dev/null \
-            | package_names_with_build_suffix_from_stream "$SBO_PACKAGE_TAG" \
-            | sort -u > "$QUEUE_EXTRA" || true
+        if ! collect_installed_sbo_targets "$QUEUE_EXTRA"; then
+            echo "  [ERROR] $SBO_TARGET_SELECTION_ERROR"
+            return 1
+        fi
 
         TOTAL_EXTRA=$(wc -l < "$QUEUE_EXTRA")
         echo "  Cola ABI extra: $TOTAL_EXTRA paquetes"
@@ -1955,10 +2152,16 @@ map_broken_objects_to_sbo_packages() {
             # en los manifiestos de /var/log/packages (algunos omiten el '/' inicial).
             grep -rlP "^/?${bin#/}$" "$PACKAGE_DATABASE"/ 2>/dev/null \
                 | package_names_with_build_suffix_from_stream "$SBO_PACKAGE_TAG"
-        done < "$BROKEN" | sort -u > "$_BROKEN_PKGS"
+        done < "$BROKEN" | LC_ALL=C sort -u > "$_BROKEN_PKGS"
 
-        # Merge: contenido previo de QUEUE_EXTRA (si lo hay) + rotos nuevos, deduplicado
-        sort -u "$QUEUE_EXTRA" "$_BROKEN_PKGS" -o "$QUEUE_EXTRA" 2>/dev/null || true
+        # Merge the existing ABI targets and broken-object owners deterministically.
+        if ! merge_sbo_target_sets "$QUEUE_EXTRA.merged" "$QUEUE_EXTRA" "$_BROKEN_PKGS"; then
+            rm -f "$_BROKEN_PKGS" "$QUEUE_EXTRA.merged"
+            SBO_TARGET_SELECTION_ERROR="cannot merge broken-object SBo targets"
+            echo "  [ERROR] $SBO_TARGET_SELECTION_ERROR"
+            return 1
+        fi
+        mv -f -- "$QUEUE_EXTRA.merged" "$QUEUE_EXTRA"
         rm -f "$_BROKEN_PKGS"
 
         TOTAL_EXTRA=$(wc -l < "$QUEUE_EXTRA")
@@ -1975,7 +2178,12 @@ build_and_apply_sbo_queue() {
 
     echo "[10] Aplicando cola SBo"
 
-    cat "$QUEUE_CORE" "$QUEUE_EXTRA" 2>/dev/null | sort -u > "$QUEUE_FINAL"
+    if ! merge_sbo_target_sets "$QUEUE_FINAL" "$QUEUE_CORE" "$QUEUE_EXTRA"; then
+        SBO_TARGET_SELECTION_ERROR="cannot build the final deterministic SBo target set"
+        SBO_BUILD_STATUS=1
+        echo "  [ERROR] $SBO_TARGET_SELECTION_ERROR"
+        return 1
+    fi
 
     TOTAL=$(wc -l < "$QUEUE_FINAL")
     TOTAL_EN_COLA=$TOTAL
@@ -2510,6 +2718,8 @@ prepare_json_messages() {
                 RESULT_ERRORS+=("slackpkg check-updates failed with exit code $CHECK_STATUS")
             fi
             append_enabled_module_requirement_errors
+            [ "$SBO_TARGET_SELECTION_STATUS" -gt 0 ] \
+                && RESULT_ERRORS+=("SBo target selection failed: ${SBO_TARGET_SELECTION_ERROR:-unknown selection failure}")
             RESULT_WARNINGS+=("Exact Slackware package changes remain unresolved until package metadata is refreshed during apply")
             ;;
         apply)
@@ -2531,6 +2741,8 @@ prepare_json_messages() {
                 && RESULT_ERRORS+=("sbopkg repository synchronization failed with exit code $SBOPKG_SYNC_STATUS")
             [ "$SQG_SYNC_STATUS" -gt 0 ] \
                 && RESULT_ERRORS+=("sqg queue generation failed with exit code $SQG_SYNC_STATUS")
+            [ "$SBO_TARGET_SELECTION_STATUS" -gt 0 ] \
+                && RESULT_ERRORS+=("SBo target selection failed: ${SBO_TARGET_SELECTION_ERROR:-unknown selection failure}")
             [ "$SBO_BUILD_STATUS" -gt 0 ] \
                 && RESULT_ERRORS+=("sbopkg queue processing failed with exit code $SBO_BUILD_STATUS")
             [ "$CINNAMON_TRIGGER" -eq 3 ] \
@@ -2695,6 +2907,8 @@ print_dry_run_json_modules() {
     printf '      "sbopkg_available": '; json_boolean "$PLAN_SBOPKG_AVAILABLE"; printf ',\n'
     printf '      "sqg_available": '; json_boolean "$PLAN_SQG_AVAILABLE"; printf ',\n'
     printf '      "queue_directory": '; json_string "$SBODIR"; printf ',\n'
+    printf '      "target_selection_exit_code": '; json_nullable_status "$SBO_TARGET_SELECTION_STATUS"; printf ',\n'
+    printf '      "target_selection_error": '; json_string "$SBO_TARGET_SELECTION_ERROR"; printf ',\n'
     printf '      "current_queue_targets": '; json_string_array_from_file "$QUEUE_CORE"; printf ',\n'
     printf '      "abi_rebuild_candidates": '; json_string_array_from_file "$ABI_CANDIDATES"; printf ',\n'
     printf '      "broken_elf_targets": '; json_string_array_from_file "$QUEUE_EXTRA"; printf '\n'
@@ -2756,7 +2970,7 @@ print_apply_json_modules() {
     if [ "$SBO_MODULE_RUN" -eq 0 ]; then
         sbo_state=$SBO_MODULE_STATE
     elif [ "$SBOPKG_SYNC_STATUS" -gt 0 ] || [ "$SQG_SYNC_STATUS" -gt 0 ] \
-        || [ "$SBO_BUILD_STATUS" -gt 0 ]; then
+        || [ "$SBO_TARGET_SELECTION_STATUS" -gt 0 ] || [ "$SBO_BUILD_STATUS" -gt 0 ]; then
         sbo_state=failed
     fi
 
@@ -2852,6 +3066,8 @@ print_apply_json_modules() {
     printf '      "state": '; json_string "$sbo_state"; printf ',\n'
     printf '      "sync_exit_code": '; json_nullable_status "$SBOPKG_SYNC_STATUS"; printf ',\n'
     printf '      "queue_generation_exit_code": '; json_nullable_status "$SQG_SYNC_STATUS"; printf ',\n'
+    printf '      "target_selection_exit_code": '; json_nullable_status "$SBO_TARGET_SELECTION_STATUS"; printf ',\n'
+    printf '      "target_selection_error": '; json_string "$SBO_TARGET_SELECTION_ERROR"; printf ',\n'
     printf '      "build_exit_code": '; json_nullable_status "$SBO_BUILD_STATUS"; printf ',\n'
     printf '      "core_queue_count": %d,\n' "$TOTAL_CORE"
     printf '      "extra_queue_count": %d,\n' "$TOTAL_EXTRA"
@@ -3041,9 +3257,21 @@ run_apply_workflow() {
             "SBo repository synchronization completed" "$action_exit"
 
         emit_action_started_event sbo build_queues "Building SBo target queues"
-        build_sbo_core_queue
-        add_abi_rebuild_targets
-        emit_action_completed_event sbo build_queues success "SBo target queues built" 0
+        SBO_TARGET_SELECTION_STATUS=0
+        if build_sbo_core_queue && add_abi_rebuild_targets; then
+            emit_action_completed_event sbo build_queues success \
+                "Deterministic SBo target sets built" 0
+        else
+            SBO_TARGET_SELECTION_STATUS=1
+            sbo_state=failed
+            action_exit=1
+            : > "$QUEUE_CORE"
+            : > "$QUEUE_EXTRA"
+            TOTAL_CORE=0
+            TOTAL_EXTRA=0
+            emit_action_completed_event sbo build_queues failed \
+                "SBo target selection failed: $SBO_TARGET_SELECTION_ERROR" 1
+        fi
     else
         sbo_state=$SBO_MODULE_STATE
         action_exit=0
@@ -3062,14 +3290,22 @@ run_apply_workflow() {
     if [ "$ELF_MODULE_RUN" -eq 1 ]; then
         emit_action_started_event elf scan_dependencies "Scanning ELF dependencies statically"
         detect_broken_elf_objects
-        map_broken_objects_to_sbo_packages
-        if [ -s "$BROKEN" ]; then
-            elf_state=warning
+        if map_broken_objects_to_sbo_packages; then
+            if [ -s "$BROKEN" ]; then
+                elf_state=warning
+            else
+                elf_state=success
+            fi
+            emit_action_completed_event elf scan_dependencies "$elf_state" \
+                "ELF dependency scan completed" 0
         else
-            elf_state=success
+            elf_state=failed
+            sbo_state=failed
+            SBO_TARGET_SELECTION_STATUS=1
+            action_exit=1
+            emit_action_completed_event elf scan_dependencies failed \
+                "ELF ownership mapping could not produce deterministic SBo targets" 1
         fi
-        emit_action_completed_event elf scan_dependencies "$elf_state" \
-            "ELF dependency scan completed" 0
     else
         elf_state=$ELF_MODULE_STATE
         : > "$BROKEN"
@@ -3078,7 +3314,7 @@ run_apply_workflow() {
     fi
     emit_module_completed_event elf "$elf_state" "ELF dependency module completed" 0
 
-    if [ "$SBO_MODULE_RUN" -eq 1 ]; then
+    if [ "$SBO_MODULE_RUN" -eq 1 ] && [ "$SBO_TARGET_SELECTION_STATUS" -eq 0 ]; then
         emit_action_started_event sbo process_queue "Processing the final SBo queue"
         build_and_apply_sbo_queue
         if [ "$SBO_BUILD_STATUS" -gt 0 ]; then
@@ -3089,6 +3325,11 @@ run_apply_workflow() {
         fi
         emit_action_completed_event sbo process_queue "$sbo_state" \
             "Final SBo queue processing completed" "$action_exit"
+    elif [ "$SBO_MODULE_RUN" -eq 1 ]; then
+        sbo_state=failed
+        action_exit=1
+        emit_action_completed_event sbo process_queue failed \
+            "SBo queue processing was blocked because target selection failed" 1
     else
         emit_action_completed_event sbo process_queue "$sbo_state" \
             "SBo queue processing was not applicable: $SBO_MODULE_REASON" 0

@@ -586,7 +586,7 @@ The final layout may change during the architecture prototype, but separation be
 - [x] Validate exact Slackware package-name parsing.
 - [x] Validate package snapshots before and after updates.
 - [x] Confirm that secondary modules stop after partial Slackware updates.
-- [ ] Confirm deterministic SBo target selection.
+- [x] Confirm deterministic SBo target selection.
 - [ ] Confirm dependency order is preserved in generated SBo queues.
 - [ ] Confirm custom SBo options are preserved.
 - [ ] Confirm no personal queue is overwritten.
@@ -637,6 +637,22 @@ The focused partial-update regression test is:
 
 ```bash
 tests/reference/test-partial-slackware-update.sh
+```
+
+SBo target selection is now a separate deterministic stage. Active package
+records are extracted from queue files independently of filesystem enumeration
+order, comments, recursive queue references, deselected records, and build
+options. Installed ABI rebuild candidates and broken-object package owners use
+the exact configured SBo build suffix. Every selected target is validated,
+deduplicated, and sorted with the C locale before the target sets are merged.
+An invalid target makes the SBo selection stage fail and prevents the final
+queue from being submitted to `sbopkg`. Dependency order and build-option
+preservation remain separate follow-up tasks.
+
+The focused SBo target-selection regression test is:
+
+```bash
+tests/reference/test-sbo-target-selection.sh
 ```
 
 ### Real-system acceptance matrix

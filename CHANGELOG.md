@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added
 
+- Added `tests/reference/test-sbo-target-selection.sh` with focused coverage for active queue records, build-option syntax, recursive references, deselected records, unsafe names, C-locale normalization, filesystem-order independence, exact installed SBo detection, broken-object ownership, atomic failure behavior, and final target submission.
+- Added reusable SBo target-selection helpers for queue records, installed SBo packages, and deterministic target-set merging.
 - Added `tests/reference/test-partial-slackware-update.sh` with focused coverage for failures in `slackpkg update`, `install-new`, and `upgrade-all`, post-failure snapshot capture, blocked module state, event suppression, provisional JSON reporting, and the successful continuation path.
 - Added validated package snapshot capture with canonical normalization, deterministic ordering, duplicate rejection, record counts, and atomic replacement.
 - Added `tests/reference/test-package-snapshots.sh` with focused coverage for valid, empty, missing, malformed, unsorted, duplicate, and non-canonical snapshots, plus apply-workflow guards.
@@ -33,6 +35,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Changed
 
+- SBo target selection now ignores comments, recursive queue references, and deselected records, extracts package names independently from build options, rejects unsafe names, and produces a C-locale sorted unique target set independent of queue-file enumeration order.
+- ABI rebuild candidates, broken-object SBo owners, and the final submitted target set now share the same canonical selection and merge rules.
+- Invalid SBo target selection now fails the SBo module, is exposed in provisional JSON, and blocks queue submission to `sbopkg`.
 - Apply now stops after the validated post-update snapshot when any Slackware package operation fails, preventing Flatpak, package-change analysis, SBo, ELF, Cinnamon, initrd, and GRUB work from running against a partial Slackware state.
 - Partial Slackware updates now mark every secondary module as `blocked`, include a stable blocking reason in summaries and provisional JSON, and emit no secondary-module start events.
 - Package snapshots now fail closed when the package database cannot be enumerated or validated instead of silently creating incomplete state with `|| true`.
@@ -70,8 +75,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 - Current roadmap phase: **Phase 1 — Stabilize and validate the shell reference**.
 - Phase 0 is complete, committed as `3064cfa`, tagged as `planning-v1`, and published to GitHub.
-- The first thirteen Phase 1 refactoring, interface, parsing, and safety tasks are complete: runtime identifiers use `slack-update`, the script is split into named functions, argument parsing is available, `--check`, `--apply`, and `--dry-run` are implemented, `--json` emits a final structured result, `--events` streams machine-readable progress, operational settings are loaded from a validated configuration file, optional modules implement `enabled`, `disabled`, and `auto`, and process exit codes `0` through `8` are stable.
-- The script currently contains 96 named functions.
+- The first fifteen Phase 1 refactoring, interface, parsing, and safety tasks are complete: runtime identifiers use `slack-update`, the script is split into named functions, argument parsing is available, `--check`, `--apply`, and `--dry-run` are implemented, `--json` emits a final structured result, `--events` streams machine-readable progress, operational settings are loaded from a validated configuration file, optional modules implement `enabled`, `disabled`, and `auto`, and process exit codes `0` through `8` are stable.
+- The script currently contains 103 named functions.
 - Running without an operation still selects apply for backward compatibility with the original reference behavior.
 - `--json` and `--events` both retain provisional schema version `0`; their complete schemas are not stable APIs yet. The final process exit code is stable: `--json` marks it with `exit_code_stable=true`, and the final `operation_completed` event uses the same code. Intermediate event exit codes remain raw external-command statuses.
 - Machine-readable modes reserve standard output. Human-readable progress and external-command output are written to standard error and the normal log.
@@ -81,10 +86,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Configuration schema version `1` is implemented for the shell reference. Optional-module activation modes and stable process exit codes are implemented.
 - The system configuration path is `/etc/slack-update/slack-update.conf`; the source-tree fallback is `data/config/slack-update.conf`, and `SLACK_UPDATE_CONFIG` may select an absolute test fixture.
 - Exact Slackware package-name parsing is validated with 71 focused checks.
-- Package snapshots before and after updates are validated with 33 focused checks. Partial Slackware update handling is validated with 66 focused checks across each `slackpkg` operation, blocked module states, event suppression, provisional JSON, and the successful continuation path. The next development task is to confirm deterministic SBo target selection without implementing dependency-order or queue-preservation tasks in the same step.
+- Package snapshots before and after updates are validated with 33 focused checks. Partial Slackware update handling is validated with 66 focused checks across each `slackpkg` operation, blocked module states, event suppression, provisional JSON, and the successful continuation path. Deterministic SBo target selection is validated with 47 focused checks. The next development task is to preserve dependency order in generated SBo queues without combining custom-option or personal-queue preservation work into the same step.
 - Package-name parsing tests cover path and archive normalization, right-to-left field extraction, malformed records, literal snapshot matching, prefix collisions, plus signs, multi-hyphen names, patched builds, and exact `_SBo` build suffixes.
 - Package snapshot tests cover canonical normalization, deterministic C-locale ordering, duplicate rejection, atomic replacement, missing and empty package databases, malformed and non-canonical records, stale snapshot removal, record counts, and workflow guards before and after Slackware operations.
 - Partial-update tests confirm that a non-zero status from `update`, `install-new`, or `upgrade-all` still permits final snapshot capture but blocks every secondary module, suppresses their start events, reports `blocked` states in provisional JSON, and leaves the successful path unchanged.
+- SBo target-selection tests cover queue options, comments, recursive references, deselected entries, unsafe names, duplicate removal, C-locale ordering, directory-layout independence, exact `_SBo` ownership, installed-package deduplication, deterministic union, and the final `sbopkg -b -B` submission file.
 - Stable exit-code tests cover all values `0` through `8`, successful non-zero reboot outcomes, check failure, partial update failure, failed initrd preparation, invalid input, invalid configuration, privilege denial, lock contention, kernel headers without reboot, final JSON metadata, and the final NDJSON event.
 - Module-mode tests cover all modules disabled, all requirements available in auto mode, invalid mode values, enabled modules with missing requirements, non-fatal auto unavailability, kernel changes with boot auto and boot enabled, and schema-1 configurations without explicit mode keys.
 - Disabled modules were verified not to invoke Flatpak, SBo, ELF, Cinnamon, initrd, or GRUB commands in the deterministic mock environment.

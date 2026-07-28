@@ -77,6 +77,7 @@ Before submitting a change to the reference script:
 2. Run `tests/reference/test-package-name-parsing.sh` when package records, package ownership, or SBo detection are affected.
 3. Run `tests/reference/test-package-snapshots.sh` when package snapshot capture, validation, or comparison is affected.
 4. Run `tests/reference/test-partial-slackware-update.sh` when Slackware failure handling or secondary-module sequencing is affected.
+5. Run `tests/reference/test-sbo-target-selection.sh` when SBo queue parsing, target discovery, ABI rebuild candidates, broken-object ownership, or final target merging is affected.
 5. Confirm that destructive commands are not exercised outside an isolated Slackware test system.
 6. Record the relevant acceptance scenario.
 7. Preserve deterministic output and exit-code behavior.
