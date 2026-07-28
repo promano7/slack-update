@@ -1852,9 +1852,21 @@ acquire_instance_lock() {
 
     # Keep the lock file open for the complete process lifetime.
     if ! flock -n 9; then
+        exec 9>&-
         echo "Otra instancia de slack-update ya esta ejecutandose" >&2
         return "$EXIT_ALREADY_RUNNING"
     fi
+
+    INSTANCE_LOCK_HELD=1
+}
+
+release_instance_lock() {
+    if [ "${INSTANCE_LOCK_HELD:-0}" -eq 1 ]; then
+        flock -u 9 2>/dev/null || true
+        INSTANCE_LOCK_HELD=0
+    fi
+
+    exec 9>&-
 }
 
 initialize_runtime_state() {
@@ -2050,7 +2062,27 @@ cleanup() {
         rm -rf -- "$RUNTIME_TMPDIR" 2>/dev/null || true
     fi
 
-    flock -u 9 2>/dev/null || true
+    release_instance_lock
+}
+
+handle_interruption_signal() {
+    local signal_name=$1
+    local signal_number=$2
+    local exit_code=$((128 + signal_number))
+
+    # Prevent recursive or duplicate cleanup while terminating from a signal.
+    trap - EXIT HUP INT TERM
+    printf 'Interrupted by SIG%s; cleaning up and exiting with status %d\n' \
+        "$signal_name" "$exit_code" >&2
+    cleanup
+    exit "$exit_code"
+}
+
+install_runtime_traps() {
+    trap cleanup EXIT
+    trap 'handle_interruption_signal HUP 1' HUP
+    trap 'handle_interruption_signal INT 2' INT
+    trap 'handle_interruption_signal TERM 15' TERM
 }
 
 rotate_logs() {
@@ -5329,13 +5361,15 @@ main() {
         return "$result"
     }
 
+    # Install cleanup coverage immediately after the process owns the lock.
+    install_runtime_traps
+
     if [ "$OPERATION" = "dry-run" ]; then
         initialize_dry_run_runtime
     else
         initialize_runtime
     fi
 
-    trap cleanup EXIT INT TERM HUP
     rotate_logs
     configure_logging
     print_start_banner

@@ -86,11 +86,12 @@ Before submitting a change to the reference script:
 11. Run `tests/reference/test-initrd-installed-kernel.sh` when `mkinitrd.conf` parsing, installed kernel resolution, module-tree validation, initrd output selection, or boot safety reporting is affected.
 12. Run `tests/reference/test-grub-blocked-after-initrd-failure.sh` when initrd-to-GRUB sequencing, boot action events, GRUB command guards, blocked boot reporting, or boot safety result diagnostics are affected.
 13. Run `tests/reference/test-grub-atomic-replacement.sh` when staged GRUB generation, syntax validation, active-file fingerprinting, temporary-file cleanup, permission preservation, or atomic replacement is affected.
-14. Confirm that destructive commands are not exercised outside an isolated Slackware test system.
-15. Record the relevant acceptance scenario.
-16. Preserve deterministic output and exit-code behavior.
-17. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
-18. Ensure every new or modified comment is written in English.
+14. Run `tests/reference/test-signal-cleanup.sh` when signal traps, instance locking, runtime cleanup, GRUB temporary cleanup, SBo workspace cleanup, or interruption statuses are affected.
+15. Confirm that destructive commands are not exercised outside an isolated Slackware test system.
+16. Record the relevant acceptance scenario.
+17. Preserve deterministic output and exit-code behavior.
+18. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
+19. Ensure every new or modified comment is written in English.
 
 Never run the apply workflow on a production machine merely to validate a contribution.
 

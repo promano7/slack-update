@@ -597,7 +597,7 @@ The final layout may change during the architecture prototype, but separation be
 - [x] Confirm initrd validation uses the installed kernel.
 - [x] Confirm GRUB is not updated after an initrd failure.
 - [x] Confirm staged GRUB configuration is validated before replacement.
-- [ ] Confirm interruption signals release locks and terminate execution.
+- [x] Confirm interruption signals release locks and terminate execution.
 - [ ] Confirm errors produce non-zero exit codes.
 - [ ] Confirm cron execution works with a minimal environment.
 
@@ -821,6 +821,26 @@ regression test is:
 
 ```bash
 tests/reference/test-grub-atomic-replacement.sh
+```
+
+Interruption handling is installed immediately after the process acquires the
+single-instance lock, before runtime directories or temporary files are
+created. Dedicated `SIGHUP`, `SIGINT`, and `SIGTERM` handlers disable all runtime
+traps, run the same ownership-aware cleanup used for normal exit, explicitly
+unlock and close the lock descriptor, and terminate without returning to the
+interrupted workflow. The conventional shell statuses are `129`, `130`, and
+`143` respectively; they identify interrupted runs and remain outside the
+stable `0` through `8` completed-run result contract.
+
+The focused regression test launches real subprocesses, observes their active
+`flock`, delivers each signal, and verifies the terminating status, lock
+availability, temporary-file removal, GRUB transaction cleanup, private SBo
+workspace cleanup, unrelated-file preservation, and absence of post-signal
+execution. It also covers interruption immediately after lock acquisition,
+before runtime state exists:
+
+```bash
+tests/reference/test-signal-cleanup.sh
 ```
 
 ### Real-system acceptance matrix

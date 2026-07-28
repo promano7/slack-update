@@ -8,6 +8,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added
 
+- Added `tests/reference/test-signal-cleanup.sh` with real subprocess coverage for `SIGHUP`, `SIGINT`, and `SIGTERM`, conventional interruption statuses, active-lock observation, explicit lock release, owned temporary-resource cleanup, unrelated-file preservation, pre-runtime interruption safety, non-resumption, and source-level trap-order guards.
+- Added dedicated runtime trap installation, interruption handling, and instance-lock release helpers.
+
 - Added `tests/reference/test-grub-atomic-replacement.sh` with focused coverage for temporary same-directory generation, syntax validation, active-file preservation, permission retention, missing validators, symlink rejection, concurrent modification detection, failed atomic replacement, cleanup boundaries, source audits, and provisional JSON reporting.
 - Added reusable GRUB transaction helpers for active-configuration fingerprinting, owner-only temporary-file preparation, `grub-script-check` validation, guarded cleanup, and same-directory atomic installation.
 
@@ -52,6 +55,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Added this changelog using the Keep a Changelog structure.
 
 ### Changed
+
+- Runtime traps are now installed immediately after successful lock acquisition, before runtime initialization creates directories or temporary files.
+- `SIGHUP`, `SIGINT`, and `SIGTERM` now disable recursive traps, run ownership-aware cleanup, release and close the instance lock, and terminate with statuses `129`, `130`, and `143` instead of returning to the interrupted workflow.
+- Failed lock acquisition now closes file descriptor 9 before returning the stable concurrent-execution status.
 
 - `grub-mkconfig` now writes only to an unpredictable owner-only temporary file beside the active configuration; the active `grub.cfg` path is never passed to the generator.
 - Generated GRUB configuration must be a readable, non-empty regular file and pass `grub-script-check` before replacement; generator, validator, and install failures preserve the active file.
@@ -122,8 +129,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 - Current roadmap phase: **Phase 1 — Stabilize and validate the shell reference**.
 - Phase 0 is complete, committed as `3064cfa`, tagged as `planning-v1`, and published to GitHub.
-- The first twenty-three Phase 1 refactoring, interface, parsing, and safety tasks are complete: runtime identifiers use `slack-update`, the script is split into named functions, argument parsing is available, `--check`, `--apply`, and `--dry-run` are implemented, `--json` emits a final structured result, `--events` streams machine-readable progress, operational settings are loaded from a validated configuration file, optional modules implement `enabled`, `disabled`, and `auto`, and process exit codes `0` through `8` are stable.
-- The script currently contains 143 named functions.
+- The first twenty-four Phase 1 refactoring, interface, parsing, and safety tasks are complete: runtime identifiers use `slack-update`, the script is split into named functions, argument parsing is available, `--check`, `--apply`, and `--dry-run` are implemented, `--json` emits a final structured result, `--events` streams machine-readable progress, operational settings are loaded from a validated configuration file, optional modules implement `enabled`, `disabled`, and `auto`, and process exit codes `0` through `8` are stable.
+- The script currently contains 146 named functions.
 - Running without an operation still selects apply for backward compatibility with the original reference behavior.
 - `--json` and `--events` both retain provisional schema version `0`; their complete schemas are not stable APIs yet. The final process exit code is stable: `--json` marks it with `exit_code_stable=true`, and the final `operation_completed` event uses the same code. Intermediate event exit codes remain raw external-command statuses.
 - Machine-readable modes reserve standard output. Human-readable progress and external-command output are written to standard error and the normal log.
@@ -133,8 +140,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Configuration schema version `1` is implemented for the shell reference. Optional-module activation modes and stable process exit codes are implemented.
 - The system configuration path is `/etc/slack-update/slack-update.conf`; the source-tree fallback is `data/config/slack-update.conf`, and `SLACK_UPDATE_CONFIG` may select an absolute test fixture.
 - Exact Slackware package-name parsing is validated with 71 focused checks.
-- Package snapshots before and after updates are validated with 33 focused checks. Partial Slackware update handling is validated with 66 focused checks across each `slackpkg` operation, blocked module states, event suppression, provisional JSON, and the successful continuation path. Deterministic SBo target selection is validated with 47 focused checks, dependency-ordered queue construction is validated with 32 focused checks, SBo build-option preservation is validated with 57 focused checks, personal queue isolation is validated with 92 focused checks, static ELF non-execution is validated with 41 focused checks, architecture-specific ELF resolution is validated with 43 focused checks, installed-kernel initrd validation is validated with 69 focused checks, GRUB blocking after initrd failure is validated with 55 focused checks, and staged GRUB validation plus atomic replacement is validated with 87 focused checks. The next development task is to confirm that interruption signals release locks and terminate execution safely.
-- The twelve focused reference suites currently total 693 checks, all passing in the validation environment.
+- Package snapshots before and after updates are validated with 33 focused checks. Partial Slackware update handling is validated with 66 focused checks across each `slackpkg` operation, blocked module states, event suppression, provisional JSON, and the successful continuation path. Deterministic SBo target selection is validated with 47 focused checks, dependency-ordered queue construction is validated with 32 focused checks, SBo build-option preservation is validated with 57 focused checks, personal queue isolation is validated with 92 focused checks, static ELF non-execution is validated with 41 focused checks, architecture-specific ELF resolution is validated with 43 focused checks, installed-kernel initrd validation is validated with 69 focused checks, GRUB blocking after initrd failure is validated with 55 focused checks, staged GRUB validation plus atomic replacement is validated with 87 focused checks, and interruption cleanup is validated with 56 focused checks. The next development task is to confirm that errors produce non-zero exit codes.
+- The thirteen focused reference suites currently total 749 checks, all passing in the validation environment.
 - Package-name parsing tests cover path and archive normalization, right-to-left field extraction, malformed records, literal snapshot matching, prefix collisions, plus signs, multi-hyphen names, patched builds, and exact `_SBo` build suffixes.
 - Package snapshot tests cover canonical normalization, deterministic C-locale ordering, duplicate rejection, atomic replacement, missing and empty package databases, malformed and non-canonical records, stale snapshot removal, record counts, and workflow guards before and after Slackware operations.
 - Partial-update tests confirm that a non-zero status from `update`, `install-new`, or `upgrade-all` still permits final snapshot capture but blocks every secondary module, suppresses their start events, reports `blocked` states in provisional JSON, and leaves the successful path unchanged.
@@ -147,6 +154,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Installed-kernel initrd tests cover non-evaluating scalar parsing, exact post-update `kernel-generic` version resolution, stale running-kernel values, missing or ambiguous package records, required module trees, output-path compatibility, guarded `mkinitrd` invocation, schema defaults, source audits, and provisional JSON fields.
 - GRUB-after-initrd safety tests cover validation failure, failed regeneration, missing initrd applicability, GRUB-only operation, direct command failure, coordinator events, command-attempt metadata, blocked result diagnostics, and both coordinator and command-boundary guards.
 - GRUB transaction tests cover owner-only same-directory staging, non-empty and syntax validation, active symlink and outside-path rejection, byte-preserving failures, permission preservation, concurrent modification detection, atomic move failure, guarded cleanup, source audits, and provisional JSON fields.
+- Signal-cleanup tests cover real `SIGHUP`, `SIGINT`, and `SIGTERM` delivery, statuses `129`, `130`, and `143`, lock observation and reacquisition, owned scratch files, runtime directories, staged GRUB files, private SBo workspaces, unrelated-file preservation, pre-runtime interruption, workflow non-resumption, and trap-order source guards.
 - Stable exit-code tests cover all values `0` through `8`, successful non-zero reboot outcomes, check failure, partial update failure, failed initrd preparation, invalid input, invalid configuration, privilege denial, lock contention, kernel headers without reboot, final JSON metadata, and the final NDJSON event.
 - Module-mode tests cover all modules disabled, all requirements available in auto mode, invalid mode values, enabled modules with missing requirements, non-fatal auto unavailability, kernel changes with boot auto and boot enabled, and schema-1 configurations without explicit mode keys.
 - Disabled modules were verified not to invoke Flatpak, SBo, ELF, Cinnamon, initrd, or GRUB commands in the deterministic mock environment.
