@@ -17,6 +17,7 @@ EXECUTE_APPLY=0
 PASS_COUNT=0
 FAILURE_COUNT=0
 ASSERTION_LOG=
+DEFAULT_OUTPUT_ROOT=/var/tmp/slack-update-acceptance/no-updates
 
 print_usage() {
     cat <<EOF_USAGE
@@ -374,11 +375,42 @@ run_reference_operation() {
     local status
 
     SLACK_UPDATE_CONFIG=$SCENARIO_CONFIG \
-        "$REFERENCE_SCRIPT" "--$operation" --json \
+        bash "$REFERENCE_SCRIPT" "--$operation" --json \
         > "$json_output" 2> "$diagnostic_output"
     status=$?
     printf '%d\n' "$status" > "$status_output"
     return "$status"
+}
+
+report_json_failure_details() {
+    local json_path=$1
+
+    python3 - "$json_path" <<'PYTHON_EOF'
+import json
+import pathlib
+import sys
+
+path = pathlib.Path(sys.argv[1])
+try:
+    data = json.loads(path.read_text(encoding="utf-8"))
+except (OSError, UnicodeError, json.JSONDecodeError) as error:
+    print(f"[DETAIL] JSON result could not be inspected: {error}")
+    raise SystemExit(0)
+
+print(f"[DETAIL] stable exit code: {data.get('exit_code', 'missing')}")
+modules = data.get("modules")
+slackware = modules.get("slackware") if isinstance(modules, dict) else None
+if isinstance(slackware, dict):
+    for key in ("update_exit_code", "install_new_exit_code", "upgrade_all_exit_code"):
+        print(f"[DETAIL] slackware.{key}: {slackware.get(key, 'missing')}")
+
+errors = data.get("errors")
+if isinstance(errors, list) and errors:
+    for message in errors:
+        print(f"[DETAIL] error: {message}")
+else:
+    print("[DETAIL] error list: empty or unavailable")
+PYTHON_EOF
 }
 
 capture_host_metadata() {
@@ -424,6 +456,28 @@ write_summary() {
     } > "$summary_path"
 }
 
+prepare_default_output_root() {
+    local project_root=${DEFAULT_OUTPUT_ROOT%/no-updates}
+
+    mkdir -p -- "$DEFAULT_OUTPUT_ROOT" || return 1
+    chmod 0755 -- "$project_root" "$DEFAULT_OUTPUT_ROOT" || return 1
+}
+
+publish_evidence_archive() {
+    local archive=$1
+    local owner_uid=${SUDO_UID:-}
+    local owner_gid=${SUDO_GID:-}
+
+    chmod 0600 -- "$archive" "$archive.sha256" || return 1
+
+    if [ -n "$owner_uid" ] && [ -n "$owner_gid" ]; then
+        case "$owner_uid$owner_gid" in
+            *[!0-9]*) ;;
+            *) chown -- "$owner_uid:$owner_gid" "$archive" "$archive.sha256" || return 1 ;;
+        esac
+    fi
+}
+
 create_evidence_archive() {
     local parent
     local base
@@ -434,7 +488,8 @@ create_evidence_archive() {
     archive="$OUTPUT_DIR.tar.gz"
 
     tar -C "$parent" -czf "$archive" "$base" || return 1
-    sha256sum -- "$archive" > "$archive.sha256"
+    sha256sum -- "$archive" > "$archive.sha256" || return 1
+    publish_evidence_archive "$archive" || return 1
     printf '%s\n' "$archive"
 }
 
@@ -458,8 +513,12 @@ main() {
         require_command "$command_name" || return 2
     done
 
-    [ -x "$REFERENCE_SCRIPT" ] || {
-        error "reference script is not executable: $REFERENCE_SCRIPT"
+    [ -r "$REFERENCE_SCRIPT" ] || {
+        error "reference script is not readable: $REFERENCE_SCRIPT"
+        return 2
+    }
+    bash -n "$REFERENCE_SCRIPT" || {
+        error "reference script does not pass bash syntax validation: $REFERENCE_SCRIPT"
         return 2
     }
     [ -r "$CONFIG_TEMPLATE" ] || {
@@ -484,7 +543,11 @@ main() {
 
     timestamp=$(date -u +%Y%m%dT%H%M%SZ)
     if [ -z "$OUTPUT_DIR" ]; then
-        OUTPUT_DIR="/var/tmp/slack-update-acceptance/no-updates/${TARGET}-${timestamp}"
+        prepare_default_output_root || {
+            error "failed to prepare the default evidence root: $DEFAULT_OUTPUT_ROOT"
+            return 2
+        }
+        OUTPUT_DIR="$DEFAULT_OUTPUT_ROOT/${TARGET}-${timestamp}"
     fi
     [ ! -e "$OUTPUT_DIR" ] || {
         error "output directory already exists: $OUTPUT_DIR"
@@ -526,6 +589,8 @@ main() {
         record_pass 'the real --check JSON reports no available updates'
     else
         record_failure 'the real --check JSON does not satisfy the no-updates contract'
+        report_json_failure_details "$OUTPUT_DIR/check.json" \
+            | tee -a "$ASSERTION_LOG" >&2 || true
     fi
 
     if [ "$check_status" -ne 0 ] || [ "$FAILURE_COUNT" -ne 0 ]; then
@@ -548,6 +613,8 @@ main() {
         record_pass 'the real --apply JSON satisfies the no-package-change contract'
     else
         record_failure 'the real --apply JSON does not satisfy the no-package-change contract'
+        report_json_failure_details "$OUTPUT_DIR/apply.json" \
+            | tee -a "$ASSERTION_LOG" >&2 || true
     fi
 
     capture_package_database /var/log/packages "$OUTPUT_DIR/packages.after.sha256" || {

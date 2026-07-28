@@ -25,12 +25,12 @@ The scenario performs these steps:
    snapshots, no ABI/kernel/critical-package changes, and no structured errors.
 6. Confirm that `/var/log/packages`, `/boot/initrd.gz`, and
    `/boot/grub/grub.cfg` are unchanged.
-7. Produce a private `.tar.gz` evidence archive and SHA-256 sidecar.
+7. Produce a private `.tar.gz` evidence archive and SHA-256 sidecar. When run through `sudo`, publish both files as the invoking user with mode `0600` while keeping the expanded evidence directory root-only.
 
 Run on Slackware 15.0:
 
 ```bash
-sudo tests/acceptance/reference/test-no-updates.sh \
+sudo bash tests/acceptance/reference/test-no-updates.sh \
     --target slackware-15.0 \
     --execute-apply
 ```
@@ -38,16 +38,20 @@ sudo tests/acceptance/reference/test-no-updates.sh \
 Run on Slackware-current:
 
 ```bash
-sudo tests/acceptance/reference/test-no-updates.sh \
+sudo bash tests/acceptance/reference/test-no-updates.sh \
     --target slackware-current \
     --execute-apply
 ```
+
+Invoke the scenario through `bash` as shown above. This avoids depending on executable bits being preserved by the ZIP extraction or shared-folder filesystem.
 
 By default, evidence is stored below:
 
 ```text
 /var/tmp/slack-update-acceptance/no-updates/
 ```
+
+The default parent directory is traversable, the archive and sidecar are owned by the `sudo` caller, and the expanded timestamped directory remains accessible only to root. The harness also prints the stable result and individual Slackware command statuses when structured validation fails.
 
 Review the evidence before publishing it. Preserve `summary.txt`,
 `assertions.log`, the JSON results, diagnostics, package and boot comparisons,

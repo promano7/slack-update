@@ -915,11 +915,11 @@ under `tests/fixtures/reference/acceptance/no-updates/`.
 Run it separately on each mandatory target:
 
 ```bash
-sudo tests/acceptance/reference/test-no-updates.sh \
+sudo bash tests/acceptance/reference/test-no-updates.sh \
     --target slackware-15.0 \
     --execute-apply
 
-sudo tests/acceptance/reference/test-no-updates.sh \
+sudo bash tests/acceptance/reference/test-no-updates.sh \
     --target slackware-current \
     --execute-apply
 ```
@@ -929,13 +929,17 @@ A passing run must return stable code `0`; report `success=true`,
 installed-package database; and leave the observed initrd and GRUB
 configuration unchanged. Each run produces a private evidence archive and a
 SHA-256 sidecar below `/var/tmp/slack-update-acceptance/no-updates/` by default.
-See `tests/acceptance/reference/README.md` for the evidence contract.
+When invoked through `sudo`, both published files are assigned to the invoking
+user with mode `0600`; the uncompressed evidence directory remains root-only.
+The scenario invokes the reference through `bash`, so extraction tools that lose
+Unix executable bits do not prevent the test from running. See
+`tests/acceptance/reference/README.md` for the evidence contract.
 
 ### Real-system acceptance matrix
 
 - [ ] Fully updated system with no available changes.
   - [x] Reproducible scenario, validators, and expected fixtures implemented.
-  - [ ] Slackware 15.0 evidence accepted.
+  - [ ] Slackware 15.0 evidence accepted; the first run passed the no-updates check but returned partial status `2` during apply, with package and boot state unchanged. Evidence diagnosis is pending.
   - [ ] Slackware-current evidence accepted.
 - [ ] Normal Slackware package update.
 - [ ] `install-new` introduces new packages.

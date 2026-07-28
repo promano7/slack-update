@@ -120,6 +120,12 @@ assert_file_contains 'create_evidence_archive' "$ACCEPTANCE_SCRIPT" \
     'the scenario should create a portable evidence archive'
 assert_file_contains 'sha256sum -- "$archive"' "$ACCEPTANCE_SCRIPT" \
     'the evidence archive should have a SHA-256 sidecar'
+assert_file_contains 'bash "$REFERENCE_SCRIPT"' "$ACCEPTANCE_SCRIPT" \
+    'the scenario should not depend on a preserved executable bit for the reference script'
+assert_file_contains 'publish_evidence_archive' "$ACCEPTANCE_SCRIPT" \
+    'the evidence archive should be published for the sudo caller'
+assert_file_contains 'report_json_failure_details' "$ACCEPTANCE_SCRIPT" \
+    'structured failures should expose actionable command statuses'
 assert_file_not_contains 'rm -rf /var/log/packages' "$ACCEPTANCE_SCRIPT" \
     'the acceptance harness must never remove the package database'
 
@@ -202,6 +208,11 @@ output.write_text(json.dumps(data), encoding="utf-8")
 PYTHON_EOF
 assert_failure_status 'a non-zero apply result should fail validation' \
     validate_json_result apply "$TEST_TMP/apply-exit.json" "$FIXTURE_CONFIG"
+report_json_failure_details "$TEST_TMP/apply-exit.json" > "$TEST_TMP/apply-details.txt"
+assert_file_contains '[DETAIL] stable exit code: 2' "$TEST_TMP/apply-details.txt" \
+    'failure details should report the stable process result'
+assert_file_contains '[DETAIL] slackware.update_exit_code: 0' "$TEST_TMP/apply-details.txt" \
+    'failure details should report the Slackware operation statuses'
 
 python3 - "$APPLY_FIXTURE" "$TEST_TMP/apply-count.json" <<'PYTHON_EOF'
 import json
@@ -254,12 +265,12 @@ else
     pass
 fi
 
-"$ACCEPTANCE_SCRIPT" --help > "$TEST_TMP/help.out" 2> "$TEST_TMP/help.err"
+bash "$ACCEPTANCE_SCRIPT" --help > "$TEST_TMP/help.out" 2> "$TEST_TMP/help.err"
 assert_equal_value 0 "$?" '--help should exit successfully without running the scenario'
 assert_file_contains '--execute-apply' "$TEST_TMP/help.out" \
     'the help text should disclose the explicit apply confirmation'
 
-"$ACCEPTANCE_SCRIPT" --target slackware-15.0 > "$TEST_TMP/no-confirm.out" 2> "$TEST_TMP/no-confirm.err"
+bash "$ACCEPTANCE_SCRIPT" --target slackware-15.0 > "$TEST_TMP/no-confirm.out" 2> "$TEST_TMP/no-confirm.err"
 assert_equal_value 2 "$?" 'omitting --execute-apply should fail before host inspection'
 assert_file_contains '--execute-apply is required' "$TEST_TMP/no-confirm.err" \
     'the missing confirmation diagnostic should be explicit'
@@ -267,7 +278,11 @@ assert_file_contains '--execute-apply is required' "$TEST_TMP/no-confirm.err" \
 OUTPUT_DIR="$TEST_TMP/evidence"
 mkdir -p "$OUTPUT_DIR"
 printf 'sample evidence\n' > "$OUTPUT_DIR/sample.txt"
+SUDO_UID=$(id -u)
+SUDO_GID=$(id -g)
+export SUDO_UID SUDO_GID
 archive_path=$(create_evidence_archive)
+unset SUDO_UID SUDO_GID
 assert_equal_value "$OUTPUT_DIR.tar.gz" "$archive_path" \
     'the evidence archive should use the documented path'
 if tar -tzf "$archive_path" | grep -Fq 'evidence/sample.txt'; then
@@ -280,6 +295,12 @@ if sha256sum -c "$archive_path.sha256" >/dev/null 2>&1; then
 else
     fail 'the evidence archive SHA-256 sidecar should verify successfully'
 fi
+assert_equal_value 600 "$(stat -c '%a' "$archive_path")" \
+    'the published evidence archive should remain private to its owner'
+assert_equal_value 600 "$(stat -c '%a' "$archive_path.sha256")" \
+    'the published evidence digest should remain private to its owner'
+assert_equal_value "$(id -u):$(id -g)" "$(stat -c '%u:%g' "$archive_path")" \
+    'the published evidence archive should belong to the sudo caller'
 
 printf 'No-updates acceptance harness tests: %d checks, %d failures\n' \
     "$TEST_COUNT" "$FAILURE_COUNT"
