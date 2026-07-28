@@ -239,6 +239,29 @@ fi
 assert_file_equal "$EXPECTED_INSTALLED" "$INSTALLED_TARGETS" \
     'installed SBo selection must use the exact build suffix and deduplicate package names'
 
+REAL_PACKAGE_DATABASE=$PACKAGE_DATABASE
+PACKAGE_DATABASE_LINK="$TEST_TMP/packages-link"
+ln -s "$REAL_PACKAGE_DATABASE" "$PACKAGE_DATABASE_LINK"
+PACKAGE_DATABASE=$PACKAGE_DATABASE_LINK
+SYMLINK_INSTALLED_TARGETS="$TEST_TMP/installed-targets-symlink"
+if collect_installed_sbo_targets "$SYMLINK_INSTALLED_TARGETS"; then
+    pass
+else
+    fail "symlinked package database selection failed: $SBO_TARGET_SELECTION_ERROR"
+fi
+assert_file_equal "$EXPECTED_INSTALLED" "$SYMLINK_INSTALLED_TARGETS" \
+    'installed SBo selection should follow the package database compatibility symlink'
+if package_database_contains_name 'gtk+3'; then
+    pass
+else
+    fail 'package name lookup should follow the package database compatibility symlink'
+fi
+if package_database_contains_name 'not-installed'; then
+    fail 'package name lookup should still reject absent packages through a symlink'
+else
+    pass
+fi
+
 CORE_TARGETS="$TEST_TMP/core-targets"
 EXTRA_TARGETS="$TEST_TMP/extra-targets"
 FINAL_TARGETS="$TEST_TMP/final-targets"

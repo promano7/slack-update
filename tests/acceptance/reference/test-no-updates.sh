@@ -422,6 +422,8 @@ capture_host_metadata() {
         printf 'captured_at=%s\n' "$(date -u +%Y-%m-%dT%H:%M:%SZ)"
         printf 'slackware_version=%s\n' "$SLACKWARE_VERSION"
         printf 'uname=%s\n' "$(uname -a)"
+        printf 'package_database=%s\n' /var/log/packages
+        printf 'package_database_resolved=%s\n' "$(readlink -f -- /var/log/packages 2>/dev/null || printf unresolved)"
         printf 'reference_script=%s\n' "$REFERENCE_SCRIPT"
         printf 'reference_sha256=%s\n' "$(sha256sum -- "$REFERENCE_SCRIPT" | awk '{print $1}')"
         printf 'config_template=%s\n' "$CONFIG_TEMPLATE"
@@ -432,7 +434,7 @@ capture_host_metadata() {
         fi
         printf 'active_mirrors_end\n'
         printf 'slackpkg_package_records_begin\n'
-        find /var/log/packages -maxdepth 1 -type f -name 'slackpkg-*' -printf '%f\n' 2>/dev/null \
+        find -H /var/log/packages -maxdepth 1 -type f -name 'slackpkg-*' -printf '%f\n' 2>/dev/null \
             | LC_ALL=C sort
         printf 'slackpkg_package_records_end\n'
     } > "$output"

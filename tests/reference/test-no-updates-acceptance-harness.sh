@@ -126,6 +126,10 @@ assert_file_contains 'publish_evidence_archive' "$ACCEPTANCE_SCRIPT" \
     'the evidence archive should be published for the sudo caller'
 assert_file_contains 'report_json_failure_details' "$ACCEPTANCE_SCRIPT" \
     'structured failures should expose actionable command statuses'
+assert_file_contains 'find -H /var/log/packages' "$ACCEPTANCE_SCRIPT" \
+    'host metadata should follow the Slackware package database compatibility symlink'
+assert_file_contains 'package_database_resolved=' "$ACCEPTANCE_SCRIPT" \
+    'host metadata should record the resolved package database path'
 assert_file_not_contains 'rm -rf /var/log/packages' "$ACCEPTANCE_SCRIPT" \
     'the acceptance harness must never remove the package database'
 

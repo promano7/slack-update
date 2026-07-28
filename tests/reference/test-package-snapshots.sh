@@ -95,6 +95,30 @@ assert_success "captured snapshot should pass standalone validation" \
 assert_equal 3 "$PACKAGE_SNAPSHOT_RECORD_COUNT" \
     "standalone validation should report its record count"
 
+REAL_PACKAGE_DATABASE=$PACKAGE_DATABASE
+PACKAGE_DATABASE_LINK="$TEST_TMP/packages-link"
+ln -s "$REAL_PACKAGE_DATABASE" "$PACKAGE_DATABASE_LINK"
+PACKAGE_DATABASE=$PACKAGE_DATABASE_LINK
+SYMLINK_SNAPSHOT="$TEST_TMP/packages-symlink.snapshot"
+assert_success "a symlinked package database should produce a snapshot" \
+    capture_validated_package_snapshot "$SYMLINK_SNAPSHOT"
+assert_file_content \
+    $'aaa_libraries-15.0-x86_64-19\ngtk+3-3.24.49-x86_64-1\nzlib-1.3.1-x86_64-1' \
+    "$SYMLINK_SNAPSHOT" \
+    "a command-line package database symlink should be followed"
+assert_equal 3 "$PACKAGE_SNAPSHOT_RECORD_COUNT" \
+    "a symlinked package database should report its record count"
+
+EXTERNAL_RECORD="$TEST_TMP/external-package-1.0-x86_64-1"
+: > "$EXTERNAL_RECORD"
+ln -s "$EXTERNAL_RECORD" "$REAL_PACKAGE_DATABASE/internal-symlink-1.0-x86_64-1"
+assert_success "package-record symlinks inside the database should be ignored" \
+    capture_validated_package_snapshot "$SYMLINK_SNAPSHOT"
+assert_equal 3 "$PACKAGE_SNAPSHOT_RECORD_COUNT" \
+    "internal package-record symlinks should not enter the snapshot"
+rm -f "$REAL_PACKAGE_DATABASE/internal-symlink-1.0-x86_64-1"
+PACKAGE_DATABASE=$REAL_PACKAGE_DATABASE
+
 printf 'preserve-existing-snapshot\n' > "$SNAPSHOT"
 : > "$PACKAGE_DATABASE/not-a-package"
 assert_failure "malformed package database entry should reject capture" \

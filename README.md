@@ -932,14 +932,17 @@ SHA-256 sidecar below `/var/tmp/slack-update-acceptance/no-updates/` by default.
 When invoked through `sudo`, both published files are assigned to the invoking
 user with mode `0600`; the uncompressed evidence directory remains root-only.
 The scenario invokes the reference through `bash`, so extraction tools that lose
-Unix executable bits do not prevent the test from running. See
-`tests/acceptance/reference/README.md` for the evidence contract.
+Unix executable bits do not prevent the test from running. Package-database
+enumeration follows the command-line `/var/log/packages` compatibility symlink
+used by modern `pkgtools`, while package-record symlinks inside that directory
+remain excluded. See `tests/acceptance/reference/README.md` for the evidence
+contract.
 
 ### Real-system acceptance matrix
 
 - [ ] Fully updated system with no available changes.
   - [x] Reproducible scenario, validators, and expected fixtures implemented.
-  - [ ] Slackware 15.0 evidence accepted; the first run passed the no-updates check but returned partial status `2` during apply, with package and boot state unchanged. Evidence diagnosis is pending.
+  - [ ] Slackware 15.0 evidence accepted; the first run passed the no-updates check but returned partial status `2` before `slackpkg` because `/var/log/packages` is a compatibility symlink. Evidence confirmed 1,594 installed records and unchanged package/boot state; the enumerator is fixed and a clean rerun is pending.
   - [ ] Slackware-current evidence accepted.
 - [ ] Normal Slackware package update.
 - [ ] `install-new` introduces new packages.

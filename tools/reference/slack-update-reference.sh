@@ -673,6 +673,12 @@ package_snapshot_records_for_name() {
     done < "$snapshot"
 }
 
+enumerate_package_database_records() {
+    # Follow a command-line compatibility symlink such as /var/log/packages,
+    # but do not follow symlinks stored inside the package database itself.
+    find -H "$PACKAGE_DATABASE" -maxdepth 1 -type f -printf '%f\n'
+}
+
 validate_package_snapshot() {
     local snapshot=$1
     local record
@@ -763,7 +769,7 @@ capture_validated_package_snapshot() {
         return 1
     }
 
-    if ! find "$PACKAGE_DATABASE" -maxdepth 1 -type f -printf '%f\n' > "$listing"; then
+    if ! enumerate_package_database_records > "$listing"; then
         rm -f "$listing" "$normalized" "$candidate"
         PACKAGE_SNAPSHOT_ERROR="cannot enumerate package database records: $PACKAGE_DATABASE"
         return 1
@@ -1451,7 +1457,7 @@ collect_installed_sbo_targets() {
         return 1
     }
 
-    if ! find "$PACKAGE_DATABASE" -maxdepth 1 -type f -printf '%f\n' > "$package_records"; then
+    if ! enumerate_package_database_records > "$package_records"; then
         rm -f "$package_records" "$candidate"
         SBO_TARGET_SELECTION_ERROR="cannot enumerate installed package records: $PACKAGE_DATABASE"
         return 1
@@ -1598,7 +1604,7 @@ package_database_contains_name() {
     while IFS= read -r record; do
         parse_slackware_package_record "$record" || continue
         [ "$SLACKWARE_PACKAGE_NAME" = "$expected_name" ] && return 0
-    done < <(find "$PACKAGE_DATABASE" -maxdepth 1 -type f -printf '%f\n' 2>/dev/null)
+    done < <(enumerate_package_database_records 2>/dev/null)
 
     return 1
 }

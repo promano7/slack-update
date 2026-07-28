@@ -53,6 +53,11 @@ By default, evidence is stored below:
 
 The default parent directory is traversable, the archive and sidecar are owned by the `sudo` caller, and the expanded timestamped directory remains accessible only to root. The harness also prints the stable result and individual Slackware command statuses when structured validation fails.
 
+The reference and host-metadata capture follow `/var/log/packages` when it is a
+command-line compatibility symlink to the real `pkgtools` database. They do not
+follow package-record symlinks stored inside that database. `host.txt` records
+both the configured path and its resolved destination for diagnosis.
+
 Review the evidence before publishing it. Preserve `summary.txt`,
 `assertions.log`, the JSON results, diagnostics, package and boot comparisons,
 the generated configuration, and `host.txt`. Remove or replace host-specific
