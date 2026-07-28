@@ -626,6 +626,147 @@ package_snapshot_records_for_name() {
     done < "$snapshot"
 }
 
+validate_package_snapshot() {
+    local snapshot=$1
+    local record
+    local count=0
+
+    PACKAGE_SNAPSHOT_ERROR=
+    PACKAGE_SNAPSHOT_RECORD_COUNT=0
+
+    if [ ! -f "$snapshot" ]; then
+        PACKAGE_SNAPSHOT_ERROR="snapshot does not exist: $snapshot"
+        return 1
+    fi
+
+    if [ ! -r "$snapshot" ]; then
+        PACKAGE_SNAPSHOT_ERROR="snapshot is not readable: $snapshot"
+        return 1
+    fi
+
+    if [ ! -s "$snapshot" ]; then
+        PACKAGE_SNAPSHOT_ERROR="snapshot is empty: $snapshot"
+        return 1
+    fi
+
+    if ! LC_ALL=C sort -c -u "$snapshot" >/dev/null 2>&1; then
+        PACKAGE_SNAPSHOT_ERROR="snapshot records are not strictly sorted and unique: $snapshot"
+        return 1
+    fi
+
+    while IFS= read -r record || [ -n "$record" ]; do
+        if ! parse_slackware_package_record "$record"; then
+            PACKAGE_SNAPSHOT_ERROR="snapshot contains an invalid package record: $record"
+            return 1
+        fi
+
+        if [ "$record" != "$SLACKWARE_PACKAGE_RECORD" ]; then
+            PACKAGE_SNAPSHOT_ERROR="snapshot contains a non-canonical package record: $record"
+            return 1
+        fi
+
+        count=$((count + 1))
+    done < "$snapshot"
+
+    if [ "$count" -eq 0 ]; then
+        PACKAGE_SNAPSHOT_ERROR="snapshot contains no package records: $snapshot"
+        return 1
+    fi
+
+    PACKAGE_SNAPSHOT_RECORD_COUNT=$count
+}
+
+capture_validated_package_snapshot() {
+    local destination=$1
+    local destination_directory
+    local listing
+    local normalized
+    local candidate
+    local record
+    local duplicate
+    local source_count=0
+
+    PACKAGE_SNAPSHOT_ERROR=
+    PACKAGE_SNAPSHOT_RECORD_COUNT=0
+
+    if [ ! -d "$PACKAGE_DATABASE" ]; then
+        PACKAGE_SNAPSHOT_ERROR="package database directory does not exist: $PACKAGE_DATABASE"
+        return 1
+    fi
+
+    if [ ! -r "$PACKAGE_DATABASE" ] || [ ! -x "$PACKAGE_DATABASE" ]; then
+        PACKAGE_SNAPSHOT_ERROR="package database directory is not readable: $PACKAGE_DATABASE"
+        return 1
+    fi
+
+    destination_directory=$(dirname -- "$destination")
+
+    listing=$(mktemp "$destination_directory/.package-records.XXXXXX") || {
+        PACKAGE_SNAPSHOT_ERROR="cannot create a temporary package listing in: $destination_directory"
+        return 1
+    }
+    normalized=$(mktemp "$destination_directory/.package-normalized.XXXXXX") || {
+        rm -f "$listing"
+        PACKAGE_SNAPSHOT_ERROR="cannot create a temporary normalized snapshot in: $destination_directory"
+        return 1
+    }
+    candidate=$(mktemp "$destination_directory/.package-snapshot.XXXXXX") || {
+        rm -f "$listing" "$normalized"
+        PACKAGE_SNAPSHOT_ERROR="cannot create a temporary validated snapshot in: $destination_directory"
+        return 1
+    }
+
+    if ! find "$PACKAGE_DATABASE" -maxdepth 1 -type f -printf '%f\n' > "$listing"; then
+        rm -f "$listing" "$normalized" "$candidate"
+        PACKAGE_SNAPSHOT_ERROR="cannot enumerate package database records: $PACKAGE_DATABASE"
+        return 1
+    fi
+
+    while IFS= read -r record || [ -n "$record" ]; do
+        source_count=$((source_count + 1))
+        if ! parse_slackware_package_record "$record"; then
+            rm -f "$listing" "$normalized" "$candidate"
+            PACKAGE_SNAPSHOT_ERROR="package database contains an invalid package record: $record"
+            return 1
+        fi
+        printf '%s\n' "$SLACKWARE_PACKAGE_RECORD" >> "$normalized"
+    done < "$listing"
+
+    rm -f "$listing"
+
+    if [ "$source_count" -eq 0 ]; then
+        rm -f "$normalized" "$candidate"
+        PACKAGE_SNAPSHOT_ERROR="package database contains no package records: $PACKAGE_DATABASE"
+        return 1
+    fi
+
+    LC_ALL=C sort "$normalized" > "$candidate" || {
+        rm -f "$normalized" "$candidate"
+        PACKAGE_SNAPSHOT_ERROR="cannot sort package snapshot records"
+        return 1
+    }
+    rm -f "$normalized"
+
+    duplicate=$(LC_ALL=C uniq -d "$candidate" | head -n 1)
+    if [ -n "$duplicate" ]; then
+        rm -f "$candidate"
+        PACKAGE_SNAPSHOT_ERROR="package database produces a duplicate normalized record: $duplicate"
+        return 1
+    fi
+
+    if ! validate_package_snapshot "$candidate"; then
+        rm -f "$candidate"
+        return 1
+    fi
+
+    if ! mv -f -- "$candidate" "$destination"; then
+        rm -f "$candidate"
+        PACKAGE_SNAPSHOT_ERROR="cannot install validated package snapshot: $destination"
+        PACKAGE_SNAPSHOT_RECORD_COUNT=0
+        return 1
+    fi
+}
+
 package_names_with_build_suffix_from_stream() {
     local suffix=$1
     local record
@@ -935,6 +1076,7 @@ initialize_runtime_state() {
     INITRD_UPDATE=0
     GRUB_UPDATE=0
     ABI_TRIGGER=0
+    CRITICAL_UPDATED=()
     CINNAMON_TRIGGER=0   # 0=none, 1=needed, 2=ok, 3=fail
     CINNAMON_OK=0
     INITRD_OK=0
@@ -975,6 +1117,14 @@ initialize_runtime_state() {
     SBOPKG_SYNC_STATUS=-1
     SQG_SYNC_STATUS=-1
     SBO_BUILD_STATUS=-1
+    PACKAGE_SNAPSHOT_BEFORE_VALID=0
+    PACKAGE_SNAPSHOT_AFTER_VALID=0
+    PACKAGE_SNAPSHOT_BEFORE_COUNT=0
+    PACKAGE_SNAPSHOT_AFTER_COUNT=0
+    PACKAGE_SNAPSHOT_BEFORE_ERROR=
+    PACKAGE_SNAPSHOT_AFTER_ERROR=
+    PACKAGE_SNAPSHOT_ERROR=
+    PACKAGE_SNAPSHOT_RECORD_COUNT=0
     STARTED_AT=$(date -u +%Y-%m-%dT%H:%M:%SZ)
     FINISHED_AT=
     RUNTIME_TMPDIR=
@@ -1484,14 +1634,23 @@ run_dry_run_workflow() {
 # Update workflow functions
 
 capture_package_snapshot_before() {
-    # ---------------------------
-    # SNAPSHOT BEFORE
-    # ---------------------------
+    # Capture a validated baseline and remove any stale post-update snapshot.
+    PACKAGE_SNAPSHOT_BEFORE_VALID=0
+    PACKAGE_SNAPSHOT_BEFORE_COUNT=0
+    PACKAGE_SNAPSHOT_BEFORE_ERROR=
 
-    rm -f "$BEFORE_PKGS" "$AFTER_PKGS"
+    if ! rm -f "$BEFORE_PKGS" "$AFTER_PKGS"; then
+        PACKAGE_SNAPSHOT_BEFORE_ERROR="cannot remove stale package snapshots"
+        return 1
+    fi
 
-    find "$PACKAGE_DATABASE" -maxdepth 1 -type f -printf '%f\n' \
-        | sort > "$BEFORE_PKGS" || true
+    if ! capture_validated_package_snapshot "$BEFORE_PKGS"; then
+        PACKAGE_SNAPSHOT_BEFORE_ERROR=$PACKAGE_SNAPSHOT_ERROR
+        return 1
+    fi
+
+    PACKAGE_SNAPSHOT_BEFORE_VALID=1
+    PACKAGE_SNAPSHOT_BEFORE_COUNT=$PACKAGE_SNAPSHOT_RECORD_COUNT
 }
 
 update_slackware_system() {
@@ -1520,12 +1679,23 @@ update_slackware_system() {
 }
 
 capture_package_snapshot_after() {
-    # ---------------------------
-    # SNAPSHOT AFTER
-    # ---------------------------
+    # Capture and validate the package state produced by Slackware operations.
+    PACKAGE_SNAPSHOT_AFTER_VALID=0
+    PACKAGE_SNAPSHOT_AFTER_COUNT=0
+    PACKAGE_SNAPSHOT_AFTER_ERROR=
 
-    find "$PACKAGE_DATABASE" -maxdepth 1 -type f -printf '%f\n' \
-        | sort > "$AFTER_PKGS" || true
+    if ! rm -f "$AFTER_PKGS"; then
+        PACKAGE_SNAPSHOT_AFTER_ERROR="cannot remove stale post-update package snapshot"
+        return 1
+    fi
+
+    if ! capture_validated_package_snapshot "$AFTER_PKGS"; then
+        PACKAGE_SNAPSHOT_AFTER_ERROR=$PACKAGE_SNAPSHOT_ERROR
+        return 1
+    fi
+
+    PACKAGE_SNAPSHOT_AFTER_VALID=1
+    PACKAGE_SNAPSHOT_AFTER_COUNT=$PACKAGE_SNAPSHOT_RECORD_COUNT
 }
 
 update_flatpak() {
@@ -1958,6 +2128,22 @@ print_summary() {
     echo "[PKG] Estado de actualizacion del sistema:"
     echo
 
+    if [ "$PACKAGE_SNAPSHOT_BEFORE_VALID" -eq 1 ]; then
+        echo "- Instantanea previa: valida ($PACKAGE_SNAPSHOT_BEFORE_COUNT paquetes)"
+    else
+        echo "- [ERROR] Instantanea previa: no valida${PACKAGE_SNAPSHOT_BEFORE_ERROR:+ ($PACKAGE_SNAPSHOT_BEFORE_ERROR)}"
+    fi
+
+    if [ "$PACKAGE_SNAPSHOT_AFTER_VALID" -eq 1 ]; then
+        echo "- Instantanea posterior: valida ($PACKAGE_SNAPSHOT_AFTER_COUNT paquetes)"
+    elif [ "$PACKAGE_SNAPSHOT_BEFORE_VALID" -eq 1 ]; then
+        echo "- [ERROR] Instantanea posterior: no valida${PACKAGE_SNAPSHOT_AFTER_ERROR:+ ($PACKAGE_SNAPSHOT_AFTER_ERROR)}"
+    else
+        echo "- Instantanea posterior: no capturada"
+    fi
+
+    echo
+
     echo "- Cambios ABI detectados: $ABI_TRIGGER"
     if [ "$ABI_TRIGGER" -eq 1 ]; then
         echo "  -> Se detectaron actualizaciones en librerias criticas del sistema."
@@ -2287,6 +2473,11 @@ prepare_json_messages() {
             ;;
         apply)
             append_enabled_module_requirement_errors
+            if [ "$PACKAGE_SNAPSHOT_BEFORE_VALID" -ne 1 ]; then
+                RESULT_ERRORS+=("Package snapshot before update is invalid: ${PACKAGE_SNAPSHOT_BEFORE_ERROR:-unknown validation failure}")
+            elif [ "$PACKAGE_SNAPSHOT_AFTER_VALID" -ne 1 ]; then
+                RESULT_ERRORS+=("Package snapshot after update is invalid: ${PACKAGE_SNAPSHOT_AFTER_ERROR:-unknown validation failure}")
+            fi
             [ "$SLACKPKG_UPDATE_STATUS" -gt 0 ] \
                 && RESULT_ERRORS+=("slackpkg update failed with exit code $SLACKPKG_UPDATE_STATUS")
             [ "$SLACKPKG_INSTALL_NEW_STATUS" -gt 0 ] \
@@ -2507,7 +2698,9 @@ print_apply_json_modules() {
     local initrd_state=not-required
     local grub_state=not-required
 
-    if [ "$SLACKPKG_UPDATE_STATUS" -gt 0 ] \
+    if [ "$PACKAGE_SNAPSHOT_BEFORE_VALID" -ne 1 ] \
+        || [ "$PACKAGE_SNAPSHOT_AFTER_VALID" -ne 1 ] \
+        || [ "$SLACKPKG_UPDATE_STATUS" -gt 0 ] \
         || [ "$SLACKPKG_INSTALL_NEW_STATUS" -gt 0 ] \
         || [ "$SLACKPKG_UPGRADE_ALL_STATUS" -gt 0 ]; then
         slackware_state=failed
@@ -2586,6 +2779,12 @@ print_apply_json_modules() {
     printf '      "update_exit_code": '; json_nullable_status "$SLACKPKG_UPDATE_STATUS"; printf ',\n'
     printf '      "install_new_exit_code": '; json_nullable_status "$SLACKPKG_INSTALL_NEW_STATUS"; printf ',\n'
     printf '      "upgrade_all_exit_code": '; json_nullable_status "$SLACKPKG_UPGRADE_ALL_STATUS"; printf ',\n'
+    printf '      "snapshot_before_valid": '; json_boolean "$PACKAGE_SNAPSHOT_BEFORE_VALID"; printf ',\n'
+    printf '      "snapshot_before_records": %d,\n' "$PACKAGE_SNAPSHOT_BEFORE_COUNT"
+    printf '      "snapshot_before_error": '; json_string "$PACKAGE_SNAPSHOT_BEFORE_ERROR"; printf ',\n'
+    printf '      "snapshot_after_valid": '; json_boolean "$PACKAGE_SNAPSHOT_AFTER_VALID"; printf ',\n'
+    printf '      "snapshot_after_records": %d,\n' "$PACKAGE_SNAPSHOT_AFTER_COUNT"
+    printf '      "snapshot_after_error": '; json_string "$PACKAGE_SNAPSHOT_AFTER_ERROR"; printf ',\n'
     printf '      "abi_changes": '; json_boolean "$ABI_TRIGGER"; printf ',\n'
     printf '      "kernel_changes": '; json_boolean "$KERNEL_TRIGGER"; printf ',\n'
     printf '      "critical_packages": '; json_string_array "${CRITICAL_UPDATED[@]}"; printf '\n'
@@ -2690,9 +2889,18 @@ run_apply_workflow() {
 
     emit_module_started_event slackware "Slackware update module started"
     emit_action_started_event slackware snapshot_before "Capturing package snapshot before update"
-    capture_package_snapshot_before
+    if ! capture_package_snapshot_before; then
+        slackware_state=failed
+        echo "[ERROR] Cannot capture package snapshot before update: $PACKAGE_SNAPSHOT_BEFORE_ERROR"
+        emit_action_completed_event slackware snapshot_before failed \
+            "Package snapshot before update failed validation: $PACKAGE_SNAPSHOT_BEFORE_ERROR" 1
+        emit_module_completed_event slackware failed \
+            "Slackware update stopped before package operations because the baseline snapshot is invalid" 1
+        print_summary
+        return 1
+    fi
     emit_action_completed_event slackware snapshot_before success \
-        "Package snapshot before update captured" 0
+        "Package snapshot before update captured and validated ($PACKAGE_SNAPSHOT_BEFORE_COUNT records)" 0
 
     emit_action_started_event slackware update_packages "Applying Slackware package operations"
     update_slackware_system
@@ -2711,9 +2919,19 @@ run_apply_workflow() {
         "Slackware package operations completed" "$action_exit"
 
     emit_action_started_event slackware snapshot_after "Capturing package snapshot after update"
-    capture_package_snapshot_after
+    if ! capture_package_snapshot_after; then
+        slackware_state=failed
+        action_exit=1
+        echo "[ERROR] Cannot capture package snapshot after update: $PACKAGE_SNAPSHOT_AFTER_ERROR"
+        emit_action_completed_event slackware snapshot_after failed \
+            "Package snapshot after update failed validation: $PACKAGE_SNAPSHOT_AFTER_ERROR" 1
+        emit_module_completed_event slackware failed \
+            "Slackware package operations completed but post-update package state could not be validated" 1
+        print_summary
+        return 1
+    fi
     emit_action_completed_event slackware snapshot_after success \
-        "Package snapshot after update captured" 0
+        "Package snapshot after update captured and validated ($PACKAGE_SNAPSHOT_AFTER_COUNT records)" 0
     emit_module_completed_event slackware "$slackware_state" \
         "Slackware package operations completed" "$action_exit"
 

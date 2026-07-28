@@ -584,7 +584,7 @@ The final layout may change during the architecture prototype, but separation be
 ### Safety validation
 
 - [x] Validate exact Slackware package-name parsing.
-- [ ] Validate package snapshots before and after updates.
+- [x] Validate package snapshots before and after updates.
 - [ ] Confirm that secondary modules stop after partial Slackware updates.
 - [ ] Confirm deterministic SBo target selection.
 - [ ] Confirm dependency order is preserved in generated SBo queues.
@@ -612,6 +612,19 @@ Slackware-current, patched-package, multi-hyphen, plus-sign, and `_SBo` records:
 
 ```bash
 tests/reference/test-package-name-parsing.sh
+```
+
+Package snapshots are generated from the configured `pkgtools` package database,
+normalized to canonical records, sorted with the C locale, checked for duplicates,
+and installed atomically only after complete validation. Empty, missing, unreadable,
+malformed, unsorted, duplicate, or non-canonical snapshots are rejected. Apply stops
+before package operations when the baseline snapshot is invalid and stops all work
+that depends on package-state comparison when the final snapshot is invalid.
+
+The focused snapshot regression test is:
+
+```bash
+tests/reference/test-package-snapshots.sh
 ```
 
 ### Real-system acceptance matrix
@@ -1138,7 +1151,8 @@ Slack-Update 1.0 will be ready when:
 - [x] Add `enabled`, `disabled`, and `auto` modes for optional modules.
 - [x] Add stable exit codes.
 - [x] Validate exact Slackware package-name parsing.
-- [ ] Validate package snapshots before and after updates.
+- [x] Validate package snapshots before and after updates.
+- [ ] Confirm that secondary modules stop after partial Slackware updates.
 - [ ] Execute and document the Phase 1 acceptance matrix on Slackware 15.0 and Slackware-current.
 - [ ] Freeze `reference-v1`.
 - [ ] Begin the C architecture only after the reference gate is complete.
