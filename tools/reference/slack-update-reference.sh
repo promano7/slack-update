@@ -1866,6 +1866,8 @@ initialize_runtime_state() {
     ELF_MODULE_RUN=0
     ELF_READELF_AVAILABLE=0
     ELF_LDCONFIG_AVAILABLE=0
+    ELF_SCAN_STATUS=-1
+    ELF_VERIFICATION_STATUS=-1
     CINNAMON_MODULE_STATE=idle
     CINNAMON_MODULE_REASON=
     CINNAMON_MODULE_RUN=0
@@ -1938,6 +1940,7 @@ initialize_runtime() {
     BROKEN_NEW=$(mktemp)
     STILL_BROKEN=$(mktemp)
     BROKEN_ERRORS=$(mktemp)
+    ELF_LIBRARY_CACHE=$(mktemp)
 
     initialize_runtime_state
     CSB_DIR=$CSB_DIR_CONFIG
@@ -1962,6 +1965,7 @@ initialize_dry_run_runtime() {
     BROKEN_NEW="$WORKDIR/broken-new.txt"
     STILL_BROKEN="$WORKDIR/still-broken.txt"
     BROKEN_ERRORS="$WORKDIR/broken-errors.txt"
+    ELF_LIBRARY_CACHE="$WORKDIR/elf-library-cache.txt"
     BEFORE_PKGS="$WORKDIR/packages.before"
     AFTER_PKGS="$WORKDIR/packages.after"
     ABI_CANDIDATES="$WORKDIR/abi-rebuild-candidates.txt"
@@ -1975,6 +1979,7 @@ initialize_dry_run_runtime() {
     : > "$QUEUE_EXTRA"
     : > "$SBO_OPTION_RECORDS"
     : > "$BROKEN_ERRORS"
+    : > "$ELF_LIBRARY_CACHE"
 }
 
 remove_owned_sbo_queue_workspace() {
@@ -1998,7 +2003,7 @@ remove_owned_sbo_queue_workspace() {
 
 cleanup() {
     rm -f "${QUEUE_FINAL:-}" "${BROKEN_NEW:-}" "${STILL_BROKEN:-}" \
-        "${BROKEN_ERRORS:-}" 2>/dev/null || true
+        "${BROKEN_ERRORS:-}" "${ELF_LIBRARY_CACHE:-}" 2>/dev/null || true
 
     remove_owned_sbo_queue_workspace 2>/dev/null || true
 
@@ -2198,8 +2203,14 @@ inspect_current_elf_state() {
         return 0
     fi
 
-    detect_broken_elf_objects
-    map_broken_objects_to_sbo_packages
+    if ! detect_broken_elf_objects; then
+        : > "$BROKEN"
+        : > "$QUEUE_EXTRA"
+        PLAN_BROKEN_COUNT=0
+        PLAN_BROKEN_SBO_COUNT=0
+        return 1
+    fi
+    map_broken_objects_to_sbo_packages || return 1
 
     PLAN_BROKEN_COUNT=$(wc -l < "$BROKEN")
     PLAN_BROKEN_SBO_COUNT=$(wc -l < "$QUEUE_EXTRA")
@@ -2456,12 +2467,18 @@ run_dry_run_workflow() {
     emit_module_started_event elf "ELF dependency inspection started"
     if [ "$ELF_MODULE_RUN" -eq 1 ]; then
         emit_action_started_event elf scan_dependencies "Scanning current ELF dependencies"
-        inspect_current_elf_state
-        if [ "$PLAN_BROKEN_COUNT" -gt 0 ]; then
-            elf_state=warning
+        if inspect_current_elf_state; then
+            if [ "$PLAN_BROKEN_COUNT" -gt 0 ]; then
+                elf_state=warning
+            fi
+            emit_action_completed_event elf scan_dependencies "$elf_state" \
+                "Current ELF dependency inspection completed" 0
+        else
+            elf_state=failed
+            result=1
+            emit_action_completed_event elf scan_dependencies failed \
+                "Static ELF dependency inspection failed" 1
         fi
-        emit_action_completed_event elf scan_dependencies "$elf_state" \
-            "Current ELF dependency inspection completed" 0
     else
         elf_state=$ELF_MODULE_STATE
         : > "$BROKEN"
@@ -3043,45 +3060,184 @@ add_abi_rebuild_targets() {
     fi
 }
 
+elf_file_has_static_magic() {
+    local path=$1
+    local magic
+
+    [ -f "$path" ] || return 1
+
+    magic=$(LC_ALL=C od -An -tx1 -N4 -- "$path" 2>/dev/null | tr -d '[:space:]') || return 1
+    [ "$magic" = 7f454c46 ]
+}
+
+resolve_static_elf_object_path() {
+    local path=$1
+    local resolved
+
+    resolved=$(readlink -f -- "$path" 2>/dev/null) || return 1
+    elf_file_has_static_magic "$resolved" || return 1
+    printf '%s\n' "$resolved"
+}
+
+extract_static_elf_needed_libraries() {
+    local object=$1
+
+    readelf -d -- "$object" 2>>"$BROKEN_ERRORS" \
+        | awk '/\(NEEDED\)/ { value=$0; sub(/^.*\[/, "", value); sub(/\].*$/, "", value); print value }' \
+        | LC_ALL=C sort -u
+}
+
+refresh_static_elf_library_cache() {
+    local destination=$1
+    local temporary
+
+    temporary=$(mktemp "${destination}.XXXXXX") || return 1
+
+    if ! /sbin/ldconfig -p 2>>"$BROKEN_ERRORS" \
+        | awk '$2 ~ /^\(/ { print $1 }' \
+        | LC_ALL=C sort -u > "$temporary"; then
+        rm -f -- "$temporary"
+        return 1
+    fi
+
+    if [ ! -s "$temporary" ]; then
+        printf '%s\n' 'ldconfig produced an empty library cache' >> "$BROKEN_ERRORS"
+        rm -f -- "$temporary"
+        return 1
+    fi
+
+    chmod 600 "$temporary" 2>/dev/null || true
+    mv -f -- "$temporary" "$destination"
+}
+
+static_elf_object_has_missing_dependency() {
+    local object=$1
+    local library_cache=$2
+    local needed_libraries
+    local library
+
+    if ! needed_libraries=$(extract_static_elf_needed_libraries "$object"); then
+        return 2
+    fi
+
+    while IFS= read -r library; do
+        [ -n "$library" ] || continue
+        if ! grep -Fqx -- "$library" "$library_cache"; then
+            return 0
+        fi
+    done <<< "$needed_libraries"
+
+    return 1
+}
+
+report_static_elf_scan_errors() {
+    if [ -s "$BROKEN_ERRORS" ]; then
+        echo "  [WARN] Static ELF inspection diagnostics:"
+        sed 's/^/    /' "$BROKEN_ERRORS"
+        : > "$BROKEN_ERRORS"
+    fi
+}
+
 detect_broken_elf_objects() {
+    local path
+    local object
+    local inspection_status
+
     # ---------------------------
     # [8] BROKEN LIBS DETECTION
     # ---------------------------
 
-    echo "[8] Detectando binarios rotos"
+    echo "[8] Detecting broken ELF objects without executing inspected files"
 
-    # FIX #2: El subshell del pipe hacia 'while | sort' perdía la salida del log.
-    # Se redirige la salida de errores del bucle explícitamente al log mediante
-    # un fichero temporal de errores, y se procesa después del bucle.
-    find "${ELF_SCAN_PATHS[@]}" \( -type f -o -type l \) -print0 |
-    while IFS= read -r -d '' f; do
-        # FIX #5: Sustituido 'file | ldd' por 'readelf -d' para deteccion segura.
-        # ldd puede ejecutar el binario (riesgo con binarios de terceros) y genera
-        # falsos positivos con binarios PIE o con RPATH $ORIGIN. readelf -d es
-        # estrictamente estatico. Se comprueba cada libreria NEEDED contra la cache
-        # de ldconfig; si no aparece, el binario se marca como roto.
-        _real=$(readlink -f "$f" 2>/dev/null || echo "$f")
-        _needed=$(readelf -d "$_real" 2>>"$BROKEN_ERRORS" \
-            | awk '/\(NEEDED\)/{match($0,/\[([^]]+)\]/,a); print a[1]}') || continue
-        [ -z "$_needed" ] && continue
-        while IFS= read -r _lib; do
-            [ -z "$_lib" ] && continue
-            /sbin/ldconfig -p 2>/dev/null | grep -qF "$_lib" || { echo "$f"; break; }
-        done <<< "$_needed"
-    done | sort -u > "$BROKEN_NEW"
+    ELF_SCAN_STATUS=0
+    : > "$BROKEN_ERRORS"
+    : > "$BROKEN_NEW"
 
-    # Volcar los errores del bucle al log principal
-    if [ -s "$BROKEN_ERRORS" ]; then
-        echo "  [WARN] Errores durante deteccion de binarios rotos:"
-        sed 's/^/    /' "$BROKEN_ERRORS"
-        > "$BROKEN_ERRORS"
+    if ! refresh_static_elf_library_cache "$ELF_LIBRARY_CACHE"; then
+        ELF_SCAN_STATUS=1
+        echo "  [ERROR] Cannot build the static ELF library cache"
+        report_static_elf_scan_errors
+        return 1
     fi
 
-    # broken.txt refleja el estado actual — no acumulado
-    cp "$BROKEN_NEW" "$BROKEN"
+    find "${ELF_SCAN_PATHS[@]}" \( -type f -o -type l \) -print0 |
+    while IFS= read -r -d '' path; do
+        object=$(resolve_static_elf_object_path "$path") || continue
+
+        if static_elf_object_has_missing_dependency "$object" "$ELF_LIBRARY_CACHE"; then
+            printf '%s\n' "$path"
+        else
+            inspection_status=$?
+            if [ "$inspection_status" -eq 2 ]; then
+                printf 'readelf could not inspect %s\n' "$path" >> "$BROKEN_ERRORS"
+            fi
+        fi
+    done | LC_ALL=C sort -u > "$BROKEN_NEW"
+
+    report_static_elf_scan_errors
+
+    # broken.txt represents only the current static inspection result.
+    cp -f -- "$BROKEN_NEW" "$BROKEN"
 
     BROKEN_COUNT=$(wc -l < "$BROKEN" 2>/dev/null || echo 0)
-    echo "  Binarios rotos detectados: $BROKEN_COUNT"
+    echo "  Broken ELF objects detected: $BROKEN_COUNT"
+}
+
+verify_broken_elf_objects_after_rebuild() {
+    local path
+    local object
+    local inspection_status
+
+    if [ ! -s "$BROKEN" ]; then
+        ELF_VERIFICATION_STATUS=0
+        return 0
+    fi
+
+    ELF_VERIFICATION_STATUS=0
+    echo "  Verifying rebuilt ELF objects with static inspection..."
+    : > "$BROKEN_ERRORS"
+    : > "$STILL_BROKEN"
+
+    if ! refresh_static_elf_library_cache "$ELF_LIBRARY_CACHE"; then
+        ELF_VERIFICATION_STATUS=1
+        echo "  [WARN] Cannot refresh the static ELF library cache after the rebuild"
+        report_static_elf_scan_errors
+        return 1
+    fi
+
+    while IFS= read -r path; do
+        [ -n "$path" ] || continue
+        if ! object=$(resolve_static_elf_object_path "$path"); then
+            if [ -e "$path" ] || [ -L "$path" ]; then
+                printf '%s\n' "$path"
+                printf 'cannot statically re-inspect %s\n' "$path" >> "$BROKEN_ERRORS"
+            fi
+            continue
+        fi
+
+        if static_elf_object_has_missing_dependency "$object" "$ELF_LIBRARY_CACHE"; then
+            printf '%s\n' "$path"
+        else
+            inspection_status=$?
+            if [ "$inspection_status" -eq 2 ]; then
+                printf '%s\n' "$path"
+                printf 'readelf could not re-inspect %s\n' "$path" >> "$BROKEN_ERRORS"
+            fi
+        fi
+    done < "$BROKEN" | LC_ALL=C sort -u > "$STILL_BROKEN"
+
+    report_static_elf_scan_errors
+
+    if [ -s "$STILL_BROKEN" ]; then
+        echo "  [WARN] ELF objects that still have unresolved dependencies:"
+        sed 's/^/    /' "$STILL_BROKEN"
+        cp -f -- "$STILL_BROKEN" "$BROKEN"
+        ELF_VERIFICATION_STATUS=1
+        return 1
+    fi
+
+    echo "  [OK] All previously broken ELF objects passed static verification"
+    : > "$BROKEN"
 }
 
 map_broken_objects_to_sbo_packages() {
@@ -3165,23 +3321,10 @@ build_and_apply_sbo_queue() {
             echo "  [WARN] sbopkg termino con errores -- revisar log: $LOG"
         fi
 
-        # Verificar si los binarios que estaban rotos antes de sbopkg siguen rotos
+        # Reuse the static reader for post-build verification. Inspected objects
+        # are never invoked as commands and no dynamic-loader trace mode is used.
         if [ -s "$BROKEN" ]; then
-            echo "  Verificando si los binarios rotos fueron reparados..."
-            > "$STILL_BROKEN"
-            while read -r bin; do
-                [ -e "$bin" ] || continue
-                ldd "$bin" 2>/dev/null | grep -q "not found" && echo "$bin"
-            done < "$BROKEN" | sort > "$STILL_BROKEN"
-
-            if [ -s "$STILL_BROKEN" ]; then
-                echo "  [WARN] Binarios que siguen rotos tras la recompilacion:"
-                sed 's/^/    /' "$STILL_BROKEN"
-                cp "$STILL_BROKEN" "$BROKEN"
-            else
-                echo "  [OK] Todos los binarios rotos fueron reparados"
-                > "$BROKEN"
-            fi
+            verify_broken_elf_objects_after_rebuild || true
         fi
     else
         echo "  Cola vacia, nada que hacer"
@@ -3921,8 +4064,11 @@ print_dry_run_json_modules() {
     printf '      "mode": '; json_string "$ELF_MODE"; printf ',\n'
     printf '      "activation_state": '; json_string "$ELF_MODULE_STATE"; printf ',\n'
     printf '      "reason": '; json_string "$ELF_MODULE_REASON"; printf ',\n'
+    printf '      "inspection_method": '; json_string 'readelf+ldconfig-cache'; printf ',\n'
+    printf '      "executes_inspected_objects": false,\n'
     printf '      "readelf_available": '; json_boolean "$PLAN_READELF_AVAILABLE"; printf ',\n'
     printf '      "ldconfig_available": '; json_boolean "$ELF_LDCONFIG_AVAILABLE"; printf ',\n'
+    printf '      "scan_exit_code": '; json_nullable_status "$ELF_SCAN_STATUS"; printf ',\n'
     printf '      "broken_objects": '; json_string_array_from_file "$BROKEN"; printf '\n'
     printf '    },\n'
 
@@ -4091,6 +4237,10 @@ print_apply_json_modules() {
     printf '      "activation_state": '; json_string "$ELF_MODULE_STATE"; printf ',\n'
     printf '      "reason": '; json_string "$ELF_MODULE_REASON"; printf ',\n'
     printf '      "state": '; json_string "$elf_state"; printf ',\n'
+    printf '      "inspection_method": '; json_string 'readelf+ldconfig-cache'; printf ',\n'
+    printf '      "executes_inspected_objects": false,\n'
+    printf '      "scan_exit_code": '; json_nullable_status "$ELF_SCAN_STATUS"; printf ',\n'
+    printf '      "verification_exit_code": '; json_nullable_status "$ELF_VERIFICATION_STATUS"; printf ',\n'
     printf '      "broken_objects": '; json_string_array_from_file "$BROKEN"; printf '\n'
     printf '    },\n'
 
@@ -4305,8 +4455,7 @@ run_apply_workflow() {
     emit_module_started_event elf "ELF dependency module started"
     if [ "$ELF_MODULE_RUN" -eq 1 ]; then
         emit_action_started_event elf scan_dependencies "Scanning ELF dependencies statically"
-        detect_broken_elf_objects
-        if map_broken_objects_to_sbo_packages; then
+        if detect_broken_elf_objects && map_broken_objects_to_sbo_packages; then
             if [ -s "$BROKEN" ]; then
                 elf_state=warning
             else
@@ -4320,7 +4469,7 @@ run_apply_workflow() {
             SBO_TARGET_SELECTION_STATUS=1
             action_exit=1
             emit_action_completed_event elf scan_dependencies failed \
-                "ELF ownership mapping could not produce deterministic SBo targets" 1
+                "Static ELF inspection or ownership mapping failed" 1
         fi
     else
         elf_state=$ELF_MODULE_STATE

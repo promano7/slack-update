@@ -590,7 +590,7 @@ The final layout may change during the architecture prototype, but separation be
 - [x] Confirm dependency order is preserved in generated SBo queues.
 - [x] Confirm custom SBo options are preserved.
 - [x] Confirm no personal queue is overwritten.
-- [ ] Confirm ELF analysis never executes inspected binaries.
+- [x] Confirm ELF analysis never executes inspected binaries.
 - [ ] Confirm architecture-specific library resolution.
 - [ ] Confirm initrd validation uses the installed kernel.
 - [ ] Confirm GRUB is not updated after an initrd failure.
@@ -717,6 +717,32 @@ tests/reference/test-sbo-dependency-order.sh
 tests/reference/test-sbo-options.sh
 tests/reference/test-sbo-personal-queue-protection.sh
 ```
+
+ELF inspection now uses one static path for both initial detection and
+post-rebuild verification. Candidate paths are resolved without following
+non-regular targets, filtered by the ELF magic bytes, and read with `readelf -d`.
+The loader cache is obtained once from `/sbin/ldconfig -p`, normalized to exact
+soname records, and compared literally with each `DT_NEEDED` entry. Inspected
+objects are never invoked as commands, and dynamic-loader trace execution is not
+used. If an object cannot be re-inspected after a rebuild, it remains in the
+broken-object set rather than being reported as repaired.
+
+Provisional JSON reports the inspection method, explicitly records
+`executes_inspected_objects=false`, and includes static scan and post-build
+verification statuses. Architecture-specific cache selection remains the next
+separate safety task; this step establishes the non-execution boundary without
+claiming architecture-aware resolution.
+
+The focused regression test is:
+
+```bash
+tests/reference/test-elf-static-inspection.sh
+```
+
+Its guarded executable fixtures create a marker if run. The test exercises the
+initial scan, symlinked objects, exact soname matching, parser failures, cache
+failures, and post-rebuild verification while asserting that neither the target
+marker nor a dynamic-loader-tool marker is ever created.
 
 ### Real-system acceptance matrix
 
@@ -1248,7 +1274,8 @@ Slack-Update 1.0 will be ready when:
 - [x] Preserve dependency order in generated SBo queues.
 - [x] Preserve custom SBo build options.
 - [x] Protect personal SBo queues from `sqg` overwrites.
-- [ ] Confirm ELF analysis never executes inspected binaries.
+- [x] Confirm ELF analysis never executes inspected binaries.
+- [ ] Confirm architecture-specific library resolution.
 - [ ] Execute and document the Phase 1 acceptance matrix on Slackware 15.0 and Slackware-current.
 - [ ] Freeze `reference-v1`.
 - [ ] Begin the C architecture only after the reference gate is complete.
