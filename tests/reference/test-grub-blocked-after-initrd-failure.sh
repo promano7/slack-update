@@ -119,11 +119,24 @@ mkdir -p "$GRUB_DIRECTORY"
 
 GRUB_MOCK_STATUS=0
 grub-mkconfig() {
+    local output=
+
     printf '%s\n' "$@" >> "$GRUB_CALLS"
-    if [ "$GRUB_MOCK_STATUS" -eq 0 ]; then
-        printf 'generated grub configuration\n' > "$GRUB_CONFIG"
+    while [ "$#" -gt 0 ]; do
+        if [ "$1" = -o ] && [ "$#" -gt 1 ]; then
+            output=$2
+            break
+        fi
+        shift
+    done
+    if [ "$GRUB_MOCK_STATUS" -eq 0 ] && [ -n "$output" ]; then
+        printf 'generated grub configuration\n' > "$output"
     fi
     return "$GRUB_MOCK_STATUS"
+}
+
+grub-script-check() {
+    [ "$#" -eq 1 ] && [ -s "$1" ]
 }
 
 reset_guard_state() {
@@ -195,8 +208,10 @@ assert_equal 1 "$GRUB_OK" \
     'successful grub-mkconfig should set GRUB_OK'
 assert_file_contains '-o' "$GRUB_CALLS" \
     'GRUB should receive the output selector after initrd success'
-assert_file_contains "$GRUB_CONFIG" "$GRUB_CALLS" \
-    'GRUB should receive the configured output path after initrd success'
+assert_file_contains "$GRUB_DIRECTORY/.grub.cfg.slack-update." "$GRUB_CALLS" \
+    'GRUB should receive a temporary output path beside the active configuration'
+assert_file_not_contains "$GRUB_CONFIG" "$GRUB_CALLS" \
+    'GRUB generation must not target the active configuration directly'
 assert_file_exists "$GRUB_CONFIG" \
     'permitted GRUB processing should generate the configured file'
 

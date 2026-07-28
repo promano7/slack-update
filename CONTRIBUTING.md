@@ -85,11 +85,12 @@ Before submitting a change to the reference script:
 10. Run `tests/reference/test-elf-architecture-resolution.sh` when ELF identity extraction, cache record structure, class/data/machine compatibility, multilib behavior, or architecture-aware verification is affected.
 11. Run `tests/reference/test-initrd-installed-kernel.sh` when `mkinitrd.conf` parsing, installed kernel resolution, module-tree validation, initrd output selection, or boot safety reporting is affected.
 12. Run `tests/reference/test-grub-blocked-after-initrd-failure.sh` when initrd-to-GRUB sequencing, boot action events, GRUB command guards, blocked boot reporting, or boot safety result diagnostics are affected.
-13. Confirm that destructive commands are not exercised outside an isolated Slackware test system.
-14. Record the relevant acceptance scenario.
-15. Preserve deterministic output and exit-code behavior.
-16. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
-17. Ensure every new or modified comment is written in English.
+13. Run `tests/reference/test-grub-atomic-replacement.sh` when staged GRUB generation, syntax validation, active-file fingerprinting, temporary-file cleanup, permission preservation, or atomic replacement is affected.
+14. Confirm that destructive commands are not exercised outside an isolated Slackware test system.
+15. Record the relevant acceptance scenario.
+16. Preserve deterministic output and exit-code behavior.
+17. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
+18. Ensure every new or modified comment is written in English.
 
 Never run the apply workflow on a production machine merely to validate a contribution.
 

@@ -1725,6 +1725,7 @@ probe_boot_module() {
     fi
 
     if command -v grub-mkconfig >/dev/null 2>&1 \
+        && command -v grub-script-check >/dev/null 2>&1 \
         && [ -d "$GRUB_DIRECTORY" ]; then
         BOOT_GRUB_AVAILABLE=1
     fi
@@ -1876,6 +1877,17 @@ initialize_runtime_state() {
     GRUB_COMMAND_ATTEMPTED=0
     GRUB_BLOCKED_BY_INITRD=0
     GRUB_BLOCK_REASON=
+    GRUB_GENERATION_STATUS=-1
+    GRUB_VALIDATION_STATUS=-1
+    GRUB_VALIDATION_ERROR=
+    GRUB_INSTALL_STATUS=-1
+    GRUB_REPLACEMENT_ATTEMPTED=0
+    GRUB_CONFIG_REPLACED=0
+    GRUB_ACTIVE_CONFIG_EXISTED=0
+    GRUB_ACTIVE_CONFIG_FINGERPRINT=
+    GRUB_TEMP_CONFIG=
+    GRUB_TEMP_CONFIG_OWNED=0
+    GRUB_TEMP_DIRECTORY_CANONICAL=
     INITRD_REQUIRED=0
     GRUB_REQUIRED=0
     FLATPAK_MODULE_STATE=idle
@@ -2031,6 +2043,7 @@ cleanup() {
     rm -f "${QUEUE_FINAL:-}" "${BROKEN_NEW:-}" "${STILL_BROKEN:-}" \
         "${BROKEN_ERRORS:-}" "${ELF_LIBRARY_CACHE:-}" 2>/dev/null || true
 
+    discard_owned_grub_temporary_config 2>/dev/null || true
     remove_owned_sbo_queue_workspace 2>/dev/null || true
 
     if [ -n "${RUNTIME_TMPDIR:-}" ]; then
@@ -2149,6 +2162,7 @@ inspect_dry_run_environment() {
     PLAN_READELF_AVAILABLE=0
     PLAN_MKINITRD_AVAILABLE=0
     PLAN_GRUB_AVAILABLE=0
+    PLAN_GRUB_VALIDATOR_AVAILABLE=0
     PLAN_MKINITRD_CONFIGURED=0
     PLAN_GRUB_CONFIGURED=0
     PLAN_CINNAMON_REPOSITORY=0
@@ -2170,6 +2184,7 @@ inspect_dry_run_environment() {
     if [ "$BOOT_MODE" != disabled ]; then
         command -v mkinitrd >/dev/null 2>&1 && PLAN_MKINITRD_AVAILABLE=1
         command -v grub-mkconfig >/dev/null 2>&1 && PLAN_GRUB_AVAILABLE=1
+        command -v grub-script-check >/dev/null 2>&1 && PLAN_GRUB_VALIDATOR_AVAILABLE=1
 
         if [ -f "$MKINITRD_CONFIG" ]; then
             PLAN_MKINITRD_CONFIGURED=1
@@ -2407,7 +2422,9 @@ print_dry_run_plan() {
             echo "  Auto mode would omit initrd preparation because it is not applicable."
         fi
         if [ "$BOOT_GRUB_AVAILABLE" -eq 1 ]; then
-            echo "  Planned GRUB command: grub-mkconfig -o $GRUB_CONFIG"
+            echo "  Planned GRUB generation: grub-mkconfig writes an owner-only temporary file beside $GRUB_CONFIG"
+            echo "  Planned GRUB validation: grub-script-check <temporary-config>"
+            echo "  Planned GRUB installation: atomic replacement of $GRUB_CONFIG after validation"
         elif [ "$BOOT_MODE" = enabled ]; then
             echo "  [ERROR] GRUB requirements are missing and would fail if triggered."
         else
@@ -3789,6 +3806,208 @@ grub_initrd_prerequisite_is_satisfied() {
     return 0
 }
 
+grub_config_fingerprint() {
+    local path=$1
+    local metadata
+    local checksum
+
+    if [ -L "$path" ]; then
+        return 2
+    fi
+
+    if [ ! -e "$path" ]; then
+        printf '%s' absent
+        return 0
+    fi
+
+    [ -f "$path" ] || return 2
+    metadata=$(stat -c '%d:%i:%f:%u:%g:%s:%y' -- "$path") || return 1
+    checksum=$(cksum -- "$path") || return 1
+    printf '%s|%s' "$metadata" "$checksum"
+}
+
+discard_owned_grub_temporary_config() {
+    local current_parent
+
+    [ "${GRUB_TEMP_CONFIG_OWNED:-0}" -eq 1 ] || return 0
+    [ -n "${GRUB_TEMP_CONFIG:-}" ] || return 0
+    [ -n "${GRUB_TEMP_DIRECTORY_CANONICAL:-}" ] || return 0
+
+    current_parent=$(readlink -e -- "$(dirname -- "$GRUB_TEMP_CONFIG")" 2>/dev/null) || return 0
+    [ "$current_parent" = "$GRUB_TEMP_DIRECTORY_CANONICAL" ] || return 0
+    [ ! -L "$GRUB_TEMP_CONFIG" ] || return 0
+
+    if [ -f "$GRUB_TEMP_CONFIG" ]; then
+        rm -f -- "$GRUB_TEMP_CONFIG" || return 1
+    fi
+
+    GRUB_TEMP_CONFIG_OWNED=0
+}
+
+prepare_grub_transaction() {
+    local configured_directory
+    local config_parent
+    local canonical_directory
+    local canonical_parent
+    local config_name
+
+    GRUB_VALIDATION_ERROR=
+    GRUB_ACTIVE_CONFIG_EXISTED=0
+    GRUB_ACTIVE_CONFIG_FINGERPRINT=
+    GRUB_TEMP_CONFIG=
+    GRUB_TEMP_CONFIG_OWNED=0
+    GRUB_TEMP_DIRECTORY_CANONICAL=
+
+    configured_directory=$GRUB_DIRECTORY
+    config_parent=$(dirname -- "$GRUB_CONFIG")
+    config_name=${GRUB_CONFIG##*/}
+
+    if [ ! -d "$configured_directory" ] || [ -L "$configured_directory" ]; then
+        GRUB_VALIDATION_ERROR="configured GRUB directory is missing or is a symbolic link: $configured_directory"
+        return 1
+    fi
+    if [ ! -d "$config_parent" ] || [ -L "$config_parent" ]; then
+        GRUB_VALIDATION_ERROR="GRUB configuration parent is missing or is a symbolic link: $config_parent"
+        return 1
+    fi
+
+    canonical_directory=$(readlink -e -- "$configured_directory") || {
+        GRUB_VALIDATION_ERROR="cannot resolve configured GRUB directory: $configured_directory"
+        return 1
+    }
+    canonical_parent=$(readlink -e -- "$config_parent") || {
+        GRUB_VALIDATION_ERROR="cannot resolve GRUB configuration parent: $config_parent"
+        return 1
+    }
+
+    if [ "$canonical_parent" != "$canonical_directory" ]; then
+        GRUB_VALIDATION_ERROR="GRUB configuration is outside the configured GRUB directory: $GRUB_CONFIG"
+        return 1
+    fi
+
+    if [ -L "$GRUB_CONFIG" ]; then
+        GRUB_VALIDATION_ERROR="active GRUB configuration must not be a symbolic link: $GRUB_CONFIG"
+        return 1
+    fi
+    if [ -e "$GRUB_CONFIG" ] && [ ! -f "$GRUB_CONFIG" ]; then
+        GRUB_VALIDATION_ERROR="active GRUB configuration is not a regular file: $GRUB_CONFIG"
+        return 1
+    fi
+
+    if [ -e "$GRUB_CONFIG" ]; then
+        GRUB_ACTIVE_CONFIG_EXISTED=1
+    fi
+    GRUB_ACTIVE_CONFIG_FINGERPRINT=$(grub_config_fingerprint "$GRUB_CONFIG") || {
+        GRUB_VALIDATION_ERROR="cannot fingerprint active GRUB configuration: $GRUB_CONFIG"
+        return 1
+    }
+
+    GRUB_TEMP_CONFIG=$(mktemp -- "$canonical_parent/.${config_name}.slack-update.XXXXXX") || {
+        GRUB_VALIDATION_ERROR="cannot create temporary GRUB configuration in: $canonical_parent"
+        return 1
+    }
+    chmod 0600 -- "$GRUB_TEMP_CONFIG" || {
+        GRUB_VALIDATION_ERROR="cannot secure temporary GRUB configuration: $GRUB_TEMP_CONFIG"
+        rm -f -- "$GRUB_TEMP_CONFIG" 2>/dev/null || true
+        GRUB_TEMP_CONFIG=
+        return 1
+    }
+
+    GRUB_TEMP_CONFIG_OWNED=1
+    GRUB_TEMP_DIRECTORY_CANONICAL=$canonical_parent
+}
+
+validate_generated_grub_config() {
+    local validator_status
+
+    GRUB_VALIDATION_STATUS=1
+
+    if [ -z "$GRUB_TEMP_CONFIG" ] || [ -L "$GRUB_TEMP_CONFIG" ] \
+        || [ ! -f "$GRUB_TEMP_CONFIG" ] || [ ! -r "$GRUB_TEMP_CONFIG" ]; then
+        GRUB_VALIDATION_ERROR="generated GRUB configuration is not a readable regular file"
+        return 1
+    fi
+    if [ ! -s "$GRUB_TEMP_CONFIG" ]; then
+        GRUB_VALIDATION_ERROR="generated GRUB configuration is empty"
+        return 1
+    fi
+    if ! chmod 0600 -- "$GRUB_TEMP_CONFIG"; then
+        GRUB_VALIDATION_ERROR="cannot secure generated GRUB configuration"
+        return 1
+    fi
+    if ! command -v grub-script-check >/dev/null 2>&1; then
+        GRUB_VALIDATION_ERROR="grub-script-check is unavailable"
+        return 1
+    fi
+
+    grub-script-check "$GRUB_TEMP_CONFIG"
+    validator_status=$?
+    if [ "$validator_status" -eq 0 ]; then
+        GRUB_VALIDATION_STATUS=0
+        GRUB_VALIDATION_ERROR=
+        return 0
+    fi
+
+    GRUB_VALIDATION_STATUS=$validator_status
+    GRUB_VALIDATION_ERROR="grub-script-check rejected the generated configuration"
+    return "$validator_status"
+}
+
+install_validated_grub_config() {
+    local current_fingerprint
+    local install_status
+
+    GRUB_INSTALL_STATUS=1
+
+    current_fingerprint=$(grub_config_fingerprint "$GRUB_CONFIG") || {
+        GRUB_VALIDATION_ERROR="cannot recheck active GRUB configuration before replacement"
+        return 1
+    }
+    if [ "$current_fingerprint" != "$GRUB_ACTIVE_CONFIG_FINGERPRINT" ]; then
+        GRUB_VALIDATION_ERROR="active GRUB configuration changed during generation; replacement refused"
+        return 1
+    fi
+
+    if [ "$GRUB_ACTIVE_CONFIG_EXISTED" -eq 1 ]; then
+        chown --reference="$GRUB_CONFIG" -- "$GRUB_TEMP_CONFIG" || {
+            GRUB_VALIDATION_ERROR="cannot preserve active GRUB configuration ownership"
+            return 1
+        }
+        chmod --reference="$GRUB_CONFIG" -- "$GRUB_TEMP_CONFIG" || {
+            GRUB_VALIDATION_ERROR="cannot preserve active GRUB configuration permissions"
+            return 1
+        }
+    else
+        chmod 0600 -- "$GRUB_TEMP_CONFIG" || {
+            GRUB_VALIDATION_ERROR="cannot apply secure permissions to new GRUB configuration"
+            return 1
+        }
+    fi
+
+    current_fingerprint=$(grub_config_fingerprint "$GRUB_CONFIG") || {
+        GRUB_VALIDATION_ERROR="cannot perform the final active GRUB configuration check"
+        return 1
+    }
+    if [ "$current_fingerprint" != "$GRUB_ACTIVE_CONFIG_FINGERPRINT" ]; then
+        GRUB_VALIDATION_ERROR="active GRUB configuration changed before atomic replacement; replacement refused"
+        return 1
+    fi
+
+    GRUB_REPLACEMENT_ATTEMPTED=1
+    mv -fT -- "$GRUB_TEMP_CONFIG" "$GRUB_CONFIG"
+    install_status=$?
+    if [ "$install_status" -eq 0 ]; then
+        GRUB_TEMP_CONFIG_OWNED=0
+        GRUB_CONFIG_REPLACED=1
+        GRUB_INSTALL_STATUS=0
+        return 0
+    fi
+
+    GRUB_INSTALL_STATUS=$install_status
+    GRUB_VALIDATION_ERROR="atomic GRUB configuration replacement failed"
+    return "$install_status"
+}
+
 update_grub_configuration() {
     local grub_status
 
@@ -3800,6 +4019,17 @@ update_grub_configuration() {
     GRUB_COMMAND_ATTEMPTED=0
     GRUB_BLOCKED_BY_INITRD=0
     GRUB_BLOCK_REASON=
+    GRUB_GENERATION_STATUS=-1
+    GRUB_VALIDATION_STATUS=-1
+    GRUB_VALIDATION_ERROR=
+    GRUB_INSTALL_STATUS=-1
+    GRUB_REPLACEMENT_ATTEMPTED=0
+    GRUB_CONFIG_REPLACED=0
+    GRUB_ACTIVE_CONFIG_EXISTED=0
+    discard_owned_grub_temporary_config 2>/dev/null || true
+    GRUB_TEMP_CONFIG=
+    GRUB_TEMP_CONFIG_OWNED=0
+    GRUB_TEMP_DIRECTORY_CANONICAL=
 
     if [ "$GRUB_UPDATE" -eq 1 ]; then
         if ! grub_initrd_prerequisite_is_satisfied; then
@@ -3810,22 +4040,53 @@ update_grub_configuration() {
 
         echo "[13] Actualizando GRUB"
 
-        if command -v grub-mkconfig >/dev/null 2>&1 && [ -d "$GRUB_DIRECTORY" ]; then
-            GRUB_COMMAND_ATTEMPTED=1
-            if grub-mkconfig -o "$GRUB_CONFIG"; then
-                GRUB_OK=1
-                echo "  [OK] GRUB actualizado"
-                return 0
-            else
-                grub_status=$?
-                echo "  [ERROR] grub-mkconfig fallo"
-                [ "$grub_status" -gt 0 ] || grub_status=1
-                return "$grub_status"
-            fi
+        if ! command -v grub-mkconfig >/dev/null 2>&1; then
+            GRUB_VALIDATION_ERROR="grub-mkconfig is unavailable"
+            echo "  [ERROR] grub-mkconfig no encontrado"
+            return 1
+        fi
+        if ! command -v grub-script-check >/dev/null 2>&1; then
+            GRUB_VALIDATION_ERROR="grub-script-check is unavailable"
+            echo "  [ERROR] grub-script-check no encontrado"
+            return 1
+        fi
+        if ! prepare_grub_transaction; then
+            echo "  [ERROR] Preparacion segura de GRUB fallida: $GRUB_VALIDATION_ERROR"
+            return 1
         fi
 
-        echo "  [ERROR] GRUB no encontrado o $GRUB_DIRECTORY no existe"
-        return 1
+        GRUB_COMMAND_ATTEMPTED=1
+        if grub-mkconfig -o "$GRUB_TEMP_CONFIG"; then
+            GRUB_GENERATION_STATUS=0
+        else
+            grub_status=$?
+            [ "$grub_status" -gt 0 ] || grub_status=1
+            GRUB_GENERATION_STATUS=$grub_status
+            GRUB_VALIDATION_ERROR="grub-mkconfig failed while generating the temporary configuration"
+            echo "  [ERROR] grub-mkconfig fallo"
+            discard_owned_grub_temporary_config 2>/dev/null || true
+            return "$grub_status"
+        fi
+
+        validate_generated_grub_config
+        grub_status=$?
+        if [ "$grub_status" -ne 0 ]; then
+            echo "  [ERROR] Validacion de GRUB fallida: $GRUB_VALIDATION_ERROR"
+            discard_owned_grub_temporary_config 2>/dev/null || true
+            return "$grub_status"
+        fi
+
+        install_validated_grub_config
+        grub_status=$?
+        if [ "$grub_status" -ne 0 ]; then
+            echo "  [ERROR] Instalacion atomica de GRUB fallida: $GRUB_VALIDATION_ERROR"
+            discard_owned_grub_temporary_config 2>/dev/null || true
+            return "$grub_status"
+        fi
+
+        GRUB_OK=1
+        echo "  [OK] GRUB generado, validado e instalado atomicamente"
+        return 0
     fi
 
     return 0
@@ -3934,9 +4195,12 @@ print_summary() {
             elif [ "$GRUB_BLOCKED_BY_INITRD" -eq 1 ]; then
                 echo "  -> GRUB bloqueado para proteger el arranque: $GRUB_BLOCK_REASON"
             elif [ "$GRUB_OK" -eq 1 ]; then
-                echo "  -> GRUB actualizado correctamente."
+                echo "  -> GRUB generado en temporal, validado e instalado atomicamente."
             else
                 echo "  -> GRUB requeria actualizacion pero fallo."
+                if [ -n "${GRUB_VALIDATION_ERROR:-}" ]; then
+                    echo "  -> Transaccion GRUB: $GRUB_VALIDATION_ERROR"
+                fi
             fi
         fi
 
@@ -4287,7 +4551,11 @@ prepare_json_messages() {
             if [ "$GRUB_BLOCKED_BY_INITRD" -eq 1 ]; then
                 RESULT_ERRORS+=("GRUB configuration generation was blocked to protect boot safety: $GRUB_BLOCK_REASON")
             elif [ "$GRUB_UPDATE" -eq 1 ] && [ "$GRUB_OK" -ne 1 ]; then
-                RESULT_ERRORS+=("GRUB configuration generation was required but did not complete successfully")
+                if [ -n "${GRUB_VALIDATION_ERROR:-}" ]; then
+                    RESULT_ERRORS+=("GRUB configuration transaction failed: $GRUB_VALIDATION_ERROR")
+                else
+                    RESULT_ERRORS+=("GRUB configuration generation was required but did not complete successfully")
+                fi
             fi
             if [ "$ELF_MODULE_RUN" -eq 1 ] && [ -s "$BROKEN" ]; then
                 RESULT_ERRORS+=("ELF dependency verification still reports broken objects")
@@ -4489,8 +4757,13 @@ print_dry_run_json_modules() {
     printf '      "kernel_package": '; json_string "${INITRD_KERNEL_PACKAGE:-}"; printf ',\n'
     printf '      "modules_directory": '; json_string "${KERNEL_MODULES_DIRECTORY:-}"; printf ',\n'
     printf '      "kernel_validation_deferred_until_apply": true,\n'
-    printf '      "grub_available": '; json_boolean "$PLAN_GRUB_AVAILABLE"; printf ',\n'
-    printf '      "grub_configured": '; json_boolean "$PLAN_GRUB_CONFIGURED"; printf '\n'
+    printf '      "grub_generator_available": '; json_boolean "$PLAN_GRUB_AVAILABLE"; printf ',\n'
+    printf '      "grub_validator_available": '; json_boolean "$PLAN_GRUB_VALIDATOR_AVAILABLE"; printf ',\n'
+    printf '      "grub_configured": '; json_boolean "$PLAN_GRUB_CONFIGURED"; printf ',\n'
+    printf '      "grub_active_config": '; json_string "${GRUB_CONFIG:-}"; printf ',\n'
+    printf '      "grub_temporary_generation": true,\n'
+    printf '      "grub_validator": '; json_string 'grub-script-check'; printf ',\n'
+    printf '      "grub_atomic_replacement": true\n'
     printf '    }\n'
 }
 
@@ -4679,6 +4952,16 @@ print_apply_json_modules() {
     printf '      "grub_required": '; json_boolean "$GRUB_REQUIRED"; printf ',\n'
     printf '      "grub_state": '; json_string "$grub_state"; printf ',\n'
     printf '      "grub_command_attempted": '; json_boolean "${GRUB_COMMAND_ATTEMPTED:-0}"; printf ',\n'
+    printf '      "grub_active_config": '; json_string "${GRUB_CONFIG:-}"; printf ',\n'
+    printf '      "grub_temporary_config": '; json_string "${GRUB_TEMP_CONFIG:-}"; printf ',\n'
+    printf '      "grub_generation_exit_code": '; json_nullable_status "${GRUB_GENERATION_STATUS:--1}"; printf ',\n'
+    printf '      "grub_validation_exit_code": '; json_nullable_status "${GRUB_VALIDATION_STATUS:--1}"; printf ',\n'
+    printf '      "grub_validation_error": '; json_string "${GRUB_VALIDATION_ERROR:-}"; printf ',\n'
+    printf '      "grub_install_exit_code": '; json_nullable_status "${GRUB_INSTALL_STATUS:--1}"; printf ',\n'
+    printf '      "grub_replacement_attempted": '; json_boolean "${GRUB_REPLACEMENT_ATTEMPTED:-0}"; printf ',\n'
+    printf '      "grub_config_replaced": '; json_boolean "${GRUB_CONFIG_REPLACED:-0}"; printf ',\n'
+    printf '      "grub_validator": '; json_string 'grub-script-check'; printf ',\n'
+    printf '      "grub_atomic_replacement": true,\n'
     printf '      "grub_blocked_by_initrd": '; json_boolean "${GRUB_BLOCKED_BY_INITRD:-0}"; printf ',\n'
     printf '      "grub_block_reason": '; json_string "${GRUB_BLOCK_REASON:-}"; printf '\n'
     printf '    }\n'

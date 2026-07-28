@@ -318,7 +318,8 @@ The current probes are intentionally explicit:
 - Boot auto-detection enables each supported path independently: a validated
   `mkinitrd.conf` for initrd preparation, with the configured kernel validated
   against the post-update installed package and modules tree, and an installed
-  GRUB directory plus `grub-mkconfig` for GRUB preparation.
+  GRUB directory plus both `grub-mkconfig` and `grub-script-check` for staged
+  GRUB generation and validation.
 
 An unavailable module in `auto` mode is skipped without becoming a global
 failure. An unavailable module in `enabled` mode is reported as an error in
@@ -595,7 +596,7 @@ The final layout may change during the architecture prototype, but separation be
 - [x] Confirm architecture-specific library resolution.
 - [x] Confirm initrd validation uses the installed kernel.
 - [x] Confirm GRUB is not updated after an initrd failure.
-- [ ] Confirm staged GRUB configuration is validated before replacement.
+- [x] Confirm staged GRUB configuration is validated before replacement.
 - [ ] Confirm interruption signals release locks and terminate execution.
 - [ ] Confirm errors produce non-zero exit codes.
 - [ ] Confirm cron execution works with a minimal environment.
@@ -797,6 +798,31 @@ to distinguish an intentionally suppressed command from a real
 tests/reference/test-grub-blocked-after-initrd-failure.sh
 ```
 
+GRUB configuration replacement is now transactional. `grub-mkconfig` writes to
+an owner-only, unpredictable temporary file created beside the configured
+`grub.cfg`, ensuring that the final rename remains on the same filesystem. The
+active configuration path is never passed to the generator. The temporary file
+must be a readable, non-empty regular file and must pass `grub-script-check`
+before installation is considered.
+
+Slack-Update fingerprints the active configuration before generation and checks
+it again immediately before replacement. A concurrent modification, active
+symlink, configuration outside the configured GRUB directory, generation
+failure, validation failure, permission failure, or final rename failure leaves
+the active file untouched. When validation succeeds, existing ownership and
+permissions are preserved and `mv -T` performs the final atomic replacement. If no active file
+existed, the new configuration is installed with mode `0600`.
+
+Provisional JSON reports the active and temporary paths, generation, validation,
+and installation exit codes, the validator name, replacement-attempt state, and
+whether the active configuration was replaced. Dry-run describes the same
+staged generation, validation, and atomic installation sequence. The focused
+regression test is:
+
+```bash
+tests/reference/test-grub-atomic-replacement.sh
+```
+
 ### Real-system acceptance matrix
 
 - [ ] Fully updated system with no available changes.
@@ -806,7 +832,9 @@ tests/reference/test-grub-blocked-after-initrd-failure.sh
 - [ ] Kernel headers update without a kernel image update.
 - [ ] Invalid or stale `KERNEL_VERSION` in `mkinitrd.conf`.
 - [ ] `mkinitrd` failure leaves GRUB configuration untouched.
-- [ ] GRUB generation failure.
+- [ ] GRUB generation failure leaves the active configuration untouched.
+- [ ] Invalid staged GRUB syntax leaves the active configuration untouched.
+- [ ] Concurrent GRUB configuration modification blocks replacement.
 - [ ] Low free space on `/`.
 - [ ] Low free space on `/boot`.
 - [ ] ABI library update with installed SBo packages.
