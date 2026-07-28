@@ -1873,6 +1873,9 @@ initialize_runtime_state() {
     INITRD_MODULES_PATH=
     INITRD_OUTPUT_PATH=
     GRUB_OK=0
+    GRUB_COMMAND_ATTEMPTED=0
+    GRUB_BLOCKED_BY_INITRD=0
+    GRUB_BLOCK_REASON=
     INITRD_REQUIRED=0
     GRUB_REQUIRED=0
     FLATPAK_MODULE_STATE=idle
@@ -3755,28 +3758,77 @@ regenerate_initrd() {
     fi
 }
 
+grub_initrd_prerequisite_is_satisfied() {
+    GRUB_BLOCKED_BY_INITRD=0
+    GRUB_BLOCK_REASON=
+
+    if [ "${GRUB_REQUIRED:-0}" -ne 1 ] || [ "${GRUB_UPDATE:-0}" -ne 1 ]; then
+        return 0
+    fi
+
+    if [ "${INITRD_REQUIRED:-0}" -ne 1 ]; then
+        return 0
+    fi
+
+    if [ "${INITRD_UPDATE:-0}" -ne 1 ]; then
+        GRUB_BLOCKED_BY_INITRD=1
+        GRUB_BLOCK_REASON="required initrd preparation was not applicable: mode=${BOOT_MODE:-unknown}, ${BOOT_MODULE_REASON:-requirements unavailable}"
+        return 1
+    fi
+
+    if [ "${INITRD_OK:-0}" -ne 1 ]; then
+        GRUB_BLOCKED_BY_INITRD=1
+        if [ -n "${INITRD_VALIDATION_ERROR:-}" ]; then
+            GRUB_BLOCK_REASON="required initrd preparation failed validation: $INITRD_VALIDATION_ERROR"
+        else
+            GRUB_BLOCK_REASON="required initrd regeneration did not complete successfully"
+        fi
+        return 1
+    fi
+
+    return 0
+}
+
 update_grub_configuration() {
+    local grub_status
+
     # ---------------------------
     # [13] GRUB
     # ---------------------------
 
+    GRUB_OK=0
+    GRUB_COMMAND_ATTEMPTED=0
+    GRUB_BLOCKED_BY_INITRD=0
+    GRUB_BLOCK_REASON=
+
     if [ "$GRUB_UPDATE" -eq 1 ]; then
+        if ! grub_initrd_prerequisite_is_satisfied; then
+            echo "[13] GRUB blocked"
+            echo "  [BLOCKED] $GRUB_BLOCK_REASON"
+            return 2
+        fi
 
         echo "[13] Actualizando GRUB"
 
         if command -v grub-mkconfig >/dev/null 2>&1 && [ -d "$GRUB_DIRECTORY" ]; then
-            grub-mkconfig -o "$GRUB_CONFIG" \
-                && {
-                    GRUB_OK=1
-                    echo "  [OK] GRUB actualizado"
-                } \
-                || echo "  [ERROR] grub-mkconfig fallo"
-
-        else
-            echo "  [ERROR] GRUB no encontrado o $GRUB_DIRECTORY no existe"
+            GRUB_COMMAND_ATTEMPTED=1
+            if grub-mkconfig -o "$GRUB_CONFIG"; then
+                GRUB_OK=1
+                echo "  [OK] GRUB actualizado"
+                return 0
+            else
+                grub_status=$?
+                echo "  [ERROR] grub-mkconfig fallo"
+                [ "$grub_status" -gt 0 ] || grub_status=1
+                return "$grub_status"
+            fi
         fi
 
+        echo "  [ERROR] GRUB no encontrado o $GRUB_DIRECTORY no existe"
+        return 1
     fi
+
+    return 0
 }
 
 print_summary() {
@@ -3879,6 +3931,8 @@ print_summary() {
         if [ "$GRUB_REQUIRED" -eq 1 ]; then
             if [ "$GRUB_UPDATE" -eq 0 ]; then
                 echo "  -> GRUB omitido por el modo del modulo boot ($BOOT_MODE)."
+            elif [ "$GRUB_BLOCKED_BY_INITRD" -eq 1 ]; then
+                echo "  -> GRUB bloqueado para proteger el arranque: $GRUB_BLOCK_REASON"
             elif [ "$GRUB_OK" -eq 1 ]; then
                 echo "  -> GRUB actualizado correctamente."
             else
@@ -4230,7 +4284,9 @@ prepare_json_messages() {
                     RESULT_ERRORS+=("initrd preparation was required but did not complete successfully")
                 fi
             fi
-            if [ "$GRUB_UPDATE" -eq 1 ] && [ "$GRUB_OK" -ne 1 ]; then
+            if [ "$GRUB_BLOCKED_BY_INITRD" -eq 1 ]; then
+                RESULT_ERRORS+=("GRUB configuration generation was blocked to protect boot safety: $GRUB_BLOCK_REASON")
+            elif [ "$GRUB_UPDATE" -eq 1 ] && [ "$GRUB_OK" -ne 1 ]; then
                 RESULT_ERRORS+=("GRUB configuration generation was required but did not complete successfully")
             fi
             if [ "$ELF_MODULE_RUN" -eq 1 ] && [ -s "$BROKEN" ]; then
@@ -4507,6 +4563,8 @@ print_apply_json_modules() {
             else
                 grub_state=unavailable
             fi
+        elif [ "$GRUB_BLOCKED_BY_INITRD" -eq 1 ]; then
+            grub_state=blocked
         elif [ "$GRUB_OK" -eq 1 ]; then
             grub_state=success
         else
@@ -4520,7 +4578,8 @@ print_apply_json_modules() {
         grub_state=blocked
     elif [ "$INITRD_REQUIRED" -eq 0 ] && [ "$GRUB_REQUIRED" -eq 0 ]; then
         boot_state=not-required
-    elif [ "$initrd_state" = failed ] || [ "$grub_state" = failed ]; then
+    elif [ "$initrd_state" = failed ] || [ "$grub_state" = failed ] \
+        || [ "$grub_state" = blocked ]; then
         boot_state=failed
     elif [ "$initrd_state" = success ] || [ "$grub_state" = success ]; then
         boot_state=success
@@ -4618,7 +4677,10 @@ print_apply_json_modules() {
     printf '      "initrd_validation_exit_code": '; json_nullable_status "${INITRD_VALIDATION_STATUS:--1}"; printf ',\n'
     printf '      "initrd_validation_error": '; json_string "${INITRD_VALIDATION_ERROR:-}"; printf ',\n'
     printf '      "grub_required": '; json_boolean "$GRUB_REQUIRED"; printf ',\n'
-    printf '      "grub_state": '; json_string "$grub_state"; printf '\n'
+    printf '      "grub_state": '; json_string "$grub_state"; printf ',\n'
+    printf '      "grub_command_attempted": '; json_boolean "${GRUB_COMMAND_ATTEMPTED:-0}"; printf ',\n'
+    printf '      "grub_blocked_by_initrd": '; json_boolean "${GRUB_BLOCKED_BY_INITRD:-0}"; printf ',\n'
+    printf '      "grub_block_reason": '; json_string "${GRUB_BLOCK_REASON:-}"; printf '\n'
     printf '    }\n'
 }
 
@@ -4662,13 +4724,80 @@ print_json_result() {
 
 # Workflow coordinators
 
+run_boot_preparation_module() {
+    local boot_state=skipped
+    local action_exit=0
+
+    GRUB_COMMAND_ATTEMPTED=0
+    GRUB_BLOCKED_BY_INITRD=0
+    GRUB_BLOCK_REASON=
+
+    emit_module_started_event boot "Boot preparation module started"
+
+    if [ "$INITRD_REQUIRED" -eq 0 ] && [ "$GRUB_REQUIRED" -eq 0 ]; then
+        boot_state=skipped
+    elif [ "$BOOT_MODE" = disabled ]; then
+        boot_state=disabled
+    elif [ "$BOOT_MODULE_RUN" -eq 0 ]; then
+        boot_state=$BOOT_MODULE_STATE
+    fi
+
+    emit_action_started_event boot regenerate_initrd "Regenerating initrd when required"
+    regenerate_initrd
+    if [ "$INITRD_REQUIRED" -eq 0 ]; then
+        emit_action_completed_event boot regenerate_initrd skipped \
+            "initrd regeneration was not required" 0
+    elif [ "$INITRD_UPDATE" -eq 0 ]; then
+        emit_action_completed_event boot regenerate_initrd "$boot_state" \
+            "initrd regeneration was not applicable: mode=$BOOT_MODE, $BOOT_MODULE_REASON" 0
+    elif [ "$INITRD_OK" -eq 1 ]; then
+        boot_state=success
+        emit_action_completed_event boot regenerate_initrd success \
+            "initrd regeneration completed" 0
+    else
+        boot_state=failed
+        emit_action_completed_event boot regenerate_initrd failed \
+            "initrd regeneration failed" 1
+    fi
+
+    if [ "$GRUB_REQUIRED" -eq 0 ]; then
+        emit_action_completed_event boot update_grub skipped \
+            "GRUB configuration update was not required" 0
+    elif [ "$GRUB_UPDATE" -eq 0 ]; then
+        emit_action_completed_event boot update_grub "$boot_state" \
+            "GRUB configuration update was not applicable: mode=$BOOT_MODE, $BOOT_MODULE_REASON" 0
+    elif ! grub_initrd_prerequisite_is_satisfied; then
+        boot_state=failed
+        emit_action_completed_event boot update_grub blocked \
+            "GRUB configuration update was blocked: $GRUB_BLOCK_REASON" 1
+    else
+        emit_action_started_event boot update_grub "Updating GRUB configuration when required"
+        update_grub_configuration
+        if [ "$GRUB_OK" -eq 1 ]; then
+            [ "$boot_state" != failed ] && boot_state=success
+            emit_action_completed_event boot update_grub success \
+                "GRUB configuration update completed" 0
+        else
+            boot_state=failed
+            emit_action_completed_event boot update_grub failed \
+                "GRUB configuration update failed" 1
+        fi
+    fi
+
+    action_exit=0
+    [ "$boot_state" = failed ] && action_exit=1
+    emit_module_completed_event boot "$boot_state" \
+        "Boot preparation module completed" "$action_exit"
+
+    [ "$action_exit" -eq 0 ]
+}
+
 run_apply_workflow() {
     local slackware_state=success
     local flatpak_state=success
     local sbo_state=success
     local elf_state=success
     local cinnamon_state=skipped
-    local boot_state=skipped
     local action_exit=0
 
     emit_module_started_event slackware "Slackware update module started"
@@ -4884,56 +5013,7 @@ run_apply_workflow() {
     emit_module_completed_event cinnamon "$cinnamon_state" \
         "Cinnamon rebuild module completed" "${action_exit:-0}"
 
-    emit_module_started_event boot "Boot preparation module started"
-
-    if [ "$INITRD_REQUIRED" -eq 0 ] && [ "$GRUB_REQUIRED" -eq 0 ]; then
-        boot_state=skipped
-    elif [ "$BOOT_MODE" = disabled ]; then
-        boot_state=disabled
-    elif [ "$BOOT_MODULE_RUN" -eq 0 ]; then
-        boot_state=$BOOT_MODULE_STATE
-    fi
-
-    emit_action_started_event boot regenerate_initrd "Regenerating initrd when required"
-    regenerate_initrd
-    if [ "$INITRD_REQUIRED" -eq 0 ]; then
-        emit_action_completed_event boot regenerate_initrd skipped \
-            "initrd regeneration was not required" 0
-    elif [ "$INITRD_UPDATE" -eq 0 ]; then
-        emit_action_completed_event boot regenerate_initrd "$boot_state" \
-            "initrd regeneration was not applicable: mode=$BOOT_MODE, $BOOT_MODULE_REASON" 0
-    elif [ "$INITRD_OK" -eq 1 ]; then
-        boot_state=success
-        emit_action_completed_event boot regenerate_initrd success \
-            "initrd regeneration completed" 0
-    else
-        boot_state=failed
-        emit_action_completed_event boot regenerate_initrd failed \
-            "initrd regeneration failed" 1
-    fi
-
-    emit_action_started_event boot update_grub "Updating GRUB configuration when required"
-    update_grub_configuration
-    if [ "$GRUB_REQUIRED" -eq 0 ]; then
-        emit_action_completed_event boot update_grub skipped \
-            "GRUB configuration update was not required" 0
-    elif [ "$GRUB_UPDATE" -eq 0 ]; then
-        emit_action_completed_event boot update_grub "$boot_state" \
-            "GRUB configuration update was not applicable: mode=$BOOT_MODE, $BOOT_MODULE_REASON" 0
-    elif [ "$GRUB_OK" -eq 1 ]; then
-        [ "$boot_state" != failed ] && boot_state=success
-        emit_action_completed_event boot update_grub success \
-            "GRUB configuration update completed" 0
-    else
-        boot_state=failed
-        emit_action_completed_event boot update_grub failed \
-            "GRUB configuration update failed" 1
-    fi
-
-    action_exit=0
-    [ "$boot_state" = failed ] && action_exit=1
-    emit_module_completed_event boot "$boot_state" \
-        "Boot preparation module completed" "$action_exit"
+    run_boot_preparation_module || true
 
     print_summary
 }

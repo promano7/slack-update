@@ -594,7 +594,7 @@ The final layout may change during the architecture prototype, but separation be
 - [x] Confirm ELF analysis never executes inspected binaries.
 - [x] Confirm architecture-specific library resolution.
 - [x] Confirm initrd validation uses the installed kernel.
-- [ ] Confirm GRUB is not updated after an initrd failure.
+- [x] Confirm GRUB is not updated after an initrd failure.
 - [ ] Confirm staged GRUB configuration is validated before replacement.
 - [ ] Confirm interruption signals release locks and terminate execution.
 - [ ] Confirm errors produce non-zero exit codes.
@@ -779,6 +779,24 @@ path, validation status, and diagnostic. The focused regression test is:
 tests/reference/test-initrd-installed-kernel.sh
 ```
 
+GRUB generation now has an explicit initrd prerequisite whenever both actions
+were scheduled by the same kernel update. A failed initrd validation, a non-zero
+`mkinitrd`, a missing or empty generated image, or required initrd preparation
+that is unavailable in auto mode prevents the GRUB action from starting. The
+coordinator emits `grub_state=blocked` without an `action_started` event, and
+`update_grub_configuration` repeats the guard immediately before the
+`grub-mkconfig` command as a defensive boundary. GRUB-only work remains valid
+when no initrd action was required.
+
+Provisional JSON reports `grub_command_attempted`,
+`grub_blocked_by_initrd`, and a stable `grub_block_reason`, allowing consumers
+to distinguish an intentionally suppressed command from a real
+`grub-mkconfig` failure. The focused regression test is:
+
+```bash
+tests/reference/test-grub-blocked-after-initrd-failure.sh
+```
+
 ### Real-system acceptance matrix
 
 - [ ] Fully updated system with no available changes.
@@ -787,7 +805,7 @@ tests/reference/test-initrd-installed-kernel.sh
 - [ ] Kernel package update.
 - [ ] Kernel headers update without a kernel image update.
 - [ ] Invalid or stale `KERNEL_VERSION` in `mkinitrd.conf`.
-- [ ] `mkinitrd` failure.
+- [ ] `mkinitrd` failure leaves GRUB configuration untouched.
 - [ ] GRUB generation failure.
 - [ ] Low free space on `/`.
 - [ ] Low free space on `/boot`.
@@ -1312,7 +1330,8 @@ Slack-Update 1.0 will be ready when:
 - [x] Confirm ELF analysis never executes inspected binaries.
 - [x] Confirm architecture-specific library resolution.
 - [x] Confirm initrd validation uses the installed kernel.
-- [ ] Confirm GRUB is not updated after an initrd failure.
+- [x] Confirm GRUB is not updated after an initrd failure.
+- [ ] Validate staged GRUB configuration before replacement.
 - [ ] Execute and document the Phase 1 acceptance matrix on Slackware 15.0 and Slackware-current.
 - [ ] Freeze `reference-v1`.
 - [ ] Begin the C architecture only after the reference gate is complete.
