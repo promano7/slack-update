@@ -12,6 +12,17 @@
 set -uo pipefail
 IFS=$'\n\t'
 
+# Stable process exit codes shared with the future C implementation.
+readonly EXIT_SUCCESS=0
+readonly EXIT_GENERAL_FAILURE=1
+readonly EXIT_PARTIAL=2
+readonly EXIT_BOOT_UNSAFE=3
+readonly EXIT_REBOOT_RECOMMENDED=4
+readonly EXIT_REBOOT_REQUIRED=5
+readonly EXIT_ALREADY_RUNNING=6
+readonly EXIT_INVALID_INPUT=7
+readonly EXIT_PRIVILEGE_UNAVAILABLE=8
+
 # Command-line interface functions
 
 print_usage() {
@@ -36,6 +47,7 @@ Configuration is loaded from /etc/slack-update/slack-update.conf. When the
 script runs from the source tree, data/config/slack-update.conf is used as a
 development fallback. SLACK_UPDATE_CONFIG may select another file for tests.
 Optional modules use enabled, disabled, or auto activation modes in that file.
+Process exit codes 0 through 8 are stable and documented in README.md.
 EOF
 }
 
@@ -790,16 +802,27 @@ apply_boot_module_policy() {
 # Runtime setup functions
 
 require_root() {
-    [ "$(id -u)" -eq 0 ] || { echo "Este script requiere root"; exit 1; }
+    if [ "$(id -u)" -ne 0 ]; then
+        echo "Este script requiere root" >&2
+        return "$EXIT_PRIVILEGE_UNAVAILABLE"
+    fi
 }
 
 acquire_instance_lock() {
-    exec 9>"$LOCKFILE"
+    if ! command -v flock >/dev/null 2>&1; then
+        echo "Error: flock is required to acquire the instance lock" >&2
+        return "$EXIT_GENERAL_FAILURE"
+    fi
 
-    # Asegurar lock estable (evita carreras con rm externo)
+    if ! exec 9>"$LOCKFILE"; then
+        echo "Error: cannot open instance lock: $LOCKFILE" >&2
+        return "$EXIT_GENERAL_FAILURE"
+    fi
+
+    # Keep the lock file open for the complete process lifetime.
     if ! flock -n 9; then
-        echo "Otra instancia de slack-update ya esta ejecutandose"
-        exit 1
+        echo "Otra instancia de slack-update ya esta ejecutandose" >&2
+        return "$EXIT_ALREADY_RUNNING"
     fi
 }
 
@@ -2101,13 +2124,10 @@ emit_action_completed_event() {
 }
 
 emit_final_events() {
-    local workflow_result=$1
+    local stable_exit_code=$1
     local warning
     local error
     local final_state=failed
-
-    prepare_json_messages
-    calculate_json_result_state "$workflow_result"
 
     for warning in "${RESULT_WARNINGS[@]}"; do
         emit_event warning '' '' warning "$warning" ''
@@ -2119,11 +2139,13 @@ emit_final_events() {
 
     if [ "$RESULT_SUCCESS" -eq 1 ]; then
         final_state=success
-    elif [ "$RESULT_PARTIAL" -eq 1 ]; then
+    elif [ "$RESULT_BOOT_SAFE" -eq 1 ] && [ "$RESULT_PARTIAL" -eq 1 ]; then
         final_state=warning
     fi
 
-    emit_event operation_completed '' '' "$final_state" "Operation completed" "$workflow_result"
+    emit_event operation_completed '' '' "$final_state" \
+        "Operation completed: $(stable_exit_code_description "$stable_exit_code")" \
+        "$stable_exit_code"
 }
 
 append_enabled_module_requirement_errors() {
@@ -2195,7 +2217,7 @@ prepare_json_messages() {
     esac
 }
 
-calculate_json_result_state() {
+calculate_result_state() {
     local workflow_result=$1
 
     RESULT_SUCCESS=1
@@ -2203,26 +2225,79 @@ calculate_json_result_state() {
     RESULT_BOOT_SAFE=1
     RESULT_REBOOT=none
 
-    if [ "$workflow_result" -ne 0 ]; then
+    if [ "$workflow_result" -ne 0 ] || [ "${#RESULT_ERRORS[@]}" -gt 0 ]; then
         RESULT_SUCCESS=0
     fi
 
-    if [ "$OPERATION" = "apply" ]; then
-        if [ "${#RESULT_ERRORS[@]}" -gt 0 ]; then
-            RESULT_SUCCESS=0
+    if [ "$OPERATION" = apply ]; then
+        if [ "$workflow_result" -ne 0 ] || [ "${#RESULT_ERRORS[@]}" -gt 0 ]; then
             RESULT_PARTIAL=1
         fi
 
         if { [ "$INITRD_UPDATE" -eq 1 ] && [ "$INITRD_OK" -ne 1 ]; } \
             || { [ "$GRUB_UPDATE" -eq 1 ] && [ "$GRUB_OK" -ne 1 ]; }; then
+            RESULT_SUCCESS=0
+            RESULT_PARTIAL=1
             RESULT_BOOT_SAFE=0
             RESULT_REBOOT=unsafe
-        elif [ "$KERNEL_TRIGGER" -eq 1 ]; then
+        elif [ "$INITRD_REQUIRED" -eq 1 ] || [ "$GRUB_REQUIRED" -eq 1 ]; then
             RESULT_REBOOT=required
         elif [ "${#CRITICAL_UPDATED[@]}" -gt 0 ]; then
             RESULT_REBOOT=recommended
         fi
     fi
+}
+
+determine_stable_exit_code() {
+    local workflow_result=$1
+
+    prepare_json_messages
+    calculate_result_state "$workflow_result"
+
+    case "$OPERATION" in
+        check|dry-run)
+            if [ "$RESULT_SUCCESS" -eq 1 ]; then
+                STABLE_EXIT_CODE=$EXIT_SUCCESS
+            else
+                STABLE_EXIT_CODE=$EXIT_GENERAL_FAILURE
+            fi
+            ;;
+        apply)
+            if [ "$RESULT_BOOT_SAFE" -eq 0 ]; then
+                STABLE_EXIT_CODE=$EXIT_BOOT_UNSAFE
+            elif [ "$RESULT_SUCCESS" -eq 0 ]; then
+                STABLE_EXIT_CODE=$EXIT_PARTIAL
+            elif [ "$RESULT_REBOOT" = required ]; then
+                STABLE_EXIT_CODE=$EXIT_REBOOT_REQUIRED
+            elif [ "$RESULT_REBOOT" = recommended ]; then
+                STABLE_EXIT_CODE=$EXIT_REBOOT_RECOMMENDED
+            else
+                STABLE_EXIT_CODE=$EXIT_SUCCESS
+            fi
+            ;;
+    esac
+}
+
+stable_exit_code_description() {
+    case "$1" in
+        0) printf '%s' 'success; no reboot required' ;;
+        1) printf '%s' 'general failure' ;;
+        2) printf '%s' 'partial update or verification failure' ;;
+        3) printf '%s' 'critical boot preparation failure; do not reboot' ;;
+        4) printf '%s' 'success; reboot recommended' ;;
+        5) printf '%s' 'success; reboot required' ;;
+        6) printf '%s' 'another instance is already running' ;;
+        7) printf '%s' 'invalid configuration or command-line arguments' ;;
+        8) printf '%s' 'required privilege was denied or unavailable' ;;
+        *) printf '%s' 'unknown exit status' ;;
+    esac
+}
+
+print_stable_exit_code_summary() {
+    local stable_exit_code=$1
+
+    echo
+    echo "[EXIT] Stable exit code: $stable_exit_code ($(stable_exit_code_description "$stable_exit_code"))"
 }
 
 print_check_json_module() {
@@ -2463,10 +2538,7 @@ print_apply_json_modules() {
 }
 
 print_json_result() {
-    local workflow_result=$1
-
-    prepare_json_messages
-    calculate_json_result_state "$workflow_result"
+    local stable_exit_code=$1
 
     printf '{\n'
     printf '  "schema_version": 0,\n'
@@ -2476,8 +2548,9 @@ print_json_result() {
     printf '  "partial": '; json_boolean "$RESULT_PARTIAL"; printf ',\n'
     printf '  "reboot": '; json_string "$RESULT_REBOOT"; printf ',\n'
     printf '  "boot_safe": '; json_boolean "$RESULT_BOOT_SAFE"; printf ',\n'
-    printf '  "exit_code": %d,\n' "$workflow_result"
-    printf '  "exit_code_stable": false,\n'
+    printf '  "exit_code": %d,\n' "$stable_exit_code"
+    printf '  "exit_code_meaning": '; json_string "$(stable_exit_code_description "$stable_exit_code")"; printf ',\n'
+    printf '  "exit_code_stable": true,\n'
     printf '  "started_at": '; json_string "$STARTED_AT"; printf ',\n'
     printf '  "finished_at": '; json_string "$FINISHED_AT"; printf ',\n'
     printf '  "log_path": '; json_string "$LOG"; printf ',\n'
@@ -2729,21 +2802,30 @@ run_apply_workflow() {
 # Entry point
 
 main() {
-    local result=0
+    local workflow_result=0
+    local result
 
     parse_arguments "$@" || {
         print_usage >&2
-        return 1
+        return "$EXIT_INVALID_INPUT"
     }
 
     if [ "$SHOW_HELP" -eq 1 ]; then
         print_usage
-        return 0
+        return "$EXIT_SUCCESS"
     fi
 
-    load_configuration || return 1
-    require_root
-    acquire_instance_lock
+    load_configuration || return "$EXIT_INVALID_INPUT"
+
+    require_root || {
+        result=$?
+        return "$result"
+    }
+
+    acquire_instance_lock || {
+        result=$?
+        return "$result"
+    }
 
     if [ "$OPERATION" = "dry-run" ]; then
         initialize_dry_run_runtime
@@ -2759,17 +2841,20 @@ main() {
 
     case "$OPERATION" in
         check)
-            run_check_workflow || result=$?
+            run_check_workflow || workflow_result=$?
             ;;
         apply)
-            run_apply_workflow || result=$?
+            run_apply_workflow || workflow_result=$?
             ;;
         dry-run)
-            run_dry_run_workflow || result=$?
+            run_dry_run_workflow || workflow_result=$?
             ;;
     esac
 
     FINISHED_AT=$(date -u +%Y-%m-%dT%H:%M:%SZ)
+    determine_stable_exit_code "$workflow_result"
+    result=$STABLE_EXIT_CODE
+    print_stable_exit_code_summary "$result"
 
     if [ "$JSON_OUTPUT" -eq 1 ]; then
         print_json_result "$result" >&3

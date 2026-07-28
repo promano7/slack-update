@@ -8,6 +8,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added
 
+- Added stable process exit codes `0` through `8`, including dedicated statuses for partial updates, unsafe boot preparation, successful reboot guidance, concurrent execution, invalid input, and unavailable privilege.
+- Added stable exit-code descriptions to human-readable summaries and final JSON results.
 - Added `enabled`, `disabled`, and `auto` activation modes for the optional Flatpak, SBo, ELF, Cinnamon, and boot modules.
 - Added explicit requirement and applicability probes for every optional module, with activation state and reason reporting in human-readable, JSON, and event output.
 - Added schema-1 compatibility defaults so configurations created before module modes were introduced continue to load with omitted modes interpreted as `auto`.
@@ -26,6 +28,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Changed
 
+- Final JSON results now set `exit_code_stable` to `true`, include `exit_code_meaning`, and preserve `success=true` for successful reboot-recommended (`4`) and reboot-required (`5`) outcomes.
+- The final `operation_completed` NDJSON event now carries the stable process exit code; intermediate action events continue to expose raw external-command statuses.
+- Invalid arguments and configuration now return `7`, missing privilege returns `8`, and a concurrent instance returns `6` before workflow execution begins.
+- Apply-result precedence is now unsafe boot (`3`), partial or verification failure (`2`), reboot required (`5`), reboot recommended (`4`), then success without reboot (`0`).
+- Kernel headers changes alone no longer produce a reboot-required result; code `5` is tied to kernel image or module changes that schedule boot preparation.
 - Optional modules now execute only when permitted by their configured activation mode.
 - `enabled` reports missing module requirements as errors, `disabled` bypasses probing and execution, and `auto` treats unavailable or irrelevant optional software as non-fatal.
 - Cinnamon graphical ABI triggers are ignored when the Cinnamon module is disabled or not applicable.
@@ -49,17 +56,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 - Current roadmap phase: **Phase 1 — Stabilize and validate the shell reference**.
 - Phase 0 is complete, committed as `3064cfa`, tagged as `planning-v1`, and published to GitHub.
-- The first ten Phase 1 refactoring and interface tasks are complete: runtime identifiers use `slack-update`, the script is split into named functions, argument parsing is available, `--check`, `--apply`, and `--dry-run` are implemented, `--json` emits a final structured result, `--events` streams machine-readable progress, operational settings are loaded from a validated configuration file, and optional modules implement `enabled`, `disabled`, and `auto`.
-- The script currently contains 84 named functions.
+- The first eleven Phase 1 refactoring and interface tasks are complete: runtime identifiers use `slack-update`, the script is split into named functions, argument parsing is available, `--check`, `--apply`, and `--dry-run` are implemented, `--json` emits a final structured result, `--events` streams machine-readable progress, operational settings are loaded from a validated configuration file, optional modules implement `enabled`, `disabled`, and `auto`, and process exit codes `0` through `8` are stable.
+- The script currently contains 87 named functions.
 - Running without an operation still selects apply for backward compatibility with the original reference behavior.
-- `--json` and `--events` both use provisional schema version `0`; neither is a stable API yet. `--json` emits one document, while `--events` emits one JSON object per line with sequence, UTC timestamp, operation, event type, module, action, state, message, and optional exit code.
+- `--json` and `--events` both retain provisional schema version `0`; their complete schemas are not stable APIs yet. The final process exit code is stable: `--json` marks it with `exit_code_stable=true`, and the final `operation_completed` event uses the same code. Intermediate event exit codes remain raw external-command statuses.
 - Machine-readable modes reserve standard output. Human-readable progress and external-command output are written to standard error and the normal log.
 - `--json` and `--events` are mutually exclusive. The current event types are `operation_started`, `module_started`, `action_started`, `action_completed`, `module_completed`, `warning`, `error`, and `operation_completed`.
 - Dry-run uses `slackpkg check-updates` as its only Slackware command and otherwise performs local state inspection. It does not refresh package metadata, so exact changed package names and package-derived ABI or kernel triggers remain conditional until apply compares its before and after snapshots.
 - Dry-run requires root in the current reference implementation because it shares the existing instance lock and system log. Its queue, package-candidate, and ELF scratch files are isolated under a temporary directory and removed at exit.
-- Configuration schema version `1` is implemented for the shell reference. Optional-module activation modes are implemented; stable exit codes remain pending.
+- Configuration schema version `1` is implemented for the shell reference. Optional-module activation modes and stable process exit codes are implemented.
 - The system configuration path is `/etc/slack-update/slack-update.conf`; the source-tree fallback is `data/config/slack-update.conf`, and `SLACK_UPDATE_CONFIG` may select an absolute test fixture.
-- The next development task is to define and implement stable exit codes without beginning the safety-validation matrix in the same step.
+- The next development task is the first pending safety-validation item: validate exact Slackware package-name parsing without implementing later safety tasks in the same step.
+- Stable exit-code tests cover all values `0` through `8`, successful non-zero reboot outcomes, check failure, partial update failure, failed initrd preparation, invalid input, invalid configuration, privilege denial, lock contention, kernel headers without reboot, final JSON metadata, and the final NDJSON event.
 - Module-mode tests cover all modules disabled, all requirements available in auto mode, invalid mode values, enabled modules with missing requirements, non-fatal auto unavailability, kernel changes with boot auto and boot enabled, and schema-1 configurations without explicit mode keys.
 - Disabled modules were verified not to invoke Flatpak, SBo, ELF, Cinnamon, initrd, or GRUB commands in the deterministic mock environment.
 - JSON results were parsed for apply and dry-run activation scenarios. NDJSON events were parsed, checked for contiguous sequence numbers and required first/final event types, and verified to expose disabled module states.

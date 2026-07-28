@@ -446,23 +446,44 @@ the future core model.
 
 ## Exit codes
 
-The exact values must be finalized before the CLI is considered stable.
+Exit codes `0` through `8` are a stable process-level contract for the shell
+reference and the future C implementation.
 
 | Code | Meaning |
 |---:|---|
 | `0` | Operation completed successfully; no reboot required |
-| `1` | General failure |
-| `2` | Partial update or verification failure |
-| `3` | Critical boot preparation failure; do not reboot |
-| `4` | Success; reboot recommended |
-| `5` | Success; reboot required |
-| `6` | Another instance is already running |
+| `1` | General failure before a complete apply result exists, including failed check or dry-run operations |
+| `2` | Apply completed only partially, or post-update verification failed |
+| `3` | Critical boot preparation failed; the system must not be rebooted |
+| `4` | Operation completed successfully; reboot recommended |
+| `5` | Operation completed successfully; reboot required |
+| `6` | Another Slack-Update instance is already running |
 | `7` | Invalid configuration or command-line arguments |
 | `8` | Required privilege was denied or unavailable |
 
-- [ ] Confirm exit-code semantics.
+Codes `4` and `5` are successful outcomes despite being non-zero. Update callers,
+cron jobs, frontends, and tests must handle them explicitly rather than treating every
+non-zero value as failure.
+
+When several apply outcomes are present, the reference uses this precedence:
+
+```text
+3 (unsafe boot) > 2 (partial or verification failure) >
+5 (reboot required) > 4 (reboot recommended) > 0 (success)
+```
+
+Codes `6`, `7`, and `8` are returned before the selected operation starts. A
+successful `--check` returns `0` whether or not `slackpkg check-updates` reports
+available repository changes. A kernel headers change alone does not produce code `5`.
+
+The final `exit_code` field emitted by `--json` and the `exit_code` of the final
+`operation_completed` event emitted by `--events` use this stable contract. Exit
+codes attached to intermediate action events remain the raw status of the external
+command represented by that event.
+
+- [x] Confirm exit-code semantics.
 - [ ] Ensure shell reference and C implementation return equivalent results.
-- [ ] Document which codes are stable API before version 1.0.
+- [x] Document which codes are stable API before version 1.0.
 
 ## Proposed repository layout
 
@@ -557,7 +578,7 @@ The final layout may change during the architecture prototype, but separation be
 - [x] Add a machine-readable progress/event mode if practical.
 - [x] Move hard-coded behavior into a configuration file.
 - [x] Add `enabled`, `disabled`, and `auto` modes for optional modules.
-- [ ] Add stable exit codes.
+- [x] Add stable exit codes.
 - [ ] Ensure every comment added to the script is written in English.
 
 ### Safety validation
@@ -1100,7 +1121,7 @@ Slack-Update 1.0 will be ready when:
 - [x] Implement provisional NDJSON progress events through `--events`.
 - [x] Move hard-coded reference behavior into a validated configuration file.
 - [x] Add `enabled`, `disabled`, and `auto` modes for optional modules.
-- [ ] Add stable exit codes.
+- [x] Add stable exit codes.
 - [ ] Execute and document the Phase 1 acceptance matrix on Slackware 15.0 and Slackware-current.
 - [ ] Freeze `reference-v1`.
 - [ ] Begin the C architecture only after the reference gate is complete.

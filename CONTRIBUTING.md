@@ -32,6 +32,16 @@ Use English for:
 
 Keep user-facing strings suitable for later translation.
 
+## Stable exit-code policy
+
+Process exit codes `0` through `8` are a stable compatibility surface. Changes must
+preserve their documented meanings and precedence. Codes `4` and `5` are successful
+results with reboot guidance and must not be collapsed into a generic failure.
+Intermediate event exit codes may represent raw external-command statuses, but the
+final process status and final operation event must use the stable Slack-Update codes.
+Any incompatible change requires explicit roadmap discussion and documentation before
+implementation.
+
 ## Commit messages
 
 Use the following format when a scope improves clarity:
