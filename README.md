@@ -899,9 +899,44 @@ This automated boundary is complete; the equivalent scenario on real
 Slackware 15.0 and Slackware-current installations remains part of the
 acceptance matrix below.
 
+### Real-system acceptance execution
+
+Real-system scenarios live under `tests/acceptance/reference/`. They execute
+actual Slackware tools and must be run only on disposable VM snapshots or
+otherwise recoverable test installations.
+
+The first scenario covers a fully updated host with no package changes. It
+requires an explicit `--execute-apply` acknowledgement, first proves that
+`slackpkg check-updates` reports no updates, and then exercises the real apply
+workflow with Flatpak, SBo, ELF, Cinnamon, and boot preparation disabled so the
+case remains isolated. Expected structured check and apply outputs are stored
+under `tests/fixtures/reference/acceptance/no-updates/`.
+
+Run it separately on each mandatory target:
+
+```bash
+sudo tests/acceptance/reference/test-no-updates.sh \
+    --target slackware-15.0 \
+    --execute-apply
+
+sudo tests/acceptance/reference/test-no-updates.sh \
+    --target slackware-current \
+    --execute-apply
+```
+
+A passing run must return stable code `0`; report `success=true`,
+`partial=false`, `reboot=none`, and `boot_safe=true`; preserve an identical
+installed-package database; and leave the observed initrd and GRUB
+configuration unchanged. Each run produces a private evidence archive and a
+SHA-256 sidecar below `/var/tmp/slack-update-acceptance/no-updates/` by default.
+See `tests/acceptance/reference/README.md` for the evidence contract.
+
 ### Real-system acceptance matrix
 
 - [ ] Fully updated system with no available changes.
+  - [x] Reproducible scenario, validators, and expected fixtures implemented.
+  - [ ] Slackware 15.0 evidence accepted.
+  - [ ] Slackware-current evidence accepted.
 - [ ] Normal Slackware package update.
 - [ ] `install-new` introduces new packages.
 - [ ] Kernel package update.

@@ -1,0 +1,25 @@
+{
+  "schema_version": 0,
+  "schema_status": "provisional",
+  "operation": "check",
+  "success": true,
+  "partial": false,
+  "reboot": "none",
+  "boot_safe": true,
+  "exit_code": 0,
+  "exit_code_meaning": "success; no reboot required",
+  "exit_code_stable": true,
+  "started_at": "2026-07-28T10:00:00Z",
+  "finished_at": "2026-07-28T10:01:00Z",
+  "log_path": "/var/tmp/slack-update-acceptance/no-updates/example/runtime/log/slack-update-example.log",
+  "config_path": "/var/tmp/slack-update-acceptance/no-updates/example/slack-update.conf",
+  "modules": {
+    "slackware": {
+      "state": "success",
+      "check_exit_code": 0,
+      "updates_available": false
+    }
+  },
+  "warnings": [],
+  "errors": []
+}
