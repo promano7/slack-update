@@ -591,7 +591,7 @@ The final layout may change during the architecture prototype, but separation be
 - [x] Confirm custom SBo options are preserved.
 - [x] Confirm no personal queue is overwritten.
 - [x] Confirm ELF analysis never executes inspected binaries.
-- [ ] Confirm architecture-specific library resolution.
+- [x] Confirm architecture-specific library resolution.
 - [ ] Confirm initrd validation uses the installed kernel.
 - [ ] Confirm GRUB is not updated after an initrd failure.
 - [ ] Confirm staged GRUB configuration is validated before replacement.
@@ -721,28 +721,35 @@ tests/reference/test-sbo-personal-queue-protection.sh
 ELF inspection now uses one static path for both initial detection and
 post-rebuild verification. Candidate paths are resolved without following
 non-regular targets, filtered by the ELF magic bytes, and read with `readelf -d`.
-The loader cache is obtained once from `/sbin/ldconfig -p`, normalized to exact
-soname records, and compared literally with each `DT_NEEDED` entry. Inspected
-objects are never invoked as commands, and dynamic-loader trace execution is not
-used. If an object cannot be re-inspected after a rebuild, it remains in the
+The loader cache is obtained once from `/sbin/ldconfig -p`. Every cached
+library path is resolved and inspected with `readelf -h`, then normalized as an
+exact record containing soname, ELF class, data encoding, machine, and canonical
+path. A `DT_NEEDED` entry is considered available only when both its soname and
+the inspected object's class, data encoding, and machine match a cached record.
+This prevents an ELF32, x86-64, AArch64, or opposite-endian library from hiding
+a broken dependency for an incompatible object. Inspected objects and cached
+libraries are never invoked as commands, and dynamic-loader trace execution is
+not used. If an object cannot be re-inspected after a rebuild, it remains in the
 broken-object set rather than being reported as repaired.
 
 Provisional JSON reports the inspection method, explicitly records
-`executes_inspected_objects=false`, and includes static scan and post-build
-verification statuses. Architecture-specific cache selection remains the next
-separate safety task; this step establishes the non-execution boundary without
-claiming architecture-aware resolution.
+`executes_inspected_objects=false` and `architecture_specific_resolution=true`,
+lists the exact identity fields, reports the normalized cache-record count, and
+includes static scan and post-build verification statuses.
 
-The focused regression test is:
+The focused regression tests are:
 
 ```bash
 tests/reference/test-elf-static-inspection.sh
+tests/reference/test-elf-architecture-resolution.sh
 ```
 
-Its guarded executable fixtures create a marker if run. The test exercises the
-initial scan, symlinked objects, exact soname matching, parser failures, cache
-failures, and post-rebuild verification while asserting that neither the target
-marker nor a dynamic-loader-tool marker is ever created.
+The static-inspection test uses guarded executable fixtures that create a marker
+if run, while the architecture-resolution test mixes ELF32 x86, ELF64 x86-64,
+AArch64, and opposite-endian cache records sharing the same soname. Together
+they cover the initial scan, symlinked objects, exact identity matching, parser
+and cache failures, and post-rebuild verification while proving that inspected
+objects are never executed.
 
 ### Real-system acceptance matrix
 
@@ -1275,7 +1282,8 @@ Slack-Update 1.0 will be ready when:
 - [x] Preserve custom SBo build options.
 - [x] Protect personal SBo queues from `sqg` overwrites.
 - [x] Confirm ELF analysis never executes inspected binaries.
-- [ ] Confirm architecture-specific library resolution.
+- [x] Confirm architecture-specific library resolution.
+- [ ] Confirm initrd validation uses the installed kernel.
 - [ ] Execute and document the Phase 1 acceptance matrix on Slackware 15.0 and Slackware-current.
 - [ ] Freeze `reference-v1`.
 - [ ] Begin the C architecture only after the reference gate is complete.

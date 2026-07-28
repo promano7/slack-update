@@ -88,6 +88,7 @@ STILL_BROKEN="$TEST_TMP/still-broken.txt"
 
 # Preserve production helpers before installing deterministic test doubles.
 eval "$(declare -f extract_static_elf_needed_libraries | sed '1s/extract_static_elf_needed_libraries/original_extract_static_elf_needed_libraries/')"
+eval "$(declare -f extract_static_elf_identity | sed '1s/extract_static_elf_identity/original_extract_static_elf_identity/')"
 eval "$(declare -f refresh_static_elf_library_cache | sed '1s/refresh_static_elf_library_cache/original_refresh_static_elf_library_cache/')"
 
 printf '\177ELFpayload\n' > "$TEST_TMP/elf-magic"
@@ -112,7 +113,7 @@ fi
 if [ -s "$ACTUAL_CACHE" ]; then
     pass
 else
-    fail 'the production cache reader should create a non-empty soname list'
+    fail 'the production cache reader should create non-empty architecture-tagged records'
 fi
 assert_equal 600 "$(stat -c '%a' "$ACTUAL_CACHE")" \
     'the static library cache should be private'
@@ -120,6 +121,11 @@ if LC_ALL=C sort -cu "$ACTUAL_CACHE"; then
     pass
 else
     fail 'the static library cache should be C-locale sorted and unique'
+fi
+if awk -F '\t' 'NF >= 5 && $2 ~ /^ELF(32|64)$/ && $3 != "" && $4 != "" && $5 ~ /^\// { found=1 } END { exit(found ? 0 : 1) }' "$ACTUAL_CACHE"; then
+    pass
+else
+    fail 'the production cache should include class, data, machine, and path fields'
 fi
 
 REAL_SHELL=$(resolve_static_elf_object_path /bin/sh 2>/dev/null || true)
@@ -134,15 +140,35 @@ if [ -n "$REAL_SHELL_NEEDED" ]; then
 else
     fail 'the production static reader should extract dependencies from /bin/sh'
 fi
+REAL_SHELL_IDENTITY=$(original_extract_static_elf_identity "$REAL_SHELL" 2>/dev/null || true)
+if [ "$(awk -F '\t' '{print NF}' <<< "$REAL_SHELL_IDENTITY")" -eq 3 ]; then
+    pass
+else
+    fail 'the production static reader should extract a three-field ELF identity from /bin/sh'
+fi
 
 READELF_ARGUMENTS="$TEST_TMP/readelf-arguments.txt"
 readelf() {
     printf '%s\n' "$*" > "$READELF_ARGUMENTS"
-    cat <<'EOF_READELF'
+    case "$1" in
+        -d)
+            cat <<'EOF_READELF'
  0x0000000000000001 (NEEDED)             Shared library: [libz.so.1]
  0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]
  0x0000000000000001 (NEEDED)             Shared library: [libz.so.1]
 EOF_READELF
+            ;;
+        -h)
+            cat <<'EOF_READELF_HEADER'
+  Class:                             ELF64
+  Data:                              2's complement, little endian
+  Machine:                           Advanced Micro Devices X86-64
+EOF_READELF_HEADER
+            ;;
+        *)
+            return 1
+            ;;
+    esac
 }
 
 EXTRACTED=$(original_extract_static_elf_needed_libraries "$TEST_TMP/elf-magic")
@@ -152,6 +178,10 @@ assert_equal "-d
 --
 $TEST_TMP/elf-magic" "$(cat "$READELF_ARGUMENTS")" \
     'readelf should receive the inspected path as data after --'
+PARSED_IDENTITY=$(original_extract_static_elf_identity "$TEST_TMP/elf-magic")
+assert_equal $'ELF64\t2\x27s complement, little endian\tAdvanced Micro Devices X86-64' \
+    "$PARSED_IDENTITY" \
+    'the static reader should normalize class, data encoding, and machine'
 
 SCAN_DIR="$TEST_TMP/scan"
 OUTSIDE_DIR="$TEST_TMP/outside"
@@ -188,8 +218,22 @@ elf_file_has_static_magic() {
 }
 
 STATIC_CACHE_SOURCE="$TEST_TMP/cache-source.txt"
-printf '%s\n' 'libc.so.6' > "$STATIC_CACHE_SOURCE"
+printf '%s\t%s\t%s\t%s\t%s\n' \
+    'libc.so.6' 'ELF64' "2's complement, little endian" \
+    'Advanced Micro Devices X86-64' '/lib64/libc.so.6' > "$STATIC_CACHE_SOURCE"
 CACHE_REFRESH_FAIL=0
+extract_static_elf_identity() {
+    case "$1" in
+        "$SCAN_DIR/"*|"$OUTSIDE_DIR/"*)
+            printf '%s\t%s\t%s\n' \
+                'ELF64' "2's complement, little endian" \
+                'Advanced Micro Devices X86-64'
+            ;;
+        *)
+            return 1
+            ;;
+    esac
+}
 refresh_static_elf_library_cache() {
     local destination=$1
 
@@ -198,6 +242,7 @@ refresh_static_elf_library_cache() {
         return 1
     fi
     cp -f -- "$STATIC_CACHE_SOURCE" "$destination"
+    ELF_LIBRARY_CACHE_RECORD_COUNT=$(wc -l < "$destination")
 }
 
 extract_static_elf_needed_libraries() {
@@ -371,6 +416,12 @@ assert_equal 'readelf+ldconfig-cache' \
 assert_equal false \
     "$(jq -r '.modules.elf.executes_inspected_objects' "$JSON_MODULES")" \
     'provisional JSON should state that inspected objects are never executed'
+assert_equal true \
+    "$(jq -r '.modules.elf.architecture_specific_resolution' "$JSON_MODULES")" \
+    'provisional JSON should expose architecture-specific resolution'
+assert_equal 'class,data,machine' \
+    "$(jq -r '.modules.elf.architecture_match_fields | join(",")' "$JSON_MODULES")" \
+    'provisional JSON should expose the exact architecture match fields'
 assert_equal 0 "$(jq -r '.modules.elf.scan_exit_code' "$JSON_MODULES")" \
     'provisional JSON should expose the static scan status'
 assert_equal 0 "$(jq -r '.modules.elf.verification_exit_code' "$JSON_MODULES")" \

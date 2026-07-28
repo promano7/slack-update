@@ -1868,6 +1868,7 @@ initialize_runtime_state() {
     ELF_LDCONFIG_AVAILABLE=0
     ELF_SCAN_STATUS=-1
     ELF_VERIFICATION_STATUS=-1
+    ELF_LIBRARY_CACHE_RECORD_COUNT=0
     CINNAMON_MODULE_STATE=idle
     CINNAMON_MODULE_REASON=
     CINNAMON_MODULE_RUN=0
@@ -3082,47 +3083,129 @@ resolve_static_elf_object_path() {
 extract_static_elf_needed_libraries() {
     local object=$1
 
-    readelf -d -- "$object" 2>>"$BROKEN_ERRORS" \
+    LC_ALL=C readelf -d -- "$object" 2>>"$BROKEN_ERRORS" \
         | awk '/\(NEEDED\)/ { value=$0; sub(/^.*\[/, "", value); sub(/\].*$/, "", value); print value }' \
         | LC_ALL=C sort -u
 }
 
+extract_static_elf_identity() {
+    local object=$1
+
+    LC_ALL=C readelf -h -- "$object" 2>>"$BROKEN_ERRORS" \
+        | awk -F ':' '
+            function trim(value) {
+                sub(/^[[:space:]]+/, "", value)
+                sub(/[[:space:]]+$/, "", value)
+                return value
+            }
+            /^[[:space:]]*Class:/ { elf_class=trim($2) }
+            /^[[:space:]]*Data:/ { elf_data=trim(substr($0, index($0, ":") + 1)) }
+            /^[[:space:]]*Machine:/ { elf_machine=trim(substr($0, index($0, ":") + 1)) }
+            END {
+                if (elf_class == "" || elf_data == "" || elf_machine == "") {
+                    exit 1
+                }
+                printf "%s\t%s\t%s\n", elf_class, elf_data, elf_machine
+            }
+        '
+}
+
 refresh_static_elf_library_cache() {
     local destination=$1
+    local raw_cache
     local temporary
+    local soname
+    local candidate
+    local resolved
+    local identity
 
-    temporary=$(mktemp "${destination}.XXXXXX") || return 1
+    ELF_LIBRARY_CACHE_RECORD_COUNT=0
+    raw_cache=$(mktemp "${destination}.raw.XXXXXX") || return 1
+    temporary=$(mktemp "${destination}.XXXXXX") || {
+        rm -f -- "$raw_cache"
+        return 1
+    }
 
-    if ! /sbin/ldconfig -p 2>>"$BROKEN_ERRORS" \
-        | awk '$2 ~ /^\(/ { print $1 }' \
-        | LC_ALL=C sort -u > "$temporary"; then
-        rm -f -- "$temporary"
+    if ! LC_ALL=C /sbin/ldconfig -p 2>>"$BROKEN_ERRORS" \
+        | awk '$0 ~ /^[[:space:]]/ && index($0, "=>") { print $1 "\t" $NF }' \
+        | LC_ALL=C sort -u > "$raw_cache"; then
+        rm -f -- "$raw_cache" "$temporary"
         return 1
     fi
 
+    while IFS=$'\t' read -r soname candidate; do
+        [ -n "$soname" ] && [ -n "$candidate" ] || continue
+
+        if ! resolved=$(resolve_static_elf_object_path "$candidate"); then
+            printf 'cannot resolve cached ELF library %s => %s\n' \
+                "$soname" "$candidate" >> "$BROKEN_ERRORS"
+            continue
+        fi
+        if ! identity=$(extract_static_elf_identity "$resolved"); then
+            printf 'cannot read cached ELF identity %s => %s\n' \
+                "$soname" "$resolved" >> "$BROKEN_ERRORS"
+            continue
+        fi
+
+        printf '%s\t%s\t%s\n' "$soname" "$identity" "$resolved"
+    done < "$raw_cache" | LC_ALL=C sort -u > "$temporary"
+
+    rm -f -- "$raw_cache"
+
     if [ ! -s "$temporary" ]; then
-        printf '%s\n' 'ldconfig produced an empty library cache' >> "$BROKEN_ERRORS"
+        printf '%s\n' 'ldconfig produced no usable architecture-tagged ELF records' \
+            >> "$BROKEN_ERRORS"
         rm -f -- "$temporary"
         return 1
     fi
 
     chmod 600 "$temporary" 2>/dev/null || true
     mv -f -- "$temporary" "$destination"
+    ELF_LIBRARY_CACHE_RECORD_COUNT=$(wc -l < "$destination")
+}
+
+static_elf_cache_has_compatible_library() {
+    local library_cache=$1
+    local soname=$2
+    local identity=$3
+    local elf_class
+    local elf_data
+    local elf_machine
+
+    IFS=$'\t' read -r elf_class elf_data elf_machine <<< "$identity"
+    [ -n "$elf_class" ] && [ -n "$elf_data" ] && [ -n "$elf_machine" ] || return 1
+
+    awk -F '\t' \
+        -v soname="$soname" \
+        -v elf_class="$elf_class" \
+        -v elf_data="$elf_data" \
+        -v elf_machine="$elf_machine" '
+            $1 == soname && $2 == elf_class && $3 == elf_data && $4 == elf_machine {
+                found=1
+                exit
+            }
+            END { exit(found ? 0 : 1) }
+        ' "$library_cache"
 }
 
 static_elf_object_has_missing_dependency() {
     local object=$1
     local library_cache=$2
+    local identity
     local needed_libraries
     local library
 
+    if ! identity=$(extract_static_elf_identity "$object"); then
+        return 2
+    fi
     if ! needed_libraries=$(extract_static_elf_needed_libraries "$object"); then
         return 2
     fi
 
     while IFS= read -r library; do
         [ -n "$library" ] || continue
-        if ! grep -Fqx -- "$library" "$library_cache"; then
+        if ! static_elf_cache_has_compatible_library \
+            "$library_cache" "$library" "$identity"; then
             return 0
         fi
     done <<< "$needed_libraries"
@@ -3592,6 +3675,8 @@ print_summary() {
 
     echo "[SYS] Diagnostico del sistema:"
     echo
+    echo "- Resolucion ELF por arquitectura: clase + datos + maquina"
+    echo "- Registros ELF compatibles en cache: ${ELF_LIBRARY_CACHE_RECORD_COUNT:-0}"
 
     if [ -s "$BROKEN" ]; then
         echo "- [WARN] Binarios con librerias rotas tras recompilacion: $(wc -l < "$BROKEN")"
@@ -4066,6 +4151,9 @@ print_dry_run_json_modules() {
     printf '      "reason": '; json_string "$ELF_MODULE_REASON"; printf ',\n'
     printf '      "inspection_method": '; json_string 'readelf+ldconfig-cache'; printf ',\n'
     printf '      "executes_inspected_objects": false,\n'
+    printf '      "architecture_specific_resolution": true,\n'
+    printf '      "architecture_match_fields": ["class", "data", "machine"],\n'
+    printf '      "library_cache_records": %d,\n' "${ELF_LIBRARY_CACHE_RECORD_COUNT:-0}"
     printf '      "readelf_available": '; json_boolean "$PLAN_READELF_AVAILABLE"; printf ',\n'
     printf '      "ldconfig_available": '; json_boolean "$ELF_LDCONFIG_AVAILABLE"; printf ',\n'
     printf '      "scan_exit_code": '; json_nullable_status "$ELF_SCAN_STATUS"; printf ',\n'
@@ -4239,6 +4327,9 @@ print_apply_json_modules() {
     printf '      "state": '; json_string "$elf_state"; printf ',\n'
     printf '      "inspection_method": '; json_string 'readelf+ldconfig-cache'; printf ',\n'
     printf '      "executes_inspected_objects": false,\n'
+    printf '      "architecture_specific_resolution": true,\n'
+    printf '      "architecture_match_fields": ["class", "data", "machine"],\n'
+    printf '      "library_cache_records": %d,\n' "${ELF_LIBRARY_CACHE_RECORD_COUNT:-0}"
     printf '      "scan_exit_code": '; json_nullable_status "$ELF_SCAN_STATUS"; printf ',\n'
     printf '      "verification_exit_code": '; json_nullable_status "$ELF_VERIFICATION_STATUS"; printf ',\n'
     printf '      "broken_objects": '; json_string_array_from_file "$BROKEN"; printf '\n'
