@@ -77,12 +77,13 @@ Before submitting a change to the reference script:
 2. Run `tests/reference/test-package-name-parsing.sh` when package records, package ownership, or SBo detection are affected.
 3. Run `tests/reference/test-package-snapshots.sh` when package snapshot capture, validation, or comparison is affected.
 4. Run `tests/reference/test-partial-slackware-update.sh` when Slackware failure handling or secondary-module sequencing is affected.
-5. Run `tests/reference/test-sbo-target-selection.sh` when SBo queue parsing, target discovery, ABI rebuild candidates, broken-object ownership, or final target merging is affected.
-5. Confirm that destructive commands are not exercised outside an isolated Slackware test system.
-6. Record the relevant acceptance scenario.
-7. Preserve deterministic output and exit-code behavior.
-8. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
-9. Ensure every new or modified comment is written in English.
+5. Run `tests/reference/test-sbo-target-selection.sh` when SBo queue parsing, target discovery, ABI rebuild candidates, broken-object ownership, or deterministic target-set merging is affected.
+6. Run `tests/reference/test-sbo-dependency-order.sh` when generated queue constraints, dependency ordering, final ordered merging, or SBo queue submission is affected.
+7. Confirm that destructive commands are not exercised outside an isolated Slackware test system.
+8. Record the relevant acceptance scenario.
+9. Preserve deterministic output and exit-code behavior.
+10. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
+11. Ensure every new or modified comment is written in English.
 
 Never run the apply workflow on a production machine merely to validate a contribution.
 

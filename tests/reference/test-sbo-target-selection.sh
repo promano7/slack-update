@@ -315,8 +315,8 @@ if build_and_apply_sbo_queue >/dev/null; then
 else
     fail 'deterministic final SBo target set should be submitted successfully'
 fi
-assert_equal $'alpha\nbeta\nzeta' "$(cat "$QUEUE_FINAL")" \
-    'submitted SBo target file must use the deterministic selected set'
+assert_equal $'zeta\nalpha\nbeta' "$(cat "$QUEUE_FINAL")" \
+    'submitted SBo target file must preserve the selected core order and append extras'
 assert_equal 3 "$TOTAL_EN_COLA" \
     'submitted SBo target count should match the deterministic set'
 assert_equal "-b

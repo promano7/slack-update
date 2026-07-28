@@ -848,6 +848,190 @@ sbo_targets_from_queue_stream() {
     done
 }
 
+append_sbo_queue_constraints_from_stream() {
+    local graph_file=$1
+    local line
+    local previous=
+    local status
+
+    while IFS= read -r line || [ -n "$line" ]; do
+        if sbo_target_from_queue_line "$line"; then
+            printf 'N\t%s\n' "$SBO_QUEUE_LINE_TARGET" >> "$graph_file" || return 1
+            if [ -n "$previous" ] && [ "$previous" != "$SBO_QUEUE_LINE_TARGET" ]; then
+                printf 'E\t%s\t%s\n' "$previous" "$SBO_QUEUE_LINE_TARGET" \
+                    >> "$graph_file" || return 1
+            fi
+            previous=$SBO_QUEUE_LINE_TARGET
+        else
+            status=$?
+            [ "$status" -eq 1 ] || return "$status"
+        fi
+    done
+}
+
+order_sbo_queue_graph() {
+    LC_ALL=C awk -F '\t' '
+        function heap_push(value, parent, current, temporary) {
+            heap_size++
+            heap[heap_size] = value
+            current = heap_size
+
+            while (current > 1) {
+                parent = int(current / 2)
+                if (heap[parent] <= heap[current]) {
+                    break
+                }
+                temporary = heap[parent]
+                heap[parent] = heap[current]
+                heap[current] = temporary
+                current = parent
+            }
+        }
+
+        function heap_pop(    result, current, left, right, smallest, temporary) {
+            result = heap[1]
+            heap[1] = heap[heap_size]
+            delete heap[heap_size]
+            heap_size--
+            current = 1
+
+            while (current <= heap_size) {
+                left = current * 2
+                right = left + 1
+                smallest = current
+
+                if (left <= heap_size && heap[left] < heap[smallest]) {
+                    smallest = left
+                }
+                if (right <= heap_size && heap[right] < heap[smallest]) {
+                    smallest = right
+                }
+                if (smallest == current) {
+                    break
+                }
+
+                temporary = heap[current]
+                heap[current] = heap[smallest]
+                heap[smallest] = temporary
+                current = smallest
+            }
+
+            return result
+        }
+
+        $1 == "N" && NF == 2 {
+            nodes[$2] = 1
+            next
+        }
+        $1 == "E" && NF == 3 {
+            nodes[$2] = 1
+            nodes[$3] = 1
+            edge = $2 SUBSEP $3
+            if (!(edge in edges)) {
+                edges[edge] = 1
+                successor_count[$2]++
+                successors[$2, successor_count[$2]] = $3
+                indegree[$3]++
+            }
+            next
+        }
+        {
+            invalid = 1
+        }
+        END {
+            if (invalid) {
+                exit 1
+            }
+
+            for (node in nodes) {
+                node_count++
+                if (indegree[node] == 0) {
+                    heap_push(node)
+                }
+            }
+
+            while (heap_size > 0) {
+                selected = heap_pop()
+                print selected
+                emitted_count++
+
+                for (i = 1; i <= successor_count[selected]; i++) {
+                    successor = successors[selected, i]
+                    indegree[successor]--
+                    if (indegree[successor] == 0) {
+                        heap_push(successor)
+                    }
+                }
+            }
+
+            if (emitted_count != node_count) {
+                exit 2
+            }
+        }
+    '
+}
+
+collect_ordered_sbo_targets_from_queue_directory() {
+    local queue_directory=$1
+    local destination=$2
+    local queue_listing
+    local graph_file
+    local candidate
+    local destination_directory
+    local queue_file
+    local order_status
+
+    SBO_TARGET_SELECTION_ERROR=
+    queue_listing=$(mktemp) || return 1
+    graph_file=$(mktemp) || {
+        rm -f "$queue_listing"
+        return 1
+    }
+    destination_directory=$(dirname -- "$destination")
+    candidate=$(mktemp "$destination_directory/.sbo-ordered-queue.XXXXXX") || {
+        rm -f "$queue_listing" "$graph_file"
+        SBO_TARGET_SELECTION_ERROR="cannot create a temporary ordered SBo queue in: $destination_directory"
+        return 1
+    }
+
+    if [ -d "$queue_directory" ]; then
+        if ! find "$queue_directory" -type f -name '*.sqf' -print0 \
+            | LC_ALL=C sort -z > "$queue_listing"; then
+            rm -f "$queue_listing" "$graph_file" "$candidate"
+            SBO_TARGET_SELECTION_ERROR="cannot enumerate SBo queue files: $queue_directory"
+            return 1
+        fi
+
+        while IFS= read -r -d '' queue_file; do
+            if ! append_sbo_queue_constraints_from_stream "$graph_file" < "$queue_file"; then
+                rm -f "$queue_listing" "$graph_file" "$candidate"
+                SBO_TARGET_SELECTION_ERROR="queue contains an invalid SBo target: $queue_file"
+                return 1
+            fi
+        done < "$queue_listing"
+    fi
+
+    order_sbo_queue_graph < "$graph_file" > "$candidate"
+    order_status=$?
+    if [ "$order_status" -ne 0 ]; then
+        rm -f "$queue_listing" "$graph_file" "$candidate"
+        if [ "$order_status" -eq 2 ]; then
+            SBO_TARGET_SELECTION_ERROR="SBo queue dependency order is cyclic or contradictory in: $queue_directory"
+        else
+            SBO_TARGET_SELECTION_ERROR="cannot resolve SBo queue dependency order from: $queue_directory"
+        fi
+        return 1
+    fi
+
+    if ! mv -f -- "$candidate" "$destination"; then
+        rm -f "$queue_listing" "$graph_file" "$candidate"
+        SBO_TARGET_SELECTION_ERROR="cannot install dependency-ordered SBo queue: $destination"
+        return 1
+    fi
+
+    rm -f "$queue_listing" "$graph_file"
+}
+
 collect_sbo_targets_from_queue_directory() {
     local queue_directory=$1
     local destination=$2
@@ -957,6 +1141,55 @@ merge_sbo_target_sets() {
         rm -f "$candidate"
         return 1
     fi
+}
+
+merge_ordered_sbo_queue_with_target_sets() {
+    local destination=$1
+    local ordered_queue=$2
+    local destination_directory
+    local normalized_extra
+    local candidate
+    local source
+    local target
+    local -A seen_targets=()
+
+    shift 2
+    destination_directory=$(dirname -- "$destination")
+    normalized_extra=$(mktemp) || return 1
+    candidate=$(mktemp "$destination_directory/.sbo-final-queue.XXXXXX") || {
+        rm -f "$normalized_extra"
+        return 1
+    }
+
+    if ! cat "$@" 2>/dev/null | normalize_sbo_target_names_from_stream > "$normalized_extra"; then
+        rm -f "$normalized_extra" "$candidate"
+        return 1
+    fi
+
+    for source in "$ordered_queue" "$normalized_extra"; do
+        [ -f "$source" ] || continue
+        while IFS= read -r target || [ -n "$target" ]; do
+            [ -n "$target" ] || continue
+            if ! is_safe_sbo_target_name "$target"; then
+                rm -f "$normalized_extra" "$candidate"
+                return 1
+            fi
+            if [ -z "${seen_targets[$target]+selected}" ]; then
+                printf '%s\n' "$target" >> "$candidate" || {
+                    rm -f "$normalized_extra" "$candidate"
+                    return 1
+                }
+                seen_targets[$target]=1
+            fi
+        done < "$source"
+    done
+
+    if ! mv -f -- "$candidate" "$destination"; then
+        rm -f "$normalized_extra" "$candidate"
+        return 1
+    fi
+
+    rm -f "$normalized_extra"
 }
 
 package_database_contains_name() {
@@ -1540,7 +1773,7 @@ inspect_current_sbo_queues() {
         SBODIR=$SBO_QUEUE_DIR_FALLBACK
     fi
 
-    if ! collect_sbo_targets_from_queue_directory "$SBODIR" "$QUEUE_CORE"; then
+    if ! collect_ordered_sbo_targets_from_queue_directory "$SBODIR" "$QUEUE_CORE"; then
         echo "  [ERROR] $SBO_TARGET_SELECTION_ERROR"
         return 1
     fi
@@ -1655,8 +1888,8 @@ print_dry_run_plan() {
         print_plan_file "$QUEUE_CORE"
         echo "  Current broken-ELF SBo targets: $PLAN_BROKEN_SBO_COUNT"
         print_plan_file "$QUEUE_EXTRA"
-        echo "  The final apply queue would be the sorted union of the current queue,"
-        echo "  ABI-triggered candidates, and broken-ELF package owners determined after update."
+        echo "  The final apply queue would preserve dependency constraints from generated queues,"
+        echo "  then append unique ABI-triggered and broken-ELF targets deterministically."
     elif [ "$SBO_MODULE_STATE" = disabled ]; then
         echo "  The module is disabled; repository synchronization and builds would not run."
     elif [ "$SBO_MODE" = enabled ]; then
@@ -2063,7 +2296,7 @@ build_sbo_core_queue() {
         echo "  [WARN] Directorio de queues no encontrado: $SBODIR"
     fi
 
-    if ! collect_sbo_targets_from_queue_directory "$SBODIR" "$QUEUE_CORE"; then
+    if ! collect_ordered_sbo_targets_from_queue_directory "$SBODIR" "$QUEUE_CORE"; then
         echo "  [ERROR] $SBO_TARGET_SELECTION_ERROR"
         return 1
     fi
@@ -2178,8 +2411,9 @@ build_and_apply_sbo_queue() {
 
     echo "[10] Aplicando cola SBo"
 
-    if ! merge_sbo_target_sets "$QUEUE_FINAL" "$QUEUE_CORE" "$QUEUE_EXTRA"; then
-        SBO_TARGET_SELECTION_ERROR="cannot build the final deterministic SBo target set"
+    if ! merge_ordered_sbo_queue_with_target_sets \
+        "$QUEUE_FINAL" "$QUEUE_CORE" "$QUEUE_EXTRA"; then
+        SBO_TARGET_SELECTION_ERROR="cannot build the final dependency-ordered SBo queue"
         SBO_BUILD_STATUS=1
         echo "  [ERROR] $SBO_TARGET_SELECTION_ERROR"
         return 1

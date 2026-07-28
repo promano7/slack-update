@@ -587,7 +587,7 @@ The final layout may change during the architecture prototype, but separation be
 - [x] Validate package snapshots before and after updates.
 - [x] Confirm that secondary modules stop after partial Slackware updates.
 - [x] Confirm deterministic SBo target selection.
-- [ ] Confirm dependency order is preserved in generated SBo queues.
+- [x] Confirm dependency order is preserved in generated SBo queues.
 - [ ] Confirm custom SBo options are preserved.
 - [ ] Confirm no personal queue is overwritten.
 - [ ] Confirm ELF analysis never executes inspected binaries.
@@ -643,16 +643,23 @@ SBo target selection is now a separate deterministic stage. Active package
 records are extracted from queue files independently of filesystem enumeration
 order, comments, recursive queue references, deselected records, and build
 options. Installed ABI rebuild candidates and broken-object package owners use
-the exact configured SBo build suffix. Every selected target is validated,
-deduplicated, and sorted with the C locale before the target sets are merged.
-An invalid target makes the SBo selection stage fail and prevents the final
-queue from being submitted to `sbopkg`. Dependency order and build-option
-preservation remain separate follow-up tasks.
+the exact configured SBo build suffix. Every selected target is validated, and
+independent target sets are deduplicated and sorted with the C locale.
 
-The focused SBo target-selection regression test is:
+Generated queue order is preserved separately. Active records in each `.sqf`
+file become dependency constraints, shared dependencies are deduplicated, and a
+deterministic topological order combines all generated queues. C-locale ordering
+is used only to break ties between independent packages. Cyclic, contradictory,
+or unsafe constraints fail atomically and prevent submission to `sbopkg`. The
+final queue retains this dependency-ordered core and appends unique ABI and
+broken-ELF rebuild targets deterministically. Custom build-option preservation
+and personal-queue protection remain separate follow-up tasks.
+
+The focused SBo regression tests are:
 
 ```bash
 tests/reference/test-sbo-target-selection.sh
+tests/reference/test-sbo-dependency-order.sh
 ```
 
 ### Real-system acceptance matrix
@@ -1181,6 +1188,8 @@ Slack-Update 1.0 will be ready when:
 - [x] Validate exact Slackware package-name parsing.
 - [x] Validate package snapshots before and after updates.
 - [x] Confirm that secondary modules stop after partial Slackware updates.
+- [x] Confirm deterministic SBo target selection.
+- [x] Preserve dependency order in generated SBo queues.
 - [ ] Execute and document the Phase 1 acceptance matrix on Slackware 15.0 and Slackware-current.
 - [ ] Freeze `reference-v1`.
 - [ ] Begin the C architecture only after the reference gate is complete.
