@@ -7,10 +7,36 @@
 #   install -Dm644 data/config/slack-update.conf /etc/slack-update/slack-update.conf
 #
 # Manual use:   slack-update
-# Cron example: 0 3 * * 0 /usr/local/sbin/slack-update
+# Cron example: 0 3 * * 0 /usr/local/sbin/slack-update --check
 
 set -uo pipefail
 IFS=$'\n\t'
+
+# Use a deterministic root execution environment for cron and other unattended
+# launchers. Administrative Slackware commands may live in sbin directories
+# that are commonly absent from a minimal cron PATH.
+readonly SLACK_UPDATE_SYSTEM_PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+
+initialize_execution_environment() {
+    PATH=$SLACK_UPDATE_SYSTEM_PATH
+    HOME=/root
+    USER=root
+    LOGNAME=root
+    SHELL=/bin/bash
+    TMPDIR=/tmp
+    LANG=C
+    LC_ALL=C
+    TERM=dumb
+    GIT_TERMINAL_PROMPT=0
+    GIT_ASKPASS=/bin/false
+    SSH_ASKPASS=/bin/false
+
+    export PATH HOME USER LOGNAME SHELL TMPDIR LANG LC_ALL TERM
+    export GIT_TERMINAL_PROMPT GIT_ASKPASS SSH_ASKPASS
+    unset CDPATH DISPLAY WAYLAND_DISPLAY XAUTHORITY
+    unset DBUS_SESSION_BUS_ADDRESS XDG_RUNTIME_DIR
+    umask 077
+}
 
 # Stable process exit codes shared with the future C implementation.
 readonly EXIT_SUCCESS=0
@@ -5403,6 +5429,8 @@ run_apply_workflow() {
 main() {
     local workflow_result=0
     local result
+
+    initialize_execution_environment
 
     parse_arguments "$@" || {
         print_usage >&2

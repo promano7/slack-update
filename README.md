@@ -324,13 +324,36 @@ The current probes are intentionally explicit:
 An unavailable module in `auto` mode is skipped without becoming a global
 failure. An unavailable module in `enabled` mode is reported as an error in
 human-readable output, provisional JSON, and final NDJSON events. Stable process
-exit-code mapping remains the next roadmap task.
+the stable exit-code mapping described below is applied consistently.
 
 System configuration path:
 
 ```text
 /etc/slack-update/slack-update.conf
 ```
+
+Cron and other unattended launchers are normalized before argument parsing or
+configuration loading. The reference replaces the inherited command path with:
+
+```text
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+```
+
+It also sets the root identity and home directory, uses `/tmp`, the C locale,
+`TERM=dumb`, and `umask 077`; removes inherited desktop-session variables; and
+disables Git and SSH credential prompts. The workflow does not read from a
+terminal, `slackpkg` is invoked in batch mode, Flatpak uses its non-interactive
+mode, and SBo queue processing uses batch arguments.
+
+A conservative root crontab entry performs only the non-destructive check:
+
+```cron
+0 3 * * 0 /usr/local/sbin/slack-update --check
+```
+
+Automated application remains explicit through `--apply`. Codes `4` and `5`
+are successful apply outcomes, so wrappers must use the exit-code contract
+below rather than treating every non-zero result as a failure.
 
 Proposed per-user desktop preferences path:
 
@@ -599,7 +622,7 @@ The final layout may change during the architecture prototype, but separation be
 - [x] Confirm staged GRUB configuration is validated before replacement.
 - [x] Confirm interruption signals release locks and terminate execution.
 - [x] Confirm errors produce non-zero exit codes.
-- [ ] Confirm cron execution works with a minimal environment.
+- [x] Confirm cron execution works with a minimal environment.
 
 Slackware package records are parsed from the rightmost three hyphen-separated
 fields, matching the `name-version-architecture-build` convention used by
@@ -860,6 +883,21 @@ the process status, final JSON, and final NDJSON event:
 ```bash
 tests/reference/test-error-exit-codes.sh
 ```
+
+Minimal cron execution is covered with a detached harness that starts under
+`env -i`, supplies an unusable inherited `PATH`, connects standard input to
+`/dev/null`, and provides no terminal on any standard stream. It verifies the
+human-readable, JSON, and NDJSON modes, deterministic environment values,
+non-interactive `slackpkg` arguments, persistent logging, and owner-only work,
+log, and lock files:
+
+```bash
+tests/reference/test-cron-minimal-environment.sh
+```
+
+This automated boundary is complete; the equivalent scenario on real
+Slackware 15.0 and Slackware-current installations remains part of the
+acceptance matrix below.
 
 ### Real-system acceptance matrix
 
@@ -1397,7 +1435,10 @@ Slack-Update 1.0 will be ready when:
 - [x] Confirm architecture-specific library resolution.
 - [x] Confirm initrd validation uses the installed kernel.
 - [x] Confirm GRUB is not updated after an initrd failure.
-- [ ] Validate staged GRUB configuration before replacement.
+- [x] Validate staged GRUB configuration before replacement.
+- [x] Confirm interruption signals release locks and terminate execution.
+- [x] Confirm errors produce non-zero exit codes.
+- [x] Confirm cron execution works with a minimal environment.
 - [ ] Execute and document the Phase 1 acceptance matrix on Slackware 15.0 and Slackware-current.
 - [ ] Freeze `reference-v1`.
 - [ ] Begin the C architecture only after the reference gate is complete.
