@@ -10,6 +10,7 @@ DEFAULT_CONFIG="$REPOSITORY_ROOT/data/config/slack-update.conf"
 CHECK_FIXTURE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/no-updates/check-result.json"
 APPLY_FIXTURE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/no-updates/apply-result.json"
 SLACKWARE_15_ACCEPTED_FIXTURE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/no-updates/slackware-15.0-accepted.json"
+SLACKWARE_CURRENT_ACCEPTED_FIXTURE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/no-updates/slackware-current-accepted.json"
 FIXTURE_CONFIG=/var/tmp/slack-update-acceptance/no-updates/example/slack-update.conf
 
 # Source the acceptance helpers without executing the real-system scenario.
@@ -107,29 +108,46 @@ import sys
 path = pathlib.Path(sys.argv[1])
 data = json.loads(path.read_text(encoding="utf-8"))
 
-required = {
-    "scenario": "no-updates",
-    "target": "slackware-15.0",
-    "accepted": True,
-    "archive_sha256": "5a784cd6d830ac271cc3aad02ed89f2e00c2afd63c88f90aabb74b0a81b0b20b",
+expected_by_target = {
+    "slackware-15.0": {
+        "archive_sha256": "5a784cd6d830ac271cc3aad02ed89f2e00c2afd63c88f90aabb74b0a81b0b20b",
+        "records": 1594,
+        "slackware_version": "Slackware 15.0",
+    },
+    "slackware-current": {
+        "archive_sha256": "ba0c1264d57df5acf6bee843391113327736683ede36ec3d708d58ca174a2976",
+        "records": 2035,
+        "slackware_version": "Slackware 15.0+",
+    },
 }
-for key, expected in required.items():
-    if data.get(key) != expected:
-        raise SystemExit(f"unexpected {key}: {data.get(key)!r}")
 
+if data.get("scenario") != "no-updates":
+    raise SystemExit(f"unexpected scenario: {data.get('scenario')!r}")
+target = data.get("target")
+if target not in expected_by_target:
+    raise SystemExit(f"unexpected target: {target!r}")
+expected = expected_by_target[target]
+if data.get("accepted") is not True:
+    raise SystemExit("the evidence record is not accepted")
+if data.get("archive_sha256") != expected["archive_sha256"]:
+    raise SystemExit("the accepted archive digest is unexpected")
+if data.get("platform", {}).get("slackware_version") != expected["slackware_version"]:
+    raise SystemExit("the accepted Slackware version is unexpected")
 if data.get("check", {}).get("exit_code") != 0:
     raise SystemExit("the accepted check exit code is not zero")
 if data.get("check", {}).get("updates_available") is not False:
     raise SystemExit("the accepted check reports updates")
 if data.get("apply", {}).get("exit_code") != 0:
     raise SystemExit("the accepted apply exit code is not zero")
+if data.get("apply", {}).get("slackpkg_update_exit_code") != 0:
+    raise SystemExit("the accepted slackpkg update status is not zero")
 if data.get("apply", {}).get("slackpkg_install_new_exit_code") != 20:
     raise SystemExit("the accepted install-new no-package status is not preserved")
 if data.get("apply", {}).get("slackpkg_upgrade_all_exit_code") != 20:
     raise SystemExit("the accepted upgrade-all no-package status is not preserved")
-if data.get("package_database", {}).get("records_before") != 1594:
+if data.get("package_database", {}).get("records_before") != expected["records"]:
     raise SystemExit("the accepted package count is unexpected")
-if data.get("package_database", {}).get("records_after") != 1594:
+if data.get("package_database", {}).get("records_after") != expected["records"]:
     raise SystemExit("the accepted final package count is unexpected")
 if data.get("package_database", {}).get("unchanged") is not True:
     raise SystemExit("the accepted package database is not marked unchanged")
@@ -169,6 +187,8 @@ assert_file_contains 'bash "$REFERENCE_SCRIPT"' "$ACCEPTANCE_SCRIPT" \
     'the scenario should not depend on a preserved executable bit for the reference script'
 assert_file_contains 'publish_evidence_archive' "$ACCEPTANCE_SCRIPT" \
     'the evidence archive should be published for the sudo caller'
+assert_file_contains 'Copy evidence command:' "$ACCEPTANCE_SCRIPT" \
+    'the scenario should print a single-line evidence copy fallback'
 assert_file_contains 'report_json_failure_details' "$ACCEPTANCE_SCRIPT" \
     'structured failures should expose actionable command statuses'
 assert_file_contains 'find -H /var/log/packages' "$ACCEPTANCE_SCRIPT" \
@@ -263,6 +283,10 @@ assert_success 'the accepted Slackware 15.0 evidence fixture should be valid JSO
     json_is_valid "$SLACKWARE_15_ACCEPTED_FIXTURE"
 assert_success 'the accepted Slackware 15.0 evidence fixture should preserve the reviewed contract' \
     validate_accepted_evidence_fixture "$SLACKWARE_15_ACCEPTED_FIXTURE"
+assert_success 'the accepted Slackware-current evidence fixture should be valid JSON' \
+    json_is_valid "$SLACKWARE_CURRENT_ACCEPTED_FIXTURE"
+assert_success 'the accepted Slackware-current evidence fixture should preserve the reviewed contract' \
+    validate_accepted_evidence_fixture "$SLACKWARE_CURRENT_ACCEPTED_FIXTURE"
 
 python3 - "$CHECK_FIXTURE" "$TEST_TMP/check-updates.json" <<'PYTHON_EOF'
 import json

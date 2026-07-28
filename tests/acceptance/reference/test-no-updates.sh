@@ -496,6 +496,24 @@ create_evidence_archive() {
     printf '%s\n' "$archive"
 }
 
+print_evidence_copy_command() {
+    local archive=$1
+    local owner=${SUDO_USER:-}
+    local owner_group
+    local owner_home
+
+    [ -n "$owner" ] && [ "$owner" != root ] || return 0
+    owner_group=$(id -gn "$owner" 2>/dev/null) || return 0
+    owner_home=$(awk -F: -v owner="$owner" '$1 == owner { print $6; exit }' /etc/passwd)
+    [ -n "$owner_home" ] || owner_home="/home/$owner"
+
+    printf 'Copy evidence command: '
+    printf 'sudo install -o %q -g %q -m 0600 %q %q && ' \
+        "$owner" "$owner_group" "$archive" "$owner_home/${archive##*/}"
+    printf 'sudo install -o %q -g %q -m 0600 %q %q\n' \
+        "$owner" "$owner_group" "$archive.sha256" "$owner_home/${archive##*/}.sha256"
+}
+
 main() {
     local timestamp
     local check_status
@@ -601,6 +619,7 @@ main() {
         write_summary "$OUTPUT_DIR/summary.txt"
         archive=$(create_evidence_archive) || archive=unavailable
         printf 'Evidence: %s\n' "$archive"
+        [ "$archive" = unavailable ] || print_evidence_copy_command "$archive"
         return 1
     fi
 
@@ -647,6 +666,7 @@ main() {
     }
     printf 'Evidence archive: %s\n' "$archive"
     printf 'Evidence SHA-256: %s\n' "$(awk '{print $1}' "$archive.sha256")"
+    print_evidence_copy_command "$archive"
 
     [ "$FAILURE_COUNT" -eq 0 ]
 }

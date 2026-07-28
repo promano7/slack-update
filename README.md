@@ -934,8 +934,11 @@ user with mode `0600`; the uncompressed evidence directory remains root-only.
 Slackware 15.0 passed on 2026-07-28 with 1,594 unchanged package records and
 archive SHA-256
 `5a784cd6d830ac271cc3aad02ed89f2e00c2afd63c88f90aabb74b0a81b0b20b`.
-Its sanitized acceptance record is stored alongside the expected fixtures;
-Slackware-current remains pending.
+Slackware-current passed on the same date with 2,035 unchanged package records
+and archive SHA-256
+`ba0c1264d57df5acf6bee843391113327736683ede36ec3d708d58ca174a2976`.
+Sanitized acceptance records for both mandatory targets are stored alongside the
+expected fixtures.
 The scenario invokes the reference through `bash`, so extraction tools that lose
 Unix executable bits do not prevent the test from running. Package-database
 enumeration follows the command-line `/var/log/packages` compatibility symlink
@@ -945,10 +948,10 @@ contract.
 
 ### Real-system acceptance matrix
 
-- [ ] Fully updated system with no available changes.
+- [x] Fully updated system with no available changes.
   - [x] Reproducible scenario, validators, and expected fixtures implemented.
   - [x] Slackware 15.0 evidence accepted on 2026-07-28: check and apply returned stable code `0`, 1,594 package records and observed boot state were unchanged, and the reviewed archive SHA-256 is `5a784cd6d830ac271cc3aad02ed89f2e00c2afd63c88f90aabb74b0a81b0b20b`.
-  - [ ] Slackware-current evidence accepted.
+  - [x] Slackware-current evidence accepted on 2026-07-28: check and apply returned stable code `0`, 2,035 package records and observed boot state were unchanged, and the reviewed archive SHA-256 is `ba0c1264d57df5acf6bee843391113327736683ede36ec3d708d58ca174a2976`.
 - [ ] Normal Slackware package update.
 - [ ] `install-new` introduces new packages.
 - [ ] Kernel package update.
@@ -1488,6 +1491,6 @@ Slack-Update 1.0 will be ready when:
 - [x] Confirm cron execution works with a minimal environment.
 - [ ] Execute and document the Phase 1 acceptance matrix on Slackware 15.0 and Slackware-current.
   - [x] Accept the fully updated no-updates scenario on Slackware 15.0.
-  - [ ] Accept the fully updated no-updates scenario on Slackware-current.
+  - [x] Accept the fully updated no-updates scenario on Slackware-current.
 - [ ] Freeze `reference-v1`.
 - [ ] Begin the C architecture only after the reference gate is complete.
