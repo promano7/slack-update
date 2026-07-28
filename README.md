@@ -589,7 +589,7 @@ The final layout may change during the architecture prototype, but separation be
 - [x] Confirm deterministic SBo target selection.
 - [x] Confirm dependency order is preserved in generated SBo queues.
 - [x] Confirm custom SBo options are preserved.
-- [ ] Confirm no personal queue is overwritten.
+- [x] Confirm no personal queue is overwritten.
 - [ ] Confirm ELF analysis never executes inspected binaries.
 - [ ] Confirm architecture-specific library resolution.
 - [ ] Confirm initrd validation uses the installed kernel.
@@ -680,7 +680,34 @@ optional; if it does not exist, options found in current generated queues are
 used. Options are applied to both dependency-ordered targets and later ABI or
 broken-ELF rebuild targets without selecting additional packages. Invalid option
 data preserves the previous output atomically and prevents `sbopkg` from running.
-Protection of personal queue files remains the next separate safety task.
+
+Personal SBo queues are now treated as read-only source state. During apply, the
+effective sbopkg `QUEUEDIR` is resolved from the supported system and local
+configuration forms, separately from a private per-run workspace under
+Slack-Update's work directory. Regular `.sqf` files are copied byte-for-byte into
+that workspace as owner-only regular files, preserving nested paths. Queue
+symlinks and unrelated files are not followed or copied.
+
+`slack-update` invokes `sqg -a` through owner-only system and local configuration
+wrappers stored inside the disposable workspace. The wrappers load the original
+sbopkg system and local configuration, then reassert the private `QUEUEDIR` after
+each layer. This prevents either configuration file from redirecting generation
+back to personal state after environment variables have been set. Every
+subsequent dependency, target, and build-option stage reads from the private
+copy. The configured personal directory is never passed to the generator and
+remains unchanged even when generation fails partway through. A
+workspace-preparation, wrapper-generation, or non-zero `sqg` result blocks target
+construction and final `sbopkg -B` submission, so the workflow cannot fall back
+to personal state or consume a partially generated queue tree.
+
+Workspace validation rejects relative paths, a workspace equal to or canonically
+inside the personal queue tree, symlinked personal queue roots, and pre-existing
+workspace paths. A missing personal queue directory produces an empty private
+workspace. Apply JSON reports both path roles, copied regular-file and ignored
+symlink counts, the explicit isolation state, and whether private generation
+completed successfully. Cleanup removes a workspace only when Slack-Update
+recorded ownership at creation and its canonical identity is unchanged;
+pre-existing paths and replacement symlinks are never followed or deleted.
 
 The focused SBo regression tests are:
 
@@ -688,6 +715,7 @@ The focused SBo regression tests are:
 tests/reference/test-sbo-target-selection.sh
 tests/reference/test-sbo-dependency-order.sh
 tests/reference/test-sbo-options.sh
+tests/reference/test-sbo-personal-queue-protection.sh
 ```
 
 ### Real-system acceptance matrix
@@ -1218,6 +1246,9 @@ Slack-Update 1.0 will be ready when:
 - [x] Confirm that secondary modules stop after partial Slackware updates.
 - [x] Confirm deterministic SBo target selection.
 - [x] Preserve dependency order in generated SBo queues.
+- [x] Preserve custom SBo build options.
+- [x] Protect personal SBo queues from `sqg` overwrites.
+- [ ] Confirm ELF analysis never executes inspected binaries.
 - [ ] Execute and document the Phase 1 acceptance matrix on Slackware 15.0 and Slackware-current.
 - [ ] Freeze `reference-v1`.
 - [ ] Begin the C architecture only after the reference gate is complete.

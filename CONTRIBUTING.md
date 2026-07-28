@@ -80,11 +80,12 @@ Before submitting a change to the reference script:
 5. Run `tests/reference/test-sbo-target-selection.sh` when SBo queue parsing, target discovery, ABI rebuild candidates, broken-object ownership, or deterministic target-set merging is affected.
 6. Run `tests/reference/test-sbo-dependency-order.sh` when generated queue constraints, dependency ordering, final ordered merging, or SBo queue submission is affected.
 7. Run `tests/reference/test-sbo-options.sh` when queue build options, persistent overrides, option conflict handling, or final option-preserving submission is affected.
-8. Confirm that destructive commands are not exercised outside an isolated Slackware test system.
-9. Record the relevant acceptance scenario.
-10. Preserve deterministic output and exit-code behavior.
-11. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
-12. Ensure every new or modified comment is written in English.
+8. Run `tests/reference/test-sbo-personal-queue-protection.sh` when sbopkg system/local queue-directory resolution, private `sqg` configuration wrappers, queue workspaces, symlink handling, invocation isolation, or cleanup is affected.
+9. Confirm that destructive commands are not exercised outside an isolated Slackware test system.
+10. Record the relevant acceptance scenario.
+11. Preserve deterministic output and exit-code behavior.
+12. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
+13. Ensure every new or modified comment is written in English.
 
 Never run the apply workflow on a production machine merely to validate a contribution.
 

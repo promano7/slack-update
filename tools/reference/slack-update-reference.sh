@@ -1890,6 +1890,15 @@ initialize_runtime_state() {
     SBO_TARGET_SELECTION_STATUS=-1
     SBO_TARGET_SELECTION_ERROR=
     SBO_OPTION_RECORD_COUNT=0
+    SBO_PERSONAL_QUEUE_DIR=
+    SBO_QUEUE_SOURCE_DIR=
+    SBO_PERSONAL_QUEUE_FILE_COUNT=0
+    SBO_PERSONAL_QUEUE_SYMLINK_COUNT=0
+    SBO_QUEUE_GENERATION_READY=0
+    SBO_PRIVATE_SBOPKG_CONFIG=
+    SBO_PRIVATE_LOCAL_SBOPKG_CONFIG=
+    SBO_GENERATED_QUEUE_OWNED_PATH=
+    SBO_GENERATED_QUEUE_OWNED_CANONICAL=
     PACKAGE_SNAPSHOT_BEFORE_VALID=0
     PACKAGE_SNAPSHOT_AFTER_VALID=0
     PACKAGE_SNAPSHOT_BEFORE_COUNT=0
@@ -1919,6 +1928,7 @@ initialize_runtime() {
     QUEUE_CORE="$WORKDIR/queue-core.sqf"
     QUEUE_EXTRA="$WORKDIR/queue-extra.sqf"
     SBO_OPTION_RECORDS="$WORKDIR/sbo-options.normalized"
+    SBO_GENERATED_QUEUE_DIR="$WORKDIR/.sbo-generated-$DATE-$$"
 
     BEFORE_PKGS="$WORKDIR/packages.before"
     AFTER_PKGS="$WORKDIR/packages.after"
@@ -1947,6 +1957,7 @@ initialize_dry_run_runtime() {
     QUEUE_CORE="$WORKDIR/queue-core.sqf"
     QUEUE_EXTRA="$WORKDIR/queue-extra.sqf"
     SBO_OPTION_RECORDS="$WORKDIR/sbo-options.normalized"
+    SBO_GENERATED_QUEUE_DIR="$WORKDIR/sbo-generated-queues"
     QUEUE_FINAL="$WORKDIR/queue-final.sqf"
     BROKEN_NEW="$WORKDIR/broken-new.txt"
     STILL_BROKEN="$WORKDIR/still-broken.txt"
@@ -1966,9 +1977,30 @@ initialize_dry_run_runtime() {
     : > "$BROKEN_ERRORS"
 }
 
+remove_owned_sbo_queue_workspace() {
+    local owned_path=${SBO_GENERATED_QUEUE_OWNED_PATH:-}
+    local owned_canonical=${SBO_GENERATED_QUEUE_OWNED_CANONICAL:-}
+    local current_canonical
+
+    [ -n "$owned_path" ] || return 0
+
+    current_canonical=$(readlink -m -- "$owned_path") || return 1
+    if [ -L "$owned_path" ] || [ "$current_canonical" != "$owned_canonical" ]; then
+        SBO_GENERATED_QUEUE_OWNED_PATH=
+        SBO_GENERATED_QUEUE_OWNED_CANONICAL=
+        return 1
+    fi
+
+    rm -rf -- "$owned_path" || return 1
+    SBO_GENERATED_QUEUE_OWNED_PATH=
+    SBO_GENERATED_QUEUE_OWNED_CANONICAL=
+}
+
 cleanup() {
     rm -f "${QUEUE_FINAL:-}" "${BROKEN_NEW:-}" "${STILL_BROKEN:-}" \
         "${BROKEN_ERRORS:-}" 2>/dev/null || true
+
+    remove_owned_sbo_queue_workspace 2>/dev/null || true
 
     if [ -n "${RUNTIME_TMPDIR:-}" ]; then
         rm -rf -- "$RUNTIME_TMPDIR" 2>/dev/null || true
@@ -2124,19 +2156,18 @@ inspect_dry_run_environment() {
 inspect_current_sbo_queues() {
     echo "[PLAN] Inspecting current SBo queues"
 
-    SBODIR=$(grep -E '^QUEUEDIR=' "$SBOPKG_CONFIG" 2>/dev/null \
-        | head -1 | cut -d= -f2- | tr -d "\"'" \
-        | sed 's/^[[:space:]]*//; s/[[:space:]]*$//' || true)
-
-    if [ -z "$SBODIR" ]; then
-        SBODIR=$SBO_QUEUE_DIR_FALLBACK
-    fi
-
-    if ! collect_ordered_sbo_targets_from_queue_directory "$SBODIR" "$QUEUE_CORE"; then
+    if ! resolve_sbo_personal_queue_directory; then
         echo "  [ERROR] $SBO_TARGET_SELECTION_ERROR"
         return 1
     fi
-    if ! collect_sbo_option_records_from_sources         "$SBODIR" "$SBO_OPTIONS_FILE" "$SBO_OPTION_RECORDS"; then
+    SBO_QUEUE_SOURCE_DIR=$SBO_PERSONAL_QUEUE_DIR
+
+    if ! collect_ordered_sbo_targets_from_queue_directory "$SBO_QUEUE_SOURCE_DIR" "$QUEUE_CORE"; then
+        echo "  [ERROR] $SBO_TARGET_SELECTION_ERROR"
+        return 1
+    fi
+    if ! collect_sbo_option_records_from_sources \
+        "$SBO_QUEUE_SOURCE_DIR" "$SBO_OPTIONS_FILE" "$SBO_OPTION_RECORDS"; then
         echo "  [ERROR] $SBO_TARGET_SELECTION_ERROR"
         return 1
     fi
@@ -2261,8 +2292,8 @@ print_dry_run_plan() {
     echo "  Mode: $SBO_MODE"
     echo "  Activation state: $SBO_MODULE_STATE"
     if [ "$SBO_MODULE_RUN" -eq 1 ]; then
-        echo "  Planned repository commands: sbopkg -r, then sqg -a"
-        echo "  Current local queue directory: $SBODIR"
+        echo "  Planned repository commands: sbopkg -r, then sqg -a in a private queue workspace"
+        echo "  Personal queue directory (read-only): $SBODIR"
         echo "  Current local queue targets: $TOTAL_CORE"
         print_plan_file "$QUEUE_CORE"
         echo "  Persistent build-options file: $SBO_OPTIONS_FILE"
@@ -2270,7 +2301,8 @@ print_dry_run_plan() {
         print_sbo_option_records "$SBO_OPTION_RECORDS"
         echo "  Current broken-ELF SBo targets: $PLAN_BROKEN_SBO_COUNT"
         print_plan_file "$QUEUE_EXTRA"
-        echo "  The final apply queue would preserve dependency constraints from generated queues,"
+        echo "  Apply would copy regular personal .sqf files into an isolated workspace,"
+        echo "  run sqg only there, preserve dependency constraints from the resulting queues,"
         echo "  then append unique ABI-triggered and broken-ELF targets deterministically."
     elif [ "$SBO_MODULE_STATE" = disabled ]; then
         echo "  The module is disabled; repository synchronization and builds would not run."
@@ -2638,6 +2670,270 @@ detect_kernel_changes() {
     fi
 }
 
+read_simple_shell_path_assignment() {
+    local config_file=$1
+    local variable_name=$2
+    local line
+    local value
+    local parameter_prefix="\${$variable_name:-"
+
+    [ -f "$config_file" ] || return 1
+
+    line=$(grep -E "^[[:space:]]*(export[[:space:]]+)?${variable_name}=" \
+        "$config_file" 2>/dev/null | tail -1) || return 1
+    line=$(trim_whitespace "$line")
+    line=${line#export }
+    value=${line#*=}
+    value=$(trim_whitespace "$value")
+
+    if [ "${value#\"}" != "$value" ] && [ "${value%\"}" != "$value" ]; then
+        value=${value#\"}
+        value=${value%\"}
+    elif [ "${value#\'}" != "$value" ] && [ "${value%\'}" != "$value" ]; then
+        value=${value#\'}
+        value=${value%\'}
+    fi
+
+    if [[ $value == "$parameter_prefix"*'}' ]]; then
+        value=${value#"$parameter_prefix"}
+        value=${value%\}}
+    fi
+
+    [ -n "$value" ] || return 1
+    printf '%s\n' "$value"
+}
+
+resolve_sbo_personal_queue_directory() {
+    local configured_queue_dir
+    local local_config_file=${LOCAL_SBOPKG_CONF:-/root/.sbopkg.conf}
+    local configured_local_file
+    local local_queue_dir
+
+    configured_queue_dir=$(read_simple_shell_path_assignment \
+        "$SBOPKG_CONFIG" QUEUEDIR 2>/dev/null || true)
+    configured_local_file=$(read_simple_shell_path_assignment \
+        "$SBOPKG_CONFIG" LOCAL_SBOPKG_CONF 2>/dev/null || true)
+    if [ -n "$configured_local_file" ]; then
+        local_config_file=$configured_local_file
+    fi
+    local_queue_dir=$(read_simple_shell_path_assignment \
+        "$local_config_file" QUEUEDIR 2>/dev/null || true)
+    if [ -n "$local_queue_dir" ]; then
+        configured_queue_dir=$local_queue_dir
+    fi
+    if [ -z "$configured_queue_dir" ]; then
+        configured_queue_dir=$SBO_QUEUE_DIR_FALLBACK
+    fi
+
+    case "$configured_queue_dir" in
+        /*) ;;
+        *)
+            SBO_TARGET_SELECTION_ERROR="resolved SBo queue directory is not absolute: $configured_queue_dir"
+            return 1
+            ;;
+    esac
+
+    SBO_PERSONAL_QUEUE_DIR=$configured_queue_dir
+    SBODIR=$configured_queue_dir
+}
+
+prepare_private_sbo_queue_workspace() {
+    local source_directory=$1
+    local destination_directory=$2
+    local source_listing
+    local source_file
+    local relative_path
+    local destination_file
+    local destination_parent
+    local canonical_source
+    local canonical_destination
+
+    SBO_TARGET_SELECTION_ERROR=
+    SBO_PERSONAL_QUEUE_FILE_COUNT=0
+    SBO_PERSONAL_QUEUE_SYMLINK_COUNT=0
+
+    case "$source_directory" in
+        /*) ;;
+        *)
+            SBO_TARGET_SELECTION_ERROR="personal SBo queue directory is not absolute: $source_directory"
+            return 1
+            ;;
+    esac
+    case "$destination_directory" in
+        /*) ;;
+        *)
+            SBO_TARGET_SELECTION_ERROR="private SBo queue workspace is not absolute: $destination_directory"
+            return 1
+            ;;
+    esac
+
+    canonical_source=$(readlink -m -- "$source_directory") || {
+        SBO_TARGET_SELECTION_ERROR="cannot canonicalize personal SBo queue directory: $source_directory"
+        return 1
+    }
+    canonical_destination=$(readlink -m -- "$destination_directory") || {
+        SBO_TARGET_SELECTION_ERROR="cannot canonicalize private SBo queue workspace: $destination_directory"
+        return 1
+    }
+
+    if [ "$canonical_source" = "$canonical_destination" ]; then
+        SBO_TARGET_SELECTION_ERROR="private SBo queue workspace must differ from the personal queue directory"
+        return 1
+    fi
+    case "$canonical_destination/" in
+        "$canonical_source/"*)
+            SBO_TARGET_SELECTION_ERROR="private SBo queue workspace must not be inside the personal queue directory"
+            return 1
+            ;;
+    esac
+
+    if [ -e "$destination_directory" ] || [ -L "$destination_directory" ]; then
+        SBO_TARGET_SELECTION_ERROR="private SBo queue workspace already exists: $destination_directory"
+        return 1
+    fi
+
+    if [ -e "$source_directory" ] || [ -L "$source_directory" ]; then
+        if [ ! -d "$source_directory" ] || [ -L "$source_directory" ]; then
+            SBO_TARGET_SELECTION_ERROR="personal SBo queue path is not a real directory: $source_directory"
+            return 1
+        fi
+        if [ ! -r "$source_directory" ] || [ ! -x "$source_directory" ]; then
+            SBO_TARGET_SELECTION_ERROR="personal SBo queue directory is not readable: $source_directory"
+            return 1
+        fi
+    fi
+
+    if ! mkdir -m 0700 -- "$destination_directory"; then
+        SBO_TARGET_SELECTION_ERROR="cannot create private SBo queue workspace: $destination_directory"
+        return 1
+    fi
+    SBO_GENERATED_QUEUE_OWNED_PATH=$destination_directory
+    SBO_GENERATED_QUEUE_OWNED_CANONICAL=$canonical_destination
+
+    if [ ! -d "$source_directory" ]; then
+        SBO_QUEUE_SOURCE_DIR=$destination_directory
+        return 0
+    fi
+
+    source_listing=$(mktemp) || {
+        remove_owned_sbo_queue_workspace
+        SBO_TARGET_SELECTION_ERROR="cannot create personal SBo queue listing"
+        return 1
+    }
+
+    if ! find "$source_directory" -type f -name '*.sqf' -print0 \
+        | LC_ALL=C sort -z > "$source_listing"; then
+        rm -f "$source_listing"
+        remove_owned_sbo_queue_workspace
+        SBO_TARGET_SELECTION_ERROR="cannot enumerate personal SBo queue files: $source_directory"
+        return 1
+    fi
+
+    SBO_PERSONAL_QUEUE_SYMLINK_COUNT=$(find "$source_directory" -type l -name '*.sqf' \
+        -printf '.' 2>/dev/null | wc -c)
+
+    while IFS= read -r -d '' source_file; do
+        relative_path=${source_file#"$source_directory"/}
+        if [ "$relative_path" = "$source_file" ] || [ -z "$relative_path" ]; then
+            rm -f "$source_listing"
+            remove_owned_sbo_queue_workspace
+            SBO_TARGET_SELECTION_ERROR="cannot derive a relative personal queue path: $source_file"
+            return 1
+        fi
+
+        destination_file="$destination_directory/$relative_path"
+        destination_parent=$(dirname -- "$destination_file")
+        if ! mkdir -p -m 0700 -- "$destination_parent" \
+            || ! install -m 0600 /dev/null "$destination_file" \
+            || ! cat -- "$source_file" > "$destination_file"; then
+            rm -f "$source_listing"
+            remove_owned_sbo_queue_workspace
+            SBO_TARGET_SELECTION_ERROR="cannot copy personal SBo queue into private workspace: $source_file"
+            return 1
+        fi
+        SBO_PERSONAL_QUEUE_FILE_COUNT=$((SBO_PERSONAL_QUEUE_FILE_COUNT + 1))
+    done < "$source_listing"
+
+    rm -f "$source_listing"
+    SBO_QUEUE_SOURCE_DIR=$destination_directory
+}
+
+shell_single_quote() {
+    local value=$1
+
+    printf "'%s'" "${value//\'/\'\\\'\'}"
+}
+
+prepare_private_sqg_configuration() {
+    local original_config=$1
+    local private_queue_directory=$2
+    local wrapper_directory="$private_queue_directory/.slack-update"
+    local original_config_quoted
+    local private_queue_directory_quoted
+    local private_local_config_quoted
+
+    SBO_PRIVATE_SBOPKG_CONFIG=
+    SBO_PRIVATE_LOCAL_SBOPKG_CONFIG=
+
+    if [ ! -f "$original_config" ] || [ ! -r "$original_config" ]; then
+        SBO_TARGET_SELECTION_ERROR="sbopkg configuration is not a readable regular file: $original_config"
+        return 1
+    fi
+    if [ ! -d "$private_queue_directory" ] || [ -L "$private_queue_directory" ]; then
+        SBO_TARGET_SELECTION_ERROR="private SBo queue workspace is not a real directory: $private_queue_directory"
+        return 1
+    fi
+    if [ -e "$wrapper_directory" ] || [ -L "$wrapper_directory" ]; then
+        SBO_TARGET_SELECTION_ERROR="private sqg configuration directory already exists: $wrapper_directory"
+        return 1
+    fi
+    if ! mkdir -m 0700 -- "$wrapper_directory"; then
+        SBO_TARGET_SELECTION_ERROR="cannot create private sqg configuration directory: $wrapper_directory"
+        return 1
+    fi
+
+    SBO_PRIVATE_SBOPKG_CONFIG="$wrapper_directory/sbopkg.conf"
+    SBO_PRIVATE_LOCAL_SBOPKG_CONFIG="$wrapper_directory/local.conf"
+    if ! install -m 0600 /dev/null "$SBO_PRIVATE_SBOPKG_CONFIG" \
+        || ! install -m 0600 /dev/null "$SBO_PRIVATE_LOCAL_SBOPKG_CONFIG"; then
+        rm -rf -- "$wrapper_directory"
+        SBO_PRIVATE_SBOPKG_CONFIG=
+        SBO_PRIVATE_LOCAL_SBOPKG_CONFIG=
+        SBO_TARGET_SELECTION_ERROR="cannot create private sqg configuration files"
+        return 1
+    fi
+
+    original_config_quoted=$(shell_single_quote "$original_config")
+    private_queue_directory_quoted=$(shell_single_quote "$private_queue_directory")
+    private_local_config_quoted=$(shell_single_quote "$SBO_PRIVATE_LOCAL_SBOPKG_CONFIG")
+
+    if ! {
+        printf '. %s\n' "$original_config_quoted"
+        printf 'SLACK_UPDATE_ORIGINAL_LOCAL_SBOPKG_CONF=${LOCAL_SBOPKG_CONF:-}\n'
+        printf 'LOCAL_SBOPKG_CONF=%s\n' "$private_local_config_quoted"
+        printf 'QUEUEDIR=%s\n' "$private_queue_directory_quoted"
+    } > "$SBO_PRIVATE_SBOPKG_CONFIG"; then
+        rm -rf -- "$wrapper_directory"
+        SBO_PRIVATE_SBOPKG_CONFIG=
+        SBO_PRIVATE_LOCAL_SBOPKG_CONFIG=
+        SBO_TARGET_SELECTION_ERROR="cannot write private sqg system configuration"
+        return 1
+    fi
+
+    if ! {
+        printf '%s\n' 'if [ -n "${SLACK_UPDATE_ORIGINAL_LOCAL_SBOPKG_CONF:-}" ] && [ -e "$SLACK_UPDATE_ORIGINAL_LOCAL_SBOPKG_CONF" ]; then'
+        printf '%s\n' '    . "$SLACK_UPDATE_ORIGINAL_LOCAL_SBOPKG_CONF"'
+        printf '%s\n' 'fi'
+        printf 'QUEUEDIR=%s\n' "$private_queue_directory_quoted"
+    } > "$SBO_PRIVATE_LOCAL_SBOPKG_CONFIG"; then
+        rm -rf -- "$wrapper_directory"
+        SBO_PRIVATE_SBOPKG_CONFIG=
+        SBO_PRIVATE_LOCAL_SBOPKG_CONFIG=
+        SBO_TARGET_SELECTION_ERROR="cannot write private sqg local configuration"
+        return 1
+    fi
+}
+
 synchronize_sbo_repository() {
     # ---------------------------
     # [5] SBo SYNC
@@ -2651,7 +2947,34 @@ synchronize_sbo_repository() {
             sbopkg -r || SBOPKG_SYNC_STATUS=$?
 
             SQG_SYNC_STATUS=0
-            sqg -a || SQG_SYNC_STATUS=$?
+            SBO_QUEUE_GENERATION_READY=0
+            SBO_QUEUE_SOURCE_DIR=
+            if ! resolve_sbo_personal_queue_directory; then
+                SQG_SYNC_STATUS=1
+                echo "  [ERROR] $SBO_TARGET_SELECTION_ERROR"
+            elif ! prepare_private_sbo_queue_workspace \
+                "$SBO_PERSONAL_QUEUE_DIR" "$SBO_GENERATED_QUEUE_DIR"; then
+                SQG_SYNC_STATUS=1
+                echo "  [ERROR] $SBO_TARGET_SELECTION_ERROR"
+            elif ! prepare_private_sqg_configuration \
+                "$SBOPKG_CONFIG" "$SBO_GENERATED_QUEUE_DIR"; then
+                SQG_SYNC_STATUS=1
+                echo "  [ERROR] $SBO_TARGET_SELECTION_ERROR"
+            else
+                echo "  Personal queue directory preserved read-only: $SBO_PERSONAL_QUEUE_DIR"
+                echo "  Private sqg workspace: $SBO_GENERATED_QUEUE_DIR"
+                echo "  Personal queue files copied: $SBO_PERSONAL_QUEUE_FILE_COUNT"
+                if [ "$SBO_PERSONAL_QUEUE_SYMLINK_COUNT" -gt 0 ]; then
+                    echo "  [WARN] Personal queue symlinks ignored: $SBO_PERSONAL_QUEUE_SYMLINK_COUNT"
+                fi
+                if SBOPKG_CONF="$SBO_PRIVATE_SBOPKG_CONFIG" \
+                    QUEUEDIR="$SBO_GENERATED_QUEUE_DIR" sqg -a; then
+                    SBO_QUEUE_GENERATION_READY=1
+                else
+                    SQG_SYNC_STATUS=$?
+                    SBO_TARGET_SELECTION_ERROR="sqg queue generation failed in the private workspace with exit code $SQG_SYNC_STATUS"
+                fi
+            fi
         else
             echo "  sqg no encontrado -- omitiendo sync SBo"
         fi
@@ -2667,26 +2990,28 @@ build_sbo_core_queue() {
 
     echo "[6] Generando colas SBo"
 
-    # FIX #6: Parseo mas robusto de sbopkg.conf — cubre valores con comillas dobles,
-    # comillas simples o sin comillas.
-    SBODIR=$(grep -E '^QUEUEDIR=' "$SBOPKG_CONFIG" 2>/dev/null \
-        | head -1 | cut -d= -f2- | tr -d \"\' | xargs 2>/dev/null || true)
-    if [ -z "$SBODIR" ]; then
-        SBODIR=$SBO_QUEUE_DIR_FALLBACK
-        echo "  [WARN] No se pudo leer QUEUEDIR de sbopkg.conf — usando valor por defecto: $SBODIR"
+    if [ -z "${SBO_PERSONAL_QUEUE_DIR:-}" ]; then
+        if ! resolve_sbo_personal_queue_directory; then
+            echo "  [ERROR] $SBO_TARGET_SELECTION_ERROR"
+            return 1
+        fi
+    fi
+    if [ -z "${SBO_QUEUE_SOURCE_DIR:-}" ]; then
+        SBO_QUEUE_SOURCE_DIR=$SBO_PERSONAL_QUEUE_DIR
     fi
 
     rm -f "$QUEUE_CORE" "$QUEUE_EXTRA" "$SBO_OPTION_RECORDS"
 
-    if [ ! -d "$SBODIR" ]; then
-        echo "  [WARN] Directorio de queues no encontrado: $SBODIR"
+    if [ ! -d "$SBO_QUEUE_SOURCE_DIR" ]; then
+        echo "  [WARN] SBo queue source directory not found: $SBO_QUEUE_SOURCE_DIR"
     fi
 
-    if ! collect_ordered_sbo_targets_from_queue_directory "$SBODIR" "$QUEUE_CORE"; then
+    if ! collect_ordered_sbo_targets_from_queue_directory "$SBO_QUEUE_SOURCE_DIR" "$QUEUE_CORE"; then
         echo "  [ERROR] $SBO_TARGET_SELECTION_ERROR"
         return 1
     fi
-    if ! collect_sbo_option_records_from_sources         "$SBODIR" "$SBO_OPTIONS_FILE" "$SBO_OPTION_RECORDS"; then
+    if ! collect_sbo_option_records_from_sources \
+        "$SBO_QUEUE_SOURCE_DIR" "$SBO_OPTIONS_FILE" "$SBO_OPTION_RECORDS"; then
         echo "  [ERROR] $SBO_TARGET_SELECTION_ERROR"
         return 1
     fi
@@ -2793,6 +3118,17 @@ map_broken_objects_to_sbo_packages() {
     else
         echo "  Sin binarios rotos, nada que anadir"
     fi
+}
+
+build_sbo_target_queues_after_synchronization() {
+    if [ "${SBO_QUEUE_GENERATION_READY:-0}" -ne 1 ]; then
+        if [ -z "${SBO_TARGET_SELECTION_ERROR:-}" ]; then
+            SBO_TARGET_SELECTION_ERROR="private SBo queue generation did not complete successfully"
+        fi
+        return 1
+    fi
+
+    build_sbo_core_queue && add_abi_rebuild_targets
 }
 
 build_and_apply_sbo_queue() {
@@ -3098,6 +3434,16 @@ print_summary() {
     echo "- Opciones SBo preservadas:            $SBO_OPTION_RECORD_COUNT registros"
     echo "- Cola extra (ABI + binarios rotos):  $TOTAL_EXTRA paquetes"
     echo "- Total en cola (enviados a sbopkg):  $TOTAL_EN_COLA paquetes"
+    if [ -n "${SBO_PERSONAL_QUEUE_DIR:-}" ]; then
+        echo "- Directorio de colas personales:     $SBO_PERSONAL_QUEUE_DIR (solo lectura)"
+        echo "- Colas personales copiadas:          $SBO_PERSONAL_QUEUE_FILE_COUNT"
+        echo "- Enlaces de cola ignorados:          $SBO_PERSONAL_QUEUE_SYMLINK_COUNT"
+    fi
+    if [ "${SBO_QUEUE_GENERATION_READY:-0}" -eq 1 ]; then
+        echo "- Workspace privado de sqg:           $SBO_GENERATED_QUEUE_DIR (validado)"
+    elif [ -n "${SBO_GENERATED_QUEUE_DIR:-}" ]; then
+        echo "- Workspace privado de sqg:           no validado"
+    fi
 
     echo
 
@@ -3559,6 +3905,8 @@ print_dry_run_json_modules() {
     printf '      "sbopkg_available": '; json_boolean "$PLAN_SBOPKG_AVAILABLE"; printf ',\n'
     printf '      "sqg_available": '; json_boolean "$PLAN_SQG_AVAILABLE"; printf ',\n'
     printf '      "queue_directory": '; json_string "$SBODIR"; printf ',\n'
+    printf '      "personal_queue_directory": '; json_string "${SBO_PERSONAL_QUEUE_DIR:-$SBODIR}"; printf ',\n'
+    printf '      "queue_workspace_isolated": true,\n'
     printf '      "options_file": '; json_string "${SBO_OPTIONS_FILE:-}"; printf ',\n'
     printf '      "build_option_record_count": %d,\n' "${SBO_OPTION_RECORD_COUNT:-0}"
     printf '      "build_options": '; json_sbo_option_records_from_file "${SBO_OPTION_RECORDS:-}"; printf ',\n'
@@ -3721,6 +4069,12 @@ print_apply_json_modules() {
     printf '      "state": '; json_string "$sbo_state"; printf ',\n'
     printf '      "sync_exit_code": '; json_nullable_status "$SBOPKG_SYNC_STATUS"; printf ',\n'
     printf '      "queue_generation_exit_code": '; json_nullable_status "$SQG_SYNC_STATUS"; printf ',\n'
+    printf '      "personal_queue_directory": '; json_string "${SBO_PERSONAL_QUEUE_DIR:-}"; printf ',\n'
+    printf '      "generated_queue_workspace": '; json_string "${SBO_GENERATED_QUEUE_DIR:-}"; printf ',\n'
+    printf '      "queue_workspace_isolated": true,\n'
+    printf '      "private_queue_generation_ready": '; json_boolean "${SBO_QUEUE_GENERATION_READY:-0}"; printf ',\n'
+    printf '      "personal_queue_files_copied": %d,\n' "${SBO_PERSONAL_QUEUE_FILE_COUNT:-0}"
+    printf '      "personal_queue_symlinks_ignored": %d,\n' "${SBO_PERSONAL_QUEUE_SYMLINK_COUNT:-0}"
     printf '      "options_file": '; json_string "${SBO_OPTIONS_FILE:-}"; printf ',\n'
     printf '      "build_option_record_count": %d,\n' "${SBO_OPTION_RECORD_COUNT:-0}"
     printf '      "build_options": '; json_sbo_option_records_from_file "${SBO_OPTION_RECORDS:-}"; printf ',\n'
@@ -3916,7 +4270,7 @@ run_apply_workflow() {
 
         emit_action_started_event sbo build_queues "Building SBo target queues"
         SBO_TARGET_SELECTION_STATUS=0
-        if build_sbo_core_queue && add_abi_rebuild_targets; then
+        if build_sbo_target_queues_after_synchronization; then
             emit_action_completed_event sbo build_queues success \
                 "Deterministic SBo target sets built" 0
         else
