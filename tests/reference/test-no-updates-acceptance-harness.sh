@@ -9,6 +9,7 @@ ACCEPTANCE_SCRIPT="$REPOSITORY_ROOT/tests/acceptance/reference/test-no-updates.s
 DEFAULT_CONFIG="$REPOSITORY_ROOT/data/config/slack-update.conf"
 CHECK_FIXTURE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/no-updates/check-result.json"
 APPLY_FIXTURE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/no-updates/apply-result.json"
+SLACKWARE_15_ACCEPTED_FIXTURE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/no-updates/slackware-15.0-accepted.json"
 FIXTURE_CONFIG=/var/tmp/slack-update-acceptance/no-updates/example/slack-update.conf
 
 # Source the acceptance helpers without executing the real-system scenario.
@@ -93,6 +94,50 @@ assert_failure_status() {
 
 json_is_valid() {
     python3 -m json.tool "$1" >/dev/null
+}
+
+validate_accepted_evidence_fixture() {
+    local path=$1
+
+    python3 - "$path" <<'PYTHON_EOF'
+import json
+import pathlib
+import sys
+
+path = pathlib.Path(sys.argv[1])
+data = json.loads(path.read_text(encoding="utf-8"))
+
+required = {
+    "scenario": "no-updates",
+    "target": "slackware-15.0",
+    "accepted": True,
+    "archive_sha256": "5a784cd6d830ac271cc3aad02ed89f2e00c2afd63c88f90aabb74b0a81b0b20b",
+}
+for key, expected in required.items():
+    if data.get(key) != expected:
+        raise SystemExit(f"unexpected {key}: {data.get(key)!r}")
+
+if data.get("check", {}).get("exit_code") != 0:
+    raise SystemExit("the accepted check exit code is not zero")
+if data.get("check", {}).get("updates_available") is not False:
+    raise SystemExit("the accepted check reports updates")
+if data.get("apply", {}).get("exit_code") != 0:
+    raise SystemExit("the accepted apply exit code is not zero")
+if data.get("apply", {}).get("slackpkg_install_new_exit_code") != 20:
+    raise SystemExit("the accepted install-new no-package status is not preserved")
+if data.get("apply", {}).get("slackpkg_upgrade_all_exit_code") != 20:
+    raise SystemExit("the accepted upgrade-all no-package status is not preserved")
+if data.get("package_database", {}).get("records_before") != 1594:
+    raise SystemExit("the accepted package count is unexpected")
+if data.get("package_database", {}).get("records_after") != 1594:
+    raise SystemExit("the accepted final package count is unexpected")
+if data.get("package_database", {}).get("unchanged") is not True:
+    raise SystemExit("the accepted package database is not marked unchanged")
+if data.get("boot_state", {}).get("observed_initrd_and_grub_unchanged") is not True:
+    raise SystemExit("the accepted boot state is not marked unchanged")
+if data.get("assertions") != {"passes": 6, "failures": 0}:
+    raise SystemExit("the accepted assertion totals are unexpected")
+PYTHON_EOF
 }
 
 TEST_TMP=$(mktemp -d)
@@ -214,6 +259,10 @@ assert_success 'the expected check fixture should be valid JSON' \
     json_is_valid "$CHECK_FIXTURE"
 assert_success 'the expected apply fixture should be valid JSON' \
     json_is_valid "$APPLY_FIXTURE"
+assert_success 'the accepted Slackware 15.0 evidence fixture should be valid JSON' \
+    json_is_valid "$SLACKWARE_15_ACCEPTED_FIXTURE"
+assert_success 'the accepted Slackware 15.0 evidence fixture should preserve the reviewed contract' \
+    validate_accepted_evidence_fixture "$SLACKWARE_15_ACCEPTED_FIXTURE"
 
 python3 - "$CHECK_FIXTURE" "$TEST_TMP/check-updates.json" <<'PYTHON_EOF'
 import json

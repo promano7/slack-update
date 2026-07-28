@@ -504,10 +504,7 @@ available repository changes. A kernel headers change alone does not produce cod
 The final `exit_code` field emitted by `--json` and the `exit_code` of the final
 `operation_completed` event emitted by `--events` use this stable contract. Exit
 codes attached to intermediate action events remain the raw status of the external
-command represented by that event. For `slackpkg install-new` and
-`slackpkg upgrade-all`, raw status `20` means that no package matched the action;
-the reference preserves `20` in structured output but treats it as a successful
-no-op rather than a partial update. `slackpkg update` still requires status `0`.
+command represented by that event.
 
 - [x] Confirm exit-code semantics.
 - [ ] Ensure shell reference and C implementation return equivalent results.
@@ -913,9 +910,7 @@ requires an explicit `--execute-apply` acknowledgement, first proves that
 `slackpkg check-updates` reports no updates, and then exercises the real apply
 workflow with Flatpak, SBo, ELF, Cinnamon, and boot preparation disabled so the
 case remains isolated. Expected structured check and apply outputs are stored
-under `tests/fixtures/reference/acceptance/no-updates/`. The apply contract
-accepts raw `0` or `20` for `install-new` and `upgrade-all`, while requiring raw
-`0` for `slackpkg update` and stable process code `0` overall.
+under `tests/fixtures/reference/acceptance/no-updates/`.
 
 Run it separately on each mandatory target:
 
@@ -936,6 +931,11 @@ configuration unchanged. Each run produces a private evidence archive and a
 SHA-256 sidecar below `/var/tmp/slack-update-acceptance/no-updates/` by default.
 When invoked through `sudo`, both published files are assigned to the invoking
 user with mode `0600`; the uncompressed evidence directory remains root-only.
+Slackware 15.0 passed on 2026-07-28 with 1,594 unchanged package records and
+archive SHA-256
+`5a784cd6d830ac271cc3aad02ed89f2e00c2afd63c88f90aabb74b0a81b0b20b`.
+Its sanitized acceptance record is stored alongside the expected fixtures;
+Slackware-current remains pending.
 The scenario invokes the reference through `bash`, so extraction tools that lose
 Unix executable bits do not prevent the test from running. Package-database
 enumeration follows the command-line `/var/log/packages` compatibility symlink
@@ -947,7 +947,7 @@ contract.
 
 - [ ] Fully updated system with no available changes.
   - [x] Reproducible scenario, validators, and expected fixtures implemented.
-  - [ ] Slackware 15.0 evidence accepted; the first run exposed the `/var/log/packages` compatibility symlink, and the second reached `slackpkg` but exposed its successful no-package status `20` for `install-new` and `upgrade-all`. Both runs preserved the installed package database and observed boot state. Both compatibility fixes are implemented and a third clean run is pending.
+  - [x] Slackware 15.0 evidence accepted on 2026-07-28: check and apply returned stable code `0`, 1,594 package records and observed boot state were unchanged, and the reviewed archive SHA-256 is `5a784cd6d830ac271cc3aad02ed89f2e00c2afd63c88f90aabb74b0a81b0b20b`.
   - [ ] Slackware-current evidence accepted.
 - [ ] Normal Slackware package update.
 - [ ] `install-new` introduces new packages.
@@ -1487,5 +1487,7 @@ Slack-Update 1.0 will be ready when:
 - [x] Confirm errors produce non-zero exit codes.
 - [x] Confirm cron execution works with a minimal environment.
 - [ ] Execute and document the Phase 1 acceptance matrix on Slackware 15.0 and Slackware-current.
+  - [x] Accept the fully updated no-updates scenario on Slackware 15.0.
+  - [ ] Accept the fully updated no-updates scenario on Slackware-current.
 - [ ] Freeze `reference-v1`.
 - [ ] Begin the C architecture only after the reference gate is complete.

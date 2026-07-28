@@ -45,6 +45,15 @@ sudo bash tests/acceptance/reference/test-no-updates.sh \
     --execute-apply
 ```
 
+Slackware 15.0 passed this scenario on 2026-07-28. The reviewed run returned
+stable code `0` for both check and apply, preserved 1,594 package records,
+retained raw `slackpkg` no-package statuses `20`, produced empty package and
+boot diffs, and created evidence archive SHA-256
+`5a784cd6d830ac271cc3aad02ed89f2e00c2afd63c88f90aabb74b0a81b0b20b`.
+The sanitized acceptance record is stored in
+`tests/fixtures/reference/acceptance/no-updates/slackware-15.0-accepted.json`.
+Slackware-current remains pending.
+
 Invoke the scenario through `bash` as shown above. This avoids depending on executable bits being preserved by the ZIP extraction or shared-folder filesystem.
 
 By default, evidence is stored below:
@@ -54,6 +63,24 @@ By default, evidence is stored below:
 ```
 
 The default parent directory is traversable, the archive and sidecar are owned by the `sudo` caller, and the expanded timestamped directory remains accessible only to root. The harness also prints the stable result and individual Slackware command statuses when structured validation fails.
+
+If ownership was not preserved by the host or shared-folder workflow, copy the
+newest archive and sidecar to the current user's home directory explicitly:
+
+```bash
+archive=$(sudo sh -c \
+    'ls -1t /var/tmp/slack-update-acceptance/no-updates/*.tar.gz 2>/dev/null | head -n 1')
+owner=$(id -un)
+group=$(id -gn)
+
+sudo install -o "$owner" -g "$group" -m 0600 \
+    "$archive" \
+    "$HOME/$(basename "$archive")"
+
+sudo install -o "$owner" -g "$group" -m 0600 \
+    "$archive.sha256" \
+    "$HOME/$(basename "$archive.sha256")"
+```
 
 The reference and host-metadata capture follow `/var/log/packages` when it is a
 command-line compatibility symlink to the real `pkgtools` database. The reference

@@ -1,0 +1,45 @@
+{
+  "scenario": "no-updates",
+  "target": "slackware-15.0",
+  "accepted": true,
+  "captured_at": "2026-07-28T17:55:22Z",
+  "archive_sha256": "5a784cd6d830ac271cc3aad02ed89f2e00c2afd63c88f90aabb74b0a81b0b20b",
+  "reference_sha256": "69030355c0c9de65af4bedbb11ac7537e3a63d1e6ad79d6a96e806adb61662a5",
+  "config_template_sha256": "4845e2c5038fe8896409f90b6287de33a011a76874229cb76479aa6cd4253bba",
+  "platform": {
+    "slackware_version": "Slackware 15.0",
+    "kernel_version": "5.15.209",
+    "architecture": "x86_64",
+    "slackpkg_package": "slackpkg-15.0.10-noarch-1"
+  },
+  "check": {
+    "exit_code": 0,
+    "success": true,
+    "partial": false,
+    "updates_available": false
+  },
+  "apply": {
+    "exit_code": 0,
+    "success": true,
+    "partial": false,
+    "reboot": "none",
+    "boot_safe": true,
+    "slackpkg_update_exit_code": 0,
+    "slackpkg_install_new_exit_code": 20,
+    "slackpkg_upgrade_all_exit_code": 20
+  },
+  "package_database": {
+    "configured_path": "/var/log/packages",
+    "resolved_path": "/var/lib/pkgtools/packages",
+    "records_before": 1594,
+    "records_after": 1594,
+    "unchanged": true
+  },
+  "boot_state": {
+    "observed_initrd_and_grub_unchanged": true
+  },
+  "assertions": {
+    "passes": 6,
+    "failures": 0
+  }
+}
