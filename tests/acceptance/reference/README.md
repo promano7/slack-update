@@ -109,11 +109,22 @@ sudo bash tests/acceptance/reference/test-normal-update.sh \
     --preflight
 ```
 
-Preflight runs `slackpkg install-new` and `slackpkg upgrade-all` with dialog
-output disabled, batch mode enabled, and a negative default answer. It stores the
-raw output, extracts candidate package filenames, classifies kernel and critical
+Preflight first refreshes package metadata with non-interactive `slackpkg update`,
+then runs `slackpkg install-new` and `slackpkg upgrade-all` with dialog output
+disabled, batch mode enabled, and a negative default answer. It stores all raw
+output, extracts candidate package filenames, classifies kernel and critical
 packages, and proves that neither `/var/log/packages` nor the observed initrd and
-GRUB configuration changed.
+GRUB configuration changed. Apply repeats this refresh-and-classify boundary
+immediately before authorization, preventing stale local metadata from bypassing
+the kernel safety gate.
+
+The Slackware-current preflight captured on 2026-07-29 is accepted. It reported
+ten `upgrade-all` candidates, no `install-new` candidates, no kernel candidates,
+no configured critical candidates, and no package-database or boot-state changes.
+The sanitized record is stored at
+`tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-accepted.json`.
+Apply remains pending until the separately confirmed real workflow is executed and
+its evidence is reviewed. The accepted candidate-set SHA-256 is `a8a608d8aac53c0d9f027622c01df4f794e94e8dd4586764b8d2503f9b94e45d`.
 
 Do not run apply mode until the preflight archive has been reviewed. Apply mode
 requires the exact current hostname:
@@ -122,11 +133,16 @@ requires the exact current hostname:
 sudo bash tests/acceptance/reference/test-normal-update.sh \
     --target slackware-current \
     --execute-apply \
-    --confirm-hostname "$(hostname)"
+    --confirm-hostname "$(hostname)" \
+    --confirm-candidates-sha256 a8a608d8aac53c0d9f027622c01df4f794e94e8dd4586764b8d2503f9b94e45d
 ```
 
 When preflight reports kernel candidates, apply remains blocked unless the
-additional `--allow-kernel-update` option is supplied. Flatpak, SBo, ELF, and
+additional `--allow-kernel-update` option is supplied. Configured critical
+packages are independently blocked unless `--allow-critical-update` is supplied.
+The refreshed `all.candidates.txt` must also match the explicitly supplied
+`--confirm-candidates-sha256`; any candidate-set change blocks apply before package
+installation. Flatpak, SBo, ELF, and
 Cinnamon are disabled for this scenario. Boot preparation stays in `auto` mode;
 a detected kernel change must produce validated initrd and GRUB updates and the
 stable reboot-required status.

@@ -1,0 +1,50 @@
+{
+  "scenario": "normal-update",
+  "mode": "preflight",
+  "target": "slackware-current",
+  "accepted": true,
+  "captured_at": "2026-07-29T17:32:38Z",
+  "archive_sha256": "ab5601a1c4a103dae1ac603ebb7c60d96ff8b90513176d92646dc4082450c14b",
+  "reference_sha256": "69030355c0c9de65af4bedbb11ac7537e3a63d1e6ad79d6a96e806adb61662a5",
+  "config_template_sha256": "4845e2c5038fe8896409f90b6287de33a011a76874229cb76479aa6cd4253bba",
+  "platform": {
+    "slackware_version": "Slackware 15.0+",
+    "kernel_version": "6.18.40",
+    "architecture": "x86_64",
+    "slackpkg_package": "slackpkg-15.0.10-noarch-5"
+  },
+  "candidates": {
+    "install_new": [],
+    "upgrade_all": [
+      "cmake-4.4.1-x86_64-1.txz",
+      "libarchive-3.8.9-x86_64-1.txz",
+      "libcec-8.1.1-x86_64-1.txz",
+      "libfprint-1.94.100-x86_64-1.txz",
+      "libopusenc-0.3-x86_64-2.txz",
+      "libssh-0.12.2-x86_64-1.txz",
+      "pipewire-1.6.8-x86_64-3.txz",
+      "samba-4.24.5-x86_64-1.txz",
+      "seamonkey-2.53.24-x86_64-1.txz",
+      "suitesparse-7.12.3-x86_64-1.txz"
+    ],
+    "total": 10,
+    "kernel": [],
+    "critical": [],
+    "candidate_set_sha256": "a8a608d8aac53c0d9f027622c01df4f794e94e8dd4586764b8d2503f9b94e45d"
+  },
+  "package_database": {
+    "configured_path": "/var/log/packages",
+    "resolved_path": "/var/lib/pkgtools/packages",
+    "records_before": 2039,
+    "records_after_preflight": 2039,
+    "unchanged": true
+  },
+  "boot_state": {
+    "observed_initrd_and_grub_unchanged": true
+  },
+  "assertions": {
+    "passes": 5,
+    "failures": 0
+  },
+  "apply_authorized": false
+}

@@ -1513,5 +1513,11 @@ Slack-Update 1.0 will be ready when:
 - [ ] Execute and document the Phase 1 acceptance matrix on Slackware 15.0 and Slackware-current.
   - [x] Accept the fully updated no-updates scenario on Slackware 15.0.
   - [x] Accept the fully updated no-updates scenario on Slackware-current.
+  - [x] Accept the non-destructive normal-update preflight on Slackware-current.
+  - [x] Refresh and reclassify package metadata immediately before normal-update apply authorization.
+  - [x] Require separate authorization for kernel and critical normal-update candidates.
+  - [x] Require an exact reviewed candidate-set SHA-256 before normal-update apply.
+  - [ ] Accept the real normal-update apply workflow on Slackware-current.
+  - [ ] Accept the normal-update scenario on Slackware 15.0 when updates are available.
 - [ ] Freeze `reference-v1`.
 - [ ] Begin the C architecture only after the reference gate is complete.

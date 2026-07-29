@@ -16,7 +16,9 @@ OUTPUT_DIR=
 REFERENCE_SCRIPT=$DEFAULT_REFERENCE_SCRIPT
 CONFIG_TEMPLATE=$DEFAULT_CONFIG_TEMPLATE
 CONFIRM_HOSTNAME=
+CONFIRM_CANDIDATES_SHA256=
 ALLOW_KERNEL_UPDATE=0
+ALLOW_CRITICAL_UPDATE=0
 PASS_COUNT=0
 FAILURE_COUNT=0
 ASSERTION_LOG=
@@ -28,18 +30,20 @@ UPGRADE_CANDIDATE_COUNT=0
 TOTAL_CANDIDATE_COUNT=0
 KERNEL_CANDIDATE_COUNT=0
 CRITICAL_CANDIDATE_COUNT=0
+CANDIDATE_SET_SHA256=
 
 print_usage() {
     cat <<EOF_USAGE
 Usage: ${0##*/} --target slackware-15.0|slackware-current --preflight [options]
        ${0##*/} --target slackware-15.0|slackware-current --execute-apply \\
-                     --confirm-hostname HOSTNAME [options]
+                     --confirm-hostname HOSTNAME \\
+                     --confirm-candidates-sha256 SHA256 [options]
 
 Run the real-system acceptance scenario for a normal Slackware package update.
-Always run --preflight first. Preflight asks slackpkg to generate the actual
-install-new and upgrade-all candidate lists with a negative default answer,
-then proves that the installed package database and observed boot files were
-not modified.
+Always run --preflight first. Each mode refreshes Slackware package metadata,
+then asks slackpkg to generate the actual install-new and upgrade-all candidate
+lists with a negative default answer. Preflight proves that the installed
+package database and observed boot files were not modified.
 
 The apply mode performs real package changes. On physical hardware, review the
 preflight evidence and have a tested recovery path before using it.
@@ -49,9 +53,12 @@ Required options:
       --preflight              Detect candidates without installing them
       --execute-apply          Run the real Slack-Update apply workflow
       --confirm-hostname NAME  Required with --execute-apply; must match hostname
+      --confirm-candidates-sha256 SHA256
+                              Require the exact reviewed candidate-set digest
 
 Optional arguments:
       --allow-kernel-update    Permit apply when preflight finds kernel packages
+      --allow-critical-update  Permit apply when preflight finds critical packages
       --output-dir PATH        Store evidence under an absolute, new directory
       --reference-script PATH  Select the reference script under test
       --config-template PATH   Select the schema-1 configuration template
@@ -195,8 +202,20 @@ parse_arguments() {
                 CONFIRM_HOSTNAME=$2
                 shift 2
                 ;;
+            --confirm-candidates-sha256)
+                [ "$#" -ge 2 ] || {
+                    error '--confirm-candidates-sha256 requires a value'
+                    return 1
+                }
+                CONFIRM_CANDIDATES_SHA256=$2
+                shift 2
+                ;;
             --allow-kernel-update)
                 ALLOW_KERNEL_UPDATE=1
+                shift
+                ;;
+            --allow-critical-update)
+                ALLOW_CRITICAL_UPDATE=1
                 shift
                 ;;
             --output-dir)
@@ -245,6 +264,21 @@ parse_arguments() {
                 error '--confirm-hostname is required with --execute-apply'
                 return 1
             }
+            [ -n "$CONFIRM_CANDIDATES_SHA256" ] || {
+                error '--confirm-candidates-sha256 is required with --execute-apply'
+                return 1
+            }
+            [ "${#CONFIRM_CANDIDATES_SHA256}" -eq 64 ] || {
+                error '--confirm-candidates-sha256 must contain exactly 64 hexadecimal characters'
+                return 1
+            }
+            case "$CONFIRM_CANDIDATES_SHA256" in
+                *[!0-9A-Fa-f]*)
+                    error '--confirm-candidates-sha256 must contain exactly 64 hexadecimal characters'
+                    return 1
+                    ;;
+            esac
+            CONFIRM_CANDIDATES_SHA256=${CONFIRM_CANDIDATES_SHA256,,}
             ;;
         *)
             error 'select exactly one of --preflight or --execute-apply'
@@ -436,6 +470,18 @@ critical_path.write_text("".join(f"{item}\n" for item in critical), encoding="ut
 PYTHON_EOF
 }
 
+run_metadata_refresh() {
+    local output=$1
+    local status_output=$2
+    local status=0
+
+    LC_ALL=C LANG=C TERM=dumb \
+        slackpkg -dialog=off -batch=on -default_answer=y update \
+        > "$output" 2>&1 || status=$?
+    printf '%d\n' "$status" > "$status_output"
+    return "$status"
+}
+
 run_candidate_probe() {
     local action=$1
     local output=$2
@@ -575,8 +621,10 @@ write_summary() {
         printf 'install_new_candidates=%d\n' "$INSTALL_NEW_CANDIDATE_COUNT"
         printf 'upgrade_candidates=%d\n' "$UPGRADE_CANDIDATE_COUNT"
         printf 'total_candidates=%d\n' "$TOTAL_CANDIDATE_COUNT"
+        printf 'candidate_set_sha256=%s\n' "${CANDIDATE_SET_SHA256:-not-calculated}"
         printf 'kernel_candidates=%d\n' "$KERNEL_CANDIDATE_COUNT"
         printf 'critical_candidates=%d\n' "$CRITICAL_CANDIDATE_COUNT"
+        printf 'metadata_update_exit_code=%s\n' "$(cat "$OUTPUT_DIR/metadata.update.exit" 2>/dev/null || printf 'not-run')"
         printf 'apply_exit_code=%s\n' "$(cat "$OUTPUT_DIR/apply.exit" 2>/dev/null || printf 'not-run')"
         printf 'evidence_directory=%s\n' "$OUTPUT_DIR"
     } > "$summary_path"
@@ -652,6 +700,7 @@ finish_with_evidence() {
 
 main() {
     local timestamp
+    local metadata_update_status
     local install_probe_status
     local upgrade_probe_status
     local apply_status
@@ -728,6 +777,14 @@ main() {
     capture_package_database /var/log/packages "$OUTPUT_DIR/packages.before.sha256" || return 2
     capture_boot_state "$OUTPUT_DIR/boot.before.txt" || return 2
 
+    printf 'Refreshing Slackware package metadata before candidate classification...\n'
+    run_metadata_refresh "$OUTPUT_DIR/metadata.update.log" "$OUTPUT_DIR/metadata.update.exit"
+    metadata_update_status=$?
+    case "$metadata_update_status" in
+        0) record_pass 'Slackware package metadata was refreshed before candidate classification' ;;
+        *) record_failure "Slackware package metadata refresh failed with status $metadata_update_status" ;;
+    esac
+
     printf 'Detecting real install-new candidates without installing them...\n'
     run_candidate_probe install-new "$OUTPUT_DIR/install-new.probe.log" "$OUTPUT_DIR/install-new.probe.exit"
     install_probe_status=$?
@@ -763,6 +820,7 @@ main() {
     TOTAL_CANDIDATE_COUNT=$(wc -l < "$OUTPUT_DIR/all.candidates.txt")
     KERNEL_CANDIDATE_COUNT=$(wc -l < "$OUTPUT_DIR/kernel.candidates.txt")
     CRITICAL_CANDIDATE_COUNT=$(wc -l < "$OUTPUT_DIR/critical.candidates.txt")
+    CANDIDATE_SET_SHA256=$(sha256sum -- "$OUTPUT_DIR/all.candidates.txt" | awk '{print $1}')
 
     if [ "$TOTAL_CANDIDATE_COUNT" -gt 0 ]; then
         record_pass "slackpkg reports $TOTAL_CANDIDATE_COUNT real package candidate(s)"
@@ -788,6 +846,7 @@ main() {
     printf 'Candidate summary: install-new=%d, upgrade-all=%d, total=%d, kernel=%d, critical=%d\n' \
         "$INSTALL_NEW_CANDIDATE_COUNT" "$UPGRADE_CANDIDATE_COUNT" "$TOTAL_CANDIDATE_COUNT" \
         "$KERNEL_CANDIDATE_COUNT" "$CRITICAL_CANDIDATE_COUNT"
+    printf 'Candidate set SHA-256: %s\n' "$CANDIDATE_SET_SHA256"
 
     if [ "$MODE" = preflight ]; then
         printf 'Preflight only: no package installation was authorized.\n'
@@ -800,9 +859,21 @@ main() {
         finish_with_evidence
         return 1
     fi
+    if [ "$CANDIDATE_SET_SHA256" != "$CONFIRM_CANDIDATES_SHA256" ]; then
+        record_failure 'the refreshed candidate set does not match the explicitly reviewed SHA-256'
+        error 'real apply was not executed because the package candidate set changed'
+        finish_with_evidence
+        return 1
+    fi
     if [ "$KERNEL_CANDIDATE_COUNT" -gt 0 ] && [ "$ALLOW_KERNEL_UPDATE" -ne 1 ]; then
         record_failure 'kernel candidates require the explicit --allow-kernel-update option'
         error 'real apply was not executed because kernel packages are candidates'
+        finish_with_evidence
+        return 1
+    fi
+    if [ "$CRITICAL_CANDIDATE_COUNT" -gt 0 ] && [ "$ALLOW_CRITICAL_UPDATE" -ne 1 ]; then
+        record_failure 'critical candidates require the explicit --allow-critical-update option'
+        error 'real apply was not executed because critical packages are candidates'
         finish_with_evidence
         return 1
     fi
