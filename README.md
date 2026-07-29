@@ -961,7 +961,10 @@ Review the resulting candidate files and evidence before using apply mode. A
 real apply requires the exact local hostname, and kernel candidates require a
 second explicit acknowledgement. Flatpak, SBo, ELF, and Cinnamon remain
 disabled for isolation, while boot preparation stays in `auto` mode so kernel
-changes must complete initrd and GRUB handling safely.
+changes must complete initrd and GRUB handling safely. Unattended package
+operations disable slackpkg post-install processing with `-postinst=off`, keep
+active configuration files, enumerate pending regular `/etc/*.new` files, and
+report them for a later administrator-controlled `slackpkg new-config` review.
 
 ### Real-system acceptance matrix
 
@@ -971,8 +974,9 @@ changes must complete initrd and GRUB handling safely.
   - [x] Slackware-current evidence accepted on 2026-07-28: check and apply returned stable code `0`, 2,035 package records and observed boot state were unchanged, and the reviewed archive SHA-256 is `ba0c1264d57df5acf6bee843391113327736683ede36ec3d708d58ca174a2976`.
 - [ ] Normal Slackware package update.
   - [x] Non-destructive candidate preflight, physical-host safety gates, evidence packaging, and focused automated tests implemented.
-  - [ ] Slackware-current preflight evidence reviewed.
-  - [ ] Slackware-current real apply evidence accepted.
+  - [x] Slackware-current preflight evidence reviewed.
+  - [x] Slackware-current ten-package transaction reviewed and accepted as package/boot evidence.
+  - [ ] Revalidate the hardened deferred `.new` policy during the next Slackware-current update.
   - [ ] Slackware 15.0 preflight and real apply evidence accepted.
 - [ ] `install-new` introduces new packages.
 - [ ] Kernel package update.
@@ -1517,7 +1521,8 @@ Slack-Update 1.0 will be ready when:
   - [x] Refresh and reclassify package metadata immediately before normal-update apply authorization.
   - [x] Require separate authorization for kernel and critical normal-update candidates.
   - [x] Require an exact reviewed candidate-set SHA-256 before normal-update apply.
-  - [ ] Accept the real normal-update apply workflow on Slackware-current.
+  - [x] Review and accept the ten-package Slackware-current transaction as package and boot evidence.
+  - [ ] Revalidate the hardened deferred `.new` policy on the next Slackware-current update.
   - [ ] Accept the normal-update scenario on Slackware 15.0 when updates are available.
 - [ ] Freeze `reference-v1`.
 - [ ] Begin the C architecture only after the reference gate is complete.

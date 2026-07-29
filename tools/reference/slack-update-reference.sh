@@ -1967,6 +1967,11 @@ initialize_runtime_state() {
     SLACKPKG_UPDATE_STATUS=-1
     SLACKPKG_INSTALL_NEW_STATUS=-1
     SLACKPKG_UPGRADE_ALL_STATUS=-1
+    SLACKPKG_POSTINST_POLICY=defer
+    PENDING_NEW_CONFIG_FILES_VALID=0
+    PENDING_NEW_CONFIG_FILES_COUNT=0
+    PENDING_NEW_CONFIG_FILES_ERROR=
+    PENDING_NEW_CONFIG_FILES=
     FLATPAK_STATUS=-1
     SBOPKG_SYNC_STATUS=-1
     SQG_SYNC_STATUS=-1
@@ -2029,6 +2034,7 @@ initialize_runtime() {
 
     BEFORE_PKGS="$WORKDIR/packages.before"
     AFTER_PKGS="$WORKDIR/packages.after"
+    PENDING_NEW_CONFIG_FILES="$WORKDIR/slackware-new-config-files.txt"
 
     # Temporary files are created here so the trap covers them immediately.
     if ! QUEUE_FINAL=$(mktemp); then
@@ -2092,6 +2098,7 @@ initialize_dry_run_runtime() {
     ELF_LIBRARY_CACHE="$WORKDIR/elf-library-cache.txt"
     BEFORE_PKGS="$WORKDIR/packages.before"
     AFTER_PKGS="$WORKDIR/packages.after"
+    PENDING_NEW_CONFIG_FILES="$WORKDIR/slackware-new-config-files.txt"
     ABI_CANDIDATES="$WORKDIR/abi-rebuild-candidates.txt"
 
     RUNTIME_TMPDIR="$WORKDIR"
@@ -2433,12 +2440,12 @@ print_dry_run_plan() {
     echo "  Planned commands:"
     echo "      slackpkg -batch=on -default_answer=y update"
     if [ "$SLACKWARE_INSTALL_NEW" = true ]; then
-        echo "      slackpkg -batch=on -default_answer=y install-new"
+        echo "      slackpkg -batch=on -default_answer=y -postinst=off install-new"
     else
         echo "      (install-new disabled by configuration)"
     fi
     if [ "$SLACKWARE_UPGRADE_ALL" = true ]; then
-        echo "      slackpkg -batch=on -default_answer=y upgrade-all"
+        echo "      slackpkg -batch=on -default_answer=y -postinst=off upgrade-all"
     else
         echo "      (upgrade-all disabled by configuration)"
     fi
@@ -2712,6 +2719,29 @@ slackpkg_apply_action_failed() {
     esac
 }
 
+capture_pending_new_config_files() {
+    PENDING_NEW_CONFIG_FILES_VALID=0
+    PENDING_NEW_CONFIG_FILES_COUNT=0
+    PENDING_NEW_CONFIG_FILES_ERROR=
+
+    if [ -z "${PENDING_NEW_CONFIG_FILES:-}" ]; then
+        PENDING_NEW_CONFIG_FILES_ERROR="pending .new configuration-file path is not initialized"
+        return 1
+    fi
+    if ! : > "$PENDING_NEW_CONFIG_FILES"; then
+        PENDING_NEW_CONFIG_FILES_ERROR="cannot initialize pending .new configuration-file list"
+        return 1
+    fi
+    if ! find -H /etc -xdev -type f -name '*.new' -print \
+        | LC_ALL=C sort > "$PENDING_NEW_CONFIG_FILES"; then
+        PENDING_NEW_CONFIG_FILES_ERROR="cannot enumerate pending .new configuration files under /etc"
+        return 1
+    fi
+
+    PENDING_NEW_CONFIG_FILES_COUNT=$(wc -l < "$PENDING_NEW_CONFIG_FILES")
+    PENDING_NEW_CONFIG_FILES_VALID=1
+}
+
 update_slackware_system() {
     # ---------------------------
     # [1] UPDATE SYSTEM
@@ -2724,16 +2754,22 @@ update_slackware_system() {
 
     if [ "$SLACKWARE_INSTALL_NEW" = true ]; then
         SLACKPKG_INSTALL_NEW_STATUS=0
-        slackpkg -batch=on -default_answer=y install-new || SLACKPKG_INSTALL_NEW_STATUS=$?
+        slackpkg -batch=on -default_answer=y -postinst=off install-new || SLACKPKG_INSTALL_NEW_STATUS=$?
     else
         echo "  install-new disabled by configuration"
     fi
 
     if [ "$SLACKWARE_UPGRADE_ALL" = true ]; then
         SLACKPKG_UPGRADE_ALL_STATUS=0
-        slackpkg -batch=on -default_answer=y upgrade-all || SLACKPKG_UPGRADE_ALL_STATUS=$?
+        slackpkg -batch=on -default_answer=y -postinst=off upgrade-all || SLACKPKG_UPGRADE_ALL_STATUS=$?
     else
         echo "  upgrade-all disabled by configuration"
+    fi
+
+    if ! capture_pending_new_config_files; then
+        echo "  [WARN] Pending .new configuration files could not be enumerated: $PENDING_NEW_CONFIG_FILES_ERROR"
+    elif [ "$PENDING_NEW_CONFIG_FILES_COUNT" -gt 0 ]; then
+        echo "  [WARN] $PENDING_NEW_CONFIG_FILES_COUNT pending .new configuration file(s) require manual review"
     fi
 }
 
@@ -4273,6 +4309,21 @@ print_summary() {
 
     echo
 
+    echo "- Politica de configuracion post-instalacion: conservar archivos actuales"
+    echo "  -> El procesamiento interactivo de slackpkg esta desactivado durante install-new y upgrade-all."
+    if [ "$PENDING_NEW_CONFIG_FILES_VALID" -eq 1 ]; then
+        echo "  -> Archivos .new pendientes de revision manual: $PENDING_NEW_CONFIG_FILES_COUNT"
+        if [ "$PENDING_NEW_CONFIG_FILES_COUNT" -gt 0 ]; then
+            while IFS= read -r pending_config || [ -n "$pending_config" ]; do
+                echo "    * $pending_config"
+            done < "$PENDING_NEW_CONFIG_FILES"
+        fi
+    else
+        echo "  -> [WARN] No se pudo enumerar los archivos .new pendientes${PENDING_NEW_CONFIG_FILES_ERROR:+: $PENDING_NEW_CONFIG_FILES_ERROR}"
+    fi
+
+    echo
+
     if [ "$SECONDARY_MODULES_BLOCKED" -eq 1 ]; then
         echo "- [ERROR] Modulos secundarios bloqueados: $SECONDARY_MODULES_BLOCK_REASON"
         echo "  -> Flatpak, analisis de paquetes, SBo, ELF, Cinnamon y boot no se iniciaron."
@@ -4678,6 +4729,11 @@ prepare_json_messages() {
                 && RESULT_ERRORS+=("slackpkg install-new failed with exit code $SLACKPKG_INSTALL_NEW_STATUS")
             slackpkg_apply_action_failed upgrade-all "$SLACKPKG_UPGRADE_ALL_STATUS" \
                 && RESULT_ERRORS+=("slackpkg upgrade-all failed with exit code $SLACKPKG_UPGRADE_ALL_STATUS")
+            if [ "$PENDING_NEW_CONFIG_FILES_VALID" -ne 1 ]; then
+                RESULT_WARNINGS+=("Pending Slackware .new configuration files could not be enumerated: ${PENDING_NEW_CONFIG_FILES_ERROR:-unknown scan failure}")
+            elif [ "$PENDING_NEW_CONFIG_FILES_COUNT" -gt 0 ]; then
+                RESULT_WARNINGS+=("$PENDING_NEW_CONFIG_FILES_COUNT pending Slackware .new configuration file(s) require manual review")
+            fi
             [ "$FLATPAK_STATUS" -gt 0 ] \
                 && RESULT_ERRORS+=("flatpak update failed with exit code $FLATPAK_STATUS")
             [ "$SBOPKG_SYNC_STATUS" -gt 0 ] \
@@ -4837,10 +4893,10 @@ print_dry_run_json_modules() {
     printf '      "planned_commands": ['
     json_string 'slackpkg -batch=on -default_answer=y update'
     if [ "$SLACKWARE_INSTALL_NEW" = true ]; then
-        printf ', '; json_string 'slackpkg -batch=on -default_answer=y install-new'
+        printf ', '; json_string 'slackpkg -batch=on -default_answer=y -postinst=off install-new'
     fi
     if [ "$SLACKWARE_UPGRADE_ALL" = true ]; then
-        printf ', '; json_string 'slackpkg -batch=on -default_answer=y upgrade-all'
+        printf ', '; json_string 'slackpkg -batch=on -default_answer=y -postinst=off upgrade-all'
     fi
     printf ']\n'
     printf '    },\n'
@@ -5014,6 +5070,12 @@ print_apply_json_modules() {
     printf '      "update_exit_code": '; json_nullable_status "$SLACKPKG_UPDATE_STATUS"; printf ',\n'
     printf '      "install_new_exit_code": '; json_nullable_status "$SLACKPKG_INSTALL_NEW_STATUS"; printf ',\n'
     printf '      "upgrade_all_exit_code": '; json_nullable_status "$SLACKPKG_UPGRADE_ALL_STATUS"; printf ',\n'
+    printf '      "postinstall_policy": '; json_string "$SLACKPKG_POSTINST_POLICY"; printf ',\n'
+    printf '      "postinstall_processing_enabled": false,\n'
+    printf '      "pending_new_config_files_valid": '; json_boolean "$PENDING_NEW_CONFIG_FILES_VALID"; printf ',\n'
+    printf '      "pending_new_config_files_count": %d,\n' "$PENDING_NEW_CONFIG_FILES_COUNT"
+    printf '      "pending_new_config_files_error": '; json_string "$PENDING_NEW_CONFIG_FILES_ERROR"; printf ',\n'
+    printf '      "pending_new_config_files": '; json_string_array_from_file "${PENDING_NEW_CONFIG_FILES:-}"; printf ',\n'
     printf '      "snapshot_before_valid": '; json_boolean "$PACKAGE_SNAPSHOT_BEFORE_VALID"; printf ',\n'
     printf '      "snapshot_before_records": %d,\n' "$PACKAGE_SNAPSHOT_BEFORE_COUNT"
     printf '      "snapshot_before_error": '; json_string "$PACKAGE_SNAPSHOT_BEFORE_ERROR"; printf ',\n'

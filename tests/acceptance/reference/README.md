@@ -123,8 +123,19 @@ ten `upgrade-all` candidates, no `install-new` candidates, no kernel candidates,
 no configured critical candidates, and no package-database or boot-state changes.
 The sanitized record is stored at
 `tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-accepted.json`.
-Apply remains pending until the separately confirmed real workflow is executed and
-its evidence is reviewed. The accepted candidate-set SHA-256 is `a8a608d8aac53c0d9f027622c01df4f794e94e8dd4586764b8d2503f9b94e45d`.
+The confirmed physical-host apply later refreshed the same candidate digest,
+returned stable code `0`, upgraded exactly those ten packages, retained 2,039
+package records, detected the expected ABI change through PipeWire, and left
+kernel, initrd, and GRUB state unchanged. Its archive SHA-256 is
+`00679a69d9c40033db74b4a73525651a42d0d72b293ec536d1181e87e2ab7e66`, and
+the reviewed record is stored at
+`tests/fixtures/reference/acceptance/normal-update/slackware-current-apply-reviewed.json`.
+The transaction is accepted as package and boot evidence, but the run exposed 27
+`.new` files reaching slackpkg's interactive post-install menu with the generic
+batch answer `y`. The reference therefore now disables post-install processing,
+keeps current configurations, enumerates pending regular `/etc/*.new` files, and
+requires revalidation of that hardened policy during the next available update.
+The accepted candidate-set SHA-256 remains `a8a608d8aac53c0d9f027622c01df4f794e94e8dd4586764b8d2503f9b94e45d`.
 
 Do not run apply mode until the preflight archive has been reviewed. Apply mode
 requires the exact current hostname:
@@ -142,8 +153,10 @@ additional `--allow-kernel-update` option is supplied. Configured critical
 packages are independently blocked unless `--allow-critical-update` is supplied.
 The refreshed `all.candidates.txt` must also match the explicitly supplied
 `--confirm-candidates-sha256`; any candidate-set change blocks apply before package
-installation. Flatpak, SBo, ELF, and
-Cinnamon are disabled for this scenario. Boot preparation stays in `auto` mode;
+installation. `install-new` and `upgrade-all` run with `-postinst=off`, so the
+active configuration files remain in place and pending regular `/etc/*.new` files
+are listed in human and structured output for a later explicit `slackpkg new-config`
+review. Flatpak, SBo, ELF, and Cinnamon are disabled for this scenario. Boot preparation stays in `auto` mode;
 a detected kernel change must produce validated initrd and GRUB updates and the
 stable reboot-required status.
 

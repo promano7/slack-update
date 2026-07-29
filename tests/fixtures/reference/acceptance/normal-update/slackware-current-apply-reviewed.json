@@ -1,0 +1,75 @@
+{
+  "scenario": "normal-update",
+  "mode": "apply",
+  "target": "slackware-current",
+  "accepted": false,
+  "package_transaction_accepted": true,
+  "reference_revalidation_required": true,
+  "revalidation_reason": "The reviewed run exposed slackpkg receiving the global batch answer y for the K/O/R/P new-configuration menu. The reference now disables post-install processing during install-new and upgrade-all, enumerates pending .new files, and reports a structured warning.",
+  "captured_at": "2026-07-29T18:02:17Z",
+  "archive_sha256": "00679a69d9c40033db74b4a73525651a42d0d72b293ec536d1181e87e2ab7e66",
+  "executed_reference_sha256": "69030355c0c9de65af4bedbb11ac7537e3a63d1e6ad79d6a96e806adb61662a5",
+  "hardened_reference_sha256": "a3bdddd369b2fb2f50594fa65a5540670271ff1ae91de0baca654cc880254334",
+  "config_template_sha256": "4845e2c5038fe8896409f90b6287de33a011a76874229cb76479aa6cd4253bba",
+  "platform": {
+    "slackware_version": "Slackware 15.0+",
+    "kernel_version": "6.18.40",
+    "architecture": "x86_64",
+    "slackpkg_package": "slackpkg-15.0.10-noarch-5"
+  },
+  "candidates": {
+    "install_new": [],
+    "upgrade_all": [
+      "cmake-4.4.1-x86_64-1.txz",
+      "libarchive-3.8.9-x86_64-1.txz",
+      "libcec-8.1.1-x86_64-1.txz",
+      "libfprint-1.94.100-x86_64-1.txz",
+      "libopusenc-0.3-x86_64-2.txz",
+      "libssh-0.12.2-x86_64-1.txz",
+      "pipewire-1.6.8-x86_64-3.txz",
+      "samba-4.24.5-x86_64-1.txz",
+      "seamonkey-2.53.24-x86_64-1.txz",
+      "suitesparse-7.12.3-x86_64-1.txz"
+    ],
+    "total": 10,
+    "kernel": [],
+    "critical": [],
+    "candidate_set_sha256": "a8a608d8aac53c0d9f027622c01df4f794e94e8dd4586764b8d2503f9b94e45d"
+  },
+  "result": {
+    "exit_code": 0,
+    "success": true,
+    "partial": false,
+    "reboot": "none",
+    "boot_safe": true,
+    "slackpkg_update_exit_code": 0,
+    "slackpkg_install_new_exit_code": 20,
+    "slackpkg_upgrade_all_exit_code": 0,
+    "abi_changes": true,
+    "kernel_changes": false,
+    "critical_packages": []
+  },
+  "package_database": {
+    "configured_path": "/var/log/packages",
+    "resolved_path": "/var/lib/pkgtools/packages",
+    "records_before": 2039,
+    "records_after": 2039,
+    "changed": true,
+    "upgraded_package_count": 10
+  },
+  "boot_state": {
+    "observed_initrd_and_grub_unchanged": true
+  },
+  "postinstall_observation": {
+    "reported_new_config_files": 27,
+    "batch_answer_supplied": "y",
+    "menu_expected_answers": ["K", "O", "R", "P"],
+    "effective_action": "keep-existing-files-and-leave-.new-files",
+    "hardened_policy": "defer",
+    "hardened_postinstall_processing_enabled": false
+  },
+  "assertions": {
+    "passes": 9,
+    "failures": 0
+  }
+}

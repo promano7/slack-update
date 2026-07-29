@@ -331,7 +331,8 @@ require(data.get("boot_safe") is True, "result is not boot-safe")
 require(data.get("exit_code") == 0, "unexpected stable exit code")
 require(data.get("exit_code_stable") is True, "exit code is not marked stable")
 require(data.get("config_path") == config_path, "unexpected config path")
-require(data.get("warnings") == [], "unexpected warnings")
+warnings = data.get("warnings")
+require(isinstance(warnings, list), "warnings is not an array")
 require(data.get("errors") == [], "unexpected errors")
 
 modules = data.get("modules")
@@ -341,12 +342,25 @@ require(isinstance(slackware, dict), "missing Slackware result")
 require(slackware.get("state") == "success", "Slackware module did not succeed")
 
 if operation == "check":
+    require(warnings == [], "unexpected check warnings")
     require(slackware.get("check_exit_code") == 0, "check-updates did not return 0")
     require(slackware.get("updates_available") is False, "updates are available")
 elif operation == "apply":
     require(slackware.get("update_exit_code") == 0, "update_exit_code is not zero")
     for key in ("install_new_exit_code", "upgrade_all_exit_code"):
         require(slackware.get(key) in (0, 20), f"{key} is neither success nor no-packages")
+    require(slackware.get("postinstall_policy") == "defer", "unexpected post-install policy")
+    require(slackware.get("postinstall_processing_enabled") is False, "interactive post-install processing is enabled")
+    require(slackware.get("pending_new_config_files_valid") is True, "pending .new file scan is invalid")
+    pending_count = slackware.get("pending_new_config_files_count")
+    pending_files = slackware.get("pending_new_config_files")
+    require(isinstance(pending_count, int) and pending_count >= 0, "invalid pending .new file count")
+    require(isinstance(pending_files, list), "missing pending .new file list")
+    require(len(pending_files) == pending_count, "pending .new file count does not match the list")
+    expected_warnings = [] if pending_count == 0 else [
+        f"{pending_count} pending Slackware .new configuration file(s) require manual review"
+    ]
+    require(warnings == expected_warnings, "unexpected apply warnings")
     require(slackware.get("snapshot_before_valid") is True, "baseline snapshot is invalid")
     require(slackware.get("snapshot_after_valid") is True, "final snapshot is invalid")
     before_count = slackware.get("snapshot_before_records")

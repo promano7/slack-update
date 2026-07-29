@@ -10,6 +10,7 @@ DEFAULT_CONFIG="$REPOSITORY_ROOT/data/config/slack-update.conf"
 INSTALL_FIXTURE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/install-new-probe.log"
 UPGRADE_FIXTURE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/upgrade-all-probe.log"
 ACCEPTED_CURRENT_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-accepted.json"
+REVIEWED_CURRENT_APPLY="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-apply-reviewed.json"
 
 # Source helpers without executing the real-system scenario.
 # shellcheck source=../acceptance/reference/test-normal-update.sh
@@ -125,6 +126,12 @@ assert_file_contains 'Copy evidence command:' "$ACCEPTANCE_SCRIPT" \
     'the scenario should print a one-line evidence copy command'
 assert_file_contains 'owner=${SUDO_USER:-promano}' "$ACCEPTANCE_SCRIPT" \
     'the evidence copy fallback should default to the promano account'
+assert_file_contains 'postinstall_policy' "$ACCEPTANCE_SCRIPT" \
+    'apply validation should require the explicit deferred post-install policy'
+assert_file_contains 'postinstall_processing_enabled' "$ACCEPTANCE_SCRIPT" \
+    'apply validation should reject interactive slackpkg post-install processing'
+assert_file_contains 'pending_new_config_files_count' "$ACCEPTANCE_SCRIPT" \
+    'apply validation should preserve the pending .new configuration-file count'
 assert_file_not_contains 'rm -rf /var/log/packages' "$ACCEPTANCE_SCRIPT" \
     'the scenario must never remove the package database'
 
@@ -368,6 +375,43 @@ assert_file_contains '"apply_authorized": false' "$ACCEPTED_CURRENT_PREFLIGHT" \
     'the accepted preflight record should state that apply was not yet authorized'
 assert_file_contains '"candidate_set_sha256": "a8a608d8aac53c0d9f027622c01df4f794e94e8dd4586764b8d2503f9b94e45d"' "$ACCEPTED_CURRENT_PREFLIGHT" \
     'the accepted preflight record should preserve the exact candidate-set digest'
+
+python3 - "$REVIEWED_CURRENT_APPLY" <<'PYTHON_EOF'
+import json
+import pathlib
+import sys
+
+path = pathlib.Path(sys.argv[1])
+data = json.loads(path.read_text(encoding="utf-8"))
+assert data["scenario"] == "normal-update"
+assert data["mode"] == "apply"
+assert data["target"] == "slackware-current"
+assert data["accepted"] is False
+assert data["package_transaction_accepted"] is True
+assert data["reference_revalidation_required"] is True
+assert data["archive_sha256"] == "00679a69d9c40033db74b4a73525651a42d0d72b293ec536d1181e87e2ab7e66"
+assert data["executed_reference_sha256"] == "69030355c0c9de65af4bedbb11ac7537e3a63d1e6ad79d6a96e806adb61662a5"
+assert data["result"]["exit_code"] == 0
+assert data["result"]["success"] is True
+assert data["result"]["partial"] is False
+assert data["result"]["slackpkg_install_new_exit_code"] == 20
+assert data["result"]["slackpkg_upgrade_all_exit_code"] == 0
+assert data["package_database"]["records_before"] == 2039
+assert data["package_database"]["records_after"] == 2039
+assert data["package_database"]["changed"] is True
+assert data["package_database"]["upgraded_package_count"] == 10
+assert data["postinstall_observation"]["reported_new_config_files"] == 27
+assert data["postinstall_observation"]["batch_answer_supplied"] == "y"
+assert data["postinstall_observation"]["hardened_policy"] == "defer"
+assert data["assertions"] == {"passes": 9, "failures": 0}
+PYTHON_EOF
+assert_equal_value 0 "$?" 'the reviewed Slackware-current apply record should preserve the accepted transaction and revalidation gate'
+assert_file_contains '"package_transaction_accepted": true' "$REVIEWED_CURRENT_APPLY" \
+    'the reviewed apply record should accept the real package transaction'
+assert_file_contains '"reference_revalidation_required": true' "$REVIEWED_CURRENT_APPLY" \
+    'the reviewed apply record should keep the hardened reference pending'
+assert_file_contains '"reported_new_config_files": 27' "$REVIEWED_CURRENT_APPLY" \
+    'the reviewed apply record should preserve the observed post-install prompt count'
 
 printf 'Normal-update acceptance harness: %d checks, %d failures\n' \
     "$TEST_COUNT" "$TEST_FAILURE_COUNT"

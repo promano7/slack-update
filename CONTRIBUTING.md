@@ -91,11 +91,12 @@ Before submitting a change to the reference script:
 16. Run `tests/reference/test-cron-minimal-environment.sh` when command-path normalization, root environment defaults, non-interactive behavior, detached output, prompt suppression, runtime permissions, or cron compatibility is affected.
 17. Run `tests/reference/test-no-updates-acceptance-harness.sh` when the no-updates real-system scenario, its expected fixtures, failure diagnostics, evidence ownership, archive publication, or JSON contract is affected.
 18. Run `tests/reference/test-normal-update-acceptance-harness.sh` when normal-update candidate detection, package classification, physical-host safety gates, apply validation, or evidence publication is affected.
-19. Confirm that destructive commands are not exercised outside an isolated or explicitly recoverable Slackware test system.
-20. Record the relevant acceptance scenario.
-21. Preserve deterministic output and exit-code behavior.
-22. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
-23. Ensure every new or modified comment is written in English.
+19. Run `tests/reference/test-slackpkg-postinstall-policy.sh` when slackpkg post-install arguments, deferred `.new` handling, pending-file enumeration, human warnings, or structured-result metadata is affected.
+20. Confirm that destructive commands are not exercised outside an isolated or explicitly recoverable Slackware test system.
+21. Record the relevant acceptance scenario.
+22. Preserve deterministic output and exit-code behavior.
+23. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
+24. Ensure every new or modified comment is written in English.
 
 Never run the apply workflow on a production machine merely to validate a contribution.
 
