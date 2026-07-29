@@ -6,7 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+### Acceptance status
+
+- Phase 1 step 27 is complete: the no-updates scenario is accepted on Slackware 15.0 and Slackware-current.
+- Phase 1 step 28 is staged but not yet accepted. A physical Slackware-current host has real `upgrade-all` candidates available; the next action is to run the new non-destructive `--preflight`, review its candidate and boot-risk evidence, and only then decide whether to authorize the real apply workflow. Slackware 15.0 remains pending until normal package updates become available.
+
 ### Added
+
+- Added `tests/acceptance/reference/test-normal-update.sh` to stage the normal Slackware package-update acceptance scenario. Its mandatory preflight asks `slackpkg install-new` and `upgrade-all` for real candidate lists with dialog disabled and a negative default answer, proves that package and boot state remain unchanged, classifies kernel and critical candidates, and creates portable evidence before any installation is authorized.
+- The same scenario provides an explicitly gated apply mode that requires an exact hostname acknowledgement, separately authorizes kernel candidates, isolates Flatpak, SBo, ELF, and Cinnamon, retains boot preparation in `auto` mode, validates successful stable codes `0`, `4`, or `5`, and requires a real package-database change.
+- Added `tests/reference/test-normal-update-acceptance-harness.sh` and representative non-interactive `slackpkg` probe fixtures with focused coverage for candidate extraction, right-to-left package-name classification, critical and kernel detection, configuration isolation, physical-host safety gates, evidence summaries, and the one-line `promano` copy fallback.
 
 - Added `tests/acceptance/reference/test-no-updates.sh` as the first real-system Phase 1 acceptance scenario. It requires an explicit apply acknowledgement, verifies the declared Slackware target, proves the no-updates precondition with the real `--check --json` path, runs the isolated real `--apply --json` Slackware workflow, compares byte-level installed-package evidence and selected boot state, and creates a private evidence archive with a SHA-256 sidecar.
 - Added `tests/acceptance/reference/README.md` with the safety boundary, execution commands for Slackware 15.0 and Slackware-current, scenario scope, expected result contract, and evidence-sanitization guidance.

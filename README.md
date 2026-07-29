@@ -946,6 +946,23 @@ used by modern `pkgtools`, while package-record symlinks inside that directory
 remain excluded. See `tests/acceptance/reference/README.md` for the evidence
 contract.
 
+The second scenario stages a normal official-package update. It must begin with
+a non-destructive preflight that asks `slackpkg` for the actual `install-new` and
+`upgrade-all` candidate lists while answering no to installation, then proves
+that package and boot state are unchanged:
+
+```bash
+sudo bash tests/acceptance/reference/test-normal-update.sh \
+    --target slackware-current \
+    --preflight
+```
+
+Review the resulting candidate files and evidence before using apply mode. A
+real apply requires the exact local hostname, and kernel candidates require a
+second explicit acknowledgement. Flatpak, SBo, ELF, and Cinnamon remain
+disabled for isolation, while boot preparation stays in `auto` mode so kernel
+changes must complete initrd and GRUB handling safely.
+
 ### Real-system acceptance matrix
 
 - [x] Fully updated system with no available changes.
@@ -953,6 +970,10 @@ contract.
   - [x] Slackware 15.0 evidence accepted on 2026-07-28: check and apply returned stable code `0`, 1,594 package records and observed boot state were unchanged, and the reviewed archive SHA-256 is `5a784cd6d830ac271cc3aad02ed89f2e00c2afd63c88f90aabb74b0a81b0b20b`.
   - [x] Slackware-current evidence accepted on 2026-07-28: check and apply returned stable code `0`, 2,035 package records and observed boot state were unchanged, and the reviewed archive SHA-256 is `ba0c1264d57df5acf6bee843391113327736683ede36ec3d708d58ca174a2976`.
 - [ ] Normal Slackware package update.
+  - [x] Non-destructive candidate preflight, physical-host safety gates, evidence packaging, and focused automated tests implemented.
+  - [ ] Slackware-current preflight evidence reviewed.
+  - [ ] Slackware-current real apply evidence accepted.
+  - [ ] Slackware 15.0 preflight and real apply evidence accepted.
 - [ ] `install-new` introduces new packages.
 - [ ] Kernel package update.
 - [ ] Kernel headers update without a kernel image update.

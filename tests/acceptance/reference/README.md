@@ -94,3 +94,46 @@ Review the evidence before publishing it. Preserve `summary.txt`,
 the generated configuration, and `host.txt`. Remove or replace host-specific
 mirror URLs or other identifying values when creating sanitized repository
 fixtures.
+
+## Normal official-package update
+
+`test-normal-update.sh` stages the next acceptance scenario. It is suitable for
+an explicitly recoverable physical host as well as a disposable VM, but apply
+mode performs real package and potentially boot changes.
+
+Always begin with the non-destructive preflight:
+
+```bash
+sudo bash tests/acceptance/reference/test-normal-update.sh \
+    --target slackware-current \
+    --preflight
+```
+
+Preflight runs `slackpkg install-new` and `slackpkg upgrade-all` with dialog
+output disabled, batch mode enabled, and a negative default answer. It stores the
+raw output, extracts candidate package filenames, classifies kernel and critical
+packages, and proves that neither `/var/log/packages` nor the observed initrd and
+GRUB configuration changed.
+
+Do not run apply mode until the preflight archive has been reviewed. Apply mode
+requires the exact current hostname:
+
+```bash
+sudo bash tests/acceptance/reference/test-normal-update.sh \
+    --target slackware-current \
+    --execute-apply \
+    --confirm-hostname "$(hostname)"
+```
+
+When preflight reports kernel candidates, apply remains blocked unless the
+additional `--allow-kernel-update` option is supplied. Flatpak, SBo, ELF, and
+Cinnamon are disabled for this scenario. Boot preparation stays in `auto` mode;
+a detected kernel change must produce validated initrd and GRUB updates and the
+stable reboot-required status.
+
+Every run prints a one-line `Copy evidence command:`. For the `promano` account,
+the generic fallback for this scenario is:
+
+```bash
+archive=$(sudo sh -c 'ls -1t /var/tmp/slack-update-acceptance/normal-update/*.tar.gz 2>/dev/null | head -n 1'); sudo install -o promano -g "$(id -gn promano)" -m 0600 "$archive" "/home/promano/$(basename "$archive")" && sudo install -o promano -g "$(id -gn promano)" -m 0600 "$archive.sha256" "/home/promano/$(basename "$archive.sha256")"
+```

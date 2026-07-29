@@ -89,12 +89,13 @@ Before submitting a change to the reference script:
 14. Run `tests/reference/test-signal-cleanup.sh` when signal traps, instance locking, runtime cleanup, GRUB temporary cleanup, SBo workspace cleanup, or interruption statuses are affected.
 15. Run `tests/reference/test-error-exit-codes.sh` when stable result mapping, early failure handling, runtime setup, logging setup, JSON/NDJSON completion output, or process exit behavior is affected.
 16. Run `tests/reference/test-cron-minimal-environment.sh` when command-path normalization, root environment defaults, non-interactive behavior, detached output, prompt suppression, runtime permissions, or cron compatibility is affected.
-17. Run `tests/reference/test-no-updates-acceptance-harness.sh` when the first real-system scenario, its expected fixtures, failure diagnostics, evidence ownership, archive publication, or JSON contract is affected.
-18. Confirm that destructive commands are not exercised outside an isolated Slackware test system.
-19. Record the relevant acceptance scenario.
-20. Preserve deterministic output and exit-code behavior.
-21. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
-22. Ensure every new or modified comment is written in English.
+17. Run `tests/reference/test-no-updates-acceptance-harness.sh` when the no-updates real-system scenario, its expected fixtures, failure diagnostics, evidence ownership, archive publication, or JSON contract is affected.
+18. Run `tests/reference/test-normal-update-acceptance-harness.sh` when normal-update candidate detection, package classification, physical-host safety gates, apply validation, or evidence publication is affected.
+19. Confirm that destructive commands are not exercised outside an isolated or explicitly recoverable Slackware test system.
+20. Record the relevant acceptance scenario.
+21. Preserve deterministic output and exit-code behavior.
+22. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
+23. Ensure every new or modified comment is written in English.
 
 Never run the apply workflow on a production machine merely to validate a contribution.
 
