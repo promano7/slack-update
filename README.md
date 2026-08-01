@@ -1000,12 +1000,24 @@ blocked until a target-specific safe adapter or an explicit manual acceptance
 procedure is designed.
 
 Real Slackware 15.0 evidence collected on 2026-08-01 identified UEFI with ELILO,
-confirmed that `/boot/vmlinuz` and `/boot/initrd.gz` match the active copies in
-`/boot/efi/EFI/Slackware/`, and found no `/etc/mkinitrd.conf`. The reviewed
-archive SHA-256 is
+confirmed that `/boot/initrd.gz` matches the active EFI copy, and found no
+`/etc/mkinitrd.conf`. The initial discovery archive SHA-256 is
 `78f4d60738fe08a5ce599458e7da8917402bb029a90b0f9ac449c6129b6746ab`.
-Kernel apply remains blocked. The next stage records, but never executes, the
-official generator command for the currently running kernel:
+
+A second non-destructive run captured one valid generator command for kernel
+`5.15.19`, but also proved that the generic `/boot/vmlinuz` alias points to
+`vmlinuz-huge-5.15.19` and does not match the ELILO kernel copy. Its reviewed
+archive SHA-256 is
+`b3a6d98c6163f66b34dd9e50b74ac6e158530f2e03d142c53b818bb7ac54ffd5`.
+This is not evidence of a broken boot entry: ELILO commonly stores a copied
+versioned kernel while Slackware's generic `/boot/vmlinuz` alias may target the
+huge kernel. The preflight now inventories every top-level `/boot/vmlinuz*`
+candidate, collapses aliases resolving to the same file, and requires exactly
+one versioned source whose content matches the EFI image and whose filename
+identifies the running kernel.
+
+Kernel apply remains blocked. Repeat the generator preflight to identify that
+exact source without executing `mkinitrd` or changing EFI files:
 
 ```bash
 sudo bash tests/acceptance/reference/test-elilo-generator-preflight.sh \
@@ -1028,7 +1040,8 @@ sudo bash tests/acceptance/reference/test-elilo-generator-preflight.sh \
   - [ ] Exercise the three deferred Slackware 15.0 boot-kernel packages in the dedicated kernel-update scenario.
   - [x] Implement the non-destructive firmware, boot-loader, mkinitrd, kernel-record, blacklist, and boot-artifact preflight.
   - [x] Review real Slackware 15.0 boot-path evidence and select the ELILO branch.
-  - [ ] Record and review the non-executed mkinitrd command-generator proposal for the running ELILO kernel.
+  - [x] Record and review the non-executed mkinitrd command-generator proposal for the running ELILO kernel.
+  - [ ] Identify the unique versioned `/boot` kernel source copied into ELILO.
 - [ ] `install-new` introduces new packages.
 - [ ] Kernel package update.
 - [ ] Kernel headers update without a kernel image update.

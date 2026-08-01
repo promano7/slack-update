@@ -22,7 +22,7 @@
     "reference_support_at_capture": "reference-unsupported"
   },
   "boot_artifacts": {
-    "boot_kernel_matches_efi_copy": true,
+    "boot_kernel_source_mapping": "pending-versioned-source-inventory",
     "boot_initrd_matches_efi_copy": true,
     "grub_configuration_present": false,
     "lilo_configuration_present": false,

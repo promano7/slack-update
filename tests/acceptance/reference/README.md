@@ -235,9 +235,10 @@ copy command for the invoking user.
 
 Real Slackware 15.0 evidence classified the deferred kernel path as UEFI plus
 ELILO. The active `elilo.conf` uses the relative `vmlinuz` and `initrd.gz`
-files in `/boot/efi/EFI/Slackware/`; both EFI copies matched their `/boot`
-sources at capture time. `/etc/mkinitrd.conf` was absent, so kernel apply remains
-blocked while the command-generator boundary is reviewed.
+files in `/boot/efi/EFI/Slackware/`. The initrd copy matches `/boot/initrd.gz`.
+The generic `/boot/vmlinuz` alias resolves to `vmlinuz-huge-5.15.19` and does
+not match the EFI kernel copy, so that alias is not treated as the authoritative
+ELILO source. `/etc/mkinitrd.conf` is absent, and kernel apply remains blocked.
 
 Run the second non-destructive stage while all three boot-kernel packages remain
 blacklisted:
@@ -248,8 +249,12 @@ sudo bash tests/acceptance/reference/test-elilo-generator-preflight.sh \
 ```
 
 This stage runs `/usr/share/mkinitrd/mkinitrd_command_generator.sh -k` for the
-currently running kernel only to capture stdout. It never evaluates the output,
-never invokes `mkinitrd`, never runs `eliloconfig`, and never changes packages,
+currently running kernel only to capture stdout. It also inventories every
+top-level `/boot/vmlinuz*` regular file and symlink, compares their resolved
+content with the EFI `vmlinuz` copy, collapses aliases resolving to the same
+file, and requires one unique versioned source whose filename identifies the
+running generic or huge kernel. It never evaluates the generator output, never
+invokes `mkinitrd`, never runs `eliloconfig`, and never changes packages,
 blacklist entries, `/boot`, or the EFI system partition. A successful result is
 still evidence for adapter design, not authorization to remove the kernel
 blacklist.

@@ -23,16 +23,20 @@ ELILO_IMAGE=
 ELILO_INITRD=
 GENERATOR_STATUS=-1
 GENERATOR_COMMAND_COUNT=0
+ELILO_KERNEL_MATCH_COUNT=0
+ELILO_KERNEL_SOURCE=
+ELILO_KERNEL_FLAVOR=unknown
+ELILO_KERNEL_VERSION_MATCH=no
 
 print_usage() {
     cat <<EOF_USAGE
 Usage: ${0##*/} --target slackware-15.0 [options]
 
 Collect a non-destructive ELILO and mkinitrd-command-generator preflight for the
-currently running Slackware 15.0 kernel. The scenario validates the existing
-ELILO copy boundary and records the generator's proposed mkinitrd command. It
-never executes the proposed command and never changes packages, the blacklist,
-initrd images, or EFI files.
+currently running Slackware 15.0 kernel. The scenario maps the ELILO kernel
+copy to one unique versioned /boot source by content and records the generator's
+proposed mkinitrd command. It never executes the proposed command and never
+changes packages, the blacklist, initrd images, or EFI files.
 
 Required options:
       --target slackware-15.0  Declare the supported acceptance target
@@ -147,8 +151,13 @@ capture_state() {
     local path
 
     : > "$output" || return 1
+    while IFS= read -r -d '' path; do
+        capture_path_record "$path" >> "$output"
+    done < <(
+        find /boot -maxdepth 1 \( -type f -o -type l \) -name 'vmlinuz*' -print0 2>/dev/null \
+            | sort -z
+    )
     for path in \
-        /boot/vmlinuz \
         /boot/initrd.gz \
         "$ELILO_CONFIG" \
         "$ELILO_DIRECTORY/vmlinuz" \
@@ -243,12 +252,87 @@ compare_regular_files() {
         && cmp -s -- "$first" "$second"
 }
 
-compare_boot_symlink_copy() {
-    local source=$1
-    local destination=$2
+capture_elilo_kernel_sources() {
+    local boot_directory=$1
+    local efi_image=$2
+    local running_kernel=$3
+    local output=$4
+    local matches_file="$output.matches"
+    local path resolved type target hash matches version_matches
+    local basename
 
-    [ -f "$source" ] && [ -f "$destination" ] \
-        && cmp -s -- "$source" "$destination"
+    ELILO_KERNEL_MATCH_COUNT=0
+    ELILO_KERNEL_SOURCE=
+    ELILO_KERNEL_FLAVOR=unknown
+    ELILO_KERNEL_VERSION_MATCH=no
+    : > "$output" || return 1
+    : > "$matches_file" || return 1
+
+    [ -d "$boot_directory" ] || return 1
+    [ -f "$efi_image" ] && [ ! -L "$efi_image" ] || return 1
+
+    while IFS= read -r -d '' path; do
+        [ -f "$path" ] || continue
+        resolved=$(readlink -e -- "$path" 2>/dev/null || true)
+        [ -n "$resolved" ] || continue
+        if [ -L "$path" ]; then
+            type=symlink
+            target=$(readlink -- "$path" 2>/dev/null || true)
+        else
+            type=file
+            target=
+        fi
+        hash=$(sha256sum -- "$path" 2>/dev/null | awk '{print $1}')
+        matches=no
+        if cmp -s -- "$path" "$efi_image"; then
+            matches=yes
+            printf '%s\n' "$resolved" >> "$matches_file"
+        fi
+        basename=${resolved##*/}
+        version_matches=no
+        case "$basename" in
+            "vmlinuz-generic-$running_kernel"|"vmlinuz-huge-$running_kernel")
+                version_matches=yes
+                ;;
+        esac
+        {
+            printf 'path=%s\n' "$path"
+            printf 'type=%s\n' "$type"
+            printf 'target=%s\n' "$target"
+            printf 'resolved=%s\n' "$resolved"
+            printf 'sha256=%s\n' "$hash"
+            printf 'matches_elilo=%s\n' "$matches"
+            printf 'matches_running_kernel_name=%s\n' "$version_matches"
+            printf '\n'
+        } >> "$output"
+    done < <(
+        find "$boot_directory" -maxdepth 1 \( -type f -o -type l \) -name 'vmlinuz*' -print0 2>/dev/null \
+            | sort -z
+    )
+
+    sort -u "$matches_file" -o "$matches_file"
+    ELILO_KERNEL_MATCH_COUNT=$(wc -l < "$matches_file" | tr -d '[:space:]')
+    if [ "$ELILO_KERNEL_MATCH_COUNT" -eq 1 ]; then
+        ELILO_KERNEL_SOURCE=$(cat "$matches_file")
+        basename=${ELILO_KERNEL_SOURCE##*/}
+        case "$basename" in
+            "vmlinuz-generic-$running_kernel")
+                ELILO_KERNEL_FLAVOR=generic
+                ELILO_KERNEL_VERSION_MATCH=yes
+                ;;
+            "vmlinuz-huge-$running_kernel")
+                ELILO_KERNEL_FLAVOR=huge
+                ELILO_KERNEL_VERSION_MATCH=yes
+                ;;
+            vmlinuz-generic-*)
+                ELILO_KERNEL_FLAVOR=generic
+                ;;
+            vmlinuz-huge-*)
+                ELILO_KERNEL_FLAVOR=huge
+                ;;
+        esac
+    fi
+    rm -f -- "$matches_file"
 }
 
 write_summary() {
@@ -265,6 +349,10 @@ elilo_initrd=$ELILO_INITRD
 generator=$GENERATOR
 generator_exit_code=$GENERATOR_STATUS
 generator_command_count=$GENERATOR_COMMAND_COUNT
+elilo_kernel_match_count=$ELILO_KERNEL_MATCH_COUNT
+elilo_kernel_source=$ELILO_KERNEL_SOURCE
+elilo_kernel_flavor=$ELILO_KERNEL_FLAVOR
+elilo_kernel_version_match=$ELILO_KERNEL_VERSION_MATCH
 passes=$PASS_COUNT
 failures=$FAILURE_COUNT
 EOF_SUMMARY
@@ -400,10 +488,22 @@ main() {
         record_failure 'the Slackware mkinitrd command generator is missing or unsafe'
     fi
 
-    if compare_boot_symlink_copy /boot/vmlinuz "$ELILO_DIRECTORY/$ELILO_IMAGE"; then
-        record_pass 'the active /boot kernel matches the ELILO kernel copy'
+    if capture_elilo_kernel_sources /boot "$ELILO_DIRECTORY/$ELILO_IMAGE" \
+        "$RUNNING_KERNEL" "$OUTPUT_DIR/kernel-sources.txt"; then
+        if [ "$ELILO_KERNEL_MATCH_COUNT" -eq 1 ]; then
+            record_pass "the ELILO kernel copy matches one unique /boot source: $ELILO_KERNEL_SOURCE"
+        else
+            record_failure "the ELILO kernel copy matches $ELILO_KERNEL_MATCH_COUNT unique /boot sources"
+        fi
+        if [ "$ELILO_KERNEL_VERSION_MATCH" = yes ]; then
+            record_pass "the ELILO kernel source matches the running $ELILO_KERNEL_FLAVOR kernel version"
+        else
+            record_failure 'the ELILO kernel source does not identify the running kernel version'
+        fi
     else
-        record_failure 'the active /boot kernel does not match the ELILO kernel copy'
+        : > "$OUTPUT_DIR/kernel-sources.txt"
+        record_failure 'the ELILO kernel-source inventory could not be generated'
+        record_failure 'the ELILO kernel source could not be classified'
     fi
     if compare_regular_files /boot/initrd.gz "$ELILO_DIRECTORY/$ELILO_INITRD"; then
         record_pass 'the active /boot initrd matches the ELILO initrd copy'
@@ -445,9 +545,9 @@ main() {
     fi
 
     write_summary "$OUTPUT_DIR/summary.txt"
-    printf 'ELILO generator summary: kernel=%s, image=%s, initrd=%s, commands=%s\n' \
+    printf 'ELILO generator summary: kernel=%s, image=%s, initrd=%s, source=%s, flavor=%s, commands=%s\n' \
         "$RUNNING_KERNEL" "${ELILO_IMAGE:-unknown}" "${ELILO_INITRD:-unknown}" \
-        "$GENERATOR_COMMAND_COUNT"
+        "${ELILO_KERNEL_SOURCE:-unknown}" "$ELILO_KERNEL_FLAVOR" "$GENERATOR_COMMAND_COUNT"
     printf 'Preflight only: the proposed mkinitrd command was recorded but never executed.\n'
     publish_evidence || return 2
     [ "$FAILURE_COUNT" -eq 0 ]

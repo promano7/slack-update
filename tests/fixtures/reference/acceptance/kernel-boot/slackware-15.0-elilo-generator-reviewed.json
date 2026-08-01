@@ -1,0 +1,46 @@
+{
+  "scenario": "elilo-generator-preflight",
+  "target": "slackware-15.0",
+  "reviewed": true,
+  "apply_authorized": false,
+  "captured_at": "2026-08-01T16:18:16Z",
+  "archive_sha256": "b3a6d98c6163f66b34dd9e50b74ac6e158530f2e03d142c53b818bb7ac54ffd5",
+  "platform": {
+    "slackware_version": "Slackware 15.0",
+    "hostname": "vbox-slack15.vbox-slack15.org",
+    "running_kernel": "5.15.19",
+    "firmware_mode": "uefi"
+  },
+  "elilo": {
+    "configuration": "/boot/efi/EFI/Slackware/elilo.conf",
+    "image": "vmlinuz",
+    "initrd": "initrd.gz",
+    "efi_partition": "/dev/sda1",
+    "root_partition": "/dev/sda2",
+    "boot_alias": "/boot/vmlinuz",
+    "boot_alias_target": "vmlinuz-huge-5.15.19",
+    "alias_matches_efi_copy": false,
+    "initrd_matches_efi_copy": true,
+    "boot_kernel_source_mapping": "unresolved"
+  },
+  "mkinitrd_generator": {
+    "path": "/usr/share/mkinitrd/mkinitrd_command_generator.sh",
+    "exit_code": 0,
+    "command_count": 1,
+    "proposed_command": "mkinitrd -c -k 5.15.19 -f ext4 -r /dev/sda2 -m jbd2:mbcache:crc32c_intel:crc32c_generic:ext4 -u -o /boot/initrd.gz",
+    "executed": false
+  },
+  "kernel_packages": {
+    "deferred": [
+      "kernel-generic",
+      "kernel-huge",
+      "kernel-modules"
+    ]
+  },
+  "assertions": {
+    "passes": 18,
+    "failures": 1,
+    "reviewed_failure": "the generic /boot/vmlinuz alias points to the huge kernel and is not a valid universal source comparison for the ELILO copy"
+  },
+  "next_required_stage": "identify the unique versioned /boot kernel source by content"
+}

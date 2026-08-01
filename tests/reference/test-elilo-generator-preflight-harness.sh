@@ -66,6 +66,12 @@ assert_contains 'findmnt -n -o SOURCE,FSTYPE,OPTIONS /boot/efi' "$ACCEPTANCE_SCR
     'the EFI system partition should be recorded'
 assert_contains 'find -H "$database"' "$ACCEPTANCE_SCRIPT" \
     'package enumeration should follow the compatibility symlink'
+assert_contains 'capture_elilo_kernel_sources /boot' "$ACCEPTANCE_SCRIPT" \
+    'the preflight should inventory versioned boot-kernel sources'
+assert_contains '"$OUTPUT_DIR/kernel-sources.txt"' "$ACCEPTANCE_SCRIPT" \
+    'the kernel-source inventory should be included in evidence'
+assert_not_contains 'compare_boot_symlink_copy /boot/vmlinuz' "$ACCEPTANCE_SCRIPT" \
+    'the ELILO copy must not be compared only with the generic /boot/vmlinuz alias'
 
 TARGET=
 OUTPUT_DIR=
@@ -131,8 +137,66 @@ assert_failure 'different regular files should not compare successfully' \
 ln -s "$TMP/first" "$TMP/link"
 assert_failure 'symbolic-link inputs should be rejected for initrd comparison' \
     compare_regular_files "$TMP/link" "$TMP/first"
-assert_success 'resolved kernel symlinks may be compared to the EFI copy' \
-    compare_boot_symlink_copy "$TMP/link" "$TMP/first"
+
+BOOT_FIXTURE="$TMP/boot"
+mkdir -p "$BOOT_FIXTURE"
+printf 'generic-kernel\n' > "$BOOT_FIXTURE/vmlinuz-generic-5.15.19"
+printf 'huge-kernel\n' > "$BOOT_FIXTURE/vmlinuz-huge-5.15.19"
+ln -s vmlinuz-huge-5.15.19 "$BOOT_FIXTURE/vmlinuz"
+ln -s vmlinuz-generic-5.15.19 "$BOOT_FIXTURE/vmlinuz-generic"
+cp "$BOOT_FIXTURE/vmlinuz-generic-5.15.19" "$TMP/efi-vmlinuz"
+
+assert_success 'the ELILO source inventory should be generated' \
+    capture_elilo_kernel_sources "$BOOT_FIXTURE" "$TMP/efi-vmlinuz" 5.15.19 \
+        "$TMP/kernel-sources.txt"
+assert_equal 1 "$ELILO_KERNEL_MATCH_COUNT" \
+    'symlink aliases should collapse to one unique matching source'
+assert_equal "$BOOT_FIXTURE/vmlinuz-generic-5.15.19" "$ELILO_KERNEL_SOURCE" \
+    'the versioned generic kernel should be selected as the ELILO source'
+assert_equal generic "$ELILO_KERNEL_FLAVOR" \
+    'the matching source should be classified as generic'
+assert_equal yes "$ELILO_KERNEL_VERSION_MATCH" \
+    'the matching source should identify the running kernel version'
+assert_contains 'path='"$BOOT_FIXTURE"'/vmlinuz' "$TMP/kernel-sources.txt" \
+    'the non-matching generic /boot alias should still be inventoried'
+assert_contains 'matches_elilo=yes' "$TMP/kernel-sources.txt" \
+    'the inventory should mark matching kernel content'
+
+printf 'unmatched-kernel\n' > "$TMP/efi-vmlinuz"
+assert_success 'an unmatched EFI image should still produce an inventory' \
+    capture_elilo_kernel_sources "$BOOT_FIXTURE" "$TMP/efi-vmlinuz" 5.15.19 \
+        "$TMP/kernel-sources-unmatched.txt"
+assert_equal 0 "$ELILO_KERNEL_MATCH_COUNT" \
+    'an unmatched EFI image should report zero unique sources'
+assert_equal '' "$ELILO_KERNEL_SOURCE" \
+    'an unmatched EFI image should not select a source'
+assert_equal no "$ELILO_KERNEL_VERSION_MATCH" \
+    'an unmatched EFI image should not claim the running version'
+
+rm -f "$BOOT_FIXTURE"/vmlinuz*
+printf 'same-kernel\n' > "$BOOT_FIXTURE/vmlinuz-generic-5.15.19"
+printf 'same-kernel\n' > "$BOOT_FIXTURE/vmlinuz-huge-5.15.19"
+cp "$BOOT_FIXTURE/vmlinuz-generic-5.15.19" "$TMP/efi-vmlinuz"
+assert_success 'ambiguous matching files should still produce an inventory' \
+    capture_elilo_kernel_sources "$BOOT_FIXTURE" "$TMP/efi-vmlinuz" 5.15.19 \
+        "$TMP/kernel-sources-ambiguous.txt"
+assert_equal 2 "$ELILO_KERNEL_MATCH_COUNT" \
+    'two distinct matching files should remain ambiguous'
+assert_equal '' "$ELILO_KERNEL_SOURCE" \
+    'ambiguous kernel content should not select a source'
+
+rm -f "$BOOT_FIXTURE"/vmlinuz*
+printf 'older-generic\n' > "$BOOT_FIXTURE/vmlinuz-generic-5.15.18"
+cp "$BOOT_FIXTURE/vmlinuz-generic-5.15.18" "$TMP/efi-vmlinuz"
+assert_success 'an older matching source should still be inventoried' \
+    capture_elilo_kernel_sources "$BOOT_FIXTURE" "$TMP/efi-vmlinuz" 5.15.19 \
+        "$TMP/kernel-sources-old.txt"
+assert_equal 1 "$ELILO_KERNEL_MATCH_COUNT" \
+    'an older matching source should remain uniquely identifiable'
+assert_equal generic "$ELILO_KERNEL_FLAVOR" \
+    'an older generic source should retain its flavor classification'
+assert_equal no "$ELILO_KERNEL_VERSION_MATCH" \
+    'an older matching source should not identify the running version'
 
 mkdir -p "$TMP/packages"
 touch "$TMP/packages/kernel-generic-5.15.19-x86_64-2"
@@ -152,6 +216,22 @@ assert_contains '"apply_authorized": false' "$FIXTURE" \
     'the reviewed discovery must not authorize a kernel apply'
 assert_contains '"archive_sha256": "78f4d60738fe08a5ce599458e7da8917402bb029a90b0f9ac449c6129b6746ab"' "$FIXTURE" \
     'the reviewed fixture should preserve the evidence digest'
+assert_contains '"boot_kernel_source_mapping": "pending-versioned-source-inventory"' "$FIXTURE" \
+    'the initial discovery should not claim an unproven kernel source match'
+
+GENERATOR_FIXTURE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-15.0-elilo-generator-reviewed.json"
+assert_success 'the reviewed ELILO generator fixture should be valid JSON' \
+    python -m json.tool "$GENERATOR_FIXTURE"
+assert_contains '"archive_sha256": "b3a6d98c6163f66b34dd9e50b74ac6e158530f2e03d142c53b818bb7ac54ffd5"' \
+    "$GENERATOR_FIXTURE" 'the generator fixture should preserve the evidence digest'
+assert_contains '"boot_alias": "/boot/vmlinuz"' "$GENERATOR_FIXTURE" \
+    'the generator fixture should record the compared boot alias'
+assert_contains '"alias_matches_efi_copy": false' "$GENERATOR_FIXTURE" \
+    'the generator fixture should preserve the observed alias mismatch'
+assert_contains '"next_required_stage": "identify the unique versioned /boot kernel source by content"' \
+    "$GENERATOR_FIXTURE" 'the generator fixture should preserve the next safe boundary'
+assert_contains '"apply_authorized": false' "$GENERATOR_FIXTURE" \
+    'the generator review must not authorize a kernel apply'
 
 bash -n "$ACCEPTANCE_SCRIPT" && pass || fail 'the acceptance script should pass bash -n'
 
