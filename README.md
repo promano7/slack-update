@@ -1047,8 +1047,38 @@ newest complete version. Slackware 15.0 `df` also rejects `-P` together with
 rejects duplicate records, and the free-space probe now uses portable `df -Pk`
 output with explicit KiB-to-byte conversion. The diagnostic archive SHA-256 is
 `3780c922fffab042ae265b5a54286d7ce22379f4774f174326cec81fed406259`;
-packages, blacklist state, initrd, and ELILO files were unchanged. A corrected
-real-system rerun remains required before apply can be designed or authorized.
+packages, blacklist state, initrd, and ELILO files were unchanged. The corrected
+real-system rerun then selected `5.15.209-1` from `patches`, produced candidate
+digest `10ea616935d628a97ba2bc9cec0d5e57fdebeefe54d2768800ef3a30c3a4c5db`,
+passed all 27 assertions, and changed no system state. Its accepted archive
+SHA-256 is `d951cd9eb24b54b1b8c20262ac12c59b00a042c7426c883dd4af246076d482bb`.
+
+
+
+The reviewed plan now has a separate, deliberately named apply stage:
+
+```bash
+sudo bash tests/acceptance/reference/test-elilo-kernel-transaction-apply.sh \
+    --target slackware-15.0 \
+    --execute-apply \
+    --confirm-hostname vbox-slack15.vbox-slack15.org \
+    --confirm-candidate-sha256 10ea616935d628a97ba2bc9cec0d5e57fdebeefe54d2768800ef3a30c3a4c5db \
+    --confirm-target-kernel 5.15.209
+```
+
+This stage follows Slackware's keep-the-working-kernel safety rule: Slackpkg is
+used only to download the exact reviewed packages, while `installpkg` installs
+`kernel-generic`, `kernel-huge`, and `kernel-modules` alongside version
+`5.15.19`. The original blacklist is restored before package installation
+continues. The generated mkinitrd command is parsed into an argument vector and
+never evaluated as shell text. New kernel and initrd files use versioned names
+in both `/boot` and the EFI partition. The final `elilo.conf` explicitly selects
+the new `vmlinuz` label as default and retains the current unversioned EFI files
+under label `oldkernel`. Activation is a same-directory atomic replacement only
+after all new artifacts pass byte-level verification. The EFI loader binary and
+firmware boot variables are never changed. Package installation cannot be
+rolled back automatically, so this command remains limited to the snapshotted
+Slackware 15.0 VM until its evidence and reboot are accepted.
 
 ### Real-system acceptance matrix
 
@@ -1068,7 +1098,8 @@ real-system rerun remains required before apply can be designed or authorized.
   - [x] Review real Slackware 15.0 boot-path evidence and select the ELILO branch.
   - [x] Record and review the non-executed mkinitrd command-generator proposal for the running ELILO kernel.
   - [x] Identify and accept the unique versioned `/boot` generic kernel source copied into ELILO.
-  - [ ] Resolve and review the exact three-package repository candidate and atomic versioned ELILO transaction plan.
+  - [x] Resolve and review the exact three-package repository candidate and atomic versioned ELILO transaction plan.
+  - [ ] Execute the gated ELILO transaction, review its evidence, and validate reboot into `5.15.209` with the `oldkernel` fallback retained.
 - [ ] `install-new` introduces new packages.
 - [ ] Kernel package update.
 - [ ] Kernel headers update without a kernel image update.

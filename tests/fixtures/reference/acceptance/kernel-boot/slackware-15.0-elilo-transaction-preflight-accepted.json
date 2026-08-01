@@ -1,0 +1,26 @@
+{
+  "scenario": "elilo-kernel-transaction-preflight",
+  "target": "slackware-15.0",
+  "accepted": true,
+  "archive_sha256": "d951cd9eb24b54b1b8c20262ac12c59b00a042c7426c883dd4af246076d482bb",
+  "hostname": "vbox-slack15.vbox-slack15.org",
+  "current_kernel": "5.15.19",
+  "target_kernel": "5.15.209",
+  "target_build": "1",
+  "target_repository": "patches",
+  "candidate_set_sha256": "10ea616935d628a97ba2bc9cec0d5e57fdebeefe54d2768800ef3a30c3a4c5db",
+  "planned_efi_kernel": "vmlinuz-generic-5.15.209",
+  "planned_efi_initrd": "initrd-generic-5.15.209.gz",
+  "space": {
+    "efi_required_bytes": 33519447,
+    "efi_available_bytes": 503188480,
+    "boot_required_bytes": 26023607,
+    "boot_available_bytes": 41379491840
+  },
+  "assertions": {
+    "passes": 27,
+    "failures": 0
+  },
+  "system_modified": false,
+  "apply_authorized": false
+}

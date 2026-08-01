@@ -298,6 +298,43 @@ The first real run observed complete `patches` sets for `5.15.208` and
 planning assertions, changed no system state, and did not authorize apply. Its
 reviewed archive SHA-256 is
 `3780c922fffab042ae265b5a54286d7ce22379f4774f174326cec81fed406259`.
-Repeat the corrected preflight and review its selected-record digest before any
-kernel transaction work continues.
+The corrected real-system run selected `5.15.209-1` from `patches`, produced
+candidate digest `10ea616935d628a97ba2bc9cec0d5e57fdebeefe54d2768800ef3a30c3a4c5db`,
+passed all 27 assertions, and changed no system state. Its accepted evidence
+archive SHA-256 is
+`d951cd9eb24b54b1b8c20262ac12c59b00a042c7426c883dd4af246076d482bb`.
 
+
+
+### ELILO kernel transaction apply
+
+Run only after the corrected transaction preflight has been reviewed, while the
+VM snapshot and the three exact blacklist deferrals remain available:
+
+```bash
+sudo bash tests/acceptance/reference/test-elilo-kernel-transaction-apply.sh \
+    --target slackware-15.0 \
+    --execute-apply \
+    --confirm-hostname vbox-slack15.vbox-slack15.org \
+    --confirm-candidate-sha256 10ea616935d628a97ba2bc9cec0d5e57fdebeefe54d2768800ef3a30c3a4c5db \
+    --confirm-target-kernel 5.15.209
+```
+
+The apply stage refreshes metadata and fails before modification unless the
+hostname, target version, and exact three-record digest still match. It removes
+only one exact active blacklist line for each of `kernel-generic`,
+`kernel-huge`, and `kernel-modules`, uses `slackpkg download` to populate the
+verified package cache, restores the blacklist byte-for-byte, and installs the
+new packages with `installpkg` so version `5.15.19` remains installed. It then
+captures but never evaluates the official generator output, builds a versioned
+initrd, verifies versioned copies in the EFI partition, and atomically replaces
+only `elilo.conf` after all staged files are complete.
+
+The resulting configuration sets label `vmlinuz` as the explicit default for
+the new versioned kernel and retains the current EFI `vmlinuz` plus `initrd.gz`
+under label `oldkernel`. It does not run `eliloconfig`, does not replace
+`elilo.efi`, and does not modify EFI firmware variables. Package installation is
+not automatically reversible; failures after package installation retain the
+old active boot files and require evidence review before any retry. A successful
+run requires a reboot test and separate post-reboot evidence before old packages
+or rollback files may be removed.
