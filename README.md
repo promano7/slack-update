@@ -1097,9 +1097,31 @@ and retained label `oldkernel`. The apply archive SHA-256 is
 `93c58c1508085f3dffaa182eac52fb49c72e6222d75b49c79af4309713f0ac95`.
 The subsequent real reboot ran kernel `5.15.209`; `/proc/cmdline` named the
 versioned EFI kernel, and `elilo.conf` still contained the active `vmlinuz`
-entry plus the `oldkernel` rollback entry. The ELILO kernel scenario is accepted,
-while removal of the previous packages or rollback artifacts remains blocked
-pending a separate retention policy.
+entry plus the `oldkernel` rollback entry. The ELILO kernel scenario is accepted. Phase 1 step 30 now defines the
+retention policy and a non-destructive eligibility preflight; removal of the
+previous packages or rollback artifacts remains blocked until its evidence is
+reviewed and a separate cleanup apply stage is explicitly authorized.
+
+The rollback policy requires both a minimum seven-day interval after the
+accepted reboot review and one additional successful boot into `5.15.209`. The
+accepted transaction reboot counts as the first of two required successful
+boots. Run the new preflight without any cleanup option:
+
+```bash
+sudo bash tests/acceptance/reference/test-elilo-oldkernel-retention-preflight.sh \
+    --target slackware-15.0
+```
+
+The preflight validates the exact active and rollback package records, captures
+the current Linux boot ID and boot start time, verifies both ELILO entries and
+their `/boot` plus EFI copies, inventories package-log paths shared by the old
+and current kernel packages, and proves that package and boot state remain
+unchanged. It may report `cleanup_eligible=true` only after both retention gates
+pass, but always records `cleanup_authorized=false`. The future cleanup plan must
+revalidate and retain the exact active package archives, remove only the three
+old package records, reinstall the active package set to repair shared package
+paths, verify the active boot chain, atomically remove `oldkernel`, and only then
+delete unreferenced rollback files.
 
 ### Real-system acceptance matrix
 
@@ -1121,6 +1143,9 @@ pending a separate retention policy.
   - [x] Identify and accept the unique versioned `/boot` generic kernel source copied into ELILO.
   - [x] Resolve and review the exact three-package repository candidate and atomic versioned ELILO transaction plan.
   - [x] Execute the gated ELILO transaction, review its evidence, and validate reboot into `5.15.209` with the `oldkernel` fallback retained.
+  - [x] Define a seven-day, two-successful-boot retention policy and a non-destructive ELILO oldkernel eligibility preflight.
+  - [ ] Run and review the retention preflight while cleanup remains unauthorized.
+  - [ ] Design and authorize the separate cleanup apply only after eligibility evidence is accepted.
 - [x] `install-new` introduces new packages.
 - [x] Kernel package update.
 - [ ] Kernel headers update without a kernel image update.

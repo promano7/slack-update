@@ -1,0 +1,43 @@
+{
+  "scenario": "elilo-oldkernel-retention-policy",
+  "target": "slackware-15.0",
+  "status": "defined",
+  "kernel": {
+    "rollback": "5.15.19",
+    "active": "5.15.209",
+    "retained_package_names": [
+      "kernel-generic",
+      "kernel-huge",
+      "kernel-modules"
+    ]
+  },
+  "retention": {
+    "minimum_days_after_accepted_reboot_review": 7,
+    "required_successful_boots": 2,
+    "accepted_transaction_reboot_counts_as_first": true,
+    "one_later_boot_after_review_required": true,
+    "later_boot_must_run_active_kernel": true
+  },
+  "preflight": {
+    "non_destructive": true,
+    "records_boot_id": true,
+    "verifies_active_and_rollback_artifacts": true,
+    "inventories_shared_package_paths": true,
+    "can_report_cleanup_eligible": true,
+    "cleanup_authorized": false
+  },
+  "cleanup_sequence": [
+    "review and authorize a separate gated apply",
+    "download and revalidate the exact active kernel package archives",
+    "archive elilo.conf and rollback artifacts",
+    "remove only the exact rollback package records",
+    "reinstall the exact active package set to repair shared package paths",
+    "verify the active module tree and versioned boot artifacts",
+    "atomically remove the oldkernel stanza from elilo.conf",
+    "remove only now-unreferenced legacy rollback artifacts",
+    "capture final evidence and require reboot validation"
+  ],
+  "failure_policy": "Stop before the next boundary and preserve or restore the ELILO rollback configuration.",
+  "cleanup_authorized": false,
+  "next_required_stage": "Run and review the non-destructive retention preflight; do not implement cleanup apply until eligibility evidence is accepted."
+}

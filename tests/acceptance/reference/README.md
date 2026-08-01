@@ -361,3 +361,38 @@ After reboot, `uname -r` reported `5.15.209`, `/proc/cmdline` identified
 still selected label `vmlinuz` while retaining label `oldkernel`. The
 transaction is accepted; cleanup of the previous packages and rollback files
 remains a separate, explicitly gated operation.
+
+### ELILO oldkernel retention preflight
+
+Phase 1 step 30 defines the retention boundary without authorizing cleanup. The
+accepted transaction reboot counts as the first successful boot. The rollback
+packages, `oldkernel` entry, and legacy EFI files must remain available for at
+least seven days after the accepted reboot review, and one later boot must start
+after that review with kernel `5.15.209` still active.
+
+Run the non-destructive preflight as root:
+
+```bash
+sudo bash tests/acceptance/reference/test-elilo-oldkernel-retention-preflight.sh \
+    --target slackware-15.0
+```
+
+The script loads the accepted transaction record, captures the current boot ID
+and boot start epoch, verifies that the active ELILO entry uses the versioned
+`5.15.209` kernel and initrd, verifies that `oldkernel` still maps the preserved
+`5.15.19` files, and requires exactly three active plus three rollback package
+records. It also compares package logs to inventory paths shared by old and new
+kernel packages. Those shared paths require the later cleanup apply to reinstall
+the exact active package set after removing the old records.
+
+The generated plan is ordered: separately review and authorize apply; download
+and revalidate the exact active package archives; archive `elilo.conf` and all
+rollback artifacts; remove only the exact old package records; reinstall the
+active package set; verify the active module tree and versioned boot files;
+atomically remove the `oldkernel` stanza; and only then delete unreferenced legacy
+files. The preflight never invokes package installation or removal commands,
+never edits ELILO, and never deletes files. It can report eligibility, but every
+result remains `cleanup_authorized=false`.
+
+Every run publishes a private archive plus SHA-256 sidecar and prints one command
+that copies both files directly to `/home/promano` with `promano` ownership.
