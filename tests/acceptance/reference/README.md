@@ -402,4 +402,16 @@ never edits ELILO, and never deletes files. It can report eligibility, but every
 result remains `cleanup_authorized=false`.
 
 Every run publishes a private archive plus SHA-256 sidecar and prints one command
-that copies both files directly to `/home/promano` with `promano` ownership.
+that copies both files directly to `/home/promano` with `promano` ownership. The
+sidecar records only the archive basename, and the script prints a second command
+that verifies the copied pair from `/home/promano` with `sha256sum -c`.
+
+The corrected baseline run on 2026-08-01 passed all 24 assertions with archive
+SHA-256
+`5afedf07c964369e19ed7ba28f89f2c92caf50a1f46bba813f5652baedc7c3b4`.
+It observed a later boot starting at `2026-08-01T20:19:42Z`, preserved exactly
+three active plus three rollback package records, and proved package and boot
+state unchanged. It correctly remained `cleanup_eligible=false` because the
+seven-day window was not met. The next eligibility run must occur no earlier
+than `2026-08-08T19:51:00+02:00`; cleanup remains unauthorized regardless of
+preflight eligibility.

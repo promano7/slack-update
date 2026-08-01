@@ -1,0 +1,63 @@
+{
+  "scenario": "elilo-oldkernel-retention-preflight",
+  "target": "slackware-15.0",
+  "status": "accepted-ineligible-retention-baseline",
+  "evidence": {
+    "captured_at_utc": "2026-08-01T20:41:21Z",
+    "archive_sha256": "5afedf07c964369e19ed7ba28f89f2c92caf50a1f46bba813f5652baedc7c3b4",
+    "passes": 24,
+    "failures": 0,
+    "copied_directly_to_home_promano": true,
+    "owner": "promano",
+    "group": "users",
+    "mode": "0600",
+    "integrity_verified_after_copy": true,
+    "verification_method": "compare-recorded-and-recomputed-sha256",
+    "original_sidecar_used_absolute_source_path": true
+  },
+  "platform": {
+    "slackware_version": "Slackware 15.0",
+    "hostname": "vbox-slack15.vbox-slack15.org",
+    "firmware": "uefi",
+    "boot_loader": "elilo",
+    "package_database_configured": "/var/log/packages",
+    "package_database_resolved": "/var/lib/pkgtools/packages"
+  },
+  "kernel": {
+    "active": "5.15.209",
+    "rollback": "5.15.19",
+    "active_package_records": 3,
+    "rollback_package_records": 3,
+    "active_module_tree_present": true,
+    "rollback_module_tree_present": true,
+    "active_boot_artifacts_match_efi_copies": true,
+    "rollback_boot_artifacts_match_efi_copies": true
+  },
+  "elilo": {
+    "default_label": "vmlinuz",
+    "active_image": "vmlinuz-generic-5.15.209",
+    "active_initrd": "initrd-generic-5.15.209.gz",
+    "rollback_label": "oldkernel",
+    "rollback_image": "vmlinuz",
+    "rollback_initrd": "initrd.gz",
+    "rollback_retained": true
+  },
+  "retention": {
+    "accepted_reboot_reviewed_at_local": "2026-08-01T19:51:00+02:00",
+    "observed_later_boot_started_at_utc": "2026-08-01T20:19:42Z",
+    "minimum_days": 7,
+    "required_seconds": 604800,
+    "age_seconds_at_capture": 10220,
+    "window_met": false,
+    "required_successful_boots": 2,
+    "later_boot_after_review_observed": true,
+    "earliest_eligibility_at_local": "2026-08-08T19:51:00+02:00"
+  },
+  "immutability": {
+    "package_database_unchanged": true,
+    "boot_state_unchanged": true
+  },
+  "cleanup_eligible": false,
+  "cleanup_authorized": false,
+  "next_required_stage": "repeat the corrected non-destructive preflight after the retention window matures; cleanup design and authorization remain separate"
+}

@@ -60,6 +60,10 @@ assert_contains 'owner=${SUDO_USER:-promano}' "$ACCEPTANCE_SCRIPT" \
     'evidence publication should default to promano ownership'
 assert_contains '"/home/$owner/${archive##*/}"' "$ACCEPTANCE_SCRIPT" \
     'the evidence archive should be copied directly to the user home'
+assert_contains 'sha256sum -- "$(basename -- "$archive")"' "$ACCEPTANCE_SCRIPT" \
+    'the evidence sidecar should record only the portable archive basename'
+assert_contains 'Verify copied evidence command:' "$ACCEPTANCE_SCRIPT" \
+    'the preflight should print a direct verification command for the copied evidence'
 assert_not_contains '/home/$owner/Downloads' "$ACCEPTANCE_SCRIPT" \
     'the evidence copy command must not use a Downloads subdirectory'
 assert_not_contains '/home/$owner/Descargas' "$ACCEPTANCE_SCRIPT" \
@@ -299,6 +303,30 @@ ln -s "$TMP/state.before" "$TMP/state.link"
 assert_failure 'a symlinked state capture should fail closed' \
     compare_captured_file "$TMP/state.link" "$TMP/state.before"
 
+DEFAULT_OUTPUT_ROOT="$TMP/evidence-root"
+TARGET=slackware-15.0
+OUTPUT_DIR="$TMP/evidence-run"
+mkdir -p "$OUTPUT_DIR"
+printf 'portable evidence\n' > "$OUTPUT_DIR/sample.txt"
+assert_success 'evidence publication should create a portable archive and sidecar' \
+    env SUDO_USER=root bash -c 'source "$1"; DEFAULT_OUTPUT_ROOT="$2"; TARGET=slackware-15.0; OUTPUT_DIR="$3"; publish_evidence' \
+    bash "$ACCEPTANCE_SCRIPT" "$DEFAULT_OUTPUT_ROOT" "$OUTPUT_DIR"
+PUBLISHED_ARCHIVE=$(find "$DEFAULT_OUTPUT_ROOT" -maxdepth 1 -type f -name '*.tar.gz' -print -quit)
+PUBLISHED_SIDECAR=${PUBLISHED_ARCHIVE}.sha256
+assert_success 'the published archive should be a private regular file' \
+    test -f "$PUBLISHED_ARCHIVE"
+assert_equal 600 "$(stat -c %a "$PUBLISHED_ARCHIVE")" \
+    'the published archive should use mode 0600'
+assert_success 'the published sidecar should be a private regular file' \
+    test -f "$PUBLISHED_SIDECAR"
+assert_equal 600 "$(stat -c %a "$PUBLISHED_SIDECAR")" \
+    'the published sidecar should use mode 0600'
+assert_equal "$(basename -- "$PUBLISHED_ARCHIVE")" "$(awk '{print $2}' "$PUBLISHED_SIDECAR")" \
+    'the sidecar should reference the archive basename without its source path'
+assert_success 'the copied evidence contract should verify from its destination directory' \
+    bash -c 'cd -- "$1" && sha256sum -c -- "$(basename -- "$2")"' \
+    bash "$DEFAULT_OUTPUT_ROOT" "$PUBLISHED_SIDECAR"
+
 MINIMUM_RETENTION_DAYS=7
 REQUIRED_SUCCESSFUL_BOOTS=2
 RETENTION_WINDOW_MET=true
@@ -325,6 +353,24 @@ assert_contains '"one_later_boot_after_review_required": true' "$POLICY_FIXTURE"
     'the fixture should require a distinct later boot'
 assert_contains '"cleanup_authorized": false' "$POLICY_FIXTURE" \
     'the fixture must keep cleanup unauthorized'
+
+ACCEPTED_RETENTION_FIXTURE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-15.0-elilo-oldkernel-retention-preflight-accepted.json"
+assert_success 'the accepted retention baseline fixture should be valid JSON' \
+    python3 -m json.tool "$ACCEPTED_RETENTION_FIXTURE"
+assert_contains '"archive_sha256": "5afedf07c964369e19ed7ba28f89f2c92caf50a1f46bba813f5652baedc7c3b4"' \
+    "$ACCEPTED_RETENTION_FIXTURE" 'the accepted real-system archive digest should be preserved'
+assert_contains '"passes": 24' "$ACCEPTED_RETENTION_FIXTURE" \
+    'the accepted baseline should preserve all 24 passing assertions'
+assert_contains '"later_boot_after_review_observed": true' "$ACCEPTED_RETENTION_FIXTURE" \
+    'the accepted baseline should preserve the distinct later successful boot'
+assert_contains '"window_met": false' "$ACCEPTED_RETENTION_FIXTURE" \
+    'the accepted baseline should remain before the seven-day threshold'
+assert_contains '"cleanup_eligible": false' "$ACCEPTED_RETENTION_FIXTURE" \
+    'the accepted baseline should remain ineligible'
+assert_contains '"cleanup_authorized": false' "$ACCEPTED_RETENTION_FIXTURE" \
+    'the accepted baseline must not authorize cleanup'
+assert_contains '"earliest_eligibility_at_local": "2026-08-08T19:51:00+02:00"' \
+    "$ACCEPTED_RETENTION_FIXTURE" 'the earliest future eligibility boundary should be explicit'
 
 bash -n "$ACCEPTANCE_SCRIPT" && pass || fail 'the acceptance script should pass bash -n'
 

@@ -1098,9 +1098,14 @@ and retained label `oldkernel`. The apply archive SHA-256 is
 The subsequent real reboot ran kernel `5.15.209`; `/proc/cmdline` named the
 versioned EFI kernel, and `elilo.conf` still contained the active `vmlinuz`
 entry plus the `oldkernel` rollback entry. The ELILO kernel scenario is accepted. Phase 1 step 30 now defines the
-retention policy and a non-destructive eligibility preflight; removal of the
-previous packages or rollback artifacts remains blocked until its evidence is
-reviewed and a separate cleanup apply stage is explicitly authorized.
+retention policy and a non-destructive eligibility preflight. Its corrected
+real-system baseline passed all 24 assertions on 2026-08-01, observed a distinct
+later boot into `5.15.209`, and preserved package plus boot state; the reviewed
+archive SHA-256 is
+`5afedf07c964369e19ed7ba28f89f2c92caf50a1f46bba813f5652baedc7c3b4`.
+Removal of the previous packages or rollback artifacts remains blocked until a
+mature eligibility run is reviewed and a separate cleanup apply stage is
+explicitly authorized.
 
 The rollback policy requires both a minimum seven-day interval after the
 accepted reboot review and one additional successful boot into `5.15.209`. The
@@ -1123,8 +1128,14 @@ database. Missing state captures fail closed and are never treated as unchanged.
 It evaluates eligibility only after the final package and boot captures match
 their initial state. It may report `cleanup_eligible=true` only after those
 comparisons and both retention gates pass, but always records
-`cleanup_authorized=false`. The future cleanup plan must
-revalidate and retain the exact active package archives, remove only the three
+`cleanup_authorized=false`. The accepted baseline correctly reported
+`cleanup_eligible=false` because only 10,220 of the required 604,800 seconds had
+elapsed. The later-boot requirement is already satisfied; the next eligibility
+run must occur no earlier than `2026-08-08T19:51:00+02:00`. Evidence sidecars
+now contain only the archive basename, so after both files are copied directly
+to `/home/promano`, they can be verified there with `sha256sum -c`. The future
+cleanup plan must revalidate and retain the exact active package archives,
+remove only the three
 old package records, reinstall the active package set to repair shared package
 paths, verify the active boot chain, atomically remove `oldkernel`, and only then
 delete unreferenced rollback files.
@@ -1150,7 +1161,8 @@ delete unreferenced rollback files.
   - [x] Resolve and review the exact three-package repository candidate and atomic versioned ELILO transaction plan.
   - [x] Execute the gated ELILO transaction, review its evidence, and validate reboot into `5.15.209` with the `oldkernel` fallback retained.
   - [x] Define a seven-day, two-successful-boot retention policy and a non-destructive ELILO oldkernel eligibility preflight.
-  - [ ] Run and review the retention preflight while cleanup remains unauthorized.
+  - [x] Run and review the retention preflight while cleanup remains unauthorized.
+  - [ ] Repeat the retention preflight no earlier than 2026-08-08 19:51 CEST and review mature eligibility evidence.
   - [ ] Design and authorize the separate cleanup apply only after eligibility evidence is accepted.
 - [x] `install-new` introduces new packages.
 - [x] Kernel package update.

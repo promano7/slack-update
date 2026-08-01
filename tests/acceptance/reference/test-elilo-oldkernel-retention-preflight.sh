@@ -548,7 +548,7 @@ publish_evidence() {
     mkdir -p -- "$DEFAULT_OUTPUT_ROOT" || return 1
     tar -C "$(dirname -- "$OUTPUT_DIR")" -czf "$archive" "$(basename -- "$OUTPUT_DIR")" || return 1
     chmod 0600 -- "$archive" || return 1
-    sha256sum -- "$archive" > "$sidecar" || return 1
+    (cd -- "$(dirname -- "$archive")" && sha256sum -- "$(basename -- "$archive")") > "$sidecar" || return 1
     chmod 0600 -- "$sidecar" || return 1
 
     printf 'Evidence archive: %s\n' "$archive"
@@ -559,6 +559,8 @@ publish_evidence() {
         printf 'Copy evidence command: sudo install -o %q -g %q -m 0600 %q %q && sudo install -o %q -g %q -m 0600 %q %q\n' \
             "$owner" "$group" "$archive" "/home/$owner/${archive##*/}" \
             "$owner" "$group" "$sidecar" "/home/$owner/${sidecar##*/}"
+        printf 'Verify copied evidence command: cd %q && sha256sum -c %q\n' \
+            "/home/$owner" "${sidecar##*/}"
     fi
 }
 
