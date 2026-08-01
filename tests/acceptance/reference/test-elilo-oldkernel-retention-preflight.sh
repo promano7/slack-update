@@ -38,6 +38,7 @@ CLEANUP_ELIGIBLE=false
 ELILO_DIRECTORY=/boot/efi/EFI/Slackware
 ELILO_CONFIG=$ELILO_DIRECTORY/elilo.conf
 PACKAGE_DATABASE=/var/log/packages
+PACKAGE_DATABASE_RESOLVED=
 BLACKLIST=/etc/slackpkg/blacklist
 ACTIVE_EFI_KERNEL=
 ACTIVE_EFI_INITRD=
@@ -123,6 +124,20 @@ is_safe_kernel_version() {
 
 require_regular_file() {
     [ -f "$1" ] && [ ! -L "$1" ] && [ -r "$1" ]
+}
+
+resolve_package_database() {
+    local configured=$1 resolved
+
+    [ -d "$configured" ] || return 1
+    resolved=$(readlink -e -- "$configured" 2>/dev/null) || return 1
+    case "$resolved" in
+        /*) ;;
+        *) return 1 ;;
+    esac
+    [ -d "$resolved" ] && [ ! -L "$resolved" ] \
+        && [ -r "$resolved" ] && [ -x "$resolved" ] || return 1
+    printf '%s\n' "$resolved"
 }
 
 load_accepted_transaction_record() {
@@ -232,16 +247,31 @@ evaluate_retention_window() {
 }
 
 capture_package_database() {
-    local package_database=$1 output=$2
+    local package_database output=$2
 
-    [ -d "$package_database" ] && [ ! -L "$package_database" ] || return 1
+    package_database=$(resolve_package_database "$1") || return 1
     find "$package_database" -mindepth 1 -maxdepth 1 -type f -printf '%f\n' \
         | LC_ALL=C sort > "$output"
     [ -s "$output" ]
 }
 
+compare_captured_file() {
+    require_regular_file "$1" && require_regular_file "$2" && cmp -s -- "$1" "$2"
+}
+
+evaluate_cleanup_eligibility() {
+    CLEANUP_ELIGIBLE=false
+    if [ "$FAILURE_COUNT" -eq 0 ] \
+        && [ "$RETENTION_WINDOW_MET" = true ] \
+        && [ "$ADDITIONAL_BOOT_OBSERVED" = true ]; then
+        CLEANUP_ELIGIBLE=true
+    fi
+}
+
 capture_kernel_package_records() {
-    local package_database=$1 active_version=$2 old_version=$3 output=$4
+    local package_database active_version=$2 old_version=$3 output=$4
+
+    package_database=$(resolve_package_database "$1") || return 1
 
     python3 - "$package_database" "$active_version" "$old_version" "$output" <<'PYTHON_EOF'
 import pathlib
@@ -284,7 +314,9 @@ PYTHON_EOF
 }
 
 extract_package_path_overlap() {
-    local package_database=$1 records=$2 output=$3
+    local package_database records=$2 output=$3
+
+    package_database=$(resolve_package_database "$1") || return 1
 
     python3 - "$package_database" "$records" "$output" <<'PYTHON_EOF'
 import pathlib
@@ -301,6 +333,8 @@ for raw in records_path.read_text(encoding="utf-8").splitlines():
     records.append(fields)
 
 def package_paths(package_log: pathlib.Path) -> set[str]:
+    if not package_log.is_file() or package_log.is_symlink():
+        raise SystemExit(f"unsafe package record {package_log.name}")
     lines = package_log.read_text(encoding="utf-8", errors="strict").splitlines()
     try:
         start = lines.index("FILE LIST:") + 1
@@ -487,6 +521,8 @@ accepted_reboot_reviewed_at=$ACCEPTED_REBOOT_REVIEWED_AT
 running_kernel=$RUNNING_KERNEL
 active_kernel=$EXPECTED_ACTIVE_KERNEL
 rollback_kernel=$EXPECTED_OLD_KERNEL
+package_database_configured=$PACKAGE_DATABASE
+package_database_resolved=$PACKAGE_DATABASE_RESOLVED
 boot_id=$BOOT_ID
 boot_started_at_utc=$BOOT_STARTED_AT_UTC
 minimum_retention_days=$MINIMUM_RETENTION_DAYS
@@ -528,7 +564,8 @@ publish_evidence() {
 
 main() {
     local timestamp metadata_file elilo_records active_boot_kernel active_boot_initrd
-    local rollback_boot_kernel rollback_boot_initrd cmdline packages_before_sha boot_before_sha
+    local rollback_boot_kernel rollback_boot_initrd cmdline
+    local initial_state_captured=false final_state_captured=false
 
     parse_arguments "$@" || {
         print_usage >&2
@@ -547,7 +584,7 @@ main() {
         error "target mismatch: found '$SLACKWARE_VERSION'"
         return 2
     }
-    for command in python3 sha256sum tar stat find cmp awk sort date; do
+    for command in python3 sha256sum tar stat find cmp awk sort date readlink; do
         command -v "$command" >/dev/null 2>&1 || {
             error "required command missing: $command"
             return 2
@@ -611,6 +648,12 @@ main() {
         ????????-????-????-????-????????????) record_pass 'the current Linux boot ID was captured' ;;
         *) record_failure 'the current Linux boot ID is missing or malformed' ;;
     esac
+    if PACKAGE_DATABASE_RESOLVED=$(resolve_package_database "$PACKAGE_DATABASE"); then
+        record_pass "the package database compatibility path resolved safely to $PACKAGE_DATABASE_RESOLVED"
+    else
+        PACKAGE_DATABASE_RESOLVED=
+        record_failure 'the package database compatibility path could not be resolved safely'
+    fi
 
     elilo_records=$OUTPUT_DIR/elilo-retention-state.tsv
     if parse_elilo_retention_config "$ELILO_CONFIG" "$elilo_records"; then
@@ -694,31 +737,32 @@ main() {
         record_pass 'the required later boot has not yet been observed; cleanup remains ineligible'
     fi
 
-    capture_package_database "$PACKAGE_DATABASE" "$OUTPUT_DIR/packages.before.txt" \
-        && capture_boot_state "$OUTPUT_DIR/boot.before.txt" \
-        && record_pass 'the package and boot state were captured before final non-destructive verification' \
-        || record_failure 'the initial package or boot state could not be captured'
-    packages_before_sha=$(sha256sum -- "$OUTPUT_DIR/packages.before.txt" | awk '{print $1}')
-    boot_before_sha=$(sha256sum -- "$OUTPUT_DIR/boot.before.txt" | awk '{print $1}')
-
-    if [ "$FAILURE_COUNT" -eq 0 ] \
-        && [ "$RETENTION_WINDOW_MET" = true ] \
-        && [ "$ADDITIONAL_BOOT_OBSERVED" = true ]; then
-        CLEANUP_ELIGIBLE=true
+    if capture_package_database "$PACKAGE_DATABASE" "$OUTPUT_DIR/packages.before.txt" \
+        && capture_boot_state "$OUTPUT_DIR/boot.before.txt"; then
+        initial_state_captured=true
+        record_pass 'the package and boot state were captured before final non-destructive verification'
     else
-        CLEANUP_ELIGIBLE=false
+        record_failure 'the initial package or boot state could not be captured'
     fi
-    write_cleanup_plan "$OUTPUT_DIR/cleanup-plan.txt" "$EXPECTED_ACTIVE_KERNEL" "$EXPECTED_OLD_KERNEL"
 
-    capture_package_database "$PACKAGE_DATABASE" "$OUTPUT_DIR/packages.after.txt" \
-        && capture_boot_state "$OUTPUT_DIR/boot.after.txt" \
-        || record_failure 'the final package or boot state could not be captured'
-    [ "$packages_before_sha" = "$(sha256sum -- "$OUTPUT_DIR/packages.after.txt" | awk '{print $1}')" ] \
-        && record_pass 'the installed package database remained unchanged during the preflight' \
-        || record_failure 'the installed package database changed during the preflight'
-    [ "$boot_before_sha" = "$(sha256sum -- "$OUTPUT_DIR/boot.after.txt" | awk '{print $1}')" ] \
-        && record_pass 'the ELILO boot state remained unchanged during the preflight' \
-        || record_failure 'the ELILO boot state changed during the preflight'
+    if capture_package_database "$PACKAGE_DATABASE" "$OUTPUT_DIR/packages.after.txt" \
+        && capture_boot_state "$OUTPUT_DIR/boot.after.txt"; then
+        final_state_captured=true
+    else
+        record_failure 'the final package or boot state could not be captured'
+    fi
+    if [ "$initial_state_captured" = true ] && [ "$final_state_captured" = true ]; then
+        compare_captured_file "$OUTPUT_DIR/packages.before.txt" "$OUTPUT_DIR/packages.after.txt" \
+            && record_pass 'the installed package database remained unchanged during the preflight' \
+            || record_failure 'the installed package database changed during the preflight'
+        compare_captured_file "$OUTPUT_DIR/boot.before.txt" "$OUTPUT_DIR/boot.after.txt" \
+            && record_pass 'the ELILO boot state remained unchanged during the preflight' \
+            || record_failure 'the ELILO boot state changed during the preflight'
+    else
+        record_failure 'package and boot immutability could not be compared because a state capture was incomplete'
+    fi
+    evaluate_cleanup_eligibility
+    write_cleanup_plan "$OUTPUT_DIR/cleanup-plan.txt" "$EXPECTED_ACTIVE_KERNEL" "$EXPECTED_OLD_KERNEL"
 
     sha256sum -- "$ELILO_CONFIG" "$active_boot_kernel" "$active_boot_initrd" \
         "$rollback_boot_kernel" "$rollback_boot_initrd" \

@@ -1116,8 +1116,14 @@ The preflight validates the exact active and rollback package records, captures
 the current Linux boot ID and boot start time, verifies both ELILO entries and
 their `/boot` plus EFI copies, inventories package-log paths shared by the old
 and current kernel packages, and proves that package and boot state remain
-unchanged. It may report `cleanup_eligible=true` only after both retention gates
-pass, but always records `cleanup_authorized=false`. The future cleanup plan must
+unchanged. It follows the standard Slackware `/var/log/packages` compatibility
+symlink only after resolving it to a readable canonical directory, records both
+paths in the evidence, and never follows package-record symlinks inside the
+database. Missing state captures fail closed and are never treated as unchanged.
+It evaluates eligibility only after the final package and boot captures match
+their initial state. It may report `cleanup_eligible=true` only after those
+comparisons and both retention gates pass, but always records
+`cleanup_authorized=false`. The future cleanup plan must
 revalidate and retain the exact active package archives, remove only the three
 old package records, reinstall the active package set to repair shared package
 paths, verify the active boot chain, atomically remove `oldkernel`, and only then

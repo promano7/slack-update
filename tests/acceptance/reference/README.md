@@ -383,7 +383,14 @@ and boot start epoch, verifies that the active ELILO entry uses the versioned
 `5.15.19` files, and requires exactly three active plus three rollback package
 records. It also compares package logs to inventory paths shared by old and new
 kernel packages. Those shared paths require the later cleanup apply to reinstall
-the exact active package set after removing the old records.
+the exact active package set after removing the old records. The configured
+`/var/log/packages` path may be Slackware's compatibility symlink; the preflight
+resolves it canonically, records the resolved destination, and rejects broken or
+non-directory destinations plus package-record symlinks inside the database.
+Before/after immutability is reported only when all four state files were
+captured as readable regular files. Cleanup eligibility is calculated only
+after those final comparisons, so any capture or comparison failure forces the
+result to remain ineligible.
 
 The generated plan is ordered: separately review and authorize apply; download
 and revalidate the exact active package archives; archive `elilo.conf` and all

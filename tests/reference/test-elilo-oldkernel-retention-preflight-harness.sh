@@ -78,6 +78,26 @@ assert_not_contains 'eliloconfig ' "$ACCEPTANCE_SCRIPT" \
     'the retention preflight must not run eliloconfig'
 assert_not_contains 'efibootmgr ' "$ACCEPTANCE_SCRIPT" \
     'the retention preflight must not change firmware variables'
+assert_contains 'readlink -e -- "$configured"' "$ACCEPTANCE_SCRIPT" \
+    'the package database compatibility path should be resolved canonically'
+assert_contains 'package_database_resolved=$PACKAGE_DATABASE_RESOLVED' "$ACCEPTANCE_SCRIPT" \
+    'the evidence summary should record the resolved package database path'
+assert_contains 'compare_captured_file "$OUTPUT_DIR/packages.before.txt" "$OUTPUT_DIR/packages.after.txt"' \
+    "$ACCEPTANCE_SCRIPT" 'package-state comparison should require captured files'
+assert_not_contains 'sha256sum -- "$OUTPUT_DIR/packages.before.txt"' "$ACCEPTANCE_SCRIPT" \
+    'missing package captures must not be hashed unconditionally'
+assert_success 'cleanup eligibility should be evaluated after final state comparison' \
+    python3 - "$ACCEPTANCE_SCRIPT" <<'PYTHON_EOF'
+import pathlib
+import sys
+
+text = pathlib.Path(sys.argv[1]).read_text(encoding="utf-8")
+comparison = text.index('package and boot immutability could not be compared')
+eligibility = text.index('    evaluate_cleanup_eligibility\n', comparison)
+plan = text.index('    write_cleanup_plan ', eligibility)
+if not comparison < eligibility < plan:
+    raise SystemExit(1)
+PYTHON_EOF
 
 TARGET=
 OUTPUT_DIR=
@@ -133,6 +153,30 @@ assert_failure 'a current time before the retention reference should fail closed
     evaluate_retention_window 1599999999 1600000000 1599999900 7
 assert_failure 'a zero-day retention policy should fail closed' \
     evaluate_retention_window 1600700000 1600000000 1600600000 0
+
+FAILURE_COUNT=0
+RETENTION_WINDOW_MET=true
+ADDITIONAL_BOOT_OBSERVED=true
+evaluate_cleanup_eligibility
+assert_equal true "$CLEANUP_ELIGIBLE" \
+    'eligibility should be true only after all checks and both retention gates pass'
+FAILURE_COUNT=1
+evaluate_cleanup_eligibility
+assert_equal false "$CLEANUP_ELIGIBLE" \
+    'any recorded failure should force cleanup eligibility false'
+FAILURE_COUNT=0
+RETENTION_WINDOW_MET=false
+evaluate_cleanup_eligibility
+assert_equal false "$CLEANUP_ELIGIBLE" \
+    'an unmet retention window should force cleanup eligibility false'
+RETENTION_WINDOW_MET=true
+ADDITIONAL_BOOT_OBSERVED=false
+evaluate_cleanup_eligibility
+assert_equal false "$CLEANUP_ELIGIBLE" \
+    'a missing later boot should force cleanup eligibility false'
+FAILURE_COUNT=0
+RETENTION_WINDOW_MET=true
+ADDITIONAL_BOOT_OBSERVED=true
 
 cat > "$TMP/elilo.conf" <<'EOF_ELILO'
 chooser=simple
@@ -196,8 +240,23 @@ write_package_log "$PACKAGE_DB/kernel-modules-5.15.19-x86_64-2" \
     lib/ lib/modules/ lib/modules/5.15.19/ lib/modules/5.15.19/kernel/object-old.ko
 write_package_log "$PACKAGE_DB/kernel-modules-5.15.209-x86_64-1" \
     lib/ lib/modules/ lib/modules/5.15.209/ lib/modules/5.15.209/kernel/object-new.ko
+PACKAGE_DB_LINK="$TMP/packages-link"
+ln -s "$PACKAGE_DB" "$PACKAGE_DB_LINK"
+assert_equal "$(readlink -e -- "$PACKAGE_DB")" "$(resolve_package_database "$PACKAGE_DB_LINK")" \
+    'the Slackware package database compatibility symlink should resolve safely'
+assert_success 'the package database snapshot should follow the compatibility symlink' \
+    capture_package_database "$PACKAGE_DB_LINK" "$TMP/packages.snapshot"
+assert_equal 6 "$(wc -l < "$TMP/packages.snapshot")" \
+    'the package database snapshot should contain all six regular package records'
+ln -s "$PACKAGE_DB/missing" "$TMP/broken-packages-link"
+assert_failure 'a broken package database compatibility symlink should fail closed' \
+    resolve_package_database "$TMP/broken-packages-link"
+printf 'not a directory\n' > "$TMP/package-database-file"
+ln -s "$TMP/package-database-file" "$TMP/package-database-file-link"
+assert_failure 'a package database symlink to a regular file should fail closed' \
+    resolve_package_database "$TMP/package-database-file-link"
 assert_success 'the exact active and rollback package set should resolve' \
-    capture_kernel_package_records "$PACKAGE_DB" 5.15.209 5.15.19 "$TMP/records.tsv"
+    capture_kernel_package_records "$PACKAGE_DB_LINK" 5.15.209 5.15.19 "$TMP/records.tsv"
 assert_equal 6 "$(wc -l < "$TMP/records.tsv")" \
     'exactly six retained kernel package records should be emitted'
 assert_equal 3 "$(awk -F '\t' '$1 == "active" {count++} END {print count+0}' "$TMP/records.tsv")" \
@@ -205,7 +264,7 @@ assert_equal 3 "$(awk -F '\t' '$1 == "active" {count++} END {print count+0}' "$T
 assert_equal 3 "$(awk -F '\t' '$1 == "rollback" {count++} END {print count+0}' "$TMP/records.tsv")" \
     'three rollback package records should be present'
 assert_success 'shared package paths should be inventoried' \
-    extract_package_path_overlap "$PACKAGE_DB" "$TMP/records.tsv" "$TMP/overlap.tsv"
+    extract_package_path_overlap "$PACKAGE_DB_LINK" "$TMP/records.tsv" "$TMP/overlap.tsv"
 assert_contains $'kernel-generic\tkernel-generic-5.15.19-x86_64-2\tkernel-generic-5.15.209-x86_64-1\tboot/vmlinuz-generic' \
     "$TMP/overlap.tsv" 'the shared generic-kernel path should be recorded'
 assert_contains $'kernel-huge\tkernel-huge-5.15.19-x86_64-2\tkernel-huge-5.15.209-x86_64-1\tboot/vmlinuz' \
@@ -219,6 +278,26 @@ rm -f "$PACKAGE_DB/kernel-generic-5.15.19-x86_64-3"
 printf '../unsafe\n' >> "$PACKAGE_DB/kernel-modules-5.15.19-x86_64-2"
 assert_failure 'unsafe package-log paths should fail closed' \
     extract_package_path_overlap "$PACKAGE_DB" "$TMP/records.tsv" "$TMP/overlap.bad"
+sed -i '$d' "$PACKAGE_DB/kernel-modules-5.15.19-x86_64-2"
+mv "$PACKAGE_DB/kernel-modules-5.15.19-x86_64-2" "$PACKAGE_DB/kernel-modules-5.15.19-x86_64-2.real"
+ln -s kernel-modules-5.15.19-x86_64-2.real "$PACKAGE_DB/kernel-modules-5.15.19-x86_64-2"
+assert_failure 'a package-record symlink introduced after inventory should fail closed' \
+    extract_package_path_overlap "$PACKAGE_DB_LINK" "$TMP/records.tsv" "$TMP/overlap.symlink"
+rm -f "$PACKAGE_DB/kernel-modules-5.15.19-x86_64-2"
+mv "$PACKAGE_DB/kernel-modules-5.15.19-x86_64-2.real" "$PACKAGE_DB/kernel-modules-5.15.19-x86_64-2"
+
+printf 'same\n' > "$TMP/state.before"
+printf 'same\n' > "$TMP/state.after"
+assert_success 'two captured regular files with identical content should compare equal' \
+    compare_captured_file "$TMP/state.before" "$TMP/state.after"
+printf 'changed\n' > "$TMP/state.after"
+assert_failure 'different captured state should not compare equal' \
+    compare_captured_file "$TMP/state.before" "$TMP/state.after"
+assert_failure 'a missing initial capture should never compare equal' \
+    compare_captured_file "$TMP/state.missing" "$TMP/state.after"
+ln -s "$TMP/state.before" "$TMP/state.link"
+assert_failure 'a symlinked state capture should fail closed' \
+    compare_captured_file "$TMP/state.link" "$TMP/state.before"
 
 MINIMUM_RETENTION_DAYS=7
 REQUIRED_SUCCESSFUL_BOOTS=2
