@@ -102,7 +102,7 @@ Before submitting a change to the reference script:
 20. Run `tests/reference/test-kernel-boot-preflight-harness.sh` when firmware detection, boot-loader classification, mkinitrd evidence, kernel metadata, blacklist verification, boot-artifact capture, or kernel-preflight publication is affected.
 21. Run `tests/reference/test-elilo-generator-preflight-harness.sh` when ELILO directive parsing, versioned kernel-source mapping, EFI-copy validation, generator probing, non-execution guards, or ELILO evidence publication is affected.
 22. Run `tests/reference/test-elilo-kernel-transaction-preflight-harness.sh` when Slackpkg kernel-candidate resolution, version comparison, versioned EFI naming, planned ELILO rewriting, free-space guards, transaction boundaries, or transaction-preflight evidence publication is affected.
-23. Run `tests/reference/test-elilo-kernel-transaction-apply-harness.sh` when kernel package download/install boundaries, blacklist restoration, old/new kernel coexistence, generated mkinitrd parsing, versioned EFI staging, ELILO fallback entries, atomic activation, rollback cleanup, or apply evidence publication is affected.
+23. Run `tests/reference/test-elilo-kernel-transaction-apply-harness.sh` when exact per-package Slackpkg download statuses, cached-package resolution, blacklist restoration, old/new kernel coexistence, generated mkinitrd parsing, versioned EFI staging, ELILO fallback entries, atomic activation, rollback cleanup, or apply evidence publication is affected.
 24. Confirm that destructive commands are not exercised outside an isolated or explicitly recoverable Slackware test system.
 25. Record the relevant acceptance scenario.
 26. Preserve deterministic output and exit-code behavior.

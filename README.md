@@ -1080,6 +1080,16 @@ firmware boot variables are never changed. Package installation cannot be
 rolled back automatically, so this command remains limited to the snapshotted
 Slackware 15.0 VM until its evidence and reboot are accepted.
 
+The first real apply attempt on 2026-08-01 stopped before package installation.
+Slackpkg returned status `20` because the former single argument
+`^kernel-(generic|huge|modules)$` was treated as one unmatched package pattern.
+The blacklist was restored byte-for-byte, `installpkg` and `mkinitrd` were not
+run, and ELILO remained inactive. The corrected stage calls `slackpkg download`
+three times with the exact names `kernel-generic`, `kernel-huge`, and
+`kernel-modules`, records each status, and still resolves only the exact approved
+`5.15.209-x86_64-1` cache files. The diagnostic archive SHA-256 is
+`e3a854a2ed5479e9906ff3dd72592bf39439e55e20d1cc992a42eadf05f14996`.
+
 ### Real-system acceptance matrix
 
 - [x] Fully updated system with no available changes.

@@ -338,3 +338,14 @@ not automatically reversible; failures after package installation retain the
 old active boot files and require evidence review before any retry. A successful
 run requires a reboot test and separate post-reboot evidence before old packages
 or rollback files may be removed.
+
+The first real apply attempt stopped safely at the download boundary. Slackpkg
+returned `20` because the former argument `^kernel-(generic|huge|modules)$` was
+processed as one unmatched pattern. No package was downloaded or installed, the
+blacklist was restored byte-for-byte, and neither initrd nor ELILO was changed.
+The reviewed archive SHA-256 is
+`e3a854a2ed5479e9906ff3dd72592bf39439e55e20d1cc992a42eadf05f14996`.
+The corrected transaction performs three exact package-name downloads, records
+one raw status per name, stops at the first failure, and resolves only the
+approved version/build/path from `/var/cache/packages` before `installpkg` can
+run.

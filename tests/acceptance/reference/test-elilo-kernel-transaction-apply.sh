@@ -225,12 +225,25 @@ handle_transaction_signal() {
 }
 
 run_kernel_package_download() {
-    local output=$1 status=0
+    local output=$1 status=0 package_name command_status
+    local -a package_names=(kernel-generic kernel-huge kernel-modules)
 
-    LC_ALL=C LANG=C TERM=dumb \
-        slackpkg -dialog=off -batch=on -default_answer=y \
-        download '^kernel-(generic|huge|modules)$' \
-        > "$output" 2>&1 || status=$?
+    : > "$output" || return 1
+    : > "$OUTPUT_DIR/slackpkg-download-status.tsv" || return 1
+    for package_name in "${package_names[@]}"; do
+        printf '=== slackpkg download %s ===\n' "$package_name" >> "$output"
+        command_status=0
+        LC_ALL=C LANG=C TERM=dumb \
+            slackpkg -dialog=off -batch=on -default_answer=y \
+            download "$package_name" \
+            >> "$output" 2>&1 || command_status=$?
+        printf '%s\t%d\n' "$package_name" "$command_status" \
+            >> "$OUTPUT_DIR/slackpkg-download-status.tsv"
+        if [ "$command_status" -ne 0 ]; then
+            status=$command_status
+            break
+        fi
+    done
     SLACKPKG_DOWNLOAD_STATUS=$status
     printf '%d\n' "$status" > "$OUTPUT_DIR/slackpkg-download.exit"
     return "$status"

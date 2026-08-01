@@ -157,11 +157,26 @@ assert_failure 'an existing EFI target should block replacement' stage_verified_
 MOCK_LOG="$WORK/slackpkg.args"
 OUTPUT_DIR="$WORK/commands"
 mkdir -p "$OUTPUT_DIR"
-slackpkg() { printf '%s\n' "$@" > "$MOCK_LOG"; return 0; }
-assert_success 'kernel package download should use slackpkg download only' run_kernel_package_download "$WORK/download.log"
-assert_contains 'download' "$MOCK_LOG" 'the kernel package operation should be download'
-assert_contains '^kernel-(generic|huge|modules)$' "$MOCK_LOG" 'the download pattern should match exactly the reviewed kernel names'
+slackpkg() { printf '%s ' "$@" >> "$MOCK_LOG"; printf '\n' >> "$MOCK_LOG"; return 0; }
+assert_success 'kernel package download should use three exact slackpkg download calls' run_kernel_package_download "$WORK/download.log"
+assert_equal 3 "$(wc -l < "$MOCK_LOG")" 'exactly three Slackpkg download calls should be issued'
+assert_contains 'download kernel-generic ' "$MOCK_LOG" 'kernel-generic should be requested as one exact package name'
+assert_contains 'download kernel-huge ' "$MOCK_LOG" 'kernel-huge should be requested as one exact package name'
+assert_contains 'download kernel-modules ' "$MOCK_LOG" 'kernel-modules should be requested as one exact package name'
+assert_not_contains '^kernel-(generic|huge|modules)$' "$MOCK_LOG" 'the unsupported extended-regex alternation must not be passed to Slackpkg'
 assert_not_contains 'upgrade' "$MOCK_LOG" 'the kernel download path must never use slackpkg upgrade'
+assert_equal 3 "$(wc -l < "$OUTPUT_DIR/slackpkg-download-status.tsv")" 'each exact download should have an evidence status record'
+: > "$MOCK_LOG"
+SLACKPKG_MOCK_CALL=0
+slackpkg() {
+    SLACKPKG_MOCK_CALL=$((SLACKPKG_MOCK_CALL + 1))
+    printf '%s ' "$@" >> "$MOCK_LOG"
+    printf '\n' >> "$MOCK_LOG"
+    [ "$SLACKPKG_MOCK_CALL" -ne 2 ]
+}
+assert_failure 'a failed exact package download should stop the sequence' run_kernel_package_download "$WORK/download.fail.log"
+assert_equal 2 "$(wc -l < "$MOCK_LOG")" 'downloads after the first failure must not be attempted'
+assert_equal 1 "$(awk -F '\t' '$1 == "kernel-huge" { print $2 }' "$OUTPUT_DIR/slackpkg-download-status.tsv")" 'the failing exact package should preserve its raw status'
 unset -f slackpkg
 INSTALL_LOG="$WORK/installpkg.args"
 installpkg() { printf '%s\n' "$*" > "$INSTALL_LOG"; return 0; }
@@ -173,7 +188,9 @@ assert_contains '/cache/modules.txz' "$INSTALL_LOG" 'installpkg should receive t
 unset -f installpkg
 
 assert_not_contains 'eval ' "$ACCEPTANCE_SCRIPT" 'the apply script must never evaluate generated shell text'
-assert_contains "download '^kernel-(generic|huge|modules)$'" "$ACCEPTANCE_SCRIPT" 'the apply script should download only the reviewed kernel names'
+assert_contains 'local -a package_names=(kernel-generic kernel-huge kernel-modules)' "$ACCEPTANCE_SCRIPT" 'the apply script should enumerate only the three reviewed kernel names'
+assert_contains 'download "$package_name"' "$ACCEPTANCE_SCRIPT" 'the apply script should download each reviewed kernel name separately'
+assert_not_contains "download '^kernel-(generic|huge|modules)$'" "$ACCEPTANCE_SCRIPT" 'the apply script must not use unsupported extended-regex alternation'
 assert_contains 'installpkg "${packages[@]}"' "$ACCEPTANCE_SCRIPT" 'the apply script should preserve the working kernel with installpkg'
 assert_not_contains 'slackpkg -dialog=off -batch=on -default_answer=y -postinst=off' "$ACCEPTANCE_SCRIPT" 'the apply script must not upgrade kernel packages through slackpkg'
 assert_not_contains 'eliloconfig' "$ACCEPTANCE_SCRIPT" 'the existing EFI boot entry should not be rewritten by eliloconfig'
@@ -190,6 +207,14 @@ assert_contains '"target_kernel": "5.15.209"' "$FIXTURE" 'the accepted record sh
 assert_contains '"passes": 27' "$FIXTURE" 'the accepted record should preserve all real-system passes'
 assert_contains '"failures": 0' "$FIXTURE" 'the accepted record should preserve the zero-failure result'
 assert_contains '"apply_authorized": false' "$FIXTURE" 'the preflight record itself must not claim apply authorization'
+
+DIAGNOSTIC_FIXTURE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-15.0-elilo-transaction-apply-download-diagnostic.json"
+assert_success 'the reviewed download diagnostic should be valid JSON' python3 -m json.tool "$DIAGNOSTIC_FIXTURE"
+assert_contains '"archive_sha256": "e3a854a2ed5479e9906ff3dd72592bf39439e55e20d1cc992a42eadf05f14996"' "$DIAGNOSTIC_FIXTURE" 'the diagnostic should preserve the evidence digest'
+assert_contains '"slackpkg_exit": 20' "$DIAGNOSTIC_FIXTURE" 'the diagnostic should preserve the raw Slackpkg no-match status'
+assert_contains '"packages_installed": false' "$DIAGNOSTIC_FIXTURE" 'the diagnostic should prove no packages were installed'
+assert_contains '"blacklist_restored_byte_for_byte": true' "$DIAGNOSTIC_FIXTURE" 'the diagnostic should preserve the blacklist restoration boundary'
+assert_contains '"retry_authorized": false' "$DIAGNOSTIC_FIXTURE" 'the failed run must not authorize an unreviewed retry'
 
 bash -n "$ACCEPTANCE_SCRIPT" && pass || fail 'the apply script should pass bash -n'
 

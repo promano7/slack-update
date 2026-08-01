@@ -1,0 +1,42 @@
+{
+  "scenario": "elilo-kernel-transaction-apply",
+  "target": "slackware-15.0",
+  "status": "download-diagnostic-reviewed",
+  "retry_authorized": false,
+  "captured_at": "2026-08-01T17:16:59Z",
+  "archive_sha256": "e3a854a2ed5479e9906ff3dd72592bf39439e55e20d1cc992a42eadf05f14996",
+  "platform": {
+    "slackware_version": "Slackware 15.0",
+    "hostname": "vbox-slack15.vbox-slack15.org",
+    "running_kernel": "5.15.19",
+    "firmware": "uefi",
+    "boot_loader": "elilo"
+  },
+  "candidate": {
+    "target_kernel": "5.15.209",
+    "target_build": "1",
+    "repository": "patches",
+    "candidate_set_sha256": "10ea616935d628a97ba2bc9cec0d5e57fdebeefe54d2768800ef3a30c3a4c5db"
+  },
+  "failure": {
+    "stage": "package-download",
+    "slackpkg_exit": 20,
+    "message": "No packages match the pattern for download.",
+    "unsupported_argument": "^kernel-(generic|huge|modules)$",
+    "root_cause": "slackpkg download processes whitespace-separated grep -w package-name patterns and does not interpret the supplied extended-regex alternation as three package names"
+  },
+  "state": {
+    "packages_installed": false,
+    "installpkg_run": false,
+    "mkinitrd_run": false,
+    "elilo_activated": false,
+    "blacklist_restored_byte_for_byte": true,
+    "working_kernel_unchanged": true,
+    "working_initrd_unchanged": true
+  },
+  "assertions": {
+    "passes": 17,
+    "failures": 2
+  },
+  "next_required_stage": "repeat with three exact slackpkg download package-name arguments and review evidence before reboot"
+}
