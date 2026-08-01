@@ -217,7 +217,8 @@ The preflight is non-destructive. It captures the package database and selected
 boot artifacts before and after inspection, classifies BIOS versus UEFI,
 identifies probable LILO, ELILO, GRUB, ambiguous, or unknown boot-loader state,
 records relevant command availability and configuration directives, summarizes
-safe scalar values from `/etc/mkinitrd.conf`, and preserves installed plus
+safe scalar values from `/etc/mkinitrd.conf` or records availability of the
+official Slackware command generator, and preserves installed plus
 repository kernel records from Slackpkg metadata. It never removes blacklist
 entries, invokes `slackpkg upgrade`, runs `mkinitrd`, installs LILO, copies ELILO
 images, or regenerates GRUB.
@@ -229,4 +230,27 @@ adapter or manual acceptance boundary before removing the kernel blacklist.
 Every run publishes a private archive and SHA-256 sidecar under
 `/var/tmp/slack-update-acceptance/kernel-boot-preflight/` and prints a one-line
 copy command for the invoking user.
+
+### ELILO generator preflight
+
+Real Slackware 15.0 evidence classified the deferred kernel path as UEFI plus
+ELILO. The active `elilo.conf` uses the relative `vmlinuz` and `initrd.gz`
+files in `/boot/efi/EFI/Slackware/`; both EFI copies matched their `/boot`
+sources at capture time. `/etc/mkinitrd.conf` was absent, so kernel apply remains
+blocked while the command-generator boundary is reviewed.
+
+Run the second non-destructive stage while all three boot-kernel packages remain
+blacklisted:
+
+```bash
+sudo bash tests/acceptance/reference/test-elilo-generator-preflight.sh \
+    --target slackware-15.0
+```
+
+This stage runs `/usr/share/mkinitrd/mkinitrd_command_generator.sh -k` for the
+currently running kernel only to capture stdout. It never evaluates the output,
+never invokes `mkinitrd`, never runs `eliloconfig`, and never changes packages,
+blacklist entries, `/boot`, or the EFI system partition. A successful result is
+still evidence for adapter design, not authorization to remove the kernel
+blacklist.
 

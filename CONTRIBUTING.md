@@ -100,11 +100,12 @@ Before submitting a change to the reference script:
 18. Run `tests/reference/test-normal-update-acceptance-harness.sh` when normal-update candidate detection, package classification, physical-host safety gates, apply validation, or evidence publication is affected.
 19. Run `tests/reference/test-slackpkg-postinstall-policy.sh` when slackpkg post-install arguments, deferred `.new` handling, pending-file enumeration, human warnings, or structured-result metadata is affected.
 20. Run `tests/reference/test-kernel-boot-preflight-harness.sh` when firmware detection, boot-loader classification, mkinitrd evidence, kernel metadata, blacklist verification, boot-artifact capture, or kernel-preflight publication is affected.
-21. Confirm that destructive commands are not exercised outside an isolated or explicitly recoverable Slackware test system.
-22. Record the relevant acceptance scenario.
-23. Preserve deterministic output and exit-code behavior.
-24. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
-25. Ensure every new or modified comment is written in English.
+21. Run `tests/reference/test-elilo-generator-preflight-harness.sh` when ELILO directive parsing, EFI-copy validation, generator probing, non-execution guards, or ELILO evidence publication is affected.
+22. Confirm that destructive commands are not exercised outside an isolated or explicitly recoverable Slackware test system.
+23. Record the relevant acceptance scenario.
+24. Preserve deterministic output and exit-code behavior.
+25. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
+26. Ensure every new or modified comment is written in English.
 
 Never run the apply workflow on a production machine merely to validate a contribution.
 

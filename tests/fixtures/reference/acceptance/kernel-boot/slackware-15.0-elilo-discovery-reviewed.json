@@ -1,0 +1,51 @@
+{
+  "scenario": "kernel-boot-preflight",
+  "target": "slackware-15.0",
+  "reviewed": true,
+  "apply_authorized": false,
+  "captured_at": "2026-08-01T16:05:08Z",
+  "archive_sha256": "78f4d60738fe08a5ce599458e7da8917402bb029a90b0f9ac449c6129b6746ab",
+  "platform": {
+    "slackware_version": "Slackware 15.0",
+    "hostname": "vbox-slack15.vbox-slack15.org",
+    "running_kernel": "5.15.19",
+    "firmware_mode": "uefi"
+  },
+  "bootloader": {
+    "classification": "elilo",
+    "efi_entry": "Slackware",
+    "efi_loader": "\\EFI\\Slackware\\elilo.efi",
+    "configuration": "/boot/efi/EFI/Slackware/elilo.conf",
+    "image": "vmlinuz",
+    "initrd": "initrd.gz",
+    "root_argument": "/dev/sda2",
+    "reference_support_at_capture": "reference-unsupported"
+  },
+  "boot_artifacts": {
+    "boot_kernel_matches_efi_copy": true,
+    "boot_initrd_matches_efi_copy": true,
+    "grub_configuration_present": false,
+    "lilo_configuration_present": false,
+    "unchanged_by_preflight": true
+  },
+  "mkinitrd": {
+    "command_available": true,
+    "configuration_file_present": false,
+    "configuration_state_at_capture": "missing",
+    "next_required_stage": "record the official Slackware command generator output without executing it"
+  },
+  "kernel_packages": {
+    "installed_boot_version": "5.15.19",
+    "repository_boot_version": "5.15.209",
+    "deferred": [
+      "kernel-generic",
+      "kernel-huge",
+      "kernel-modules"
+    ]
+  },
+  "assertions": {
+    "original_passes": 9,
+    "original_failures": 1,
+    "reviewed_failure": "missing mkinitrd.conf was a discovery state, not a destructive or boot-path failure"
+  }
+}

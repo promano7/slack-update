@@ -58,6 +58,10 @@ assert_contains '/sys/firmware/efi' "$ACCEPTANCE_SCRIPT" \
     'the scenario should classify BIOS versus UEFI firmware'
 assert_contains 'reference-unsupported' "$ACCEPTANCE_SCRIPT" \
     'LILO and ELILO should remain explicitly unsupported by the reference'
+assert_contains 'MKINITRD_GENERATOR=/usr/share/mkinitrd/mkinitrd_command_generator.sh' "$ACCEPTANCE_SCRIPT" \
+    'the preflight should recognize the official Slackware generator path'
+assert_contains 'generator-available' "$ACCEPTANCE_SCRIPT" \
+    'a missing mkinitrd.conf should be classifiable through the command generator'
 assert_contains 'find -H /var/log/packages' "$ACCEPTANCE_SCRIPT" \
     'package records should follow the Slackware compatibility symlink'
 assert_not_contains 'lilo -v' "$ACCEPTANCE_SCRIPT" \

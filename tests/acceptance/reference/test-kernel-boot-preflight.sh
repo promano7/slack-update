@@ -19,6 +19,7 @@ FIRMWARE_MODE=unknown
 BOOTLOADER_CLASSIFICATION=unknown
 BOOTLOADER_SUPPORT=unsupported
 MKINITRD_CONFIG_STATE=missing
+MKINITRD_GENERATOR=/usr/share/mkinitrd/mkinitrd_command_generator.sh
 
 print_usage() {
     cat <<EOF_USAGE
@@ -188,8 +189,19 @@ capture_mkinitrd_summary() {
 
     : > "$output" || return 1
     if [ ! -e /etc/mkinitrd.conf ]; then
-        MKINITRD_CONFIG_STATE=missing
-        printf 'state=missing\n' > "$output"
+        if [ -f "$MKINITRD_GENERATOR" ] && [ ! -L "$MKINITRD_GENERATOR" ] \
+            && [ -r "$MKINITRD_GENERATOR" ]; then
+            MKINITRD_CONFIG_STATE=generator-available
+            {
+                printf 'state=generator-available\n'
+                printf 'generator=%s\n' "$MKINITRD_GENERATOR"
+                printf 'generator_sha256=%s\n' \
+                    "$(sha256sum -- "$MKINITRD_GENERATOR" 2>/dev/null | awk '{print $1}')"
+            } > "$output"
+        else
+            MKINITRD_CONFIG_STATE=missing
+            printf 'state=missing\n' > "$output"
+        fi
         return 0
     fi
     if [ -L /etc/mkinitrd.conf ] || [ ! -f /etc/mkinitrd.conf ] || [ ! -r /etc/mkinitrd.conf ]; then
@@ -412,11 +424,17 @@ main() {
         ambiguous) record_failure 'multiple probable boot loaders were detected' ;;
         *) record_failure 'the active boot loader could not be classified' ;;
     esac
-    if [ "$MKINITRD_CONFIG_STATE" = readable ]; then
-        record_pass 'mkinitrd.conf is a readable regular file'
-    else
-        record_failure "mkinitrd.conf state is $MKINITRD_CONFIG_STATE"
-    fi
+    case "$MKINITRD_CONFIG_STATE" in
+        readable)
+            record_pass 'mkinitrd.conf is a readable regular file'
+            ;;
+        generator-available)
+            record_pass 'mkinitrd.conf is absent and the Slackware command generator is available'
+            ;;
+        *)
+            record_failure "mkinitrd preparation state is $MKINITRD_CONFIG_STATE"
+            ;;
+    esac
     if grep -q '^kernel-generic=deferred$' "$OUTPUT_DIR/blacklist.txt" \
         && grep -q '^kernel-huge=deferred$' "$OUTPUT_DIR/blacklist.txt" \
         && grep -q '^kernel-modules=deferred$' "$OUTPUT_DIR/blacklist.txt"; then

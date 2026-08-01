@@ -988,15 +988,29 @@ sudo bash tests/acceptance/reference/test-kernel-boot-preflight.sh \
 ```
 
 This preflight identifies BIOS versus UEFI firmware, classifies probable LILO,
-ELILO, or GRUB usage, inventories the readable scalar settings from
-`/etc/mkinitrd.conf`, records installed and repository kernel package metadata,
-confirms that `kernel-generic`, `kernel-huge`, and `kernel-modules` remain
-blacklisted, and fingerprints relevant boot artifacts before and after
-inspection. It does not modify Slackpkg configuration, packages, initrd images,
-or boot-loader files. The current reference implements automatic boot
-preparation only for mkinitrd plus GRUB; a LILO, ELILO, ambiguous, or unknown
-classification remains blocked until a target-specific safe adapter or an
-explicit manual acceptance procedure is designed.
+ELILO, or GRUB usage, inventories readable scalar settings from
+`/etc/mkinitrd.conf` or records availability of Slackware's official command
+generator, records installed and repository kernel package metadata, confirms
+that `kernel-generic`, `kernel-huge`, and `kernel-modules` remain blacklisted,
+and fingerprints relevant boot artifacts before and after inspection. It does
+not modify Slackpkg configuration, packages, initrd images, or boot-loader
+files. The current reference implements automatic boot preparation only for
+mkinitrd plus GRUB; a LILO, ELILO, ambiguous, or unknown classification remains
+blocked until a target-specific safe adapter or an explicit manual acceptance
+procedure is designed.
+
+Real Slackware 15.0 evidence collected on 2026-08-01 identified UEFI with ELILO,
+confirmed that `/boot/vmlinuz` and `/boot/initrd.gz` match the active copies in
+`/boot/efi/EFI/Slackware/`, and found no `/etc/mkinitrd.conf`. The reviewed
+archive SHA-256 is
+`78f4d60738fe08a5ce599458e7da8917402bb029a90b0f9ac449c6129b6746ab`.
+Kernel apply remains blocked. The next stage records, but never executes, the
+official generator command for the currently running kernel:
+
+```bash
+sudo bash tests/acceptance/reference/test-elilo-generator-preflight.sh \
+    --target slackware-15.0
+```
 
 ### Real-system acceptance matrix
 
@@ -1013,7 +1027,8 @@ explicit manual acceptance procedure is designed.
   - [x] Revalidate the hardened deferred `.new` policy on Slackware 15.0.
   - [ ] Exercise the three deferred Slackware 15.0 boot-kernel packages in the dedicated kernel-update scenario.
   - [x] Implement the non-destructive firmware, boot-loader, mkinitrd, kernel-record, blacklist, and boot-artifact preflight.
-  - [ ] Review real Slackware 15.0 boot-path evidence and select the safe LILO, ELILO, or GRUB branch before apply.
+  - [x] Review real Slackware 15.0 boot-path evidence and select the ELILO branch.
+  - [ ] Record and review the non-executed mkinitrd command-generator proposal for the running ELILO kernel.
 - [ ] `install-new` introduces new packages.
 - [ ] Kernel package update.
 - [ ] Kernel headers update without a kernel image update.
