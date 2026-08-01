@@ -137,6 +137,40 @@ keeps current configurations, enumerates pending regular `/etc/*.new` files, and
 requires revalidation of that hardened policy during the next available update.
 The accepted candidate-set SHA-256 remains `a8a608d8aac53c0d9f027622c01df4f794e94e8dd4586764b8d2503f9b94e45d`.
 
+Slackware 15.0 passed the non-boot-kernel branch on 2026-08-01. An initial
+preflight reported 199 candidates, including `kernel-generic`, `kernel-huge`,
+and `kernel-modules`. Those three boot-kernel packages were deliberately
+deferred through the Slackpkg blacklist for a later dedicated kernel scenario.
+The reviewed preflight then reported 12 `install-new` candidates, 184
+`upgrade-all` candidates, five configured critical candidates, zero boot-kernel
+candidates, and candidate-set SHA-256
+`baaf89bb3e61662d7bbb10223e2c26b9adc98c443eacdf8273319a6818951410`.
+Its archive SHA-256 is
+`4774070e7a9173f6486d560e54d7efce8580b76a92449e1698e7449d8557e73c`.
+
+The corresponding real apply returned stable code `4`, with
+`success=true`, `partial=false`, `reboot=recommended`, and `boot_safe=true`.
+It installed all 12 new packages, changed all 184 upgrade candidates, moved the
+package database from 1,554 to 1,566 records, and left the observed initrd and
+GRUB state unchanged. The hardened `-postinst=off` policy was exercised on the
+real system: no interactive post-install menu was opened, active configurations
+were preserved, and 45 regular `/etc/*.new` files were reported for later
+review. The broad `kernel_changes=true` field reflected updates to
+`kernel-firmware` and `kernel-source`; the explicit `initrd_required` and
+`grub_required` fields remained false, so boot preparation and stable code `5`
+were not applicable. The original acceptance validator incorrectly conflated
+those two concepts and produced one false-negative assertion; the corrected
+validator keys boot requirements from the explicit boot fields and accepts the
+reviewed run. The apply archive SHA-256 is
+`c670a5077f9efb5d64470b46b537754634913c0f1deccd4fcef707c9385339ed`.
+
+The sanitized records are stored at:
+
+```text
+tests/fixtures/reference/acceptance/normal-update/slackware-15.0-preflight-accepted.json
+tests/fixtures/reference/acceptance/normal-update/slackware-15.0-apply-accepted.json
+```
+
 Do not run apply mode until the preflight archive has been reviewed. Apply mode
 requires the exact current hostname:
 

@@ -42,6 +42,13 @@ final process status and final operation event must use the stable Slack-Update 
 Any incompatible change requires explicit roadmap discussion and documentation before
 implementation.
 
+Acceptance validators must distinguish the broad `kernel_changes` package-group
+indicator from explicit boot preparation. Updates to `kernel-firmware`,
+`kernel-source`, or kernel headers may set `kernel_changes=true` without requiring
+initrd or bootloader work. Stable code `5` is required only when the structured
+boot result sets `initrd_required=true` or `grub_required=true`; critical
+userspace packages without boot preparation use stable code `4`.
+
 ## Commit messages
 
 Use the following format when a scope improves clarity:

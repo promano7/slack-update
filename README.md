@@ -966,6 +966,19 @@ operations disable slackpkg post-install processing with `-postinst=off`, keep
 active configuration files, enumerate pending regular `/etc/*.new` files, and
 report them for a later administrator-controlled `slackpkg new-config` review.
 
+Slackware 15.0 passed the non-kernel branch of this scenario on 2026-08-01.
+The reviewed preflight deferred `kernel-generic`, `kernel-huge`, and
+`kernel-modules`, then authorized an exact 196-package candidate digest containing
+12 `install-new` packages, 184 upgrades, five configured critical packages, and
+no boot-kernel candidates. The real apply returned stable code `4`, installed all
+12 new packages, changed all 184 upgrade candidates, moved the package database
+from 1,554 to 1,566 records, left the observed initrd and GRUB state unchanged,
+and reported 45 pending `.new` files through the hardened deferred policy. The
+broad `kernel_changes` result was true because `kernel-firmware` and
+`kernel-source` changed, while the explicit initrd and GRUB requirements remained
+false. Sanitized preflight and apply records are stored under
+`tests/fixtures/reference/acceptance/normal-update/`.
+
 ### Real-system acceptance matrix
 
 - [x] Fully updated system with no available changes.
@@ -977,7 +990,9 @@ report them for a later administrator-controlled `slackpkg new-config` review.
   - [x] Slackware-current preflight evidence reviewed.
   - [x] Slackware-current ten-package transaction reviewed and accepted as package/boot evidence.
   - [ ] Revalidate the hardened deferred `.new` policy during the next Slackware-current update.
-  - [ ] Slackware 15.0 preflight and real apply evidence accepted.
+  - [x] Slackware 15.0 preflight and real apply evidence accepted.
+  - [x] Revalidate the hardened deferred `.new` policy on Slackware 15.0.
+  - [ ] Exercise the three deferred Slackware 15.0 boot-kernel packages in the dedicated kernel-update scenario.
 - [ ] `install-new` introduces new packages.
 - [ ] Kernel package update.
 - [ ] Kernel headers update without a kernel image update.
@@ -1523,6 +1538,8 @@ Slack-Update 1.0 will be ready when:
   - [x] Require an exact reviewed candidate-set SHA-256 before normal-update apply.
   - [x] Review and accept the ten-package Slackware-current transaction as package and boot evidence.
   - [ ] Revalidate the hardened deferred `.new` policy on the next Slackware-current update.
-  - [ ] Accept the normal-update scenario on Slackware 15.0 when updates are available.
+  - [x] Accept the Slackware 15.0 normal-update preflight and 196-package real apply.
+  - [x] Revalidate the hardened deferred `.new` policy on Slackware 15.0.
+  - [ ] Validate the deferred Slackware 15.0 boot-kernel packages in the dedicated kernel-update scenario.
 - [ ] Freeze `reference-v1`.
 - [ ] Begin the C architecture only after the reference gate is complete.

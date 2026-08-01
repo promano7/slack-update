@@ -11,6 +11,8 @@ INSTALL_FIXTURE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-upd
 UPGRADE_FIXTURE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/upgrade-all-probe.log"
 ACCEPTED_CURRENT_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-accepted.json"
 REVIEWED_CURRENT_APPLY="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-apply-reviewed.json"
+ACCEPTED_SLACKWARE15_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-15.0-preflight-accepted.json"
+ACCEPTED_SLACKWARE15_APPLY="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-15.0-apply-accepted.json"
 
 # Source helpers without executing the real-system scenario.
 # shellcheck source=../acceptance/reference/test-normal-update.sh
@@ -132,6 +134,8 @@ assert_file_contains 'postinstall_processing_enabled' "$ACCEPTANCE_SCRIPT" \
     'apply validation should reject interactive slackpkg post-install processing'
 assert_file_contains 'pending_new_config_files_count' "$ACCEPTANCE_SCRIPT" \
     'apply validation should preserve the pending .new configuration-file count'
+assert_file_contains 'kernel_changes is intentionally broader than boot-kernel replacement' "$ACCEPTANCE_SCRIPT" \
+    'apply validation should distinguish broad kernel package changes from boot preparation'
 assert_file_not_contains 'rm -rf /var/log/packages' "$ACCEPTANCE_SCRIPT" \
     'the scenario must never remove the package database'
 
@@ -326,6 +330,92 @@ assert_file_contains 'metadata_update_exit_code=not-run' "$OUTPUT_DIR/summary.tx
 assert_file_contains 'candidate_set_sha256=a8a608d8aac53c0d9f027622c01df4f794e94e8dd4586764b8d2503f9b94e45d' "$OUTPUT_DIR/summary.txt" \
     'the summary should preserve the reviewed candidate-set digest'
 
+python3 - "$TEST_TMP/kernel-source-only.json" "$TEST_TMP/critical-userspace.json" \
+    "$TEST_TMP/invalid-required.json" "$TEST_TMP/boot-kernel.json" \
+    "$TEST_TMP/invalid-critical.json" "$GENERATED_CONFIG" <<'PYTHON_EOF'
+import json
+import pathlib
+import sys
+
+kernel_source_path, critical_path, invalid_required_path, boot_kernel_path, invalid_critical_path, config_path = sys.argv[1:]
+
+def result(exit_code, reboot, kernel_changes, critical_packages, boot):
+    return {
+        "schema_version": 0,
+        "operation": "apply",
+        "success": True,
+        "partial": False,
+        "boot_safe": True,
+        "exit_code": exit_code,
+        "reboot": reboot,
+        "config_path": config_path,
+        "errors": [],
+        "modules": {
+            "slackware": {
+                "state": "success",
+                "update_exit_code": 0,
+                "install_new_exit_code": 0,
+                "upgrade_all_exit_code": 0,
+                "postinstall_policy": "defer",
+                "postinstall_processing_enabled": False,
+                "pending_new_config_files_valid": True,
+                "pending_new_config_files_count": 0,
+                "pending_new_config_files": [],
+                "snapshot_before_valid": True,
+                "snapshot_after_valid": True,
+                "secondary_modules_blocked": False,
+                "kernel_changes": kernel_changes,
+                "critical_packages": critical_packages,
+            },
+            "flatpak": {"mode": "disabled"},
+            "sbo": {"mode": "disabled"},
+            "elf": {"mode": "disabled"},
+            "cinnamon": {"mode": "disabled"},
+            "boot": {"mode": "auto", **boot},
+        },
+    }
+
+not_required = {
+    "state": "not-required",
+    "initrd_required": False,
+    "initrd_state": "not-required",
+    "grub_required": False,
+    "grub_state": "not-required",
+}
+required = {
+    "state": "success",
+    "initrd_required": True,
+    "initrd_state": "success",
+    "grub_required": True,
+    "grub_state": "success",
+}
+
+pathlib.Path(kernel_source_path).write_text(
+    json.dumps(result(0, "none", True, [], not_required)), encoding="utf-8"
+)
+pathlib.Path(critical_path).write_text(
+    json.dumps(result(4, "recommended", True, ["glibc"], not_required)), encoding="utf-8"
+)
+pathlib.Path(invalid_required_path).write_text(
+    json.dumps(result(5, "required", True, [], not_required)), encoding="utf-8"
+)
+pathlib.Path(boot_kernel_path).write_text(
+    json.dumps(result(5, "required", True, [], required)), encoding="utf-8"
+)
+pathlib.Path(invalid_critical_path).write_text(
+    json.dumps(result(0, "none", False, ["glibc"], not_required)), encoding="utf-8"
+)
+PYTHON_EOF
+assert_success 'non-boot kernel package changes should permit successful code zero' \
+    validate_apply_json "$TEST_TMP/kernel-source-only.json" "$GENERATED_CONFIG" 0
+assert_success 'critical userspace updates should permit reboot-recommended code four' \
+    validate_apply_json "$TEST_TMP/critical-userspace.json" "$GENERATED_CONFIG" 4
+assert_failure 'code five should require explicit boot preparation' \
+    validate_apply_json "$TEST_TMP/invalid-required.json" "$GENERATED_CONFIG" 5
+assert_success 'boot-kernel changes should require successful boot preparation and code five' \
+    validate_apply_json "$TEST_TMP/boot-kernel.json" "$GENERATED_CONFIG" 5
+assert_failure 'critical userspace changes should not permit code zero' \
+    validate_apply_json "$TEST_TMP/invalid-critical.json" "$GENERATED_CONFIG" 0
 
 python3 - "$ACCEPTED_CURRENT_PREFLIGHT" <<'PYTHON_EOF'
 import json
@@ -412,6 +502,64 @@ assert_file_contains '"reference_revalidation_required": true' "$REVIEWED_CURREN
     'the reviewed apply record should keep the hardened reference pending'
 assert_file_contains '"reported_new_config_files": 27' "$REVIEWED_CURRENT_APPLY" \
     'the reviewed apply record should preserve the observed post-install prompt count'
+
+python3 - "$ACCEPTED_SLACKWARE15_PREFLIGHT" "$ACCEPTED_SLACKWARE15_APPLY" <<'PYTHON_EOF'
+import json
+import pathlib
+import sys
+
+preflight = json.loads(pathlib.Path(sys.argv[1]).read_text(encoding="utf-8"))
+apply = json.loads(pathlib.Path(sys.argv[2]).read_text(encoding="utf-8"))
+
+assert preflight["scenario"] == "normal-update"
+assert preflight["mode"] == "preflight"
+assert preflight["target"] == "slackware-15.0"
+assert preflight["accepted"] is True
+assert preflight["archive_sha256"] == "4774070e7a9173f6486d560e54d7efce8580b76a92449e1698e7449d8557e73c"
+assert preflight["candidates"]["total"] == 196
+assert len(preflight["candidates"]["install_new"]) == 12
+assert len(preflight["candidates"]["upgrade_all"]) == 184
+assert preflight["candidates"]["kernel"] == []
+assert len(preflight["candidates"]["critical"]) == 5
+assert preflight["candidates"]["candidate_set_sha256"] == "baaf89bb3e61662d7bbb10223e2c26b9adc98c443eacdf8273319a6818951410"
+assert preflight["package_database"]["unchanged"] is True
+assert preflight["assertions"] == {"passes": 6, "failures": 0}
+
+assert apply["scenario"] == "normal-update"
+assert apply["mode"] == "apply"
+assert apply["target"] == "slackware-15.0"
+assert apply["accepted"] is True
+assert apply["accepted_after_validator_correction"] is True
+assert apply["archive_sha256"] == "c670a5077f9efb5d64470b46b537754634913c0f1deccd4fcef707c9385339ed"
+assert apply["result"]["exit_code"] == 4
+assert apply["result"]["success"] is True
+assert apply["result"]["partial"] is False
+assert apply["result"]["reboot"] == "recommended"
+assert apply["result"]["boot_preparation_required"] is False
+assert apply["result"]["critical_packages"] == ["glibc", "openssl", "openssl-solibs"]
+assert apply["package_database"]["records_before"] == 1554
+assert apply["package_database"]["records_after"] == 1566
+assert apply["package_database"]["installed_new_package_count"] == 12
+assert apply["package_database"]["upgraded_package_count"] == 184
+assert apply["package_database"]["candidate_coverage_complete"] is True
+assert apply["boot_state"]["observed_initrd_and_grub_unchanged"] is True
+assert apply["postinstall_policy"]["policy"] == "defer"
+assert apply["postinstall_policy"]["postinstall_processing_enabled"] is False
+assert apply["postinstall_policy"]["pending_new_config_files_count"] == 45
+assert len(apply["postinstall_policy"]["pending_new_config_files"]) == 45
+assert apply["postinstall_policy"]["real_system_policy_revalidated"] is True
+assert apply["assertions"]["observed"] == {"passes": 8, "failures": 1}
+assert apply["assertions"]["reviewed_after_validator_correction"] == {"passes": 9, "failures": 0}
+PYTHON_EOF
+assert_equal_value 0 "$?" 'the accepted Slackware 15.0 preflight and apply records should satisfy their reviewed contracts'
+assert_file_contains '"accepted_after_validator_correction": true' "$ACCEPTED_SLACKWARE15_APPLY" \
+    'the Slackware 15.0 apply record should preserve the validator correction'
+assert_file_contains '"pending_new_config_files_count": 45' "$ACCEPTED_SLACKWARE15_APPLY" \
+    'the Slackware 15.0 apply record should preserve the deferred .new count'
+assert_file_contains '"upgraded_package_count": 184' "$ACCEPTED_SLACKWARE15_APPLY" \
+    'the Slackware 15.0 apply record should preserve the upgraded package count'
+assert_file_contains '"installed_new_package_count": 12' "$ACCEPTED_SLACKWARE15_APPLY" \
+    'the Slackware 15.0 apply record should preserve the install-new package count'
 
 printf 'Normal-update acceptance harness: %d checks, %d failures\n' \
     "$TEST_COUNT" "$TEST_FAILURE_COUNT"

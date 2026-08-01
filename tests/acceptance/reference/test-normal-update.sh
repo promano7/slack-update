@@ -572,15 +572,36 @@ for module_name in ("flatpak", "sbo", "elf", "cinnamon"):
 boot = modules.get("boot")
 require(isinstance(boot, dict), "missing boot result")
 require(boot.get("mode") == "auto", "boot mode is not auto")
-if slackware.get("kernel_changes") is True:
-    require(status == 5, "kernel changes did not require reboot")
+
+critical_packages = slackware.get("critical_packages")
+require(isinstance(critical_packages, list), "missing critical package list")
+
+initrd_required = boot.get("initrd_required")
+grub_required = boot.get("grub_required")
+require(isinstance(initrd_required, bool), "invalid initrd-required state")
+require(isinstance(grub_required, bool), "invalid GRUB-required state")
+boot_preparation_required = initrd_required or grub_required
+
+# kernel_changes is intentionally broader than boot-kernel replacement: it also
+# covers kernel-firmware, kernel-source, and header updates. Only the explicit
+# boot requirements determine whether stable code 5 and boot preparation are
+# mandatory.
+if boot_preparation_required:
+    require(slackware.get("kernel_changes") is True, "boot preparation lacks a kernel-change trigger")
+    require(status == 5, "boot-kernel changes did not require reboot")
     require(boot.get("state") == "success", "boot preparation did not succeed")
-    require(boot.get("initrd_required") is True, "kernel change did not require initrd")
-    require(boot.get("initrd_state") == "success", "initrd preparation did not succeed")
-    require(boot.get("grub_required") is True, "kernel change did not require GRUB")
-    require(boot.get("grub_state") == "success", "GRUB preparation did not succeed")
+    if initrd_required:
+        require(boot.get("initrd_state") == "success", "required initrd preparation did not succeed")
+    if grub_required:
+        require(boot.get("grub_state") == "success", "required GRUB preparation did not succeed")
 else:
+    require(status != 5, "reboot-required status lacks boot preparation")
     require(boot.get("state") in ("not-required", "success"), "unexpected boot state")
+
+if critical_packages and not boot_preparation_required:
+    require(status == 4, "critical package changes did not recommend reboot")
+elif status == 4:
+    require(bool(critical_packages), "reboot recommendation lacks critical package changes")
 PYTHON_EOF
 }
 
