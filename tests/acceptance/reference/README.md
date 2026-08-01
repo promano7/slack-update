@@ -259,3 +259,32 @@ blacklist entries, `/boot`, or the EFI system partition. A successful result is
 still evidence for adapter design, not authorization to remove the kernel
 blacklist.
 
+The accepted third run mapped the EFI image uniquely to
+`/boot/vmlinuz-generic-5.15.19`, matched the running release, matched the active
+initrd copy, and passed all 20 assertions. Its archive SHA-256 is
+`0eb55c3bda5a4167f4ef9fc19aede6e2029985d5dd325416e78e00ba85d57480`.
+
+### ELILO kernel transaction preflight
+
+Run the third stage while the same three kernel packages remain blacklisted:
+
+```bash
+sudo bash tests/acceptance/reference/test-elilo-kernel-transaction-preflight.sh \
+    --target slackware-15.0
+```
+
+This stage refreshes Slackpkg metadata and reads `/var/lib/slackpkg/pkglist` to
+resolve one complete common repository record for `kernel-generic`,
+`kernel-huge`, and `kernel-modules`. It rejects missing, mixed, duplicate, older,
+or ambiguous candidate sets. It records the exact three-record SHA-256, verifies
+that the running generic kernel and EFI copies still match the accepted source,
+checks conservative free space on `/boot` and the EFI system partition, and
+writes a planned `elilo.conf` that selects versioned kernel and initrd basenames.
+
+The plan keeps the current EFI `vmlinuz`, `initrd.gz`, and original `elilo.conf`
+as rollback artifacts. Future activation is defined as an atomic configuration
+switch only after new versioned files have been generated and verified. The
+preflight never removes blacklist entries, upgrades packages, runs `mkinitrd`,
+runs `eliloconfig`, changes firmware variables, or replaces active boot files.
+Every result remains `apply_authorized=false` until its evidence is reviewed.
+

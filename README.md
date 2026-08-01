@@ -1016,13 +1016,27 @@ candidate, collapses aliases resolving to the same file, and requires exactly
 one versioned source whose content matches the EFI image and whose filename
 identifies the running kernel.
 
-Kernel apply remains blocked. Repeat the generator preflight to identify that
-exact source without executing `mkinitrd` or changing EFI files:
+A third non-destructive run accepted the exact source mapping: the EFI kernel
+matches `/boot/vmlinuz-generic-5.15.19`, the running kernel is the same release,
+the initrd copies match, the generator proposed exactly one command, and all 20
+assertions passed. The reviewed archive SHA-256 is
+`0eb55c3bda5a4167f4ef9fc19aede6e2029985d5dd325416e78e00ba85d57480`.
+
+Kernel apply remains blocked. The next stage resolves the exact common
+repository candidate for `kernel-generic`, `kernel-huge`, and `kernel-modules`,
+builds versioned EFI filenames, verifies conservative free space, and writes a
+planned ELILO configuration without changing the active system:
 
 ```bash
-sudo bash tests/acceptance/reference/test-elilo-generator-preflight.sh \
+sudo bash tests/acceptance/reference/test-elilo-kernel-transaction-preflight.sh \
     --target slackware-15.0
 ```
+
+The planned activation boundary is an atomic replacement of `elilo.conf` only
+after the new versioned kernel and initrd files have been generated, copied, and
+verified. The existing ELILO binary, firmware entry, current kernel, current
+initrd, and original configuration remain the rollback path. This preflight does
+not authorize the transaction.
 
 ### Real-system acceptance matrix
 
@@ -1041,7 +1055,8 @@ sudo bash tests/acceptance/reference/test-elilo-generator-preflight.sh \
   - [x] Implement the non-destructive firmware, boot-loader, mkinitrd, kernel-record, blacklist, and boot-artifact preflight.
   - [x] Review real Slackware 15.0 boot-path evidence and select the ELILO branch.
   - [x] Record and review the non-executed mkinitrd command-generator proposal for the running ELILO kernel.
-  - [ ] Identify the unique versioned `/boot` kernel source copied into ELILO.
+  - [x] Identify and accept the unique versioned `/boot` generic kernel source copied into ELILO.
+  - [ ] Resolve and review the exact three-package repository candidate and atomic versioned ELILO transaction plan.
 - [ ] `install-new` introduces new packages.
 - [ ] Kernel package update.
 - [ ] Kernel headers update without a kernel image update.

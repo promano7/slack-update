@@ -1,0 +1,40 @@
+{
+  "scenario": "elilo-generator-preflight",
+  "target": "slackware-15.0",
+  "status": "accepted",
+  "archive_sha256": "0eb55c3bda5a4167f4ef9fc19aede6e2029985d5dd325416e78e00ba85d57480",
+  "tested_at_utc": "2026-08-01T16:30:33Z",
+  "platform": {
+    "slackware_version": "Slackware 15.0",
+    "hostname": "vbox-slack15.vbox-slack15.org",
+    "firmware": "uefi",
+    "boot_loader": "elilo"
+  },
+  "running_kernel": "5.15.19",
+  "elilo": {
+    "image": "vmlinuz",
+    "initrd": "initrd.gz",
+    "kernel_source": "/boot/vmlinuz-generic-5.15.19",
+    "kernel_flavor": "generic",
+    "kernel_version_match": true,
+    "initrd_copy_match": true
+  },
+  "generator": {
+    "path": "/usr/share/mkinitrd/mkinitrd_command_generator.sh",
+    "exit_code": 0,
+    "command_count": 1,
+    "proposed_command": "mkinitrd -c -k 5.15.19 -f ext4 -r /dev/sda2 -m jbd2:mbcache:crc32c_intel:crc32c_generic:ext4 -u -o /boot/initrd.gz",
+    "executed": false
+  },
+  "kernel_blacklist": {
+    "kernel-generic": "deferred",
+    "kernel-huge": "deferred",
+    "kernel-modules": "deferred"
+  },
+  "assertions": {
+    "passes": 20,
+    "failures": 0
+  },
+  "apply_authorized": false,
+  "next_required_stage": "resolve the exact common repository candidate and validate an atomic versioned ELILO transaction plan"
+}
