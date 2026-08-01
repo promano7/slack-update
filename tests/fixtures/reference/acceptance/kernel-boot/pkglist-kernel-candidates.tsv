@@ -1,6 +1,9 @@
 slackware64 kernel-generic 5.15.19 x86_64 2 kernel-generic-5.15.19-x86_64-2 ./slackware64/a
 slackware64 kernel-huge 5.15.19 x86_64 2 kernel-huge-5.15.19-x86_64-2 ./slackware64/a
 slackware64 kernel-modules 5.15.19 x86_64 2 kernel-modules-5.15.19-x86_64-2 ./slackware64/a
+patches kernel-generic 5.15.208 x86_64 1 kernel-generic-5.15.208-x86_64-1 ./patches/packages
+patches kernel-huge 5.15.208 x86_64 1 kernel-huge-5.15.208-x86_64-1 ./patches/packages
+patches kernel-modules 5.15.208 x86_64 1 kernel-modules-5.15.208-x86_64-1 ./patches/packages
 patches kernel-generic 5.15.209 x86_64 1 kernel-generic-5.15.209-x86_64-1 ./patches/packages
 patches kernel-huge 5.15.209 x86_64 1 kernel-huge-5.15.209-x86_64-1 ./patches/packages
 patches kernel-modules 5.15.209 x86_64 1 kernel-modules-5.15.209-x86_64-1 ./patches/packages

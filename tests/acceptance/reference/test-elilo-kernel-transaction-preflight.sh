@@ -40,8 +40,9 @@ print_usage() {
 Usage: ${0##*/} --target slackware-15.0 [options]
 
 Build a non-destructive transaction plan for the deferred Slackware 15.0 ELILO
-kernel update. The preflight refreshes Slackpkg metadata, resolves one common
-repository version for kernel-generic, kernel-huge, and kernel-modules, validates
+kernel update. The preflight refreshes Slackpkg metadata, selects the newest
+complete common repository version for kernel-generic, kernel-huge, and
+kernel-modules, validates
 the active generic ELILO mapping, and writes a versioned atomic configuration
 plan. It never changes packages, the Slackpkg blacklist, initrd images, ELILO
 files, or firmware variables.
@@ -324,27 +325,61 @@ if not records:
     raise SystemExit("no boot-kernel records found in Slackpkg pkglist")
 all_path.write_text("".join("\t".join(item) + "\n" for item in records), encoding="utf-8")
 
-by_key = collections.defaultdict(dict)
+by_key = collections.defaultdict(lambda: collections.defaultdict(list))
 for record in records:
     repository, name, version, arch, build, filename, path, number = record
     if arch != "x86_64":
         continue
-    by_key[(repository, version, build)][name] = record
+    by_key[(repository, version, build)][name].append(record)
+
+duplicates = [
+    (key, name)
+    for key, grouped in by_key.items()
+    for name in required
+    if len(grouped.get(name, [])) > 1
+]
+if duplicates:
+    descriptions = [f"{'/'.join(key)}/{name}" for key, name in duplicates]
+    raise SystemExit(f"duplicate kernel package records found: {descriptions}")
 
 candidates = []
 for key, grouped in by_key.items():
     if set(grouped) != set(required):
         continue
+    if any(len(grouped[name]) != 1 for name in required):
+        continue
     version = key[1]
     if all(installed[name][0] != version for name in required):
-        candidates.append((key, grouped))
+        candidates.append((key, {name: grouped[name][0] for name in required}))
 
 patches = [item for item in candidates if item[0][0] == "patches"]
 selected_pool = patches if patches else candidates
-if len(selected_pool) != 1:
-    descriptions = ["/".join(item[0]) for item in selected_pool]
-    raise SystemExit(f"expected one common repository candidate, found {descriptions}")
-(key, grouped) = selected_pool[0]
+if not selected_pool:
+    raise SystemExit("no complete common repository candidate was found")
+
+def version_sorted(values):
+    import os
+    import subprocess
+
+    result = subprocess.run(
+        ["sort", "-V"],
+        input="\n".join(sorted(set(values))) + "\n",
+        text=True,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=True,
+        env={**os.environ, "LC_ALL": "C"},
+    )
+    return [line for line in result.stdout.splitlines() if line]
+
+latest_version = version_sorted(item[0][1] for item in selected_pool)[-1]
+version_pool = [item for item in selected_pool if item[0][1] == latest_version]
+latest_build = version_sorted(item[0][2] for item in version_pool)[-1]
+best = [item for item in version_pool if item[0][2] == latest_build]
+if len(best) != 1:
+    descriptions = ["/".join(item[0]) for item in best]
+    raise SystemExit(f"latest common repository candidate is ambiguous: {descriptions}")
+(key, grouped) = best[0]
 repository, version, build = key
 selected = [grouped[name] for name in required]
 selected_path.write_text("".join("\t".join(item) + "\n" for item in selected), encoding="utf-8")
@@ -383,6 +418,17 @@ blacklist_has_exact_deferrals() {
     done
 }
 
+available_bytes_for_path() {
+    local path=$1
+    local available_kib
+
+    available_kib=$(df -Pk -- "$path" 2>/dev/null | awk 'NR == 2 { print $4 }') || return 1
+    case "$available_kib" in
+        ''|*[!0-9]*) return 1 ;;
+    esac
+    printf '%s\n' "$((available_kib * 1024))"
+}
+
 calculate_space_plan() {
     local current_kernel=$1
     local current_initrd=$2
@@ -395,8 +441,8 @@ calculate_space_plan() {
     initrd_size=$(stat -c '%s' -- "$current_initrd") || return 1
     EFI_REQUIRED_BYTES=$((kernel_size + initrd_size + safety))
     BOOT_REQUIRED_BYTES=$((initrd_size + safety))
-    EFI_AVAILABLE_BYTES=$(df -PB1 --output=avail "$efi_mount" | tail -n 1 | tr -d '[:space:]')
-    BOOT_AVAILABLE_BYTES=$(df -PB1 --output=avail "$boot_mount" | tail -n 1 | tr -d '[:space:]')
+    EFI_AVAILABLE_BYTES=$(available_bytes_for_path "$efi_mount") || return 1
+    BOOT_AVAILABLE_BYTES=$(available_bytes_for_path "$boot_mount") || return 1
     [ "$EFI_AVAILABLE_BYTES" -ge "$EFI_REQUIRED_BYTES" ] \
         && [ "$BOOT_AVAILABLE_BYTES" -ge "$BOOT_REQUIRED_BYTES" ]
 }
@@ -581,12 +627,12 @@ main() {
         TARGET_KERNEL_VERSION=$(read_summary_value version "$OUTPUT_DIR/candidate-summary.txt")
         TARGET_KERNEL_BUILD=$(read_summary_value build "$OUTPUT_DIR/candidate-summary.txt")
         CANDIDATE_SET_SHA256=$(sha256sum -- "$OUTPUT_DIR/selected-kernel-records.tsv" | awk '{print $1}')
-        record_pass "one common repository candidate was resolved: $TARGET_KERNEL_VERSION-$TARGET_KERNEL_BUILD from $TARGET_KERNEL_REPOSITORY"
+        record_pass "the newest complete repository candidate was resolved: $TARGET_KERNEL_VERSION-$TARGET_KERNEL_BUILD from $TARGET_KERNEL_REPOSITORY"
     else
         : > "$OUTPUT_DIR/repository-kernel-records.tsv"
         : > "$OUTPUT_DIR/selected-kernel-records.tsv"
         : > "$OUTPUT_DIR/candidate-summary.txt"
-        record_failure 'one common repository candidate could not be resolved safely'
+        record_failure 'the newest complete repository candidate could not be resolved safely'
     fi
 
     if is_safe_kernel_version "$TARGET_KERNEL_VERSION"; then

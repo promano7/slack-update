@@ -1,0 +1,51 @@
+{
+  "scenario": "elilo-kernel-transaction-preflight",
+  "target": "slackware-15.0",
+  "status": "diagnostic-reviewed",
+  "apply_authorized": false,
+  "captured_at": "2026-08-01T16:46:28Z",
+  "archive_sha256": "3780c922fffab042ae265b5a54286d7ce22379f4774f174326cec81fed406259",
+  "platform": {
+    "slackware_version": "Slackware 15.0",
+    "hostname": "vbox-slack15.vbox-slack15.org",
+    "running_kernel": "5.15.19",
+    "firmware": "uefi",
+    "boot_loader": "elilo"
+  },
+  "installed_kernel": {
+    "version": "5.15.19",
+    "packages": [
+      "kernel-generic-5.15.19-x86_64-2",
+      "kernel-huge-5.15.19-x86_64-2",
+      "kernel-modules-5.15.19-x86_64-2"
+    ]
+  },
+  "repository_observation": {
+    "complete_patches_versions": [
+      "5.15.208",
+      "5.15.209"
+    ],
+    "expected_latest_version": "5.15.209",
+    "original_selector_result": "rejected-multiple-complete-historical-candidates"
+  },
+  "compatibility_observation": {
+    "command": "df -PB1 --output=avail",
+    "result": "rejected-by-coreutils-df",
+    "replacement": "df -Pk with explicit KiB-to-byte conversion"
+  },
+  "assertions": {
+    "passes": 22,
+    "failures": 5,
+    "reviewed_failures": [
+      "the candidate selector required one historical record instead of selecting the newest complete patches version",
+      "the free-space probe combined mutually exclusive df options on Slackware 15.0",
+      "three downstream target-version checks failed because candidate resolution was empty"
+    ]
+  },
+  "state_unchanged": {
+    "package_database": true,
+    "elilo_and_initrd": true,
+    "blacklist": true
+  },
+  "next_required_stage": "repeat the corrected transaction preflight and review the selected 5.15.209 record digest"
+}

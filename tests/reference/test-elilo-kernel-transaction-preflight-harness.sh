@@ -70,6 +70,12 @@ assert_contains 'kernel-generic,kernel-huge,kernel-modules' "$ACCEPTANCE_SCRIPT"
     'the transaction plan should be limited to the three deferred packages'
 assert_contains 'apply_authorized=false' "$ACCEPTANCE_SCRIPT" \
     'the generated plan must not authorize apply'
+assert_contains 'latest_version = version_sorted' "$ACCEPTANCE_SCRIPT" \
+    'the selector should choose the newest complete historical candidate deterministically'
+assert_contains 'df -Pk -- "$path"' "$ACCEPTANCE_SCRIPT" \
+    'free-space inspection should use the Slackware-compatible POSIX df format'
+assert_not_contains '--output=avail' "$ACCEPTANCE_SCRIPT" \
+    'free-space inspection must not combine mutually exclusive df output modes'
 
 TARGET=
 OUTPUT_DIR=
@@ -176,19 +182,52 @@ assert_contains $'patches\tkernel-huge\t5.15.209\tx86_64\t1' "$TMP/selected.tsv"
 assert_contains $'patches\tkernel-modules\t5.15.209\tx86_64\t1' "$TMP/selected.tsv" \
     'the selected set should include kernel-modules'
 
-awk '$2 != "kernel-modules" || $3 != "5.15.209"' "$PKGLIST_FIXTURE" > "$TMP/pkglist-missing"
-assert_failure 'a missing member of the common candidate should be rejected' \
+awk '$2 != "kernel-modules"' "$PKGLIST_FIXTURE" > "$TMP/pkglist-missing"
+assert_failure 'a candidate set missing one required package at every version should be rejected' \
     resolve_repository_kernel_candidate "$TMP/pkglist-missing" "$TMP/installed.tsv" \
         "$TMP/all-missing.tsv" "$TMP/selected-missing.tsv" "$TMP/summary-missing.txt"
-cat "$PKGLIST_FIXTURE" > "$TMP/pkglist-ambiguous"
+cat "$PKGLIST_FIXTURE" > "$TMP/pkglist-newer"
 printf '%s\n' \
     'patches kernel-generic 5.15.210 x86_64 1 kernel-generic-5.15.210-x86_64-1 ./patches/packages' \
     'patches kernel-huge 5.15.210 x86_64 1 kernel-huge-5.15.210-x86_64-1 ./patches/packages' \
     'patches kernel-modules 5.15.210 x86_64 1 kernel-modules-5.15.210-x86_64-1 ./patches/packages' \
-    >> "$TMP/pkglist-ambiguous"
-assert_failure 'multiple complete patches candidates should be rejected' \
-    resolve_repository_kernel_candidate "$TMP/pkglist-ambiguous" "$TMP/installed.tsv" \
-        "$TMP/all-ambiguous.tsv" "$TMP/selected-ambiguous.tsv" "$TMP/summary-ambiguous.txt"
+    >> "$TMP/pkglist-newer"
+assert_success 'the newest complete patches candidate should win over retained historical versions' \
+    resolve_repository_kernel_candidate "$TMP/pkglist-newer" "$TMP/installed.tsv" \
+        "$TMP/all-newer.tsv" "$TMP/selected-newer.tsv" "$TMP/summary-newer.txt"
+assert_equal 5.15.210 "$(read_summary_value version "$TMP/summary-newer.txt")" \
+    'the newest complete version should be selected'
+cp "$TMP/pkglist-newer" "$TMP/pkglist-duplicate"
+printf '%s\n' \
+    'patches kernel-generic 5.15.210 x86_64 1 kernel-generic-5.15.210-x86_64-1-duplicate ./patches/packages' \
+    >> "$TMP/pkglist-duplicate"
+assert_failure 'a duplicate package record in the newest candidate should be rejected' \
+    resolve_repository_kernel_candidate "$TMP/pkglist-duplicate" "$TMP/installed.tsv" \
+        "$TMP/all-duplicate.tsv" "$TMP/selected-duplicate.tsv" "$TMP/summary-duplicate.txt"
+
+SPACE_KERNEL="$TMP/current-kernel"
+SPACE_INITRD="$TMP/current-initrd"
+printf 'kernel' > "$SPACE_KERNEL"
+printf 'initrd' > "$SPACE_INITRD"
+df() {
+    printf '%s\n' \
+        'Filesystem 1024-blocks Used Available Capacity Mounted on' \
+        'mockfs 200000 1000 199000 1% /mock'
+}
+assert_success 'the POSIX df parser should calculate sufficient staging space' \
+    calculate_space_plan "$SPACE_KERNEL" "$SPACE_INITRD" /mock/efi /mock/boot
+assert_equal 203776000 "$EFI_AVAILABLE_BYTES" \
+    'EFI free space should be converted from KiB to bytes'
+assert_equal 203776000 "$BOOT_AVAILABLE_BYTES" \
+    'boot free space should be converted from KiB to bytes'
+df() {
+    printf '%s\n' \
+        'Filesystem 1024-blocks Used Available Capacity Mounted on' \
+        'mockfs 200000 1000 unavailable 1% /mock'
+}
+assert_failure 'a malformed POSIX df record should fail closed' \
+    calculate_space_plan "$SPACE_KERNEL" "$SPACE_INITRD" /mock/efi /mock/boot
+unset -f df
 
 SOURCE_FIXTURE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-15.0-elilo-source-accepted.json"
 assert_success 'the accepted ELILO source fixture should be valid JSON' \
@@ -203,6 +242,16 @@ assert_contains '"failures": 0' "$SOURCE_FIXTURE" \
     'the accepted source fixture should preserve the zero-failure result'
 assert_contains '"apply_authorized": false' "$SOURCE_FIXTURE" \
     'the accepted source fixture should retain the no-apply boundary'
+
+DIAGNOSTIC_FIXTURE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-15.0-elilo-transaction-preflight-diagnostic.json"
+assert_success 'the reviewed transaction diagnostic should be valid JSON' \
+    python3 -m json.tool "$DIAGNOSTIC_FIXTURE"
+assert_contains '"archive_sha256": "3780c922fffab042ae265b5a54286d7ce22379f4774f174326cec81fed406259"' \
+    "$DIAGNOSTIC_FIXTURE" 'the diagnostic fixture should preserve the evidence digest'
+assert_contains '"expected_latest_version": "5.15.209"' "$DIAGNOSTIC_FIXTURE" \
+    'the diagnostic fixture should preserve the reviewed latest candidate'
+assert_contains '"apply_authorized": false' "$DIAGNOSTIC_FIXTURE" \
+    'the failed diagnostic run must not authorize apply'
 
 bash -n "$ACCEPTANCE_SCRIPT" && pass || fail 'the acceptance script should pass bash -n'
 

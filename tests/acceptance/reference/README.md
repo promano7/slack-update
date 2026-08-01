@@ -274,12 +274,16 @@ sudo bash tests/acceptance/reference/test-elilo-kernel-transaction-preflight.sh 
 ```
 
 This stage refreshes Slackpkg metadata and reads `/var/lib/slackpkg/pkglist` to
-resolve one complete common repository record for `kernel-generic`,
-`kernel-huge`, and `kernel-modules`. It rejects missing, mixed, duplicate, older,
-or ambiguous candidate sets. It records the exact three-record SHA-256, verifies
-that the running generic kernel and EFI copies still match the accepted source,
-checks conservative free space on `/boot` and the EFI system partition, and
-writes a planned `elilo.conf` that selects versioned kernel and initrd basenames.
+resolve complete common repository records for `kernel-generic`, `kernel-huge`,
+and `kernel-modules`. Slackpkg may retain more than one historical patch kernel,
+so the selector prefers the `patches` repository and chooses the newest complete
+version and build using version ordering. It rejects missing members, duplicate
+records, mixed package sets, unsafe values, or an ambiguous newest candidate. It
+records the exact selected three-record SHA-256, verifies that the running
+generic kernel and EFI copies still match the accepted source, checks
+conservative free space on `/boot` and the EFI system partition through portable
+`df -Pk` output, and writes a planned `elilo.conf` that selects versioned kernel
+and initrd basenames.
 
 The plan keeps the current EFI `vmlinuz`, `initrd.gz`, and original `elilo.conf`
 as rollback artifacts. Future activation is defined as an atomic configuration
@@ -287,4 +291,13 @@ switch only after new versioned files have been generated and verified. The
 preflight never removes blacklist entries, upgrades packages, runs `mkinitrd`,
 runs `eliloconfig`, changes firmware variables, or replaces active boot files.
 Every result remains `apply_authorized=false` until its evidence is reviewed.
+
+The first real run observed complete `patches` sets for `5.15.208` and
+`5.15.209` and exposed the former one-candidate assumption plus an incompatible
+`df -PB1 --output=avail` invocation. It passed 22 assertions, failed five
+planning assertions, changed no system state, and did not authorize apply. Its
+reviewed archive SHA-256 is
+`3780c922fffab042ae265b5a54286d7ce22379f4774f174326cec81fed406259`.
+Repeat the corrected preflight and review its selected-record digest before any
+kernel transaction work continues.
 

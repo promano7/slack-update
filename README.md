@@ -1038,6 +1038,18 @@ verified. The existing ELILO binary, firmware entry, current kernel, current
 initrd, and original configuration remain the rollback path. This preflight does
 not authorize the transaction.
 
+The first real transaction-preflight run on 2026-08-01 remained
+non-destructive but exposed two compatibility defects in the harness. Slackpkg
+retained complete `patches` records for both `5.15.208` and `5.15.209`; the
+selector incorrectly required one historical candidate instead of choosing the
+newest complete version. Slackware 15.0 `df` also rejects `-P` together with
+`--output`. The corrected selector uses version ordering to choose `5.15.209`,
+rejects duplicate records, and the free-space probe now uses portable `df -Pk`
+output with explicit KiB-to-byte conversion. The diagnostic archive SHA-256 is
+`3780c922fffab042ae265b5a54286d7ce22379f4774f174326cec81fed406259`;
+packages, blacklist state, initrd, and ELILO files were unchanged. A corrected
+real-system rerun remains required before apply can be designed or authorized.
+
 ### Real-system acceptance matrix
 
 - [x] Fully updated system with no available changes.
