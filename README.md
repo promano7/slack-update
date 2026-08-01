@@ -979,6 +979,25 @@ broad `kernel_changes` result was true because `kernel-firmware` and
 false. Sanitized preflight and apply records are stored under
 `tests/fixtures/reference/acceptance/normal-update/`.
 
+The three deferred Slackware 15.0 boot-kernel packages use a separate
+non-destructive boot-path preflight before any apply is authorized:
+
+```bash
+sudo bash tests/acceptance/reference/test-kernel-boot-preflight.sh \
+    --target slackware-15.0
+```
+
+This preflight identifies BIOS versus UEFI firmware, classifies probable LILO,
+ELILO, or GRUB usage, inventories the readable scalar settings from
+`/etc/mkinitrd.conf`, records installed and repository kernel package metadata,
+confirms that `kernel-generic`, `kernel-huge`, and `kernel-modules` remain
+blacklisted, and fingerprints relevant boot artifacts before and after
+inspection. It does not modify Slackpkg configuration, packages, initrd images,
+or boot-loader files. The current reference implements automatic boot
+preparation only for mkinitrd plus GRUB; a LILO, ELILO, ambiguous, or unknown
+classification remains blocked until a target-specific safe adapter or an
+explicit manual acceptance procedure is designed.
+
 ### Real-system acceptance matrix
 
 - [x] Fully updated system with no available changes.
@@ -993,6 +1012,8 @@ false. Sanitized preflight and apply records are stored under
   - [x] Slackware 15.0 preflight and real apply evidence accepted.
   - [x] Revalidate the hardened deferred `.new` policy on Slackware 15.0.
   - [ ] Exercise the three deferred Slackware 15.0 boot-kernel packages in the dedicated kernel-update scenario.
+  - [x] Implement the non-destructive firmware, boot-loader, mkinitrd, kernel-record, blacklist, and boot-artifact preflight.
+  - [ ] Review real Slackware 15.0 boot-path evidence and select the safe LILO, ELILO, or GRUB branch before apply.
 - [ ] `install-new` introduces new packages.
 - [ ] Kernel package update.
 - [ ] Kernel headers update without a kernel image update.
@@ -1541,5 +1562,7 @@ Slack-Update 1.0 will be ready when:
   - [x] Accept the Slackware 15.0 normal-update preflight and 196-package real apply.
   - [x] Revalidate the hardened deferred `.new` policy on Slackware 15.0.
   - [ ] Validate the deferred Slackware 15.0 boot-kernel packages in the dedicated kernel-update scenario.
+    - [x] Add a non-destructive boot-path detection and evidence preflight.
+    - [ ] Review the real loader and mkinitrd evidence before authorizing package changes.
 - [ ] Freeze `reference-v1`.
 - [ ] Begin the C architecture only after the reference gate is complete.

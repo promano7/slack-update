@@ -200,3 +200,33 @@ the generic fallback for this scenario is:
 ```bash
 archive=$(sudo sh -c 'ls -1t /var/tmp/slack-update-acceptance/normal-update/*.tar.gz 2>/dev/null | head -n 1'); sudo install -o promano -g "$(id -gn promano)" -m 0600 "$archive" "/home/promano/$(basename "$archive")" && sudo install -o promano -g "$(id -gn promano)" -m 0600 "$archive.sha256" "/home/promano/$(basename "$archive.sha256")"
 ```
+
+## Deferred Slackware 15.0 boot-kernel preflight
+
+`test-kernel-boot-preflight.sh` is the first stage of the dedicated kernel-update
+scenario for the temporarily blacklisted `kernel-generic`, `kernel-huge`, and
+`kernel-modules` packages. Run it only while those three package names remain in
+`/etc/slackpkg/blacklist`:
+
+```bash
+sudo bash tests/acceptance/reference/test-kernel-boot-preflight.sh \
+    --target slackware-15.0
+```
+
+The preflight is non-destructive. It captures the package database and selected
+boot artifacts before and after inspection, classifies BIOS versus UEFI,
+identifies probable LILO, ELILO, GRUB, ambiguous, or unknown boot-loader state,
+records relevant command availability and configuration directives, summarizes
+safe scalar values from `/etc/mkinitrd.conf`, and preserves installed plus
+repository kernel records from Slackpkg metadata. It never removes blacklist
+entries, invokes `slackpkg upgrade`, runs `mkinitrd`, installs LILO, copies ELILO
+images, or regenerates GRUB.
+
+The current shell reference supports automatic mkinitrd plus GRUB preparation.
+A reported `reference-unsupported` LILO or ELILO path is an expected discovery,
+not permission to proceed: review the evidence and design the applicable safe
+adapter or manual acceptance boundary before removing the kernel blacklist.
+Every run publishes a private archive and SHA-256 sidecar under
+`/var/tmp/slack-update-acceptance/kernel-boot-preflight/` and prints a one-line
+copy command for the invoking user.
+
