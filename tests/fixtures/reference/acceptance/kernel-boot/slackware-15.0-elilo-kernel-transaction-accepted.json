@@ -1,0 +1,52 @@
+{
+  "scenario": "elilo-kernel-transaction",
+  "target": "slackware-15.0",
+  "status": "accepted",
+  "apply_evidence": {
+    "captured_at_utc": "2026-08-01T17:38:17Z",
+    "archive_sha256": "93c58c1508085f3dffaa182eac52fb49c72e6222d75b49c79af4309713f0ac95",
+    "candidate_set_sha256": "10ea616935d628a97ba2bc9cec0d5e57fdebeefe54d2768800ef3a30c3a4c5db",
+    "passes": 31,
+    "failures": 0,
+    "transaction_status": "committed-reboot-required"
+  },
+  "platform": {
+    "slackware_version": "Slackware 15.0",
+    "hostname": "vbox-slack15.vbox-slack15.org",
+    "firmware": "uefi",
+    "boot_loader": "elilo"
+  },
+  "kernel": {
+    "previous": "5.15.19",
+    "active": "5.15.209",
+    "boot_image": "dev000:\\EFI\\Slackware\\vmlinuz-generic-5.15.209",
+    "root_argument": "/dev/sda2",
+    "generic_package_coexists": true,
+    "huge_package_coexists": true,
+    "modules_package_coexists": true
+  },
+  "elilo": {
+    "configuration": "/boot/efi/EFI/Slackware/elilo.conf",
+    "default_label": "vmlinuz",
+    "active_image": "vmlinuz-generic-5.15.209",
+    "active_initrd": "initrd-generic-5.15.209.gz",
+    "rollback_label": "oldkernel",
+    "rollback_image": "vmlinuz",
+    "rollback_initrd": "initrd.gz",
+    "rollback_retained": true
+  },
+  "post_reboot_validation": {
+    "reviewed_at_local": "2026-08-01T19:51:00+02:00",
+    "source": "reviewed-console-output",
+    "uname_release_matches_target": true,
+    "proc_cmdline_matches_active_image": true,
+    "elilo_default_matches_active_label": true,
+    "rollback_entry_present": true
+  },
+  "blacklist": {
+    "restored_byte_for_byte_after_download": true,
+    "boot_kernel_deferrals_still_present": true
+  },
+  "cleanup_authorized": false,
+  "next_required_stage": "define retention and cleanup policy for the old kernel packages and rollback artifacts after the acceptance window"
+}

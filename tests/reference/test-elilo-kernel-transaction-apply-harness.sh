@@ -216,6 +216,15 @@ assert_contains '"packages_installed": false' "$DIAGNOSTIC_FIXTURE" 'the diagnos
 assert_contains '"blacklist_restored_byte_for_byte": true' "$DIAGNOSTIC_FIXTURE" 'the diagnostic should preserve the blacklist restoration boundary'
 assert_contains '"retry_authorized": false' "$DIAGNOSTIC_FIXTURE" 'the failed run must not authorize an unreviewed retry'
 
+ACCEPTED_FIXTURE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-15.0-elilo-kernel-transaction-accepted.json"
+assert_success 'the accepted ELILO kernel transaction record should be valid JSON' python3 -m json.tool "$ACCEPTED_FIXTURE"
+assert_contains '"archive_sha256": "93c58c1508085f3dffaa182eac52fb49c72e6222d75b49c79af4309713f0ac95"' "$ACCEPTED_FIXTURE" 'the accepted record should preserve the apply evidence digest'
+assert_contains '"active": "5.15.209"' "$ACCEPTED_FIXTURE" 'the accepted record should preserve the running target kernel'
+assert_contains '"boot_image": "dev000:\\EFI\\Slackware\\vmlinuz-generic-5.15.209"' "$ACCEPTED_FIXTURE" 'the accepted record should preserve the observed ELILO boot image'
+assert_contains '"rollback_label": "oldkernel"' "$ACCEPTED_FIXTURE" 'the accepted record should preserve the rollback label'
+assert_contains '"rollback_retained": true' "$ACCEPTED_FIXTURE" 'the accepted record should require retained rollback artifacts'
+assert_contains '"cleanup_authorized": false' "$ACCEPTED_FIXTURE" 'acceptance must not authorize automatic old-kernel cleanup'
+
 bash -n "$ACCEPTANCE_SCRIPT" && pass || fail 'the apply script should pass bash -n'
 
 printf 'ELILO kernel transaction apply harness: %d checks, %d failures\n' "$TEST_COUNT" "$TEST_FAILURE_COUNT"

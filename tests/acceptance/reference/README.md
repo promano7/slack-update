@@ -349,3 +349,15 @@ The corrected transaction performs three exact package-name downloads, records
 one raw status per name, stops at the first failure, and resolves only the
 approved version/build/path from `/var/cache/packages` before `installpkg` can
 run.
+
+The corrected real transaction completed on 2026-08-01 with 31 passing
+assertions and no failures. It installed `5.15.209` alongside `5.15.19`, built
+and verified the versioned generic initrd, atomically activated the versioned
+ELILO entry, retained `oldkernel`, and preserved the original blacklist. The
+reviewed archive SHA-256 is
+`93c58c1508085f3dffaa182eac52fb49c72e6222d75b49c79af4309713f0ac95`.
+After reboot, `uname -r` reported `5.15.209`, `/proc/cmdline` identified
+`\EFI\Slackware\vmlinuz-generic-5.15.209`, and the active configuration
+still selected label `vmlinuz` while retaining label `oldkernel`. The
+transaction is accepted; cleanup of the previous packages and rollback files
+remains a separate, explicitly gated operation.

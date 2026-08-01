@@ -1090,6 +1090,17 @@ three times with the exact names `kernel-generic`, `kernel-huge`, and
 `5.15.209-x86_64-1` cache files. The diagnostic archive SHA-256 is
 `e3a854a2ed5479e9906ff3dd72592bf39439e55e20d1cc992a42eadf05f14996`.
 
+The corrected real transaction then passed all 31 apply assertions. It kept
+`5.15.19` installed, installed `5.15.209`, generated and verified
+`initrd-generic-5.15.209.gz`, atomically selected the versioned ELILO files,
+and retained label `oldkernel`. The apply archive SHA-256 is
+`93c58c1508085f3dffaa182eac52fb49c72e6222d75b49c79af4309713f0ac95`.
+The subsequent real reboot ran kernel `5.15.209`; `/proc/cmdline` named the
+versioned EFI kernel, and `elilo.conf` still contained the active `vmlinuz`
+entry plus the `oldkernel` rollback entry. The ELILO kernel scenario is accepted,
+while removal of the previous packages or rollback artifacts remains blocked
+pending a separate retention policy.
+
 ### Real-system acceptance matrix
 
 - [x] Fully updated system with no available changes.
@@ -1103,15 +1114,15 @@ three times with the exact names `kernel-generic`, `kernel-huge`, and
   - [ ] Revalidate the hardened deferred `.new` policy during the next Slackware-current update.
   - [x] Slackware 15.0 preflight and real apply evidence accepted.
   - [x] Revalidate the hardened deferred `.new` policy on Slackware 15.0.
-  - [ ] Exercise the three deferred Slackware 15.0 boot-kernel packages in the dedicated kernel-update scenario.
+  - [x] Exercise the three deferred Slackware 15.0 boot-kernel packages in the dedicated kernel-update scenario.
   - [x] Implement the non-destructive firmware, boot-loader, mkinitrd, kernel-record, blacklist, and boot-artifact preflight.
   - [x] Review real Slackware 15.0 boot-path evidence and select the ELILO branch.
   - [x] Record and review the non-executed mkinitrd command-generator proposal for the running ELILO kernel.
   - [x] Identify and accept the unique versioned `/boot` generic kernel source copied into ELILO.
   - [x] Resolve and review the exact three-package repository candidate and atomic versioned ELILO transaction plan.
-  - [ ] Execute the gated ELILO transaction, review its evidence, and validate reboot into `5.15.209` with the `oldkernel` fallback retained.
-- [ ] `install-new` introduces new packages.
-- [ ] Kernel package update.
+  - [x] Execute the gated ELILO transaction, review its evidence, and validate reboot into `5.15.209` with the `oldkernel` fallback retained.
+- [x] `install-new` introduces new packages.
+- [x] Kernel package update.
 - [ ] Kernel headers update without a kernel image update.
 - [ ] Invalid or stale `KERNEL_VERSION` in `mkinitrd.conf`.
 - [ ] `mkinitrd` failure leaves GRUB configuration untouched.
