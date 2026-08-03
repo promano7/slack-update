@@ -1,0 +1,46 @@
+{
+  "scenario": "current-geninitrd-grub-ownership-preflight",
+  "target": "slackware-current",
+  "accepted": true,
+  "captured_at": "2026-08-03T22:53:52Z",
+  "archive_sha256": "246a54dd81c1db6ce2e7d04cb5d6e4739249e4a2f0483edcb9c7a5f1e0e93ad3",
+  "normal_update_candidate_set_sha256": "d9199fcf6c5cd8c59b87b1bde9a955df2c55d0ac84f6dab37ed8e4c1830dcaf1",
+  "running_kernel": "6.18.40",
+  "target_kernel": "6.18.41",
+  "strategy": "temporary-atomic-policy-override",
+  "environment_override_safe": false,
+  "active_policy": {
+    "path": "/etc/default/geninitrd",
+    "sha256": "b779a2b578515a9e2059047311bf817723183b90707f1e31ce67bd96fd19b283",
+    "auto_update_grub": true
+  },
+  "staged_policy": {
+    "sha256": "5502efc45c5076e30de869fe4f0b3e5e79d322a19bf2311f153b47a9c68366ab",
+    "only_change": "AUTO_UPDATE_GRUB=true -> AUTO_UPDATE_GRUB=false"
+  },
+  "transaction": {
+    "step_count": 12,
+    "recovery_boundary_count": 5,
+    "update_grub_suppressed_during_package_transaction": true,
+    "slack_update_owns_grub_regeneration": true,
+    "restore_original_policy_required": true,
+    "requires_final_candidate_revalidation": true,
+    "requires_separate_apply_authorization": true
+  },
+  "commands_executed": [],
+  "mutations_performed": [],
+  "package_database_unchanged": true,
+  "boot_policy_and_grub_state_unchanged": true,
+  "assertions": {
+    "passes": 11,
+    "failures": 0
+  },
+  "evidence": {
+    "portable_sha256_sidecar": true,
+    "copied_to": "/home/promano",
+    "destination_verification": "passed"
+  },
+  "apply_ready": false,
+  "apply_authorized": false,
+  "next_stage": "geninitrd-grub-ownership-engine-implementation"
+}

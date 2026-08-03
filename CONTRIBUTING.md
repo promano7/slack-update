@@ -20,7 +20,7 @@ assume that behavior observed only on one target is valid on the other. Record
 target-specific requirements and provide detection or a safe fallback where the
 two systems differ.
 
-Slackware-current kernel package scripts may invoke `geninitrd` conditionally. Acceptance work must inspect the installed `/etc/default/geninitrd`, setup script, generator, custom hooks, cleanup settings, and automatic GRUB behavior without sourcing or executing them. A recognized versioned kernel symlink transition alone is not sufficient to authorize apply. Executable GenInitrd hooks must be hash-bound to reviewed evidence, copied without execution, statically inspected, and correlated with read-only DKMS state before any apply-ready transaction can be designed. A command generator must be invoked without `--run`, its output parsed as an argument vector without evaluation, and any target-kernel projection must remain explicitly non-executable until a later isolated post-install simulation is accepted.
+Slackware-current kernel package scripts may invoke `geninitrd` conditionally. Acceptance work must inspect the installed `/etc/default/geninitrd`, setup script, generator, custom hooks, cleanup settings, and automatic GRUB behavior without sourcing or executing them. A recognized versioned kernel symlink transition alone is not sufficient to authorize apply. Executable GenInitrd hooks must be hash-bound to reviewed evidence, copied without execution, statically inspected, and correlated with read-only DKMS state before any apply-ready transaction can be designed. A command generator must be invoked without `--run`, its output parsed as an argument vector without evaluation, and any target-kernel projection must remain explicitly non-executable until a later isolated post-install simulation is accepted. When Slack-Update temporarily owns GRUB regeneration, the active GenInitrd policy must be replaced and restored atomically from the same directory, byte-bound to the reviewed original and override, covered by signal cleanup, and forbidden from overwriting concurrent external changes. A restoration failure is a package-transaction failure and must retain recovery material.
 
 ## Language policy
 
@@ -115,11 +115,12 @@ Before submitting a change to the reference script:
 31. Run `tests/reference/test-current-geninitrd-dkms-hook-preflight-harness.sh` when reviewed hook identity, hook metadata or syntax, static command-surface capture, read-only DKMS status, DKMS source/module inventory, or immutable apply denial is affected.
 32. Run `tests/reference/test-current-geninitrd-command-preflight-harness.sh` when command-generator identity, command-output-only invocation, inert argument parsing, target-kernel projection, cached-package binding, or no-execution guarantees are affected.
 33. Run `tests/reference/test-current-geninitrd-grub-ownership-preflight-harness.sh` when GenInitrd policy precedence, automatic GRUB suppression, evidence-local policy staging, transaction ordering, recovery boundaries, or exclusive Slack-Update GRUB ownership are affected.
-34. Confirm that destructive commands are not exercised outside an isolated or explicitly recoverable Slackware test system.
-35. Record the relevant acceptance scenario.
-36. Preserve deterministic output and exit-code behavior.
-37. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
-38. Ensure every new or modified comment is written in English.
+34. Run `tests/reference/test-geninitrd-grub-ownership-engine.sh` when same-directory policy staging, atomic activation or restoration, cleanup recovery, concurrent-change handling, backup retention, apply workflow ordering, or ownership-state reporting is affected.
+35. Confirm that destructive commands are not exercised outside an isolated or explicitly recoverable Slackware test system.
+36. Record the relevant acceptance scenario.
+37. Preserve deterministic output and exit-code behavior.
+38. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
+39. Ensure every new or modified comment is written in English.
 
 Never run the apply workflow on a production machine merely to validate a contribution.
 

@@ -49,6 +49,11 @@ readonly EXIT_ALREADY_RUNNING=6
 readonly EXIT_INVALID_INPUT=7
 readonly EXIT_PRIVILEGE_UNAVAILABLE=8
 
+# Slackware-current GenInitrd policy path. This is intentionally mutable in
+# the reference implementation so the isolated regression harness can point it
+# at a private fixture without touching the host.
+GENINITRD_POLICY_PATH=/etc/default/geninitrd
+
 # Command-line interface functions
 
 print_usage() {
@@ -2154,6 +2159,18 @@ initialize_runtime_state() {
     GRUB_TEMP_CONFIG=
     GRUB_TEMP_CONFIG_OWNED=0
     GRUB_TEMP_DIRECTORY_CANONICAL=
+    GENINITRD_POLICY_OVERRIDE_REQUIRED=0
+    GENINITRD_POLICY_OVERRIDE_ACTIVE=0
+    GENINITRD_POLICY_OVERRIDE_APPLIED=0
+    GENINITRD_POLICY_OVERRIDE_RESTORED=0
+    GENINITRD_POLICY_OVERRIDE_STATUS=not-required
+    GENINITRD_POLICY_OVERRIDE_ERROR=
+    GENINITRD_POLICY_ORIGINAL_FINGERPRINT=
+    GENINITRD_POLICY_OVERRIDE_FINGERPRINT=
+    GENINITRD_POLICY_BACKUP=
+    GENINITRD_POLICY_STAGED=
+    GENINITRD_POLICY_BACKUP_OWNED=0
+    GENINITRD_POLICY_STAGED_OWNED=0
     INITRD_REQUIRED=0
     GRUB_REQUIRED=0
     FLATPAK_MODULE_STATE=idle
@@ -2375,6 +2392,19 @@ remove_owned_sbo_queue_workspace() {
 }
 
 cleanup() {
+    if [ "${GENINITRD_POLICY_OVERRIDE_ACTIVE:-0}" -eq 1 ]; then
+        restore_geninitrd_grub_policy_override 2>/dev/null || \
+            printf "[WARN] GenInitrd policy restoration failed during cleanup: %s\n" \
+                "${GENINITRD_POLICY_OVERRIDE_ERROR:-unknown error}" >&2
+    fi
+    remove_owned_geninitrd_policy_temporary \
+        "${GENINITRD_POLICY_STAGED:-}" "${GENINITRD_POLICY_STAGED_OWNED:-0}" 2>/dev/null || true
+    if [ "${GENINITRD_POLICY_BACKUP_OWNED:-0}" -eq 1 ] \
+        && [ "${GENINITRD_POLICY_OVERRIDE_ACTIVE:-0}" -eq 0 ]; then
+        remove_owned_geninitrd_policy_temporary \
+            "${GENINITRD_POLICY_BACKUP:-}" "${GENINITRD_POLICY_BACKUP_OWNED:-0}" 2>/dev/null || true
+    fi
+
     rm -f "${QUEUE_FINAL:-}" "${BROKEN_NEW:-}" "${STILL_BROKEN:-}" \
         "${BROKEN_ERRORS:-}" "${ELF_LIBRARY_CACHE:-}" 2>/dev/null || true
 
@@ -2958,6 +2988,265 @@ slackpkg_apply_action_failed() {
             return 0
             ;;
     esac
+}
+
+geninitrd_policy_fingerprint() {
+    local path=$1
+    local metadata
+    local digest
+
+    [ -f "$path" ] && [ ! -L "$path" ] && [ -r "$path" ] || return 1
+    metadata=$(stat -c '%a:%u:%g:%s:%Y' -- "$path") || return 1
+    digest=$(sha256sum -- "$path" | awk '{print $1}') || return 1
+    printf '%s|%s' "$metadata" "$digest"
+}
+
+remove_owned_geninitrd_policy_temporary() {
+    local path=$1
+    local owned=$2
+    local parent
+    local canonical_parent
+    local canonical_path_parent
+
+    [ "$owned" -eq 1 ] || return 0
+    [ -n "$path" ] || return 0
+    [ ! -L "$path" ] || return 1
+    parent=$(dirname -- "$GENINITRD_POLICY_PATH") || return 1
+    canonical_parent=$(readlink -e -- "$parent" 2>/dev/null) || return 1
+    canonical_path_parent=$(readlink -e -- "$(dirname -- "$path")" 2>/dev/null) || return 1
+    [ "$canonical_parent" = "$canonical_path_parent" ] || return 1
+    rm -f -- "$path"
+}
+
+stage_geninitrd_grub_policy_override() {
+    local path=$GENINITRD_POLICY_PATH
+    local parent
+    local canonical_parent
+    local current_fingerprint
+    local staged_hash
+    local backup_hash
+    local policy_value
+
+    GENINITRD_POLICY_OVERRIDE_STATUS=preparing
+    GENINITRD_POLICY_OVERRIDE_ERROR=
+
+    [ -f "$path" ] && [ ! -L "$path" ] && [ -r "$path" ] || {
+        GENINITRD_POLICY_OVERRIDE_STATUS=failed
+        GENINITRD_POLICY_OVERRIDE_ERROR="GenInitrd policy is missing, unreadable, or not a regular file: $path"
+        return 1
+    }
+    [ "$(stat -c '%u' -- "$path")" -eq 0 ] || {
+        GENINITRD_POLICY_OVERRIDE_STATUS=failed
+        GENINITRD_POLICY_OVERRIDE_ERROR="GenInitrd policy is not root-owned: $path"
+        return 1
+    }
+    [ $((8#$(stat -c '%a' -- "$path") & 8#022)) -eq 0 ] || {
+        GENINITRD_POLICY_OVERRIDE_STATUS=failed
+        GENINITRD_POLICY_OVERRIDE_ERROR="GenInitrd policy is writable by group or others: $path"
+        return 1
+    }
+
+    policy_value=$(awk '''
+        BEGIN { count=0; value="" }
+        {
+            trimmed=$0
+            sub(/^[[:space:]]+/, "", trimmed)
+            if (trimmed ~ /^AUTO_UPDATE_GRUB[[:space:]]*=/) {
+                count++
+                sub(/^AUTO_UPDATE_GRUB[[:space:]]*=[[:space:]]*/, "", trimmed)
+                sub(/[[:space:]]*$/, "", trimmed)
+                value=trimmed
+            }
+        }
+        END {
+            if (count != 1 || (value != "true" && value != "false")) exit 1
+            print value
+        }
+    ''' "$path") || {
+        GENINITRD_POLICY_OVERRIDE_STATUS=failed
+        GENINITRD_POLICY_OVERRIDE_ERROR="GenInitrd policy must contain exactly one active boolean AUTO_UPDATE_GRUB assignment"
+        return 1
+    }
+    if [ "$policy_value" = false ]; then
+        GENINITRD_POLICY_OVERRIDE_REQUIRED=0
+        GENINITRD_POLICY_OVERRIDE_STATUS=already-disabled
+        return 0
+    fi
+    GENINITRD_POLICY_OVERRIDE_REQUIRED=1
+
+    parent=$(dirname -- "$path") || return 1
+    [ -d "$parent" ] && [ ! -L "$parent" ] || {
+        GENINITRD_POLICY_OVERRIDE_STATUS=failed
+        GENINITRD_POLICY_OVERRIDE_ERROR="GenInitrd policy parent is missing or unsafe: $parent"
+        return 1
+    }
+    canonical_parent=$(readlink -e -- "$parent") || {
+        GENINITRD_POLICY_OVERRIDE_STATUS=failed
+        GENINITRD_POLICY_OVERRIDE_ERROR="GenInitrd policy parent cannot be resolved: $parent"
+        return 1
+    }
+    [ "$canonical_parent" = "$parent" ] || {
+        GENINITRD_POLICY_OVERRIDE_STATUS=failed
+        GENINITRD_POLICY_OVERRIDE_ERROR="GenInitrd policy parent must be canonical: $parent"
+        return 1
+    }
+
+    GENINITRD_POLICY_ORIGINAL_FINGERPRINT=$(geninitrd_policy_fingerprint "$path") || {
+        GENINITRD_POLICY_OVERRIDE_STATUS=failed
+        GENINITRD_POLICY_OVERRIDE_ERROR="GenInitrd policy cannot be fingerprinted: $path"
+        return 1
+    }
+    GENINITRD_POLICY_BACKUP=$(mktemp -- "$parent/.geninitrd.slack-update.backup.XXXXXX") || {
+        GENINITRD_POLICY_OVERRIDE_STATUS=failed
+        GENINITRD_POLICY_OVERRIDE_ERROR="cannot create GenInitrd policy backup in $parent"
+        return 1
+    }
+    GENINITRD_POLICY_BACKUP_OWNED=1
+    GENINITRD_POLICY_STAGED=$(mktemp -- "$parent/.geninitrd.slack-update.override.XXXXXX") || {
+        GENINITRD_POLICY_OVERRIDE_STATUS=failed
+        GENINITRD_POLICY_OVERRIDE_ERROR="cannot create staged GenInitrd policy in $parent"
+        return 1
+    }
+    GENINITRD_POLICY_STAGED_OWNED=1
+
+    cp --preserve=mode,ownership,timestamps -- "$path" "$GENINITRD_POLICY_BACKUP" || {
+        GENINITRD_POLICY_OVERRIDE_STATUS=failed
+        GENINITRD_POLICY_OVERRIDE_ERROR="cannot preserve the original GenInitrd policy"
+        return 1
+    }
+    awk '
+        BEGIN { count=0 }
+        {
+            trimmed=$0
+            sub(/^[[:space:]]+/, "", trimmed)
+            if (trimmed ~ /^AUTO_UPDATE_GRUB[[:space:]]*=/) {
+                if (trimmed !~ /^AUTO_UPDATE_GRUB[[:space:]]*=[[:space:]]*true[[:space:]]*$/) exit 42
+                count++
+                print "AUTO_UPDATE_GRUB=false"
+                next
+            }
+            print
+        }
+        END { if (count != 1) exit 43 }
+    ' "$path" > "$GENINITRD_POLICY_STAGED" || {
+        GENINITRD_POLICY_OVERRIDE_STATUS=failed
+        GENINITRD_POLICY_OVERRIDE_ERROR="GenInitrd policy must contain exactly one active AUTO_UPDATE_GRUB=true assignment"
+        return 1
+    }
+    chown --reference="$path" -- "$GENINITRD_POLICY_STAGED" || return 1
+    chmod --reference="$path" -- "$GENINITRD_POLICY_STAGED" || return 1
+
+    backup_hash=$(sha256sum -- "$GENINITRD_POLICY_BACKUP" | awk '{print $1}') || return 1
+    [ "$backup_hash" = "${GENINITRD_POLICY_ORIGINAL_FINGERPRINT##*|}" ] || {
+        GENINITRD_POLICY_OVERRIDE_STATUS=failed
+        GENINITRD_POLICY_OVERRIDE_ERROR="GenInitrd policy backup differs from the accepted original"
+        return 1
+    }
+    staged_hash=$(sha256sum -- "$GENINITRD_POLICY_STAGED" | awk '{print $1}') || return 1
+    [ "$staged_hash" != "$backup_hash" ] || {
+        GENINITRD_POLICY_OVERRIDE_STATUS=failed
+        GENINITRD_POLICY_OVERRIDE_ERROR="staged GenInitrd policy did not change AUTO_UPDATE_GRUB"
+        return 1
+    }
+    grep -Fxq 'AUTO_UPDATE_GRUB=false' "$GENINITRD_POLICY_STAGED" || return 1
+    [ "$(grep -Ec '^[[:space:]]*AUTO_UPDATE_GRUB[[:space:]]*=' "$GENINITRD_POLICY_STAGED")" -eq 1 ] || return 1
+
+    current_fingerprint=$(geninitrd_policy_fingerprint "$path") || return 1
+    [ "$current_fingerprint" = "$GENINITRD_POLICY_ORIGINAL_FINGERPRINT" ] || {
+        GENINITRD_POLICY_OVERRIDE_STATUS=failed
+        GENINITRD_POLICY_OVERRIDE_ERROR="GenInitrd policy changed while the override was staged"
+        return 1
+    }
+    mv -fT -- "$GENINITRD_POLICY_STAGED" "$path" || {
+        GENINITRD_POLICY_OVERRIDE_STATUS=failed
+        GENINITRD_POLICY_OVERRIDE_ERROR="atomic GenInitrd policy override failed"
+        return 1
+    }
+    GENINITRD_POLICY_STAGED_OWNED=0
+    GENINITRD_POLICY_STAGED=
+    GENINITRD_POLICY_OVERRIDE_ACTIVE=1
+    GENINITRD_POLICY_OVERRIDE_APPLIED=1
+    GENINITRD_POLICY_OVERRIDE_FINGERPRINT=$(geninitrd_policy_fingerprint "$path") || {
+        GENINITRD_POLICY_OVERRIDE_STATUS=failed
+        GENINITRD_POLICY_OVERRIDE_ERROR="overridden GenInitrd policy cannot be fingerprinted"
+        return 1
+    }
+    [ "${GENINITRD_POLICY_OVERRIDE_FINGERPRINT##*|}" = "$staged_hash" ] || {
+        GENINITRD_POLICY_OVERRIDE_STATUS=failed
+        GENINITRD_POLICY_OVERRIDE_ERROR="active GenInitrd policy does not match the staged override"
+        return 1
+    }
+
+    GENINITRD_POLICY_OVERRIDE_STATUS=active
+    return 0
+}
+
+prepare_geninitrd_grub_policy_override() {
+    GENINITRD_POLICY_OVERRIDE_REQUIRED=0
+    GENINITRD_POLICY_OVERRIDE_ACTIVE=0
+    GENINITRD_POLICY_OVERRIDE_APPLIED=0
+    GENINITRD_POLICY_OVERRIDE_RESTORED=0
+    GENINITRD_POLICY_OVERRIDE_STATUS=not-required
+    GENINITRD_POLICY_OVERRIDE_ERROR=
+
+    [ "${BOOT_PREPARATION_LAYOUT:-unknown}" = direct-generic-no-initrd ] || return 0
+    stage_geninitrd_grub_policy_override
+}
+
+restore_geninitrd_grub_policy_override() {
+    local path=$GENINITRD_POLICY_PATH
+    local current_fingerprint
+    local restored_fingerprint
+
+    if [ "${GENINITRD_POLICY_OVERRIDE_ACTIVE:-0}" -ne 1 ]; then
+        [ "${GENINITRD_POLICY_OVERRIDE_REQUIRED:-0}" -eq 0 ] && return 0
+        [ "${GENINITRD_POLICY_OVERRIDE_RESTORED:-0}" -eq 1 ] && return 0
+        GENINITRD_POLICY_OVERRIDE_STATUS=failed
+        [ -n "${GENINITRD_POLICY_OVERRIDE_ERROR:-}" ] || \
+            GENINITRD_POLICY_OVERRIDE_ERROR="required GenInitrd policy override is not active and was not restored"
+        return 1
+    fi
+
+    current_fingerprint=$(geninitrd_policy_fingerprint "$path") || {
+        GENINITRD_POLICY_OVERRIDE_STATUS=restore-failed
+        GENINITRD_POLICY_OVERRIDE_ERROR="active overridden GenInitrd policy cannot be fingerprinted"
+        return 1
+    }
+    [ "$current_fingerprint" = "$GENINITRD_POLICY_OVERRIDE_FINGERPRINT" ] || {
+        GENINITRD_POLICY_OVERRIDE_STATUS=restore-failed
+        GENINITRD_POLICY_OVERRIDE_ERROR="active GenInitrd policy changed before restoration; backup retained at $GENINITRD_POLICY_BACKUP"
+        return 1
+    }
+    [ -f "$GENINITRD_POLICY_BACKUP" ] && [ ! -L "$GENINITRD_POLICY_BACKUP" ] || {
+        GENINITRD_POLICY_OVERRIDE_STATUS=restore-failed
+        GENINITRD_POLICY_OVERRIDE_ERROR="GenInitrd policy backup is missing or unsafe: $GENINITRD_POLICY_BACKUP"
+        return 1
+    }
+    [ "$(geninitrd_policy_fingerprint "$GENINITRD_POLICY_BACKUP")" = "$GENINITRD_POLICY_ORIGINAL_FINGERPRINT" ] || {
+        GENINITRD_POLICY_OVERRIDE_STATUS=restore-failed
+        GENINITRD_POLICY_OVERRIDE_ERROR="GenInitrd policy backup no longer matches the original"
+        return 1
+    }
+
+    mv -fT -- "$GENINITRD_POLICY_BACKUP" "$path" || {
+        GENINITRD_POLICY_OVERRIDE_STATUS=restore-failed
+        GENINITRD_POLICY_OVERRIDE_ERROR="atomic GenInitrd policy restoration failed; backup retained at $GENINITRD_POLICY_BACKUP"
+        return 1
+    }
+    GENINITRD_POLICY_BACKUP_OWNED=0
+    GENINITRD_POLICY_BACKUP=
+    restored_fingerprint=$(geninitrd_policy_fingerprint "$path") || return 1
+    [ "$restored_fingerprint" = "$GENINITRD_POLICY_ORIGINAL_FINGERPRINT" ] || {
+        GENINITRD_POLICY_OVERRIDE_STATUS=restore-failed
+        GENINITRD_POLICY_OVERRIDE_ERROR="restored GenInitrd policy differs from the original"
+        return 1
+    }
+
+    GENINITRD_POLICY_OVERRIDE_ACTIVE=0
+    GENINITRD_POLICY_OVERRIDE_RESTORED=1
+    GENINITRD_POLICY_OVERRIDE_STATUS=restored
+    GENINITRD_POLICY_OVERRIDE_ERROR=
+    return 0
 }
 
 capture_pending_new_config_files() {
@@ -5534,6 +5823,13 @@ print_apply_json_modules() {
     printf '      "direct_generic_installed_kernel_records": %d,\n' "${DIRECT_GENERIC_INSTALLED_KERNEL_RECORD_COUNT:-0}"
     printf '      "direct_generic_kernel_path": '; json_string "${DIRECT_GENERIC_KERNEL_PATH:-}"; printf ',\n'
     printf '      "direct_generic_modules_path": '; json_string "${DIRECT_GENERIC_MODULES_PATH:-}"; printf ',\n'
+    printf '      "geninitrd_policy_path": '; json_string "${GENINITRD_POLICY_PATH:-}"; printf ',\n'
+    printf '      "geninitrd_policy_override_required": '; json_boolean "${GENINITRD_POLICY_OVERRIDE_REQUIRED:-0}"; printf ',\n'
+    printf '      "geninitrd_policy_override_applied": '; json_boolean "${GENINITRD_POLICY_OVERRIDE_APPLIED:-0}"; printf ',\n'
+    printf '      "geninitrd_policy_override_restored": '; json_boolean "${GENINITRD_POLICY_OVERRIDE_RESTORED:-0}"; printf ',\n'
+    printf '      "geninitrd_policy_override_active": '; json_boolean "${GENINITRD_POLICY_OVERRIDE_ACTIVE:-0}"; printf ',\n'
+    printf '      "geninitrd_policy_override_status": '; json_string "${GENINITRD_POLICY_OVERRIDE_STATUS:-not-required}"; printf ',\n'
+    printf '      "geninitrd_policy_override_error": '; json_string "${GENINITRD_POLICY_OVERRIDE_ERROR:-}"; printf ',\n'
     printf '      "initrd_required": '; json_boolean "$INITRD_REQUIRED"; printf ',\n'
     printf '      "initrd_state": '; json_string "$initrd_state"; printf ',\n'
     printf '      "kernel_version_source": '; json_string 'post-update-package-snapshot'; printf ',\n'
@@ -5695,6 +5991,22 @@ run_apply_workflow() {
     emit_action_completed_event slackware snapshot_before success \
         "Package snapshot before update captured and validated ($PACKAGE_SNAPSHOT_BEFORE_COUNT records)" 0
 
+    emit_action_started_event slackware geninitrd_grub_ownership \
+        "Preparing exclusive GRUB ownership for the package transaction"
+    probe_boot_module
+    if ! prepare_geninitrd_grub_policy_override; then
+        slackware_state=failed
+        echo "[ERROR] Cannot prepare GenInitrd GRUB ownership: $GENINITRD_POLICY_OVERRIDE_ERROR"
+        emit_action_completed_event slackware geninitrd_grub_ownership failed \
+            "GenInitrd GRUB ownership preparation failed: $GENINITRD_POLICY_OVERRIDE_ERROR" 1
+        emit_module_completed_event slackware failed \
+            "Slackware update stopped before package operations because GRUB ownership is unsafe" 1
+        print_summary
+        return 1
+    fi
+    emit_action_completed_event slackware geninitrd_grub_ownership success \
+        "GenInitrd GRUB ownership state: $GENINITRD_POLICY_OVERRIDE_STATUS" 0
+
     emit_action_started_event slackware update_packages "Applying Slackware package operations"
     update_slackware_system
     action_exit=0
@@ -5710,6 +6022,19 @@ run_apply_workflow() {
     fi
     emit_action_completed_event slackware update_packages "$slackware_state" \
         "Slackware package operations completed" "$action_exit"
+
+    emit_action_started_event slackware restore_geninitrd_policy \
+        "Restoring the original GenInitrd policy after package operations"
+    if restore_geninitrd_grub_policy_override; then
+        emit_action_completed_event slackware restore_geninitrd_policy success \
+            "GenInitrd policy restoration state: $GENINITRD_POLICY_OVERRIDE_STATUS" 0
+    else
+        slackware_state=failed
+        action_exit=1
+        echo "[ERROR] Cannot restore the original GenInitrd policy: $GENINITRD_POLICY_OVERRIDE_ERROR"
+        emit_action_completed_event slackware restore_geninitrd_policy failed \
+            "GenInitrd policy restoration failed: $GENINITRD_POLICY_OVERRIDE_ERROR" 1
+    fi
 
     emit_action_started_event slackware snapshot_after "Capturing package snapshot after update"
     if ! capture_package_snapshot_after; then

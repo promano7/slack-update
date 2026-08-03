@@ -1054,6 +1054,10 @@ sudo bash tests/acceptance/reference/test-current-geninitrd-command-preflight.sh
 
 This stage invokes the installed `mkinitrd_command_generator.sh` only for the already installed `6.18.40` kernel and never uses `--run`. It parses exactly one inert `mkinitrd` command, stores the argument vector in private evidence, projects only the kernel and output arguments to `6.18.41` and `/boot/initrd-6.18.41.img`, and never executes either vector. It also revalidates the exact cached kernel archive and proves that package, boot, GenInitrd, and DKMS state stay unchanged. Its result always remains `apply_ready=false` and `apply_authorized=false` pending evidence review and a later post-install simulation design.
 
+Step 41 passed on `pcold-slack` with 11 assertions and evidence SHA-256 `246a54dd81c1db6ce2e7d04cb5d6e4739249e4a2f0483edcb9c7a5f1e0e93ad3`. The accepted record is `tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-grub-ownership-preflight-20260803-accepted.json`. It proved that only a same-directory atomic policy override can prevent package-owned `update-grub`, and that the original policy, package database, and boot state remained unchanged.
+
+Step 42 implements that reviewed boundary in the reference engine without running a VM. For the exact `direct-generic-no-initrd` layout, the engine creates a root-owned same-directory backup, stages a policy whose only active assignment is `AUTO_UPDATE_GRUB=false`, rechecks the source fingerprint, and atomically activates it before package operations. It restores the original policy immediately afterward and again from the exit/signal cleanup path if necessary. Restoration refuses to overwrite concurrent changes, retains the backup on conflict, marks the Slackware operation failed, and reports all states in structured output. Other boot layouts remain no-ops. Apply is still not authorized because post-package recognition of the automatically generated versioned initrd and final candidate revalidation remain pending.
+
 Slackware 15.0 passed the non-kernel branch of this scenario on 2026-08-01.
 The reviewed preflight deferred `kernel-generic`, `kernel-huge`, and
 `kernel-modules`, then authorized an exact 196-package candidate digest containing
@@ -1898,7 +1902,9 @@ Slack-Update 1.0 will be ready when:
   - [x] Run and review the Slackware-current `geninitrd` policy preflight before transaction design.
   - [x] Run and review the discovered Slackware-current DKMS hooks and installed DKMS state.
   - [x] Run and review the command-output-only GenInitrd projection for the target kernel transition.
-  - [ ] Run and review the GenInitrd versus Slack-Update GRUB-ownership preflight.
+  - [x] Run and review the GenInitrd versus Slack-Update GRUB-ownership preflight.
+  - [x] Implement transactional GenInitrd policy override and guaranteed restoration in the reference engine.
+  - [ ] Validate the post-package generated-initrd state and final transaction readiness.
   - [x] Review and accept the ten-package Slackware-current transaction as package and boot evidence.
   - [ ] Revalidate the hardened deferred `.new` policy on the next Slackware-current update.
   - [x] Reject the 2026-08-03 Slackware-current diagnostic whose parser omitted the `x86` `kernel-headers` candidate.
