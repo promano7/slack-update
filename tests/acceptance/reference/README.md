@@ -200,11 +200,23 @@ SHA-256 is
 and the sanitized rejected record is
 `tests/fixtures/reference/acceptance/kernel-boot/slackware-current-direct-generic-preflight-20260803-diagnostic.json`.
 
-Discovery intentionally reports `apply_ready=false` and
-`apply_authorized=false`. After corrected evidence is reviewed, a separate
-accepted fixture may mark the same candidate digest `apply_ready=true`;
-normal-update apply requires that matching fixture and its archive SHA-256 in
-addition to `--allow-kernel-update`. Until then, do not execute apply.
+The corrected real-system rerun at `2026-08-03T20:40:08Z` passed all 20
+checks with no failures. It accepted `direct-generic-no-initrd`, preserved the
+package database and boot state byte-for-byte, and published archive SHA-256
+`ed7462e70496cf38a52c211f3d5945438e5f1bad5b8d8eaa7b90079540381967`.
+The archive and portable sidecar were copied directly to `/home/promano` and
+verified there. Its sanitized accepted record is
+`tests/fixtures/reference/acceptance/kernel-boot/slackware-current-direct-generic-preflight-20260803-accepted.json`.
+
+Discovery intentionally remains `apply_ready=false` and
+`apply_authorized=false`. The reference engine now understands the accepted
+layout: it suppresses initrd only for a validated direct generic boot, requires
+the post-update package-owned `vmlinuz-VERSION` symlink target and module tree,
+and validates that the staged GRUB configuration references that kernel before
+atomic replacement. This code-only policy does not authorize package changes.
+A separate transaction preflight must inspect the exact downloaded target
+package and its install script before any fixture may mark this candidate digest
+`apply_ready=true`. Until then, do not execute apply.
 
 Slackware 15.0 passed the non-boot-kernel branch on 2026-08-01. An initial
 preflight reported 199 candidates, including `kernel-generic`, `kernel-huge`,

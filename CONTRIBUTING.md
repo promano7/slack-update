@@ -107,11 +107,12 @@ Before submitting a change to the reference script:
 25. Run `tests/reference/test-kernel-cleanup-plan.sh` when cleanup inventory schema, exact active/rollback package sets, active archive coverage, module-tree requirements, boot-transaction metadata, ELILO oldkernel-removal planning, GRUB regeneration planning, no-op single-kernel handling, or cleanup authorization boundaries are affected.
 26. Run `tests/reference/test-kernel-cleanup-dry-run.sh` when mandatory dry-run gating, plan identity, simulation-only authorization, proposed command vectors, failure injection, recovery planning, backend transaction rendering, or no-mutation guarantees are affected.
 27. Run `tests/reference/test-current-kernel-boot-preflight-harness.sh` when Slackware-current monolithic kernel layout, repository kernel transition, module or kernel-image ownership, direct-generic versus mkinitrd-managed classification, `BOOT_IMAGE` validation, GRUB discovery, apply-readiness gating, or current-kernel evidence publication is affected.
-28. Confirm that destructive commands are not exercised outside an isolated or explicitly recoverable Slackware test system.
-29. Record the relevant acceptance scenario.
-30. Preserve deterministic output and exit-code behavior.
-31. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
-32. Ensure every new or modified comment is written in English.
+28. Run `tests/reference/test-current-direct-generic-boot-policy.sh` when direct generic boot detection, exact `BOOT_IMAGE` parsing, active kernel ownership, no-initrd policy selection, post-update generic-kernel validation, generated GRUB target validation, or boot-safety result mapping is affected.
+29. Confirm that destructive commands are not exercised outside an isolated or explicitly recoverable Slackware test system.
+30. Record the relevant acceptance scenario.
+31. Preserve deterministic output and exit-code behavior.
+32. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
+33. Ensure every new or modified comment is written in English.
 
 Never run the apply workflow on a production machine merely to validate a contribution.
 

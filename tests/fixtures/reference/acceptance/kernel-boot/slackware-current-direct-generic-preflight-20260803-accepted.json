@@ -1,0 +1,35 @@
+{
+  "scenario": "current-kernel-boot-preflight",
+  "target": "slackware-current",
+  "accepted": true,
+  "captured_at": "2026-08-03T20:40:09Z",
+  "archive_sha256": "ed7462e70496cf38a52c211f3d5945438e5f1bad5b8d8eaa7b90079540381967",
+  "normal_update_candidate_set_sha256": "d9199fcf6c5cd8c59b87b1bde9a955df2c55d0ac84f6dab37ed8e4c1830dcaf1",
+  "running_kernel": "6.18.40",
+  "target_kernel": "6.18.41",
+  "package_layout": "monolithic-generic",
+  "boot_mode": "direct-generic-no-initrd",
+  "boot_image": "/boot/vmlinuz-generic",
+  "generic_kernel_path": "/boot/vmlinuz-6.18.40",
+  "generic_symlink_transition_required": true,
+  "mkinitrd_state": "absent",
+  "initrd_state": "absent",
+  "mkinitrd_transition_required": false,
+  "package_database_unchanged": true,
+  "boot_state_unchanged": true,
+  "assertions": {
+    "passes": 20,
+    "failures": 0
+  },
+  "evidence": {
+    "portable_sha256_sidecar": true,
+    "copied_to": "/home/promano",
+    "destination_verification": "passed"
+  },
+  "apply_ready": false,
+  "apply_authorized": false,
+  "next_stage": "exact-kernel-package-transaction-preflight",
+  "executed_reference_sha256": "a3bdddd369b2fb2f50594fa65a5540670271ff1ae91de0baca654cc880254334",
+  "hardened_reference_sha256": "a3479c86a4ce2b644d7376c27798a8640661d3b97b3e4c614e09ffc7b700de6c",
+  "transaction_preflight_required": true
+}

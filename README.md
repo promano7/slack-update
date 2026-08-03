@@ -1007,14 +1007,33 @@ are intentionally absent. This is a coherent `direct-generic-no-initrd` mode,
 not a failure. The rejected diagnostic archive has SHA-256
 `8b7d495f8a1466ef308dcb8664e31df756940695b6ed345834fad4ab1f5f3727`.
 
-The corrected stage now accepts either a safe `mkinitrd-managed` layout or the
-observed direct generic-kernel layout. It proves ownership of the running image,
-checks that repository metadata contains `boot/vmlinuz-6.18.41`, validates the
-actual `BOOT_IMAGE` against the syntax-checked GRUB configuration, and still
-compares package and boot state before and after discovery. It deliberately
-publishes `apply_ready=false` and `apply_authorized=false`. Normal-update apply
-fails closed until a separately reviewed, matching record later marks this
-exact candidate digest `apply_ready=true`.
+The corrected stage accepts either a safe `mkinitrd-managed` layout or the
+observed direct generic-kernel layout. The real-system rerun on 2026-08-03 passed
+all 20 assertions, proved ownership of the running image and module tree,
+confirmed `boot/vmlinuz-6.18.41` plus target modules in repository metadata,
+validated the actual `BOOT_IMAGE` against the syntax-checked GRUB configuration,
+and left package and boot state unchanged. Its archive SHA-256 is
+`ed7462e70496cf38a52c211f3d5945438e5f1bad5b8d8eaa7b90079540381967`, and the
+sanitized accepted record is
+`tests/fixtures/reference/acceptance/kernel-boot/slackware-current-direct-generic-preflight-20260803-accepted.json`.
+Discovery deliberately remains `apply_ready=false` and `apply_authorized=false`.
+
+The reference boot module now implements the corresponding direct-update policy.
+A validated `direct-generic-no-initrd` host suppresses initrd regeneration only
+for that exact layout while retaining mandatory GRUB regeneration. After package
+installation and before GRUB generation, the engine requires exactly one
+post-update `kernel-generic` record, a package-owned
+`/boot/vmlinuz-VERSION` selected by `/boot/vmlinuz-generic`, and the matching
+`/lib/modules/VERSION` tree. The temporary GRUB configuration must pass
+`grub-script-check` and reference the validated versioned kernel or generic
+symlink before atomic replacement. Any missing symlink, module tree, ownership
+record, or stale generated entry blocks GRUB and reports `boot_safe=false`.
+
+This policy change is code-only and does not authorize package installation. A
+later transaction preflight must inspect the exact downloaded
+`kernel-generic-6.18.41-x86_64-1` archive and its install script, revalidate the
+candidate digest, and exercise the staged GRUB plan before any accepted fixture
+may set `apply_ready=true`.
 
 Slackware 15.0 passed the non-kernel branch of this scenario on 2026-08-01.
 The reviewed preflight deferred `kernel-generic`, `kernel-huge`, and
@@ -1852,7 +1871,9 @@ Slack-Update 1.0 will be ready when:
   - [x] Accept the corrected 57-candidate Slackware-current preflight classification.
   - [x] Require a separate matching apply-ready boot-layout record for Slackware-current kernel candidates.
   - [x] Run the first non-destructive Slackware-current kernel boot-layout preflight and reject its initrd-only assumptions.
-  - [ ] Repeat and review the corrected direct-generic-aware boot-layout preflight for `6.18.41`.
+  - [x] Repeat and accept the corrected direct-generic-aware boot-layout preflight for `6.18.41`.
+  - [x] Add reference-engine policy for direct generic kernel transitions without initrd.
+  - [ ] Inspect the exact Slackware-current kernel package transaction and staged GRUB output before apply readiness.
   - [x] Review and accept the ten-package Slackware-current transaction as package and boot evidence.
   - [ ] Revalidate the hardened deferred `.new` policy on the next Slackware-current update.
   - [x] Reject the 2026-08-03 Slackware-current diagnostic whose parser omitted the `x86` `kernel-headers` candidate.

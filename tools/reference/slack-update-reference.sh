@@ -1739,11 +1739,205 @@ probe_cinnamon_module() {
     fi
 }
 
+read_boot_image_from_cmdline() {
+    local cmdline_file=$1
+    local token
+    local count=0
+
+    BOOT_IMAGE_ASSIGNMENT=
+    [ -f "$cmdline_file" ] && [ ! -L "$cmdline_file" ] && [ -r "$cmdline_file" ] || return 1
+
+    while IFS= read -r token; do
+        case "$token" in
+            BOOT_IMAGE=*)
+                BOOT_IMAGE_ASSIGNMENT=${token#BOOT_IMAGE=}
+                count=$((count + 1))
+                ;;
+        esac
+    done < <(tr ' ' '\n' < "$cmdline_file")
+
+    [ "$count" -eq 1 ] || return 1
+    case "$BOOT_IMAGE_ASSIGNMENT" in
+        /boot/vmlinuz-generic) return 0 ;;
+        /boot/vmlinuz-*)
+            is_safe_kernel_version "${BOOT_IMAGE_ASSIGNMENT#/boot/vmlinuz-}"
+            return
+            ;;
+        *) return 1 ;;
+    esac
+}
+
+grub_config_references_kernel_path() {
+    local config=$1
+    local path=$2
+    local alternate=
+
+    [ -f "$config" ] && [ ! -L "$config" ] && [ -r "$config" ] || return 1
+    case "$path" in
+        /boot/*) alternate=${path#/boot} ;;
+    esac
+
+    awk -v expected="$path" -v alternate="$alternate" '
+        ($1 == "linux" || $1 == "linuxefi") && ($2 == expected || (alternate != "" && $2 == alternate)) {
+            found = 1
+        }
+        END { exit !found }
+    ' "$config"
+}
+
+classify_direct_generic_boot_layout() {
+    local package_database=$1
+    local cmdline_file=$2
+    local grub_config=$3
+    local generic_link=$4
+    local mkinitrd_config=$5
+    local initrd_image=$6
+    local modules_directory=$7
+    local running_kernel=$8
+    local package_database_resolved
+    local resolved_kernel
+    local kernel_basename
+    local record
+    local record_path
+    local record_count=0
+
+    BOOT_DIRECT_GENERIC_REASON=
+    BOOT_DIRECT_GENERIC_KERNEL_PATH=
+    BOOT_DIRECT_GENERIC_KERNEL_VERSION=
+    BOOT_DIRECT_GENERIC_PACKAGE_RECORD=
+    BOOT_DIRECT_GENERIC_BOOT_IMAGE=
+    GENERIC_KERNEL_LINK=/boot/vmlinuz-generic
+
+    is_safe_kernel_version "$running_kernel" || {
+        BOOT_DIRECT_GENERIC_REASON="running kernel version is unsafe: $running_kernel"
+        return 1
+    }
+
+    if [ -e "$mkinitrd_config" ] || [ -L "$mkinitrd_config" ] \
+        || [ -e "$initrd_image" ] || [ -L "$initrd_image" ]; then
+        BOOT_DIRECT_GENERIC_REASON="mkinitrd configuration or initrd is present"
+        return 1
+    fi
+
+    [ -L "$generic_link" ] || {
+        BOOT_DIRECT_GENERIC_REASON="generic kernel path is not a symbolic link: $generic_link"
+        return 1
+    }
+    resolved_kernel=$(readlink -e -- "$generic_link" 2>/dev/null) || {
+        BOOT_DIRECT_GENERIC_REASON="generic kernel link cannot be resolved: $generic_link"
+        return 1
+    }
+    [ -f "$resolved_kernel" ] && [ ! -L "$resolved_kernel" ] && [ -r "$resolved_kernel" ] || {
+        BOOT_DIRECT_GENERIC_REASON="resolved generic kernel is not a readable regular file: $resolved_kernel"
+        return 1
+    }
+    kernel_basename=${resolved_kernel##*/}
+    [ "$kernel_basename" = "vmlinuz-$running_kernel" ] || {
+        BOOT_DIRECT_GENERIC_REASON="generic kernel link does not select the running version: $kernel_basename"
+        return 1
+    }
+
+    [ -d "$modules_directory/$running_kernel" ] && [ ! -L "$modules_directory/$running_kernel" ] || {
+        BOOT_DIRECT_GENERIC_REASON="running kernel module tree is missing or unsafe: $modules_directory/$running_kernel"
+        return 1
+    }
+
+    package_database_resolved=$(readlink -e -- "$package_database" 2>/dev/null) || {
+        BOOT_DIRECT_GENERIC_REASON="package database cannot be resolved: $package_database"
+        return 1
+    }
+    [ -d "$package_database_resolved" ] && [ ! -L "$package_database_resolved" ] \
+        && [ -r "$package_database_resolved" ] && [ -x "$package_database_resolved" ] || {
+        BOOT_DIRECT_GENERIC_REASON="package database is not a safe readable directory: $package_database_resolved"
+        return 1
+    }
+
+    while IFS= read -r record || [ -n "$record" ]; do
+        parse_slackware_package_record "$record" || continue
+        [ "$SLACKWARE_PACKAGE_NAME" = "$INITRD_KERNEL_PACKAGE" ] || continue
+        record_count=$((record_count + 1))
+        BOOT_DIRECT_GENERIC_PACKAGE_RECORD=$record
+        BOOT_DIRECT_GENERIC_KERNEL_VERSION=$SLACKWARE_PACKAGE_VERSION
+    done < <(find -H "$package_database" -maxdepth 1 -type f -name "${INITRD_KERNEL_PACKAGE}-*" -printf '%f\n' 2>/dev/null | LC_ALL=C sort)
+
+    [ "$record_count" -eq 1 ] || {
+        BOOT_DIRECT_GENERIC_REASON="expected one installed $INITRD_KERNEL_PACKAGE record, found $record_count"
+        return 1
+    }
+    [ "$BOOT_DIRECT_GENERIC_KERNEL_VERSION" = "$running_kernel" ] || {
+        BOOT_DIRECT_GENERIC_REASON="installed generic kernel does not match the running version"
+        return 1
+    }
+
+    record_path="$package_database_resolved/$BOOT_DIRECT_GENERIC_PACKAGE_RECORD"
+    [ -f "$record_path" ] && [ ! -L "$record_path" ] && [ -r "$record_path" ] || {
+        BOOT_DIRECT_GENERIC_REASON="installed generic kernel record is missing or unsafe"
+        return 1
+    }
+    grep -Fxq -- "boot/$kernel_basename" "$record_path" || {
+        BOOT_DIRECT_GENERIC_REASON="installed generic kernel record does not own boot/$kernel_basename"
+        return 1
+    }
+    awk -v prefix="lib/modules/$running_kernel/" 'index($0, prefix) == 1 { found=1 } END { exit !found }'         "$record_path" || {
+        BOOT_DIRECT_GENERIC_REASON="installed generic kernel record does not own the running module tree"
+        return 1
+    }
+
+    [ -f "$grub_config" ] && [ ! -L "$grub_config" ] && [ -r "$grub_config" ] || {
+        BOOT_DIRECT_GENERIC_REASON="active GRUB configuration is missing or unsafe: $grub_config"
+        return 1
+    }
+    read_boot_image_from_cmdline "$cmdline_file" || {
+        BOOT_DIRECT_GENERIC_REASON="BOOT_IMAGE is missing, ambiguous, or unsafe"
+        return 1
+    }
+    case "$BOOT_IMAGE_ASSIGNMENT" in
+        /boot/vmlinuz-generic|"/boot/$kernel_basename") ;;
+        *)
+            BOOT_DIRECT_GENERIC_REASON="BOOT_IMAGE does not select the generic kernel path"
+            return 1
+            ;;
+    esac
+    grub_config_references_kernel_path "$grub_config" "$BOOT_IMAGE_ASSIGNMENT" || {
+        BOOT_DIRECT_GENERIC_REASON="active GRUB configuration does not reference $BOOT_IMAGE_ASSIGNMENT"
+        return 1
+    }
+
+    BOOT_DIRECT_GENERIC_KERNEL_PATH=$resolved_kernel
+    BOOT_DIRECT_GENERIC_BOOT_IMAGE=$BOOT_IMAGE_ASSIGNMENT
+    return 0
+}
+
+probe_direct_generic_boot_layout() {
+    BOOT_DIRECT_GENERIC_AVAILABLE=0
+    BOOT_DIRECT_GENERIC_REASON=
+
+    classify_direct_generic_boot_layout \
+        "$PACKAGE_DATABASE" "$BOOT_CMDLINE_FILE" "$GRUB_CONFIG" "$GENERIC_KERNEL_LINK" \
+        "$MKINITRD_CONFIG" "$INITRD_DEFAULT_OUTPUT" "$KERNEL_MODULES_DIRECTORY" "$RUNNING_KERNEL" \
+        || return 1
+
+    if ! command -v grub-script-check >/dev/null 2>&1; then
+        BOOT_DIRECT_GENERIC_REASON="grub-script-check is unavailable"
+        return 1
+    fi
+    if ! grub-script-check "$GRUB_CONFIG" >/dev/null 2>&1; then
+        BOOT_DIRECT_GENERIC_REASON="active GRUB configuration failed syntax validation"
+        return 1
+    fi
+
+    BOOT_DIRECT_GENERIC_AVAILABLE=1
+    return 0
+}
+
 probe_boot_module() {
     BOOT_MODULE_RUN=0
     BOOT_MODULE_REASON=
     BOOT_INITRD_AVAILABLE=0
     BOOT_GRUB_AVAILABLE=0
+    BOOT_DIRECT_GENERIC_AVAILABLE=0
+    BOOT_PREPARATION_LAYOUT=unknown
+    BOOT_DIRECT_GENERIC_REASON=
 
     if [ "$BOOT_MODE" = disabled ]; then
         BOOT_MODULE_STATE=disabled
@@ -1752,33 +1946,54 @@ probe_boot_module() {
     fi
 
     if command -v mkinitrd >/dev/null 2>&1 \
-        && [ -f "$MKINITRD_CONFIG" ]; then
+        && [ -f "$MKINITRD_CONFIG" ] && [ ! -L "$MKINITRD_CONFIG" ]; then
         BOOT_INITRD_AVAILABLE=1
     fi
 
     if command -v grub-mkconfig >/dev/null 2>&1 \
         && command -v grub-script-check >/dev/null 2>&1 \
-        && [ -d "$GRUB_DIRECTORY" ]; then
+        && [ -d "$GRUB_DIRECTORY" ] && [ ! -L "$GRUB_DIRECTORY" ]; then
         BOOT_GRUB_AVAILABLE=1
     fi
 
+    if [ "$BOOT_INITRD_AVAILABLE" -eq 1 ] && [ "$BOOT_GRUB_AVAILABLE" -eq 1 ]; then
+        BOOT_PREPARATION_LAYOUT=mkinitrd-managed
+    elif [ "$BOOT_GRUB_AVAILABLE" -eq 1 ] && probe_direct_generic_boot_layout; then
+        BOOT_PREPARATION_LAYOUT=direct-generic-no-initrd
+    fi
+
     if [ "$BOOT_MODE" = enabled ]; then
-        if [ "$BOOT_INITRD_AVAILABLE" -eq 1 ] && [ "$BOOT_GRUB_AVAILABLE" -eq 1 ]; then
-            BOOT_MODULE_STATE=available
-            BOOT_MODULE_RUN=1
-        elif [ "$BOOT_INITRD_AVAILABLE" -eq 0 ] && [ "$BOOT_GRUB_AVAILABLE" -eq 0 ]; then
-            BOOT_MODULE_STATE=unavailable
-            BOOT_MODULE_REASON="initrd and GRUB preparation requirements are missing"
-        elif [ "$BOOT_INITRD_AVAILABLE" -eq 0 ]; then
-            BOOT_MODULE_STATE=unavailable
-            BOOT_MODULE_REASON="initrd preparation requirements are missing"
-        else
-            BOOT_MODULE_STATE=unavailable
-            BOOT_MODULE_REASON="GRUB preparation requirements are missing"
-        fi
+        case "$BOOT_PREPARATION_LAYOUT" in
+            mkinitrd-managed|direct-generic-no-initrd)
+                BOOT_MODULE_STATE=available
+                BOOT_MODULE_RUN=1
+                ;;
+            *)
+                BOOT_MODULE_STATE=unavailable
+                if [ "$BOOT_GRUB_AVAILABLE" -eq 0 ] && [ "$BOOT_INITRD_AVAILABLE" -eq 0 ]; then
+                    BOOT_MODULE_REASON="initrd and GRUB preparation requirements are missing"
+                elif [ "$BOOT_GRUB_AVAILABLE" -eq 0 ]; then
+                    BOOT_MODULE_REASON="GRUB preparation requirements are missing"
+                elif [ -n "$BOOT_DIRECT_GENERIC_REASON" ]; then
+                    BOOT_MODULE_REASON="neither managed initrd nor safe direct-generic boot is available: $BOOT_DIRECT_GENERIC_REASON"
+                else
+                    BOOT_MODULE_REASON="initrd preparation requirements are missing"
+                fi
+                ;;
+        esac
+    elif [ "$BOOT_PREPARATION_LAYOUT" = mkinitrd-managed ] \
+        || [ "$BOOT_PREPARATION_LAYOUT" = direct-generic-no-initrd ]; then
+        BOOT_MODULE_STATE=available
+        BOOT_MODULE_RUN=1
     elif [ "$BOOT_INITRD_AVAILABLE" -eq 1 ] || [ "$BOOT_GRUB_AVAILABLE" -eq 1 ]; then
         BOOT_MODULE_STATE=available
         BOOT_MODULE_RUN=1
+        BOOT_PREPARATION_LAYOUT=partial
+        if [ -n "$BOOT_DIRECT_GENERIC_REASON" ]; then
+            BOOT_MODULE_REASON="auto mode detected a partial boot preparation path: $BOOT_DIRECT_GENERIC_REASON"
+        else
+            BOOT_MODULE_REASON="auto mode detected a partial boot preparation path"
+        fi
     else
         BOOT_MODULE_STATE=unavailable
         BOOT_MODULE_REASON="no supported initrd or GRUB preparation path was detected"
@@ -1848,6 +2063,11 @@ apply_boot_module_policy() {
         return 0
     fi
 
+    if [ "$BOOT_PREPARATION_LAYOUT" = direct-generic-no-initrd ]; then
+        INITRD_REQUIRED=0
+        INITRD_UPDATE=0
+    fi
+
     case "$BOOT_MODE" in
         disabled)
             INITRD_UPDATE=0
@@ -1856,7 +2076,9 @@ apply_boot_module_policy() {
         enabled)
             ;;
         auto)
-            [ "$BOOT_INITRD_AVAILABLE" -eq 1 ] || INITRD_UPDATE=0
+            if [ "$BOOT_PREPARATION_LAYOUT" != direct-generic-no-initrd ]; then
+                [ "$BOOT_INITRD_AVAILABLE" -eq 1 ] || INITRD_UPDATE=0
+            fi
             [ "$BOOT_GRUB_AVAILABLE" -eq 1 ] || GRUB_UPDATE=0
             ;;
     esac
@@ -1960,6 +2182,20 @@ initialize_runtime_state() {
     BOOT_MODULE_RUN=0
     BOOT_INITRD_AVAILABLE=0
     BOOT_GRUB_AVAILABLE=0
+    BOOT_DIRECT_GENERIC_AVAILABLE=0
+    BOOT_PREPARATION_LAYOUT=unknown
+    BOOT_DIRECT_GENERIC_REASON=
+    BOOT_DIRECT_GENERIC_KERNEL_PATH=
+    BOOT_DIRECT_GENERIC_KERNEL_VERSION=
+    BOOT_DIRECT_GENERIC_PACKAGE_RECORD=
+    BOOT_DIRECT_GENERIC_BOOT_IMAGE=
+    DIRECT_GENERIC_VALIDATION_STATUS=-1
+    DIRECT_GENERIC_VALIDATION_ERROR=
+    DIRECT_GENERIC_INSTALLED_KERNEL_VERSION=
+    DIRECT_GENERIC_INSTALLED_KERNEL_RECORD_COUNT=0
+    DIRECT_GENERIC_PACKAGE_RECORD=
+    DIRECT_GENERIC_KERNEL_PATH=
+    DIRECT_GENERIC_MODULES_PATH=
     TOTAL_EN_COLA=0
     TOTAL_CORE=0
     TOTAL_EXTRA=0
@@ -2472,7 +2708,8 @@ print_dry_run_plan() {
     echo "  compared for ABI-sensitive and kernel package changes."
     echo "  Installed SBo packages eligible for an ABI-triggered rebuild: $PLAN_ABI_SBO_COUNT"
     print_plan_file "$ABI_CANDIDATES"
-    echo "  Kernel image or module changes would schedule initrd and GRUB processing."
+    echo "  Kernel image or module changes would schedule boot preparation."
+    echo "  Managed-initrd hosts regenerate initrd before GRUB; validated direct-generic hosts regenerate GRUB without initrd."
     echo "  A kernel-headers-only change would only emit the external-module warning."
     echo
 
@@ -2545,9 +2782,13 @@ print_dry_run_plan() {
     echo "[7] Boot preparation"
     echo "  Mode: $BOOT_MODE"
     echo "  Activation state: $BOOT_MODULE_STATE"
+    echo "  Preparation layout: $BOOT_PREPARATION_LAYOUT"
     if [ "$BOOT_MODULE_RUN" -eq 1 ]; then
         echo "  These actions remain conditional on kernel-generic, kernel-huge, or kernel-modules changes."
-        if [ "$BOOT_INITRD_AVAILABLE" -eq 1 ]; then
+        if [ "$BOOT_PREPARATION_LAYOUT" = direct-generic-no-initrd ]; then
+            echo "  Direct generic policy: no initrd is required or generated."
+            echo "  Before GRUB generation, apply must validate the new package-owned vmlinuz-VERSION symlink target and module tree."
+        elif [ "$BOOT_INITRD_AVAILABLE" -eq 1 ]; then
             echo "  Planned initrd command: mkinitrd -F"
             echo "  Installed kernel source: validated post-update $INITRD_KERNEL_PACKAGE package record"
             echo "  Required modules path: $KERNEL_MODULES_DIRECTORY/<installed-version>"
@@ -3960,12 +4201,122 @@ regenerate_initrd() {
     fi
 }
 
+validate_direct_generic_kernel_configuration() {
+    local record
+    local record_path
+    local record_count=0
+    local installed_version=
+    local resolved_kernel
+    local kernel_basename
+    local package_database_resolved
+
+    DIRECT_GENERIC_VALIDATION_STATUS=1
+    DIRECT_GENERIC_VALIDATION_ERROR=
+    DIRECT_GENERIC_INSTALLED_KERNEL_VERSION=
+    DIRECT_GENERIC_INSTALLED_KERNEL_RECORD_COUNT=0
+    DIRECT_GENERIC_KERNEL_PATH=
+    DIRECT_GENERIC_MODULES_PATH=
+
+    [ "$BOOT_PREPARATION_LAYOUT" = direct-generic-no-initrd ] || {
+        DIRECT_GENERIC_VALIDATION_ERROR="boot preparation layout is not direct-generic-no-initrd"
+        return 1
+    }
+    [ -f "$AFTER_PKGS" ] && [ -r "$AFTER_PKGS" ] || {
+        DIRECT_GENERIC_VALIDATION_ERROR="post-update package snapshot is unavailable"
+        return 1
+    }
+
+    while IFS= read -r record || [ -n "$record" ]; do
+        parse_slackware_package_record "$record" || continue
+        [ "$SLACKWARE_PACKAGE_NAME" = "$INITRD_KERNEL_PACKAGE" ] || continue
+        record_count=$((record_count + 1))
+        installed_version=$SLACKWARE_PACKAGE_VERSION
+        DIRECT_GENERIC_PACKAGE_RECORD=$SLACKWARE_PACKAGE_RECORD
+    done < <(package_snapshot_records_for_name "$AFTER_PKGS" "$INITRD_KERNEL_PACKAGE")
+
+    DIRECT_GENERIC_INSTALLED_KERNEL_RECORD_COUNT=$record_count
+    [ "$record_count" -eq 1 ] || {
+        DIRECT_GENERIC_VALIDATION_ERROR="installed kernel package has an ambiguous post-update record count: $record_count"
+        return 1
+    }
+    is_safe_kernel_version "$installed_version" || {
+        DIRECT_GENERIC_VALIDATION_ERROR="installed direct-generic kernel version is unsafe: $installed_version"
+        return 1
+    }
+
+    if [ -e "$MKINITRD_CONFIG" ] || [ -L "$MKINITRD_CONFIG" ] \
+        || [ -e "$INITRD_DEFAULT_OUTPUT" ] || [ -L "$INITRD_DEFAULT_OUTPUT" ]; then
+        DIRECT_GENERIC_VALIDATION_ERROR="direct-generic boot became inconsistent because mkinitrd configuration or initrd appeared"
+        return 1
+    fi
+
+    [ -L "$GENERIC_KERNEL_LINK" ] || {
+        DIRECT_GENERIC_VALIDATION_ERROR="post-update generic kernel path is not a symbolic link"
+        return 1
+    }
+    resolved_kernel=$(readlink -e -- "$GENERIC_KERNEL_LINK" 2>/dev/null) || {
+        DIRECT_GENERIC_VALIDATION_ERROR="post-update generic kernel link cannot be resolved"
+        return 1
+    }
+    [ -f "$resolved_kernel" ] && [ ! -L "$resolved_kernel" ] && [ -r "$resolved_kernel" ] || {
+        DIRECT_GENERIC_VALIDATION_ERROR="post-update generic kernel target is not a readable regular file"
+        return 1
+    }
+    kernel_basename=${resolved_kernel##*/}
+    [ "$kernel_basename" = "vmlinuz-$installed_version" ] || {
+        DIRECT_GENERIC_VALIDATION_ERROR="post-update generic kernel link does not select vmlinuz-$installed_version"
+        return 1
+    }
+
+    DIRECT_GENERIC_MODULES_PATH="$KERNEL_MODULES_DIRECTORY/$installed_version"
+    [ -d "$DIRECT_GENERIC_MODULES_PATH" ] && [ ! -L "$DIRECT_GENERIC_MODULES_PATH" ] || {
+        DIRECT_GENERIC_VALIDATION_ERROR="post-update direct-generic module tree is missing or unsafe: $DIRECT_GENERIC_MODULES_PATH"
+        return 1
+    }
+
+    package_database_resolved=$(readlink -e -- "$PACKAGE_DATABASE" 2>/dev/null) || {
+        DIRECT_GENERIC_VALIDATION_ERROR="post-update package database cannot be resolved"
+        return 1
+    }
+    [ -d "$package_database_resolved" ] && [ ! -L "$package_database_resolved" ]         && [ -r "$package_database_resolved" ] && [ -x "$package_database_resolved" ] || {
+        DIRECT_GENERIC_VALIDATION_ERROR="post-update package database is not a safe readable directory"
+        return 1
+    }
+    record_path="$package_database_resolved/$DIRECT_GENERIC_PACKAGE_RECORD"
+    [ -f "$record_path" ] && [ ! -L "$record_path" ] && [ -r "$record_path" ] || {
+        DIRECT_GENERIC_VALIDATION_ERROR="post-update generic kernel package record is missing or unsafe"
+        return 1
+    }
+    grep -Fxq -- "boot/$kernel_basename" "$record_path" || {
+        DIRECT_GENERIC_VALIDATION_ERROR="post-update generic kernel package does not own boot/$kernel_basename"
+        return 1
+    }
+    awk -v prefix="lib/modules/$installed_version/" 'index($0, prefix) == 1 { found=1 } END { exit !found }'         "$record_path" || {
+        DIRECT_GENERIC_VALIDATION_ERROR="post-update generic kernel package does not own its module tree"
+        return 1
+    }
+
+    DIRECT_GENERIC_INSTALLED_KERNEL_VERSION=$installed_version
+    DIRECT_GENERIC_KERNEL_PATH=$resolved_kernel
+    DIRECT_GENERIC_VALIDATION_STATUS=0
+    return 0
+}
+
 grub_initrd_prerequisite_is_satisfied() {
     GRUB_BLOCKED_BY_INITRD=0
     GRUB_BLOCK_REASON=
 
     if [ "${GRUB_REQUIRED:-0}" -ne 1 ] || [ "${GRUB_UPDATE:-0}" -ne 1 ]; then
         return 0
+    fi
+
+    if [ "${BOOT_PREPARATION_LAYOUT:-unknown}" = direct-generic-no-initrd ]; then
+        if validate_direct_generic_kernel_configuration; then
+            return 0
+        fi
+        GRUB_BLOCKED_BY_INITRD=1
+        GRUB_BLOCK_REASON="direct-generic kernel transition failed validation: $DIRECT_GENERIC_VALIDATION_ERROR"
+        return 1
     fi
 
     if [ "${INITRD_REQUIRED:-0}" -ne 1 ]; then
@@ -4102,6 +4453,17 @@ prepare_grub_transaction() {
     GRUB_TEMP_DIRECTORY_CANONICAL=$canonical_parent
 }
 
+validate_generated_direct_generic_grub_config() {
+    local config=$1
+    local version=${DIRECT_GENERIC_INSTALLED_KERNEL_VERSION:-}
+
+    [ "${BOOT_PREPARATION_LAYOUT:-unknown}" = direct-generic-no-initrd ] || return 0
+    is_safe_kernel_version "$version" || return 1
+    [ -f "$config" ] && [ ! -L "$config" ] && [ -r "$config" ] || return 1
+
+    grub_config_references_kernel_path "$config" /boot/vmlinuz-generic         || grub_config_references_kernel_path "$config" "/boot/vmlinuz-$version"
+}
+
 validate_generated_grub_config() {
     local validator_status
 
@@ -4127,15 +4489,21 @@ validate_generated_grub_config() {
 
     grub-script-check "$GRUB_TEMP_CONFIG"
     validator_status=$?
-    if [ "$validator_status" -eq 0 ]; then
-        GRUB_VALIDATION_STATUS=0
-        GRUB_VALIDATION_ERROR=
-        return 0
+    if [ "$validator_status" -ne 0 ]; then
+        GRUB_VALIDATION_STATUS=$validator_status
+        GRUB_VALIDATION_ERROR="grub-script-check rejected the generated configuration"
+        return "$validator_status"
     fi
 
-    GRUB_VALIDATION_STATUS=$validator_status
-    GRUB_VALIDATION_ERROR="grub-script-check rejected the generated configuration"
-    return "$validator_status"
+    if ! validate_generated_direct_generic_grub_config "$GRUB_TEMP_CONFIG"; then
+        GRUB_VALIDATION_STATUS=1
+        GRUB_VALIDATION_ERROR="generated GRUB configuration does not reference the validated direct-generic kernel"
+        return 1
+    fi
+
+    GRUB_VALIDATION_STATUS=0
+    GRUB_VALIDATION_ERROR=
+    return 0
 }
 
 install_validated_grub_config() {
@@ -4386,6 +4754,13 @@ print_summary() {
                 if [ -n "$INITRD_VALIDATION_ERROR" ]; then
                     echo "  -> Validacion: $INITRD_VALIDATION_ERROR"
                 fi
+            fi
+        elif [ "$BOOT_PREPARATION_LAYOUT" = direct-generic-no-initrd ]; then
+            echo "  -> Direct generic boot does not require initrd."
+            if [ "$DIRECT_GENERIC_VALIDATION_STATUS" -eq 0 ]; then
+                echo "  -> Direct kernel and modules validated: $DIRECT_GENERIC_INSTALLED_KERNEL_VERSION."
+            elif [ -n "$DIRECT_GENERIC_VALIDATION_ERROR" ]; then
+                echo "  -> Direct validation: $DIRECT_GENERIC_VALIDATION_ERROR"
             fi
         fi
 
@@ -5148,6 +5523,17 @@ print_apply_json_modules() {
     printf '      "activation_state": '; json_string "$BOOT_MODULE_STATE"; printf ',\n'
     printf '      "reason": '; json_string "$BOOT_MODULE_REASON"; printf ',\n'
     printf '      "state": '; json_string "$boot_state"; printf ',\n'
+    printf '      "preparation_layout": '; json_string "${BOOT_PREPARATION_LAYOUT:-unknown}"; printf ',\n'
+    printf '      "direct_generic_available": '; json_boolean "${BOOT_DIRECT_GENERIC_AVAILABLE:-0}"; printf ',\n'
+    printf '      "direct_generic_reason": '; json_string "${BOOT_DIRECT_GENERIC_REASON:-}"; printf ',\n'
+    printf '      "direct_generic_boot_image": '; json_string "${BOOT_DIRECT_GENERIC_BOOT_IMAGE:-}"; printf ',\n'
+    printf '      "direct_generic_running_kernel_path": '; json_string "${BOOT_DIRECT_GENERIC_KERNEL_PATH:-}"; printf ',\n'
+    printf '      "direct_generic_validation_exit_code": '; json_nullable_status "${DIRECT_GENERIC_VALIDATION_STATUS:--1}"; printf ',\n'
+    printf '      "direct_generic_validation_error": '; json_string "${DIRECT_GENERIC_VALIDATION_ERROR:-}"; printf ',\n'
+    printf '      "direct_generic_installed_kernel_version": '; json_string "${DIRECT_GENERIC_INSTALLED_KERNEL_VERSION:-}"; printf ',\n'
+    printf '      "direct_generic_installed_kernel_records": %d,\n' "${DIRECT_GENERIC_INSTALLED_KERNEL_RECORD_COUNT:-0}"
+    printf '      "direct_generic_kernel_path": '; json_string "${DIRECT_GENERIC_KERNEL_PATH:-}"; printf ',\n'
+    printf '      "direct_generic_modules_path": '; json_string "${DIRECT_GENERIC_MODULES_PATH:-}"; printf ',\n'
     printf '      "initrd_required": '; json_boolean "$INITRD_REQUIRED"; printf ',\n'
     printf '      "initrd_state": '; json_string "$initrd_state"; printf ',\n'
     printf '      "kernel_version_source": '; json_string 'post-update-package-snapshot'; printf ',\n'

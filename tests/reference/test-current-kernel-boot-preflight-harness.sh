@@ -8,6 +8,7 @@ REPOSITORY_ROOT=$(CDPATH= cd -- "$TEST_DIR/../.." && pwd -P)
 ACCEPTANCE_SCRIPT="$REPOSITORY_ROOT/tests/acceptance/reference/test-current-kernel-boot-preflight.sh"
 ACCEPTED_FIXTURE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260803-accepted.json"
 DIAGNOSTIC_FIXTURE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-direct-generic-preflight-20260803-diagnostic.json"
+ACCEPTED_BOOT_FIXTURE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-direct-generic-preflight-20260803-accepted.json"
 
 # Source functions without running the real-system scenario.
 # shellcheck source=../acceptance/reference/test-current-kernel-boot-preflight.sh
@@ -73,6 +74,11 @@ assert_success 'the reviewed fixture should be valid JSON' python3 -m json.tool 
 assert_success 'the direct-generic diagnostic fixture should be valid JSON' python3 -m json.tool "$DIAGNOSTIC_FIXTURE"
 assert_contains '"classification": "direct-generic-no-initrd"' "$DIAGNOSTIC_FIXTURE" 'the diagnostic should preserve the observed boot mode'
 assert_contains '"apply_authorized": false' "$DIAGNOSTIC_FIXTURE" 'the diagnostic must deny apply'
+assert_success 'the corrected direct-generic fixture should be valid JSON' python3 -m json.tool "$ACCEPTED_BOOT_FIXTURE"
+assert_contains '"accepted": true' "$ACCEPTED_BOOT_FIXTURE" 'the corrected real-system run should be accepted'
+assert_contains '"archive_sha256": "ed7462e70496cf38a52c211f3d5945438e5f1bad5b8d8eaa7b90079540381967"' "$ACCEPTED_BOOT_FIXTURE" 'the accepted archive digest should be preserved'
+assert_contains '"assertions": {' "$ACCEPTED_BOOT_FIXTURE" 'the accepted assertion summary should be preserved'
+assert_contains '"apply_ready": false' "$ACCEPTED_BOOT_FIXTURE" 'the accepted discovery must remain non-ready'
 
 assert_success 'vmlinuz-VERSION should be a supported running image' is_supported_running_kernel_image vmlinuz-6.18.40 6.18.40
 assert_success 'vmlinuz-generic-VERSION should remain supported for managed layouts' is_supported_running_kernel_image vmlinuz-generic-6.18.40 6.18.40
