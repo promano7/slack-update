@@ -998,13 +998,23 @@ sudo bash tests/acceptance/reference/test-current-kernel-boot-preflight.sh \
     --confirm-target-kernel 6.18.41
 ```
 
-The stage validates the current monolithic `kernel-generic` package model,
-module ownership, repository target records, `/etc/mkinitrd.conf`, the active
-generic-kernel symlink and initrd, and GRUB state while proving before/after
-immutability. It deliberately publishes `apply_ready=false` and
-`apply_authorized=false`. Normal-update apply fails closed until a separately
-reviewed, matching record later marks this exact candidate digest
-`apply_ready=true`.
+The first run on `pcold-slack` proved the monolithic `kernel-generic` package
+model and unchanged package/boot state, but it also exposed a valid boot layout
+that the initial preflight did not recognize. The host boots GRUB through
+`BOOT_IMAGE=/boot/vmlinuz-generic`; that symlink resolves to the package-owned
+`/boot/vmlinuz-6.18.40`, while both `/etc/mkinitrd.conf` and `/boot/initrd.gz`
+are intentionally absent. This is a coherent `direct-generic-no-initrd` mode,
+not a failure. The rejected diagnostic archive has SHA-256
+`8b7d495f8a1466ef308dcb8664e31df756940695b6ed345834fad4ab1f5f3727`.
+
+The corrected stage now accepts either a safe `mkinitrd-managed` layout or the
+observed direct generic-kernel layout. It proves ownership of the running image,
+checks that repository metadata contains `boot/vmlinuz-6.18.41`, validates the
+actual `BOOT_IMAGE` against the syntax-checked GRUB configuration, and still
+compares package and boot state before and after discovery. It deliberately
+publishes `apply_ready=false` and `apply_authorized=false`. Normal-update apply
+fails closed until a separately reviewed, matching record later marks this
+exact candidate digest `apply_ready=true`.
 
 Slackware 15.0 passed the non-kernel branch of this scenario on 2026-08-01.
 The reviewed preflight deferred `kernel-generic`, `kernel-huge`, and
@@ -1841,11 +1851,12 @@ Slack-Update 1.0 will be ready when:
   - [x] Require an exact reviewed candidate-set SHA-256 before normal-update apply.
   - [x] Accept the corrected 57-candidate Slackware-current preflight classification.
   - [x] Require a separate matching apply-ready boot-layout record for Slackware-current kernel candidates.
-  - [ ] Run and review the non-destructive Slackware-current kernel boot-layout preflight for `6.18.41`.
+  - [x] Run the first non-destructive Slackware-current kernel boot-layout preflight and reject its initrd-only assumptions.
+  - [ ] Repeat and review the corrected direct-generic-aware boot-layout preflight for `6.18.41`.
   - [x] Review and accept the ten-package Slackware-current transaction as package and boot evidence.
   - [ ] Revalidate the hardened deferred `.new` policy on the next Slackware-current update.
   - [x] Reject the 2026-08-03 Slackware-current diagnostic whose parser omitted the `x86` `kernel-headers` candidate.
-  - [ ] Repeat the corrected Slackware-current preflight and review the complete candidate set before apply.
+  - [x] Repeat the corrected Slackware-current candidate preflight and review the complete 57-package set.
   - [x] Accept the Slackware 15.0 normal-update preflight and 196-package real apply.
   - [x] Revalidate the hardened deferred `.new` policy on Slackware 15.0.
   - [ ] Validate the deferred Slackware 15.0 boot-kernel packages in the dedicated kernel-update scenario.

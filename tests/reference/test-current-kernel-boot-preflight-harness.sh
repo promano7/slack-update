@@ -7,6 +7,7 @@ TEST_DIR=$(CDPATH= cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
 REPOSITORY_ROOT=$(CDPATH= cd -- "$TEST_DIR/../.." && pwd -P)
 ACCEPTANCE_SCRIPT="$REPOSITORY_ROOT/tests/acceptance/reference/test-current-kernel-boot-preflight.sh"
 ACCEPTED_FIXTURE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260803-accepted.json"
+DIAGNOSTIC_FIXTURE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-direct-generic-preflight-20260803-diagnostic.json"
 
 # Source functions without running the real-system scenario.
 # shellcheck source=../acceptance/reference/test-current-kernel-boot-preflight.sh
@@ -29,6 +30,12 @@ DIGEST=d9199fcf6c5cd8c59b87b1bde9a955df2c55d0ac84f6dab37ed8e4c1830dcaf1
 assert_contains 'never installs packages, runs mkinitrd' "$ACCEPTANCE_SCRIPT" 'usage should state the non-destructive boundary'
 assert_contains 'apply-ready=false, apply-authorized=false' "$ACCEPTANCE_SCRIPT" 'the result must deny apply'
 assert_contains 'monolithic kernel-generic' "$ACCEPTANCE_SCRIPT" 'the current package model should be explicit'
+assert_contains 'direct-generic-no-initrd' "$ACCEPTANCE_SCRIPT" 'direct generic boot without initrd should be an explicit mode'
+assert_contains 'BOOT_IMAGE' "$ACCEPTANCE_SCRIPT" 'the running boot image should be validated'
+assert_contains 'grub-script-check /boot/grub/grub.cfg' "$ACCEPTANCE_SCRIPT" 'the active GRUB configuration should be syntax checked'
+assert_contains 'repository_target_owns_path "boot/vmlinuz-$TARGET_KERNEL"' "$ACCEPTANCE_SCRIPT" 'the target versioned kernel image should be proven from repository metadata'
+assert_contains 'package_record_owns_path "$record" "boot/$basename"' "$ACCEPTANCE_SCRIPT" 'the running kernel image should be owned by the installed package'
+assert_not_contains "if [ -s /boot/initrd.gz ]; then record_pass" "$ACCEPTANCE_SCRIPT" 'initrd absence must not be rejected unconditionally'
 assert_contains '/home/$owner' "$ACCEPTANCE_SCRIPT" 'evidence must be copied directly to the user home'
 assert_contains 'sha256sum -c' "$ACCEPTANCE_SCRIPT" 'the destination verification command should be printed'
 assert_contains '(cd "$parent" && sha256sum "${archive##*/}")' "$ACCEPTANCE_SCRIPT" 'sidecars should contain only the archive basename'
@@ -63,6 +70,27 @@ assert_success 'safe kernel versions should pass' is_safe_kernel_version 6.18.41
 assert_failure 'kernel versions with whitespace should fail' is_safe_kernel_version '6.18.41 bad'
 assert_failure 'kernel versions with slash should fail' is_safe_kernel_version '6.18/41'
 assert_success 'the reviewed fixture should be valid JSON' python3 -m json.tool "$ACCEPTED_FIXTURE"
+assert_success 'the direct-generic diagnostic fixture should be valid JSON' python3 -m json.tool "$DIAGNOSTIC_FIXTURE"
+assert_contains '"classification": "direct-generic-no-initrd"' "$DIAGNOSTIC_FIXTURE" 'the diagnostic should preserve the observed boot mode'
+assert_contains '"apply_authorized": false' "$DIAGNOSTIC_FIXTURE" 'the diagnostic must deny apply'
+
+assert_success 'vmlinuz-VERSION should be a supported running image' is_supported_running_kernel_image vmlinuz-6.18.40 6.18.40
+assert_success 'vmlinuz-generic-VERSION should remain supported for managed layouts' is_supported_running_kernel_image vmlinuz-generic-6.18.40 6.18.40
+assert_failure 'an unversioned image should not prove the running kernel' is_supported_running_kernel_image vmlinuz-generic 6.18.40
+assert_failure 'a different versioned image should be rejected' is_supported_running_kernel_image vmlinuz-6.18.41 6.18.40
+assert_equal direct-generic-no-initrd "$(classify_boot_mode_from_states absent absent vmlinuz-6.18.40 6.18.40)" 'matching absent initrd artifacts should classify as direct boot'
+assert_equal mkinitrd-managed "$(classify_boot_mode_from_states present present vmlinuz-6.18.40 6.18.40)" 'matching present initrd artifacts should classify as managed boot'
+assert_equal mkinitrd-managed "$(classify_boot_mode_from_states present present vmlinuz-generic-6.18.40 6.18.40)" 'legacy versioned generic naming should remain valid with initrd'
+assert_failure 'missing mkinitrd.conf with a present initrd should be inconsistent' classify_boot_mode_from_states absent present vmlinuz-6.18.40 6.18.40
+assert_failure 'present mkinitrd.conf with a missing initrd should be inconsistent' classify_boot_mode_from_states present absent vmlinuz-6.18.40 6.18.40
+assert_failure 'initrd-less legacy generic naming should be rejected' classify_boot_mode_from_states absent absent vmlinuz-generic-6.18.40 6.18.40
+
+PACKAGE_DATABASE_RESOLVED="$TMP/packages"
+mkdir -p "$PACKAGE_DATABASE_RESOLVED"
+printf 'boot/vmlinuz-6.18.40\nlib/modules/6.18.40/kernel/test.ko\n' > "$PACKAGE_DATABASE_RESOLVED/kernel-generic-6.18.40-x86_64-1"
+assert_success 'exact package-owned kernel paths should pass' package_record_owns_path kernel-generic-6.18.40-x86_64-1 boot/vmlinuz-6.18.40
+assert_failure 'prefix-only package paths should not pass' package_record_owns_path kernel-generic-6.18.40-x86_64-1 boot/vmlinuz-6.18
+assert_failure 'missing package records should fail ownership checks' package_record_owns_path kernel-generic-missing boot/vmlinuz-6.18.40
 
 cp "$ACCEPTED_FIXTURE" "$TMP/fixture.json"
 python3 - "$TMP/fixture.json" <<'PY'

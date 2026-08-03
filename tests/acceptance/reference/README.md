@@ -179,18 +179,32 @@ sudo bash tests/acceptance/reference/test-current-kernel-boot-preflight.sh \
 This preflight is non-destructive. It validates that modern Slackware-current
 uses the monolithic `kernel-generic` package layout rather than the Slackware
 15.0 `kernel-generic`/`kernel-huge`/`kernel-modules` split, proves that the
-installed generic package owns the active module tree, confirms exact repository
-records for the target generic/header/source transition, inventories repository
-module metadata, parses safe scalar values from `/etc/mkinitrd.conf`, and checks
-the active generic-kernel symlink, initrd, GRUB configuration, and required GRUB
-tools. Package and boot fingerprints are compared before and after inspection.
-It never installs packages, runs mkinitrd, regenerates GRUB, or changes files.
+installed generic package owns the active module tree and running kernel image,
+confirms exact repository records plus the target versioned image, and validates
+the active GRUB configuration with `grub-script-check`. Package and boot
+fingerprints are compared before and after inspection.
+
+Two boot modes are supported. `mkinitrd-managed` requires a safe readable
+`/etc/mkinitrd.conf`, a non-empty regular `/boot/initrd.gz`, and an explicit
+kernel-version transition. `direct-generic-no-initrd` requires both artifacts
+to be absent, `/boot/vmlinuz-generic` to resolve to the package-owned
+`/boot/vmlinuz-VERSION`, and the running `BOOT_IMAGE` to appear in the active
+GRUB configuration. Mixed or unsafe states fail closed.
+
+The first real-system run at `2026-08-03T20:17:52Z` is diagnostic only. It
+passed 16 checks and failed three because the initial implementation assumed an
+initrd-managed `vmlinuz-generic-VERSION` layout. The host actually used the
+coherent direct mode above; package and boot state remained unchanged. Archive
+SHA-256 is
+`8b7d495f8a1466ef308dcb8664e31df756940695b6ed345834fad4ab1f5f3727`,
+and the sanitized rejected record is
+`tests/fixtures/reference/acceptance/kernel-boot/slackware-current-direct-generic-preflight-20260803-diagnostic.json`.
 
 Discovery intentionally reports `apply_ready=false` and
-`apply_authorized=false`. After its evidence is reviewed, a separate accepted
-fixture may mark the same candidate digest `apply_ready=true`; normal-update
-apply now requires that matching fixture and its archive SHA-256 in addition to
-`--allow-kernel-update`. Until then, do not execute apply.
+`apply_authorized=false`. After corrected evidence is reviewed, a separate
+accepted fixture may mark the same candidate digest `apply_ready=true`;
+normal-update apply requires that matching fixture and its archive SHA-256 in
+addition to `--allow-kernel-update`. Until then, do not execute apply.
 
 Slackware 15.0 passed the non-boot-kernel branch on 2026-08-01. An initial
 preflight reported 199 candidates, including `kernel-generic`, `kernel-huge`,

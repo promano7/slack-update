@@ -28,6 +28,13 @@ PACKAGE_DATABASE_RESOLVED=
 INSTALLED_KERNEL_VERSION=
 MKINITRD_KERNEL_VERSION=
 MKINITRD_TRANSITION_REQUIRED=false
+MKINITRD_STATE=unknown
+INITRD_STATE=unknown
+BOOT_MODE=unknown
+BOOT_IMAGE=
+GENERIC_KERNEL_PATH=
+GENERIC_KERNEL_BASENAME=
+GENERIC_SYMLINK_TRANSITION_REQUIRED=false
 PACKAGE_LAYOUT=unknown
 APPLY_READY=false
 APPLY_AUTHORIZED=false
@@ -40,8 +47,8 @@ Usage: ${0##*/} --target slackware-current \\
 
 Collect a non-destructive Slackware-current boot preflight for the monolithic
 kernel-generic package model. The script validates the accepted normal-update
-record, installed and repository kernel records, mkinitrd configuration, module
-trees, and GRUB prerequisites. It never installs packages, runs mkinitrd,
+record, installed and repository kernel records, initrd-managed or direct-generic
+boot artifacts, module trees, and GRUB prerequisites. It never installs packages, runs mkinitrd,
 regenerates GRUB, or authorizes apply.
 
 Required options:
@@ -198,8 +205,8 @@ capture_boot_state() {
     local output=$1 path
     : > "$output" || return 1
     for path in /etc/mkinitrd.conf /boot/initrd.gz /boot/vmlinuz-generic \
-        "/boot/vmlinuz-generic-$RUNNING_KERNEL" /boot/grub/grub.cfg \
-        "/lib/modules/$RUNNING_KERNEL"; do
+        "/boot/vmlinuz-$RUNNING_KERNEL" "/boot/vmlinuz-generic-$RUNNING_KERNEL" \
+        /boot/grub/grub.cfg "/lib/modules/$RUNNING_KERNEL"; do
         printf '%s|' "$path" >> "$output"
         if [ -L "$path" ]; then
             printf 'symlink|%s|%s\n' "$(readlink -- "$path" 2>/dev/null || true)" \
@@ -255,6 +262,83 @@ capture_repository_module_evidence() {
     fi
 }
 
+
+is_supported_running_kernel_image() {
+    local basename=$1 version=$2
+    case "$basename" in
+        "vmlinuz-$version"|"vmlinuz-generic-$version") return 0 ;;
+        *) return 1 ;;
+    esac
+}
+
+classify_boot_mode_from_states() {
+    local mkinitrd_state=$1 initrd_state=$2 basename=$3 version=$4
+    if [ "$mkinitrd_state" = absent ] && [ "$initrd_state" = absent ] \
+        && [ "$basename" = "vmlinuz-$version" ]; then
+        printf '%s\n' direct-generic-no-initrd
+        return 0
+    fi
+    if [ "$mkinitrd_state" = present ] && [ "$initrd_state" = present ] \
+        && is_supported_running_kernel_image "$basename" "$version"; then
+        printf '%s\n' mkinitrd-managed
+        return 0
+    fi
+    return 1
+}
+
+package_record_owns_path() {
+    local record=$1 relative_path=$2
+    [ -n "$record" ] || return 1
+    [ -f "$PACKAGE_DATABASE_RESOLVED/$record" ] || return 1
+    grep -Fxq -- "$relative_path" "$PACKAGE_DATABASE_RESOLVED/$record"
+}
+
+repository_target_owns_path() {
+    local relative_path=$1
+    if [ -r /var/lib/slackpkg/filelist ] \
+        && grep -Fq -- " $relative_path" /var/lib/slackpkg/filelist; then
+        return 0
+    fi
+    if [ -r /var/lib/slackpkg/slackware64-filelist.gz ] \
+        && gzip -cd /var/lib/slackpkg/slackware64-filelist.gz 2>/dev/null \
+            | awk -v needle=" $relative_path" 'index($0, needle) { found=1 } END { exit !found }'; then
+        return 0
+    fi
+    return 1
+}
+
+validate_generic_kernel_link() {
+    local record=$1 resolved basename
+    [ -L /boot/vmlinuz-generic ] || return 1
+    resolved=$(readlink -e -- /boot/vmlinuz-generic 2>/dev/null) || return 1
+    [ -f "$resolved" ] && [ ! -L "$resolved" ] && [ -r "$resolved" ] || return 1
+    basename=${resolved##*/}
+    is_supported_running_kernel_image "$basename" "$RUNNING_KERNEL" || return 1
+    package_record_owns_path "$record" "boot/$basename" || return 1
+    GENERIC_KERNEL_PATH=$resolved
+    GENERIC_KERNEL_BASENAME=$basename
+}
+
+capture_boot_image() {
+    local token count=0
+    [ -r /proc/cmdline ] || return 1
+    BOOT_IMAGE=
+    for token in $(tr ' ' '\n' < /proc/cmdline); do
+        case "$token" in
+            BOOT_IMAGE=*)
+                BOOT_IMAGE=${token#BOOT_IMAGE=}
+                count=$((count + 1))
+                ;;
+        esac
+    done
+    [ "$count" -eq 1 ] || return 1
+    case "$BOOT_IMAGE" in
+        /boot/vmlinuz-generic|"/boot/$GENERIC_KERNEL_BASENAME") ;;
+        *) return 1 ;;
+    esac
+    grep -Fq -- "$BOOT_IMAGE" /boot/grub/grub.cfg
+}
+
 capture_package_database_digest() {
     python3 - "$PACKAGE_DATABASE_RESOLVED" <<'PY_PACKAGE_DIGEST'
 import hashlib
@@ -295,6 +379,12 @@ installed_kernel=$INSTALLED_KERNEL_VERSION
 target_kernel=$TARGET_KERNEL
 candidate_set_sha256=$CONFIRM_CANDIDATES_SHA256
 package_layout=$PACKAGE_LAYOUT
+boot_mode=$BOOT_MODE
+boot_image=$BOOT_IMAGE
+generic_kernel_path=$GENERIC_KERNEL_PATH
+generic_symlink_transition_required=$GENERIC_SYMLINK_TRANSITION_REQUIRED
+mkinitrd_state=$MKINITRD_STATE
+initrd_state=$INITRD_STATE
 mkinitrd_kernel_version=$MKINITRD_KERNEL_VERSION
 mkinitrd_transition_required=$MKINITRD_TRANSITION_REQUIRED
 apply_ready=$APPLY_READY
@@ -330,7 +420,7 @@ main() {
 
     parse_arguments "$@" || { print_usage >&2; return 2; }
     [ "$(id -u)" -eq 0 ] || { error 'this real-system preflight requires root'; return 2; }
-    for command_name in awk cmp cut date find grep gzip hostname id python3 readlink sed sha256sum sort stat tar wc; do
+    for command_name in awk cmp cut date find grep gzip hostname id python3 readlink sed sha256sum sort stat tar tr wc; do
         command -v "$command_name" >/dev/null 2>&1 || { error "required command unavailable: $command_name"; return 2; }
     done
     [ -r /etc/slackware-version ] || { error '/etc/slackware-version is unavailable'; return 2; }
@@ -347,8 +437,9 @@ main() {
 
     HOSTNAME_VALUE=$(hostname)
     RUNNING_KERNEL=$(uname -r)
-    printf 'hostname=%s\nslackware_version=%s\nrunning_kernel=%s\n' \
-        "$HOSTNAME_VALUE" "$SLACKWARE_VERSION" "$RUNNING_KERNEL" > "$OUTPUT_DIR/host.txt"
+    printf 'hostname=%s\nslackware_version=%s\nrunning_kernel=%s\ncmdline=%s\n' \
+        "$HOSTNAME_VALUE" "$SLACKWARE_VERSION" "$RUNNING_KERNEL" \
+        "$(cat /proc/cmdline 2>/dev/null || true)" > "$OUTPUT_DIR/host.txt"
 
     if validate_accepted_preflight; then record_pass 'the accepted 57-candidate normal-update record matches the requested kernel transition'; else record_failure 'the accepted normal-update record does not match the requested candidate set and target kernel'; fi
     if resolve_package_database; then
@@ -388,16 +479,60 @@ main() {
     capture_repository_module_evidence "$OUTPUT_DIR/repository-module-evidence.txt"
     if [ -s "$OUTPUT_DIR/repository-module-evidence.txt" ]; then record_pass 'Slackpkg metadata exposes target kernel module paths for inspection'; else record_pass 'target module ownership will be revalidated from the installed kernel-generic record after package application'; fi
 
-    if capture_mkinitrd_summary "$OUTPUT_DIR/mkinitrd-summary.txt"; then
-        if [ "$MKINITRD_KERNEL_VERSION" = "$RUNNING_KERNEL" ]; then record_pass 'mkinitrd.conf currently matches the running kernel'; else record_failure 'mkinitrd.conf does not match the running kernel'; fi
-        if [ "$MKINITRD_KERNEL_VERSION" != "$TARGET_KERNEL" ]; then MKINITRD_TRANSITION_REQUIRED=true; record_pass 'mkinitrd.conf requires an explicit reviewed transition to the target kernel'; else record_failure 'mkinitrd.conf already names the uninstalled target kernel'; fi
+    if [ -f /boot/grub/grub.cfg ] && [ ! -L /boot/grub/grub.cfg ] \
+        && command -v grub-mkconfig >/dev/null 2>&1 \
+        && command -v grub-script-check >/dev/null 2>&1 \
+        && grub-script-check /boot/grub/grub.cfg >/dev/null 2>&1; then
+        record_pass 'GRUB has a regular syntax-valid active configuration and both required commands'
     else
-        record_failure 'mkinitrd.conf is missing, unsafe, unreadable, or lacks one KERNEL_VERSION assignment'
+        record_failure 'GRUB prerequisites or active configuration validation are incomplete or unsafe'
     fi
 
-    if [ -f /boot/grub/grub.cfg ] && [ ! -L /boot/grub/grub.cfg ] && command -v grub-mkconfig >/dev/null 2>&1 && command -v grub-script-check >/dev/null 2>&1; then record_pass 'GRUB has a regular active configuration and both required validation commands'; else record_failure 'GRUB prerequisites are incomplete or unsafe'; fi
-    if [ -L /boot/vmlinuz-generic ] && [ "$(readlink -e /boot/vmlinuz-generic 2>/dev/null)" = "/boot/vmlinuz-generic-$RUNNING_KERNEL" ]; then record_pass 'the generic kernel symlink resolves to the running versioned image'; else record_failure 'the generic kernel symlink does not resolve to the running versioned image'; fi
-    if [ -s /boot/initrd.gz ]; then record_pass 'the active initrd is present and non-empty'; else record_failure 'the active initrd is missing or empty'; fi
+    if validate_generic_kernel_link "$generic_records"; then
+        record_pass "the generic kernel symlink resolves to the package-owned running image $GENERIC_KERNEL_BASENAME"
+    else
+        record_failure 'the generic kernel symlink does not resolve to a package-owned running image'
+    fi
+
+    if [ -n "$GENERIC_KERNEL_BASENAME" ] \
+        && repository_target_owns_path "boot/vmlinuz-$TARGET_KERNEL"; then
+        GENERIC_SYMLINK_TRANSITION_REQUIRED=true
+        record_pass 'Slackpkg metadata exposes the target versioned generic kernel image'
+    else
+        record_failure 'Slackpkg metadata does not expose the target versioned generic kernel image'
+    fi
+
+    if [ -n "$GENERIC_KERNEL_BASENAME" ] && capture_boot_image; then
+        record_pass "the running GRUB command line and configuration reference $BOOT_IMAGE"
+    else
+        record_failure 'the running BOOT_IMAGE is missing, ambiguous, or absent from GRUB configuration'
+    fi
+
+    if [ ! -e /etc/mkinitrd.conf ]; then MKINITRD_STATE=absent; else MKINITRD_STATE=present; fi
+    if [ ! -e /boot/initrd.gz ]; then INITRD_STATE=absent; else INITRD_STATE=present; fi
+    if BOOT_MODE=$(classify_boot_mode_from_states "$MKINITRD_STATE" "$INITRD_STATE" \
+        "$GENERIC_KERNEL_BASENAME" "$RUNNING_KERNEL" 2>/dev/null); then
+        if [ "$BOOT_MODE" = direct-generic-no-initrd ]; then
+            printf 'state=not-required\nboot_mode=%s\n' "$BOOT_MODE" > "$OUTPUT_DIR/mkinitrd-summary.txt"
+            record_pass 'the host uses a coherent direct generic-kernel GRUB boot without mkinitrd.conf or initrd'
+        elif [ -f /etc/mkinitrd.conf ] && [ ! -L /etc/mkinitrd.conf ] \
+            && [ -r /etc/mkinitrd.conf ] && [ -s /boot/initrd.gz ] \
+            && [ ! -L /boot/initrd.gz ]; then
+            MKINITRD_STATE=managed
+            INITRD_STATE=present
+            if capture_mkinitrd_summary "$OUTPUT_DIR/mkinitrd-summary.txt"; then
+                if [ "$MKINITRD_KERNEL_VERSION" = "$RUNNING_KERNEL" ]; then record_pass 'mkinitrd.conf currently matches the running kernel'; else record_failure 'mkinitrd.conf does not match the running kernel'; fi
+                if [ "$MKINITRD_KERNEL_VERSION" != "$TARGET_KERNEL" ]; then MKINITRD_TRANSITION_REQUIRED=true; record_pass 'mkinitrd.conf requires an explicit reviewed transition to the target kernel'; else record_failure 'mkinitrd.conf already names the uninstalled target kernel'; fi
+                record_pass 'the active initrd is present and managed by a readable mkinitrd.conf'
+            else
+                record_failure 'mkinitrd.conf is unsafe, unreadable, or lacks one KERNEL_VERSION assignment'
+            fi
+        else
+            record_failure 'the managed initrd layout contains unsafe file types or an empty initrd'
+        fi
+    else
+        record_failure 'mkinitrd.conf and initrd presence form an inconsistent boot layout'
+    fi
 
     if [ "$initial_state_captured" = true ]; then
         after_digest=$(capture_package_database_digest 2>/dev/null || true)
@@ -418,8 +553,8 @@ main() {
     APPLY_READY=false
     APPLY_AUTHORIZED=false
     write_summary "$OUTPUT_DIR/summary.txt"
-    printf 'Slackware-current kernel boot result: layout=%s, running=%s, target=%s, mkinitrd-transition=%s, apply-ready=false, apply-authorized=false\n' \
-        "$PACKAGE_LAYOUT" "$RUNNING_KERNEL" "$TARGET_KERNEL" "$MKINITRD_TRANSITION_REQUIRED"
+    printf 'Slackware-current kernel boot result: layout=%s, boot-mode=%s, running=%s, target=%s, mkinitrd-transition=%s, apply-ready=false, apply-authorized=false\n' \
+        "$PACKAGE_LAYOUT" "$BOOT_MODE" "$RUNNING_KERNEL" "$TARGET_KERNEL" "$MKINITRD_TRANSITION_REQUIRED"
     archive=$(create_evidence_archive) || { error 'failed to create evidence archive'; return 1; }
     printf 'Evidence archive: %s\n' "$archive"
     printf 'Evidence SHA-256: %s\n' "$(awk '{print $1}' "$archive.sha256")"

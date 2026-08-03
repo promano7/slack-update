@@ -1,0 +1,53 @@
+{
+  "scenario": "current-kernel-boot-preflight",
+  "target": "slackware-current",
+  "accepted": false,
+  "diagnostic_only": true,
+  "retry_required": true,
+  "captured_at": "2026-08-03T20:17:52Z",
+  "archive_sha256": "8b7d495f8a1466ef308dcb8664e31df756940695b6ed345834fad4ab1f5f3727",
+  "candidate_set_sha256": "d9199fcf6c5cd8c59b87b1bde9a955df2c55d0ac84f6dab37ed8e4c1830dcaf1",
+  "platform": {
+    "hostname": "pcold-slack.pcold-slack.org",
+    "slackware_version": "Slackware 15.0+",
+    "running_kernel": "6.18.40",
+    "target_kernel": "6.18.41",
+    "architecture": "x86_64",
+    "boot_loader": "grub"
+  },
+  "package_layout": {
+    "model": "monolithic-generic",
+    "installed_kernel_generic": "kernel-generic-6.18.40-x86_64-1",
+    "kernel_headers": "kernel-headers-6.18.40-x86-1",
+    "kernel_source": "kernel-source-6.18.40-noarch-1",
+    "legacy_kernel_huge_present": false,
+    "legacy_kernel_modules_present": false,
+    "running_module_tree_owned_by_kernel_generic": true,
+    "target_module_paths_visible_in_repository_metadata": true
+  },
+  "observed_boot_layout": {
+    "boot_image": "/boot/vmlinuz-generic",
+    "generic_symlink_target": "/boot/vmlinuz-6.18.40",
+    "versioned_generic_image_present": true,
+    "mkinitrd_conf_present": false,
+    "initrd_present": false,
+    "grub_configuration_present": true,
+    "grub_configuration_unchanged": true,
+    "classification": "direct-generic-no-initrd"
+  },
+  "assertions": {
+    "passes": 16,
+    "failures": 3,
+    "failed_messages": [
+      "mkinitrd.conf is missing, unsafe, unreadable, or lacks one KERNEL_VERSION assignment",
+      "the generic kernel symlink does not resolve to the running versioned image",
+      "the active initrd is missing or empty"
+    ]
+  },
+  "diagnosis": "The preflight assumed an initrd-managed vmlinuz-generic-VERSION layout, but the running host uses a coherent package-owned vmlinuz-VERSION image through /boot/vmlinuz-generic and boots successfully without mkinitrd.conf or initrd.",
+  "package_database_unchanged": true,
+  "boot_state_unchanged": true,
+  "apply_ready": false,
+  "apply_authorized": false,
+  "rejection_reason": "The discovery script misclassified a valid direct generic-kernel GRUB layout. A corrected non-destructive rerun is required before any apply-readiness review."
+}
