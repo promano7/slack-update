@@ -1039,16 +1039,18 @@ The step 37 transaction preflight passed on `pcold-slack`. It verified the exact
 
 Review of the copied `doinst.sh` showed that the versioned `vmlinuz-generic` transition is followed by a guarded `usr/sbin/geninitrd` invocation. The package script was never executed, but this conditional hook may create a versioned initrd, remove orphaned initrds, invoke custom hooks, and update GRUB according to the installed host policy. Therefore exact-package integrity is accepted while apply remains blocked.
 
-Run the step 38 host-policy preflight on the same machine:
+The step 38 host-policy preflight passed on `pcold-slack` with 10 assertions and evidence SHA-256 `3b807d2d00fce2b9986308f5cd252d97b483d4b8f1a397fad7d6f047b20421fd`. It confirmed `AUTOGENERATE_INITRD=true`, effective generator `mkinitrd_command_generator.sh`, automatic GRUB update, and a `direct-to-generated-initrd` transition to `/boot/initrd-6.18.41.img`. It also identified two exact executable pre-install DKMS hooks, so package apply remains blocked.
+
+Run the step 39 DKMS-hook discovery preflight on the same machine:
 
 ```bash
-sudo bash tests/acceptance/reference/test-current-geninitrd-policy-preflight.sh \
+sudo bash tests/acceptance/reference/test-current-geninitrd-dkms-hook-preflight.sh \
     --target slackware-current \
     --confirm-candidates-sha256 d9199fcf6c5cd8c59b87b1bde9a955df2c55d0ac84f6dab37ed8e4c1830dcaf1 \
     --confirm-target-kernel 6.18.41
 ```
 
-This stage does not execute `geninitrd`, an initrd generator, `update-grub`, or any package command. It validates the installed control flow, parses `/etc/default/geninitrd` without shell evaluation, inventories executable hooks and configured override scripts, predicts the effective generator and boot transition, and proves that package, boot, and policy state stay unchanged. Its result always remains `apply_ready=false` and `apply_authorized=false` until the automatic post-install effects are contained by a later transaction design.
+This stage copies the exact reviewed `dkms-bcachefs` and `dkms-nvidia` hook bodies only into private evidence, verifies their live digests, ownership, modes, and shell syntax, records static command surfaces, executes only read-only `dkms --version` and `dkms status`, inventories DKMS source and module state, and proves that packages, boot files, hooks, and DKMS state stay unchanged. It never runs either hook or any DKMS build/install action. Its result always remains `apply_ready=false` and `apply_authorized=false` pending manual evidence review.
 
 Slackware 15.0 passed the non-kernel branch of this scenario on 2026-08-01.
 The reviewed preflight deferred `kernel-generic`, `kernel-huge`, and
@@ -1891,7 +1893,8 @@ Slack-Update 1.0 will be ready when:
   - [x] Add a non-installing exact Slackware-current kernel-package transaction preflight.
   - [x] Run and review the exact Slackware-current kernel package transaction evidence before apply readiness.
   - [x] Detect the package script's conditional `geninitrd` hook and require a host-policy preflight.
-  - [ ] Run and review the Slackware-current `geninitrd` policy preflight before transaction design.
+  - [x] Run and review the Slackware-current `geninitrd` policy preflight before transaction design.
+  - [ ] Run and review the discovered Slackware-current DKMS hooks and installed DKMS state.
   - [x] Review and accept the ten-package Slackware-current transaction as package and boot evidence.
   - [ ] Revalidate the hardened deferred `.new` policy on the next Slackware-current update.
   - [x] Reject the 2026-08-03 Slackware-current diagnostic whose parser omitted the `x86` `kernel-headers` candidate.

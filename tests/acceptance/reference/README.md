@@ -235,16 +235,18 @@ This stage may write only to the Slackpkg download cache and its private evidenc
 
 `install/doinst.sh` is read from the archive into evidence but never run. Its shell syntax must be valid, package mutation, direct `mkinitrd`, GRUB installation, reboot, and shutdown commands are forbidden, exactly one symlink transition from `vmlinuz-generic` to the target versioned image must be recognizable, and exactly one guarded `geninitrd` invocation must require the next host-policy stage. GRUB discovery writes a generated configuration only below the evidence directory and validates it with `grub-script-check`. Before/after package and active-boot fingerprints must match. Every archive is copied with its portable `.sha256` directly to `/home/promano`; regardless of success, the result remains `apply_ready=false` and `apply_authorized=false` pending manual review.
 
-Run step 38 on the same host before any apply design:
+Step 38 passed on `pcold-slack` with evidence SHA-256 `3b807d2d00fce2b9986308f5cd252d97b483d4b8f1a397fad7d6f047b20421fd`. The accepted record is stored at `tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-policy-preflight-20260803-accepted.json`. It confirmed an enabled `mkinitrd_command_generator.sh` path, automatic GRUB update, transition `direct-to-generated-initrd`, and two executable pre-install hooks whose exact paths and SHA-256 digests must remain stable.
+
+Run step 39 on the same host before any apply design:
 
 ```bash
-sudo bash tests/acceptance/reference/test-current-geninitrd-policy-preflight.sh \
+sudo bash tests/acceptance/reference/test-current-geninitrd-dkms-hook-preflight.sh \
     --target slackware-current \
     --confirm-candidates-sha256 d9199fcf6c5cd8c59b87b1bde9a955df2c55d0ac84f6dab37ed8e4c1830dcaf1 \
     --confirm-target-kernel 6.18.41
 ```
 
-This preflight statically validates `/usr/sbin/geninitrd` and `/var/lib/pkgtools/setup/setup.01.mkinitrd`, parses active assignments in `/etc/default/geninitrd` without sourcing the file, determines whether `AUTOGENERATE_INITRD` disables the kernel-install hook, selects the effective generator including the no-`mkinitrd.conf` fallback, records automatic GRUB and cleanup settings, and inventories regular executable pre-install, post-install, override, and DKMS hooks. Symlinked hooks, command substitutions, unknown active assignments, unsupported generators, and unrecognized script control flow fail closed. Package, boot, and policy fingerprints are captured before and after inspection. The script never executes any discovered hook and always reports `apply_ready=false` and `apply_authorized=false`.
+This preflight requires the accepted normal-update, boot-layout, exact-package, and GenInitrd policy records. It verifies that the live executable hook set is exactly `dkms-bcachefs` and `dkms-nvidia` with the reviewed digests, rejects symlinks, unexpected executables, non-root ownership, group/world writable modes, syntax errors, and content drift, then copies the hook bodies with mode `0600` into private evidence. It records static commands, referenced paths, and shell features without shell evaluation. The only DKMS commands executed are `dkms --version` and `dkms status`; source trees, build state, running modules, and target-kernel paths are inventoried without running any build, install, remove, or autoinstall action. Package and DKMS-sensitive state must compare byte-for-byte before and after. The result always remains `apply_ready=false` and `apply_authorized=false` pending manual review.
 
 
 Slackware 15.0 passed the non-boot-kernel branch on 2026-08-01. An initial
