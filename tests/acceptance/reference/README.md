@@ -440,3 +440,20 @@ This fixture is a development baseline, not acceptance evidence. The retained
 ELILO VM remains the only target for the scheduled mature preflight after
 `2026-08-08T19:51:00+02:00`.
 
+
+### Kernel cleanup dry-run contract
+
+Phase 1 step 32 remains fixture-only and does not add a real-system acceptance
+command. `tools/reference/kernel-cleanup-dry-run-reference.sh` requires
+`--dry-run`, verifies the step 31 plan hash, and either emits a blocked/no-op
+result or renders all proposed actions as inert JSON command vectors. It never
+executes those vectors and always reports empty command and mutation lists.
+
+A complete simulation requires a matching authorization whose scope is exactly
+`dry-run-only`; it must match the plan digest, target, boot loader, active kernel,
+and rollback kernel while preserving `apply_authorized=false`. Synthetic mature
+ELILO and GRUB fixtures exercise the full transaction and deterministic failure
+recovery, but they are not acceptance evidence and do not authorize either VM.
+The retained ELILO VM remains frozen until the scheduled mature retention
+preflight no earlier than `2026-08-08T19:51:00+02:00`.
+

@@ -111,6 +111,9 @@ def require_string(value, message):
 def require_absolute_path(value, message):
     value = require_string(value, message)
     require(value.startswith("/") and "\x00" not in value, message)
+    require(not any(ord(character) < 32 for character in value), message)
+    normalized = pathlib.PurePosixPath(value)
+    require(str(normalized) == value and ".." not in normalized.parts, message)
     return value
 
 
@@ -215,9 +218,18 @@ if rollback_kernel is None:
     require(packages.get("rollback") in ([], None), "rollback packages exist without a rollback kernel")
     require(module_trees.get("rollback") in (False, None), "rollback module tree exists without a rollback kernel")
     if boot_loader == "grub":
-        require_absolute_path(boot.get("config"), "GRUB configuration path is unsafe")
+        grub_config = require_absolute_path(boot.get("config"), "GRUB configuration path is unsafe")
         require(boot.get("active_entries_present") is True, "active GRUB entries are missing")
         require(boot.get("rollback_entries_present") is False, "rollback GRUB entries exist without a rollback kernel")
+        default_flavor = boot.get("default_flavor")
+        require(default_flavor in {"generic", "huge"}, "unsupported GRUB default kernel flavor")
+        boot_transaction = {
+            "config": grub_config,
+            "default_flavor": default_flavor,
+            "active_entries_present": True,
+            "rollback_entries_present": False,
+            "rollback_artifacts": [],
+        }
     else:
         raise SystemExit("ELILO cleanup inventory requires a rollback kernel")
     plan = {
@@ -228,6 +240,7 @@ if rollback_kernel is None:
         "active_packages": active_records,
         "rollback_packages": [],
         "active_archives": [],
+        "boot_transaction": boot_transaction,
         "actions": [],
         "safety_invariants": [
             "leave the active package set unchanged",
@@ -262,7 +275,7 @@ else:
 
     if boot_loader == "elilo":
         require(data.get("firmware") == "uefi", "ELILO cleanup requires UEFI")
-        require_absolute_path(boot.get("config"), "ELILO configuration path is unsafe")
+        elilo_config = require_absolute_path(boot.get("config"), "ELILO configuration path is unsafe")
         active_entry = boot.get("active_entry")
         rollback_entry = boot.get("rollback_entry")
         require(isinstance(active_entry, dict) and isinstance(rollback_entry, dict), "ELILO entries are incomplete")
@@ -272,6 +285,24 @@ else:
         require(rollback_entry.get("label") == "oldkernel", "ELILO rollback label is missing")
         require(rollback_entry.get("kernel") == "vmlinuz", "unexpected ELILO rollback kernel")
         require(rollback_entry.get("initrd") == "initrd.gz", "unexpected ELILO rollback initrd")
+        elilo_directory = str(pathlib.PurePosixPath(elilo_config).parent)
+        boot_transaction = {
+            "config": elilo_config,
+            "active_entry": {
+                "label": active_entry["label"],
+                "kernel": active_entry["kernel"],
+                "initrd": active_entry["initrd"],
+            },
+            "rollback_entry": {
+                "label": rollback_entry["label"],
+                "kernel": rollback_entry["kernel"],
+                "initrd": rollback_entry["initrd"],
+            },
+            "rollback_artifacts": sorted([
+                f"{elilo_directory}/{rollback_entry['kernel']}",
+                f"{elilo_directory}/{rollback_entry['initrd']}",
+            ]),
+        }
         backend_actions = [
             "stage_elilo_config_without_oldkernel",
             "validate_active_elilo_entry_and_staged_config",
@@ -284,13 +315,20 @@ else:
             "keep the versioned active kernel and initrd byte-identical across boot and EFI",
         ]
     else:
-        require_absolute_path(boot.get("config"), "GRUB configuration path is unsafe")
+        grub_config = require_absolute_path(boot.get("config"), "GRUB configuration path is unsafe")
         require(boot.get("generator_available") is True, "grub-mkconfig is unavailable")
         require(boot.get("validator_available") is True, "grub-script-check is unavailable")
         require(boot.get("active_entries_present") is True, "active GRUB entries are missing")
         require(boot.get("rollback_entries_present") is True, "rollback GRUB entries are missing")
         default_flavor = boot.get("default_flavor")
         require(default_flavor in {"generic", "huge"}, "unsupported GRUB default kernel flavor")
+        boot_transaction = {
+            "config": grub_config,
+            "default_flavor": default_flavor,
+            "active_entries_present": True,
+            "rollback_entries_present": True,
+            "rollback_artifacts": [],
+        }
         backend_actions = [
             "generate_grub_config_to_same_directory_temporary_file",
             "validate_staged_grub_config",
@@ -312,6 +350,7 @@ else:
         "rollback_packages": rollback_records,
         "active_archives": active_archives,
         "other_kernel_packages_preserved": sorted(other_kernel_packages),
+        "boot_transaction": boot_transaction,
         "actions": common_actions + backend_actions + final_actions,
         "safety_invariants": [
             "abort unless the running kernel remains the accepted active kernel",

@@ -1,0 +1,20 @@
+{
+    "schema": 1,
+    "scenario": "kernel-cleanup-dry-run-authorization-policy",
+    "scope": "dry-run-only",
+    "required_confirmation": "authorize-kernel-cleanup-dry-run-only",
+    "dry_run_authorized": true,
+    "apply_authorized": false,
+    "matching_fields": [
+        "plan_sha256",
+        "target",
+        "boot_loader",
+        "active_kernel",
+        "rollback_kernel"
+    ],
+    "notes": [
+        "This policy authorizes simulation only.",
+        "It never authorizes package, boot-loader, or filesystem mutation.",
+        "Real apply remains unavailable and requires a separate future stage."
+    ]
+}

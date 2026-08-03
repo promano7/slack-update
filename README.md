@@ -1184,6 +1184,50 @@ Every generated plan contains `apply_permitted=false`,
 retention eligibility removes only the eligibility blocker; it never creates an
 authorization.
 
+
+### Kernel cleanup dry-run contract
+
+Phase 1 step 32 adds a simulation-only executor on top of the step 31 plan. It
+has no apply mode and requires the literal `--dry-run` option:
+
+```bash
+tools/reference/kernel-cleanup-dry-run-reference.sh \
+    --dry-run \
+    --plan /tmp/slack-update-elilo-cleanup-plan.json \
+    --output /tmp/slack-update-elilo-cleanup-dry-run.json
+```
+
+An ineligible plan, including the accepted ELILO baseline before the seven-day
+boundary, produces a blocked result with no simulated steps. An eligible plan
+still remains blocked until it receives a separate schema-1 authorization bound
+to the exact plan SHA-256, target, boot loader, active kernel, and rollback
+kernel. That authorization is limited to `scope=dry-run-only`, must contain
+`apply_authorized=false`, and cannot authorize a real cleanup.
+
+With a matching synthetic authorization, the executor renders fourteen ordered
+steps as data: inventory revalidation, archive verification, private state
+capture, exact rollback-package removal, exact active-package reinstallation,
+backend staging and atomic activation, active-chain verification, delayed removal
+of only unreferenced rollback artifacts, final comparison, and private evidence
+publication. ELILO exposes only its legacy EFI `vmlinuz` and `initrd.gz` copies as
+future explicit deletion candidates. GRUB exposes no unowned rollback artifacts;
+its package-owned old kernel files disappear through the package transaction and
+its configuration is regenerated and validated before atomic replacement.
+
+The simulator can inject a failure at any planned action and emits the recovery
+sequence that a future apply implementation would need. Failures before package
+removal discard only private temporary state; failures after removal require
+reinstallation from verified active archives; failures at or after boot-loader
+activation additionally require atomic configuration restoration; and failures
+after rollback-artifact deletion require restoring those archived files before a
+retry. These are plans only: every result records `commands_executed=[]`,
+`mutations_performed=[]`, `apply_authorized=false`, and
+`real-apply-stage-unavailable`.
+
+The mature ELILO input and authorization policy fixtures are synthetic test data.
+They do not replace the scheduled real retention preflight on
+`2026-08-08T19:51:00+02:00` and do not authorize execution on either VM.
+
 ### Real-system acceptance matrix
 
 - [x] Fully updated system with no available changes.
@@ -1208,6 +1252,7 @@ authorization.
   - [x] Run and review the retention preflight while cleanup remains unauthorized.
   - [ ] Repeat the retention preflight no earlier than 2026-08-08 19:51 CEST and review mature eligibility evidence.
   - [x] Define and validate the boot-loader-neutral cleanup plan contract without authorizing apply.
+  - [x] Implement and validate the simulation-only cleanup executor with plan-bound dry-run authorization and no apply mode.
   - [ ] Implement and explicitly authorize the separate cleanup apply only after mature eligibility evidence is accepted.
 - [x] `install-new` introduces new packages.
 - [x] Kernel package update.

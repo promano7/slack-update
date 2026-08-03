@@ -1,0 +1,73 @@
+{
+    "schema": 1,
+    "inventory_id": "slackware-15.0-elilo-mature-retention-synthetic-design",
+    "fixture_kind": "synthetic-mature-plan-input-for-dry-run",
+    "target": "slackware-15.0",
+    "hostname": "vbox-slack15.vbox-slack15.org",
+    "firmware": "uefi",
+    "boot_loader": "elilo",
+    "running_kernel": "5.15.209",
+    "active_kernel": "5.15.209",
+    "rollback_kernel": "5.15.19",
+    "cleanup_eligible": true,
+    "cleanup_authorized": false,
+    "package_database": {
+        "configured": "/var/log/packages",
+        "resolved": "/var/lib/pkgtools/packages",
+        "resolved_is_directory": true,
+        "internal_record_symlinks": false
+    },
+    "packages": {
+        "active": [
+            "kernel-generic-5.15.209-x86_64-1",
+            "kernel-huge-5.15.209-x86_64-1",
+            "kernel-modules-5.15.209-x86_64-1"
+        ],
+        "rollback": [
+            "kernel-generic-5.15.19-x86_64-2",
+            "kernel-huge-5.15.19-x86_64-2",
+            "kernel-modules-5.15.19-x86_64-2"
+        ],
+        "other_kernel_packages": [
+            "kernel-headers-5.15.209-x86-1",
+            "kernel-source-5.15.209-noarch-1"
+        ]
+    },
+    "active_archives": [
+        {
+            "record": "kernel-generic-5.15.209-x86_64-1",
+            "path": "/var/cache/packages/kernel-generic-5.15.209-x86_64-1.txz",
+            "sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+            "available": true
+        },
+        {
+            "record": "kernel-huge-5.15.209-x86_64-1",
+            "path": "/var/cache/packages/kernel-huge-5.15.209-x86_64-1.txz",
+            "sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+            "available": true
+        },
+        {
+            "record": "kernel-modules-5.15.209-x86_64-1",
+            "path": "/var/cache/packages/kernel-modules-5.15.209-x86_64-1.txz",
+            "sha256": "3333333333333333333333333333333333333333333333333333333333333333",
+            "available": true
+        }
+    ],
+    "module_trees": {
+        "active": true,
+        "rollback": true
+    },
+    "boot": {
+        "config": "/boot/efi/EFI/Slackware/elilo.conf",
+        "active_entry": {
+            "label": "vmlinuz",
+            "kernel": "vmlinuz-generic-5.15.209",
+            "initrd": "initrd-generic-5.15.209.gz"
+        },
+        "rollback_entry": {
+            "label": "oldkernel",
+            "kernel": "vmlinuz",
+            "initrd": "initrd.gz"
+        }
+    }
+}

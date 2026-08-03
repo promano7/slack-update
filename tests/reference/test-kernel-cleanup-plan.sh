@@ -113,6 +113,8 @@ assert_equal false "$(json_get "$ELILO_PLAN" apply_permitted)" 'ELILO plan must 
 assert_equal true "$(json_get "$ELILO_PLAN" requires_separate_apply_stage)" 'ELILO plan should require a separate apply stage'
 assert_equal 5.15.209 "$(json_get "$ELILO_PLAN" running_kernel)" 'ELILO plan should preserve the running kernel'
 assert_equal 5.15.19 "$(json_get "$ELILO_PLAN" rollback_kernel)" 'ELILO plan should preserve the rollback version'
+assert_equal /boot/efi/EFI/Slackware/elilo.conf "$(json_get "$ELILO_PLAN" boot_transaction.config)"     'ELILO plan should expose its exact configuration path'
+assert_equal '["/boot/efi/EFI/Slackware/initrd.gz","/boot/efi/EFI/Slackware/vmlinuz"]'     "$(json_get "$ELILO_PLAN" boot_transaction.rollback_artifacts)"     'ELILO plan should expose only the two legacy EFI rollback files'
 assert_equal 3 "$(python3 -c 'import json,sys; print(len(json.load(open(sys.argv[1]))["active_packages"]))' "$ELILO_PLAN")" 'ELILO plan should contain three active packages'
 assert_equal 3 "$(python3 -c 'import json,sys; print(len(json.load(open(sys.argv[1]))["rollback_packages"]))' "$ELILO_PLAN")" 'ELILO plan should contain three rollback packages'
 assert_equal 3 "$(python3 -c 'import json,sys; print(len(json.load(open(sys.argv[1]))["active_archives"]))' "$ELILO_PLAN")" 'ELILO plan should cover three active archives'
@@ -145,6 +147,9 @@ assert_equal true "$(json_get "$GRUB_DUAL_PLAN" applicable)" 'GRUB plan should b
 assert_equal true "$(json_get "$GRUB_DUAL_PLAN" cleanup_eligible)" 'mature GRUB fixture should preserve eligibility'
 assert_equal false "$(json_get "$GRUB_DUAL_PLAN" cleanup_authorized)" 'mature GRUB fixture should remain unauthorized'
 assert_equal false "$(json_get "$GRUB_DUAL_PLAN" apply_permitted)" 'mature eligibility alone must not permit apply'
+assert_equal /boot/grub/grub.cfg "$(json_get "$GRUB_DUAL_PLAN" boot_transaction.config)"     'GRUB plan should expose its exact configuration path'
+assert_equal huge "$(json_get "$GRUB_DUAL_PLAN" boot_transaction.default_flavor)"     'GRUB plan should preserve the observed default flavor'
+assert_equal '[]' "$(json_get "$GRUB_DUAL_PLAN" boot_transaction.rollback_artifacts)"     'GRUB plan should not invent unowned rollback artifacts'
 assert_not_contains 'retention-eligibility-not-accepted' "$GRUB_DUAL_PLAN" \
     'mature GRUB plan should not retain the eligibility blocker'
 assert_contains 'cleanup-authorization-not-granted' "$GRUB_DUAL_PLAN" \
@@ -183,6 +188,7 @@ assert_contains 'leave the active package set unchanged' "$GRUB_SINGLE_PLAN" \
 assert_contains 'leave boot-loader configuration unchanged' "$GRUB_SINGLE_PLAN" \
     'single-kernel result should preserve GRUB'
 assert_equal false "$(json_get "$GRUB_SINGLE_PLAN" apply_permitted)" 'single-kernel result should not permit apply'
+assert_equal false "$(json_get "$GRUB_SINGLE_PLAN" boot_transaction.rollback_entries_present)"     'single-kernel result should preserve the absence of rollback entries'
 
 # Output is deterministic across repeated runs and stdout/file modes.
 ELILO_PLAN_2=$TMP/elilo-plan-2.json
@@ -225,10 +231,14 @@ mutate_fixture "$ELILO_FIXTURE" "$INVALID" 'data["active_archives"].pop()'
 assert_failure 'incomplete active archives should fail' run_plan "$INVALID" "$TMP/archive-output.json"
 mutate_fixture "$ELILO_FIXTURE" "$INVALID" 'data["active_archives"][0]["sha256"] = "bad"'
 assert_failure 'unsafe active archive hashes should fail' run_plan "$INVALID" "$TMP/hash-output.json"
+mutate_fixture "$ELILO_FIXTURE" "$INVALID" 'data["active_archives"][0]["path"] = "/var/cache/../tmp/kernel.txz"'
+assert_failure 'non-canonical active archive paths should fail' run_plan "$INVALID" "$TMP/archive-path-output.json"
 
 # Backend validation rejects unsafe boot state.
 mutate_fixture "$ELILO_FIXTURE" "$INVALID" 'data["boot"]["active_entry"]["kernel"] = "vmlinuz"'
 assert_failure 'unversioned active ELILO kernels should fail' run_plan "$INVALID" "$TMP/elilo-kernel-output.json"
+mutate_fixture "$ELILO_FIXTURE" "$INVALID" 'data["boot"]["config"] = "/boot/efi/../elilo.conf"'
+assert_failure 'non-canonical ELILO configuration paths should fail' run_plan "$INVALID" "$TMP/elilo-path-output.json"
 mutate_fixture "$ELILO_FIXTURE" "$INVALID" 'data["boot"]["rollback_entry"]["label"] = "fallback"'
 assert_failure 'unexpected ELILO rollback labels should fail' run_plan "$INVALID" "$TMP/elilo-label-output.json"
 mutate_fixture "$GRUB_DUAL_FIXTURE" "$INVALID" 'data["boot"]["generator_available"] = False'
