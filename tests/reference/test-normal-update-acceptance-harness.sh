@@ -11,6 +11,7 @@ INSTALL_FIXTURE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-upd
 UPGRADE_FIXTURE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/upgrade-all-probe.log"
 ACCEPTED_CURRENT_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-accepted.json"
 REVIEWED_CURRENT_APPLY="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-apply-reviewed.json"
+CURRENT_PARSER_DIAGNOSTIC="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260803-parser-diagnostic.json"
 ACCEPTED_SLACKWARE15_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-15.0-preflight-accepted.json"
 ACCEPTED_SLACKWARE15_APPLY="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-15.0-apply-accepted.json"
 
@@ -126,6 +127,8 @@ assert_file_contains 'boot mode is not auto' "$ACCEPTANCE_SCRIPT" \
     'apply validation should require automatic boot preparation'
 assert_file_contains 'Copy evidence command:' "$ACCEPTANCE_SCRIPT" \
     'the scenario should print a one-line evidence copy command'
+assert_file_contains 'Verify evidence command:' "$ACCEPTANCE_SCRIPT" \
+    'the scenario should print a destination-side verification command'
 assert_file_contains 'owner=${SUDO_USER:-promano}' "$ACCEPTANCE_SCRIPT" \
     'the evidence copy fallback should default to the promano account'
 assert_file_contains 'postinstall_policy' "$ACCEPTANCE_SCRIPT" \
@@ -272,10 +275,12 @@ assert_file_contains 'new-runtime-1.2.3-x86_64-1.txz' "$TEST_TMP/install.txt" \
 
 extract_slackpkg_candidates "$UPGRADE_FIXTURE" "$TEST_TMP/upgrade.txt"
 assert_equal_value 0 "$?" 'upgrade-all candidates should be parsed'
-assert_equal_value 4 "$(wc -l < "$TEST_TMP/upgrade.txt")" \
-    'four upgrade candidates should be extracted'
+assert_equal_value 5 "$(wc -l < "$TEST_TMP/upgrade.txt")" \
+    'five upgrade candidates should be extracted'
 assert_file_contains 'kernel-generic-6.18.40-x86_64-1.txz' "$TEST_TMP/upgrade.txt" \
-    'the kernel candidate should be extracted'
+    'the generic-kernel candidate should be extracted'
+assert_file_contains 'kernel-headers-6.18.40-x86-1.txz' "$TEST_TMP/upgrade.txt" \
+    'the Slackware x86 kernel-headers candidate should be extracted'
 assert_file_contains 'openssl-3.5.6-x86_64-2.txz' "$TEST_TMP/upgrade.txt" \
     'the critical OpenSSL candidate should be extracted'
 
@@ -283,14 +288,16 @@ cat "$TEST_TMP/install.txt" "$TEST_TMP/upgrade.txt" | LC_ALL=C sort -u > "$TEST_
 classify_candidates "$TEST_TMP/all.txt" "$TEST_TMP/names.txt" \
     "$TEST_TMP/kernel.txt" "$TEST_TMP/critical.txt"
 assert_equal_value 0 "$?" 'candidate filenames should be classified'
-assert_equal_value 5 "$(wc -l < "$TEST_TMP/names.txt")" \
-    'five distinct package names should be classified'
-assert_equal_value 1 "$(wc -l < "$TEST_TMP/kernel.txt")" \
-    'one kernel candidate should be classified'
+assert_equal_value 6 "$(wc -l < "$TEST_TMP/names.txt")" \
+    'six distinct package names should be classified'
+assert_equal_value 2 "$(wc -l < "$TEST_TMP/kernel.txt")" \
+    'both generic and headers kernel candidates should be classified'
 assert_equal_value 1 "$(wc -l < "$TEST_TMP/critical.txt")" \
     'one critical candidate should be classified'
 assert_file_contains 'kernel-generic' "$TEST_TMP/names.txt" \
     'the parsed package-name list should include kernel-generic'
+assert_file_contains 'kernel-headers' "$TEST_TMP/names.txt" \
+    'the parsed package-name list should include kernel-headers'
 assert_file_contains 'openssl' "$TEST_TMP/names.txt" \
     'the parsed package-name list should include openssl'
 assert_file_not_contains 'pipewire-1.6.8' "$TEST_TMP/names.txt" \
@@ -300,6 +307,19 @@ printf 'invalid-name.txz\n' > "$TEST_TMP/invalid.txt"
 assert_failure 'invalid package filenames should fail closed' \
     classify_candidates "$TEST_TMP/invalid.txt" "$TEST_TMP/invalid-names.txt" \
         "$TEST_TMP/invalid-kernel.txt" "$TEST_TMP/invalid-critical.txt"
+
+OUTPUT_DIR="$TEST_TMP/portable-evidence"
+mkdir -p "$OUTPUT_DIR"
+printf 'portable evidence fixture\n' > "$OUTPUT_DIR/payload.txt"
+PORTABLE_ARCHIVE=$(create_evidence_archive)
+assert_equal_value 0 "$?" 'the evidence archive should be created with a portable sidecar'
+assert_equal_value "${PORTABLE_ARCHIVE##*/}" "$(awk '{print $2}' "$PORTABLE_ARCHIVE.sha256")" \
+    'the SHA-256 sidecar should contain only the archive basename'
+(
+    cd "$(dirname -- "$PORTABLE_ARCHIVE")" || exit 1
+    sha256sum -c "${PORTABLE_ARCHIVE##*/}.sha256" >/dev/null
+)
+assert_equal_value 0 "$?" 'the portable SHA-256 sidecar should verify from the archive directory'
 
 OUTPUT_DIR="$TEST_TMP/evidence"
 mkdir -p "$OUTPUT_DIR"
@@ -465,6 +485,37 @@ assert_file_contains '"apply_authorized": false' "$ACCEPTED_CURRENT_PREFLIGHT" \
     'the accepted preflight record should state that apply was not yet authorized'
 assert_file_contains '"candidate_set_sha256": "a8a608d8aac53c0d9f027622c01df4f794e94e8dd4586764b8d2503f9b94e45d"' "$ACCEPTED_CURRENT_PREFLIGHT" \
     'the accepted preflight record should preserve the exact candidate-set digest'
+
+python3 - "$CURRENT_PARSER_DIAGNOSTIC" <<'PYTHON_EOF'
+import json
+import pathlib
+import sys
+
+data = json.loads(pathlib.Path(sys.argv[1]).read_text(encoding="utf-8"))
+assert data["scenario"] == "normal-update"
+assert data["mode"] == "preflight"
+assert data["target"] == "slackware-current"
+assert data["accepted"] is False
+assert data["diagnostic_only"] is True
+assert data["retry_required"] is True
+assert data["archive_sha256"] == "9641b78a092945d50a80b29b4caa612d79bca82aec3331bbd463f432ef1ef7db"
+assert data["observed_summary"]["upgrade_all_candidates"] == 55
+assert data["raw_probe_review"]["upgrade_all_package_count"] == 56
+assert data["raw_probe_review"]["omitted_candidate"] == "kernel-headers-6.18.41-x86-1.txz"
+assert data["raw_probe_review"]["reconstructed_total_candidates"] == 57
+assert data["raw_probe_review"]["reconstructed_candidate_set_sha256"] == "d9199fcf6c5cd8c59b87b1bde9a955df2c55d0ac84f6dab37ed8e4c1830dcaf1"
+assert data["state_observation"]["package_database_unchanged"] is True
+assert data["state_observation"]["initrd_and_grub_unchanged"] is True
+assert data["evidence_sidecar"]["portable"] is False
+assert data["apply_authorized"] is False
+PYTHON_EOF
+assert_equal_value 0 "$?" 'the rejected 2026-08-03 parser diagnostic should satisfy its sanitized contract'
+assert_file_contains '"omitted_candidate": "kernel-headers-6.18.41-x86-1.txz"' "$CURRENT_PARSER_DIAGNOSTIC" \
+    'the diagnostic should preserve the omitted x86 kernel-headers candidate'
+assert_file_contains '"reconstructed_total_candidates": 57' "$CURRENT_PARSER_DIAGNOSTIC" \
+    'the diagnostic should preserve the corrected total candidate count'
+assert_file_contains '"apply_authorized": false' "$CURRENT_PARSER_DIAGNOSTIC" \
+    'the diagnostic should deny apply authorization'
 
 python3 - "$REVIEWED_CURRENT_APPLY" <<'PYTHON_EOF'
 import json

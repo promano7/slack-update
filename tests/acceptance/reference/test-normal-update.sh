@@ -422,7 +422,7 @@ pattern = re.compile(
     r"(?:[^\s\"']*/)?"
     r"([A-Za-z0-9][A-Za-z0-9+._-]*-"
     r"[^\s/\"']+-"
-    r"(?:x86_64|noarch|fw|i[3-6]86|aarch64|arm[^\s/\"'-]*)-"
+    r"(?:x86_64|x86|noarch|fw|i[3-6]86|aarch64|arm[^\s/\"'-]*)-"
     r"[^\s/\"']+\.t(?:xz|gz|bz|lz))"
 )
 
@@ -690,9 +690,22 @@ create_evidence_archive() {
     archive="$OUTPUT_DIR.tar.gz"
 
     tar -C "$parent" -czf "$archive" "$base" || return 1
-    sha256sum -- "$archive" > "$archive.sha256" || return 1
+    (cd "$parent" && sha256sum -- "${archive##*/}") > "$archive.sha256" || return 1
     publish_evidence_archive "$archive" || return 1
     printf '%s\n' "$archive"
+}
+
+print_evidence_verification_command() {
+    local archive=$1
+    local owner=${SUDO_USER:-promano}
+    local owner_home
+
+    [ -n "$owner" ] && [ "$owner" != root ] || owner=promano
+    owner_home=$(awk -F: -v owner="$owner" '$1 == owner { print $6; exit }' /etc/passwd)
+    [ -n "$owner_home" ] || owner_home="/home/$owner"
+
+    printf 'Verify evidence command: cd %q && sha256sum -c %q\n' \
+        "$owner_home" "${archive##*/}.sha256"
 }
 
 print_evidence_copy_command() {
@@ -724,6 +737,7 @@ finish_with_evidence() {
     printf 'Evidence archive: %s\n' "$archive"
     printf 'Evidence SHA-256: %s\n' "$(awk '{print $1}' "$archive.sha256")"
     print_evidence_copy_command "$archive"
+    print_evidence_verification_command "$archive"
     [ "$FAILURE_COUNT" -eq 0 ]
 }
 

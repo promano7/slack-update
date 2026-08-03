@@ -137,6 +137,19 @@ keeps current configurations, enumerates pending regular `/etc/*.new` files, and
 requires revalidation of that hardened policy during the next available update.
 The accepted candidate-set SHA-256 remains `a8a608d8aac53c0d9f027622c01df4f794e94e8dd4586764b8d2503f9b94e45d`.
 
+The 2026-08-03 Slackware-current preflight is rejected as authorization
+evidence. The raw upgrade probe contained 56 package filenames, but the
+normalized file contained 55 because
+`kernel-headers-6.18.41-x86-1.txz` used the exact Slackware `x86`
+architecture tag that the extractor did not yet accept. The corrected
+reconstruction contains one install-new candidate, 56 upgrade candidates, 57
+total candidates, two configured kernel candidates, and SHA-256
+`d9199fcf6c5cd8c59b87b1bde9a955df2c55d0ac84f6dab37ed8e4c1830dcaf1`.
+Candidate extraction and portable evidence sidecars are fixed, but a fresh
+preflight is required; never reuse the reconstructed digest for apply because
+Slackware-current metadata can change. The sanitized diagnostic is
+`tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260803-parser-diagnostic.json`.
+
 Slackware 15.0 passed the non-boot-kernel branch on 2026-08-01. An initial
 preflight reported 199 candidates, including `kernel-generic`, `kernel-huge`,
 and `kernel-modules`. Those three boot-kernel packages were deliberately
@@ -194,7 +207,7 @@ review. Flatpak, SBo, ELF, and Cinnamon are disabled for this scenario. Boot pre
 a detected kernel change must produce validated initrd and GRUB updates and the
 stable reboot-required status.
 
-Every run prints a one-line `Copy evidence command:`. For the `promano` account,
+Every run prints a one-line `Copy evidence command:` and a destination-side `Verify evidence command:`. Sidecars contain only the archive basename. For the `promano` account,
 the generic fallback for this scenario is:
 
 ```bash

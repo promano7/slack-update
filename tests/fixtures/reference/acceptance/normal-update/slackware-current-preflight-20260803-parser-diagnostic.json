@@ -1,0 +1,53 @@
+{
+  "scenario": "normal-update",
+  "mode": "preflight",
+  "target": "slackware-current",
+  "accepted": false,
+  "diagnostic_only": true,
+  "retry_required": true,
+  "captured_at": "2026-08-03T19:31:17Z",
+  "archive_sha256": "9641b78a092945d50a80b29b4caa612d79bca82aec3331bbd463f432ef1ef7db",
+  "reference_sha256": "a3bdddd369b2fb2f50594fa65a5540670271ff1ae91de0baca654cc880254334",
+  "platform": {
+    "hostname": "pcold-slack.pcold-slack.org",
+    "slackware_version": "Slackware 15.0+",
+    "kernel_version": "6.18.40",
+    "architecture": "x86_64",
+    "slackpkg_package": "slackpkg-15.0.10-noarch-5"
+  },
+  "observed_summary": {
+    "install_new_candidates": 1,
+    "upgrade_all_candidates": 55,
+    "total_candidates": 56,
+    "kernel_candidates": 1,
+    "critical_candidates": 0,
+    "candidate_set_sha256": "c0c5b3e6d2c20c9465b0fe71fbb8ac16074f8ec16a41f4553231913f082303b1"
+  },
+  "raw_probe_review": {
+    "upgrade_all_package_count": 56,
+    "omitted_candidate": "kernel-headers-6.18.41-x86-1.txz",
+    "omission_reason": "The candidate extractor did not recognize Slackware's x86 architecture tag.",
+    "reconstructed_install_new_candidates": 1,
+    "reconstructed_upgrade_all_candidates": 56,
+    "reconstructed_total_candidates": 57,
+    "reconstructed_kernel_candidates": [
+      "kernel-generic-6.18.41-x86_64-1.txz",
+      "kernel-headers-6.18.41-x86-1.txz"
+    ],
+    "reconstructed_candidate_set_sha256": "d9199fcf6c5cd8c59b87b1bde9a955df2c55d0ac84f6dab37ed8e4c1830dcaf1"
+  },
+  "state_observation": {
+    "package_database_unchanged": true,
+    "initrd_and_grub_unchanged": true,
+    "assertions": {
+      "passes": 6,
+      "failures": 0
+    }
+  },
+  "evidence_sidecar": {
+    "portable": false,
+    "recorded_archive_path": "/var/tmp/slack-update-acceptance/normal-update/slackware-current-preflight-20260803T193117Z.tar.gz"
+  },
+  "rejection_reason": "The normalized candidate set was incomplete, so its count and SHA-256 cannot authorize apply even though the preflight itself was non-destructive.",
+  "apply_authorized": false
+}

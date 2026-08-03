@@ -966,6 +966,19 @@ operations disable slackpkg post-install processing with `-postinst=off`, keep
 active configuration files, enumerate pending regular `/etc/*.new` files, and
 report them for a later administrator-controlled `slackpkg new-config` review.
 
+A Slackware-current preflight captured on 2026-08-03 is diagnostic only and
+must not authorize apply. Its raw `slackpkg upgrade-all` log contained 56
+package filenames, including `kernel-headers-6.18.41-x86-1.txz`, but the
+normalized evidence retained only 55 because the exact Slackware architecture
+tag `x86` was not recognized. Together with one `install-new` candidate, the
+corrected reconstruction contains 57 packages, two configured kernel
+candidates, and SHA-256
+`d9199fcf6c5cd8c59b87b1bde9a955df2c55d0ac84f6dab37ed8e4c1830dcaf1`.
+The parser and portable SHA-256 sidecar are fixed, but a fresh preflight is
+mandatory because Slackware-current metadata may have changed. The rejected
+record is stored at
+`tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260803-parser-diagnostic.json`.
+
 Slackware 15.0 passed the non-kernel branch of this scenario on 2026-08-01.
 The reviewed preflight deferred `kernel-generic`, `kernel-huge`, and
 `kernel-modules`, then authorized an exact 196-package candidate digest containing
@@ -1239,6 +1252,8 @@ They do not replace the scheduled real retention preflight on
   - [x] Slackware-current preflight evidence reviewed.
   - [x] Slackware-current ten-package transaction reviewed and accepted as package/boot evidence.
   - [ ] Revalidate the hardened deferred `.new` policy during the next Slackware-current update.
+  - [x] Diagnose and fix the omitted `x86` `kernel-headers` candidate from the 2026-08-03 preflight.
+  - [ ] Repeat the corrected Slackware-current preflight before any apply authorization.
   - [x] Slackware 15.0 preflight and real apply evidence accepted.
   - [x] Revalidate the hardened deferred `.new` policy on Slackware 15.0.
   - [x] Exercise the three deferred Slackware 15.0 boot-kernel packages in the dedicated kernel-update scenario.
@@ -1799,6 +1814,8 @@ Slack-Update 1.0 will be ready when:
   - [x] Require an exact reviewed candidate-set SHA-256 before normal-update apply.
   - [x] Review and accept the ten-package Slackware-current transaction as package and boot evidence.
   - [ ] Revalidate the hardened deferred `.new` policy on the next Slackware-current update.
+  - [x] Reject the 2026-08-03 Slackware-current diagnostic whose parser omitted the `x86` `kernel-headers` candidate.
+  - [ ] Repeat the corrected Slackware-current preflight and review the complete candidate set before apply.
   - [x] Accept the Slackware 15.0 normal-update preflight and 196-package real apply.
   - [x] Revalidate the hardened deferred `.new` policy on Slackware 15.0.
   - [ ] Validate the deferred Slackware 15.0 boot-kernel packages in the dedicated kernel-update scenario.
