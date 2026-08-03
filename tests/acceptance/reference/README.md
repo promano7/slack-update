@@ -237,14 +237,18 @@ This stage may write only to the Slackpkg download cache and its private evidenc
 
 Step 38 passed on `pcold-slack` with evidence SHA-256 `3b807d2d00fce2b9986308f5cd252d97b483d4b8f1a397fad7d6f047b20421fd`. The accepted record is stored at `tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-policy-preflight-20260803-accepted.json`. It confirmed an enabled `mkinitrd_command_generator.sh` path, automatic GRUB update, transition `direct-to-generated-initrd`, and two executable pre-install hooks whose exact paths and SHA-256 digests must remain stable.
 
-Run step 39 on the same host before any apply design:
+Step 39 passed on the same host with evidence SHA-256 `95eec7f57d4ff9d3f254830428d5382a155f890b9e57553b71fbd4f661e30ebf`. Its accepted record is `tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-dkms-hook-preflight-20260803-accepted.json`. DKMS reported zero installed rows, and both reviewed hooks were accepted as explicit no-ops for this host state.
+
+Run step 40 on the same host before any post-install simulation design:
 
 ```bash
-sudo bash tests/acceptance/reference/test-current-geninitrd-dkms-hook-preflight.sh \
+sudo bash tests/acceptance/reference/test-current-geninitrd-command-preflight.sh \
     --target slackware-current \
     --confirm-candidates-sha256 d9199fcf6c5cd8c59b87b1bde9a955df2c55d0ac84f6dab37ed8e4c1830dcaf1 \
     --confirm-target-kernel 6.18.41
 ```
+
+The command preflight executes the installed generator only in command-output mode for the running kernel. It requires exactly one safe `mkinitrd` argument vector, projects that vector to the reviewed target kernel and versioned initrd, and never executes either the generated or projected command. Package and boot-sensitive state must compare byte-for-byte before and after inspection; all results retain `apply_ready=false` and `apply_authorized=false`.
 
 This preflight requires the accepted normal-update, boot-layout, exact-package, and GenInitrd policy records. It verifies that the live executable hook set is exactly `dkms-bcachefs` and `dkms-nvidia` with the reviewed digests, rejects symlinks, unexpected executables, non-root ownership, group/world writable modes, syntax errors, and content drift, then copies the hook bodies with mode `0600` into private evidence. It records static commands, referenced paths, and shell features without shell evaluation. The only DKMS commands executed are `dkms --version` and `dkms status`; source trees, build state, running modules, and target-kernel paths are inventoried without running any build, install, remove, or autoinstall action. Package and DKMS-sensitive state must compare byte-for-byte before and after. The result always remains `apply_ready=false` and `apply_authorized=false` pending manual review.
 

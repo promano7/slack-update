@@ -20,7 +20,7 @@ assume that behavior observed only on one target is valid on the other. Record
 target-specific requirements and provide detection or a safe fallback where the
 two systems differ.
 
-Slackware-current kernel package scripts may invoke `geninitrd` conditionally. Acceptance work must inspect the installed `/etc/default/geninitrd`, setup script, generator, custom hooks, cleanup settings, and automatic GRUB behavior without sourcing or executing them. A recognized versioned kernel symlink transition alone is not sufficient to authorize apply. Executable GenInitrd hooks must be hash-bound to reviewed evidence, copied without execution, statically inspected, and correlated with read-only DKMS state before any apply-ready transaction can be designed.
+Slackware-current kernel package scripts may invoke `geninitrd` conditionally. Acceptance work must inspect the installed `/etc/default/geninitrd`, setup script, generator, custom hooks, cleanup settings, and automatic GRUB behavior without sourcing or executing them. A recognized versioned kernel symlink transition alone is not sufficient to authorize apply. Executable GenInitrd hooks must be hash-bound to reviewed evidence, copied without execution, statically inspected, and correlated with read-only DKMS state before any apply-ready transaction can be designed. A command generator must be invoked without `--run`, its output parsed as an argument vector without evaluation, and any target-kernel projection must remain explicitly non-executable until a later isolated post-install simulation is accepted.
 
 ## Language policy
 
@@ -113,11 +113,12 @@ Before submitting a change to the reference script:
 29. Run `tests/reference/test-current-kernel-package-preflight-harness.sh` when exact Slackpkg kernel downloads, cache resolution, package-archive path safety, target image or module inventory, non-executed `doinst.sh` policy, GRUB evidence generation, portable sidecars, or transaction apply denial is affected.
 30. Run `tests/reference/test-current-geninitrd-policy-preflight-harness.sh` when installed GenInitrd script recognition, non-evaluating policy parsing, generator selection, automatic GRUB behavior, custom hook inventory, or policy evidence publication is affected.
 31. Run `tests/reference/test-current-geninitrd-dkms-hook-preflight-harness.sh` when reviewed hook identity, hook metadata or syntax, static command-surface capture, read-only DKMS status, DKMS source/module inventory, or immutable apply denial is affected.
-32. Confirm that destructive commands are not exercised outside an isolated or explicitly recoverable Slackware test system.
-33. Record the relevant acceptance scenario.
-34. Preserve deterministic output and exit-code behavior.
-35. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
-36. Ensure every new or modified comment is written in English.
+32. Run `tests/reference/test-current-geninitrd-command-preflight-harness.sh` when command-generator identity, command-output-only invocation, inert argument parsing, target-kernel projection, cached-package binding, or no-execution guarantees are affected.
+33. Confirm that destructive commands are not exercised outside an isolated or explicitly recoverable Slackware test system.
+34. Record the relevant acceptance scenario.
+35. Preserve deterministic output and exit-code behavior.
+36. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
+37. Ensure every new or modified comment is written in English.
 
 Never run the apply workflow on a production machine merely to validate a contribution.
 
