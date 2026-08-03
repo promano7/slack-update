@@ -162,6 +162,7 @@ REFERENCE_SCRIPT=$DEFAULT_REFERENCE_SCRIPT
 CONFIG_TEMPLATE=$DEFAULT_CONFIG
 CONFIRM_HOSTNAME=
 CONFIRM_CANDIDATES_SHA256=
+CONFIRM_KERNEL_BOOT_PREFLIGHT_SHA256=
 ALLOW_KERNEL_UPDATE=0
 ALLOW_CRITICAL_UPDATE=0
 assert_success 'preflight arguments should parse without apply confirmation' \
@@ -175,6 +176,7 @@ REFERENCE_SCRIPT=$DEFAULT_REFERENCE_SCRIPT
 CONFIG_TEMPLATE=$DEFAULT_CONFIG
 CONFIRM_HOSTNAME=
 CONFIRM_CANDIDATES_SHA256=
+CONFIRM_KERNEL_BOOT_PREFLIGHT_SHA256=
 ALLOW_KERNEL_UPDATE=0
 ALLOW_CRITICAL_UPDATE=0
 assert_failure 'apply should fail without hostname confirmation' \
@@ -187,6 +189,7 @@ REFERENCE_SCRIPT=$DEFAULT_REFERENCE_SCRIPT
 CONFIG_TEMPLATE=$DEFAULT_CONFIG
 CONFIRM_HOSTNAME=
 CONFIRM_CANDIDATES_SHA256=
+CONFIRM_KERNEL_BOOT_PREFLIGHT_SHA256=
 ALLOW_KERNEL_UPDATE=0
 ALLOW_CRITICAL_UPDATE=0
 assert_failure 'apply should fail when hostname is present but candidate digest is missing' \
@@ -199,6 +202,7 @@ REFERENCE_SCRIPT=$DEFAULT_REFERENCE_SCRIPT
 CONFIG_TEMPLATE=$DEFAULT_CONFIG
 CONFIRM_HOSTNAME=
 CONFIRM_CANDIDATES_SHA256=
+CONFIRM_KERNEL_BOOT_PREFLIGHT_SHA256=
 ALLOW_KERNEL_UPDATE=0
 ALLOW_CRITICAL_UPDATE=0
 assert_failure 'apply should reject a malformed candidate digest' \
@@ -212,19 +216,49 @@ REFERENCE_SCRIPT=$DEFAULT_REFERENCE_SCRIPT
 CONFIG_TEMPLATE=$DEFAULT_CONFIG
 CONFIRM_HOSTNAME=
 CONFIRM_CANDIDATES_SHA256=
+CONFIRM_KERNEL_BOOT_PREFLIGHT_SHA256=
 ALLOW_KERNEL_UPDATE=0
 ALLOW_CRITICAL_UPDATE=0
 assert_success 'apply should parse with hostname and kernel confirmation' \
     parse_arguments --target slackware-current --execute-apply \
         --confirm-hostname testhost \
         --confirm-candidates-sha256 a8a608d8aac53c0d9f027622c01df4f794e94e8dd4586764b8d2503f9b94e45d \
+        --confirm-kernel-boot-preflight-sha256 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef \
         --allow-kernel-update --allow-critical-update
 assert_equal_value apply "$MODE" 'execute-apply should select apply mode'
 assert_equal_value testhost "$CONFIRM_HOSTNAME" 'the hostname confirmation should be preserved'
 assert_equal_value a8a608d8aac53c0d9f027622c01df4f794e94e8dd4586764b8d2503f9b94e45d "$CONFIRM_CANDIDATES_SHA256" \
     'the candidate-set confirmation should be preserved'
 assert_equal_value 1 "$ALLOW_KERNEL_UPDATE" 'the kernel confirmation should be preserved'
+assert_equal_value 0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef "$CONFIRM_KERNEL_BOOT_PREFLIGHT_SHA256" \
+    'the kernel boot preflight digest should be preserved'
 assert_equal_value 1 "$ALLOW_CRITICAL_UPDATE" 'the critical confirmation should be preserved'
+
+CANDIDATE_SET_SHA256=d9199fcf6c5cd8c59b87b1bde9a955df2c55d0ac84f6dab37ed8e4c1830dcaf1
+CONFIRM_KERNEL_BOOT_PREFLIGHT_SHA256=0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+DEFAULT_CURRENT_KERNEL_BOOT_ACCEPTANCE="$TEST_TMP/current-kernel-accepted.json"
+cat > "$DEFAULT_CURRENT_KERNEL_BOOT_ACCEPTANCE" <<'EOF_CURRENT_KERNEL_ACCEPTED'
+{
+  "scenario": "current-kernel-boot-preflight",
+  "target": "slackware-current",
+  "accepted": true,
+  "archive_sha256": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+  "normal_update_candidate_set_sha256": "d9199fcf6c5cd8c59b87b1bde9a955df2c55d0ac84f6dab37ed8e4c1830dcaf1",
+  "apply_ready": true,
+  "apply_authorized": false
+}
+EOF_CURRENT_KERNEL_ACCEPTED
+assert_success 'a matching apply-ready current-kernel preflight should validate' \
+    validate_current_kernel_boot_acceptance
+python3 - "$DEFAULT_CURRENT_KERNEL_BOOT_ACCEPTANCE" <<'PY_CURRENT_KERNEL_NOT_READY'
+import json, sys
+p=sys.argv[1]
+d=json.load(open(p))
+d['apply_ready']=False
+open(p,'w').write(json.dumps(d))
+PY_CURRENT_KERNEL_NOT_READY
+assert_failure 'a non-ready current-kernel preflight should be rejected' \
+    validate_current_kernel_boot_acceptance
 
 GENERATED_CONFIG="$TEST_TMP/slack-update.conf"
 write_acceptance_config "$DEFAULT_CONFIG" "$GENERATED_CONFIG" "$TEST_TMP/runtime"

@@ -9,6 +9,7 @@ REPOSITORY_ROOT=$(CDPATH= cd -- "$TEST_DIR/../../.." && pwd -P)
 DEFAULT_REFERENCE_SCRIPT="$REPOSITORY_ROOT/tools/reference/slack-update-reference.sh"
 DEFAULT_CONFIG_TEMPLATE="$REPOSITORY_ROOT/data/config/slack-update.conf"
 DEFAULT_OUTPUT_ROOT=/var/tmp/slack-update-acceptance/normal-update
+DEFAULT_CURRENT_KERNEL_BOOT_ACCEPTANCE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-boot-preflight-accepted.json"
 
 TARGET=
 MODE=
@@ -17,6 +18,7 @@ REFERENCE_SCRIPT=$DEFAULT_REFERENCE_SCRIPT
 CONFIG_TEMPLATE=$DEFAULT_CONFIG_TEMPLATE
 CONFIRM_HOSTNAME=
 CONFIRM_CANDIDATES_SHA256=
+CONFIRM_KERNEL_BOOT_PREFLIGHT_SHA256=
 ALLOW_KERNEL_UPDATE=0
 ALLOW_CRITICAL_UPDATE=0
 PASS_COUNT=0
@@ -57,7 +59,9 @@ Required options:
                               Require the exact reviewed candidate-set digest
 
 Optional arguments:
-      --allow-kernel-update    Permit apply when preflight finds kernel packages
+      --allow-kernel-update    Permit kernel consideration after boot preflight review
+      --confirm-kernel-boot-preflight-sha256 SHA256
+                              Require an accepted apply-ready current-kernel preflight
       --allow-critical-update  Permit apply when preflight finds critical packages
       --output-dir PATH        Store evidence under an absolute, new directory
       --reference-script PATH  Select the reference script under test
@@ -214,6 +218,14 @@ parse_arguments() {
                 ALLOW_KERNEL_UPDATE=1
                 shift
                 ;;
+            --confirm-kernel-boot-preflight-sha256)
+                [ "$#" -ge 2 ] || {
+                    error '--confirm-kernel-boot-preflight-sha256 requires a value'
+                    return 1
+                }
+                CONFIRM_KERNEL_BOOT_PREFLIGHT_SHA256=$2
+                shift 2
+                ;;
             --allow-critical-update)
                 ALLOW_CRITICAL_UPDATE=1
                 shift
@@ -279,6 +291,19 @@ parse_arguments() {
                     ;;
             esac
             CONFIRM_CANDIDATES_SHA256=${CONFIRM_CANDIDATES_SHA256,,}
+            if [ -n "$CONFIRM_KERNEL_BOOT_PREFLIGHT_SHA256" ]; then
+                [ "${#CONFIRM_KERNEL_BOOT_PREFLIGHT_SHA256}" -eq 64 ] || {
+                    error '--confirm-kernel-boot-preflight-sha256 must contain exactly 64 hexadecimal characters'
+                    return 1
+                }
+                case "$CONFIRM_KERNEL_BOOT_PREFLIGHT_SHA256" in
+                    *[!0-9A-Fa-f]*)
+                        error '--confirm-kernel-boot-preflight-sha256 must contain exactly 64 hexadecimal characters'
+                        return 1
+                        ;;
+                esac
+                CONFIRM_KERNEL_BOOT_PREFLIGHT_SHA256=${CONFIRM_KERNEL_BOOT_PREFLIGHT_SHA256,,}
+            fi
             ;;
         *)
             error 'select exactly one of --preflight or --execute-apply'
@@ -310,6 +335,35 @@ parse_arguments() {
             return 1
             ;;
     esac
+}
+
+validate_current_kernel_boot_acceptance() {
+    local path=$DEFAULT_CURRENT_KERNEL_BOOT_ACCEPTANCE
+
+    [ -n "$CONFIRM_KERNEL_BOOT_PREFLIGHT_SHA256" ] || return 1
+    [ -r "$path" ] || return 1
+    python3 - "$path" "$CONFIRM_KERNEL_BOOT_PREFLIGHT_SHA256" "$CANDIDATE_SET_SHA256" <<'PY_VALIDATE_CURRENT_KERNEL'
+import json
+import sys
+
+path, evidence_sha256, candidate_sha256 = sys.argv[1:]
+try:
+    with open(path, encoding='utf-8') as handle:
+        data = json.load(handle)
+except Exception:
+    raise SystemExit(1)
+
+checks = [
+    data.get('scenario') == 'current-kernel-boot-preflight',
+    data.get('target') == 'slackware-current',
+    data.get('accepted') is True,
+    data.get('archive_sha256') == evidence_sha256,
+    data.get('normal_update_candidate_set_sha256') == candidate_sha256,
+    data.get('apply_ready') is True,
+    data.get('apply_authorized') is False,
+]
+raise SystemExit(0 if all(checks) else 1)
+PY_VALIDATE_CURRENT_KERNEL
 }
 
 require_command() {
@@ -913,6 +967,15 @@ main() {
         error 'real apply was not executed because kernel packages are candidates'
         finish_with_evidence
         return 1
+    fi
+    if [ "$TARGET" = slackware-current ] && [ "$KERNEL_CANDIDATE_COUNT" -gt 0 ]; then
+        if ! validate_current_kernel_boot_acceptance; then
+            record_failure 'Slackware-current kernel candidates require a matching accepted apply-ready boot preflight'
+            error 'real apply was not executed because the current-kernel boot preflight is missing, mismatched, or not apply-ready'
+            finish_with_evidence
+            return 1
+        fi
+        record_pass 'the accepted Slackware-current kernel boot preflight matches the refreshed candidate set'
     fi
     if [ "$CRITICAL_CANDIDATE_COUNT" -gt 0 ] && [ "$ALLOW_CRITICAL_UPDATE" -ne 1 ]; then
         record_failure 'critical candidates require the explicit --allow-critical-update option'

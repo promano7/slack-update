@@ -979,6 +979,33 @@ mandatory because Slackware-current metadata may have changed. The rejected
 record is stored at
 `tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260803-parser-diagnostic.json`.
 
+The corrected rerun is accepted as non-destructive classification evidence. It
+confirmed one `install-new`, 56 upgrades, 57 total candidates, two configured
+kernel candidates, no configured critical candidates, and the same candidate
+digest. Archive SHA-256
+`33a0d6eb20dfc777c4c5f8a0172f8344aab03a20ffd130d0fe95753ffce57cbc`
+verified after copying to `/home/promano`. Its sanitized record is
+`tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260803-accepted.json`.
+Apply remains unauthorized because the set changes the kernel.
+
+Slackware-current kernel candidates now require an additional non-destructive
+boot-layout discovery stage:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-kernel-boot-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 d9199fcf6c5cd8c59b87b1bde9a955df2c55d0ac84f6dab37ed8e4c1830dcaf1 \
+    --confirm-target-kernel 6.18.41
+```
+
+The stage validates the current monolithic `kernel-generic` package model,
+module ownership, repository target records, `/etc/mkinitrd.conf`, the active
+generic-kernel symlink and initrd, and GRUB state while proving before/after
+immutability. It deliberately publishes `apply_ready=false` and
+`apply_authorized=false`. Normal-update apply fails closed until a separately
+reviewed, matching record later marks this exact candidate digest
+`apply_ready=true`.
+
 Slackware 15.0 passed the non-kernel branch of this scenario on 2026-08-01.
 The reviewed preflight deferred `kernel-generic`, `kernel-huge`, and
 `kernel-modules`, then authorized an exact 196-package candidate digest containing
@@ -1812,6 +1839,9 @@ Slack-Update 1.0 will be ready when:
   - [x] Refresh and reclassify package metadata immediately before normal-update apply authorization.
   - [x] Require separate authorization for kernel and critical normal-update candidates.
   - [x] Require an exact reviewed candidate-set SHA-256 before normal-update apply.
+  - [x] Accept the corrected 57-candidate Slackware-current preflight classification.
+  - [x] Require a separate matching apply-ready boot-layout record for Slackware-current kernel candidates.
+  - [ ] Run and review the non-destructive Slackware-current kernel boot-layout preflight for `6.18.41`.
   - [x] Review and accept the ten-package Slackware-current transaction as package and boot evidence.
   - [ ] Revalidate the hardened deferred `.new` policy on the next Slackware-current update.
   - [x] Reject the 2026-08-03 Slackware-current diagnostic whose parser omitted the `x86` `kernel-headers` candidate.

@@ -150,6 +150,48 @@ preflight is required; never reuse the reconstructed digest for apply because
 Slackware-current metadata can change. The sanitized diagnostic is
 `tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260803-parser-diagnostic.json`.
 
+The corrected rerun at `2026-08-03T19:49:43Z` is accepted as classification
+evidence. It passed all six assertions, preserved the installed-package database
+and observed initrd/GRUB state, and confirmed the exact reconstructed set: one
+`install-new`, 56 upgrades, 57 total candidates, two configured kernel
+candidates, no configured critical candidates, and candidate-set SHA-256
+`d9199fcf6c5cd8c59b87b1bde9a955df2c55d0ac84f6dab37ed8e4c1830dcaf1`.
+The portable archive SHA-256 is
+`33a0d6eb20dfc777c4c5f8a0172f8344aab03a20ffd130d0fe95753ffce57cbc`.
+The sanitized accepted record is
+`tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260803-accepted.json`.
+This acceptance does not authorize apply because the set contains
+`kernel-generic-6.18.41-x86_64-1.txz` and
+`kernel-headers-6.18.41-x86-1.txz`.
+
+### Slackware-current kernel boot-layout preflight
+
+Run the dedicated discovery stage on the same Slackware-current host before any
+kernel apply review:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-kernel-boot-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 d9199fcf6c5cd8c59b87b1bde9a955df2c55d0ac84f6dab37ed8e4c1830dcaf1 \
+    --confirm-target-kernel 6.18.41
+```
+
+This preflight is non-destructive. It validates that modern Slackware-current
+uses the monolithic `kernel-generic` package layout rather than the Slackware
+15.0 `kernel-generic`/`kernel-huge`/`kernel-modules` split, proves that the
+installed generic package owns the active module tree, confirms exact repository
+records for the target generic/header/source transition, inventories repository
+module metadata, parses safe scalar values from `/etc/mkinitrd.conf`, and checks
+the active generic-kernel symlink, initrd, GRUB configuration, and required GRUB
+tools. Package and boot fingerprints are compared before and after inspection.
+It never installs packages, runs mkinitrd, regenerates GRUB, or changes files.
+
+Discovery intentionally reports `apply_ready=false` and
+`apply_authorized=false`. After its evidence is reviewed, a separate accepted
+fixture may mark the same candidate digest `apply_ready=true`; normal-update
+apply now requires that matching fixture and its archive SHA-256 in addition to
+`--allow-kernel-update`. Until then, do not execute apply.
+
 Slackware 15.0 passed the non-boot-kernel branch on 2026-08-01. An initial
 preflight reported 199 candidates, including `kernel-generic`, `kernel-huge`,
 and `kernel-modules`. Those three boot-kernel packages were deliberately
@@ -196,8 +238,11 @@ sudo bash tests/acceptance/reference/test-normal-update.sh \
 ```
 
 When preflight reports kernel candidates, apply remains blocked unless the
-additional `--allow-kernel-update` option is supplied. Configured critical
-packages are independently blocked unless `--allow-critical-update` is supplied.
+additional `--allow-kernel-update` option is supplied. On Slackware-current, a
+matching accepted boot-layout record with `apply_ready=true` is also mandatory;
+its archive digest must be supplied through
+`--confirm-kernel-boot-preflight-sha256`. Configured critical packages are
+independently blocked unless `--allow-critical-update` is supplied.
 The refreshed `all.candidates.txt` must also match the explicitly supplied
 `--confirm-candidates-sha256`; any candidate-set change blocks apply before package
 installation. `install-new` and `upgrade-all` run with `-postinst=off`, so the
