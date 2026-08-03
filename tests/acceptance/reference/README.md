@@ -239,7 +239,7 @@ Step 38 passed on `pcold-slack` with evidence SHA-256 `3b807d2d00fce2b9986308f5c
 
 Step 39 passed on the same host with evidence SHA-256 `95eec7f57d4ff9d3f254830428d5382a155f890b9e57553b71fbd4f661e30ebf`. Its accepted record is `tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-dkms-hook-preflight-20260803-accepted.json`. DKMS reported zero installed rows, and both reviewed hooks were accepted as explicit no-ops for this host state.
 
-Run step 40 on the same host before any post-install simulation design:
+Step 40 was executed on the same host with this command:
 
 ```bash
 sudo bash tests/acceptance/reference/test-current-geninitrd-command-preflight.sh \
@@ -249,6 +249,19 @@ sudo bash tests/acceptance/reference/test-current-geninitrd-command-preflight.sh
 ```
 
 The command preflight executes the installed generator only in command-output mode for the running kernel. It requires exactly one safe `mkinitrd` argument vector, projects that vector to the reviewed target kernel and versioned initrd, and never executes either the generated or projected command. Package and boot-sensitive state must compare byte-for-byte before and after inspection; all results retain `apply_ready=false` and `apply_authorized=false`.
+
+Step 40 passed on `pcold-slack` with 11 assertions and evidence SHA-256 `391c56d5aa3d5e8cfa5eba2a259e0c78964d5825d10ce1cabd0124d7ef435814`. The accepted record is `tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-command-preflight-20260803-accepted.json`. It preserves the exact projected `mkinitrd` vector for `6.18.41`, the versioned output `/boot/initrd-6.18.41.img`, all 18 reviewed modules, unchanged host state, and explicit no-execution/apply denial.
+
+The reviewed GenInitrd flow would still run `/usr/sbin/update-grub` from the package post-install path because the active `/etc/default/geninitrd` contains `AUTO_UPDATE_GRUB=true`. An environment-only override is not sufficient: the installed setup script sources the active configuration before applying shell defaults. Run step 41 to prove the safe ownership strategy without editing the host policy:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-geninitrd-grub-ownership-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 d9199fcf6c5cd8c59b87b1bde9a955df2c55d0ac84f6dab37ed8e4c1830dcaf1 \
+    --confirm-target-kernel 6.18.41
+```
+
+The GRUB-ownership preflight creates only an evidence-local copy of `/etc/default/geninitrd` with the single change `AUTO_UPDATE_GRUB=false`. It validates source-order and guard placement, emits a twelve-step transaction plus five recovery boundaries, and selects a future temporary atomic policy override so package post-install may generate the versioned initrd while Slack-Update remains the sole owner of validated atomic GRUB replacement. It never installs the staged policy, runs package tools, generates an initrd, or invokes either GRUB command. Every result remains `apply_ready=false` and `apply_authorized=false`.
 
 This preflight requires the accepted normal-update, boot-layout, exact-package, and GenInitrd policy records. It verifies that the live executable hook set is exactly `dkms-bcachefs` and `dkms-nvidia` with the reviewed digests, rejects symlinks, unexpected executables, non-root ownership, group/world writable modes, syntax errors, and content drift, then copies the hook bodies with mode `0600` into private evidence. It records static commands, referenced paths, and shell features without shell evaluation. The only DKMS commands executed are `dkms --version` and `dkms status`; source trees, build state, running modules, and target-kernel paths are inventoried without running any build, install, remove, or autoinstall action. Package and DKMS-sensitive state must compare byte-for-byte before and after. The result always remains `apply_ready=false` and `apply_authorized=false` pending manual review.
 

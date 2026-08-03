@@ -1897,7 +1897,8 @@ Slack-Update 1.0 will be ready when:
   - [x] Detect the package script's conditional `geninitrd` hook and require a host-policy preflight.
   - [x] Run and review the Slackware-current `geninitrd` policy preflight before transaction design.
   - [x] Run and review the discovered Slackware-current DKMS hooks and installed DKMS state.
-  - [ ] Run and review the command-output-only GenInitrd projection for the target kernel transition.
+  - [x] Run and review the command-output-only GenInitrd projection for the target kernel transition.
+  - [ ] Run and review the GenInitrd versus Slack-Update GRUB-ownership preflight.
   - [x] Review and accept the ten-package Slackware-current transaction as package and boot evidence.
   - [ ] Revalidate the hardened deferred `.new` policy on the next Slackware-current update.
   - [x] Reject the 2026-08-03 Slackware-current diagnostic whose parser omitted the `x86` `kernel-headers` candidate.

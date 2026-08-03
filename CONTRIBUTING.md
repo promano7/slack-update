@@ -114,11 +114,12 @@ Before submitting a change to the reference script:
 30. Run `tests/reference/test-current-geninitrd-policy-preflight-harness.sh` when installed GenInitrd script recognition, non-evaluating policy parsing, generator selection, automatic GRUB behavior, custom hook inventory, or policy evidence publication is affected.
 31. Run `tests/reference/test-current-geninitrd-dkms-hook-preflight-harness.sh` when reviewed hook identity, hook metadata or syntax, static command-surface capture, read-only DKMS status, DKMS source/module inventory, or immutable apply denial is affected.
 32. Run `tests/reference/test-current-geninitrd-command-preflight-harness.sh` when command-generator identity, command-output-only invocation, inert argument parsing, target-kernel projection, cached-package binding, or no-execution guarantees are affected.
-33. Confirm that destructive commands are not exercised outside an isolated or explicitly recoverable Slackware test system.
-34. Record the relevant acceptance scenario.
-35. Preserve deterministic output and exit-code behavior.
-36. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
-37. Ensure every new or modified comment is written in English.
+33. Run `tests/reference/test-current-geninitrd-grub-ownership-preflight-harness.sh` when GenInitrd policy precedence, automatic GRUB suppression, evidence-local policy staging, transaction ordering, recovery boundaries, or exclusive Slack-Update GRUB ownership are affected.
+34. Confirm that destructive commands are not exercised outside an isolated or explicitly recoverable Slackware test system.
+35. Record the relevant acceptance scenario.
+36. Preserve deterministic output and exit-code behavior.
+37. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
+38. Ensure every new or modified comment is written in English.
 
 Never run the apply workflow on a production machine merely to validate a contribution.
 

@@ -1,0 +1,67 @@
+{
+  "scenario": "current-geninitrd-command-preflight",
+  "target": "slackware-current",
+  "accepted": true,
+  "captured_at": "2026-08-03T22:33:56Z",
+  "archive_sha256": "391c56d5aa3d5e8cfa5eba2a259e0c78964d5825d10ce1cabd0124d7ef435814",
+  "normal_update_candidate_set_sha256": "d9199fcf6c5cd8c59b87b1bde9a955df2c55d0ac84f6dab37ed8e4c1830dcaf1",
+  "running_kernel": "6.18.40",
+  "target_kernel": "6.18.41",
+  "generator": {
+    "path": "/usr/share/mkinitrd/mkinitrd_command_generator.sh",
+    "sha256": "90a65fd4edb8a1c0952c14d682046a9a6acfece4639599ea4b3079c5daadeeac",
+    "mode": "command-output-only",
+    "executed_for_kernel": "6.18.40"
+  },
+  "current_command_vector": [
+    "mkinitrd",
+    "-c",
+    "-k",
+    "6.18.40",
+    "-f",
+    "ext4",
+    "-r",
+    "/dev/sda2",
+    "-m",
+    "xhci-pci:ohci-pci:ehci-pci:xhci-hcd:uhci-hcd:ehci-hcd:hid:usbhid:i2c-hid:hid_generic:hid-asus:hid-cherry:hid-logitech:hid-logitech-dj:hid-logitech-hidpp:hid-lenovo:hid-microsoft:hid_multitouch",
+    "-u",
+    "-o",
+    "/boot/initrd.gz"
+  ],
+  "projected_command_vector": [
+    "mkinitrd",
+    "-c",
+    "-k",
+    "6.18.41",
+    "-f",
+    "ext4",
+    "-r",
+    "/dev/sda2",
+    "-m",
+    "xhci-pci:ohci-pci:ehci-pci:xhci-hcd:uhci-hcd:ehci-hcd:hid:usbhid:i2c-hid:hid_generic:hid-asus:hid-cherry:hid-logitech:hid-logitech-dj:hid-logitech-hidpp:hid-lenovo:hid-microsoft:hid_multitouch",
+    "-u",
+    "-o",
+    "/boot/initrd-6.18.41.img"
+  ],
+  "projected_initrd": "/boot/initrd-6.18.41.img",
+  "module_count": 18,
+  "command_status": "projected-safe",
+  "generated_command_executed": false,
+  "mkinitrd_executed": false,
+  "geninitrd_executed": false,
+  "update_grub_executed": false,
+  "package_database_unchanged": true,
+  "boot_policy_and_generator_state_unchanged": true,
+  "assertions": {
+    "passes": 11,
+    "failures": 0
+  },
+  "evidence": {
+    "portable_sha256_sidecar": true,
+    "copied_to": "/home/promano",
+    "destination_verification": "passed"
+  },
+  "apply_ready": false,
+  "apply_authorized": false,
+  "next_stage": "current-geninitrd-grub-ownership-preflight"
+}
