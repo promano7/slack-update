@@ -1035,6 +1035,17 @@ later transaction preflight must inspect the exact downloaded
 candidate digest, and exercise the staged GRUB plan before any accepted fixture
 may set `apply_ready=true`.
 
+The step 37 transaction preflight is now available:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-kernel-package-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 d9199fcf6c5cd8c59b87b1bde9a955df2c55d0ac84f6dab37ed8e4c1830dcaf1 \
+    --confirm-target-kernel 6.18.41
+```
+
+It requires the live Slackpkg metadata to retain the exact reviewed package, downloads only `kernel-generic` into `/var/cache/packages`, and opens the cached archive without installing it. Safe member paths, the target versioned kernel, target module files, an absent initrd payload, shell syntax, and exactly one recognized `vmlinuz-generic` symlink transition are recorded. `doinst.sh` is copied only into the private evidence directory and is never executed. A current GRUB configuration is generated and syntax-checked only in that evidence directory; `/boot/grub/grub.cfg`, `/boot`, and the package database must remain byte-identical. The result always remains `apply_ready=false` and `apply_authorized=false` until the evidence is reviewed.
+
 Slackware 15.0 passed the non-kernel branch of this scenario on 2026-08-01.
 The reviewed preflight deferred `kernel-generic`, `kernel-huge`, and
 `kernel-modules`, then authorized an exact 196-package candidate digest containing
@@ -1873,7 +1884,8 @@ Slack-Update 1.0 will be ready when:
   - [x] Run the first non-destructive Slackware-current kernel boot-layout preflight and reject its initrd-only assumptions.
   - [x] Repeat and accept the corrected direct-generic-aware boot-layout preflight for `6.18.41`.
   - [x] Add reference-engine policy for direct generic kernel transitions without initrd.
-  - [ ] Inspect the exact Slackware-current kernel package transaction and staged GRUB output before apply readiness.
+  - [x] Add a non-installing exact Slackware-current kernel-package transaction preflight.
+  - [ ] Run and review the exact Slackware-current kernel package transaction evidence before apply readiness.
   - [x] Review and accept the ten-package Slackware-current transaction as package and boot evidence.
   - [ ] Revalidate the hardened deferred `.new` policy on the next Slackware-current update.
   - [x] Reject the 2026-08-03 Slackware-current diagnostic whose parser omitted the `x86` `kernel-headers` candidate.

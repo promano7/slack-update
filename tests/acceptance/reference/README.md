@@ -218,6 +218,21 @@ A separate transaction preflight must inspect the exact downloaded target
 package and its install script before any fixture may mark this candidate digest
 `apply_ready=true`. Until then, do not execute apply.
 
+### Slackware-current exact kernel-package preflight
+
+Run the step 37 inspection on the same `pcold-slack` host:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-kernel-package-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 d9199fcf6c5cd8c59b87b1bde9a955df2c55d0ac84f6dab37ed8e4c1830dcaf1 \
+    --confirm-target-kernel 6.18.41
+```
+
+This stage may write only to the Slackpkg download cache and its private evidence directory. It first verifies the accepted normal-update and boot-layout records and requires the live Slackpkg metadata to expose exactly `kernel-generic-6.18.41-x86_64-1.txz`. It invokes `slackpkg download kernel-generic`, resolves exactly one regular cached package, records its SHA-256, rejects unsafe or duplicate archive members, requires `boot/vmlinuz-6.18.41` plus target module files, and rejects any embedded initrd or foreign module version.
+
+`install/doinst.sh` is read from the archive into evidence but never run. Its shell syntax must be valid, package mutation, initrd, GRUB installation, reboot, and shutdown commands are forbidden, and exactly one symlink transition from `vmlinuz-generic` to the target versioned image must be recognizable. GRUB discovery writes a generated configuration only below the evidence directory and validates it with `grub-script-check`. Before/after package and active-boot fingerprints must match. Every archive is copied with its portable `.sha256` directly to `/home/promano`; regardless of success, the result remains `apply_ready=false` and `apply_authorized=false` pending manual review.
+
 Slackware 15.0 passed the non-boot-kernel branch on 2026-08-01. An initial
 preflight reported 199 candidates, including `kernel-generic`, `kernel-huge`,
 and `kernel-modules`. Those three boot-kernel packages were deliberately
