@@ -31,6 +31,15 @@ if [ -r boot/vmlinuz-6.18.41 ]; then
   ( cd boot ; rm -rf vmlinuz-generic )
   ( cd boot ; ln -sf vmlinuz-6.18.41 vmlinuz-generic )
 fi
+if [ -r var/lib/pkgtools/setup/setup.01.mkinitrd ]; then
+  if ! grep -wq vmlinuz-generic-smp var/lib/pkgtools/setup/setup.01.mkinitrd 2> /dev/null ; then
+    if [ -z "$INSIDE_INSTALLER" ]; then
+      if [ -x usr/sbin/geninitrd ]; then
+        usr/sbin/geninitrd
+      fi
+    fi
+  fi
+fi
 EOF_DOINST
 PACKAGE=$CACHE/a/kernel-generic-6.18.41-x86_64-1.txz
 ( cd "$PKGROOT" && tar -cJf "$PACKAGE" . )
@@ -91,7 +100,9 @@ assert_contains 'lib/modules/6.18.41/kernel/drivers/test/test.ko' "$OUT/members"
 assert_contains 'initrd_members=0' "$OUT/package-summary" 'the package should not contain an initrd'
 assert_contains 'sha256=' "$OUT/package-summary" 'the package hash should be recorded'
 assert_success 'the recognized doinst policy should validate' validate_doinst_policy "$OUT/doinst" 6.18.41 "$OUT/doinst-policy"
-assert_contains 'policy=recognized-direct-generic-transition' "$OUT/doinst-policy" 'the direct transition should be explicit'
+assert_contains 'policy=recognized-direct-generic-transition-with-conditional-geninitrd' "$OUT/doinst-policy" 'the direct transition and conditional hook should be explicit'
+assert_contains 'postinstall_hook=conditional-geninitrd' "$OUT/doinst-policy" 'the conditional geninitrd hook should be recorded'
+assert_contains 'host_policy_preflight_required=true' "$OUT/doinst-policy" 'host policy review should be mandatory'
 assert_contains 'executed=false' "$OUT/doinst-policy" 'the package script should be recorded as unexecuted'
 
 BADROOT=$TMP/badroot
@@ -152,6 +163,15 @@ cat > "$OUT/doinst.comment" <<'EOF_COMMENT'
 # Run mkinitrd manually only if this host uses an initrd.
 echo "reboot after reviewing the boot loader"
 ln -sf vmlinuz-6.18.41 vmlinuz-generic
+if [ -r var/lib/pkgtools/setup/setup.01.mkinitrd ]; then
+  if ! grep -wq vmlinuz-generic-smp var/lib/pkgtools/setup/setup.01.mkinitrd ; then
+    if [ -z "$INSIDE_INSTALLER" ]; then
+      if [ -x usr/sbin/geninitrd ]; then
+        usr/sbin/geninitrd
+      fi
+    fi
+  fi
+fi
 EOF_COMMENT
 assert_success 'comments and informational text should not be treated as executed commands' validate_doinst_policy "$OUT/doinst.comment" 6.18.41 "$OUT/comment-policy"
 cat > "$OUT/doinst.bad" <<'EOF_BAD'
@@ -171,6 +191,27 @@ rm -rf /
 ln -sf vmlinuz-6.18.41 vmlinuz-generic
 EOF_BAD
 assert_failure 'absolute destructive removal should fail closed' validate_doinst_policy "$OUT/doinst.bad" 6.18.41 "$OUT/bad-policy"
+
+cat > "$OUT/doinst.nohook" <<'EOF_NOHOOK'
+#!/bin/sh
+ln -sf vmlinuz-6.18.41 vmlinuz-generic
+EOF_NOHOOK
+assert_failure 'a package without the conditional geninitrd hook should fail closed' validate_doinst_policy "$OUT/doinst.nohook" 6.18.41 "$OUT/bad-policy"
+cat > "$OUT/doinst.doublehook" <<'EOF_DOUBLEHOOK'
+#!/bin/sh
+ln -sf vmlinuz-6.18.41 vmlinuz-generic
+if [ -r var/lib/pkgtools/setup/setup.01.mkinitrd ]; then
+  if ! grep -wq vmlinuz-generic-smp var/lib/pkgtools/setup/setup.01.mkinitrd ; then
+    if [ -z "$INSIDE_INSTALLER" ]; then
+      if [ -x usr/sbin/geninitrd ]; then
+        usr/sbin/geninitrd
+        usr/sbin/geninitrd
+      fi
+    fi
+  fi
+fi
+EOF_DOUBLEHOOK
+assert_failure 'duplicate geninitrd invocations should fail closed' validate_doinst_policy "$OUT/doinst.doublehook" 6.18.41 "$OUT/bad-policy"
 
 assert_contains '"apply_ready": false' "$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-direct-generic-preflight-20260803-accepted.json" 'boot discovery evidence should remain non-ready'
 assert_contains 'transaction_preflight_required' "$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-direct-generic-preflight-20260803-accepted.json" 'boot discovery should require this transaction preflight'

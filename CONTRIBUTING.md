@@ -20,6 +20,8 @@ assume that behavior observed only on one target is valid on the other. Record
 target-specific requirements and provide detection or a safe fallback where the
 two systems differ.
 
+Slackware-current kernel package scripts may invoke `geninitrd` conditionally. Acceptance work must inspect the installed `/etc/default/geninitrd`, setup script, generator, custom hooks, cleanup settings, and automatic GRUB behavior without sourcing or executing them. A recognized versioned kernel symlink transition alone is not sufficient to authorize apply.
+
 ## Language policy
 
 Use English for:

@@ -318,9 +318,28 @@ for line in text.splitlines():
         unsafe_rm.append(stripped)
 if unsafe_rm:
     raise SystemExit('doinst.sh contains an unsafe absolute removal')
+required_geninitrd_guards = [
+    'var/lib/pkgtools/setup/setup.01.mkinitrd',
+    'vmlinuz-generic-smp',
+    'INSIDE_INSTALLER',
+    'usr/sbin/geninitrd',
+]
+if not all(token in text for token in required_geninitrd_guards):
+    raise SystemExit('conditional geninitrd hook is absent or not recognized')
+invocations = []
+for raw_line in text.splitlines():
+    line = raw_line.strip()
+    if not line or line.startswith('#') or line.startswith('if '):
+        continue
+    if re.fullmatch(r'(?:/)?usr/sbin/geninitrd(?:\s*)', line):
+        invocations.append(line)
+if len(invocations) != 1:
+    raise SystemExit(f'expected one conditional geninitrd invocation, found {len(invocations)}')
 out.write_text(
-    'syntax=valid\npolicy=recognized-direct-generic-transition\n'
-    f'target={target}\ntransition={transition[0]}\nforbidden_commands=absent\nexecuted=false\n',
+    'syntax=valid\npolicy=recognized-direct-generic-transition-with-conditional-geninitrd\n'
+    f'target={target}\ntransition={transition[0]}\n'
+    f'geninitrd_invocation={invocations[0]}\npostinstall_hook=conditional-geninitrd\n'
+    'host_policy_preflight_required=true\nforbidden_commands=absent\nexecuted=false\n',
     encoding='utf-8')
 PY
 }
@@ -436,8 +455,8 @@ main() {
         record_failure 'the package archive structure is unsafe or incomplete'
     fi
     if [ -s "$doinst_file" ] && validate_doinst_policy "$doinst_file" "$TARGET_KERNEL" "$OUTPUT_DIR/doinst-policy.txt"; then
-        DOINST_POLICY=recognized-direct-generic-transition
-        record_pass 'doinst.sh has valid syntax and one recognized non-executed generic-kernel symlink transition'
+        DOINST_POLICY=recognized-direct-generic-transition-with-conditional-geninitrd
+        record_pass 'doinst.sh has valid syntax, one generic-kernel symlink transition, and one non-executed conditional geninitrd hook'
     else
         record_failure 'doinst.sh policy is unsafe or not recognized'
     fi

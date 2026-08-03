@@ -218,9 +218,11 @@ A separate transaction preflight must inspect the exact downloaded target
 package and its install script before any fixture may mark this candidate digest
 `apply_ready=true`. Until then, do not execute apply.
 
-### Slackware-current exact kernel-package preflight
+### Slackware-current exact kernel-package and geninitrd policy preflights
 
-Run the step 37 inspection on the same `pcold-slack` host:
+The step 37 inspection passed on `pcold-slack` with package SHA-256 `b588e9e74258baaf2d5e05a1731981cb679f5665d50a3a91d9f02219c4a8024a` and evidence SHA-256 `d4f455dafb6783dc96e8cf45c45d00ef4e54d1e9b5dc2ae8e05b8db166b50888`. Its copied `doinst.sh` was not executed and exposed one guarded `usr/sbin/geninitrd` call. The accepted package record is stored at `tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-package-preflight-20260803-accepted.json`.
+
+The original step 37 command was:
 
 ```bash
 sudo bash tests/acceptance/reference/test-current-kernel-package-preflight.sh \
@@ -231,7 +233,19 @@ sudo bash tests/acceptance/reference/test-current-kernel-package-preflight.sh \
 
 This stage may write only to the Slackpkg download cache and its private evidence directory. It first verifies the accepted normal-update and boot-layout records and requires the live Slackpkg metadata to expose exactly `kernel-generic-6.18.41-x86_64-1.txz`. It invokes `slackpkg download kernel-generic`, resolves exactly one regular cached package, records its SHA-256, rejects unsafe or duplicate archive members, requires `boot/vmlinuz-6.18.41` plus target module files, and rejects any embedded initrd or foreign module version.
 
-`install/doinst.sh` is read from the archive into evidence but never run. Its shell syntax must be valid, package mutation, initrd, GRUB installation, reboot, and shutdown commands are forbidden, and exactly one symlink transition from `vmlinuz-generic` to the target versioned image must be recognizable. GRUB discovery writes a generated configuration only below the evidence directory and validates it with `grub-script-check`. Before/after package and active-boot fingerprints must match. Every archive is copied with its portable `.sha256` directly to `/home/promano`; regardless of success, the result remains `apply_ready=false` and `apply_authorized=false` pending manual review.
+`install/doinst.sh` is read from the archive into evidence but never run. Its shell syntax must be valid, package mutation, direct `mkinitrd`, GRUB installation, reboot, and shutdown commands are forbidden, exactly one symlink transition from `vmlinuz-generic` to the target versioned image must be recognizable, and exactly one guarded `geninitrd` invocation must require the next host-policy stage. GRUB discovery writes a generated configuration only below the evidence directory and validates it with `grub-script-check`. Before/after package and active-boot fingerprints must match. Every archive is copied with its portable `.sha256` directly to `/home/promano`; regardless of success, the result remains `apply_ready=false` and `apply_authorized=false` pending manual review.
+
+Run step 38 on the same host before any apply design:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-geninitrd-policy-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 d9199fcf6c5cd8c59b87b1bde9a955df2c55d0ac84f6dab37ed8e4c1830dcaf1 \
+    --confirm-target-kernel 6.18.41
+```
+
+This preflight statically validates `/usr/sbin/geninitrd` and `/var/lib/pkgtools/setup/setup.01.mkinitrd`, parses active assignments in `/etc/default/geninitrd` without sourcing the file, determines whether `AUTOGENERATE_INITRD` disables the kernel-install hook, selects the effective generator including the no-`mkinitrd.conf` fallback, records automatic GRUB and cleanup settings, and inventories regular executable pre-install, post-install, override, and DKMS hooks. Symlinked hooks, command substitutions, unknown active assignments, unsupported generators, and unrecognized script control flow fail closed. Package, boot, and policy fingerprints are captured before and after inspection. The script never executes any discovered hook and always reports `apply_ready=false` and `apply_authorized=false`.
+
 
 Slackware 15.0 passed the non-boot-kernel branch on 2026-08-01. An initial
 preflight reported 199 candidates, including `kernel-generic`, `kernel-huge`,

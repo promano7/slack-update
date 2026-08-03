@@ -1035,16 +1035,20 @@ later transaction preflight must inspect the exact downloaded
 candidate digest, and exercise the staged GRUB plan before any accepted fixture
 may set `apply_ready=true`.
 
-The step 37 transaction preflight is now available:
+The step 37 transaction preflight passed on `pcold-slack`. It verified the exact `kernel-generic-6.18.41-x86_64-1.txz` package with SHA-256 `b588e9e74258baaf2d5e05a1731981cb679f5665d50a3a91d9f02219c4a8024a`, 6,588 safe archive members, 5,490 target-module paths, the target versioned kernel, no embedded initrd, and unchanged package plus boot state. The accepted evidence archive has SHA-256 `d4f455dafb6783dc96e8cf45c45d00ef4e54d1e9b5dc2ae8e05b8db166b50888`.
+
+Review of the copied `doinst.sh` showed that the versioned `vmlinuz-generic` transition is followed by a guarded `usr/sbin/geninitrd` invocation. The package script was never executed, but this conditional hook may create a versioned initrd, remove orphaned initrds, invoke custom hooks, and update GRUB according to the installed host policy. Therefore exact-package integrity is accepted while apply remains blocked.
+
+Run the step 38 host-policy preflight on the same machine:
 
 ```bash
-sudo bash tests/acceptance/reference/test-current-kernel-package-preflight.sh \
+sudo bash tests/acceptance/reference/test-current-geninitrd-policy-preflight.sh \
     --target slackware-current \
     --confirm-candidates-sha256 d9199fcf6c5cd8c59b87b1bde9a955df2c55d0ac84f6dab37ed8e4c1830dcaf1 \
     --confirm-target-kernel 6.18.41
 ```
 
-It requires the live Slackpkg metadata to retain the exact reviewed package, downloads only `kernel-generic` into `/var/cache/packages`, and opens the cached archive without installing it. Safe member paths, the target versioned kernel, target module files, an absent initrd payload, shell syntax, and exactly one recognized `vmlinuz-generic` symlink transition are recorded. `doinst.sh` is copied only into the private evidence directory and is never executed. A current GRUB configuration is generated and syntax-checked only in that evidence directory; `/boot/grub/grub.cfg`, `/boot`, and the package database must remain byte-identical. The result always remains `apply_ready=false` and `apply_authorized=false` until the evidence is reviewed.
+This stage does not execute `geninitrd`, an initrd generator, `update-grub`, or any package command. It validates the installed control flow, parses `/etc/default/geninitrd` without shell evaluation, inventories executable hooks and configured override scripts, predicts the effective generator and boot transition, and proves that package, boot, and policy state stay unchanged. Its result always remains `apply_ready=false` and `apply_authorized=false` until the automatic post-install effects are contained by a later transaction design.
 
 Slackware 15.0 passed the non-kernel branch of this scenario on 2026-08-01.
 The reviewed preflight deferred `kernel-generic`, `kernel-huge`, and
@@ -1885,7 +1889,9 @@ Slack-Update 1.0 will be ready when:
   - [x] Repeat and accept the corrected direct-generic-aware boot-layout preflight for `6.18.41`.
   - [x] Add reference-engine policy for direct generic kernel transitions without initrd.
   - [x] Add a non-installing exact Slackware-current kernel-package transaction preflight.
-  - [ ] Run and review the exact Slackware-current kernel package transaction evidence before apply readiness.
+  - [x] Run and review the exact Slackware-current kernel package transaction evidence before apply readiness.
+  - [x] Detect the package script's conditional `geninitrd` hook and require a host-policy preflight.
+  - [ ] Run and review the Slackware-current `geninitrd` policy preflight before transaction design.
   - [x] Review and accept the ten-package Slackware-current transaction as package and boot evidence.
   - [ ] Revalidate the hardened deferred `.new` policy on the next Slackware-current update.
   - [x] Reject the 2026-08-03 Slackware-current diagnostic whose parser omitted the `x86` `kernel-headers` candidate.
