@@ -104,11 +104,12 @@ Before submitting a change to the reference script:
 22. Run `tests/reference/test-elilo-kernel-transaction-preflight-harness.sh` when Slackpkg kernel-candidate resolution, version comparison, versioned EFI naming, planned ELILO rewriting, free-space guards, transaction boundaries, or transaction-preflight evidence publication is affected.
 23. Run `tests/reference/test-elilo-kernel-transaction-apply-harness.sh` when exact per-package Slackpkg download statuses, cached-package resolution, blacklist restoration, old/new kernel coexistence, generated mkinitrd parsing, versioned EFI staging, ELILO fallback entries, atomic activation, rollback cleanup, or apply evidence publication is affected.
 24. Run `tests/reference/test-elilo-oldkernel-retention-preflight-harness.sh` when retention timing, later-boot evidence, package-database compatibility symlinks, active/rollback package records, state-capture comparison, ELILO two-entry validation, shared package-path inventory, cleanup planning, portable evidence sidecars, destination verification, or no-cleanup source guards are affected.
-25. Confirm that destructive commands are not exercised outside an isolated or explicitly recoverable Slackware test system.
-26. Record the relevant acceptance scenario.
-27. Preserve deterministic output and exit-code behavior.
-28. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
-29. Ensure every new or modified comment is written in English.
+25. Run `tests/reference/test-kernel-cleanup-plan.sh` when cleanup inventory schema, exact active/rollback package sets, active archive coverage, module-tree requirements, ELILO oldkernel-removal planning, GRUB regeneration planning, no-op single-kernel handling, or cleanup authorization boundaries are affected.
+26. Confirm that destructive commands are not exercised outside an isolated or explicitly recoverable Slackware test system.
+27. Record the relevant acceptance scenario.
+28. Preserve deterministic output and exit-code behavior.
+29. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
+30. Ensure every new or modified comment is written in English.
 
 Never run the apply workflow on a production machine merely to validate a contribution.
 

@@ -1140,6 +1140,50 @@ old package records, reinstall the active package set to repair shared package
 paths, verify the active boot chain, atomically remove `oldkernel`, and only then
 delete unreferenced rollback files.
 
+
+### Kernel cleanup plan contract
+
+Phase 1 step 31 defines the cleanup transaction as a plan-only, boot-loader-neutral
+contract. It does not change the retained ELILO VM, does not change the GRUB
+development VM, and cannot authorize apply. Generate deterministic plans from the
+included schema-1 fixtures with:
+
+```bash
+tools/reference/kernel-cleanup-plan-reference.sh \
+    --input tests/fixtures/reference/kernel-cleanup/slackware-15.0-elilo-dual-kernel-design.json \
+    --output /tmp/slack-update-elilo-cleanup-plan.json
+```
+
+The common plan requires the running kernel to equal the accepted active kernel,
+exactly one active and one rollback package record for each of `kernel-generic`,
+`kernel-huge`, and `kernel-modules`, a present module tree for both versions, and
+one verified archive for every active package. The package transaction removes
+only the exact rollback records and then reinstalls the exact active package set
+before any boot-loader rollback reference can disappear. Kernel headers, kernel
+source, and firmware packages are preserved.
+
+ELILO and GRUB use different backend actions. ELILO must stage a configuration
+without `oldkernel`, validate the versioned active entry, activate the staged file
+atomically, and prove that legacy EFI files are no longer referenced before they
+can be deleted. GRUB must never be edited manually: `grub-mkconfig` output belongs
+in an owner-only same-directory temporary file, `grub-script-check` must accept it,
+the regenerated configuration must retain active entries and omit rollback
+entries, and replacement must be atomic.
+
+The second Slackware 15.0 VM observed on 2026-08-03 is recorded as a development
+baseline. It boots `5.15.209` through GRUB with
+`BOOT_IMAGE=/boot/vmlinuz-huge-5.15.209`, has active generic, huge, and modules
+records only, retains headers/source/firmware packages, and has no `5.15.19`
+rollback records or entries. Its cleanup result is therefore deliberately
+`not-applicable`, contains zero actions, and leaves packages plus GRUB unchanged.
+The synthetic dual-kernel GRUB fixture exists only to validate backend planning;
+it is not real-system acceptance evidence.
+
+Every generated plan contains `apply_permitted=false`,
+`cleanup_authorized=false`, and `requires_separate_apply_stage=true`. Mature
+retention eligibility removes only the eligibility blocker; it never creates an
+authorization.
+
 ### Real-system acceptance matrix
 
 - [x] Fully updated system with no available changes.
@@ -1163,7 +1207,8 @@ delete unreferenced rollback files.
   - [x] Define a seven-day, two-successful-boot retention policy and a non-destructive ELILO oldkernel eligibility preflight.
   - [x] Run and review the retention preflight while cleanup remains unauthorized.
   - [ ] Repeat the retention preflight no earlier than 2026-08-08 19:51 CEST and review mature eligibility evidence.
-  - [ ] Design and authorize the separate cleanup apply only after eligibility evidence is accepted.
+  - [x] Define and validate the boot-loader-neutral cleanup plan contract without authorizing apply.
+  - [ ] Implement and explicitly authorize the separate cleanup apply only after mature eligibility evidence is accepted.
 - [x] `install-new` introduces new packages.
 - [x] Kernel package update.
 - [ ] Kernel headers update without a kernel image update.

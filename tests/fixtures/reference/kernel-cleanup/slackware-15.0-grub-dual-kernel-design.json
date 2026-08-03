@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "inventory_id": "slackware-15.0-grub-dual-kernel-synthetic-design",
+  "fixture_kind": "synthetic-plan-input",
+  "target": "slackware-15.0",
+  "hostname": "vbox-slack15.vbox-slack15.org",
+  "firmware": "uefi",
+  "boot_loader": "grub",
+  "running_kernel": "5.15.209",
+  "active_kernel": "5.15.209",
+  "rollback_kernel": "5.15.19",
+  "cleanup_eligible": true,
+  "cleanup_authorized": false,
+  "package_database": {
+    "configured": "/var/log/packages",
+    "resolved": "/var/lib/pkgtools/packages",
+    "resolved_is_directory": true,
+    "internal_record_symlinks": false
+  },
+  "packages": {
+    "active": [
+      "kernel-generic-5.15.209-x86_64-1",
+      "kernel-huge-5.15.209-x86_64-1",
+      "kernel-modules-5.15.209-x86_64-1"
+    ],
+    "rollback": [
+      "kernel-generic-5.15.19-x86_64-2",
+      "kernel-huge-5.15.19-x86_64-2",
+      "kernel-modules-5.15.19-x86_64-2"
+    ],
+    "other_kernel_packages": [
+      "kernel-firmware-20250912_f0f4634-noarch-1",
+      "kernel-headers-5.15.209-x86-1",
+      "kernel-source-5.15.209-noarch-1"
+    ]
+  },
+  "active_archives": [
+    {
+      "record": "kernel-generic-5.15.209-x86_64-1",
+      "path": "/var/cache/packages/kernel-generic-5.15.209-x86_64-1.txz",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "available": true
+    },
+    {
+      "record": "kernel-huge-5.15.209-x86_64-1",
+      "path": "/var/cache/packages/kernel-huge-5.15.209-x86_64-1.txz",
+      "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "available": true
+    },
+    {
+      "record": "kernel-modules-5.15.209-x86_64-1",
+      "path": "/var/cache/packages/kernel-modules-5.15.209-x86_64-1.txz",
+      "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+      "available": true
+    }
+  ],
+  "module_trees": {
+    "active": true,
+    "rollback": true
+  },
+  "boot": {
+    "config": "/boot/grub/grub.cfg",
+    "default_index": 0,
+    "timeout_seconds": 10,
+    "default_flavor": "huge",
+    "active_entries_present": true,
+    "rollback_entries_present": true,
+    "generator_available": true,
+    "validator_available": true
+  }
+}

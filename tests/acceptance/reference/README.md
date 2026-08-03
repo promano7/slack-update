@@ -415,3 +415,28 @@ state unchanged. It correctly remained `cleanup_eligible=false` because the
 seven-day window was not met. The next eligibility run must occur no earlier
 than `2026-08-08T19:51:00+02:00`; cleanup remains unauthorized regardless of
 preflight eligibility.
+
+### Kernel cleanup plan contract
+
+Phase 1 step 31 is intentionally plan-only and has no real-system apply command.
+`tools/reference/kernel-cleanup-plan-reference.sh` consumes a schema-1 inventory
+and emits deterministic JSON while preserving `cleanup_authorized=false` and
+`apply_permitted=false`. It validates exact active and rollback boot-package
+triples, active package archive coverage, module trees, canonical package-database
+metadata, and backend-specific boot state.
+
+ELILO plans stage and atomically activate removal of the `oldkernel` stanza only
+after active packages are reinstalled and the active boot chain is verified.
+GRUB plans generate to a same-directory temporary file, validate with
+`grub-script-check`, verify active entries plus absent rollback entries, and then
+replace `grub.cfg` atomically. Neither plan can execute package commands, edit a
+boot-loader configuration, or delete rollback files.
+
+The console-observed Slackware 15.0 GRUB development VM is preserved in
+`tests/fixtures/reference/kernel-cleanup/slackware-15.0-grub-single-kernel-observed.json`.
+It runs `5.15.209`, defaults to the huge kernel, has no retained rollback package
+triple, and therefore produces a stable `not-applicable` result with zero actions.
+This fixture is a development baseline, not acceptance evidence. The retained
+ELILO VM remains the only target for the scheduled mature preflight after
+`2026-08-08T19:51:00+02:00`.
+
