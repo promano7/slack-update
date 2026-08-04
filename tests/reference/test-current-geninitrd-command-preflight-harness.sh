@@ -27,6 +27,9 @@ assert_contains 'timeout 30 "$GENERATOR_SCRIPT" -k "$RUNNING_KERNEL"' "$SCRIPT" 
 assert_not_contains ' --run' <(grep -E '^[[:space:]]*timeout ' "$SCRIPT") 'the generator invocation must not use --run'
 assert_not_contains 'eval ' "$SCRIPT" 'the generated command must never be evaluated'
 assert_not_contains 'bash -c "$PROJECTED_COMMAND"' "$SCRIPT" 'the projected command must never be passed to a shell'
+assert_not_contains 'b588e9e74258baaf2d5e05a1731981cb679f5665d50a3a91d9f02219c4a8024a' "$SCRIPT" 'the preflight must not retain the stale 6.18.41 package digest'
+assert_not_contains 'e9e7a1c5c71c945ee99595868aa8fee8a644b56601ece0c3e5696d643fe84878' "$SCRIPT" 'the preflight must not duplicate the accepted 6.18.42 package digest in code'
+assert_contains 'REVIEWED_PACKAGE_SHA256' "$SCRIPT" 'the cache check should use the package identity loaded from accepted evidence'
 if grep -Eq '^[[:space:]]*(mkinitrd|geninitrd|update-grub|grub-mkconfig|installpkg|upgradepkg|removepkg|slackpkg)[[:space:]]' "$SCRIPT"; then
     fail 'the preflight must not invoke package, initrd, or GRUB mutation commands'
 else
@@ -57,6 +60,8 @@ PACKAGE_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-b
 POLICY_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-policy-preflight-20260804-accepted.json"
 DKMS_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-dkms-hook-preflight-20260804-accepted.json"
 assert_success 'the accepted records should match the exact generator transaction' validate_accepted_records
+assert_equal kernel-generic-6.18.42-x86_64-1.txz "$REVIEWED_PACKAGE_FILENAME" 'accepted evidence should provide the reviewed package filename'
+assert_equal e9e7a1c5c71c945ee99595868aa8fee8a644b56601ece0c3e5696d643fe84878 "$REVIEWED_PACKAGE_SHA256" 'accepted evidence should provide the reviewed package SHA-256'
 
 cp "$CHAIN_PREFLIGHT" "$TMP/chain-mismatch.json"
 python3 - "$TMP/chain-mismatch.json" <<'PY'
@@ -66,6 +71,19 @@ PY
 CHAIN_PREFLIGHT="$TMP/chain-mismatch.json"
 assert_failure 'a restarted chain detached from the accepted boot evidence should fail closed' validate_accepted_records
 CHAIN_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-chain-restart-20260804-accepted.json"
+
+cp "$PACKAGE_PREFLIGHT" "$TMP/package-invalid-digest.json"
+python3 - "$TMP/package-invalid-digest.json" <<'PYFIXTURE'
+import json, sys
+p = sys.argv[1]
+d = json.load(open(p))
+d['package']['sha256'] = 'not-a-sha256'
+open(p, 'w').write(json.dumps(d))
+PYFIXTURE
+PACKAGE_PREFLIGHT="$TMP/package-invalid-digest.json"
+assert_failure 'an invalid package digest in accepted evidence should fail closed' validate_accepted_records
+assert_equal '' "$REVIEWED_PACKAGE_SHA256" 'failed accepted-record validation should clear any previously loaded package identity'
+PACKAGE_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-package-preflight-20260804-accepted.json"
 
 cp "$DKMS_PREFLIGHT" "$TMP/dkms-status.json"
 python3 - "$TMP/dkms-status.json" <<'PY'

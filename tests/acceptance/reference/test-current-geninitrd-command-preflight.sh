@@ -40,6 +40,8 @@ CURRENT_COMMAND=
 PROJECTED_COMMAND=
 APPLY_READY=false
 APPLY_AUTHORIZED=false
+REVIEWED_PACKAGE_FILENAME=
+REVIEWED_PACKAGE_SHA256=
 
 print_usage() {
     cat <<EOF_USAGE
@@ -114,7 +116,10 @@ parse_arguments() {
 }
 
 validate_accepted_records() {
-    python3 - "$NORMAL_PREFLIGHT" "$BOOT_PREFLIGHT" "$CHAIN_PREFLIGHT" "$PACKAGE_PREFLIGHT" "$POLICY_PREFLIGHT" "$DKMS_PREFLIGHT" "$CONFIRM_CANDIDATES_SHA256" "$TARGET_KERNEL" <<'PY'
+    local identity
+    REVIEWED_PACKAGE_FILENAME=
+    REVIEWED_PACKAGE_SHA256=
+    identity=$(python3 - "$NORMAL_PREFLIGHT" "$BOOT_PREFLIGHT" "$CHAIN_PREFLIGHT" "$PACKAGE_PREFLIGHT" "$POLICY_PREFLIGHT" "$DKMS_PREFLIGHT" "$CONFIRM_CANDIDATES_SHA256" "$TARGET_KERNEL" <<'PY'
 import json, sys
 normal_path, boot_path, chain_path, package_path, policy_path, dkms_path, digest, target = sys.argv[1:]
 try:
@@ -127,7 +132,12 @@ try:
 except Exception:
     raise SystemExit(1)
 expected = f'kernel-generic-{target}-x86_64-1.txz'
-expected_package_sha256 = 'e9e7a1c5c71c945ee99595868aa8fee8a644b56601ece0c3e5696d643fe84878'
+package_filename = package.get('package', {}).get('filename')
+package_sha256 = package.get('package', {}).get('sha256')
+if isinstance(package_sha256, str):
+    package_sha256 = package_sha256.lower()
+def is_sha256(value):
+    return isinstance(value, str) and len(value) == 64 and all(ch in '0123456789abcdef' for ch in value)
 checks = [
     normal.get('scenario') == 'normal-update',
     normal.get('accepted') is True,
@@ -157,8 +167,8 @@ checks = [
     package.get('boot_preflight_archive_sha256') == boot.get('archive_sha256'),
     package.get('chain_restart_archive_sha256') == chain.get('archive_sha256'),
     package.get('target_kernel') == target,
-    package.get('package', {}).get('filename') == expected,
-    package.get('package', {}).get('sha256') == expected_package_sha256,
+    package_filename == expected,
+    is_sha256(package_sha256),
     package.get('doinst', {}).get('conditional_geninitrd_hook') is True,
     package.get('next_stage') == 'current-geninitrd-policy-preflight',
     package.get('apply_ready') is False,
@@ -191,8 +201,15 @@ checks = [
     dkms.get('apply_ready') is False,
     dkms.get('apply_authorized') is False,
 ]
-raise SystemExit(0 if all(checks) else 1)
+if not all(checks):
+    raise SystemExit(1)
+print(f'{package_filename}\t{package_sha256}')
 PY
+) || return 1
+    local IFS=$'\t'
+    read -r REVIEWED_PACKAGE_FILENAME REVIEWED_PACKAGE_SHA256 <<< "$identity"
+    [ "$REVIEWED_PACKAGE_FILENAME" = "kernel-generic-${TARGET_KERNEL}-x86_64-1.txz" ] \
+        && is_sha256 "$REVIEWED_PACKAGE_SHA256"
 }
 capture_package_state() {
     local output=$1 root=/var/lib/pkgtools/packages item
@@ -262,18 +279,23 @@ validate_generator_scripts() {
 }
 
 locate_reviewed_package() {
-    local output=$1 expected="kernel-generic-${TARGET_KERNEL}-x86_64-1.txz" path count=0 digest
+    local output=$1 path count=0 digest
+    [ -n "$REVIEWED_PACKAGE_FILENAME" ] && is_sha256 "$REVIEWED_PACKAGE_SHA256" || return 1
     : > "$output" || return 1
     while IFS= read -r -d '' path; do
         [ -f "$path" ] && [ ! -L "$path" ] || return 1
         count=$((count + 1))
         printf '%s\n' "$path" >> "$output"
-    done < <(find /var/cache/packages -type f -name "$expected" -print0 2>/dev/null | LC_ALL=C sort -z)
+    done < <(find /var/cache/packages -type f -name "$REVIEWED_PACKAGE_FILENAME" -print0 2>/dev/null | LC_ALL=C sort -z)
     [ "$count" -eq 1 ] || return 1
-    path=$(cat "$output")
+    path=$(head -n 1 -- "$output")
     digest=$(sha256sum -- "$path" | awk '{print $1}')
-    [ "$digest" = b588e9e74258baaf2d5e05a1731981cb679f5665d50a3a91d9f02219c4a8024a ] || return 1
-    printf 'sha256=%s\n' "$digest" >> "$output"
+    {
+        printf 'expected_filename=%s\n' "$REVIEWED_PACKAGE_FILENAME"
+        printf 'expected_sha256=%s\n' "$REVIEWED_PACKAGE_SHA256"
+        printf 'observed_sha256=%s\n' "$digest"
+    } >> "$output"
+    [ "$digest" = "$REVIEWED_PACKAGE_SHA256" ]
 }
 
 parse_generator_output() {
@@ -441,7 +463,7 @@ main() {
     EXPECTED_INITRD="/boot/initrd-${TARGET_KERNEL}.img"
 
     validate_accepted_records \
-        && record_pass 'the accepted candidate, boot, package, GenInitrd, and no-op DKMS records match this generator inspection' \
+        && record_pass 'the accepted candidate, boot, package, GenInitrd, and no-op DKMS records match this generator inspection and provide the exact package identity' \
         || record_failure 'the accepted records do not match this generator inspection'
     [ "$RUNNING_KERNEL" != "$TARGET_KERNEL" ] && is_safe_kernel_version "$RUNNING_KERNEL" \
         && record_pass "the running kernel $RUNNING_KERNEL remains the reviewed predecessor of $TARGET_KERNEL" \

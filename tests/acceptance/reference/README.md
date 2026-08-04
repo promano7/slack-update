@@ -738,3 +738,5 @@ sudo bash tests/acceptance/reference/test-current-geninitrd-command-preflight.sh
 
 The preflight binds the accepted normal-update, boot, restarted-chain, exact-package, GenInitrd-policy, and no-op DKMS records. It invokes the installed generator only in command-output mode for `6.18.40`, parses exactly one inert `mkinitrd` vector without evaluation, and projects the target to `6.18.42` with output `/boot/initrd-6.18.42.img`. It never runs `mkinitrd`, `geninitrd`, GRUB, package tools, or the generated vector. Copy the archive and portable sidecar directly to `/home/promano`; the result remains `apply_ready=false` and `apply_authorized=false`.
 
+The first real run passed 10 assertions and failed only the cached-package assertion because executable code still contained the old `6.18.41` package SHA-256. Archive SHA-256 `8f3f32b17d735241caf7e22f2aa32b56d2d42590a46bb920979ed51e0ab6c3f6` is diagnostic only. The corrected step-51 script loads the exact package filename and digest from `slackware-current-kernel-package-preflight-20260804-accepted.json`, records expected and observed cache digests, and requires a clean rerun before this boundary is accepted.
+

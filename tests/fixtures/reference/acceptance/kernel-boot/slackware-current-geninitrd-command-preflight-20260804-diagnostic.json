@@ -1,0 +1,53 @@
+{
+    "scenario": "current-geninitrd-command-preflight",
+    "target": "slackware-current",
+    "accepted": false,
+    "diagnostic_only": true,
+    "retry_required": true,
+    "captured_at": "2026-08-04T23:07:01Z",
+    "archive_sha256": "8f3f32b17d735241caf7e22f2aa32b56d2d42590a46bb920979ed51e0ab6c3f6",
+    "candidate_set_sha256": "918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9",
+    "platform": {
+        "hostname": "pcold-slack.pcold-slack.org",
+        "slackware_version": "Slackware 15.0+",
+        "running_kernel": "6.18.40",
+        "target_kernel": "6.18.42",
+        "architecture": "x86_64",
+        "boot_loader": "grub"
+    },
+    "package_cache_observation": {
+        "path": "/var/cache/packages/slackware64/a/kernel-generic-6.18.42-x86_64-1.txz",
+        "reviewed_filename": "kernel-generic-6.18.42-x86_64-1.txz",
+        "reviewed_sha256": "e9e7a1c5c71c945ee99595868aa8fee8a644b56601ece0c3e5696d643fe84878",
+        "stale_embedded_sha256": "b588e9e74258baaf2d5e05a1731981cb679f5665d50a3a91d9f02219c4a8024a",
+        "identity_source_before_fix": "duplicated literal in the command preflight",
+        "identity_source_after_fix": "accepted exact-package evidence record"
+    },
+    "generator_projection": {
+        "status": "projected-safe",
+        "current_kernel": "6.18.40",
+        "target_kernel": "6.18.42",
+        "target_initrd": "/boot/initrd-6.18.42.img",
+        "module_count": 18,
+        "generated_command_executed": false,
+        "mkinitrd_executed": false,
+        "geninitrd_executed": false,
+        "update_grub_executed": false
+    },
+    "assertions": {
+        "passes": 10,
+        "failures": 1,
+        "failed_message": "the reviewed kernel-generic package is missing, ambiguous, unsafe, or changed"
+    },
+    "diagnosis": "The exact 6.18.42 package path was present, but the command preflight compared it with the stale SHA-256 accepted for kernel-generic 6.18.41. The package filename and digest must be loaded from the accepted exact-package evidence instead of duplicated in executable code.",
+    "package_database_unchanged": true,
+    "boot_state_unchanged": true,
+    "apply_ready": false,
+    "apply_authorized": false,
+    "evidence": {
+        "portable_sha256_sidecar": true,
+        "copied_to": "/home/promano",
+        "destination_verification": "passed"
+    },
+    "rejection_reason": "The stale embedded package digest made the cache assertion invalid. A corrected non-destructive rerun is required before accepting the GenInitrd command projection."
+}
