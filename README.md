@@ -1060,7 +1060,18 @@ Step 42 implements that reviewed boundary in the reference engine without runnin
 
 Step 47 accepted the restarted exact-package inspection for `6.18.42`. The real `pcold-slack` run passed 12 assertions, accepted package SHA-256 `e9e7a1c5c71c945ee99595868aa8fee8a644b56601ece0c3e5696d643fe84878`, inventoried 6,588 safe members and 5,490 target-module paths, proved `boot/vmlinuz-6.18.42` plus `/lib/modules/6.18.42`, found no embedded initrd, reviewed but did not execute the conditional `geninitrd` hook, preserved package plus boot state, and produced evidence SHA-256 `44c18026052a7d7b0d5e385258389f8bc73beefe9ac35c2a2777707df17c4f57`.
 
-Step 48 restarts the host-policy inspection for `6.18.42`. Before reading the installed GenInitrd policy, the preflight requires the accepted 69-candidate normal-update record, corrected boot record, corrected chain-restart record, and accepted exact-package record to agree on the digest, target, running kernel, nested evidence hashes, package filename, package SHA-256, target image, conditional hook, next stage, and denied apply state. It then performs the same non-evaluating policy and hook inspection used for `6.18.41`; no package, GenInitrd, generator, or GRUB mutation is permitted.
+Step 48 accepted the restarted host-policy inspection for `6.18.42`. The real `pcold-slack` run passed all 10 assertions, confirmed `AUTOGENERATE_INITRD=true`, effective generator `mkinitrd_command_generator.sh`, automatic GRUB update, transition `direct-to-generated-initrd`, expected `/boot/initrd-6.18.42.img`, and the same two reviewed DKMS hooks. Package, boot, and policy state remained unchanged; archive SHA-256 `873c7779dcef6f16d72d809704ca732809e6d5db5b1668f6a4942662b97c54ca` was verified after copying to `/home/promano`. The accepted record is `tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-policy-preflight-20260804-accepted.json`.
+
+Step 49 restarts the DKMS-hook inspection for `6.18.42`. Run it on `pcold-slack` only after the accepted step-48 record is present:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-geninitrd-dkms-hook-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+The preflight binds the accepted candidate, boot, restarted-chain, exact-package, and GenInitrd-policy records before rechecking the exact hook set. It copies hook bodies into private evidence without executing them, records static command surfaces, runs only `dkms --version` and `dkms status`, inventories DKMS sources and module paths, and proves that packages, boot, hooks, and DKMS state remain unchanged. It always leaves `apply_ready=false` and `apply_authorized=false`.
 
 Step 43 implements post-package recognition without running a VM. When the pre-transaction layout is `direct-generic-no-initrd` and `AUTOGENERATE_INITRD=true`, GRUB regeneration is blocked unless the post-update snapshot contains exactly one safe `kernel-generic` version, `/boot/vmlinuz-generic` selects its package-owned versioned kernel, the matching module tree exists, `/boot/initrd-VERSION.img` is a non-empty root-owned regular file, and `/boot/initrd-generic.img` resolves exactly to it. Legacy `/boot/initrd.gz` and `/etc/mkinitrd.conf` must remain absent. The temporary GRUB configuration must reference both the validated kernel and the versioned or named initrd before atomic replacement. The synthetic fixture records no commands or mutations and does not authorize apply. Final candidate-set revalidation on Slackware-current remains mandatory.
 
@@ -1916,7 +1927,8 @@ Slack-Update 1.0 will be ready when:
   - [x] Run and accept the fresh Slackware-current candidate-chain preflight for the 69-candidate `6.18.42` set.
   - [x] Reject the first `6.18.42` chain restart because target file inventory was required before the exact-package stage.
   - [x] Repeat and accept the corrected target-bound boot restart and exact `kernel-generic-6.18.42` package evidence.
-  - [ ] Repeat GenInitrd policy, DKMS, command, and GRUB-ownership evidence for `6.18.42`.
+  - [x] Repeat and accept the GenInitrd policy evidence for `6.18.42`.
+  - [ ] Repeat DKMS, command, and GRUB-ownership evidence for `6.18.42`.
   - [x] Review and accept the ten-package Slackware-current transaction as package and boot evidence.
   - [ ] Revalidate the hardened deferred `.new` policy on the next Slackware-current update.
   - [x] Reject the 2026-08-03 Slackware-current diagnostic whose parser omitted the `x86` `kernel-headers` candidate.

@@ -42,19 +42,19 @@ assert_contains 'sha256sum -c' "$SCRIPT" 'portable evidence verification should 
 assert_contains 'custom-review-required' "$SCRIPT" 'hook content should require a later manual review'
 assert_contains 'target_build_executed' "$SCRIPT" 'the result must state that no target build was executed'
 
-is_safe_kernel_version 6.18.41 && pass || fail 'a normal kernel version should be safe'
-is_safe_kernel_version '../6.18.41' && fail 'parent traversal should be rejected' || pass
-is_safe_kernel_version '6.18.41 bad' && fail 'whitespace should be rejected' || pass
+is_safe_kernel_version 6.18.42 && pass || fail 'a normal kernel version should be safe'
+is_safe_kernel_version '../6.18.42' && fail 'parent traversal should be rejected' || pass
+is_safe_kernel_version '6.18.42 bad' && fail 'whitespace should be rejected' || pass
 is_sha256 "$(printf 'a%.0s' {1..64})" && pass || fail 'a valid SHA-256 should be accepted'
 is_sha256 abc && fail 'a short SHA-256 should be rejected' || pass
 
 TARGET=slackware-current
-TARGET_KERNEL=6.18.41
-CONFIRM_CANDIDATES_SHA256=d9199fcf6c5cd8c59b87b1bde9a955df2c55d0ac84f6dab37ed8e4c1830dcaf1
-NORMAL_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260803-accepted.json"
-BOOT_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-direct-generic-preflight-20260803-accepted.json"
-PACKAGE_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-package-preflight-20260803-accepted.json"
-POLICY_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-policy-preflight-20260803-accepted.json"
+TARGET_KERNEL=6.18.42
+CONFIRM_CANDIDATES_SHA256=918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9
+NORMAL_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260804-accepted.json"
+BOOT_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-boot-preflight-20260804-accepted.json"
+PACKAGE_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-package-preflight-20260804-accepted.json"
+POLICY_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-policy-preflight-20260804-accepted.json"
 assert_success 'the accepted records should match the exact DKMS-hook transaction' validate_accepted_records
 cp "$NORMAL_PREFLIGHT" "$TMP/normal-missing-source.json"
 python3 - "$TMP/normal-missing-source.json" <<'PY'
@@ -66,7 +66,7 @@ open(p,'w').write(json.dumps(d))
 PY
 NORMAL_PREFLIGHT="$TMP/normal-missing-source.json"
 assert_failure 'a transaction without the target kernel source candidate should fail closed' validate_accepted_records
-NORMAL_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260803-accepted.json"
+NORMAL_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260804-accepted.json"
 cp "$POLICY_PREFLIGHT" "$TMP/policy-wrong-hook.json"
 python3 - "$TMP/policy-wrong-hook.json" <<'PY'
 import json, sys
@@ -77,7 +77,18 @@ open(p,'w').write(json.dumps(d))
 PY
 POLICY_PREFLIGHT="$TMP/policy-wrong-hook.json"
 assert_failure 'a policy record with an unreviewed hook digest should fail closed' validate_accepted_records
-POLICY_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-policy-preflight-20260803-accepted.json"
+POLICY_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-policy-preflight-20260804-accepted.json"
+cp "$POLICY_PREFLIGHT" "$TMP/policy-wrong-package-link.json"
+python3 - "$TMP/policy-wrong-package-link.json" <<'PY'
+import json, sys
+p=sys.argv[1]
+d=json.load(open(p))
+d['package_preflight_archive_sha256']='0'*64
+open(p,'w').write(json.dumps(d))
+PY
+POLICY_PREFLIGHT="$TMP/policy-wrong-package-link.json"
+assert_failure 'a policy record detached from the accepted exact-package evidence should fail closed' validate_accepted_records
+POLICY_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-policy-preflight-20260804-accepted.json"
 
 PRE=$TMP/pre
 POST=$TMP/post
@@ -180,7 +191,7 @@ assert_contains 'missing||' <(capture_path_state "$TMP/not-there") 'missing path
     FAILURE_COUNT=0
     TARGET=slackware-current
     RUNNING_KERNEL=6.18.40
-    TARGET_KERNEL=6.18.41
+    TARGET_KERNEL=6.18.42
     HOOK_COUNT=2
     DKMS_STATUS_ROWS=3
     REVIEW_STATUS=custom-review-required

@@ -9,10 +9,10 @@ export PATH LC_ALL
 
 TEST_DIR=$(CDPATH= cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
 REPOSITORY_ROOT=$(CDPATH= cd -- "$TEST_DIR/../../.." && pwd -P)
-DEFAULT_NORMAL_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260803-accepted.json"
-DEFAULT_BOOT_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-direct-generic-preflight-20260803-accepted.json"
-DEFAULT_PACKAGE_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-package-preflight-20260803-accepted.json"
-DEFAULT_POLICY_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-policy-preflight-20260803-accepted.json"
+DEFAULT_NORMAL_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260804-accepted.json"
+DEFAULT_BOOT_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-boot-preflight-20260804-accepted.json"
+DEFAULT_PACKAGE_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-package-preflight-20260804-accepted.json"
+DEFAULT_POLICY_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-policy-preflight-20260804-accepted.json"
 DEFAULT_OUTPUT_ROOT=/var/tmp/slack-update-acceptance/current-geninitrd-dkms-hook-preflight
 
 TARGET=
@@ -148,6 +148,10 @@ checks = [
     policy.get('scenario') == 'current-geninitrd-policy-preflight',
     policy.get('accepted') is True,
     policy.get('normal_update_candidate_set_sha256') == digest,
+    policy.get('boot_preflight_archive_sha256') == boot.get('archive_sha256'),
+    policy.get('chain_restart_archive_sha256') == package.get('chain_restart_archive_sha256'),
+    policy.get('package_preflight_archive_sha256') == package.get('archive_sha256'),
+    policy.get('running_kernel') == boot.get('running_kernel'),
     policy.get('target_kernel') == target,
     policy.get('policy', {}).get('state') == 'enabled',
     policy.get('policy', {}).get('effective_generator') == 'mkinitrd_command_generator.sh',
@@ -155,6 +159,7 @@ checks = [
     policy.get('policy', {}).get('auto_update_grub') is True,
     policy.get('policy', {}).get('custom_review_required') is True,
     actual_hooks == expected_hooks,
+    policy.get('next_stage') == 'current-geninitrd-dkms-hook-preflight',
     policy.get('apply_ready') is False,
     policy.get('apply_authorized') is False,
 ]
@@ -438,7 +443,7 @@ main() {
     RUNNING_KERNEL=$(uname -r)
 
     validate_accepted_records \
-        && record_pass 'the accepted candidate, boot, package, and GenInitrd policy records match this DKMS-hook inspection' \
+        && record_pass 'the accepted candidate, boot, restarted-chain, package, and GenInitrd policy records match this DKMS-hook inspection' \
         || record_failure 'the accepted records do not match this DKMS-hook inspection'
     [ "$RUNNING_KERNEL" != "$TARGET_KERNEL" ] && is_safe_kernel_version "$RUNNING_KERNEL" \
         && record_pass "the running kernel $RUNNING_KERNEL remains the reviewed predecessor of $TARGET_KERNEL" \

@@ -1,0 +1,61 @@
+{
+  "scenario": "current-geninitrd-policy-preflight",
+  "target": "slackware-current",
+  "accepted": true,
+  "captured_at": "2026-08-04T22:32:05Z",
+  "archive_sha256": "873c7779dcef6f16d72d809704ca732809e6d5db5b1668f6a4942662b97c54ca",
+  "normal_update_candidate_set_sha256": "918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9",
+  "boot_preflight_archive_sha256": "be201626afc4b4aa2f9b59d7c10429e083094989b8c172530348aad95ab4fc32",
+  "chain_restart_archive_sha256": "77618b808093f3e5349f5a6e076a110b56876a7ed08878d89c71a78fc594de51",
+  "package_preflight_archive_sha256": "44c18026052a7d7b0d5e385258389f8bc73beefe9ac35c2a2777707df17c4f57",
+  "running_kernel": "6.18.40",
+  "target_kernel": "6.18.42",
+  "policy": {
+    "state": "enabled",
+    "autogenerate_initrd": true,
+    "configured_generator": "mkinitrd",
+    "effective_generator": "mkinitrd_command_generator.sh",
+    "auto_update_grub": true,
+    "auto_remove_orphaned_initrds": true,
+    "auto_remove_initrd_tree": true,
+    "named_symlink": true,
+    "initrd_gz_symlink": false,
+    "transition_mode": "direct-to-generated-initrd",
+    "expected_initrd": "/boot/initrd-6.18.42.img",
+    "doinst_will_invoke_geninitrd": true,
+    "custom_review_required": true
+  },
+  "scripts": {
+    "geninitrd_sha256": "0ff507821ebe8b18dbe5b2ebd0b97e7ca7b951bf848915883f9714c47e017d06",
+    "setup_sha256": "74e06b7f6c2de719ec6877edcf419d7bae558509d3f61f06fb7ba4c3b175a0fe"
+  },
+  "executable_hooks": [
+    {
+      "kind": "pre",
+      "path": "/etc/geninitrd.d/pre-install/dkms-bcachefs",
+      "sha256": "bef7093aea411c39e971e825ad8651274757c5fd1d6da405028a118ebaec23a9",
+      "dkms": true
+    },
+    {
+      "kind": "pre",
+      "path": "/etc/geninitrd.d/pre-install/dkms-nvidia",
+      "sha256": "1430daca29079c8939f714ddff3628156dc990dc8b50e625fa8949367c362efa",
+      "dkms": true
+    }
+  ],
+  "package_database_unchanged": true,
+  "boot_and_policy_state_unchanged": true,
+  "assertions": {
+    "passes": 10,
+    "failures": 0
+  },
+  "evidence": {
+    "portable_sha256_sidecar": true,
+    "copied_to": "/home/promano",
+    "destination_verification": "passed"
+  },
+  "apply_ready": false,
+  "apply_authorized": false,
+  "next_stage": "current-geninitrd-dkms-hook-preflight",
+  "executed_preflight_sha256": "730737a519c47c282022e858ba304ee8033f46e113f5abf811be5d170e2b1c17"
+}

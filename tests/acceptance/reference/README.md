@@ -711,3 +711,16 @@ sudo bash tests/acceptance/reference/test-current-geninitrd-policy-preflight.sh 
 ```
 
 The preflight binds the accepted normal-update, boot-layout, chain-restart, and exact-package records before inspecting the installed GenInitrd scripts, `/etc/default/geninitrd`, effective generator, cleanup policy, automatic GRUB behavior, custom scripts, and executable hooks. Configuration is parsed without sourcing it, hooks are inventoried without execution, and package plus boot-sensitive state are compared before and after. The result always remains `apply_ready=false` and `apply_authorized=false`. Copy the generated archive and sidecar directly to `/home/promano` with the printed command and verify them there with the printed `sha256sum -c` command.
+
+The real `pcold-slack` run passed all 10 assertions. It accepted the enabled policy, effective `mkinitrd_command_generator.sh`, automatic GRUB update, direct-to-generated-initrd transition to `/boot/initrd-6.18.42.img`, unchanged reviewed hook digests, immutable package and boot-policy state, and archive SHA-256 `873c7779dcef6f16d72d809704ca732809e6d5db5b1668f6a4942662b97c54ca`. The sanitized accepted record is `tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-policy-preflight-20260804-accepted.json`.
+
+### Slackware-current restarted DKMS-hook preflight (step 49)
+
+```bash
+sudo bash tests/acceptance/reference/test-current-geninitrd-dkms-hook-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+This preflight binds the accepted 69-candidate, boot, chain-restart, exact-package, and GenInitrd-policy evidence before inspecting the two exact executable hooks. Hook bodies are copied with mode `0600` and analyzed statically without evaluation. The only DKMS operations are `dkms --version` and `dkms status`; source trees, build state, running modules, and target-kernel paths are inventoried without build, install, autoinstall, remove, package, initrd, or GRUB mutation. Copy the archive and portable sidecar directly to `/home/promano` and verify them there. The result remains `apply_ready=false` and `apply_authorized=false` pending evidence review.
