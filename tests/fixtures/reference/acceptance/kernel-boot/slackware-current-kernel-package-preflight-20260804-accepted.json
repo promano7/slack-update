@@ -1,0 +1,45 @@
+{
+  "scenario": "current-kernel-package-preflight",
+  "target": "slackware-current",
+  "accepted": true,
+  "captured_at": "2026-08-04T22:16:22Z",
+  "archive_sha256": "44c18026052a7d7b0d5e385258389f8bc73beefe9ac35c2a2777707df17c4f57",
+  "normal_update_candidate_set_sha256": "918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9",
+  "boot_preflight_archive_sha256": "be201626afc4b4aa2f9b59d7c10429e083094989b8c172530348aad95ab4fc32",
+  "chain_restart_archive_sha256": "77618b808093f3e5349f5a6e076a110b56876a7ed08878d89c71a78fc594de51",
+  "running_kernel": "6.18.40",
+  "target_kernel": "6.18.42",
+  "package": {
+    "filename": "kernel-generic-6.18.42-x86_64-1.txz",
+    "sha256": "e9e7a1c5c71c945ee99595868aa8fee8a644b56601ece0c3e5696d643fe84878",
+    "member_count": 6588,
+    "module_count": 5490,
+    "kernel_image": "/boot/vmlinuz-6.18.42",
+    "embedded_initrd_count": 0,
+    "paths_safe": true
+  },
+  "doinst": {
+    "syntax_valid": true,
+    "policy": "recognized-direct-generic-transition-with-conditional-geninitrd",
+    "generic_symlink_transition": "vmlinuz-generic -> vmlinuz-6.18.42",
+    "conditional_geninitrd_hook": true,
+    "geninitrd_executed": false,
+    "host_policy_preflight_required": true
+  },
+  "grub_discovery_status": "valid-current-baseline",
+  "package_database_unchanged": true,
+  "boot_state_unchanged": true,
+  "assertions": {
+    "passes": 12,
+    "failures": 0
+  },
+  "evidence": {
+    "portable_sha256_sidecar": true,
+    "copied_to": "/home/promano",
+    "destination_verification": "passed"
+  },
+  "apply_ready": false,
+  "apply_authorized": false,
+  "next_stage": "current-geninitrd-policy-preflight",
+  "executed_preflight_sha256": "7ad41dd11422dc14be2d237d03a2d8793673568621c2ecff76aa89aecd0c7af2"
+}

@@ -696,3 +696,18 @@ inside the private evidence directory. Package installation, GenInitrd,
 `update-grub`, active GRUB replacement, readiness, and authorization remain
 forbidden. Copy the resulting `.tar.gz` and `.sha256` directly to
 `/home/promano` with the printed command.
+
+The real `pcold-slack` run passed all 12 assertions. It accepted package SHA-256 `e9e7a1c5c71c945ee99595868aa8fee8a644b56601ece0c3e5696d643fe84878`, 6,588 safe members, 5,490 target-module paths, the target kernel image, zero embedded initrds, the conditional GenInitrd hook, unchanged package and boot state, and portable evidence SHA-256 `44c18026052a7d7b0d5e385258389f8bc73beefe9ac35c2a2777707df17c4f57`. The sanitized accepted record is `tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-package-preflight-20260804-accepted.json`.
+
+### Slackware-current restarted GenInitrd policy preflight (step 48)
+
+Run only after the accepted step-47 exact-package record is present:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-geninitrd-policy-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+The preflight binds the accepted normal-update, boot-layout, chain-restart, and exact-package records before inspecting the installed GenInitrd scripts, `/etc/default/geninitrd`, effective generator, cleanup policy, automatic GRUB behavior, custom scripts, and executable hooks. Configuration is parsed without sourcing it, hooks are inventoried without execution, and package plus boot-sensitive state are compared before and after. The result always remains `apply_ready=false` and `apply_authorized=false`. Copy the generated archive and sidecar directly to `/home/promano` with the printed command and verify them there with the printed `sha256sum -c` command.
