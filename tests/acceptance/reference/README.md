@@ -593,3 +593,29 @@ recovery, but they are not acceptance evidence and do not authorize either VM.
 The retained ELILO VM remains frozen until the scheduled mature retention
 preflight no earlier than `2026-08-08T19:51:00+02:00`.
 
+
+
+### Slackware-current candidate-chain refresh preflight
+
+Phase 1 step 44 adds `test-current-candidate-chain-refresh-preflight.sh` as a
+root-only but non-installing wrapper around the established normal-update
+preflight. It refreshes Slackpkg metadata, captures the resulting candidate
+files and nested evidence, recomputes the deterministic candidate digest, and
+compares the exact list with the accepted 2026-08-03 Slackware-current chain.
+
+The analysis requires sorted unique safe package filenames. When one
+`kernel-generic` candidate exists, exactly one matching `kernel-headers` and
+`kernel-source` version must accompany it. Multiple generic targets or an
+incomplete companion set are manual-review failures. An exact unchanged digest
+may reuse only the existing candidate-bound records and advances to a separate
+readiness dry-run. A changed kernel digest marks the previous boot, package,
+GenInitrd, DKMS, command, and GRUB-ownership records stale and requires the
+target-specific chain to be repeated. Changed userspace and no-update outcomes
+select their own explicit review stages.
+
+The wrapper compares the installed package database and active boot state before
+and after metadata refresh. It invokes the nested acceptance script only with
+`--preflight`, records that package apply, initrd generation, and GRUB updates
+were not executed, and always publishes `apply_ready=false` and
+`apply_authorized=false`. Its private portable evidence archive and sidecar are
+copied directly to `/home/promano` with the printed command.

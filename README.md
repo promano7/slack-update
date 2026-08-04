@@ -1060,6 +1060,8 @@ Step 42 implements that reviewed boundary in the reference engine without runnin
 
 Step 43 implements post-package recognition without running a VM. When the pre-transaction layout is `direct-generic-no-initrd` and `AUTOGENERATE_INITRD=true`, GRUB regeneration is blocked unless the post-update snapshot contains exactly one safe `kernel-generic` version, `/boot/vmlinuz-generic` selects its package-owned versioned kernel, the matching module tree exists, `/boot/initrd-VERSION.img` is a non-empty root-owned regular file, and `/boot/initrd-generic.img` resolves exactly to it. Legacy `/boot/initrd.gz` and `/etc/mkinitrd.conf` must remain absent. The temporary GRUB configuration must reference both the validated kernel and the versioned or named initrd before atomic replacement. The synthetic fixture records no commands or mutations and does not authorize apply. Final candidate-set revalidation on Slackware-current remains mandatory.
 
+Step 44 adds that final candidate-set revalidation as a dedicated real-system wrapper. It invokes `test-normal-update.sh` only with `--preflight`, embeds the resulting candidate evidence, compares its deterministic digest and exact package list with the accepted chain, and classifies unchanged, changed-kernel, changed-userspace, no-updates, incomplete-kernel, and ambiguous-kernel outcomes. An unchanged kernel set may proceed only to a separate readiness dry-run; any changed target invalidates all target-bound kernel, package, GenInitrd, DKMS, command, and GRUB-ownership evidence. The wrapper never invokes apply, package installation, initrd generation, or GRUB mutation and always reports `apply_ready=false` plus `apply_authorized=false`.
+
 Slackware 15.0 passed the non-kernel branch of this scenario on 2026-08-01.
 The reviewed preflight deferred `kernel-generic`, `kernel-huge`, and
 `kernel-modules`, then authorized an exact 196-package candidate digest containing
@@ -1906,7 +1908,8 @@ Slack-Update 1.0 will be ready when:
   - [x] Run and review the command-output-only GenInitrd projection for the target kernel transition.
   - [x] Run and review the GenInitrd versus Slack-Update GRUB-ownership preflight.
   - [x] Implement transactional GenInitrd policy override and guaranteed restoration in the reference engine.
-  - [ ] Validate the post-package generated-initrd state and final transaction readiness.
+  - [x] Validate the post-package generated-initrd state contract.
+  - [ ] Run the fresh Slackware-current candidate-chain preflight and complete final transaction readiness.
   - [x] Review and accept the ten-package Slackware-current transaction as package and boot evidence.
   - [ ] Revalidate the hardened deferred `.new` policy on the next Slackware-current update.
   - [x] Reject the 2026-08-03 Slackware-current diagnostic whose parser omitted the `x86` `kernel-headers` candidate.
