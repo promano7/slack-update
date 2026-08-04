@@ -9,8 +9,9 @@ export PATH LC_ALL
 
 TEST_DIR=$(CDPATH= cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
 REPOSITORY_ROOT=$(CDPATH= cd -- "$TEST_DIR/../../.." && pwd -P)
-DEFAULT_NORMAL_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260803-accepted.json"
-DEFAULT_BOOT_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-direct-generic-preflight-20260803-accepted.json"
+DEFAULT_NORMAL_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260804-accepted.json"
+DEFAULT_BOOT_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-boot-preflight-20260804-accepted.json"
+DEFAULT_CHAIN_RESTART="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-chain-restart-20260804-accepted.json"
 DEFAULT_OUTPUT_ROOT=/var/tmp/slack-update-acceptance/current-kernel-package-preflight
 
 TARGET=
@@ -18,6 +19,7 @@ TARGET_KERNEL=
 CONFIRM_CANDIDATES_SHA256=
 NORMAL_PREFLIGHT=$DEFAULT_NORMAL_PREFLIGHT
 BOOT_PREFLIGHT=$DEFAULT_BOOT_PREFLIGHT
+CHAIN_RESTART=$DEFAULT_CHAIN_RESTART
 OUTPUT_DIR=
 PASS_COUNT=0
 FAILURE_COUNT=0
@@ -39,8 +41,9 @@ Usage: ${0##*/} --target slackware-current \\
                      --confirm-target-kernel VERSION [options]
 
 Download and inspect the exact Slackware-current kernel-generic package without
-installing it. The preflight validates the accepted candidate and boot-layout
-records, the cached package archive, its path inventory and doinst.sh policy,
+installing it. The preflight validates the accepted candidate, restarted
+boot-layout, and chain records, the cached package archive, its path inventory
+and doinst.sh policy,
 and a GRUB configuration generated only inside the evidence directory. It never
 runs the package script, installs packages, changes /boot, or authorizes apply.
 
@@ -52,6 +55,7 @@ Required options:
 Optional arguments:
       --normal-preflight PATH  Select the accepted normal-update record
       --boot-preflight PATH    Select the accepted boot-layout record
+      --chain-restart PATH     Select the accepted restarted-chain record
       --output-dir PATH        Store evidence under an absolute, new directory
   -h, --help                   Show this help and exit
 EOF_USAGE
@@ -78,6 +82,7 @@ parse_arguments() {
             --confirm-target-kernel) [ "$#" -ge 2 ] || return 1; TARGET_KERNEL=$2; shift 2 ;;
             --normal-preflight) [ "$#" -ge 2 ] || return 1; NORMAL_PREFLIGHT=$2; shift 2 ;;
             --boot-preflight) [ "$#" -ge 2 ] || return 1; BOOT_PREFLIGHT=$2; shift 2 ;;
+            --chain-restart) [ "$#" -ge 2 ] || return 1; CHAIN_RESTART=$2; shift 2 ;;
             --output-dir) [ "$#" -ge 2 ] || return 1; OUTPUT_DIR=$2; shift 2 ;;
             -h|--help) print_usage; exit 0 ;;
             *) error "unknown argument: $1"; return 1 ;;
@@ -87,29 +92,36 @@ parse_arguments() {
     is_sha256 "$CONFIRM_CANDIDATES_SHA256" || { error 'invalid candidate SHA-256'; return 1; }
     CONFIRM_CANDIDATES_SHA256=${CONFIRM_CANDIDATES_SHA256,,}
     is_safe_kernel_version "$TARGET_KERNEL" || { error 'unsafe target kernel version'; return 1; }
-    for path in "$NORMAL_PREFLIGHT" "$BOOT_PREFLIGHT" ${OUTPUT_DIR:+"$OUTPUT_DIR"}; do
+    for path in "$NORMAL_PREFLIGHT" "$BOOT_PREFLIGHT" "$CHAIN_RESTART" ${OUTPUT_DIR:+"$OUTPUT_DIR"}; do
         case "$path" in /*) ;; *) error "path must be absolute: $path"; return 1 ;; esac
         case "$path" in *[[:space:]]*) error 'paths must not contain whitespace'; return 1 ;; esac
     done
 }
 
 validate_accepted_records() {
-    python3 - "$NORMAL_PREFLIGHT" "$BOOT_PREFLIGHT" "$CONFIRM_CANDIDATES_SHA256" "$TARGET_KERNEL" <<'PY'
+    python3 - "$NORMAL_PREFLIGHT" "$BOOT_PREFLIGHT" "$CHAIN_RESTART" "$CONFIRM_CANDIDATES_SHA256" "$TARGET_KERNEL" <<'PY'
 import json, sys
-normal_path, boot_path, digest, target = sys.argv[1:]
+normal_path, boot_path, chain_path, digest, target = sys.argv[1:]
 try:
     normal = json.load(open(normal_path, encoding='utf-8'))
     boot = json.load(open(boot_path, encoding='utf-8'))
+    chain = json.load(open(chain_path, encoding='utf-8'))
 except Exception:
     raise SystemExit(1)
-expected = f'kernel-generic-{target}-x86_64-1.txz'
+expected_generic = f'kernel-generic-{target}-x86_64-1.txz'
+expected_headers = f'kernel-headers-{target}-x86-1.txz'
+expected_source = f'kernel-source-{target}-noarch-1.txz'
 checks = [
     normal.get('scenario') == 'normal-update',
     normal.get('target') == 'slackware-current',
     normal.get('accepted') is True,
+    normal.get('apply_ready') is False,
     normal.get('apply_authorized') is False,
     normal.get('candidates', {}).get('candidate_set_sha256') == digest,
-    expected in normal.get('candidates', {}).get('upgrade_all', []),
+    normal.get('candidates', {}).get('target_kernel_version') == target,
+    expected_generic in normal.get('candidates', {}).get('upgrade_all', []),
+    expected_headers in normal.get('candidates', {}).get('upgrade_all', []),
+    expected_source in normal.get('candidates', {}).get('upgrade_all', []),
     boot.get('scenario') == 'current-kernel-boot-preflight',
     boot.get('target') == 'slackware-current',
     boot.get('accepted') is True,
@@ -117,13 +129,23 @@ checks = [
     boot.get('target_kernel') == target,
     boot.get('package_layout') == 'monolithic-generic',
     boot.get('boot_mode') == 'direct-generic-no-initrd',
+    boot.get('target_image_metadata_state') in ('present', 'deferred-to-exact-package-preflight'),
     boot.get('apply_ready') is False,
     boot.get('apply_authorized') is False,
+    chain.get('scenario') == 'current-kernel-chain-restart-preflight',
+    chain.get('target') == 'slackware-current',
+    chain.get('accepted') is True,
+    chain.get('candidate_set_sha256') == digest,
+    chain.get('running_kernel') == boot.get('running_kernel'),
+    chain.get('target_kernel') == target,
+    chain.get('nested_target_image_metadata_state') == boot.get('target_image_metadata_state'),
+    chain.get('next_stage') == 'current-kernel-package-preflight',
+    chain.get('apply_ready') is False,
+    chain.get('apply_authorized') is False,
 ]
 raise SystemExit(0 if all(checks) else 1)
 PY
 }
-
 capture_package_state() {
     local output=$1 root=/var/lib/pkgtools/packages item
     [ -d "$root" ] && [ ! -L "$root" ] || return 1
@@ -416,7 +438,7 @@ main() {
     PACKAGE_FILENAME="kernel-generic-$TARGET_KERNEL-x86_64-1.txz"
 
     validate_accepted_records \
-        && record_pass 'the accepted normal-update and direct-generic boot records match this transaction' \
+        && record_pass 'the accepted normal-update, restarted boot, and chain records match this transaction' \
         || record_failure 'the accepted records do not match this transaction'
     [ "$RUNNING_KERNEL" != "$TARGET_KERNEL" ] && is_safe_kernel_version "$RUNNING_KERNEL" \
         && record_pass "the running kernel $RUNNING_KERNEL is a safe predecessor of $TARGET_KERNEL" \

@@ -1,0 +1,37 @@
+{
+  "scenario": "current-kernel-chain-restart-preflight",
+  "target": "slackware-current",
+  "accepted": true,
+  "captured_at": "2026-08-04T21:54:42Z",
+  "archive_sha256": "77618b808093f3e5349f5a6e076a110b56876a7ed08878d89c71a78fc594de51",
+  "nested_boot_archive_sha256": "be201626afc4b4aa2f9b59d7c10429e083094989b8c172530348aad95ab4fc32",
+  "candidate_set_sha256": "918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9",
+  "running_kernel": "6.18.40",
+  "target_kernel": "6.18.42",
+  "candidate_count": 69,
+  "candidate_chain_complete": true,
+  "nested_boot_preflight_passed": true,
+  "nested_target_image_metadata_state": "deferred-to-exact-package-preflight",
+  "package_database_unchanged": true,
+  "boot_state_unchanged": true,
+  "assertions": {
+    "nested_passes": 20,
+    "nested_failures": 0,
+    "outer_passes": 6,
+    "outer_failures": 0
+  },
+  "evidence": {
+    "portable_sha256_sidecar": true,
+    "nested_archive_verified": true,
+    "copied_to": "/home/promano",
+    "destination_verification": "passed"
+  },
+  "normal_update_apply_executed": false,
+  "package_transaction_executed": false,
+  "initrd_generation_executed": false,
+  "grub_update_executed": false,
+  "next_stage": "current-kernel-package-preflight",
+  "apply_ready": false,
+  "apply_authorized": false,
+  "executed_wrapper_sha256": "084bb7e162cbe8218f78de1d59a98a08402fc24656bc24f2eb5fe3a66220e74b"
+}

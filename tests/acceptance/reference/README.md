@@ -620,7 +620,7 @@ were not executed, and always publishes `apply_ready=false` and
 `apply_authorized=false`. Its private portable evidence archive and sidecar are
 copied directly to `/home/promano` with the printed command.
 
-### Slackware-current kernel evidence-chain restart preflight
+### Slackware-current kernel evidence-chain restart preflight (steps 45-46)
 
 Phase 1 step 45 adds `test-current-kernel-chain-restart-preflight.sh` after the
 accepted refresh selected a new kernel target. The wrapper binds the accepted
@@ -634,6 +634,21 @@ directory, its archive, and its portable sidecar remain inside the outer private
 evidence tree. The outer stage validates the nested summary identity, verifies
 the nested sidecar, and requires unchanged package and active boot state.
 
+The first real run on 2026-08-04 is diagnostic only. It passed 19 nested boot
+checks but failed because the local Slackpkg file inventory did not expose
+`boot/vmlinuz-6.18.42` before the exact package had been downloaded. The package
+list still exposed one exact `kernel-generic`, `kernel-headers`, and
+`kernel-source` target trio, and both package and boot state remained unchanged.
+The rejected outer archive SHA-256 is
+`ea7b0d7fa6ff5f9020f41ae06f5bea5c91a79d579dddf1bc25d258ca484605d1`.
+
+Phase 1 step 46 corrects the stage boundary. Boot discovery records target image
+metadata as `present` when the file inventory is available, or as
+`deferred-to-exact-package-preflight` otherwise. The latter is not ownership
+proof: the mandatory next exact-package preflight must download the reviewed
+`kernel-generic-6.18.42` archive and validate both `boot/vmlinuz-6.18.42` and the
+matching module tree before any later readiness decision.
+
 Run it as root on `pcold-slack`:
 
 ```bash
@@ -643,8 +658,41 @@ sudo bash tests/acceptance/reference/test-current-kernel-chain-restart-preflight
 
 The stage never installs packages, generates an initrd, regenerates GRUB, or
 calls normal-update apply. Every result records `apply_ready=false` and
-`apply_authorized=false`. A successful result advances only to a new exact
-`kernel-generic-6.18.42` package preflight. Copy the printed archive and sidecar
+`apply_authorized=false`. A successful corrected result advances only to a new exact
+`kernel-generic-6.18.42` package preflight. The outer summary preserves the
+nested target-image metadata state for auditability. Copy the printed archive and sidecar
 directly to `/home/promano` and verify them there with the printed
 `sha256sum -c` command.
 
+
+
+### Slackware-current restarted exact-package preflight (step 47)
+
+The corrected step 46 run is accepted with 20 nested and 6 outer assertions,
+outer archive SHA-256
+`77618b808093f3e5349f5a6e076a110b56876a7ed08878d89c71a78fc594de51`,
+and nested archive SHA-256
+`be201626afc4b4aa2f9b59d7c10429e083094989b8c172530348aad95ab4fc32`.
+It binds candidate digest
+`918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9`
+to running kernel `6.18.40`, target `6.18.42`, and target-image metadata state
+`deferred-to-exact-package-preflight` while preserving package and boot state.
+
+Run the exact-package preflight on the same Slackware-current host:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-kernel-package-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+The preflight binds all three accepted records before download, requires the
+live repository to expose exactly `kernel-generic-6.18.42-x86_64-1`, downloads
+or confirms only that package in the Slackpkg cache, validates safe archive
+paths plus the target versioned kernel and module tree, and reviews but never
+executes `install/doinst.sh`. GRUB output is generated and syntax-checked only
+inside the private evidence directory. Package installation, GenInitrd,
+`update-grub`, active GRUB replacement, readiness, and authorization remain
+forbidden. Copy the resulting `.tar.gz` and `.sha256` directly to
+`/home/promano` with the printed command.
