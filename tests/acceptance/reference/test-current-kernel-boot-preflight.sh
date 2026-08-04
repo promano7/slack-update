@@ -35,6 +35,7 @@ BOOT_IMAGE=
 GENERIC_KERNEL_PATH=
 GENERIC_KERNEL_BASENAME=
 GENERIC_SYMLINK_TRANSITION_REQUIRED=false
+TARGET_IMAGE_METADATA_STATE=unknown
 PACKAGE_LAYOUT=unknown
 APPLY_READY=false
 APPLY_AUTHORIZED=false
@@ -307,6 +308,16 @@ repository_target_owns_path() {
     return 1
 }
 
+classify_target_image_metadata_state() {
+    if repository_target_owns_path "boot/vmlinuz-$TARGET_KERNEL"; then
+        printf '%s
+' present
+    else
+        printf '%s
+' deferred-to-exact-package-preflight
+    fi
+}
+
 validate_generic_kernel_link() {
     local record=$1 resolved basename
     [ -L /boot/vmlinuz-generic ] || return 1
@@ -383,6 +394,7 @@ boot_mode=$BOOT_MODE
 boot_image=$BOOT_IMAGE
 generic_kernel_path=$GENERIC_KERNEL_PATH
 generic_symlink_transition_required=$GENERIC_SYMLINK_TRANSITION_REQUIRED
+target_image_metadata_state=$TARGET_IMAGE_METADATA_STATE
 mkinitrd_state=$MKINITRD_STATE
 initrd_state=$INITRD_STATE
 mkinitrd_kernel_version=$MKINITRD_KERNEL_VERSION
@@ -494,12 +506,16 @@ main() {
         record_failure 'the generic kernel symlink does not resolve to a package-owned running image'
     fi
 
-    if [ -n "$GENERIC_KERNEL_BASENAME" ] \
-        && repository_target_owns_path "boot/vmlinuz-$TARGET_KERNEL"; then
+    if [ -n "$GENERIC_KERNEL_BASENAME" ] && [ "$TARGET_KERNEL" != "$RUNNING_KERNEL" ]; then
         GENERIC_SYMLINK_TRANSITION_REQUIRED=true
-        record_pass 'Slackpkg metadata exposes the target versioned generic kernel image'
+        TARGET_IMAGE_METADATA_STATE=$(classify_target_image_metadata_state)
+        if [ "$TARGET_IMAGE_METADATA_STATE" = present ]; then
+            record_pass 'Slackpkg metadata exposes the target versioned generic kernel image'
+        else
+            record_pass 'target versioned generic kernel image ownership is deferred to the exact package preflight'
+        fi
     else
-        record_failure 'Slackpkg metadata does not expose the target versioned generic kernel image'
+        record_failure 'the target kernel transition is missing or cannot be tied to the running generic-kernel link'
     fi
 
     if [ -n "$GENERIC_KERNEL_BASENAME" ] && capture_boot_image; then

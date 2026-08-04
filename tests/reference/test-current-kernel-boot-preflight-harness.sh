@@ -9,6 +9,7 @@ ACCEPTANCE_SCRIPT="$REPOSITORY_ROOT/tests/acceptance/reference/test-current-kern
 ACCEPTED_FIXTURE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260803-accepted.json"
 DIAGNOSTIC_FIXTURE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-direct-generic-preflight-20260803-diagnostic.json"
 ACCEPTED_BOOT_FIXTURE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-direct-generic-preflight-20260803-accepted.json"
+RESTART_DIAGNOSTIC_FIXTURE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-chain-restart-20260804-diagnostic.json"
 
 # Source functions without running the real-system scenario.
 # shellcheck source=../acceptance/reference/test-current-kernel-boot-preflight.sh
@@ -34,7 +35,10 @@ assert_contains 'monolithic kernel-generic' "$ACCEPTANCE_SCRIPT" 'the current pa
 assert_contains 'direct-generic-no-initrd' "$ACCEPTANCE_SCRIPT" 'direct generic boot without initrd should be an explicit mode'
 assert_contains 'BOOT_IMAGE' "$ACCEPTANCE_SCRIPT" 'the running boot image should be validated'
 assert_contains 'grub-script-check /boot/grub/grub.cfg' "$ACCEPTANCE_SCRIPT" 'the active GRUB configuration should be syntax checked'
-assert_contains 'repository_target_owns_path "boot/vmlinuz-$TARGET_KERNEL"' "$ACCEPTANCE_SCRIPT" 'the target versioned kernel image should be proven from repository metadata'
+assert_contains 'repository_target_owns_path "boot/vmlinuz-$TARGET_KERNEL"' "$ACCEPTANCE_SCRIPT" 'available target image inventory should still be consumed'
+assert_contains 'deferred-to-exact-package-preflight' "$ACCEPTANCE_SCRIPT" 'missing target file inventory should defer to the exact package stage'
+assert_contains 'target_image_metadata_state=$TARGET_IMAGE_METADATA_STATE' "$ACCEPTANCE_SCRIPT" 'the evidence summary should expose the metadata decision'
+assert_contains 'target versioned generic kernel image ownership is deferred to the exact package preflight' "$ACCEPTANCE_SCRIPT" 'the deferred ownership boundary should be explicit'
 assert_contains 'package_record_owns_path "$record" "boot/$basename"' "$ACCEPTANCE_SCRIPT" 'the running kernel image should be owned by the installed package'
 assert_not_contains "if [ -s /boot/initrd.gz ]; then record_pass" "$ACCEPTANCE_SCRIPT" 'initrd absence must not be rejected unconditionally'
 assert_contains '/home/$owner' "$ACCEPTANCE_SCRIPT" 'evidence must be copied directly to the user home'
@@ -79,6 +83,10 @@ assert_contains '"accepted": true' "$ACCEPTED_BOOT_FIXTURE" 'the corrected real-
 assert_contains '"archive_sha256": "ed7462e70496cf38a52c211f3d5945438e5f1bad5b8d8eaa7b90079540381967"' "$ACCEPTED_BOOT_FIXTURE" 'the accepted archive digest should be preserved'
 assert_contains '"assertions": {' "$ACCEPTED_BOOT_FIXTURE" 'the accepted assertion summary should be preserved'
 assert_contains '"apply_ready": false' "$ACCEPTED_BOOT_FIXTURE" 'the accepted discovery must remain non-ready'
+assert_success 'the rejected chain-restart diagnostic fixture should be valid JSON' python3 -m json.tool "$RESTART_DIAGNOSTIC_FIXTURE"
+assert_contains '"archive_sha256": "ea7b0d7fa6ff5f9020f41ae06f5bea5c91a79d579dddf1bc25d258ca484605d1"' "$RESTART_DIAGNOSTIC_FIXTURE" 'the rejected outer archive digest should be preserved'
+assert_contains '"repository_target_image_inventory_present": false' "$RESTART_DIAGNOSTIC_FIXTURE" 'the missing local file inventory should be preserved'
+assert_contains '"apply_authorized": false' "$RESTART_DIAGNOSTIC_FIXTURE" 'the rejected restart must remain unauthorized'
 
 assert_success 'vmlinuz-VERSION should be a supported running image' is_supported_running_kernel_image vmlinuz-6.18.40 6.18.40
 assert_success 'vmlinuz-generic-VERSION should remain supported for managed layouts' is_supported_running_kernel_image vmlinuz-generic-6.18.40 6.18.40
@@ -97,6 +105,11 @@ printf 'boot/vmlinuz-6.18.40\nlib/modules/6.18.40/kernel/test.ko\n' > "$PACKAGE_
 assert_success 'exact package-owned kernel paths should pass' package_record_owns_path kernel-generic-6.18.40-x86_64-1 boot/vmlinuz-6.18.40
 assert_failure 'prefix-only package paths should not pass' package_record_owns_path kernel-generic-6.18.40-x86_64-1 boot/vmlinuz-6.18
 assert_failure 'missing package records should fail ownership checks' package_record_owns_path kernel-generic-missing boot/vmlinuz-6.18.40
+TARGET_KERNEL=6.18.42
+repository_target_owns_path() { return 0; }
+assert_equal present "$(classify_target_image_metadata_state)" 'available target file inventory should be classified as present'
+repository_target_owns_path() { return 1; }
+assert_equal deferred-to-exact-package-preflight "$(classify_target_image_metadata_state)" 'missing target file inventory should defer to the exact package preflight'
 
 cp "$ACCEPTED_FIXTURE" "$TMP/fixture.json"
 python3 - "$TMP/fixture.json" <<'PY'

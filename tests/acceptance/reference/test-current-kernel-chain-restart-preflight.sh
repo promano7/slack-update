@@ -25,6 +25,7 @@ CANDIDATE_SET_SHA256=
 TARGET_KERNEL=
 RUNNING_KERNEL=
 NEXT_STAGE=current-kernel-package-preflight
+NESTED_TARGET_IMAGE_METADATA_STATE=unknown
 
 print_usage() {
     cat <<EOF_USAGE
@@ -178,6 +179,7 @@ checks = [
     data.get('candidate_set_sha256') == digest,
     data.get('package_layout') == 'monolithic-generic',
     data.get('boot_mode') in {'direct-generic-no-initrd', 'mkinitrd-managed'},
+    data.get('target_image_metadata_state') in {'present', 'deferred-to-exact-package-preflight'},
     data.get('apply_ready') == 'false',
     data.get('apply_authorized') == 'false',
     data.get('failures') == '0',
@@ -206,6 +208,7 @@ failures=$FAILURE_COUNT
 running_kernel=$RUNNING_KERNEL
 target_kernel=$TARGET_KERNEL
 candidate_set_sha256=$CANDIDATE_SET_SHA256
+nested_target_image_metadata_state=$NESTED_TARGET_IMAGE_METADATA_STATE
 nested_boot_preflight_passed=$([ "$FAILURE_COUNT" -eq 0 ] && printf true || printf false)
 next_stage=$NEXT_STAGE
 normal_update_apply_executed=false
@@ -287,6 +290,7 @@ main() {
         record_failure "the target-specific kernel boot preflight failed with exit code $nested_exit"
     fi
     if validate_nested_summary "$nested_dir/summary.txt"; then
+        NESTED_TARGET_IMAGE_METADATA_STATE=$(sed -n 's/^target_image_metadata_state=//p' "$nested_dir/summary.txt")
         record_pass 'the nested boot result matches the accepted candidate digest, running kernel, and new target'
     else
         record_failure 'the nested boot result does not match the accepted restarted chain'
@@ -309,8 +313,8 @@ main() {
     fi
 
     write_summary "$OUTPUT_DIR/summary.txt"
-    printf 'Slackware-current kernel chain restart result: running=%s, target=%s, candidates=%s, next-stage=%s, apply-ready=false, apply-authorized=false\n' \
-        "$RUNNING_KERNEL" "$TARGET_KERNEL" "$CANDIDATE_SET_SHA256" "$NEXT_STAGE"
+    printf 'Slackware-current kernel chain restart result: running=%s, target=%s, candidates=%s, target-image-metadata=%s, next-stage=%s, apply-ready=false, apply-authorized=false\n' \
+        "$RUNNING_KERNEL" "$TARGET_KERNEL" "$CANDIDATE_SET_SHA256" "$NESTED_TARGET_IMAGE_METADATA_STATE" "$NEXT_STAGE"
     archive=$(create_evidence_archive) || { error 'failed to create evidence archive'; return 1; }
     printf 'Evidence archive: %s\n' "$archive"
     printf 'Evidence SHA-256: %s\n' "$(awk '{print $1}' "$archive.sha256")"

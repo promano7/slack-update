@@ -10,6 +10,7 @@ REPOSITORY_ROOT=$(CDPATH= cd -- "$TEST_DIR/../.." && pwd -P)
 SCRIPT="$REPOSITORY_ROOT/tests/acceptance/reference/test-current-kernel-chain-restart-preflight.sh"
 REFRESH="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-candidate-chain-refresh-20260804-accepted.json"
 PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260804-accepted.json"
+DIAGNOSTIC="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-chain-restart-20260804-diagnostic.json"
 TMP=$(mktemp -d)
 trap 'rm -rf "$TMP"' EXIT
 
@@ -72,6 +73,11 @@ assert_equal 68 "$(json_value "$PREFLIGHT" 'len(d["candidates"]["upgrade_all"])'
 assert_equal changed-kernel-set "$(json_value "$REFRESH" 'd["chain_status"]')" 'the accepted refresh should preserve the changed-kernel status'
 assert_equal repeat-current-kernel-evidence-chain "$(json_value "$REFRESH" 'd["next_stage"]')" 'the accepted refresh should require a chain restart'
 assert_equal False "$(json_value "$REFRESH" 'd["prior_candidate_bound_chain_reusable"]')" 'the 6.18.41 chain should remain non-reusable'
+assert_success 'the rejected first restart should remain valid diagnostic JSON' python3 -m json.tool "$DIAGNOSTIC" >/dev/null
+assert_equal False "$(json_value "$DIAGNOSTIC" 'd["accepted"]')" 'the failed first restart must not be accepted'
+assert_equal True "$(json_value "$DIAGNOSTIC" 'd["retry_required"]')" 'the failed first restart should require a corrected rerun'
+assert_equal False "$(json_value "$DIAGNOSTIC" 'd["nested_boot_preflight"]["repository_target_image_inventory_present"]')" 'the diagnostic should preserve the missing target image inventory'
+assert_equal ea7b0d7fa6ff5f9020f41ae06f5bea5c91a79d579dddf1bc25d258ca484605d1 "$(json_value "$DIAGNOSTIC" 'd["archive_sha256"]')" 'the rejected archive digest should be preserved'
 
 cp "$REFRESH" "$TMP/refresh-authorized.json"
 python3 - "$TMP/refresh-authorized.json" <<'PY'
@@ -137,6 +143,7 @@ target_kernel=6.18.42
 candidate_set_sha256=918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9
 package_layout=monolithic-generic
 boot_mode=direct-generic-no-initrd
+target_image_metadata_state=deferred-to-exact-package-preflight
 apply_ready=false
 apply_authorized=false
 EOF_SUMMARY
@@ -150,6 +157,8 @@ sed 's/apply_authorized=false/apply_authorized=true/' "$TMP/summary.txt" > "$TMP
 assert_failure 'an authorized nested result should be rejected' validate_nested_summary "$TMP/summary-authorized.txt"
 sed 's/boot_mode=direct-generic-no-initrd/boot_mode=unsafe/' "$TMP/summary.txt" > "$TMP/summary-mode.txt"
 assert_failure 'an unknown boot mode should be rejected' validate_nested_summary "$TMP/summary-mode.txt"
+sed 's/target_image_metadata_state=deferred-to-exact-package-preflight/target_image_metadata_state=unsafe/' "$TMP/summary.txt" > "$TMP/summary-metadata.txt"
+assert_failure 'an unknown target image metadata state should be rejected' validate_nested_summary "$TMP/summary-metadata.txt"
 
 mkdir -p "$TMP/nested"
 printf 'nested evidence\n' > "$TMP/nested/slackware-current-current-kernel-boot-preflight-20260804T000000Z.tar.gz"
@@ -166,9 +175,11 @@ TARGET=slackware-current
 RUNNING_KERNEL=6.18.40
 TARGET_KERNEL=6.18.42
 CANDIDATE_SET_SHA256=918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9
+NESTED_TARGET_IMAGE_METADATA_STATE=deferred-to-exact-package-preflight
 write_summary "$TMP/outer-summary.txt"
 assert_contains 'scenario=current-kernel-chain-restart-preflight' "$TMP/outer-summary.txt" 'outer summary should name the restart scenario'
 assert_contains 'next_stage=current-kernel-package-preflight' "$TMP/outer-summary.txt" 'outer summary should select the package preflight next'
+assert_contains 'nested_target_image_metadata_state=deferred-to-exact-package-preflight' "$TMP/outer-summary.txt" 'outer summary should preserve the deferred target image boundary'
 assert_contains 'normal_update_apply_executed=false' "$TMP/outer-summary.txt" 'outer summary should deny normal-update apply'
 assert_contains 'package_transaction_executed=false' "$TMP/outer-summary.txt" 'outer summary should deny package changes'
 assert_contains 'apply_ready=false' "$TMP/outer-summary.txt" 'outer summary should remain not ready'

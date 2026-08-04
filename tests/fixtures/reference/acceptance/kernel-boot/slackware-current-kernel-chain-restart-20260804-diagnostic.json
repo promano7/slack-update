@@ -1,0 +1,52 @@
+{
+  "scenario": "current-kernel-chain-restart-preflight",
+  "target": "slackware-current",
+  "accepted": false,
+  "diagnostic_only": true,
+  "retry_required": true,
+  "captured_at": "2026-08-04T21:35:33Z",
+  "archive_sha256": "ea7b0d7fa6ff5f9020f41ae06f5bea5c91a79d579dddf1bc25d258ca484605d1",
+  "nested_boot_archive_sha256": "5d317c0944d4d8a7144dda3fd72886b2969a43285632837600e79049c20c0985",
+  "candidate_set_sha256": "918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9",
+  "platform": {
+    "hostname": "pcold-slack.pcold-slack.org",
+    "slackware_version": "Slackware 15.0+",
+    "running_kernel": "6.18.40",
+    "target_kernel": "6.18.42",
+    "architecture": "x86_64",
+    "boot_loader": "grub"
+  },
+  "candidate_chain": {
+    "total": 69,
+    "target_kernel_companions_complete": true,
+    "kernel_generic": "kernel-generic-6.18.42-x86_64-1.txz",
+    "kernel_headers": "kernel-headers-6.18.42-x86-1.txz",
+    "kernel_source": "kernel-source-6.18.42-noarch-1.txz"
+  },
+  "nested_boot_preflight": {
+    "passes": 19,
+    "failures": 1,
+    "package_layout": "monolithic-generic",
+    "boot_mode": "direct-generic-no-initrd",
+    "installed_kernel": "6.18.40",
+    "target_kernel": "6.18.42",
+    "repository_target_records_complete": true,
+    "repository_target_module_inventory_present": false,
+    "repository_target_image_inventory_present": false,
+    "failed_message": "Slackpkg metadata does not expose the target versioned generic kernel image"
+  },
+  "outer_assertions": {
+    "passes": 4,
+    "failures": 2
+  },
+  "diagnosis": "The accepted Slackpkg package list exposed the exact kernel-generic, kernel-headers, and kernel-source records for 6.18.42, but the local file inventory did not expose boot/vmlinuz-6.18.42 before the exact package was downloaded. Target file ownership belongs to the next exact-package preflight and must not block the boot-layout discovery stage.",
+  "package_database_unchanged": true,
+  "boot_state_unchanged": true,
+  "normal_update_apply_executed": false,
+  "package_transaction_executed": false,
+  "initrd_generation_executed": false,
+  "grub_update_executed": false,
+  "apply_ready": false,
+  "apply_authorized": false,
+  "rejection_reason": "The boot preflight required target-package file inventory too early in the evidence chain. A corrected non-destructive rerun is required before the exact kernel package preflight."
+}
