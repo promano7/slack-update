@@ -1,0 +1,34 @@
+{
+  "scenario": "current-geninitrd-post-state",
+  "target": "slackware-current",
+  "synthetic": true,
+  "accepted": false,
+  "normal_update_candidate_set_sha256": "d9199fcf6c5cd8c59b87b1bde9a955df2c55d0ac84f6dab37ed8e4c1830dcaf1",
+  "running_kernel": "6.18.40",
+  "target_kernel": "6.18.41",
+  "pre_transaction_layout": "direct-generic-no-initrd",
+  "transition_expected": true,
+  "post_transaction": {
+    "state": "generated-initrd",
+    "kernel_link": "/boot/vmlinuz-generic",
+    "kernel_target": "/boot/vmlinuz-6.18.41",
+    "modules_path": "/lib/modules/6.18.41",
+    "versioned_initrd": "/boot/initrd-6.18.41.img",
+    "named_initrd_link": "/boot/initrd-generic.img",
+    "named_initrd_target": "initrd-6.18.41.img",
+    "legacy_initrd_gz_absent": true,
+    "mkinitrd_conf_absent": true
+  },
+  "grub_contract": {
+    "temporary_generation": true,
+    "syntax_validation": "grub-script-check",
+    "requires_target_kernel_reference": true,
+    "requires_target_initrd_reference": true,
+    "atomic_replacement": true
+  },
+  "commands_executed": [],
+  "mutations_performed": [],
+  "apply_ready": false,
+  "apply_authorized": false,
+  "next_stage": "final-current-candidate-revalidation"
+}

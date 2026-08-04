@@ -53,6 +53,9 @@ readonly EXIT_PRIVILEGE_UNAVAILABLE=8
 # the reference implementation so the isolated regression harness can point it
 # at a private fixture without touching the host.
 GENINITRD_POLICY_PATH=/etc/default/geninitrd
+GENINITRD_NAMED_INITRD_LINK=/boot/initrd-generic.img
+GENINITRD_NAMED_INITRD_GRUB_PATH=/boot/initrd-generic.img
+GENINITRD_VERSIONED_INITRD_DIRECTORY=/boot
 
 # Command-line interface functions
 
@@ -1790,6 +1793,26 @@ grub_config_references_kernel_path() {
     ' "$config"
 }
 
+grub_config_references_initrd_path() {
+    local config=$1
+    local path=$2
+    local alternate=
+
+    [ -f "$config" ] && [ ! -L "$config" ] && [ -r "$config" ] || return 1
+    case "$path" in
+        /boot/*) alternate=${path#/boot} ;;
+    esac
+
+    awk -v expected="$path" -v alternate="$alternate" '''
+        ($1 == "initrd" || $1 == "initrdefi") {
+            for (i = 2; i <= NF; i++) {
+                if ($i == expected || (alternate != "" && $i == alternate)) found = 1
+            }
+        }
+        END { exit !found }
+    ''' "$config"
+}
+
 classify_direct_generic_boot_layout() {
     local package_database=$1
     local cmdline_file=$2
@@ -2165,6 +2188,16 @@ initialize_runtime_state() {
     GENINITRD_POLICY_OVERRIDE_RESTORED=0
     GENINITRD_POLICY_OVERRIDE_STATUS=not-required
     GENINITRD_POLICY_OVERRIDE_ERROR=
+    GENINITRD_TRANSITION_EXPECTED=0
+    GENINITRD_POST_VALIDATION_STATUS=-1
+    GENINITRD_POST_VALIDATION_ERROR=
+    GENINITRD_POST_STATE=unknown
+    GENINITRD_POST_KERNEL_VERSION=
+    GENINITRD_POST_KERNEL_PATH=
+    GENINITRD_POST_MODULES_PATH=
+    GENINITRD_POST_INITRD_PATH=
+    GENINITRD_POST_NAMED_LINK=
+    GENINITRD_POST_PACKAGE_RECORD=
     GENINITRD_POLICY_ORIGINAL_FINGERPRINT=
     GENINITRD_POLICY_OVERRIDE_FINGERPRINT=
     GENINITRD_POLICY_BACKUP=
@@ -3018,6 +3051,33 @@ remove_owned_geninitrd_policy_temporary() {
     rm -f -- "$path"
 }
 
+read_geninitrd_policy_boolean() {
+    local path=$1
+    local variable=$2
+    local result
+
+    GENINITRD_POLICY_BOOLEAN_VALUE=
+    result=$(awk -v variable="$variable" '''
+        BEGIN { count=0; value="" }
+        {
+            line=$0
+            sub(/^[[:space:]]+/, "", line)
+            if (line ~ /^#/) next
+            if (line ~ ("^" variable "[[:space:]]*=")) {
+                count++
+                sub(("^" variable "[[:space:]]*=[[:space:]]*"), "", line)
+                sub(/[[:space:]]*$/, "", line)
+                value=line
+            }
+        }
+        END {
+            if (count != 1 || (value != "true" && value != "false")) exit 1
+            print value
+        }
+    ''' "$path") || return 1
+    GENINITRD_POLICY_BOOLEAN_VALUE=$result
+}
+
 stage_geninitrd_grub_policy_override() {
     local path=$GENINITRD_POLICY_PATH
     local parent
@@ -3188,8 +3248,15 @@ prepare_geninitrd_grub_policy_override() {
     GENINITRD_POLICY_OVERRIDE_RESTORED=0
     GENINITRD_POLICY_OVERRIDE_STATUS=not-required
     GENINITRD_POLICY_OVERRIDE_ERROR=
+    GENINITRD_TRANSITION_EXPECTED=0
 
     [ "${BOOT_PREPARATION_LAYOUT:-unknown}" = direct-generic-no-initrd ] || return 0
+    if ! read_geninitrd_policy_boolean "$GENINITRD_POLICY_PATH" AUTOGENERATE_INITRD; then
+        GENINITRD_POLICY_OVERRIDE_STATUS=failed
+        GENINITRD_POLICY_OVERRIDE_ERROR="GenInitrd policy must contain exactly one active boolean AUTOGENERATE_INITRD assignment"
+        return 1
+    fi
+    [ "$GENINITRD_POLICY_BOOLEAN_VALUE" = true ] && GENINITRD_TRANSITION_EXPECTED=1
     stage_geninitrd_grub_policy_override
 }
 
@@ -4591,6 +4658,155 @@ validate_direct_generic_kernel_configuration() {
     return 0
 }
 
+validate_generated_initrd_transition_state() {
+    local record
+    local record_path
+    local record_count=0
+    local installed_version=
+    local resolved_kernel
+    local kernel_basename
+    local package_database_resolved
+    local expected_initrd
+    local named_target
+    local named_resolved
+    local initrd_mode
+
+    GENINITRD_POST_VALIDATION_STATUS=1
+    GENINITRD_POST_VALIDATION_ERROR=
+    GENINITRD_POST_STATE=invalid
+    GENINITRD_POST_KERNEL_VERSION=
+    GENINITRD_POST_KERNEL_PATH=
+    GENINITRD_POST_MODULES_PATH=
+    GENINITRD_POST_INITRD_PATH=
+    GENINITRD_POST_NAMED_LINK=
+
+    [ "${BOOT_PREPARATION_LAYOUT:-unknown}" = direct-generic-no-initrd ] || {
+        GENINITRD_POST_VALIDATION_ERROR="boot preparation layout is not direct-generic-no-initrd"
+        return 1
+    }
+    [ -f "$AFTER_PKGS" ] && [ -r "$AFTER_PKGS" ] || {
+        GENINITRD_POST_VALIDATION_ERROR="post-update package snapshot is unavailable"
+        return 1
+    }
+
+    while IFS= read -r record || [ -n "$record" ]; do
+        parse_slackware_package_record "$record" || continue
+        [ "$SLACKWARE_PACKAGE_NAME" = "$INITRD_KERNEL_PACKAGE" ] || continue
+        record_count=$((record_count + 1))
+        installed_version=$SLACKWARE_PACKAGE_VERSION
+        GENINITRD_POST_PACKAGE_RECORD=$SLACKWARE_PACKAGE_RECORD
+    done < <(package_snapshot_records_for_name "$AFTER_PKGS" "$INITRD_KERNEL_PACKAGE")
+
+    [ "$record_count" -eq 1 ] || {
+        GENINITRD_POST_VALIDATION_ERROR="installed kernel package has an ambiguous post-update record count: $record_count"
+        return 1
+    }
+    is_safe_kernel_version "$installed_version" || {
+        GENINITRD_POST_VALIDATION_ERROR="installed generated-initrd kernel version is unsafe: $installed_version"
+        return 1
+    }
+
+    [ ! -e "$MKINITRD_CONFIG" ] && [ ! -L "$MKINITRD_CONFIG" ] || {
+        GENINITRD_POST_VALIDATION_ERROR="unexpected mkinitrd configuration appeared during the GenInitrd transition"
+        return 1
+    }
+    [ ! -e "$INITRD_DEFAULT_OUTPUT" ] && [ ! -L "$INITRD_DEFAULT_OUTPUT" ] || {
+        GENINITRD_POST_VALIDATION_ERROR="unexpected legacy initrd path appeared during the GenInitrd transition: $INITRD_DEFAULT_OUTPUT"
+        return 1
+    }
+
+    [ -L "$GENERIC_KERNEL_LINK" ] || {
+        GENINITRD_POST_VALIDATION_ERROR="post-update generic kernel path is not a symbolic link"
+        return 1
+    }
+    resolved_kernel=$(readlink -e -- "$GENERIC_KERNEL_LINK" 2>/dev/null) || {
+        GENINITRD_POST_VALIDATION_ERROR="post-update generic kernel link cannot be resolved"
+        return 1
+    }
+    [ -f "$resolved_kernel" ] && [ ! -L "$resolved_kernel" ] && [ -r "$resolved_kernel" ] || {
+        GENINITRD_POST_VALIDATION_ERROR="post-update generic kernel target is not a readable regular file"
+        return 1
+    }
+    kernel_basename=${resolved_kernel##*/}
+    [ "$kernel_basename" = "vmlinuz-$installed_version" ] || {
+        GENINITRD_POST_VALIDATION_ERROR="post-update generic kernel link does not select vmlinuz-$installed_version"
+        return 1
+    }
+
+    GENINITRD_POST_MODULES_PATH="$KERNEL_MODULES_DIRECTORY/$installed_version"
+    [ -d "$GENINITRD_POST_MODULES_PATH" ] && [ ! -L "$GENINITRD_POST_MODULES_PATH" ] || {
+        GENINITRD_POST_VALIDATION_ERROR="post-update generated-initrd module tree is missing or unsafe: $GENINITRD_POST_MODULES_PATH"
+        return 1
+    }
+
+    package_database_resolved=$(readlink -e -- "$PACKAGE_DATABASE" 2>/dev/null) || {
+        GENINITRD_POST_VALIDATION_ERROR="post-update package database cannot be resolved"
+        return 1
+    }
+    [ -d "$package_database_resolved" ] && [ ! -L "$package_database_resolved" ] \
+        && [ -r "$package_database_resolved" ] && [ -x "$package_database_resolved" ] || {
+        GENINITRD_POST_VALIDATION_ERROR="post-update package database is not a safe readable directory"
+        return 1
+    }
+    record_path="$package_database_resolved/$GENINITRD_POST_PACKAGE_RECORD"
+    [ -f "$record_path" ] && [ ! -L "$record_path" ] && [ -r "$record_path" ] || {
+        GENINITRD_POST_VALIDATION_ERROR="post-update generic kernel package record is missing or unsafe"
+        return 1
+    }
+    grep -Fxq -- "boot/$kernel_basename" "$record_path" || {
+        GENINITRD_POST_VALIDATION_ERROR="post-update generic kernel package does not own boot/$kernel_basename"
+        return 1
+    }
+    awk -v prefix="lib/modules/$installed_version/" 'index($0, prefix) == 1 { found=1 } END { exit !found }' \
+        "$record_path" || {
+        GENINITRD_POST_VALIDATION_ERROR="post-update generic kernel package does not own its module tree"
+        return 1
+    }
+
+    expected_initrd="$GENINITRD_VERSIONED_INITRD_DIRECTORY/initrd-$installed_version.img"
+    [ -f "$expected_initrd" ] && [ ! -L "$expected_initrd" ] && [ -r "$expected_initrd" ] && [ -s "$expected_initrd" ] || {
+        GENINITRD_POST_VALIDATION_ERROR="generated versioned initrd is missing, unsafe, unreadable, or empty: $expected_initrd"
+        return 1
+    }
+    [ "$(stat -c '%u' -- "$expected_initrd")" -eq 0 ] || {
+        GENINITRD_POST_VALIDATION_ERROR="generated versioned initrd is not root-owned: $expected_initrd"
+        return 1
+    }
+    initrd_mode=$(stat -c '%a' -- "$expected_initrd") || return 1
+    [ $((8#$initrd_mode & 8#022)) -eq 0 ] || {
+        GENINITRD_POST_VALIDATION_ERROR="generated versioned initrd is writable by group or others: $expected_initrd"
+        return 1
+    }
+
+    [ -L "$GENINITRD_NAMED_INITRD_LINK" ] || {
+        GENINITRD_POST_VALIDATION_ERROR="named GenInitrd link is missing or not a symbolic link: $GENINITRD_NAMED_INITRD_LINK"
+        return 1
+    }
+    named_target=$(readlink -- "$GENINITRD_NAMED_INITRD_LINK" 2>/dev/null) || return 1
+    [ "$named_target" = "initrd-$installed_version.img" ] || {
+        GENINITRD_POST_VALIDATION_ERROR="named GenInitrd link does not select initrd-$installed_version.img"
+        return 1
+    }
+    named_resolved=$(readlink -e -- "$GENINITRD_NAMED_INITRD_LINK" 2>/dev/null) || {
+        GENINITRD_POST_VALIDATION_ERROR="named GenInitrd link cannot be resolved"
+        return 1
+    }
+    [ "$named_resolved" = "$expected_initrd" ] || {
+        GENINITRD_POST_VALIDATION_ERROR="named GenInitrd link resolves outside the reviewed versioned initrd"
+        return 1
+    }
+
+    GENINITRD_POST_STATE=generated-initrd
+    GENINITRD_POST_KERNEL_VERSION=$installed_version
+    GENINITRD_POST_KERNEL_PATH=$resolved_kernel
+    GENINITRD_POST_INITRD_PATH=$expected_initrd
+    GENINITRD_POST_NAMED_LINK=$GENINITRD_NAMED_INITRD_LINK
+    GENINITRD_POST_VALIDATION_STATUS=0
+    INITRD_OUTPUT_PATH=$expected_initrd
+    INITRD_OK=1
+    return 0
+}
+
 grub_initrd_prerequisite_is_satisfied() {
     GRUB_BLOCKED_BY_INITRD=0
     GRUB_BLOCK_REASON=
@@ -4600,7 +4816,16 @@ grub_initrd_prerequisite_is_satisfied() {
     fi
 
     if [ "${BOOT_PREPARATION_LAYOUT:-unknown}" = direct-generic-no-initrd ]; then
+        if [ "${GENINITRD_TRANSITION_EXPECTED:-0}" -eq 1 ]; then
+            if validate_generated_initrd_transition_state; then
+                return 0
+            fi
+            GRUB_BLOCKED_BY_INITRD=1
+            GRUB_BLOCK_REASON="generated-initrd transition failed validation: $GENINITRD_POST_VALIDATION_ERROR"
+            return 1
+        fi
         if validate_direct_generic_kernel_configuration; then
+            GENINITRD_POST_STATE=not-generated
             return 0
         fi
         GRUB_BLOCKED_BY_INITRD=1
@@ -4744,13 +4969,22 @@ prepare_grub_transaction() {
 
 validate_generated_direct_generic_grub_config() {
     local config=$1
-    local version=${DIRECT_GENERIC_INSTALLED_KERNEL_VERSION:-}
+    local version=${GENINITRD_POST_KERNEL_VERSION:-${DIRECT_GENERIC_INSTALLED_KERNEL_VERSION:-}}
+    local initrd_path=${GENINITRD_POST_INITRD_PATH:-}
 
     [ "${BOOT_PREPARATION_LAYOUT:-unknown}" = direct-generic-no-initrd ] || return 0
     is_safe_kernel_version "$version" || return 1
     [ -f "$config" ] && [ ! -L "$config" ] && [ -r "$config" ] || return 1
 
-    grub_config_references_kernel_path "$config" /boot/vmlinuz-generic         || grub_config_references_kernel_path "$config" "/boot/vmlinuz-$version"
+    if ! grub_config_references_kernel_path "$config" /boot/vmlinuz-generic         && ! grub_config_references_kernel_path "$config" "/boot/vmlinuz-$version"; then
+        return 1
+    fi
+
+    if [ "${GENINITRD_POST_STATE:-unknown}" = generated-initrd ]; then
+        [ "${initrd_path##*/}" = "initrd-$version.img" ] || return 1
+        grub_config_references_initrd_path "$config" "$GENINITRD_NAMED_INITRD_GRUB_PATH" \
+            || grub_config_references_initrd_path "$config" "/boot/initrd-$version.img"
+    fi
 }
 
 validate_generated_grub_config() {
@@ -4786,7 +5020,7 @@ validate_generated_grub_config() {
 
     if ! validate_generated_direct_generic_grub_config "$GRUB_TEMP_CONFIG"; then
         GRUB_VALIDATION_STATUS=1
-        GRUB_VALIDATION_ERROR="generated GRUB configuration does not reference the validated direct-generic kernel"
+        GRUB_VALIDATION_ERROR="generated GRUB configuration does not reference the validated direct-generic kernel and required generated initrd"
         return 1
     fi
 
@@ -5830,6 +6064,15 @@ print_apply_json_modules() {
     printf '      "geninitrd_policy_override_active": '; json_boolean "${GENINITRD_POLICY_OVERRIDE_ACTIVE:-0}"; printf ',\n'
     printf '      "geninitrd_policy_override_status": '; json_string "${GENINITRD_POLICY_OVERRIDE_STATUS:-not-required}"; printf ',\n'
     printf '      "geninitrd_policy_override_error": '; json_string "${GENINITRD_POLICY_OVERRIDE_ERROR:-}"; printf ',\n'
+    printf '      "geninitrd_transition_expected": '; json_boolean "${GENINITRD_TRANSITION_EXPECTED:-0}"; printf ',\n'
+    printf '      "geninitrd_post_state": '; json_string "${GENINITRD_POST_STATE:-unknown}"; printf ',\n'
+    printf '      "geninitrd_post_validation_exit_code": '; json_nullable_status "${GENINITRD_POST_VALIDATION_STATUS:--1}"; printf ',\n'
+    printf '      "geninitrd_post_validation_error": '; json_string "${GENINITRD_POST_VALIDATION_ERROR:-}"; printf ',\n'
+    printf '      "geninitrd_post_kernel_version": '; json_string "${GENINITRD_POST_KERNEL_VERSION:-}"; printf ',\n'
+    printf '      "geninitrd_post_kernel_path": '; json_string "${GENINITRD_POST_KERNEL_PATH:-}"; printf ',\n'
+    printf '      "geninitrd_post_modules_path": '; json_string "${GENINITRD_POST_MODULES_PATH:-}"; printf ',\n'
+    printf '      "geninitrd_post_initrd_path": '; json_string "${GENINITRD_POST_INITRD_PATH:-}"; printf ',\n'
+    printf '      "geninitrd_post_named_link": '; json_string "${GENINITRD_POST_NAMED_LINK:-}"; printf ',\n'
     printf '      "initrd_required": '; json_boolean "$INITRD_REQUIRED"; printf ',\n'
     printf '      "initrd_state": '; json_string "$initrd_state"; printf ',\n'
     printf '      "kernel_version_source": '; json_string 'post-update-package-snapshot'; printf ',\n'
