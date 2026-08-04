@@ -441,7 +441,7 @@ main() {
         "$HOSTNAME_VALUE" "$SLACKWARE_VERSION" "$RUNNING_KERNEL" \
         "$(cat /proc/cmdline 2>/dev/null || true)" > "$OUTPUT_DIR/host.txt"
 
-    if validate_accepted_preflight; then record_pass 'the accepted 57-candidate normal-update record matches the requested kernel transition'; else record_failure 'the accepted normal-update record does not match the requested candidate set and target kernel'; fi
+    if validate_accepted_preflight; then record_pass 'the accepted Slackware-current normal-update record matches the requested kernel transition'; else record_failure 'the accepted normal-update record does not match the requested candidate set and target kernel'; fi
     if resolve_package_database; then
         record_pass "the Slackware package database resolved safely to $PACKAGE_DATABASE_RESOLVED"
         before_digest=$(capture_package_database_digest 2>/dev/null || true)

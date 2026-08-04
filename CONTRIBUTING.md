@@ -118,11 +118,12 @@ Before submitting a change to the reference script:
 34. Run `tests/reference/test-geninitrd-grub-ownership-engine.sh` when same-directory policy staging, atomic activation or restoration, cleanup recovery, concurrent-change handling, backup retention, apply workflow ordering, or ownership-state reporting is affected.
 35. Run `tests/reference/test-current-geninitrd-post-state.sh` when generated-initrd expectation, post-update kernel ownership, versioned initrd validation, named initrd links, legacy-initrd exclusion, or kernel-plus-initrd GRUB validation is affected.
 36. Run `tests/reference/test-current-candidate-chain-refresh-preflight-harness.sh` when fresh Slackware-current metadata refresh, embedded preflight composition, candidate-set hashing, target-kernel companion validation, stale-chain classification, or no-apply evidence publication is affected.
-37. Confirm that destructive commands are not exercised outside an isolated or explicitly recoverable Slackware test system.
-38. Record the relevant acceptance scenario.
-39. Preserve deterministic output and exit-code behavior.
-40. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
-41. Ensure every new or modified comment is written in English.
+37. Run `tests/reference/test-current-kernel-chain-restart-preflight-harness.sh` when accepted refresh binding, target-specific boot-preflight composition, nested evidence verification, or restarted-chain no-apply boundaries are affected.
+38. Confirm that destructive commands are not exercised outside an isolated or explicitly recoverable Slackware test system.
+39. Record the relevant acceptance scenario.
+40. Preserve deterministic output and exit-code behavior.
+41. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
+42. Ensure every new or modified comment is written in English.
 
 Never run the apply workflow on a production machine merely to validate a contribution.
 

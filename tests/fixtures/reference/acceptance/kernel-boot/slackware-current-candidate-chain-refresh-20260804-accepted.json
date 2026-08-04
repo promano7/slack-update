@@ -1,0 +1,78 @@
+{
+  "scenario": "current-candidate-chain-refresh-preflight",
+  "target": "slackware-current",
+  "accepted": true,
+  "captured_at": "2026-08-04T21:08:44Z",
+  "archive_sha256": "f9be7efe4a46c72f070f63c4278600e6c75547fe05912f038a9d421c8049c7f7",
+  "nested_normal_update_archive_sha256": "0e6e0cc55f969ee3526096e42f09ef5a89ba4479ab78cd0c591ff2e05e71bda7",
+  "added_candidates": [
+    "calligra-26.04.3-x86_64-2.txz",
+    "cantor-26.04.3-x86_64-2.txz",
+    "dracut-112-x86_64-1.txz",
+    "kernel-firmware-20260803_73b4d58-noarch-1.txz",
+    "kernel-generic-6.18.42-x86_64-1.txz",
+    "kernel-headers-6.18.42-x86-1.txz",
+    "kernel-source-6.18.42-noarch-1.txz",
+    "kfilemetadata-6.28.0-x86_64-2.txz",
+    "kfilemetadata5-5.116.0-x86_64-3.txz",
+    "kile-20260628_f8768d56-x86_64-2.txz",
+    "kitinerary-26.04.3-x86_64-2.txz",
+    "krita-6.0.3-x86_64-3.txz",
+    "lame-4.0-x86_64-1.txz",
+    "libadwaita-1.9.3-x86_64-1.txz",
+    "libcec-8.1.4-x86_64-1.txz",
+    "mpg123-1.33.7-x86_64-1.txz",
+    "nodejs-24.19.0-x86_64-1.txz",
+    "okular-26.04.3-x86_64-2.txz",
+    "poppler-26.08.0-x86_64-1.txz"
+  ],
+  "apply_authorized": false,
+  "apply_ready": false,
+  "baseline_candidate_count": 57,
+  "baseline_candidate_set_sha256": "d9199fcf6c5cd8c59b87b1bde9a955df2c55d0ac84f6dab37ed8e4c1830dcaf1",
+  "candidate_set_changed": true,
+  "chain_status": "changed-kernel-set",
+  "fresh_candidate_count": 69,
+  "fresh_candidate_set_sha256": "918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9",
+  "grub_update_executed": false,
+  "initrd_generation_executed": false,
+  "install_new_count": 1,
+  "kernel_companion_set_complete": true,
+  "kernel_generic_candidates": [
+    "kernel-generic-6.18.42-x86_64-1.txz"
+  ],
+  "kernel_headers_candidates": [
+    "kernel-headers-6.18.42-x86-1.txz"
+  ],
+  "kernel_source_candidates": [
+    "kernel-source-6.18.42-noarch-1.txz"
+  ],
+  "next_stage": "repeat-current-kernel-evidence-chain",
+  "normal_update_apply_executed": false,
+  "normal_update_preflight_passed": true,
+  "package_transaction_executed": false,
+  "prior_candidate_bound_chain_reusable": false,
+  "removed_candidates": [
+    "kernel-firmware-20260730_9cedbdc-noarch-1.txz",
+    "kernel-generic-6.18.41-x86_64-1.txz",
+    "kernel-headers-6.18.41-x86-1.txz",
+    "kernel-source-6.18.41-noarch-1.txz",
+    "krita-6.0.3-x86_64-2.txz",
+    "libcec-8.1.3-x86_64-1.txz",
+    "nodejs-24.18.1-x86_64-1.txz"
+  ],
+  "running_kernel": "6.18.40",
+  "target_kernel": "6.18.42",
+  "upgrade_all_count": 68,
+  "package_database_unchanged": true,
+  "boot_state_unchanged": true,
+  "evidence": {
+    "portable_sha256_sidecar": true,
+    "copied_to": "/home/promano",
+    "destination_verification": "passed"
+  },
+  "assertions": {
+    "passes": 8,
+    "failures": 0
+  }
+}

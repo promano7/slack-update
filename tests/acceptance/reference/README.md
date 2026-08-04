@@ -619,3 +619,32 @@ and after metadata refresh. It invokes the nested acceptance script only with
 were not executed, and always publishes `apply_ready=false` and
 `apply_authorized=false`. Its private portable evidence archive and sidecar are
 copied directly to `/home/promano` with the printed command.
+
+### Slackware-current kernel evidence-chain restart preflight
+
+Phase 1 step 45 adds `test-current-kernel-chain-restart-preflight.sh` after the
+accepted refresh selected a new kernel target. The wrapper binds the accepted
+2026-08-04 chain-refresh record to the matching 69-candidate normal-update
+record, reconstructs the exact candidate digest, and requires the complete
+`kernel-generic`, `kernel-headers`, and `kernel-source` trio for `6.18.42`.
+
+The wrapper invokes only `test-current-kernel-boot-preflight.sh` with the
+reviewed normal-update record supplied explicitly. The complete nested evidence
+directory, its archive, and its portable sidecar remain inside the outer private
+evidence tree. The outer stage validates the nested summary identity, verifies
+the nested sidecar, and requires unchanged package and active boot state.
+
+Run it as root on `pcold-slack`:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-kernel-chain-restart-preflight.sh \
+    --target slackware-current
+```
+
+The stage never installs packages, generates an initrd, regenerates GRUB, or
+calls normal-update apply. Every result records `apply_ready=false` and
+`apply_authorized=false`. A successful result advances only to a new exact
+`kernel-generic-6.18.42` package preflight. Copy the printed archive and sidecar
+directly to `/home/promano` and verify them there with the printed
+`sha256sum -c` command.
+
