@@ -1944,3 +1944,19 @@ Slack-Update 1.0 will be ready when:
     - [ ] Review the real loader and mkinitrd evidence before authorizing package changes.
 - [ ] Freeze `reference-v1`.
 - [ ] Begin the C architecture only after the reference gate is complete.
+
+
+### Phase 1 step 52: restarted GenInitrd/GRUB ownership preflight
+
+The corrected step-51 command preflight passed all 11 assertions on `pcold-slack`. It accepted archive SHA-256 `be239e39372ad807be01199051730dbaf2602b962ceebea68b864e5951c78682`, exact cached package SHA-256 `e9e7a1c5c71c945ee99595868aa8fee8a644b56601ece0c3e5696d643fe84878`, and the projected output `/boot/initrd-6.18.42.img`. No generated command, package operation, initrd generation, or GRUB update was executed.
+
+Run the restarted ownership preflight on `pcold-slack`:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-geninitrd-grub-ownership-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+This stage binds all seven accepted records, proves that an environment-only override cannot suppress package-owned `update-grub`, and prepares only an evidence-local copy whose sole active change is `AUTO_UPDATE_GRUB=false`. It records twelve future transaction stages and five recovery boundaries without changing `/etc/default/geninitrd`, packages, initrd files, or GRUB. The result remains `apply_ready=false` and `apply_authorized=false`. Copy the generated `.tar.gz` and `.sha256` directly to `/home/promano` using the printed command and verify them there.

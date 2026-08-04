@@ -740,3 +740,19 @@ The preflight binds the accepted normal-update, boot, restarted-chain, exact-pac
 
 The first real run passed 10 assertions and failed only the cached-package assertion because executable code still contained the old `6.18.41` package SHA-256. Archive SHA-256 `8f3f32b17d735241caf7e22f2aa32b56d2d42590a46bb920979ed51e0ab6c3f6` is diagnostic only. The corrected step-51 script loads the exact package filename and digest from `slackware-current-kernel-package-preflight-20260804-accepted.json`, records expected and observed cache digests, and requires a clean rerun before this boundary is accepted.
 
+
+
+### Slackware-current restarted GenInitrd/GRUB ownership preflight (step 52)
+
+The corrected step-51 rerun passed all 11 assertions. Its accepted archive SHA-256 is `be239e39372ad807be01199051730dbaf2602b962ceebea68b864e5951c78682`; the command record preserves the complete `6.18.42` evidence chain, the exact cached package digest, the inert current vector, the projected 18-module vector, and output `/boot/initrd-6.18.42.img`.
+
+Run the ownership preflight on the same Slackware-current host:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-geninitrd-grub-ownership-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+The preflight binds seven accepted records, verifies the installed GenInitrd control flow, and creates an evidence-local staged policy whose only active change is `AUTO_UPDATE_GRUB=true` to `AUTO_UPDATE_GRUB=false`. It emits the reviewed twelve-stage transaction and five recovery boundaries, but never edits the active policy, installs packages, generates an initrd, or invokes GRUB tools. The result must remain `apply_ready=false` and `apply_authorized=false`. Copy the archive and portable sidecar directly to `/home/promano` and verify them there.

@@ -114,7 +114,7 @@ Before submitting a change to the reference script:
 30. Run `tests/reference/test-current-geninitrd-policy-preflight-harness.sh` when installed GenInitrd script recognition, non-evaluating policy parsing, generator selection, automatic GRUB behavior, custom hook inventory, or policy evidence publication is affected.
 31. Run `tests/reference/test-current-geninitrd-dkms-hook-preflight-harness.sh` when reviewed hook identity, hook metadata or syntax, static command-surface capture, read-only DKMS status, DKMS source/module inventory, or immutable apply denial is affected.
 32. Run `tests/reference/test-current-geninitrd-command-preflight-harness.sh` when command-generator identity, command-output-only invocation, inert argument parsing, target-kernel projection, cached-package binding, or no-execution guarantees are affected.
-33. Run `tests/reference/test-current-geninitrd-grub-ownership-preflight-harness.sh` when GenInitrd policy precedence, automatic GRUB suppression, evidence-local policy staging, transaction ordering, recovery boundaries, or exclusive Slack-Update GRUB ownership are affected.
+33. Run `tests/reference/test-current-geninitrd-grub-ownership-preflight-harness.sh` when accepted chain linkage, GenInitrd policy precedence, automatic GRUB suppression, evidence-local policy staging, transaction ordering, recovery boundaries, or exclusive Slack-Update GRUB ownership are affected.
 34. Run `tests/reference/test-geninitrd-grub-ownership-engine.sh` when same-directory policy staging, atomic activation or restoration, cleanup recovery, concurrent-change handling, backup retention, apply workflow ordering, or ownership-state reporting is affected.
 35. Run `tests/reference/test-current-geninitrd-post-state.sh` when generated-initrd expectation, post-update kernel ownership, versioned initrd validation, named initrd links, legacy-initrd exclusion, or kernel-plus-initrd GRUB validation is affected.
 36. Run `tests/reference/test-current-candidate-chain-refresh-preflight-harness.sh` when fresh Slackware-current metadata refresh, embedded preflight composition, candidate-set hashing, target-kernel companion validation, stale-chain classification, or no-apply evidence publication is affected.
@@ -126,6 +126,20 @@ Before submitting a change to the reference script:
 42. Ensure every new or modified comment is written in English.
 
 Never run the apply workflow on a production machine merely to validate a contribution.
+
+
+## Current Slackware-current ownership preflight
+
+After accepting the corrected `6.18.42` GenInitrd command evidence, run only the non-destructive ownership preflight:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-geninitrd-grub-ownership-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+Do not run normal-update apply. Copy the printed evidence archive and sidecar directly to `/home/promano`, verify the sidecar there, and include both files with the review.
 
 ## Pull requests
 

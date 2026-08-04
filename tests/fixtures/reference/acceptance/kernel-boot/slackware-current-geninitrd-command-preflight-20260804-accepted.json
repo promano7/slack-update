@@ -1,0 +1,78 @@
+{
+  "scenario": "current-geninitrd-command-preflight",
+  "target": "slackware-current",
+  "accepted": true,
+  "captured_at": "2026-08-04T23:30:48Z",
+  "archive_sha256": "be239e39372ad807be01199051730dbaf2602b962ceebea68b864e5951c78682",
+  "normal_update_candidate_set_sha256": "918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9",
+  "boot_preflight_archive_sha256": "be201626afc4b4aa2f9b59d7c10429e083094989b8c172530348aad95ab4fc32",
+  "chain_restart_archive_sha256": "77618b808093f3e5349f5a6e076a110b56876a7ed08878d89c71a78fc594de51",
+  "package_preflight_archive_sha256": "44c18026052a7d7b0d5e385258389f8bc73beefe9ac35c2a2777707df17c4f57",
+  "policy_preflight_archive_sha256": "873c7779dcef6f16d72d809704ca732809e6d5db5b1668f6a4942662b97c54ca",
+  "dkms_preflight_archive_sha256": "c943b3c25703fc395cfba6708a9c6122b033f82876795053f39a6d8e61ff5074",
+  "running_kernel": "6.18.40",
+  "target_kernel": "6.18.42",
+  "package": {
+    "filename": "kernel-generic-6.18.42-x86_64-1.txz",
+    "expected_sha256": "e9e7a1c5c71c945ee99595868aa8fee8a644b56601ece0c3e5696d643fe84878",
+    "observed_sha256": "e9e7a1c5c71c945ee99595868aa8fee8a644b56601ece0c3e5696d643fe84878"
+  },
+  "generator": {
+    "path": "/usr/share/mkinitrd/mkinitrd_command_generator.sh",
+    "sha256": "90a65fd4edb8a1c0952c14d682046a9a6acfece4639599ea4b3079c5daadeeac",
+    "mode": "command-output-only",
+    "executed_for_kernel": "6.18.40"
+  },
+  "current_command_vector": [
+    "mkinitrd",
+    "-c",
+    "-k",
+    "6.18.40",
+    "-f",
+    "ext4",
+    "-r",
+    "/dev/sda2",
+    "-m",
+    "xhci-pci:ohci-pci:ehci-pci:xhci-hcd:uhci-hcd:ehci-hcd:hid:usbhid:i2c-hid:hid_generic:hid-asus:hid-cherry:hid-logitech:hid-logitech-dj:hid-logitech-hidpp:hid-lenovo:hid-microsoft:hid_multitouch",
+    "-u",
+    "-o",
+    "/boot/initrd.gz"
+  ],
+  "projected_command_vector": [
+    "mkinitrd",
+    "-c",
+    "-k",
+    "6.18.42",
+    "-f",
+    "ext4",
+    "-r",
+    "/dev/sda2",
+    "-m",
+    "xhci-pci:ohci-pci:ehci-pci:xhci-hcd:uhci-hcd:ehci-hcd:hid:usbhid:i2c-hid:hid_generic:hid-asus:hid-cherry:hid-logitech:hid-logitech-dj:hid-logitech-hidpp:hid-lenovo:hid-microsoft:hid_multitouch",
+    "-u",
+    "-o",
+    "/boot/initrd-6.18.42.img"
+  ],
+  "projected_initrd": "/boot/initrd-6.18.42.img",
+  "module_count": 18,
+  "command_status": "projected-safe",
+  "generated_command_executed": false,
+  "mkinitrd_executed": false,
+  "geninitrd_executed": false,
+  "update_grub_executed": false,
+  "package_database_unchanged": true,
+  "boot_policy_and_generator_state_unchanged": true,
+  "assertions": {
+    "passes": 11,
+    "failures": 0
+  },
+  "evidence": {
+    "portable_sha256_sidecar": true,
+    "copied_to": "/home/promano",
+    "destination_verification": "passed"
+  },
+  "apply_ready": false,
+  "apply_authorized": false,
+  "next_stage": "current-geninitrd-grub-ownership-preflight",
+  "executed_preflight_sha256": "54754573ff00aa538ad63d7bb87918837d9bd7c04d494a66508a0494ab9c81ee"
+}

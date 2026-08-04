@@ -44,22 +44,32 @@ fi
 assert_contains 'sha256sum -c' "$SCRIPT" 'portable evidence verification should be printed'
 assert_contains '/home/$owner/' "$SCRIPT" 'evidence should be copied directly to the user home directory'
 
-is_safe_kernel_version 6.18.41 && pass || fail 'a normal kernel version should be safe'
-is_safe_kernel_version '../6.18.41' && fail 'parent traversal should be rejected' || pass
-is_safe_kernel_version '6.18.41 bad' && fail 'whitespace should be rejected' || pass
+is_safe_kernel_version 6.18.42 && pass || fail 'a normal kernel version should be safe'
+is_safe_kernel_version '../6.18.42' && fail 'parent traversal should be rejected' || pass
+is_safe_kernel_version '6.18.42 bad' && fail 'whitespace should be rejected' || pass
 is_sha256 "$(printf 'a%.0s' {1..64})" && pass || fail 'a valid SHA-256 should be accepted'
 is_sha256 abc && fail 'a short SHA-256 should be rejected' || pass
 
 TARGET=slackware-current
-TARGET_KERNEL=6.18.41
-CONFIRM_CANDIDATES_SHA256=d9199fcf6c5cd8c59b87b1bde9a955df2c55d0ac84f6dab37ed8e4c1830dcaf1
-NORMAL_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260803-accepted.json"
-BOOT_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-direct-generic-preflight-20260803-accepted.json"
-PACKAGE_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-package-preflight-20260803-accepted.json"
-POLICY_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-policy-preflight-20260803-accepted.json"
-DKMS_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-dkms-hook-preflight-20260803-accepted.json"
-COMMAND_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-command-preflight-20260803-accepted.json"
+TARGET_KERNEL=6.18.42
+CONFIRM_CANDIDATES_SHA256=918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9
+NORMAL_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260804-accepted.json"
+BOOT_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-boot-preflight-20260804-accepted.json"
+CHAIN_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-chain-restart-20260804-accepted.json"
+PACKAGE_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-package-preflight-20260804-accepted.json"
+POLICY_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-policy-preflight-20260804-accepted.json"
+DKMS_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-dkms-hook-preflight-20260804-accepted.json"
+COMMAND_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-command-preflight-20260804-accepted.json"
 assert_success 'all accepted records should match the exact reviewed transaction' validate_accepted_records
+
+cp "$CHAIN_PREFLIGHT" "$TMP/chain-link.json"
+python3 - "$TMP/chain-link.json" <<'PY'
+import json,sys
+p=sys.argv[1]; d=json.load(open(p)); d['nested_boot_archive_sha256']='0'*64; open(p,'w').write(json.dumps(d))
+PY
+CHAIN_PREFLIGHT="$TMP/chain-link.json"
+assert_failure 'a restarted chain detached from the accepted boot evidence should fail closed' validate_accepted_records
+CHAIN_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-chain-restart-20260804-accepted.json"
 
 cp "$COMMAND_PREFLIGHT" "$TMP/command-ready.json"
 python3 - "$TMP/command-ready.json" <<'PY'
@@ -68,7 +78,16 @@ p=sys.argv[1]; d=json.load(open(p)); d['apply_ready']=True; open(p,'w').write(js
 PY
 COMMAND_PREFLIGHT="$TMP/command-ready.json"
 assert_failure 'an apply-ready command record should fail the immutable preflight boundary' validate_accepted_records
-COMMAND_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-command-preflight-20260803-accepted.json"
+COMMAND_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-command-preflight-20260804-accepted.json"
+
+cp "$COMMAND_PREFLIGHT" "$TMP/command-package.json"
+python3 - "$TMP/command-package.json" <<'PY'
+import json,sys
+p=sys.argv[1]; d=json.load(open(p)); d['package']['observed_sha256']='0'*64; open(p,'w').write(json.dumps(d))
+PY
+COMMAND_PREFLIGHT="$TMP/command-package.json"
+assert_failure 'a command record with a package digest detached from exact-package evidence should fail closed' validate_accepted_records
+COMMAND_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-command-preflight-20260804-accepted.json"
 
 cp "$POLICY_PREFLIGHT" "$TMP/policy-grub.json"
 python3 - "$TMP/policy-grub.json" <<'PY'
@@ -77,7 +96,7 @@ p=sys.argv[1]; d=json.load(open(p)); d['policy']['auto_update_grub']=False; open
 PY
 POLICY_PREFLIGHT="$TMP/policy-grub.json"
 assert_failure 'a policy record without automatic GRUB update should not match this ownership conflict' validate_accepted_records
-POLICY_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-policy-preflight-20260803-accepted.json"
+POLICY_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-policy-preflight-20260804-accepted.json"
 
 ROOT="$TMP/root"
 mkdir -p "$ROOT/etc/default" "$ROOT/usr/sbin" "$ROOT/var/lib/pkgtools/setup" "$TMP/out"
@@ -112,7 +131,7 @@ fi
 EOF_SETUP
 chmod 0644 "$CONFIG"
 chmod 0755 "$GENINITRD" "$SETUP"
-assert_success 'a reviewed config and control flow should produce a safe ownership plan' analyze_grub_ownership "$CONFIG" "$GENINITRD" "$SETUP" "$TMP/out/staged" "$TMP/out/analysis.json" 6.18.41
+assert_success 'a reviewed config and control flow should produce a safe ownership plan' analyze_grub_ownership "$CONFIG" "$GENINITRD" "$SETUP" "$TMP/out/staged" "$TMP/out/analysis.json" 6.18.42
 assert_contains 'AUTO_UPDATE_GRUB=false' "$TMP/out/staged" 'the staged copy should disable automatic GRUB update'
 assert_not_contains 'AUTO_UPDATE_GRUB=true' "$TMP/out/staged" 'the staged copy should not retain the active true assignment'
 assert_contains 'AUTO_UPDATE_GRUB=true' "$CONFIG" 'the active fixture must remain unchanged'
@@ -128,17 +147,17 @@ assert_equal true "$(python3 -c 'import json,sys; print(str(json.load(open(sys.a
 
 cp "$CONFIG" "$TMP/duplicate.conf"
 printf '%s\n' 'AUTO_UPDATE_GRUB=true' >> "$TMP/duplicate.conf"
-assert_failure 'duplicate active AUTO_UPDATE_GRUB assignments should fail closed' analyze_grub_ownership "$TMP/duplicate.conf" "$GENINITRD" "$SETUP" "$TMP/out/dup-staged" "$TMP/out/dup.json" 6.18.41
+assert_failure 'duplicate active AUTO_UPDATE_GRUB assignments should fail closed' analyze_grub_ownership "$TMP/duplicate.conf" "$GENINITRD" "$SETUP" "$TMP/out/dup-staged" "$TMP/out/dup.json" 6.18.42
 cp "$CONFIG" "$TMP/false.conf"
 sed -i 's/AUTO_UPDATE_GRUB=true/AUTO_UPDATE_GRUB=false/' "$TMP/false.conf"
-assert_failure 'an already-disabled policy should not match the observed ownership conflict' analyze_grub_ownership "$TMP/false.conf" "$GENINITRD" "$SETUP" "$TMP/out/false-staged" "$TMP/out/false.json" 6.18.41
+assert_failure 'an already-disabled policy should not match the observed ownership conflict' analyze_grub_ownership "$TMP/false.conf" "$GENINITRD" "$SETUP" "$TMP/out/false-staged" "$TMP/out/false.json" 6.18.42
 cp "$CONFIG" "$TMP/unsafe.conf"
 printf '%s\n' 'POST_INSTALL_SCRIPT=$(id)' >> "$TMP/unsafe.conf"
-assert_failure 'command substitution in active policy should fail closed' analyze_grub_ownership "$TMP/unsafe.conf" "$GENINITRD" "$SETUP" "$TMP/out/unsafe-staged" "$TMP/out/unsafe.json" 6.18.41
+assert_failure 'command substitution in active policy should fail closed' analyze_grub_ownership "$TMP/unsafe.conf" "$GENINITRD" "$SETUP" "$TMP/out/unsafe-staged" "$TMP/out/unsafe.json" 6.18.42
 ln -s "$CONFIG" "$TMP/link.conf"
-assert_failure 'a symlinked policy should fail closed' analyze_grub_ownership "$TMP/link.conf" "$GENINITRD" "$SETUP" "$TMP/out/link-staged" "$TMP/out/link.json" 6.18.41
+assert_failure 'a symlinked policy should fail closed' analyze_grub_ownership "$TMP/link.conf" "$GENINITRD" "$SETUP" "$TMP/out/link-staged" "$TMP/out/link.json" 6.18.42
 chmod 0664 "$CONFIG"
-assert_failure 'a group-writable active policy should fail closed' analyze_grub_ownership "$CONFIG" "$GENINITRD" "$SETUP" "$TMP/out/mode-staged" "$TMP/out/mode.json" 6.18.41
+assert_failure 'a group-writable active policy should fail closed' analyze_grub_ownership "$CONFIG" "$GENINITRD" "$SETUP" "$TMP/out/mode-staged" "$TMP/out/mode.json" 6.18.42
 chmod 0644 "$CONFIG"
 cp "$SETUP" "$TMP/setup-wrong-order"
 cat > "$TMP/setup-wrong-order" <<'EOF_WRONG'
@@ -149,22 +168,22 @@ printf '%s\n' 'initrd-${KERNEL_VERSION}.img' >/dev/null
 if [ "$AUTO_UPDATE_GRUB" = "true" ]; then /usr/sbin/update-grub; fi
 EOF_WRONG
 chmod 0755 "$TMP/setup-wrong-order"
-assert_failure 'policy sourcing after shell defaulting should fail closed' analyze_grub_ownership "$CONFIG" "$GENINITRD" "$TMP/setup-wrong-order" "$TMP/out/order-staged" "$TMP/out/order.json" 6.18.41
+assert_failure 'policy sourcing after shell defaulting should fail closed' analyze_grub_ownership "$CONFIG" "$GENINITRD" "$TMP/setup-wrong-order" "$TMP/out/order-staged" "$TMP/out/order.json" 6.18.42
 cp "$SETUP" "$TMP/setup-no-guard"
 sed -i '/if \[ "\$AUTO_UPDATE_GRUB" = "true" \]/d' "$TMP/setup-no-guard"
 chmod 0755 "$TMP/setup-no-guard"
-assert_failure 'an unguarded update-grub call should fail closed' analyze_grub_ownership "$CONFIG" "$GENINITRD" "$TMP/setup-no-guard" "$TMP/out/guard-staged" "$TMP/out/guard.json" 6.18.41
+assert_failure 'an unguarded update-grub call should fail closed' analyze_grub_ownership "$CONFIG" "$GENINITRD" "$TMP/setup-no-guard" "$TMP/out/guard-staged" "$TMP/out/guard.json" 6.18.42
 printf '#!/bin/bash\nif then\n' > "$TMP/bad-geninitrd"
 chmod 0755 "$TMP/bad-geninitrd"
-assert_failure 'a syntax-invalid geninitrd script should fail closed' analyze_grub_ownership "$CONFIG" "$TMP/bad-geninitrd" "$SETUP" "$TMP/out/syntax-staged" "$TMP/out/syntax.json" 6.18.41
+assert_failure 'a syntax-invalid geninitrd script should fail closed' analyze_grub_ownership "$CONFIG" "$TMP/bad-geninitrd" "$SETUP" "$TMP/out/syntax-staged" "$TMP/out/syntax.json" 6.18.42
 
 (
     PASS_COUNT=11
     FAILURE_COUNT=0
     TARGET=slackware-current
     RUNNING_KERNEL=6.18.40
-    TARGET_KERNEL=6.18.41
-    CONFIRM_CANDIDATES_SHA256=d9199fcf6c5cd8c59b87b1bde9a955df2c55d0ac84f6dab37ed8e4c1830dcaf1
+    TARGET_KERNEL=6.18.42
+    CONFIRM_CANDIDATES_SHA256=918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9
     STRATEGY=temporary-atomic-policy-override
     ENVIRONMENT_OVERRIDE_SAFE=false
     write_summary "$TMP/summary.txt"

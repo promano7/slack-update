@@ -9,12 +9,13 @@ export PATH LC_ALL
 
 TEST_DIR=$(CDPATH= cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
 REPOSITORY_ROOT=$(CDPATH= cd -- "$TEST_DIR/../../.." && pwd -P)
-DEFAULT_NORMAL_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260803-accepted.json"
-DEFAULT_BOOT_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-direct-generic-preflight-20260803-accepted.json"
-DEFAULT_PACKAGE_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-package-preflight-20260803-accepted.json"
-DEFAULT_POLICY_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-policy-preflight-20260803-accepted.json"
-DEFAULT_DKMS_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-dkms-hook-preflight-20260803-accepted.json"
-DEFAULT_COMMAND_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-command-preflight-20260803-accepted.json"
+DEFAULT_NORMAL_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260804-accepted.json"
+DEFAULT_BOOT_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-boot-preflight-20260804-accepted.json"
+DEFAULT_CHAIN_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-chain-restart-20260804-accepted.json"
+DEFAULT_PACKAGE_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-package-preflight-20260804-accepted.json"
+DEFAULT_POLICY_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-policy-preflight-20260804-accepted.json"
+DEFAULT_DKMS_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-dkms-hook-preflight-20260804-accepted.json"
+DEFAULT_COMMAND_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-command-preflight-20260804-accepted.json"
 DEFAULT_OUTPUT_ROOT=/var/tmp/slack-update-acceptance/current-geninitrd-grub-ownership-preflight
 
 TARGET=
@@ -22,6 +23,7 @@ TARGET_KERNEL=
 CONFIRM_CANDIDATES_SHA256=
 NORMAL_PREFLIGHT=$DEFAULT_NORMAL_PREFLIGHT
 BOOT_PREFLIGHT=$DEFAULT_BOOT_PREFLIGHT
+CHAIN_PREFLIGHT=$DEFAULT_CHAIN_PREFLIGHT
 PACKAGE_PREFLIGHT=$DEFAULT_PACKAGE_PREFLIGHT
 POLICY_PREFLIGHT=$DEFAULT_POLICY_PREFLIGHT
 DKMS_PREFLIGHT=$DEFAULT_DKMS_PREFLIGHT
@@ -62,6 +64,7 @@ Required options:
 Optional arguments:
       --normal-preflight PATH
       --boot-preflight PATH
+      --chain-preflight PATH
       --package-preflight PATH
       --policy-preflight PATH
       --dkms-preflight PATH
@@ -92,6 +95,7 @@ parse_arguments() {
             --confirm-target-kernel) [ "$#" -ge 2 ] || return 1; TARGET_KERNEL=$2; shift 2 ;;
             --normal-preflight) [ "$#" -ge 2 ] || return 1; NORMAL_PREFLIGHT=$2; shift 2 ;;
             --boot-preflight) [ "$#" -ge 2 ] || return 1; BOOT_PREFLIGHT=$2; shift 2 ;;
+            --chain-preflight) [ "$#" -ge 2 ] || return 1; CHAIN_PREFLIGHT=$2; shift 2 ;;
             --package-preflight) [ "$#" -ge 2 ] || return 1; PACKAGE_PREFLIGHT=$2; shift 2 ;;
             --policy-preflight) [ "$#" -ge 2 ] || return 1; POLICY_PREFLIGHT=$2; shift 2 ;;
             --dkms-preflight) [ "$#" -ge 2 ] || return 1; DKMS_PREFLIGHT=$2; shift 2 ;;
@@ -105,19 +109,20 @@ parse_arguments() {
     is_sha256 "$CONFIRM_CANDIDATES_SHA256" || { error 'invalid candidate SHA-256'; return 1; }
     CONFIRM_CANDIDATES_SHA256=${CONFIRM_CANDIDATES_SHA256,,}
     is_safe_kernel_version "$TARGET_KERNEL" || { error 'unsafe target kernel version'; return 1; }
-    for path in "$NORMAL_PREFLIGHT" "$BOOT_PREFLIGHT" "$PACKAGE_PREFLIGHT" "$POLICY_PREFLIGHT" "$DKMS_PREFLIGHT" "$COMMAND_PREFLIGHT" ${OUTPUT_DIR:+"$OUTPUT_DIR"}; do
+    for path in "$NORMAL_PREFLIGHT" "$BOOT_PREFLIGHT" "$CHAIN_PREFLIGHT" "$PACKAGE_PREFLIGHT" "$POLICY_PREFLIGHT" "$DKMS_PREFLIGHT" "$COMMAND_PREFLIGHT" ${OUTPUT_DIR:+"$OUTPUT_DIR"}; do
         case "$path" in /*) ;; *) error "path must be absolute: $path"; return 1 ;; esac
         case "$path" in *[[:space:]]*) error 'paths must not contain whitespace'; return 1 ;; esac
     done
 }
 
 validate_accepted_records() {
-    python3 - "$NORMAL_PREFLIGHT" "$BOOT_PREFLIGHT" "$PACKAGE_PREFLIGHT" "$POLICY_PREFLIGHT" "$DKMS_PREFLIGHT" "$COMMAND_PREFLIGHT" "$CONFIRM_CANDIDATES_SHA256" "$TARGET_KERNEL" <<'PY'
+    python3 - "$NORMAL_PREFLIGHT" "$BOOT_PREFLIGHT" "$CHAIN_PREFLIGHT" "$PACKAGE_PREFLIGHT" "$POLICY_PREFLIGHT" "$DKMS_PREFLIGHT" "$COMMAND_PREFLIGHT" "$CONFIRM_CANDIDATES_SHA256" "$TARGET_KERNEL" <<'PY'
 import json, sys
-normal_path, boot_path, package_path, policy_path, dkms_path, command_path, digest, target = sys.argv[1:]
+normal_path, boot_path, chain_path, package_path, policy_path, dkms_path, command_path, digest, target = sys.argv[1:]
 try:
     normal = json.load(open(normal_path, encoding='utf-8'))
     boot = json.load(open(boot_path, encoding='utf-8'))
+    chain = json.load(open(chain_path, encoding='utf-8'))
     package = json.load(open(package_path, encoding='utf-8'))
     policy = json.load(open(policy_path, encoding='utf-8'))
     dkms = json.load(open(dkms_path, encoding='utf-8'))
@@ -126,39 +131,75 @@ except Exception:
     raise SystemExit(1)
 expected_package = f'kernel-generic-{target}-x86_64-1.txz'
 expected_initrd = f'/boot/initrd-{target}.img'
-records = (boot, package, policy, dkms, command)
+package_sha = package.get('package', {}).get('sha256')
+command_package = command.get('package', {})
+projected = command.get('projected_command_vector', [])
+def denied(record):
+    return record.get('apply_ready') is False and record.get('apply_authorized') is False
 checks = [
-    normal.get('scenario') == 'normal-update',
-    normal.get('accepted') is True,
+    normal.get('scenario') == 'normal-update', normal.get('accepted') is True,
     normal.get('candidates', {}).get('candidate_set_sha256') == digest,
+    normal.get('candidates', {}).get('target_kernel_version') == target,
     expected_package in normal.get('candidates', {}).get('upgrade_all', []),
     normal.get('apply_authorized') is False,
-    all(item.get('accepted') is True for item in records),
-    all(item.get('normal_update_candidate_set_sha256') == digest for item in records),
-    all(item.get('target_kernel') == target for item in records),
-    all(item.get('apply_ready') is False for item in records),
-    all(item.get('apply_authorized') is False for item in records),
+    boot.get('scenario') == 'current-kernel-boot-preflight', boot.get('accepted') is True,
+    boot.get('normal_update_candidate_set_sha256') == digest, boot.get('target_kernel') == target,
     boot.get('boot_mode') == 'direct-generic-no-initrd',
+    boot.get('target_image_metadata_state') in {'present', 'deferred-to-exact-package-preflight'},
+    boot.get('next_stage') == 'current-kernel-package-preflight', denied(boot),
+    chain.get('scenario') == 'current-kernel-chain-restart-preflight', chain.get('accepted') is True,
+    chain.get('candidate_set_sha256') == digest, chain.get('target_kernel') == target,
+    chain.get('nested_boot_archive_sha256') == boot.get('archive_sha256'),
+    chain.get('nested_boot_preflight_passed') is True,
+    chain.get('next_stage') == 'current-kernel-package-preflight', denied(chain),
+    package.get('scenario') == 'current-kernel-package-preflight', package.get('accepted') is True,
+    package.get('normal_update_candidate_set_sha256') == digest,
+    package.get('boot_preflight_archive_sha256') == boot.get('archive_sha256'),
+    package.get('chain_restart_archive_sha256') == chain.get('archive_sha256'),
+    package.get('target_kernel') == target,
     package.get('package', {}).get('filename') == expected_package,
-    package.get('package', {}).get('sha256') == 'b588e9e74258baaf2d5e05a1731981cb679f5665d50a3a91d9f02219c4a8024a',
-    policy.get('policy', {}).get('auto_update_grub') is True,
+    isinstance(package_sha, str) and len(package_sha) == 64 and all(ch in '0123456789abcdef' for ch in package_sha),
+    package.get('doinst', {}).get('conditional_geninitrd_hook') is True,
+    package.get('next_stage') == 'current-geninitrd-policy-preflight', denied(package),
+    policy.get('scenario') == 'current-geninitrd-policy-preflight', policy.get('accepted') is True,
+    policy.get('normal_update_candidate_set_sha256') == digest,
+    policy.get('boot_preflight_archive_sha256') == boot.get('archive_sha256'),
+    policy.get('chain_restart_archive_sha256') == chain.get('archive_sha256'),
+    policy.get('package_preflight_archive_sha256') == package.get('archive_sha256'),
+    policy.get('target_kernel') == target, policy.get('policy', {}).get('auto_update_grub') is True,
     policy.get('policy', {}).get('expected_initrd') == expected_initrd,
     policy.get('scripts', {}).get('geninitrd_sha256') == '0ff507821ebe8b18dbe5b2ebd0b97e7ca7b951bf848915883f9714c47e017d06',
     policy.get('scripts', {}).get('setup_sha256') == '74e06b7f6c2de719ec6877edcf419d7bae558509d3f61f06fb7ba4c3b175a0fe',
-    dkms.get('review_status') == 'accepted-noop-hooks',
+    policy.get('next_stage') == 'current-geninitrd-dkms-hook-preflight', denied(policy),
+    dkms.get('scenario') == 'current-geninitrd-dkms-hook-preflight', dkms.get('accepted') is True,
+    dkms.get('normal_update_candidate_set_sha256') == digest,
+    dkms.get('boot_preflight_archive_sha256') == boot.get('archive_sha256'),
+    dkms.get('chain_restart_archive_sha256') == chain.get('archive_sha256'),
+    dkms.get('package_preflight_archive_sha256') == package.get('archive_sha256'),
+    dkms.get('policy_preflight_archive_sha256') == policy.get('archive_sha256'),
+    dkms.get('target_kernel') == target, dkms.get('review_status') == 'accepted-noop-hooks',
     dkms.get('dkms', {}).get('status_row_count') == 0,
-    command.get('scenario') == 'current-geninitrd-command-preflight',
-    command.get('command_status') == 'projected-safe',
-    command.get('projected_initrd') == expected_initrd,
-    command.get('generated_command_executed') is False,
-    command.get('mkinitrd_executed') is False,
-    command.get('geninitrd_executed') is False,
-    command.get('update_grub_executed') is False,
+    dkms.get('next_stage') == 'current-geninitrd-command-preflight', denied(dkms),
+    command.get('scenario') == 'current-geninitrd-command-preflight', command.get('accepted') is True,
+    command.get('normal_update_candidate_set_sha256') == digest,
+    command.get('boot_preflight_archive_sha256') == boot.get('archive_sha256'),
+    command.get('chain_restart_archive_sha256') == chain.get('archive_sha256'),
+    command.get('package_preflight_archive_sha256') == package.get('archive_sha256'),
+    command.get('policy_preflight_archive_sha256') == policy.get('archive_sha256'),
+    command.get('dkms_preflight_archive_sha256') == dkms.get('archive_sha256'),
+    command.get('target_kernel') == target,
+    command_package.get('filename') == expected_package,
+    command_package.get('expected_sha256') == package_sha,
+    command_package.get('observed_sha256') == package_sha,
+    command.get('command_status') == 'projected-safe', command.get('projected_initrd') == expected_initrd,
+    '-k' in projected and target in projected, '-o' in projected and expected_initrd in projected,
+    command.get('generated_command_executed') is False, command.get('mkinitrd_executed') is False,
+    command.get('geninitrd_executed') is False, command.get('update_grub_executed') is False,
+    command.get('next_stage') == 'current-geninitrd-grub-ownership-preflight', denied(command),
 ]
 raise SystemExit(0 if all(checks) else 1)
 PY
 }
-
 capture_package_state() {
     local output=$1 root=/var/lib/pkgtools/packages item
     [ -d "$root" ] && [ ! -L "$root" ] || return 1
@@ -400,7 +441,7 @@ main() {
     RUNNING_KERNEL=$(uname -r)
 
     validate_accepted_records \
-        && record_pass 'the accepted candidate, boot, package, GenInitrd, DKMS, and command records match this GRUB-ownership inspection' \
+        && record_pass 'the accepted candidate, boot, restarted-chain, package, GenInitrd, DKMS, and command records match this GRUB-ownership inspection' \
         || record_failure 'the accepted records do not match this GRUB-ownership inspection'
     [ "$RUNNING_KERNEL" != "$TARGET_KERNEL" ] && is_safe_kernel_version "$RUNNING_KERNEL" \
         && record_pass "the running kernel $RUNNING_KERNEL remains the reviewed predecessor of $TARGET_KERNEL" \
