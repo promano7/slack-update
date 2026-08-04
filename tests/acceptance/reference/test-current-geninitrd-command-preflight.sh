@@ -9,11 +9,12 @@ export PATH LC_ALL
 
 TEST_DIR=$(CDPATH= cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
 REPOSITORY_ROOT=$(CDPATH= cd -- "$TEST_DIR/../../.." && pwd -P)
-DEFAULT_NORMAL_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260803-accepted.json"
-DEFAULT_BOOT_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-direct-generic-preflight-20260803-accepted.json"
-DEFAULT_PACKAGE_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-package-preflight-20260803-accepted.json"
-DEFAULT_POLICY_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-policy-preflight-20260803-accepted.json"
-DEFAULT_DKMS_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-dkms-hook-preflight-20260803-accepted.json"
+DEFAULT_NORMAL_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260804-accepted.json"
+DEFAULT_BOOT_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-boot-preflight-20260804-accepted.json"
+DEFAULT_CHAIN_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-chain-restart-20260804-accepted.json"
+DEFAULT_PACKAGE_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-package-preflight-20260804-accepted.json"
+DEFAULT_POLICY_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-policy-preflight-20260804-accepted.json"
+DEFAULT_DKMS_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-dkms-hook-preflight-20260804-accepted.json"
 DEFAULT_OUTPUT_ROOT=/var/tmp/slack-update-acceptance/current-geninitrd-command-preflight
 
 TARGET=
@@ -21,6 +22,7 @@ TARGET_KERNEL=
 CONFIRM_CANDIDATES_SHA256=
 NORMAL_PREFLIGHT=$DEFAULT_NORMAL_PREFLIGHT
 BOOT_PREFLIGHT=$DEFAULT_BOOT_PREFLIGHT
+CHAIN_PREFLIGHT=$DEFAULT_CHAIN_PREFLIGHT
 PACKAGE_PREFLIGHT=$DEFAULT_PACKAGE_PREFLIGHT
 POLICY_PREFLIGHT=$DEFAULT_POLICY_PREFLIGHT
 DKMS_PREFLIGHT=$DEFAULT_DKMS_PREFLIGHT
@@ -62,6 +64,7 @@ Required options:
 Optional arguments:
       --normal-preflight PATH
       --boot-preflight PATH
+      --chain-preflight PATH
       --package-preflight PATH
       --policy-preflight PATH
       --dkms-preflight PATH
@@ -91,6 +94,7 @@ parse_arguments() {
             --confirm-target-kernel) [ "$#" -ge 2 ] || return 1; TARGET_KERNEL=$2; shift 2 ;;
             --normal-preflight) [ "$#" -ge 2 ] || return 1; NORMAL_PREFLIGHT=$2; shift 2 ;;
             --boot-preflight) [ "$#" -ge 2 ] || return 1; BOOT_PREFLIGHT=$2; shift 2 ;;
+            --chain-preflight) [ "$#" -ge 2 ] || return 1; CHAIN_PREFLIGHT=$2; shift 2 ;;
             --package-preflight) [ "$#" -ge 2 ] || return 1; PACKAGE_PREFLIGHT=$2; shift 2 ;;
             --policy-preflight) [ "$#" -ge 2 ] || return 1; POLICY_PREFLIGHT=$2; shift 2 ;;
             --dkms-preflight) [ "$#" -ge 2 ] || return 1; DKMS_PREFLIGHT=$2; shift 2 ;;
@@ -103,29 +107,32 @@ parse_arguments() {
     is_sha256 "$CONFIRM_CANDIDATES_SHA256" || { error 'invalid candidate SHA-256'; return 1; }
     CONFIRM_CANDIDATES_SHA256=${CONFIRM_CANDIDATES_SHA256,,}
     is_safe_kernel_version "$TARGET_KERNEL" || { error 'unsafe target kernel version'; return 1; }
-    for path in "$NORMAL_PREFLIGHT" "$BOOT_PREFLIGHT" "$PACKAGE_PREFLIGHT" "$POLICY_PREFLIGHT" "$DKMS_PREFLIGHT" ${OUTPUT_DIR:+"$OUTPUT_DIR"}; do
+    for path in "$NORMAL_PREFLIGHT" "$BOOT_PREFLIGHT" "$CHAIN_PREFLIGHT" "$PACKAGE_PREFLIGHT" "$POLICY_PREFLIGHT" "$DKMS_PREFLIGHT" ${OUTPUT_DIR:+"$OUTPUT_DIR"}; do
         case "$path" in /*) ;; *) error "path must be absolute: $path"; return 1 ;; esac
         case "$path" in *[[:space:]]*) error 'paths must not contain whitespace'; return 1 ;; esac
     done
 }
 
 validate_accepted_records() {
-    python3 - "$NORMAL_PREFLIGHT" "$BOOT_PREFLIGHT" "$PACKAGE_PREFLIGHT" "$POLICY_PREFLIGHT" "$DKMS_PREFLIGHT" "$CONFIRM_CANDIDATES_SHA256" "$TARGET_KERNEL" <<'PY'
+    python3 - "$NORMAL_PREFLIGHT" "$BOOT_PREFLIGHT" "$CHAIN_PREFLIGHT" "$PACKAGE_PREFLIGHT" "$POLICY_PREFLIGHT" "$DKMS_PREFLIGHT" "$CONFIRM_CANDIDATES_SHA256" "$TARGET_KERNEL" <<'PY'
 import json, sys
-normal_path, boot_path, package_path, policy_path, dkms_path, digest, target = sys.argv[1:]
+normal_path, boot_path, chain_path, package_path, policy_path, dkms_path, digest, target = sys.argv[1:]
 try:
     normal = json.load(open(normal_path, encoding='utf-8'))
     boot = json.load(open(boot_path, encoding='utf-8'))
+    chain = json.load(open(chain_path, encoding='utf-8'))
     package = json.load(open(package_path, encoding='utf-8'))
     policy = json.load(open(policy_path, encoding='utf-8'))
     dkms = json.load(open(dkms_path, encoding='utf-8'))
 except Exception:
     raise SystemExit(1)
 expected = f'kernel-generic-{target}-x86_64-1.txz'
+expected_package_sha256 = 'e9e7a1c5c71c945ee99595868aa8fee8a644b56601ece0c3e5696d643fe84878'
 checks = [
     normal.get('scenario') == 'normal-update',
     normal.get('accepted') is True,
     normal.get('candidates', {}).get('candidate_set_sha256') == digest,
+    normal.get('candidates', {}).get('target_kernel_version') == target,
     expected in normal.get('candidates', {}).get('upgrade_all', []),
     normal.get('apply_authorized') is False,
     boot.get('scenario') == 'current-kernel-boot-preflight',
@@ -133,24 +140,46 @@ checks = [
     boot.get('normal_update_candidate_set_sha256') == digest,
     boot.get('target_kernel') == target,
     boot.get('boot_mode') == 'direct-generic-no-initrd',
+    boot.get('target_image_metadata_state') in {'present', 'deferred-to-exact-package-preflight'},
+    boot.get('next_stage') == 'current-kernel-package-preflight',
     boot.get('apply_ready') is False,
+    chain.get('scenario') == 'current-kernel-chain-restart-preflight',
+    chain.get('accepted') is True,
+    chain.get('candidate_set_sha256') == digest,
+    chain.get('target_kernel') == target,
+    chain.get('nested_boot_archive_sha256') == boot.get('archive_sha256'),
+    chain.get('nested_boot_preflight_passed') is True,
+    chain.get('next_stage') == 'current-kernel-package-preflight',
+    chain.get('apply_ready') is False,
     package.get('scenario') == 'current-kernel-package-preflight',
     package.get('accepted') is True,
     package.get('normal_update_candidate_set_sha256') == digest,
+    package.get('boot_preflight_archive_sha256') == boot.get('archive_sha256'),
+    package.get('chain_restart_archive_sha256') == chain.get('archive_sha256'),
     package.get('target_kernel') == target,
     package.get('package', {}).get('filename') == expected,
-    package.get('package', {}).get('sha256') == 'b588e9e74258baaf2d5e05a1731981cb679f5665d50a3a91d9f02219c4a8024a',
+    package.get('package', {}).get('sha256') == expected_package_sha256,
+    package.get('doinst', {}).get('conditional_geninitrd_hook') is True,
+    package.get('next_stage') == 'current-geninitrd-policy-preflight',
     package.get('apply_ready') is False,
     policy.get('scenario') == 'current-geninitrd-policy-preflight',
     policy.get('accepted') is True,
     policy.get('normal_update_candidate_set_sha256') == digest,
+    policy.get('boot_preflight_archive_sha256') == boot.get('archive_sha256'),
+    policy.get('chain_restart_archive_sha256') == chain.get('archive_sha256'),
+    policy.get('package_preflight_archive_sha256') == package.get('archive_sha256'),
     policy.get('target_kernel') == target,
     policy.get('policy', {}).get('effective_generator') == 'mkinitrd_command_generator.sh',
     policy.get('policy', {}).get('expected_initrd') == f'/boot/initrd-{target}.img',
+    policy.get('next_stage') == 'current-geninitrd-dkms-hook-preflight',
     policy.get('apply_ready') is False,
     dkms.get('scenario') == 'current-geninitrd-dkms-hook-preflight',
     dkms.get('accepted') is True,
     dkms.get('normal_update_candidate_set_sha256') == digest,
+    dkms.get('boot_preflight_archive_sha256') == boot.get('archive_sha256'),
+    dkms.get('chain_restart_archive_sha256') == chain.get('archive_sha256'),
+    dkms.get('package_preflight_archive_sha256') == package.get('archive_sha256'),
+    dkms.get('policy_preflight_archive_sha256') == policy.get('archive_sha256'),
     dkms.get('target_kernel') == target,
     dkms.get('dkms', {}).get('status_row_count') == 0,
     dkms.get('review_status') == 'accepted-noop-hooks',
@@ -158,13 +187,13 @@ checks = [
     len(dkms.get('hooks', [])) == 2,
     dkms.get('hooks_executed') is False,
     dkms.get('dkms_build_executed') is False,
+    dkms.get('next_stage') == 'current-geninitrd-command-preflight',
     dkms.get('apply_ready') is False,
     dkms.get('apply_authorized') is False,
 ]
 raise SystemExit(0 if all(checks) else 1)
 PY
 }
-
 capture_package_state() {
     local output=$1 root=/var/lib/pkgtools/packages item
     [ -d "$root" ] && [ ! -L "$root" ] || return 1

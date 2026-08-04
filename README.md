@@ -1062,16 +1062,18 @@ Step 47 accepted the restarted exact-package inspection for `6.18.42`. The real 
 
 Step 48 accepted the restarted host-policy inspection for `6.18.42`. The real `pcold-slack` run passed all 10 assertions, confirmed `AUTOGENERATE_INITRD=true`, effective generator `mkinitrd_command_generator.sh`, automatic GRUB update, transition `direct-to-generated-initrd`, expected `/boot/initrd-6.18.42.img`, and the same two reviewed DKMS hooks. Package, boot, and policy state remained unchanged; archive SHA-256 `873c7779dcef6f16d72d809704ca732809e6d5db5b1668f6a4942662b97c54ca` was verified after copying to `/home/promano`. The accepted record is `tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-policy-preflight-20260804-accepted.json`.
 
-Step 49 restarts the DKMS-hook inspection for `6.18.42`. Run it on `pcold-slack` only after the accepted step-48 record is present:
+Step 49 passed on `pcold-slack` with 10 assertions and evidence SHA-256 `c943b3c25703fc395cfba6708a9c6122b033f82876795053f39a6d8e61ff5074`. DKMS 3.4.1 again reported zero status rows, no `/var/lib/dkms` state, no running `updates/dkms` tree, and no target module tree. The exact `dkms-bcachefs` and `dkms-nvidia` hooks remain explicit no-ops for the reviewed host state. The accepted record is `tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-dkms-hook-preflight-20260804-accepted.json`.
+
+Step 50 restarts the command-output-only GenInitrd preflight for `6.18.42`:
 
 ```bash
-sudo bash tests/acceptance/reference/test-current-geninitrd-dkms-hook-preflight.sh \
+sudo bash tests/acceptance/reference/test-current-geninitrd-command-preflight.sh \
     --target slackware-current \
     --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
     --confirm-target-kernel 6.18.42
 ```
 
-The preflight binds the accepted candidate, boot, restarted-chain, exact-package, and GenInitrd-policy records before rechecking the exact hook set. It copies hook bodies into private evidence without executing them, records static command surfaces, runs only `dkms --version` and `dkms status`, inventories DKMS sources and module paths, and proves that packages, boot, hooks, and DKMS state remain unchanged. It always leaves `apply_ready=false` and `apply_authorized=false`.
+This stage binds all six accepted records, invokes `mkinitrd_command_generator.sh` only for the installed `6.18.40` kernel without `--run`, parses one inert argument vector, projects only its kernel and output fields to `6.18.42` and `/boot/initrd-6.18.42.img`, and never executes either vector. Package, boot, GenInitrd, and DKMS state must remain unchanged, while `apply_ready=false` and `apply_authorized=false` remain mandatory.
 
 Step 43 implements post-package recognition without running a VM. When the pre-transaction layout is `direct-generic-no-initrd` and `AUTOGENERATE_INITRD=true`, GRUB regeneration is blocked unless the post-update snapshot contains exactly one safe `kernel-generic` version, `/boot/vmlinuz-generic` selects its package-owned versioned kernel, the matching module tree exists, `/boot/initrd-VERSION.img` is a non-empty root-owned regular file, and `/boot/initrd-generic.img` resolves exactly to it. Legacy `/boot/initrd.gz` and `/etc/mkinitrd.conf` must remain absent. The temporary GRUB configuration must reference both the validated kernel and the versioned or named initrd before atomic replacement. The synthetic fixture records no commands or mutations and does not authorize apply. Final candidate-set revalidation on Slackware-current remains mandatory.
 

@@ -41,21 +41,31 @@ assert_contains 'APPLY_AUTHORIZED=false' "$SCRIPT" 'apply authorization must rem
 assert_contains 'sha256sum -c' "$SCRIPT" 'portable evidence verification should be printed'
 assert_contains '/home/$owner/' "$SCRIPT" 'evidence should be copied directly to the user home directory'
 
-is_safe_kernel_version 6.18.41 && pass || fail 'a normal kernel version should be safe'
-is_safe_kernel_version '../6.18.41' && fail 'parent traversal should be rejected' || pass
-is_safe_kernel_version '6.18.41 bad' && fail 'whitespace should be rejected' || pass
+is_safe_kernel_version 6.18.42 && pass || fail 'a normal kernel version should be safe'
+is_safe_kernel_version '../6.18.42' && fail 'parent traversal should be rejected' || pass
+is_safe_kernel_version '6.18.42 bad' && fail 'whitespace should be rejected' || pass
 is_sha256 "$(printf 'a%.0s' {1..64})" && pass || fail 'a valid SHA-256 should be accepted'
 is_sha256 abc && fail 'a short SHA-256 should be rejected' || pass
 
 TARGET=slackware-current
-TARGET_KERNEL=6.18.41
-CONFIRM_CANDIDATES_SHA256=d9199fcf6c5cd8c59b87b1bde9a955df2c55d0ac84f6dab37ed8e4c1830dcaf1
-NORMAL_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260803-accepted.json"
-BOOT_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-direct-generic-preflight-20260803-accepted.json"
-PACKAGE_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-package-preflight-20260803-accepted.json"
-POLICY_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-policy-preflight-20260803-accepted.json"
-DKMS_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-dkms-hook-preflight-20260803-accepted.json"
+TARGET_KERNEL=6.18.42
+CONFIRM_CANDIDATES_SHA256=918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9
+NORMAL_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260804-accepted.json"
+BOOT_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-boot-preflight-20260804-accepted.json"
+CHAIN_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-chain-restart-20260804-accepted.json"
+PACKAGE_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-package-preflight-20260804-accepted.json"
+POLICY_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-policy-preflight-20260804-accepted.json"
+DKMS_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-dkms-hook-preflight-20260804-accepted.json"
 assert_success 'the accepted records should match the exact generator transaction' validate_accepted_records
+
+cp "$CHAIN_PREFLIGHT" "$TMP/chain-mismatch.json"
+python3 - "$TMP/chain-mismatch.json" <<'PY'
+import json,sys
+p=sys.argv[1]; d=json.load(open(p)); d['nested_boot_archive_sha256']='0'*64; open(p,'w').write(json.dumps(d))
+PY
+CHAIN_PREFLIGHT="$TMP/chain-mismatch.json"
+assert_failure 'a restarted chain detached from the accepted boot evidence should fail closed' validate_accepted_records
+CHAIN_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-chain-restart-20260804-accepted.json"
 
 cp "$DKMS_PREFLIGHT" "$TMP/dkms-status.json"
 python3 - "$TMP/dkms-status.json" <<'PY'
@@ -64,7 +74,7 @@ p=sys.argv[1]; d=json.load(open(p)); d['dkms']['status_row_count']=1; d['dkms'][
 PY
 DKMS_PREFLIGHT="$TMP/dkms-status.json"
 assert_failure 'a registered DKMS module should invalidate the accepted no-op hook boundary' validate_accepted_records
-DKMS_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-dkms-hook-preflight-20260803-accepted.json"
+DKMS_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-dkms-hook-preflight-20260804-accepted.json"
 cp "$DKMS_PREFLIGHT" "$TMP/dkms-action.json"
 python3 - "$TMP/dkms-action.json" <<'PY'
 import json,sys
@@ -72,19 +82,19 @@ p=sys.argv[1]; d=json.load(open(p)); d['hooks'][0]['predicted_action']='dkms-ins
 PY
 DKMS_PREFLIGHT="$TMP/dkms-action.json"
 assert_failure 'a hook that could install a module should fail the no-op boundary' validate_accepted_records
-DKMS_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-dkms-hook-preflight-20260803-accepted.json"
+DKMS_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-dkms-hook-preflight-20260804-accepted.json"
 
 RUNNING_KERNEL=6.18.40
-TARGET_KERNEL=6.18.41
-EXPECTED_INITRD=/boot/initrd-6.18.41.img
+TARGET_KERNEL=6.18.42
+EXPECTED_INITRD=/boot/initrd-6.18.42.img
 
 cat > "$TMP/good.out" <<'EOF_GOOD'
 # mkinitrd command generated for the running system:
 mkinitrd -c -k 6.18.40 -f ext4 -r /dev/sda2 -m virtio:ext4 -u -o /boot/initrd.gz
 EOF_GOOD
 assert_success 'one inert generated mkinitrd command should parse safely' parse_generator_output "$TMP/good.out" "$TMP/good.json"
-assert_equal 6.18.41 "$(python3 -c 'import json,sys; d=json.load(open(sys.argv[1])); v=d["projected_command_vector"]; print(v[v.index("-k")+1])' "$TMP/good.json")" 'the projected command should use the target kernel'
-assert_equal /boot/initrd-6.18.41.img "$(python3 -c 'import json,sys; d=json.load(open(sys.argv[1])); v=d["projected_command_vector"]; print(v[v.index("-o")+1])' "$TMP/good.json")" 'the projected command should use the versioned target initrd'
+assert_equal 6.18.42 "$(python3 -c 'import json,sys; d=json.load(open(sys.argv[1])); v=d["projected_command_vector"]; print(v[v.index("-k")+1])' "$TMP/good.json")" 'the projected command should use the target kernel'
+assert_equal /boot/initrd-6.18.42.img "$(python3 -c 'import json,sys; d=json.load(open(sys.argv[1])); v=d["projected_command_vector"]; print(v[v.index("-o")+1])' "$TMP/good.json")" 'the projected command should use the versioned target initrd'
 assert_equal 2 "$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["module_count"])' "$TMP/good.json")" 'the module list should be inventoried'
 assert_equal false "$(python3 -c 'import json,sys; print(str(json.load(open(sys.argv[1]))["generated_command_executed"]).lower())' "$TMP/good.json")" 'the analysis must record that the command was not executed'
 assert_equal false "$(python3 -c 'import json,sys; print(str(json.load(open(sys.argv[1]))["apply_ready"]).lower())' "$TMP/good.json")" 'the projection must not become apply-ready'
@@ -93,7 +103,7 @@ cat > "$TMP/no-output.out" <<'EOF_NOOUTPUT'
 mkinitrd -c -k 6.18.40 -f ext4 -r /dev/sda2 -m ext4
 EOF_NOOUTPUT
 assert_success 'a safe command without an output flag should receive the reviewed target output' parse_generator_output "$TMP/no-output.out" "$TMP/no-output.json"
-assert_equal /boot/initrd-6.18.41.img "$(python3 -c 'import json,sys; d=json.load(open(sys.argv[1])); v=d["projected_command_vector"]; print(v[v.index("-o")+1])' "$TMP/no-output.json")" 'the missing output should be appended safely'
+assert_equal /boot/initrd-6.18.42.img "$(python3 -c 'import json,sys; d=json.load(open(sys.argv[1])); v=d["projected_command_vector"]; print(v[v.index("-o")+1])' "$TMP/no-output.json")" 'the missing output should be appended safely'
 
 printf 'mkinitrd -c -k 6.18.39 -o /boot/initrd.gz\n' > "$TMP/wrong-kernel.out"
 assert_failure 'a command for a different current kernel should fail closed' parse_generator_output "$TMP/wrong-kernel.out" "$TMP/wrong-kernel.json"
@@ -141,9 +151,9 @@ assert_failure 'a syntax-invalid generator should fail closed' validate_generato
     FAILURE_COUNT=0
     TARGET=slackware-current
     RUNNING_KERNEL=6.18.40
-    TARGET_KERNEL=6.18.41
-    CONFIRM_CANDIDATES_SHA256=d9199fcf6c5cd8c59b87b1bde9a955df2c55d0ac84f6dab37ed8e4c1830dcaf1
-    EXPECTED_INITRD=/boot/initrd-6.18.41.img
+    TARGET_KERNEL=6.18.42
+    CONFIRM_CANDIDATES_SHA256=918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9
+    EXPECTED_INITRD=/boot/initrd-6.18.42.img
     GENERATOR_SHA256=abc
     COMMAND_STATUS=projected-safe
     write_summary "$TMP/summary.txt"

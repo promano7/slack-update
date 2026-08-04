@@ -724,3 +724,17 @@ sudo bash tests/acceptance/reference/test-current-geninitrd-dkms-hook-preflight.
 ```
 
 This preflight binds the accepted 69-candidate, boot, chain-restart, exact-package, and GenInitrd-policy evidence before inspecting the two exact executable hooks. Hook bodies are copied with mode `0600` and analyzed statically without evaluation. The only DKMS operations are `dkms --version` and `dkms status`; source trees, build state, running modules, and target-kernel paths are inventoried without build, install, autoinstall, remove, package, initrd, or GRUB mutation. Copy the archive and portable sidecar directly to `/home/promano` and verify them there. The result remains `apply_ready=false` and `apply_authorized=false` pending evidence review.
+
+### Slackware-current restarted GenInitrd command preflight (step 50)
+
+Run on `pcold-slack` only after the accepted step-49 DKMS record exists:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-geninitrd-command-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+The preflight binds the accepted normal-update, boot, restarted-chain, exact-package, GenInitrd-policy, and no-op DKMS records. It invokes the installed generator only in command-output mode for `6.18.40`, parses exactly one inert `mkinitrd` vector without evaluation, and projects the target to `6.18.42` with output `/boot/initrd-6.18.42.img`. It never runs `mkinitrd`, `geninitrd`, GRUB, package tools, or the generated vector. Copy the archive and portable sidecar directly to `/home/promano`; the result remains `apply_ready=false` and `apply_authorized=false`.
+
