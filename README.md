@@ -2355,3 +2355,26 @@ The reviewed transaction authorizes kernel packages but does not authorize criti
 Only that complete state reports `transaction_status=applied-and-boot-prepared`, `apply_authorized=true`, `pause_safe=true`, and `next_stage=current-kernel-post-apply-verification`. Once accepted, later Slackware-current publications no longer invalidate this completed transaction. A changed repository before application or any partial/failed apply retains `pause_safe=false` and routes to candidate refresh or manual recovery rather than claiming a safe pause.
 
 The corrected step-78 authorized-apply and normal-update harnesses contain 99 and 118 checks; the direct-generic harness remains at 56. The complete step-78 inventory contains 45 suites and 3,114 checks with zero failures. Static validation covers 72 shell scripts and 76 JSON files.
+
+### Slackware-current completed package transaction and safe-pause recovery verification (step 79)
+
+The real step-78 run did execute the reviewed package transaction. Slackpkg completed `install-new` and `upgrade-all` with status zero, changed the installed database from 2,039 to 2,040 records, installed the exact `kernel-generic`, `kernel-headers`, and `kernel-source` 6.18.42 records, and left 27 `.new` files for later review. The official kernel package hook generated `/boot/initrd-6.18.42.img`, retargeted `/boot/vmlinuz-generic` and `/boot/initrd-generic.img`, and removed the old versioned 6.18.40 kernel image and initrd. The reference engine then returned stable code 3 because its pre-transaction `auto` boot classification required the generic kernel link to continue selecting the still-running 6.18.40 release. It therefore blocked its own GRUB regeneration after packages had already completed.
+
+The rejected outer archive SHA-256 is `176e23caa8d20166fe0a0011f7f953308cd64d0374a2f9d45926e4260596b37c`; the nested normal-update apply archive SHA-256 is `c98174b96bb15513637c3c5c10c331d424b7f82109eb7732a832a8ce076a40d9`. The package transaction is complete, not merely partial. The target kernel and initrd have exact SHA-256 values `bdbd0e5187e1252f1ef9bb9ac771430be5f2367fb9e8a5f42e1b172efb1cb3d4` and `21ab641ca5b04e831b7cb776bd8ecee00f96e0b53d21d8fe3b5033dbacd9febc`. The active GRUB configuration retained its accepted SHA-256 `5fdff76d42ddec26b0c212668c4981a9ea2853a98b3260f33850c91ccf8ac247`; that same accepted configuration already contains one menuentry pairing `/boot/vmlinuz-generic` with `/boot/initrd-generic.img`. Since both links now resolve to the reviewed 6.18.42 artifacts, GRUB regeneration is not required to prove the installed boot pair.
+
+Run the non-mutating post-package verification:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-post-package-boot-recovery-verification.sh \
+    --target slackware-current \
+    --confirm-hostname pcold-slack \
+    --confirm-hostname-fqdn pcold-slack.pcold-slack.org \
+    --confirm-post-apply-evidence-sha256 176e23caa8d20166fe0a0011f7f953308cd64d0374a2f9d45926e4260596b37c \
+    --confirm-target-kernel 6.18.42
+```
+
+This stage does not refresh Slackpkg metadata, install packages, execute maintainer scripts, generate an initrd, or modify GRUB. It requires the exact 2,040-record installed package snapshot; exact target package records; exact target kernel, initrd, module tree, generic links, GenInitrd controls, and active GRUB digest; a syntax-valid same-menuentry generic pair; and unchanged before/after package and boot-sensitive snapshots. It also records the rollback truth explicitly: the running session remains on 6.18.40 and its module tree remains present, but `/boot/vmlinuz-6.18.40` and `/boot/initrd-6.18.40.img` are absent.
+
+A clean result reports `pause_safe=true`, `reboot_ready=true`, `reboot_authorized=false`, and `next_stage=current-kernel-post-apply-reboot-review`. At that point the reviewed package transaction is already installed and later Slackware-current publications no longer invalidate it, so a pause is genuinely safe. Do not reboot until the separate reboot review is prepared and accepted.
+
+The focused step-79 harness contains 46 checks. The complete prepared step-79 inventory contains 46 suites and 3,160 checks with zero failures; static validation covers 74 shell scripts and 78 JSON files.

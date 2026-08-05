@@ -1,0 +1,100 @@
+{
+  "accepted_failed_apply_archive_sha256": "176e23caa8d20166fe0a0011f7f953308cd64d0374a2f9d45926e4260596b37c",
+  "accepted_nested_apply_archive_sha256": "c98174b96bb15513637c3c5c10c331d424b7f82109eb7732a832a8ce076a40d9",
+  "active_grub": {
+    "path": "/boot/grub/grub.cfg",
+    "same_menuentry_initrd": "/boot/initrd-generic.img",
+    "same_menuentry_kernel": "/boot/vmlinuz-generic",
+    "sha256": "5fdff76d42ddec26b0c212668c4981a9ea2853a98b3260f33850c91ccf8ac247",
+    "size": 6018,
+    "syntax_valid_required": true,
+    "unchanged_from_accepted_baseline": true
+  },
+  "active_grub_mutation_required": false,
+  "candidate_set_sha256": "27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926",
+  "expected_pause_safe": true,
+  "forbidden_package_records": [
+    "kernel-generic-6.18.40-x86_64-1",
+    "kernel-headers-6.18.40-x86-1",
+    "kernel-source-6.18.40-noarch-1"
+  ],
+  "geninitrd": {
+    "generator_path": "/usr/share/mkinitrd/mkinitrd_command_generator.sh",
+    "generator_sha256": "90a65fd4edb8a1c0952c14d682046a9a6acfece4639599ea4b3079c5daadeeac",
+    "generator_size": 29822,
+    "geninitrd_path": "/usr/sbin/geninitrd",
+    "geninitrd_sha256": "0ff507821ebe8b18dbe5b2ebd0b97e7ca7b951bf848915883f9714c47e017d06",
+    "geninitrd_size": 6411,
+    "policy_path": "/etc/default/geninitrd",
+    "policy_sha256": "b779a2b578515a9e2059047311bf817723183b90707f1e31ce67bd96fd19b283",
+    "policy_size": 2989,
+    "setup_path": "/var/lib/pkgtools/setup/setup.01.mkinitrd",
+    "setup_sha256": "74e06b7f6c2de719ec6877edcf419d7bae558509d3f61f06fb7ba4c3b175a0fe",
+    "setup_size": 8126
+  },
+  "grub_mutation_allowed": false,
+  "initrd_mutation_allowed": false,
+  "install_new_exit_code": 0,
+  "installed_package_count": 2040,
+  "installed_package_database_snapshot_sha256": "349557f219bb967bd5cafd835a494b413059cea61545012f072f62daf5b6f675",
+  "installed_package_name_snapshot_sha256": "4c8e78a76c6097c60d6ed5391fd6c203b32eeadcf274d1ab71f81a6bbe549170",
+  "next_stage": "current-kernel-post-apply-reboot-review",
+  "package_mutation_allowed": false,
+  "package_transaction_completed": true,
+  "package_transaction_executed": true,
+  "pause_safety_reason": "installed-transaction-complete-and-existing-generic-grub-pair-resolves-to-reviewed-target",
+  "reboot_authorized": false,
+  "reboot_ready_after_verification": true,
+  "required_hostname_fqdn": "pcold-slack.pcold-slack.org",
+  "required_hostname_short": "pcold-slack",
+  "required_package_records": [
+    {
+      "name": "kernel-generic-6.18.42-x86_64-1",
+      "record_sha256": "308032c38f2b8308f2b0c578c6412f446dccc3a5ecb8d30daeee43b7c0e88060"
+    },
+    {
+      "name": "kernel-headers-6.18.42-x86-1",
+      "record_sha256": "35f260b0ab457c5306b867d8f45fe537a41bd36cb7ffba6d1f003dd6a1ad2d59"
+    },
+    {
+      "name": "kernel-source-6.18.42-noarch-1",
+      "record_sha256": "4eab6e78ce2e994b9b214b0bd33a65d2360a7db9bb9df54859ee220cedef75f4"
+    },
+    {
+      "name": "grub-2.14-x86_64-3",
+      "record_sha256": "b66c79756d723879529be9861dd6c6b85d3b5edd5cae88b870c3259c68ab3c85"
+    },
+    {
+      "name": "breeze-grub-6.7.4-x86_64-1",
+      "record_sha256": "a50ad3ac12f3936bdaf078257ff92f8fdf4bbe681ddf4c0bcb9eb3e79e8e1bd5"
+    }
+  ],
+  "reviewed": true,
+  "rollback": {
+    "initrd_expected": "missing",
+    "initrd_path": "/boot/initrd-6.18.40.img",
+    "kernel_image_expected": "missing",
+    "kernel_image_path": "/boot/vmlinuz-6.18.40",
+    "modules_expected": "present",
+    "modules_path": "/lib/modules/6.18.40",
+    "state": "degraded-running-session-and-modules-only"
+  },
+  "running_kernel": "6.18.40",
+  "scenario": "current-post-package-boot-recovery-verification",
+  "target": "slackware-current",
+  "target_artifacts": {
+    "generic_kernel_link": "/boot/vmlinuz-generic",
+    "generic_kernel_target": "vmlinuz-6.18.42",
+    "initrd_path": "/boot/initrd-6.18.42.img",
+    "initrd_sha256": "21ab641ca5b04e831b7cb776bd8ecee00f96e0b53d21d8fe3b5033dbacd9febc",
+    "initrd_size": 16514239,
+    "kernel_path": "/boot/vmlinuz-6.18.42",
+    "kernel_sha256": "bdbd0e5187e1252f1ef9bb9ac771430be5f2367fb9e8a5f42e1b172efb1cb3d4",
+    "kernel_size": 14443008,
+    "modules_path": "/lib/modules/6.18.42",
+    "named_initrd_link": "/boot/initrd-generic.img",
+    "named_initrd_target": "initrd-6.18.42.img"
+  },
+  "target_kernel": "6.18.42",
+  "upgrade_all_exit_code": 0
+}

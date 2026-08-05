@@ -1,0 +1,49 @@
+{
+  "accepted": false,
+  "apply_exit_code": 3,
+  "archive_name": "slackware-current-20260805T200647Z.tar.gz",
+  "archive_sha256": "176e23caa8d20166fe0a0011f7f953308cd64d0374a2f9d45926e4260596b37c",
+  "boot_failure": {
+    "active_grub_changed": false,
+    "engine_mode": "auto",
+    "engine_state": "failed",
+    "grub_command_attempted": false,
+    "initrd_generated_by_package_hook": true,
+    "reason": "generic kernel link no longer selected the running 6.18.40 release after the package hook retargeted it to 6.18.42"
+  },
+  "candidate_set_sha256": "27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926",
+  "diagnosis": "The reviewed package transaction completed, including the official kernel package hook that generated the 6.18.42 initrd and retargeted both generic links. The unchanged engine then rejected its own pre-transaction auto-mode classification and blocked GRUB regeneration. The accepted baseline GRUB digest is unchanged and previously proved one menuentry pairs the two generic links, so a dedicated non-mutating post-package verification is required before declaring a safe pause.",
+  "nested_apply_archive_sha256": "c98174b96bb15513637c3c5c10c331d424b7f82109eb7732a832a8ce076a40d9",
+  "next_stage": "current-post-package-boot-recovery-verification",
+  "observed_at": "2026-08-05T20:06:47Z",
+  "package_transaction": {
+    "completed": true,
+    "database_changed": true,
+    "executed": true,
+    "install_new_exit_code": 0,
+    "pending_new_files": 27,
+    "snapshot_after_records": 2040,
+    "snapshot_before_records": 2039,
+    "upgrade_all_exit_code": 0
+  },
+  "pause_safe": false,
+  "post_package_artifacts": {
+    "active_grub_sha256": "5fdff76d42ddec26b0c212668c4981a9ea2853a98b3260f33850c91ccf8ac247",
+    "active_grub_unchanged": true,
+    "generic_kernel_link": "vmlinuz-6.18.42",
+    "named_initrd_link": "initrd-6.18.42.img",
+    "target_initrd_sha256": "21ab641ca5b04e831b7cb776bd8ecee00f96e0b53d21d8fe3b5033dbacd9febc",
+    "target_kernel_sha256": "bdbd0e5187e1252f1ef9bb9ac771430be5f2367fb9e8a5f42e1b172efb1cb3d4"
+  },
+  "rollback": {
+    "initrd_6_18_40_present": false,
+    "kernel_image_6_18_40_present": false,
+    "modules_6_18_40_present": true,
+    "running_session_still_6_18_40": true,
+    "state": "degraded-running-session-and-modules-only"
+  },
+  "running_kernel": "6.18.40",
+  "scenario": "current-normal-update-authorized-apply",
+  "target": "slackware-current",
+  "target_kernel": "6.18.42"
+}

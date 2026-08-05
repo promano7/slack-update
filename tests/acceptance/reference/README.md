@@ -1101,3 +1101,22 @@ The corrected step-78 command performs real package changes. The child acceptanc
 A clean result is expected to report 16 passes, zero failures, `transaction_status=applied-and-boot-prepared`, `apply_authorized=true`, `pause_safe=true`, and `next_stage=current-kernel-post-apply-verification`. It must preserve the old 6.18.40 kernel/initrd/modules, keep the current session on 6.18.40 pending reboot, install and validate the complete 6.18.42 kernel/initrd/modules pair, restore GenInitrd policy, and atomically install a GRUB configuration containing both target paths. Copy the final archive and sidecar directly to `/home/promano` and verify them there before reboot or further work.
 
 The corrected focused authorized-apply and normal-update harnesses contain 99 and 118 checks; the direct-generic harness remains at 56. The complete prepared step-78 inventory contains 45 suites and 3,114 checks with zero failures; static validation covers 72 shell scripts and 76 JSON files, including all rejected diagnostics and the code-bound authorization policy.
+
+### Current post-package boot recovery verification
+
+After the real 137-package transaction, run:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-post-package-boot-recovery-verification.sh \
+    --target slackware-current \
+    --confirm-hostname pcold-slack \
+    --confirm-hostname-fqdn pcold-slack.pcold-slack.org \
+    --confirm-post-apply-evidence-sha256 176e23caa8d20166fe0a0011f7f953308cd64d0374a2f9d45926e4260596b37c \
+    --confirm-target-kernel 6.18.42
+```
+
+The step-78 package phases both succeeded and produced the exact 2,040-record post-transaction database. The package hook generated the target versioned initrd and retargeted both generic links; the unchanged active GRUB configuration already pairs those links in one menuentry. This verifier binds those exact facts without refreshing metadata or changing the host.
+
+Expect 13 passes, zero failures, `package_transaction_completed=true`, `target_boot_pair_verified=true`, `active_grub_mutated=false`, `rollback_state=degraded-running-session-and-modules-only`, `pause_safe=true`, `reboot_ready=true`, `reboot_authorized=false`, and `next_stage=current-kernel-post-apply-reboot-review`. Copy the archive and sidecar directly to `/home/promano` with the printed command and verify the sidecar there. A successful result is the first genuinely safe pause against later Slackware-current publications, but it does not authorize reboot.
+
+The focused step-79 harness contains 46 checks. The complete prepared step-79 inventory contains 46 suites and 3,160 checks with zero failures; static validation covers 74 shell scripts and 78 JSON files.
