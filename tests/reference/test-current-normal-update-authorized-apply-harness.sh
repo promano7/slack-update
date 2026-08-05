@@ -6,6 +6,7 @@ IFS=$'\n\t'
 TEST_DIR=$(CDPATH= cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
 REPOSITORY_ROOT=$(CDPATH= cd -- "$TEST_DIR/../.." && pwd -P)
 APPLY_SCRIPT="$REPOSITORY_ROOT/tests/acceptance/reference/test-current-normal-update-authorized-apply.sh"
+BOOT_LAYOUT_DIAGNOSTIC="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-normal-update-authorized-apply-20260805-boot-layout-input-diagnostic.json"
 
 # Source reviewed helpers without running the real transaction.
 # shellcheck source=../acceptance/reference/test-current-normal-update-authorized-apply.sh
@@ -41,6 +42,11 @@ assert_contains '/boot/initrd-6.18.40.img' "$APPLY_SCRIPT" 'the wrapper should p
 assert_contains 'sha256sum /etc/default/geninitrd' "$APPLY_SCRIPT" 'the restored GenInitrd policy should be verified by digest'
 assert_contains 'nested normal-update apply archive' "$APPLY_SCRIPT" 'the child evidence should be verified inside the parent evidence'
 assert_contains 'BOOT_CMDLINE_FILE=/proc/cmdline' "$NORMAL_UPDATE_SCRIPT" 'the real acceptance boundary should initialize the live boot command-line source before invoking the accepted engine'
+assert_contains 'GENERIC_KERNEL_LINK=/boot/vmlinuz-generic' "$NORMAL_UPDATE_SCRIPT" 'the real acceptance boundary should initialize the reviewed generic-kernel link'
+assert_contains 'RUNNING_KERNEL=$running_kernel' "$NORMAL_UPDATE_SCRIPT" 'the real acceptance boundary should initialize the live running-kernel version'
+assert_contains 'failed-before-package-transaction' "$APPLY_SCRIPT" 'an immutable child failure should be distinguished from a partial package transaction'
+assert_contains 'the failed embedded apply left the installed package database unchanged' "$APPLY_SCRIPT" 'an early child failure should preserve an explicit unchanged-package assertion'
+assert_contains 'except (OSError, UnicodeError, json.JSONDecodeError)' "$APPLY_SCRIPT" 'invalid or empty child JSON should fail closed without a traceback'
 assert_contains 'reference_engine_sha256={reference_digest}' "$APPLY_SCRIPT" 'the authorization scope should bind the exact reference engine digest'
 assert_contains 'normal_update_acceptance_sha256={normal_digest}' "$APPLY_SCRIPT" 'the authorization scope should bind the exact normal-update acceptance digest'
 assert_contains 'authorized_apply_wrapper_sha256={authorized_apply_digest}' "$APPLY_SCRIPT" 'the authorization scope should bind the exact authorized-apply wrapper digest'
@@ -58,14 +64,14 @@ assert_failure 'missing explicit execution should fail argument parsing' parse_a
     --confirm-candidates-sha256 27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926 \
     --confirm-target-kernel 6.18.42 \
     --confirm-readiness-sha256 d49af0c2f95f6ceaaa6f4073a5567b914f53ee9605724f78fea4a30afc463783 \
-    --confirm-authorization-sha256 539ba5135c0e38c62627f230cae374753f9a8e34c049790547629d74bb076cce
+    --confirm-authorization-sha256 1b628fe45502b4be887cfd7fa3e79879bf9222db527eb8099a1c9088d8dce0aa
 reset_args
 assert_failure 'a malformed candidate digest should fail parsing' parse_arguments \
     --target slackware-current --execute-authorized-apply --confirm-hostname pcold-slack \
     --confirm-hostname-fqdn pcold-slack.pcold-slack.org \
     --confirm-candidates-sha256 invalid --confirm-target-kernel 6.18.42 \
     --confirm-readiness-sha256 d49af0c2f95f6ceaaa6f4073a5567b914f53ee9605724f78fea4a30afc463783 \
-    --confirm-authorization-sha256 539ba5135c0e38c62627f230cae374753f9a8e34c049790547629d74bb076cce
+    --confirm-authorization-sha256 1b628fe45502b4be887cfd7fa3e79879bf9222db527eb8099a1c9088d8dce0aa
 reset_args
 assert_failure 'a relative evidence path should fail parsing' parse_arguments \
     --target slackware-current --execute-authorized-apply --confirm-hostname pcold-slack \
@@ -73,7 +79,7 @@ assert_failure 'a relative evidence path should fail parsing' parse_arguments \
     --confirm-candidates-sha256 27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926 \
     --confirm-target-kernel 6.18.42 \
     --confirm-readiness-sha256 d49af0c2f95f6ceaaa6f4073a5567b914f53ee9605724f78fea4a30afc463783 \
-    --confirm-authorization-sha256 539ba5135c0e38c62627f230cae374753f9a8e34c049790547629d74bb076cce \
+    --confirm-authorization-sha256 1b628fe45502b4be887cfd7fa3e79879bf9222db527eb8099a1c9088d8dce0aa \
     --output-dir relative
 reset_args
 assert_success 'the exact reviewed authorization arguments should parse' parse_arguments \
@@ -82,7 +88,7 @@ assert_success 'the exact reviewed authorization arguments should parse' parse_a
     --confirm-candidates-sha256 27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926 \
     --confirm-target-kernel 6.18.42 \
     --confirm-readiness-sha256 d49af0c2f95f6ceaaa6f4073a5567b914f53ee9605724f78fea4a30afc463783 \
-    --confirm-authorization-sha256 539ba5135c0e38c62627f230cae374753f9a8e34c049790547629d74bb076cce \
+    --confirm-authorization-sha256 1b628fe45502b4be887cfd7fa3e79879bf9222db527eb8099a1c9088d8dce0aa \
     --output-dir "$TMP/out"
 assert_equal slackware-current "$TARGET" 'the target should be preserved'
 assert_equal pcold-slack "$CONFIRM_HOSTNAME" 'the short hostname should be preserved'
@@ -138,7 +144,10 @@ for item in \
     "postinstall:d['postinstall_processing_enabled']=True" \
     "exit:d['expected_exit_code']=0" \
     "pause:d['pause_safe_after_successful_apply']=False" \
-    "scope-code:d['authorization_scope_binds_code_hashes']=False"; do
+    "scope-code:d['authorization_scope_binds_code_hashes']=False" \
+    "cmdline:d['required_boot_cmdline_file']='/tmp/cmdline'" \
+    "generic-link:d['required_generic_kernel_link']='/boot/other'" \
+    "running-source:d['required_running_kernel_source']='fixture'"; do
     name=${item%%:*}; code=${item#*:}
     mutate_json "$original_policy" "$TMP/policy-$name.json" "$code"
     AUTHORIZATION_POLICY="$TMP/policy-$name.json"
@@ -199,6 +208,10 @@ data={'operation':'apply','success':True,'partial':False,'boot_safe':True,'exit_
 json.dump(data,open(sys.argv[1],'w'),indent=2,sort_keys=True)
 PY
 assert_success 'an exact synthetic successful child apply should validate' validate_child_apply "$CHILD"
+cp "$CHILD/apply.json" "$TMP/apply-valid.json"
+: > "$CHILD/apply.json"
+assert_failure 'an empty child result should fail closed without Python diagnostics' validate_child_apply "$CHILD"
+cp "$TMP/apply-valid.json" "$CHILD/apply.json"
 
 mutate_apply() {
     local name=$1 code=$2
@@ -268,6 +281,8 @@ PAUSE_SAFE=true
 PAUSE_SAFETY_REASON=reviewed-package-transaction-complete-and-boot-artifacts-validated
 APPLY_READY=true
 APPLY_AUTHORIZED=true
+PACKAGE_DATABASE_CHANGED=true
+PACKAGE_TRANSACTION_EXECUTED=true
 NEXT_STAGE=current-kernel-post-apply-verification
 PASS_COUNT=16
 FAILURE_COUNT=0
@@ -275,11 +290,30 @@ write_analysis
 write_summary
 assert_equal true "$(python3 -c 'import json,sys; print(str(json.load(open(sys.argv[1]))["pause_safe"]).lower())' "$OUTPUT_DIR/authorization-analysis.json")" 'analysis should record safe pause after success'
 assert_equal true "$(python3 -c 'import json,sys; print(str(json.load(open(sys.argv[1]))["apply_authorized"]).lower())' "$OUTPUT_DIR/authorization-analysis.json")" 'analysis should record explicit authorization'
+assert_equal true "$(python3 -c 'import json,sys; print(str(json.load(open(sys.argv[1]))["package_database_changed"]).lower())' "$OUTPUT_DIR/authorization-analysis.json")" 'analysis should record the completed package database change'
+assert_equal true "$(python3 -c 'import json,sys; print(str(json.load(open(sys.argv[1]))["package_transaction_executed"]).lower())' "$OUTPUT_DIR/authorization-analysis.json")" 'analysis should record that package execution occurred'
 assert_equal pcold-slack "$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["hostname_short"])' "$OUTPUT_DIR/authorization-analysis.json")" 'analysis should record the verified short hostname'
 assert_equal pcold-slack.pcold-slack.org "$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["hostname_fqdn"])' "$OUTPUT_DIR/authorization-analysis.json")" 'analysis should record the verified FQDN'
 assert_contains 'transaction_status=applied-and-boot-prepared' "$OUTPUT_DIR/summary.txt" 'summary should expose completed transaction status'
 assert_contains 'pause_safe=true' "$OUTPUT_DIR/summary.txt" 'summary should expose pause safety'
 assert_contains 'next_stage=current-kernel-post-apply-verification' "$OUTPUT_DIR/summary.txt" 'summary should route to post-apply verification'
+
+python3 - "$BOOT_LAYOUT_DIAGNOSTIC" <<'PY_DIAGNOSTIC'
+import json
+import pathlib
+import sys
+record = json.loads(pathlib.Path(sys.argv[1]).read_text(encoding='utf-8'))
+assert record['accepted'] is False
+assert record['archive_sha256'] == '1aa2a16df16604603eabf91aa1100a52f3b4143689444a70c4465b9bb666317e'
+assert record['child_apply_archive_sha256'] == '144f1826f68ea979d9ca70ad7f0e758df97057ffdac5e85b6cf55a1ea44760cd'
+assert record['failure_message'] == 'GENERIC_KERNEL_LINK: unbound variable'
+assert record['installed_package_database_changed'] is False
+assert record['package_transaction_executed'] is False
+assert record['sensitive_state_changed'] is False
+assert record['transaction_status'] == 'failed-before-package-transaction'
+assert record['pause_safe'] is False
+PY_DIAGNOSTIC
+assert_equal 0 "$?" 'the step-77 diagnostic should preserve the immutable pre-transaction failure boundary'
 
 printf 'Slackware-current normal-update authorized apply harness: %s checks, %s failures\n' "$TEST_COUNT" "$TEST_FAILURE_COUNT"
 [ "$TEST_FAILURE_COUNT" -eq 0 ]

@@ -125,6 +125,10 @@ assert_file_contains 'the failed real apply partially changed the installed pack
     'a failed apply with package drift should be classified as a partial transaction'
 assert_file_contains 'BOOT_CMDLINE_FILE=/proc/cmdline' "$ACCEPTANCE_SCRIPT" \
     'the real apply boundary should initialize the direct-generic command-line source'
+assert_file_contains 'GENERIC_KERNEL_LINK=/boot/vmlinuz-generic' "$ACCEPTANCE_SCRIPT" \
+    'the real apply boundary should initialize the reviewed generic-kernel link'
+assert_file_contains 'RUNNING_KERNEL=$running_kernel' "$ACCEPTANCE_SCRIPT" \
+    'the real apply boundary should initialize the live running-kernel version'
 assert_file_contains 'run_reference_apply' "$ACCEPTANCE_SCRIPT" \
     'the scenario should exercise the real reference apply workflow'
 assert_file_contains 'mode=disabled' "$ACCEPTANCE_SCRIPT" \
@@ -147,6 +151,34 @@ assert_file_contains 'kernel_changes is intentionally broader than boot-kernel r
     'apply validation should distinguish broad kernel package changes from boot preparation'
 assert_file_not_contains 'rm -rf /var/log/packages' "$ACCEPTANCE_SCRIPT" \
     'the scenario must never remove the package database'
+
+FAKE_REFERENCE="$TEST_TMP/fake-reference.sh"
+ENV_CAPTURE="$TEST_TMP/live-boot-environment.txt"
+cat > "$FAKE_REFERENCE" <<'EOF_FAKE_REFERENCE'
+#!/bin/bash
+printf '%s\n' "$BOOT_CMDLINE_FILE" "$GENERIC_KERNEL_LINK" "$RUNNING_KERNEL" > "$ENV_CAPTURE"
+printf '{}\n'
+EOF_FAKE_REFERENCE
+chmod 0700 "$FAKE_REFERENCE"
+ORIGINAL_REFERENCE_SCRIPT=$REFERENCE_SCRIPT
+ORIGINAL_SCENARIO_CONFIG=${SCENARIO_CONFIG:-}
+REFERENCE_SCRIPT=$FAKE_REFERENCE
+SCENARIO_CONFIG="$TEST_TMP/fake-slack-update.conf"
+: > "$SCENARIO_CONFIG"
+export ENV_CAPTURE
+assert_success 'the real apply launcher should pass all live boot inputs to the accepted engine' \
+    run_reference_apply "$TEST_TMP/fake-apply.json" "$TEST_TMP/fake-apply.stderr" "$TEST_TMP/fake-apply.exit"
+assert_equal_value /proc/cmdline "$(sed -n '1p' "$ENV_CAPTURE")" \
+    'the accepted engine should receive the live kernel command-line path'
+assert_equal_value /boot/vmlinuz-generic "$(sed -n '2p' "$ENV_CAPTURE")" \
+    'the accepted engine should receive the reviewed generic-kernel link'
+assert_equal_value "$(uname -r)" "$(sed -n '3p' "$ENV_CAPTURE")" \
+    'the accepted engine should receive the current running-kernel version'
+assert_equal_value 0 "$(cat "$TEST_TMP/fake-apply.exit")" \
+    'the launcher should preserve the successful child status'
+REFERENCE_SCRIPT=$ORIGINAL_REFERENCE_SCRIPT
+SCENARIO_CONFIG=$ORIGINAL_SCENARIO_CONFIG
+unset ENV_CAPTURE
 
 assert_success 'Slackware 15.0 should be a valid target' \
     validate_target_name slackware-15.0

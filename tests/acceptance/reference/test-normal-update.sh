@@ -585,9 +585,19 @@ run_reference_apply() {
     local json_output=$1
     local diagnostic_output=$2
     local status_output=$3
+    local running_kernel
     local status=0
 
+    if ! running_kernel=$(uname -r); then
+        : > "$json_output"
+        printf 'cannot determine the running kernel for the live boot probe\n' > "$diagnostic_output"
+        printf '1\n' > "$status_output"
+        return 1
+    fi
+
     BOOT_CMDLINE_FILE=/proc/cmdline \
+        GENERIC_KERNEL_LINK=/boot/vmlinuz-generic \
+        RUNNING_KERNEL=$running_kernel \
         SLACK_UPDATE_CONFIG=$SCENARIO_CONFIG \
         bash "$REFERENCE_SCRIPT" --apply --json \
         > "$json_output" 2> "$diagnostic_output" || status=$?

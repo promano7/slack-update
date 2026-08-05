@@ -40,6 +40,8 @@ APPLY_READY=true
 APPLY_AUTHORIZED=false
 NEXT_STAGE=normal-update-apply-authorization-review
 PACKAGE_DATABASE=
+PACKAGE_DATABASE_CHANGED=false
+PACKAGE_TRANSACTION_EXECUTED=false
 
 print_usage() {
     cat <<EOF_USAGE
@@ -210,6 +212,9 @@ checks = [
     policy.get('pause_safe_after_successful_apply') is True,
     policy.get('apply_authorized_only_with_explicit_scope_confirmation') is True,
     policy.get('authorization_scope_binds_code_hashes') is True,
+    policy.get('required_boot_cmdline_file') == '/proc/cmdline',
+    policy.get('required_generic_kernel_link') == '/boot/vmlinuz-generic',
+    policy.get('required_running_kernel_source') == 'uname -r',
 ]
 raise SystemExit(0 if all(checks) else 1)
 PY
@@ -294,13 +299,16 @@ import pathlib
 import sys
 
 summary_path, apply_path, policy_path, candidate_sha, target_kernel = sys.argv[1:]
-summary = {}
-for line in pathlib.Path(summary_path).read_text(encoding='utf-8').splitlines():
-    if '=' in line:
-        key, value = line.split('=', 1)
-        summary[key] = value
-apply = json.loads(pathlib.Path(apply_path).read_text(encoding='utf-8'))
-policy = json.loads(pathlib.Path(policy_path).read_text(encoding='utf-8'))
+try:
+    summary = {}
+    for line in pathlib.Path(summary_path).read_text(encoding='utf-8').splitlines():
+        if '=' in line:
+            key, value = line.split('=', 1)
+            summary[key] = value
+    apply = json.loads(pathlib.Path(apply_path).read_text(encoding='utf-8'))
+    policy = json.loads(pathlib.Path(policy_path).read_text(encoding='utf-8'))
+except (OSError, UnicodeError, json.JSONDecodeError):
+    raise SystemExit(1)
 modules = apply.get('modules', {})
 slackware = modules.get('slackware', {})
 boot = modules.get('boot', {})
@@ -412,7 +420,8 @@ record = {
   'authorization_scope_sha256': '$CONFIRM_AUTHORIZATION_SHA256',
   'transaction_status': '$TRANSACTION_STATUS',
   'child_status': int('$CHILD_STATUS'),
-  'package_transaction_executed': '$TRANSACTION_STATUS' == 'applied-and-boot-prepared',
+  'package_database_changed': '$PACKAGE_DATABASE_CHANGED' == 'true',
+  'package_transaction_executed': '$PACKAGE_TRANSACTION_EXECUTED' == 'true',
   'apply_ready': '$APPLY_READY' == 'true',
   'apply_authorized': '$APPLY_AUTHORIZED' == 'true',
   'pause_safe': '$PAUSE_SAFE' == 'true',
@@ -570,12 +579,41 @@ main() {
     verify_nested_archive "$child_archive" \
         && record_pass 'the nested normal-update apply archive and portable sidecar verify inside the authorization evidence' \
         || record_failure 'the nested normal-update apply evidence failed verification'
-    validate_child_apply "$child_dir" \
-        && record_pass 'the child result satisfies the exact 137-package, deferred-postinstall, boot-safe apply contract' \
-        || record_failure 'the child result does not satisfy the reviewed authorized-apply contract'
+    if [ "$CHILD_STATUS" -eq 0 ]; then
+        validate_child_apply "$child_dir" \
+            && record_pass 'the child result satisfies the exact 137-package, deferred-postinstall, boot-safe apply contract' \
+            || record_failure 'the child result does not satisfy the reviewed authorized-apply contract'
+    fi
 
-    capture_package_database "$OUTPUT_DIR/packages.after-apply.txt" || record_failure 'the package database could not be captured after apply'
-    if [ -s "$OUTPUT_DIR/packages.after-apply.txt" ] && ! cmp -s "$OUTPUT_DIR/packages.before.txt" "$OUTPUT_DIR/packages.after-apply.txt"; then
+    if capture_package_database "$OUTPUT_DIR/packages.after-apply.txt"; then
+        if [ -s "$OUTPUT_DIR/packages.after-apply.txt" ] \
+            && ! cmp -s "$OUTPUT_DIR/packages.before.txt" "$OUTPUT_DIR/packages.after-apply.txt"; then
+            PACKAGE_DATABASE_CHANGED=true
+            PACKAGE_TRANSACTION_EXECUTED=true
+        fi
+    else
+        record_failure 'the package database could not be captured after apply'
+    fi
+
+    if [ "$CHILD_STATUS" -ne 0 ]; then
+        if [ "$PACKAGE_DATABASE_CHANGED" = false ]; then
+            record_pass 'the failed embedded apply left the installed package database unchanged'
+            TRANSACTION_STATUS=failed-before-package-transaction
+            PAUSE_SAFE=false
+            PAUSE_SAFETY_REASON=authorized-apply-stopped-before-package-transaction
+            NEXT_STAGE=current-normal-update-runtime-input-correction
+        else
+            record_failure 'the failed embedded apply partially changed the installed package database'
+            TRANSACTION_STATUS=failed-or-partial
+            PAUSE_SAFE=false
+            PAUSE_SAFETY_REASON=authorized-apply-partially-changed-packages
+            NEXT_STAGE=manual-recovery-review-required
+        fi
+        finish
+        return $?
+    fi
+
+    if [ "$PACKAGE_DATABASE_CHANGED" = true ]; then
         record_pass 'the authorized transaction changed the installed package database'
     else
         record_failure 'the authorized transaction did not produce the required package database change'
