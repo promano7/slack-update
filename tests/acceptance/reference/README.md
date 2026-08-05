@@ -1157,3 +1157,36 @@ The accepted record binds the exact review script and policy, the prior safe-pau
 Do not rerun Slackpkg metadata refresh, candidate review, payload review, readiness, apply, recovery verification, or reboot review. After the reboot, the next machine-side boundary is `current-kernel-post-reboot-verification`; only that accepted result may close the update.
 
 Step 82 adds no executable code or new suite. The complete inventory remains 47 suites and 3,228 checks with zero failures; static validation covers 76 shell scripts and 81 JSON files.
+
+### Slackware-current post-reboot verification and update closure (step 83)
+
+Run this boundary only after the single manual reboot authorized by the accepted step-82 record:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-kernel-post-reboot-verification.sh \
+    --target slackware-current \
+    --confirm-hostname pcold-slack \
+    --confirm-hostname-fqdn pcold-slack.pcold-slack.org \
+    --confirm-reboot-review-evidence-sha256 e41138a31225a795c65ddf76fa75fde19072f5892c9719af32d06b564027937b \
+    --confirm-target-kernel 6.18.42 \
+    --confirm-verification-sha256 10f68c6a5e7604b06a2e7a0701dc170a6c19e800c14157bbbcb4e9d35c5ff1f1
+```
+
+This verifier does not refresh repository metadata and has no path that installs or removes packages, executes package payload, creates an initrd, changes GRUB or its environment, or performs another reboot. Its policy binds the accepted reboot-review archive and immutable record, the exact prior review policy and script, the completed-transaction recovery policy, the post-reboot verification script, the host identity, target kernel, and root filesystem UUID.
+
+The live boot proof requires all of the following simultaneously:
+
+- `uname -r` and `/proc/sys/kernel/osrelease` are exactly `6.18.42`.
+- `uname -m` is `x86_64`.
+- `/proc/sys/kernel/random/boot_id` contains a valid nonzero UUID.
+- `/proc/cmdline` contains exactly one `BOOT_IMAGE=/boot/vmlinuz-generic`, exactly one `root=UUID=ba7632d7-7469-483e-830d-59c88d985866`, one `ro`, and no `rw`.
+- `findmnt` reports the same UUID for the mounted root filesystem.
+- The active release resolves to a populated `/lib/modules/6.18.42` tree.
+
+The installed-state proof then requires the exact accepted 2,040-record package snapshot and named kernel/GRUB records; byte-identical 6.18.42 kernel and initrd; exact generic symlink targets; unchanged GenInitrd policy and control binaries; the accepted active GRUB digest and valid syntax; no nonempty `next_entry`; and an effective menuentry containing exactly one Linux command with `/boot/vmlinuz-generic` and one initrd command with `/boot/initrd-generic.img`. The old 6.18.40 image and initrd must remain absent while its module tree remains present, which is recorded after reboot as `degraded-modules-only` rather than the former `degraded-running-session-and-modules-only` state.
+
+The expected clean result contains 14 passes and zero failures. Only that result sets `pause_safe=true`, `reboot_verified=true`, `update_closed=true`, and `next_stage=optional-rollback-reconstruction-review`. Any identity, package, artifact, module, GenInitrd, GRUB, rollback, or before/after snapshot mismatch fails closed and routes to manual recovery review.
+
+Copy the generated archive and sidecar directly to `/home/promano` using the exact `install` command printed by the test, verify the sidecar there, and retain the terminal output. The result must be reviewed before an immutable accepted step-83 checkpoint is added.
+
+The focused step-83 harness contains 79 checks. The complete prepared step-83 inventory contains 48 suites and 3,307 checks with zero failures; static validation covers 78 shell scripts and 82 JSON files.

@@ -2415,3 +2415,25 @@ The accepted evidence confirms the exact 2,040-record installed package database
 Exactly one manual reboot toward 6.18.42 is now authorized. Do not refresh Slackpkg metadata and do not repeat the candidate, payload, readiness, apply, recovery, or reboot-review chain. After the machine starts, run the separate `current-kernel-post-reboot-verification` acceptance boundary before treating the update as closed. The rollback remains degraded: the 6.18.40 running session and module tree exist before reboot, but its disk kernel and initrd do not.
 
 Step 82 adds no executable code and no new machine-side test. The complete inventory remains 47 suites and 3,228 checks with zero failures; static validation covers 76 shell scripts and 81 JSON files.
+
+### Slackware-current first-boot verification and update closure (step 83)
+
+After the single authorized reboot from step 82, do not refresh Slackpkg metadata and do not repeat any candidate, payload, readiness, application, recovery, or reboot-review stage. Run only the read-only post-reboot boundary:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-kernel-post-reboot-verification.sh \
+    --target slackware-current \
+    --confirm-hostname pcold-slack \
+    --confirm-hostname-fqdn pcold-slack.pcold-slack.org \
+    --confirm-reboot-review-evidence-sha256 e41138a31225a795c65ddf76fa75fde19072f5892c9719af32d06b564027937b \
+    --confirm-target-kernel 6.18.42 \
+    --confirm-verification-sha256 10f68c6a5e7604b06a2e7a0701dc170a6c19e800c14157bbbcb4e9d35c5ff1f1
+```
+
+The verifier binds the immutable accepted reboot record, the exact reboot-review policy and script, the completed-transaction recovery policy, and its own code identity. It requires `uname -r` and `/proc/sys/kernel/osrelease` to report 6.18.42, architecture `x86_64`, a valid nonzero boot ID, `BOOT_IMAGE=/boot/vmlinuz-generic`, and the reviewed root UUID `ba7632d7-7469-483e-830d-59c88d985866`. It then rechecks the exact 2,040-record installed package database, target package records, target kernel/initrd/module tree, both generic links, GenInitrd controls, active GRUB digest and syntax, absence of `next_entry`, and the effective generic kernel/initrd menuentry.
+
+The command is non-mutating. It does not call Slackpkg, install or remove packages, generate an initrd, regenerate GRUB, edit `grubenv`, or reboot. It captures package and reboot-sensitive state before and after its checks and requires both snapshots to remain identical.
+
+A successful real run must report 14 passes, zero failures, `running_kernel=6.18.42`, `rollback_state=degraded-modules-only`, `pause_safe=true`, `reboot_verified=true`, `update_closed=true`, and `next_stage=optional-rollback-reconstruction-review`. This closes the mandatory 6.18.42 update chain. Reconstructing a complete 6.18.40 rollback image and initrd remains optional and must be handled by a separate reviewed boundary.
+
+The focused step-83 harness contains 79 checks. The complete prepared step-83 inventory contains 48 suites and 3,307 checks with zero failures; static validation covers 78 shell scripts and 82 JSON files.
