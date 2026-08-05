@@ -1934,7 +1934,8 @@ Slack-Update 1.0 will be ready when:
   - [x] Repeat and accept the GenInitrd policy evidence for `6.18.42`.
   - [x] Repeat and accept DKMS, command, and GRUB-ownership evidence for `6.18.42`.
   - [x] Run the final non-installing `6.18.42` readiness preflight; retain it as diagnostic because it exposed the pre-existing versioned initrd.
-  - [ ] Run and accept the corrected `geninitrd-managed-versioned-initrd` boot baseline, then rebuild all dependent `6.18.42` evidence.
+  - [x] Run the first corrected `geninitrd-managed-versioned-initrd` boot baseline and retain its restricted-IFS metadata failure as diagnostic.
+  - [ ] Repeat and accept the corrected metadata-safe `geninitrd-managed-versioned-initrd` boot baseline, then rebuild all dependent `6.18.42` evidence.
   - [ ] Grant a separate explicit apply authorization only after accepted readiness evidence.
   - [x] Review and accept the ten-package Slackware-current transaction as package and boot evidence.
   - [ ] Revalidate the hardened deferred `.new` policy on the next Slackware-current update.
@@ -1998,3 +1999,21 @@ A valid result must classify `boot_mode=geninitrd-managed-versioned-initrd`, ver
 
 
 The step-54 repository validation runs all 37 focused suites: 2,412 checks pass with zero failures. The main reference engine remains SHA-256 `0dc4a4def9b063b9a598975f46e7458c5771eb8d8603f4fa8bbd9dfc07c4d4c6`.
+
+### Phase 1 step 55: corrected GenInitrd metadata parser
+
+The first corrected baseline run on `pcold-slack` preserved the live system and identified the correct `geninitrd-managed-versioned-initrd` layout, but one assertion failed with `line 309: [: : integer expected`. The script-wide `IFS` contains only newline and tab, while the safe-file helper attempted to split space-separated `stat` output. Consequently `uid` and `gid` were empty even though `/boot/initrd-6.18.40.img` is a safe root-owned regular file. Diagnostic archive SHA-256 `16ebd14b3dd3447c6663fb25796c603738ce58f99bff56334813f72d5b4fd2bb` is preserved and does not authorize apply.
+
+Repeat the corrected non-destructive baseline:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-kernel-boot-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+The helper now parses colon-delimited metadata with a local `IFS`, validates all fields before mode arithmetic, and still requires root ownership plus no group/world write bits. A valid result must report `boot-mode=geninitrd-managed-versioned-initrd`, `geninitrd-transition=true`, 20 passes, zero failures, and immutable `apply_ready=false` / `apply_authorized=false`. Copy the archive and sidecar directly to `/home/promano` and verify them there. Do not rebuild later evidence or run apply until this corrected baseline is accepted.
+
+The step-55 repository validation runs all 37 focused suites: 2,424 checks pass with zero failures. The current-kernel boot harness contributes 94 checks. The main reference engine remains SHA-256 `0dc4a4def9b063b9a598975f46e7458c5771eb8d8603f4fa8bbd9dfc07c4d4c6`.
+

@@ -1,0 +1,52 @@
+{
+  "scenario": "current-kernel-boot-preflight",
+  "target": "slackware-current",
+  "captured_at": "2026-08-05T09:27:55Z",
+  "accepted": false,
+  "diagnostic_only": true,
+  "retry_required": true,
+  "archive_sha256": "16ebd14b3dd3447c6663fb25796c603738ce58f99bff56334813f72d5b4fd2bb",
+  "candidate_set_sha256": "918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9",
+  "platform": {
+    "hostname": "pcold-slack.pcold-slack.org",
+    "slackware_version": "Slackware 15.0+",
+    "running_kernel": "6.18.40",
+    "target_kernel": "6.18.42",
+    "boot_loader": "grub"
+  },
+  "observed_boot_state": {
+    "classification": "geninitrd-managed-versioned-initrd",
+    "generic_kernel_link": "/boot/vmlinuz-generic",
+    "generic_kernel_target": "/boot/vmlinuz-6.18.40",
+    "named_initrd_link": "/boot/initrd-generic.img",
+    "named_initrd_target": "initrd-6.18.40.img",
+    "versioned_initrd": "/boot/initrd-6.18.40.img",
+    "versioned_initrd_sha256": "0da0e0289d93cdf2d3b78288bfa23db4c9437b576563f92889399b2c98294442",
+    "versioned_initrd_size": 17307183,
+    "active_grub_sha256": "5fdff76d42ddec26b0c212668c4981a9ea2853a98b3260f33850c91ccf8ac247"
+  },
+  "assertions": {
+    "passes": 19,
+    "failures": 1,
+    "failed_message": "the GenInitrd versioned initrd, named link, policy, or GRUB pairing is unsafe or inconsistent",
+    "shell_diagnostic": "line 309: [: : integer expected"
+  },
+  "diagnosis": {
+    "root_cause": "The script sets global IFS to newline and tab. The file-metadata helper used read on space-separated stat output without a local IFS, so mode received the whole line while uid and gid remained empty.",
+    "correction": "Use colon-delimited stat output, a local IFS for parsing, lexical numeric validation, and string equality for uid and gid before octal mode arithmetic.",
+    "real_boot_layout_unsafe": false
+  },
+  "state_unchanged": {
+    "package_database": true,
+    "boot_state": true
+  },
+  "commands_executed": {
+    "package_transaction": false,
+    "mkinitrd": false,
+    "geninitrd": false,
+    "grub_generation": false
+  },
+  "apply_ready": false,
+  "apply_authorized": false,
+  "next_stage": "repeat-corrected-current-kernel-boot-preflight"
+}

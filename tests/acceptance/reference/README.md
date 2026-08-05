@@ -784,3 +784,19 @@ sudo bash tests/acceptance/reference/test-current-kernel-boot-preflight.sh \
 ```
 
 The corrected preflight recognizes `geninitrd-managed-versioned-initrd`, captures `/boot/initrd-generic.img` and `/boot/initrd-6.18.40.img`, verifies the active GenInitrd policy and safe file metadata, and proves that GRUB pairs the generic kernel and named initrd in one menuentry. It never runs package tools, `mkinitrd`, `geninitrd`, or GRUB generation. Copy the archive and portable sidecar directly to `/home/promano`; apply remains denied and all dependent evidence must be rebuilt afterward.
+
+### Slackware-current GenInitrd metadata-parser correction (step 55)
+
+The first step-54 real-system run classified the host correctly but rejected safe initrd metadata because the script-wide newline/tab-only `IFS` did not split the helper's space-separated `stat` output. The verified diagnostic archive is `slackware-current-current-kernel-boot-preflight-20260805T092755Z.tar.gz`, SHA-256 `16ebd14b3dd3447c6663fb25796c603738ce58f99bff56334813f72d5b4fd2bb`; it recorded 19 passes, one parser failure, unchanged package/boot state, and permanent apply denial.
+
+Run the corrected preflight:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-kernel-boot-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+The safe-file helper now uses colon-delimited metadata and a local `IFS`, validates mode/UID/GID fields before octal arithmetic, and must accept the existing root-owned non-writable versioned initrd. Expect 20 passes, zero failures, `boot-mode=geninitrd-managed-versioned-initrd`, `geninitrd-transition=true`, `apply-ready=false`, and `apply-authorized=false`. Copy both evidence files directly to `/home/promano` and verify the portable sidecar there.
+

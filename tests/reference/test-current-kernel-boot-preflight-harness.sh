@@ -11,6 +11,7 @@ DIAGNOSTIC_FIXTURE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-
 ACCEPTED_BOOT_FIXTURE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-direct-generic-preflight-20260803-accepted.json"
 RESTART_DIAGNOSTIC_FIXTURE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-chain-restart-20260804-diagnostic.json"
 READINESS_DIAGNOSTIC_FIXTURE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-transaction-readiness-20260805-diagnostic.json"
+STAT_IFS_DIAGNOSTIC_FIXTURE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-boot-preflight-20260805-stat-ifs-diagnostic.json"
 
 # Source functions without running the real-system scenario.
 # shellcheck source=../acceptance/reference/test-current-kernel-boot-preflight.sh
@@ -37,6 +38,9 @@ assert_contains 'direct-generic-no-initrd' "$ACCEPTANCE_SCRIPT" 'direct generic 
 assert_contains 'geninitrd-managed-versioned-initrd' "$ACCEPTANCE_SCRIPT" 'GenInitrd-managed versioned initrd boot should be an explicit mode'
 assert_contains '/boot/initrd-generic.img' "$ACCEPTANCE_SCRIPT" 'the named GenInitrd symlink should be inspected'
 assert_contains 'validate_grub_kernel_initrd_pair' "$ACCEPTANCE_SCRIPT" 'GRUB should pair the running kernel with the named initrd'
+assert_contains "stat -c '%a:%u:%g'" "$ACCEPTANCE_SCRIPT" 'file metadata should use an unambiguous delimiter'
+assert_contains 'IFS=: read -r mode uid gid extra' "$ACCEPTANCE_SCRIPT" 'file metadata parsing should override the global restricted IFS'
+assert_not_contains '[ "$uid" -eq 0 ]' "$ACCEPTANCE_SCRIPT" 'empty metadata fields must not reach integer test operators'
 assert_contains 'BOOT_IMAGE' "$ACCEPTANCE_SCRIPT" 'the running boot image should be validated'
 assert_contains 'grub-script-check /boot/grub/grub.cfg' "$ACCEPTANCE_SCRIPT" 'the active GRUB configuration should be syntax checked'
 assert_contains 'repository_target_owns_path "boot/vmlinuz-$TARGET_KERNEL"' "$ACCEPTANCE_SCRIPT" 'available target image inventory should still be consumed'
@@ -95,6 +99,11 @@ assert_success 'the readiness baseline diagnostic fixture should be valid JSON' 
 assert_contains '"classification": "geninitrd-managed-versioned-initrd"' "$READINESS_DIAGNOSTIC_FIXTURE" 'the diagnostic should preserve the corrected boot classification'
 assert_contains '"prior_boot_mode_revoked": "direct-generic-no-initrd"' "$READINESS_DIAGNOSTIC_FIXTURE" 'the previous classification should be explicitly revoked'
 assert_contains '"apply_ready": false' "$READINESS_DIAGNOSTIC_FIXTURE" 'the diagnostic must keep apply blocked'
+assert_success 'the stat-IFS diagnostic fixture should be valid JSON' python3 -m json.tool "$STAT_IFS_DIAGNOSTIC_FIXTURE"
+assert_contains '"archive_sha256": "16ebd14b3dd3447c6663fb25796c603738ce58f99bff56334813f72d5b4fd2bb"' "$STAT_IFS_DIAGNOSTIC_FIXTURE" 'the rejected archive digest should be preserved'
+assert_contains '"shell_diagnostic": "line 309: [: : integer expected"' "$STAT_IFS_DIAGNOSTIC_FIXTURE" 'the empty integer operand should be preserved'
+assert_contains '"real_boot_layout_unsafe": false' "$STAT_IFS_DIAGNOSTIC_FIXTURE" 'the diagnostic should distinguish parser failure from an unsafe boot layout'
+assert_contains '"apply_authorized": false' "$STAT_IFS_DIAGNOSTIC_FIXTURE" 'the rejected rerun must remain unauthorized'
 
 assert_success 'vmlinuz-VERSION should be a supported running image' is_supported_running_kernel_image vmlinuz-6.18.40 6.18.40
 assert_success 'vmlinuz-generic-VERSION should remain supported for managed layouts' is_supported_running_kernel_image vmlinuz-generic-6.18.40 6.18.40
@@ -108,6 +117,30 @@ assert_failure 'a named initrd without its versioned target should be inconsiste
 assert_failure 'a versioned initrd without its named link should be inconsistent' classify_boot_mode_from_states absent absent absent present vmlinuz-6.18.40 6.18.40
 assert_failure 'mkinitrd.conf with a missing legacy initrd should be inconsistent' classify_boot_mode_from_states present absent absent absent vmlinuz-6.18.40 6.18.40
 assert_failure 'initrd-less legacy generic naming should be rejected' classify_boot_mode_from_states absent absent absent absent vmlinuz-generic-6.18.40 6.18.40
+
+SAFE_INITRD="$TMP/initrd-6.18.40.img"
+printf 'initrd
+' > "$SAFE_INITRD"
+chmod 0644 "$SAFE_INITRD"
+stat() {
+    case "$2" in
+        '%a:%u:%g') printf '644:0:0
+' ;;
+        *) printf '644 0 0
+' ;;
+    esac
+}
+assert_success 'root-owned safe metadata should parse under the restricted global IFS' is_root_owned_safe_regular_file "$SAFE_INITRD"
+stat() { printf '666:0:0
+'; }
+assert_failure 'group- or world-writable initrd metadata should fail' is_root_owned_safe_regular_file "$SAFE_INITRD"
+stat() { printf '644:1000:100
+'; }
+assert_failure 'non-root initrd ownership should fail' is_root_owned_safe_regular_file "$SAFE_INITRD"
+stat() { printf '644::0
+'; }
+assert_failure 'empty numeric metadata fields should fail without shell diagnostics' is_root_owned_safe_regular_file "$SAFE_INITRD"
+unset -f stat
 
 GRUB_CFG="$TMP/grub.cfg"
 cat > "$GRUB_CFG" <<'EOF_GRUB'

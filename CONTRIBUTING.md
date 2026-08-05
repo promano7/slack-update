@@ -140,7 +140,7 @@ sudo bash tests/acceptance/reference/test-current-kernel-boot-preflight.sh \
     --confirm-target-kernel 6.18.42
 ```
 
-Do not run normal-update apply or reuse the dependent step-46 through step-52 records. Copy the printed evidence archive and sidecar directly to `/home/promano`, verify the sidecar there, and include both files with the review.
+Do not run normal-update apply or reuse the dependent step-46 through step-52 records. The first corrected run is diagnostic only because the metadata helper parsed space-separated `stat` output under a restricted global `IFS`. Repeat with the step-55 parser, copy the printed evidence archive and sidecar directly to `/home/promano`, verify the sidecar there, and include both files with the review.
 
 ## Pull requests
 

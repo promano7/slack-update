@@ -303,10 +303,14 @@ classify_boot_mode_from_states() {
 }
 
 is_root_owned_safe_regular_file() {
-    local path=$1 mode uid gid
+    local path=$1 metadata mode uid gid extra
     [ -f "$path" ] && [ ! -L "$path" ] && [ -s "$path" ] || return 1
-    read -r mode uid gid < <(stat -c '%a %u %g' -- "$path") || return 1
-    [ "$uid" -eq 0 ] && [ "$gid" -eq 0 ] || return 1
+    metadata=$(stat -c '%a:%u:%g' -- "$path") || return 1
+    IFS=: read -r mode uid gid extra <<< "$metadata"
+    [ -z "$extra" ] || return 1
+    case "$mode" in ''|*[!0-7]*) return 1 ;; esac
+    case "$uid:$gid" in *[!0-9:]*|:*|*:) return 1 ;; esac
+    [ "$uid" = 0 ] && [ "$gid" = 0 ] || return 1
     (( (8#$mode & 8#022) == 0 ))
 }
 
