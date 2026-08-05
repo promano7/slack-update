@@ -222,3 +222,16 @@ The live-state check must verify the exact current kernel hash, `initrd-generic.
 ### Candidate drift after a reviewed kernel chain
 
 A changed aggregate candidate digest is not sufficient to declare a changed kernel target. Compare the exact `kernel-generic`, `kernel-headers`, and `kernel-source` filenames from the accepted and fresh sets. When those files are identical but userspace candidates are added, removed, or replaced, classify the refresh as `changed-userspace-set`, keep the old candidate-bound chain directly non-reusable, and require an explicit userspace review before any rebind. Configured critical candidates must be represented by a sorted unique file that is a subset of the exact candidate set; any critical entry requires manual review. Blocked readiness must route back to candidate-chain refresh, never to apply authorization.
+
+### Slackware-current userspace candidate-expansion review
+
+After a candidate refresh classifies an exact same-kernel strict superset as `changed-userspace-set`, run the dedicated identity review before reusing any kernel evidence:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-userspace-candidate-review-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926 \
+    --confirm-target-kernel 6.18.42
+```
+
+The reviewed policy must enumerate every added package exactly once, preserve the exact prior kernel transaction, keep all additions in `upgrade-all`, and contain no configured critical candidate. The review scope is limited to candidate identity for kernel-evidence rebind; it must never claim payload inspection, apply readiness, or apply authorization. Copy the resulting `.tar.gz` and `.sha256` directly to `/home/promano`, set ownership to `promano:users`, and verify the sidecar there before proceeding.

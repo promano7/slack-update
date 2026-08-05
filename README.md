@@ -2163,3 +2163,20 @@ sudo bash tests/acceptance/reference/test-current-candidate-chain-refresh-prefli
 The expected classification, while the repository remains unchanged, is `changed-userspace-set` with target `6.18.42`, `kernel_transaction_changed=false`, `strict_candidate_superset=true`, `added_candidate_count=68`, `removed_candidate_count=0`, `next_stage=review-fresh-userspace-candidates`, `apply_ready=false`, and `apply_authorized=false`. The wrapper refreshes metadata only through the existing normal-update preflight, verifies critical-candidate accounting, preserves package and boot state, and publishes one outer archive with a portable sidecar. Copy and verify both files directly in `/home/promano`. Do not run readiness or apply until the fresh userspace evidence is reviewed.
 
 The step-64 repository matrix contains 37 suites and 2,545 checks. The candidate-chain harness contributes 79 checks and the readiness harness contributes 71 checks.
+
+### Phase 1 step 65: userspace candidate review for kernel-evidence rebind
+
+Run only after accepting the step-64 candidate refresh:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-userspace-candidate-review-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926 \
+    --confirm-target-kernel 6.18.42
+```
+
+The review binds the accepted 137-candidate refresh and a checked-in exact policy for the 68 additions. It requires a strict superset of the accepted 69-candidate transaction, no removals, no critical candidates, no added `install-new` entries, and the unchanged `kernel-generic`, `kernel-headers`, and `kernel-source` files for `6.18.42`. The added identities must be exactly 61 Plasma 6.7.4 packages, six supporting userspace packages, and `breeze-grub-6.7.4-x86_64-1.txz` as the only boot-adjacent theme package.
+
+This is deliberately not a package-payload or apply-safety review. A clean result may report `kernel_evidence_rebind_ready=true` and route to `current-kernel-evidence-rebind-preflight`, while `package_payloads_inspected=false`, `userspace_apply_review_complete=false`, `apply_ready=false`, and `apply_authorized=false` remain mandatory. The script executes no package transaction, maintainer script, initrd generator, DKMS action, or GRUB update. Copy the final archive and sidecar directly to `/home/promano` and verify them there.
+
+The step-65 repository inventory contains 38 suites and 2,591 checks with zero failures. The userspace candidate review harness contributes 46 checks.

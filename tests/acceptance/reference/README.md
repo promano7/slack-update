@@ -917,3 +917,20 @@ sudo bash tests/acceptance/reference/test-current-candidate-chain-refresh-prefli
 ```
 
 The wrapper must use `slackware-current-preflight-20260804-accepted.json` as its default baseline, compare the exact kernel generic/headers/source filenames, verify the critical-candidate file against the exact candidate set, and classify an unchanged kernel transaction plus changed overall digest as `changed-userspace-set`. It may expose `kernel_evidence_rebind_possible_after_userspace_review=true`, but the prior candidate-bound chain remains directly non-reusable and both readiness and authorization stay false. Copy the final archive and sidecar directly to `/home/promano` with `promano:users` ownership and verify the sidecar there.
+
+### Slackware-current userspace candidate review preflight (step 65)
+
+After the accepted step-64 refresh reports `changed-userspace-set`, run:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-userspace-candidate-review-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926 \
+    --confirm-target-kernel 6.18.42
+```
+
+The wrapper invokes the normal-update acceptance script only with `--preflight`, requires the exact 137-candidate set, verifies the nested evidence archive and sidecar, and checks the explicit 68-package category policy. The additions must remain 68 `upgrade-all` packages with no removals or critical candidates: 61 Plasma 6.7.4 identities, six supporting userspace identities, and one `breeze-grub` theme identity. The exact `6.18.42` generic/headers/source transaction must remain unchanged.
+
+A safe run is expected to report 11 passes, zero failures, `kernel-evidence-rebind-ready=true`, `next-stage=current-kernel-evidence-rebind-preflight`, `userspace-apply-review-complete=false`, `apply-ready=false`, and `apply-authorized=false`. Use the printed command to copy the final archive and `.sha256` directly to `/home/promano` with `promano:users` ownership, then run the printed verification command. Do not install packages or advance directly to apply authorization.
+
+The focused harness contains 46 checks. The complete step-65 inventory contains 38 suites and 2,591 checks with zero failures.
