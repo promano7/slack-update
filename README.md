@@ -2234,8 +2234,27 @@ The accepted real result reports `package_payloads_inspected=true`, `payload_pat
 
 The step-68 repository inventory contains 40 suites and 2,718 checks with zero failures. The userspace payload review harness contributes 65 checks.
 
-### Slackware-current maintainer-script review boundary
+### Phase 1 step 69: accepted maintainer-script review
 
-`tests/acceptance/reference/test-current-userspace-maintainer-script-review-preflight.sh` repeats the accepted payload review and statically classifies every captured `install/doinst.sh` without executing it. The exact policy binds 37 package/script hashes and permits only 1,159 immediately paired relative remove-plus-symlink replacements, two exact `.new` promotions, five exact cache refreshes, and one package-specific non-persistent `TERM` signal to `kscreenlocker_greet`.
+The real Slackware-current run passed all 15 assertions and statically classified all 37 exact `install/doinst.sh` files without executing them. The accepted boundary contains 1,159 immediately paired remove-plus-symlink replacements, two exact `.new` promotions, five exact cache refreshes, and one package-specific non-persistent `TERM` signal to `kscreenlocker_greet`.
 
-The process signal is restricted to `kscreenlocker-6.7.4-x86_64-1.txz`, script SHA-256 `c63222aa5084b2d550136c098bd71b12ced7612a59af3ac75c37c5eabbad9507`, and exact command text. Any hash drift, unknown command, unpaired remove, escaping link, changed path, changed process or signal, package action, service control, boot command, or script execution fails closed. A pass may set `maintainer_scripts_review_complete=true` and route only to `current-userspace-configuration-service-review-preflight`; userspace apply review, readiness, and authorization remain false. The step-69 matrix contains 41 suites and 2,782 checks with zero failures, including 64 focused maintainer-script checks.
+Outer archive SHA-256 `62f87bde4c4b1d49ff6c02476ce4a61af6420fa0798cd13ee9b6f83536762062`, nested payload archive SHA-256 `9bb11f5feec1c4b9be9b38d384717da30c05265b83fa852e5e71bf6d28ea4634`, and nested normal-update archive SHA-256 `98a82f0af75db3019e851ddf8026b5c300839b91abbc19c6db770f359857bcb5` were copied and verified in `/home/promano`. Package, kernel, initrd, GenInitrd, DKMS, and GRUB state remained unchanged. The accepted record is `tests/fixtures/reference/acceptance/normal-update/slackware-current-userspace-maintainer-script-review-20260805-accepted.json`.
+
+### Phase 1 step 70: configuration and service payload review
+
+Run only from the unchanged accepted step-69 state:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-userspace-configuration-service-review-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926 \
+    --confirm-target-kernel 6.18.42
+```
+
+The preflight reruns the maintainer-script review without installing packages or executing payload files. Its policy binds the exact 90-path boundary and the SHA-256 plus size of all 19 contributing `.txz` archives: 46 configuration paths containing 21 regular files, and 44 service paths containing 27 regular files.
+
+Configuration classification covers nine XDG autostart desktop entries, three browser native-messaging manifests, two inert shell helpers checked only with `sh -n`, one PAM `.new` file, one XDG menu XML file, one PNG asset, two bounded INI-style files, one OpenSSL `.new` file, and one stunnel sample. Service classification permits only 26 files below `usr/lib/systemd/user/` and one preset below `usr/lib/systemd/user-preset/`. System units, `rc.d` scripts, privileged directives, shell interpreters or control syntax in unit commands, wildcard presets, unknown files, hash drift, package execution, and service control fail closed.
+
+A clean result must report 15 passes, zero failures, `configuration_path_count=46`, `configuration_file_count=21`, `service_path_count=44`, `service_file_count=27`, `systemd_user_service_count=26`, `systemd_user_preset_count=1`, `systemd_system_service_count=0`, `rc_script_count=0`, `configuration_service_review_complete=true`, and `next_stage=current-userspace-elf-runtime-review-preflight`. ELF runtime review, userspace apply review, readiness, and authorization remain false.
+
+The focused step-70 harness contains 68 checks. The complete prepared step-70 inventory contains 42 suites and 2,850 checks with zero failures.

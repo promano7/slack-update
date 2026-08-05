@@ -1,0 +1,842 @@
+{
+  "accepted_maintainer_archive_sha256": "62f87bde4c4b1d49ff6c02476ce4a61af6420fa0798cd13ee9b6f83536762062",
+  "accepted_nested_payload_archive_sha256": "9bb11f5feec1c4b9be9b38d384717da30c05265b83fa852e5e71bf6d28ea4634",
+  "allowed_service_prefixes": [
+    "usr/lib/systemd/user/",
+    "usr/lib/systemd/user-preset/"
+  ],
+  "apply_authorized": false,
+  "apply_ready": false,
+  "candidate_set_sha256": "27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926",
+  "configuration_file_classes": {
+    "kglobalacceld-6.7.4-x86_64-1.txz\tetc/xdg/autostart/kglobalacceld.desktop": "xdg-autostart-desktop",
+    "kinfocenter-6.7.4-x86_64-1.txz\tetc/xdg/kcm-about-distrorc": "ini-style-config",
+    "kinfocenter-6.7.4-x86_64-1.txz\tetc/xdg/slackware_logo.png": "png-asset",
+    "kwallet-pam-6.7.4-x86_64-1.txz\tetc/xdg/autostart/pam_kwallet_init.desktop": "xdg-autostart-desktop",
+    "plasma-browser-integration-6.7.4-x86_64-1.txz\tetc/chromium/native-messaging-hosts/org.kde.plasma.browser_integration.json": "native-messaging-json",
+    "plasma-browser-integration-6.7.4-x86_64-1.txz\tetc/opt/chrome/native-messaging-hosts/org.kde.plasma.browser_integration.json": "native-messaging-json",
+    "plasma-browser-integration-6.7.4-x86_64-1.txz\tetc/opt/edge/native-messaging-hosts/org.kde.plasma.browser_integration.json": "native-messaging-json",
+    "plasma-desktop-6.7.4-x86_64-1.txz\tetc/xdg/autostart/kaccess.desktop": "xdg-autostart-desktop",
+    "plasma-workspace-6.7.4-x86_64-1.txz\tetc/X11/xinit/xinitrc.kde": "shell-helper",
+    "plasma-workspace-6.7.4-x86_64-1.txz\tetc/pam.d/kde.new": "pam-new",
+    "plasma-workspace-6.7.4-x86_64-1.txz\tetc/xdg/autostart/gmenudbusmenuproxy.desktop": "xdg-autostart-desktop",
+    "plasma-workspace-6.7.4-x86_64-1.txz\tetc/xdg/autostart/org.kde.plasma-fallback-session-restore.desktop": "xdg-autostart-desktop",
+    "plasma-workspace-6.7.4-x86_64-1.txz\tetc/xdg/autostart/org.kde.plasmashell.desktop": "xdg-autostart-desktop",
+    "plasma-workspace-6.7.4-x86_64-1.txz\tetc/xdg/autostart/xembedsniproxy.desktop": "xdg-autostart-desktop",
+    "plasma-workspace-6.7.4-x86_64-1.txz\tetc/xdg/menus/plasma-applications.menu": "xdg-menu-xml",
+    "plasma-workspace-6.7.4-x86_64-1.txz\tetc/xdg/plasmanotifyrc": "ini-style-config",
+    "polkit-kde-agent-1-6.7.4-x86_64-1.txz\tetc/xdg/autostart/polkit-kde-authentication-agent-1.desktop": "xdg-autostart-desktop",
+    "powerdevil-6.7.4-x86_64-1.txz\tetc/xdg/autostart/powerdevil.desktop": "xdg-autostart-desktop",
+    "stunnel-5.80-x86_64-1.txz\tetc/stunnel/generate-stunnel-key.sh": "shell-helper",
+    "stunnel-5.80-x86_64-1.txz\tetc/stunnel/openssl.cnf.new": "openssl-config-new",
+    "stunnel-5.80-x86_64-1.txz\tetc/stunnel/stunnel.conf-sample": "stunnel-sample"
+  },
+  "configuration_paths": [
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "kglobalacceld-6.7.4-x86_64-1.txz",
+      "path": "etc/xdg",
+      "size": 0
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "kglobalacceld-6.7.4-x86_64-1.txz",
+      "path": "etc/xdg/autostart",
+      "size": 0
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "kglobalacceld-6.7.4-x86_64-1.txz",
+      "path": "etc/xdg/autostart/kglobalacceld.desktop",
+      "size": 1677
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "kinfocenter-6.7.4-x86_64-1.txz",
+      "path": "etc/xdg",
+      "size": 0
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "kinfocenter-6.7.4-x86_64-1.txz",
+      "path": "etc/xdg/kcm-about-distrorc",
+      "size": 212
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "kinfocenter-6.7.4-x86_64-1.txz",
+      "path": "etc/xdg/slackware_logo.png",
+      "size": 466668
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "kwallet-pam-6.7.4-x86_64-1.txz",
+      "path": "etc/xdg",
+      "size": 0
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "kwallet-pam-6.7.4-x86_64-1.txz",
+      "path": "etc/xdg/autostart",
+      "size": 0
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "kwallet-pam-6.7.4-x86_64-1.txz",
+      "path": "etc/xdg/autostart/pam_kwallet_init.desktop",
+      "size": 5612
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "plasma-browser-integration-6.7.4-x86_64-1.txz",
+      "path": "etc/chromium",
+      "size": 0
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "plasma-browser-integration-6.7.4-x86_64-1.txz",
+      "path": "etc/chromium/native-messaging-hosts",
+      "size": 0
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "plasma-browser-integration-6.7.4-x86_64-1.txz",
+      "path": "etc/chromium/native-messaging-hosts/org.kde.plasma.browser_integration.json",
+      "size": 323
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "plasma-browser-integration-6.7.4-x86_64-1.txz",
+      "path": "etc/opt",
+      "size": 0
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "plasma-browser-integration-6.7.4-x86_64-1.txz",
+      "path": "etc/opt/chrome",
+      "size": 0
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "plasma-browser-integration-6.7.4-x86_64-1.txz",
+      "path": "etc/opt/chrome/native-messaging-hosts",
+      "size": 0
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "plasma-browser-integration-6.7.4-x86_64-1.txz",
+      "path": "etc/opt/chrome/native-messaging-hosts/org.kde.plasma.browser_integration.json",
+      "size": 323
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "plasma-browser-integration-6.7.4-x86_64-1.txz",
+      "path": "etc/opt/edge",
+      "size": 0
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "plasma-browser-integration-6.7.4-x86_64-1.txz",
+      "path": "etc/opt/edge/native-messaging-hosts",
+      "size": 0
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "plasma-browser-integration-6.7.4-x86_64-1.txz",
+      "path": "etc/opt/edge/native-messaging-hosts/org.kde.plasma.browser_integration.json",
+      "size": 323
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "plasma-desktop-6.7.4-x86_64-1.txz",
+      "path": "etc/xdg",
+      "size": 0
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "plasma-desktop-6.7.4-x86_64-1.txz",
+      "path": "etc/xdg/autostart",
+      "size": 0
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "plasma-desktop-6.7.4-x86_64-1.txz",
+      "path": "etc/xdg/autostart/kaccess.desktop",
+      "size": 3002
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "plasma-workspace-6.7.4-x86_64-1.txz",
+      "path": "etc/X11",
+      "size": 0
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "plasma-workspace-6.7.4-x86_64-1.txz",
+      "path": "etc/X11/xinit",
+      "size": 0
+    },
+    {
+      "kind": "regular",
+      "mode": "755",
+      "package": "plasma-workspace-6.7.4-x86_64-1.txz",
+      "path": "etc/X11/xinit/xinitrc.kde",
+      "size": 718
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "plasma-workspace-6.7.4-x86_64-1.txz",
+      "path": "etc/pam.d",
+      "size": 0
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "plasma-workspace-6.7.4-x86_64-1.txz",
+      "path": "etc/pam.d/kde.new",
+      "size": 351
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "plasma-workspace-6.7.4-x86_64-1.txz",
+      "path": "etc/xdg",
+      "size": 0
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "plasma-workspace-6.7.4-x86_64-1.txz",
+      "path": "etc/xdg/autostart",
+      "size": 0
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "plasma-workspace-6.7.4-x86_64-1.txz",
+      "path": "etc/xdg/autostart/gmenudbusmenuproxy.desktop",
+      "size": 1881
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "plasma-workspace-6.7.4-x86_64-1.txz",
+      "path": "etc/xdg/autostart/org.kde.plasma-fallback-session-restore.desktop",
+      "size": 2316
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "plasma-workspace-6.7.4-x86_64-1.txz",
+      "path": "etc/xdg/autostart/org.kde.plasmashell.desktop",
+      "size": 1060
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "plasma-workspace-6.7.4-x86_64-1.txz",
+      "path": "etc/xdg/autostart/xembedsniproxy.desktop",
+      "size": 1774
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "plasma-workspace-6.7.4-x86_64-1.txz",
+      "path": "etc/xdg/menus",
+      "size": 0
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "plasma-workspace-6.7.4-x86_64-1.txz",
+      "path": "etc/xdg/menus/plasma-applications.menu",
+      "size": 9904
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "plasma-workspace-6.7.4-x86_64-1.txz",
+      "path": "etc/xdg/plasmanotifyrc",
+      "size": 762
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "polkit-kde-agent-1-6.7.4-x86_64-1.txz",
+      "path": "etc/xdg",
+      "size": 0
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "polkit-kde-agent-1-6.7.4-x86_64-1.txz",
+      "path": "etc/xdg/autostart",
+      "size": 0
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "polkit-kde-agent-1-6.7.4-x86_64-1.txz",
+      "path": "etc/xdg/autostart/polkit-kde-authentication-agent-1.desktop",
+      "size": 5983
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "powerdevil-6.7.4-x86_64-1.txz",
+      "path": "etc/xdg",
+      "size": 0
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "powerdevil-6.7.4-x86_64-1.txz",
+      "path": "etc/xdg/autostart",
+      "size": 0
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "powerdevil-6.7.4-x86_64-1.txz",
+      "path": "etc/xdg/autostart/powerdevil.desktop",
+      "size": 7128
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "stunnel-5.80-x86_64-1.txz",
+      "path": "etc/stunnel",
+      "size": 0
+    },
+    {
+      "kind": "regular",
+      "mode": "755",
+      "package": "stunnel-5.80-x86_64-1.txz",
+      "path": "etc/stunnel/generate-stunnel-key.sh",
+      "size": 286
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "stunnel-5.80-x86_64-1.txz",
+      "path": "etc/stunnel/openssl.cnf.new",
+      "size": 2402
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "stunnel-5.80-x86_64-1.txz",
+      "path": "etc/stunnel/stunnel.conf-sample",
+      "size": 4535
+    }
+  ],
+  "configuration_service_review_complete": false,
+  "expected_doinst_script_count": 37,
+  "expected_package_count": 68,
+  "expected_reviewed_package_count": 19,
+  "expected_totals": {
+    "configuration_directories": 25,
+    "configuration_files": 21,
+    "configuration_paths": 46,
+    "ini_style_config": 2,
+    "native_messaging_json": 3,
+    "openssl_config_new": 1,
+    "pam_new": 1,
+    "png_asset": 1,
+    "rc_script": 0,
+    "service_directories": 17,
+    "service_files": 27,
+    "service_paths": 44,
+    "shell_helper": 2,
+    "stunnel_sample": 1,
+    "systemd_system_service": 0,
+    "systemd_user_preset": 1,
+    "systemd_user_service": 26,
+    "xdg_autostart_desktop": 9,
+    "xdg_menu_xml": 1
+  },
+  "forbidden_service_prefixes": [
+    "etc/rc.d/",
+    "lib/systemd/system/",
+    "usr/lib/systemd/system/",
+    "usr/lib64/systemd/system/"
+  ],
+  "maintainer_scripts_review_complete": true,
+  "next_stage": "current-userspace-elf-runtime-review-preflight",
+  "package_payloads_inspected": true,
+  "path_manifest_sha256": "0a65552f54b20528745da83d0f8d5ce7bc8a4e60f846ff1cde3fcb4c03cdba7a",
+  "payload_path_review_complete": true,
+  "require_complete_file_classification": true,
+  "require_exact_package_hashes": true,
+  "require_exact_path_manifest": true,
+  "require_nonexecuting_review": true,
+  "require_user_service_scope_only": true,
+  "review_scope": "exact-configuration-and-service-payload-static-content-classification",
+  "reviewed": true,
+  "reviewed_package_manifest_sha256": "7fc0b5a9534b1dfb37081724cf3491e153791830c4d82aff7835fe76242dc480",
+  "reviewed_packages": [
+    {
+      "package": "kactivitymanagerd-6.7.4-x86_64-1.txz",
+      "sha256": "fe6f7ff98beafd5b88af77d1c589187a6dc2c3ed0ff8bd4f65302eb7b9295a26",
+      "size": 202996
+    },
+    {
+      "package": "kglobalacceld-6.7.4-x86_64-1.txz",
+      "sha256": "635af7a14a67d039311cb5df5b13a0940242369f3a623426fb0a8387a7ccaf8f",
+      "size": 143900
+    },
+    {
+      "package": "kinfocenter-6.7.4-x86_64-1.txz",
+      "sha256": "6b47ca0f6060a967ee37fddb69550a25ebc50825d4c006f1ec0d8c65fc121f1c",
+      "size": 1439216
+    },
+    {
+      "package": "knighttime-6.7.4-x86_64-1.txz",
+      "sha256": "ee63ca10fa2f08bcc81f5dabd990c00c44aa1d0f397fdf4282dd6163010a676f",
+      "size": 81800
+    },
+    {
+      "package": "krdp-6.7.4-x86_64-1.txz",
+      "sha256": "dda2df1a1e4770686f0f7b34f1c301f27d262cd1cfe83148612fff7ce966af5a",
+      "size": 235112
+    },
+    {
+      "package": "kscreen-6.7.4-x86_64-1.txz",
+      "sha256": "f6fe18c42e0d7339b2e967a58729e8e6fd3580a4b7d0ee6116b7b3dd0ca32d66",
+      "size": 1944368
+    },
+    {
+      "package": "ksystemstats-6.7.4-x86_64-1.txz",
+      "sha256": "2f90b75c803691db81b022bf420b19756b093a44ff86f7a5f7715b26f59e9741",
+      "size": 277196
+    },
+    {
+      "package": "kwallet-pam-6.7.4-x86_64-1.txz",
+      "sha256": "e999581493c45ddfd8ab8b8ea0e9fed9ca19800fad8f8473ee3ee42143b8e6d7",
+      "size": 21360
+    },
+    {
+      "package": "kwin-6.7.4-x86_64-1.txz",
+      "sha256": "e2601802be41ae92fa347bea0524c26284844179c284d464340f01997f45d630",
+      "size": 10668544
+    },
+    {
+      "package": "kwin-x11-6.7.4-x86_64-1.txz",
+      "sha256": "d4713ea96e73256d9ca2d67cae18cfbf6f1fecda61b29cfa6fa88325efc42afc",
+      "size": 7841440
+    },
+    {
+      "package": "libkscreen-6.7.4-x86_64-1.txz",
+      "sha256": "b381a8904d6e144fdce5d6e39e0968e272d9db7542f5cdb4728fd7ece7cb0f73",
+      "size": 352496
+    },
+    {
+      "package": "plasma-browser-integration-6.7.4-x86_64-1.txz",
+      "sha256": "dfa9a34682f1f0cbd227033fffd16912d678c4f6533291129487906164b0a3bb",
+      "size": 185892
+    },
+    {
+      "package": "plasma-desktop-6.7.4-x86_64-1.txz",
+      "sha256": "a70be23f04114ea12531b48006957f6da3be685bd4bf76ebd5e0351d6efb9a71",
+      "size": 18591048
+    },
+    {
+      "package": "plasma-workspace-6.7.4-x86_64-1.txz",
+      "sha256": "982c25274bb7b8e1b42195b88b5a039c426f074c5f8ebc28be4d5ac64cfb78a5",
+      "size": 21234300
+    },
+    {
+      "package": "polkit-kde-agent-1-6.7.4-x86_64-1.txz",
+      "sha256": "1f8eb1f0fa22490690e693207c1a94ac36ec02c8d2d87f7907beea3da3e2fc81",
+      "size": 72016
+    },
+    {
+      "package": "powerdevil-6.7.4-x86_64-1.txz",
+      "sha256": "dab5704239fe37556b67bc62def9400675c11cd5fc5063009d04fc0a09e2ea9e",
+      "size": 1595740
+    },
+    {
+      "package": "spectacle-6.7.4-x86_64-1.txz",
+      "sha256": "f90a92e7390696f1514cc127807f336e5f26265094041573cc4848cb51b2c637",
+      "size": 2091968
+    },
+    {
+      "package": "stunnel-5.80-x86_64-1.txz",
+      "sha256": "b45a735a854e972338b015946a165f1d8af4f4a6375f92380ae230707eace2e1",
+      "size": 217108
+    },
+    {
+      "package": "xdg-desktop-portal-kde-6.7.4-x86_64-1.txz",
+      "sha256": "15bd40cb5629ac91c0febb59f90f793832bb628786763edb85e9cb9bd62f0f8a",
+      "size": 676612
+    }
+  ],
+  "scenario": "current-userspace-configuration-service-review-policy",
+  "service_file_classes": {
+    "kactivitymanagerd-6.7.4-x86_64-1.txz\tusr/lib/systemd/user/plasma-kactivitymanagerd.service": "systemd-user-service",
+    "kglobalacceld-6.7.4-x86_64-1.txz\tusr/lib/systemd/user/plasma-kglobalaccel.service": "systemd-user-service",
+    "knighttime-6.7.4-x86_64-1.txz\tusr/lib/systemd/user/plasma-knighttimed.service": "systemd-user-service",
+    "krdp-6.7.4-x86_64-1.txz\tusr/lib/systemd/user-preset/00-krdp.preset": "systemd-user-preset",
+    "krdp-6.7.4-x86_64-1.txz\tusr/lib/systemd/user/app-org.kde.krdpserver.service": "systemd-user-service",
+    "kscreen-6.7.4-x86_64-1.txz\tusr/lib/systemd/user/plasma-kscreen-osd.service": "systemd-user-service",
+    "ksystemstats-6.7.4-x86_64-1.txz\tusr/lib/systemd/user/plasma-ksystemstats.service": "systemd-user-service",
+    "kwallet-pam-6.7.4-x86_64-1.txz\tusr/lib/systemd/user/plasma-kwallet-pam.service": "systemd-user-service",
+    "kwin-6.7.4-x86_64-1.txz\tusr/lib/systemd/user/plasma-kwin_wayland.service": "systemd-user-service",
+    "kwin-x11-6.7.4-x86_64-1.txz\tusr/lib/systemd/user/plasma-kwin_x11.service": "systemd-user-service",
+    "libkscreen-6.7.4-x86_64-1.txz\tusr/lib/systemd/user/plasma-kscreen.service": "systemd-user-service",
+    "plasma-desktop-6.7.4-x86_64-1.txz\tusr/lib/systemd/user/plasma-kaccess.service": "systemd-user-service",
+    "plasma-workspace-6.7.4-x86_64-1.txz\tusr/lib/systemd/user/plasma-baloorunner.service": "systemd-user-service",
+    "plasma-workspace-6.7.4-x86_64-1.txz\tusr/lib/systemd/user/plasma-gmenudbusmenuproxy.service": "systemd-user-service",
+    "plasma-workspace-6.7.4-x86_64-1.txz\tusr/lib/systemd/user/plasma-kcminit-phase1.service": "systemd-user-service",
+    "plasma-workspace-6.7.4-x86_64-1.txz\tusr/lib/systemd/user/plasma-kcminit.service": "systemd-user-service",
+    "plasma-workspace-6.7.4-x86_64-1.txz\tusr/lib/systemd/user/plasma-krunner.service": "systemd-user-service",
+    "plasma-workspace-6.7.4-x86_64-1.txz\tusr/lib/systemd/user/plasma-ksmserver.service": "systemd-user-service",
+    "plasma-workspace-6.7.4-x86_64-1.txz\tusr/lib/systemd/user/plasma-ksplash.service": "systemd-user-service",
+    "plasma-workspace-6.7.4-x86_64-1.txz\tusr/lib/systemd/user/plasma-plasmashell.service": "systemd-user-service",
+    "plasma-workspace-6.7.4-x86_64-1.txz\tusr/lib/systemd/user/plasma-restoresession.service": "systemd-user-service",
+    "plasma-workspace-6.7.4-x86_64-1.txz\tusr/lib/systemd/user/plasma-startupsound.service": "systemd-user-service",
+    "plasma-workspace-6.7.4-x86_64-1.txz\tusr/lib/systemd/user/plasma-xembedsniproxy.service": "systemd-user-service",
+    "polkit-kde-agent-1-6.7.4-x86_64-1.txz\tusr/lib/systemd/user/plasma-polkit-agent.service": "systemd-user-service",
+    "powerdevil-6.7.4-x86_64-1.txz\tusr/lib/systemd/user/plasma-powerdevil.service": "systemd-user-service",
+    "spectacle-6.7.4-x86_64-1.txz\tusr/lib/systemd/user/app-org.kde.spectacle.service": "systemd-user-service",
+    "xdg-desktop-portal-kde-6.7.4-x86_64-1.txz\tusr/lib/systemd/user/plasma-xdg-desktop-portal-kde.service": "systemd-user-service"
+  },
+  "service_paths": [
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "kactivitymanagerd-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user",
+      "size": 0
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "kactivitymanagerd-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user/plasma-kactivitymanagerd.service",
+      "size": 232
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "kglobalacceld-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user",
+      "size": 0
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "kglobalacceld-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user/plasma-kglobalaccel.service",
+      "size": 295
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "knighttime-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user",
+      "size": 0
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "knighttime-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user/plasma-knighttimed.service",
+      "size": 236
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "krdp-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user",
+      "size": 0
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "krdp-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user-preset",
+      "size": 0
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "krdp-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user-preset/00-krdp.preset",
+      "size": 325
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "krdp-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user/app-org.kde.krdpserver.service",
+      "size": 374
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "kscreen-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user",
+      "size": 0
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "kscreen-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user/plasma-kscreen-osd.service",
+      "size": 269
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "ksystemstats-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user",
+      "size": 0
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "ksystemstats-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user/plasma-ksystemstats.service",
+      "size": 286
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "kwallet-pam-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user",
+      "size": 0
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "kwallet-pam-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user/plasma-kwallet-pam.service",
+      "size": 296
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "kwin-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user",
+      "size": 0
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "kwin-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user/plasma-kwin_wayland.service",
+      "size": 184
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "kwin-x11-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user",
+      "size": 0
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "kwin-x11-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user/plasma-kwin_x11.service",
+      "size": 208
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "libkscreen-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user",
+      "size": 0
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "libkscreen-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user/plasma-kscreen.service",
+      "size": 255
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "plasma-desktop-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user",
+      "size": 0
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "plasma-desktop-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user/plasma-kaccess.service",
+      "size": 164
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "plasma-workspace-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user",
+      "size": 0
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "plasma-workspace-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user/plasma-baloorunner.service",
+      "size": 260
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "plasma-workspace-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user/plasma-gmenudbusmenuproxy.service",
+      "size": 246
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "plasma-workspace-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user/plasma-kcminit-phase1.service",
+      "size": 313
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "plasma-workspace-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user/plasma-kcminit.service",
+      "size": 250
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "plasma-workspace-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user/plasma-krunner.service",
+      "size": 239
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "plasma-workspace-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user/plasma-ksmserver.service",
+      "size": 263
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "plasma-workspace-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user/plasma-ksplash.service",
+      "size": 211
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "plasma-workspace-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user/plasma-plasmashell.service",
+      "size": 358
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "plasma-workspace-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user/plasma-restoresession.service",
+      "size": 247
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "plasma-workspace-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user/plasma-startupsound.service",
+      "size": 156
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "plasma-workspace-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user/plasma-xembedsniproxy.service",
+      "size": 230
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "polkit-kde-agent-1-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user",
+      "size": 0
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "polkit-kde-agent-1-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user/plasma-polkit-agent.service",
+      "size": 292
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "powerdevil-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user",
+      "size": 0
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "powerdevil-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user/plasma-powerdevil.service",
+      "size": 496
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "spectacle-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user",
+      "size": 0
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "spectacle-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user/app-org.kde.spectacle.service",
+      "size": 146
+    },
+    {
+      "kind": "directory",
+      "mode": "755",
+      "package": "xdg-desktop-portal-kde-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user",
+      "size": 0
+    },
+    {
+      "kind": "regular",
+      "mode": "644",
+      "package": "xdg-desktop-portal-kde-6.7.4-x86_64-1.txz",
+      "path": "usr/lib/systemd/user/plasma-xdg-desktop-portal-kde.service",
+      "size": 286
+    }
+  ],
+  "target": "slackware-current",
+  "target_kernel": "6.18.42",
+  "userspace_apply_review_complete": false
+}

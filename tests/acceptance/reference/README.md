@@ -990,6 +990,25 @@ The wrapper reruns the payload inspection without package installation, verifies
 
 The sole process-control exception is `killall -TERM kscreenlocker_greet 1>/dev/null 2>/dev/null` in `kscreenlocker-6.7.4-x86_64-1.txz`, bound to script SHA-256 `c63222aa5084b2d550136c098bd71b12ced7612a59af3ac75c37c5eabbad9507`. It describes the package's existing greeter-restart behavior after replacing `kcheckpass`; it does not authorize arbitrary `killall`, another process, another signal, or another script. The preflight itself never executes this command or any captured script.
 
-A clean run is expected to report 15 passes, zero failures, `maintainer_scripts_review_complete=true`, `userspace_apply_review_complete=false`, `next-stage=current-userspace-configuration-service-review-preflight`, `apply-ready=false`, and `apply-authorized=false`. Use the printed command to copy the outer archive and `.sha256` directly to `/home/promano` with `promano:users` ownership, then verify the sidecar there. Do not run configuration/service review, readiness, or apply until the evidence is accepted.
+The accepted real run reported 15 passes and zero failures, classified all 37 scripts and exact action totals, and preserved package plus boot-sensitive state. Outer archive SHA-256 `62f87bde4c4b1d49ff6c02476ce4a61af6420fa0798cd13ee9b6f83536762062`, nested payload archive SHA-256 `9bb11f5feec1c4b9be9b38d384717da30c05265b83fa852e5e71bf6d28ea4634`, and nested normal-update archive SHA-256 `98a82f0af75db3019e851ddf8026b5c300839b91abbc19c6db770f359857bcb5` were verified in `/home/promano`. The result retains `userspace_apply_review_complete=false`, `next-stage=current-userspace-configuration-service-review-preflight`, `apply-ready=false`, and `apply-authorized=false`.
 
 The focused step-69 harness contains 64 checks. The complete step-69 inventory contains 41 suites and 2,782 checks with zero failures.
+
+### Slackware-current configuration and service payload review preflight (step 70)
+
+After accepting the step-69 maintainer review, run:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-userspace-configuration-service-review-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926 \
+    --confirm-target-kernel 6.18.42
+```
+
+The wrapper reruns the complete non-installing maintainer review and verifies its nested archive. The checked-in policy binds 46 configuration paths, 44 service paths, and the exact SHA-256 and size of all 19 package archives that contribute them. Regular members are read directly from those archives into the private evidence tree with mode `0600`; no member is installed, sourced, launched, or extracted into a live system directory.
+
+The 21 regular configuration files receive complete type-specific static classification: nine XDG autostart desktop entries, three native-messaging JSON manifests, two shell helpers parsed only with `sh -n`, one PAM `.new` file, one XDG menu XML file, one PNG asset, two INI-style files, one OpenSSL `.new` file, and one stunnel sample. The 27 service files must remain exactly 26 systemd user services plus one user preset. System-unit paths, `rc.d` scripts, privileged unit directives, shell interpreters or control syntax, wildcard presets, unknown files, package hash drift, payload execution, service control, package transactions, and boot actions fail closed.
+
+A safe run is expected to report 15 passes, zero failures, `config-paths=46`, `config-files=21`, `service-paths=44`, `service-files=27`, `user-units=26`, `user-presets=1`, `system-units=0`, `rc-scripts=0`, `configuration-service-review-complete=true`, `next-stage=current-userspace-elf-runtime-review-preflight`, `apply-ready=false`, and `apply-authorized=false`. Copy the final archive and sidecar directly to `/home/promano` with `promano:users` ownership and verify the sidecar there. Do not run ELF review, readiness, or apply until this evidence is accepted.
+
+The focused step-70 harness contains 68 checks. The complete prepared step-70 inventory contains 42 suites and 2,850 checks with zero failures.
