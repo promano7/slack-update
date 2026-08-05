@@ -587,7 +587,8 @@ run_reference_apply() {
     local status_output=$3
     local status=0
 
-    SLACK_UPDATE_CONFIG=$SCENARIO_CONFIG \
+    BOOT_CMDLINE_FILE=/proc/cmdline \
+        SLACK_UPDATE_CONFIG=$SCENARIO_CONFIG \
         bash "$REFERENCE_SCRIPT" --apply --json \
         > "$json_output" 2> "$diagnostic_output" || status=$?
     printf '%d\n' "$status" > "$status_output"
@@ -1031,11 +1032,20 @@ main() {
         record_failure 'the final package database could not be captured'
     capture_boot_state "$OUTPUT_DIR/boot.after.txt" || \
         record_failure 'the final boot state could not be captured'
-    assert_files_different \
-        "$OUTPUT_DIR/packages.before.sha256" \
-        "$OUTPUT_DIR/packages.after.sha256" \
-        "$OUTPUT_DIR/packages.apply.diff" \
-        'the real update changed the installed package database'
+    if [ "$apply_status" -eq 0 ] || [ "$apply_status" -eq 4 ] || [ "$apply_status" -eq 5 ]; then
+        assert_files_different \
+            "$OUTPUT_DIR/packages.before.sha256" \
+            "$OUTPUT_DIR/packages.after.sha256" \
+            "$OUTPUT_DIR/packages.apply.diff" \
+            'the successful real update changed the installed package database'
+    elif cmp -s -- "$OUTPUT_DIR/packages.before.sha256" "$OUTPUT_DIR/packages.after.sha256"; then
+        : > "$OUTPUT_DIR/packages.apply.diff"
+        record_pass 'the failed real apply left the installed package database unchanged'
+    else
+        diff -u -- "$OUTPUT_DIR/packages.before.sha256" "$OUTPUT_DIR/packages.after.sha256" \
+            > "$OUTPUT_DIR/packages.apply.diff" 2>&1 || true
+        record_failure 'the failed real apply partially changed the installed package database'
+    fi
     diff -u -- "$OUTPUT_DIR/boot.before.txt" "$OUTPUT_DIR/boot.after.txt" \
         > "$OUTPUT_DIR/boot.apply.diff" 2>&1 || true
 

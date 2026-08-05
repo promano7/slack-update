@@ -40,6 +40,10 @@ assert_contains '/boot/vmlinuz-6.18.40' "$APPLY_SCRIPT" 'the wrapper should pres
 assert_contains '/boot/initrd-6.18.40.img' "$APPLY_SCRIPT" 'the wrapper should preserve the old initrd rollback artifact'
 assert_contains 'sha256sum /etc/default/geninitrd' "$APPLY_SCRIPT" 'the restored GenInitrd policy should be verified by digest'
 assert_contains 'nested normal-update apply archive' "$APPLY_SCRIPT" 'the child evidence should be verified inside the parent evidence'
+assert_contains 'BOOT_CMDLINE_FILE=/proc/cmdline' "$NORMAL_UPDATE_SCRIPT" 'the real acceptance boundary should initialize the live boot command-line source before invoking the accepted engine'
+assert_contains 'reference_engine_sha256={reference_digest}' "$APPLY_SCRIPT" 'the authorization scope should bind the exact reference engine digest'
+assert_contains 'normal_update_acceptance_sha256={normal_digest}' "$APPLY_SCRIPT" 'the authorization scope should bind the exact normal-update acceptance digest'
+assert_contains 'authorized_apply_wrapper_sha256={authorized_apply_digest}' "$APPLY_SCRIPT" 'the authorization scope should bind the exact authorized-apply wrapper digest'
 assert_contains 'Copy evidence command:' "$APPLY_SCRIPT" 'the wrapper should print direct /home evidence copy commands'
 assert_contains 'Verify evidence command:' "$APPLY_SCRIPT" 'the wrapper should print destination-side verification'
 
@@ -54,14 +58,14 @@ assert_failure 'missing explicit execution should fail argument parsing' parse_a
     --confirm-candidates-sha256 27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926 \
     --confirm-target-kernel 6.18.42 \
     --confirm-readiness-sha256 d49af0c2f95f6ceaaa6f4073a5567b914f53ee9605724f78fea4a30afc463783 \
-    --confirm-authorization-sha256 71e24850bd05106eafad2ffcf95d83d8e3a2991e365e696632777c780f14cc1a
+    --confirm-authorization-sha256 539ba5135c0e38c62627f230cae374753f9a8e34c049790547629d74bb076cce
 reset_args
 assert_failure 'a malformed candidate digest should fail parsing' parse_arguments \
     --target slackware-current --execute-authorized-apply --confirm-hostname pcold-slack \
     --confirm-hostname-fqdn pcold-slack.pcold-slack.org \
     --confirm-candidates-sha256 invalid --confirm-target-kernel 6.18.42 \
     --confirm-readiness-sha256 d49af0c2f95f6ceaaa6f4073a5567b914f53ee9605724f78fea4a30afc463783 \
-    --confirm-authorization-sha256 71e24850bd05106eafad2ffcf95d83d8e3a2991e365e696632777c780f14cc1a
+    --confirm-authorization-sha256 539ba5135c0e38c62627f230cae374753f9a8e34c049790547629d74bb076cce
 reset_args
 assert_failure 'a relative evidence path should fail parsing' parse_arguments \
     --target slackware-current --execute-authorized-apply --confirm-hostname pcold-slack \
@@ -69,7 +73,7 @@ assert_failure 'a relative evidence path should fail parsing' parse_arguments \
     --confirm-candidates-sha256 27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926 \
     --confirm-target-kernel 6.18.42 \
     --confirm-readiness-sha256 d49af0c2f95f6ceaaa6f4073a5567b914f53ee9605724f78fea4a30afc463783 \
-    --confirm-authorization-sha256 71e24850bd05106eafad2ffcf95d83d8e3a2991e365e696632777c780f14cc1a \
+    --confirm-authorization-sha256 539ba5135c0e38c62627f230cae374753f9a8e34c049790547629d74bb076cce \
     --output-dir relative
 reset_args
 assert_success 'the exact reviewed authorization arguments should parse' parse_arguments \
@@ -78,7 +82,7 @@ assert_success 'the exact reviewed authorization arguments should parse' parse_a
     --confirm-candidates-sha256 27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926 \
     --confirm-target-kernel 6.18.42 \
     --confirm-readiness-sha256 d49af0c2f95f6ceaaa6f4073a5567b914f53ee9605724f78fea4a30afc463783 \
-    --confirm-authorization-sha256 71e24850bd05106eafad2ffcf95d83d8e3a2991e365e696632777c780f14cc1a \
+    --confirm-authorization-sha256 539ba5135c0e38c62627f230cae374753f9a8e34c049790547629d74bb076cce \
     --output-dir "$TMP/out"
 assert_equal slackware-current "$TARGET" 'the target should be preserved'
 assert_equal pcold-slack "$CONFIRM_HOSTNAME" 'the short hostname should be preserved'
@@ -129,10 +133,12 @@ for item in \
     "scope:d['authorization_scope_sha256']='0'*64" \
     "engine:d['reference_engine_sha256']='0'*64" \
     "acceptance:d['normal_update_acceptance_sha256']='0'*64" \
+    "wrapper:d['authorized_apply_wrapper_sha256']='0'*64" \
     "critical:d['critical_update_authorized']=True" \
     "postinstall:d['postinstall_processing_enabled']=True" \
     "exit:d['expected_exit_code']=0" \
-    "pause:d['pause_safe_after_successful_apply']=False"; do
+    "pause:d['pause_safe_after_successful_apply']=False" \
+    "scope-code:d['authorization_scope_binds_code_hashes']=False"; do
     name=${item%%:*}; code=${item#*:}
     mutate_json "$original_policy" "$TMP/policy-$name.json" "$code"
     AUTHORIZATION_POLICY="$TMP/policy-$name.json"

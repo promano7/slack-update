@@ -119,6 +119,12 @@ assert_file_contains 'candidate probing did not modify the installed package dat
     'preflight should prove that package state is unchanged'
 assert_file_contains 'candidate probing did not modify initrd or GRUB state' "$ACCEPTANCE_SCRIPT" \
     'preflight should prove that boot state is unchanged'
+assert_file_contains 'the failed real apply left the installed package database unchanged' "$ACCEPTANCE_SCRIPT" \
+    'an early failed apply should record unchanged package state without claiming a partial transaction'
+assert_file_contains 'the failed real apply partially changed the installed package database' "$ACCEPTANCE_SCRIPT" \
+    'a failed apply with package drift should be classified as a partial transaction'
+assert_file_contains 'BOOT_CMDLINE_FILE=/proc/cmdline' "$ACCEPTANCE_SCRIPT" \
+    'the real apply boundary should initialize the direct-generic command-line source'
 assert_file_contains 'run_reference_apply' "$ACCEPTANCE_SCRIPT" \
     'the scenario should exercise the real reference apply workflow'
 assert_file_contains 'mode=disabled' "$ACCEPTANCE_SCRIPT" \

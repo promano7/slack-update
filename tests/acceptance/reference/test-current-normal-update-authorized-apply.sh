@@ -14,6 +14,7 @@ READINESS_RECORD="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-up
 AUTHORIZATION_POLICY="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-normal-update-authorized-apply-policy.json"
 NORMAL_UPDATE_SCRIPT="$REPOSITORY_ROOT/tests/acceptance/reference/test-normal-update.sh"
 REFERENCE_SCRIPT="$REPOSITORY_ROOT/tools/reference/slack-update-reference.sh"
+AUTHORIZED_APPLY_SCRIPT="$REPOSITORY_ROOT/tests/acceptance/reference/test-current-normal-update-authorized-apply.sh"
 
 TARGET=
 OUTPUT_DIR=
@@ -130,14 +131,14 @@ require_regular_file() {
 
 validate_reviewed_authorization() {
     python3 - "$READINESS_RECORD" "$AUTHORIZATION_POLICY" "$NORMAL_UPDATE_SCRIPT" "$REFERENCE_SCRIPT" \
-        "$CONFIRM_HOSTNAME" "$CONFIRM_HOSTNAME_FQDN" "$CONFIRM_CANDIDATES_SHA256" "$CONFIRM_TARGET_KERNEL" \
+        "$AUTHORIZED_APPLY_SCRIPT" "$CONFIRM_HOSTNAME" "$CONFIRM_HOSTNAME_FQDN" "$CONFIRM_CANDIDATES_SHA256" "$CONFIRM_TARGET_KERNEL" \
         "$CONFIRM_READINESS_SHA256" "$CONFIRM_AUTHORIZATION_SHA256" <<'PY'
 import hashlib
 import json
 import pathlib
 import sys
 
-(readiness_path, policy_path, normal_path, reference_path, hostname_short, hostname_fqdn,
+(readiness_path, policy_path, normal_path, reference_path, authorized_apply_path, hostname_short, hostname_fqdn,
  candidate_sha, target_kernel, readiness_sha, authorization_sha) = sys.argv[1:]
 
 
@@ -153,6 +154,9 @@ def digest(path):
 
 readiness = load_regular(readiness_path)
 policy = load_regular(policy_path)
+reference_digest = digest(reference_path)
+normal_digest = digest(normal_path)
+authorized_apply_digest = digest(authorized_apply_path)
 scope = (
     'operation=current-normal-update-authorized-apply\n'
     'target=slackware-current\n'
@@ -161,6 +165,9 @@ scope = (
     f'candidate_set_sha256={candidate_sha}\n'
     f'target_kernel={target_kernel}\n'
     f'readiness_archive_sha256={readiness_sha}\n'
+    f'reference_engine_sha256={reference_digest}\n'
+    f'normal_update_acceptance_sha256={normal_digest}\n'
+    f'authorized_apply_wrapper_sha256={authorized_apply_digest}\n'
 ).encode()
 calculated_scope = hashlib.sha256(scope).hexdigest()
 
@@ -187,8 +194,9 @@ checks = [
     policy.get('target_kernel') == target_kernel,
     policy.get('accepted_readiness_archive_sha256') == readiness_sha,
     policy.get('authorization_scope_sha256') == authorization_sha == calculated_scope,
-    policy.get('reference_engine_sha256') == digest(reference_path),
-    policy.get('normal_update_acceptance_sha256') == digest(normal_path),
+    policy.get('reference_engine_sha256') == reference_digest,
+    policy.get('normal_update_acceptance_sha256') == normal_digest,
+    policy.get('authorized_apply_wrapper_sha256') == authorized_apply_digest,
     policy.get('expected_candidate_count') == 137,
     policy.get('expected_install_new_count') == 1,
     policy.get('expected_upgrade_all_count') == 136,
@@ -201,6 +209,7 @@ checks = [
     policy.get('expected_reboot') == 'required',
     policy.get('pause_safe_after_successful_apply') is True,
     policy.get('apply_authorized_only_with_explicit_scope_confirmation') is True,
+    policy.get('authorization_scope_binds_code_hashes') is True,
 ]
 raise SystemExit(0 if all(checks) else 1)
 PY
