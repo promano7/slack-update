@@ -934,3 +934,20 @@ The wrapper invokes the normal-update acceptance script only with `--preflight`,
 A safe run is expected to report 11 passes, zero failures, `kernel-evidence-rebind-ready=true`, `next-stage=current-kernel-evidence-rebind-preflight`, `userspace-apply-review-complete=false`, `apply-ready=false`, and `apply-authorized=false`. Use the printed command to copy the final archive and `.sha256` directly to `/home/promano` with `promano:users` ownership, then run the printed verification command. Do not install packages or advance directly to apply authorization.
 
 The focused harness contains 46 checks. The complete step-65 inventory contains 38 suites and 2,591 checks with zero failures.
+
+### Slackware-current kernel evidence rebind preflight (step 66)
+
+After the accepted userspace review, run:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-kernel-evidence-rebind-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926 \
+    --confirm-target-kernel 6.18.42
+```
+
+The wrapper validates the accepted step-65 archive, nested normal-update archive, explicit rebind policy, and all seven accepted kernel evidence records. It invokes the normal-update script only with `--preflight`, requires the exact 137 candidates and unchanged `6.18.42` kernel package identities, verifies the nested archive, and rechecks the exact cached package plus the live versioned initrd, GenInitrd policy, hooks, empty DKMS state, and same-menuentry GRUB pairing.
+
+A safe run is expected to report 12 passes, zero failures, `kernel-evidence-rebound=true`, `candidate-binding-change-only=true`, `userspace-payload-review-required=true`, `next-stage=current-userspace-payload-review-preflight`, `apply-ready=false`, and `apply-authorized=false`. Use the final printed command to copy the outer archive and sidecar directly to `/home/promano` with `promano:users` ownership, then verify the sidecar there. Do not run readiness or apply from this stage.
+
+The focused harness contains 62 checks. The complete step-66 inventory contains 39 suites and 2,653 checks with zero failures.

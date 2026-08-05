@@ -235,3 +235,9 @@ sudo bash tests/acceptance/reference/test-current-userspace-candidate-review-pre
 ```
 
 The reviewed policy must enumerate every added package exactly once, preserve the exact prior kernel transaction, keep all additions in `upgrade-all`, and contain no configured critical candidate. The review scope is limited to candidate identity for kernel-evidence rebind; it must never claim payload inspection, apply readiness, or apply authorization. Copy the resulting `.tar.gz` and `.sha256` directly to `/home/promano`, set ownership to `promano:users`, and verify the sidecar there before proceeding.
+
+### Explicit kernel-evidence rebind after an accepted userspace expansion
+
+After accepting the userspace identity review, use `test-current-kernel-evidence-rebind-preflight.sh` to create a new candidate binding. The rebind must validate the accepted review archive and nested archive, every accepted kernel evidence archive, the exact source and destination candidate digests, and a checked-in policy that permits only the binding change. It must rerun the normal-update preflight, require the exact fresh candidate list, and revalidate the cached target package plus the live kernel, versioned initrd, GenInitrd policy, DKMS no-op state, and same-menuentry GRUB pair.
+
+The original evidence records remain immutable and continue to contain the source candidate digest. The rebind output is a separate map that records both digests and all accepted archive hashes. It must retain `package_payloads_inspected=false`, `userspace_apply_review_complete=false`, `userspace_payload_review_required=true`, `apply_ready=false`, and `apply_authorized=false`, and may route only to a separate userspace payload review. Copy and verify the final evidence directly in `/home/promano` before continuing.

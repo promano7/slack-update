@@ -1937,7 +1937,13 @@ Slack-Update 1.0 will be ready when:
   - [x] Run the first corrected `geninitrd-managed-versioned-initrd` boot baseline and retain its restricted-IFS metadata failure as diagnostic.
   - [x] Repeat and accept the corrected metadata-safe `geninitrd-managed-versioned-initrd` boot baseline.
   - [x] Repeat and accept the corrected GenInitrd-aware kernel-chain restart.
-  - [ ] Rebuild and accept the exact package, policy, DKMS, command, GRUB-ownership, and readiness evidence for `6.18.42`.
+  - [x] Rebuild and accept the exact package, policy, DKMS, command, and GRUB-ownership evidence for `6.18.42`.
+  - [x] Run corrected readiness and retain the safe block caused by the 137-candidate userspace expansion.
+  - [x] Classify and accept the 137-candidate userspace-only refresh.
+  - [x] Review and accept the exact identities of the 68 added userspace packages for kernel-evidence rebind.
+  - [ ] Rebind the seven accepted kernel evidence records to the 137-candidate digest.
+  - [ ] Complete the separate userspace payload review required after rebind.
+  - [ ] Repeat transaction readiness against the rebound candidate digest.
   - [ ] Grant a separate explicit apply authorization only after accepted readiness evidence.
   - [x] Review and accept the ten-package Slackware-current transaction as package and boot evidence.
   - [ ] Revalidate the hardened deferred `.new` policy on the next Slackware-current update.
@@ -2179,4 +2185,23 @@ The review binds the accepted 137-candidate refresh and a checked-in exact polic
 
 This is deliberately not a package-payload or apply-safety review. A clean result may report `kernel_evidence_rebind_ready=true` and route to `current-kernel-evidence-rebind-preflight`, while `package_payloads_inspected=false`, `userspace_apply_review_complete=false`, `apply_ready=false`, and `apply_authorized=false` remain mandatory. The script executes no package transaction, maintainer script, initrd generator, DKMS action, or GRUB update. Copy the final archive and sidecar directly to `/home/promano` and verify them there.
 
+The real step-65 run passed all 11 assertions and the nested six-check normal-update preflight. Outer archive SHA-256 `7d22806577aa4432436d8760e86fdeec5af25a420fe05b28a5150c2c97617037` and nested archive SHA-256 `11812569b828f31874c01e1c7bcacef069c36fe8391c938ae545495d5f9cd1fc` were copied and verified in `/home/promano`. The accepted record is `tests/fixtures/reference/acceptance/kernel-boot/slackware-current-userspace-candidate-review-20260805-accepted.json`.
+
 The step-65 repository inventory contains 38 suites and 2,591 checks with zero failures. The userspace candidate review harness contributes 46 checks.
+
+### Phase 1 step 66: explicit kernel-evidence rebind to the 137-candidate digest
+
+Run only after accepting the step-65 userspace review:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-kernel-evidence-rebind-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926 \
+    --confirm-target-kernel 6.18.42
+```
+
+The rebind stage validates the accepted userspace review, the explicit rebind policy, and the seven accepted kernel evidence records covering boot layout, chain restart, exact package, GenInitrd policy, no-op DKMS hooks, projected command, and GRUB ownership. It refreshes Slackpkg metadata through the existing normal-update preflight and requires the exact 137-candidate list, unchanged `kernel-generic`, `kernel-headers`, and `kernel-source` identities, the exact cached kernel package, the accepted versioned initrd and policy hashes, empty DKMS state, and a valid same-menuentry GRUB kernel/initrd pair.
+
+A clean result records `kernel_evidence_rebound=true` and changes only the candidate binding from `918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9` to `27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926`. It must still report `package_payloads_inspected=false`, `userspace_apply_review_complete=false`, `userspace_payload_review_required=true`, `apply_ready=false`, and `apply_authorized=false`, and route only to `current-userspace-payload-review-preflight`. Copy the final archive and sidecar directly to `/home/promano` and verify them there.
+
+The step-66 repository inventory contains 39 suites and 2,653 checks with zero failures. The kernel evidence rebind harness contributes 62 checks.

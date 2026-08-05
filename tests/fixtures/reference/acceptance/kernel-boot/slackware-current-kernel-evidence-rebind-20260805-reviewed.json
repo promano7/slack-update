@@ -1,0 +1,45 @@
+{
+  "scenario": "current-kernel-evidence-rebind-policy",
+  "target": "slackware-current",
+  "reviewed": true,
+  "reviewed_at": "2026-08-05",
+  "source_candidate_set_sha256": "918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9",
+  "rebound_candidate_set_sha256": "27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926",
+  "running_kernel": "6.18.40",
+  "target_kernel": "6.18.42",
+  "boot_mode": "geninitrd-managed-versioned-initrd",
+  "transition_mode": "versioned-to-versioned-initrd",
+  "kernel_transaction_candidates": [
+    "kernel-generic-6.18.42-x86_64-1.txz",
+    "kernel-headers-6.18.42-x86-1.txz",
+    "kernel-source-6.18.42-noarch-1.txz"
+  ],
+  "accepted_evidence_archive_sha256": {
+    "boot_preflight": "6429fd626973b0c3fc498642e1cd9230bc0eceb0291e232b515fef625467c6ac",
+    "chain_restart": "e48c528aafd9daef64edae721ddc96c9b5c52daac1a6f563fe447d1a66e6996e",
+    "package_preflight": "9f702e85a8ff3eb6155b834ed11cfe494ec60f04082914d80bae2a13d02e016f",
+    "policy_preflight": "de4ad831efda30eaaa6a0ee8fc099815cf0bdb9882bded361942dc6719a88e80",
+    "dkms_preflight": "780c56432d7d1b1bd4014a56709d6693a7ac1bf1148a072fbf8d1cfceac1cd2f",
+    "command_preflight": "754ebe19080417c9bcd79ba8ca586085c808e24d1d5120286fff19a09c2cf0f0",
+    "grub_ownership_preflight": "53acb06384b4a8fbea1feceb73e6aa2381c43f5702a41ce990d0f515d04588fe"
+  },
+  "rebind_constraints": {
+    "accepted_userspace_review_required": true,
+    "exact_kernel_transaction_unchanged": true,
+    "live_kernel_and_initrd_state_unchanged": true,
+    "exact_cached_kernel_package_required": true,
+    "dkms_noop_state_required": true,
+    "same_grub_kernel_initrd_pair_required": true,
+    "only_candidate_binding_may_change": true
+  },
+  "package_payloads_inspected": false,
+  "userspace_apply_review_complete": false,
+  "kernel_evidence_rebind_review_complete": true,
+  "kernel_evidence_rebind_allowed": true,
+  "kernel_evidence_rebound": false,
+  "next_stage": "current-userspace-payload-review-preflight",
+  "apply_ready": false,
+  "apply_authorized": false,
+  "accepted_userspace_review_archive_sha256": "7d22806577aa4432436d8760e86fdeec5af25a420fe05b28a5150c2c97617037",
+  "accepted_userspace_review_nested_archive_sha256": "11812569b828f31874c01e1c7bcacef069c36fe8391c938ae545495d5f9cd1fc"
+}
