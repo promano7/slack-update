@@ -11,12 +11,14 @@ TEST_DIR=$(CDPATH= cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
 REPOSITORY_ROOT=$(CDPATH= cd -- "$TEST_DIR/../../.." && pwd -P)
 DEFAULT_ACCEPTED_REFRESH="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-candidate-chain-refresh-20260804-accepted.json"
 DEFAULT_ACCEPTED_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260804-accepted.json"
+DEFAULT_ACCEPTED_BOOT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-boot-preflight-20260805-accepted.json"
 DEFAULT_OUTPUT_ROOT=/var/tmp/slack-update-acceptance/current-kernel-chain-restart-preflight
 BOOT_PREFLIGHT_SCRIPT=${BOOT_PREFLIGHT_SCRIPT:-$TEST_DIR/test-current-kernel-boot-preflight.sh}
 
 TARGET=
 ACCEPTED_REFRESH=$DEFAULT_ACCEPTED_REFRESH
 ACCEPTED_PREFLIGHT=$DEFAULT_ACCEPTED_PREFLIGHT
+ACCEPTED_BOOT=$DEFAULT_ACCEPTED_BOOT
 OUTPUT_DIR=
 PASS_COUNT=0
 FAILURE_COUNT=0
@@ -26,6 +28,9 @@ TARGET_KERNEL=
 RUNNING_KERNEL=
 NEXT_STAGE=current-kernel-package-preflight
 NESTED_TARGET_IMAGE_METADATA_STATE=unknown
+NESTED_BOOT_MODE=unknown
+NESTED_VERSIONED_INITRD_SHA256=unknown
+ACCEPTED_VERSIONED_INITRD_SHA256=
 
 print_usage() {
     cat <<EOF_USAGE
@@ -33,8 +38,9 @@ Usage: ${0##*/} --target slackware-current [options]
 
 Restart the Slackware-current kernel evidence chain from the accepted fresh
 candidate set. The wrapper validates the reviewed 2026-08-04 chain-refresh and
-normal-update records, then invokes only the non-destructive kernel boot
-preflight for the accepted target. It never installs packages, generates an
+normal-update records plus the accepted 2026-08-05 GenInitrd-managed boot
+baseline, then invokes only the non-destructive kernel boot preflight for the
+accepted target. It never installs packages, generates an
 initrd, updates GRUB, or authorizes apply.
 
 Required options:
@@ -43,6 +49,7 @@ Required options:
 Optional arguments:
       --accepted-refresh PATH    Select the reviewed chain-refresh record
       --accepted-preflight PATH  Select the reviewed normal-update record
+      --accepted-boot PATH       Select the corrected accepted boot record
       --output-dir PATH          Store evidence under an absolute, new directory
   -h, --help                     Show this help and exit
 EOF_USAGE
@@ -70,6 +77,9 @@ parse_arguments() {
             --accepted-preflight)
                 [ "$#" -ge 2 ] || { error '--accepted-preflight requires a value'; return 1; }
                 ACCEPTED_PREFLIGHT=$2; shift 2 ;;
+            --accepted-boot)
+                [ "$#" -ge 2 ] || { error '--accepted-boot requires a value'; return 1; }
+                ACCEPTED_BOOT=$2; shift 2 ;;
             --output-dir)
                 [ "$#" -ge 2 ] || { error '--output-dir requires a value'; return 1; }
                 OUTPUT_DIR=$2; shift 2 ;;
@@ -79,7 +89,7 @@ parse_arguments() {
     done
 
     [ "$TARGET" = slackware-current ] || { error '--target must be slackware-current'; return 1; }
-    for path in "$ACCEPTED_REFRESH" "$ACCEPTED_PREFLIGHT" ${OUTPUT_DIR:+"$OUTPUT_DIR"}; do
+    for path in "$ACCEPTED_REFRESH" "$ACCEPTED_PREFLIGHT" "$ACCEPTED_BOOT" ${OUTPUT_DIR:+"$OUTPUT_DIR"}; do
         case "$path" in /*) ;; *) error "path must be absolute: $path"; return 1 ;; esac
         case "$path" in *[[:space:]]*) error 'paths must not contain whitespace'; return 1 ;; esac
     done
@@ -87,12 +97,13 @@ parse_arguments() {
 
 load_reviewed_chain() {
     local values
-    values=$(python3 - "$ACCEPTED_REFRESH" "$ACCEPTED_PREFLIGHT" <<'PY'
+    values=$(python3 - "$ACCEPTED_REFRESH" "$ACCEPTED_PREFLIGHT" "$ACCEPTED_BOOT" <<'PY'
 import hashlib, json, re, sys
-refresh_path, preflight_path = sys.argv[1:]
+refresh_path, preflight_path, boot_path = sys.argv[1:]
 try:
     refresh = json.load(open(refresh_path, encoding='utf-8'))
     preflight = json.load(open(preflight_path, encoding='utf-8'))
+    boot = json.load(open(boot_path, encoding='utf-8'))
 except Exception:
     raise SystemExit(1)
 
@@ -105,18 +116,18 @@ upgrade = candidate.get('upgrade_all')
 if not isinstance(install, list) or not isinstance(upgrade, list):
     raise SystemExit(1)
 all_candidates = sorted(install + upgrade)
-if len(all_candidates) != len(set(all_candidates)):
-    raise SystemExit(1)
-if all_candidates != install + upgrade and set(install) & set(upgrade):
+if len(all_candidates) != len(set(all_candidates)) or set(install) & set(upgrade):
     raise SystemExit(1)
 for name in all_candidates:
     if not isinstance(name, str) or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._+~-]*\.txz', name):
         raise SystemExit(1)
 digest = digest_for(all_candidates)
 target = candidate.get('target_kernel_version')
+running = refresh.get('running_kernel', '')
 expected_generic = f'kernel-generic-{target}-x86_64-1.txz'
 expected_headers = f'kernel-headers-{target}-x86-1.txz'
 expected_source = f'kernel-source-{target}-noarch-1.txz'
+versioned_sha = boot.get('versioned_initrd_sha256')
 checks = [
     refresh.get('scenario') == 'current-candidate-chain-refresh-preflight',
     refresh.get('target') == 'slackware-current',
@@ -141,25 +152,55 @@ checks = [
     expected_generic in candidate.get('kernel', []),
     expected_headers in candidate.get('kernel', []),
     expected_source in upgrade,
+    boot.get('scenario') == 'current-kernel-boot-preflight',
+    boot.get('target') == 'slackware-current',
+    boot.get('accepted') is True,
+    boot.get('normal_update_candidate_set_sha256') == digest,
+    boot.get('running_kernel') == running,
+    boot.get('target_kernel') == target,
+    boot.get('package_layout') == 'monolithic-generic',
+    boot.get('boot_mode') == 'geninitrd-managed-versioned-initrd',
+    boot.get('boot_image') == '/boot/vmlinuz-generic',
+    boot.get('generic_kernel_path') == f'/boot/vmlinuz-{running}',
+    boot.get('target_image_metadata_state') == 'deferred-to-exact-package-preflight',
+    boot.get('mkinitrd_state') == 'absent',
+    boot.get('initrd_state') == 'absent',
+    boot.get('named_initrd_state') == 'present',
+    boot.get('named_initrd_path') == '/boot/initrd-generic.img',
+    boot.get('named_initrd_target') == f'initrd-{running}.img',
+    boot.get('versioned_initrd_state') == 'present',
+    boot.get('versioned_initrd_path') == f'/boot/initrd-{running}.img',
+    isinstance(versioned_sha, str) and re.fullmatch(r'[0-9a-f]{64}', versioned_sha),
+    boot.get('geninitrd_transition_required') is True,
+    boot.get('mkinitrd_transition_required') is False,
+    boot.get('package_database_unchanged') is True,
+    boot.get('boot_state_unchanged') is True,
+    boot.get('assertions') == {'passes': 20, 'failures': 0},
+    boot.get('apply_ready') is False,
+    boot.get('apply_authorized') is False,
+    boot.get('next_stage') == 'current-kernel-chain-restart-preflight',
 ]
 if not all(checks):
     raise SystemExit(1)
 print(digest)
 print(target)
-print(refresh.get('running_kernel', ''))
+print(running)
+print(versioned_sha)
 PY
 ) || return 1
     CANDIDATE_SET_SHA256=$(printf '%s\n' "$values" | sed -n '1p')
     TARGET_KERNEL=$(printf '%s\n' "$values" | sed -n '2p')
     RUNNING_KERNEL=$(printf '%s\n' "$values" | sed -n '3p')
-    [ -n "$CANDIDATE_SET_SHA256" ] && [ -n "$TARGET_KERNEL" ] && [ -n "$RUNNING_KERNEL" ]
+    ACCEPTED_VERSIONED_INITRD_SHA256=$(printf '%s\n' "$values" | sed -n '4p')
+    [ -n "$CANDIDATE_SET_SHA256" ] && [ -n "$TARGET_KERNEL" ] \
+        && [ -n "$RUNNING_KERNEL" ] && [ -n "$ACCEPTED_VERSIONED_INITRD_SHA256" ]
 }
 
 validate_nested_summary() {
     local summary=$1
-    python3 - "$summary" "$CANDIDATE_SET_SHA256" "$TARGET_KERNEL" "$RUNNING_KERNEL" <<'PY'
+    python3 - "$summary" "$CANDIDATE_SET_SHA256" "$TARGET_KERNEL" "$RUNNING_KERNEL" "$ACCEPTED_VERSIONED_INITRD_SHA256" <<'PY'
 import sys
-path, digest, target, running = sys.argv[1:]
+path, digest, target, running, accepted_initrd_sha = sys.argv[1:]
 data = {}
 try:
     for raw in open(path, encoding='utf-8'):
@@ -178,8 +219,16 @@ checks = [
     data.get('target_kernel') == target,
     data.get('candidate_set_sha256') == digest,
     data.get('package_layout') == 'monolithic-generic',
-    data.get('boot_mode') in {'direct-generic-no-initrd', 'mkinitrd-managed'},
-    data.get('target_image_metadata_state') in {'present', 'deferred-to-exact-package-preflight'},
+    data.get('boot_mode') == 'geninitrd-managed-versioned-initrd',
+    data.get('target_image_metadata_state') == 'deferred-to-exact-package-preflight',
+    data.get('mkinitrd_state') == 'absent',
+    data.get('initrd_state') == 'absent',
+    data.get('named_initrd_state') == 'present',
+    data.get('versioned_initrd_state') == 'present',
+    data.get('versioned_initrd_path') == f'/boot/initrd-{running}.img',
+    data.get('versioned_initrd_sha256') == accepted_initrd_sha,
+    data.get('geninitrd_transition_required') == 'true',
+    data.get('mkinitrd_transition_required') == 'false',
     data.get('apply_ready') == 'false',
     data.get('apply_authorized') == 'false',
     data.get('failures') == '0',
@@ -209,6 +258,9 @@ running_kernel=$RUNNING_KERNEL
 target_kernel=$TARGET_KERNEL
 candidate_set_sha256=$CANDIDATE_SET_SHA256
 nested_target_image_metadata_state=$NESTED_TARGET_IMAGE_METADATA_STATE
+nested_boot_mode=$NESTED_BOOT_MODE
+nested_versioned_initrd_sha256=$NESTED_VERSIONED_INITRD_SHA256
+nested_geninitrd_transition_required=true
 nested_boot_preflight_passed=$([ "$FAILURE_COUNT" -eq 0 ] && printf true || printf false)
 next_stage=$NEXT_STAGE
 normal_update_apply_executed=false
@@ -259,9 +311,9 @@ main() {
     : > "$ASSERTION_LOG"
 
     if load_reviewed_chain; then
-        record_pass "the accepted 69-candidate refresh and normal-update records bind target kernel $TARGET_KERNEL"
+        record_pass "the accepted 69-candidate refresh, normal-update, and corrected GenInitrd boot records bind target kernel $TARGET_KERNEL"
     else
-        record_failure 'the accepted refresh and normal-update records are inconsistent or unsafe'
+        record_failure 'the accepted refresh, normal-update, or corrected boot record is inconsistent or unsafe'
     fi
 
     printf 'hostname=%s\nrunning_kernel=%s\ntarget_kernel=%s\ncandidate_set_sha256=%s\n' \
@@ -291,7 +343,9 @@ main() {
     fi
     if validate_nested_summary "$nested_dir/summary.txt"; then
         NESTED_TARGET_IMAGE_METADATA_STATE=$(sed -n 's/^target_image_metadata_state=//p' "$nested_dir/summary.txt")
-        record_pass 'the nested boot result matches the accepted candidate digest, running kernel, and new target'
+        NESTED_BOOT_MODE=$(sed -n 's/^boot_mode=//p' "$nested_dir/summary.txt")
+        NESTED_VERSIONED_INITRD_SHA256=$(sed -n 's/^versioned_initrd_sha256=//p' "$nested_dir/summary.txt")
+        record_pass 'the nested boot result matches the accepted GenInitrd baseline, candidate digest, running kernel, and new target'
     else
         record_failure 'the nested boot result does not match the accepted restarted chain'
     fi
@@ -313,8 +367,8 @@ main() {
     fi
 
     write_summary "$OUTPUT_DIR/summary.txt"
-    printf 'Slackware-current kernel chain restart result: running=%s, target=%s, candidates=%s, target-image-metadata=%s, next-stage=%s, apply-ready=false, apply-authorized=false\n' \
-        "$RUNNING_KERNEL" "$TARGET_KERNEL" "$CANDIDATE_SET_SHA256" "$NESTED_TARGET_IMAGE_METADATA_STATE" "$NEXT_STAGE"
+    printf 'Slackware-current kernel chain restart result: running=%s, target=%s, candidates=%s, boot-mode=%s, target-image-metadata=%s, next-stage=%s, apply-ready=false, apply-authorized=false\n' \
+        "$RUNNING_KERNEL" "$TARGET_KERNEL" "$CANDIDATE_SET_SHA256" "$NESTED_BOOT_MODE" "$NESTED_TARGET_IMAGE_METADATA_STATE" "$NEXT_STAGE"
     archive=$(create_evidence_archive) || { error 'failed to create evidence archive'; return 1; }
     printf 'Evidence archive: %s\n' "$archive"
     printf 'Evidence SHA-256: %s\n' "$(awk '{print $1}' "$archive.sha256")"

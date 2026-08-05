@@ -2013,7 +2013,21 @@ sudo bash tests/acceptance/reference/test-current-kernel-boot-preflight.sh \
     --confirm-target-kernel 6.18.42
 ```
 
-The helper now parses colon-delimited metadata with a local `IFS`, validates all fields before mode arithmetic, and still requires root ownership plus no group/world write bits. A valid result must report `boot-mode=geninitrd-managed-versioned-initrd`, `geninitrd-transition=true`, 20 passes, zero failures, and immutable `apply_ready=false` / `apply_authorized=false`. Copy the archive and sidecar directly to `/home/promano` and verify them there. Do not rebuild later evidence or run apply until this corrected baseline is accepted.
+The helper now parses colon-delimited metadata with a local `IFS`, validates all fields before mode arithmetic, and still requires root ownership plus no group/world write bits. A valid result must report `boot-mode=geninitrd-managed-versioned-initrd`, `geninitrd-transition=true`, 20 passes, zero failures, and immutable `apply_ready=false` / `apply_authorized=false`. Copy the archive and sidecar directly to `/home/promano` and verify them there. The corrected real-system rerun is accepted with 20 passes, zero failures, archive SHA-256 `6429fd626973b0c3fc498642e1cd9230bc0eceb0291e232b515fef625467c6ac`, and immutable apply denial. The dependent evidence chain must now be rebuilt from this record.
 
-The step-55 repository validation runs all 37 focused suites: 2,424 checks pass with zero failures. The current-kernel boot harness contributes 94 checks. The main reference engine remains SHA-256 `0dc4a4def9b063b9a598975f46e7458c5771eb8d8603f4fa8bbd9dfc07c4d4c6`.
+The step-55 repository validation runs all 37 focused suites: 2,368 checks pass with zero failures. The current-kernel boot harness contributes 94 checks. The main reference engine remains SHA-256 `0dc4a4def9b063b9a598975f46e7458c5771eb8d8603f4fa8bbd9dfc07c4d4c6`.
 
+
+
+### Phase 1 step 56: corrected GenInitrd kernel-chain restart
+
+Run the restart wrapper only after accepting the step-55 baseline:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-kernel-chain-restart-preflight.sh \
+    --target slackware-current
+```
+
+The wrapper binds the accepted 69-candidate refresh and normal-update records plus `slackware-current-kernel-boot-preflight-20260805-accepted.json`. It reruns only the non-destructive boot preflight and requires the same `geninitrd-managed-versioned-initrd` classification, `/boot/initrd-6.18.40.img` digest, target-image deferral, unchanged package database, and unchanged boot state. A clean result keeps `apply_ready=false` and `apply_authorized=false` and selects `current-kernel-package-preflight` as the next stage. Copy the final outer archive and portable sidecar directly to `/home/promano` and verify them there.
+
+The step-56 repository validation executes all 37 suites: 2,376 checks pass with zero failures. The chain-restart harness contributes 58 checks.

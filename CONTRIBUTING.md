@@ -119,7 +119,7 @@ Before submitting a change to the reference script:
 34. Run `tests/reference/test-geninitrd-grub-ownership-engine.sh` when same-directory policy staging, atomic activation or restoration, cleanup recovery, concurrent-change handling, backup retention, apply workflow ordering, or ownership-state reporting is affected.
 35. Run `tests/reference/test-current-geninitrd-post-state.sh` when generated-initrd expectation, post-update kernel ownership, versioned initrd validation, named initrd links, legacy-initrd exclusion, or kernel-plus-initrd GRUB validation is affected.
 36. Run `tests/reference/test-current-candidate-chain-refresh-preflight-harness.sh` when fresh Slackware-current metadata refresh, embedded preflight composition, candidate-set hashing, target-kernel companion validation, stale-chain classification, or no-apply evidence publication is affected.
-37. Run `tests/reference/test-current-kernel-chain-restart-preflight-harness.sh` when accepted refresh binding, target-specific boot-preflight composition, nested target-image metadata state, diagnostic restart evidence, nested archive verification, or restarted-chain no-apply boundaries are affected.
+37. Run `tests/reference/test-current-kernel-chain-restart-preflight-harness.sh` when accepted refresh/normal-update/boot binding, corrected GenInitrd-versioned boot composition, nested target-image metadata or initrd digest, diagnostic restart evidence, nested archive verification, or restarted-chain no-apply boundaries are affected.
 38. Confirm that destructive commands are not exercised outside an isolated or explicitly recoverable Slackware test system.
 39. Record the relevant acceptance scenario.
 40. Preserve deterministic output and exit-code behavior.
@@ -140,7 +140,7 @@ sudo bash tests/acceptance/reference/test-current-kernel-boot-preflight.sh \
     --confirm-target-kernel 6.18.42
 ```
 
-Do not run normal-update apply or reuse the dependent step-46 through step-52 records. The first corrected run is diagnostic only because the metadata helper parsed space-separated `stat` output under a restricted global `IFS`. Repeat with the step-55 parser, copy the printed evidence archive and sidecar directly to `/home/promano`, verify the sidecar there, and include both files with the review.
+The step-55 rerun is accepted with archive SHA-256 `6429fd626973b0c3fc498642e1cd9230bc0eceb0291e232b515fef625467c6ac`. Do not run normal-update apply or reuse the dependent step-46 through step-52 records. Rebuild the chain with `test-current-kernel-chain-restart-preflight.sh`, copy the final outer archive and sidecar directly to `/home/promano`, verify the sidecar there, and include both files with the review.
 
 ## Pull requests
 

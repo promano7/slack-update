@@ -10,6 +10,7 @@ REPOSITORY_ROOT=$(CDPATH= cd -- "$TEST_DIR/../.." && pwd -P)
 SCRIPT="$REPOSITORY_ROOT/tests/acceptance/reference/test-current-kernel-chain-restart-preflight.sh"
 REFRESH="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-candidate-chain-refresh-20260804-accepted.json"
 PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260804-accepted.json"
+BOOT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-boot-preflight-20260805-accepted.json"
 DIAGNOSTIC="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-chain-restart-20260804-diagnostic.json"
 TMP=$(mktemp -d)
 trap 'rm -rf "$TMP"' EXIT
@@ -49,7 +50,8 @@ PY
 source "$SCRIPT"
 
 assert_contains 'invokes only the non-destructive kernel boot' "$SCRIPT" 'help should describe the non-destructive restart'
-assert_contains '--accepted-preflight "$ACCEPTED_PREFLIGHT"' "$SCRIPT" 'the nested boot preflight should receive the reviewed record explicitly'
+assert_contains '--accepted-preflight "$ACCEPTED_PREFLIGHT"' "$SCRIPT" 'the nested boot preflight should receive the reviewed normal-update record explicitly'
+assert_contains 'DEFAULT_ACCEPTED_BOOT=' "$SCRIPT" 'the wrapper should bind the corrected accepted boot baseline'
 assert_contains '--output-dir "$nested_dir"' "$SCRIPT" 'nested evidence should stay inside the outer evidence tree'
 assert_not_contains '--execute-apply' "$SCRIPT" 'the wrapper source must not contain an apply request'
 assert_contains 'package_transaction_executed=false' "$SCRIPT" 'the outer summary should deny package execution'
@@ -63,10 +65,14 @@ assert_contains '/home/$owner' "$SCRIPT" 'evidence should copy directly to the u
 TARGET=slackware-current
 ACCEPTED_REFRESH=$REFRESH
 ACCEPTED_PREFLIGHT=$PREFLIGHT
+ACCEPTED_BOOT=$BOOT
 assert_success 'the accepted fresh chain should load safely' load_reviewed_chain
 assert_equal 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 "$CANDIDATE_SET_SHA256" 'the accepted candidate digest should be loaded'
 assert_equal 6.18.42 "$TARGET_KERNEL" 'the accepted target kernel should be loaded'
 assert_equal 6.18.40 "$RUNNING_KERNEL" 'the reviewed running kernel should be loaded'
+assert_equal 0da0e0289d93cdf2d3b78288bfa23db4c9437b576563f92889399b2c98294442 "$ACCEPTED_VERSIONED_INITRD_SHA256" 'the accepted versioned initrd digest should be loaded'
+assert_equal geninitrd-managed-versioned-initrd "$(json_value "$BOOT" 'd["boot_mode"]')" 'the corrected boot record should preserve the real mode'
+assert_equal current-kernel-chain-restart-preflight "$(json_value "$BOOT" 'd["next_stage"]')" 'the corrected boot record should require a chain restart'
 assert_equal 69 "$(json_value "$PREFLIGHT" 'd["candidates"]["total"]')" 'the new accepted set should contain 69 candidates'
 assert_equal 1 "$(json_value "$PREFLIGHT" 'len(d["candidates"]["install_new"])')" 'one install-new candidate should be preserved'
 assert_equal 68 "$(json_value "$PREFLIGHT" 'len(d["candidates"]["upgrade_all"])')" '68 upgrade candidates should be preserved'
@@ -129,6 +135,7 @@ ACCEPTED_PREFLIGHT="$TMP/preflight-unsafe.json"
 assert_failure 'an unsafe package filename should fail closed' load_reviewed_chain
 
 ACCEPTED_PREFLIGHT=$PREFLIGHT
+ACCEPTED_BOOT=$BOOT
 assert_success 'the accepted chain should reload after negative cases' load_reviewed_chain
 
 cat > "$TMP/summary.txt" <<EOF_SUMMARY
@@ -142,8 +149,16 @@ installed_kernel=6.18.40
 target_kernel=6.18.42
 candidate_set_sha256=918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9
 package_layout=monolithic-generic
-boot_mode=direct-generic-no-initrd
+boot_mode=geninitrd-managed-versioned-initrd
 target_image_metadata_state=deferred-to-exact-package-preflight
+mkinitrd_state=absent
+initrd_state=absent
+named_initrd_state=present
+versioned_initrd_state=present
+versioned_initrd_path=/boot/initrd-6.18.40.img
+versioned_initrd_sha256=0da0e0289d93cdf2d3b78288bfa23db4c9437b576563f92889399b2c98294442
+geninitrd_transition_required=true
+mkinitrd_transition_required=false
 apply_ready=false
 apply_authorized=false
 EOF_SUMMARY
@@ -155,10 +170,12 @@ sed 's/result=PASS/result=FAIL/' "$TMP/summary.txt" > "$TMP/summary-fail.txt"
 assert_failure 'a failed nested result should be rejected' validate_nested_summary "$TMP/summary-fail.txt"
 sed 's/apply_authorized=false/apply_authorized=true/' "$TMP/summary.txt" > "$TMP/summary-authorized.txt"
 assert_failure 'an authorized nested result should be rejected' validate_nested_summary "$TMP/summary-authorized.txt"
-sed 's/boot_mode=direct-generic-no-initrd/boot_mode=unsafe/' "$TMP/summary.txt" > "$TMP/summary-mode.txt"
+sed 's/boot_mode=geninitrd-managed-versioned-initrd/boot_mode=unsafe/' "$TMP/summary.txt" > "$TMP/summary-mode.txt"
 assert_failure 'an unknown boot mode should be rejected' validate_nested_summary "$TMP/summary-mode.txt"
 sed 's/target_image_metadata_state=deferred-to-exact-package-preflight/target_image_metadata_state=unsafe/' "$TMP/summary.txt" > "$TMP/summary-metadata.txt"
 assert_failure 'an unknown target image metadata state should be rejected' validate_nested_summary "$TMP/summary-metadata.txt"
+sed 's/0da0e0289d93cdf2d3b78288bfa23db4c9437b576563f92889399b2c98294442/0000000000000000000000000000000000000000000000000000000000000000/' "$TMP/summary.txt" > "$TMP/summary-initrd-digest.txt"
+assert_failure 'a nested versioned initrd digest mismatch should be rejected' validate_nested_summary "$TMP/summary-initrd-digest.txt"
 
 mkdir -p "$TMP/nested"
 printf 'nested evidence\n' > "$TMP/nested/slackware-current-current-kernel-boot-preflight-20260804T000000Z.tar.gz"
@@ -176,10 +193,15 @@ RUNNING_KERNEL=6.18.40
 TARGET_KERNEL=6.18.42
 CANDIDATE_SET_SHA256=918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9
 NESTED_TARGET_IMAGE_METADATA_STATE=deferred-to-exact-package-preflight
+NESTED_BOOT_MODE=geninitrd-managed-versioned-initrd
+NESTED_VERSIONED_INITRD_SHA256=0da0e0289d93cdf2d3b78288bfa23db4c9437b576563f92889399b2c98294442
 write_summary "$TMP/outer-summary.txt"
 assert_contains 'scenario=current-kernel-chain-restart-preflight' "$TMP/outer-summary.txt" 'outer summary should name the restart scenario'
 assert_contains 'next_stage=current-kernel-package-preflight' "$TMP/outer-summary.txt" 'outer summary should select the package preflight next'
 assert_contains 'nested_target_image_metadata_state=deferred-to-exact-package-preflight' "$TMP/outer-summary.txt" 'outer summary should preserve the deferred target image boundary'
+assert_contains 'nested_boot_mode=geninitrd-managed-versioned-initrd' "$TMP/outer-summary.txt" 'outer summary should preserve the corrected boot mode'
+assert_contains 'nested_versioned_initrd_sha256=0da0e0289d93cdf2d3b78288bfa23db4c9437b576563f92889399b2c98294442' "$TMP/outer-summary.txt" 'outer summary should preserve the accepted initrd digest'
+assert_contains 'nested_geninitrd_transition_required=true' "$TMP/outer-summary.txt" 'outer summary should preserve the GenInitrd transition boundary'
 assert_contains 'normal_update_apply_executed=false' "$TMP/outer-summary.txt" 'outer summary should deny normal-update apply'
 assert_contains 'package_transaction_executed=false' "$TMP/outer-summary.txt" 'outer summary should deny package changes'
 assert_contains 'apply_ready=false' "$TMP/outer-summary.txt" 'outer summary should remain not ready'

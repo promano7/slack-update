@@ -800,3 +800,15 @@ sudo bash tests/acceptance/reference/test-current-kernel-boot-preflight.sh \
 
 The safe-file helper now uses colon-delimited metadata and a local `IFS`, validates mode/UID/GID fields before octal arithmetic, and must accept the existing root-owned non-writable versioned initrd. Expect 20 passes, zero failures, `boot-mode=geninitrd-managed-versioned-initrd`, `geninitrd-transition=true`, `apply-ready=false`, and `apply-authorized=false`. Copy both evidence files directly to `/home/promano` and verify the portable sidecar there.
 
+
+
+### Slackware-current corrected chain restart (step 56)
+
+The accepted step-55 baseline archive is `slackware-current-current-kernel-boot-preflight-20260805T094536Z.tar.gz`, SHA-256 `6429fd626973b0c3fc498642e1cd9230bc0eceb0291e232b515fef625467c6ac`. Run:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-kernel-chain-restart-preflight.sh \
+    --target slackware-current
+```
+
+The wrapper validates the accepted candidate, normal-update, and corrected boot records, reruns the boot preflight, requires `geninitrd-managed-versioned-initrd` and the accepted versioned-initrd SHA-256, verifies the nested portable archive, and proves package plus boot state remain unchanged. It never installs packages or runs initrd or GRUB generation. Copy the final outer `.tar.gz` and `.sha256` directly to `/home/promano` and verify them there.
