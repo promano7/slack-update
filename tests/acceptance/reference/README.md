@@ -843,3 +843,18 @@ The stage binds the corrected boot, chain-restart, and exact-package records, th
 
 The rebuilt policy harness has 61 checks. The complete step-58 matrix contains 37 suites and 2,465 checks, all executed with zero failures.
 
+The real step-58 run passed all 11 assertions and produced accepted archive SHA-256 `de4ad831efda30eaaa6a0ee8fc099815cf0bdb9882bded361942dc6719a88e80`.
+
+### Slackware-current rebuilt DKMS-hook preflight (step 59)
+
+```bash
+sudo bash tests/acceptance/reference/test-current-geninitrd-dkms-hook-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+The stage binds all accepted records through the rebuilt step-58 policy, revalidates the corrected live GenInitrd-managed baseline, verifies and copies the exact two reviewed DKMS hooks without execution, captures their static command surfaces, and records only read-only DKMS discovery. It must leave packages, boot files, policy, hooks, and DKMS state unchanged. A safe run is expected to report 12 passes, zero failures, `hooks=2`, `dkms-status-rows=0`, `review=custom-review-required`, `apply-ready=false`, and `apply-authorized=false`. Copy the archive and `.sha256` directly to `/home/promano` and verify them there.
+
+The rebuilt DKMS harness has 59 checks. The complete step-59 matrix contains 37 suites and 2,473 checks, all executed with zero failures.
+

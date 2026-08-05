@@ -170,3 +170,16 @@ The preflight must fail before package download if the accepted boot or chain re
 
 After accepting step 57, run only `test-current-geninitrd-policy-preflight.sh` with the accepted candidate digest and target. The stage must bind the corrected boot, chain-restart, and exact-package records, revalidate the live named and versioned initrd plus GRUB pairing, parse `/etc/default/geninitrd` without sourcing it, and classify the target as `versioned-to-versioned-initrd`. A disabled or skipped generator must expose a stale-initrd transition and fail the real acceptance path. No GenInitrd hook, generator, package tool, `mkinitrd`, `geninitrd`, `update-grub`, or `grub-mkconfig` command may be executed. Publish and verify the archive and sidecar directly in `/home/promano`; do not advance to DKMS review until this evidence is accepted.
 
+### Rebuilt Slackware-current DKMS-hook evidence (step 59)
+
+After accepting step 58, run only:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-geninitrd-dkms-hook-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+The stage must bind the corrected boot, chain-restart, exact-package, and versioned-policy records and reject the historical direct-no-initrd chain. It must revalidate the live named and versioned initrd plus GRUB pairing before inspecting the two reviewed hooks. Hook bodies may be copied into private evidence and parsed statically, but must never be executed. Only read-only `dkms --version` and `dkms status` calls are permitted; `dkms build`, `install`, `autoinstall`, `remove`, package tools, initrd generation, and GRUB mutation remain forbidden. Copy the archive and sidecar directly to `/home/promano` with `promano:users` ownership and verify the sidecar there. Do not advance to the GenInitrd command preflight until this evidence is reviewed and accepted.
+

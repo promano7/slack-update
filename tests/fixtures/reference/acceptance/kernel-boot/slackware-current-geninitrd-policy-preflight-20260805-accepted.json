@@ -1,0 +1,69 @@
+{
+  "scenario": "current-geninitrd-policy-preflight",
+  "target": "slackware-current",
+  "accepted": true,
+  "captured_at": "2026-08-05T10:54:28Z",
+  "archive_sha256": "de4ad831efda30eaaa6a0ee8fc099815cf0bdb9882bded361942dc6719a88e80",
+  "normal_update_candidate_set_sha256": "918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9",
+  "boot_preflight_archive_sha256": "6429fd626973b0c3fc498642e1cd9230bc0eceb0291e232b515fef625467c6ac",
+  "chain_restart_archive_sha256": "e48c528aafd9daef64edae721ddc96c9b5c52daac1a6f563fe447d1a66e6996e",
+  "package_preflight_archive_sha256": "9f702e85a8ff3eb6155b834ed11cfe494ec60f04082914d80bae2a13d02e016f",
+  "running_kernel": "6.18.40",
+  "target_kernel": "6.18.42",
+  "boot_mode": "geninitrd-managed-versioned-initrd",
+  "current_named_initrd": "/boot/initrd-generic.img",
+  "current_named_initrd_target": "initrd-6.18.40.img",
+  "current_versioned_initrd": "/boot/initrd-6.18.40.img",
+  "current_versioned_initrd_sha256": "0da0e0289d93cdf2d3b78288bfa23db4c9437b576563f92889399b2c98294442",
+  "current_versioned_initrd_size": 17307183,
+  "active_grub_sha256": "5fdff76d42ddec26b0c212668c4981a9ea2853a98b3260f33850c91ccf8ac247",
+  "policy": {
+    "state": "enabled",
+    "autogenerate_initrd": true,
+    "configured_generator": "mkinitrd",
+    "effective_generator": "mkinitrd_command_generator.sh",
+    "auto_update_grub": true,
+    "auto_remove_orphaned_initrds": true,
+    "auto_remove_initrd_tree": true,
+    "named_symlink": true,
+    "initrd_gz_symlink": false,
+    "transition_mode": "versioned-to-versioned-initrd",
+    "expected_initrd": "/boot/initrd-6.18.42.img",
+    "doinst_will_invoke_geninitrd": true,
+    "custom_review_required": true
+  },
+  "scripts": {
+    "geninitrd_sha256": "0ff507821ebe8b18dbe5b2ebd0b97e7ca7b951bf848915883f9714c47e017d06",
+    "setup_sha256": "74e06b7f6c2de719ec6877edcf419d7bae558509d3f61f06fb7ba4c3b175a0fe"
+  },
+  "executable_hooks": [
+    {
+      "kind": "pre",
+      "path": "/etc/geninitrd.d/pre-install/dkms-bcachefs",
+      "sha256": "bef7093aea411c39e971e825ad8651274757c5fd1d6da405028a118ebaec23a9",
+      "dkms": true
+    },
+    {
+      "kind": "pre",
+      "path": "/etc/geninitrd.d/pre-install/dkms-nvidia",
+      "sha256": "1430daca29079c8939f714ddff3628156dc990dc8b50e625fa8949367c362efa",
+      "dkms": true
+    }
+  ],
+  "package_database_unchanged": true,
+  "boot_and_policy_state_unchanged": true,
+  "assertions": {
+    "passes": 11,
+    "failures": 0
+  },
+  "evidence": {
+    "portable_sha256_sidecar": true,
+    "copied_to": "/home/promano",
+    "destination_verification": "passed"
+  },
+  "apply_ready": false,
+  "apply_authorized": false,
+  "next_stage": "current-geninitrd-dkms-hook-preflight",
+  "executed_preflight_sha256": "087739f8b3601d1015ed09bd6f46f96932debac33d68555e6678c71337166f71",
+  "reference_sha256": "0dc4a4def9b063b9a598975f46e7458c5771eb8d8603f4fa8bbd9dfc07c4d4c6"
+}

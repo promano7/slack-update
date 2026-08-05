@@ -2066,3 +2066,20 @@ The rebuilt policy stage binds the corrected boot, chain-restart, and exact-pack
 
 The step-58 repository matrix executes all 37 suites: 2,465 checks pass with zero failures. Direct per-suite summation corrects the step-57 total to 2,451; the previously stated 2,395 omitted the valid 56-check direct-generic policy suite. The rebuilt GenInitrd policy harness contributes 61 checks.
 
+The real step-58 run passed all 11 assertions and produced accepted archive SHA-256 `de4ad831efda30eaaa6a0ee8fc099815cf0bdb9882bded361942dc6719a88e80`. Its sanitized record is `tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-policy-preflight-20260805-accepted.json`.
+
+### Phase 1 step 59: rebuilt DKMS-hook preflight
+
+Run only after accepting step 58:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-geninitrd-dkms-hook-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+The rebuilt stage binds the accepted normal-update, corrected boot, corrected chain-restart, exact-package, and versioned GenInitrd policy records. Before examining hooks it revalidates the live `vmlinuz-generic`, `initrd-generic.img`, `/boot/initrd-6.18.40.img`, GenInitrd symlink policy, and same-menuentry GRUB pairing. It then verifies the exact `dkms-bcachefs` and `dkms-nvidia` hook hashes, ownership, permissions, syntax, and static command surfaces; runs only `dkms --version` and `dkms status`; and inventories DKMS sources, state, and module trees without following links. No hook, DKMS build/install action, package command, initrd generator, or GRUB command is executed. Expect 12 passes, zero failures, `apply_ready=false`, and `apply_authorized=false`. Copy the evidence archive and portable sidecar directly to `/home/promano` and verify them there.
+
+The step-59 repository matrix executes all 37 suites: 2,473 checks pass with zero failures. The rebuilt DKMS-hook harness contributes 59 checks.
+
