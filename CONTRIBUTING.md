@@ -126,11 +126,12 @@ Before submitting a change to the reference script:
 41. Run `tests/reference/test-current-userspace-maintainer-script-review-preflight-harness.sh` when exact `doinst.sh` identities, static command classification, remove/symlink pairing, `.new` promotion, cache refreshes, process-signal confinement, or non-execution boundaries are affected.
 42. Run `tests/reference/test-current-userspace-configuration-service-review-preflight-harness.sh` when exact configuration/service path manifests, contributing package hashes, static file classification, XDG or native-messaging validation, PAM/XML/shell-helper checking, systemd user-unit scope, preset handling, or non-execution boundaries are affected.
 43. Run `tests/reference/test-current-userspace-elf-runtime-review-preflight-harness.sh` when exact package or per-package ELF bindings, static `readelf` parsing, loader-cache shadowing, transaction provider indexing, runtime path restrictions, hardening checks, dependency resolution, or ELF non-execution boundaries are affected.
-44. Confirm that destructive commands are not exercised outside an isolated or explicitly recoverable Slackware test system.
-45. Record the relevant acceptance scenario.
-46. Preserve deterministic output and exit-code behavior.
-47. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
-48. Ensure every new or modified comment is written in English.
+44. Run `tests/reference/test-current-userspace-apply-review-preflight-harness.sh` when baseline/addition union binding, exact action classification, reference-engine package commands, deferred post-install handling, GenInitrd policy restoration, GRUB ownership, failure blocking, or userspace application non-execution boundaries are affected.
+45. Confirm that destructive commands are not exercised outside an isolated or explicitly recoverable Slackware test system.
+46. Record the relevant acceptance scenario.
+47. Preserve deterministic output and exit-code behavior.
+48. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
+49. Ensure every new or modified comment is written in English.
 
 Never run the apply workflow on a production machine merely to validate a contribution.
 
@@ -277,4 +278,12 @@ After accepting the configuration/service evidence, run `test-current-userspace-
 Require the exact reviewed ELF class, byte order, and machine. Constrain interpreters and runtime search paths to reviewed system roots. Reject slash-containing `DT_NEEDED` values, text relocations, executable stacks, writable-executable load segments, and unresolved dependencies. Treat host loader-cache paths owned by pending replacement packages as unavailable unless the reviewed transaction supplies the required library. Transaction providers may resolve dependencies only when their installation directory is a default loader directory or an explicitly safe resolved runtime directory.
 
 A clean review may set `elf_runtime_review_complete=true` and route only to `current-userspace-apply-review-preflight`. It must retain `userspace_apply_review_complete=false`, `apply_ready=false`, `apply_authorized=false`, and all package, payload, dynamic-loader tracing, service-control, and boot execution flags as false. Copy and verify the evidence archive and sidecar directly in `/home/promano` before continuing.
+
+### Userspace application review
+
+After accepting the ELF/runtime evidence, run `test-current-userspace-apply-review-preflight.sh`. The wrapper must rerun the complete non-installing ELF review and a separate normal-update preflight, verify both nested archives, and reconstruct the exact candidate transaction from the accepted baseline and reviewed additions. Any missing, added, duplicated, reclassified, critical, or kernel-transaction package must fail closed.
+
+Bind the exact reference-engine SHA-256 and require noninteractive metadata refresh, `-postinst=off` install-new and upgrade-all actions, deferred `.new` handling, the temporary atomic GenInitrd GRUB-suppression override, mandatory restoration, secondary-module blocking after partial Slackware failure, temporary GRUB generation plus validation, and the reviewed transaction and recovery counts. Review these commands statically only; never call normal-update apply or execute package, maintainer, initrd, DKMS, service, or GRUB actions from this boundary.
+
+A clean review may set `userspace_apply_review_complete=true` and route only to `current-kernel-transaction-readiness-preflight`. It must retain `apply_ready=false`, `apply_authorized=false`, and every execution flag as false. Copy and verify the outer evidence archive and sidecar directly in `/home/promano` before continuing.
 

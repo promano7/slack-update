@@ -2272,8 +2272,27 @@ The wrapper reruns the entire non-installing configuration/service chain and ver
 
 Every object must remain `ELF64`, little-endian, and `Advanced Micro Devices X86-64`. Program interpreters are limited to `/lib64/ld-linux-x86-64.so.2`; runtime search paths must resolve beneath `/lib`, `/lib64`, `/usr/lib`, or `/usr/lib64`. The resolver reads `ldconfig -p` without updating it, excludes host libraries owned by packages that the pending transaction will replace, indexes reviewed transaction `SONAME` and shared-object basename providers, and requires every `DT_NEEDED` edge to resolve. `TEXTREL`, executable stacks, writable-executable load segments, slash-containing dependency names, unsafe runtime paths, unresolved dependencies, package drift, payload execution, service control, and boot changes fail closed.
 
-A safe run is expected to report 15 passes, zero failures, `elf=722`, `packages=61`, `unresolved=0`, `unsafe=0`, `elf-runtime-review-complete=true`, `next-stage=current-userspace-apply-review-preflight`, `apply-ready=false`, and `apply-authorized=false`. Copy the final archive and sidecar directly to `/home/promano` with `promano:users` ownership and verify the sidecar there. Do not run userspace apply review, readiness, or apply until this evidence is accepted.
+The accepted real run reported 15 passes and zero failures with `elf=722`, `packages=61`, `dynamic=566`, `executable=156`, `needed=14639`, `unresolved=0`, and `unsafe=0`. Outer evidence SHA-256 `b4803f5ef86d5383bc191f7087795b8ecb757bc1aad8bb3a42f4c021c4a1a562` and nested configuration/service SHA-256 `fa6867beb3a59500c5c52d09a9dddcc0ed93662ded96d68d2d69d94f3e345d63` were verified in `/home/promano`. The result retains `userspace_apply_review_complete=false`, `next_stage=current-userspace-apply-review-preflight`, `apply_ready=false`, and `apply_authorized=false`.
 
-The focused step-71 harness contains 56 checks. The complete prepared step-71 inventory contains 43 suites and 2,906 checks with zero failures.
+The focused step-71 harness contains 56 checks. The complete step-71 inventory contains 43 suites and 2,906 checks with zero failures.
+
+### Slackware-current userspace apply review preflight (step 72)
+
+After accepting the step-71 ELF/runtime evidence, run:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-userspace-apply-review-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926 \
+    --confirm-target-kernel 6.18.42
+```
+
+The wrapper repeats the complete non-installing ELF/runtime review and a separate fresh normal-update preflight. It reconstructs the exact 137-package transaction as the disjoint union of the accepted 69-package baseline plus 68 reviewed additions, requires one `install-new`, 136 `upgrade-all`, the unchanged three-package `6.18.42` kernel transaction, two normal-update kernel classifications, and zero configured critical candidates.
+
+The static reference review binds the exact engine SHA-256 and verifies the noninteractive Slackpkg commands, `-postinst=off` handling, deferred `.new` inventory, temporary atomic GenInitrd `AUTO_UPDATE_GRUB=false` override, mandatory policy restoration, failure blocking of secondary modules, temporary validated GRUB generation, 12 reviewed transaction steps, and five recovery boundaries. It does not execute normal-update apply, packages, scripts, initrd generation, DKMS, or GRUB changes.
+
+A safe run is expected to report 15 passes, zero failures, `candidates=137`, `baseline=69`, `additions=68`, `install-new=1`, `upgrade-all=136`, `kernel-transaction=3`, `critical=0`, `userspace-apply-review-complete=true`, `next-stage=current-kernel-transaction-readiness-preflight`, `apply-ready=false`, and `apply-authorized=false`. Copy and verify the final archive and sidecar directly in `/home/promano`. Do not run readiness or any apply stage until this evidence is accepted.
+
+The focused step-72 harness contains 67 checks. The complete prepared step-72 inventory contains 44 suites and 2,973 checks with zero failures.
 
 The focused step-70 harness contains 68 checks. The complete prepared step-70 inventory contains 42 suites and 2,850 checks with zero failures.

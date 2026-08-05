@@ -1028,6 +1028,25 @@ The wrapper reruns the full non-installing configuration/service review and veri
 
 The inspector requires x86-64 little-endian ELF identity, the reviewed x86-64 loader, safe system-root runtime paths, no slash-containing `DT_NEEDED`, no `TEXTREL`, no executable stack, and no writable-executable load segment. It reads the compatible `ldconfig -p` cache without modifying it, excludes entries owned by packages that the transaction replaces, indexes the new transaction providers, and requires all dependency edges to resolve through one of those two safe sources.
 
-A safe run is expected to report 15 passes, zero failures, `elf=722`, `packages=61`, `unresolved=0`, `unsafe=0`, `elf-runtime-review-complete=true`, `next-stage=current-userspace-apply-review-preflight`, `apply-ready=false`, and `apply-authorized=false`. Copy and verify the final archive and `.sha256` directly in `/home/promano`. Do not run the next review or any apply stage until this evidence is accepted.
+The accepted real run reported 15 passes and zero failures with `elf=722`, `packages=61`, `dynamic=566`, `executable=156`, `needed=14639`, `unresolved=0`, and `unsafe=0`. Outer archive SHA-256 `b4803f5ef86d5383bc191f7087795b8ecb757bc1aad8bb3a42f4c021c4a1a562` and nested configuration/service archive SHA-256 `fa6867beb3a59500c5c52d09a9dddcc0ed93662ded96d68d2d69d94f3e345d63` were verified in `/home/promano`. The accepted record retains `userspace-apply-review-complete=false`, `next-stage=current-userspace-apply-review-preflight`, `apply-ready=false`, and `apply_authorized=false`.
 
-The focused step-71 harness contains 56 checks. The complete prepared step-71 inventory contains 43 suites and 2,906 checks with zero failures.
+The focused step-71 harness contains 56 checks. The complete step-71 inventory contains 43 suites and 2,906 checks with zero failures.
+
+### Slackware-current userspace apply review preflight (step 72)
+
+After accepting the step-71 evidence, run:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-userspace-apply-review-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926 \
+    --confirm-target-kernel 6.18.42
+```
+
+The wrapper reruns the full non-installing ELF/runtime review and a separate normal-update preflight, verifies both nested archives, and reconstructs the exact 69+68 candidate union. The result must remain 137 candidates: one install-new, 136 upgrade-all, the same three kernel-transaction package identities, two normal-update kernel classifications, and no critical candidates.
+
+The reference-engine contract requires its exact reviewed hash, noninteractive Slackpkg commands with post-install processing disabled, deferred `.new` evidence, temporary atomic GenInitrd GRUB suppression, mandatory restoration after package actions, failure blocking of all secondary modules, and temporary validated GRUB generation. The preflight reviews those boundaries without calling apply or executing package, script, initrd, DKMS, service, or GRUB actions.
+
+A safe run is expected to report 15 passes, zero failures, `candidates=137`, `baseline=69`, `additions=68`, `install-new=1`, `upgrade-all=136`, `kernel-transaction=3`, `critical=0`, `userspace-apply-review-complete=true`, `next-stage=current-kernel-transaction-readiness-preflight`, `apply-ready=false`, and `apply-authorized=false`. Copy the final archive and sidecar directly to `/home/promano` with `promano:users` ownership and verify it there. Do not run readiness or apply until this evidence is accepted.
+
+The focused step-72 harness contains 67 checks. The complete prepared step-72 inventory contains 44 suites and 2,973 checks with zero failures.
