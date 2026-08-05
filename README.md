@@ -2406,3 +2406,12 @@ The command never reboots. A successful real result must show 13 passes, `pause_
 
 The focused step-81 harness contains 68 checks. The complete prepared step-81 inventory contains 47 suites and 3,228 checks with zero failures; static validation covers 76 shell scripts and 80 JSON files.
 
+### Accepted manual-reboot checkpoint (step 82)
+
+The real step-81 reboot review passed all 13 assertions with zero failures. Archive SHA-256 `e41138a31225a795c65ddf76fa75fde19072f5892c9719af32d06b564027937b` was copied directly to `/home/promano` and verified there. The immutable accepted record is `tests/fixtures/reference/acceptance/normal-update/slackware-current-kernel-post-apply-reboot-review-20260805-accepted.json`.
+
+The accepted evidence confirms the exact 2,040-record installed package database, unchanged 6.18.42 kernel/initrd/modules and generic links, unchanged GenInitrd controls, `BOOT_IMAGE=/boot/vmlinuz-generic`, unchanged syntax-valid GRUB, no one-time `next_entry`, and effective selector `0` resolving to `Slackware-15.0+, with Linux generic` using `/boot/vmlinuz-generic` with `/boot/initrd-generic.img`. It records `pause_safe=true`, `reboot_ready=true`, `reboot_authorized=true`, `reboot_executed=false`, and `next_stage=manual-reboot-to-reviewed-target`.
+
+Exactly one manual reboot toward 6.18.42 is now authorized. Do not refresh Slackpkg metadata and do not repeat the candidate, payload, readiness, apply, recovery, or reboot-review chain. After the machine starts, run the separate `current-kernel-post-reboot-verification` acceptance boundary before treating the update as closed. The rollback remains degraded: the 6.18.40 running session and module tree exist before reboot, but its disk kernel and initrd do not.
+
+Step 82 adds no executable code and no new machine-side test. The complete inventory remains 47 suites and 3,228 checks with zero failures; static validation covers 76 shell scripts and 81 JSON files.

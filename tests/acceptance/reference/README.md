@@ -1148,3 +1148,12 @@ Do not reboot immediately after running the command. Copy and verify the generat
 
 The focused step-81 harness contains 68 checks. The complete prepared step-81 inventory contains 47 suites and 3,228 checks with zero failures; static validation covers 76 shell scripts and 80 JSON files.
 
+### Accepted Slackware-current manual-reboot checkpoint (step 82)
+
+The real step-81 reboot review passed all 13 assertions with zero failures. Its archive SHA-256 `e41138a31225a795c65ddf76fa75fde19072f5892c9719af32d06b564027937b` was copied to `/home/promano` and verified. The immutable accepted record is `tests/fixtures/reference/acceptance/normal-update/slackware-current-kernel-post-apply-reboot-review-20260805-accepted.json`.
+
+The accepted record binds the exact review script and policy, the prior safe-pause checkpoint, the 2,040-record installed package database, unchanged boot-sensitive state, and the effective GRUB selector `0`. It preserves the explicit truth that the machine still runs 6.18.40, the reviewed target is 6.18.42, rollback is degraded, and the review itself did not reboot the host. The only authorized next action is one manual reboot to the reviewed generic kernel/initrd pair.
+
+Do not rerun Slackpkg metadata refresh, candidate review, payload review, readiness, apply, recovery verification, or reboot review. After the reboot, the next machine-side boundary is `current-kernel-post-reboot-verification`; only that accepted result may close the update.
+
+Step 82 adds no executable code or new suite. The complete inventory remains 47 suites and 3,228 checks with zero failures; static validation covers 76 shell scripts and 81 JSON files.
