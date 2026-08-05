@@ -18,6 +18,7 @@ REFERENCE_SCRIPT="$REPOSITORY_ROOT/tools/reference/slack-update-reference.sh"
 TARGET=
 OUTPUT_DIR=
 CONFIRM_HOSTNAME=
+CONFIRM_HOSTNAME_FQDN=
 CONFIRM_CANDIDATES_SHA256=
 CONFIRM_TARGET_KERNEL=
 CONFIRM_READINESS_SHA256=
@@ -26,7 +27,8 @@ EXECUTE_AUTHORIZED_APPLY=0
 PASS_COUNT=0
 FAILURE_COUNT=0
 ASSERTION_LOG=
-HOSTNAME_VALUE=
+HOSTNAME_SHORT=
+HOSTNAME_FQDN=
 RUNNING_KERNEL_BEFORE=
 RUNNING_KERNEL_AFTER=
 CHILD_STATUS=-1
@@ -40,18 +42,20 @@ PACKAGE_DATABASE=
 
 print_usage() {
     cat <<EOF_USAGE
-Usage: ${0##*/} --target slackware-current --execute-authorized-apply \\
-                     --confirm-hostname HOSTNAME \\
-                     --confirm-candidates-sha256 SHA256 \\
-                     --confirm-target-kernel VERSION \\
-                     --confirm-readiness-sha256 SHA256 \\
+Usage: ${0##*/} --target slackware-current --execute-authorized-apply \
+                     --confirm-hostname SHORT_HOSTNAME \
+                     --confirm-hostname-fqdn FQDN \
+                     --confirm-candidates-sha256 SHA256 \
+                     --confirm-target-kernel VERSION \
+                     --confirm-readiness-sha256 SHA256 \
                      --confirm-authorization-sha256 SHA256 [options]
 
 Execute the explicitly reviewed Slackware-current 137-package transaction. This
-wrapper binds the accepted final readiness record, validates the exact live
-6.18.40 boot state, and invokes the normal-update acceptance workflow. The child
-workflow refreshes metadata and revalidates the complete candidate digest again
-immediately before it authorizes package installation.
+wrapper binds the accepted final readiness record, validates the exact short
+hostname, FQDN, and live 6.18.40 boot state, and invokes the normal-update
+acceptance workflow. The child workflow refreshes metadata and revalidates the
+complete candidate digest again immediately before it authorizes package
+installation.
 
 A successful result requires the package database to change, the GenInitrd
 policy to be restored, the 6.18.42 kernel and versioned initrd to exist, GRUB to
@@ -61,7 +65,8 @@ remain present. Only then may the result report pause_safe=true.
 Required options:
       --target slackware-current
       --execute-authorized-apply
-      --confirm-hostname HOSTNAME
+      --confirm-hostname SHORT_HOSTNAME
+      --confirm-hostname-fqdn FQDN
       --confirm-candidates-sha256 SHA256
       --confirm-target-kernel VERSION
       --confirm-readiness-sha256 SHA256
@@ -93,6 +98,7 @@ parse_arguments() {
             --target) [ "$#" -ge 2 ] || return 1; TARGET=$2; shift 2 ;;
             --execute-authorized-apply) EXECUTE_AUTHORIZED_APPLY=$((EXECUTE_AUTHORIZED_APPLY + 1)); shift ;;
             --confirm-hostname) [ "$#" -ge 2 ] || return 1; CONFIRM_HOSTNAME=$2; shift 2 ;;
+            --confirm-hostname-fqdn) [ "$#" -ge 2 ] || return 1; CONFIRM_HOSTNAME_FQDN=$2; shift 2 ;;
             --confirm-candidates-sha256) [ "$#" -ge 2 ] || return 1; CONFIRM_CANDIDATES_SHA256=${2,,}; shift 2 ;;
             --confirm-target-kernel) [ "$#" -ge 2 ] || return 1; CONFIRM_TARGET_KERNEL=$2; shift 2 ;;
             --confirm-readiness-sha256) [ "$#" -ge 2 ] || return 1; CONFIRM_READINESS_SHA256=${2,,}; shift 2 ;;
@@ -106,6 +112,8 @@ parse_arguments() {
     [ "$TARGET" = slackware-current ] || return 1
     [ "$EXECUTE_AUTHORIZED_APPLY" -eq 1 ] || return 1
     [ -n "$CONFIRM_HOSTNAME" ] || return 1
+    [ -n "$CONFIRM_HOSTNAME_FQDN" ] || return 1
+    case "$CONFIRM_HOSTNAME$CONFIRM_HOSTNAME_FQDN" in *[[:space:]]*) return 1 ;; esac
     is_sha256 "$CONFIRM_CANDIDATES_SHA256" || return 1
     is_safe_kernel_version "$CONFIRM_TARGET_KERNEL" || return 1
     is_sha256 "$CONFIRM_READINESS_SHA256" || return 1
@@ -122,15 +130,15 @@ require_regular_file() {
 
 validate_reviewed_authorization() {
     python3 - "$READINESS_RECORD" "$AUTHORIZATION_POLICY" "$NORMAL_UPDATE_SCRIPT" "$REFERENCE_SCRIPT" \
-        "$CONFIRM_HOSTNAME" "$CONFIRM_CANDIDATES_SHA256" "$CONFIRM_TARGET_KERNEL" \
+        "$CONFIRM_HOSTNAME" "$CONFIRM_HOSTNAME_FQDN" "$CONFIRM_CANDIDATES_SHA256" "$CONFIRM_TARGET_KERNEL" \
         "$CONFIRM_READINESS_SHA256" "$CONFIRM_AUTHORIZATION_SHA256" <<'PY'
 import hashlib
 import json
 import pathlib
 import sys
 
-(readiness_path, policy_path, normal_path, reference_path, hostname, candidate_sha,
- target_kernel, readiness_sha, authorization_sha) = sys.argv[1:]
+(readiness_path, policy_path, normal_path, reference_path, hostname_short, hostname_fqdn,
+ candidate_sha, target_kernel, readiness_sha, authorization_sha) = sys.argv[1:]
 
 
 def load_regular(path):
@@ -148,7 +156,8 @@ policy = load_regular(policy_path)
 scope = (
     'operation=current-normal-update-authorized-apply\n'
     'target=slackware-current\n'
-    f'hostname={hostname}\n'
+    f'hostname_short={hostname_short}\n'
+    f'hostname_fqdn={hostname_fqdn}\n'
     f'candidate_set_sha256={candidate_sha}\n'
     f'target_kernel={target_kernel}\n'
     f'readiness_archive_sha256={readiness_sha}\n'
@@ -172,7 +181,8 @@ checks = [
     policy.get('target') == 'slackware-current',
     policy.get('reviewed') is True,
     policy.get('authorization_reviewed') is True,
-    policy.get('required_hostname') == hostname,
+    policy.get('required_hostname_short') == hostname_short,
+    policy.get('required_hostname_fqdn') == hostname_fqdn,
     policy.get('candidate_set_sha256') == candidate_sha,
     policy.get('target_kernel') == target_kernel,
     policy.get('accepted_readiness_archive_sha256') == readiness_sha,
@@ -242,8 +252,12 @@ capture_sensitive_state() {
     done
 }
 
+validate_live_host_identity() {
+    [ "$HOSTNAME_SHORT" = "$CONFIRM_HOSTNAME" ] || return 1
+    [ "$HOSTNAME_FQDN" = "$CONFIRM_HOSTNAME_FQDN" ] || return 1
+}
+
 validate_live_pre_state() {
-    [ "$HOSTNAME_VALUE" = "$CONFIRM_HOSTNAME" ] || return 1
     [ "$RUNNING_KERNEL_BEFORE" = 6.18.40 ] || return 1
     [ -L /boot/vmlinuz-generic ] && [ "$(readlink -- /boot/vmlinuz-generic)" = vmlinuz-6.18.40 ] || return 1
     [ "$(sha256sum /boot/vmlinuz-6.18.40 | awk '{print $1}')" = 8899359f0c1f6fc018f8079ba0c76e886b12b8087ff7dccc695c459b40fb9aae ] || return 1
@@ -379,7 +393,8 @@ import json, pathlib
 record = {
   'scenario': 'current-normal-update-authorized-apply',
   'target': '$TARGET',
-  'hostname': '$HOSTNAME_VALUE',
+  'hostname_short': '$HOSTNAME_SHORT',
+  'hostname_fqdn': '$HOSTNAME_FQDN',
   'running_kernel_before': '$RUNNING_KERNEL_BEFORE',
   'running_kernel_after': '$RUNNING_KERNEL_AFTER',
   'target_kernel': '$CONFIRM_TARGET_KERNEL',
@@ -406,7 +421,8 @@ write_summary() {
     {
         printf 'scenario=current-normal-update-authorized-apply\n'
         printf 'target=%s\n' "$TARGET"
-        printf 'hostname=%s\n' "$HOSTNAME_VALUE"
+        printf 'hostname_short=%s\n' "$HOSTNAME_SHORT"
+        printf 'hostname_fqdn=%s\n' "$HOSTNAME_FQDN"
         printf 'result=%s\n' "$result"
         printf 'passes=%d\n' "$PASS_COUNT"
         printf 'failures=%d\n' "$FAILURE_COUNT"
@@ -480,7 +496,8 @@ main() {
     bash -n "$NORMAL_UPDATE_SCRIPT" || { error 'normal-update acceptance script has invalid shell syntax'; return 2; }
     bash -n "$REFERENCE_SCRIPT" || { error 'reference engine has invalid shell syntax'; return 2; }
 
-    HOSTNAME_VALUE=$(hostname)
+    HOSTNAME_SHORT=$(hostname -s)
+    HOSTNAME_FQDN=$(hostname -f)
     RUNNING_KERNEL_BEFORE=$(uname -r)
     PACKAGE_DATABASE=/var/lib/pkgtools/packages
     [ -d "$PACKAGE_DATABASE" ] || PACKAGE_DATABASE=/var/log/packages
@@ -498,10 +515,10 @@ main() {
     else
         record_failure 'the accepted readiness or explicit authorization scope is missing, changed, or mismatched'
     fi
-    if [ "$HOSTNAME_VALUE" = "$CONFIRM_HOSTNAME" ] && [ "$CONFIRM_TARGET_KERNEL" = 6.18.42 ]; then
-        record_pass 'the explicit hostname, candidate, kernel, readiness, and authorization confirmations match the reviewed boundary'
+    if validate_live_host_identity && [ "$CONFIRM_TARGET_KERNEL" = 6.18.42 ]; then
+        record_pass 'the explicit short hostname, FQDN, candidate, kernel, readiness, and authorization confirmations match the reviewed boundary'
     else
-        record_failure 'the explicit host or target confirmation does not match the reviewed boundary'
+        record_failure 'the explicit host identity or target confirmation does not match the reviewed boundary'
     fi
     capture_package_database "$OUTPUT_DIR/packages.before.txt" && capture_sensitive_state "$OUTPUT_DIR/sensitive.before.txt" \
         && record_pass 'the package database and apply-sensitive state were captured before authorization' \
@@ -526,7 +543,7 @@ main() {
     bash "$NORMAL_UPDATE_SCRIPT" \
         --target slackware-current \
         --execute-apply \
-        --confirm-hostname "$CONFIRM_HOSTNAME" \
+        --confirm-hostname "$HOSTNAME_FQDN" \
         --confirm-candidates-sha256 "$CONFIRM_CANDIDATES_SHA256" \
         --allow-kernel-update \
         --confirm-kernel-boot-preflight-sha256 "$CONFIRM_READINESS_SHA256" \

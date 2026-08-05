@@ -297,7 +297,7 @@ A clean readiness result may set `apply_ready=true` and route only to `normal-up
 
 ### Explicit Slackware-current authorized apply
 
-After accepting the rebound readiness evidence, use `test-current-normal-update-authorized-apply.sh` as the only application entry point for this reviewed transaction. Require the exact hostname, 137-candidate digest, target kernel, readiness archive digest, and authorization-scope digest. The wrapper and its policy must remain bound to the exact reference engine and normal-update acceptance script hashes.
+After accepting the rebound readiness evidence, use `test-current-normal-update-authorized-apply.sh` as the only application entry point for this reviewed transaction. Require the exact short hostname, exact FQDN, 137-candidate digest, target kernel, readiness archive digest, and authorization-scope digest. Validate host identity separately from boot state, and pass the verified FQDN to the nested normal-update acceptance workflow. The wrapper and its policy must remain bound to the exact reference engine and normal-update acceptance script hashes.
 
 The wrapper must validate the accepted 6.18.40 live baseline before starting. Its child normal-update acceptance workflow must refresh metadata and compare the complete candidate digest again before calling the reference apply engine. Do not add `--allow-critical-update`; this reviewed transaction contains zero critical candidates. Any candidate drift must block before package mutation.
 

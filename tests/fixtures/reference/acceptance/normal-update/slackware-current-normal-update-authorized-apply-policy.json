@@ -3,7 +3,7 @@
     "apply_authorized_only_with_explicit_scope_confirmation": true,
     "apply_ready": true,
     "authorization_reviewed": true,
-    "authorization_scope_sha256": "a5b925e21e50a13102d7645595405ce1e054ce044bdb3df784d4a9d38256166b",
+    "authorization_scope_sha256": "71e24850bd05106eafad2ffcf95d83d8e3a2991e365e696632777c780f14cc1a",
     "candidate_set_sha256": "27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926",
     "child_apply_options": [
         "--target slackware-current",
@@ -40,10 +40,12 @@
     "postinstall_policy": "defer",
     "postinstall_processing_enabled": false,
     "reference_engine_sha256": "0dc4a4def9b063b9a598975f46e7458c5771eb8d8603f4fa8bbd9dfc07c4d4c6",
-    "required_hostname": "pcold-slack",
+    "required_hostname_fqdn": "pcold-slack.pcold-slack.org",
+    "required_hostname_short": "pcold-slack",
     "required_options": [
         "--execute-authorized-apply",
         "--confirm-hostname",
+        "--confirm-hostname-fqdn",
         "--confirm-candidates-sha256",
         "--confirm-target-kernel",
         "--confirm-readiness-sha256",

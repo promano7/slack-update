@@ -1074,7 +1074,7 @@ A clean run may report `readiness=apply-ready` and `apply-ready=true`, but must 
 
 The focused step-74 harness contains 92 checks. The complete prepared step-74 inventory contains 44 suites and 3,003 checks with zero failures. Static validation covers 70 shell scripts and 71 JSON files.
 
-### Accepted rebound readiness and authorized apply (steps 74-75)
+### Accepted rebound readiness and corrected authorized apply (steps 74-76)
 
 The real step-74 readiness run passed 10 assertions with the exact 137-candidate digest and 69 reviewed cached archives. Outer SHA-256 `d49af0c2f95f6ceaaa6f4073a5567b914f53ee9605724f78fea4a30afc463783` and nested normal-update SHA-256 `be24bafd8d1340ee781a6994835e64298413076e5a1ff9821a8cee3de6a54631` were verified in `/home/promano`. The accepted record deliberately retains `pause_safe=false` and `apply_authorized=false`.
 
@@ -1085,14 +1085,15 @@ sudo bash tests/acceptance/reference/test-current-normal-update-authorized-apply
     --target slackware-current \
     --execute-authorized-apply \
     --confirm-hostname pcold-slack \
+    --confirm-hostname-fqdn pcold-slack.pcold-slack.org \
     --confirm-candidates-sha256 27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926 \
     --confirm-target-kernel 6.18.42 \
     --confirm-readiness-sha256 d49af0c2f95f6ceaaa6f4073a5567b914f53ee9605724f78fea4a30afc463783 \
-    --confirm-authorization-sha256 a5b925e21e50a13102d7645595405ce1e054ce044bdb3df784d4a9d38256166b
+    --confirm-authorization-sha256 71e24850bd05106eafad2ffcf95d83d8e3a2991e365e696632777c780f14cc1a
 ```
 
-This command performs real package changes. The parent validates the exact readiness and authorization records plus the live pre-transaction boot state. The nested normal-update acceptance workflow refreshes metadata and checks the candidate digest again immediately before it invokes the reference engine. Candidate drift blocks before apply. Critical-package authorization is intentionally absent.
+The step-75 run failed closed before package execution because the host returned `pcold-slack.pcold-slack.org` while the command confirmed `pcold-slack`; the duplicate hostname check inside boot validation produced a second misleading failure, but package and boot-sensitive snapshots were identical. Archive SHA-256 `909b7866a06c1f5d0cd53193af5b8e9c6f4d6ac4145f12491bc0265c9ca849b2` was verified in `/home/promano`. The corrected step-76 command performs real package changes. The parent validates the short hostname and FQDN independently, then validates the exact readiness and authorization records plus the live pre-transaction boot state. The nested normal-update acceptance workflow refreshes metadata and checks the candidate digest again immediately before it invokes the reference engine. Candidate drift blocks before apply. Critical-package authorization is intentionally absent.
 
 A clean result is expected to report 16 passes, zero failures, `transaction_status=applied-and-boot-prepared`, `apply_authorized=true`, `pause_safe=true`, and `next_stage=current-kernel-post-apply-verification`. It must preserve the old 6.18.40 kernel/initrd/modules, keep the current session on 6.18.40 pending reboot, install and validate the complete 6.18.42 kernel/initrd/modules pair, restore GenInitrd policy, and atomically install a GRUB configuration containing both target paths. Copy the final archive and sidecar directly to `/home/promano` and verify them there before reboot or further work.
 
-The focused authorized-apply harness contains 71 checks. The complete prepared step-75 inventory contains 45 suites and 3,076 checks with zero failures; static validation covers 72 shell scripts and 73 JSON files.
+The corrected focused authorized-apply harness contains 81 checks. The complete prepared step-76 inventory contains 45 suites and 3,086 checks with zero failures; static validation covers 72 shell scripts and 74 JSON files, including the rejected diagnostic record and corrected policy.
