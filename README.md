@@ -2447,3 +2447,15 @@ The command does not call Slackpkg, install or remove packages, generate an init
 A successful real run must report 14 passes, zero failures, `running_kernel=6.18.42`, `rollback_state=degraded-modules-only`, `pause_safe=true`, `reboot_verified=true`, `update_closed=true`, and `next_stage=optional-rollback-reconstruction-review`. This closes the mandatory 6.18.42 update chain. Reconstructing a complete rollback kernel and initrd remains optional and requires a separate reviewed boundary.
 
 The focused step-84 harness contains 83 checks. The complete prepared step-84 inventory contains 48 suites and 3,311 checks with zero failures; static validation covers 78 shell scripts and 83 JSON files.
+
+### Accepted Slackware-current post-reboot closure checkpoint (step 85)
+
+The corrected real verification passed all 14 assertions with zero failures. Its archive SHA-256 `5d6fe97ddd81d1c99d0dd807127d6e98b8479d8e719d6c6ffb346fe167c915eb` was copied directly to `/home/promano` and verified there. The immutable accepted record is `tests/fixtures/reference/acceptance/normal-update/slackware-current-kernel-post-reboot-verification-20260805-accepted.json`, with SHA-256 `2735cb3f3a30270432984661dfcdcd5a3e3787190c34867a01651ffcfaaa678a`.
+
+The record proves the active kernel and osrelease are 6.18.42, `BOOT_IMAGE=/boot/vmlinuz-generic`, the reviewed root UUID and nonzero boot ID are valid, the exact 2,040 package records remain installed, the target kernel/initrd/module tree and generic links are correct, GenInitrd controls retain their accepted identities, and the unchanged GRUB configuration selects the reviewed generic kernel/initrd pair with selector `0` and no `next_entry`. Package and sensitive snapshots are byte-identical before and after verification, so the host was not mutated.
+
+The accepted boundary records `pause_safe=true`, `reboot_verified=true`, `update_closed=true`, `mandatory_work_remaining=false`, `rollback_state=degraded-modules-only`, and `next_stage=optional-rollback-reconstruction-review`. No further mandatory test, metadata refresh, package operation, GRUB regeneration, or reboot belongs to this update chain. Later Slackware-current publications do not invalidate this closure or require the completed chain to be repeated. A future normal update starts a new chain.
+
+Rollback reconstruction for 6.18.40 is optional and separate because only its module tree remains. The machine may remain at this safe checkpoint indefinitely before that optional work is considered.
+
+Step 85 adds no executable code or new suite. The complete inventory remains 48 suites and 3,311 checks with zero failures; static validation covers 78 shell scripts and 84 JSON files.

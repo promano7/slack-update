@@ -1189,3 +1189,13 @@ All other requirements remain unchanged: exact live 6.18.42 identity, exact 2,04
 A clean result reports 14 passes, zero failures, `pause_safe=true`, `reboot_verified=true`, `update_closed=true`, and `next_stage=optional-rollback-reconstruction-review`. Copy the generated archive and sidecar directly to `/home/promano`, verify the sidecar there, and retain the complete terminal output for the final immutable checkpoint.
 
 The focused step-84 harness contains 83 checks. The complete prepared step-84 inventory contains 48 suites and 3,311 checks with zero failures; static validation covers 78 shell scripts and 83 JSON files.
+
+### Accepted post-reboot closure checkpoint (step 85)
+
+The corrected real `current-kernel-post-reboot-verification` run passed all 14 assertions with zero failures. Archive SHA-256 `5d6fe97ddd81d1c99d0dd807127d6e98b8479d8e719d6c6ffb346fe167c915eb` was copied to `/home/promano` and verified. The immutable accepted record is `tests/fixtures/reference/acceptance/normal-update/slackware-current-kernel-post-reboot-verification-20260805-accepted.json`, SHA-256 `2735cb3f3a30270432984661dfcdcd5a3e3787190c34867a01651ffcfaaa678a`.
+
+Accepted facts include live kernel and osrelease 6.18.42, architecture `x86_64`, a nonzero boot ID, `BOOT_IMAGE=/boot/vmlinuz-generic`, root UUID `ba7632d7-7469-483e-830d-59c88d985866`, the exact 2,040-record installed transaction, target kernel/initrd/modules and generic links, restored GenInitrd controls, unchanged GRUB SHA-256 `5fdff76d42ddec26b0c212668c4981a9ea2853a98b3260f33850c91ccf8ac247`, selector `0`, no active `next_entry`, and rollback state `degraded-modules-only`. Package and sensitive before/after snapshots are byte-identical.
+
+This closes the mandatory Slackware-current update boundary with `pause_safe=true`, `reboot_verified=true`, `update_closed=true`, and `mandatory_work_remaining=false`. No previous acceptance stage must be rerun because of later repository publications. The only declared continuation is the separate and optional `optional-rollback-reconstruction-review`.
+
+Step 85 adds only the accepted JSON record and documentation. The inventory remains 48 suites and 3,311 checks with zero failures; static validation covers 78 shell scripts and 84 JSON files.
