@@ -1941,8 +1941,9 @@ Slack-Update 1.0 will be ready when:
   - [x] Run corrected readiness and retain the safe block caused by the 137-candidate userspace expansion.
   - [x] Classify and accept the 137-candidate userspace-only refresh.
   - [x] Review and accept the exact identities of the 68 added userspace packages for kernel-evidence rebind.
-  - [ ] Rebind the seven accepted kernel evidence records to the 137-candidate digest.
-  - [ ] Complete the separate userspace payload review required after rebind.
+  - [x] Rebind the seven accepted kernel evidence records to the 137-candidate digest.
+  - [ ] Inspect the exact 68 added userspace package archives without installation.
+  - [ ] Review the captured userspace maintainer scripts and configuration effects.
   - [ ] Repeat transaction readiness against the rebound candidate digest.
   - [ ] Grant a separate explicit apply authorization only after accepted readiness evidence.
   - [x] Review and accept the ten-package Slackware-current transaction as package and boot evidence.
@@ -2205,3 +2206,22 @@ The rebind stage validates the accepted userspace review, the explicit rebind po
 A clean result records `kernel_evidence_rebound=true` and changes only the candidate binding from `918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9` to `27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926`. It must still report `package_payloads_inspected=false`, `userspace_apply_review_complete=false`, `userspace_payload_review_required=true`, `apply_ready=false`, and `apply_authorized=false`, and route only to `current-userspace-payload-review-preflight`. Copy the final archive and sidecar directly to `/home/promano` and verify them there.
 
 The step-66 repository inventory contains 39 suites and 2,653 checks with zero failures. The kernel evidence rebind harness contributes 62 checks.
+
+The real step-66 run passed all 12 outer assertions plus the nested six-pass normal-update preflight. Outer archive SHA-256 `38a79511d6c17686b3a2b3e8c349c2c199264849ca1fd0222135d0ab1f00b482` and nested archive SHA-256 `24e8e2146029e9f4aadcf189acee5ababec7ecb89395074517363489aa83556e` were copied and verified in `/home/promano`. The accepted record is `tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-evidence-rebind-20260805-accepted.json`.
+
+### Phase 1 step 67: exact userspace payload archive review
+
+Run only after accepting the step-66 rebind:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-userspace-payload-review-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926 \
+    --confirm-target-kernel 6.18.42
+```
+
+The preflight reruns the exact 137-candidate normal-update preflight, resolves all 68 added packages in live Slackpkg metadata, downloads only exact missing archives into the normal Slackpkg cache, and inspects each `.txz` without installing it. It rejects unsafe or duplicate members, device and FIFO entries, escaping links, setuid/setgid modes, kernel/initrd/pkgtools payloads, and unreviewed GRUB files. `breeze-grub` is confined to `usr/share/grub/themes/breeze/`. Package SHA-256 values, complete member inventories, ELF/config/service counts, and every `install/doinst.sh` are preserved inside the evidence; maintainer scripts receive syntax checks only and are never executed.
+
+A clean result may report `package_payloads_inspected=true`, `payload_path_review_complete=true`, and `next_stage=current-userspace-maintainer-script-review-preflight`. It must still report `maintainer_scripts_review_complete=false`, `userspace_apply_review_complete=false`, `apply_ready=false`, and `apply_authorized=false`. Copy the final archive and sidecar directly to `/home/promano`, verify the sidecar there, and do not run readiness or apply.
+
+The step-67 repository inventory contains 40 suites and 2,709 checks with zero failures. The userspace payload review harness contributes 56 checks.

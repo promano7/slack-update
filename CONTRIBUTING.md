@@ -120,11 +120,14 @@ Before submitting a change to the reference script:
 35. Run `tests/reference/test-current-geninitrd-post-state.sh` when generated-initrd expectation, post-update kernel ownership, versioned initrd validation, named initrd links, legacy-initrd exclusion, or kernel-plus-initrd GRUB validation is affected.
 36. Run `tests/reference/test-current-candidate-chain-refresh-preflight-harness.sh` when fresh Slackware-current metadata refresh, embedded preflight composition, candidate-set hashing, exact kernel-transaction comparison, userspace-only expansion classification, critical-candidate validation, stale-chain classification, or no-apply evidence publication is affected.
 37. Run `tests/reference/test-current-kernel-chain-restart-preflight-harness.sh` when accepted refresh/normal-update/boot binding, corrected GenInitrd-versioned boot composition, nested target-image metadata or initrd digest, diagnostic restart evidence, nested archive verification, or restarted-chain no-apply boundaries are affected.
-38. Confirm that destructive commands are not exercised outside an isolated or explicitly recoverable Slackware test system.
-39. Record the relevant acceptance scenario.
-40. Preserve deterministic output and exit-code behavior.
-41. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
-42. Ensure every new or modified comment is written in English.
+38. Run `tests/reference/test-current-userspace-candidate-review-preflight-harness.sh` when exact userspace-expansion identity, category boundaries, kernel-evidence rebind eligibility, nested preflight composition, or no-apply review constraints are affected.
+39. Run `tests/reference/test-current-kernel-evidence-rebind-preflight-harness.sh` when accepted userspace review linkage, candidate-binding-only maps, live kernel/GenInitrd/DKMS/GRUB revalidation, or rebound no-apply boundaries are affected.
+40. Run `tests/reference/test-current-userspace-payload-review-preflight-harness.sh` when exact archive downloads, package-cache resolution, archive path or link safety, GRUB-theme confinement, maintainer-script capture, or payload-review boundaries are affected.
+41. Confirm that destructive commands are not exercised outside an isolated or explicitly recoverable Slackware test system.
+42. Record the relevant acceptance scenario.
+43. Preserve deterministic output and exit-code behavior.
+44. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
+45. Ensure every new or modified comment is written in English.
 
 Never run the apply workflow on a production machine merely to validate a contribution.
 
@@ -241,3 +244,9 @@ The reviewed policy must enumerate every added package exactly once, preserve th
 After accepting the userspace identity review, use `test-current-kernel-evidence-rebind-preflight.sh` to create a new candidate binding. The rebind must validate the accepted review archive and nested archive, every accepted kernel evidence archive, the exact source and destination candidate digests, and a checked-in policy that permits only the binding change. It must rerun the normal-update preflight, require the exact fresh candidate list, and revalidate the cached target package plus the live kernel, versioned initrd, GenInitrd policy, DKMS no-op state, and same-menuentry GRUB pair.
 
 The original evidence records remain immutable and continue to contain the source candidate digest. The rebind output is a separate map that records both digests and all accepted archive hashes. It must retain `package_payloads_inspected=false`, `userspace_apply_review_complete=false`, `userspace_payload_review_required=true`, `apply_ready=false`, and `apply_authorized=false`, and may route only to a separate userspace payload review. Copy and verify the final evidence directly in `/home/promano` before continuing.
+
+### Userspace package-payload archive review
+
+After the explicit rebind is accepted, use `test-current-userspace-payload-review-preflight.sh` to inspect the exact added package archives. The preflight must rerun normal-update only in `--preflight` mode, require the exact rebound candidate digest, resolve one live Slackpkg record per reviewed filename, and download only exact missing package stems. Package downloads are cache population only; no package-manager install, upgrade, or removal operation is permitted.
+
+Every `.txz` must be inspected without extraction into the host. Reject absolute or traversing paths, duplicate members, devices, FIFOs, unsupported member types, escaping links, setuid/setgid modes, kernel/module/initrd/pkgtools payloads, and GRUB content outside the explicitly reviewed Breeze theme prefix. Record each archive SHA-256 and complete inventory. Copy `install/doinst.sh` files only into the evidence directory, validate syntax without execution, and preserve a separate maintainer-script review boundary. A payload-path pass must still retain `maintainer_scripts_review_complete=false`, `userspace_apply_review_complete=false`, `apply_ready=false`, and `apply_authorized=false`. Copy the resulting archive and sidecar directly to `/home/promano`, set `promano:users` ownership, and verify the sidecar before continuing.

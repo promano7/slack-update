@@ -951,3 +951,20 @@ The wrapper validates the accepted step-65 archive, nested normal-update archive
 A safe run is expected to report 12 passes, zero failures, `kernel-evidence-rebound=true`, `candidate-binding-change-only=true`, `userspace-payload-review-required=true`, `next-stage=current-userspace-payload-review-preflight`, `apply-ready=false`, and `apply-authorized=false`. Use the final printed command to copy the outer archive and sidecar directly to `/home/promano` with `promano:users` ownership, then verify the sidecar there. Do not run readiness or apply from this stage.
 
 The focused harness contains 62 checks. The complete step-66 inventory contains 39 suites and 2,653 checks with zero failures.
+
+### Slackware-current userspace payload review preflight (step 67)
+
+After accepting the step-66 rebind, run:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-userspace-payload-review-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926 \
+    --confirm-target-kernel 6.18.42
+```
+
+The wrapper validates the accepted userspace review and rebind records, invokes normal-update only with `--preflight`, requires the exact 137 candidates, and verifies the nested archive. It resolves exactly 68 live repository records and downloads only missing exact package stems through Slackpkg. It then inspects all cached archives without installation or host extraction, writes package SHA-256 values and complete member inventories, and copies any `install/doinst.sh` into the evidence directory for syntax-only checking.
+
+A safe archive review rejects absolute or traversing paths, duplicate members, devices, FIFOs, escaping links, setuid/setgid payloads, kernel/module/initrd/pkgtools paths, and any GRUB path outside the reviewed `breeze-grub` theme prefix. A clean run is expected to report 16 passes, zero failures, `package_payloads_inspected=true`, `payload_path_review_complete=true`, `maintainer_scripts_review_complete=false`, `userspace_apply_review_complete=false`, `next-stage=current-userspace-maintainer-script-review-preflight`, `apply-ready=false`, and `apply-authorized=false`. Use the final printed command to copy the outer archive and sidecar directly to `/home/promano` with `promano:users` ownership, then verify the sidecar there. Do not execute captured maintainer scripts, readiness, or apply.
+
+The focused harness contains 56 checks. The complete step-67 inventory contains 40 suites and 2,709 checks with zero failures.
