@@ -1932,7 +1932,9 @@ Slack-Update 1.0 will be ready when:
   - [x] Reject the first `6.18.42` chain restart because target file inventory was required before the exact-package stage.
   - [x] Repeat and accept the corrected target-bound boot restart and exact `kernel-generic-6.18.42` package evidence.
   - [x] Repeat and accept the GenInitrd policy evidence for `6.18.42`.
-  - [ ] Repeat DKMS, command, and GRUB-ownership evidence for `6.18.42`.
+  - [x] Repeat and accept DKMS, command, and GRUB-ownership evidence for `6.18.42`.
+  - [ ] Run and review the final non-installing `6.18.42` transaction-readiness preflight.
+  - [ ] Grant a separate explicit apply authorization only after accepted readiness evidence.
   - [x] Review and accept the ten-package Slackware-current transaction as package and boot evidence.
   - [ ] Revalidate the hardened deferred `.new` policy on the next Slackware-current update.
   - [x] Reject the 2026-08-03 Slackware-current diagnostic whose parser omitted the `x86` `kernel-headers` candidate.
@@ -1959,4 +1961,20 @@ sudo bash tests/acceptance/reference/test-current-geninitrd-grub-ownership-prefl
     --confirm-target-kernel 6.18.42
 ```
 
-This stage binds all seven accepted records, proves that an environment-only override cannot suppress package-owned `update-grub`, and prepares only an evidence-local copy whose sole active change is `AUTO_UPDATE_GRUB=false`. It records twelve future transaction stages and five recovery boundaries without changing `/etc/default/geninitrd`, packages, initrd files, or GRUB. The result remains `apply_ready=false` and `apply_authorized=false`. Copy the generated `.tar.gz` and `.sha256` directly to `/home/promano` using the printed command and verify them there.
+This stage binds all seven accepted records, proves that an environment-only override cannot suppress package-owned `update-grub`, and prepares only an evidence-local copy whose sole active change is `AUTO_UPDATE_GRUB=false`. The real run passed all 11 assertions, preserved all sensitive state, and produced verified archive SHA-256 `f906211517c8887e52b2842ff8756973bf9ef5fa4af378a6c830226befe1d522`. The result remains `apply_ready=false` and `apply_authorized=false`; the accepted record advances to the step-53 readiness review.
+
+
+### Phase 1 step 53: final Slackware-current kernel transaction readiness preflight
+
+Run this final non-installing review only after all `6.18.42` evidence records are accepted:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-kernel-transaction-readiness-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+The wrapper binds the accepted normal-update, boot, chain-restart, exact-package, GenInitrd-policy, no-op DKMS, command, and GRUB-ownership records. It also binds the target-specific synthetic post-state contract and the exact reference-engine SHA-256. It then repeats the existing normal-update preflight, requires exact equality with all 69 reviewed candidates, verifies the cached `kernel-generic` package, direct-generic boot layout, active GenInitrd policy, reviewed hooks, zero-row DKMS state, generator and setup scripts, and syntax-valid active GRUB configuration.
+
+A completely clean result may report `apply_ready=true`, but it always reports `apply_authorized=false`, executes no package transaction, and performs no initrd, DKMS, or GRUB mutation. Apply still requires a later explicit authorization and the normal-update apply path must refresh and compare candidates again. Copy the outer archive and portable sidecar directly to `/home/promano` and verify them there.

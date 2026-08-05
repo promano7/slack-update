@@ -1,0 +1,57 @@
+{
+  "scenario": "current-geninitrd-grub-ownership-preflight",
+  "target": "slackware-current",
+  "accepted": true,
+  "captured_at": "2026-08-04T23:47:29Z",
+  "archive_sha256": "f906211517c8887e52b2842ff8756973bf9ef5fa4af378a6c830226befe1d522",
+  "normal_update_candidate_set_sha256": "918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9",
+  "boot_preflight_archive_sha256": "be201626afc4b4aa2f9b59d7c10429e083094989b8c172530348aad95ab4fc32",
+  "chain_restart_archive_sha256": "77618b808093f3e5349f5a6e076a110b56876a7ed08878d89c71a78fc594de51",
+  "package_preflight_archive_sha256": "44c18026052a7d7b0d5e385258389f8bc73beefe9ac35c2a2777707df17c4f57",
+  "policy_preflight_archive_sha256": "873c7779dcef6f16d72d809704ca732809e6d5db5b1668f6a4942662b97c54ca",
+  "dkms_preflight_archive_sha256": "c943b3c25703fc395cfba6708a9c6122b033f82876795053f39a6d8e61ff5074",
+  "command_preflight_archive_sha256": "be239e39372ad807be01199051730dbaf2602b962ceebea68b864e5951c78682",
+  "running_kernel": "6.18.40",
+  "target_kernel": "6.18.42",
+  "package": {
+    "filename": "kernel-generic-6.18.42-x86_64-1.txz",
+    "sha256": "e9e7a1c5c71c945ee99595868aa8fee8a644b56601ece0c3e5696d643fe84878"
+  },
+  "active_policy": {
+    "path": "/etc/default/geninitrd",
+    "sha256": "b779a2b578515a9e2059047311bf817723183b90707f1e31ce67bd96fd19b283",
+    "auto_update_grub": true
+  },
+  "staged_policy": {
+    "sha256": "5502efc45c5076e30de869fe4f0b3e5e79d322a19bf2311f153b47a9c68366ab",
+    "only_change": "AUTO_UPDATE_GRUB=true -> AUTO_UPDATE_GRUB=false"
+  },
+  "strategy": "temporary-atomic-policy-override",
+  "environment_override_safe": false,
+  "transaction": {
+    "step_count": 12,
+    "recovery_boundary_count": 5,
+    "update_grub_suppressed_during_package_transaction": true,
+    "slack_update_owns_grub_regeneration": true,
+    "restore_original_policy_required": true,
+    "requires_final_candidate_revalidation": true,
+    "requires_separate_apply_authorization": true
+  },
+  "commands_executed": [],
+  "mutations_performed": [],
+  "package_database_unchanged": true,
+  "boot_policy_and_grub_state_unchanged": true,
+  "assertions": {
+    "passes": 11,
+    "failures": 0
+  },
+  "evidence": {
+    "portable_sha256_sidecar": true,
+    "copied_to": "/home/promano",
+    "destination_verification": "passed"
+  },
+  "apply_ready": false,
+  "apply_authorized": false,
+  "next_stage": "current-kernel-transaction-readiness-preflight",
+  "executed_preflight_sha256": "069accd888830fc5897e0e663acacc22c2b289577695accdae4ed04ff676000f"
+}

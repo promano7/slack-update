@@ -756,3 +756,17 @@ sudo bash tests/acceptance/reference/test-current-geninitrd-grub-ownership-prefl
 ```
 
 The preflight binds seven accepted records, verifies the installed GenInitrd control flow, and creates an evidence-local staged policy whose only active change is `AUTO_UPDATE_GRUB=true` to `AUTO_UPDATE_GRUB=false`. It emits the reviewed twelve-stage transaction and five recovery boundaries, but never edits the active policy, installs packages, generates an initrd, or invokes GRUB tools. The result must remain `apply_ready=false` and `apply_authorized=false`. Copy the archive and portable sidecar directly to `/home/promano` and verify them there.
+
+
+### Slackware-current final kernel transaction readiness preflight (step 53)
+
+After the accepted step-52 ownership archive SHA-256 `f906211517c8887e52b2842ff8756973bf9ef5fa4af378a6c830226befe1d522` is recorded, run:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-kernel-transaction-readiness-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+The preflight runs only the embedded normal-update `--preflight`, requires exact equality with the accepted 69-candidate set, verifies the portable nested archive, and rechecks the exact cached package, current direct-generic boot, active GenInitrd policy, reviewed scripts and hooks, zero-row DKMS state, and syntax-valid GRUB configuration. It captures package and transaction-sensitive state before and after. A clean result reports `apply_ready=true` and `apply_authorized=false`; it does not run package installation, `mkinitrd`, `geninitrd`, DKMS build/install, `update-grub`, or `grub-mkconfig`. Copy the final archive and `.sha256` directly to `/home/promano` with the printed command and verify them there.
