@@ -152,3 +152,17 @@ A pull request should include:
 - any remaining risks or follow-up work.
 
 Keep unrelated changes in separate pull requests and commits.
+
+### Rebuilt Slackware-current exact-package evidence (step 57)
+
+After accepting the corrected step-56 GenInitrd-aware chain restart, run only:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-kernel-package-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+The preflight must fail before package download if the accepted boot or chain records drift, or if the live generic kernel, named initrd, versioned initrd, GenInitrd policy, or active GRUB pairing differs from the accepted baseline. It may download and inspect the exact `.txz`, but must not execute `doinst.sh`, install packages, run `geninitrd` or `mkinitrd`, or replace GRUB state. Copy the generated `.tar.gz` and `.sha256` directly to `/home/promano` with `promano:users` ownership and verify the portable sidecar there. Do not advance to the policy preflight until the evidence is reviewed and recorded as accepted.
+

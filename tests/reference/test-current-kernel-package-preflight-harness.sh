@@ -56,6 +56,11 @@ assert_contains 'APPLY_READY=false' "$SCRIPT" 'apply readiness must remain false
 assert_contains 'APPLY_AUTHORIZED=false' "$SCRIPT" 'apply authorization must remain false'
 assert_contains 'grub-mkconfig -o "$output"' "$SCRIPT" 'GRUB discovery must write only to the supplied evidence path'
 assert_contains 'live Slackpkg metadata still exposes exactly the reviewed kernel-generic package' "$SCRIPT" 'live metadata must gate the download'
+assert_contains 'validate_live_geninitrd_baseline' "$SCRIPT" 'the corrected GenInitrd baseline must gate the download'
+assert_contains '/boot/initrd-generic.img' "$SCRIPT" 'the named initrd must be part of the package preflight boundary'
+assert_contains 'recognized-generic-kernel-transition-with-conditional-geninitrd' "$SCRIPT" 'the package policy must not describe the revoked direct-boot baseline'
+assert_not_contains 'DEFAULT_BOOT_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-boot-preflight-20260804-accepted.json"' "$SCRIPT" 'the revoked boot record must not be the default'
+assert_not_contains 'DEFAULT_CHAIN_RESTART="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-chain-restart-20260804-accepted.json"' "$SCRIPT" 'the revoked chain record must not be the default'
 assert_contains 'return 1' "$SCRIPT" 'precondition failures must stop before download'
 assert_contains 'sha256sum -c' "$SCRIPT" 'portable evidence verification should be printed'
 
@@ -65,21 +70,98 @@ is_sha256 "$(printf 'a%.0s' {1..64})" && pass || fail 'a valid SHA-256 should be
 is_sha256 abc && fail 'a short SHA-256 should be rejected' || pass
 
 NORMAL_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260804-accepted.json"
-BOOT_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-boot-preflight-20260804-accepted.json"
+BOOT_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-boot-preflight-20260805-accepted.json"
 CONFIRM_CANDIDATES_SHA256=918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9
 TARGET_KERNEL=6.18.42
-CHAIN_RESTART="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-chain-restart-20260804-accepted.json"
-assert_success 'the accepted candidate, boot, and restarted-chain records should match the exact transaction' validate_accepted_records
+CHAIN_RESTART="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-chain-restart-20260805-accepted.json"
+assert_success 'the accepted candidate, corrected boot, and restarted-chain records should match the exact transaction' validate_accepted_records
 cp "$BOOT_PREFLIGHT" "$TMP/boot-mismatch.json"
 sed -i 's/6.18.42/6.18.43/' "$TMP/boot-mismatch.json"
 BOOT_PREFLIGHT="$TMP/boot-mismatch.json"
 assert_failure 'a mismatched boot record should fail closed' validate_accepted_records
-BOOT_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-boot-preflight-20260804-accepted.json"
+BOOT_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-boot-preflight-20260805-accepted.json"
+cp "$BOOT_PREFLIGHT" "$TMP/boot-mode-mismatch.json"
+sed -i 's/geninitrd-managed-versioned-initrd/direct-generic-no-initrd/' "$TMP/boot-mode-mismatch.json"
+BOOT_PREFLIGHT="$TMP/boot-mode-mismatch.json"
+assert_failure 'the revoked direct-generic boot mode should fail closed' validate_accepted_records
+BOOT_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-boot-preflight-20260805-accepted.json"
 cp "$CHAIN_RESTART" "$TMP/chain-mismatch.json"
 sed -i 's/6.18.42/6.18.43/g' "$TMP/chain-mismatch.json"
 CHAIN_RESTART="$TMP/chain-mismatch.json"
 assert_failure 'a mismatched restarted-chain record should fail closed' validate_accepted_records
-CHAIN_RESTART="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-chain-restart-20260804-accepted.json"
+CHAIN_RESTART="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-chain-restart-20260805-accepted.json"
+cp "$CHAIN_RESTART" "$TMP/chain-initrd-mismatch.json"
+sed -i 's/0da0e0289d93cdf2d3b78288bfa23db4c9437b576563f92889399b2c98294442/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/' "$TMP/chain-initrd-mismatch.json"
+CHAIN_RESTART="$TMP/chain-initrd-mismatch.json"
+assert_failure 'a restarted chain bound to another initrd should fail closed' validate_accepted_records
+CHAIN_RESTART="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-chain-restart-20260805-accepted.json"
+
+BASELINE_ROOT=$TMP/baseline-root
+mkdir -p "$BASELINE_ROOT/boot/grub" "$BASELINE_ROOT/etc/default"
+printf 'kernel baseline\n' > "$BASELINE_ROOT/boot/vmlinuz-6.18.40"
+ln -s vmlinuz-6.18.40 "$BASELINE_ROOT/boot/vmlinuz-generic"
+printf 'versioned initrd baseline\n' > "$BASELINE_ROOT/boot/initrd-6.18.40.img"
+ln -s initrd-6.18.40.img "$BASELINE_ROOT/boot/initrd-generic.img"
+cat > "$BASELINE_ROOT/etc/default/geninitrd" <<'EOF_POLICY'
+AUTOGENERATE_INITRD=true
+GENINITRD_NAMED_SYMLINK=true
+GENINITRD_INITRD_GZ_SYMLINK=false
+EOF_POLICY
+cat > "$BASELINE_ROOT/boot/grub/grub.cfg" <<'EOF_GRUB'
+menuentry 'Slackware generic' {
+  linux /boot/vmlinuz-generic root=/dev/sda2 ro
+  initrd /boot/intel-ucode.img /boot/initrd-generic.img
+}
+EOF_GRUB
+chmod 0644 "$BASELINE_ROOT/boot/vmlinuz-6.18.40" "$BASELINE_ROOT/boot/initrd-6.18.40.img" \
+    "$BASELINE_ROOT/etc/default/geninitrd" "$BASELINE_ROOT/boot/grub/grub.cfg"
+SYNTHETIC_BOOT=$TMP/synthetic-boot.json
+python3 - "$BOOT_PREFLIGHT" "$BASELINE_ROOT" "$SYNTHETIC_BOOT" <<'PY_BASELINE_RECORD'
+import hashlib, json, pathlib, sys
+source, root_text, output = sys.argv[1:]
+root = pathlib.Path(root_text)
+data = json.load(open(source, encoding='utf-8'))
+def digest(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+data['generic_kernel_sha256'] = digest(root / 'boot/vmlinuz-6.18.40')
+data['versioned_initrd_sha256'] = digest(root / 'boot/initrd-6.18.40.img')
+data['versioned_initrd_size'] = (root / 'boot/initrd-6.18.40.img').stat().st_size
+data['active_grub_sha256'] = digest(root / 'boot/grub/grub.cfg')
+pathlib.Path(output).write_text(json.dumps(data, indent=2) + '\n', encoding='utf-8')
+PY_BASELINE_RECORD
+grub-script-check() { return 0; }
+assert_success 'a synthetic corrected GenInitrd baseline should validate' validate_live_geninitrd_baseline "$SYNTHETIC_BOOT" "$BASELINE_ROOT" "$TMP/live-baseline.txt"
+assert_contains 'boot_mode=geninitrd-managed-versioned-initrd' "$TMP/live-baseline.txt" 'the corrected boot mode should be recorded'
+assert_contains 'named_initrd_target=initrd-6.18.40.img' "$TMP/live-baseline.txt" 'the named initrd target should be recorded'
+assert_contains 'versioned_initrd_sha256=' "$TMP/live-baseline.txt" 'the live initrd hash should be recorded'
+cat > "$TMP/grub-pair.cfg" <<'EOF_PAIR'
+menuentry 'paired' {
+  linux /boot/vmlinuz-generic root=/dev/sda2
+  initrd /boot/initrd-generic.img
+}
+EOF_PAIR
+assert_success 'one menuentry pairing the generic kernel and named initrd should validate' validate_grub_kernel_initrd_pair "$TMP/grub-pair.cfg" /boot/vmlinuz-generic /boot/initrd-generic.img
+cat > "$TMP/grub-split.cfg" <<'EOF_SPLIT'
+menuentry 'kernel only' {
+  linux /boot/vmlinuz-generic root=/dev/sda2
+}
+menuentry 'initrd only' {
+  linux /boot/vmlinuz-6.18.40 root=/dev/sda2
+  initrd /boot/initrd-generic.img
+}
+EOF_SPLIT
+assert_failure 'kernel and initrd in different menuentries should fail closed' validate_grub_kernel_initrd_pair "$TMP/grub-split.cfg" /boot/vmlinuz-generic /boot/initrd-generic.img
+printf 'changed initrd\n' > "$BASELINE_ROOT/boot/initrd-6.18.40.img"
+assert_failure 'a changed versioned initrd should fail closed' validate_live_geninitrd_baseline "$SYNTHETIC_BOOT" "$BASELINE_ROOT" "$TMP/live-baseline.txt"
+printf 'versioned initrd baseline\n' > "$BASELINE_ROOT/boot/initrd-6.18.40.img"
+rm "$BASELINE_ROOT/boot/initrd-generic.img"
+ln -s initrd-6.18.41.img "$BASELINE_ROOT/boot/initrd-generic.img"
+assert_failure 'a named initrd link to another version should fail closed' validate_live_geninitrd_baseline "$SYNTHETIC_BOOT" "$BASELINE_ROOT" "$TMP/live-baseline.txt"
+rm "$BASELINE_ROOT/boot/initrd-generic.img"
+ln -s initrd-6.18.40.img "$BASELINE_ROOT/boot/initrd-generic.img"
+sed -i 's/AUTOGENERATE_INITRD=true/AUTOGENERATE_INITRD=false/' "$BASELINE_ROOT/etc/default/geninitrd"
+assert_failure 'a disabled GenInitrd policy should fail closed' validate_live_geninitrd_baseline "$SYNTHETIC_BOOT" "$BASELINE_ROOT" "$TMP/live-baseline.txt"
+sed -i 's/AUTOGENERATE_INITRD=false/AUTOGENERATE_INITRD=true/' "$BASELINE_ROOT/etc/default/geninitrd"
 
 OUT=$TMP/out
 mkdir "$OUT"
@@ -105,7 +187,7 @@ assert_contains 'lib/modules/6.18.42/kernel/drivers/test/test.ko' "$OUT/members"
 assert_contains 'initrd_members=0' "$OUT/package-summary" 'the package should not contain an initrd'
 assert_contains 'sha256=' "$OUT/package-summary" 'the package hash should be recorded'
 assert_success 'the recognized doinst policy should validate' validate_doinst_policy "$OUT/doinst" 6.18.42 "$OUT/doinst-policy"
-assert_contains 'policy=recognized-direct-generic-transition-with-conditional-geninitrd' "$OUT/doinst-policy" 'the direct transition and conditional hook should be explicit'
+assert_contains 'policy=recognized-generic-kernel-transition-with-conditional-geninitrd' "$OUT/doinst-policy" 'the generic transition and conditional hook should be explicit'
 assert_contains 'postinstall_hook=conditional-geninitrd' "$OUT/doinst-policy" 'the conditional geninitrd hook should be recorded'
 assert_contains 'host_policy_preflight_required=true' "$OUT/doinst-policy" 'host policy review should be mandatory'
 assert_contains 'executed=false' "$OUT/doinst-policy" 'the package script should be recorded as unexecuted'
@@ -218,10 +300,13 @@ fi
 EOF_DOUBLEHOOK
 assert_failure 'duplicate geninitrd invocations should fail closed' validate_doinst_policy "$OUT/doinst.doublehook" 6.18.42 "$OUT/bad-policy"
 
-assert_contains '"apply_ready": false' "$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-boot-preflight-20260804-accepted.json" 'boot discovery evidence should remain non-ready'
-assert_contains 'exact_package_preflight_required' "$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-boot-preflight-20260804-accepted.json" 'boot discovery should require this exact-package preflight'
-assert_contains '"accepted": true' "$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-chain-restart-20260804-accepted.json" 'the restarted-chain evidence should be accepted'
-assert_contains '"nested_target_image_metadata_state": "deferred-to-exact-package-preflight"' "$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-chain-restart-20260804-accepted.json" 'the restarted chain should preserve the deferred ownership boundary'
+assert_contains '"apply_ready": false' "$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-boot-preflight-20260805-accepted.json" 'boot discovery evidence should remain non-ready'
+assert_contains '"boot_mode": "geninitrd-managed-versioned-initrd"' "$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-boot-preflight-20260805-accepted.json" 'the accepted boot record should preserve the corrected mode'
+assert_contains 'exact_package_preflight_required' "$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-boot-preflight-20260805-accepted.json" 'boot discovery should require this exact-package preflight'
+assert_contains '"accepted": true' "$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-chain-restart-20260805-accepted.json" 'the corrected restarted-chain evidence should be accepted'
+assert_contains '"nested_boot_mode": "geninitrd-managed-versioned-initrd"' "$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-chain-restart-20260805-accepted.json" 'the restarted chain should preserve the corrected boot mode'
+assert_contains '"nested_target_image_metadata_state": "deferred-to-exact-package-preflight"' "$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-chain-restart-20260805-accepted.json" 'the restarted chain should preserve the deferred ownership boundary'
+assert_contains '"revoked_boot_mode": "direct-generic-no-initrd"' "$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-chain-restart-20260805-accepted.json" 'the revoked direct baseline should remain explicit'
 
 printf 'Slackware-current kernel package preflight harness: %d checks, %d failures\n' "$TEST_COUNT" "$FAILURE_COUNT"
 [ "$FAILURE_COUNT" -eq 0 ]

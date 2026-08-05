@@ -812,3 +812,17 @@ sudo bash tests/acceptance/reference/test-current-kernel-chain-restart-preflight
 ```
 
 The wrapper validates the accepted candidate, normal-update, and corrected boot records, reruns the boot preflight, requires `geninitrd-managed-versioned-initrd` and the accepted versioned-initrd SHA-256, verifies the nested portable archive, and proves package plus boot state remain unchanged. It never installs packages or runs initrd or GRUB generation. Copy the final outer `.tar.gz` and `.sha256` directly to `/home/promano` and verify them there.
+
+### Slackware-current rebuilt exact-package preflight (step 57)
+
+The accepted corrected chain restart is recorded in `tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-chain-restart-20260805-accepted.json`. Run:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-kernel-package-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+The stage binds the accepted 69-candidate record, corrected GenInitrd boot record, and corrected chain-restart record. Before download it requires the live `geninitrd-managed-versioned-initrd` baseline, exact current kernel and initrd hashes, safe root-owned versioned initrd, enabled named-symlink policy, and an active GRUB menuentry pairing `/boot/vmlinuz-generic` with `/boot/initrd-generic.img`. It then inspects only the exact cached target package and evidence-local GRUB output. The expected result is 13 passes, zero failures, `apply_ready=false`, and `apply_authorized=false`.
+

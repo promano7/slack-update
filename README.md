@@ -1935,7 +1935,9 @@ Slack-Update 1.0 will be ready when:
   - [x] Repeat and accept DKMS, command, and GRUB-ownership evidence for `6.18.42`.
   - [x] Run the final non-installing `6.18.42` readiness preflight; retain it as diagnostic because it exposed the pre-existing versioned initrd.
   - [x] Run the first corrected `geninitrd-managed-versioned-initrd` boot baseline and retain its restricted-IFS metadata failure as diagnostic.
-  - [ ] Repeat and accept the corrected metadata-safe `geninitrd-managed-versioned-initrd` boot baseline, then rebuild all dependent `6.18.42` evidence.
+  - [x] Repeat and accept the corrected metadata-safe `geninitrd-managed-versioned-initrd` boot baseline.
+  - [x] Repeat and accept the corrected GenInitrd-aware kernel-chain restart.
+  - [ ] Rebuild and accept the exact package, policy, DKMS, command, GRUB-ownership, and readiness evidence for `6.18.42`.
   - [ ] Grant a separate explicit apply authorization only after accepted readiness evidence.
   - [x] Review and accept the ten-package Slackware-current transaction as package and boot evidence.
   - [ ] Revalidate the hardened deferred `.new` policy on the next Slackware-current update.
@@ -2031,3 +2033,19 @@ sudo bash tests/acceptance/reference/test-current-kernel-chain-restart-preflight
 The wrapper binds the accepted 69-candidate refresh and normal-update records plus `slackware-current-kernel-boot-preflight-20260805-accepted.json`. It reruns only the non-destructive boot preflight and requires the same `geninitrd-managed-versioned-initrd` classification, `/boot/initrd-6.18.40.img` digest, target-image deferral, unchanged package database, and unchanged boot state. A clean result keeps `apply_ready=false` and `apply_authorized=false` and selects `current-kernel-package-preflight` as the next stage. Copy the final outer archive and portable sidecar directly to `/home/promano` and verify them there.
 
 The step-56 repository validation executes all 37 suites: 2,376 checks pass with zero failures. The chain-restart harness contributes 58 checks.
+
+### Phase 1 step 57: rebuilt exact kernel-package preflight
+
+The corrected step-56 chain restart passed all 20 nested assertions and all 6 wrapper assertions. Its accepted outer archive SHA-256 is `e48c528aafd9daef64edae721ddc96c9b5c52daac1a6f563fe447d1a66e6996e`; the nested boot archive SHA-256 is `286035b2f88b3bd575a6731171180743d80b79f75c2ccbb138df647a6527fcda`.
+
+Run the rebuilt exact-package preflight on `pcold-slack`:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-kernel-package-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+Before downloading anything, the preflight binds the corrected step-55 boot record and accepted step-56 restart record, then revalidates the live `vmlinuz-generic`, `initrd-generic.img`, versioned initrd SHA-256, GenInitrd symlink policy, active GRUB digest, and same-menuentry kernel/initrd pairing. It downloads or confirms only `kernel-generic-6.18.42-x86_64-1.txz`, inventories the archive, validates its conditional `geninitrd` hook without execution, and generates a GRUB configuration only inside the evidence directory. Expect 13 passes, zero failures, `apply_ready=false`, and `apply_authorized=false`. Copy the archive and sidecar directly to `/home/promano` with the printed command and verify them there.
+
