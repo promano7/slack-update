@@ -1,0 +1,431 @@
+{
+  "scenario": "current-userspace-maintainer-script-review-policy",
+  "target": "slackware-current",
+  "reviewed": true,
+  "reviewed_at": "2026-08-05",
+  "candidate_set_sha256": "27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926",
+  "target_kernel": "6.18.42",
+  "accepted_payload_archive_sha256": "763313828522239da29e3fee5fc2582c14aabb8aa7b5c64fe9e0392ebc2c71ac",
+  "expected_package_count": 68,
+  "expected_doinst_script_count": 37,
+  "doinst_manifest_sha256": "742058ed0d89d5280d21df3b340585d50006df788090b15f09656cc27a6ba632",
+  "maintainer_scripts": [
+    {
+      "package": "SDL3-3.4.14-x86_64-1.txz",
+      "script_sha256": "519b29670adf912c9d5d6c1525cd970971e8005532a3720d081a70233acc03a7",
+      "line_count": 4,
+      "actions": {
+        "relative_remove": 2,
+        "relative_symlink": 2
+      }
+    },
+    {
+      "package": "adwaita-fonts-ttf-51.0-noarch-1.txz",
+      "script_sha256": "a9dcd4d1edba87a3182507e50fb8c61705f3c11722c0098ed5d65cea3c69e29f",
+      "line_count": 9,
+      "actions": {
+        "cache_refresh": 3
+      }
+    },
+    {
+      "package": "bluedevil-6.7.4-x86_64-1.txz",
+      "script_sha256": "8c15cf7e35063975de6cc395696b5c82873569748e06fe724086cf857bc5c58b",
+      "line_count": 4,
+      "actions": {
+        "cache_refresh": 1
+      }
+    },
+    {
+      "package": "breeze-6.7.4-x86_64-1.txz",
+      "script_sha256": "ff2b286f1e367ccfe031a6e0467ef976ba9b51673b67c0cfd8bfb6a2387760ea",
+      "line_count": 544,
+      "actions": {
+        "relative_remove": 272,
+        "relative_symlink": 272
+      }
+    },
+    {
+      "package": "kde-cli-tools-6.7.4-x86_64-1.txz",
+      "script_sha256": "396b2b8b10d2e57c9aa647454562ff10a959f8dfb236672728928e8e496b5777",
+      "line_count": 18,
+      "actions": {
+        "relative_remove": 9,
+        "relative_symlink": 9
+      }
+    },
+    {
+      "package": "kdecoration-6.7.4-x86_64-1.txz",
+      "script_sha256": "4eb2fbd1a94ea92266bd9228c184ca1791c9573e3a1b497291b1eade4162923d",
+      "line_count": 8,
+      "actions": {
+        "relative_remove": 4,
+        "relative_symlink": 4
+      }
+    },
+    {
+      "package": "kdeplasma-addons-6.7.4-x86_64-1.txz",
+      "script_sha256": "6a5c7e72d7d8ed634afcdae7d9d41623185389e60e68331d0f96d31e0b213880",
+      "line_count": 17,
+      "actions": {
+        "cache_refresh": 1,
+        "relative_remove": 6,
+        "relative_symlink": 6
+      }
+    },
+    {
+      "package": "kgamma-6.7.4-x86_64-1.txz",
+      "script_sha256": "e8b13594d1183e01f7ce1d68e8c29ca481f519222f722bfdf2ea276e484176f9",
+      "line_count": 2,
+      "actions": {
+        "relative_remove": 1,
+        "relative_symlink": 1
+      }
+    },
+    {
+      "package": "kglobalacceld-6.7.4-x86_64-1.txz",
+      "script_sha256": "37055c611696ab48030ceb5b5bf3689375521e66a6ff87babd9ed446a91ab238",
+      "line_count": 2,
+      "actions": {
+        "relative_remove": 1,
+        "relative_symlink": 1
+      }
+    },
+    {
+      "package": "kinfocenter-6.7.4-x86_64-1.txz",
+      "script_sha256": "d211614e3378c8beda423cadd8ba48871940c6a8262340cdca26416b2da9a79a",
+      "line_count": 2,
+      "actions": {
+        "relative_remove": 1,
+        "relative_symlink": 1
+      }
+    },
+    {
+      "package": "knighttime-6.7.4-x86_64-1.txz",
+      "script_sha256": "c52a419ee63c6ef3a61ef210ca309524203490a97c047acc663dd730d0452d03",
+      "line_count": 4,
+      "actions": {
+        "relative_remove": 2,
+        "relative_symlink": 2
+      }
+    },
+    {
+      "package": "kpipewire-6.7.4-x86_64-1.txz",
+      "script_sha256": "d95f6968bb13f4e6628c1dba7ded162b06d639414ad7d04250e436d4f87bedb3",
+      "line_count": 12,
+      "actions": {
+        "relative_remove": 6,
+        "relative_symlink": 6
+      }
+    },
+    {
+      "package": "krdp-6.7.4-x86_64-1.txz",
+      "script_sha256": "573a25b39e360f92af0d253a47744964feae198e16608df004f3b9360bacc015",
+      "line_count": 4,
+      "actions": {
+        "relative_remove": 2,
+        "relative_symlink": 2
+      }
+    },
+    {
+      "package": "kscreenlocker-6.7.4-x86_64-1.txz",
+      "script_sha256": "c63222aa5084b2d550136c098bd71b12ced7612a59af3ac75c37c5eabbad9507",
+      "line_count": 9,
+      "actions": {
+        "process_signal": 1,
+        "relative_remove": 2,
+        "relative_symlink": 2
+      }
+    },
+    {
+      "package": "kwayland-6.7.4-x86_64-1.txz",
+      "script_sha256": "f946b7f37c6d908a9e937d1f7c55fc608cab3d9674649dbe11574901a4953a56",
+      "line_count": 4,
+      "actions": {
+        "relative_remove": 2,
+        "relative_symlink": 2
+      }
+    },
+    {
+      "package": "kwin-6.7.4-x86_64-1.txz",
+      "script_sha256": "24ac0276ee66012c64d5c254cdf20efb4594442c7b60fd9b26bea1c7d498b9a5",
+      "line_count": 6,
+      "actions": {
+        "relative_remove": 3,
+        "relative_symlink": 3
+      }
+    },
+    {
+      "package": "kwin-x11-6.7.4-x86_64-1.txz",
+      "script_sha256": "c9d776a033c6cb3b8cbc426f2f532a5bb195003806d151440430db7a57ed6a0d",
+      "line_count": 6,
+      "actions": {
+        "relative_remove": 3,
+        "relative_symlink": 3
+      }
+    },
+    {
+      "package": "layer-shell-qt-6.7.4-x86_64-1.txz",
+      "script_sha256": "94629ecbae1633388e3f73d5bd1f30a9c8d619e09191657fdc2add2d15ee007c",
+      "line_count": 4,
+      "actions": {
+        "relative_remove": 2,
+        "relative_symlink": 2
+      }
+    },
+    {
+      "package": "libkscreen-6.7.4-x86_64-1.txz",
+      "script_sha256": "1f85a161c26de5ab9deaf00b2226a4e9c01e2908ded7a9413b69fe384b37656c",
+      "line_count": 8,
+      "actions": {
+        "relative_remove": 4,
+        "relative_symlink": 4
+      }
+    },
+    {
+      "package": "libksysguard-6.7.4-x86_64-1.txz",
+      "script_sha256": "83d6b57d1d96543405b665c5a20956d110ce4822e14592391ffef7718cf8388c",
+      "line_count": 20,
+      "actions": {
+        "relative_remove": 10,
+        "relative_symlink": 10
+      }
+    },
+    {
+      "package": "libplasma-6.7.4-x86_64-1.txz",
+      "script_sha256": "2cfde38c25c5afe9c3c11c0a3ac0b8ff6e30e8d417daad4cbc7d83cf59e0aa41",
+      "line_count": 8,
+      "actions": {
+        "relative_remove": 4,
+        "relative_symlink": 4
+      }
+    },
+    {
+      "package": "ocean-sound-theme-6.7.4-x86_64-1.txz",
+      "script_sha256": "bc8288404ff8bc4b054d3a357068175aff237e26090c1497c79f847ff711dadc",
+      "line_count": 28,
+      "actions": {
+        "relative_remove": 14,
+        "relative_symlink": 14
+      }
+    },
+    {
+      "package": "oxygen-6.7.4-x86_64-1.txz",
+      "script_sha256": "4a2709c71a5de3488f044220957f800928292f3b9933112910bd51567018266d",
+      "line_count": 1100,
+      "actions": {
+        "relative_remove": 550,
+        "relative_symlink": 550
+      }
+    },
+    {
+      "package": "oxygen-sounds-6.7.4-x86_64-1.txz",
+      "script_sha256": "3650a2b941c893eed705b147e80874199d91876a753a9328f7c31b737fe9d5ef",
+      "line_count": 126,
+      "actions": {
+        "relative_remove": 63,
+        "relative_symlink": 63
+      }
+    },
+    {
+      "package": "pango-1.58.1-x86_64-1.txz",
+      "script_sha256": "5c1f1db890bf2613140f343dead6eb3a5ebbe7e973f1b1915e4e20264a1697e6",
+      "line_count": 16,
+      "actions": {
+        "relative_remove": 8,
+        "relative_symlink": 8
+      }
+    },
+    {
+      "package": "plasma-activities-6.7.4-x86_64-1.txz",
+      "script_sha256": "65f1f9a67beae9e68b4a20a660593c0b9939755f34cebfcd9c58f44fc3149fb8",
+      "line_count": 4,
+      "actions": {
+        "relative_remove": 2,
+        "relative_symlink": 2
+      }
+    },
+    {
+      "package": "plasma-activities-stats-6.7.4-x86_64-1.txz",
+      "script_sha256": "3bce3385faaac57d07790e4f00a66a0aae5ee0e7a01d1f659b81a8f66f2c0a15",
+      "line_count": 4,
+      "actions": {
+        "relative_remove": 2,
+        "relative_symlink": 2
+      }
+    },
+    {
+      "package": "plasma-desktop-6.7.4-x86_64-1.txz",
+      "script_sha256": "1c444a837c6c9d8538b70d9c74e5fd7bfae59d9df0127143f4ec37803741da01",
+      "line_count": 6,
+      "actions": {
+        "relative_remove": 3,
+        "relative_symlink": 3
+      }
+    },
+    {
+      "package": "plasma-pa-6.7.4-x86_64-1.txz",
+      "script_sha256": "989064e4e947904233ba07f143073415b6e6fec7a3dcfdc2c1b209cac66f5686",
+      "line_count": 2,
+      "actions": {
+        "relative_remove": 1,
+        "relative_symlink": 1
+      }
+    },
+    {
+      "package": "plasma-workspace-6.7.4-x86_64-1.txz",
+      "script_sha256": "b66dec6da4944a0da06897654644e22deac78b120317db1ce3ae44689e41746f",
+      "line_count": 56,
+      "actions": {
+        "config_install": 1,
+        "relative_remove": 21,
+        "relative_symlink": 21
+      }
+    },
+    {
+      "package": "plasma-workspace-wallpapers-6.7.4-noarch-1.txz",
+      "script_sha256": "7f902cc0fa038b1b7502d89edc045d5bcd15e2b862bafc0170ccfef76b2ccc32",
+      "line_count": 286,
+      "actions": {
+        "relative_remove": 143,
+        "relative_symlink": 143
+      }
+    },
+    {
+      "package": "plasma5support-6.7.4-x86_64-1.txz",
+      "script_sha256": "b3a27c06147e489d0cad60e021624b4c0966ea3c3dea2cb198ed804f6bd631f5",
+      "line_count": 12,
+      "actions": {
+        "relative_remove": 6,
+        "relative_symlink": 6
+      }
+    },
+    {
+      "package": "powerdevil-6.7.4-x86_64-1.txz",
+      "script_sha256": "654f385d161e3e3b1649da2a39275c6844b8071a9652e16a3724a40ce73fd915",
+      "line_count": 4,
+      "actions": {
+        "relative_remove": 2,
+        "relative_symlink": 2
+      }
+    },
+    {
+      "package": "spectacle-6.7.4-x86_64-1.txz",
+      "script_sha256": "aed444d52b889766a7ae189556bfb36469cc3e1a413a32393f34aed938dcabaf",
+      "line_count": 2,
+      "actions": {
+        "relative_remove": 1,
+        "relative_symlink": 1
+      }
+    },
+    {
+      "package": "stunnel-5.80-x86_64-1.txz",
+      "script_sha256": "70b6afaa36d90c836dc3cf2ad28172c23804009a1052d514ce8c4a8174318dbb",
+      "line_count": 16,
+      "actions": {
+        "config_install": 1,
+        "relative_remove": 2,
+        "relative_symlink": 2
+      }
+    },
+    {
+      "package": "systemsettings-6.7.4-x86_64-1.txz",
+      "script_sha256": "01158b225276df9b0e30c7684f380c01983c47bb2e69207cb22913908263d587",
+      "line_count": 2,
+      "actions": {
+        "relative_remove": 1,
+        "relative_symlink": 1
+      }
+    },
+    {
+      "package": "union-6.7.4-x86_64-1.txz",
+      "script_sha256": "c012cad6162f31d1fc295a91f16cac9db830dd0fe2ae5095e8527d5b92873ead",
+      "line_count": 8,
+      "actions": {
+        "relative_remove": 4,
+        "relative_symlink": 4
+      }
+    }
+  ],
+  "expected_action_totals": {
+    "cache_refresh": 5,
+    "config_install": 2,
+    "process_signal": 1,
+    "relative_remove": 1159,
+    "relative_symlink": 1159
+  },
+  "allowed_config_installs": [
+    {
+      "package": "plasma-workspace-6.7.4-x86_64-1.txz",
+      "path": "etc/pam.d/kde.new"
+    },
+    {
+      "package": "stunnel-5.80-x86_64-1.txz",
+      "path": "etc/stunnel/openssl.cnf.new"
+    }
+  ],
+  "allowed_cache_refreshes": [
+    {
+      "package": "adwaita-fonts-ttf-51.0-noarch-1.txz",
+      "command": "mkfontscale usr/share/fonts/TTF 2> /dev/null"
+    },
+    {
+      "package": "adwaita-fonts-ttf-51.0-noarch-1.txz",
+      "command": "mkfontdir usr/share/fonts/TTF 2> /dev/null"
+    },
+    {
+      "package": "adwaita-fonts-ttf-51.0-noarch-1.txz",
+      "command": "/usr/bin/fc-cache -f 2> /dev/null"
+    },
+    {
+      "package": "bluedevil-6.7.4-x86_64-1.txz",
+      "command": "/usr/bin/update-desktop-database /usr/share/applications >/dev/null 2>&1"
+    },
+    {
+      "package": "kdeplasma-addons-6.7.4-x86_64-1.txz",
+      "command": "/usr/bin/update-desktop-database /usr/share/applications >/dev/null 2>&1"
+    }
+  ],
+  "allowed_process_signal": {
+    "package": "kscreenlocker-6.7.4-x86_64-1.txz",
+    "script_sha256": "c63222aa5084b2d550136c098bd71b12ced7612a59af3ac75c37c5eabbad9507",
+    "command": "killall -TERM kscreenlocker_greet 1>/dev/null 2>/dev/null",
+    "signal": "TERM",
+    "process": "kscreenlocker_greet",
+    "reviewed_effect": "restart the lock-screen greeter after kcheckpass replacement",
+    "persistent_state_change": false
+  },
+  "allowed_absolute_symlink_targets": [
+    "/usr/bin/plasma-apply-lookandfeel",
+    "/usr/bin/systemsettings",
+    "/usr/libexec/kf6/kdesu",
+    "/usr/share/applications/org.kde.spectacle.desktop",
+    "/usr/share/applications/systemsettings.desktop"
+  ],
+  "relative_write_prefixes": [
+    "usr/"
+  ],
+  "forbidden_command_classes": [
+    "package-manager",
+    "boot-loader",
+    "initrd-generator",
+    "kernel-module",
+    "service-control",
+    "account-management",
+    "network-download",
+    "mount",
+    "arbitrary-process-control",
+    "shell-evaluation"
+  ],
+  "require_exact_script_hashes": true,
+  "require_complete_command_classification": true,
+  "require_remove_symlink_pairing": true,
+  "require_nonexecuting_review": true,
+  "review_scope": "exact-doinst-static-command-and-effect-classification",
+  "package_payloads_inspected": true,
+  "payload_path_review_complete": true,
+  "maintainer_scripts_review_complete": false,
+  "userspace_apply_review_complete": false,
+  "next_stage": "current-userspace-configuration-service-review-preflight",
+  "apply_ready": false,
+  "apply_authorized": false
+}

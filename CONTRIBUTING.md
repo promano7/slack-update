@@ -123,11 +123,12 @@ Before submitting a change to the reference script:
 38. Run `tests/reference/test-current-userspace-candidate-review-preflight-harness.sh` when exact userspace-expansion identity, category boundaries, kernel-evidence rebind eligibility, nested preflight composition, or no-apply review constraints are affected.
 39. Run `tests/reference/test-current-kernel-evidence-rebind-preflight-harness.sh` when accepted userspace review linkage, candidate-binding-only maps, live kernel/GenInitrd/DKMS/GRUB revalidation, or rebound no-apply boundaries are affected.
 40. Run `tests/reference/test-current-userspace-payload-review-preflight-harness.sh` when exact archive downloads, package-cache resolution, archive path or link safety, GRUB-theme confinement, maintainer-script capture, or payload-review boundaries are affected.
-41. Confirm that destructive commands are not exercised outside an isolated or explicitly recoverable Slackware test system.
-42. Record the relevant acceptance scenario.
-43. Preserve deterministic output and exit-code behavior.
-44. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
-45. Ensure every new or modified comment is written in English.
+41. Run `tests/reference/test-current-userspace-maintainer-script-review-preflight-harness.sh` when exact `doinst.sh` identities, static command classification, remove/symlink pairing, `.new` promotion, cache refreshes, process-signal confinement, or non-execution boundaries are affected.
+42. Confirm that destructive commands are not exercised outside an isolated or explicitly recoverable Slackware test system.
+43. Record the relevant acceptance scenario.
+44. Preserve deterministic output and exit-code behavior.
+45. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
+46. Ensure every new or modified comment is written in English.
 
 Never run the apply workflow on a production machine merely to validate a contribution.
 
@@ -252,3 +253,11 @@ After the explicit rebind is accepted, use `test-current-userspace-payload-revie
 Every `.txz` must be inspected without extraction into the host. Reject absolute or traversing paths, duplicate members, devices, FIFOs, unsupported member types, escaping links, setuid/setgid modes, kernel/module/initrd/pkgtools payloads, and GRUB content outside the explicitly reviewed Breeze theme prefix. A boot-adjacent exception must bind the exact package filename, archive SHA-256, and byte size. For the reviewed Slackware `breeze-grub` archive, only the ancestor directories required to reach `boot/grub/themes/breeze/` and that exact theme subtree are allowed; every other `/boot` or GRUB member remains forbidden. Never broaden the exception to a package-name pattern, a sibling theme, or a generic `/boot/grub` prefix.
 
 Record each archive SHA-256 and complete inventory. Copy `install/doinst.sh` files only into the evidence directory, validate syntax without execution, and preserve a separate maintainer-script review boundary. A payload-path pass must still retain `maintainer_scripts_review_complete=false`, `userspace_apply_review_complete=false`, `apply_ready=false`, and `apply_authorized=false`. Copy the resulting archive and sidecar directly to `/home/promano`, set `promano:users` ownership, and verify the sidecar before continuing.
+
+### Userspace maintainer-script static review
+
+After an accepted payload-path review, run `test-current-userspace-maintainer-script-review-preflight.sh`. The wrapper must repeat the non-installing payload review, bind all captured `install/doinst.sh` files to exact package names, SHA-256 values, line counts, and per-script action counts, and classify every non-comment command without executing any script.
+
+Relative `rm -rf` commands are permitted only as an immediately paired precursor to a `ln -sf` operation with the same package-relative directory and destination. Both the write path and relative link target must remain within the package root; absolute link targets require an exact policy entry. Configuration promotion and cache regeneration commands require exact package/path or package/command pairs. Process control is forbidden except for the reviewed `kscreenlocker` command `killall -TERM kscreenlocker_greet 1>/dev/null 2>/dev/null`, bound to the exact package and script hash. Never generalize this exception to another signal, process name, package, command form, or script identity.
+
+A clean static review may set `maintainer_scripts_review_complete=true` and route only to `current-userspace-configuration-service-review-preflight`. It must retain `userspace_apply_review_complete=false`, `apply_ready=false`, `apply_authorized=false`, and every execution flag as false. Copy and verify the outer evidence archive and sidecar directly in `/home/promano` before continuing.

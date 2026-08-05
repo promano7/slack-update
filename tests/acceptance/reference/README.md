@@ -971,6 +971,25 @@ The wrapper validates the accepted userspace review and rebind records, invokes 
 
 The boot-adjacent exception is bound to the exact `breeze-grub-6.7.4-x86_64-1.txz` filename, SHA-256 `66209816c42b2363f7a2ca7d1a739dc393c101c752709e7291f1f97b6466008a`, and 1,448,432-byte size. It allows only the three required ancestor directories and the exact `boot/grub/themes/breeze/` subtree in that archive. A safe archive review still rejects absolute or traversing paths, duplicate members, devices, FIFOs, escaping links, setuid/setgid payloads, kernel/module/initrd/pkgtools paths, every other `/boot` member, and every unreviewed GRUB path.
 
-A clean run is expected to report 16 passes, zero failures, `package_payloads_inspected=true`, `payload_path_review_complete=true`, `maintainer_scripts_review_complete=false`, `userspace_apply_review_complete=false`, `next-stage=current-userspace-maintainer-script-review-preflight`, `apply-ready=false`, and `apply-authorized=false`. Use the final printed command to copy the outer archive and sidecar directly to `/home/promano` with `promano:users` ownership, then verify the sidecar there. Do not execute captured maintainer scripts, readiness, or apply.
+The corrected real run reported 16 passes and zero failures. It inspected all 68 archives, captured 37 syntax-valid but unexecuted scripts, counted 46 configuration paths, 44 service paths, 722 ELF files, and 24 Breeze theme paths, and preserved package plus payload-sensitive state. Outer archive SHA-256 `763313828522239da29e3fee5fc2582c14aabb8aa7b5c64fe9e0392ebc2c71ac` and nested archive SHA-256 `818c40e9cf5e776607d110881d876eaf75937292fc4cfd1814a243b0979ece90` were verified in `/home/promano`. The accepted record retains `maintainer_scripts_review_complete=false`, `userspace_apply_review_complete=false`, `next-stage=current-userspace-maintainer-script-review-preflight`, `apply-ready=false`, and `apply-authorized=false`.
 
 The focused harness contains 65 checks. The complete step-68 inventory contains 40 suites and 2,718 checks with zero failures.
+
+### Slackware-current maintainer-script review preflight (step 69)
+
+After the accepted step-68 payload review, run:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-userspace-maintainer-script-review-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926 \
+    --confirm-target-kernel 6.18.42
+```
+
+The wrapper reruns the payload inspection without package installation, verifies the nested payload archive and all 37 exact script hashes, and applies a complete static grammar to every captured `doinst.sh`. The reviewed set contains 1,159 package-relative removes paired immediately and one-for-one with 1,159 symlink creations, two exact `.new` configuration promotions, five exact cache-refresh commands, and one process signal.
+
+The sole process-control exception is `killall -TERM kscreenlocker_greet 1>/dev/null 2>/dev/null` in `kscreenlocker-6.7.4-x86_64-1.txz`, bound to script SHA-256 `c63222aa5084b2d550136c098bd71b12ced7612a59af3ac75c37c5eabbad9507`. It describes the package's existing greeter-restart behavior after replacing `kcheckpass`; it does not authorize arbitrary `killall`, another process, another signal, or another script. The preflight itself never executes this command or any captured script.
+
+A clean run is expected to report 15 passes, zero failures, `maintainer_scripts_review_complete=true`, `userspace_apply_review_complete=false`, `next-stage=current-userspace-configuration-service-review-preflight`, `apply-ready=false`, and `apply-authorized=false`. Use the printed command to copy the outer archive and `.sha256` directly to `/home/promano` with `promano:users` ownership, then verify the sidecar there. Do not run configuration/service review, readiness, or apply until the evidence is accepted.
+
+The focused step-69 harness contains 64 checks. The complete step-69 inventory contains 41 suites and 2,782 checks with zero failures.
