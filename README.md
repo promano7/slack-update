@@ -2276,9 +2276,17 @@ The accepted real run reported 15 passes and zero failures with `elf=722`, `pack
 
 The focused step-71 harness contains 56 checks. The complete step-71 inventory contains 43 suites and 2,906 checks with zero failures.
 
-### Slackware-current userspace apply review preflight (step 72)
+### Slackware-current userspace apply review diagnostic (step 72)
 
-After accepting the step-71 ELF/runtime evidence, run:
+The first real step-72 run preserved the exact 137-package plan and completed the embedded ELF/runtime review successfully, but the outer result was rejected with 13 passes and one failure. The child ELF review reported 722 objects, 14,639 resolved dependency edges, zero unresolved edges, and zero unsafe objects. The separate normal-update preflight and the static application contract also passed.
+
+The sole failure was nested evidence composition. The parent supplied `--output-dir .../nested/elf-review`, then expected `nested/elf-review.tar.gz` and its sidecar to exist beside that directory. The child correctly populated the explicit output directory and separately published its canonical archive under `/var/tmp/slack-update-acceptance/current-userspace-elf-runtime-review-preflight/`; it does not create an adjacent archive for a caller-supplied output directory. Therefore the parent looked for an archive pair that had never been produced.
+
+The rejected outer archive SHA-256 is `bec1280dde4d51aa8db99698cd4d92df2270e1f318774ea215a8e02269249168`. The child-reported canonical ELF archive SHA-256 is `83a6c3eaf5956413eac97eec23439965486e292b709acbf63727416f1f59fabb`, and the nested normal-update archive SHA-256 is `7faaec43c20170508c3d04effeb90e556eeb19b8aec7da5091bc6a3e1742d538`. The outer archive and sidecar were verified in `/home/promano`. Package, kernel, initrd, GenInitrd, DKMS, and GRUB state remained unchanged; the diagnostic does not complete userspace apply review or permit readiness.
+
+### Corrected Slackware-current userspace apply review preflight (step 73)
+
+Repeat the same non-installing command with the corrected repository:
 
 ```bash
 sudo bash tests/acceptance/reference/test-current-userspace-apply-review-preflight.sh \
@@ -2287,12 +2295,11 @@ sudo bash tests/acceptance/reference/test-current-userspace-apply-review-preflig
     --confirm-target-kernel 6.18.42
 ```
 
-The wrapper repeats the complete non-installing ELF/runtime review and a separate fresh normal-update preflight. It reconstructs the exact 137-package transaction as the disjoint union of the accepted 69-package baseline plus 68 reviewed additions, requires one `install-new`, 136 `upgrade-all`, the unchanged three-package `6.18.42` kernel transaction, two normal-update kernel classifications, and zero configured critical candidates.
+The parent now removes any stale adjacent archive pair, creates a fresh owner-only `nested/elf-review.tar.gz` directly from the exact explicit ELF output directory, writes a portable basename-only SHA-256 sidecar, and verifies the pair before accepting the nested boundary. The archive remains inside the final apply-review evidence and therefore preserves the complete child chain without relying on the child's separately published canonical archive.
 
-The static reference review binds the exact engine SHA-256 and verifies the noninteractive Slackpkg commands, `-postinst=off` handling, deferred `.new` inventory, temporary atomic GenInitrd `AUTO_UPDATE_GRUB=false` override, mandatory policy restoration, failure blocking of secondary modules, temporary validated GRUB generation, 12 reviewed transaction steps, and five recovery boundaries. It does not execute normal-update apply, packages, scripts, initrd generation, DKMS, or GRUB changes.
+All other restrictions are unchanged. The wrapper repeats the complete non-installing ELF/runtime review and a separate normal-update preflight, reconstructs the exact disjoint union of 69 baseline plus 68 reviewed additions, and checks one `install-new`, 136 `upgrade-all`, the three-package `6.18.42` kernel transaction, zero critical candidates, the exact Slackpkg contract, deferred post-install handling, GenInitrd policy restoration, exclusive GRUB ownership, 12 transaction steps, and five recovery boundaries. It does not execute normal-update apply, packages, scripts, initrd generation, DKMS, or GRUB changes.
 
-A safe run is expected to report 15 passes, zero failures, `candidates=137`, `baseline=69`, `additions=68`, `install-new=1`, `upgrade-all=136`, `kernel-transaction=3`, `critical=0`, `userspace-apply-review-complete=true`, `next-stage=current-kernel-transaction-readiness-preflight`, `apply-ready=false`, and `apply-authorized=false`. Copy and verify the final archive and sidecar directly in `/home/promano`. Do not run readiness or any apply stage until this evidence is accepted.
+A safe corrected run is expected to report 15 passes, zero failures, `candidates=137`, `baseline=69`, `additions=68`, `install-new=1`, `upgrade-all=136`, `kernel-transaction=3`, `critical=0`, `userspace-apply-review-complete=true`, `next-stage=current-kernel-transaction-readiness-preflight`, `apply-ready=false`, and `apply-authorized=false`. Copy and verify the final archive and sidecar directly in `/home/promano`. Do not run readiness or any apply stage until this repeated evidence is accepted.
 
-The focused step-72 harness contains 67 checks. The complete prepared step-72 inventory contains 44 suites and 2,973 checks with zero failures.
-
+The focused step-73 harness contains 76 checks. The complete prepared step-73 inventory contains 44 suites and 2,982 checks with zero failures.
 The focused step-70 harness contains 68 checks. The complete prepared step-70 inventory contains 42 suites and 2,850 checks with zero failures.

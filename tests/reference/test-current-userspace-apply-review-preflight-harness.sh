@@ -111,6 +111,25 @@ for mutation in \
 done
 cp "$TMP/elf/summary.good" "$TMP/elf/summary.txt"
 
+mkdir -p "$TMP/nested/elf-review"
+printf 'nested ELF evidence\n' > "$TMP/nested/elf-review/marker.txt"
+assert_success 'the parent wrapper should create and verify the nested ELF archive' \
+    create_and_verify_nested_archive "$TMP/nested/elf-review" "$TMP/nested/elf-review.tar.gz" "$TMP/nested/elf-review.tar.gz.sha256"
+assert_success 'the freshly created nested ELF archive should verify independently' \
+    verify_archive_sidecar "$TMP/nested/elf-review.tar.gz" "$TMP/nested/elf-review.tar.gz.sha256"
+assert_contains '  elf-review.tar.gz' "$TMP/nested/elf-review.tar.gz.sha256" \
+    'the nested ELF sidecar should contain only the portable archive basename'
+assert_success 'the nested ELF archive should contain the exact evidence directory' \
+    tar -tzf "$TMP/nested/elf-review.tar.gz"
+printf 'tamper\n' >> "$TMP/nested/elf-review.tar.gz"
+assert_failure 'a modified nested ELF archive should fail sidecar verification' \
+    verify_archive_sidecar "$TMP/nested/elf-review.tar.gz" "$TMP/nested/elf-review.tar.gz.sha256"
+assert_success 'recreating the nested archive should replace stale evidence and verify again' \
+    create_and_verify_nested_archive "$TMP/nested/elf-review" "$TMP/nested/elf-review.tar.gz" "$TMP/nested/elf-review.tar.gz.sha256"
+sed -i 's/elf-review.tar.gz/wrong-name.tar.gz/' "$TMP/nested/elf-review.tar.gz.sha256"
+assert_failure 'a sidecar naming a different archive should fail closed' \
+    verify_archive_sidecar "$TMP/nested/elf-review.tar.gz" "$TMP/nested/elf-review.tar.gz.sha256"
+
 cp -a "$TMP/normal" "$TMP/missing"
 sed -i '/^breeze-grub-/d' "$TMP/missing/all.candidates.txt"
 assert_failure 'a missing reviewed addition should fail the candidate union' validate_candidate_plan "$TMP/missing" "$TMP/x.json" "$TMP/x.tsv"
@@ -183,6 +202,8 @@ assert_success 'the userspace apply-review preflight should be executable' test 
 assert_not_matches '^[[:space:]]*(upgradepkg|installpkg|removepkg)([[:space:]]|$)' "$SCRIPT" 'the preflight must not invoke package installation tools'
 assert_not_matches '^[[:space:]]*(mkinitrd|geninitrd|dkms|grub-mkconfig|update-grub)([[:space:]]|$)' "$SCRIPT" 'the preflight must not mutate boot state'
 assert_contains '--preflight' "$SCRIPT" 'the nested normal-update invocation should remain preflight-only'
+assert_contains 'create_and_verify_nested_archive "$OUTPUT_DIR/nested/elf-review"' "$SCRIPT" 'the parent wrapper should package the explicit nested ELF output directory itself'
+assert_contains 'rm -f -- "$archive" "$sidecar"' "$SCRIPT" 'nested archive creation should remove stale evidence before recreation'
 assert_contains 'package_transaction_executed=false' "$SCRIPT" 'the preflight should publish package non-execution explicitly'
 assert_contains "printf 'userspace_apply_review_complete=%s\\n'" "$SCRIPT" 'the preflight should publish application-review completion explicitly'
 assert_contains 'apply_ready=false' "$SCRIPT" 'the preflight should preserve readiness denial'

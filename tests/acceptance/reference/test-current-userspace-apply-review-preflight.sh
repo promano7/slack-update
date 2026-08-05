@@ -215,6 +215,21 @@ verify_archive_sidecar() {
     [ "$(awk '{print $2}' "$sidecar")" = "$base" ]
 }
 
+create_and_verify_nested_archive() {
+    local directory=$1 archive=$2 sidecar=$3 parent base
+    [ -d "$directory" ] || return 1
+    parent=$(dirname -- "$directory")
+    [ "$(dirname -- "$archive")" = "$parent" ] || return 1
+    [ "$(dirname -- "$sidecar")" = "$parent" ] || return 1
+    base=$(basename -- "$directory")
+    rm -f -- "$archive" "$sidecar" || return 1
+    tar -C "$parent" -czf "$archive" "$base" || return 1
+    chmod 0600 -- "$archive" || return 1
+    (cd "$parent" && sha256sum -- "${archive##*/}" > "${sidecar##*/}") || return 1
+    chmod 0600 -- "$sidecar" || return 1
+    verify_archive_sidecar "$archive" "$sidecar"
+}
+
 validate_nested_elf_review() {
     local directory=$1
     python3 - "$directory/summary.txt" "$CONFIRM_CANDIDATES_SHA256" "$CONFIRM_TARGET_KERNEL" <<'PY'
@@ -376,7 +391,7 @@ main() {
     parse_arguments "$@" || { print_usage >&2; return 2; }
     [ "$(id -u)" -eq 0 ] || { error 'this real-system acceptance scenario requires root'; return 2; }
     local cmd
-    for cmd in awk bash cmp date find grep hostname python3 readlink sed sha256sum sort stat tar; do require_command "$cmd" || return 2; done
+    for cmd in awk bash chmod cmp date find grep hostname python3 readlink rm sed sha256sum sort stat tar; do require_command "$cmd" || return 2; done
     for cmd in "$ELF_REVIEW_SCRIPT" "$NORMAL_UPDATE_SCRIPT" "$ELF_RECORD" "$REVIEW_POLICY" "$REFERENCE_ENGINE"; do [ -r "$cmd" ] || { error "required file is unreadable: $cmd"; return 2; }; done
     bash -n "$ELF_REVIEW_SCRIPT" && bash -n "$NORMAL_UPDATE_SCRIPT" && bash -n "$REFERENCE_ENGINE" || { error 'a reviewed shell source fails syntax validation'; return 2; }
     timestamp=$(date -u +%Y%m%dT%H%M%SZ)
@@ -398,7 +413,7 @@ main() {
     bash "$ELF_REVIEW_SCRIPT" --target "$TARGET" --confirm-candidates-sha256 "$CONFIRM_CANDIDATES_SHA256" --confirm-target-kernel "$CONFIRM_TARGET_KERNEL" --output-dir "$OUTPUT_DIR/nested/elf-review" >"$OUTPUT_DIR/elf-review.stdout.log" 2>"$OUTPUT_DIR/elf-review.stderr.log" || status=$?
     printf '%d\n' "$status" > "$OUTPUT_DIR/elf-review.exit"
     if [ "$status" -eq 0 ] && validate_nested_elf_review "$OUTPUT_DIR/nested/elf-review"; then record_pass 'the embedded ELF/runtime review completed without installing or executing payload'; else record_failure 'the embedded ELF/runtime review did not reproduce the accepted boundary'; fi
-    if verify_archive_sidecar "$OUTPUT_DIR/nested/elf-review.tar.gz" "$OUTPUT_DIR/nested/elf-review.tar.gz.sha256"; then record_pass 'the nested ELF/runtime archive and portable sidecar verify inside the apply-review evidence'; else record_failure 'the nested ELF/runtime evidence failed verification'; fi
+    if create_and_verify_nested_archive "$OUTPUT_DIR/nested/elf-review" "$OUTPUT_DIR/nested/elf-review.tar.gz" "$OUTPUT_DIR/nested/elf-review.tar.gz.sha256"; then record_pass 'the nested ELF/runtime archive and portable sidecar verify inside the apply-review evidence'; else record_failure 'the nested ELF/runtime evidence failed verification'; fi
 
     printf 'Running a fresh non-installing normal-update preflight for final candidate reconstruction...\n'
     status=0

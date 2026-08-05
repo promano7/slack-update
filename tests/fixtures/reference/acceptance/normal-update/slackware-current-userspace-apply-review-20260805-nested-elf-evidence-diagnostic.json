@@ -1,0 +1,72 @@
+{
+  "scenario": "current-userspace-apply-review-preflight",
+  "target": "slackware-current",
+  "captured_at": "2026-08-05T17:11:26Z",
+  "accepted": false,
+  "diagnostic_only": true,
+  "retry_required": true,
+  "archive_sha256": "bec1280dde4d51aa8db99698cd4d92df2270e1f318774ea215a8e02269249168",
+  "candidate_set_sha256": "27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926",
+  "running_kernel": "6.18.40",
+  "target_kernel": "6.18.42",
+  "candidate_count": 137,
+  "baseline_candidate_count": 69,
+  "added_candidate_count": 68,
+  "install_new_count": 1,
+  "upgrade_all_count": 136,
+  "kernel_transaction_count": 3,
+  "critical_candidate_count": 0,
+  "embedded_elf_review": {
+    "exit_code": 0,
+    "result": "PASS",
+    "elf_file_count": 722,
+    "elf_package_count": 61,
+    "needed_edge_count": 14639,
+    "unresolved_edge_count": 0,
+    "unsafe_runtime_object_count": 0,
+    "canonical_archive_sha256_reported_by_child": "83a6c3eaf5956413eac97eec23439965486e292b709acbf63727416f1f59fabb",
+    "output_directory_present_inside_parent_evidence": true,
+    "adjacent_archive_present_inside_parent_evidence": false,
+    "adjacent_sidecar_present_inside_parent_evidence": false
+  },
+  "nested_normal_update_archive_sha256": "7faaec43c20170508c3d04effeb90e556eeb19b8aec7da5091bc6a3e1742d538",
+  "assertions": {
+    "passes": 13,
+    "failures": 1,
+    "failed_messages": [
+      "the nested ELF/runtime evidence failed verification"
+    ]
+  },
+  "diagnosis": {
+    "root_cause": "The parent apply-review wrapper supplied a custom output directory to the ELF/runtime child and then expected an adjacent elf-review.tar.gz plus portable sidecar. The child correctly populated that directory and separately published its canonical archive under its own default evidence root, but it does not create an archive adjacent to an explicitly supplied output directory. The parent therefore searched for files that had never been produced.",
+    "correction": "After the embedded ELF/runtime review completes, the parent must create a fresh owner-only archive from the exact nested elf-review directory, write a basename-only SHA-256 sidecar beside it, and verify that pair before accepting the nested evidence boundary. Existing archive or sidecar files must be removed before recreation so stale evidence cannot satisfy the check.",
+    "unsafe_host_change_observed": false
+  },
+  "state_unchanged": {
+    "package_database": true,
+    "active_kernel": true,
+    "initrd": true,
+    "geninitrd": true,
+    "dkms": true,
+    "grub": true
+  },
+  "commands_executed": {
+    "normal_update_apply": false,
+    "package_transaction": false,
+    "maintainer_script": false,
+    "mkinitrd": false,
+    "geninitrd": false,
+    "dkms_action": false,
+    "grub_update": false
+  },
+  "elf_runtime_review_complete": true,
+  "userspace_apply_review_complete": false,
+  "apply_ready": false,
+  "apply_authorized": false,
+  "next_stage": "repeat-corrected-current-userspace-apply-review-preflight",
+  "evidence": {
+    "portable_sha256_sidecar": true,
+    "copied_to": "/home/promano",
+    "destination_verification": "passed"
+  }
+}
