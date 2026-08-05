@@ -21,7 +21,7 @@ json_value() { python3 -c 'import json,sys; d=json.load(open(sys.argv[1])); prin
 
 TMP=$(mktemp -d)
 trap 'rm -rf "$TMP"' EXIT
-BASELINE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260803-accepted.json"
+BASELINE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260804-accepted.json"
 RUNNING_KERNEL=6.18.40
 
 make_fresh() {
@@ -33,35 +33,48 @@ base_path, out_dir, mode=sys.argv[1:]
 d=json.load(open(base_path, encoding='utf-8'))
 install=list(d['candidates']['install_new'])
 upgrade=list(d['candidates']['upgrade_all'])
+critical=[]
 if mode == 'changed-kernel':
     upgrade=[x for x in upgrade if not x.startswith(('kernel-generic-','kernel-headers-','kernel-source-'))]
-    upgrade += ['kernel-generic-6.18.42-x86_64-1.txz','kernel-headers-6.18.42-x86-1.txz','kernel-source-6.18.42-noarch-1.txz']
+    upgrade += ['kernel-generic-6.18.43-x86_64-1.txz','kernel-headers-6.18.43-x86-1.txz','kernel-source-6.18.43-noarch-1.txz']
 elif mode == 'incomplete-kernel':
     upgrade=[x for x in upgrade if not x.startswith(('kernel-generic-','kernel-headers-','kernel-source-'))]
-    upgrade += ['kernel-generic-6.18.42-x86_64-1.txz','kernel-source-6.18.42-noarch-1.txz']
+    upgrade += ['kernel-generic-6.18.43-x86_64-1.txz','kernel-source-6.18.43-noarch-1.txz']
 elif mode == 'ambiguous-kernel':
-    upgrade += ['kernel-generic-6.18.42-x86_64-1.txz','kernel-headers-6.18.42-x86-1.txz','kernel-source-6.18.42-noarch-1.txz']
+    upgrade += ['kernel-generic-6.18.43-x86_64-1.txz','kernel-headers-6.18.43-x86-1.txz','kernel-source-6.18.43-noarch-1.txz']
 elif mode == 'userspace':
-    upgrade=[x for x in upgrade if not x.startswith(('kernel-generic-','kernel-headers-','kernel-source-'))]
     upgrade += ['example-userspace-1.0-x86_64-1.txz']
+elif mode == 'userspace-replacement':
+    old=next(x for x in upgrade if x.startswith('nano-'))
+    upgrade.remove(old)
+    upgrade += ['nano-9.3-x86_64-1.txz']
+elif mode == 'critical':
+    upgrade += ['example-critical-1.0-x86_64-1.txz']
+    critical=['example-critical-1.0-x86_64-1.txz']
 elif mode == 'none':
     install=[]; upgrade=[]
 elif mode == 'malformed':
     upgrade += ['../unsafe.txz']
-install=sorted(set(install)); upgrade=sorted(set(upgrade)); allc=sorted(set(install+upgrade))
+install=sorted(set(install)); upgrade=sorted(set(upgrade)); allc=sorted(set(install+upgrade)); critical=sorted(set(critical))
 out=pathlib.Path(out_dir)
-for name,values in [('install-new.candidates.txt',install),('upgrade-all.candidates.txt',upgrade),('all.candidates.txt',allc)]:
+for name,values in [
+    ('install-new.candidates.txt',install),
+    ('upgrade-all.candidates.txt',upgrade),
+    ('all.candidates.txt',allc),
+    ('critical.candidates.txt',critical),
+]:
     (out/name).write_text(''.join(f'{x}\n' for x in values), encoding='utf-8')
 digest=hashlib.sha256(''.join(f'{x}\n' for x in allc).encode()).hexdigest()
 (out/'summary.txt').write_text('\n'.join([
  'scenario=normal-update','mode=preflight','target=slackware-current','result=PASS','failures=0',
  f'install_new_candidates={len(install)}',f'upgrade_candidates={len(upgrade)}',f'total_candidates={len(allc)}',
- f'candidate_set_sha256={digest}','kernel_candidates=0','critical_candidates=0','']))
+ f'candidate_set_sha256={digest}','kernel_candidates=2',f'critical_candidates={len(critical)}','']))
 PY
 }
 
 assert_success 'the acceptance script should have valid Bash syntax' bash -n "$SCRIPT"
 assert_contains 'only the non-installing --preflight mode' "$SCRIPT" 'the help should describe the non-installing wrapper'
+assert_contains 'slackware-current-preflight-20260804-accepted.json' "$SCRIPT" 'the default baseline should be the accepted 69-candidate record'
 assert_contains 'bash "$NORMAL_UPDATE_SCRIPT" --target slackware-current --preflight' "$SCRIPT" 'the wrapper should invoke only the normal-update preflight'
 assert_not_contains '--execute-apply' <(grep -E '^[[:space:]]*bash "\$NORMAL_UPDATE_SCRIPT"' "$SCRIPT") 'the embedded invocation must never request apply'
 assert_contains 'normal_update_apply_executed=false' "$SCRIPT" 'the summary should deny normal-update apply execution'
@@ -102,7 +115,7 @@ assert_success 'the unchanged reviewed set should analyze safely' analyze_refres
 assert_equal unchanged-reviewed-kernel-set "$(json_value "$TMP/unchanged.json" 'd["chain_status"]')" 'the unchanged set should preserve its reviewed kernel classification'
 assert_equal false "$(json_value "$TMP/unchanged.json" 'str(d["candidate_set_changed"]).lower()')" 'the unchanged set should report no digest change'
 assert_equal true "$(json_value "$TMP/unchanged.json" 'str(d["prior_candidate_bound_chain_reusable"]).lower()')" 'the exact candidate-bound chain should remain reusable'
-assert_equal 6.18.41 "$(json_value "$TMP/unchanged.json" 'd["target_kernel"]')" 'the reviewed target kernel should be retained'
+assert_equal 6.18.42 "$(json_value "$TMP/unchanged.json" 'd["target_kernel"]')" 'the reviewed target kernel should be retained'
 assert_equal true "$(json_value "$TMP/unchanged.json" 'str(d["kernel_companion_set_complete"]).lower()')" 'the generic, headers, and source set should be complete'
 assert_equal current-transaction-readiness-dry-run "$(json_value "$TMP/unchanged.json" 'd["next_stage"]')" 'the unchanged chain should advance only to readiness dry-run'
 assert_equal false "$(json_value "$TMP/unchanged.json" 'str(d["apply_ready"]).lower()')" 'an unchanged refresh must not become apply-ready'
@@ -113,7 +126,7 @@ assert_success 'a changed complete kernel set should analyze safely' analyze_ref
 assert_equal changed-kernel-set "$(json_value "$TMP/changed.json" 'd["chain_status"]')" 'a new target kernel should stale the reviewed chain'
 assert_equal true "$(json_value "$TMP/changed.json" 'str(d["candidate_set_changed"]).lower()')" 'the changed set should report a digest change'
 assert_equal false "$(json_value "$TMP/changed.json" 'str(d["prior_candidate_bound_chain_reusable"]).lower()')" 'the old candidate-bound chain must not be reusable'
-assert_equal 6.18.42 "$(json_value "$TMP/changed.json" 'd["target_kernel"]')" 'the new target kernel should be extracted'
+assert_equal 6.18.43 "$(json_value "$TMP/changed.json" 'd["target_kernel"]')" 'the new target kernel should be extracted'
 assert_equal repeat-current-kernel-evidence-chain "$(json_value "$TMP/changed.json" 'd["next_stage"]')" 'a changed kernel set should repeat the evidence chain'
 assert_equal 3 "$(json_value "$TMP/changed.json" 'len(d["added_candidates"])')" 'three new target kernel companions should be added'
 assert_equal 3 "$(json_value "$TMP/changed.json" 'len(d["removed_candidates"])')" 'three old target kernel companions should be removed'
@@ -130,10 +143,29 @@ assert_equal ambiguous-kernel-target "$(json_value "$TMP/ambiguous.json" 'd["cha
 assert_equal manual-review-required "$(json_value "$TMP/ambiguous.json" 'd["next_stage"]')" 'an ambiguous target should require manual review'
 
 make_fresh "$TMP/userspace" userspace
-assert_success 'a changed set without kernel-generic should analyze safely' analyze_refresh "$BASELINE" "$TMP/userspace" "$TMP/userspace.json"
-assert_equal changed-userspace-set "$(json_value "$TMP/userspace.json" 'd["chain_status"]')" 'a userspace-only refresh should use the userspace branch'
+assert_success 'a same-kernel userspace expansion should analyze safely' analyze_refresh "$BASELINE" "$TMP/userspace" "$TMP/userspace.json"
+assert_equal changed-userspace-set "$(json_value "$TMP/userspace.json" 'd["chain_status"]')" 'a same-kernel userspace refresh should use the userspace branch'
 assert_equal review-fresh-userspace-candidates "$(json_value "$TMP/userspace.json" 'd["next_stage"]')" 'a fresh userspace set should require candidate review'
-assert_equal None "$(json_value "$TMP/userspace.json" 'd["target_kernel"]')" 'a userspace-only set should have no target kernel'
+assert_equal 6.18.42 "$(json_value "$TMP/userspace.json" 'd["target_kernel"]')" 'the unchanged target kernel should remain explicit'
+assert_equal false "$(json_value "$TMP/userspace.json" 'str(d["kernel_transaction_changed"]).lower()')" 'the exact kernel transaction should remain unchanged'
+assert_equal true "$(json_value "$TMP/userspace.json" 'str(d["userspace_only_candidate_change"]).lower()')" 'the change should be identified as userspace-only'
+assert_equal true "$(json_value "$TMP/userspace.json" 'str(d["strict_candidate_superset"]).lower()')" 'an addition-only userspace refresh should be a strict superset'
+assert_equal true "$(json_value "$TMP/userspace.json" 'str(d["kernel_evidence_rebind_possible_after_userspace_review"]).lower()')" 'kernel evidence should be eligible for explicit rebind after userspace review'
+assert_equal false "$(json_value "$TMP/userspace.json" 'str(d["prior_candidate_bound_chain_reusable"]).lower()')" 'the old candidate-bound chain must not be directly reusable'
+assert_equal 1 "$(json_value "$TMP/userspace.json" 'd["added_candidate_count"]')" 'one userspace package should be added'
+assert_equal 0 "$(json_value "$TMP/userspace.json" 'd["removed_candidate_count"]')" 'no reviewed package should be removed'
+
+make_fresh "$TMP/userspace-replacement" userspace-replacement
+assert_success 'a same-kernel userspace replacement should analyze safely' analyze_refresh "$BASELINE" "$TMP/userspace-replacement" "$TMP/userspace-replacement.json"
+assert_equal changed-userspace-set "$(json_value "$TMP/userspace-replacement.json" 'd["chain_status"]')" 'a userspace version replacement should remain a userspace change'
+assert_equal false "$(json_value "$TMP/userspace-replacement.json" 'str(d["strict_candidate_superset"]).lower()')" 'a userspace replacement should not be a strict superset'
+assert_equal false "$(json_value "$TMP/userspace-replacement.json" 'str(d["kernel_transaction_changed"]).lower()')" 'a userspace replacement should not stale the kernel target itself'
+
+make_fresh "$TMP/critical" critical
+assert_success 'a configured critical candidate should be represented safely' analyze_refresh "$BASELINE" "$TMP/critical" "$TMP/critical.json"
+assert_equal critical-candidates-present "$(json_value "$TMP/critical.json" 'd["chain_status"]')" 'critical candidates should force manual review'
+assert_equal manual-review-required "$(json_value "$TMP/critical.json" 'd["next_stage"]')" 'critical candidates should not advance automatically'
+assert_equal 1 "$(json_value "$TMP/critical.json" 'd["critical_candidate_count"]')" 'the critical candidate count should be preserved'
 
 make_fresh "$TMP/none" none
 assert_success 'an empty candidate set should analyze safely' analyze_refresh "$BASELINE" "$TMP/none" "$TMP/none.json"
@@ -157,24 +189,29 @@ assert_failure 'a package present in both candidate operations should fail close
 make_fresh "$TMP/bad-count" unchanged
 sed -i 's/^total_candidates=.*/total_candidates=999/' "$TMP/bad-count/summary.txt"
 assert_failure 'summary counts that do not match the candidate files should fail closed' analyze_refresh "$BASELINE" "$TMP/bad-count" "$TMP/bad-count.json"
+make_fresh "$TMP/bad-critical" unchanged
+printf '%s
+' 'not-a-candidate-1.0-x86_64-1.txz' > "$TMP/bad-critical/critical.candidates.txt"
+sed -i 's/^critical_candidates=.*/critical_candidates=1/' "$TMP/bad-critical/summary.txt"
+assert_failure 'a critical list outside the exact candidate set should fail closed' analyze_refresh "$BASELINE" "$TMP/bad-critical" "$TMP/bad-critical.json"
 
 (
     PASS_COUNT=8
     FAILURE_COUNT=0
     TARGET=slackware-current
     RUNNING_KERNEL=6.18.40
-    BASELINE_CANDIDATE_SHA256=d9199fcf6c5cd8c59b87b1bde9a955df2c55d0ac84f6dab37ed8e4c1830dcaf1
+    BASELINE_CANDIDATE_SHA256=918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9
     FRESH_CANDIDATE_SHA256=aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-    CHAIN_STATUS=changed-kernel-set
+    CHAIN_STATUS=changed-userspace-set
     TARGET_KERNEL=6.18.42
-    NEXT_STAGE=repeat-current-kernel-evidence-chain
+    NEXT_STAGE=review-fresh-userspace-candidates
     write_summary "$TMP/summary-output.txt"
 )
 assert_contains 'normal_update_apply_executed=false' "$TMP/summary-output.txt" 'the summary should deny embedded apply'
 assert_contains 'package_transaction_executed=false' "$TMP/summary-output.txt" 'the summary should deny package execution'
 assert_contains 'apply_ready=false' "$TMP/summary-output.txt" 'the summary should keep readiness false'
 assert_contains 'apply_authorized=false' "$TMP/summary-output.txt" 'the summary should keep authorization false'
-assert_contains 'next_stage=repeat-current-kernel-evidence-chain' "$TMP/summary-output.txt" 'the summary should preserve the next stage'
+assert_contains 'next_stage=review-fresh-userspace-candidates' "$TMP/summary-output.txt" 'the summary should preserve the next stage'
 assert_contains 'passes=8' "$TMP/summary-output.txt" 'the summary should preserve the assertion count'
 
 printf 'Slackware-current candidate chain refresh harness: %s checks, %s failures\n' "$HARNESS_TEST_COUNT" "$HARNESS_FAILURE_COUNT"

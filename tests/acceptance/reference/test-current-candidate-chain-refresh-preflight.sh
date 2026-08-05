@@ -10,7 +10,7 @@ export PATH LC_ALL
 TEST_DIR=$(CDPATH= cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
 REPOSITORY_ROOT=$(CDPATH= cd -- "$TEST_DIR/../../.." && pwd -P)
 DEFAULT_NORMAL_UPDATE_SCRIPT="$REPOSITORY_ROOT/tests/acceptance/reference/test-normal-update.sh"
-DEFAULT_BASELINE_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260803-accepted.json"
+DEFAULT_BASELINE_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260804-accepted.json"
 DEFAULT_OUTPUT_ROOT=/var/tmp/slack-update-acceptance/current-candidate-chain-refresh-preflight
 
 TARGET=
@@ -191,18 +191,51 @@ def package_parts(filename):
         raise ValueError(filename)
     return name, version, arch, build
 
+def kernel_transaction(values):
+    parsed = [(item, *package_parts(item)) for item in values]
+    generic = [(item, version) for item, name, version, arch, build in parsed if name == 'kernel-generic']
+    headers = [(item, version) for item, name, version, arch, build in parsed if name == 'kernel-headers']
+    source = [(item, version) for item, name, version, arch, build in parsed if name == 'kernel-source']
+    exact = sorted([item for item, *_ in generic + headers + source])
+    target = generic[0][1] if len(generic) == 1 else None
+    complete = (
+        len(generic) == 1
+        and len(headers) == 1
+        and len(source) == 1
+        and headers[0][1] == target
+        and source[0][1] == target
+    )
+    empty = not generic and not headers and not source
+    return {
+        'generic': generic,
+        'headers': headers,
+        'source': source,
+        'exact': exact,
+        'target': target,
+        'complete': complete,
+        'empty': empty,
+    }
+
 install = read_list('install-new.candidates.txt')
 upgrade = read_list('upgrade-all.candidates.txt')
 all_candidates = read_list('all.candidates.txt')
+critical = read_list('critical.candidates.txt')
 if set(install) & set(upgrade):
     raise SystemExit(1)
 if all_candidates != sorted(set(install + upgrade)):
     raise SystemExit(1)
+if not set(critical).issubset(set(all_candidates)):
+    raise SystemExit(1)
 try:
-    summary_counts = (int(summary.get('install_new_candidates', '-1')), int(summary.get('upgrade_candidates', '-1')), int(summary.get('total_candidates', '-1')))
+    summary_counts = (
+        int(summary.get('install_new_candidates', '-1')),
+        int(summary.get('upgrade_candidates', '-1')),
+        int(summary.get('total_candidates', '-1')),
+        int(summary.get('critical_candidates', '-1')),
+    )
 except ValueError:
     raise SystemExit(1)
-if summary_counts != (len(install), len(upgrade), len(all_candidates)):
+if summary_counts != (len(install), len(upgrade), len(all_candidates), len(critical)):
     raise SystemExit(1)
 raw = ''.join(f'{item}\n' for item in all_candidates).encode()
 fresh_digest = hashlib.sha256(raw).hexdigest()
@@ -212,48 +245,57 @@ if summary.get('result') != 'PASS' or summary.get('failures') != '0':
     raise SystemExit(1)
 
 base_candidates = baseline.get('candidates', {})
-base_all = sorted(set(base_candidates.get('install_new', []) + base_candidates.get('upgrade_all', [])))
+base_install = base_candidates.get('install_new', [])
+base_upgrade = base_candidates.get('upgrade_all', [])
+if not isinstance(base_install, list) or not isinstance(base_upgrade, list):
+    raise SystemExit(1)
+base_all = sorted(set(base_install + base_upgrade))
 base_digest = base_candidates.get('candidate_set_sha256')
 if hashlib.sha256(''.join(f'{item}\n' for item in base_all).encode()).hexdigest() != base_digest:
     raise SystemExit(1)
+for value in base_all:
+    package_parts(value)
 
 added = sorted(set(all_candidates) - set(base_all))
 removed = sorted(set(base_all) - set(all_candidates))
-parsed = [(item, *package_parts(item)) for item in all_candidates]
-generic = [(item, version) for item, name, version, arch, build in parsed if name == 'kernel-generic']
-headers = [(item, version) for item, name, version, arch, build in parsed if name == 'kernel-headers']
-source = [(item, version) for item, name, version, arch, build in parsed if name == 'kernel-source']
+base_kernel = kernel_transaction(base_all)
+fresh_kernel = kernel_transaction(all_candidates)
+kernel_changed = fresh_kernel['exact'] != base_kernel['exact']
+strict_superset = bool(added) and not removed and set(base_all).issubset(set(all_candidates))
+userspace_only_change = fresh_digest != base_digest and not kernel_changed
 
 status = 'unsupported'
 next_stage = 'manual-review-required'
-target = None
-companions = False
+target = fresh_kernel['target'] or base_kernel['target']
+companions = fresh_kernel['complete']
 prior_chain_reusable = False
+kernel_evidence_rebind_possible = False
+
 if not all_candidates:
     status = 'no-updates'
     next_stage = 'no-updates-acceptance'
-elif len(generic) > 1:
+elif critical:
+    status = 'critical-candidates-present'
+    next_stage = 'manual-review-required'
+elif len(fresh_kernel['generic']) > 1:
     status = 'ambiguous-kernel-target'
-elif len(generic) == 1:
-    target = generic[0][1]
-    companions = len(headers) == 1 and headers[0][1] == target and len(source) == 1 and source[0][1] == target
-    if not companions:
-        status = 'incomplete-kernel-companion-set'
-    elif fresh_digest == base_digest:
+elif not fresh_kernel['complete'] and not fresh_kernel['empty']:
+    status = 'incomplete-kernel-companion-set'
+elif kernel_changed:
+    status = 'changed-kernel-set'
+    next_stage = 'repeat-current-kernel-evidence-chain'
+elif fresh_digest == base_digest:
+    if fresh_kernel['complete']:
         status = 'unchanged-reviewed-kernel-set'
         next_stage = 'current-transaction-readiness-dry-run'
-        prior_chain_reusable = True
     else:
-        status = 'changed-kernel-set'
-        next_stage = 'repeat-current-kernel-evidence-chain'
-else:
-    if fresh_digest == base_digest:
         status = 'unchanged-reviewed-userspace-set'
         next_stage = 'current-userspace-readiness-review'
-        prior_chain_reusable = True
-    else:
-        status = 'changed-userspace-set'
-        next_stage = 'review-fresh-userspace-candidates'
+    prior_chain_reusable = True
+else:
+    status = 'changed-userspace-set'
+    next_stage = 'review-fresh-userspace-candidates'
+    kernel_evidence_rebind_possible = fresh_kernel['complete'] and base_kernel['complete']
 
 result = {
     'scenario': 'current-candidate-chain-refresh-preflight',
@@ -266,15 +308,25 @@ result = {
     'fresh_candidate_count': len(all_candidates),
     'install_new_count': len(install),
     'upgrade_all_count': len(upgrade),
+    'critical_candidate_count': len(critical),
+    'critical_candidates': critical,
+    'added_candidate_count': len(added),
+    'removed_candidate_count': len(removed),
     'added_candidates': added,
     'removed_candidates': removed,
-    'kernel_generic_candidates': [x[0] for x in generic],
-    'kernel_headers_candidates': [x[0] for x in headers],
-    'kernel_source_candidates': [x[0] for x in source],
+    'strict_candidate_superset': strict_superset,
+    'userspace_only_candidate_change': userspace_only_change,
+    'baseline_kernel_candidates': base_kernel['exact'],
+    'fresh_kernel_candidates': fresh_kernel['exact'],
+    'kernel_transaction_changed': kernel_changed,
+    'kernel_generic_candidates': [x[0] for x in fresh_kernel['generic']],
+    'kernel_headers_candidates': [x[0] for x in fresh_kernel['headers']],
+    'kernel_source_candidates': [x[0] for x in fresh_kernel['source']],
     'target_kernel': target,
     'kernel_companion_set_complete': companions,
     'chain_status': status,
     'prior_candidate_bound_chain_reusable': prior_chain_reusable,
+    'kernel_evidence_rebind_possible_after_userspace_review': kernel_evidence_rebind_possible,
     'next_stage': next_stage,
     'normal_update_preflight_passed': True,
     'normal_update_apply_executed': False,

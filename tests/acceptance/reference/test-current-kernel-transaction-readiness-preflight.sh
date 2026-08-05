@@ -65,6 +65,7 @@ HOOK_BCACHEFS_SHA256=
 HOOK_NVIDIA_SHA256=
 FRESH_CANDIDATE_SHA256=
 READINESS_STATUS=blocked
+NEXT_STAGE=current-candidate-chain-refresh-preflight
 APPLY_READY=false
 APPLY_AUTHORIZED=false
 
@@ -414,6 +415,15 @@ capture_sensitive_state() {
     done
 }
 
+read_nested_candidate_digest() {
+    local summary=$1 digest
+    [ -f "$summary" ] && [ ! -L "$summary" ] || return 1
+    digest=$(sed -n 's/^candidate_set_sha256=//p' "$summary")
+    [ "$(printf '%s\n' "$digest" | sed '/^$/d' | wc -l)" -eq 1 ] || return 1
+    is_sha256 "$digest" || return 1
+    printf '%s\n' "$digest"
+}
+
 validate_nested_normal_update() {
     local directory=$1
     python3 - "$NORMAL_PREFLIGHT" "$directory" "$CANDIDATE_SET_SHA256" "$TARGET_KERNEL" <<'PY'
@@ -631,6 +641,7 @@ result = {
   "update_grub_executed": False,
   "grub_mkconfig_executed": False,
   "readiness_status": "$READINESS_STATUS",
+  "next_stage": "$NEXT_STAGE",
   "requires_explicit_apply_authorization": True,
   "requires_apply_time_candidate_revalidation": True,
   "apply_ready": $([ "$APPLY_READY" = true ] && printf True || printf False),
@@ -667,7 +678,7 @@ update_grub_executed=false
 grub_mkconfig_executed=false
 apply_ready=$APPLY_READY
 apply_authorized=false
-next_stage=normal-update-apply-authorization-review
+next_stage=$NEXT_STAGE
 EOF_SUMMARY
 }
 
@@ -739,8 +750,10 @@ main() {
     else
         record_failure "the embedded normal-update preflight failed with exit code $nested_exit"
     fi
+    if fresh_digest=$(read_nested_candidate_digest "$nested_dir/summary.txt"); then
+        FRESH_CANDIDATE_SHA256=$fresh_digest
+    fi
     if validate_nested_normal_update "$nested_dir"; then
-        FRESH_CANDIDATE_SHA256=$(sed -n 's/^candidate_set_sha256=//p' "$nested_dir/summary.txt")
         record_pass 'the fresh candidate set exactly matches all 69 reviewed candidates and kernel companions'
     else
         record_failure 'the fresh candidate set differs from the reviewed transaction or is malformed'
@@ -773,9 +786,11 @@ main() {
 
     if [ "$FAILURE_COUNT" -eq 0 ] && [ "$FRESH_CANDIDATE_SHA256" = "$CANDIDATE_SET_SHA256" ]; then
         READINESS_STATUS=apply-ready
+        NEXT_STAGE=normal-update-apply-authorization-review
         APPLY_READY=true
     else
         READINESS_STATUS=blocked
+        NEXT_STAGE=current-candidate-chain-refresh-preflight
         APPLY_READY=false
     fi
     write_analysis "$OUTPUT_DIR/readiness-analysis.json"

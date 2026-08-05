@@ -899,7 +899,21 @@ sudo bash tests/acceptance/reference/test-current-kernel-transaction-readiness-p
 
 The readiness wrapper binds all eight corrected evidence records and the corrected synthetic post-state contract. It executes the existing normal-update acceptance script only with `--preflight`, verifies the nested archive and portable sidecar inside the outer evidence, and requires the same sorted 69-candidate set. It revalidates the current versioned initrd, named link, policy scalars, script and hook hashes, empty DKMS state, exact cached package, target-path absence, active GRUB digest, and same-menuentry kernel/initrd pairing.
 
-A safe run produces 10 outer passes and no failures. It may report `apply-ready=true`, but must always report `apply-authorized=false`, `package_transaction_executed=false`, `mkinitrd_executed=false`, `geninitrd_executed=false`, `dkms_build_executed=false`, `update_grub_executed=false`, and `grub_mkconfig_executed=false`. Copy and verify the last printed outer archive directly in `/home/promano`; the nested normal-update archive is already included. Do not run `--execute-apply` after this test. A separate reviewed authorization boundary is still required.
+The real run was a safe blocked result rather than positive readiness. Slackpkg expanded the candidate set from 69 to 137, so the wrapper retained `apply-ready=false` and `apply-authorized=false` while still verifying the nested archive, exact package cache, versioned GenInitrd layout, no-op DKMS state, and GRUB ownership boundary. The outer archive SHA-256 is `1726766092ce5b4b334ba314566ea290d85aa7aa9a563a753cb7262d96a7a69e`; the nested normal-update archive SHA-256 is `cd9ab4ec8c9485e5c196c83d34c0077d0b14651b89afe86a24d7c205a188fbfc`. Both were copied and verified in `/home/promano`. Do not run `--execute-apply`; return to candidate-chain classification.
 
 The rebuilt readiness harness has 64 checks. The complete step-63 inventory contains 37 suites and 2,521 checks with zero failures; static validation covers 56 Bash scripts and 53 JSON files.
 
+
+
+### Corrected candidate-chain classification after step 63
+
+The verified step-63 readiness stop found 137 candidates with digest `27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926`. The original 69 exact package files remain present, including the complete `6.18.42` kernel transaction, and 68 userspace packages were added with no removals. This must not be classified as `changed-kernel-set`.
+
+Run only:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-candidate-chain-refresh-preflight.sh \
+    --target slackware-current
+```
+
+The wrapper must use `slackware-current-preflight-20260804-accepted.json` as its default baseline, compare the exact kernel generic/headers/source filenames, verify the critical-candidate file against the exact candidate set, and classify an unchanged kernel transaction plus changed overall digest as `changed-userspace-set`. It may expose `kernel_evidence_rebind_possible_after_userspace_review=true`, but the prior candidate-bound chain remains directly non-reusable and both readiness and authorization stay false. Copy the final archive and sidecar directly to `/home/promano` with `promano:users` ownership and verify the sidecar there.

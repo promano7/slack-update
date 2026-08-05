@@ -160,6 +160,7 @@ all_candidates = sorted(c['install_new'] + c['upgrade_all'])
     'kernel_candidates=2\ncritical_candidates=0\n', encoding='utf-8')
 PY
 assert_success 'the exact fresh candidate set should pass final revalidation' validate_nested_normal_update "$NESTED"
+assert_equal "$CANDIDATE_SET_SHA256" "$(read_nested_candidate_digest "$NESTED/summary.txt")" 'the reviewed digest should be readable independently of exact-set acceptance'
 cp -a "$NESTED" "$TMP/nested-missing-source"
 sed -i '/kernel-source-6.18.42-noarch-1.txz/d' "$TMP/nested-missing-source/upgrade-all.candidates.txt" "$TMP/nested-missing-source/all.candidates.txt"
 assert_failure 'a fresh set missing kernel-source should fail closed' validate_nested_normal_update "$TMP/nested-missing-source"
@@ -169,6 +170,10 @@ assert_failure 'a newly critical candidate classification should require another
 cp -a "$NESTED" "$TMP/nested-digest"
 sed -i 's/^candidate_set_sha256=.*/candidate_set_sha256=0000000000000000000000000000000000000000000000000000000000000000/' "$TMP/nested-digest/summary.txt"
 assert_failure 'a mismatched fresh candidate digest should fail closed' validate_nested_normal_update "$TMP/nested-digest"
+assert_equal 0000000000000000000000000000000000000000000000000000000000000000 "$(read_nested_candidate_digest "$TMP/nested-digest/summary.txt")" 'a valid changed digest should remain available for blocked diagnostics'
+cp -a "$NESTED" "$TMP/nested-invalid-digest"
+sed -i 's/^candidate_set_sha256=.*/candidate_set_sha256=invalid/' "$TMP/nested-invalid-digest/summary.txt"
+assert_failure 'a malformed nested digest should not be exposed' read_nested_candidate_digest "$TMP/nested-invalid-digest/summary.txt"
 cp -a "$NESTED" "$TMP/nested-extra"
 printf '%s\n' 'unexpected-1.0-x86_64-1.txz' >> "$TMP/nested-extra/upgrade-all.candidates.txt"
 printf '%s\n' 'unexpected-1.0-x86_64-1.txz' >> "$TMP/nested-extra/all.candidates.txt"
@@ -184,10 +189,12 @@ FRESH_CANDIDATE_SHA256=$CANDIDATE_SET_SHA256
 REFERENCE_ENGINE_SHA256=0dc4a4def9b063b9a598975f46e7458c5771eb8d8603f4fa8bbd9dfc07c4d4c6
 POST_STATE_CONTRACT_SHA256=$(sha256sum "$POST_STATE_CONTRACT" | awk '{print $1}')
 READINESS_STATUS=apply-ready
+NEXT_STAGE=normal-update-apply-authorization-review
 APPLY_READY=true
 APPLY_AUTHORIZED=false
 write_analysis "$TMP/readiness.json"
 assert_equal apply-ready "$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["readiness_status"])' "$TMP/readiness.json")" 'analysis should record apply-ready status'
+assert_equal normal-update-apply-authorization-review "$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["next_stage"])' "$TMP/readiness.json")" 'analysis should preserve the separate authorization boundary'
 assert_equal true "$(python3 -c 'import json,sys; print(str(json.load(open(sys.argv[1]))["apply_ready"]).lower())' "$TMP/readiness.json")" 'analysis should record readiness as true'
 assert_equal false "$(python3 -c 'import json,sys; print(str(json.load(open(sys.argv[1]))["apply_authorized"]).lower())' "$TMP/readiness.json")" 'analysis should keep authorization false'
 assert_equal false "$(python3 -c 'import json,sys; print(str(json.load(open(sys.argv[1]))["package_transaction_executed"]).lower())' "$TMP/readiness.json")" 'analysis should deny package execution'
@@ -211,5 +218,13 @@ printf '%s\n' test > "$OUTPUT_DIR/summary.txt"
 archive=$(create_evidence_archive)
 assert_success 'the readiness archive should have a portable valid sidecar' bash -c 'cd "$1" && sha256sum -c "$2" >/dev/null' _ "$(dirname "$archive")" "${archive##*/}.sha256"
 
+
+READINESS_STATUS=blocked
+NEXT_STAGE=current-candidate-chain-refresh-preflight
+APPLY_READY=false
+write_summary "$TMP/blocked-summary.txt"
+assert_contains 'readiness_status=blocked' "$TMP/blocked-summary.txt" 'blocked summary should expose blocked readiness'
+assert_contains 'next_stage=current-candidate-chain-refresh-preflight' "$TMP/blocked-summary.txt" 'candidate drift should return to candidate-chain refresh'
+assert_contains 'apply_ready=false' "$TMP/blocked-summary.txt" 'blocked summary must deny readiness'
 printf 'Slackware-current kernel transaction readiness harness: %s checks, %s failures\n' "$HARNESS_TEST_COUNT" "$HARNESS_FAILURE_COUNT"
 [ "$HARNESS_FAILURE_COUNT" -eq 0 ]

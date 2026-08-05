@@ -2143,7 +2143,23 @@ This stage binds the accepted normal-update, boot, chain-restart, exact-package,
 
 The wrapper refreshes Slackpkg metadata through the existing non-installing normal-update preflight and requires the same 69 candidates and candidate-set SHA-256. It then revalidates the exact cached package, the current kernel and initrd hashes, the GenInitrd scalar policy, both reviewed no-op DKMS hooks, empty DKMS state, and the active same-menuentry GRUB kernel/initrd pairing. It executes no package transaction, `mkinitrd`, `geninitrd`, DKMS build, `update-grub`, or `grub-mkconfig` command.
 
-A completely clean result reports 10 outer passes, zero failures, `boot-mode=geninitrd-managed-versioned-initrd`, `transition=versioned-to-versioned-initrd`, `readiness=apply-ready`, `apply-ready=true`, and `apply-authorized=false`. The positive readiness value is not authorization. Use the last printed copy command, for the outer `current-kernel-transaction-readiness-preflight` archive, copy the archive and sidecar directly to `/home/promano`, verify them there, and submit both before any separate apply-authorization design.
+The real step-63 run stopped safely at candidate revalidation: Slackpkg reported 137 candidates with digest `27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926`, while the accepted chain was bound to 69 candidates. The wrapper still verified the nested archive, exact package cache, corrected GenInitrd boot layout, no-op DKMS state, and GRUB ownership boundary, and it preserved all live state. The result was `readiness=blocked`, `apply-ready=false`, and `apply-authorized=false`. Outer archive SHA-256 `1726766092ce5b4b334ba314566ea290d85aa7aa9a563a753cb7262d96a7a69e` and nested archive SHA-256 `cd9ab4ec8c9485e5c196c83d34c0077d0b14651b89afe86a24d7c205a188fbfc` were verified in `/home/promano`.
 
 The step-63 repository inventory contains 37 suites and 2,521 checks with zero failures. The rebuilt readiness harness contributes 64 checks. Static validation covers 56 Bash scripts and 53 JSON files.
 
+
+
+### Phase 1 step 64: classify the 137-candidate userspace expansion
+
+The step-63 readiness run is a verified safe stop. Slackpkg still exposes the exact reviewed `kernel-generic`, `kernel-headers`, and `kernel-source` packages for `6.18.42`, but the candidate set expanded from 69 to 137 with 68 additions and no removals. The additions are userspace packages, mostly the Plasma 6.7.4 stack. The previous candidate-bound chain is not directly reusable until that expansion is reviewed and explicitly rebound.
+
+Run only the corrected non-installing refresh wrapper:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-candidate-chain-refresh-preflight.sh \
+    --target slackware-current
+```
+
+The expected classification, while the repository remains unchanged, is `changed-userspace-set` with target `6.18.42`, `kernel_transaction_changed=false`, `strict_candidate_superset=true`, `added_candidate_count=68`, `removed_candidate_count=0`, `next_stage=review-fresh-userspace-candidates`, `apply_ready=false`, and `apply_authorized=false`. The wrapper refreshes metadata only through the existing normal-update preflight, verifies critical-candidate accounting, preserves package and boot state, and publishes one outer archive with a portable sidecar. Copy and verify both files directly in `/home/promano`. Do not run readiness or apply until the fresh userspace evidence is reviewed.
+
+The step-64 repository matrix contains 37 suites and 2,545 checks. The candidate-chain harness contributes 79 checks and the readiness harness contributes 71 checks.
