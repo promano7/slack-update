@@ -1158,9 +1158,19 @@ Do not rerun Slackpkg metadata refresh, candidate review, payload review, readin
 
 Step 82 adds no executable code or new suite. The complete inventory remains 47 suites and 3,228 checks with zero failures; static validation covers 76 shell scripts and 81 JSON files.
 
-### Slackware-current post-reboot verification and update closure (step 83)
+### Rejected Slackware-current post-reboot diagnostic (step 83)
 
-Run this boundary only after the single manual reboot authorized by the accepted step-82 record:
+The real step-83 run used archive SHA-256 `bc5d8bd480f5c74cf6ab9a7ac5729b7f90925dcafb69f24daa1d228209ce8263`, passed 12 assertions, and failed two closure assertions. The result is retained as `tests/fixtures/reference/acceptance/normal-update/slackware-current-kernel-post-reboot-verification-20260805-diagnostic.json` and must not be accepted as update closure.
+
+The live boot and installed-state evidence is otherwise valid: kernel and osrelease 6.18.42, architecture `x86_64`, nonzero boot ID, `BOOT_IMAGE=/boot/vmlinuz-generic`, reviewed root UUID, exact 2,040-record package transaction, exact target artifacts and module tree, unchanged GenInitrd controls, and rollback state `degraded-modules-only`. Before/after package snapshots and sensitive snapshots are byte-identical.
+
+The GRUB failure is a parser false negative. The verified configuration retained accepted SHA-256 `5fdff76d42ddec26b0c212668c4981a9ea2853a98b3260f33850c91ccf8ac247`, the on-disk `grubenv` retained SHA-256 `f64122858064885ef0733e42c6a3d2d3fd642671f714db0d974b880c0f087430`, and `grub-editenv list` contained no `next_entry`. The original parser rejected the normal top-level conditional containing `set default="${next_entry}"` in the one-time branch and `set default="0"` in the fallback branch because it required a single textual assignment rather than resolving the active branch.
+
+Do not refresh repositories, rerun the completed update chain, regenerate GRUB, repair the host, or reboot again.
+
+### Corrected Slackware-current post-reboot verification and update closure (step 84)
+
+Run:
 
 ```bash
 sudo bash tests/acceptance/reference/test-current-kernel-post-reboot-verification.sh \
@@ -1169,24 +1179,13 @@ sudo bash tests/acceptance/reference/test-current-kernel-post-reboot-verificatio
     --confirm-hostname-fqdn pcold-slack.pcold-slack.org \
     --confirm-reboot-review-evidence-sha256 e41138a31225a795c65ddf76fa75fde19072f5892c9719af32d06b564027937b \
     --confirm-target-kernel 6.18.42 \
-    --confirm-verification-sha256 10f68c6a5e7604b06a2e7a0701dc170a6c19e800c14157bbbcb4e9d35c5ff1f1
+    --confirm-verification-sha256 06f6a7a43bd8f51ddb72452964fd7b55cab6fafb69c0fb4e56c0369ce9cb8416
 ```
 
-This verifier does not refresh repository metadata and has no path that installs or removes packages, executes package payload, creates an initrd, changes GRUB or its environment, or performs another reboot. Its policy binds the accepted reboot-review archive and immutable record, the exact prior review policy and script, the completed-transaction recovery policy, the post-reboot verification script, the host identity, target kernel, and root filesystem UUID.
+The corrected verifier binds exact script SHA-256 `7cc42682d0d464f5b923be823141bae1c458edaf28a852a73983f123cef36deb` and evaluates active top-level GRUB conditional branches. An empty `next_entry` selects the literal fallback `0`; a nonempty `next_entry`, unknown active condition, multiple active defaults, malformed structure, unresolved selector, or wrong kernel/initrd entry fails closed.
 
-The live boot proof requires all of the following simultaneously:
+All other requirements remain unchanged: exact live 6.18.42 identity, exact 2,040 package records, target kernel/initrd/modules and generic links, GenInitrd identities, accepted GRUB digest and syntax, modules-only rollback classification, and immutable before/after snapshots. The command cannot refresh metadata, modify packages or boot state, edit `grubenv`, or reboot.
 
-- `uname -r` and `/proc/sys/kernel/osrelease` are exactly `6.18.42`.
-- `uname -m` is `x86_64`.
-- `/proc/sys/kernel/random/boot_id` contains a valid nonzero UUID.
-- `/proc/cmdline` contains exactly one `BOOT_IMAGE=/boot/vmlinuz-generic`, exactly one `root=UUID=ba7632d7-7469-483e-830d-59c88d985866`, one `ro`, and no `rw`.
-- `findmnt` reports the same UUID for the mounted root filesystem.
-- The active release resolves to a populated `/lib/modules/6.18.42` tree.
+A clean result reports 14 passes, zero failures, `pause_safe=true`, `reboot_verified=true`, `update_closed=true`, and `next_stage=optional-rollback-reconstruction-review`. Copy the generated archive and sidecar directly to `/home/promano`, verify the sidecar there, and retain the complete terminal output for the final immutable checkpoint.
 
-The installed-state proof then requires the exact accepted 2,040-record package snapshot and named kernel/GRUB records; byte-identical 6.18.42 kernel and initrd; exact generic symlink targets; unchanged GenInitrd policy and control binaries; the accepted active GRUB digest and valid syntax; no nonempty `next_entry`; and an effective menuentry containing exactly one Linux command with `/boot/vmlinuz-generic` and one initrd command with `/boot/initrd-generic.img`. The old 6.18.40 image and initrd must remain absent while its module tree remains present, which is recorded after reboot as `degraded-modules-only` rather than the former `degraded-running-session-and-modules-only` state.
-
-The expected clean result contains 14 passes and zero failures. Only that result sets `pause_safe=true`, `reboot_verified=true`, `update_closed=true`, and `next_stage=optional-rollback-reconstruction-review`. Any identity, package, artifact, module, GenInitrd, GRUB, rollback, or before/after snapshot mismatch fails closed and routes to manual recovery review.
-
-Copy the generated archive and sidecar directly to `/home/promano` using the exact `install` command printed by the test, verify the sidecar there, and retain the terminal output. The result must be reviewed before an immutable accepted step-83 checkpoint is added.
-
-The focused step-83 harness contains 79 checks. The complete prepared step-83 inventory contains 48 suites and 3,307 checks with zero failures; static validation covers 78 shell scripts and 82 JSON files.
+The focused step-84 harness contains 83 checks. The complete prepared step-84 inventory contains 48 suites and 3,311 checks with zero failures; static validation covers 78 shell scripts and 83 JSON files.

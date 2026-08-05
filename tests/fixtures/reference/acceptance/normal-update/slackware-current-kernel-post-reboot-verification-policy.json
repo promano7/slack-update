@@ -1,15 +1,17 @@
 {
   "accepted_reboot_review_archive_sha256": "e41138a31225a795c65ddf76fa75fde19072f5892c9719af32d06b564027937b",
   "accepted_reboot_review_record_sha256": "591fbc1c15bec3c5a6ab072ce33fb30d7764e28af6683b0d503f406a5b32583b",
+  "corrected_after_diagnostic_archive_sha256": "bc5d8bd480f5c74cf6ab9a7ac5729b7f90925dcafb69f24daa1d228209ce8263",
   "expected_architecture": "x86_64",
   "expected_pause_safe": true,
   "expected_reboot_verified": true,
   "expected_update_closed": true,
+  "grub_default_resolution": "active-top-level-conditional-branch",
   "grub_mutation_allowed": false,
   "initrd_mutation_allowed": false,
   "next_stage": "optional-rollback-reconstruction-review",
   "package_mutation_allowed": false,
-  "post_reboot_verification_script_sha256": "fce53b21a7cfdffeddd091078043dca8550fb4150938684785b69ad1c8bf71c9",
+  "post_reboot_verification_script_sha256": "7cc42682d0d464f5b923be823141bae1c458edaf28a852a73983f123cef36deb",
   "previous_running_kernel": "6.18.40",
   "reboot_execution_allowed": false,
   "reboot_review_policy_sha256": "93759b5059aa7d72f05fae2dfcc1cd8cdaff4f5a363d4b1278a81f4fd22bf518",
@@ -24,7 +26,9 @@
   "reviewed": true,
   "rollback_state_after_reboot": "degraded-modules-only",
   "scenario": "current-kernel-post-reboot-verification",
+  "superseded_post_reboot_verification_script_sha256": "fce53b21a7cfdffeddd091078043dca8550fb4150938684785b69ad1c8bf71c9",
+  "superseded_verification_scope_sha256": "10f68c6a5e7604b06a2e7a0701dc170a6c19e800c14157bbbcb4e9d35c5ff1f1",
   "target": "slackware-current",
   "target_kernel": "6.18.42",
-  "verification_scope_sha256": "10f68c6a5e7604b06a2e7a0701dc170a6c19e800c14157bbbcb4e9d35c5ff1f1"
+  "verification_scope_sha256": "06f6a7a43bd8f51ddb72452964fd7b55cab6fafb69c0fb4e56c0369ce9cb8416"
 }

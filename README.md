@@ -2416,9 +2416,19 @@ Exactly one manual reboot toward 6.18.42 is now authorized. Do not refresh Slack
 
 Step 82 adds no executable code and no new machine-side test. The complete inventory remains 47 suites and 3,228 checks with zero failures; static validation covers 76 shell scripts and 81 JSON files.
 
-### Slackware-current first-boot verification and update closure (step 83)
+### Rejected first-boot verification diagnostic (step 83)
 
-After the single authorized reboot from step 82, do not refresh Slackpkg metadata and do not repeat any candidate, payload, readiness, application, recovery, or reboot-review stage. Run only the read-only post-reboot boundary:
+The first real post-reboot run used verification scope `10f68c6a5e7604b06a2e7a0701dc170a6c19e800c14157bbbcb4e9d35c5ff1f1` and archive SHA-256 `bc5d8bd480f5c74cf6ab9a7ac5729b7f90925dcafb69f24daa1d228209ce8263`. It passed 12 assertions and failed two closure assertions.
+
+The evidence proves the machine successfully booted the reviewed target: `uname -r` and `/proc/sys/kernel/osrelease` are 6.18.42, the architecture is `x86_64`, `BOOT_IMAGE=/boot/vmlinuz-generic`, the root UUID is `ba7632d7-7469-483e-830d-59c88d985866`, the boot ID is valid, the exact 2,040-record package transaction remains installed, and the target kernel, initrd, modules, generic links, GenInitrd controls, and rollback classification are correct. Package and reboot-sensitive snapshots remained identical during the verifier.
+
+The failure was a verifier false negative, not GRUB drift. The active `grub.cfg` retained accepted SHA-256 `5fdff76d42ddec26b0c212668c4981a9ea2853a98b3260f33850c91ccf8ac247`, and the on-disk `grubenv` retained SHA-256 `f64122858064885ef0733e42c6a3d2d3fd642671f714db0d974b880c0f087430`. The step-83 parser incorrectly required exactly one top-level `set default` assignment and therefore rejected the canonical GRUB header containing an inactive `set default="${next_entry}"` branch and active `set default="0"` fallback. The immutable diagnostic record is `tests/fixtures/reference/acceptance/normal-update/slackware-current-kernel-post-reboot-verification-20260805-diagnostic.json`.
+
+No manual recovery, metadata refresh, package work, GRUB regeneration, or additional reboot is required.
+
+### Corrected first-boot verification and update closure (step 84)
+
+Run only the corrected read-only post-reboot boundary:
 
 ```bash
 sudo bash tests/acceptance/reference/test-current-kernel-post-reboot-verification.sh \
@@ -2427,13 +2437,13 @@ sudo bash tests/acceptance/reference/test-current-kernel-post-reboot-verificatio
     --confirm-hostname-fqdn pcold-slack.pcold-slack.org \
     --confirm-reboot-review-evidence-sha256 e41138a31225a795c65ddf76fa75fde19072f5892c9719af32d06b564027937b \
     --confirm-target-kernel 6.18.42 \
-    --confirm-verification-sha256 10f68c6a5e7604b06a2e7a0701dc170a6c19e800c14157bbbcb4e9d35c5ff1f1
+    --confirm-verification-sha256 06f6a7a43bd8f51ddb72452964fd7b55cab6fafb69c0fb4e56c0369ce9cb8416
 ```
 
-The verifier binds the immutable accepted reboot record, the exact reboot-review policy and script, the completed-transaction recovery policy, and its own code identity. It requires `uname -r` and `/proc/sys/kernel/osrelease` to report 6.18.42, architecture `x86_64`, a valid nonzero boot ID, `BOOT_IMAGE=/boot/vmlinuz-generic`, and the reviewed root UUID `ba7632d7-7469-483e-830d-59c88d985866`. It then rechecks the exact 2,040-record installed package database, target package records, target kernel/initrd/module tree, both generic links, GenInitrd controls, active GRUB digest and syntax, absence of `next_entry`, and the effective generic kernel/initrd menuentry.
+The corrected verifier retains all step-83 safety requirements and exact installed-state bindings. Its GRUB resolver now tracks active top-level conditional branches: with an empty `next_entry`, the canonical one-time-boot branch is inactive and the literal fallback `default=0` is the only effective selector. Unknown or ambiguous conditions containing a default assignment still fail closed, and any nonempty `next_entry` remains forbidden.
 
-The command is non-mutating. It does not call Slackpkg, install or remove packages, generate an initrd, regenerate GRUB, edit `grubenv`, or reboot. It captures package and reboot-sensitive state before and after its checks and requires both snapshots to remain identical.
+The command does not call Slackpkg, install or remove packages, generate an initrd, regenerate GRUB, edit `grubenv`, or reboot. It captures package and reboot-sensitive state before and after its checks and requires both snapshots to remain identical.
 
-A successful real run must report 14 passes, zero failures, `running_kernel=6.18.42`, `rollback_state=degraded-modules-only`, `pause_safe=true`, `reboot_verified=true`, `update_closed=true`, and `next_stage=optional-rollback-reconstruction-review`. This closes the mandatory 6.18.42 update chain. Reconstructing a complete 6.18.40 rollback image and initrd remains optional and must be handled by a separate reviewed boundary.
+A successful real run must report 14 passes, zero failures, `running_kernel=6.18.42`, `rollback_state=degraded-modules-only`, `pause_safe=true`, `reboot_verified=true`, `update_closed=true`, and `next_stage=optional-rollback-reconstruction-review`. This closes the mandatory 6.18.42 update chain. Reconstructing a complete rollback kernel and initrd remains optional and requires a separate reviewed boundary.
 
-The focused step-83 harness contains 79 checks. The complete prepared step-83 inventory contains 48 suites and 3,307 checks with zero failures; static validation covers 78 shell scripts and 82 JSON files.
+The focused step-84 harness contains 83 checks. The complete prepared step-84 inventory contains 48 suites and 3,311 checks with zero failures; static validation covers 78 shell scripts and 83 JSON files.

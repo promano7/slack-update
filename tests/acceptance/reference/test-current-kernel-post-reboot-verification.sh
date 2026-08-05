@@ -487,8 +487,40 @@ def entry_identity(text):
 
 root_entries = []
 stack = []
-default_assignments = []
+active_default_assignments = []
+condition_stack = []
 function_depth = 0
+
+
+def simple_condition_value(text):
+    match = re.fullmatch(
+        r"if\s+\[\s*(?:(-n|-z)\s+)?['\"]?\$\{?([A-Za-z_][A-Za-z0-9_]*)\}?['\"]?\s*\]\s*;\s*then",
+        text,
+    )
+    if not match:
+        return None
+    operator, variable = match.groups()
+    if variable not in ('next_entry', 'saved_entry'):
+        return None
+    value = bool(env.get(variable, ''))
+    if operator == '-z':
+        value = not value
+    return value
+
+
+def branch_state():
+    unknown = False
+    for frame in condition_stack:
+        value = frame['value']
+        if value is not None and frame['else_branch']:
+            value = not value
+        if value is False:
+            return False
+        if value is None:
+            unknown = True
+    return None if unknown else True
+
+
 for original in lines:
     stripped = original.strip()
     if not stripped or stripped.startswith('#'):
@@ -503,9 +535,27 @@ for original in lines:
         function_depth = 1
         continue
     if not stack:
+        if re.match(r'^if\b.*\bthen\s*$', stripped):
+            condition_stack.append({'value': simple_condition_value(stripped), 'else_branch': False})
+            continue
+        if stripped == 'else':
+            if not condition_stack or condition_stack[-1]['else_branch']:
+                raise SystemExit(1)
+            condition_stack[-1]['else_branch'] = True
+            continue
+        if stripped == 'fi':
+            if not condition_stack:
+                raise SystemExit(1)
+            condition_stack.pop()
+            continue
         assignment = re.match(r'^set\s+default=(.*?)\s*$', stripped)
         if assignment:
-            default_assignments.append(assignment.group(1))
+            state = branch_state()
+            if state is None:
+                raise SystemExit(1)
+            if state:
+                active_default_assignments.append(assignment.group(1))
+            continue
     opener = re.match(r'^(menuentry|submenu)\s+(.*)$', stripped)
     if opener:
         kind, remainder = opener.groups()
@@ -521,9 +571,9 @@ for original in lines:
         continue
     if stack:
         stack[-1]['lines'].append(stripped)
-if stack or not root_entries or len(default_assignments) != 1:
+if stack or condition_stack or not root_entries or len(active_default_assignments) != 1:
     raise SystemExit(1)
-selector_expression = default_assignments[0].strip()
+selector_expression = active_default_assignments[0].strip()
 if selector_expression in ('${saved_entry}', '"${saved_entry}"', "'${saved_entry}'", '$saved_entry', '"$saved_entry"', "'$saved_entry'"):
     selector = env.get('saved_entry', '')
 else:

@@ -71,7 +71,16 @@ create_root() {
     printf '#!/bin/bash\nexit 0\n' > "$root/var/lib/pkgtools/setup/setup.01.mkinitrd"
     chmod 755 "$root/usr/sbin/geninitrd" "$root/usr/share/mkinitrd/mkinitrd_command_generator.sh" "$root/var/lib/pkgtools/setup/setup.01.mkinitrd"
     cat > "$root/boot/grub/grub.cfg" <<'EOF_GRUB'
-set default="0"
+if [ -s $prefix/grubenv ]; then
+  load_env
+fi
+if [ "${next_entry}" ] ; then
+  set default="${next_entry}"
+  set next_entry=
+  save_env next_entry
+else
+  set default="0"
+fi
 menuentry 'Slackware generic' --id slackware-generic {
   linux /boot/vmlinuz-generic root=UUID=ba7632d7-7469-483e-830d-59c88d985866 ro
   initrd /boot/initrd-generic.img
@@ -279,6 +288,10 @@ assert_contains 'pause_safe=true' "$OUT/summary.txt" 'the accepted safe pause sh
 assert_contains 'reboot_verified=true' "$OUT/summary.txt" 'the reboot should be verified'
 assert_contains 'update_closed=true' "$OUT/summary.txt" 'the update should close'
 assert_contains 'next_stage=optional-rollback-reconstruction-review' "$OUT/summary.txt" 'only optional rollback work should remain'
+assert_contains 'set default="${next_entry}"' "$ROOT/boot/grub/grub.cfg" 'the baseline must model the canonical one-time GRUB default branch'
+assert_contains 'set default="0"' "$ROOT/boot/grub/grub.cfg" 'the baseline must model the canonical literal fallback branch'
+assert_contains '"selector": "0"' "$OUT/grub-selection.json" 'the empty next_entry state must select the literal fallback'
+assert_contains '"selector_expression": "\"0\""' "$OUT/grub-selection.json" 'the selected expression must come from the active fallback branch'
 assert_success 'the structured post-reboot analysis should be valid JSON' python3 -m json.tool "$OUT/post-reboot-analysis.json"
 assert_success 'the structured boot identity should be valid JSON' python3 -m json.tool "$OUT/boot-identity.json"
 assert_success 'the structured GRUB selection should be valid JSON' python3 -m json.tool "$OUT/grub-selection.json"
