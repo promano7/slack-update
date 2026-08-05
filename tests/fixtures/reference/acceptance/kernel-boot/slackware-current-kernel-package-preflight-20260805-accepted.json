@@ -1,0 +1,54 @@
+{
+  "scenario": "current-kernel-package-preflight",
+  "target": "slackware-current",
+  "accepted": true,
+  "captured_at": "2026-08-05T10:30:03Z",
+  "archive_sha256": "9f702e85a8ff3eb6155b834ed11cfe494ec60f04082914d80bae2a13d02e016f",
+  "normal_update_candidate_set_sha256": "918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9",
+  "boot_preflight_archive_sha256": "6429fd626973b0c3fc498642e1cd9230bc0eceb0291e232b515fef625467c6ac",
+  "chain_restart_archive_sha256": "e48c528aafd9daef64edae721ddc96c9b5c52daac1a6f563fe447d1a66e6996e",
+  "chain_nested_boot_archive_sha256": "286035b2f88b3bd575a6731171180743d80b79f75c2ccbb138df647a6527fcda",
+  "running_kernel": "6.18.40",
+  "target_kernel": "6.18.42",
+  "boot_mode": "geninitrd-managed-versioned-initrd",
+  "current_named_initrd": "/boot/initrd-generic.img",
+  "current_named_initrd_target": "initrd-6.18.40.img",
+  "current_versioned_initrd": "/boot/initrd-6.18.40.img",
+  "current_versioned_initrd_sha256": "0da0e0289d93cdf2d3b78288bfa23db4c9437b576563f92889399b2c98294442",
+  "current_versioned_initrd_size": 17307183,
+  "active_grub_sha256": "5fdff76d42ddec26b0c212668c4981a9ea2853a98b3260f33850c91ccf8ac247",
+  "package": {
+    "filename": "kernel-generic-6.18.42-x86_64-1.txz",
+    "sha256": "e9e7a1c5c71c945ee99595868aa8fee8a644b56601ece0c3e5696d643fe84878",
+    "member_count": 6588,
+    "module_count": 5490,
+    "kernel_image": "/boot/vmlinuz-6.18.42",
+    "embedded_initrd_count": 0,
+    "paths_safe": true
+  },
+  "doinst": {
+    "syntax_valid": true,
+    "policy": "recognized-generic-kernel-transition-with-conditional-geninitrd",
+    "generic_symlink_transition": "vmlinuz-generic -> vmlinuz-6.18.42",
+    "conditional_geninitrd_hook": true,
+    "geninitrd_executed": false,
+    "host_policy_preflight_required": true
+  },
+  "grub_discovery_status": "valid-geninitrd-current-baseline",
+  "package_database_unchanged": true,
+  "boot_state_unchanged": true,
+  "assertions": {
+    "passes": 13,
+    "failures": 0
+  },
+  "evidence": {
+    "portable_sha256_sidecar": true,
+    "copied_to": "/home/promano",
+    "destination_verification": "passed"
+  },
+  "apply_ready": false,
+  "apply_authorized": false,
+  "next_stage": "current-geninitrd-policy-preflight",
+  "executed_preflight_sha256": "d384f904a885bc55005a1d3888c73f06a9830d1b03dc54c4b96700bca53eef72",
+  "reference_sha256": "0dc4a4def9b063b9a598975f46e7458c5771eb8d8603f4fa8bbd9dfc07c4d4c6"
+}

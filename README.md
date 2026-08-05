@@ -2017,7 +2017,7 @@ sudo bash tests/acceptance/reference/test-current-kernel-boot-preflight.sh \
 
 The helper now parses colon-delimited metadata with a local `IFS`, validates all fields before mode arithmetic, and still requires root ownership plus no group/world write bits. A valid result must report `boot-mode=geninitrd-managed-versioned-initrd`, `geninitrd-transition=true`, 20 passes, zero failures, and immutable `apply_ready=false` / `apply_authorized=false`. Copy the archive and sidecar directly to `/home/promano` and verify them there. The corrected real-system rerun is accepted with 20 passes, zero failures, archive SHA-256 `6429fd626973b0c3fc498642e1cd9230bc0eceb0291e232b515fef625467c6ac`, and immutable apply denial. The dependent evidence chain must now be rebuilt from this record.
 
-The step-55 repository validation runs all 37 focused suites: 2,368 checks pass with zero failures. The current-kernel boot harness contributes 94 checks. The main reference engine remains SHA-256 `0dc4a4def9b063b9a598975f46e7458c5771eb8d8603f4fa8bbd9dfc07c4d4c6`.
+The step-55 repository validation runs all 37 focused suites: 2,424 checks pass with zero failures. The current-kernel boot harness contributes 94 checks. The main reference engine remains SHA-256 `0dc4a4def9b063b9a598975f46e7458c5771eb8d8603f4fa8bbd9dfc07c4d4c6`.
 
 
 
@@ -2032,7 +2032,7 @@ sudo bash tests/acceptance/reference/test-current-kernel-chain-restart-preflight
 
 The wrapper binds the accepted 69-candidate refresh and normal-update records plus `slackware-current-kernel-boot-preflight-20260805-accepted.json`. It reruns only the non-destructive boot preflight and requires the same `geninitrd-managed-versioned-initrd` classification, `/boot/initrd-6.18.40.img` digest, target-image deferral, unchanged package database, and unchanged boot state. A clean result keeps `apply_ready=false` and `apply_authorized=false` and selects `current-kernel-package-preflight` as the next stage. Copy the final outer archive and portable sidecar directly to `/home/promano` and verify them there.
 
-The step-56 repository validation executes all 37 suites: 2,376 checks pass with zero failures. The chain-restart harness contributes 58 checks.
+The step-56 repository validation executes all 37 suites: 2,432 checks pass with zero failures. The chain-restart harness contributes 58 checks.
 
 ### Phase 1 step 57: rebuilt exact kernel-package preflight
 
@@ -2048,4 +2048,21 @@ sudo bash tests/acceptance/reference/test-current-kernel-package-preflight.sh \
 ```
 
 Before downloading anything, the preflight binds the corrected step-55 boot record and accepted step-56 restart record, then revalidates the live `vmlinuz-generic`, `initrd-generic.img`, versioned initrd SHA-256, GenInitrd symlink policy, active GRUB digest, and same-menuentry kernel/initrd pairing. It downloads or confirms only `kernel-generic-6.18.42-x86_64-1.txz`, inventories the archive, validates its conditional `geninitrd` hook without execution, and generates a GRUB configuration only inside the evidence directory. Expect 13 passes, zero failures, `apply_ready=false`, and `apply_authorized=false`. Copy the archive and sidecar directly to `/home/promano` with the printed command and verify them there.
+
+The real step-57 run passed all 13 assertions. Its accepted archive SHA-256 is `9f702e85a8ff3eb6155b834ed11cfe494ec60f04082914d80bae2a13d02e016f`; the accepted package record is `tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-package-preflight-20260805-accepted.json`.
+
+### Phase 1 step 58: rebuilt GenInitrd policy preflight
+
+Run only after accepting step 57:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-geninitrd-policy-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+The rebuilt policy stage binds the corrected boot, chain-restart, and exact-package records. It revalidates the live `vmlinuz-generic`, `initrd-generic.img`, `/boot/initrd-6.18.40.img`, active GenInitrd scalar policy, and same-menuentry GRUB pairing before parsing the installed scripts. The enabled transaction is modeled as `versioned-to-versioned-initrd`, with expected output `/boot/initrd-6.18.42.img`, named symlink enabled, legacy `initrd.gz` disabled, and automatic GRUB update still active for the later ownership review. It inventories hooks but executes none. Expect 11 passes, zero failures, `apply_ready=false`, and `apply_authorized=false`; copy and verify the evidence directly in `/home/promano`.
+
+The step-58 repository matrix executes all 37 suites: 2,465 checks pass with zero failures. Direct per-suite summation corrects the step-57 total to 2,451; the previously stated 2,395 omitted the valid 56-check direct-generic policy suite. The rebuilt GenInitrd policy harness contributes 61 checks.
 

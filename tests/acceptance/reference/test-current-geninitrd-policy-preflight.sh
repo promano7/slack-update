@@ -10,9 +10,9 @@ export PATH LC_ALL
 TEST_DIR=$(CDPATH= cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
 REPOSITORY_ROOT=$(CDPATH= cd -- "$TEST_DIR/../../.." && pwd -P)
 DEFAULT_NORMAL_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260804-accepted.json"
-DEFAULT_BOOT_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-boot-preflight-20260804-accepted.json"
-DEFAULT_CHAIN_RESTART="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-chain-restart-20260804-accepted.json"
-DEFAULT_PACKAGE_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-package-preflight-20260804-accepted.json"
+DEFAULT_BOOT_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-boot-preflight-20260805-accepted.json"
+DEFAULT_CHAIN_RESTART="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-chain-restart-20260805-accepted.json"
+DEFAULT_PACKAGE_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-package-preflight-20260805-accepted.json"
 DEFAULT_OUTPUT_ROOT=/var/tmp/slack-update-acceptance/current-geninitrd-policy-preflight
 
 TARGET=
@@ -34,6 +34,8 @@ EFFECTIVE_GENERATOR=unknown
 AUTO_UPDATE_GRUB=unknown
 TRANSITION_MODE=unknown
 CUSTOM_REVIEW_REQUIRED=unknown
+NAMED_SYMLINK=unknown
+INITRD_GZ_SYMLINK=unknown
 APPLY_READY=false
 APPLY_AUTHORIZED=false
 
@@ -115,6 +117,9 @@ try:
 except Exception:
     raise SystemExit(1)
 expected = f'kernel-generic-{target}-x86_64-1.txz'
+running = boot.get('running_kernel', '')
+expected_initrd = f'/boot/initrd-{running}.img'
+expected_initrd_target = expected_initrd.rsplit('/', 1)[-1]
 package_sha = package.get('package', {}).get('sha256', '')
 checks = [
     normal.get('scenario') == 'normal-update',
@@ -122,6 +127,7 @@ checks = [
     normal.get('accepted') is True,
     normal.get('candidates', {}).get('candidate_set_sha256') == digest,
     normal.get('candidates', {}).get('target_kernel_version') == target,
+    normal.get('candidates', {}).get('total') == 69,
     expected in normal.get('candidates', {}).get('upgrade_all', []),
     normal.get('apply_ready') is False,
     normal.get('apply_authorized') is False,
@@ -129,16 +135,28 @@ checks = [
     boot.get('accepted') is True,
     boot.get('normal_update_candidate_set_sha256') == digest,
     boot.get('target_kernel') == target,
-    boot.get('boot_mode') == 'direct-generic-no-initrd',
+    boot.get('boot_mode') == 'geninitrd-managed-versioned-initrd',
+    boot.get('boot_mode') != 'direct-generic-no-initrd',
+    boot.get('named_initrd_path') == '/boot/initrd-generic.img',
+    boot.get('named_initrd_target') == expected_initrd_target,
+    boot.get('versioned_initrd_path') == expected_initrd,
+    re.fullmatch(r'[0-9a-f]{64}', boot.get('versioned_initrd_sha256', '')) is not None,
+    boot.get('geninitrd_transition_required') is True,
+    boot.get('mkinitrd_transition_required') is False,
     boot.get('target_image_metadata_state') in ('present', 'deferred-to-exact-package-preflight'),
     boot.get('apply_ready') is False,
     boot.get('apply_authorized') is False,
     chain.get('scenario') == 'current-kernel-chain-restart-preflight',
     chain.get('accepted') is True,
+    chain.get('accepted_boot_archive_sha256') == boot.get('archive_sha256'),
     chain.get('candidate_set_sha256') == digest,
-    chain.get('running_kernel') == boot.get('running_kernel'),
+    chain.get('running_kernel') == running,
     chain.get('target_kernel') == target,
-    chain.get('nested_boot_archive_sha256') == boot.get('archive_sha256'),
+    chain.get('nested_boot_mode') == boot.get('boot_mode'),
+    chain.get('nested_named_initrd_target') == boot.get('named_initrd_target'),
+    chain.get('nested_versioned_initrd_sha256') == boot.get('versioned_initrd_sha256'),
+    chain.get('revoked_boot_mode') == 'direct-generic-no-initrd',
+    chain.get('next_stage') == 'current-kernel-package-preflight',
     chain.get('apply_ready') is False,
     chain.get('apply_authorized') is False,
     package.get('scenario') == 'current-kernel-package-preflight',
@@ -146,16 +164,24 @@ checks = [
     package.get('normal_update_candidate_set_sha256') == digest,
     package.get('boot_preflight_archive_sha256') == boot.get('archive_sha256'),
     package.get('chain_restart_archive_sha256') == chain.get('archive_sha256'),
-    package.get('running_kernel') == boot.get('running_kernel'),
+    package.get('chain_nested_boot_archive_sha256') == chain.get('nested_boot_archive_sha256'),
+    package.get('running_kernel') == running,
     package.get('target_kernel') == target,
+    package.get('boot_mode') == boot.get('boot_mode'),
+    package.get('current_named_initrd') == boot.get('named_initrd_path'),
+    package.get('current_named_initrd_target') == boot.get('named_initrd_target'),
+    package.get('current_versioned_initrd') == boot.get('versioned_initrd_path'),
+    package.get('current_versioned_initrd_sha256') == boot.get('versioned_initrd_sha256'),
+    package.get('active_grub_sha256') == boot.get('active_grub_sha256'),
     package.get('package', {}).get('filename') == expected,
     re.fullmatch(r'[0-9a-f]{64}', package_sha) is not None,
     package.get('package', {}).get('kernel_image') == f'/boot/vmlinuz-{target}',
     package.get('package', {}).get('embedded_initrd_count') == 0,
     package.get('package', {}).get('paths_safe') is True,
-    package.get('doinst', {}).get('policy') == 'recognized-direct-generic-transition-with-conditional-geninitrd',
+    package.get('doinst', {}).get('policy') == 'recognized-generic-kernel-transition-with-conditional-geninitrd',
     package.get('doinst', {}).get('conditional_geninitrd_hook') is True,
     package.get('doinst', {}).get('host_policy_preflight_required') is True,
+    package.get('grub_discovery_status') == 'valid-geninitrd-current-baseline',
     package.get('next_stage') == 'current-geninitrd-policy-preflight',
     package.get('apply_ready') is False,
     package.get('apply_authorized') is False,
@@ -164,6 +190,106 @@ raise SystemExit(0 if all(checks) else 1)
 PY
 }
 
+validate_live_geninitrd_baseline() {
+    local record=$1 root=$2 output=$3 grub
+    grub="$root/boot/grub/grub.cfg"
+    [ -f "$grub" ] && [ ! -L "$grub" ] || return 1
+    grub-script-check "$grub" >/dev/null 2>&1 || return 1
+    python3 - "$record" "$root" "$output" <<'PY'
+import hashlib, json, os, pathlib, re, stat, sys
+record_path, root_text, output_path = sys.argv[1:]
+root = pathlib.Path(root_text)
+record = json.load(open(record_path, encoding='utf-8'))
+if record.get('boot_mode') != 'geninitrd-managed-versioned-initrd':
+    raise SystemExit('accepted record is not the corrected GenInitrd baseline')
+
+def rooted(path):
+    return root / path.lstrip('/')
+
+def digest(path):
+    h = hashlib.sha256()
+    with path.open('rb') as handle:
+        for block in iter(lambda: handle.read(1024 * 1024), b''):
+            h.update(block)
+    return h.hexdigest()
+
+def safe_regular(path, expected_hash=None, expected_size=None):
+    info = path.lstat()
+    if not stat.S_ISREG(info.st_mode) or info.st_size <= 0:
+        raise SystemExit(f'unsafe regular file: {path}')
+    if info.st_uid != 0 or info.st_gid != 0 or info.st_mode & 0o022:
+        raise SystemExit(f'unsafe ownership or mode: {path}')
+    if expected_size is not None and info.st_size != expected_size:
+        raise SystemExit(f'unexpected size: {path}')
+    value = digest(path)
+    if expected_hash and value != expected_hash:
+        raise SystemExit(f'unexpected hash: {path}')
+    return value
+
+def exact_relative_link(path, target):
+    info = path.lstat()
+    if not stat.S_ISLNK(info.st_mode) or os.readlink(path) != target:
+        raise SystemExit(f'unexpected link: {path}')
+
+def scalar(path, name):
+    values = []
+    pattern = re.compile(rf'^\s*(?:export\s+)?{re.escape(name)}\s*=\s*(.*?)\s*$')
+    for raw in path.read_text(encoding='utf-8', errors='strict').splitlines():
+        line = raw.split('#', 1)[0].rstrip()
+        match = pattern.match(line)
+        if match:
+            value = match.group(1).strip()
+            if len(value) >= 2 and value[0] == value[-1] and value[0] in "'\"":
+                value = value[1:-1]
+            values.append(value)
+    if len(values) != 1:
+        raise SystemExit(f'ambiguous assignment: {name}')
+    return values[0]
+
+def grub_pair(path, kernel, initrd):
+    blocks, active, depth = [], None, 0
+    for line in path.read_text(encoding='utf-8', errors='strict').splitlines():
+        stripped = line.strip()
+        if active is None and stripped.startswith('menuentry '):
+            active, depth = [], 0
+        if active is not None:
+            active.append(stripped)
+            depth += stripped.count('{') - stripped.count('}')
+            if depth <= 0 and len(active) > 1:
+                blocks.append(active)
+                active = None
+    for block in blocks:
+        linux_ok = any(re.match(r'^linux(?:efi)?\s+', line) and kernel in line.split() for line in block)
+        initrd_ok = any(re.match(r'^initrd(?:efi)?\s+', line) and initrd in line.split() for line in block)
+        if linux_ok and initrd_ok:
+            return True
+    return False
+
+if rooted('/etc/mkinitrd.conf').exists() or rooted('/boot/initrd.gz').exists():
+    raise SystemExit('legacy initrd state is present')
+exact_relative_link(rooted('/boot/vmlinuz-generic'), pathlib.PurePosixPath(record['generic_kernel_path']).name)
+generic_hash = safe_regular(rooted(record['generic_kernel_path']), record.get('generic_kernel_sha256'))
+exact_relative_link(rooted(record['named_initrd_path']), record['named_initrd_target'])
+versioned_hash = safe_regular(rooted(record['versioned_initrd_path']), record.get('versioned_initrd_sha256'), record.get('versioned_initrd_size'))
+policy = rooted('/etc/default/geninitrd')
+safe_regular(policy)
+if (scalar(policy, 'AUTOGENERATE_INITRD'), scalar(policy, 'GENINITRD_NAMED_SYMLINK'), scalar(policy, 'GENINITRD_INITRD_GZ_SYMLINK')) != ('true', 'true', 'false'):
+    raise SystemExit('GenInitrd policy no longer matches the accepted baseline')
+grub = rooted('/boot/grub/grub.cfg')
+grub_hash = safe_regular(grub, record.get('active_grub_sha256'))
+if not grub_pair(grub, record['boot_image'], record['named_initrd_path']):
+    raise SystemExit('GRUB no longer pairs the accepted kernel and named initrd')
+pathlib.Path(output_path).write_text(
+    f"boot_mode={record['boot_mode']}\n"
+    f"generic_kernel_sha256={generic_hash}\n"
+    f"named_initrd={record['named_initrd_path']}\n"
+    f"named_initrd_target={record['named_initrd_target']}\n"
+    f"versioned_initrd={record['versioned_initrd_path']}\n"
+    f"versioned_initrd_sha256={versioned_hash}\n"
+    f"active_grub_sha256={grub_hash}\n",
+    encoding='utf-8')
+PY
+}
 capture_package_state() {
     local output=$1 root=/var/lib/pkgtools/packages item
     [ -d "$root" ] && [ ! -L "$root" ] || return 1
@@ -197,6 +323,7 @@ capture_boot_state() {
         "/boot/vmlinuz-$TARGET_KERNEL" \
         /boot/initrd.gz \
         /boot/initrd-generic.img \
+        "/boot/initrd-$RUNNING_KERNEL.img" \
         "/boot/initrd-$TARGET_KERNEL.img" \
         /boot/grub/grub.cfg \
         /etc/default/geninitrd \
@@ -235,15 +362,17 @@ inventory_hooks() {
 }
 
 analyze_geninitrd_policy() {
-    local config=$1 geninitrd=$2 setup=$3 mkinitrd_conf=$4 pre_dir=$5 post_dir=$6 root=$7 target=$8 output=$9
+    local config=$1 geninitrd=$2 setup=$3 mkinitrd_conf=$4 pre_dir=$5 post_dir=$6 root=$7 current_boot_mode=$8 target=$9 output=${10}
     [ -f "$geninitrd" ] && [ ! -L "$geninitrd" ] && [ -r "$geninitrd" ] && [ -x "$geninitrd" ] || return 1
     [ -f "$setup" ] && [ ! -L "$setup" ] && [ -r "$setup" ] && [ -x "$setup" ] || return 1
     bash -n "$geninitrd" && bash -n "$setup" || return 1
-    python3 - "$config" "$geninitrd" "$setup" "$mkinitrd_conf" "$pre_dir" "$post_dir" "$root" "$target" "$output" <<'PY'
+    python3 - "$config" "$geninitrd" "$setup" "$mkinitrd_conf" "$pre_dir" "$post_dir" "$root" "$current_boot_mode" "$target" "$output" <<'PY'
 import hashlib, json, os, pathlib, re, shlex, sys
-config_path, geninitrd_path, setup_path, mkinitrd_conf_path, pre_dir, post_dir, root_path, target, output_path = sys.argv[1:]
+config_path, geninitrd_path, setup_path, mkinitrd_conf_path, pre_dir, post_dir, root_path, current_boot_mode, target, output_path = sys.argv[1:]
 root = pathlib.Path(root_path)
 out = pathlib.Path(output_path)
+if current_boot_mode != 'geninitrd-managed-versioned-initrd':
+    raise SystemExit('unsupported current boot mode')
 geninitrd = pathlib.Path(geninitrd_path)
 setup = pathlib.Path(setup_path)
 config = pathlib.Path(config_path)
@@ -369,15 +498,15 @@ for kind, directory in (('pre', pathlib.Path(pre_dir)), ('post', pathlib.Path(po
 
 if not doinst_will_invoke:
     state = 'legacy-setup-skip'
-    transition = 'preserve-direct-no-initrd'
+    transition = 'versioned-initrd-stale-after-kernel-transition'
     effective_generator = 'not-invoked'
 elif values['AUTOGENERATE_INITRD'] == 'false':
     state = 'disabled-by-policy'
-    transition = 'preserve-direct-no-initrd'
+    transition = 'versioned-initrd-stale-after-kernel-transition'
     effective_generator = 'disabled'
 else:
     state = 'enabled'
-    transition = 'direct-to-generated-initrd'
+    transition = 'versioned-to-versioned-initrd'
     effective_generator = values['GENERATOR']
     if effective_generator == 'mkinitrd' and not mkinitrd_conf.exists():
         effective_generator = 'mkinitrd_command_generator.sh'
@@ -392,6 +521,7 @@ else:
 
 result = {
     'config_state': config_state,
+    'current_boot_mode': current_boot_mode,
     'geninitrd_sha256': digest(geninitrd),
     'setup_sha256': digest(setup),
     'doinst_will_invoke_geninitrd': doinst_will_invoke,
@@ -424,6 +554,8 @@ target=$TARGET
 running_kernel=$RUNNING_KERNEL
 target_kernel=$TARGET_KERNEL
 candidate_set_sha256=$CONFIRM_CANDIDATES_SHA256
+boot_mode=geninitrd-managed-versioned-initrd
+expected_initrd=/boot/initrd-$TARGET_KERNEL.img
 doinst_will_invoke_geninitrd=$DOINST_WILL_INVOKE
 policy_state=$POLICY_STATE
 autogenerate_initrd=$AUTOGENERATE_INITRD
@@ -431,6 +563,7 @@ effective_generator=$EFFECTIVE_GENERATOR
 auto_update_grub=$AUTO_UPDATE_GRUB
 transition_mode=$TRANSITION_MODE
 custom_review_required=$CUSTOM_REVIEW_REQUIRED
+next_stage=current-geninitrd-dkms-hook-preflight
 apply_ready=false
 apply_authorized=false
 passes=$PASS_COUNT
@@ -465,7 +598,7 @@ main() {
     parse_arguments "$@" || { print_usage >&2; return 2; }
     [ "$(id -u)" -eq 0 ] || { error 'this preflight must run as root'; return 2; }
     [ "$(cat /etc/slackware-version 2>/dev/null || true)" = 'Slackware 15.0+' ] || { error 'Slackware-current target mismatch'; return 2; }
-    for command in python3 sha256sum tar find bash; do
+    for command in python3 sha256sum tar find bash grub-script-check; do
         command -v "$command" >/dev/null 2>&1 || { error "required command missing: $command"; return 2; }
     done
     timestamp=$(date -u +%Y%m%dT%H%M%SZ)
@@ -486,6 +619,9 @@ main() {
         && capture_boot_state "$OUTPUT_DIR/boot.before.txt" \
         && record_pass 'the package database and boot-sensitive policy state were captured before inspection' \
         || record_failure 'the initial package or boot-sensitive state could not be captured'
+    validate_live_geninitrd_baseline "$BOOT_PREFLIGHT" / "$OUTPUT_DIR/live-geninitrd-baseline.txt" \
+        && record_pass 'the live generic kernel, versioned initrd, GenInitrd symlink policy, and GRUB pairing match the corrected baseline' \
+        || record_failure 'the live GenInitrd-managed boot baseline no longer matches the accepted record'
     inventory_hooks /etc/geninitrd.d/pre-install /etc/geninitrd.d/post-install "$OUTPUT_DIR/hooks.txt" \
         && record_pass 'geninitrd pre-install and post-install hooks were inventoried without following links' \
         || record_failure 'geninitrd hook inventory contains an unsafe path'
@@ -499,6 +635,7 @@ main() {
         /etc/geninitrd.d/pre-install \
         /etc/geninitrd.d/post-install \
         / \
+        geninitrd-managed-versioned-initrd \
         "$TARGET_KERNEL" \
         "$policy_json"; then
         DOINST_WILL_INVOKE=$(python3 -c 'import json,sys; print(str(json.load(open(sys.argv[1]))["doinst_will_invoke_geninitrd"]).lower())' "$policy_json")
@@ -508,9 +645,19 @@ main() {
         AUTO_UPDATE_GRUB=$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["auto_update_grub"])' "$policy_json")
         TRANSITION_MODE=$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["transition_mode"])' "$policy_json")
         CUSTOM_REVIEW_REQUIRED=$(python3 -c 'import json,sys; print(str(json.load(open(sys.argv[1]))["custom_review_required"]).lower())' "$policy_json")
+        NAMED_SYMLINK=$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["named_symlink"])' "$policy_json")
+        INITRD_GZ_SYMLINK=$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["initrd_gz_symlink"])' "$policy_json")
         record_pass 'the installed geninitrd and setup scripts match the reviewed conditional control flow'
-        record_pass "the effective host policy was parsed safely as $POLICY_STATE with generator $EFFECTIVE_GENERATOR"
-        record_pass "the predicted boot transition is $TRANSITION_MODE and automatic GRUB update is $AUTO_UPDATE_GRUB"
+        if [ "$POLICY_STATE" = enabled ] && [ "$DOINST_WILL_INVOKE" = true ] && [ "$EFFECTIVE_GENERATOR" = mkinitrd_command_generator.sh ]; then
+            record_pass "the effective host policy was parsed safely as $POLICY_STATE with generator $EFFECTIVE_GENERATOR"
+        else
+            record_failure 'the effective host policy would not generate the reviewed target initrd'
+        fi
+        if [ "$TRANSITION_MODE" = versioned-to-versioned-initrd ] && [ "$AUTO_UPDATE_GRUB" = true ] && [ "$NAMED_SYMLINK" = true ] && [ "$INITRD_GZ_SYMLINK" = false ]; then
+            record_pass "the predicted boot transition is $TRANSITION_MODE and automatic GRUB update is $AUTO_UPDATE_GRUB"
+        else
+            record_failure 'the target versioned-initrd, named-link, or automatic-GRUB policy is inconsistent'
+        fi
     else
         record_failure 'the installed geninitrd policy is unsafe, unsupported, or incomplete'
     fi

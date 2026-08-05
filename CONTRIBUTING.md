@@ -166,3 +166,7 @@ sudo bash tests/acceptance/reference/test-current-kernel-package-preflight.sh \
 
 The preflight must fail before package download if the accepted boot or chain records drift, or if the live generic kernel, named initrd, versioned initrd, GenInitrd policy, or active GRUB pairing differs from the accepted baseline. It may download and inspect the exact `.txz`, but must not execute `doinst.sh`, install packages, run `geninitrd` or `mkinitrd`, or replace GRUB state. Copy the generated `.tar.gz` and `.sha256` directly to `/home/promano` with `promano:users` ownership and verify the portable sidecar there. Do not advance to the policy preflight until the evidence is reviewed and recorded as accepted.
 
+### Rebuilt Slackware-current GenInitrd policy evidence (step 58)
+
+After accepting step 57, run only `test-current-geninitrd-policy-preflight.sh` with the accepted candidate digest and target. The stage must bind the corrected boot, chain-restart, and exact-package records, revalidate the live named and versioned initrd plus GRUB pairing, parse `/etc/default/geninitrd` without sourcing it, and classify the target as `versioned-to-versioned-initrd`. A disabled or skipped generator must expose a stale-initrd transition and fail the real acceptance path. No GenInitrd hook, generator, package tool, `mkinitrd`, `geninitrd`, `update-grub`, or `grub-mkconfig` command may be executed. Publish and verify the archive and sidecar directly in `/home/promano`; do not advance to DKMS review until this evidence is accepted.
+

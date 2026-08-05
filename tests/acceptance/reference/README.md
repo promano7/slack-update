@@ -714,6 +714,8 @@ The preflight binds the accepted normal-update, boot-layout, chain-restart, and 
 
 The real `pcold-slack` run passed all 10 assertions. It accepted the enabled policy, effective `mkinitrd_command_generator.sh`, automatic GRUB update, direct-to-generated-initrd transition to `/boot/initrd-6.18.42.img`, unchanged reviewed hook digests, immutable package and boot-policy state, and archive SHA-256 `873c7779dcef6f16d72d809704ca732809e6d5db5b1668f6a4942662b97c54ca`. The sanitized accepted record is `tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-policy-preflight-20260804-accepted.json`.
 
+This record is historical only after the corrected step-55 baseline proved that the host already used a GenInitrd-managed versioned initrd. It must not be reused for apply or later evidence linkage; step 58 rebuilds the policy boundary.
+
 ### Slackware-current restarted DKMS-hook preflight (step 49)
 
 ```bash
@@ -825,4 +827,19 @@ sudo bash tests/acceptance/reference/test-current-kernel-package-preflight.sh \
 ```
 
 The stage binds the accepted 69-candidate record, corrected GenInitrd boot record, and corrected chain-restart record. Before download it requires the live `geninitrd-managed-versioned-initrd` baseline, exact current kernel and initrd hashes, safe root-owned versioned initrd, enabled named-symlink policy, and an active GRUB menuentry pairing `/boot/vmlinuz-generic` with `/boot/initrd-generic.img`. It then inspects only the exact cached target package and evidence-local GRUB output. The expected result is 13 passes, zero failures, `apply_ready=false`, and `apply_authorized=false`.
+
+The real run passed all 13 assertions and produced accepted archive SHA-256 `9f702e85a8ff3eb6155b834ed11cfe494ec60f04082914d80bae2a13d02e016f`. The sanitized accepted record is `tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-package-preflight-20260805-accepted.json`.
+
+### Slackware-current rebuilt GenInitrd policy preflight (step 58)
+
+```bash
+sudo bash tests/acceptance/reference/test-current-geninitrd-policy-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+The stage binds the corrected boot, chain-restart, and exact-package records, then revalidates the live generic kernel, named initrd, versioned initrd, scalar GenInitrd policy, and same-menuentry GRUB pairing. It parses installed policy and scripts without sourcing or executing them, inventories hooks, predicts `/boot/initrd-6.18.42.img`, and reports `versioned-to-versioned-initrd`. A safe result has 11 passes, zero failures, `apply_ready=false`, and `apply_authorized=false`. Copy the `.tar.gz` and `.sha256` directly to `/home/promano` and verify the sidecar there.
+
+The rebuilt policy harness has 61 checks. The complete step-58 matrix contains 37 suites and 2,465 checks, all executed with zero failures.
 
