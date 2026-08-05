@@ -2079,7 +2079,24 @@ sudo bash tests/acceptance/reference/test-current-geninitrd-dkms-hook-preflight.
     --confirm-target-kernel 6.18.42
 ```
 
-The rebuilt stage binds the accepted normal-update, corrected boot, corrected chain-restart, exact-package, and versioned GenInitrd policy records. Before examining hooks it revalidates the live `vmlinuz-generic`, `initrd-generic.img`, `/boot/initrd-6.18.40.img`, GenInitrd symlink policy, and same-menuentry GRUB pairing. It then verifies the exact `dkms-bcachefs` and `dkms-nvidia` hook hashes, ownership, permissions, syntax, and static command surfaces; runs only `dkms --version` and `dkms status`; and inventories DKMS sources, state, and module trees without following links. No hook, DKMS build/install action, package command, initrd generator, or GRUB command is executed. Expect 12 passes, zero failures, `apply_ready=false`, and `apply_authorized=false`. Copy the evidence archive and portable sidecar directly to `/home/promano` and verify them there.
+The rebuilt stage binds the accepted normal-update, corrected boot, corrected chain-restart, exact-package, and versioned GenInitrd policy records. Before examining hooks it revalidates the live `vmlinuz-generic`, `initrd-generic.img`, `/boot/initrd-6.18.40.img`, GenInitrd symlink policy, and same-menuentry GRUB pairing. It then verifies the exact `dkms-bcachefs` and `dkms-nvidia` hook hashes, ownership, permissions, syntax, and static command surfaces; runs only `dkms --version` and `dkms status`; and inventories DKMS sources, state, and module trees without following links. No hook, DKMS build/install action, package command, initrd generator, or GRUB command is executed. Expect 11 passes, zero failures, `apply_ready=false`, and `apply_authorized=false`. Copy the evidence archive and portable sidecar directly to `/home/promano` and verify them there.
+
+The real step-59 run passed all 11 assertions and produced accepted archive SHA-256 `780c56432d7d1b1bd4014a56709d6693a7ac1bf1148a072fbf8d1cfceac1cd2f`. Its sanitized record is `tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-dkms-hook-preflight-20260805-accepted.json`.
 
 The step-59 repository matrix executes all 37 suites: 2,473 checks pass with zero failures. The rebuilt DKMS-hook harness contributes 59 checks.
+
+### Phase 1 step 60: rebuilt GenInitrd command preflight
+
+Run only after accepting step 59:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-geninitrd-command-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+The rebuilt stage binds the accepted normal-update, corrected boot, chain-restart, exact-package, versioned-policy, and step-59 DKMS records. Before invoking the generator it revalidates the live `vmlinuz-generic`, `initrd-generic.img`, `/boot/initrd-6.18.40.img`, GenInitrd symlink policy, active GRUB digest, and same-menuentry kernel/initrd pairing. It confirms the exact cached target package, runs `mkinitrd_command_generator.sh` only in command-output mode for the installed kernel, parses exactly one inert `mkinitrd` vector, and projects that vector to `6.18.42` with output `/boot/initrd-6.18.42.img`. Neither the current nor projected command is executed. Expect 12 passes, zero failures, `transition=versioned-to-versioned-initrd`, `apply_ready=false`, and `apply_authorized=false`. Copy the archive and sidecar directly to `/home/promano` and verify them there. Do not advance to the GRUB-ownership preflight until this evidence is reviewed and accepted.
+
+The step-60 repository inventory contains 37 suites and 2,489 checks with zero failures. The rebuilt GenInitrd-command harness contributes 73 checks. The GRUB atomic-replacement harness contributes 87 checks and now isolates `PATH` when simulating an unavailable validator, so that branch is reproducible even on hosts where `grub-script-check` is installed. Static validation covers 56 Bash scripts and 51 JSON files.
 

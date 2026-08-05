@@ -854,7 +854,22 @@ sudo bash tests/acceptance/reference/test-current-geninitrd-dkms-hook-preflight.
     --confirm-target-kernel 6.18.42
 ```
 
-The stage binds all accepted records through the rebuilt step-58 policy, revalidates the corrected live GenInitrd-managed baseline, verifies and copies the exact two reviewed DKMS hooks without execution, captures their static command surfaces, and records only read-only DKMS discovery. It must leave packages, boot files, policy, hooks, and DKMS state unchanged. A safe run is expected to report 12 passes, zero failures, `hooks=2`, `dkms-status-rows=0`, `review=custom-review-required`, `apply-ready=false`, and `apply-authorized=false`. Copy the archive and `.sha256` directly to `/home/promano` and verify them there.
+The stage binds all accepted records through the rebuilt step-58 policy, revalidates the corrected live GenInitrd-managed baseline, verifies and copies the exact two reviewed DKMS hooks without execution, captures their static command surfaces, and records only read-only DKMS discovery. It must leave packages, boot files, policy, hooks, and DKMS state unchanged. A safe run is expected to report 11 passes, zero failures, `hooks=2`, `dkms-status-rows=0`, `review=custom-review-required`, `apply-ready=false`, and `apply-authorized=false`. Copy the archive and `.sha256` directly to `/home/promano` and verify them there.
+
+The real step-59 run passed all 11 assertions and produced accepted archive SHA-256 `780c56432d7d1b1bd4014a56709d6693a7ac1bf1148a072fbf8d1cfceac1cd2f`. The sanitized accepted record is `tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-dkms-hook-preflight-20260805-accepted.json`.
 
 The rebuilt DKMS harness has 59 checks. The complete step-59 matrix contains 37 suites and 2,473 checks, all executed with zero failures.
+
+### Slackware-current rebuilt GenInitrd command preflight (step 60)
+
+```bash
+sudo bash tests/acceptance/reference/test-current-geninitrd-command-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+The stage binds all accepted records through the rebuilt step-59 DKMS boundary and rejects historical direct-no-initrd evidence. It revalidates the live generic kernel, named initrd, versioned initrd, scalar GenInitrd symlink policy, and same-menuentry GRUB pairing before inspecting the generator. It then verifies the exact cached target package and installed generator/setup scripts, invokes the generator only for the installed kernel without `--run`, parses one inert vector without `eval` or `bash -c`, and projects only the kernel version and output path to `/boot/initrd-6.18.42.img`. A safe run reports 12 passes, zero failures, `transition=versioned-to-versioned-initrd`, `command=projected-safe`, `apply-ready=false`, and `apply-authorized=false`. Copy the `.tar.gz` and `.sha256` directly to `/home/promano` and verify the sidecar there. No generated command may be executed.
+
+The rebuilt command harness has 73 checks. The complete step-60 inventory contains 37 suites and 2,489 checks with zero failures; static validation covers 56 Bash scripts and 51 JSON files.
 

@@ -1,0 +1,66 @@
+{
+  "scenario": "current-geninitrd-dkms-hook-preflight",
+  "target": "slackware-current",
+  "accepted": true,
+  "captured_at": "2026-08-05T11:12:45Z",
+  "archive_sha256": "780c56432d7d1b1bd4014a56709d6693a7ac1bf1148a072fbf8d1cfceac1cd2f",
+  "normal_update_candidate_set_sha256": "918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9",
+  "boot_preflight_archive_sha256": "6429fd626973b0c3fc498642e1cd9230bc0eceb0291e232b515fef625467c6ac",
+  "chain_restart_archive_sha256": "e48c528aafd9daef64edae721ddc96c9b5c52daac1a6f563fe447d1a66e6996e",
+  "package_preflight_archive_sha256": "9f702e85a8ff3eb6155b834ed11cfe494ec60f04082914d80bae2a13d02e016f",
+  "policy_preflight_archive_sha256": "de4ad831efda30eaaa6a0ee8fc099815cf0bdb9882bded361942dc6719a88e80",
+  "running_kernel": "6.18.40",
+  "target_kernel": "6.18.42",
+  "boot_mode": "geninitrd-managed-versioned-initrd",
+  "transition_mode": "versioned-to-versioned-initrd",
+  "current_named_initrd": "/boot/initrd-generic.img",
+  "current_named_initrd_target": "initrd-6.18.40.img",
+  "current_versioned_initrd": "/boot/initrd-6.18.40.img",
+  "current_versioned_initrd_sha256": "0da0e0289d93cdf2d3b78288bfa23db4c9437b576563f92889399b2c98294442",
+  "active_grub_sha256": "5fdff76d42ddec26b0c212668c4981a9ea2853a98b3260f33850c91ccf8ac247",
+  "dkms": {
+    "version": "3.4.1",
+    "status_row_count": 0,
+    "status_rows": [],
+    "var_lib_dkms_state": "empty",
+    "running_updates_dkms_state": "missing",
+    "target_module_tree_state": "missing"
+  },
+  "hooks": [
+    {
+      "kind": "pre",
+      "path": "/etc/geninitrd.d/pre-install/dkms-bcachefs",
+      "sha256": "bef7093aea411c39e971e825ad8651274757c5fd1d6da405028a118ebaec23a9",
+      "predicted_action": "no-op-no-registered-module"
+    },
+    {
+      "kind": "pre",
+      "path": "/etc/geninitrd.d/pre-install/dkms-nvidia",
+      "sha256": "1430daca29079c8939f714ddff3628156dc990dc8b50e625fa8949367c362efa",
+      "predicted_action": "no-op-no-registered-module"
+    }
+  ],
+  "sources": {
+    "bcachefs": "/usr/src/bcachefs-1.38.8",
+    "nvidia": null
+  },
+  "hooks_executed": false,
+  "dkms_build_executed": false,
+  "package_database_unchanged": true,
+  "boot_policy_and_dkms_state_unchanged": true,
+  "assertions": {
+    "passes": 11,
+    "failures": 0
+  },
+  "evidence": {
+    "portable_sha256_sidecar": true,
+    "copied_to": "/home/promano",
+    "destination_verification": "passed"
+  },
+  "review_status": "accepted-noop-hooks",
+  "apply_ready": false,
+  "apply_authorized": false,
+  "next_stage": "current-geninitrd-command-preflight",
+  "executed_preflight_sha256": "b3127b142b7eac6d2a40705155f79ebe7a8fdd18e74aca5410fb82dc0f7492a1",
+  "reference_sha256": "0dc4a4def9b063b9a598975f46e7458c5771eb8d8603f4fa8bbd9dfc07c4d4c6"
+}

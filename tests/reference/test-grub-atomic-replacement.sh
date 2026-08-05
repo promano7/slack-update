@@ -273,10 +273,14 @@ assert_equal 0 "$GRUB_REPLACEMENT_ATTEMPTED" \
 assert_no_transaction_files "$GRUB_DIRECTORY" \
     'syntax rejection should remove the temporary file'
 
-# A missing validator must block before generating any output.
+# A missing validator must block before generating any output, even when the
+# host running the harness has a real grub-script-check binary installed.
 reset_transaction
 unset -f grub-script-check
+saved_path=$PATH
+PATH="$TEST_TMP/missing-validator-path"
 assert_status 1 'missing grub-script-check should fail closed' update_grub_configuration
+PATH=$saved_path
 assert_equal 0 "$GRUB_COMMAND_ATTEMPTED" \
     'missing validator should block before grub-mkconfig'
 assert_equal 'grub-script-check is unavailable' "$GRUB_VALIDATION_ERROR" \

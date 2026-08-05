@@ -113,7 +113,7 @@ Before submitting a change to the reference script:
 29. Run `tests/reference/test-current-kernel-package-preflight-harness.sh` when accepted candidate/boot/restart binding, exact Slackpkg kernel downloads, cache resolution, package-archive path safety, target image or module inventory, non-executed `doinst.sh` policy, GRUB evidence generation, portable sidecars, or transaction apply denial is affected.
 30. Run `tests/reference/test-current-geninitrd-policy-preflight-harness.sh` when installed GenInitrd script recognition, non-evaluating policy parsing, generator selection, automatic GRUB behavior, custom hook inventory, or policy evidence publication is affected.
 31. Run `tests/reference/test-current-geninitrd-dkms-hook-preflight-harness.sh` when reviewed hook identity, hook metadata or syntax, static command-surface capture, read-only DKMS status, DKMS source/module inventory, or immutable apply denial is affected.
-32. Run `tests/reference/test-current-geninitrd-command-preflight-harness.sh` when command-generator identity, command-output-only invocation, inert argument parsing, target-kernel projection, cached-package binding, or no-execution guarantees are affected.
+32. Run `tests/reference/test-current-geninitrd-command-preflight-harness.sh` when accepted chain linkage, live versioned-initrd validation, command-generator identity, command-output-only invocation, inert argument parsing, target-kernel projection, cached-package binding, or no-execution guarantees are affected.
 33. Run `tests/reference/test-current-geninitrd-grub-ownership-preflight-harness.sh` when accepted chain linkage, GenInitrd policy precedence, automatic GRUB suppression, evidence-local policy staging, transaction ordering, recovery boundaries, or exclusive Slack-Update GRUB ownership are affected.
 34. Run `tests/reference/test-current-kernel-transaction-readiness-preflight-harness.sh` when final candidate refresh, accepted evidence linkage, exact package-cache identity, live transaction state, post-state contract binding, positive readiness, or separate authorization denial are affected.
 34. Run `tests/reference/test-geninitrd-grub-ownership-engine.sh` when same-directory policy staging, atomic activation or restoration, cleanup recovery, concurrent-change handling, backup retention, apply workflow ordering, or ownership-state reporting is affected.
@@ -182,4 +182,17 @@ sudo bash tests/acceptance/reference/test-current-geninitrd-dkms-hook-preflight.
 ```
 
 The stage must bind the corrected boot, chain-restart, exact-package, and versioned-policy records and reject the historical direct-no-initrd chain. It must revalidate the live named and versioned initrd plus GRUB pairing before inspecting the two reviewed hooks. Hook bodies may be copied into private evidence and parsed statically, but must never be executed. Only read-only `dkms --version` and `dkms status` calls are permitted; `dkms build`, `install`, `autoinstall`, `remove`, package tools, initrd generation, and GRUB mutation remain forbidden. Copy the archive and sidecar directly to `/home/promano` with `promano:users` ownership and verify the sidecar there. Do not advance to the GenInitrd command preflight until this evidence is reviewed and accepted.
+
+### Rebuilt Slackware-current GenInitrd command evidence (step 60)
+
+After accepting step 59, run only:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-geninitrd-command-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+The stage must bind all corrected records through the accepted DKMS boundary and fail closed if the live named initrd, versioned initrd, GenInitrd symlink policy, package cache, or active GRUB pairing differs from the accepted chain. The generator may run only in command-output mode for the installed kernel and must not use `--run`; the emitted text must contain exactly one safe inert `mkinitrd` vector. The projected vector may change only the reviewed kernel and versioned output target. Never use `eval`, `bash -c`, or execute either vector. Copy and verify the evidence directly in `/home/promano`; do not advance to GRUB-ownership review until the record is accepted.
 

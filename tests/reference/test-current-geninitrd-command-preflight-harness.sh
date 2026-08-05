@@ -43,6 +43,12 @@ assert_contains 'APPLY_READY=false' "$SCRIPT" 'apply readiness must remain false
 assert_contains 'APPLY_AUTHORIZED=false' "$SCRIPT" 'apply authorization must remain false'
 assert_contains 'sha256sum -c' "$SCRIPT" 'portable evidence verification should be printed'
 assert_contains '/home/$owner/' "$SCRIPT" 'evidence should be copied directly to the user home directory'
+assert_contains 'slackware-current-geninitrd-dkms-hook-preflight-20260805-accepted.json' "$SCRIPT" 'the corrected DKMS record must be the default'
+assert_contains 'geninitrd-managed-versioned-initrd' "$SCRIPT" 'the corrected versioned-initrd baseline must be required'
+assert_contains 'versioned-to-versioned-initrd' "$SCRIPT" 'the command projection must preserve the versioned-to-versioned transition'
+assert_contains 'validate_live_geninitrd_baseline' "$SCRIPT" 'the live GenInitrd baseline must be revalidated before projection'
+assert_contains '/boot/initrd-generic.img' "$SCRIPT" 'the named initrd must be part of the sensitive-state boundary'
+assert_not_contains "boot.get('boot_mode') == 'direct-generic-no-initrd'" "$SCRIPT" 'the revoked direct-no-initrd baseline must not be accepted'
 
 is_safe_kernel_version 6.18.42 && pass || fail 'a normal kernel version should be safe'
 is_safe_kernel_version '../6.18.42' && fail 'parent traversal should be rejected' || pass
@@ -54,11 +60,11 @@ TARGET=slackware-current
 TARGET_KERNEL=6.18.42
 CONFIRM_CANDIDATES_SHA256=918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9
 NORMAL_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260804-accepted.json"
-BOOT_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-boot-preflight-20260804-accepted.json"
-CHAIN_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-chain-restart-20260804-accepted.json"
-PACKAGE_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-package-preflight-20260804-accepted.json"
-POLICY_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-policy-preflight-20260804-accepted.json"
-DKMS_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-dkms-hook-preflight-20260804-accepted.json"
+BOOT_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-boot-preflight-20260805-accepted.json"
+CHAIN_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-chain-restart-20260805-accepted.json"
+PACKAGE_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-package-preflight-20260805-accepted.json"
+POLICY_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-policy-preflight-20260805-accepted.json"
+DKMS_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-dkms-hook-preflight-20260805-accepted.json"
 assert_success 'the accepted records should match the exact generator transaction' validate_accepted_records
 assert_equal kernel-generic-6.18.42-x86_64-1.txz "$REVIEWED_PACKAGE_FILENAME" 'accepted evidence should provide the reviewed package filename'
 assert_equal e9e7a1c5c71c945ee99595868aa8fee8a644b56601ece0c3e5696d643fe84878 "$REVIEWED_PACKAGE_SHA256" 'accepted evidence should provide the reviewed package SHA-256'
@@ -70,7 +76,25 @@ p=sys.argv[1]; d=json.load(open(p)); d['nested_boot_archive_sha256']='0'*64; ope
 PY
 CHAIN_PREFLIGHT="$TMP/chain-mismatch.json"
 assert_failure 'a restarted chain detached from the accepted boot evidence should fail closed' validate_accepted_records
-CHAIN_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-chain-restart-20260804-accepted.json"
+CHAIN_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-chain-restart-20260805-accepted.json"
+
+cp "$BOOT_PREFLIGHT" "$TMP/boot-revoked-mode.json"
+python3 - "$TMP/boot-revoked-mode.json" <<'PY'
+import json,sys
+p=sys.argv[1]; d=json.load(open(p)); d['boot_mode']='direct-generic-no-initrd'; open(p,'w').write(json.dumps(d))
+PY
+BOOT_PREFLIGHT="$TMP/boot-revoked-mode.json"
+assert_failure 'the revoked direct-no-initrd boot baseline should fail closed' validate_accepted_records
+BOOT_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-boot-preflight-20260805-accepted.json"
+
+cp "$POLICY_PREFLIGHT" "$TMP/policy-transition.json"
+python3 - "$TMP/policy-transition.json" <<'PY'
+import json,sys
+p=sys.argv[1]; d=json.load(open(p)); d['policy']['transition_mode']='direct-to-generated-initrd'; open(p,'w').write(json.dumps(d))
+PY
+POLICY_PREFLIGHT="$TMP/policy-transition.json"
+assert_failure 'a policy using the revoked direct transition should fail closed' validate_accepted_records
+POLICY_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-policy-preflight-20260805-accepted.json"
 
 cp "$PACKAGE_PREFLIGHT" "$TMP/package-invalid-digest.json"
 python3 - "$TMP/package-invalid-digest.json" <<'PYFIXTURE'
@@ -83,7 +107,7 @@ PYFIXTURE
 PACKAGE_PREFLIGHT="$TMP/package-invalid-digest.json"
 assert_failure 'an invalid package digest in accepted evidence should fail closed' validate_accepted_records
 assert_equal '' "$REVIEWED_PACKAGE_SHA256" 'failed accepted-record validation should clear any previously loaded package identity'
-PACKAGE_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-package-preflight-20260804-accepted.json"
+PACKAGE_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-package-preflight-20260805-accepted.json"
 
 cp "$DKMS_PREFLIGHT" "$TMP/dkms-status.json"
 python3 - "$TMP/dkms-status.json" <<'PY'
@@ -92,7 +116,7 @@ p=sys.argv[1]; d=json.load(open(p)); d['dkms']['status_row_count']=1; d['dkms'][
 PY
 DKMS_PREFLIGHT="$TMP/dkms-status.json"
 assert_failure 'a registered DKMS module should invalidate the accepted no-op hook boundary' validate_accepted_records
-DKMS_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-dkms-hook-preflight-20260804-accepted.json"
+DKMS_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-dkms-hook-preflight-20260805-accepted.json"
 cp "$DKMS_PREFLIGHT" "$TMP/dkms-action.json"
 python3 - "$TMP/dkms-action.json" <<'PY'
 import json,sys
@@ -100,7 +124,59 @@ p=sys.argv[1]; d=json.load(open(p)); d['hooks'][0]['predicted_action']='dkms-ins
 PY
 DKMS_PREFLIGHT="$TMP/dkms-action.json"
 assert_failure 'a hook that could install a module should fail the no-op boundary' validate_accepted_records
-DKMS_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-dkms-hook-preflight-20260804-accepted.json"
+DKMS_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-dkms-hook-preflight-20260805-accepted.json"
+cp "$DKMS_PREFLIGHT" "$TMP/dkms-initrd.json"
+python3 - "$TMP/dkms-initrd.json" <<'PY'
+import json,sys
+p=sys.argv[1]; d=json.load(open(p)); d['current_versioned_initrd_sha256']='0'*64; open(p,'w').write(json.dumps(d))
+PY
+DKMS_PREFLIGHT="$TMP/dkms-initrd.json"
+assert_failure 'a DKMS boundary detached from the corrected versioned initrd should fail closed' validate_accepted_records
+DKMS_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-dkms-hook-preflight-20260805-accepted.json"
+
+LIVE_ROOT=$TMP/live-root
+mkdir -p "$LIVE_ROOT/boot/grub" "$LIVE_ROOT/etc/default" "$TMP/bin"
+printf '#!/bin/sh\nexit 0\n' > "$TMP/bin/grub-script-check"
+chmod 0755 "$TMP/bin/grub-script-check"
+printf 'kernel\n' > "$LIVE_ROOT/boot/vmlinuz-6.18.40"
+ln -s vmlinuz-6.18.40 "$LIVE_ROOT/boot/vmlinuz-generic"
+printf 'initrd\n' > "$LIVE_ROOT/boot/initrd-6.18.40.img"
+ln -s initrd-6.18.40.img "$LIVE_ROOT/boot/initrd-generic.img"
+cat > "$LIVE_ROOT/etc/default/geninitrd" <<'EOF_POLICY'
+AUTOGENERATE_INITRD=true
+GENINITRD_NAMED_SYMLINK=true
+GENINITRD_INITRD_GZ_SYMLINK=false
+EOF_POLICY
+cat > "$LIVE_ROOT/boot/grub/grub.cfg" <<'EOF_GRUB'
+menuentry 'Slackware' {
+  linux /boot/vmlinuz-generic root=/dev/sda2 ro
+  initrd /boot/initrd-generic.img
+}
+EOF_GRUB
+LIVE_RECORD=$TMP/live-record.json
+python3 - "$BOOT_PREFLIGHT" "$LIVE_ROOT" "$LIVE_RECORD" <<'PY'
+import hashlib,json,pathlib,sys
+source,root,output=sys.argv[1:]; d=json.load(open(source)); r=pathlib.Path(root)
+def sha(name): return hashlib.sha256((r/name).read_bytes()).hexdigest()
+d['generic_kernel_sha256']=sha('boot/vmlinuz-6.18.40')
+d['versioned_initrd_sha256']=sha('boot/initrd-6.18.40.img')
+d['versioned_initrd_size']=(r/'boot/initrd-6.18.40.img').stat().st_size
+d['active_grub_sha256']=sha('boot/grub/grub.cfg')
+open(output,'w').write(json.dumps(d))
+PY
+OLD_PATH=$PATH
+PATH="$TMP/bin:$PATH"
+assert_success 'a coherent synthetic GenInitrd-managed baseline should validate before command projection' validate_live_geninitrd_baseline "$LIVE_RECORD" "$LIVE_ROOT" "$TMP/live.txt"
+assert_contains 'transition_mode=versioned-to-versioned-initrd' "$TMP/live.txt" 'the live evidence should preserve the corrected transition mode'
+cp "$LIVE_RECORD" "$TMP/live-wrong-initrd.json"
+python3 - "$TMP/live-wrong-initrd.json" <<'PY'
+import json,sys
+p=sys.argv[1]; d=json.load(open(p)); d['versioned_initrd_sha256']='0'*64; open(p,'w').write(json.dumps(d))
+PY
+assert_failure 'a changed live versioned initrd should fail closed before command projection' validate_live_geninitrd_baseline "$TMP/live-wrong-initrd.json" "$LIVE_ROOT" "$TMP/live-wrong.txt"
+printf 'AUTOGENERATE_INITRD=true\nGENINITRD_NAMED_SYMLINK=false\nGENINITRD_INITRD_GZ_SYMLINK=false\n' > "$LIVE_ROOT/etc/default/geninitrd"
+assert_failure 'a disabled named-initrd policy should fail closed before command projection' validate_live_geninitrd_baseline "$LIVE_RECORD" "$LIVE_ROOT" "$TMP/live-policy.txt"
+PATH=$OLD_PATH
 
 RUNNING_KERNEL=6.18.40
 TARGET_KERNEL=6.18.42
@@ -165,7 +241,7 @@ chmod 0755 "$GENERATOR_SCRIPT"
 assert_failure 'a syntax-invalid generator should fail closed' validate_generator_scripts "$TMP/scripts-bad-syntax.txt"
 
 (
-    PASS_COUNT=11
+    PASS_COUNT=12
     FAILURE_COUNT=0
     TARGET=slackware-current
     RUNNING_KERNEL=6.18.40
@@ -180,7 +256,10 @@ assert_contains 'generator_run_mode=command-output-only' "$TMP/summary.txt" 'the
 assert_contains 'generated_command_executed=false' "$TMP/summary.txt" 'the summary should deny command execution'
 assert_contains 'apply_ready=false' "$TMP/summary.txt" 'the summary should keep apply readiness false'
 assert_contains 'apply_authorized=false' "$TMP/summary.txt" 'the summary should keep apply authorization false'
-assert_contains 'passes=11' "$TMP/summary.txt" 'the summary should preserve the pass count'
+assert_contains 'boot_mode=geninitrd-managed-versioned-initrd' "$TMP/summary.txt" 'the summary should preserve the corrected boot mode'
+assert_contains 'transition_mode=versioned-to-versioned-initrd' "$TMP/summary.txt" 'the summary should preserve the corrected transition mode'
+assert_contains 'current_versioned_initrd=/boot/initrd-6.18.40.img' "$TMP/summary.txt" 'the summary should preserve the current versioned initrd'
+assert_contains 'passes=12' "$TMP/summary.txt" 'the summary should preserve the pass count'
 
 printf 'Slackware-current GenInitrd command preflight harness: %s checks, %s failures\n' "$HARNESS_TEST_COUNT" "$HARNESS_FAILURE_COUNT"
 [ "$HARNESS_FAILURE_COUNT" -eq 0 ]
