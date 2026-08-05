@@ -7,7 +7,9 @@
   "target_kernel": "6.18.42",
   "expected_package_count": 68,
   "boot_adjacent_package": "breeze-grub-6.7.4-x86_64-1.txz",
-  "allowed_boot_adjacent_prefix": "usr/share/grub/themes/breeze/",
+  "boot_adjacent_package_sha256": "66209816c42b2363f7a2ca7d1a739dc393c101c752709e7291f1f97b6466008a",
+  "boot_adjacent_package_size": 1448432,
+  "allowed_boot_adjacent_prefix": "boot/grub/themes/breeze/",
   "forbidden_payload_prefixes": [
     "boot/",
     "lib/modules/",

@@ -952,9 +952,13 @@ A safe run is expected to report 12 passes, zero failures, `kernel-evidence-rebo
 
 The focused harness contains 62 checks. The complete step-66 inventory contains 39 suites and 2,653 checks with zero failures.
 
-### Slackware-current userspace payload review preflight (step 67)
+### Slackware-current userspace payload review diagnostic (step 67)
 
-After accepting the step-66 rebind, run:
+The first real run preserved the exact 137-candidate boundary, resolved and cached all 68 reviewed archives, and left the installed and boot state unchanged. It stopped safely after 13 passes and two failures because the policy expected `usr/share/grub/themes/breeze/`, while the exact Slackware `breeze-grub-6.7.4-x86_64-1.txz` archive begins with the directory member `boot` and installs the theme below `boot/grub/themes/breeze/`. The rejected evidence remains diagnostic only and requires a corrected rerun.
+
+### Slackware-current corrected userspace payload review preflight (step 68)
+
+After accepting the step-66 rebind and confirming that no host state changed during step 67, run:
 
 ```bash
 sudo bash tests/acceptance/reference/test-current-userspace-payload-review-preflight.sh \
@@ -965,6 +969,8 @@ sudo bash tests/acceptance/reference/test-current-userspace-payload-review-prefl
 
 The wrapper validates the accepted userspace review and rebind records, invokes normal-update only with `--preflight`, requires the exact 137 candidates, and verifies the nested archive. It resolves exactly 68 live repository records and downloads only missing exact package stems through Slackpkg. It then inspects all cached archives without installation or host extraction, writes package SHA-256 values and complete member inventories, and copies any `install/doinst.sh` into the evidence directory for syntax-only checking.
 
-A safe archive review rejects absolute or traversing paths, duplicate members, devices, FIFOs, escaping links, setuid/setgid payloads, kernel/module/initrd/pkgtools paths, and any GRUB path outside the reviewed `breeze-grub` theme prefix. A clean run is expected to report 16 passes, zero failures, `package_payloads_inspected=true`, `payload_path_review_complete=true`, `maintainer_scripts_review_complete=false`, `userspace_apply_review_complete=false`, `next-stage=current-userspace-maintainer-script-review-preflight`, `apply-ready=false`, and `apply-authorized=false`. Use the final printed command to copy the outer archive and sidecar directly to `/home/promano` with `promano:users` ownership, then verify the sidecar there. Do not execute captured maintainer scripts, readiness, or apply.
+The boot-adjacent exception is bound to the exact `breeze-grub-6.7.4-x86_64-1.txz` filename, SHA-256 `66209816c42b2363f7a2ca7d1a739dc393c101c752709e7291f1f97b6466008a`, and 1,448,432-byte size. It allows only the three required ancestor directories and the exact `boot/grub/themes/breeze/` subtree in that archive. A safe archive review still rejects absolute or traversing paths, duplicate members, devices, FIFOs, escaping links, setuid/setgid payloads, kernel/module/initrd/pkgtools paths, every other `/boot` member, and every unreviewed GRUB path.
 
-The focused harness contains 56 checks. The complete step-67 inventory contains 40 suites and 2,709 checks with zero failures.
+A clean run is expected to report 16 passes, zero failures, `package_payloads_inspected=true`, `payload_path_review_complete=true`, `maintainer_scripts_review_complete=false`, `userspace_apply_review_complete=false`, `next-stage=current-userspace-maintainer-script-review-preflight`, `apply-ready=false`, and `apply-authorized=false`. Use the final printed command to copy the outer archive and sidecar directly to `/home/promano` with `promano:users` ownership, then verify the sidecar there. Do not execute captured maintainer scripts, readiness, or apply.
+
+The focused harness contains 65 checks. The complete step-68 inventory contains 40 suites and 2,718 checks with zero failures.

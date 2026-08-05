@@ -1,0 +1,65 @@
+{
+  "scenario": "current-userspace-payload-review-preflight",
+  "target": "slackware-current",
+  "captured_at": "2026-08-05T14:50:32Z",
+  "accepted": false,
+  "diagnostic_only": true,
+  "retry_required": true,
+  "archive_sha256": "b61a17d2fb296d8493bab82dfcbb2bdf4bbebcb0b5168f6d61895674c31b45e8",
+  "nested_normal_update_archive_sha256": "bae2e427e5c789d3f51141cb8281e0493754f1721b6ba0ecff3af52ca219fe0e",
+  "candidate_set_sha256": "27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926",
+  "running_kernel": "6.18.40",
+  "target_kernel": "6.18.42",
+  "expected_package_count": 68,
+  "fresh_candidate_count": 137,
+  "downloaded_or_cached_package_count": 68,
+  "boot_adjacent_package": {
+    "filename": "breeze-grub-6.7.4-x86_64-1.txz",
+    "sha256": "66209816c42b2363f7a2ca7d1a739dc393c101c752709e7291f1f97b6466008a",
+    "size": 1448432,
+    "stale_reviewed_prefix": "usr/share/grub/themes/breeze/",
+    "first_rejected_member": "boot",
+    "corrected_reviewed_prefix": "boot/grub/themes/breeze/"
+  },
+  "assertions": {
+    "passes": 13,
+    "failures": 2,
+    "failed_messages": [
+      "one or more userspace archives contain unsafe or unreviewed payload members",
+      "the userspace payload boundary could not be completed safely"
+    ]
+  },
+  "diagnosis": {
+    "root_cause": "The policy described the upstream-style usr/share GRUB theme location, while the exact Slackware breeze-grub archive begins with an explicit boot directory member. The generic boot prohibition therefore rejected the archive before the inspector could validate its confined theme subtree.",
+    "correction": "Bind the exception to the exact reviewed breeze-grub filename, SHA-256, and size; permit only the ancestor directories of boot/grub/themes/breeze plus that exact subtree; retain the generic boot prohibition for every other package and path.",
+    "unsafe_host_change_observed": false
+  },
+  "state_unchanged": {
+    "package_database": true,
+    "active_kernel": true,
+    "initrd": true,
+    "geninitrd": true,
+    "dkms": true,
+    "grub": true
+  },
+  "commands_executed": {
+    "package_transaction": false,
+    "maintainer_script": false,
+    "mkinitrd": false,
+    "geninitrd": false,
+    "dkms_action": false,
+    "grub_update": false
+  },
+  "package_payloads_inspected": false,
+  "payload_path_review_complete": false,
+  "maintainer_scripts_review_complete": false,
+  "userspace_apply_review_complete": false,
+  "apply_ready": false,
+  "apply_authorized": false,
+  "next_stage": "repeat-corrected-current-userspace-payload-review-preflight",
+  "evidence": {
+    "portable_sha256_sidecar": true,
+    "copied_to": "/home/promano",
+    "destination_verification": "passed"
+  }
+}

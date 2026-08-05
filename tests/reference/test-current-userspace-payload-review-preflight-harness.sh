@@ -71,6 +71,18 @@ copy_json_mutation "$POLICY" "$TMP/bad-policy-count.json" 'd["expected_package_c
 PAYLOAD_POLICY=$TMP/bad-policy-count.json
 assert_failure 'a payload policy with the wrong package count should fail closed' validate_accepted_records "$TMP/bad-count.txt"
 PAYLOAD_POLICY=$POLICY
+copy_json_mutation "$POLICY" "$TMP/bad-policy-prefix.json" 'd["allowed_boot_adjacent_prefix"]="usr/share/grub/themes/breeze/"'
+PAYLOAD_POLICY=$TMP/bad-policy-prefix.json
+assert_failure 'the stale usr/share GRUB theme prefix should fail closed' validate_accepted_records "$TMP/bad-prefix.txt"
+PAYLOAD_POLICY=$POLICY
+copy_json_mutation "$POLICY" "$TMP/bad-policy-sha.json" 'd["boot_adjacent_package_sha256"]="0"*64'
+PAYLOAD_POLICY=$TMP/bad-policy-sha.json
+assert_failure 'a changed breeze-grub archive digest should fail closed' validate_accepted_records "$TMP/bad-sha.txt"
+PAYLOAD_POLICY=$POLICY
+copy_json_mutation "$POLICY" "$TMP/bad-policy-size.json" 'd["boot_adjacent_package_size"]+=1'
+PAYLOAD_POLICY=$TMP/bad-policy-size.json
+assert_failure 'a changed breeze-grub archive size should fail closed' validate_accepted_records "$TMP/bad-size.txt"
+PAYLOAD_POLICY=$POLICY
 CONFIRM_CANDIDATES_SHA256=0
 assert_failure 'a malformed candidate confirmation should not validate accepted records' validate_accepted_records "$TMP/bad-digest.txt"
 CONFIRM_CANDIDATES_SHA256=27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926
@@ -129,7 +141,12 @@ for index, filename in enumerate(names):
             elif kind=='dir': info.type=tarfile.DIRTYPE; tar.addfile(info)
             elif kind=='symlink': info.type=tarfile.SYMTYPE; info.linkname=link; tar.addfile(info)
         if filename == 'breeze-grub-6.7.4-x86_64-1.txz':
-            add('usr/share/grub/themes/breeze/theme.txt', b'theme')
+            add('boot', kind='dir')
+            add('boot/grub', kind='dir')
+            add('boot/grub/themes', kind='dir')
+            add('boot/grub/themes/breeze', kind='dir')
+            add('boot/grub/themes/breeze/theme.txt', b'theme')
+            add('usr/doc/breeze-grub-6.7.4/LICENSES/GPL-3.0-only.txt', b'license')
         elif filename == 'stunnel-5.80-x86_64-1.txz':
             add('etc/stunnel/stunnel.conf.new', b'config')
             add('etc/rc.d/rc.stunnel.new', b'#!/bin/sh\n', 0o755)
@@ -142,6 +159,24 @@ for index, filename in enumerate(names):
 PY
 assert_success 'the exact 68 cached archives should resolve into a manifest' resolve_cached_manifest "$TMP/expected.txt" "$TMP/cache.tsv"
 assert_equal 68 "$(wc -l < "$TMP/cache.tsv")" 'the cache manifest should contain 68 rows'
+write_policy_for_manifest() {
+    local manifest=$1 output=$2
+    python3 - "$POLICY" "$manifest" "$output" <<'PY'
+import json, pathlib, sys
+policy=json.load(open(sys.argv[1], encoding='utf-8'))
+for row in pathlib.Path(sys.argv[2]).read_text(encoding='utf-8').splitlines():
+    filename, path, digest, size=row.split('\t')
+    if filename == policy['boot_adjacent_package']:
+        policy['boot_adjacent_package_sha256']=digest
+        policy['boot_adjacent_package_size']=int(size)
+        break
+else:
+    raise SystemExit('missing breeze-grub manifest row')
+pathlib.Path(sys.argv[3]).write_text(json.dumps(policy, indent=2)+'\n', encoding='utf-8')
+PY
+}
+write_policy_for_manifest "$TMP/cache.tsv" "$TMP/synthetic-policy.json"
+PAYLOAD_POLICY=$TMP/synthetic-policy.json
 OUTPUT_DIR=$TMP/output
 mkdir -p "$OUTPUT_DIR"
 values=$(inspect_payload_archives "$TMP/cache.tsv" "$OUTPUT_DIR")
@@ -149,7 +184,7 @@ assert_equal 68 "$(printf '%s\n' "$values" | sed -n '1p')" 'all 68 package paylo
 assert_equal 3 "$(printf '%s\n' "$values" | sed -n '2p')" 'three fixture maintainer scripts should be captured'
 assert_equal 1 "$(printf '%s\n' "$values" | sed -n '4p')" 'the service fixture should expose one service-adjacent path'
 assert_equal 1 "$(printf '%s\n' "$values" | sed -n '5p')" 'the fixture should identify one ELF payload'
-assert_equal 1 "$(printf '%s\n' "$values" | sed -n '6p')" 'the GRUB theme should be the only boot-adjacent payload path'
+assert_equal 2 "$(printf '%s\n' "$values" | sed -n '6p')" 'the reviewed theme directory and file should be the only counted boot-theme payload paths'
 assert_success 'all captured maintainer scripts should be syntax-valid' validate_doinst_syntax "$OUTPUT_DIR/doinst"
 assert_equal true "$(json_value "$OUTPUT_DIR/package-payload-summary.json" 'str(d["package_payloads_inspected"]).lower()')" 'the payload summary should record completed archive inspection'
 assert_equal true "$(json_value "$OUTPUT_DIR/package-payload-summary.json" 'str(d["payload_path_review_complete"]).lower()')" 'the payload path review should be complete'
@@ -157,6 +192,9 @@ assert_equal false "$(json_value "$OUTPUT_DIR/package-payload-summary.json" 'str
 assert_equal false "$(json_value "$OUTPUT_DIR/package-payload-summary.json" 'str(d["userspace_apply_review_complete"]).lower()')" 'userspace apply review should remain incomplete'
 assert_equal current-userspace-maintainer-script-review-preflight "$(json_value "$OUTPUT_DIR/package-payload-summary.json" 'd["next_stage"]')" 'the next stage should review maintainer scripts'
 assert_contains 'breeze-grub-6.7.4-x86_64-1.txz' "$OUTPUT_DIR/payload-inventory.tsv" 'the inventory should retain the GRUB theme identity'
+assert_contains $'breeze-grub-6.7.4-x86_64-1.txz\tboot\tdirectory' "$OUTPUT_DIR/payload-inventory.tsv" 'the reviewed boot ancestor should remain visible in the inventory'
+assert_contains $'breeze-grub-6.7.4-x86_64-1.txz\tboot/grub/themes/breeze/theme.txt\tregular' "$OUTPUT_DIR/payload-inventory.tsv" 'the actual Slackware theme path should remain visible in the inventory'
+assert_not_contains 'usr/share/grub/themes/breeze/' "$OUTPUT_DIR/payload-inventory.tsv" 'the stale usr/share theme layout should not appear in the accepted fixture'
 assert_contains 'etc/rc.d/rc.stunnel.new' "$OUTPUT_DIR/payload-inventory.tsv" 'the inventory should retain service-adjacent paths'
 
 make_bad_archive() {
@@ -168,19 +206,30 @@ with tarfile.open(dst,'w:xz') as tar:
     def add(name,data=b'x',perm=0o644,kind='file',link=''):
         info=tarfile.TarInfo(name); info.mode=perm
         if kind=='file': info.size=len(data); tar.addfile(info,io.BytesIO(data))
+        elif kind=='dir': info.type=tarfile.DIRTYPE; tar.addfile(info)
         elif kind=='symlink': info.type=tarfile.SYMTYPE; info.linkname=link; tar.addfile(info)
+    def add_theme():
+        for name in ('boot','boot/grub','boot/grub/themes','boot/grub/themes/breeze'):
+            add(name,kind='dir')
+        add('boot/grub/themes/breeze/theme.txt',b'theme')
     if mode=='boot': add('boot/vmlinuz-bad')
-    elif mode=='grub': add('usr/share/grub/themes/unreviewed/theme.txt')
+    elif mode=='grub': add('boot/grub/themes/breeze/theme.txt')
+    elif mode=='usr-grub': add('usr/share/grub/themes/breeze/theme.txt')
     elif mode=='escape': add('usr/lib64/link',kind='symlink',link='../../../etc/passwd')
     elif mode=='setuid': add('usr/bin/bad',perm=0o4755)
-    elif mode=='missing-theme': add('usr/share/doc/breeze-grub/readme')
+    elif mode=='missing-theme': add('usr/doc/breeze-grub/readme')
+    elif mode=='theme-sibling':
+        add('boot',kind='dir'); add('boot/grub',kind='dir'); add('boot/grub/themes',kind='dir')
+        add('boot/grub/themes/breeze-evil/theme.txt')
+    elif mode=='extra-boot':
+        add_theme(); add('boot/vmlinuz-bad')
 PY
 }
 
 first=$(head -n 1 "$TMP/cache.tsv")
 first_name=${first%%$'\t'*}
 first_path=$(printf '%s' "$first" | cut -f2)
-for mode in boot grub escape setuid; do
+for mode in boot grub usr-grub escape setuid; do
     bad_dir=$TMP/bad-$mode; cp -a "$PACKAGE_CACHE_ROOT" "$bad_dir"
     bad_path=$(find "$bad_dir" -type f -name "$first_name")
     make_bad_archive "$first_path" "$bad_path" "$mode"
@@ -196,9 +245,10 @@ PY
 done
 
 breeze=breeze-grub-6.7.4-x86_64-1.txz
-bad_dir=$TMP/bad-theme; cp -a "$PACKAGE_CACHE_ROOT" "$bad_dir"
-make_bad_archive "$(find "$PACKAGE_CACHE_ROOT" -type f -name "$breeze")" "$(find "$bad_dir" -type f -name "$breeze")" missing-theme
-python3 - "$TMP/cache.tsv" "$bad_dir" "$TMP/bad-theme.tsv" <<'PY'
+for mode in missing-theme theme-sibling extra-boot; do
+    bad_dir=$TMP/bad-theme-$mode; cp -a "$PACKAGE_CACHE_ROOT" "$bad_dir"
+    make_bad_archive "$(find "$PACKAGE_CACHE_ROOT" -type f -name "$breeze")" "$(find "$bad_dir" -type f -name "$breeze")" "$mode"
+    python3 - "$TMP/cache.tsv" "$bad_dir" "$TMP/bad-theme-$mode.tsv" <<'PY'
 import hashlib,pathlib,sys
 source=pathlib.Path(sys.argv[1]).read_text().splitlines(); root=pathlib.Path(sys.argv[2]); out=[]
 for row in source:
@@ -206,7 +256,11 @@ for row in source:
     out.append(f'{filename}\t{path}\t{hashlib.sha256(data).hexdigest()}\t{len(data)}\n')
 pathlib.Path(sys.argv[3]).write_text(''.join(out))
 PY
-assert_failure 'a breeze-grub archive without the reviewed theme prefix should fail closed' inspect_payload_archives "$TMP/bad-theme.tsv" "$TMP/out-theme"
+    write_policy_for_manifest "$TMP/bad-theme-$mode.tsv" "$TMP/bad-theme-$mode-policy.json"
+    PAYLOAD_POLICY=$TMP/bad-theme-$mode-policy.json
+    assert_failure "a breeze-grub $mode payload should fail closed" inspect_payload_archives "$TMP/bad-theme-$mode.tsv" "$TMP/out-theme-$mode"
+done
+PAYLOAD_POLICY=$TMP/synthetic-policy.json
 
 EXPECTED_PACKAGE_COUNT=68
 INSPECTED_PACKAGE_COUNT=68
@@ -214,7 +268,7 @@ DOINST_SCRIPT_COUNT=3
 CONFIG_PATH_COUNT=2
 SERVICE_PATH_COUNT=1
 ELF_FILE_COUNT=1
-BOOT_THEME_PATH_COUNT=1
+BOOT_THEME_PATH_COUNT=2
 PAYLOAD_PATH_REVIEW_COMPLETE=true
 NEXT_STAGE=current-userspace-maintainer-script-review-preflight
 PASS_COUNT=16

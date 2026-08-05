@@ -207,7 +207,9 @@ checks = [
     policy.get('candidate_set_sha256') == confirmed_digest, policy.get('target_kernel') == confirmed_target,
     policy.get('expected_package_count') == 68, policy.get('review_scope') == 'archive-path-and-metadata-safety',
     policy.get('boot_adjacent_package') == 'breeze-grub-6.7.4-x86_64-1.txz',
-    policy.get('allowed_boot_adjacent_prefix') == 'usr/share/grub/themes/breeze/',
+    policy.get('boot_adjacent_package_sha256') == '66209816c42b2363f7a2ca7d1a739dc393c101c752709e7291f1f97b6466008a',
+    policy.get('boot_adjacent_package_size') == 1448432,
+    policy.get('allowed_boot_adjacent_prefix') == 'boot/grub/themes/breeze/',
     policy.get('next_stage') == 'current-userspace-maintainer-script-review-preflight',
 ]
 if not all(checks):
@@ -374,7 +376,17 @@ if len(rows) != policy['expected_package_count']:
     raise SystemExit('unexpected package count')
 forbidden=tuple(policy['forbidden_payload_prefixes'])
 boot_package=policy['boot_adjacent_package']
+boot_package_sha=policy['boot_adjacent_package_sha256']
+boot_package_size=policy['boot_adjacent_package_size']
 boot_prefix=policy['allowed_boot_adjacent_prefix']
+boot_root=boot_prefix.rstrip('/')
+if not boot_prefix.endswith('/') or not boot_root or boot_root.startswith('/') or posixpath.normpath(boot_root) != boot_root:
+    raise SystemExit('unsafe reviewed boot theme prefix')
+boot_ancestors=set()
+parent=posixpath.dirname(boot_root)
+while parent and parent != '.':
+    boot_ancestors.add(parent)
+    parent=posixpath.dirname(parent)
 inventory=[]
 package_results=[]
 doinst_dir=output_root/'doinst'
@@ -389,8 +401,11 @@ for filename, raw_path, expected_sha, expected_size in rows:
         for block in iter(lambda: handle.read(1024 * 1024), b''):
             hasher.update(block)
     actual_sha=hasher.hexdigest()
-    if actual_sha != expected_sha or package.stat().st_size != int(expected_size):
+    actual_size=package.stat().st_size
+    if actual_sha != expected_sha or actual_size != int(expected_size):
         raise SystemExit(f'package changed during inspection: {filename}')
+    if filename == boot_package and (actual_sha != boot_package_sha or actual_size != boot_package_size):
+        raise SystemExit('reviewed breeze-grub archive identity changed')
     counts={key:0 for key in totals}
     names=[]
     has_theme=False
@@ -442,14 +457,20 @@ for filename, raw_path, expected_sha, expected_size in rows:
                 counts['config_paths']+=1
             if normalized.startswith(('etc/rc.d/','usr/lib/systemd/','lib/systemd/','usr/lib64/systemd/')):
                 counts['service_paths']+=1
-            if normalized.startswith('usr/share/grub/'):
-                allowed_theme_path = normalized == boot_prefix.rstrip('/') or normalized.startswith(boot_prefix)
-                if filename != boot_package or not allowed_theme_path:
+            theme_member = normalized == boot_root or normalized.startswith(boot_prefix)
+            theme_ancestor = normalized in boot_ancestors
+            allowed_boot_adjacent_path = filename == boot_package and (theme_member or theme_ancestor)
+            if normalized == 'usr/share/grub' or normalized.startswith('usr/share/grub/') \
+                    or normalized == 'boot/grub' or normalized.startswith('boot/grub/'):
+                if not allowed_boot_adjacent_path:
                     raise SystemExit(f'unreviewed GRUB payload in {filename}: {normalized}')
+            if theme_member and filename == boot_package:
                 counts['boot_theme_paths']+=1
                 has_theme=True
             for prefix in forbidden:
                 if normalized == prefix.rstrip('/') or normalized.startswith(prefix):
+                    if allowed_boot_adjacent_path:
+                        continue
                     raise SystemExit(f'forbidden payload path in {filename}: {normalized}')
             inventory.append(f'{filename}\t{normalized}\t{kind}\t{member.mode:o}\t{member.size}\t{member.linkname}\n')
         if len(names) != len(set(names)):

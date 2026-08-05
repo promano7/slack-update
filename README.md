@@ -2209,9 +2209,15 @@ The step-66 repository inventory contains 39 suites and 2,653 checks with zero f
 
 The real step-66 run passed all 12 outer assertions plus the nested six-pass normal-update preflight. Outer archive SHA-256 `38a79511d6c17686b3a2b3e8c349c2c199264849ca1fd0222135d0ab1f00b482` and nested archive SHA-256 `24e8e2146029e9f4aadcf189acee5ababec7ecb89395074517363489aa83556e` were copied and verified in `/home/promano`. The accepted record is `tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-evidence-rebind-20260805-accepted.json`.
 
-### Phase 1 step 67: exact userspace payload archive review
+### Phase 1 step 67: diagnostic userspace payload archive review
 
-Run only after accepting the step-66 rebind:
+The first real payload review used the exact accepted step-66 boundary and correctly remained non-installing, but it stopped after 13 passes and two failures. The exact `breeze-grub-6.7.4-x86_64-1.txz` archive begins with the explicit directory member `boot`, while the reviewed policy incorrectly described the theme as `usr/share/grub/themes/breeze/`. The generic `/boot` prohibition therefore rejected the package before its actual confined theme subtree could be reviewed.
+
+The rejected outer archive SHA-256 is `b61a17d2fb296d8493bab82dfcbb2bdf4bbebcb0b5168f6d61895674c31b45e8`; the nested normal-update archive SHA-256 is `bae2e427e5c789d3f51141cb8281e0493754f1721b6ba0ecff3af52ca219fe0e`. Both were copied and verified in `/home/promano`. The package database, active kernel, initrd, GenInitrd, DKMS, and GRUB state remained unchanged, and no package transaction or maintainer script ran. The diagnostic record is `tests/fixtures/reference/acceptance/normal-update/slackware-current-userspace-payload-review-20260805-boot-prefix-diagnostic.json`.
+
+### Phase 1 step 68: corrected exact Breeze GRUB payload boundary
+
+Repeat the same non-installing review only from the unchanged accepted state:
 
 ```bash
 sudo bash tests/acceptance/reference/test-current-userspace-payload-review-preflight.sh \
@@ -2220,8 +2226,10 @@ sudo bash tests/acceptance/reference/test-current-userspace-payload-review-prefl
     --confirm-target-kernel 6.18.42
 ```
 
-The preflight reruns the exact 137-candidate normal-update preflight, resolves all 68 added packages in live Slackpkg metadata, downloads only exact missing archives into the normal Slackpkg cache, and inspects each `.txz` without installing it. It rejects unsafe or duplicate members, device and FIFO entries, escaping links, setuid/setgid modes, kernel/initrd/pkgtools payloads, and unreviewed GRUB files. `breeze-grub` is confined to `usr/share/grub/themes/breeze/`. Package SHA-256 values, complete member inventories, ELF/config/service counts, and every `install/doinst.sh` are preserved inside the evidence; maintainer scripts receive syntax checks only and are never executed.
+The corrected policy binds the sole boot-adjacent exception to the exact filename `breeze-grub-6.7.4-x86_64-1.txz`, SHA-256 `66209816c42b2363f7a2ca7d1a739dc393c101c752709e7291f1f97b6466008a`, and size `1448432`. Only the explicit ancestor directories `boot`, `boot/grub`, and `boot/grub/themes`, plus the exact `boot/grub/themes/breeze/` root and subtree, are permitted in that archive. Every other `/boot` member, every sibling GRUB theme, every GRUB path in another package, and the stale `usr/share/grub/` layout still fail closed.
+
+The preflight reruns the exact 137-candidate normal-update preflight, resolves all 68 added packages in live Slackpkg metadata, downloads only exact missing archives into the normal Slackpkg cache, and inspects each `.txz` without installing or extracting it into the host. It rejects unsafe or duplicate members, device and FIFO entries, escaping links, setuid/setgid modes, kernel/initrd/pkgtools payloads, and unreviewed GRUB files. Package SHA-256 values, complete member inventories, ELF/config/service counts, and every `install/doinst.sh` are preserved inside the evidence; maintainer scripts receive syntax checks only and are never executed.
 
 A clean result may report `package_payloads_inspected=true`, `payload_path_review_complete=true`, and `next_stage=current-userspace-maintainer-script-review-preflight`. It must still report `maintainer_scripts_review_complete=false`, `userspace_apply_review_complete=false`, `apply_ready=false`, and `apply_authorized=false`. Copy the final archive and sidecar directly to `/home/promano`, verify the sidecar there, and do not run readiness or apply.
 
-The step-67 repository inventory contains 40 suites and 2,709 checks with zero failures. The userspace payload review harness contributes 56 checks.
+The step-68 repository inventory contains 40 suites and 2,718 checks with zero failures. The userspace payload review harness contributes 65 checks.
