@@ -260,6 +260,35 @@ PY_CURRENT_KERNEL_NOT_READY
 assert_failure 'a non-ready current-kernel preflight should be rejected' \
     validate_current_kernel_boot_acceptance
 
+DEFAULT_CURRENT_KERNEL_BOOT_ACCEPTANCE="$TEST_TMP/missing-current-kernel-boot.json"
+DEFAULT_CURRENT_KERNEL_TRANSACTION_READINESS_ACCEPTANCE="$TEST_TMP/current-kernel-readiness-accepted.json"
+cat > "$DEFAULT_CURRENT_KERNEL_TRANSACTION_READINESS_ACCEPTANCE" <<'EOF_CURRENT_KERNEL_READINESS'
+{
+  "scenario": "current-kernel-transaction-readiness-preflight",
+  "target": "slackware-current",
+  "accepted": true,
+  "archive_sha256": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef",
+  "candidate_set_sha256": "d9199fcf6c5cd8c59b87b1bde9a955df2c55d0ac84f6dab37ed8e4c1830dcaf1",
+  "fresh_candidate_set_sha256": "d9199fcf6c5cd8c59b87b1bde9a955df2c55d0ac84f6dab37ed8e4c1830dcaf1",
+  "readiness_status": "apply-ready",
+  "apply_ready": true,
+  "apply_authorized": false,
+  "pause_safe": false,
+  "next_stage": "normal-update-apply-authorization-review"
+}
+EOF_CURRENT_KERNEL_READINESS
+assert_success 'a matching final transaction-readiness record should validate for current apply' \
+    validate_current_kernel_boot_acceptance
+python3 - "$DEFAULT_CURRENT_KERNEL_TRANSACTION_READINESS_ACCEPTANCE" <<'PY_CURRENT_READINESS_PAUSE'
+import json, sys
+p=sys.argv[1]
+d=json.load(open(p))
+d['pause_safe']=True
+open(p,'w').write(json.dumps(d))
+PY_CURRENT_READINESS_PAUSE
+assert_failure 'a readiness record with an unexpected pause-safe state should be rejected' \
+    validate_current_kernel_boot_acceptance
+
 GENERATED_CONFIG="$TEST_TMP/slack-update.conf"
 write_acceptance_config "$DEFAULT_CONFIG" "$GENERATED_CONFIG" "$TEST_TMP/runtime"
 assert_equal_value 0 "$?" 'the isolated configuration should be generated'

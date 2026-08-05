@@ -2321,3 +2321,32 @@ Live readiness checks still require the exact running generic kernel, named and 
 A clean run is expected to report 10 passes, zero failures, `packages=137`, `reviewed-cache=69`, `readiness=apply-ready`, `pause-safe=false`, `apply-ready=true`, `apply-authorized=false`, and `next-stage=normal-update-apply-authorization-review`. **This is not yet a safe pause point.** Slackware-current metadata must be revalidated again at the actual application boundary, so a repository publication after readiness can still invalidate the reviewed transaction. Continue directly to the separate authorization and apply sequence; pause only when a later accepted stage explicitly reports `pause_safe=true`.
 
 The focused step-74 harness contains 92 checks. The complete prepared step-74 inventory contains 44 suites and 3,003 checks with zero failures. Static validation covers 70 shell scripts and 71 JSON files.
+
+### Phase 1 step 74: accepted rebound transaction readiness
+
+The real Slackware-current run passed all 10 assertions and again refreshed package metadata before comparing the exact 137 candidates. It reported running kernel `6.18.40`, target `6.18.42`, 69 reviewed cached package archives, `readiness=apply-ready`, `apply_ready=true`, `pause_safe=false`, and `apply_authorized=false`. No package, initrd, GenInitrd, DKMS, or GRUB action ran.
+
+The verified outer archive SHA-256 is `d49af0c2f95f6ceaaa6f4073a5567b914f53ee9605724f78fea4a30afc463783`; the nested normal-update archive SHA-256 is `be24bafd8d1340ee781a6994835e64298413076e5a1ff9821a8cee3de6a54631`. The outer archive and sidecar were copied and verified directly in `/home/promano`. This boundary is accepted but is not a safe pause, because the package transaction is still pending.
+
+### Phase 1 step 75: explicitly authorized Slackware-current application
+
+This is the first command in the current chain that performs real package changes:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-normal-update-authorized-apply.sh \
+    --target slackware-current \
+    --execute-authorized-apply \
+    --confirm-hostname pcold-slack \
+    --confirm-candidates-sha256 27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926 \
+    --confirm-target-kernel 6.18.42 \
+    --confirm-readiness-sha256 d49af0c2f95f6ceaaa6f4073a5567b914f53ee9605724f78fea4a30afc463783 \
+    --confirm-authorization-sha256 a5b925e21e50a13102d7645595405ce1e054ce044bdb3df784d4a9d38256166b
+```
+
+The wrapper first validates the accepted readiness record, the exact authorization policy and scope, the repository script hashes, the hostname, and the complete live 6.18.40 boot baseline. It then invokes `test-normal-update.sh --execute-apply`. That child refreshes Slackpkg metadata and reconstructs the candidate set again immediately before package installation. Any new, removed, or replaced candidate changes the digest and blocks before the reference apply workflow is called.
+
+The reviewed transaction authorizes kernel packages but does not authorize critical packages. Slackpkg post-install interaction remains disabled and `.new` files remain evidence only. A successful result must use stable exit code 5, report a complete non-partial boot-safe apply, restore `/etc/default/geninitrd` byte-for-byte, install `/boot/vmlinuz-6.18.42`, `/lib/modules/6.18.42`, and `/boot/initrd-6.18.42.img`, retarget the generic kernel and initrd links, atomically replace GRUB with a configuration containing the target kernel/initrd pair, and preserve the 6.18.40 kernel, initrd, and modules as rollback artifacts.
+
+Only that complete state reports `transaction_status=applied-and-boot-prepared`, `apply_authorized=true`, `pause_safe=true`, and `next_stage=current-kernel-post-apply-verification`. Once accepted, later Slackware-current publications no longer invalidate this completed transaction. A changed repository before application or any partial/failed apply retains `pause_safe=false` and routes to candidate refresh or manual recovery rather than claiming a safe pause.
+
+The focused step-75 harness contains 71 checks. The complete step-75 inventory contains 45 suites and 3,076 checks with zero failures. Static validation covers 72 shell scripts and 73 JSON files.

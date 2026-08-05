@@ -10,6 +10,7 @@ DEFAULT_REFERENCE_SCRIPT="$REPOSITORY_ROOT/tools/reference/slack-update-referenc
 DEFAULT_CONFIG_TEMPLATE="$REPOSITORY_ROOT/data/config/slack-update.conf"
 DEFAULT_OUTPUT_ROOT=/var/tmp/slack-update-acceptance/normal-update
 DEFAULT_CURRENT_KERNEL_BOOT_ACCEPTANCE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-boot-preflight-accepted.json"
+DEFAULT_CURRENT_KERNEL_TRANSACTION_READINESS_ACCEPTANCE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-kernel-transaction-readiness-20260805-accepted.json"
 
 TARGET=
 MODE=
@@ -61,7 +62,8 @@ Required options:
 Optional arguments:
       --allow-kernel-update    Permit kernel consideration after boot preflight review
       --confirm-kernel-boot-preflight-sha256 SHA256
-                              Require an accepted apply-ready current-kernel preflight
+                              Require an accepted apply-ready current-kernel boot or
+                              final transaction-readiness record
       --allow-critical-update  Permit apply when preflight finds critical packages
       --output-dir PATH        Store evidence under an absolute, new directory
       --reference-script PATH  Select the reference script under test
@@ -338,31 +340,58 @@ parse_arguments() {
 }
 
 validate_current_kernel_boot_acceptance() {
-    local path=$DEFAULT_CURRENT_KERNEL_BOOT_ACCEPTANCE
-
     [ -n "$CONFIRM_KERNEL_BOOT_PREFLIGHT_SHA256" ] || return 1
-    [ -r "$path" ] || return 1
-    python3 - "$path" "$CONFIRM_KERNEL_BOOT_PREFLIGHT_SHA256" "$CANDIDATE_SET_SHA256" <<'PY_VALIDATE_CURRENT_KERNEL'
+    python3 -         "$DEFAULT_CURRENT_KERNEL_BOOT_ACCEPTANCE"         "$DEFAULT_CURRENT_KERNEL_TRANSACTION_READINESS_ACCEPTANCE"         "$CONFIRM_KERNEL_BOOT_PREFLIGHT_SHA256"         "$CANDIDATE_SET_SHA256" <<'PY_VALIDATE_CURRENT_KERNEL'
 import json
+import pathlib
 import sys
 
-path, evidence_sha256, candidate_sha256 = sys.argv[1:]
-try:
-    with open(path, encoding='utf-8') as handle:
-        data = json.load(handle)
-except Exception:
-    raise SystemExit(1)
+boot_path, readiness_path, evidence_sha256, candidate_sha256 = sys.argv[1:]
 
-checks = [
-    data.get('scenario') == 'current-kernel-boot-preflight',
-    data.get('target') == 'slackware-current',
-    data.get('accepted') is True,
-    data.get('archive_sha256') == evidence_sha256,
-    data.get('normal_update_candidate_set_sha256') == candidate_sha256,
-    data.get('apply_ready') is True,
-    data.get('apply_authorized') is False,
-]
-raise SystemExit(0 if all(checks) else 1)
+
+def load(path):
+    candidate = pathlib.Path(path)
+    if not candidate.is_file() or candidate.is_symlink():
+        return None
+    try:
+        return json.loads(candidate.read_text(encoding='utf-8'))
+    except Exception:
+        return None
+
+
+boot = load(boot_path)
+if isinstance(boot, dict):
+    checks = [
+        boot.get('scenario') == 'current-kernel-boot-preflight',
+        boot.get('target') == 'slackware-current',
+        boot.get('accepted') is True,
+        boot.get('archive_sha256') == evidence_sha256,
+        boot.get('normal_update_candidate_set_sha256') == candidate_sha256,
+        boot.get('apply_ready') is True,
+        boot.get('apply_authorized') is False,
+    ]
+    if all(checks):
+        raise SystemExit(0)
+
+readiness = load(readiness_path)
+if isinstance(readiness, dict):
+    checks = [
+        readiness.get('scenario') == 'current-kernel-transaction-readiness-preflight',
+        readiness.get('target') == 'slackware-current',
+        readiness.get('accepted') is True,
+        readiness.get('archive_sha256') == evidence_sha256,
+        readiness.get('candidate_set_sha256') == candidate_sha256,
+        readiness.get('fresh_candidate_set_sha256') == candidate_sha256,
+        readiness.get('readiness_status') == 'apply-ready',
+        readiness.get('apply_ready') is True,
+        readiness.get('apply_authorized') is False,
+        readiness.get('pause_safe') is False,
+        readiness.get('next_stage') == 'normal-update-apply-authorization-review',
+    ]
+    if all(checks):
+        raise SystemExit(0)
+
+raise SystemExit(1)
 PY_VALIDATE_CURRENT_KERNEL
 }
 
@@ -970,12 +999,12 @@ main() {
     fi
     if [ "$TARGET" = slackware-current ] && [ "$KERNEL_CANDIDATE_COUNT" -gt 0 ]; then
         if ! validate_current_kernel_boot_acceptance; then
-            record_failure 'Slackware-current kernel candidates require a matching accepted apply-ready boot preflight'
-            error 'real apply was not executed because the current-kernel boot preflight is missing, mismatched, or not apply-ready'
+            record_failure 'Slackware-current kernel candidates require a matching accepted apply-ready boot or transaction-readiness record'
+            error 'real apply was not executed because the current-kernel boot/readiness record is missing, mismatched, or not apply-ready'
             finish_with_evidence
             return 1
         fi
-        record_pass 'the accepted Slackware-current kernel boot preflight matches the refreshed candidate set'
+        record_pass 'the accepted Slackware-current kernel boot/readiness record matches the refreshed candidate set'
     fi
     if [ "$CRITICAL_CANDIDATE_COUNT" -gt 0 ] && [ "$ALLOW_CRITICAL_UPDATE" -ne 1 ]; then
         record_failure 'critical candidates require the explicit --allow-critical-update option'

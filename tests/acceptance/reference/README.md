@@ -1073,3 +1073,26 @@ This revision binds the immutable 69-candidate kernel evidence through the accep
 A clean run may report `readiness=apply-ready` and `apply-ready=true`, but must also report `pause-safe=false`, `apply-authorized=false`, and `next-stage=normal-update-apply-authorization-review`. The reason is explicit: apply-time candidate revalidation and the actual package transaction remain pending. Do not treat readiness as a safe place to leave Slackware-current exposed to later repository publications; continue until a later accepted stage explicitly records `pause_safe=true`. Copy the readiness archive and sidecar directly to `/home/promano` and verify them there.
 
 The focused step-74 harness contains 92 checks. The complete prepared step-74 inventory contains 44 suites and 3,003 checks with zero failures. Static validation covers 70 shell scripts and 71 JSON files.
+
+### Accepted rebound readiness and authorized apply (steps 74-75)
+
+The real step-74 readiness run passed 10 assertions with the exact 137-candidate digest and 69 reviewed cached archives. Outer SHA-256 `d49af0c2f95f6ceaaa6f4073a5567b914f53ee9605724f78fea4a30afc463783` and nested normal-update SHA-256 `be24bafd8d1340ee781a6994835e64298413076e5a1ff9821a8cee3de6a54631` were verified in `/home/promano`. The accepted record deliberately retains `pause_safe=false` and `apply_authorized=false`.
+
+Run the explicit application without an intervening pause:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-normal-update-authorized-apply.sh \
+    --target slackware-current \
+    --execute-authorized-apply \
+    --confirm-hostname pcold-slack \
+    --confirm-candidates-sha256 27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926 \
+    --confirm-target-kernel 6.18.42 \
+    --confirm-readiness-sha256 d49af0c2f95f6ceaaa6f4073a5567b914f53ee9605724f78fea4a30afc463783 \
+    --confirm-authorization-sha256 a5b925e21e50a13102d7645595405ce1e054ce044bdb3df784d4a9d38256166b
+```
+
+This command performs real package changes. The parent validates the exact readiness and authorization records plus the live pre-transaction boot state. The nested normal-update acceptance workflow refreshes metadata and checks the candidate digest again immediately before it invokes the reference engine. Candidate drift blocks before apply. Critical-package authorization is intentionally absent.
+
+A clean result is expected to report 16 passes, zero failures, `transaction_status=applied-and-boot-prepared`, `apply_authorized=true`, `pause_safe=true`, and `next_stage=current-kernel-post-apply-verification`. It must preserve the old 6.18.40 kernel/initrd/modules, keep the current session on 6.18.40 pending reboot, install and validate the complete 6.18.42 kernel/initrd/modules pair, restore GenInitrd policy, and atomically install a GRUB configuration containing both target paths. Copy the final archive and sidecar directly to `/home/promano` and verify them there before reboot or further work.
+
+The focused authorized-apply harness contains 71 checks. The complete prepared step-75 inventory contains 45 suites and 3,076 checks with zero failures; static validation covers 72 shell scripts and 73 JSON files.
