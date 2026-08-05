@@ -15,6 +15,8 @@ Slack-Update is intended to provide a desktop-oriented update experience similar
 - [x] Modular and configurable design established
 - [x] Reference shell script created
 - [ ] Reference shell script validated on real Slackware 15.0 and Slackware-current installations
+  - [x] Slackware-current reviewed 137-package transaction installed and safe-pause verified with the 6.18.42 generic kernel/initrd pair
+  - [ ] Slackware-current reboot into 6.18.42 and post-reboot verification accepted
 - [x] Public GitHub repository created: `slack-update`
 - [ ] Build system selected
 - [x] License selected: **GNU GPL v3 or later (`GPL-3.0-or-later`)**
@@ -2375,6 +2377,6 @@ sudo bash tests/acceptance/reference/test-current-post-package-boot-recovery-ver
 
 This stage does not refresh Slackpkg metadata, install packages, execute maintainer scripts, generate an initrd, or modify GRUB. It requires the exact 2,040-record installed package snapshot; exact target package records; exact target kernel, initrd, module tree, generic links, GenInitrd controls, and active GRUB digest; a syntax-valid same-menuentry generic pair; and unchanged before/after package and boot-sensitive snapshots. It also records the rollback truth explicitly: the running session remains on 6.18.40 and its module tree remains present, but `/boot/vmlinuz-6.18.40` and `/boot/initrd-6.18.40.img` are absent.
 
-A clean result reports `pause_safe=true`, `reboot_ready=true`, `reboot_authorized=false`, and `next_stage=current-kernel-post-apply-reboot-review`. At that point the reviewed package transaction is already installed and later Slackware-current publications no longer invalidate it, so a pause is genuinely safe. Do not reboot until the separate reboot review is prepared and accepted.
+The real step-79 run passed all 13 assertions and was accepted in `tests/fixtures/reference/acceptance/normal-update/slackware-current-post-package-boot-recovery-20260805-accepted.json`. Archive SHA-256 `b2e3ee1d4bcdc243afbde0160d7d7f50e985e365f9580551fea6def4d6ae1f96` was copied to `/home/promano` and verified. It records `package_transaction_completed=true`, `target_boot_pair_verified=true`, `active_grub_mutated=false`, `rollback_state=degraded-running-session-and-modules-only`, `pause_safe=true`, `reboot_ready=true`, `reboot_authorized=false`, and `next_stage=current-kernel-post-apply-reboot-review`. This is a genuinely safe pause against later Slackware-current publications because the reviewed transaction is already installed and locally sealed. Do not reboot until a separate reboot-review boundary is prepared and accepted.
 
-The focused step-79 harness contains 46 checks. The complete prepared step-79 inventory contains 46 suites and 3,160 checks with zero failures; static validation covers 74 shell scripts and 78 JSON files.
+The focused step-79 harness contains 46 checks. The complete step-80 safe-pause checkpoint retains 46 suites and 3,160 checks with zero failures; static validation covers 74 shell scripts and 79 JSON files. No executable code changed in step 80.
