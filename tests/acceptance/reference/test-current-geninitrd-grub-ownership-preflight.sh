@@ -403,7 +403,7 @@ capture_sensitive_state() {
         /boot/grub/grub.cfg \
         /etc/default/geninitrd \
         /etc/mkinitrd.conf \
-        "$GENERATOR_SCRIPT" \
+        "$GENINITRD_SCRIPT" \
         "$SETUP_SCRIPT" \
         /etc/geninitrd.d/pre-install/dkms-bcachefs \
         /etc/geninitrd.d/pre-install/dkms-nvidia \

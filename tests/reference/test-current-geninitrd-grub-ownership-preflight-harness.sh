@@ -26,6 +26,8 @@ assert_contains 'temporary-atomic-policy-override' "$SCRIPT" 'the selected owner
 assert_contains 'geninitrd-managed-versioned-initrd' "$SCRIPT" 'the corrected GenInitrd boot mode should be explicit'
 assert_contains 'versioned-to-versioned-initrd' "$SCRIPT" 'the corrected versioned transition should be explicit'
 assert_contains 'validate_live_geninitrd_baseline' "$SCRIPT" 'the ownership stage should revalidate the live corrected baseline'
+assert_contains '"$GENINITRD_SCRIPT"' "$SCRIPT" 'sensitive-state capture should use the declared GenInitrd script path'
+assert_not_contains '"$GENERATOR_SCRIPT"' "$SCRIPT" 'the ownership preflight must not reference an undeclared generator variable'
 assert_contains 'active-config-assignment-overwrites-environment-before-shell-defaulting' "$SCRIPT" 'environment-only suppression should be rejected explicitly'
 assert_contains 'AUTO_UPDATE_GRUB=false' "$SCRIPT" 'the evidence-local policy should disable only automatic GRUB updates'
 assert_contains 'active_policy_changed=false' "$SCRIPT" 'the summary must deny active policy mutation'
@@ -221,6 +223,15 @@ assert_failure 'duplicate active AUTO_UPDATE_GRUB assignments should fail closed
 cp "$CONFIG" "$TMP/false.conf"
 sed -i 's/AUTO_UPDATE_GRUB=true/AUTO_UPDATE_GRUB=false/' "$TMP/false.conf"
 assert_failure 'an already-disabled policy should not match the observed ownership conflict' analyze_grub_ownership "$TMP/false.conf" "$GENINITRD" "$SETUP" "$TMP/out/false-staged" "$TMP/out/false.json" 6.18.42
+(
+    RUNNING_KERNEL=6.18.40
+    TARGET_KERNEL=6.18.42
+    GENINITRD_SCRIPT=/usr/sbin/geninitrd
+    SETUP_SCRIPT=/var/lib/pkgtools/setup/setup.01.mkinitrd
+    capture_sensitive_state "$TMP/sensitive-state.txt"
+) >/dev/null 2>&1 && pass || fail 'sensitive-state capture should complete under nounset without undeclared variables'
+assert_contains '/usr/sbin/geninitrd|' "$TMP/sensitive-state.txt" 'sensitive-state evidence should include the declared GenInitrd script path'
+assert_contains '/var/lib/pkgtools/setup/setup.01.mkinitrd|' "$TMP/sensitive-state.txt" 'sensitive-state evidence should include the declared setup script path'
 cp "$CONFIG" "$TMP/unsafe.conf"
 printf '%s\n' 'POST_INSTALL_SCRIPT=$(id)' >> "$TMP/unsafe.conf"
 assert_failure 'command substitution in active policy should fail closed' analyze_grub_ownership "$TMP/unsafe.conf" "$GENINITRD" "$SETUP" "$TMP/out/unsafe-staged" "$TMP/out/unsafe.json" 6.18.42

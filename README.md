@@ -2113,5 +2113,20 @@ sudo bash tests/acceptance/reference/test-current-geninitrd-grub-ownership-prefl
 
 The rebuilt stage binds all corrected records through the accepted step-60 command evidence. It revalidates the live generic kernel, named initrd, versioned initrd, scalar GenInitrd symlink policy, active GRUB digest, and same-menuentry kernel/initrd pairing before analyzing ownership. It proves that the active `AUTO_UPDATE_GRUB=true` assignment overrides an environment-only value, writes only an evidence-local copy with that single assignment changed to `false`, and emits a non-executing twelve-stage plan with five recovery boundaries in which Slack-Update exclusively owns validated atomic GRUB replacement. Expect 12 passes, zero failures, `transition=versioned-to-versioned-initrd`, `strategy=temporary-atomic-policy-override`, `environment-override-safe=false`, `apply-ready=false`, and `apply-authorized=false`. Copy the archive and sidecar directly to `/home/promano` and verify them there. Do not advance to readiness review until this evidence is accepted.
 
-The step-61 repository inventory contains 37 suites and 2,500 checks with zero failures. The rebuilt GRUB-ownership harness contributes 66 checks. Static validation covers 56 Bash scripts and 52 JSON files.
+The first real step-61 run stopped after its first two passes because sensitive-state capture referenced undeclared `GENERATOR_SCRIPT` under `set -u`. The stop occurred before initial state capture, evidence publication, or any package, initrd, GenInitrd, DKMS, or GRUB operation. Step 62 corrects the reference to the declared `GENINITRD_SCRIPT` and adds a nounset execution test for the capture function.
+
+### Phase 1 step 62: corrected GenInitrd/GRUB ownership preflight
+
+Repeat exactly the same non-destructive command:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-geninitrd-grub-ownership-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+A safe run must complete all 12 assertions, publish an evidence archive and portable sidecar, preserve the `geninitrd-managed-versioned-initrd` baseline, emit the evidence-local twelve-stage ownership plan, and finish with `transition=versioned-to-versioned-initrd`, `strategy=temporary-atomic-policy-override`, `apply-ready=false`, and `apply-authorized=false`. Copy the printed archive and sidecar directly to `/home/promano` and verify them there. Do not advance to readiness review until this corrected evidence is accepted.
+
+The step-62 repository inventory contains 37 suites and 2,505 checks with zero failures. The corrected GRUB-ownership harness contributes 71 checks. Static validation covers 56 Bash scripts and 52 JSON files.
 

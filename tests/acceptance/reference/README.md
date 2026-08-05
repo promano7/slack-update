@@ -884,5 +884,9 @@ sudo bash tests/acceptance/reference/test-current-geninitrd-grub-ownership-prefl
 
 The stage binds the corrected candidate, boot, chain-restart, exact-package, versioned-policy, no-op DKMS, and accepted command records. It revalidates the live named and versioned initrd plus same-menuentry GRUB pairing before analyzing the installed GenInitrd control flow. It creates only an evidence-local copy of `/etc/default/geninitrd` whose sole change is `AUTO_UPDATE_GRUB=true` to `false`, rejects environment-only suppression, and publishes a twelve-stage transaction plus five recovery boundaries without running any stage. A safe result reports 12 passes, zero failures, `transition=versioned-to-versioned-initrd`, `strategy=temporary-atomic-policy-override`, `apply-ready=false`, and `apply-authorized=false`. Copy the archive and `.sha256` directly to `/home/promano` and verify them there.
 
-The rebuilt ownership harness has 66 checks. The complete step-61 inventory contains 37 suites and 2,500 checks with zero failures; static validation covers 56 Bash scripts and 52 JSON files.
+The first real step-61 execution stopped after two passes because sensitive-state capture expanded undeclared `GENERATOR_SCRIPT` under `set -u`; it produced no archive and reached no mutation-capable command. Step 62 uses the declared `GENINITRD_SCRIPT` and adds a nounset regression that executes the capture function and verifies both script paths in its output.
+
+Repeat the same command. A corrected run must report 12 passes and zero failures, publish the archive plus sidecar, preserve the live baseline, and remain `apply-ready=false` and `apply-authorized=false`. Use the printed copy command to place both files directly in `/home/promano`, then run the printed verification command.
+
+The corrected ownership harness has 71 checks. The complete step-62 inventory contains 37 suites and 2,505 checks with zero failures; static validation covers 56 Bash scripts and 52 JSON files.
 
