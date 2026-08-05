@@ -1,0 +1,68 @@
+{
+  "scenario": "current-geninitrd-grub-ownership-preflight",
+  "target": "slackware-current",
+  "accepted": true,
+  "captured_at": "2026-08-05T12:21:59Z",
+  "archive_sha256": "53acb06384b4a8fbea1feceb73e6aa2381c43f5702a41ce990d0f515d04588fe",
+  "normal_update_candidate_set_sha256": "918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9",
+  "boot_preflight_archive_sha256": "6429fd626973b0c3fc498642e1cd9230bc0eceb0291e232b515fef625467c6ac",
+  "chain_restart_archive_sha256": "e48c528aafd9daef64edae721ddc96c9b5c52daac1a6f563fe447d1a66e6996e",
+  "package_preflight_archive_sha256": "9f702e85a8ff3eb6155b834ed11cfe494ec60f04082914d80bae2a13d02e016f",
+  "policy_preflight_archive_sha256": "de4ad831efda30eaaa6a0ee8fc099815cf0bdb9882bded361942dc6719a88e80",
+  "dkms_preflight_archive_sha256": "780c56432d7d1b1bd4014a56709d6693a7ac1bf1148a072fbf8d1cfceac1cd2f",
+  "command_preflight_archive_sha256": "754ebe19080417c9bcd79ba8ca586085c808e24d1d5120286fff19a09c2cf0f0",
+  "running_kernel": "6.18.40",
+  "target_kernel": "6.18.42",
+  "boot_mode": "geninitrd-managed-versioned-initrd",
+  "transition_mode": "versioned-to-versioned-initrd",
+  "current_named_initrd": "/boot/initrd-generic.img",
+  "current_named_initrd_target": "initrd-6.18.40.img",
+  "current_versioned_initrd": "/boot/initrd-6.18.40.img",
+  "current_versioned_initrd_sha256": "0da0e0289d93cdf2d3b78288bfa23db4c9437b576563f92889399b2c98294442",
+  "current_versioned_initrd_size": 17307183,
+  "generic_kernel_sha256": "8899359f0c1f6fc018f8079ba0c76e886b12b8087ff7dccc695c459b40fb9aae",
+  "active_grub_sha256": "5fdff76d42ddec26b0c212668c4981a9ea2853a98b3260f33850c91ccf8ac247",
+  "expected_initrd": "/boot/initrd-6.18.42.img",
+  "package": {
+    "filename": "kernel-generic-6.18.42-x86_64-1.txz",
+    "sha256": "e9e7a1c5c71c945ee99595868aa8fee8a644b56601ece0c3e5696d643fe84878"
+  },
+  "active_policy": {
+    "path": "/etc/default/geninitrd",
+    "sha256": "b779a2b578515a9e2059047311bf817723183b90707f1e31ce67bd96fd19b283",
+    "auto_update_grub": true
+  },
+  "staged_policy": {
+    "sha256": "5502efc45c5076e30de869fe4f0b3e5e79d322a19bf2311f153b47a9c68366ab",
+    "only_change": "AUTO_UPDATE_GRUB=true -> AUTO_UPDATE_GRUB=false"
+  },
+  "strategy": "temporary-atomic-policy-override",
+  "environment_override_safe": false,
+  "transaction": {
+    "step_count": 12,
+    "recovery_boundary_count": 5,
+    "update_grub_suppressed_during_package_transaction": true,
+    "slack_update_owns_grub_regeneration": true,
+    "restore_original_policy_required": true,
+    "requires_final_candidate_revalidation": true,
+    "requires_separate_apply_authorization": true
+  },
+  "commands_executed": [],
+  "mutations_performed": [],
+  "package_database_unchanged": true,
+  "boot_policy_and_grub_state_unchanged": true,
+  "assertions": {
+    "passes": 12,
+    "failures": 0
+  },
+  "evidence": {
+    "portable_sha256_sidecar": true,
+    "copied_to": "/home/promano",
+    "destination_verification": "passed"
+  },
+  "apply_ready": false,
+  "apply_authorized": false,
+  "next_stage": "current-kernel-transaction-readiness-preflight",
+  "executed_preflight_sha256": "25364fec648fc1b706a425c103b6047e431b9bb78461755a04115529ff1c70bf",
+  "reference_sha256": "0dc4a4def9b063b9a598975f46e7458c5771eb8d8603f4fa8bbd9dfc07c4d4c6"
+}

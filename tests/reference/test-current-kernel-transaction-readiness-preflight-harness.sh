@@ -41,6 +41,11 @@ else
 fi
 assert_contains 'sha256sum -c' "$SCRIPT" 'portable evidence verification should be printed'
 assert_contains '/home/$owner/' "$SCRIPT" 'evidence should be copied directly to the user home directory'
+assert_contains 'geninitrd-managed-versioned-initrd' "$SCRIPT" 'readiness must bind the corrected versioned-initrd boot mode'
+assert_contains 'versioned-to-versioned-initrd' "$SCRIPT" 'readiness must bind the corrected transition mode'
+assert_contains 'validate_grub_kernel_initrd_pair' "$SCRIPT" 'readiness must revalidate the live GRUB kernel/initrd pair'
+assert_contains '"$CURRENT_VERSIONED_INITRD"' "$SCRIPT" 'sensitive state capture must include the accepted versioned initrd'
+assert_not_contains "boot.get('boot_mode') == 'direct-generic-no-initrd'" "$SCRIPT" 'the revoked direct-no-initrd baseline must not authorize readiness'
 
 assert_success 'a valid SHA-256 should be accepted' is_sha256 "$(printf 'a%.0s' {1..64})"
 assert_failure 'a short SHA-256 should be rejected' is_sha256 deadbeef
@@ -55,6 +60,10 @@ assert_equal 6.18.40 "$RUNNING_KERNEL" 'the accepted chain should expose the run
 assert_equal 6.18.42 "$TARGET_KERNEL" 'the accepted chain should expose the target kernel'
 assert_equal kernel-generic-6.18.42-x86_64-1.txz "$PACKAGE_FILENAME" 'the accepted chain should expose the exact package filename'
 assert_equal e9e7a1c5c71c945ee99595868aa8fee8a644b56601ece0c3e5696d643fe84878 "$PACKAGE_SHA256" 'the accepted chain should expose the exact package digest'
+assert_equal geninitrd-managed-versioned-initrd "$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["boot_mode"])' "$BOOT_PREFLIGHT")" 'the accepted boot record should use the corrected mode'
+assert_equal /boot/initrd-6.18.40.img "$CURRENT_VERSIONED_INITRD" 'the chain should expose the current versioned initrd'
+assert_equal 0da0e0289d93cdf2d3b78288bfa23db4c9437b576563f92889399b2c98294442 "$CURRENT_VERSIONED_INITRD_SHA256" 'the chain should expose the accepted initrd digest'
+assert_equal 5fdff76d42ddec26b0c212668c4981a9ea2853a98b3260f33850c91ccf8ac247 "$ACTIVE_GRUB_SHA256" 'the chain should expose the accepted GRUB digest'
 
 mutate_record() {
     local source=$1 output=$2 code=$3
@@ -79,6 +88,23 @@ mutate_record "$original" "$TMP/ownership-strategy.json" "d['strategy']='environ
 OWNERSHIP_PREFLIGHT="$TMP/ownership-strategy.json"
 assert_failure 'an unreviewed ownership strategy should fail closed' validate_accepted_records
 OWNERSHIP_PREFLIGHT=$original
+
+mutate_record "$original" "$TMP/ownership-transition.json" "d['transition_mode']='direct-to-generated-initrd'"
+OWNERSHIP_PREFLIGHT="$TMP/ownership-transition.json"
+assert_failure 'an ownership record using the revoked transition should fail closed' validate_accepted_records
+OWNERSHIP_PREFLIGHT=$original
+
+original=$BOOT_PREFLIGHT
+mutate_record "$original" "$TMP/boot-mode.json" "d['boot_mode']='direct-generic-no-initrd'"
+BOOT_PREFLIGHT="$TMP/boot-mode.json"
+assert_failure 'the revoked direct-no-initrd boot baseline should fail readiness' validate_accepted_records
+BOOT_PREFLIGHT=$original
+
+original=$POST_STATE_CONTRACT
+mutate_record "$original" "$TMP/post-layout.json" "d['pre_transaction_layout']='direct-generic-no-initrd'"
+POST_STATE_CONTRACT="$TMP/post-layout.json"
+assert_failure 'a post-state contract built on the revoked baseline should fail closed' validate_accepted_records
+POST_STATE_CONTRACT=$original
 
 original=$COMMAND_PREFLIGHT
 mutate_record "$original" "$TMP/command-package.json" "d['package']['observed_sha256']='0'*64"
@@ -111,7 +137,7 @@ assert_failure 'an exact-package record with another kernel image should fail cl
 PACKAGE_PREFLIGHT=$original
 
 original=$CHAIN_PREFLIGHT
-mutate_record "$original" "$TMP/chain-link.json" "d['nested_boot_archive_sha256']='0'*64"
+mutate_record "$original" "$TMP/chain-link.json" "d['accepted_boot_archive_sha256']='0'*64"
 CHAIN_PREFLIGHT="$TMP/chain-link.json"
 assert_failure 'a restarted chain detached from boot evidence should fail closed' validate_accepted_records
 CHAIN_PREFLIGHT=$original
@@ -166,6 +192,8 @@ assert_equal true "$(python3 -c 'import json,sys; print(str(json.load(open(sys.a
 assert_equal false "$(python3 -c 'import json,sys; print(str(json.load(open(sys.argv[1]))["apply_authorized"]).lower())' "$TMP/readiness.json")" 'analysis should keep authorization false'
 assert_equal false "$(python3 -c 'import json,sys; print(str(json.load(open(sys.argv[1]))["package_transaction_executed"]).lower())' "$TMP/readiness.json")" 'analysis should deny package execution'
 assert_equal 8 "$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["accepted_evidence_count"])' "$TMP/readiness.json")" 'analysis should bind eight accepted evidence records'
+assert_equal geninitrd-managed-versioned-initrd "$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["boot_mode"])' "$TMP/readiness.json")" 'analysis should record the corrected boot mode'
+assert_equal versioned-to-versioned-initrd "$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["transition_mode"])' "$TMP/readiness.json")" 'analysis should record the corrected transition mode'
 
 PASS_COUNT=9
 FAILURE_COUNT=0
@@ -174,6 +202,8 @@ assert_contains 'readiness_status=apply-ready' "$TMP/summary.txt" 'summary shoul
 assert_contains 'apply_ready=true' "$TMP/summary.txt" 'summary should expose positive readiness'
 assert_contains 'apply_authorized=false' "$TMP/summary.txt" 'summary should retain authorization denial'
 assert_contains 'next_stage=normal-update-apply-authorization-review' "$TMP/summary.txt" 'summary should require a separate authorization review'
+assert_contains 'boot_mode=geninitrd-managed-versioned-initrd' "$TMP/summary.txt" 'summary should expose the corrected boot mode'
+assert_contains 'transition_mode=versioned-to-versioned-initrd' "$TMP/summary.txt" 'summary should expose the corrected transition mode'
 
 OUTPUT_DIR="$TMP/evidence"
 mkdir -p "$OUTPUT_DIR"

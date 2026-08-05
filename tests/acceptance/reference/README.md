@@ -886,7 +886,20 @@ The stage binds the corrected candidate, boot, chain-restart, exact-package, ver
 
 The first real step-61 execution stopped after two passes because sensitive-state capture expanded undeclared `GENERATOR_SCRIPT` under `set -u`; it produced no archive and reached no mutation-capable command. Step 62 uses the declared `GENINITRD_SCRIPT` and adds a nounset regression that executes the capture function and verifies both script paths in its output.
 
-Repeat the same command. A corrected run must report 12 passes and zero failures, publish the archive plus sidecar, preserve the live baseline, and remain `apply-ready=false` and `apply-authorized=false`. Use the printed copy command to place both files directly in `/home/promano`, then run the printed verification command.
+The corrected real run reported 12 passes and zero failures, preserved the live baseline, and produced verified archive SHA-256 `53acb06384b4a8fbea1feceb73e6aa2381c43f5702a41ce990d0f515d04588fe`. The accepted record remains `apply-ready=false` and `apply-authorized=false`.
 
-The corrected ownership harness has 71 checks. The complete step-62 inventory contains 37 suites and 2,505 checks with zero failures; static validation covers 56 Bash scripts and 52 JSON files.
+### Slackware-current rebuilt final transaction readiness preflight (step 63)
+
+```bash
+sudo bash tests/acceptance/reference/test-current-kernel-transaction-readiness-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+The readiness wrapper binds all eight corrected evidence records and the corrected synthetic post-state contract. It executes the existing normal-update acceptance script only with `--preflight`, verifies the nested archive and portable sidecar inside the outer evidence, and requires the same sorted 69-candidate set. It revalidates the current versioned initrd, named link, policy scalars, script and hook hashes, empty DKMS state, exact cached package, target-path absence, active GRUB digest, and same-menuentry kernel/initrd pairing.
+
+A safe run produces 10 outer passes and no failures. It may report `apply-ready=true`, but must always report `apply-authorized=false`, `package_transaction_executed=false`, `mkinitrd_executed=false`, `geninitrd_executed=false`, `dkms_build_executed=false`, `update_grub_executed=false`, and `grub_mkconfig_executed=false`. Copy and verify the last printed outer archive directly in `/home/promano`; the nested normal-update archive is already included. Do not run `--execute-apply` after this test. A separate reviewed authorization boundary is still required.
+
+The rebuilt readiness harness has 64 checks. The complete step-63 inventory contains 37 suites and 2,521 checks with zero failures; static validation covers 56 Bash scripts and 53 JSON files.
 

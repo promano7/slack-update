@@ -6,7 +6,7 @@
   "normal_update_candidate_set_sha256": "918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9",
   "running_kernel": "6.18.40",
   "target_kernel": "6.18.42",
-  "pre_transaction_layout": "direct-generic-no-initrd",
+  "pre_transaction_layout": "geninitrd-managed-versioned-initrd",
   "transition_expected": true,
   "post_transaction": {
     "state": "generated-initrd",
@@ -31,5 +31,16 @@
   "mutations_performed": [],
   "apply_ready": false,
   "apply_authorized": false,
-  "next_stage": "current-kernel-transaction-readiness-preflight"
+  "next_stage": "current-kernel-transaction-readiness-preflight",
+  "pre_transaction": {
+    "kernel_link": "/boot/vmlinuz-generic",
+    "kernel_target": "/boot/vmlinuz-6.18.40",
+    "named_initrd_link": "/boot/initrd-generic.img",
+    "named_initrd_target": "initrd-6.18.40.img",
+    "versioned_initrd": "/boot/initrd-6.18.40.img",
+    "versioned_initrd_sha256": "0da0e0289d93cdf2d3b78288bfa23db4c9437b576563f92889399b2c98294442",
+    "legacy_initrd_gz_absent": true,
+    "mkinitrd_conf_absent": true
+  },
+  "transition_mode": "versioned-to-versioned-initrd"
 }

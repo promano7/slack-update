@@ -11,13 +11,13 @@ TEST_DIR=$(CDPATH= cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
 REPOSITORY_ROOT=$(CDPATH= cd -- "$TEST_DIR/../../.." && pwd -P)
 DEFAULT_NORMAL_UPDATE_SCRIPT="$REPOSITORY_ROOT/tests/acceptance/reference/test-normal-update.sh"
 DEFAULT_NORMAL_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260804-accepted.json"
-DEFAULT_BOOT_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-boot-preflight-20260804-accepted.json"
-DEFAULT_CHAIN_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-chain-restart-20260804-accepted.json"
-DEFAULT_PACKAGE_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-package-preflight-20260804-accepted.json"
-DEFAULT_POLICY_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-policy-preflight-20260804-accepted.json"
-DEFAULT_DKMS_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-dkms-hook-preflight-20260804-accepted.json"
-DEFAULT_COMMAND_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-command-preflight-20260804-accepted.json"
-DEFAULT_OWNERSHIP_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-grub-ownership-preflight-20260804-accepted.json"
+DEFAULT_BOOT_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-boot-preflight-20260805-accepted.json"
+DEFAULT_CHAIN_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-chain-restart-20260805-accepted.json"
+DEFAULT_PACKAGE_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-package-preflight-20260805-accepted.json"
+DEFAULT_POLICY_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-policy-preflight-20260805-accepted.json"
+DEFAULT_DKMS_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-dkms-hook-preflight-20260805-accepted.json"
+DEFAULT_COMMAND_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-command-preflight-20260805-accepted.json"
+DEFAULT_OWNERSHIP_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-grub-ownership-preflight-20260805-accepted.json"
 DEFAULT_POST_STATE_CONTRACT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-post-state-6.18.42-synthetic.json"
 DEFAULT_REFERENCE_ENGINE="$REPOSITORY_ROOT/tools/reference/slack-update-reference.sh"
 DEFAULT_OUTPUT_ROOT=/var/tmp/slack-update-acceptance/current-kernel-transaction-readiness-preflight
@@ -49,10 +49,20 @@ CANDIDATE_SET_SHA256=
 PACKAGE_FILENAME=
 PACKAGE_SHA256=
 ACTIVE_POLICY_SHA256=
-GENERATOR_SHA256=
+GENINITRD_SHA256=
+COMMAND_GENERATOR_SHA256=
 SETUP_SHA256=
 REFERENCE_ENGINE_SHA256=
 POST_STATE_CONTRACT_SHA256=
+GENERIC_KERNEL_SHA256=
+CURRENT_NAMED_INITRD=
+CURRENT_NAMED_INITRD_TARGET=
+CURRENT_VERSIONED_INITRD=
+CURRENT_VERSIONED_INITRD_SHA256=
+CURRENT_VERSIONED_INITRD_SIZE=
+ACTIVE_GRUB_SHA256=
+HOOK_BCACHEFS_SHA256=
+HOOK_NVIDIA_SHA256=
 FRESH_CANDIDATE_SHA256=
 READINESS_STATUS=blocked
 APPLY_READY=false
@@ -169,8 +179,9 @@ policy_data = policy.get('policy', {})
 dkms_data = dkms.get('dkms', {})
 command_package = command.get('package', {})
 ownership_package = ownership.get('package', {})
+ownership_transaction = ownership.get('transaction', {})
 engine_sha = hashlib.sha256(engine_bytes).hexdigest()
-all_archive_links = {
+archives = {
     'boot': boot.get('archive_sha256'),
     'chain': chain.get('archive_sha256'),
     'package': package.get('archive_sha256'),
@@ -179,76 +190,151 @@ all_archive_links = {
     'command': command.get('archive_sha256'),
     'ownership': ownership.get('archive_sha256'),
 }
+running = normal.get('platform', {}).get('kernel_version', '')
+package_filename = f'kernel-generic-{confirmed_target}-x86_64-1.txz'
+headers_filename = f'kernel-headers-{confirmed_target}-x86-1.txz'
+source_filename = f'kernel-source-{confirmed_target}-noarch-1.txz'
+current_initrd = f'/boot/initrd-{running}.img'
 checks = [
     normal.get('scenario') == 'normal-update', normal.get('mode') == 'preflight',
     normal.get('target') == 'slackware-current', normal.get('accepted') is True, denied(normal),
     candidate.get('candidate_set_sha256') == confirmed_digest,
     candidate.get('target_kernel_version') == confirmed_target,
     candidate.get('total') == 69,
-    'kernel-generic-6.18.42-x86_64-1.txz' in candidate.get('upgrade_all', []),
-    'kernel-headers-6.18.42-x86-1.txz' in candidate.get('upgrade_all', []),
-    'kernel-source-6.18.42-noarch-1.txz' in candidate.get('upgrade_all', []),
+    package_filename in candidate.get('upgrade_all', []),
+    headers_filename in candidate.get('upgrade_all', []),
+    source_filename in candidate.get('upgrade_all', []),
     boot.get('scenario') == 'current-kernel-boot-preflight', boot.get('accepted') is True, denied(boot),
     boot.get('normal_update_candidate_set_sha256') == confirmed_digest,
+    boot.get('running_kernel') == running,
     boot.get('target_kernel') == confirmed_target,
-    boot.get('boot_mode') == 'direct-generic-no-initrd',
+    boot.get('boot_mode') == 'geninitrd-managed-versioned-initrd',
+    boot.get('named_initrd_path') == '/boot/initrd-generic.img',
+    boot.get('named_initrd_target') == f'initrd-{running}.img',
+    boot.get('versioned_initrd_path') == current_initrd,
+    digest(boot.get('versioned_initrd_sha256')),
+    boot.get('versioned_initrd_size', 0) > 0,
+    digest(boot.get('generic_kernel_sha256')), digest(boot.get('active_grub_sha256')),
+    boot.get('geninitrd_transition_required') is True,
     chain.get('scenario') == 'current-kernel-chain-restart-preflight', chain.get('accepted') is True, denied(chain),
     chain.get('candidate_set_sha256') == confirmed_digest,
+    chain.get('running_kernel') == running,
     chain.get('target_kernel') == confirmed_target,
-    chain.get('nested_boot_archive_sha256') == all_archive_links['boot'],
+    chain.get('accepted_boot_archive_sha256') == archives['boot'],
+    chain.get('nested_boot_mode') == boot.get('boot_mode'),
+    chain.get('nested_versioned_initrd_sha256') == boot.get('versioned_initrd_sha256'),
+    chain.get('nested_geninitrd_transition_required') is True,
     package.get('scenario') == 'current-kernel-package-preflight', package.get('accepted') is True, denied(package),
     package.get('normal_update_candidate_set_sha256') == confirmed_digest,
-    package.get('boot_preflight_archive_sha256') == all_archive_links['boot'],
-    package.get('chain_restart_archive_sha256') == all_archive_links['chain'],
+    package.get('boot_preflight_archive_sha256') == archives['boot'],
+    package.get('chain_restart_archive_sha256') == archives['chain'],
+    package.get('running_kernel') == running,
     package.get('target_kernel') == confirmed_target,
-    package_data.get('filename') == 'kernel-generic-6.18.42-x86_64-1.txz',
+    package.get('boot_mode') == boot.get('boot_mode'),
+    package.get('current_versioned_initrd_sha256') == boot.get('versioned_initrd_sha256'),
+    package.get('active_grub_sha256') == boot.get('active_grub_sha256'),
+    package_data.get('filename') == package_filename,
     digest(package_data.get('sha256')), package_data.get('paths_safe') is True,
-    package_data.get('kernel_image') == '/boot/vmlinuz-6.18.42', package_data.get('embedded_initrd_count') == 0,
+    package_data.get('kernel_image') == f'/boot/vmlinuz-{confirmed_target}',
+    package_data.get('embedded_initrd_count') == 0,
     policy.get('scenario') == 'current-geninitrd-policy-preflight', policy.get('accepted') is True, denied(policy),
-    policy.get('package_preflight_archive_sha256') == all_archive_links['package'],
+    policy.get('boot_preflight_archive_sha256') == archives['boot'],
+    policy.get('chain_restart_archive_sha256') == archives['chain'],
+    policy.get('package_preflight_archive_sha256') == archives['package'],
+    policy.get('running_kernel') == running,
     policy.get('target_kernel') == confirmed_target,
-    policy_data.get('transition_mode') == 'direct-to-generated-initrd',
-    policy_data.get('expected_initrd') == '/boot/initrd-6.18.42.img',
+    policy.get('boot_mode') == boot.get('boot_mode'),
+    policy.get('current_versioned_initrd_sha256') == boot.get('versioned_initrd_sha256'),
+    policy_data.get('transition_mode') == 'versioned-to-versioned-initrd',
+    policy_data.get('expected_initrd') == f'/boot/initrd-{confirmed_target}.img',
+    policy_data.get('autogenerate_initrd') is True,
+    policy_data.get('named_symlink') is True,
+    policy_data.get('initrd_gz_symlink') is False,
     policy_data.get('auto_update_grub') is True,
     dkms.get('scenario') == 'current-geninitrd-dkms-hook-preflight', dkms.get('accepted') is True, denied(dkms),
-    dkms.get('policy_preflight_archive_sha256') == all_archive_links['policy'],
+    dkms.get('policy_preflight_archive_sha256') == archives['policy'],
+    dkms.get('running_kernel') == running,
     dkms.get('target_kernel') == confirmed_target,
-    dkms_data.get('status_row_count') == 0, dkms.get('review_status') == 'accepted-noop-hooks',
+    dkms.get('boot_mode') == boot.get('boot_mode'),
+    dkms.get('transition_mode') == 'versioned-to-versioned-initrd',
+    dkms.get('current_versioned_initrd_sha256') == boot.get('versioned_initrd_sha256'),
+    dkms_data.get('status_row_count') == 0, dkms_data.get('var_lib_dkms_state') == 'empty',
+    dkms.get('review_status') == 'accepted-noop-hooks',
     command.get('scenario') == 'current-geninitrd-command-preflight', command.get('accepted') is True, denied(command),
-    command.get('dkms_preflight_archive_sha256') == all_archive_links['dkms'],
+    command.get('dkms_preflight_archive_sha256') == archives['dkms'],
+    command.get('running_kernel') == running,
     command.get('target_kernel') == confirmed_target,
-    command.get('projected_initrd') == '/boot/initrd-6.18.42.img',
+    command.get('boot_mode') == boot.get('boot_mode'),
+    command.get('transition_mode') == 'versioned-to-versioned-initrd',
+    command.get('current_versioned_initrd_sha256') == boot.get('versioned_initrd_sha256'),
+    command.get('projected_initrd') == f'/boot/initrd-{confirmed_target}.img',
+    command_package.get('filename') == package_data.get('filename'),
     command_package.get('observed_sha256') == package_data.get('sha256'),
+    command.get('module_count') == 18,
     ownership.get('scenario') == 'current-geninitrd-grub-ownership-preflight', ownership.get('accepted') is True, denied(ownership),
-    ownership.get('command_preflight_archive_sha256') == all_archive_links['command'],
+    ownership.get('normal_update_candidate_set_sha256') == confirmed_digest,
+    ownership.get('boot_preflight_archive_sha256') == archives['boot'],
+    ownership.get('chain_restart_archive_sha256') == archives['chain'],
+    ownership.get('package_preflight_archive_sha256') == archives['package'],
+    ownership.get('policy_preflight_archive_sha256') == archives['policy'],
+    ownership.get('dkms_preflight_archive_sha256') == archives['dkms'],
+    ownership.get('command_preflight_archive_sha256') == archives['command'],
+    ownership.get('running_kernel') == running,
     ownership.get('target_kernel') == confirmed_target,
+    ownership.get('boot_mode') == boot.get('boot_mode'),
+    ownership.get('transition_mode') == 'versioned-to-versioned-initrd',
+    ownership.get('current_versioned_initrd_sha256') == boot.get('versioned_initrd_sha256'),
+    ownership.get('active_grub_sha256') == boot.get('active_grub_sha256'),
     ownership.get('strategy') == 'temporary-atomic-policy-override',
     ownership.get('environment_override_safe') is False,
     ownership_package.get('filename') == package_data.get('filename'),
     ownership_package.get('sha256') == package_data.get('sha256'),
+    ownership_transaction.get('step_count') == 12,
+    ownership_transaction.get('recovery_boundary_count') == 5,
+    ownership_transaction.get('requires_final_candidate_revalidation') is True,
+    ownership_transaction.get('requires_separate_apply_authorization') is True,
     ownership.get('next_stage') == 'current-kernel-transaction-readiness-preflight',
     post.get('scenario') == 'current-geninitrd-post-state', post.get('synthetic') is True,
     post.get('accepted') is False, denied(post),
     post.get('normal_update_candidate_set_sha256') == confirmed_digest,
+    post.get('running_kernel') == running,
     post.get('target_kernel') == confirmed_target,
-    post.get('post_transaction', {}).get('versioned_initrd') == '/boot/initrd-6.18.42.img',
+    post.get('pre_transaction_layout') == 'geninitrd-managed-versioned-initrd',
+    post.get('transition_mode') == 'versioned-to-versioned-initrd',
+    post.get('pre_transaction', {}).get('versioned_initrd_sha256') == boot.get('versioned_initrd_sha256'),
+    post.get('post_transaction', {}).get('versioned_initrd') == f'/boot/initrd-{confirmed_target}.img',
+    post.get('post_transaction', {}).get('named_initrd_target') == f'initrd-{confirmed_target}.img',
     post.get('reference_engine_sha256') == engine_sha,
 ]
 if not all(checks):
     raise SystemExit(1)
-for value in all_archive_links.values():
+for value in archives.values():
     if not digest(value):
         raise SystemExit(1)
-print(normal.get('platform', {}).get('kernel_version', ''))
+hooks = {item.get('path'): item.get('sha256') for item in dkms.get('hooks', [])}
+for path in ('/etc/geninitrd.d/pre-install/dkms-bcachefs', '/etc/geninitrd.d/pre-install/dkms-nvidia'):
+    if not digest(hooks.get(path)):
+        raise SystemExit(1)
+print(running)
 print(confirmed_target)
 print(confirmed_digest)
 print(package_data.get('filename', ''))
 print(package_data.get('sha256', ''))
 print(ownership.get('active_policy', {}).get('sha256', ''))
 print(policy.get('scripts', {}).get('geninitrd_sha256', ''))
+print(command.get('generator', {}).get('sha256', ''))
 print(policy.get('scripts', {}).get('setup_sha256', ''))
 print(engine_sha)
 print(hashlib.sha256(pathlib.Path(post_path).read_bytes()).hexdigest())
+print(boot.get('generic_kernel_sha256', ''))
+print(boot.get('named_initrd_path', ''))
+print(boot.get('named_initrd_target', ''))
+print(boot.get('versioned_initrd_path', ''))
+print(boot.get('versioned_initrd_sha256', ''))
+print(boot.get('versioned_initrd_size', ''))
+print(boot.get('active_grub_sha256', ''))
+print(hooks['/etc/geninitrd.d/pre-install/dkms-bcachefs'])
+print(hooks['/etc/geninitrd.d/pre-install/dkms-nvidia'])
 PY
 ) || return 1
     RUNNING_KERNEL=$(printf '%s\n' "$values" | sed -n '1p')
@@ -257,11 +343,22 @@ PY
     PACKAGE_FILENAME=$(printf '%s\n' "$values" | sed -n '4p')
     PACKAGE_SHA256=$(printf '%s\n' "$values" | sed -n '5p')
     ACTIVE_POLICY_SHA256=$(printf '%s\n' "$values" | sed -n '6p')
-    GENERATOR_SHA256=$(printf '%s\n' "$values" | sed -n '7p')
-    SETUP_SHA256=$(printf '%s\n' "$values" | sed -n '8p')
-    REFERENCE_ENGINE_SHA256=$(printf '%s\n' "$values" | sed -n '9p')
-    POST_STATE_CONTRACT_SHA256=$(printf '%s\n' "$values" | sed -n '10p')
-    [ -n "$RUNNING_KERNEL" ] && [ -n "$PACKAGE_FILENAME" ] && is_sha256 "$PACKAGE_SHA256"
+    GENINITRD_SHA256=$(printf '%s\n' "$values" | sed -n '7p')
+    COMMAND_GENERATOR_SHA256=$(printf '%s\n' "$values" | sed -n '8p')
+    SETUP_SHA256=$(printf '%s\n' "$values" | sed -n '9p')
+    REFERENCE_ENGINE_SHA256=$(printf '%s\n' "$values" | sed -n '10p')
+    POST_STATE_CONTRACT_SHA256=$(printf '%s\n' "$values" | sed -n '11p')
+    GENERIC_KERNEL_SHA256=$(printf '%s\n' "$values" | sed -n '12p')
+    CURRENT_NAMED_INITRD=$(printf '%s\n' "$values" | sed -n '13p')
+    CURRENT_NAMED_INITRD_TARGET=$(printf '%s\n' "$values" | sed -n '14p')
+    CURRENT_VERSIONED_INITRD=$(printf '%s\n' "$values" | sed -n '15p')
+    CURRENT_VERSIONED_INITRD_SHA256=$(printf '%s\n' "$values" | sed -n '16p')
+    CURRENT_VERSIONED_INITRD_SIZE=$(printf '%s\n' "$values" | sed -n '17p')
+    ACTIVE_GRUB_SHA256=$(printf '%s\n' "$values" | sed -n '18p')
+    HOOK_BCACHEFS_SHA256=$(printf '%s\n' "$values" | sed -n '19p')
+    HOOK_NVIDIA_SHA256=$(printf '%s\n' "$values" | sed -n '20p')
+    [ -n "$RUNNING_KERNEL" ] && [ -n "$PACKAGE_FILENAME" ] \
+        && is_sha256 "$PACKAGE_SHA256" && is_sha256 "$CURRENT_VERSIONED_INITRD_SHA256"
 }
 
 capture_package_database() {
@@ -295,17 +392,22 @@ capture_sensitive_state() {
     for path in \
         /boot/vmlinuz-generic \
         "/boot/vmlinuz-$RUNNING_KERNEL" \
+        "/boot/vmlinuz-$TARGET_KERNEL" \
         /boot/initrd-generic.img \
+        "$CURRENT_VERSIONED_INITRD" \
+        "/boot/initrd-$TARGET_KERNEL.img" \
         /boot/initrd.gz \
         /boot/grub/grub.cfg \
         /etc/default/geninitrd \
         /etc/mkinitrd.conf \
+        /usr/sbin/geninitrd \
         /usr/share/mkinitrd/mkinitrd_command_generator.sh \
         /var/lib/pkgtools/setup/setup.01.mkinitrd \
         /etc/geninitrd.d/pre-install/dkms-bcachefs \
         /etc/geninitrd.d/pre-install/dkms-nvidia \
         /var/lib/dkms \
-        "/lib/modules/$RUNNING_KERNEL"; do
+        "/lib/modules/$RUNNING_KERNEL" \
+        "/lib/modules/$TARGET_KERNEL"; do
         printf '%s|' "$path" >> "$output"
         capture_path_state "$(root_path "$path")" >> "$output" || return 1
         printf '\n' >> "$output"
@@ -370,25 +472,115 @@ verify_nested_archive() {
     (cd "$nested_root" && sha256sum -c "${archive##*/}.sha256" >/dev/null 2>&1)
 }
 
+validate_grub_kernel_initrd_pair() {
+    local grub=$1 kernel=$2 initrd=$3
+    python3 - "$grub" "$kernel" "$initrd" <<'PY'
+import pathlib, re, sys
+path, kernel, initrd = sys.argv[1:]
+try:
+    lines = pathlib.Path(path).read_text(encoding='utf-8', errors='strict').splitlines()
+except Exception:
+    raise SystemExit(1)
+blocks=[]
+active=None
+depth=0
+for line in lines:
+    stripped=line.strip()
+    if active is None and stripped.startswith('menuentry '):
+        active=[]
+        depth=0
+    if active is not None:
+        active.append(stripped)
+        depth += stripped.count('{') - stripped.count('}')
+        if depth <= 0 and len(active) > 1:
+            blocks.append(active)
+            active=None
+for block in blocks:
+    linux_ok=any(re.match(r'^linux(?:efi)?\s+', line) and kernel in line.split() for line in block)
+    initrd_ok=any(re.match(r'^initrd(?:efi)?\s+', line) and initrd in line.split() for line in block)
+    if linux_ok and initrd_ok:
+        raise SystemExit(0)
+raise SystemExit(1)
+PY
+}
+
+read_scalar_assignment() {
+    local file=$1 variable=$2
+    python3 - "$file" "$variable" <<'PY'
+import re, sys
+path, variable = sys.argv[1:]
+values=[]
+try:
+    lines=open(path, encoding='utf-8').read().splitlines()
+except Exception:
+    raise SystemExit(1)
+pattern=re.compile(r'^\s*'+re.escape(variable)+r'\s*=\s*(.*?)\s*$')
+for line in lines:
+    if line.lstrip().startswith('#'):
+        continue
+    match=pattern.match(line)
+    if match:
+        value=match.group(1)
+        if len(value) >= 2 and value[0] == value[-1] and value[0] in "'\"":
+            value=value[1:-1]
+        values.append(value)
+if len(values) != 1:
+    raise SystemExit(1)
+print(values[0])
+PY
+}
+
 validate_live_state() {
-    local generic target policy generator setup grub package matches observed hook path
+    local generic current_kernel target_kernel named_initrd current_initrd target_initrd
+    local policy geninitrd generator setup grub package matches observed hook path expected_hook
     generic=$(root_path /boot/vmlinuz-generic)
-    target=$(root_path "/boot/vmlinuz-$RUNNING_KERNEL")
+    current_kernel=$(root_path "/boot/vmlinuz-$RUNNING_KERNEL")
+    target_kernel=$(root_path "/boot/vmlinuz-$TARGET_KERNEL")
+    named_initrd=$(root_path "$CURRENT_NAMED_INITRD")
+    current_initrd=$(root_path "$CURRENT_VERSIONED_INITRD")
+    target_initrd=$(root_path "/boot/initrd-$TARGET_KERNEL.img")
     policy=$(root_path /etc/default/geninitrd)
+    geninitrd=$(root_path /usr/sbin/geninitrd)
     generator=$(root_path /usr/share/mkinitrd/mkinitrd_command_generator.sh)
     setup=$(root_path /var/lib/pkgtools/setup/setup.01.mkinitrd)
     grub=$(root_path /boot/grub/grub.cfg)
     [ "$(uname -r)" = "$RUNNING_KERNEL" ] || return 1
-    [ -L "$generic" ] && [ "$(readlink -e -- "$generic")" = "$target" ] || return 1
-    [ -f "$target" ] && [ ! -L "$target" ] || return 1
-    [ -f "$policy" ] && [ ! -L "$policy" ] && [ "$(sha256sum -- "$policy" | awk '{print $1}')" = "$ACTIVE_POLICY_SHA256" ] || return 1
-    [ -f "$generator" ] && [ ! -L "$generator" ] && [ "$(sha256sum -- "$generator" | awk '{print $1}')" = "$GENERATOR_SHA256" ] || return 1
-    [ -f "$setup" ] && [ ! -L "$setup" ] && [ "$(sha256sum -- "$setup" | awk '{print $1}')" = "$SETUP_SHA256" ] || return 1
-    [ -f "$grub" ] && [ ! -L "$grub" ] || return 1
+    [ -L "$generic" ] && [ "$(readlink -e -- "$generic")" = "$current_kernel" ] || return 1
+    [ -f "$current_kernel" ] && [ ! -L "$current_kernel" ] \
+        && [ "$(sha256sum -- "$current_kernel" | awk '{print $1}')" = "$GENERIC_KERNEL_SHA256" ] || return 1
+    [ ! -e "$target_kernel" ] || return 1
+    [ -L "$named_initrd" ] && [ "$(readlink -- "$named_initrd")" = "$CURRENT_NAMED_INITRD_TARGET" ] \
+        && [ "$(readlink -e -- "$named_initrd")" = "$current_initrd" ] || return 1
+    [ -f "$current_initrd" ] && [ ! -L "$current_initrd" ] \
+        && [ "$(stat -c '%s' -- "$current_initrd")" = "$CURRENT_VERSIONED_INITRD_SIZE" ] \
+        && [ "$(sha256sum -- "$current_initrd" | awk '{print $1}')" = "$CURRENT_VERSIONED_INITRD_SHA256" ] || return 1
+    [ ! -e "$target_initrd" ] || return 1
+    [ ! -e "$(root_path /boot/initrd.gz)" ] || return 1
+    [ ! -e "$(root_path /etc/mkinitrd.conf)" ] || return 1
+    [ -f "$policy" ] && [ ! -L "$policy" ] \
+        && [ "$(sha256sum -- "$policy" | awk '{print $1}')" = "$ACTIVE_POLICY_SHA256" ] || return 1
+    [ "$(read_scalar_assignment "$policy" AUTOGENERATE_INITRD)" = true ] || return 1
+    [ "$(read_scalar_assignment "$policy" GENINITRD_NAMED_SYMLINK)" = true ] || return 1
+    [ "$(read_scalar_assignment "$policy" GENINITRD_INITRD_GZ_SYMLINK)" = false ] || return 1
+    [ "$(read_scalar_assignment "$policy" AUTO_UPDATE_GRUB)" = true ] || return 1
+    [ -f "$geninitrd" ] && [ ! -L "$geninitrd" ] \
+        && [ "$(sha256sum -- "$geninitrd" | awk '{print $1}')" = "$GENINITRD_SHA256" ] || return 1
+    [ -f "$generator" ] && [ ! -L "$generator" ] \
+        && [ "$(sha256sum -- "$generator" | awk '{print $1}')" = "$COMMAND_GENERATOR_SHA256" ] || return 1
+    [ -f "$setup" ] && [ ! -L "$setup" ] \
+        && [ "$(sha256sum -- "$setup" | awk '{print $1}')" = "$SETUP_SHA256" ] || return 1
+    [ -f "$grub" ] && [ ! -L "$grub" ] \
+        && [ "$(sha256sum -- "$grub" | awk '{print $1}')" = "$ACTIVE_GRUB_SHA256" ] || return 1
     grub-script-check "$grub" >/dev/null 2>&1 || return 1
+    validate_grub_kernel_initrd_pair "$grub" /boot/vmlinuz-generic /boot/initrd-generic.img || return 1
     for path in /etc/geninitrd.d/pre-install/dkms-bcachefs /etc/geninitrd.d/pre-install/dkms-nvidia; do
         hook=$(root_path "$path")
-        [ -f "$hook" ] && [ ! -L "$hook" ] && [ -x "$hook" ] || return 1
+        case "$path" in
+            *dkms-bcachefs) expected_hook=$HOOK_BCACHEFS_SHA256 ;;
+            *dkms-nvidia) expected_hook=$HOOK_NVIDIA_SHA256 ;;
+        esac
+        [ -f "$hook" ] && [ ! -L "$hook" ] && [ -x "$hook" ] \
+            && [ "$(sha256sum -- "$hook" | awk '{print $1}')" = "$expected_hook" ] || return 1
     done
     matches=$(find "$PACKAGE_CACHE_ROOT" -type f -name "$PACKAGE_FILENAME" -print 2>/dev/null | LC_ALL=C sort)
     [ "$(printf '%s\n' "$matches" | sed '/^$/d' | wc -l)" -eq 1 ] || return 1
@@ -398,9 +590,8 @@ validate_live_state() {
     [ "$observed" = "$PACKAGE_SHA256" ] || return 1
     [ -d "$(root_path "/lib/modules/$RUNNING_KERNEL")" ] || return 1
     [ ! -e "$(root_path "/lib/modules/$TARGET_KERNEL")" ] || return 1
-    [ ! -e "$(root_path /boot/initrd-generic.img)" ] || return 1
-    [ ! -e "$(root_path /boot/initrd.gz)" ] || return 1
-    [ ! -e "$(root_path /etc/mkinitrd.conf)" ] || return 1
+    [ -d "$(root_path /var/lib/dkms)" ] && [ ! -L "$(root_path /var/lib/dkms)" ] || return 1
+    [ -z "$(find "$(root_path /var/lib/dkms)" -mindepth 1 -maxdepth 1 -print -quit 2>/dev/null)" ] || return 1
     if command -v dkms >/dev/null 2>&1; then
         [ "$(dkms status 2>/dev/null | sed '/^[[:space:]]*$/d' | wc -l)" -eq 0 ] || return 1
     fi
@@ -417,6 +608,11 @@ result = {
   "candidate_set_sha256": "$CANDIDATE_SET_SHA256",
   "fresh_candidate_set_sha256": "$FRESH_CANDIDATE_SHA256",
   "accepted_evidence_count": 8,
+  "boot_mode": "geninitrd-managed-versioned-initrd",
+  "transition_mode": "versioned-to-versioned-initrd",
+  "current_versioned_initrd": "$CURRENT_VERSIONED_INITRD",
+  "current_versioned_initrd_sha256": "$CURRENT_VERSIONED_INITRD_SHA256",
+  "expected_initrd": "/boot/initrd-$TARGET_KERNEL.img",
   "final_candidate_revalidation_completed": True,
   "final_candidate_revalidation_fresh": True,
   "exact_package_cache_verified": True,
@@ -457,6 +653,10 @@ running_kernel=$RUNNING_KERNEL
 target_kernel=$TARGET_KERNEL
 candidate_set_sha256=$CANDIDATE_SET_SHA256
 fresh_candidate_set_sha256=$FRESH_CANDIDATE_SHA256
+boot_mode=geninitrd-managed-versioned-initrd
+transition_mode=versioned-to-versioned-initrd
+current_versioned_initrd=$CURRENT_VERSIONED_INITRD
+expected_initrd=/boot/initrd-$TARGET_KERNEL.img
 readiness_status=$READINESS_STATUS
 final_candidate_revalidation_completed=true
 package_transaction_executed=false
@@ -551,7 +751,7 @@ main() {
         record_failure 'the nested normal-update archive or portable sidecar is missing, ambiguous, or invalid'
     fi
     if validate_live_state; then
-        record_pass 'the exact package cache, direct boot layout, GenInitrd policy, no-op DKMS state, and GRUB configuration remain reviewed'
+        record_pass 'the exact package cache, versioned GenInitrd boot layout, no-op DKMS state, and GRUB ownership boundary remain reviewed'
     else
         record_failure 'the live package, boot, GenInitrd, DKMS, or GRUB state no longer matches the accepted chain'
     fi
@@ -580,7 +780,7 @@ main() {
     fi
     write_analysis "$OUTPUT_DIR/readiness-analysis.json"
     write_summary "$OUTPUT_DIR/summary.txt"
-    printf 'Slackware-current kernel transaction readiness result: running=%s, target=%s, candidates=%s, readiness=%s, apply-ready=%s, apply-authorized=false\n' \
+    printf 'Slackware-current kernel transaction readiness result: running=%s, target=%s, candidates=%s, boot-mode=geninitrd-managed-versioned-initrd, transition=versioned-to-versioned-initrd, readiness=%s, apply-ready=%s, apply-authorized=false\n' \
         "$RUNNING_KERNEL" "$TARGET_KERNEL" "$FRESH_CANDIDATE_SHA256" "$READINESS_STATUS" "$APPLY_READY"
     archive=$(create_evidence_archive) || { error 'failed to create readiness evidence archive'; return 1; }
     printf 'Evidence archive: %s\n' "$archive"

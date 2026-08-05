@@ -2126,7 +2126,24 @@ sudo bash tests/acceptance/reference/test-current-geninitrd-grub-ownership-prefl
     --confirm-target-kernel 6.18.42
 ```
 
-A safe run must complete all 12 assertions, publish an evidence archive and portable sidecar, preserve the `geninitrd-managed-versioned-initrd` baseline, emit the evidence-local twelve-stage ownership plan, and finish with `transition=versioned-to-versioned-initrd`, `strategy=temporary-atomic-policy-override`, `apply-ready=false`, and `apply-authorized=false`. Copy the printed archive and sidecar directly to `/home/promano` and verify them there. Do not advance to readiness review until this corrected evidence is accepted.
+The corrected real run completed all 12 assertions, preserved the `geninitrd-managed-versioned-initrd` baseline, emitted the evidence-local twelve-stage ownership plan, and produced verified archive SHA-256 `53acb06384b4a8fbea1feceb73e6aa2381c43f5702a41ce990d0f515d04588fe`. The accepted result is `transition=versioned-to-versioned-initrd`, `strategy=temporary-atomic-policy-override`, `apply-ready=false`, and `apply-authorized=false`.
 
-The step-62 repository inventory contains 37 suites and 2,505 checks with zero failures. The corrected GRUB-ownership harness contributes 71 checks. Static validation covers 56 Bash scripts and 52 JSON files.
+### Phase 1 step 63: rebuilt final transaction readiness preflight
+
+Run only after accepting the corrected step-62 ownership evidence:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-kernel-transaction-readiness-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+This stage binds the accepted normal-update, boot, chain-restart, exact-package, policy, DKMS, command, and GRUB-ownership records. It also binds the corrected synthetic post-state contract whose pre-transaction mode is `geninitrd-managed-versioned-initrd` and whose target state requires `/boot/initrd-6.18.42.img` plus `initrd-generic.img -> initrd-6.18.42.img`.
+
+The wrapper refreshes Slackpkg metadata through the existing non-installing normal-update preflight and requires the same 69 candidates and candidate-set SHA-256. It then revalidates the exact cached package, the current kernel and initrd hashes, the GenInitrd scalar policy, both reviewed no-op DKMS hooks, empty DKMS state, and the active same-menuentry GRUB kernel/initrd pairing. It executes no package transaction, `mkinitrd`, `geninitrd`, DKMS build, `update-grub`, or `grub-mkconfig` command.
+
+A completely clean result reports 10 outer passes, zero failures, `boot-mode=geninitrd-managed-versioned-initrd`, `transition=versioned-to-versioned-initrd`, `readiness=apply-ready`, `apply-ready=true`, and `apply-authorized=false`. The positive readiness value is not authorization. Use the last printed copy command, for the outer `current-kernel-transaction-readiness-preflight` archive, copy the archive and sidecar directly to `/home/promano`, verify them there, and submit both before any separate apply-authorization design.
+
+The step-63 repository inventory contains 37 suites and 2,521 checks with zero failures. The rebuilt readiness harness contributes 64 checks. Static validation covers 56 Bash scripts and 53 JSON files.
 
