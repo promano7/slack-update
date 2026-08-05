@@ -1,0 +1,463 @@
+{
+  "accepted_configuration_service_archive_sha256": "b2e6379879297e81bc2da8fa6aa58ccdaf6c904fe3018691ba6d78f463077140",
+  "accepted_nested_maintainer_archive_sha256": "5aed2e4895cde3611c41d8ba13f83add40c5e3c24db55429cc9a17a07b6b5d2f",
+  "allowed_program_interpreters": [
+    "/lib64/ld-linux-x86-64.so.2"
+  ],
+  "allowed_runtime_path_roots": [
+    "/lib64",
+    "/usr/lib64",
+    "/lib",
+    "/usr/lib"
+  ],
+  "apply_authorized": false,
+  "apply_ready": false,
+  "candidate_set_sha256": "27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926",
+  "configuration_service_review_complete": true,
+  "default_runtime_directories": [
+    "/lib64",
+    "/usr/lib64",
+    "/lib",
+    "/usr/lib"
+  ],
+  "elf_count_manifest_sha256": "051cb802e327496bf74e568cee7845a5054dcf1b56fc709f946c692eae041ce6",
+  "elf_runtime_review_complete": false,
+  "expected_elf_file_count": 722,
+  "expected_elf_package_count": 61,
+  "expected_package_count": 68,
+  "forbidden_runtime_path_roots": [
+    "/tmp",
+    "/var/tmp",
+    "/dev/shm",
+    "/run/user"
+  ],
+  "next_stage": "current-userspace-apply-review-preflight",
+  "reject_executable_stack": true,
+  "reject_needed_entries_with_slashes": true,
+  "reject_text_relocations": true,
+  "reject_unresolved_dependencies": true,
+  "reject_writable_executable_load_segments": true,
+  "require_nonexecuting_readelf_review": true,
+  "required_identity": {
+    "class": "ELF64",
+    "data": "2's complement, little endian",
+    "machine": "Advanced Micro Devices X86-64"
+  },
+  "reviewed": true,
+  "reviewed_at": "2026-08-05",
+  "reviewed_package_elf_manifest_sha256": "97187a724535f7433061b26e4c8b5002339677bd73abb69212a836fec8680bb6",
+  "reviewed_packages": [
+    {
+      "expected_elf_count": 1,
+      "package": "SDL3-3.4.14-x86_64-1.txz",
+      "sha256": "b44e42edcf9e610e2713838dd0b19425f735e319c567918dc4d321f9a273abdf",
+      "size": 1611328
+    },
+    {
+      "expected_elf_count": 0,
+      "package": "adwaita-fonts-ttf-51.0-noarch-1.txz",
+      "sha256": "d7064d049a647192aafaf911f3fc97ba5e7a1bbf064db62747b7d7742d713f02",
+      "size": 2036992
+    },
+    {
+      "expected_elf_count": 5,
+      "package": "aurorae-6.7.4-x86_64-1.txz",
+      "sha256": "acc92c5178abf7e2620467a35a7a71f9e36be686043ab484507b4b87072b4766",
+      "size": 158628
+    },
+    {
+      "expected_elf_count": 9,
+      "package": "bluedevil-6.7.4-x86_64-1.txz",
+      "sha256": "566d2ea52f84e3b9dc75428d26616fd1cf95e84094981f2fb40794a2e67d018c",
+      "size": 664352
+    },
+    {
+      "expected_elf_count": 7,
+      "package": "breeze-6.7.4-x86_64-1.txz",
+      "sha256": "e356bd938f9ba4779f06e5ebe1d33a78c779e9fed3f049c0f4cbb610d8baf2e4",
+      "size": 43313416
+    },
+    {
+      "expected_elf_count": 0,
+      "package": "breeze-grub-6.7.4-x86_64-1.txz",
+      "sha256": "66209816c42b2363f7a2ca7d1a739dc393c101c752709e7291f1f97b6466008a",
+      "size": 1448432
+    },
+    {
+      "expected_elf_count": 0,
+      "package": "breeze-gtk-6.7.4-x86_64-1.txz",
+      "sha256": "e9f082bf6e63e83c65b483ab61434bedf07ae8d1c1dd24c2980cb1d05506e1bd",
+      "size": 173564
+    },
+    {
+      "expected_elf_count": 9,
+      "package": "kactivitymanagerd-6.7.4-x86_64-1.txz",
+      "sha256": "fe6f7ff98beafd5b88af77d1c589187a6dc2c3ed0ff8bd4f65302eb7b9295a26",
+      "size": 202996
+    },
+    {
+      "expected_elf_count": 13,
+      "package": "kde-cli-tools-6.7.4-x86_64-1.txz",
+      "sha256": "fcb1e5b403fffff2976b9f7e9c44a10482af3db34f5cb202ceb0d6efa12d79dc",
+      "size": 868488
+    },
+    {
+      "expected_elf_count": 6,
+      "package": "kde-gtk-config-6.7.4-x86_64-1.txz",
+      "sha256": "4315481afac99714ae04d7cac712e861fdb58af8ddeda086872a25b9b6cb6ea3",
+      "size": 99768
+    },
+    {
+      "expected_elf_count": 2,
+      "package": "kdecoration-6.7.4-x86_64-1.txz",
+      "sha256": "63835eca0ba77ecd1346e2f88b54ec64bec983eeba7d8bd1766d2d68bd0a7b00",
+      "size": 99280
+    },
+    {
+      "expected_elf_count": 57,
+      "package": "kdeplasma-addons-6.7.4-x86_64-1.txz",
+      "sha256": "53fa2990417be48a9879086f4a562697169d6dc7fca16bf255d1535393eefeb0",
+      "size": 2940324
+    },
+    {
+      "expected_elf_count": 1,
+      "package": "kgamma-6.7.4-x86_64-1.txz",
+      "sha256": "a4ece07d350e97ef48d36ffb799c20b9d9b961d93bd7757a10ca08e61b8aa447",
+      "size": 152812
+    },
+    {
+      "expected_elf_count": 3,
+      "package": "kglobalacceld-6.7.4-x86_64-1.txz",
+      "sha256": "635af7a14a67d039311cb5df5b13a0940242369f3a623426fb0a8387a7ccaf8f",
+      "size": 143900
+    },
+    {
+      "expected_elf_count": 26,
+      "package": "kinfocenter-6.7.4-x86_64-1.txz",
+      "sha256": "6b47ca0f6060a967ee37fddb69550a25ebc50825d4c006f1ec0d8c65fc121f1c",
+      "size": 1439216
+    },
+    {
+      "expected_elf_count": 1,
+      "package": "kmenuedit-6.7.4-x86_64-1.txz",
+      "sha256": "bbc21a357469c26e696df57744761956bc283b889c29bdbad8ca883ef469cd14",
+      "size": 1047288
+    },
+    {
+      "expected_elf_count": 2,
+      "package": "knighttime-6.7.4-x86_64-1.txz",
+      "sha256": "ee63ca10fa2f08bcc81f5dabd990c00c44aa1d0f397fdf4282dd6163010a676f",
+      "size": 81800
+    },
+    {
+      "expected_elf_count": 6,
+      "package": "kpipewire-6.7.4-x86_64-1.txz",
+      "sha256": "dd57ad952ad0751b1cf86bdcac14a14d7e8e8ecb5600dbba4ba668dbac5e7429",
+      "size": 196324
+    },
+    {
+      "expected_elf_count": 3,
+      "package": "krdp-6.7.4-x86_64-1.txz",
+      "sha256": "dda2df1a1e4770686f0f7b34f1c301f27d262cd1cfe83148612fff7ce966af5a",
+      "size": 235112
+    },
+    {
+      "expected_elf_count": 6,
+      "package": "kscreen-6.7.4-x86_64-1.txz",
+      "sha256": "f6fe18c42e0d7339b2e967a58729e8e6fd3580a4b7d0ee6116b7b3dd0ca32d66",
+      "size": 1944368
+    },
+    {
+      "expected_elf_count": 3,
+      "package": "kscreenlocker-6.7.4-x86_64-1.txz",
+      "sha256": "aee979ce656224de0fffafc933ce2d0e4a15492603ac582d213ae0a13d74dd1d",
+      "size": 264592
+    },
+    {
+      "expected_elf_count": 1,
+      "package": "ksshaskpass-6.7.4-x86_64-1.txz",
+      "sha256": "d8004674284cc977f1b206613e44f547ce369f86b034a4c8888c7acd31bcd4d2",
+      "size": 38548
+    },
+    {
+      "expected_elf_count": 12,
+      "package": "ksystemstats-6.7.4-x86_64-1.txz",
+      "sha256": "2f90b75c803691db81b022bf420b19756b093a44ff86f7a5f7715b26f59e9741",
+      "size": 277196
+    },
+    {
+      "expected_elf_count": 1,
+      "package": "kwallet-pam-6.7.4-x86_64-1.txz",
+      "sha256": "e999581493c45ddfd8ab8b8ea0e9fed9ca19800fad8f8473ee3ee42143b8e6d7",
+      "size": 21360
+    },
+    {
+      "expected_elf_count": 1,
+      "package": "kwayland-6.7.4-x86_64-1.txz",
+      "sha256": "0e5330f1d10e161474e0d595d8da2f53050d54b7d8da7c67a2d528582af3d00d",
+      "size": 254440
+    },
+    {
+      "expected_elf_count": 1,
+      "package": "kwayland-integration-6.7.4-x86_64-1.txz",
+      "sha256": "cbc48a8f92858eb8d47e6c175ac57e6043251cf061d0bbd7e4ecbe3de15aedaa",
+      "size": 60548
+    },
+    {
+      "expected_elf_count": 63,
+      "package": "kwin-6.7.4-x86_64-1.txz",
+      "sha256": "e2601802be41ae92fa347bea0524c26284844179c284d464340f01997f45d630",
+      "size": 10668544
+    },
+    {
+      "expected_elf_count": 45,
+      "package": "kwin-x11-6.7.4-x86_64-1.txz",
+      "sha256": "d4713ea96e73256d9ca2d67cae18cfbf6f1fecda61b29cfa6fa88325efc42afc",
+      "size": 7841440
+    },
+    {
+      "expected_elf_count": 1,
+      "package": "kwrited-6.7.4-x86_64-1.txz",
+      "sha256": "2dda0f3d4a0328fe6befdd5801b5a5d16937df8d99d4da53cd4bbc7b96ffcc78",
+      "size": 23456
+    },
+    {
+      "expected_elf_count": 3,
+      "package": "layer-shell-qt-6.7.4-x86_64-1.txz",
+      "sha256": "9e65781e54b71e6607ec80e3de3854e0f32e849e4137273e9d6cdeddb70d2d24",
+      "size": 58312
+    },
+    {
+      "expected_elf_count": 7,
+      "package": "libkscreen-6.7.4-x86_64-1.txz",
+      "sha256": "b381a8904d6e144fdce5d6e39e0968e272d9db7542f5cdb4728fd7ece7cb0f73",
+      "size": 352496
+    },
+    {
+      "expected_elf_count": 16,
+      "package": "libksysguard-6.7.4-x86_64-1.txz",
+      "sha256": "b62830b092b79774bb3a1e92c6072eb73e93535ff18519ec88ee6ca76e0eff19",
+      "size": 660428
+    },
+    {
+      "expected_elf_count": 14,
+      "package": "libplasma-6.7.4-x86_64-1.txz",
+      "sha256": "3bc62163b41c8a7f6ef38d34bc722506894eab54411346fb2689a69836f542ce",
+      "size": 2596712
+    },
+    {
+      "expected_elf_count": 2,
+      "package": "milou-6.7.4-x86_64-1.txz",
+      "sha256": "41a83c5e3d2b17f7151f2f1cb75f393ce300913e699257bd3b45f27068452418",
+      "size": 111332
+    },
+    {
+      "expected_elf_count": 0,
+      "package": "ocean-sound-theme-6.7.4-x86_64-1.txz",
+      "sha256": "ad99ff5903dcef31e49574db040dbb989cd978813cb26eeb83e3ec767ae3ad64",
+      "size": 2041216
+    },
+    {
+      "expected_elf_count": 12,
+      "package": "oxygen-6.7.4-x86_64-1.txz",
+      "sha256": "d11320abaa74352305bb743b17a01a4becbbf5601aef88379dbe036d822e107a",
+      "size": 32474944
+    },
+    {
+      "expected_elf_count": 0,
+      "package": "oxygen-sounds-6.7.4-x86_64-1.txz",
+      "sha256": "9d1328ea110d812a9e7e3044dc7faa52cf2f43738e82a93493ca837e1a950fa3",
+      "size": 1934176
+    },
+    {
+      "expected_elf_count": 7,
+      "package": "pango-1.58.1-x86_64-1.txz",
+      "sha256": "1cd680b403c1e51cea01066c12b646ed26b794c7a3d31dfd8f94d1bf563057d3",
+      "size": 460060
+    },
+    {
+      "expected_elf_count": 3,
+      "package": "plasma-activities-6.7.4-x86_64-1.txz",
+      "sha256": "fbfb57bbf46f5b4fee1f063871475b9045f003964e4beea96683412cf706c97a",
+      "size": 136604
+    },
+    {
+      "expected_elf_count": 1,
+      "package": "plasma-activities-stats-6.7.4-x86_64-1.txz",
+      "sha256": "6cdd34aa037931af44607bc92d9cd270d4affe1a2b72932e66ed939ce495363d",
+      "size": 115032
+    },
+    {
+      "expected_elf_count": 20,
+      "package": "plasma-bigscreen-6.7.4-x86_64-1.txz",
+      "sha256": "a8f4dc13f058503cd0bc9e58b04392c97484ed6528f33653d587c12d4a79713a",
+      "size": 1446364
+    },
+    {
+      "expected_elf_count": 3,
+      "package": "plasma-browser-integration-6.7.4-x86_64-1.txz",
+      "sha256": "dfa9a34682f1f0cbd227033fffd16912d678c4f6533291129487906164b0a3bb",
+      "size": 185892
+    },
+    {
+      "expected_elf_count": 56,
+      "package": "plasma-desktop-6.7.4-x86_64-1.txz",
+      "sha256": "a70be23f04114ea12531b48006957f6da3be685bd4bf76ebd5e0351d6efb9a71",
+      "size": 18591048
+    },
+    {
+      "expected_elf_count": 3,
+      "package": "plasma-disks-6.7.4-x86_64-1.txz",
+      "sha256": "72613d6f395f5f2f89a1ff7de63ef62d833753fd8dc4b4cccf3d08766214b16e",
+      "size": 174044
+    },
+    {
+      "expected_elf_count": 5,
+      "package": "plasma-firewall-6.7.4-x86_64-1.txz",
+      "sha256": "568dfd213a29fe75795a38e2d2108e0d6b6bac384c212217bd94fd5dba6c571d",
+      "size": 508400
+    },
+    {
+      "expected_elf_count": 2,
+      "package": "plasma-integration-6.7.4-x86_64-1.txz",
+      "sha256": "6f0cb109841f53797316dcdcefead536103d7b90744f15cb2800014421e0f0a8",
+      "size": 260740
+    },
+    {
+      "expected_elf_count": 1,
+      "package": "plasma-nano-6.7.4-x86_64-1.txz",
+      "sha256": "d3880faddf980db06a2fc49ece20f82e3258b5e5ca674910be30190c149c03f6",
+      "size": 66600
+    },
+    {
+      "expected_elf_count": 22,
+      "package": "plasma-nm-6.7.4-x86_64-1.txz",
+      "sha256": "8c239986ff3ecfd080e23a2c5b6a3174fab898eec36217c9bcaa9493fd357050",
+      "size": 1909572
+    },
+    {
+      "expected_elf_count": 5,
+      "package": "plasma-pa-6.7.4-x86_64-1.txz",
+      "sha256": "8d5ccc57bfc1d98e1deece16c71ccde83e5aa6bedf1427ebd9faf37f0eff56d4",
+      "size": 483100
+    },
+    {
+      "expected_elf_count": 7,
+      "package": "plasma-sdk-6.7.4-x86_64-1.txz",
+      "sha256": "06ec75f35f3a5d48a8aad6613c290afe62c0cdda25cb3ee909a234fcc9a83913",
+      "size": 649432
+    },
+    {
+      "expected_elf_count": 5,
+      "package": "plasma-systemmonitor-6.7.4-x86_64-1.txz",
+      "sha256": "b16719bc58db47786cc20b2b85f0d4dbe715720ad8ca87e35f9a669a4fdf44ab",
+      "size": 507148
+    },
+    {
+      "expected_elf_count": 3,
+      "package": "plasma-vault-6.7.4-x86_64-1.txz",
+      "sha256": "29ccfbe1cf3b31fd07f3734fb04cc4158713f01fed8c7e273f295f1b80ff03d2",
+      "size": 343284
+    },
+    {
+      "expected_elf_count": 151,
+      "package": "plasma-workspace-6.7.4-x86_64-1.txz",
+      "sha256": "982c25274bb7b8e1b42195b88b5a039c426f074c5f8ebc28be4d5ac64cfb78a5",
+      "size": 21234300
+    },
+    {
+      "expected_elf_count": 0,
+      "package": "plasma-workspace-wallpapers-6.7.4-noarch-1.txz",
+      "sha256": "c325e9cad5d32ebb8f965fca258413132920744b7ab96c840a24610e2ff6152b",
+      "size": 266567916
+    },
+    {
+      "expected_elf_count": 26,
+      "package": "plasma5support-6.7.4-x86_64-1.txz",
+      "sha256": "48604b2b8f32a499cf9da369c56d4a1939f0a9d13fd721b84cd490ed0c8cd039",
+      "size": 1089532
+    },
+    {
+      "expected_elf_count": 1,
+      "package": "polkit-kde-agent-1-6.7.4-x86_64-1.txz",
+      "sha256": "1f8eb1f0fa22490690e693207c1a94ac36ec02c8d2d87f7907beea3da3e2fc81",
+      "size": 72016
+    },
+    {
+      "expected_elf_count": 22,
+      "package": "powerdevil-6.7.4-x86_64-1.txz",
+      "sha256": "dab5704239fe37556b67bc62def9400675c11cd5fc5063009d04fc0a09e2ea9e",
+      "size": 1595740
+    },
+    {
+      "expected_elf_count": 7,
+      "package": "print-manager-6.7.4-x86_64-1.txz",
+      "sha256": "1f4b4631bad99b348a5f0c01eb6c0246618ab8cae65fdf3806f3b5291a130013",
+      "size": 552584
+    },
+    {
+      "expected_elf_count": 1,
+      "package": "python-cffi-2.1.1-x86_64-1.txz",
+      "sha256": "723f61c6d707ac17a70cd8ced4d1b6b8e00891e048bad5e43341547e37c7b326",
+      "size": 519744
+    },
+    {
+      "expected_elf_count": 0,
+      "package": "python-packaging-26.3-x86_64-1.txz",
+      "sha256": "0ef85f4f7adf827b2659019abe7f39f177f4753b4b901939950d2af4d1762bb5",
+      "size": 234216
+    },
+    {
+      "expected_elf_count": 3,
+      "package": "qqc2-breeze-style-6.7.4-x86_64-1.txz",
+      "sha256": "3c5d3867f4599d1e6d47e45ecd83edb80360439d78a6c0d1edb4ed6baeccc290",
+      "size": 470940
+    },
+    {
+      "expected_elf_count": 3,
+      "package": "sddm-kcm-6.7.4-x86_64-1.txz",
+      "sha256": "4f96c5e19ddf3f771cd8a2805d968590550c53210aeb4c110a1bcbc7848ad1f2",
+      "size": 161940
+    },
+    {
+      "expected_elf_count": 6,
+      "package": "spectacle-6.7.4-x86_64-1.txz",
+      "sha256": "f90a92e7390696f1514cc127807f336e5f26265094041573cc4848cb51b2c637",
+      "size": 2091968
+    },
+    {
+      "expected_elf_count": 2,
+      "package": "stunnel-5.80-x86_64-1.txz",
+      "sha256": "b45a735a854e972338b015946a165f1d8af4f4a6375f92380ae230707eace2e1",
+      "size": 217108
+    },
+    {
+      "expected_elf_count": 2,
+      "package": "systemsettings-6.7.4-x86_64-1.txz",
+      "sha256": "efcb4101f7e11c829292098a31bf660c0d66e8a0c7587d1e058395f6416b4e0a",
+      "size": 372504
+    },
+    {
+      "expected_elf_count": 11,
+      "package": "union-6.7.4-x86_64-1.txz",
+      "sha256": "7403abc4b76300ea4d74116b04526f4cdb9dc35183209d72f4496643831e6300",
+      "size": 602692
+    },
+    {
+      "expected_elf_count": 4,
+      "package": "wacomtablet-6.7.4-x86_64-1.txz",
+      "sha256": "89822af04852f31ef9983f5ea5dabe2b1e100cd5d2d504e759d4938fa63e43d7",
+      "size": 811272
+    },
+    {
+      "expected_elf_count": 1,
+      "package": "xdg-desktop-portal-kde-6.7.4-x86_64-1.txz",
+      "sha256": "15bd40cb5629ac91c0febb59f90f793832bb628786763edb85e9cb9bd62f0f8a",
+      "size": 676612
+    }
+  ],
+  "scenario": "current-userspace-elf-runtime-review-policy",
+  "target": "slackware-current",
+  "target_kernel": "6.18.42",
+  "userspace_apply_review_complete": false
+}

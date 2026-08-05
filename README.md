@@ -2255,6 +2255,25 @@ The preflight reruns the maintainer-script review without installing packages or
 
 Configuration classification covers nine XDG autostart desktop entries, three browser native-messaging manifests, two inert shell helpers checked only with `sh -n`, one PAM `.new` file, one XDG menu XML file, one PNG asset, two bounded INI-style files, one OpenSSL `.new` file, and one stunnel sample. Service classification permits only 26 files below `usr/lib/systemd/user/` and one preset below `usr/lib/systemd/user-preset/`. System units, `rc.d` scripts, privileged directives, shell interpreters or control syntax in unit commands, wildcard presets, unknown files, hash drift, package execution, and service control fail closed.
 
-A clean result must report 15 passes, zero failures, `configuration_path_count=46`, `configuration_file_count=21`, `service_path_count=44`, `service_file_count=27`, `systemd_user_service_count=26`, `systemd_user_preset_count=1`, `systemd_system_service_count=0`, `rc_script_count=0`, `configuration_service_review_complete=true`, and `next_stage=current-userspace-elf-runtime-review-preflight`. ELF runtime review, userspace apply review, readiness, and authorization remain false.
+The accepted real result reported 15 passes and zero failures with `configuration_path_count=46`, `configuration_file_count=21`, `service_path_count=44`, `service_file_count=27`, `systemd_user_service_count=26`, `systemd_user_preset_count=1`, `systemd_system_service_count=0`, and `rc_script_count=0`. Outer evidence SHA-256 `b2e6379879297e81bc2da8fa6aa58ccdaf6c904fe3018691ba6d78f463077140` and the nested maintainer, payload, and normal-update SHA-256 values `5aed2e4895cde3611c41d8ba13f83add40c5e3c24db55429cc9a17a07b6b5d2f`, `b0493bec292d964158b7c7c46596ce269db8b05aaf446d47571097609487739f`, and `7290a56c9e45ea27226accfa19b175bfbb414c91bf7f9b7951ed3eb375948a96` were verified in `/home/promano`. The result retains `elf_runtime_review_complete=false`, `userspace_apply_review_complete=false`, `apply_ready=false`, and `apply_authorized=false`.
+
+### Slackware-current ELF runtime review preflight (step 71)
+
+After accepting the step-70 configuration/service evidence, run:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-userspace-elf-runtime-review-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926 \
+    --confirm-target-kernel 6.18.42
+```
+
+The wrapper reruns the entire non-installing configuration/service chain and verifies the nested archive. Its policy binds all 68 exact archive SHA-256 values and sizes, the exact 61 packages that contain ELF data, each package-specific ELF count, and the total of 722 objects. Members are streamed one at a time into an owner-only temporary file and inspected with `readelf`; no object is launched and no `ldd`, loader tracing, or package installation is permitted.
+
+Every object must remain `ELF64`, little-endian, and `Advanced Micro Devices X86-64`. Program interpreters are limited to `/lib64/ld-linux-x86-64.so.2`; runtime search paths must resolve beneath `/lib`, `/lib64`, `/usr/lib`, or `/usr/lib64`. The resolver reads `ldconfig -p` without updating it, excludes host libraries owned by packages that the pending transaction will replace, indexes reviewed transaction `SONAME` and shared-object basename providers, and requires every `DT_NEEDED` edge to resolve. `TEXTREL`, executable stacks, writable-executable load segments, slash-containing dependency names, unsafe runtime paths, unresolved dependencies, package drift, payload execution, service control, and boot changes fail closed.
+
+A safe run is expected to report 15 passes, zero failures, `elf=722`, `packages=61`, `unresolved=0`, `unsafe=0`, `elf-runtime-review-complete=true`, `next-stage=current-userspace-apply-review-preflight`, `apply-ready=false`, and `apply-authorized=false`. Copy the final archive and sidecar directly to `/home/promano` with `promano:users` ownership and verify the sidecar there. Do not run userspace apply review, readiness, or apply until this evidence is accepted.
+
+The focused step-71 harness contains 56 checks. The complete prepared step-71 inventory contains 43 suites and 2,906 checks with zero failures.
 
 The focused step-70 harness contains 68 checks. The complete prepared step-70 inventory contains 42 suites and 2,850 checks with zero failures.

@@ -1009,6 +1009,25 @@ The wrapper reruns the complete non-installing maintainer review and verifies it
 
 The 21 regular configuration files receive complete type-specific static classification: nine XDG autostart desktop entries, three native-messaging JSON manifests, two shell helpers parsed only with `sh -n`, one PAM `.new` file, one XDG menu XML file, one PNG asset, two INI-style files, one OpenSSL `.new` file, and one stunnel sample. The 27 service files must remain exactly 26 systemd user services plus one user preset. System-unit paths, `rc.d` scripts, privileged unit directives, shell interpreters or control syntax, wildcard presets, unknown files, package hash drift, payload execution, service control, package transactions, and boot actions fail closed.
 
-A safe run is expected to report 15 passes, zero failures, `config-paths=46`, `config-files=21`, `service-paths=44`, `service-files=27`, `user-units=26`, `user-presets=1`, `system-units=0`, `rc-scripts=0`, `configuration-service-review-complete=true`, `next-stage=current-userspace-elf-runtime-review-preflight`, `apply-ready=false`, and `apply-authorized=false`. Copy the final archive and sidecar directly to `/home/promano` with `promano:users` ownership and verify the sidecar there. Do not run ELF review, readiness, or apply until this evidence is accepted.
+The accepted real run reported 15 passes and zero failures with `config-paths=46`, `config-files=21`, `service-paths=44`, `service-files=27`, `user-units=26`, `user-presets=1`, `system-units=0`, and `rc-scripts=0`. Outer archive SHA-256 `b2e6379879297e81bc2da8fa6aa58ccdaf6c904fe3018691ba6d78f463077140`, nested maintainer archive SHA-256 `5aed2e4895cde3611c41d8ba13f83add40c5e3c24db55429cc9a17a07b6b5d2f`, nested payload archive SHA-256 `b0493bec292d964158b7c7c46596ce269db8b05aaf446d47571097609487739f`, and nested normal-update archive SHA-256 `7290a56c9e45ea27226accfa19b175bfbb414c91bf7f9b7951ed3eb375948a96` were verified in `/home/promano`. The result retains `elf-runtime-review-complete=false`, `userspace-apply-review-complete=false`, `apply-ready=false`, and `apply-authorized=false`.
 
-The focused step-70 harness contains 68 checks. The complete prepared step-70 inventory contains 42 suites and 2,850 checks with zero failures.
+The focused step-70 harness contains 68 checks. The complete step-70 inventory contains 42 suites and 2,850 checks with zero failures.
+
+### Slackware-current ELF runtime review preflight (step 71)
+
+After accepting the step-70 evidence, run:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-userspace-elf-runtime-review-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926 \
+    --confirm-target-kernel 6.18.42
+```
+
+The wrapper reruns the full non-installing configuration/service review and verifies its nested archive. The checked-in policy binds every one of the 68 package SHA-256 values and sizes, all 61 ELF-contributing package identities, each per-package ELF count, and the exact 722-object total. Each ELF member is streamed to a private temporary file and inspected only with `readelf`; no payload object is executed, no `ldd`-style tracing is used, and the temporary files are removed before publication.
+
+The inspector requires x86-64 little-endian ELF identity, the reviewed x86-64 loader, safe system-root runtime paths, no slash-containing `DT_NEEDED`, no `TEXTREL`, no executable stack, and no writable-executable load segment. It reads the compatible `ldconfig -p` cache without modifying it, excludes entries owned by packages that the transaction replaces, indexes the new transaction providers, and requires all dependency edges to resolve through one of those two safe sources.
+
+A safe run is expected to report 15 passes, zero failures, `elf=722`, `packages=61`, `unresolved=0`, `unsafe=0`, `elf-runtime-review-complete=true`, `next-stage=current-userspace-apply-review-preflight`, `apply-ready=false`, and `apply-authorized=false`. Copy and verify the final archive and `.sha256` directly in `/home/promano`. Do not run the next review or any apply stage until this evidence is accepted.
+
+The focused step-71 harness contains 56 checks. The complete prepared step-71 inventory contains 43 suites and 2,906 checks with zero failures.

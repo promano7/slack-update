@@ -125,11 +125,12 @@ Before submitting a change to the reference script:
 40. Run `tests/reference/test-current-userspace-payload-review-preflight-harness.sh` when exact archive downloads, package-cache resolution, archive path or link safety, GRUB-theme confinement, maintainer-script capture, or payload-review boundaries are affected.
 41. Run `tests/reference/test-current-userspace-maintainer-script-review-preflight-harness.sh` when exact `doinst.sh` identities, static command classification, remove/symlink pairing, `.new` promotion, cache refreshes, process-signal confinement, or non-execution boundaries are affected.
 42. Run `tests/reference/test-current-userspace-configuration-service-review-preflight-harness.sh` when exact configuration/service path manifests, contributing package hashes, static file classification, XDG or native-messaging validation, PAM/XML/shell-helper checking, systemd user-unit scope, preset handling, or non-execution boundaries are affected.
-42. Confirm that destructive commands are not exercised outside an isolated or explicitly recoverable Slackware test system.
-43. Record the relevant acceptance scenario.
-44. Preserve deterministic output and exit-code behavior.
-45. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
-46. Ensure every new or modified comment is written in English.
+43. Run `tests/reference/test-current-userspace-elf-runtime-review-preflight-harness.sh` when exact package or per-package ELF bindings, static `readelf` parsing, loader-cache shadowing, transaction provider indexing, runtime path restrictions, hardening checks, dependency resolution, or ELF non-execution boundaries are affected.
+44. Confirm that destructive commands are not exercised outside an isolated or explicitly recoverable Slackware test system.
+45. Record the relevant acceptance scenario.
+46. Preserve deterministic output and exit-code behavior.
+47. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
+48. Ensure every new or modified comment is written in English.
 
 Never run the apply workflow on a production machine merely to validate a contribution.
 
@@ -269,4 +270,11 @@ After accepting the maintainer-script evidence, run `test-current-userspace-conf
 Read regular members directly from the cached `.txz` files into the owner-only evidence tree. Never extract them into live system paths or execute them. Configuration files require complete type-specific classification and static format checks. Shell helpers may receive `sh -n` syntax checks only. Service payloads must remain confined to systemd user-unit and user-preset directories; system units, `rc.d` scripts, privileged directives, shell execution, unsafe presets, unknown content, package operations, service control, and boot actions fail closed.
 
 A clean review may set `configuration_service_review_complete=true` and route only to `current-userspace-elf-runtime-review-preflight`. It must retain `elf_runtime_review_complete=false`, `userspace_apply_review_complete=false`, `apply_ready=false`, `apply_authorized=false`, and all package, payload, service-control, and boot execution flags as false. Copy and verify the evidence archive and sidecar directly in `/home/promano` before continuing.
+### Userspace ELF runtime review
+
+After accepting the configuration/service evidence, run `test-current-userspace-elf-runtime-review-preflight.sh`. The wrapper must repeat the full non-installing review chain, verify its nested archive, and bind all package identities and per-package ELF counts before inspecting any object. Stream one object at a time into an owner-only temporary file, pass its path to `readelf` only after `--`, and remove the temporary file before evidence publication. Never execute a payload object or use `ldd`, `sotruss`, `strace`, or another loader-tracing mechanism.
+
+Require the exact reviewed ELF class, byte order, and machine. Constrain interpreters and runtime search paths to reviewed system roots. Reject slash-containing `DT_NEEDED` values, text relocations, executable stacks, writable-executable load segments, and unresolved dependencies. Treat host loader-cache paths owned by pending replacement packages as unavailable unless the reviewed transaction supplies the required library. Transaction providers may resolve dependencies only when their installation directory is a default loader directory or an explicitly safe resolved runtime directory.
+
+A clean review may set `elf_runtime_review_complete=true` and route only to `current-userspace-apply-review-preflight`. It must retain `userspace_apply_review_complete=false`, `apply_ready=false`, `apply_authorized=false`, and all package, payload, dynamic-loader tracing, service-control, and boot execution flags as false. Copy and verify the evidence archive and sidecar directly in `/home/promano` before continuing.
 
