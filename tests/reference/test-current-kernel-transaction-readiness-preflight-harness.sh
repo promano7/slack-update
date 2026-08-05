@@ -27,6 +27,10 @@ assert_contains 'apply_ready=true' "$SCRIPT" 'a clean final review should be abl
 assert_contains 'apply_authorized=false' "$SCRIPT" 'readiness must never imply authorization'
 assert_contains 'requires_explicit_apply_authorization' "$SCRIPT" 'separate apply authorization should remain mandatory'
 assert_contains 'requires_apply_time_candidate_revalidation' "$SCRIPT" 'the apply workflow must revalidate candidates again'
+assert_contains 'pause_safe=false' "$SCRIPT" 'readiness must not claim that a pause is safe before apply'
+assert_contains 'reviewed_package_cache_count' "$SCRIPT" 'readiness should expose the exact reviewed cache count'
+assert_contains 'DEFAULT_APPLY_REVIEW' "$SCRIPT" 'readiness must bind the accepted userspace apply review'
+assert_contains 'DEFAULT_REBIND_PREFLIGHT' "$SCRIPT" 'readiness must bind the accepted kernel evidence rebind'
 assert_contains 'package_transaction_executed=false' "$SCRIPT" 'the readiness summary must deny package execution'
 assert_contains 'mkinitrd_executed=false' "$SCRIPT" 'the readiness summary must deny mkinitrd execution'
 assert_contains 'geninitrd_executed=false' "$SCRIPT" 'the readiness summary must deny geninitrd execution'
@@ -53,9 +57,12 @@ assert_success 'a normal kernel version should be accepted' is_safe_kernel_versi
 assert_failure 'a traversing kernel version should be rejected' is_safe_kernel_version ../6.18.42
 
 TARGET=slackware-current
-CONFIRM_CANDIDATES_SHA256=918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9
+CONFIRM_CANDIDATES_SHA256=27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926
 CONFIRM_TARGET_KERNEL=6.18.42
 assert_success 'all accepted records should bind the exact reviewed transaction' validate_accepted_records
+assert_equal 27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926 "$CANDIDATE_SET_SHA256" 'the accepted chain should expose the rebound candidate digest'
+assert_equal 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 "$SOURCE_CANDIDATE_SET_SHA256" 'the accepted chain should preserve the source kernel-evidence digest'
+assert_equal 69 "$REVIEWED_CACHE_PACKAGE_COUNT" 'the accepted chain should require 68 reviewed userspace archives plus kernel-generic'
 assert_equal 6.18.40 "$RUNNING_KERNEL" 'the accepted chain should expose the running kernel'
 assert_equal 6.18.42 "$TARGET_KERNEL" 'the accepted chain should expose the target kernel'
 assert_equal kernel-generic-6.18.42-x86_64-1.txz "$PACKAGE_FILENAME" 'the accepted chain should expose the exact package filename'
@@ -142,21 +149,84 @@ CHAIN_PREFLIGHT="$TMP/chain-link.json"
 assert_failure 'a restarted chain detached from boot evidence should fail closed' validate_accepted_records
 CHAIN_PREFLIGHT=$original
 
+original=$REBIND_PREFLIGHT
+mutate_record "$original" "$TMP/rebind-current.json" "d['rebound_candidate_set_sha256']=d['source_candidate_set_sha256']"
+REBIND_PREFLIGHT="$TMP/rebind-current.json"
+assert_failure 'a rebind that does not bind the current 137-package digest should fail closed' validate_accepted_records
+REBIND_PREFLIGHT=$original
+
+original=$APPLY_REVIEW
+mutate_record "$original" "$TMP/apply-incomplete.json" "d['userspace_apply_review_complete']=False"
+APPLY_REVIEW="$TMP/apply-incomplete.json"
+assert_failure 'an incomplete userspace apply review should fail readiness' validate_accepted_records
+APPLY_REVIEW=$original
+
+mutate_record "$original" "$TMP/apply-executed.json" "d['package_transaction_executed']=True"
+APPLY_REVIEW="$TMP/apply-executed.json"
+assert_failure 'an apply-review record that claims package execution should fail closed' validate_accepted_records
+APPLY_REVIEW=$original
+
+original=$APPLY_POLICY
+mutate_record "$original" "$TMP/apply-policy-missing.json" "d['reviewed_additions']=d['reviewed_additions'][:-1]"
+APPLY_POLICY="$TMP/apply-policy-missing.json"
+assert_failure 'an apply policy missing one reviewed addition should fail closed' validate_accepted_records
+APPLY_POLICY=$original
+
+original=$ELF_POLICY
+mutate_record "$original" "$TMP/elf-policy-hash.json" "d['reviewed_packages'][0]['sha256']='0'*64"
+ELF_POLICY="$TMP/elf-policy-hash.json"
+assert_failure 'a changed reviewed userspace package digest should fail readiness' validate_accepted_records
+ELF_POLICY=$original
+
+CACHE_ROOT="$TMP/cache"
+CACHE_POLICY="$TMP/cache-policy.json"
+mkdir -p "$CACHE_ROOT"
+python3 - "$CACHE_ROOT" "$CACHE_POLICY" <<'PY'
+import hashlib, json, pathlib, sys
+root=pathlib.Path(sys.argv[1])
+records=[]
+for index in range(68):
+    name=f'fixture-{index:02d}-1.0-x86_64-1.txz'
+    data=f'fixture-{index:02d}\n'.encode()
+    path=root/name
+    path.write_bytes(data)
+    records.append({'package':name,'sha256':hashlib.sha256(data).hexdigest(),'size':len(data),'expected_elf_count':0})
+json.dump({'reviewed_packages':records},open(sys.argv[2],'w',encoding='utf-8'))
+PY
+original_policy=$ELF_POLICY
+original_cache=$PACKAGE_CACHE_ROOT
+ELF_POLICY=$CACHE_POLICY
+PACKAGE_CACHE_ROOT=$CACHE_ROOT
+assert_success 'the exact synthetic 68-package cache should pass identity review' validate_reviewed_userspace_cache
+printf '%s\n' tampered >> "$CACHE_ROOT/fixture-00-1.0-x86_64-1.txz"
+assert_failure 'a changed cached package size or digest should fail closed' validate_reviewed_userspace_cache
+printf 'fixture-00\n' > "$CACHE_ROOT/fixture-00-1.0-x86_64-1.txz"
+mkdir -p "$CACHE_ROOT/duplicate"
+cp "$CACHE_ROOT/fixture-01-1.0-x86_64-1.txz" "$CACHE_ROOT/duplicate/fixture-01-1.0-x86_64-1.txz"
+assert_failure 'an ambiguous duplicate cached package should fail closed' validate_reviewed_userspace_cache
+rm -rf "$CACHE_ROOT/duplicate"
+rm "$CACHE_ROOT/fixture-02-1.0-x86_64-1.txz"
+ln -s fixture-03-1.0-x86_64-1.txz "$CACHE_ROOT/fixture-02-1.0-x86_64-1.txz"
+assert_failure 'a symlinked cached package should fail closed' validate_reviewed_userspace_cache
+ELF_POLICY=$original_policy
+PACKAGE_CACHE_ROOT=$original_cache
+
 NESTED="$TMP/nested"
 mkdir -p "$NESTED"
-python3 - "$NORMAL_PREFLIGHT" "$NESTED" <<'PY'
+python3 - "$APPLY_POLICY" "$NESTED" <<'PY'
 import json, pathlib, sys
-record = json.load(open(sys.argv[1], encoding='utf-8'))
+policy = json.load(open(sys.argv[1], encoding='utf-8'))
 root = pathlib.Path(sys.argv[2])
-c = record['candidates']
-(root/'install-new.candidates.txt').write_text(''.join(f'{x}\n' for x in c['install_new']), encoding='utf-8')
-(root/'upgrade-all.candidates.txt').write_text(''.join(f'{x}\n' for x in c['upgrade_all']), encoding='utf-8')
-all_candidates = sorted(c['install_new'] + c['upgrade_all'])
+install = policy['expected_install_new']
+all_candidates = sorted(policy['baseline_candidates'] + policy['reviewed_additions'])
+upgrade = sorted(set(all_candidates) - set(install))
+(root/'install-new.candidates.txt').write_text(''.join(f'{x}\n' for x in install), encoding='utf-8')
+(root/'upgrade-all.candidates.txt').write_text(''.join(f'{x}\n' for x in upgrade), encoding='utf-8')
 (root/'all.candidates.txt').write_text(''.join(f'{x}\n' for x in all_candidates), encoding='utf-8')
 (root/'summary.txt').write_text(
     'scenario=normal-update\nmode=preflight\ntarget=slackware-current\nresult=PASS\npasses=6\nfailures=0\n'
-    f"install_new_candidates={len(c['install_new'])}\nupgrade_candidates={len(c['upgrade_all'])}\n"
-    f"total_candidates={len(all_candidates)}\ncandidate_set_sha256={c['candidate_set_sha256']}\n"
+    f"install_new_candidates={len(install)}\nupgrade_candidates={len(upgrade)}\n"
+    f"total_candidates={len(all_candidates)}\ncandidate_set_sha256={policy['candidate_set_sha256']}\n"
     'kernel_candidates=2\ncritical_candidates=0\n', encoding='utf-8')
 PY
 assert_success 'the exact fresh candidate set should pass final revalidation' validate_nested_normal_update "$NESTED"
@@ -184,7 +254,7 @@ assert_failure 'an added userspace candidate should invalidate the reviewed dige
 TARGET=slackware-current
 RUNNING_KERNEL=6.18.40
 TARGET_KERNEL=6.18.42
-CANDIDATE_SET_SHA256=918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9
+CANDIDATE_SET_SHA256=27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926
 FRESH_CANDIDATE_SHA256=$CANDIDATE_SET_SHA256
 REFERENCE_ENGINE_SHA256=0dc4a4def9b063b9a598975f46e7458c5771eb8d8603f4fa8bbd9dfc07c4d4c6
 POST_STATE_CONTRACT_SHA256=$(sha256sum "$POST_STATE_CONTRACT" | awk '{print $1}')
@@ -198,7 +268,9 @@ assert_equal normal-update-apply-authorization-review "$(python3 -c 'import json
 assert_equal true "$(python3 -c 'import json,sys; print(str(json.load(open(sys.argv[1]))["apply_ready"]).lower())' "$TMP/readiness.json")" 'analysis should record readiness as true'
 assert_equal false "$(python3 -c 'import json,sys; print(str(json.load(open(sys.argv[1]))["apply_authorized"]).lower())' "$TMP/readiness.json")" 'analysis should keep authorization false'
 assert_equal false "$(python3 -c 'import json,sys; print(str(json.load(open(sys.argv[1]))["package_transaction_executed"]).lower())' "$TMP/readiness.json")" 'analysis should deny package execution'
-assert_equal 8 "$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["accepted_evidence_count"])' "$TMP/readiness.json")" 'analysis should bind eight accepted evidence records'
+assert_equal 10 "$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["accepted_evidence_count"])' "$TMP/readiness.json")" 'analysis should bind the eight kernel records plus rebind and userspace apply review'
+assert_equal 69 "$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["reviewed_package_cache_count"])' "$TMP/readiness.json")" 'analysis should record the exact reviewed cache count'
+assert_equal false "$(python3 -c 'import json,sys; print(str(json.load(open(sys.argv[1]))["pause_safe"]).lower())' "$TMP/readiness.json")" 'readiness must keep pause safety false'
 assert_equal geninitrd-managed-versioned-initrd "$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["boot_mode"])' "$TMP/readiness.json")" 'analysis should record the corrected boot mode'
 assert_equal versioned-to-versioned-initrd "$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["transition_mode"])' "$TMP/readiness.json")" 'analysis should record the corrected transition mode'
 
@@ -208,6 +280,9 @@ write_summary "$TMP/summary.txt"
 assert_contains 'readiness_status=apply-ready' "$TMP/summary.txt" 'summary should expose readiness'
 assert_contains 'apply_ready=true' "$TMP/summary.txt" 'summary should expose positive readiness'
 assert_contains 'apply_authorized=false' "$TMP/summary.txt" 'summary should retain authorization denial'
+assert_contains 'pause_safe=false' "$TMP/summary.txt" 'summary should state that pausing is not yet safe'
+assert_contains 'candidate_count=137' "$TMP/summary.txt" 'summary should expose the full reviewed transaction'
+assert_contains 'reviewed_package_cache_count=69' "$TMP/summary.txt" 'summary should expose the reviewed cache count'
 assert_contains 'next_stage=normal-update-apply-authorization-review' "$TMP/summary.txt" 'summary should require a separate authorization review'
 assert_contains 'boot_mode=geninitrd-managed-versioned-initrd' "$TMP/summary.txt" 'summary should expose the corrected boot mode'
 assert_contains 'transition_mode=versioned-to-versioned-initrd' "$TMP/summary.txt" 'summary should expose the corrected transition mode'

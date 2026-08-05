@@ -2299,7 +2299,25 @@ The parent now removes any stale adjacent archive pair, creates a fresh owner-on
 
 All other restrictions are unchanged. The wrapper repeats the complete non-installing ELF/runtime review and a separate normal-update preflight, reconstructs the exact disjoint union of 69 baseline plus 68 reviewed additions, and checks one `install-new`, 136 `upgrade-all`, the three-package `6.18.42` kernel transaction, zero critical candidates, the exact Slackpkg contract, deferred post-install handling, GenInitrd policy restoration, exclusive GRUB ownership, 12 transaction steps, and five recovery boundaries. It does not execute normal-update apply, packages, scripts, initrd generation, DKMS, or GRUB changes.
 
-A safe corrected run is expected to report 15 passes, zero failures, `candidates=137`, `baseline=69`, `additions=68`, `install-new=1`, `upgrade-all=136`, `kernel-transaction=3`, `critical=0`, `userspace-apply-review-complete=true`, `next-stage=current-kernel-transaction-readiness-preflight`, `apply-ready=false`, and `apply-authorized=false`. Copy and verify the final archive and sidecar directly in `/home/promano`. Do not run readiness or any apply stage until this repeated evidence is accepted.
+The corrected real run passed all 15 assertions and accepted the exact transaction. Outer archive SHA-256 `bf627728dcf330b1d22b885466c9f538bc28743ace83af30958ae4555c2a5522`, nested ELF archive SHA-256 `32653f141fb895166c8b422b4e80e0e7dd53c157d809f5085b10388e20706b36`, and nested normal-update archive SHA-256 `5ce4fdc0c4870402890683114b1d2ac30e1a3e3a1a671a7b969a0f022655147b` were verified. The result reported `candidates=137`, `baseline=69`, `additions=68`, `install-new=1`, `upgrade-all=136`, `kernel-transaction=3`, `critical=0`, `userspace-apply-review-complete=true`, `next-stage=current-kernel-transaction-readiness-preflight`, `apply-ready=false`, and `apply-authorized=false`. Package, kernel, initrd, GenInitrd, DKMS, and GRUB state remained unchanged.
 
-The focused step-73 harness contains 76 checks. The complete prepared step-73 inventory contains 44 suites and 2,982 checks with zero failures.
-The focused step-70 harness contains 68 checks. The complete prepared step-70 inventory contains 42 suites and 2,850 checks with zero failures.
+The focused step-73 harness contains 76 checks. The complete step-73 inventory contains 44 suites and 2,982 checks with zero failures.
+
+### Rebound Slackware-current kernel transaction readiness preflight (step 74)
+
+Run the final non-installing readiness review only against the accepted 137-candidate digest and target kernel:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-kernel-transaction-readiness-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926 \
+    --confirm-target-kernel 6.18.42
+```
+
+The rebuilt boundary binds ten accepted records: the original immutable 69-candidate kernel chain, the explicit 137-candidate rebind, and the accepted userspace application review. It then performs a fresh normal-update preflight and requires the exact 137 reviewed candidates, one `install-new`, 136 `upgrade-all`, the unchanged kernel companions, and zero critical candidates. It also verifies exactly 69 cached package archives: all 68 reviewed userspace additions by filename, size, and SHA-256 plus the exact `kernel-generic-6.18.42` archive.
+
+Live readiness checks still require the exact running generic kernel, named and versioned initrd layout, GenInitrd scalar policy, generator and setup hashes, empty DKMS state, active GRUB digest, same-menuentry kernel/initrd pairing, and exclusive Slack-Update GRUB ownership. The wrapper refreshes metadata and probes candidates only; it does not install packages, execute maintainer scripts, generate initrds, build DKMS modules, or change GRUB.
+
+A clean run is expected to report 10 passes, zero failures, `packages=137`, `reviewed-cache=69`, `readiness=apply-ready`, `pause-safe=false`, `apply-ready=true`, `apply-authorized=false`, and `next-stage=normal-update-apply-authorization-review`. **This is not yet a safe pause point.** Slackware-current metadata must be revalidated again at the actual application boundary, so a repository publication after readiness can still invalidate the reviewed transaction. Continue directly to the separate authorization and apply sequence; pause only when a later accepted stage explicitly reports `pause_safe=true`.
+
+The focused step-74 harness contains 92 checks. The complete prepared step-74 inventory contains 44 suites and 3,003 checks with zero failures. Static validation covers 70 shell scripts and 71 JSON files.

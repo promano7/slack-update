@@ -19,6 +19,10 @@ DEFAULT_DKMS_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/ker
 DEFAULT_COMMAND_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-command-preflight-20260805-accepted.json"
 DEFAULT_OWNERSHIP_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-grub-ownership-preflight-20260805-accepted.json"
 DEFAULT_POST_STATE_CONTRACT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-post-state-6.18.42-synthetic.json"
+DEFAULT_REBIND_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-evidence-rebind-20260805-accepted.json"
+DEFAULT_APPLY_REVIEW="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-userspace-apply-review-20260805-accepted.json"
+DEFAULT_APPLY_POLICY="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-userspace-apply-review-policy.json"
+DEFAULT_ELF_POLICY="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-userspace-elf-runtime-review-policy.json"
 DEFAULT_REFERENCE_ENGINE="$REPOSITORY_ROOT/tools/reference/slack-update-reference.sh"
 DEFAULT_OUTPUT_ROOT=/var/tmp/slack-update-acceptance/current-kernel-transaction-readiness-preflight
 DEFAULT_PACKAGE_CACHE_ROOT=/var/cache/packages
@@ -36,6 +40,10 @@ DKMS_PREFLIGHT=$DEFAULT_DKMS_PREFLIGHT
 COMMAND_PREFLIGHT=$DEFAULT_COMMAND_PREFLIGHT
 OWNERSHIP_PREFLIGHT=$DEFAULT_OWNERSHIP_PREFLIGHT
 POST_STATE_CONTRACT=$DEFAULT_POST_STATE_CONTRACT
+REBIND_PREFLIGHT=$DEFAULT_REBIND_PREFLIGHT
+APPLY_REVIEW=$DEFAULT_APPLY_REVIEW
+APPLY_POLICY=$DEFAULT_APPLY_POLICY
+ELF_POLICY=$DEFAULT_ELF_POLICY
 REFERENCE_ENGINE=$DEFAULT_REFERENCE_ENGINE
 PACKAGE_CACHE_ROOT=$DEFAULT_PACKAGE_CACHE_ROOT
 SYSTEM_ROOT=/
@@ -46,6 +54,7 @@ ASSERTION_LOG=
 RUNNING_KERNEL=
 TARGET_KERNEL=
 CANDIDATE_SET_SHA256=
+SOURCE_CANDIDATE_SET_SHA256=
 PACKAGE_FILENAME=
 PACKAGE_SHA256=
 ACTIVE_POLICY_SHA256=
@@ -64,6 +73,9 @@ ACTIVE_GRUB_SHA256=
 HOOK_BCACHEFS_SHA256=
 HOOK_NVIDIA_SHA256=
 FRESH_CANDIDATE_SHA256=
+REBIND_ARCHIVE_SHA256=
+APPLY_REVIEW_ARCHIVE_SHA256=
+REVIEWED_CACHE_PACKAGE_COUNT=0
 READINESS_STATUS=blocked
 NEXT_STAGE=current-candidate-chain-refresh-preflight
 APPLY_READY=false
@@ -76,11 +88,13 @@ Usage: ${0##*/} --target slackware-current \\
                      --confirm-target-kernel VERSION [options]
 
 Perform the final non-installing Slackware-current kernel transaction readiness
-review. The preflight binds every accepted evidence record, refreshes Slackpkg
-metadata through the existing normal-update preflight, verifies that the exact
-candidate set and cached kernel package remain unchanged, and rechecks the live
-boot, GenInitrd, DKMS, and GRUB ownership boundary. It may report apply_ready=true
-but never authorizes or executes package, initrd, DKMS, or GRUB changes.
+review. The preflight binds the immutable kernel chain, explicit candidate
+rebind, and accepted userspace apply review; refreshes Slackpkg metadata through
+the existing normal-update preflight; verifies all 137 candidates and 69 exact
+cached package archives; and rechecks the live boot, GenInitrd, DKMS, and GRUB
+ownership boundary. It may report apply_ready=true, but reports pause_safe=false
+until apply-time candidate revalidation and the real package transaction finish.
+It never authorizes or executes package, initrd, DKMS, or GRUB changes.
 
 Required options:
       --target slackware-current
@@ -146,12 +160,14 @@ validate_accepted_records() {
     values=$(python3 - \
         "$NORMAL_PREFLIGHT" "$BOOT_PREFLIGHT" "$CHAIN_PREFLIGHT" "$PACKAGE_PREFLIGHT" \
         "$POLICY_PREFLIGHT" "$DKMS_PREFLIGHT" "$COMMAND_PREFLIGHT" "$OWNERSHIP_PREFLIGHT" \
-        "$POST_STATE_CONTRACT" "$REFERENCE_ENGINE" \
+        "$POST_STATE_CONTRACT" "$REBIND_PREFLIGHT" "$APPLY_REVIEW" "$APPLY_POLICY" \
+        "$ELF_POLICY" "$REFERENCE_ENGINE" \
         "$CONFIRM_CANDIDATES_SHA256" "$CONFIRM_TARGET_KERNEL" <<'PY'
 import hashlib, json, pathlib, re, sys
 (
     normal_path, boot_path, chain_path, package_path, policy_path, dkms_path,
-    command_path, ownership_path, post_path, engine_path, confirmed_digest,
+    command_path, ownership_path, post_path, rebind_path, apply_path,
+    apply_policy_path, elf_policy_path, engine_path, confirmed_digest,
     confirmed_target,
 ) = sys.argv[1:]
 try:
@@ -164,6 +180,10 @@ try:
     command = json.load(open(command_path, encoding='utf-8'))
     ownership = json.load(open(ownership_path, encoding='utf-8'))
     post = json.load(open(post_path, encoding='utf-8'))
+    rebind = json.load(open(rebind_path, encoding='utf-8'))
+    apply = json.load(open(apply_path, encoding='utf-8'))
+    apply_policy = json.load(open(apply_policy_path, encoding='utf-8'))
+    elf_policy = json.load(open(elf_policy_path, encoding='utf-8'))
     engine_bytes = pathlib.Path(engine_path).read_bytes()
 except Exception:
     raise SystemExit(1)
@@ -174,6 +194,9 @@ def digest(value):
 def denied(record):
     return record.get('apply_ready') is False and record.get('apply_authorized') is False
 
+def sorted_unique(values):
+    return isinstance(values, list) and values == sorted(set(values))
+
 candidate = normal.get('candidates', {})
 package_data = package.get('package', {})
 policy_data = policy.get('policy', {})
@@ -182,6 +205,7 @@ command_package = command.get('package', {})
 ownership_package = ownership.get('package', {})
 ownership_transaction = ownership.get('transaction', {})
 engine_sha = hashlib.sha256(engine_bytes).hexdigest()
+source_digest = candidate.get('candidate_set_sha256', '')
 archives = {
     'boot': boot.get('archive_sha256'),
     'chain': chain.get('archive_sha256'),
@@ -196,17 +220,34 @@ package_filename = f'kernel-generic-{confirmed_target}-x86_64-1.txz'
 headers_filename = f'kernel-headers-{confirmed_target}-x86-1.txz'
 source_filename = f'kernel-source-{confirmed_target}-noarch-1.txz'
 current_initrd = f'/boot/initrd-{running}.img'
+baseline = apply_policy.get('baseline_candidates', [])
+additions = apply_policy.get('reviewed_additions', [])
+expected_all = sorted(baseline + additions)
+expected_install = apply_policy.get('expected_install_new', [])
+expected_upgrade = sorted(set(expected_all) - set(expected_install))
+manifest = ''.join(f'{item}\n' for item in expected_all).encode()
+reviewed_packages = elf_policy.get('reviewed_packages', [])
+reviewed_names = [item.get('package') for item in reviewed_packages if isinstance(item, dict)]
+reviewed_manifest = ''.join(
+    f"{item.get('package')}\t{item.get('sha256')}\t{item.get('size')}\t{item.get('expected_elf_count')}\n"
+    for item in sorted(reviewed_packages, key=lambda item: item.get('package', ''))
+).encode()
+elf_count_manifest = ''.join(
+    f"{item.get('package')}\t{item.get('expected_elf_count')}\n"
+    for item in sorted(reviewed_packages, key=lambda item: item.get('package', ''))
+    if item.get('expected_elf_count')
+).encode()
 checks = [
     normal.get('scenario') == 'normal-update', normal.get('mode') == 'preflight',
     normal.get('target') == 'slackware-current', normal.get('accepted') is True, denied(normal),
-    candidate.get('candidate_set_sha256') == confirmed_digest,
+    digest(source_digest), source_digest != confirmed_digest,
     candidate.get('target_kernel_version') == confirmed_target,
     candidate.get('total') == 69,
     package_filename in candidate.get('upgrade_all', []),
     headers_filename in candidate.get('upgrade_all', []),
     source_filename in candidate.get('upgrade_all', []),
     boot.get('scenario') == 'current-kernel-boot-preflight', boot.get('accepted') is True, denied(boot),
-    boot.get('normal_update_candidate_set_sha256') == confirmed_digest,
+    boot.get('normal_update_candidate_set_sha256') == source_digest,
     boot.get('running_kernel') == running,
     boot.get('target_kernel') == confirmed_target,
     boot.get('boot_mode') == 'geninitrd-managed-versioned-initrd',
@@ -218,7 +259,7 @@ checks = [
     digest(boot.get('generic_kernel_sha256')), digest(boot.get('active_grub_sha256')),
     boot.get('geninitrd_transition_required') is True,
     chain.get('scenario') == 'current-kernel-chain-restart-preflight', chain.get('accepted') is True, denied(chain),
-    chain.get('candidate_set_sha256') == confirmed_digest,
+    chain.get('candidate_set_sha256') == source_digest,
     chain.get('running_kernel') == running,
     chain.get('target_kernel') == confirmed_target,
     chain.get('accepted_boot_archive_sha256') == archives['boot'],
@@ -226,7 +267,7 @@ checks = [
     chain.get('nested_versioned_initrd_sha256') == boot.get('versioned_initrd_sha256'),
     chain.get('nested_geninitrd_transition_required') is True,
     package.get('scenario') == 'current-kernel-package-preflight', package.get('accepted') is True, denied(package),
-    package.get('normal_update_candidate_set_sha256') == confirmed_digest,
+    package.get('normal_update_candidate_set_sha256') == source_digest,
     package.get('boot_preflight_archive_sha256') == archives['boot'],
     package.get('chain_restart_archive_sha256') == archives['chain'],
     package.get('running_kernel') == running,
@@ -273,7 +314,7 @@ checks = [
     command_package.get('observed_sha256') == package_data.get('sha256'),
     command.get('module_count') == 18,
     ownership.get('scenario') == 'current-geninitrd-grub-ownership-preflight', ownership.get('accepted') is True, denied(ownership),
-    ownership.get('normal_update_candidate_set_sha256') == confirmed_digest,
+    ownership.get('normal_update_candidate_set_sha256') == source_digest,
     ownership.get('boot_preflight_archive_sha256') == archives['boot'],
     ownership.get('chain_restart_archive_sha256') == archives['chain'],
     ownership.get('package_preflight_archive_sha256') == archives['package'],
@@ -297,7 +338,7 @@ checks = [
     ownership.get('next_stage') == 'current-kernel-transaction-readiness-preflight',
     post.get('scenario') == 'current-geninitrd-post-state', post.get('synthetic') is True,
     post.get('accepted') is False, denied(post),
-    post.get('normal_update_candidate_set_sha256') == confirmed_digest,
+    post.get('normal_update_candidate_set_sha256') == source_digest,
     post.get('running_kernel') == running,
     post.get('target_kernel') == confirmed_target,
     post.get('pre_transaction_layout') == 'geninitrd-managed-versioned-initrd',
@@ -306,11 +347,101 @@ checks = [
     post.get('post_transaction', {}).get('versioned_initrd') == f'/boot/initrd-{confirmed_target}.img',
     post.get('post_transaction', {}).get('named_initrd_target') == f'initrd-{confirmed_target}.img',
     post.get('reference_engine_sha256') == engine_sha,
+    rebind.get('scenario') == 'current-kernel-evidence-rebind-preflight',
+    rebind.get('target') == 'slackware-current', rebind.get('accepted') is True, denied(rebind),
+    rebind.get('source_candidate_set_sha256') == source_digest,
+    rebind.get('rebound_candidate_set_sha256') == confirmed_digest,
+    rebind.get('fresh_candidate_set_sha256') == confirmed_digest,
+    rebind.get('running_kernel') == running, rebind.get('target_kernel') == confirmed_target,
+    rebind.get('accepted_kernel_evidence_count') == 7,
+    rebind.get('boot_mode') == 'geninitrd-managed-versioned-initrd',
+    rebind.get('transition_mode') == 'versioned-to-versioned-initrd',
+    rebind.get('kernel_transaction_candidates') == [package_filename, headers_filename, source_filename],
+    rebind.get('kernel_transaction_changed') is False,
+    rebind.get('kernel_evidence_rebound') is True,
+    rebind.get('candidate_binding_change_only') is True,
+    rebind.get('userspace_apply_review_complete') is False,
+    rebind.get('next_stage') == 'current-userspace-payload-review-preflight',
+    apply.get('scenario') == 'current-userspace-apply-review-preflight',
+    apply.get('target') == 'slackware-current', apply.get('accepted') is True, denied(apply),
+    apply.get('candidate_set_sha256') == confirmed_digest,
+    apply.get('target_kernel') == confirmed_target,
+    apply.get('candidate_count') == 137,
+    apply.get('baseline_candidate_count') == 69,
+    apply.get('added_candidate_count') == 68,
+    apply.get('install_new_count') == 1,
+    apply.get('upgrade_all_count') == 136,
+    apply.get('kernel_candidate_count') == 2,
+    apply.get('kernel_transaction_count') == 3,
+    apply.get('critical_candidate_count') == 0,
+    apply.get('transaction_step_count') == 12,
+    apply.get('recovery_boundary_count') == 5,
+    apply.get('elf_runtime_review_complete') is True,
+    apply.get('userspace_apply_review_complete') is True,
+    apply.get('exact_candidate_union_verified') is True,
+    apply.get('reference_apply_contract_verified') is True,
+    apply.get('nested_elf_runtime_evidence_verified') is True,
+    apply.get('nested_normal_update_evidence_verified') is True,
+    apply.get('package_database_unchanged') is True,
+    apply.get('apply_sensitive_state_unchanged') is True,
+    apply.get('normal_update_apply_executed') is False,
+    apply.get('package_transaction_executed') is False,
+    apply.get('maintainer_script_executed') is False,
+    apply.get('mkinitrd_executed') is False,
+    apply.get('geninitrd_executed') is False,
+    apply.get('dkms_action_executed') is False,
+    apply.get('grub_update_executed') is False,
+    apply.get('assertions') == {'passes': 15, 'failures': 0},
+    apply.get('reference_sha256') == engine_sha,
+    apply.get('next_stage') == 'current-kernel-transaction-readiness-preflight',
+    apply_policy.get('scenario') == 'current-userspace-apply-review-policy',
+    apply_policy.get('target') == 'slackware-current', apply_policy.get('reviewed') is True, denied(apply_policy),
+    apply_policy.get('candidate_set_sha256') == confirmed_digest,
+    apply_policy.get('baseline_candidate_set_sha256') == source_digest,
+    apply_policy.get('target_kernel') == confirmed_target,
+    apply_policy.get('expected_candidate_count') == 137,
+    apply_policy.get('expected_baseline_candidate_count') == 69,
+    apply_policy.get('expected_added_candidate_count') == 68,
+    apply_policy.get('expected_install_new_count') == 1,
+    apply_policy.get('expected_upgrade_all_count') == 136,
+    apply_policy.get('expected_kernel_candidate_count') == 2,
+    apply_policy.get('expected_kernel_transaction_count') == 3,
+    apply_policy.get('expected_critical_candidate_count') == 0,
+    sorted_unique(baseline), len(baseline) == 69,
+    sorted_unique(additions), len(additions) == 68,
+    set(baseline).isdisjoint(additions),
+    len(expected_all) == 137,
+    hashlib.sha256(manifest).hexdigest() == confirmed_digest,
+    apply_policy.get('candidate_union_manifest_sha256') == confirmed_digest,
+    expected_install == ['ristretto-0.14.0-x86_64-1.txz'],
+    len(expected_upgrade) == 136,
+    apply_policy.get('expected_kernel_transaction') == [package_filename, headers_filename, source_filename],
+    apply_policy.get('kernel_transaction_candidates') == [package_filename, headers_filename, source_filename],
+    apply_policy.get('elf_runtime_review_complete') is True,
+    apply_policy.get('kernel_evidence_rebound') is True,
+    apply_policy.get('reference_engine_sha256') == engine_sha,
+    apply_policy.get('next_stage') == 'current-kernel-transaction-readiness-preflight',
+    elf_policy.get('scenario') == 'current-userspace-elf-runtime-review-policy',
+    elf_policy.get('target') == 'slackware-current', elf_policy.get('reviewed') is True, denied(elf_policy),
+    elf_policy.get('candidate_set_sha256') == confirmed_digest,
+    elf_policy.get('target_kernel') == confirmed_target,
+    elf_policy.get('expected_package_count') == 68,
+    len(reviewed_packages) == 68,
+    reviewed_names == sorted(set(reviewed_names)),
+    reviewed_names == additions,
+    elf_policy.get('expected_elf_package_count') == sum(item.get('expected_elf_count', 0) > 0 for item in reviewed_packages) == 61,
+    elf_policy.get('expected_elf_file_count') == sum(item.get('expected_elf_count', 0) for item in reviewed_packages) == 722,
+    elf_policy.get('reviewed_package_elf_manifest_sha256') == hashlib.sha256(reviewed_manifest).hexdigest(),
+    elf_policy.get('elf_count_manifest_sha256') == hashlib.sha256(elf_count_manifest).hexdigest(),
 ]
 if not all(checks):
     raise SystemExit(1)
-for value in archives.values():
+for value in list(archives.values()) + [rebind.get('archive_sha256'), apply.get('archive_sha256'),
+        apply.get('nested_elf_runtime_archive_sha256'), apply.get('nested_normal_update_archive_sha256')]:
     if not digest(value):
+        raise SystemExit(1)
+for item in reviewed_packages:
+    if not isinstance(item, dict) or not digest(item.get('sha256')) or not isinstance(item.get('size'), int) or item.get('size', 0) <= 0:
         raise SystemExit(1)
 hooks = {item.get('path'): item.get('sha256') for item in dkms.get('hooks', [])}
 for path in ('/etc/geninitrd.d/pre-install/dkms-bcachefs', '/etc/geninitrd.d/pre-install/dkms-nvidia'):
@@ -319,6 +450,7 @@ for path in ('/etc/geninitrd.d/pre-install/dkms-bcachefs', '/etc/geninitrd.d/pre
 print(running)
 print(confirmed_target)
 print(confirmed_digest)
+print(source_digest)
 print(package_data.get('filename', ''))
 print(package_data.get('sha256', ''))
 print(ownership.get('active_policy', {}).get('sha256', ''))
@@ -336,30 +468,39 @@ print(boot.get('versioned_initrd_size', ''))
 print(boot.get('active_grub_sha256', ''))
 print(hooks['/etc/geninitrd.d/pre-install/dkms-bcachefs'])
 print(hooks['/etc/geninitrd.d/pre-install/dkms-nvidia'])
+print(rebind.get('archive_sha256', ''))
+print(apply.get('archive_sha256', ''))
+print(len(reviewed_packages) + 1)
 PY
 ) || return 1
     RUNNING_KERNEL=$(printf '%s\n' "$values" | sed -n '1p')
     TARGET_KERNEL=$(printf '%s\n' "$values" | sed -n '2p')
     CANDIDATE_SET_SHA256=$(printf '%s\n' "$values" | sed -n '3p')
-    PACKAGE_FILENAME=$(printf '%s\n' "$values" | sed -n '4p')
-    PACKAGE_SHA256=$(printf '%s\n' "$values" | sed -n '5p')
-    ACTIVE_POLICY_SHA256=$(printf '%s\n' "$values" | sed -n '6p')
-    GENINITRD_SHA256=$(printf '%s\n' "$values" | sed -n '7p')
-    COMMAND_GENERATOR_SHA256=$(printf '%s\n' "$values" | sed -n '8p')
-    SETUP_SHA256=$(printf '%s\n' "$values" | sed -n '9p')
-    REFERENCE_ENGINE_SHA256=$(printf '%s\n' "$values" | sed -n '10p')
-    POST_STATE_CONTRACT_SHA256=$(printf '%s\n' "$values" | sed -n '11p')
-    GENERIC_KERNEL_SHA256=$(printf '%s\n' "$values" | sed -n '12p')
-    CURRENT_NAMED_INITRD=$(printf '%s\n' "$values" | sed -n '13p')
-    CURRENT_NAMED_INITRD_TARGET=$(printf '%s\n' "$values" | sed -n '14p')
-    CURRENT_VERSIONED_INITRD=$(printf '%s\n' "$values" | sed -n '15p')
-    CURRENT_VERSIONED_INITRD_SHA256=$(printf '%s\n' "$values" | sed -n '16p')
-    CURRENT_VERSIONED_INITRD_SIZE=$(printf '%s\n' "$values" | sed -n '17p')
-    ACTIVE_GRUB_SHA256=$(printf '%s\n' "$values" | sed -n '18p')
-    HOOK_BCACHEFS_SHA256=$(printf '%s\n' "$values" | sed -n '19p')
-    HOOK_NVIDIA_SHA256=$(printf '%s\n' "$values" | sed -n '20p')
+    SOURCE_CANDIDATE_SET_SHA256=$(printf '%s\n' "$values" | sed -n '4p')
+    PACKAGE_FILENAME=$(printf '%s\n' "$values" | sed -n '5p')
+    PACKAGE_SHA256=$(printf '%s\n' "$values" | sed -n '6p')
+    ACTIVE_POLICY_SHA256=$(printf '%s\n' "$values" | sed -n '7p')
+    GENINITRD_SHA256=$(printf '%s\n' "$values" | sed -n '8p')
+    COMMAND_GENERATOR_SHA256=$(printf '%s\n' "$values" | sed -n '9p')
+    SETUP_SHA256=$(printf '%s\n' "$values" | sed -n '10p')
+    REFERENCE_ENGINE_SHA256=$(printf '%s\n' "$values" | sed -n '11p')
+    POST_STATE_CONTRACT_SHA256=$(printf '%s\n' "$values" | sed -n '12p')
+    GENERIC_KERNEL_SHA256=$(printf '%s\n' "$values" | sed -n '13p')
+    CURRENT_NAMED_INITRD=$(printf '%s\n' "$values" | sed -n '14p')
+    CURRENT_NAMED_INITRD_TARGET=$(printf '%s\n' "$values" | sed -n '15p')
+    CURRENT_VERSIONED_INITRD=$(printf '%s\n' "$values" | sed -n '16p')
+    CURRENT_VERSIONED_INITRD_SHA256=$(printf '%s\n' "$values" | sed -n '17p')
+    CURRENT_VERSIONED_INITRD_SIZE=$(printf '%s\n' "$values" | sed -n '18p')
+    ACTIVE_GRUB_SHA256=$(printf '%s\n' "$values" | sed -n '19p')
+    HOOK_BCACHEFS_SHA256=$(printf '%s\n' "$values" | sed -n '20p')
+    HOOK_NVIDIA_SHA256=$(printf '%s\n' "$values" | sed -n '21p')
+    REBIND_ARCHIVE_SHA256=$(printf '%s\n' "$values" | sed -n '22p')
+    APPLY_REVIEW_ARCHIVE_SHA256=$(printf '%s\n' "$values" | sed -n '23p')
+    REVIEWED_CACHE_PACKAGE_COUNT=$(printf '%s\n' "$values" | sed -n '24p')
     [ -n "$RUNNING_KERNEL" ] && [ -n "$PACKAGE_FILENAME" ] \
-        && is_sha256 "$PACKAGE_SHA256" && is_sha256 "$CURRENT_VERSIONED_INITRD_SHA256"
+        && is_sha256 "$PACKAGE_SHA256" && is_sha256 "$CURRENT_VERSIONED_INITRD_SHA256" \
+        && is_sha256 "$REBIND_ARCHIVE_SHA256" && is_sha256 "$APPLY_REVIEW_ARCHIVE_SHA256" \
+        && [ "$REVIEWED_CACHE_PACKAGE_COUNT" -eq 69 ]
 }
 
 capture_package_database() {
@@ -426,12 +567,12 @@ read_nested_candidate_digest() {
 
 validate_nested_normal_update() {
     local directory=$1
-    python3 - "$NORMAL_PREFLIGHT" "$directory" "$CANDIDATE_SET_SHA256" "$TARGET_KERNEL" <<'PY'
+    python3 - "$APPLY_POLICY" "$directory" "$CANDIDATE_SET_SHA256" "$TARGET_KERNEL" <<'PY'
 import hashlib, json, pathlib, sys
-accepted_path, directory, expected_digest, target = sys.argv[1:]
+policy_path, directory, expected_digest, target = sys.argv[1:]
 root = pathlib.Path(directory)
 try:
-    accepted = json.load(open(accepted_path, encoding='utf-8'))
+    policy = json.load(open(policy_path, encoding='utf-8'))
     summary = dict(
         line.rstrip('\n').split('=', 1)
         for line in open(root/'summary.txt', encoding='utf-8')
@@ -442,17 +583,19 @@ except Exception:
 
 def lines(name):
     path = root/name
-    if not path.is_file():
+    if not path.is_file() or path.is_symlink():
         raise SystemExit(1)
     values = [x.strip() for x in path.read_text(encoding='utf-8').splitlines() if x.strip()]
     if values != sorted(set(values)):
         raise SystemExit(1)
     return values
+
 install = lines('install-new.candidates.txt')
 upgrade = lines('upgrade-all.candidates.txt')
 all_candidates = lines('all.candidates.txt')
-expected = accepted.get('candidates', {})
-expected_all = sorted(expected.get('install_new', []) + expected.get('upgrade_all', []))
+expected_install = policy.get('expected_install_new', [])
+expected_all = sorted(policy.get('baseline_candidates', []) + policy.get('reviewed_additions', []))
+expected_upgrade = sorted(set(expected_all) - set(expected_install))
 raw = ''.join(f'{item}\n' for item in all_candidates).encode()
 digest = hashlib.sha256(raw).hexdigest()
 checks = [
@@ -460,8 +603,10 @@ checks = [
     summary.get('target') == 'slackware-current', summary.get('result') == 'PASS',
     summary.get('failures') == '0', summary.get('candidate_set_sha256') == expected_digest,
     digest == expected_digest, all_candidates == expected_all,
-    install == expected.get('install_new'), upgrade == expected.get('upgrade_all'),
-    int(summary.get('total_candidates', '-1')) == len(all_candidates) == 69,
+    install == expected_install, upgrade == expected_upgrade,
+    int(summary.get('install_new_candidates', '-1')) == len(install) == 1,
+    int(summary.get('upgrade_candidates', '-1')) == len(upgrade) == 136,
+    int(summary.get('total_candidates', '-1')) == len(all_candidates) == 137,
     int(summary.get('kernel_candidates', '-1')) == 2,
     int(summary.get('critical_candidates', '-1')) == 0,
     f'kernel-generic-{target}-x86_64-1.txz' in upgrade,
@@ -540,6 +685,55 @@ print(values[0])
 PY
 }
 
+validate_reviewed_userspace_cache() {
+    python3 - "$ELF_POLICY" "$PACKAGE_CACHE_ROOT" <<'PY'
+import hashlib, json, os, pathlib, stat, sys
+policy_path, cache_path = sys.argv[1:]
+try:
+    policy = json.load(open(policy_path, encoding='utf-8'))
+except Exception:
+    raise SystemExit(1)
+cache = pathlib.Path(cache_path)
+try:
+    cache_stat = cache.lstat()
+except OSError:
+    raise SystemExit(1)
+if not stat.S_ISDIR(cache_stat.st_mode) or stat.S_ISLNK(cache_stat.st_mode):
+    raise SystemExit(1)
+records = policy.get('reviewed_packages', [])
+if not isinstance(records, list) or len(records) != 68:
+    raise SystemExit(1)
+for record in records:
+    if not isinstance(record, dict):
+        raise SystemExit(1)
+    name = record.get('package')
+    expected_hash = record.get('sha256')
+    expected_size = record.get('size')
+    if not isinstance(name, str) or '/' in name or not isinstance(expected_hash, str) or len(expected_hash) != 64:
+        raise SystemExit(1)
+    matches = []
+    for root, directories, files in os.walk(cache, followlinks=False):
+        directories[:] = sorted(d for d in directories if not pathlib.Path(root, d).is_symlink())
+        if name in files:
+            matches.append(pathlib.Path(root, name))
+    if len(matches) != 1:
+        raise SystemExit(1)
+    path = matches[0]
+    try:
+        entry = path.lstat()
+    except OSError:
+        raise SystemExit(1)
+    if not stat.S_ISREG(entry.st_mode) or stat.S_ISLNK(entry.st_mode) or entry.st_size != expected_size:
+        raise SystemExit(1)
+    digest = hashlib.sha256()
+    with path.open('rb') as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b''):
+            digest.update(chunk)
+    if digest.hexdigest() != expected_hash:
+        raise SystemExit(1)
+PY
+}
+
 validate_live_state() {
     local generic current_kernel target_kernel named_initrd current_initrd target_initrd
     local policy geninitrd generator setup grub package matches observed hook path expected_hook
@@ -598,6 +792,7 @@ validate_live_state() {
     [ ! -L "$package" ] || return 1
     observed=$(sha256sum -- "$package" | awk '{print $1}')
     [ "$observed" = "$PACKAGE_SHA256" ] || return 1
+    validate_reviewed_userspace_cache || return 1
     [ -d "$(root_path "/lib/modules/$RUNNING_KERNEL")" ] || return 1
     [ ! -e "$(root_path "/lib/modules/$TARGET_KERNEL")" ] || return 1
     [ -d "$(root_path /var/lib/dkms)" ] && [ ! -L "$(root_path /var/lib/dkms)" ] || return 1
@@ -615,9 +810,15 @@ result = {
   "target": "$TARGET",
   "running_kernel": "$RUNNING_KERNEL",
   "target_kernel": "$TARGET_KERNEL",
+  "source_candidate_set_sha256": "$SOURCE_CANDIDATE_SET_SHA256",
   "candidate_set_sha256": "$CANDIDATE_SET_SHA256",
   "fresh_candidate_set_sha256": "$FRESH_CANDIDATE_SHA256",
-  "accepted_evidence_count": 8,
+  "accepted_evidence_count": 10,
+  "kernel_evidence_rebind_archive_sha256": "$REBIND_ARCHIVE_SHA256",
+  "userspace_apply_review_archive_sha256": "$APPLY_REVIEW_ARCHIVE_SHA256",
+  "candidate_count": 137,
+  "baseline_candidate_count": 69,
+  "added_candidate_count": 68,
   "boot_mode": "geninitrd-managed-versioned-initrd",
   "transition_mode": "versioned-to-versioned-initrd",
   "current_versioned_initrd": "$CURRENT_VERSIONED_INITRD",
@@ -626,6 +827,7 @@ result = {
   "final_candidate_revalidation_completed": True,
   "final_candidate_revalidation_fresh": True,
   "exact_package_cache_verified": True,
+  "reviewed_package_cache_count": $REVIEWED_CACHE_PACKAGE_COUNT,
   "live_boot_layout_verified": True,
   "geninitrd_policy_verified": True,
   "dkms_noop_state_verified": True,
@@ -644,6 +846,8 @@ result = {
   "next_stage": "$NEXT_STAGE",
   "requires_explicit_apply_authorization": True,
   "requires_apply_time_candidate_revalidation": True,
+  "pause_safe": False,
+  "pause_safety_reason": "apply-time-candidate-revalidation-and-package-transaction-pending",
   "apply_ready": $([ "$APPLY_READY" = true ] && printf True || printf False),
   "apply_authorized": False
 }
@@ -662,8 +866,13 @@ passes=$PASS_COUNT
 failures=$FAILURE_COUNT
 running_kernel=$RUNNING_KERNEL
 target_kernel=$TARGET_KERNEL
+source_candidate_set_sha256=$SOURCE_CANDIDATE_SET_SHA256
 candidate_set_sha256=$CANDIDATE_SET_SHA256
 fresh_candidate_set_sha256=$FRESH_CANDIDATE_SHA256
+candidate_count=137
+baseline_candidate_count=69
+added_candidate_count=68
+reviewed_package_cache_count=$REVIEWED_CACHE_PACKAGE_COUNT
 boot_mode=geninitrd-managed-versioned-initrd
 transition_mode=versioned-to-versioned-initrd
 current_versioned_initrd=$CURRENT_VERSIONED_INITRD
@@ -676,6 +885,8 @@ geninitrd_executed=false
 dkms_build_executed=false
 update_grub_executed=false
 grub_mkconfig_executed=false
+pause_safe=false
+pause_safety_reason=apply-time-candidate-revalidation-and-package-transaction-pending
 apply_ready=$APPLY_READY
 apply_authorized=false
 next_stage=$NEXT_STAGE
@@ -720,14 +931,14 @@ main() {
     : > "$ASSERTION_LOG"
 
     if validate_accepted_records; then
-        record_pass "the complete accepted Slackware-current kernel evidence chain binds target $TARGET_KERNEL"
+        record_pass "the accepted kernel chain, candidate rebind, and userspace apply review bind target $TARGET_KERNEL"
     else
-        record_failure 'the accepted Slackware-current kernel evidence chain is inconsistent, stale, or unsafe'
+        record_failure 'the accepted kernel, rebind, or userspace apply-review evidence is inconsistent, stale, or unsafe'
     fi
     if [ "$CANDIDATE_SET_SHA256" = "$CONFIRM_CANDIDATES_SHA256" ] && [ "$TARGET_KERNEL" = "$CONFIRM_TARGET_KERNEL" ]; then
-        record_pass 'the explicit candidate and target confirmations match the accepted chain'
+        record_pass 'the explicit candidate and target confirmations match the rebound 137-package transaction'
     else
-        record_failure 'the explicit candidate or target confirmation differs from the accepted chain'
+        record_failure 'the explicit candidate or target confirmation differs from the rebound transaction'
     fi
     if capture_package_database "$OUTPUT_DIR/packages.before.txt" && capture_sensitive_state "$OUTPUT_DIR/sensitive.before.txt"; then
         record_pass 'the package database and transaction-sensitive state were captured before final revalidation'
@@ -754,7 +965,7 @@ main() {
         FRESH_CANDIDATE_SHA256=$fresh_digest
     fi
     if validate_nested_normal_update "$nested_dir"; then
-        record_pass 'the fresh candidate set exactly matches all 69 reviewed candidates and kernel companions'
+        record_pass 'the fresh candidate set exactly matches all 137 reviewed candidates and kernel companions'
     else
         record_failure 'the fresh candidate set differs from the reviewed transaction or is malformed'
     fi
@@ -764,9 +975,9 @@ main() {
         record_failure 'the nested normal-update archive or portable sidecar is missing, ambiguous, or invalid'
     fi
     if validate_live_state; then
-        record_pass 'the exact package cache, versioned GenInitrd boot layout, no-op DKMS state, and GRUB ownership boundary remain reviewed'
+        record_pass 'the 69 exact reviewed package archives, versioned GenInitrd boot layout, no-op DKMS state, and GRUB ownership boundary remain reviewed'
     else
-        record_failure 'the live package, boot, GenInitrd, DKMS, or GRUB state no longer matches the accepted chain'
+        record_failure 'the reviewed package cache, boot, GenInitrd, DKMS, or GRUB state no longer matches the accepted chain'
     fi
     if capture_package_database "$OUTPUT_DIR/packages.after.txt" && capture_sensitive_state "$OUTPUT_DIR/sensitive.after.txt"; then
         record_pass 'the package database and transaction-sensitive state were captured after final revalidation'
@@ -795,7 +1006,7 @@ main() {
     fi
     write_analysis "$OUTPUT_DIR/readiness-analysis.json"
     write_summary "$OUTPUT_DIR/summary.txt"
-    printf 'Slackware-current kernel transaction readiness result: running=%s, target=%s, candidates=%s, boot-mode=geninitrd-managed-versioned-initrd, transition=versioned-to-versioned-initrd, readiness=%s, apply-ready=%s, apply-authorized=false\n' \
+    printf 'Slackware-current kernel transaction readiness result: running=%s, target=%s, candidates=%s, packages=137, reviewed-cache=69, boot-mode=geninitrd-managed-versioned-initrd, transition=versioned-to-versioned-initrd, readiness=%s, pause-safe=false, apply-ready=%s, apply-authorized=false\n' \
         "$RUNNING_KERNEL" "$TARGET_KERNEL" "$FRESH_CANDIDATE_SHA256" "$READINESS_STATUS" "$APPLY_READY"
     archive=$(create_evidence_archive) || { error 'failed to create readiness evidence archive'; return 1; }
     printf 'Evidence archive: %s\n' "$archive"

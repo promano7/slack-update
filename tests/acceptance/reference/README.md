@@ -1055,6 +1055,21 @@ The parent now removes any stale adjacent archive pair, creates a fresh owner-on
 
 All other restrictions are unchanged. The wrapper repeats the complete non-installing ELF/runtime review and a separate normal-update preflight, reconstructs the exact disjoint union of 69 baseline plus 68 reviewed additions, and checks one `install-new`, 136 `upgrade-all`, the three-package `6.18.42` kernel transaction, zero critical candidates, the exact Slackpkg contract, deferred post-install handling, GenInitrd policy restoration, exclusive GRUB ownership, 12 transaction steps, and five recovery boundaries. It does not execute normal-update apply, packages, scripts, initrd generation, DKMS, or GRUB changes.
 
-A safe corrected run is expected to report 15 passes, zero failures, `candidates=137`, `baseline=69`, `additions=68`, `install-new=1`, `upgrade-all=136`, `kernel-transaction=3`, `critical=0`, `userspace-apply-review-complete=true`, `next-stage=current-kernel-transaction-readiness-preflight`, `apply-ready=false`, and `apply-authorized=false`. Copy and verify the final archive and sidecar directly in `/home/promano`. Do not run readiness or any apply stage until this repeated evidence is accepted.
+The corrected real run passed all 15 assertions. Outer archive SHA-256 `bf627728dcf330b1d22b885466c9f538bc28743ace83af30958ae4555c2a5522`, nested ELF archive SHA-256 `32653f141fb895166c8b422b4e80e0e7dd53c157d809f5085b10388e20706b36`, and nested normal-update archive SHA-256 `5ce4fdc0c4870402890683114b1d2ac30e1a3e3a1a671a7b969a0f022655147b` were verified. It reported `candidates=137`, `baseline=69`, `additions=68`, `install-new=1`, `upgrade-all=136`, `kernel-transaction=3`, `critical=0`, `userspace-apply-review-complete=true`, `next-stage=current-kernel-transaction-readiness-preflight`, `apply-ready=false`, and `apply-authorized=false`. Package and boot-sensitive state remained unchanged.
 
-The focused step-73 harness contains 76 checks. The complete prepared step-73 inventory contains 44 suites and 2,982 checks with zero failures.
+The focused step-73 harness contains 76 checks. The complete step-73 inventory contains 44 suites and 2,982 checks with zero failures.
+
+### Rebound final kernel transaction readiness preflight (step 74)
+
+```bash
+sudo bash tests/acceptance/reference/test-current-kernel-transaction-readiness-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926 \
+    --confirm-target-kernel 6.18.42
+```
+
+This revision binds the immutable 69-candidate kernel evidence through the accepted rebind and userspace apply-review records, then requires a fresh exact 137-candidate preflight. It validates all 68 reviewed userspace archives and the exact `kernel-generic-6.18.42` archive from the live package cache, together with the accepted versioned GenInitrd, no-op DKMS, and GRUB ownership state. Any changed candidate, archive, boot artifact, policy, hook, generator, or active GRUB digest fails closed.
+
+A clean run may report `readiness=apply-ready` and `apply-ready=true`, but must also report `pause-safe=false`, `apply-authorized=false`, and `next-stage=normal-update-apply-authorization-review`. The reason is explicit: apply-time candidate revalidation and the actual package transaction remain pending. Do not treat readiness as a safe place to leave Slackware-current exposed to later repository publications; continue until a later accepted stage explicitly records `pause_safe=true`. Copy the readiness archive and sidecar directly to `/home/promano` and verify them there.
+
+The focused step-74 harness contains 92 checks. The complete prepared step-74 inventory contains 44 suites and 3,003 checks with zero failures. Static validation covers 70 shell scripts and 71 JSON files.
