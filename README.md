@@ -2380,3 +2380,29 @@ This stage does not refresh Slackpkg metadata, install packages, execute maintai
 The real step-79 run passed all 13 assertions and was accepted in `tests/fixtures/reference/acceptance/normal-update/slackware-current-post-package-boot-recovery-20260805-accepted.json`. Archive SHA-256 `b2e3ee1d4bcdc243afbde0160d7d7f50e985e365f9580551fea6def4d6ae1f96` was copied to `/home/promano` and verified. It records `package_transaction_completed=true`, `target_boot_pair_verified=true`, `active_grub_mutated=false`, `rollback_state=degraded-running-session-and-modules-only`, `pause_safe=true`, `reboot_ready=true`, `reboot_authorized=false`, and `next_stage=current-kernel-post-apply-reboot-review`. This is a genuinely safe pause against later Slackware-current publications because the reviewed transaction is already installed and locally sealed. Do not reboot until a separate reboot-review boundary is prepared and accepted.
 
 The focused step-79 harness contains 46 checks. The complete step-80 safe-pause checkpoint retains 46 suites and 3,160 checks with zero failures; static validation covers 74 shell scripts and 79 JSON files. No executable code changed in step 80.
+
+### Slackware-current exact reboot review before the first 6.18.42 boot (step 81)
+
+The accepted step-79 state remains the authoritative local checkpoint: the package transaction is complete, `pause_safe=true`, the running session is still 6.18.40, the exact target boot pair is 6.18.42, and the rollback is degraded because the old disk kernel and initrd are absent. No repository refresh or repetition of the candidate, payload, readiness, or apply chain is permitted or required.
+
+Run the separate read-only reboot review:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-kernel-post-apply-reboot-review.sh \
+    --target slackware-current \
+    --authorize-reboot-review \
+    --acknowledge-degraded-rollback \
+    --confirm-hostname pcold-slack \
+    --confirm-hostname-fqdn pcold-slack.pcold-slack.org \
+    --confirm-running-kernel 6.18.40 \
+    --confirm-safe-pause-evidence-sha256 b2e3ee1d4bcdc243afbde0160d7d7f50e985e365f9580551fea6def4d6ae1f96 \
+    --confirm-target-kernel 6.18.42 \
+    --confirm-authorization-sha256 01739dc15e197ce7a4d15e749ca2e0b844de3900e39be83413ad7e5ecdc2307c
+```
+
+This test binds the accepted archive and checkpoint to the exact review code and authorization scope. It rechecks the 2,040 package records, target kernel, initrd, modules, generic links, GenInitrd controls, current generic `BOOT_IMAGE`, active GRUB digest and syntax, and unchanged before/after state. It also reads GRUB's environment without changing it, rejects a one-time `next_entry`, resolves literal, saved, generated-ID, and submenu defaults, and proves that the effective next entry uses `/boot/vmlinuz-generic` with `/boot/initrd-generic.img`.
+
+The command never reboots. A successful real result must show 13 passes, `pause_safe=true`, `reboot_ready=true`, `reboot_authorized=true`, `reboot_executed=false`, and `next_stage=manual-reboot-to-reviewed-target`. Copy and verify its evidence in `/home/promano` and review the result before performing the separate manual reboot. After the machine starts, a second acceptance test will verify `uname -r`, `/proc/cmdline`, loaded modules, target boot artifacts, GRUB, and the installed package database before the update is closed.
+
+The focused step-81 harness contains 68 checks. The complete prepared step-81 inventory contains 47 suites and 3,228 checks with zero failures; static validation covers 76 shell scripts and 80 JSON files.
+
