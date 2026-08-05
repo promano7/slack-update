@@ -871,5 +871,18 @@ sudo bash tests/acceptance/reference/test-current-geninitrd-command-preflight.sh
 
 The stage binds all accepted records through the rebuilt step-59 DKMS boundary and rejects historical direct-no-initrd evidence. It revalidates the live generic kernel, named initrd, versioned initrd, scalar GenInitrd symlink policy, and same-menuentry GRUB pairing before inspecting the generator. It then verifies the exact cached target package and installed generator/setup scripts, invokes the generator only for the installed kernel without `--run`, parses one inert vector without `eval` or `bash -c`, and projects only the kernel version and output path to `/boot/initrd-6.18.42.img`. A safe run reports 12 passes, zero failures, `transition=versioned-to-versioned-initrd`, `command=projected-safe`, `apply-ready=false`, and `apply-authorized=false`. Copy the `.tar.gz` and `.sha256` directly to `/home/promano` and verify the sidecar there. No generated command may be executed.
 
-The rebuilt command harness has 73 checks. The complete step-60 inventory contains 37 suites and 2,489 checks with zero failures; static validation covers 56 Bash scripts and 51 JSON files.
+The real step-60 run passed all 12 assertions and produced accepted archive SHA-256 `754ebe19080417c9bcd79ba8ca586085c808e24d1d5120286fff19a09c2cf0f0`. The sanitized accepted record is `tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-command-preflight-20260805-accepted.json`.
+
+### Slackware-current rebuilt GenInitrd/GRUB ownership preflight (step 61)
+
+```bash
+sudo bash tests/acceptance/reference/test-current-geninitrd-grub-ownership-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+The stage binds the corrected candidate, boot, chain-restart, exact-package, versioned-policy, no-op DKMS, and accepted command records. It revalidates the live named and versioned initrd plus same-menuentry GRUB pairing before analyzing the installed GenInitrd control flow. It creates only an evidence-local copy of `/etc/default/geninitrd` whose sole change is `AUTO_UPDATE_GRUB=true` to `false`, rejects environment-only suppression, and publishes a twelve-stage transaction plus five recovery boundaries without running any stage. A safe result reports 12 passes, zero failures, `transition=versioned-to-versioned-initrd`, `strategy=temporary-atomic-policy-override`, `apply-ready=false`, and `apply-authorized=false`. Copy the archive and `.sha256` directly to `/home/promano` and verify them there.
+
+The rebuilt ownership harness has 66 checks. The complete step-61 inventory contains 37 suites and 2,500 checks with zero failures; static validation covers 56 Bash scripts and 52 JSON files.
 

@@ -196,3 +196,16 @@ sudo bash tests/acceptance/reference/test-current-geninitrd-command-preflight.sh
 
 The stage must bind all corrected records through the accepted DKMS boundary and fail closed if the live named initrd, versioned initrd, GenInitrd symlink policy, package cache, or active GRUB pairing differs from the accepted chain. The generator may run only in command-output mode for the installed kernel and must not use `--run`; the emitted text must contain exactly one safe inert `mkinitrd` vector. The projected vector may change only the reviewed kernel and versioned output target. Never use `eval`, `bash -c`, or execute either vector. Copy and verify the evidence directly in `/home/promano`; do not advance to GRUB-ownership review until the record is accepted.
 
+### Rebuilt Slackware-current GenInitrd/GRUB ownership evidence (step 61)
+
+After accepting step 60, run only:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-geninitrd-grub-ownership-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+The stage must bind every corrected record through the accepted command boundary and fail closed if the live named initrd, versioned initrd, GenInitrd symlink policy, or active GRUB pairing differs from the accepted chain. It may create only an evidence-local policy copy with the single reviewed `AUTO_UPDATE_GRUB=false` change and an evidence-local transaction plan. It must not install or replace that policy, execute package tools, run `mkinitrd` or `geninitrd`, invoke `update-grub` or `grub-mkconfig`, or mutate any boot artifact. Copy and verify the archive and sidecar directly in `/home/promano`; do not advance to readiness review until this record is accepted.
+
