@@ -770,3 +770,17 @@ sudo bash tests/acceptance/reference/test-current-kernel-transaction-readiness-p
 ```
 
 The preflight runs only the embedded normal-update `--preflight`, requires exact equality with the accepted 69-candidate set, verifies the portable nested archive, and rechecks the exact cached package, current direct-generic boot, active GenInitrd policy, reviewed scripts and hooks, zero-row DKMS state, and syntax-valid GRUB configuration. It captures package and transaction-sensitive state before and after. A clean result reports `apply_ready=true` and `apply_authorized=false`; it does not run package installation, `mkinitrd`, `geninitrd`, DKMS build/install, `update-grub`, or `grub-mkconfig`. Copy the final archive and `.sha256` directly to `/home/promano` with the printed command and verify them there.
+
+
+### Slackware-current corrected GenInitrd-managed boot baseline (step 54)
+
+The step-53 readiness evidence revalidated the exact 69-candidate set but found a pre-existing `/boot/initrd-generic.img -> initrd-6.18.40.img` pair. The artifacts predate the accepted target chain, so the former `direct-generic-no-initrd` classification is revoked. Run:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-kernel-boot-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+The corrected preflight recognizes `geninitrd-managed-versioned-initrd`, captures `/boot/initrd-generic.img` and `/boot/initrd-6.18.40.img`, verifies the active GenInitrd policy and safe file metadata, and proves that GRUB pairs the generic kernel and named initrd in one menuentry. It never runs package tools, `mkinitrd`, `geninitrd`, or GRUB generation. Copy the archive and portable sidecar directly to `/home/promano`; apply remains denied and all dependent evidence must be rebuilt afterward.

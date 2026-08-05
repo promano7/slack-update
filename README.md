@@ -1933,7 +1933,8 @@ Slack-Update 1.0 will be ready when:
   - [x] Repeat and accept the corrected target-bound boot restart and exact `kernel-generic-6.18.42` package evidence.
   - [x] Repeat and accept the GenInitrd policy evidence for `6.18.42`.
   - [x] Repeat and accept DKMS, command, and GRUB-ownership evidence for `6.18.42`.
-  - [ ] Run and review the final non-installing `6.18.42` transaction-readiness preflight.
+  - [x] Run the final non-installing `6.18.42` readiness preflight; retain it as diagnostic because it exposed the pre-existing versioned initrd.
+  - [ ] Run and accept the corrected `geninitrd-managed-versioned-initrd` boot baseline, then rebuild all dependent `6.18.42` evidence.
   - [ ] Grant a separate explicit apply authorization only after accepted readiness evidence.
   - [x] Review and accept the ten-package Slackware-current transaction as package and boot evidence.
   - [ ] Revalidate the hardened deferred `.new` policy on the next Slackware-current update.
@@ -1978,3 +1979,22 @@ sudo bash tests/acceptance/reference/test-current-kernel-transaction-readiness-p
 The wrapper binds the accepted normal-update, boot, chain-restart, exact-package, GenInitrd-policy, no-op DKMS, command, and GRUB-ownership records. It also binds the target-specific synthetic post-state contract and the exact reference-engine SHA-256. It then repeats the existing normal-update preflight, requires exact equality with all 69 reviewed candidates, verifies the cached `kernel-generic` package, direct-generic boot layout, active GenInitrd policy, reviewed hooks, zero-row DKMS state, generator and setup scripts, and syntax-valid active GRUB configuration.
 
 A completely clean result may report `apply_ready=true`, but it always reports `apply_authorized=false`, executes no package transaction, and performs no initrd, DKMS, or GRUB mutation. Apply still requires a later explicit authorization and the normal-update apply path must refresh and compare candidates again. Copy the outer archive and portable sidecar directly to `/home/promano` and verify them there.
+
+
+### Phase 1 step 54: corrected GenInitrd-managed boot baseline
+
+The real step-53 readiness run preserved the system and revalidated all 69 candidates, but blocked readiness because the host already contains `/boot/initrd-generic.img -> initrd-6.18.40.img` and `/boot/initrd-6.18.40.img`. Those files date from 2026-07-28, before the reviewed 2026-08 evidence chain, and the active GRUB configuration was regenerated afterward. The earlier detector looked only for `/boot/initrd.gz`, so the accepted label `direct-generic-no-initrd` is revoked for this host.
+
+Run the corrected boot preflight before rebuilding any target-bound evidence:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-kernel-boot-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+A valid result must classify `boot_mode=geninitrd-managed-versioned-initrd`, verify the exact named-link target and versioned initrd, and prove that one GRUB menuentry pairs `/boot/vmlinuz-generic` with `/boot/initrd-generic.img`. The preflight performs no package, initrd, DKMS, or GRUB mutation and must keep `apply_ready=false` and `apply_authorized=false`. Copy its archive and sidecar directly to `/home/promano` and verify them there. All step-46 through step-52 records remain historical until rebuilt from this corrected baseline.
+
+
+The step-54 repository validation runs all 37 focused suites: 2,412 checks pass with zero failures. The main reference engine remains SHA-256 `0dc4a4def9b063b9a598975f46e7458c5771eb8d8603f4fa8bbd9dfc07c4d4c6`.

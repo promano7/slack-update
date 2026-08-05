@@ -1,0 +1,50 @@
+{
+  "scenario": "current-kernel-transaction-readiness-preflight",
+  "target": "slackware-current",
+  "captured_at": "2026-08-05T00:07:37Z",
+  "accepted": false,
+  "diagnostic_only": true,
+  "archive_sha256": "94e95acd734c6a183212baa321c037dcfe70e23a4b1c88136e8b90190965a289",
+  "nested_normal_update_archive_sha256": "849ed04fc33d3375d590498b9e933dfb098adae89b07577cc7495a64becaa32f",
+  "candidate_set_sha256": "918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9",
+  "running_kernel": "6.18.40",
+  "target_kernel": "6.18.42",
+  "candidate_revalidation": {
+    "total": 69,
+    "unchanged": true,
+    "package_database_unchanged": true,
+    "boot_sensitive_state_unchanged_during_preflight": true
+  },
+  "classification_error": {
+    "prior_boot_mode_revoked": "direct-generic-no-initrd",
+    "classification": "geninitrd-managed-versioned-initrd",
+    "reason": "The prior detector checked only initrd.gz and omitted the existing initrd-generic.img and versioned initrd artifacts.",
+    "existing_before_readiness_preflight": true
+  },
+  "observed_boot_state": {
+    "generic_kernel_link": "/boot/vmlinuz-generic",
+    "generic_kernel_target": "/boot/vmlinuz-6.18.40",
+    "named_initrd_link": "/boot/initrd-generic.img",
+    "named_initrd_target": "initrd-6.18.40.img",
+    "versioned_initrd": "/boot/initrd-6.18.40.img",
+    "versioned_initrd_sha256": "0da0e0289d93cdf2d3b78288bfa23db4c9437b576563f92889399b2c98294442",
+    "versioned_initrd_size": 17307183,
+    "versioned_initrd_mtime_utc": "2026-07-28T18:13:36Z",
+    "legacy_initrd_gz_absent": true,
+    "mkinitrd_conf_absent": true,
+    "active_grub_sha256": "5fdff76d42ddec26b0c212668c4981a9ea2853a98b3260f33850c91ccf8ac247",
+    "active_grub_mtime_utc": "2026-07-28T18:20:57Z"
+  },
+  "invalidated_evidence_chain": {
+    "boot_preflight_archive_sha256": "be201626afc4b4aa2f9b59d7c10429e083094989b8c172530348aad95ab4fc32",
+    "chain_restart_archive_sha256": "77618b808093f3e5349f5a6e076a110b56876a7ed08878d89c71a78fc594de51",
+    "package_preflight_archive_sha256": "44c18026052a7d7b0d5e385258389f8bc73beefe9ac35c2a2777707df17c4f57",
+    "geninitrd_policy_archive_sha256": "873c7779dcef6f16d72d809704ca732809e6d5db5b1668f6a4942662b97c54ca",
+    "dkms_preflight_archive_sha256": "c943b3c25703fc395cfba6708a9c6122b033f82876795053f39a6d8e61ff5074",
+    "geninitrd_command_archive_sha256": "be239e39372ad807be01199051730dbaf2602b962ceebea68b864e5951c78682",
+    "grub_ownership_archive_sha256": "f906211517c8887e52b2842ff8756973bf9ef5fa4af378a6c830226befe1d522"
+  },
+  "next_stage": "current-kernel-boot-preflight-with-versioned-initrd-detection",
+  "apply_ready": false,
+  "apply_authorized": false
+}

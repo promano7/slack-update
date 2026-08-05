@@ -9,7 +9,7 @@ export PATH LC_ALL
 
 TEST_DIR=$(CDPATH= cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
 REPOSITORY_ROOT=$(CDPATH= cd -- "$TEST_DIR/../../.." && pwd -P)
-DEFAULT_ACCEPTED_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260803-accepted.json"
+DEFAULT_ACCEPTED_PREFLIGHT="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260804-accepted.json"
 DEFAULT_OUTPUT_ROOT=/var/tmp/slack-update-acceptance/current-kernel-boot-preflight
 
 TARGET=
@@ -30,6 +30,11 @@ MKINITRD_KERNEL_VERSION=
 MKINITRD_TRANSITION_REQUIRED=false
 MKINITRD_STATE=unknown
 INITRD_STATE=unknown
+NAMED_INITRD_STATE=unknown
+VERSIONED_INITRD_STATE=unknown
+VERSIONED_INITRD_PATH=
+VERSIONED_INITRD_SHA256=
+GENINITRD_TRANSITION_REQUIRED=false
 BOOT_MODE=unknown
 BOOT_IMAGE=
 GENERIC_KERNEL_PATH=
@@ -48,9 +53,9 @@ Usage: ${0##*/} --target slackware-current \\
 
 Collect a non-destructive Slackware-current boot preflight for the monolithic
 kernel-generic package model. The script validates the accepted normal-update
-record, installed and repository kernel records, initrd-managed or direct-generic
-boot artifacts, module trees, and GRUB prerequisites. It never installs packages, runs mkinitrd,
-regenerates GRUB, or authorizes apply.
+record, installed and repository kernel records, mkinitrd-managed, GenInitrd-managed,
+or direct-generic boot artifacts, module trees, and GRUB prerequisites. It never installs packages, runs mkinitrd or geninitrd, regenerates GRUB,
+or authorizes apply.
 
 Required options:
       --target slackware-current
@@ -205,7 +210,8 @@ capture_package_state() {
 capture_boot_state() {
     local output=$1 path
     : > "$output" || return 1
-    for path in /etc/mkinitrd.conf /boot/initrd.gz /boot/vmlinuz-generic \
+    for path in /etc/mkinitrd.conf /etc/default/geninitrd /boot/initrd.gz \
+        /boot/initrd-generic.img "/boot/initrd-$RUNNING_KERNEL.img" /boot/vmlinuz-generic \
         "/boot/vmlinuz-$RUNNING_KERNEL" "/boot/vmlinuz-generic-$RUNNING_KERNEL" \
         /boot/grub/grub.cfg "/lib/modules/$RUNNING_KERNEL"; do
         printf '%s|' "$path" >> "$output"
@@ -273,18 +279,85 @@ is_supported_running_kernel_image() {
 }
 
 classify_boot_mode_from_states() {
-    local mkinitrd_state=$1 initrd_state=$2 basename=$3 version=$4
-    if [ "$mkinitrd_state" = absent ] && [ "$initrd_state" = absent ] \
+    local mkinitrd_state=$1 legacy_initrd_state=$2 named_initrd_state=$3
+    local versioned_initrd_state=$4 basename=$5 version=$6
+    if [ "$mkinitrd_state" = absent ] && [ "$legacy_initrd_state" = absent ] \
+        && [ "$named_initrd_state" = absent ] && [ "$versioned_initrd_state" = absent ] \
         && [ "$basename" = "vmlinuz-$version" ]; then
         printf '%s\n' direct-generic-no-initrd
         return 0
     fi
-    if [ "$mkinitrd_state" = present ] && [ "$initrd_state" = present ] \
+    if [ "$mkinitrd_state" = absent ] && [ "$legacy_initrd_state" = absent ] \
+        && [ "$named_initrd_state" = present ] && [ "$versioned_initrd_state" = present ] \
+        && is_supported_running_kernel_image "$basename" "$version"; then
+        printf '%s\n' geninitrd-managed-versioned-initrd
+        return 0
+    fi
+    if [ "$mkinitrd_state" = present ] && [ "$legacy_initrd_state" = present ] \
+        && [ "$named_initrd_state" = absent ] && [ "$versioned_initrd_state" = absent ] \
         && is_supported_running_kernel_image "$basename" "$version"; then
         printf '%s\n' mkinitrd-managed
         return 0
     fi
     return 1
+}
+
+is_root_owned_safe_regular_file() {
+    local path=$1 mode uid gid
+    [ -f "$path" ] && [ ! -L "$path" ] && [ -s "$path" ] || return 1
+    read -r mode uid gid < <(stat -c '%a %u %g' -- "$path") || return 1
+    [ "$uid" -eq 0 ] && [ "$gid" -eq 0 ] || return 1
+    (( (8#$mode & 8#022) == 0 ))
+}
+
+validate_geninitrd_versioned_layout() {
+    local link=/boot/initrd-generic.img expected_target="initrd-$RUNNING_KERNEL.img"
+    local expected_path="/boot/$expected_target" resolved policy autogenerate named legacy
+    [ -L "$link" ] || return 1
+    [ "$(readlink -- "$link" 2>/dev/null)" = "$expected_target" ] || return 1
+    resolved=$(readlink -e -- "$link" 2>/dev/null) || return 1
+    [ "$resolved" = "$expected_path" ] || return 1
+    is_root_owned_safe_regular_file "$expected_path" || return 1
+    policy=/etc/default/geninitrd
+    [ -f "$policy" ] && [ ! -L "$policy" ] && [ -r "$policy" ] || return 1
+    autogenerate=$(read_scalar_assignment "$policy" AUTOGENERATE_INITRD 2>/dev/null || true)
+    named=$(read_scalar_assignment "$policy" GENINITRD_NAMED_SYMLINK 2>/dev/null || true)
+    legacy=$(read_scalar_assignment "$policy" GENINITRD_INITRD_GZ_SYMLINK 2>/dev/null || true)
+    [ "$autogenerate" = true ] && [ "$named" = true ] && [ "$legacy" = false ] || return 1
+    VERSIONED_INITRD_PATH=$expected_path
+    VERSIONED_INITRD_SHA256=$(sha256sum -- "$expected_path" | awk '{print $1}')
+}
+
+validate_grub_kernel_initrd_pair() {
+    local grub=$1 kernel=$2 initrd=$3
+    python3 - "$grub" "$kernel" "$initrd" <<'PY_GRUB_PAIR'
+import pathlib, re, sys
+path, kernel, initrd = sys.argv[1:]
+try:
+    lines = pathlib.Path(path).read_text(encoding='utf-8', errors='strict').splitlines()
+except Exception:
+    raise SystemExit(1)
+blocks=[]
+active=None
+depth=0
+for line in lines:
+    stripped=line.strip()
+    if active is None and stripped.startswith('menuentry '):
+        active=[]
+        depth=0
+    if active is not None:
+        active.append(stripped)
+        depth += stripped.count('{') - stripped.count('}')
+        if depth <= 0 and len(active) > 1:
+            blocks.append(active)
+            active=None
+for block in blocks:
+    linux_ok=any(re.match(r'^linux(?:efi)?\s+', line) and kernel in line.split() for line in block)
+    initrd_ok=any(re.match(r'^initrd(?:efi)?\s+', line) and initrd in line.split() for line in block)
+    if linux_ok and initrd_ok:
+        raise SystemExit(0)
+raise SystemExit(1)
+PY_GRUB_PAIR
 }
 
 package_record_owns_path() {
@@ -397,6 +470,11 @@ generic_symlink_transition_required=$GENERIC_SYMLINK_TRANSITION_REQUIRED
 target_image_metadata_state=$TARGET_IMAGE_METADATA_STATE
 mkinitrd_state=$MKINITRD_STATE
 initrd_state=$INITRD_STATE
+named_initrd_state=$NAMED_INITRD_STATE
+versioned_initrd_state=$VERSIONED_INITRD_STATE
+versioned_initrd_path=$VERSIONED_INITRD_PATH
+versioned_initrd_sha256=$VERSIONED_INITRD_SHA256
+geninitrd_transition_required=$GENINITRD_TRANSITION_REQUIRED
 mkinitrd_kernel_version=$MKINITRD_KERNEL_VERSION
 mkinitrd_transition_required=$MKINITRD_TRANSITION_REQUIRED
 apply_ready=$APPLY_READY
@@ -526,11 +604,29 @@ main() {
 
     if [ ! -e /etc/mkinitrd.conf ]; then MKINITRD_STATE=absent; else MKINITRD_STATE=present; fi
     if [ ! -e /boot/initrd.gz ]; then INITRD_STATE=absent; else INITRD_STATE=present; fi
+    if [ -L /boot/initrd-generic.img ]; then NAMED_INITRD_STATE=present; else NAMED_INITRD_STATE=absent; fi
+    if [ -f "/boot/initrd-$RUNNING_KERNEL.img" ] && [ ! -L "/boot/initrd-$RUNNING_KERNEL.img" ]; then
+        VERSIONED_INITRD_STATE=present
+    else
+        VERSIONED_INITRD_STATE=absent
+    fi
     if BOOT_MODE=$(classify_boot_mode_from_states "$MKINITRD_STATE" "$INITRD_STATE" \
+        "$NAMED_INITRD_STATE" "$VERSIONED_INITRD_STATE" \
         "$GENERIC_KERNEL_BASENAME" "$RUNNING_KERNEL" 2>/dev/null); then
         if [ "$BOOT_MODE" = direct-generic-no-initrd ]; then
             printf 'state=not-required\nboot_mode=%s\n' "$BOOT_MODE" > "$OUTPUT_DIR/mkinitrd-summary.txt"
-            record_pass 'the host uses a coherent direct generic-kernel GRUB boot without mkinitrd.conf or initrd'
+            record_pass 'the host uses a coherent direct generic-kernel GRUB boot without any initrd artifacts'
+        elif [ "$BOOT_MODE" = geninitrd-managed-versioned-initrd ]; then
+            if validate_geninitrd_versioned_layout \
+                && validate_grub_kernel_initrd_pair /boot/grub/grub.cfg "$BOOT_IMAGE" /boot/initrd-generic.img; then
+                GENINITRD_TRANSITION_REQUIRED=true
+                printf 'state=versioned-managed\nboot_mode=%s\nversioned_initrd=%s\nversioned_initrd_sha256=%s\n' \
+                    "$BOOT_MODE" "$VERSIONED_INITRD_PATH" "$VERSIONED_INITRD_SHA256" \
+                    > "$OUTPUT_DIR/mkinitrd-summary.txt"
+                record_pass 'the host uses a coherent GenInitrd-managed versioned initrd paired with the running generic kernel in GRUB'
+            else
+                record_failure 'the GenInitrd versioned initrd, named link, policy, or GRUB pairing is unsafe or inconsistent'
+            fi
         elif [ -f /etc/mkinitrd.conf ] && [ ! -L /etc/mkinitrd.conf ] \
             && [ -r /etc/mkinitrd.conf ] && [ -s /boot/initrd.gz ] \
             && [ ! -L /boot/initrd.gz ]; then
@@ -547,7 +643,7 @@ main() {
             record_failure 'the managed initrd layout contains unsafe file types or an empty initrd'
         fi
     else
-        record_failure 'mkinitrd.conf and initrd presence form an inconsistent boot layout'
+        record_failure 'the mkinitrd, legacy initrd, named initrd, and versioned initrd states form an inconsistent boot layout'
     fi
 
     if [ "$initial_state_captured" = true ]; then
@@ -569,8 +665,8 @@ main() {
     APPLY_READY=false
     APPLY_AUTHORIZED=false
     write_summary "$OUTPUT_DIR/summary.txt"
-    printf 'Slackware-current kernel boot result: layout=%s, boot-mode=%s, running=%s, target=%s, mkinitrd-transition=%s, apply-ready=false, apply-authorized=false\n' \
-        "$PACKAGE_LAYOUT" "$BOOT_MODE" "$RUNNING_KERNEL" "$TARGET_KERNEL" "$MKINITRD_TRANSITION_REQUIRED"
+    printf 'Slackware-current kernel boot result: layout=%s, boot-mode=%s, running=%s, target=%s, mkinitrd-transition=%s, geninitrd-transition=%s, apply-ready=false, apply-authorized=false\n' \
+        "$PACKAGE_LAYOUT" "$BOOT_MODE" "$RUNNING_KERNEL" "$TARGET_KERNEL" "$MKINITRD_TRANSITION_REQUIRED" "$GENINITRD_TRANSITION_REQUIRED"
     archive=$(create_evidence_archive) || { error 'failed to create evidence archive'; return 1; }
     printf 'Evidence archive: %s\n' "$archive"
     printf 'Evidence SHA-256: %s\n' "$(awk '{print $1}' "$archive.sha256")"

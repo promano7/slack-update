@@ -108,7 +108,7 @@ Before submitting a change to the reference script:
 24. Run `tests/reference/test-elilo-oldkernel-retention-preflight-harness.sh` when retention timing, later-boot evidence, package-database compatibility symlinks, active/rollback package records, state-capture comparison, ELILO two-entry validation, shared package-path inventory, cleanup planning, portable evidence sidecars, destination verification, or no-cleanup source guards are affected.
 25. Run `tests/reference/test-kernel-cleanup-plan.sh` when cleanup inventory schema, exact active/rollback package sets, active archive coverage, module-tree requirements, boot-transaction metadata, ELILO oldkernel-removal planning, GRUB regeneration planning, no-op single-kernel handling, or cleanup authorization boundaries are affected.
 26. Run `tests/reference/test-kernel-cleanup-dry-run.sh` when mandatory dry-run gating, plan identity, simulation-only authorization, proposed command vectors, failure injection, recovery planning, backend transaction rendering, or no-mutation guarantees are affected.
-27. Run `tests/reference/test-current-kernel-boot-preflight-harness.sh` when Slackware-current monolithic kernel layout, repository kernel transition, target file-inventory deferral, module or kernel-image ownership, direct-generic versus mkinitrd-managed classification, `BOOT_IMAGE` validation, GRUB discovery, apply-readiness gating, or current-kernel evidence publication is affected.
+27. Run `tests/reference/test-current-kernel-boot-preflight-harness.sh` when Slackware-current monolithic kernel layout, repository kernel transition, target file-inventory deferral, module or kernel-image ownership, direct-generic, GenInitrd-versioned, versus mkinitrd-managed classification, `BOOT_IMAGE` validation, GRUB discovery, apply-readiness gating, or current-kernel evidence publication is affected.
 28. Run `tests/reference/test-current-direct-generic-boot-policy.sh` when direct generic boot detection, exact `BOOT_IMAGE` parsing, active kernel ownership, no-initrd policy selection, post-update generic-kernel validation, generated GRUB target validation, or boot-safety result mapping is affected.
 29. Run `tests/reference/test-current-kernel-package-preflight-harness.sh` when accepted candidate/boot/restart binding, exact Slackpkg kernel downloads, cache resolution, package-archive path safety, target image or module inventory, non-executed `doinst.sh` policy, GRUB evidence generation, portable sidecars, or transaction apply denial is affected.
 30. Run `tests/reference/test-current-geninitrd-policy-preflight-harness.sh` when installed GenInitrd script recognition, non-evaluating policy parsing, generator selection, automatic GRUB behavior, custom hook inventory, or policy evidence publication is affected.
@@ -129,18 +129,18 @@ Before submitting a change to the reference script:
 Never run the apply workflow on a production machine merely to validate a contribution.
 
 
-## Current Slackware-current ownership preflight
+## Current Slackware-current boot-baseline preflight
 
-After accepting the corrected `6.18.42` GenInitrd command evidence, run only the non-destructive ownership preflight:
+The step-53 diagnostic revoked the previous direct-no-initrd classification. Run only the corrected non-destructive boot preflight:
 
 ```bash
-sudo bash tests/acceptance/reference/test-current-geninitrd-grub-ownership-preflight.sh \
+sudo bash tests/acceptance/reference/test-current-kernel-boot-preflight.sh \
     --target slackware-current \
     --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
     --confirm-target-kernel 6.18.42
 ```
 
-Do not run normal-update apply. Copy the printed evidence archive and sidecar directly to `/home/promano`, verify the sidecar there, and include both files with the review.
+Do not run normal-update apply or reuse the dependent step-46 through step-52 records. Copy the printed evidence archive and sidecar directly to `/home/promano`, verify the sidecar there, and include both files with the review.
 
 ## Pull requests
 
