@@ -26,14 +26,18 @@ Slack-Update is intended to provide a desktop-oriented update experience similar
 
 ## Current optional rollback continuation
 
-The mandatory Slackware-current update remains closed at accepted step 85 with kernel 6.18.42 active. Step 87 revision 3 safely acquired, authenticated, and inspected the complete historical package, but Slackware `df` rejected the mutually exclusive `-P` and `--output=avail` options before the space budget could be calculated. The run remained non-mutating and is bound as the fourth rejected step-87 diagnostic. Use only revision 4 below.
+The mandatory Slackware-current update remains closed at accepted step 85 with kernel 6.18.42 active. The real step-87 revision-4 preflight authenticated and inspected the complete historical 6.18.40 package, confirmed sufficient space, and made no system changes. Its archive SHA-256 is `11122a514f1f1c75cfcb52e5d4f310ed7719235c23f4389b6e16e3d13f513134`.
 
-Keep these two files until the complete on-disk rollback reconstruction has been accepted:
+That run is **not accepted for apply authorization** despite reporting `apply_ready=true`: semantic review found that its projected GRUB entry retained `/boot/initrd-generic.img` for active kernel 6.18.42 and placed the rollback initrd before `/boot/amd-ucode.img`. Revision 5 supersedes only that projected plan and keeps the mandatory update closure intact.
+
+Keep these two source files until the complete on-disk rollback reconstruction has been accepted:
 
 ```text
 /home/promano/slack-update-source-6.18.40/kernel-generic-6.18.40-x86_64-1.txz
 /home/promano/slack-update-source-6.18.40/kernel-generic-6.18.40-x86_64-1.txz.asc
 ```
+
+Run only revision 5:
 
 ```bash
 sudo bash tests/acceptance/reference/test-current-rollback-source-and-plan-preflight.sh \
@@ -45,14 +49,23 @@ sudo bash tests/acceptance/reference/test-current-rollback-source-and-plan-prefl
     --confirm-revision-1-failed-preflight-evidence-sha256 5dc24b1863a818cd0500fd08ea569995e627411a66181ccebcbb74698bbac35e \
     --confirm-revision-2-failed-preflight-evidence-sha256 bc28dd82557236f0938f71c4255eee6ea2f477f2f8676f32209af6fae3ce420e \
     --confirm-revision-3-failed-preflight-evidence-sha256 45b5b35fd51ef962d5865185679eeb28f3a2435ddddbca70500608706f4396ca \
+    --confirm-revision-4-rejected-plan-evidence-sha256 11122a514f1f1c75cfcb52e5d4f310ed7719235c23f4389b6e16e3d13f513134 \
     --confirm-active-kernel 6.18.42 \
     --confirm-rollback-kernel 6.18.40 \
-    --confirm-source-plan-sha256 055be31d9d09f7fb8f4e1c1b4f7142e8d56a211a642ee346e727e99b75128531 \
+    --confirm-source-plan-sha256 72f58b575c93c478fb5562733a526fa4c283b76222a4c5090b7e5f4da343b7aa \
     --source-package /home/promano/slack-update-source-6.18.40/kernel-generic-6.18.40-x86_64-1.txz \
     --source-signature /home/promano/slack-update-source-6.18.40/kernel-generic-6.18.40-x86_64-1.txz.asc
 ```
 
-Revision 4 preserves the accepted signature and package-inspection logic, binds revision-3 evidence `45b5b35fd51ef962d5865185679eeb28f3a2435ddddbca70500608706f4396ca`, and samples free space with Slackware-compatible `df -B1 --output=avail` rather than combining `-P` with `--output`. Any `df` diagnostics are retained in `space-budget-df.log`. A successful result may declare the signed source and exact plan ready for a separate authorized-apply review, but it never authorizes or performs reconstruction. The reviewed revision-4 script SHA-256 is `2a0e98ed08e138385ca2983d1f7047c1ef5a54613b50d0305fd5f9414ad47099` and the confirmation scope is `055be31d9d09f7fb8f4e1c1b4f7142e8d56a211a642ee346e727e99b75128531`.
+Revision 5 projects the real-host initrd vector as:
+
+```text
+initrd /boot/amd-ucode.img /boot/initrd-6.18.40.img
+```
+
+It rejects any retained active initrd, any foreign versioned initrd, duplicate microcode images, unknown initrd arguments, or an active entry that does not contain exactly one reviewed kernel and initrd command. It remains a strictly non-mutating preflight: package installation, package-database changes, `depmod`, `mkinitrd`, GRUB modification, metadata refresh, and reboot are all forbidden. A clean result may again report `apply_ready=true`, but `apply_authorized=false` must remain fixed until a separate reviewed apply wrapper is prepared.
+
+Revision-5 script SHA-256 is `0a923befda11399ddcf18b886036627e236fcf7d26b8686dc21c93296c331fb8` and the confirmation scope is `72f58b575c93c478fb5562733a526fa4c283b76222a4c5090b7e5f4da343b7aa`.
 
 
 ## Goals

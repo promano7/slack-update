@@ -1,0 +1,32 @@
+{
+  "accepted": false,
+  "active_kernel": "6.18.42",
+  "apply_authorized": false,
+  "apply_ready_reported": true,
+  "archive_sha256": "11122a514f1f1c75cfcb52e5d4f310ed7719235c23f4389b6e16e3d13f513134",
+  "assertions": {
+    "failures": 0,
+    "passes": 61,
+    "skips": 0
+  },
+  "executed_script_sha256": "2a0e98ed08e138385ca2983d1f7047c1ef5a54613b50d0305fd5f9414ad47099",
+  "failure_cause": "rollback-grub-entry-retained-active-initrd-and-reordered-microcode",
+  "next_stage": "current-rollback-source-and-plan-preflight-revision-5",
+  "projected_initrd_vector": [
+    "/boot/initrd-6.18.40.img",
+    "/boot/amd-ucode.img",
+    "/boot/initrd-generic.img"
+  ],
+  "required_initrd_vector": [
+    "/boot/amd-ucode.img",
+    "/boot/initrd-6.18.40.img"
+  ],
+  "rollback_kernel": "6.18.40",
+  "scenario": "current-rollback-source-and-plan-preflight-revision-4-rejected-plan-diagnostic",
+  "source_package_valid": true,
+  "source_signature_valid": true,
+  "space_state": "sufficient",
+  "supersedes_apply_ready": true,
+  "system_state_mutated": false,
+  "target": "slackware-current"
+}
