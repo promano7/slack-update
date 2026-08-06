@@ -1,0 +1,70 @@
+{
+  "accepted": false,
+  "accepted_closure_archive_sha256": "5d6fe97ddd81d1c99d0dd807127d6e98b8479d8e719d6c6ffb346fe167c915eb",
+  "active_artifacts": {
+    "initrd_path": "/boot/initrd-6.18.42.img",
+    "initrd_sha256": "21ab641ca5b04e831b7cb776bd8ecee00f96e0b53d21d8fe3b5033dbacd9febc",
+    "initrd_size": 16514239,
+    "kernel_path": "/boot/vmlinuz-6.18.42",
+    "kernel_sha256": "bdbd0e5187e1252f1ef9bb9ac771430be5f2367fb9e8a5f42e1b172efb1cb3d4",
+    "kernel_size": 14443008
+  },
+  "active_kernel": "6.18.42",
+  "archive_sha256": "cd2769c18e93b17596028b33b00a1d6e14bb81336172935bb18b0bef3568ed56",
+  "assertions": {
+    "failures": 2,
+    "passes": 13
+  },
+  "boot_free_bytes": 184230551552,
+  "captured_at": "2026-08-06T11:03:29Z",
+  "confirmed_inventory_scope_sha256": "e09af439eb6a8678b2e83a5c53bb0b368cf7531d42a1d725c6904a234d96bc31",
+  "diagnosis": "The rollback directory contains no kernel modules, but it is not empty: it contains only a depmod-generated metadata placeholder and an empty misc directory.",
+  "diagnostic": true,
+  "estimated_required_bytes": 98084165,
+  "executed_inventory_script_sha256": "d6b9eadf865156c81626ebc988fec9c031f30fe5ac2a9aa1dbfc56d015b1b585",
+  "expected_package_filename": "kernel-generic-6.18.40-x86_64-1.txz",
+  "grub_mutation_performed": false,
+  "hostname_fqdn": "pcold-slack.pcold-slack.org",
+  "hostname_short": "pcold-slack",
+  "initrd_generated": false,
+  "installed_package_count": 2040,
+  "next_stage": "current-rollback-source-and-plan-preflight-revision-1",
+  "package_database_snapshot_sha256": "349557f219bb967bd5cafd835a494b413059cea61545012f072f62daf5b6f675",
+  "package_mutation_performed": false,
+  "package_name_snapshot_sha256": "4c8e78a76c6097c60d6ed5391fd6c203b32eeadcf274d1ab71f81a6bbe549170",
+  "reboot_performed": false,
+  "reconstruction_implication": "Back up and replace the metadata-only placeholder, then restore both the versioned kernel image and complete module tree from the exact signed package before creating the rollback initrd.",
+  "repository_metadata_refreshed": false,
+  "rollback_artifacts": {
+    "initrd_present": false,
+    "kernel_present": false,
+    "populated_module_tree_present": false
+  },
+  "rollback_kernel": "6.18.40",
+  "rollback_modules": {
+    "corrected_state": "depmod-metadata-only-placeholder",
+    "directory_count": 1,
+    "member_count": 12,
+    "metadata_file_count": 11,
+    "module_file_count": 0,
+    "path": "/lib/modules/6.18.40",
+    "path_exists": true,
+    "path_kind": "directory",
+    "previous_claim_correct": false,
+    "previously_reported_state": "empty-directory-placeholder"
+  },
+  "root": {
+    "source": "/dev/sda2",
+    "uuid": "ba7632d7-7469-483e-830d-59c88d985866"
+  },
+  "running_kernel": "6.18.42",
+  "scenario": "current-rollback-reconstruction-inventory",
+  "source_evidence": {
+    "failed_preflight_archive_sha256": "d2a5398c789f14cfee07d53a55e4ca7da8aab85dd0387b51f437120401f9ba14",
+    "inventory_archive_sha256": "cd2769c18e93b17596028b33b00a1d6e14bb81336172935bb18b0bef3568ed56"
+  },
+  "source_root": "/var/cache/packages",
+  "source_state": "not-found-in-reviewed-root",
+  "system_state_unchanged": true,
+  "target": "slackware-current"
+}

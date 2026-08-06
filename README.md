@@ -26,7 +26,7 @@ Slack-Update is intended to provide a desktop-oriented update experience similar
 
 ## Current optional rollback continuation
 
-The mandatory Slackware-current update is closed at accepted step 85 with kernel 6.18.42 active. Step 86 then established, without modifying the host, that `/lib/modules/6.18.40` is only an empty directory placeholder and that the historical package is not present in `/var/cache/packages`. The next optional machine boundary is step 87: acquire or reuse the exact signed `kernel-generic-6.18.40-x86_64-1.txz`, verify and inspect it privately, and project the complete reconstruction without installing packages, generating an initrd, modifying GRUB, or rebooting.
+The mandatory Slackware-current update remains closed at accepted step 85 with kernel 6.18.42 active. Step 86 and the failed initial step-87 run established, without modifying the host, that `/lib/modules/6.18.40` contains no module objects but does contain a reviewed depmod metadata placeholder. The initial step-87 script is rejected. Use only revision 1 below; it reuses the exact package and detached signature already retained in `/home/promano`, verifies them privately, and projects the complete reconstruction without installing packages, generating an initrd, modifying GRUB, or rebooting.
 
 ```bash
 sudo bash tests/acceptance/reference/test-current-rollback-source-and-plan-preflight.sh \
@@ -34,12 +34,15 @@ sudo bash tests/acceptance/reference/test-current-rollback-source-and-plan-prefl
     --confirm-hostname pcold-slack \
     --confirm-hostname-fqdn pcold-slack.pcold-slack.org \
     --confirm-inventory-evidence-sha256 cd2769c18e93b17596028b33b00a1d6e14bb81336172935bb18b0bef3568ed56 \
+    --confirm-failed-preflight-evidence-sha256 d2a5398c789f14cfee07d53a55e4ca7da8aab85dd0387b51f437120401f9ba14 \
     --confirm-active-kernel 6.18.42 \
     --confirm-rollback-kernel 6.18.40 \
-    --confirm-source-plan-sha256 6967f280c30067bb82b0da2b8b83fac0b189560621838832a477e247a246fdc7
+    --confirm-source-plan-sha256 5e215b8c53becb65b216fadb2e38bbeb57f8fc590856e405728db76fc60efb95 \
+    --source-package /home/promano/kernel-generic-6.18.40-x86_64-1.txz \
+    --source-signature /home/promano/kernel-generic-6.18.40-x86_64-1.txz.asc
 ```
 
-A successful result may declare the source and plan ready for a separate authorized-apply review, but it never authorizes or performs reconstruction.
+A successful result may declare the signed source and exact plan ready for a separate authorized-apply review, but it never authorizes or performs reconstruction. The reviewed revision-1 script SHA-256 is `8dc3eceb45c6c531aaf8e3f74e907cf4eb2b45a3aa113f43876b57405def47bd`.
 
 ## Goals
 

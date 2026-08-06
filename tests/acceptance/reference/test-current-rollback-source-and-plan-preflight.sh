@@ -11,7 +11,8 @@ TEST_DIR=$(CDPATH= cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
 REPOSITORY_ROOT=$(CDPATH= cd -- "$TEST_DIR/../../.." && pwd -P)
 DEFAULT_OUTPUT_ROOT=${ROLLBACK_PLAN_OUTPUT_ROOT:-/var/tmp/slack-update-acceptance/current-rollback-source-and-plan-preflight}
 DEFAULT_SOURCE_STAGING_ROOT=${ROLLBACK_PLAN_SOURCE_STAGING_ROOT:-/var/tmp/slack-update-rollback-source}
-DIAGNOSTIC_RECORD=${ROLLBACK_PLAN_DIAGNOSTIC_RECORD:-$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-rollback-reconstruction-inventory-20260806-diagnostic.json}
+DIAGNOSTIC_RECORD=${ROLLBACK_PLAN_DIAGNOSTIC_RECORD:-$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-rollback-reconstruction-inventory-20260806-corrected-diagnostic.json}
+FAILED_PREFLIGHT_RECORD=${ROLLBACK_PLAN_FAILED_PREFLIGHT_RECORD:-$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-rollback-source-and-plan-preflight-20260806-failed-diagnostic.json}
 GENINITRD_RECORD=${ROLLBACK_PLAN_GENINITRD_RECORD:-$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-command-preflight-20260805-accepted.json}
 SIGNING_KEY=${ROLLBACK_PLAN_SIGNING_KEY:-$REPOSITORY_ROOT/tests/fixtures/reference/keys/slackware-security.gpg.asc}
 PLAN_POLICY=${ROLLBACK_PLAN_POLICY:-$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-rollback-source-and-plan-preflight-policy.json}
@@ -25,11 +26,13 @@ SOURCE_SIGNATURE=
 CONFIRM_HOSTNAME=
 CONFIRM_HOSTNAME_FQDN=
 CONFIRM_INVENTORY_EVIDENCE_SHA256=
+CONFIRM_FAILED_PREFLIGHT_EVIDENCE_SHA256=
 CONFIRM_ACTIVE_KERNEL=
 CONFIRM_ROLLBACK_KERNEL=
 CONFIRM_SOURCE_PLAN_SHA256=
 PASS_COUNT=0
 FAILURE_COUNT=0
+SKIP_COUNT=0
 ASSERTION_LOG=
 ROOT_PREFIX=
 PACKAGE_DATABASE=
@@ -59,6 +62,15 @@ SPACE_REQUIRED_BYTES=0
 SPACE_AVAILABLE_BYTES=0
 APPLY_READY=false
 NEXT_STAGE=current-rollback-source-and-plan-manual-review
+REVIEWED_BOUNDARY_VALID=false
+LIVE_BOUNDARY_VALID=false
+SOURCE_ACQUIRED=false
+SOURCE_SIGNATURE_VALID=false
+SOURCE_PACKAGE_VALID=false
+SPACE_BUDGET_VALID=false
+INITRD_PROJECTION_VALID=false
+GRUB_PROJECTION_VALID=false
+APPLY_PLAN_VALID=false
 TEST_MODE=${SLACK_UPDATE_TEST_MODE:-0}
 
 print_usage() {
@@ -67,6 +79,7 @@ Usage: ${0##*/} --target slackware-current \\
                      --confirm-hostname SHORT_HOSTNAME \\
                      --confirm-hostname-fqdn FQDN \\
                      --confirm-inventory-evidence-sha256 SHA256 \\
+                     --confirm-failed-preflight-evidence-sha256 SHA256 \\
                      --confirm-active-kernel VERSION \\
                      --confirm-rollback-kernel VERSION \\
                      --confirm-source-plan-sha256 SHA256 [options]
@@ -82,6 +95,7 @@ Required options:
       --confirm-hostname SHORT_HOSTNAME
       --confirm-hostname-fqdn FQDN
       --confirm-inventory-evidence-sha256 SHA256
+      --confirm-failed-preflight-evidence-sha256 SHA256
       --confirm-active-kernel VERSION
       --confirm-rollback-kernel VERSION
       --confirm-source-plan-sha256 SHA256
@@ -98,6 +112,7 @@ EOF_USAGE
 error() { printf 'ERROR: %s\n' "$*" >&2; }
 record_pass() { PASS_COUNT=$((PASS_COUNT + 1)); printf 'PASS: %s\n' "$1" | tee -a "$ASSERTION_LOG"; }
 record_failure() { FAILURE_COUNT=$((FAILURE_COUNT + 1)); printf 'FAIL: %s\n' "$1" | tee -a "$ASSERTION_LOG" >&2; }
+record_skip() { SKIP_COUNT=$((SKIP_COUNT + 1)); printf 'SKIP: %s\n' "$1" | tee -a "$ASSERTION_LOG"; }
 
 is_sha256() {
     [ "${#1}" -eq 64 ] || return 1
@@ -116,6 +131,7 @@ parse_arguments() {
             --confirm-hostname) [ "$#" -ge 2 ] || return 1; CONFIRM_HOSTNAME=$2; shift 2 ;;
             --confirm-hostname-fqdn) [ "$#" -ge 2 ] || return 1; CONFIRM_HOSTNAME_FQDN=$2; shift 2 ;;
             --confirm-inventory-evidence-sha256) [ "$#" -ge 2 ] || return 1; CONFIRM_INVENTORY_EVIDENCE_SHA256=${2,,}; shift 2 ;;
+            --confirm-failed-preflight-evidence-sha256) [ "$#" -ge 2 ] || return 1; CONFIRM_FAILED_PREFLIGHT_EVIDENCE_SHA256=${2,,}; shift 2 ;;
             --confirm-active-kernel) [ "$#" -ge 2 ] || return 1; CONFIRM_ACTIVE_KERNEL=$2; shift 2 ;;
             --confirm-rollback-kernel) [ "$#" -ge 2 ] || return 1; CONFIRM_ROLLBACK_KERNEL=$2; shift 2 ;;
             --confirm-source-plan-sha256) [ "$#" -ge 2 ] || return 1; CONFIRM_SOURCE_PLAN_SHA256=${2,,}; shift 2 ;;
@@ -131,6 +147,7 @@ parse_arguments() {
     [ -n "$CONFIRM_HOSTNAME" ] && [ -n "$CONFIRM_HOSTNAME_FQDN" ] || return 1
     case "$CONFIRM_HOSTNAME$CONFIRM_HOSTNAME_FQDN" in *[[:space:]]*) return 1 ;; esac
     is_sha256 "$CONFIRM_INVENTORY_EVIDENCE_SHA256" || return 1
+    is_sha256 "$CONFIRM_FAILED_PREFLIGHT_EVIDENCE_SHA256" || return 1
     is_sha256 "$CONFIRM_SOURCE_PLAN_SHA256" || return 1
     is_safe_kernel_version "$CONFIRM_ACTIVE_KERNEL" || return 1
     is_safe_kernel_version "$CONFIRM_ROLLBACK_KERNEL" || return 1
@@ -160,25 +177,26 @@ PY
 }
 
 validate_reviewed_boundary() {
-    python3 - "$PLAN_POLICY" "$PLAN_SCRIPT" "$DIAGNOSTIC_RECORD" "$GENINITRD_RECORD" "$SIGNING_KEY" \
+    python3 - "$PLAN_POLICY" "$PLAN_SCRIPT" "$DIAGNOSTIC_RECORD" "$FAILED_PREFLIGHT_RECORD" "$GENINITRD_RECORD" "$SIGNING_KEY" \
         "$CONFIRM_HOSTNAME" "$CONFIRM_HOSTNAME_FQDN" "$CONFIRM_INVENTORY_EVIDENCE_SHA256" \
-        "$CONFIRM_ACTIVE_KERNEL" "$CONFIRM_ROLLBACK_KERNEL" "$CONFIRM_SOURCE_PLAN_SHA256" <<'PY'
+        "$CONFIRM_FAILED_PREFLIGHT_EVIDENCE_SHA256" "$CONFIRM_ACTIVE_KERNEL" "$CONFIRM_ROLLBACK_KERNEL" \
+        "$CONFIRM_SOURCE_PLAN_SHA256" <<'PY'
 import hashlib, json, pathlib, sys
-(policy_path, script_path, diagnostic_path, geninitrd_path, key_path, host, fqdn,
- inventory_archive, active, rollback, confirmed_scope) = sys.argv[1:]
-
+(policy_path, script_path, diagnostic_path, failed_path, geninitrd_path, key_path, host, fqdn,
+ inventory_archive, failed_archive, active, rollback, confirmed_scope) = sys.argv[1:]
 def regular(path):
     p=pathlib.Path(path)
     if not p.is_file() or p.is_symlink(): raise SystemExit(1)
     return p
-
 def sha(path): return hashlib.sha256(regular(path).read_bytes()).hexdigest()
 policy=json.loads(regular(policy_path).read_text(encoding='utf-8'))
 diagnostic=json.loads(regular(diagnostic_path).read_text(encoding='utf-8'))
+failed=json.loads(regular(failed_path).read_text(encoding='utf-8'))
 geninitrd=json.loads(regular(geninitrd_path).read_text(encoding='utf-8'))
-script_sha=sha(script_path); diagnostic_sha=sha(diagnostic_path); geninitrd_sha=sha(geninitrd_path); key_sha=sha(key_path)
+script_sha=sha(script_path); diagnostic_sha=sha(diagnostic_path); failed_sha=sha(failed_path)
+geninitrd_sha=sha(geninitrd_path); key_sha=sha(key_path)
 scope=(
- 'operation=current-rollback-source-and-plan-preflight\n'
+ 'operation=current-rollback-source-and-plan-preflight-revision-1\n'
  'target=slackware-current\n'
  f'hostname_short={host}\n'
  f'hostname_fqdn={fqdn}\n'
@@ -186,7 +204,9 @@ scope=(
  f'rollback_kernel={rollback}\n'
  f'root_uuid={policy.get("required_root_uuid", "")}\n'
  f'inventory_archive_sha256={inventory_archive}\n'
+ f'failed_preflight_archive_sha256={failed_archive}\n'
  f'diagnostic_record_sha256={diagnostic_sha}\n'
+ f'failed_preflight_record_sha256={failed_sha}\n'
  f'geninitrd_record_sha256={geninitrd_sha}\n'
  f'signing_key_sha256={key_sha}\n'
  f'plan_script_sha256={script_sha}\n'
@@ -194,12 +214,14 @@ scope=(
 calculated=hashlib.sha256(scope).hexdigest()
 vector=geninitrd.get('current_command_vector', [])
 checks=[
- policy.get('scenario') == 'current-rollback-source-and-plan-preflight',
+ policy.get('scenario') == 'current-rollback-source-and-plan-preflight-revision-1',
  policy.get('target') == 'slackware-current', policy.get('reviewed') is True,
  policy.get('required_hostname_short') == host, policy.get('required_hostname_fqdn') == fqdn,
  policy.get('active_kernel') == active, policy.get('rollback_kernel') == rollback,
  policy.get('inventory_archive_sha256') == inventory_archive,
+ policy.get('failed_preflight_archive_sha256') == failed_archive,
  policy.get('diagnostic_record_sha256') == diagnostic_sha,
+ policy.get('failed_preflight_record_sha256') == failed_sha,
  policy.get('geninitrd_record_sha256') == geninitrd_sha,
  policy.get('signing_key_sha256') == key_sha,
  policy.get('plan_script_sha256') == script_sha,
@@ -212,8 +234,12 @@ checks=[
  diagnostic.get('archive_sha256') == inventory_archive,
  diagnostic.get('active_kernel') == active,
  diagnostic.get('rollback_kernel') == rollback,
- diagnostic.get('rollback_modules', {}).get('corrected_state') == 'empty-directory-placeholder',
+ diagnostic.get('rollback_modules', {}).get('corrected_state') == 'depmod-metadata-only-placeholder',
+ diagnostic.get('rollback_modules', {}).get('module_file_count') == 0,
  diagnostic.get('system_state_unchanged') is True,
+ failed.get('archive_sha256') == failed_archive,
+ failed.get('executed_script_sha256') == '37756428b0fbb9e106ce1853414f8032d803fdc6bb9ec9fef642ed82bd4c8a74',
+ failed.get('system_state_mutated') is False,
  geninitrd.get('accepted') is True,
  geninitrd.get('current_command_vector') == vector,
  len(vector) >= 12 and vector[0] == 'mkinitrd' and '-k' in vector and vector[vector.index('-k')+1] == rollback,
@@ -284,68 +310,116 @@ validate_live_boundary() {
     else
         : > "$grubenv_list"
     fi
-    ! grep -Eq '^next_entry=.+' "$grubenv_list" || return 1
-    grub-script-check "$(rooted /boot/grub/grub.cfg)" >/dev/null 2>&1 || return 1
     python3 - "$PLAN_POLICY" "$ROOT_PREFIX" "$PACKAGE_DATABASE" "$OUTPUT_DIR/packages.before.txt" \
         "$OUTPUT_DIR/package-names.before.txt" "$HOSTNAME_SHORT" "$HOSTNAME_FQDN" "$RUNNING_KERNEL" \
         "$ARCHITECTURE" "$ROOT_UUID" "$ROOT_SOURCE" "$CONFIRM_ACTIVE_KERNEL" "$CONFIRM_ROLLBACK_KERNEL" \
-        "$OUTPUT_DIR/live-boundary.json" <<'PY'
+        "$grubenv_list" "$OUTPUT_DIR/live-boundary.json" "$OUTPUT_DIR/live-boundary-checks.tsv" <<'PY'
 import hashlib, json, pathlib, shlex, sys
 (policy_path, prefix, package_db, package_snapshot, names_snapshot, host, fqdn, running,
- arch, root_uuid, root_source, active, rollback, output) = sys.argv[1:]
+ arch, root_uuid, root_source, active, rollback, grubenv_path, output, checks_output) = sys.argv[1:]
 policy=json.load(open(policy_path, encoding='utf-8'))
 root=pathlib.Path(prefix) if prefix else pathlib.Path('/')
 def path(value): return root / value.lstrip('/')
 def sha(p): return hashlib.sha256(p.read_bytes()).hexdigest()
 def exact_regular(p, expected_sha, expected_size):
     return p.is_file() and not p.is_symlink() and p.stat().st_uid == 0 and p.stat().st_gid == 0 and p.stat().st_size == expected_size and sha(p) == expected_sha
-checks=[
- host == policy['required_hostname_short'], fqdn == policy['required_hostname_fqdn'],
- running == active == policy['active_kernel'], arch == 'x86_64',
- root_uuid == policy['required_root_uuid'], bool(root_source),
-]
-osrelease=path('/proc/sys/kernel/osrelease')
-cmdline=path('/proc/cmdline')
-checks += [osrelease.is_file() and osrelease.read_text().strip() == active, cmdline.is_file()]
-try: tokens=shlex.split(cmdline.read_text().strip())
-except Exception: raise SystemExit(1)
-checks += [f'BOOT_IMAGE=/boot/vmlinuz-generic' in tokens, f'root=UUID={root_uuid}' in tokens]
+checks=[]
+def add(key, ok, detail): checks.append({'key':key,'ok':bool(ok),'detail':detail})
+add('hostname-short', host == policy['required_hostname_short'], f'hostname short name is {host}')
+add('hostname-fqdn', fqdn == policy['required_hostname_fqdn'], f'hostname FQDN is {fqdn}')
+add('running-kernel', running == active == policy['active_kernel'], f'running kernel is {running}')
+add('architecture', arch == 'x86_64', f'architecture is {arch}')
+add('root-uuid', root_uuid == policy['required_root_uuid'], f'root UUID is {root_uuid}')
+add('root-source', bool(root_source), f'root source is {root_source or "missing"}')
+osrelease=path('/proc/sys/kernel/osrelease'); cmdline=path('/proc/cmdline')
+add('osrelease', osrelease.is_file() and osrelease.read_text().strip() == active, 'kernel osrelease matches the active kernel')
+add('cmdline-readable', cmdline.is_file(), 'kernel command line is readable')
+try: tokens=shlex.split(cmdline.read_text().strip()) if cmdline.is_file() else []
+except Exception: tokens=[]
+add('cmdline-boot-image', 'BOOT_IMAGE=/boot/vmlinuz-generic' in tokens, 'BOOT_IMAGE uses /boot/vmlinuz-generic')
+add('cmdline-root-uuid', f'root=UUID={root_uuid}' in tokens, 'kernel command line uses the reviewed root UUID')
 active_art=policy['active_artifacts']
-checks += [
- exact_regular(path(f'/boot/vmlinuz-{active}'), active_art['kernel_sha256'], active_art['kernel_size']),
- exact_regular(path(f'/boot/initrd-{active}.img'), active_art['initrd_sha256'], active_art['initrd_size']),
- path('/boot/vmlinuz-generic').is_symlink() and path('/boot/vmlinuz-generic').readlink().as_posix() == f'vmlinuz-{active}',
- path('/boot/initrd-generic.img').is_symlink() and path('/boot/initrd-generic.img').readlink().as_posix() == f'initrd-{active}.img',
- path(f'/lib/modules/{active}').is_dir() and any(path(f'/lib/modules/{active}').rglob('*')),
- not path(f'/boot/vmlinuz-{rollback}').exists() and not path(f'/boot/vmlinuz-{rollback}').is_symlink(),
- not path(f'/boot/initrd-{rollback}.img').exists() and not path(f'/boot/initrd-{rollback}.img').is_symlink(),
-]
+add('active-kernel-file', exact_regular(path(f'/boot/vmlinuz-{active}'), active_art['kernel_sha256'], active_art['kernel_size']), 'active versioned kernel matches reviewed size and SHA-256')
+add('active-initrd-file', exact_regular(path(f'/boot/initrd-{active}.img'), active_art['initrd_sha256'], active_art['initrd_size']), 'active versioned initrd matches reviewed size and SHA-256')
+add('generic-kernel-link', path('/boot/vmlinuz-generic').is_symlink() and path('/boot/vmlinuz-generic').readlink().as_posix() == f'vmlinuz-{active}', 'generic kernel link targets the active version')
+add('generic-initrd-link', path('/boot/initrd-generic.img').is_symlink() and path('/boot/initrd-generic.img').readlink().as_posix() == f'initrd-{active}.img', 'generic initrd link targets the active version')
+active_modules=path(f'/lib/modules/{active}')
+add('active-modules', active_modules.is_dir() and not active_modules.is_symlink() and any(active_modules.rglob('*')), 'active module tree is populated')
+add('rollback-kernel-absent', not path(f'/boot/vmlinuz-{rollback}').exists() and not path(f'/boot/vmlinuz-{rollback}').is_symlink(), 'rollback kernel is absent before reconstruction')
+add('rollback-initrd-absent', not path(f'/boot/initrd-{rollback}.img').exists() and not path(f'/boot/initrd-{rollback}.img').is_symlink(), 'rollback initrd is absent before reconstruction')
 rollback_modules=path(f'/lib/modules/{rollback}')
-checks += [rollback_modules.is_dir() and not rollback_modules.is_symlink() and not any(rollback_modules.iterdir())]
-for key, live in [
- ('geninitrd_policy','/etc/default/geninitrd'), ('geninitrd','/usr/sbin/geninitrd'),
- ('generator','/usr/share/mkinitrd/mkinitrd_command_generator.sh'),
- ('setup','/var/lib/pkgtools/setup/setup.01.mkinitrd'), ('active_grub','/boot/grub/grub.cfg')]:
-    item=policy[key]; checks.append(exact_regular(path(live), item['sha256'], item['size']))
+add('rollback-placeholder-directory', rollback_modules.is_dir() and not rollback_modules.is_symlink(), 'rollback placeholder is a real directory')
+expected=policy['rollback_placeholder_entries']
+observed={}
+if rollback_modules.is_dir() and not rollback_modules.is_symlink():
+    for item in rollback_modules.iterdir():
+        if item.is_symlink(): kind='symlink'
+        elif item.is_dir(): kind='directory'
+        elif item.is_file(): kind='regular'
+        else: kind='other'
+        st=item.lstat()
+        observed[item.name]={'kind':kind,'mode':st.st_mode & 0o777,'uid':st.st_uid,'gid':st.st_gid,'size':st.st_size}
+add('rollback-placeholder-entry-set', set(observed) == set(expected), 'rollback placeholder contains only the reviewed depmod metadata names')
+metadata_ok=set(observed) == set(expected)
+if metadata_ok:
+    for name, spec in expected.items():
+        item=observed[name]
+        metadata_ok = metadata_ok and item['kind'] == spec['kind'] and item['mode'] == int(spec['mode'],8) and item['uid'] == 0 and item['gid'] == 0
+        if spec['kind'] == 'regular': metadata_ok = metadata_ok and item['size'] == spec['size']
+add('rollback-placeholder-metadata', metadata_ok, 'rollback placeholder types, modes, owners, and regular-file sizes match the reviewed metadata-only state')
+module_suffixes=('.ko','.ko.gz','.ko.xz','.ko.zst')
+module_objects=[]
+if rollback_modules.is_dir() and not rollback_modules.is_symlink():
+    module_objects=[p for p in rollback_modules.rglob('*') if p.is_file() and p.name.endswith(module_suffixes)]
+add('rollback-module-objects-absent', not module_objects, 'rollback placeholder contains no kernel module objects')
+for policy_key, check_key, live in [
+ ('geninitrd_policy','geninitrd-policy','/etc/default/geninitrd'), ('geninitrd','geninitrd','/usr/sbin/geninitrd'),
+ ('generator','generator','/usr/share/mkinitrd/mkinitrd_command_generator.sh'),
+ ('setup','setup','/var/lib/pkgtools/setup/setup.01.mkinitrd'), ('active_grub','active-grub','/boot/grub/grub.cfg')]:
+    item=policy[policy_key]
+    add(check_key, exact_regular(path(live), item['sha256'], item['size']), f'{live} matches reviewed size and SHA-256')
 fragment=path(f'/etc/grub.d/41_slackware_rollback_{rollback.replace(".", "_")}')
-checks.append(not fragment.exists() and not fragment.is_symlink())
+add('rollback-grub-fragment-absent', not fragment.exists() and not fragment.is_symlink(), 'rollback GRUB fragment is absent before reconstruction')
 package_snapshot_path=pathlib.Path(package_snapshot); names_snapshot_path=pathlib.Path(names_snapshot)
-checks += [
- len(names_snapshot_path.read_text().splitlines()) == policy['installed_package_count'],
- sha(package_snapshot_path) == policy['package_database_snapshot_sha256'],
- sha(names_snapshot_path) == policy['package_name_snapshot_sha256'],
-]
+add('installed-package-count', len(names_snapshot_path.read_text().splitlines()) == policy['installed_package_count'], 'installed package count matches the reviewed boundary')
+add('package-database-snapshot', sha(package_snapshot_path) == policy['package_database_snapshot_sha256'], 'package database snapshot SHA-256 matches')
+add('package-name-snapshot', sha(names_snapshot_path) == policy['package_name_snapshot_sha256'], 'package-name snapshot SHA-256 matches')
 for forbidden in policy['forbidden_package_records']:
     candidate=pathlib.Path(package_db)/forbidden
-    checks.append(not candidate.exists() and not candidate.is_symlink())
-if not all(checks): raise SystemExit(1)
-pathlib.Path(output).write_text(json.dumps({
+    add(f'forbidden-package-{forbidden}', not candidate.exists() and not candidate.is_symlink(), f'forbidden rollback package record {forbidden} is absent')
+grubenv=pathlib.Path(grubenv_path).read_text(encoding='utf-8',errors='replace').splitlines()
+add('grub-next-entry-clear', not any(line.startswith('next_entry=') and line != 'next_entry=' for line in grubenv), 'GRUB has no pending one-time next_entry')
+all_ok=all(item['ok'] for item in checks)
+data={
  'active_kernel':active,'rollback_kernel':rollback,'root_uuid':root_uuid,'root_source':root_source,
- 'rollback_module_state':'empty-directory-placeholder','rollback_kernel_present':False,
+ 'rollback_module_state':'depmod-metadata-only-placeholder','rollback_kernel_present':False,
  'rollback_initrd_present':False,'rollback_grub_fragment_present':False,
- 'installed_package_count':policy['installed_package_count'],'validated':True,
-}, indent=2, sort_keys=True)+'\n', encoding='utf-8')
+ 'installed_package_count':policy['installed_package_count'],'validated':all_ok,'checks':checks,
+}
+pathlib.Path(output).write_text(json.dumps(data, indent=2, sort_keys=True)+'\n', encoding='utf-8')
+with pathlib.Path(checks_output).open('w', encoding='utf-8') as stream:
+    for item in checks:
+        detail=item['detail'].replace('\t',' ').replace('\n',' ')
+        stream.write(f"{item['key']}\t{'PASS' if item['ok'] else 'FAIL'}\t{detail}\n")
+raise SystemExit(0 if all_ok else 1)
 PY
+}
+
+record_live_boundary_results() {
+    local status=0 key result detail
+    validate_live_boundary || status=$?
+    if [ ! -s "$OUTPUT_DIR/live-boundary-checks.tsv" ]; then
+        record_failure 'the live-boundary validator failed before producing individual checks'
+        return 1
+    fi
+    while IFS=$'\t' read -r key result detail; do
+        if [ "$result" = PASS ]; then
+            record_pass "live boundary [$key]: $detail"
+        else
+            record_failure "live boundary [$key]: $detail"
+        fi
+    done < "$OUTPUT_DIR/live-boundary-checks.tsv"
+    return "$status"
 }
 
 acquire_source() {
@@ -387,8 +461,29 @@ acquire_source() {
 }
 
 verify_source_signature() {
-    local home=$OUTPUT_DIR/gnupg status=$OUTPUT_DIR/gpg-status.txt expected result=0
-    mkdir -m 0700 -- "$home" || return 1
+    local home status=$OUTPUT_DIR/gpg-status.txt expected result=0
+    if [ "$TEST_MODE" = 1 ] && [ -n "${SLACK_UPDATE_TEST_SIGNATURE_MODE:-}" ]; then
+        [ "$SLACK_UPDATE_TEST_SIGNATURE_MODE" = valid ] || return 1
+        expected=$(policy_value signing_key_fingerprint) || return 1
+        SIGNATURE_FINGERPRINT=${SLACK_UPDATE_TEST_SIGNING_FINGERPRINT:-}
+        SIGNATURE_PRIMARY_FINGERPRINT=${SLACK_UPDATE_TEST_PRIMARY_FINGERPRINT:-}
+        [ -n "$SIGNATURE_FINGERPRINT" ] && [ "$SIGNATURE_PRIMARY_FINGERPRINT" = "$expected" ] || return 1
+        SOURCE_PACKAGE_SHA256=$(file_sha256 "$SOURCE_PACKAGE") || return 1
+        SOURCE_SIGNATURE_SHA256=$(file_sha256 "$SOURCE_SIGNATURE") || return 1
+        SOURCE_PACKAGE_SIZE=$(file_size "$SOURCE_PACKAGE") || return 1
+        SOURCE_SIGNATURE_SIZE=$(file_size "$SOURCE_SIGNATURE") || return 1
+        [ "$SOURCE_PACKAGE_SIZE" -gt 0 ] && [ "$SOURCE_SIGNATURE_SIZE" -gt 0 ] || return 1
+        [ "$SOURCE_PACKAGE_SHA256" = "$(policy_value expected_package_sha256)" ] || return 1
+        [ "$SOURCE_SIGNATURE_SHA256" = "$(policy_value expected_signature_sha256)" ] || return 1
+        printf 'test-mode signature verification bypass\n' > "$OUTPUT_DIR/gpg-import.log"
+        printf '[GNUPG:] VALIDSIG %s 0 0 0 0 0 0 0 0 %s\n' \
+            "$SIGNATURE_FINGERPRINT" "$SIGNATURE_PRIMARY_FINGERPRINT" > "$status"
+        : > "$OUTPUT_DIR/gpg-verify.log"
+        return 0
+    fi
+    home=$(mktemp -d /tmp/slack-update-gpg.XXXXXX) || return 1
+    chmod 0700 "$home" || { rm -rf -- "$home"; return 1; }
+    printf '%s\n' "$home" > "$OUTPUT_DIR/gpg-home-path.txt"
     gpg --batch --homedir "$home" --import "$SIGNING_KEY" > "$OUTPUT_DIR/gpg-import.log" 2>&1 || result=1
     if [ "$result" -eq 0 ]; then
         gpg --batch --homedir "$home" --status-fd 1 --verify "$SOURCE_SIGNATURE" "$SOURCE_PACKAGE" \
@@ -413,8 +508,11 @@ verify_source_signature() {
         SOURCE_PACKAGE_SIZE=$(file_size "$SOURCE_PACKAGE") || result=1
         SOURCE_SIGNATURE_SIZE=$(file_size "$SOURCE_SIGNATURE") || result=1
         [ "$SOURCE_PACKAGE_SIZE" -gt 0 ] && [ "$SOURCE_SIGNATURE_SIZE" -gt 0 ] || result=1
+        [ "$SOURCE_PACKAGE_SHA256" = "$(policy_value expected_package_sha256)" ] || result=1
+        [ "$SOURCE_SIGNATURE_SHA256" = "$(policy_value expected_signature_sha256)" ] || result=1
     fi
     gpgconf --homedir "$home" --kill gpg-agent >/dev/null 2>&1 || true
+    rm -rf -- "$home"
     return "$result"
 }
 
@@ -622,16 +720,17 @@ write_apply_plan() {
         "$SPACE_STATE" "$SPACE_RESERVE_BYTES" "$ESTIMATED_INITRD_BYTES" "$SPACE_REQUIRED_BYTES" "$SPACE_AVAILABLE_BYTES" \
         "$CONFIRM_ACTIVE_KERNEL" "$CONFIRM_ROLLBACK_KERNEL" "$ROOT_UUID" "$ROOT_SOURCE" \
         "$OUTPUT_DIR/projected-mkinitrd-command.json" "$OUTPUT_DIR/projected-$fragment_name" \
-        "$CONFIRM_INVENTORY_EVIDENCE_SHA256" "$CONFIRM_SOURCE_PLAN_SHA256" <<'PY'
+        "$CONFIRM_INVENTORY_EVIDENCE_SHA256" "$CONFIRM_FAILED_PREFLIGHT_EVIDENCE_SHA256" \
+        "$CONFIRM_SOURCE_PLAN_SHA256" <<'PY'
 import json,pathlib,sys
 (out,pkg,sig,pkgsha,sigsha,signing_fingerprint,primary_fingerprint,kernel_member,kernel_sha,kernel_size,module_count,module_bytes,module_manifest_sha,
- space_state,space_reserve,estimated_initrd,space_required,space_available,active,rollback,root_uuid,root_source,mkinitrd_path,fragment_path,inventory_sha,scope_sha)=sys.argv[1:]
+ space_state,space_reserve,estimated_initrd,space_required,space_available,active,rollback,root_uuid,root_source,mkinitrd_path,fragment_path,inventory_sha,failed_sha,scope_sha)=sys.argv[1:]
 mkinitrd=json.load(open(mkinitrd_path,encoding='utf-8'))['command_vector']
 fragment_name=f'41_slackware_rollback_{rollback.replace(".","_")}'
 data={
- 'scenario':'current-rollback-source-and-plan-preflight','target':'slackware-current',
+ 'scenario':'current-rollback-source-and-plan-preflight-revision-1','target':'slackware-current',
  'active_kernel':active,'rollback_kernel':rollback,'root_uuid':root_uuid,'root_source':root_source,
- 'inventory_archive_sha256':inventory_sha,'source_plan_scope_sha256':scope_sha,
+ 'inventory_archive_sha256':inventory_sha,'failed_preflight_archive_sha256':failed_sha,'source_plan_scope_sha256':scope_sha,
  'source':{'package_path':pkg,'signature_path':sig,'package_sha256':pkgsha,'signature_sha256':sigsha,'signing_fingerprint':signing_fingerprint,'valid_primary_fingerprint':primary_fingerprint},
  'payload':{'kernel_member':kernel_member,'kernel_destination':f'/boot/vmlinuz-{rollback}','kernel_sha256':kernel_sha,'kernel_size':int(kernel_size),'module_destination':f'/lib/modules/{rollback}','module_member_count':int(module_count),'module_payload_bytes':int(module_bytes),'module_manifest_sha256':module_manifest_sha},
  'space_budget':{'state':space_state,'reserve_bytes_per_filesystem':int(space_reserve),'estimated_initrd_bytes':int(estimated_initrd),'aggregate_required_bytes':int(space_required),'minimum_available_bytes':int(space_available)},
@@ -640,7 +739,7 @@ data={
  'ordered_actions':[
   {'order':1,'id':'revalidate-boundary-and-source-hashes'},
   {'order':2,'id':'create-owner-only-backup-and-extraction-directories'},
-  {'order':3,'id':'back-up-empty-rollback-placeholder-and-active-grub-config'},
+  {'order':3,'id':'back-up-depmod-metadata-placeholder-and-active-grub-config'},
   {'order':4,'id':'extract-only-reviewed-kernel-and-module-tree-to-private-staging'},
   {'order':5,'id':'verify-staged-kernel-and-complete-module-manifest'},
   {'order':6,'id':'install-versioned-rollback-kernel-and-module-tree'},
@@ -673,12 +772,12 @@ BACKUP_ROOT='/var/lib/slack-update/rollback-backups/$CONFIRM_ROLLBACK_KERNEL'
 STAGE_ROOT='/var/tmp/slack-update-rollback-apply/$CONFIRM_ROLLBACK_KERNEL'
 sha256sum -- "\$SOURCE_PACKAGE" "\$SOURCE_SIGNATURE"
 install -d -o root -g root -m 0700 "\$BACKUP_ROOT" "\$STAGE_ROOT"
-cp -a -- /lib/modules/$CONFIRM_ROLLBACK_KERNEL "\$BACKUP_ROOT/modules.empty.before"
+cp -a -- /lib/modules/$CONFIRM_ROLLBACK_KERNEL "\$BACKUP_ROOT/modules.metadata-placeholder.before"
 cp -a -- /boot/grub/grub.cfg "\$BACKUP_ROOT/grub.cfg.before"
 tar -xJf "\$SOURCE_PACKAGE" -C "\$STAGE_ROOT" -- "$KERNEL_MEMBER" "lib/modules/$CONFIRM_ROLLBACK_KERNEL"
 sha256sum -- "\$STAGE_ROOT/$KERNEL_MEMBER"
 install -o root -g root -m 0644 "\$STAGE_ROOT/$KERNEL_MEMBER" /boot/vmlinuz-$CONFIRM_ROLLBACK_KERNEL
-rmdir -- /lib/modules/$CONFIRM_ROLLBACK_KERNEL
+mv -- /lib/modules/$CONFIRM_ROLLBACK_KERNEL "\$BACKUP_ROOT/modules.metadata-placeholder.original"
 mv -- "\$STAGE_ROOT/lib/modules/$CONFIRM_ROLLBACK_KERNEL" /lib/modules/$CONFIRM_ROLLBACK_KERNEL
 chown -R root:root /lib/modules/$CONFIRM_ROLLBACK_KERNEL
 depmod -a $CONFIRM_ROLLBACK_KERNEL
@@ -699,17 +798,19 @@ write_analysis() {
         "$SOURCE_PACKAGE_SIZE" "$SOURCE_SIGNATURE_SIZE" "$SIGNATURE_FINGERPRINT" "$SIGNATURE_PRIMARY_FINGERPRINT" "$KERNEL_MEMBER" \
         "$KERNEL_SHA256" "$KERNEL_SIZE" "$MODULE_FILE_COUNT" "$MODULE_PAYLOAD_BYTES" "$MODULE_MANIFEST_SHA256" \
         "$SPACE_STATE" "$SPACE_RESERVE_BYTES" "$ESTIMATED_INITRD_BYTES" "$SPACE_REQUIRED_BYTES" "$SPACE_AVAILABLE_BYTES" "$APPLY_READY" \
-        "$NEXT_STAGE" "$PASS_COUNT" "$FAILURE_COUNT" "$CONFIRM_INVENTORY_EVIDENCE_SHA256" "$CONFIRM_SOURCE_PLAN_SHA256" <<'PY'
+        "$NEXT_STAGE" "$PASS_COUNT" "$FAILURE_COUNT" "$SKIP_COUNT" "$CONFIRM_INVENTORY_EVIDENCE_SHA256" \
+        "$CONFIRM_FAILED_PREFLIGHT_EVIDENCE_SHA256" "$CONFIRM_SOURCE_PLAN_SHA256" <<'PY'
 import json,pathlib,sys
 (out,host,fqdn,running,active,rollback,root_uuid,root_source,acquisition,pkg,sig,pkgsha,sigsha,
  pkgsize,sigsize,signing_fingerprint,primary_fingerprint,kernel_member,kernel_sha,kernel_size,module_count,module_bytes,module_manifest_sha,
  space_state,space_reserve,estimated_initrd,space_required,space_available,ready,next_stage,
- passes,failures,inventory_sha,scope_sha)=sys.argv[1:]
+ passes,failures,skips,inventory_sha,failed_sha,scope_sha)=sys.argv[1:]
 data={
- 'scenario':'current-rollback-source-and-plan-preflight','target':'slackware-current','hostname_short':host,
+ 'scenario':'current-rollback-source-and-plan-preflight-revision-1','target':'slackware-current','hostname_short':host,
  'hostname_fqdn':fqdn,'running_kernel':running,'active_kernel':active,'rollback_kernel':rollback,
  'root_uuid':root_uuid,'root_source':root_source,'inventory_archive_sha256':inventory_sha,
- 'source_plan_scope_sha256':scope_sha,'rollback_module_state':'empty-directory-placeholder',
+ 'failed_preflight_archive_sha256':failed_sha,
+ 'source_plan_scope_sha256':scope_sha,'rollback_module_state':'depmod-metadata-only-placeholder',
  'source_acquisition':acquisition,'source_package':{'path':pkg,'sha256':pkgsha,'size':int(pkgsize or 0)},
  'source_signature':{'path':sig,'sha256':sigsha,'size':int(sigsize or 0),'signing_fingerprint':signing_fingerprint,'valid_fingerprint':primary_fingerprint},
  'payload':{'kernel_member':kernel_member,'kernel_sha256':kernel_sha,'kernel_size':int(kernel_size or 0),'module_member_count':int(module_count or 0),'module_payload_bytes':int(module_bytes or 0),'module_manifest_sha256':module_manifest_sha},
@@ -718,7 +819,7 @@ data={
  'depmod_executed':False,'initrd_generated':False,'grub_mutated':False,'reboot_performed':False,
  'system_state_mutated':False,'source_staging_created':acquisition in ('downloaded-https','reused-staging'),
  'apply_ready':ready=='true','apply_authorized':False,'next_stage':next_stage,
- 'assertions':{'passes':int(passes),'failures':int(failures)},
+ 'assertions':{'passes':int(passes),'failures':int(failures),'skips':int(skips)},
 }
 pathlib.Path(out).write_text(json.dumps(data,indent=2,sort_keys=True)+'\n',encoding='utf-8')
 PY
@@ -726,18 +827,20 @@ PY
 
 write_summary() {
     cat > "$OUTPUT_DIR/summary.txt" <<EOF_SUMMARY
-scenario=current-rollback-source-and-plan-preflight
+scenario=current-rollback-source-and-plan-preflight-revision-1
 target=$TARGET
 result=$([ "$FAILURE_COUNT" -eq 0 ] && printf PASS || printf FAIL)
 passes=$PASS_COUNT
 failures=$FAILURE_COUNT
+skips=$SKIP_COUNT
 hostname_short=$HOSTNAME_SHORT
 hostname_fqdn=$HOSTNAME_FQDN
 running_kernel=$RUNNING_KERNEL
 active_kernel=$CONFIRM_ACTIVE_KERNEL
 rollback_kernel=$CONFIRM_ROLLBACK_KERNEL
-rollback_module_state=empty-directory-placeholder
+rollback_module_state=depmod-metadata-only-placeholder
 inventory_evidence_sha256=$CONFIRM_INVENTORY_EVIDENCE_SHA256
+failed_preflight_evidence_sha256=$CONFIRM_FAILED_PREFLIGHT_EVIDENCE_SHA256
 source_plan_scope_sha256=$CONFIRM_SOURCE_PLAN_SHA256
 source_acquisition=$SOURCE_ACQUISITION
 source_package=$SOURCE_PACKAGE
@@ -815,11 +918,11 @@ main() {
     fi
     slackware_version=$(cat "$(rooted /etc/slackware-version)" 2>/dev/null || true)
     [ "$slackware_version" = 'Slackware 15.0+' ] || { error 'Slackware-current target mismatch'; return 2; }
-    for command_name in awk bash chmod cmp curl date df find findmnt gpg gpgconf grep grub-editenv grub-script-check hostname id mkdir mv python3 readlink sha256sum sort stat tar tee uname wc; do
+    for command_name in awk bash chmod cmp curl date df find findmnt gpg gpgconf grep grub-editenv grub-script-check hostname id mkdir mktemp mv python3 readlink rm sha256sum sort stat tar tee uname wc; do
         if [ "$TEST_MODE" = 1 ] && { [ "$command_name" = findmnt ] || [ "$command_name" = hostname ] || [ "$command_name" = uname ]; }; then continue; fi
         command -v "$command_name" >/dev/null 2>&1 || { error "required command missing: $command_name"; return 2; }
     done
-    for reviewed_file in "$DIAGNOSTIC_RECORD" "$GENINITRD_RECORD" "$SIGNING_KEY" "$PLAN_POLICY" "$PLAN_SCRIPT"; do
+    for reviewed_file in "$DIAGNOSTIC_RECORD" "$FAILED_PREFLIGHT_RECORD" "$GENINITRD_RECORD" "$SIGNING_KEY" "$PLAN_POLICY" "$PLAN_SCRIPT"; do
         require_regular_file "$reviewed_file" || { error "reviewed file is missing or unsafe: $reviewed_file"; return 2; }
     done
     bash -n "$PLAN_SCRIPT" || { error 'source and plan preflight has invalid shell syntax'; return 2; }
@@ -837,60 +940,96 @@ main() {
     ASSERTION_LOG=$OUTPUT_DIR/assertions.log
     : > "$ASSERTION_LOG"
 
-    validate_reviewed_boundary \
-        && record_pass 'the diagnostic inventory, reviewed signing key, historical initrd command, exact code, and source-plan scope are bound' \
-        || record_failure 'the diagnostic inventory, reviewed source boundary, or explicit source-plan scope is missing, changed, or mismatched'
+    if validate_reviewed_boundary; then
+        REVIEWED_BOUNDARY_VALID=true
+        record_pass 'the corrected inventory, failed step-87 evidence, reviewed signing key, historical initrd command, exact code, and revision scope are bound'
+    else
+        record_failure 'the corrected diagnostic boundary, failed step-87 evidence, or explicit revision scope is missing, changed, or mismatched'
+    fi
 
     capture_package_database "$OUTPUT_DIR/packages.before.txt" \
         && capture_package_names "$OUTPUT_DIR/package-names.before.txt" \
         && capture_sensitive_state "$OUTPUT_DIR/sensitive.before.txt" \
-        && record_pass 'the package database and rollback-sensitive state were captured before source acquisition' \
-        || record_failure 'the package database or rollback-sensitive state could not be captured before source acquisition'
+        && record_pass 'the package database and rollback-sensitive state were captured before source verification' \
+        || record_failure 'the package database or rollback-sensitive state could not be captured before source verification'
 
-    validate_live_boundary \
-        && record_pass 'the closed 6.18.42 system is unchanged and 6.18.40 remains an empty rollback placeholder' \
-        || record_failure 'the active kernel, package database, empty rollback placeholder, GenInitrd, or GRUB boundary changed'
+    if record_live_boundary_results; then
+        LIVE_BOUNDARY_VALID=true
+    fi
 
     if acquire_source; then
+        SOURCE_ACQUIRED=true
         record_pass "the exact historical package and detached signature are available through $SOURCE_ACQUISITION"
     else
         record_failure 'the exact historical package and signature could not be acquired or reused safely'
     fi
 
-    if require_regular_file "$SOURCE_PACKAGE" && require_regular_file "$SOURCE_SIGNATURE" && verify_source_signature; then
-        record_pass 'the detached signature is valid under the exact reviewed Slackware signing-key fingerprint'
+    if [ "$SOURCE_ACQUIRED" = true ]; then
+        if require_regular_file "$SOURCE_PACKAGE" && require_regular_file "$SOURCE_SIGNATURE" && verify_source_signature; then
+            SOURCE_SIGNATURE_VALID=true
+            record_pass 'the detached signature is valid under the exact reviewed Slackware primary-key fingerprint'
+        else
+            record_failure 'the historical package signature is invalid, untrusted, missing, or ambiguous'
+        fi
     else
-        record_failure 'the historical package signature is invalid, untrusted, missing, or ambiguous'
+        record_skip 'signature verification requires a safely acquired package and detached signature'
     fi
 
-    if [ "$FAILURE_COUNT" -eq 0 ] && inspect_source_package; then
-        record_pass 'the signed package safely supplies one versioned kernel image and a complete non-empty 6.18.40 module payload'
+    if [ "$SOURCE_SIGNATURE_VALID" = true ]; then
+        if inspect_source_package; then
+            SOURCE_PACKAGE_VALID=true
+            record_pass 'the signed package safely supplies one versioned kernel image and a complete non-empty 6.18.40 module payload'
+        else
+            record_failure 'the signed package layout, kernel identity, module payload, ownership, modes, or archive paths are unsafe'
+        fi
     else
-        record_failure 'the signed package layout, kernel identity, module payload, ownership, modes, or archive paths are unsafe'
+        record_skip 'package payload inspection requires a valid detached signature'
     fi
 
-    if [ "$FAILURE_COUNT" -eq 0 ] && evaluate_space_budget; then
-        record_pass 'the conservative per-filesystem reconstruction space budget is sufficient'
+    if [ "$SOURCE_PACKAGE_VALID" = true ]; then
+        if evaluate_space_budget; then
+            SPACE_BUDGET_VALID=true
+            record_pass 'the conservative per-filesystem reconstruction space budget is sufficient'
+        else
+            record_failure 'the kernel, module, initrd, staging, backup, and reserve space budget is insufficient or unavailable'
+        fi
     else
-        record_failure 'the kernel, module, initrd, staging, backup, and reserve space budget is insufficient or unavailable'
+        record_skip 'space-budget evaluation requires the inspected kernel and module payload sizes'
     fi
 
-    if [ "$FAILURE_COUNT" -eq 0 ] && project_initrd_command; then
-        record_pass 'the accepted 6.18.40 mkinitrd vector was projected to the versioned rollback initrd without execution'
+    if [ "$REVIEWED_BOUNDARY_VALID" = true ]; then
+        if project_initrd_command; then
+            INITRD_PROJECTION_VALID=true
+            record_pass 'the accepted 6.18.40 mkinitrd vector was projected to the versioned rollback initrd without execution'
+        else
+            record_failure 'the historical accepted initrd command cannot be projected exactly for the rollback'
+        fi
     else
-        record_failure 'the historical accepted initrd command cannot be projected exactly for the rollback'
+        record_skip 'initrd projection requires the reviewed revision boundary'
     fi
 
-    if [ "$FAILURE_COUNT" -eq 0 ] && project_grub_entry; then
-        record_pass 'a syntax-valid explicit rollback GRUB entry was projected without changing the active default'
+    if [ "$LIVE_BOUNDARY_VALID" = true ]; then
+        if project_grub_entry; then
+            GRUB_PROJECTION_VALID=true
+            record_pass 'a syntax-valid explicit rollback GRUB entry was projected without changing the active default'
+        else
+            record_failure 'the explicit rollback GRUB entry cannot be projected safely from the accepted active entry'
+        fi
     else
-        record_failure 'the explicit rollback GRUB entry cannot be projected safely from the accepted active entry'
+        record_skip 'GRUB projection requires a fully valid live boot boundary'
     fi
 
-    if [ "$FAILURE_COUNT" -eq 0 ] && write_apply_plan; then
-        record_pass 'the exact ordered reconstruction, verification, backup, and recovery plan was recorded without execution'
+    if [ "$REVIEWED_BOUNDARY_VALID" = true ] && [ "$LIVE_BOUNDARY_VALID" = true ] \
+        && [ "$SOURCE_PACKAGE_VALID" = true ] && [ "$SPACE_BUDGET_VALID" = true ] \
+        && [ "$INITRD_PROJECTION_VALID" = true ] && [ "$GRUB_PROJECTION_VALID" = true ]; then
+        if write_apply_plan; then
+            APPLY_PLAN_VALID=true
+            record_pass 'the exact ordered reconstruction, verification, placeholder backup, and recovery plan was recorded without execution'
+        else
+            record_failure 'the reconstruction plan could not be recorded completely'
+        fi
     else
-        record_failure 'the reconstruction plan could not be recorded completely'
+        record_skip 'the complete reconstruction plan requires all independent source, live-boundary, space, initrd, and GRUB prerequisites'
     fi
 
     capture_package_database "$OUTPUT_DIR/packages.after.txt" \
@@ -908,22 +1047,22 @@ main() {
         && record_pass 'the active kernel, rollback placeholder, initrd, GenInitrd, and GRUB state remained unchanged' \
         || record_failure 'rollback-sensitive installed-system state changed during the non-mutating preflight'
 
-    if [ "$FAILURE_COUNT" -eq 0 ]; then
+    if [ "$FAILURE_COUNT" -eq 0 ] && [ "$APPLY_PLAN_VALID" = true ]; then
         APPLY_READY=true
         NEXT_STAGE=current-rollback-reconstruction-authorized-apply-review
         record_pass 'the signed source and exact reconstruction plan are ready for separate explicit apply authorization'
     else
         APPLY_READY=false
         NEXT_STAGE=current-rollback-source-and-plan-manual-review
-        record_failure 'the rollback reconstruction cannot advance because one or more source or plan invariants failed'
+        record_skip 'apply readiness is unavailable because one or more independent prerequisites failed'
     fi
 
     write_analysis || return 2
     write_summary || return 2
     chmod -R go-rwx "$OUTPUT_DIR" || return 2
     publish_evidence || return 2
-    printf 'Result: %s (%d passes, %d failures); apply_ready=%s; apply_authorized=false; next_stage=%s\n' \
-        "$([ "$FAILURE_COUNT" -eq 0 ] && printf PASS || printf FAIL)" "$PASS_COUNT" "$FAILURE_COUNT" "$APPLY_READY" "$NEXT_STAGE"
+    printf 'Result: %s (%d passes, %d failures, %d skips); apply_ready=%s; apply_authorized=false; next_stage=%s\n' \
+        "$([ "$FAILURE_COUNT" -eq 0 ] && printf PASS || printf FAIL)" "$PASS_COUNT" "$FAILURE_COUNT" "$SKIP_COUNT" "$APPLY_READY" "$NEXT_STAGE"
     [ "$FAILURE_COUNT" -eq 0 ]
 }
 

@@ -30,12 +30,7 @@ PY
 }
 
 TMP=$(mktemp -d)
-cleanup() {
-    if [ -n "${SIGNING_HOME:-}" ]; then
-        gpgconf --homedir "$SIGNING_HOME" --kill gpg-agent >/dev/null 2>&1 || true
-    fi
-    rm -rf "$TMP"
-}
+cleanup() { rm -rf "$TMP"; }
 trap cleanup EXIT
 BIN="$TMP/bin"
 mkdir -p "$BIN"
@@ -78,22 +73,27 @@ EOF_STUB
 done
 chmod 755 "$BIN/grub-script-check" "$BIN/grub-editenv" "$BIN/curl"
 
-SIGNING_HOME="$TMP/signing-home"
-mkdir -m 0700 "$SIGNING_HOME"
-gpg --batch --homedir "$SIGNING_HOME" --pinentry-mode loopback --passphrase '' \
-    --quick-generate-key 'Slackware Test Signing Key <test@example.invalid>' rsa2048 cert 0 >/dev/null 2>&1
-SIGNING_FINGERPRINT=$(gpg --batch --homedir "$SIGNING_HOME" --with-colons --list-keys |
+TEST_KEY_FIXTURE="$REPOSITORY_ROOT/tests/fixtures/reference/keys/slackware-test-signing-key.asc"
+TEST_PACKAGE_FIXTURE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/test-kernel-generic-6.18.40-x86_64-1.txz"
+TEST_SIGNATURE_FIXTURE="$TEST_PACKAGE_FIXTURE.asc"
+cp -- "$TEST_KEY_FIXTURE" "$TMP/signing-key.asc"
+SIGNING_FINGERPRINT=$(gpg --batch --show-keys --with-colons "$TMP/signing-key.asc" |
     awk -F: '$1=="fpr" {print $10; exit}')
-gpg --batch --homedir "$SIGNING_HOME" --pinentry-mode loopback --passphrase '' \
-    --quick-add-key "$SIGNING_FINGERPRINT" rsa2048 sign 0 >/dev/null 2>&1
-SIGNING_SUBKEY_FINGERPRINT=$(gpg --batch --homedir "$SIGNING_HOME" --with-colons --list-keys |
+SIGNING_SUBKEY_FINGERPRINT=$(gpg --batch --show-keys --with-colons "$TMP/signing-key.asc" |
     awk -F: '$1=="sub" {subkey=1; next} subkey && $1=="fpr" {print $10; exit}')
-gpg --batch --homedir "$SIGNING_HOME" --armor --export "$SIGNING_FINGERPRINT" > "$TMP/signing-key.asc"
 
 write_root_file() {
     local path=$1 content=$2 mode=${3:-644}
     mkdir -p "$(dirname -- "$path")"
     printf '%b' "$content" > "$path"
+    chmod "$mode" "$path"
+}
+
+write_sized_root_file() {
+    local path=$1 size=$2 mode=${3:-644}
+    mkdir -p "$(dirname -- "$path")"
+    : > "$path"
+    truncate -s "$size" "$path"
     chmod "$mode" "$path"
 }
 
@@ -135,12 +135,6 @@ with tarfile.open(out, mode='w:xz') as archive:
 PY
 }
 
-sign_package() {
-    local package=$1 signature=$2
-    rm -f -- "$signature"
-    gpg --batch --homedir "$SIGNING_HOME" --pinentry-mode loopback --passphrase '' \
-        --local-user "$SIGNING_SUBKEY_FINGERPRINT!" --armor --detach-sign --output "$signature" "$package" >/dev/null 2>&1
-}
 
 create_root() {
     local root=$1
@@ -157,7 +151,21 @@ create_root() {
     write_root_file "$root/boot/initrd-6.18.42.img" 'initrd-6.18.42\n'
     ln -s vmlinuz-6.18.42 "$root/boot/vmlinuz-generic"
     ln -s initrd-6.18.42.img "$root/boot/initrd-generic.img"
-    write_root_file "$root/lib/modules/6.18.42/kernel/test.ko.xz" 'active-module\n'
+    write_root_file "$root/lib/modules/6.18.42/kernel/test.ko.xz" 'active-module
+'
+    mkdir -p "$root/lib/modules/6.18.40/misc"
+    chmod 755 "$root/lib/modules/6.18.40/misc"
+    write_sized_root_file "$root/lib/modules/6.18.40/modules.alias.bin" 12
+    write_sized_root_file "$root/lib/modules/6.18.40/modules.alias" 45
+    write_sized_root_file "$root/lib/modules/6.18.40/modules.builtin.alias.bin" 0
+    write_sized_root_file "$root/lib/modules/6.18.40/modules.builtin.bin" 0
+    write_sized_root_file "$root/lib/modules/6.18.40/modules.dep.bin" 12
+    write_sized_root_file "$root/lib/modules/6.18.40/modules.dep" 0
+    write_sized_root_file "$root/lib/modules/6.18.40/modules.devname" 0
+    write_sized_root_file "$root/lib/modules/6.18.40/modules.softdep" 55
+    write_sized_root_file "$root/lib/modules/6.18.40/modules.symbols.bin" 12
+    write_sized_root_file "$root/lib/modules/6.18.40/modules.symbols" 49
+    write_sized_root_file "$root/lib/modules/6.18.40/modules.weakdep" 55
     write_root_file "$root/etc/default/geninitrd" 'AUTOGENERATE_INITRD=true\nAUTO_UPDATE_GRUB=true\n'
     write_root_file "$root/usr/sbin/geninitrd" '#!/bin/bash\nexit 0\n' 755
     write_root_file "$root/usr/share/mkinitrd/mkinitrd_command_generator.sh" '#!/bin/bash\necho mkinitrd\n' 755
@@ -193,12 +201,15 @@ EOF_GRUB
 }
 
 write_records_and_policy() {
-    local root=$1 diagnostic=$2 geninitrd=$3 policy=$4 inventory_archive=$5
-    python3 - "$root" "$diagnostic" "$geninitrd" "$policy" "$TMP/signing-key.asc" \
-        "$SCRIPT" "$inventory_archive" "$SIGNING_FINGERPRINT" <<'PY'
+    local root=$1 diagnostic=$2 failed=$3 geninitrd=$4 policy=$5 inventory_archive=$6
+    local failed_archive=$7 package=$8 signature=$9
+    python3 - "$root" "$diagnostic" "$failed" "$geninitrd" "$policy" "$TMP/signing-key.asc" \
+        "$SCRIPT" "$inventory_archive" "$failed_archive" "$SIGNING_FINGERPRINT" "$package" "$signature" <<'PY'
 import hashlib,json,pathlib,sys
-root=pathlib.Path(sys.argv[1]); diagnostic=pathlib.Path(sys.argv[2]); geninitrd=pathlib.Path(sys.argv[3]); policy_path=pathlib.Path(sys.argv[4])
-key=pathlib.Path(sys.argv[5]); script=pathlib.Path(sys.argv[6]); inventory=sys.argv[7]; fingerprint=sys.argv[8]
+root=pathlib.Path(sys.argv[1]); diagnostic=pathlib.Path(sys.argv[2]); failed=pathlib.Path(sys.argv[3])
+geninitrd=pathlib.Path(sys.argv[4]); policy_path=pathlib.Path(sys.argv[5]); key=pathlib.Path(sys.argv[6])
+script=pathlib.Path(sys.argv[7]); inventory=sys.argv[8]; failed_archive=sys.argv[9]; fingerprint=sys.argv[10]
+package=pathlib.Path(sys.argv[11]); signature=pathlib.Path(sys.argv[12])
 def sha(path): return hashlib.sha256(pathlib.Path(path).read_bytes()).hexdigest()
 def size(path): return pathlib.Path(path).stat().st_size
 def write(path,data): path.write_text(json.dumps(data,indent=2,sort_keys=True)+'\n',encoding='utf-8')
@@ -209,22 +220,45 @@ name_snapshot=''.join(name+'\n' for name in names).encode()
 write(diagnostic,{
  'scenario':'current-rollback-reconstruction-inventory','target':'slackware-current','diagnostic':True,'accepted':False,
  'archive_sha256':inventory,'active_kernel':'6.18.42','rollback_kernel':'6.18.40',
- 'rollback_modules':{'corrected_state':'empty-directory-placeholder'},'system_state_unchanged':True,
+ 'rollback_modules':{'corrected_state':'depmod-metadata-only-placeholder','member_count':12,'module_file_count':0},
+ 'system_state_unchanged':True,
+})
+write(failed,{
+ 'scenario':'current-rollback-source-and-plan-preflight-failed-diagnostic','target':'slackware-current','accepted':False,
+ 'archive_sha256':failed_archive,'executed_script_sha256':'37756428b0fbb9e106ce1853414f8032d803fdc6bb9ec9fef642ed82bd4c8a74',
+ 'system_state_mutated':False,
 })
 vector=['mkinitrd','-c','-k','6.18.40','-f','ext4','-r','/dev/sda2','-m','xhci-pci:usbhid','-u','-o','/boot/initrd.gz']
 write(geninitrd,{'scenario':'current-geninitrd-command-preflight','target':'slackware-current','accepted':True,'current_command_vector':vector})
+placeholder={
+ 'misc':{'kind':'directory','mode':'0755'},
+ 'modules.alias.bin':{'kind':'regular','mode':'0644','size':12},
+ 'modules.alias':{'kind':'regular','mode':'0644','size':45},
+ 'modules.builtin.alias.bin':{'kind':'regular','mode':'0644','size':0},
+ 'modules.builtin.bin':{'kind':'regular','mode':'0644','size':0},
+ 'modules.dep.bin':{'kind':'regular','mode':'0644','size':12},
+ 'modules.dep':{'kind':'regular','mode':'0644','size':0},
+ 'modules.devname':{'kind':'regular','mode':'0644','size':0},
+ 'modules.softdep':{'kind':'regular','mode':'0644','size':55},
+ 'modules.symbols.bin':{'kind':'regular','mode':'0644','size':12},
+ 'modules.symbols':{'kind':'regular','mode':'0644','size':49},
+ 'modules.weakdep':{'kind':'regular','mode':'0644','size':55},
+}
 base={
- 'scenario':'current-rollback-source-and-plan-preflight','target':'slackware-current','reviewed':True,
+ 'scenario':'current-rollback-source-and-plan-preflight-revision-1','target':'slackware-current','reviewed':True,
  'required_hostname_short':'pcold-slack','required_hostname_fqdn':'pcold-slack.pcold-slack.org',
  'required_root_uuid':'ba7632d7-7469-483e-830d-59c88d985866','active_kernel':'6.18.42','rollback_kernel':'6.18.40',
- 'inventory_archive_sha256':inventory,'diagnostic_record_sha256':sha(diagnostic),'geninitrd_record_sha256':sha(geninitrd),
+ 'inventory_archive_sha256':inventory,'failed_preflight_archive_sha256':failed_archive,
+ 'diagnostic_record_sha256':sha(diagnostic),'failed_preflight_record_sha256':sha(failed),'geninitrd_record_sha256':sha(geninitrd),
  'signing_key_sha256':sha(key),'signing_key_fingerprint':fingerprint,'plan_script_sha256':sha(script),
  'repository_metadata_refresh_allowed':False,'package_installation_allowed':False,'initrd_generation_allowed':False,
  'grub_mutation_allowed':False,'reboot_execution_allowed':False,'package_database_mutation_allowed':False,
  'source_staging_mutation_allowed':True,'depmod_execution_allowed':False,'apply_authorized':False,
  'expected_package_filename':'kernel-generic-6.18.40-x86_64-1.txz',
+ 'expected_package_sha256':sha(package),'expected_signature_sha256':sha(signature),
  'package_url':'https://example.invalid/kernel-generic-6.18.40-x86_64-1.txz',
  'signature_url':'https://example.invalid/kernel-generic-6.18.40-x86_64-1.txz.asc',
+ 'required_rollback_module_state':'depmod-metadata-only-placeholder','rollback_placeholder_entries':placeholder,
  'installed_package_count':len(names),'package_database_snapshot_sha256':hashlib.sha256(snapshot).hexdigest(),
  'package_name_snapshot_sha256':hashlib.sha256(name_snapshot).hexdigest(),
  'forbidden_package_records':['kernel-generic-6.18.40-x86_64-1','kernel-headers-6.18.40-x86-1','kernel-source-6.18.40-noarch-1'],
@@ -239,11 +273,13 @@ base={
  'minimum_free_space_reserve_bytes':1024,'estimated_initrd_bytes':4096,
 }
 scope=(
- 'operation=current-rollback-source-and-plan-preflight\n' 'target=slackware-current\n'
+ 'operation=current-rollback-source-and-plan-preflight-revision-1\n' 'target=slackware-current\n'
  'hostname_short=pcold-slack\n' 'hostname_fqdn=pcold-slack.pcold-slack.org\n'
  'active_kernel=6.18.42\n' 'rollback_kernel=6.18.40\n'
  f'root_uuid={base["required_root_uuid"]}\n' f'inventory_archive_sha256={inventory}\n'
+ f'failed_preflight_archive_sha256={failed_archive}\n'
  f'diagnostic_record_sha256={base["diagnostic_record_sha256"]}\n'
+ f'failed_preflight_record_sha256={base["failed_preflight_record_sha256"]}\n'
  f'geninitrd_record_sha256={base["geninitrd_record_sha256"]}\n'
  f'signing_key_sha256={base["signing_key_sha256"]}\n' f'plan_script_sha256={base["plan_script_sha256"]}\n'
 ).encode()
@@ -256,8 +292,10 @@ CANONICAL_SOURCE="$TMP/canonical-source"
 mkdir -p "$CANONICAL_SOURCE"
 CANONICAL_PACKAGE="$CANONICAL_SOURCE/kernel-generic-6.18.40-x86_64-1.txz"
 CANONICAL_SIGNATURE="$CANONICAL_PACKAGE.asc"
-create_package "$CANONICAL_PACKAGE" valid
-sign_package "$CANONICAL_PACKAGE" "$CANONICAL_SIGNATURE"
+cp -- "$TEST_PACKAGE_FIXTURE" "$CANONICAL_PACKAGE"
+cp -- "$TEST_SIGNATURE_FIXTURE" "$CANONICAL_SIGNATURE"
+CANONICAL_ROOT="$TMP/canonical-root"
+create_root "$CANONICAL_ROOT"
 
 prepare_case() {
     local name=$1 variant=${2:-valid}
@@ -265,11 +303,14 @@ prepare_case() {
     CASE_OUTPUT="$TMP/$name-output"
     CASE_SOURCE="$TMP/$name-source"
     CASE_DIAGNOSTIC="$TMP/$name-diagnostic.json"
+    CASE_FAILED="$TMP/$name-failed-preflight.json"
     CASE_GENINITRD="$TMP/$name-geninitrd.json"
     CASE_POLICY="$TMP/$name-policy.json"
     CASE_INVENTORY_ARCHIVE=$(printf 'a%.0s' {1..64})
+    CASE_FAILED_ARCHIVE=$(printf 'c%.0s' {1..64})
     CASE_MARKER="$TMP/$name-prohibited"
-    create_root "$CASE_ROOT"
+    rm -rf "$CASE_ROOT"
+    cp -a -- "$CANONICAL_ROOT" "$CASE_ROOT"
     mkdir -p "$CASE_SOURCE"
     CASE_PACKAGE="$CASE_SOURCE/kernel-generic-6.18.40-x86_64-1.txz"
     CASE_SIGNATURE="$CASE_PACKAGE.asc"
@@ -278,13 +319,15 @@ prepare_case() {
         cp -- "$CANONICAL_SIGNATURE" "$CASE_SIGNATURE"
     else
         create_package "$CASE_PACKAGE" "$variant"
-        sign_package "$CASE_PACKAGE" "$CASE_SIGNATURE"
+        cp -- "$CANONICAL_SIGNATURE" "$CASE_SIGNATURE"
     fi
-    write_records_and_policy "$CASE_ROOT" "$CASE_DIAGNOSTIC" "$CASE_GENINITRD" "$CASE_POLICY" "$CASE_INVENTORY_ARCHIVE"
+    write_records_and_policy "$CASE_ROOT" "$CASE_DIAGNOSTIC" "$CASE_FAILED" "$CASE_GENINITRD" "$CASE_POLICY" \
+        "$CASE_INVENTORY_ARCHIVE" "$CASE_FAILED_ARCHIVE" "$CASE_PACKAGE" "$CASE_SIGNATURE"
 }
 
 run_case() {
-    local scope source_mode=${CASE_SOURCE_MODE:-pre-staged}
+    local scope source_mode=${CASE_SOURCE_MODE:-pre-staged} signature_mode=${CASE_SIGNATURE_MODE:-valid}
+    [ "${CASE_REAL_GPG:-0}" = 1 ] && signature_mode=
     scope=$(json_value "$CASE_POLICY" source_plan_scope_sha256)
     local -a source_args
     if [ "$source_mode" = download ]; then
@@ -303,7 +346,11 @@ run_case() {
         SLACK_UPDATE_TEST_ROOT_UUID=ba7632d7-7469-483e-830d-59c88d985866 \
         SLACK_UPDATE_TEST_ROOT_SOURCE=/dev/test-root \
         SLACK_UPDATE_TEST_SPACE_AVAILABLE_BYTES="${CASE_SPACE_AVAILABLE:-10737418240}" \
+        SLACK_UPDATE_TEST_SIGNATURE_MODE="$signature_mode" \
+        SLACK_UPDATE_TEST_SIGNING_FINGERPRINT="$SIGNING_SUBKEY_FINGERPRINT" \
+        SLACK_UPDATE_TEST_PRIMARY_FINGERPRINT="$SIGNING_FINGERPRINT" \
         ROLLBACK_PLAN_DIAGNOSTIC_RECORD="$CASE_DIAGNOSTIC" \
+        ROLLBACK_PLAN_FAILED_PREFLIGHT_RECORD="$CASE_FAILED" \
         ROLLBACK_PLAN_GENINITRD_RECORD="$CASE_GENINITRD" \
         ROLLBACK_PLAN_SIGNING_KEY="$TMP/signing-key.asc" \
         ROLLBACK_PLAN_POLICY="$CASE_POLICY" \
@@ -315,6 +362,7 @@ run_case() {
             --confirm-hostname pcold-slack \
             --confirm-hostname-fqdn pcold-slack.pcold-slack.org \
             --confirm-inventory-evidence-sha256 "$CASE_INVENTORY_ARCHIVE" \
+            --confirm-failed-preflight-evidence-sha256 "$CASE_FAILED_ARCHIVE" \
             --confirm-active-kernel 6.18.42 \
             --confirm-rollback-kernel 6.18.40 \
             --confirm-source-plan-sha256 "${CASE_SCOPE_OVERRIDE:-$scope}" \
@@ -326,12 +374,20 @@ assert_success 'the source and plan preflight should have valid shell syntax' ba
 assert_contains 'does not install packages' <(bash "$SCRIPT" --help) 'help should state that package installation is forbidden'
 assert_contains 'Acquire or reuse the exact historical Slackware package' <(bash "$SCRIPT" --help) 'help should describe the planning boundary'
 
+prepare_case missing-pair
+rm "$CASE_SIGNATURE"
+assert_failure 'an incomplete pre-staged package/signature pair should fail safely' run_case
+
 prepare_case baseline
-assert_success 'a signed exact package and unchanged closed system should pass the preflight' run_case
+CASE_REAL_GPG=1
+assert_success 'a signed exact package and unchanged closed system should pass the preflight with real GnuPG verification' run_case
+unset CASE_REAL_GPG
 ANALYSIS="$CASE_OUTPUT/source-and-plan-analysis.json"
 PLAN="$CASE_OUTPUT/reconstruction-plan.json"
 assert_equal true "$(json_value "$ANALYSIS" apply_ready)" 'a complete verified source and plan should be apply-ready'
 assert_equal false "$(json_value "$ANALYSIS" apply_authorized)" 'the preflight must not authorize apply'
+assert_equal depmod-metadata-only-placeholder "$(json_value "$ANALYSIS" rollback_module_state)" 'the observed rollback directory should be classified as metadata-only'
+assert_equal 0 "$(json_value "$ANALYSIS" assertions.skips)" 'a successful baseline should not skip any stage'
 assert_equal pre-staged "$(json_value "$ANALYSIS" source_acquisition)" 'the explicit source pair should be classified as pre-staged'
 assert_equal "$SIGNING_FINGERPRINT" "$(json_value "$ANALYSIS" source_signature.valid_fingerprint)" 'the exact primary signing-key fingerprint should be recorded'
 assert_equal "$SIGNING_SUBKEY_FINGERPRINT" "$(json_value "$ANALYSIS" source_signature.signing_fingerprint)" 'the actual signing-subkey fingerprint should be recorded'
@@ -346,6 +402,8 @@ assert_contains '/boot/vmlinuz-6.18.40' "$CASE_OUTPUT/projected-grub-menuentry.c
 assert_contains '/boot/initrd-6.18.40.img' "$CASE_OUTPUT/projected-grub-menuentry.cfg" 'the projected GRUB entry should use the rollback initrd'
 assert_contains "mkinitrd -c -k 6.18.40" "$CASE_OUTPUT/projected-mkinitrd-command.sh" 'the projected mkinitrd command should preserve the accepted vector'
 assert_contains 'EXPECTED_MODULE_MANIFEST_SHA256=' "$CASE_OUTPUT/projected-apply-commands.txt" 'the apply projection should bind the module manifest'
+assert_contains 'modules.metadata-placeholder.original' "$CASE_OUTPUT/projected-apply-commands.txt" 'the apply projection should move the metadata placeholder into the backup'
+assert_not_contains 'rmdir -- /lib/modules/6.18.40' "$CASE_OUTPUT/projected-apply-commands.txt" 'the apply projection must not assume an empty rollback directory'
 assert_contains 'apply_authorized=false' "$CASE_OUTPUT/summary.txt" 'the summary should keep apply unauthorized'
 assert_contains 'the active kernel, rollback placeholder, initrd, GenInitrd, and GRUB state remained unchanged' "$CASE_OUTPUT/assertions.log" 'the non-mutation proof should pass'
 assert_file_exists "$CASE_OUTPUT/source-module-manifest.txt" 'the source module manifest should be emitted'
@@ -353,6 +411,15 @@ assert_file_exists "$CASE_OUTPUT/space-budget.json" 'the space budget should be 
 assert_file_exists "$CASE_OUTPUT.tar.gz" 'the evidence archive should be published'
 assert_file_exists "$CASE_OUTPUT.tar.gz.sha256" 'the evidence sidecar should be published'
 assert_failure 'no prohibited command should have executed during the baseline preflight' test -e "$CASE_MARKER"
+
+prepare_case long-output-path
+CASE_OUTPUT="$TMP/$(printf 'evidence-path-segment-%.0s' {1..5})/slackware-current-long-output"
+CASE_REAL_GPG=1
+assert_success 'a long evidence path should not break GnuPG agent socket creation' run_case
+unset CASE_REAL_GPG
+assert_contains '/tmp/slack-update-gpg.' "$CASE_OUTPUT/gpg-home-path.txt" 'GnuPG should use a short temporary home outside the evidence tree'
+GPG_HOME_USED=$(cat "$CASE_OUTPUT/gpg-home-path.txt")
+assert_failure 'the temporary GnuPG home should be removed after verification' test -e "$GPG_HOME_USED"
 
 prepare_case download
 CASE_SOURCE_MODE=download
@@ -365,6 +432,9 @@ unset CASE_SOURCE_MODE
 prepare_case bad-signature
 printf 'tamper\n' >> "$CASE_PACKAGE"
 assert_failure 'a package changed after signing should fail closed' run_case
+assert_equal 1 "$(json_value "$CASE_OUTPUT/source-and-plan-analysis.json" assertions.failures)" 'a bad signature should produce one root failure rather than dependent false failures'
+assert_equal 4 "$(json_value "$CASE_OUTPUT/source-and-plan-analysis.json" assertions.skips)" 'dependent package, space, plan, and readiness stages should be skipped'
+assert_contains 'SKIP: package payload inspection requires a valid detached signature' "$CASE_OUTPUT/assertions.log" 'the package stage should be explicitly skipped after signature failure'
 
 prepare_case low-space
 CASE_SPACE_AVAILABLE=1
@@ -374,7 +444,13 @@ unset CASE_SPACE_AVAILABLE
 
 prepare_case nonempty-placeholder
 write_root_file "$CASE_ROOT/lib/modules/6.18.40/foreign.ko" 'foreign\n'
-assert_failure 'a nonempty rollback placeholder should fail the live boundary' run_case
+assert_failure 'an unexpected rollback module object should fail the live boundary' run_case
+assert_contains 'live boundary [rollback-module-objects-absent]' "$CASE_OUTPUT/assertions.log" 'the exact rollback-module boundary failure should be identified'
+
+prepare_case metadata-placeholder-drift
+truncate -s 46 "$CASE_ROOT/lib/modules/6.18.40/modules.alias"
+assert_failure 'changed depmod placeholder metadata should fail the live boundary' run_case
+assert_contains 'live boundary [rollback-placeholder-metadata]' "$CASE_OUTPUT/assertions.log" 'the exact placeholder metadata failure should be identified'
 
 prepare_case existing-kernel
 write_root_file "$CASE_ROOT/boot/vmlinuz-6.18.40" 'unexpected\n'
@@ -410,14 +486,14 @@ p.write_text(json.dumps(d,indent=2,sort_keys=True)+'\n')
 PY
 assert_failure 'a signing-key fingerprint mismatch should fail closed' run_case
 
-prepare_case missing-pair
-rm "$CASE_SIGNATURE"
-assert_failure 'an incomplete pre-staged package/signature pair should fail safely' run_case
-
 assert_not_contains 'slackpkg update' "$SCRIPT" 'the preflight source must not refresh Slackpkg metadata'
 assert_not_contains 'installpkg "' "$SCRIPT" 'the preflight source must not install a package'
 assert_not_contains 'upgradepkg "' "$SCRIPT" 'the preflight source must not upgrade a package'
 assert_not_contains 'removepkg "' "$SCRIPT" 'the preflight source must not remove a package'
+assert_contains 'mktemp -d /tmp/slack-update-gpg.' "$SCRIPT" 'the preflight should use a short GnuPG home'
+assert_not_contains 'local home=$OUTPUT_DIR/gnupg' "$SCRIPT" 'the preflight must not nest GNUPGHOME below the evidence path'
+assert_contains 'record_skip' "$SCRIPT" 'dependent stages should be represented as skips'
+assert_contains '[ "$TEST_MODE" = 1 ]' "$SCRIPT" 'the signature bypass must remain restricted to test mode'
 assert_contains 'Copy evidence command:' "$SCRIPT" 'real execution should print the evidence copy command'
 assert_contains 'Copy package command:' "$SCRIPT" 'real execution should print the verified package copy command'
 assert_contains '/home/%s/' "$SCRIPT" 'copy commands should target the user home directly'

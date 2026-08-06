@@ -1,0 +1,31 @@
+{
+  "accepted": false,
+  "active_kernel": "6.18.42",
+  "apply_authorized": false,
+  "apply_ready": false,
+  "archive_sha256": "d2a5398c789f14cfee07d53a55e4ca7da8aab85dd0387b51f437120401f9ba14",
+  "captured_at": "2026-08-06T11:49:16Z",
+  "executed_script_sha256": "37756428b0fbb9e106ce1853414f8032d803fdc6bb9ec9fef642ed82bd4c8a74",
+  "failure_causes": [
+    "The live-boundary rule incorrectly required /lib/modules/6.18.40 to have no entries.",
+    "GNUPGHOME was nested below the long evidence path and gpg-agent could not create its Unix socket.",
+    "Dependent stages were reported as failures instead of skipped prerequisites."
+  ],
+  "gpg_error": "gpg: can't connect to the gpg-agent: File name too long",
+  "hostname_fqdn": "pcold-slack.pcold-slack.org",
+  "hostname_short": "pcold-slack",
+  "inventory_archive_sha256": "cd2769c18e93b17596028b33b00a1d6e14bb81336172935bb18b0bef3568ed56",
+  "next_stage": "current-rollback-source-and-plan-preflight-revision-1",
+  "package_database_mutated": false,
+  "package_installation_performed": false,
+  "reboot_performed": false,
+  "rollback_kernel": "6.18.40",
+  "scenario": "current-rollback-source-and-plan-preflight-failed-diagnostic",
+  "source_package": {
+    "filename": "kernel-generic-6.18.40-x86_64-1.txz",
+    "sha256": "90dcee03829a3755b74b52a679fadea2619d96a38e12c461ee6e6866c9c598cc",
+    "signature_sha256": "1222c391801227dc389dcd46de91d1915e61df12f436614ebd0a24b1697fdd39"
+  },
+  "system_state_mutated": false,
+  "target": "slackware-current"
+}
