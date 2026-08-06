@@ -1206,28 +1206,19 @@ The real inventory archive SHA-256 is `cd2769c18e93b17596028b33b00a1d6e14bb81336
 
 The corrected record is `tests/fixtures/reference/acceptance/normal-update/slackware-current-rollback-reconstruction-inventory-20260806-corrected-diagnostic.json`. It supersedes only the optional rollback description. The immutable step-85 mandatory-update closure remains accepted and closed.
 
-### Signed rollback source and reconstruction-plan preflight revision 2 (step 87)
+### Signed rollback source and reconstruction-plan preflight revision 3 (step 87)
 
-The initial delivered step-87 ZIP SHA-256 `c888299b410347df8676f8ab7558fe1011349c8ac3a69ce1607ccecacde57c66` contained script SHA-256 `37756428b0fbb9e106ce1853414f8032d803fdc6bb9ec9fef642ed82bd4c8a74`. Its rejected but non-mutating run is bound by archive SHA-256 `d2a5398c789f14cfee07d53a55e4ca7da8aab85dd0387b51f437120401f9ba14`.
+The first delivered step-87 script and revisions 1 and 2 all remained non-mutating. Their immutable diagnostic archive SHA-256 values are:
 
-Revision 1 used script SHA-256 `8dc3eceb45c6c531aaf8e3f74e907cf4eb2b45a3aa113f43876b57405def47bd`. Its real run passed 41 checks, failed one source-acquisition gate, skipped five dependent stages, and left the package database, kernel, rollback placeholder, initrd, GenInitrd, and GRUB state unchanged. Archive SHA-256 `5dc24b1863a818cd0500fd08ea569995e627411a66181ccebcbb74698bbac35e` is the immutable failed diagnostic. The evidence did not record enough source-file detail to distinguish a basename, existence, type, symbolic-link, readability, or safe-open failure. Do not rerun revision 1.
+- Initial step 87: `d2a5398c789f14cfee07d53a55e4ca7da8aab85dd0387b51f437120401f9ba14`.
+- Revision 1: `5dc24b1863a818cd0500fd08ea569995e627411a66181ccebcbb74698bbac35e`.
+- Revision 2: `bc28dd82557236f0938f71c4255eee6ea2f477f2f8676f32209af6fae3ce420e`.
 
-Revision 2 requires a normalized owner-only copy of the already retained exact source pair:
+Revision 2 passed all live-boundary and source-acquisition checks, verified the exact package SHA-256 `90dcee03829a3755b74b52a679fadea2619d96a38e12c461ee6e6866c9c598cc`, verified detached-signature SHA-256 `1222c391801227dc389dcd46de91d1915e61df12f436614ebd0a24b1697fdd39`, and authenticated Slackware primary fingerprint `EC5649DA401E22ABFA6736EF6A4463C040102233`. It then rejected the ordinary root directory member `.` at the beginning of the official `.txz`, before publishing the payload summary. The run passed 57 checks, failed one root package-inspection assertion, skipped three dependent stages, and left the package database, active 6.18.42 kernel/initrd/modules, rollback placeholder, GenInitrd, and GRUB unchanged.
 
-```bash
-sudo install -d -o promano -g users -m 0700 \
-    /home/promano/slack-update-source-6.18.40
+Revision 3 binds all three diagnostics. Its package inspector accepts zero or one normalized root member only when it is a root-owned directory with a safe mode. The member is counted for archive provenance but excluded from normalized payload paths. Absolute paths, `..` traversal, duplicate normalized paths, unsafe links, special files, unsafe regular-file modes, non-root-owned regular files, missing kernel payload, and missing module objects still fail closed. `source-package.json` and `source-module-manifest.txt` are written atomically only after complete validation; package-inspection failures are recorded in `source-package-inspection.log` and do not trigger secondary missing-output tracebacks.
 
-sudo install -o promano -g users -m 0600 \
-    /home/promano/kernel-generic-6.18.40-x86_64-1.txz \
-    /home/promano/slack-update-source-6.18.40/kernel-generic-6.18.40-x86_64-1.txz
-
-sudo install -o promano -g users -m 0600 \
-    /home/promano/kernel-generic-6.18.40-x86_64-1.txz.asc \
-    /home/promano/slack-update-source-6.18.40/kernel-generic-6.18.40-x86_64-1.txz.asc
-```
-
-Run only revision 2:
+Keep the exact package and signature under `/home/promano/slack-update-source-6.18.40` until the complete on-disk reconstruction has been accepted. Run only revision 3:
 
 ```bash
 sudo bash tests/acceptance/reference/test-current-rollback-source-and-plan-preflight.sh \
@@ -1237,19 +1228,15 @@ sudo bash tests/acceptance/reference/test-current-rollback-source-and-plan-prefl
     --confirm-inventory-evidence-sha256 cd2769c18e93b17596028b33b00a1d6e14bb81336172935bb18b0bef3568ed56 \
     --confirm-failed-preflight-evidence-sha256 d2a5398c789f14cfee07d53a55e4ca7da8aab85dd0387b51f437120401f9ba14 \
     --confirm-revision-1-failed-preflight-evidence-sha256 5dc24b1863a818cd0500fd08ea569995e627411a66181ccebcbb74698bbac35e \
+    --confirm-revision-2-failed-preflight-evidence-sha256 bc28dd82557236f0938f71c4255eee6ea2f477f2f8676f32209af6fae3ce420e \
     --confirm-active-kernel 6.18.42 \
     --confirm-rollback-kernel 6.18.40 \
-    --confirm-source-plan-sha256 571f30dacef5001b21bf6890ea13ad56dddb48c769dea456f01b03033dd8b27b \
+    --confirm-source-plan-sha256 130d459ec76ba27eb1e8468bf48b4c2ae4b097250e03d3226a85424270ab6e0f \
     --source-package /home/promano/slack-update-source-6.18.40/kernel-generic-6.18.40-x86_64-1.txz \
     --source-signature /home/promano/slack-update-source-6.18.40/kernel-generic-6.18.40-x86_64-1.txz.asc
 ```
 
-Revision 2 script SHA-256 is `516397c136ab9dd75d90eba7a5e1f969ef36c30e1725e05a2e3fbf3060b09c93`. It binds the corrected inventory, both failed step-87 diagnostics, exact package SHA-256 `90dcee03829a3755b74b52a679fadea2619d96a38e12c461ee6e6866c9c598cc`, signature SHA-256 `1222c391801227dc389dcd46de91d1915e61df12f436614ebd0a24b1697fdd39`, and Slackware primary fingerprint `EC5649DA401E22ABFA6736EF6A4463C040102233` under scope SHA-256 `571f30dacef5001b21bf6890ea13ad56dddb48c769dea456f01b03033dd8b27b`.
+Revision 3 script SHA-256 is `409a4558a4bb92712ad192158962267159a3dd037c3f0159056ad969f7e63291`. Policy SHA-256 and final regression counts are recorded in `CHANGELOG.md`.
 
-Each source file is checked independently for its exact basename, successful `lstat`, absence of a symbolic link, regular-file type, safe `O_NOFOLLOW` opening, positive size, and exact SHA-256. Every result is written to `source-acquisition-checks.tsv` and `source-acquisition.json`. A failed prerequisite produces one or more exact root failures and dependent stages are marked `SKIP`.
+A clean result records `apply_ready=true`, `apply_authorized=false`, and `next_stage=current-rollback-reconstruction-authorized-apply-review`. It still forbids package installation, package-database mutation, `depmod`, `mkinitrd`, GenInitrd execution, GRUB mutation, metadata refresh, and reboot. Copy the evidence archive and sidecar together using the exact `Copy evidence pair command` printed by the script; do not enumerate the private `/var/tmp` evidence directory as an unprivileged user.
 
-Detached-signature verification uses an isolated temporary `gpgv` keyring under `/tmp/slack-update-gpgv.XXXXXX`; it does not start or depend on `gpg-agent`. A signing subkey is accepted only when `VALIDSIG` chains it to the reviewed primary key. Package and signature hashes are checked again after signature verification.
-
-The package is inspected without extraction into the installed system. The reconstruction projection moves the complete depmod metadata placeholder into retained backup storage before restoring the exact versioned kernel and module tree. It then projects `/boot/initrd-6.18.40.img` and an explicit `slackware-rollback-6.18.40` GRUB entry while retaining literal default selector `0` and no `next_entry`. `installpkg`, `upgradepkg`, `removepkg`, `depmod`, `mkinitrd`, GenInitrd, `grub-mkconfig`, metadata refresh, and reboot remain forbidden.
-
-A clean result records `apply_ready=true`, `apply_authorized=false`, and `next_stage=current-rollback-reconstruction-authorized-apply-review`. The script prints exact commands for the evidence archive and sidecar; do not enumerate the private `/var/tmp` evidence directory as the unprivileged user. The focused revision-2 harness passes 82 checks with zero failures. The complete repository regression passes 50 suites and 3,440 checks with zero failures; static validation covers 82 shell scripts and 90 JSON files.

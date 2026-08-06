@@ -110,6 +110,7 @@ def directory(name, mode=0o755, uid=0, gid=0):
     entries.append(('dir',name,b'',mode,uid,gid,''))
 def symlink(name, target, uid=0, gid=0):
     entries.append(('symlink',name,b'',0o777,uid,gid,target))
+directory('.')
 regular(f'boot/vmlinuz-{version}', f'kernel-{version}\n')
 directory(f'lib/modules/{version}')
 directory(f'lib/modules/{version}/kernel')
@@ -125,6 +126,9 @@ if variant == 'unsafe-path': regular('../../escape', 'unsafe\n')
 if variant == 'duplicate-kernel': regular(f'./boot/vmlinuz-{version}', 'duplicate\n')
 if variant == 'wrong-owner':
     entries=[(kind,name,data,mode,(1000 if kind=='file' and name.startswith('lib/modules/') else uid),gid,target)
+             for kind,name,data,mode,uid,gid,target in entries]
+if variant == 'unsafe-root-owner':
+    entries=[(kind,name,data,mode,(1000 if name=='.' else uid),gid,target)
              for kind,name,data,mode,uid,gid,target in entries]
 with tarfile.open(out, mode='w:xz') as archive:
     for kind,name,data,mode,uid,gid,target in entries:
@@ -201,15 +205,17 @@ EOF_GRUB
 }
 
 write_records_and_policy() {
-    local root=$1 diagnostic=$2 failed=$3 revision1_failed=$4 geninitrd=$5 policy=$6 inventory_archive=$7
-    local failed_archive=$8 revision1_failed_archive=$9 package=${10} signature=${11}
-    python3 - "$root" "$diagnostic" "$failed" "$revision1_failed" "$geninitrd" "$policy" "$TMP/signing-key.asc" \
-        "$SCRIPT" "$inventory_archive" "$failed_archive" "$revision1_failed_archive" "$SIGNING_FINGERPRINT" "$package" "$signature" <<'PY'
+    local root=$1 diagnostic=$2 failed=$3 revision1_failed=$4 revision2_failed=$5 geninitrd=$6 policy=$7 inventory_archive=$8
+    local failed_archive=$9 revision1_failed_archive=${10} revision2_failed_archive=${11} package=${12} signature=${13}
+    python3 - "$root" "$diagnostic" "$failed" "$revision1_failed" "$revision2_failed" "$geninitrd" "$policy" "$TMP/signing-key.asc" \
+        "$SCRIPT" "$inventory_archive" "$failed_archive" "$revision1_failed_archive" "$revision2_failed_archive" "$SIGNING_FINGERPRINT" "$package" "$signature" <<'PY'
 import hashlib,json,pathlib,sys
 root=pathlib.Path(sys.argv[1]); diagnostic=pathlib.Path(sys.argv[2]); failed=pathlib.Path(sys.argv[3])
-revision1_failed=pathlib.Path(sys.argv[4]); geninitrd=pathlib.Path(sys.argv[5]); policy_path=pathlib.Path(sys.argv[6]); key=pathlib.Path(sys.argv[7])
-script=pathlib.Path(sys.argv[8]); inventory=sys.argv[9]; failed_archive=sys.argv[10]; revision1_failed_archive=sys.argv[11]; fingerprint=sys.argv[12]
-package=pathlib.Path(sys.argv[13]); signature=pathlib.Path(sys.argv[14])
+revision1_failed=pathlib.Path(sys.argv[4]); revision2_failed=pathlib.Path(sys.argv[5]); geninitrd=pathlib.Path(sys.argv[6])
+policy_path=pathlib.Path(sys.argv[7]); key=pathlib.Path(sys.argv[8]); script=pathlib.Path(sys.argv[9])
+inventory=sys.argv[10]; failed_archive=sys.argv[11]; revision1_failed_archive=sys.argv[12]
+revision2_failed_archive=sys.argv[13]; fingerprint=sys.argv[14]
+package=pathlib.Path(sys.argv[15]); signature=pathlib.Path(sys.argv[16])
 def sha(path): return hashlib.sha256(pathlib.Path(path).read_bytes()).hexdigest()
 def size(path): return pathlib.Path(path).stat().st_size
 def write(path,data): path.write_text(json.dumps(data,indent=2,sort_keys=True)+'\n',encoding='utf-8')
@@ -233,6 +239,12 @@ write(revision1_failed,{
  'archive_sha256':revision1_failed_archive,'executed_script_sha256':'8dc3eceb45c6c531aaf8e3f74e907cf4eb2b45a3aa113f43876b57405def47bd',
  'assertions':{'passes':41,'failures':1,'skips':5},'source_acquisition':'unchecked','system_state_mutated':False,
 })
+write(revision2_failed,{
+ 'scenario':'current-rollback-source-and-plan-preflight-revision-2-failed-diagnostic','target':'slackware-current','accepted':False,
+ 'archive_sha256':revision2_failed_archive,'executed_script_sha256':'516397c136ab9dd75d90eba7a5e1f969ef36c30e1725e05a2e3fbf3060b09c93',
+ 'assertions':{'passes':57,'failures':1,'skips':3},'source_acquisition':'pre-staged',
+ 'source_signature_valid':True,'failure_cause':'safe-root-directory-entry-rejected','system_state_mutated':False,
+})
 vector=['mkinitrd','-c','-k','6.18.40','-f','ext4','-r','/dev/sda2','-m','xhci-pci:usbhid','-u','-o','/boot/initrd.gz']
 write(geninitrd,{'scenario':'current-geninitrd-command-preflight','target':'slackware-current','accepted':True,'current_command_vector':vector})
 placeholder={
@@ -250,13 +262,15 @@ placeholder={
  'modules.weakdep':{'kind':'regular','mode':'0644','size':55},
 }
 base={
- 'scenario':'current-rollback-source-and-plan-preflight-revision-2','target':'slackware-current','reviewed':True,
+ 'scenario':'current-rollback-source-and-plan-preflight-revision-3','target':'slackware-current','reviewed':True,
  'required_hostname_short':'pcold-slack','required_hostname_fqdn':'pcold-slack.pcold-slack.org',
  'required_root_uuid':'ba7632d7-7469-483e-830d-59c88d985866','active_kernel':'6.18.42','rollback_kernel':'6.18.40',
  'inventory_archive_sha256':inventory,'failed_preflight_archive_sha256':failed_archive,
  'revision_1_failed_preflight_archive_sha256':revision1_failed_archive,
+ 'revision_2_failed_preflight_archive_sha256':revision2_failed_archive,
  'diagnostic_record_sha256':sha(diagnostic),'failed_preflight_record_sha256':sha(failed),
- 'revision_1_failed_preflight_record_sha256':sha(revision1_failed),'geninitrd_record_sha256':sha(geninitrd),
+ 'revision_1_failed_preflight_record_sha256':sha(revision1_failed),
+ 'revision_2_failed_preflight_record_sha256':sha(revision2_failed),'geninitrd_record_sha256':sha(geninitrd),
  'signing_key_sha256':sha(key),'signing_key_fingerprint':fingerprint,'plan_script_sha256':sha(script),
  'repository_metadata_refresh_allowed':False,'package_installation_allowed':False,'initrd_generation_allowed':False,
  'grub_mutation_allowed':False,'reboot_execution_allowed':False,'package_database_mutation_allowed':False,
@@ -280,15 +294,17 @@ base={
  'minimum_free_space_reserve_bytes':1024,'estimated_initrd_bytes':4096,
 }
 scope=(
- 'operation=current-rollback-source-and-plan-preflight-revision-2\n' 'target=slackware-current\n'
+ 'operation=current-rollback-source-and-plan-preflight-revision-3\n' 'target=slackware-current\n'
  'hostname_short=pcold-slack\n' 'hostname_fqdn=pcold-slack.pcold-slack.org\n'
  'active_kernel=6.18.42\n' 'rollback_kernel=6.18.40\n'
  f'root_uuid={base["required_root_uuid"]}\n' f'inventory_archive_sha256={inventory}\n'
  f'failed_preflight_archive_sha256={failed_archive}\n'
  f'revision_1_failed_preflight_archive_sha256={revision1_failed_archive}\n'
+ f'revision_2_failed_preflight_archive_sha256={revision2_failed_archive}\n'
  f'diagnostic_record_sha256={base["diagnostic_record_sha256"]}\n'
  f'failed_preflight_record_sha256={base["failed_preflight_record_sha256"]}\n'
  f'revision_1_failed_preflight_record_sha256={base["revision_1_failed_preflight_record_sha256"]}\n'
+ f'revision_2_failed_preflight_record_sha256={base["revision_2_failed_preflight_record_sha256"]}\n'
  f'geninitrd_record_sha256={base["geninitrd_record_sha256"]}\n'
  f'signing_key_sha256={base["signing_key_sha256"]}\n' f'plan_script_sha256={base["plan_script_sha256"]}\n'
 ).encode()
@@ -314,11 +330,13 @@ prepare_case() {
     CASE_DIAGNOSTIC="$TMP/$name-diagnostic.json"
     CASE_FAILED="$TMP/$name-failed-preflight.json"
     CASE_REVISION1_FAILED="$TMP/$name-revision-1-failed-preflight.json"
+    CASE_REVISION2_FAILED="$TMP/$name-revision-2-failed-preflight.json"
     CASE_GENINITRD="$TMP/$name-geninitrd.json"
     CASE_POLICY="$TMP/$name-policy.json"
     CASE_INVENTORY_ARCHIVE=$(printf 'a%.0s' {1..64})
     CASE_FAILED_ARCHIVE=$(printf 'c%.0s' {1..64})
     CASE_REVISION1_FAILED_ARCHIVE=$(printf 'd%.0s' {1..64})
+    CASE_REVISION2_FAILED_ARCHIVE=$(printf 'e%.0s' {1..64})
     CASE_MARKER="$TMP/$name-prohibited"
     rm -rf "$CASE_ROOT"
     cp -a -- "$CANONICAL_ROOT" "$CASE_ROOT"
@@ -332,8 +350,8 @@ prepare_case() {
         create_package "$CASE_PACKAGE" "$variant"
         cp -- "$CANONICAL_SIGNATURE" "$CASE_SIGNATURE"
     fi
-    write_records_and_policy "$CASE_ROOT" "$CASE_DIAGNOSTIC" "$CASE_FAILED" "$CASE_REVISION1_FAILED" "$CASE_GENINITRD" "$CASE_POLICY" \
-        "$CASE_INVENTORY_ARCHIVE" "$CASE_FAILED_ARCHIVE" "$CASE_REVISION1_FAILED_ARCHIVE" "$CASE_PACKAGE" "$CASE_SIGNATURE"
+    write_records_and_policy "$CASE_ROOT" "$CASE_DIAGNOSTIC" "$CASE_FAILED" "$CASE_REVISION1_FAILED" "$CASE_REVISION2_FAILED" "$CASE_GENINITRD" "$CASE_POLICY" \
+        "$CASE_INVENTORY_ARCHIVE" "$CASE_FAILED_ARCHIVE" "$CASE_REVISION1_FAILED_ARCHIVE" "$CASE_REVISION2_FAILED_ARCHIVE" "$CASE_PACKAGE" "$CASE_SIGNATURE"
 }
 
 run_case() {
@@ -363,6 +381,7 @@ run_case() {
         ROLLBACK_PLAN_DIAGNOSTIC_RECORD="$CASE_DIAGNOSTIC" \
         ROLLBACK_PLAN_FAILED_PREFLIGHT_RECORD="$CASE_FAILED" \
         ROLLBACK_PLAN_REVISION_1_FAILED_PREFLIGHT_RECORD="$CASE_REVISION1_FAILED" \
+        ROLLBACK_PLAN_REVISION_2_FAILED_PREFLIGHT_RECORD="$CASE_REVISION2_FAILED" \
         ROLLBACK_PLAN_GENINITRD_RECORD="$CASE_GENINITRD" \
         ROLLBACK_PLAN_SIGNING_KEY="$TMP/signing-key.asc" \
         ROLLBACK_PLAN_POLICY="$CASE_POLICY" \
@@ -376,6 +395,7 @@ run_case() {
             --confirm-inventory-evidence-sha256 "$CASE_INVENTORY_ARCHIVE" \
             --confirm-failed-preflight-evidence-sha256 "$CASE_FAILED_ARCHIVE" \
             --confirm-revision-1-failed-preflight-evidence-sha256 "$CASE_REVISION1_FAILED_ARCHIVE" \
+            --confirm-revision-2-failed-preflight-evidence-sha256 "$CASE_REVISION2_FAILED_ARCHIVE" \
             --confirm-active-kernel 6.18.42 \
             --confirm-rollback-kernel 6.18.40 \
             --confirm-source-plan-sha256 "${CASE_SCOPE_OVERRIDE:-$scope}" \
@@ -404,6 +424,18 @@ prepare_case mode-0600
 chmod 0600 "$CASE_PACKAGE" "$CASE_SIGNATURE"
 assert_success 'owner-only regular pre-staged source files should pass acquisition and verification' run_case
 assert_contains $'source-package-open-nofollow\tPASS' "$CASE_OUTPUT/source-acquisition-checks.tsv" 'a mode-0600 package should open safely under the root preflight'
+
+prepare_case safe-archive-root safe-root
+assert_success 'one safe root-directory archive member should be accepted and excluded from payload paths' run_case
+assert_equal 1 "$(json_value "$CASE_OUTPUT/source-package.json" archive_root_directory_count)" 'the safe archive root directory should be recorded exactly once'
+assert_contains 'package inspection completed successfully' "$CASE_OUTPUT/source-package-inspection.log" 'successful package inspection should publish a deterministic diagnostic log'
+assert_not_contains 'Traceback' "$CASE_OUTPUT/source-package-inspection.log" 'successful package inspection must not emit a Python traceback'
+
+prepare_case unsafe-archive-root-owner unsafe-root-owner
+assert_failure 'a non-root-owned archive root directory should fail package inspection' run_case
+assert_contains 'archive root directory is not root-owned' "$CASE_OUTPUT/source-package-inspection.log" 'the unsafe root-directory owner should be diagnosed exactly'
+assert_failure 'failed inspection must not publish a partial package summary' test -e "$CASE_OUTPUT/source-package.json"
+assert_failure 'failed inspection must not publish a partial module manifest' test -e "$CASE_OUTPUT/source-module-manifest.txt"
 
 prepare_case baseline
 CASE_REAL_GPG=1
@@ -526,6 +558,10 @@ assert_not_contains 'upgradepkg "' "$SCRIPT" 'the preflight source must not upgr
 assert_not_contains 'removepkg "' "$SCRIPT" 'the preflight source must not remove a package'
 assert_contains 'mktemp -d /tmp/slack-update-gpgv.' "$SCRIPT" 'the preflight should use a short isolated gpgv keyring directory'
 assert_not_contains 'local home=$OUTPUT_DIR/gnupg' "$SCRIPT" 'the preflight must not nest GNUPGHOME below the evidence path'
+assert_contains "if name in ('','.'): return None" "$SCRIPT" 'the package inspector should recognize a normalized archive root entry'
+assert_contains "archive root directory is not root-owned" "$SCRIPT" 'the package inspector should constrain root-entry ownership'
+assert_contains 'source-package-inspection.log' "$SCRIPT" 'package inspection failures should produce a deterministic diagnostic log'
+assert_contains '[ -f "$summary" ]' "$SCRIPT" 'the package inspector should require both outputs before parsing them'
 assert_contains 'record_skip' "$SCRIPT" 'dependent stages should be represented as skips'
 assert_contains '[ "$TEST_MODE" = 1 ]' "$SCRIPT" 'the signature bypass must remain restricted to test mode'
 assert_contains 'Copy evidence command:' "$SCRIPT" 'real execution should print the evidence copy command'

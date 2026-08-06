@@ -14,6 +14,7 @@ DEFAULT_SOURCE_STAGING_ROOT=${ROLLBACK_PLAN_SOURCE_STAGING_ROOT:-/var/tmp/slack-
 DIAGNOSTIC_RECORD=${ROLLBACK_PLAN_DIAGNOSTIC_RECORD:-$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-rollback-reconstruction-inventory-20260806-corrected-diagnostic.json}
 FAILED_PREFLIGHT_RECORD=${ROLLBACK_PLAN_FAILED_PREFLIGHT_RECORD:-$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-rollback-source-and-plan-preflight-20260806-failed-diagnostic.json}
 REVISION_1_FAILED_PREFLIGHT_RECORD=${ROLLBACK_PLAN_REVISION_1_FAILED_PREFLIGHT_RECORD:-$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-rollback-source-and-plan-preflight-revision-1-20260806-failed-diagnostic.json}
+REVISION_2_FAILED_PREFLIGHT_RECORD=${ROLLBACK_PLAN_REVISION_2_FAILED_PREFLIGHT_RECORD:-$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-rollback-source-and-plan-preflight-revision-2-20260806-failed-diagnostic.json}
 GENINITRD_RECORD=${ROLLBACK_PLAN_GENINITRD_RECORD:-$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-command-preflight-20260805-accepted.json}
 SIGNING_KEY=${ROLLBACK_PLAN_SIGNING_KEY:-$REPOSITORY_ROOT/tests/fixtures/reference/keys/slackware-security.gpg.asc}
 PLAN_POLICY=${ROLLBACK_PLAN_POLICY:-$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-rollback-source-and-plan-preflight-policy.json}
@@ -29,6 +30,7 @@ CONFIRM_HOSTNAME_FQDN=
 CONFIRM_INVENTORY_EVIDENCE_SHA256=
 CONFIRM_FAILED_PREFLIGHT_EVIDENCE_SHA256=
 CONFIRM_REVISION_1_FAILED_PREFLIGHT_EVIDENCE_SHA256=
+CONFIRM_REVISION_2_FAILED_PREFLIGHT_EVIDENCE_SHA256=
 CONFIRM_ACTIVE_KERNEL=
 CONFIRM_ROLLBACK_KERNEL=
 CONFIRM_SOURCE_PLAN_SHA256=
@@ -84,6 +86,7 @@ Usage: ${0##*/} --target slackware-current \\
                      --confirm-inventory-evidence-sha256 SHA256 \\
                      --confirm-failed-preflight-evidence-sha256 SHA256 \\
                      --confirm-revision-1-failed-preflight-evidence-sha256 SHA256 \\
+                     --confirm-revision-2-failed-preflight-evidence-sha256 SHA256 \\
                      --confirm-active-kernel VERSION \\
                      --confirm-rollback-kernel VERSION \\
                      --confirm-source-plan-sha256 SHA256 [options]
@@ -101,6 +104,7 @@ Required options:
       --confirm-inventory-evidence-sha256 SHA256
       --confirm-failed-preflight-evidence-sha256 SHA256
       --confirm-revision-1-failed-preflight-evidence-sha256 SHA256
+      --confirm-revision-2-failed-preflight-evidence-sha256 SHA256
       --confirm-active-kernel VERSION
       --confirm-rollback-kernel VERSION
       --confirm-source-plan-sha256 SHA256
@@ -138,6 +142,7 @@ parse_arguments() {
             --confirm-inventory-evidence-sha256) [ "$#" -ge 2 ] || return 1; CONFIRM_INVENTORY_EVIDENCE_SHA256=${2,,}; shift 2 ;;
             --confirm-failed-preflight-evidence-sha256) [ "$#" -ge 2 ] || return 1; CONFIRM_FAILED_PREFLIGHT_EVIDENCE_SHA256=${2,,}; shift 2 ;;
             --confirm-revision-1-failed-preflight-evidence-sha256) [ "$#" -ge 2 ] || return 1; CONFIRM_REVISION_1_FAILED_PREFLIGHT_EVIDENCE_SHA256=${2,,}; shift 2 ;;
+            --confirm-revision-2-failed-preflight-evidence-sha256) [ "$#" -ge 2 ] || return 1; CONFIRM_REVISION_2_FAILED_PREFLIGHT_EVIDENCE_SHA256=${2,,}; shift 2 ;;
             --confirm-active-kernel) [ "$#" -ge 2 ] || return 1; CONFIRM_ACTIVE_KERNEL=$2; shift 2 ;;
             --confirm-rollback-kernel) [ "$#" -ge 2 ] || return 1; CONFIRM_ROLLBACK_KERNEL=$2; shift 2 ;;
             --confirm-source-plan-sha256) [ "$#" -ge 2 ] || return 1; CONFIRM_SOURCE_PLAN_SHA256=${2,,}; shift 2 ;;
@@ -155,6 +160,7 @@ parse_arguments() {
     is_sha256 "$CONFIRM_INVENTORY_EVIDENCE_SHA256" || return 1
     is_sha256 "$CONFIRM_FAILED_PREFLIGHT_EVIDENCE_SHA256" || return 1
     is_sha256 "$CONFIRM_REVISION_1_FAILED_PREFLIGHT_EVIDENCE_SHA256" || return 1
+    is_sha256 "$CONFIRM_REVISION_2_FAILED_PREFLIGHT_EVIDENCE_SHA256" || return 1
     is_sha256 "$CONFIRM_SOURCE_PLAN_SHA256" || return 1
     is_safe_kernel_version "$CONFIRM_ACTIVE_KERNEL" || return 1
     is_safe_kernel_version "$CONFIRM_ROLLBACK_KERNEL" || return 1
@@ -185,14 +191,15 @@ PY
 
 validate_reviewed_boundary() {
     python3 - "$PLAN_POLICY" "$PLAN_SCRIPT" "$DIAGNOSTIC_RECORD" "$FAILED_PREFLIGHT_RECORD" \
-        "$REVISION_1_FAILED_PREFLIGHT_RECORD" "$GENINITRD_RECORD" "$SIGNING_KEY" \
+        "$REVISION_1_FAILED_PREFLIGHT_RECORD" "$REVISION_2_FAILED_PREFLIGHT_RECORD" "$GENINITRD_RECORD" "$SIGNING_KEY" \
         "$CONFIRM_HOSTNAME" "$CONFIRM_HOSTNAME_FQDN" "$CONFIRM_INVENTORY_EVIDENCE_SHA256" \
         "$CONFIRM_FAILED_PREFLIGHT_EVIDENCE_SHA256" "$CONFIRM_REVISION_1_FAILED_PREFLIGHT_EVIDENCE_SHA256" \
+        "$CONFIRM_REVISION_2_FAILED_PREFLIGHT_EVIDENCE_SHA256" \
         "$CONFIRM_ACTIVE_KERNEL" "$CONFIRM_ROLLBACK_KERNEL" "$CONFIRM_SOURCE_PLAN_SHA256" <<'PY'
 import hashlib, json, pathlib, sys
-(policy_path, script_path, diagnostic_path, failed_path, revision1_failed_path, geninitrd_path, key_path,
- host, fqdn, inventory_archive, failed_archive, revision1_failed_archive, active, rollback,
- confirmed_scope) = sys.argv[1:]
+(policy_path, script_path, diagnostic_path, failed_path, revision1_failed_path, revision2_failed_path,
+ geninitrd_path, key_path, host, fqdn, inventory_archive, failed_archive, revision1_failed_archive,
+ revision2_failed_archive, active, rollback, confirmed_scope) = sys.argv[1:]
 def regular(path):
     p=pathlib.Path(path)
     if not p.is_file() or p.is_symlink(): raise SystemExit(1)
@@ -202,15 +209,17 @@ policy=json.loads(regular(policy_path).read_text(encoding='utf-8'))
 diagnostic=json.loads(regular(diagnostic_path).read_text(encoding='utf-8'))
 failed=json.loads(regular(failed_path).read_text(encoding='utf-8'))
 revision1_failed=json.loads(regular(revision1_failed_path).read_text(encoding='utf-8'))
+revision2_failed=json.loads(regular(revision2_failed_path).read_text(encoding='utf-8'))
 geninitrd=json.loads(regular(geninitrd_path).read_text(encoding='utf-8'))
 script_sha=sha(script_path)
 diagnostic_sha=sha(diagnostic_path)
 failed_sha=sha(failed_path)
 revision1_failed_sha=sha(revision1_failed_path)
+revision2_failed_sha=sha(revision2_failed_path)
 geninitrd_sha=sha(geninitrd_path)
 key_sha=sha(key_path)
 scope=(
- 'operation=current-rollback-source-and-plan-preflight-revision-2\n'
+ 'operation=current-rollback-source-and-plan-preflight-revision-3\n'
  'target=slackware-current\n'
  f'hostname_short={host}\n'
  f'hostname_fqdn={fqdn}\n'
@@ -220,9 +229,11 @@ scope=(
  f'inventory_archive_sha256={inventory_archive}\n'
  f'failed_preflight_archive_sha256={failed_archive}\n'
  f'revision_1_failed_preflight_archive_sha256={revision1_failed_archive}\n'
+ f'revision_2_failed_preflight_archive_sha256={revision2_failed_archive}\n'
  f'diagnostic_record_sha256={diagnostic_sha}\n'
  f'failed_preflight_record_sha256={failed_sha}\n'
  f'revision_1_failed_preflight_record_sha256={revision1_failed_sha}\n'
+ f'revision_2_failed_preflight_record_sha256={revision2_failed_sha}\n'
  f'geninitrd_record_sha256={geninitrd_sha}\n'
  f'signing_key_sha256={key_sha}\n'
  f'plan_script_sha256={script_sha}\n'
@@ -230,7 +241,7 @@ scope=(
 calculated=hashlib.sha256(scope).hexdigest()
 vector=geninitrd.get('current_command_vector', [])
 checks=[
- policy.get('scenario') == 'current-rollback-source-and-plan-preflight-revision-2',
+ policy.get('scenario') == 'current-rollback-source-and-plan-preflight-revision-3',
  policy.get('target') == 'slackware-current',
  policy.get('reviewed') is True,
  policy.get('required_hostname_short') == host,
@@ -240,9 +251,11 @@ checks=[
  policy.get('inventory_archive_sha256') == inventory_archive,
  policy.get('failed_preflight_archive_sha256') == failed_archive,
  policy.get('revision_1_failed_preflight_archive_sha256') == revision1_failed_archive,
+ policy.get('revision_2_failed_preflight_archive_sha256') == revision2_failed_archive,
  policy.get('diagnostic_record_sha256') == diagnostic_sha,
  policy.get('failed_preflight_record_sha256') == failed_sha,
  policy.get('revision_1_failed_preflight_record_sha256') == revision1_failed_sha,
+ policy.get('revision_2_failed_preflight_record_sha256') == revision2_failed_sha,
  policy.get('geninitrd_record_sha256') == geninitrd_sha,
  policy.get('signing_key_sha256') == key_sha,
  policy.get('plan_script_sha256') == script_sha,
@@ -266,6 +279,13 @@ checks=[
  revision1_failed.get('assertions') == {'failures':1,'passes':41,'skips':5},
  revision1_failed.get('source_acquisition') == 'unchecked',
  revision1_failed.get('system_state_mutated') is False,
+ revision2_failed.get('archive_sha256') == revision2_failed_archive,
+ revision2_failed.get('executed_script_sha256') == '516397c136ab9dd75d90eba7a5e1f969ef36c30e1725e05a2e3fbf3060b09c93',
+ revision2_failed.get('assertions') == {'failures':1,'passes':57,'skips':3},
+ revision2_failed.get('source_acquisition') == 'pre-staged',
+ revision2_failed.get('source_signature_valid') is True,
+ revision2_failed.get('failure_cause') == 'safe-root-directory-entry-rejected',
+ revision2_failed.get('system_state_mutated') is False,
  geninitrd.get('accepted') is True,
  geninitrd.get('current_command_vector') == vector,
  len(vector) >= 12 and vector[0] == 'mkinitrd' and '-k' in vector and vector[vector.index('-k')+1] == rollback,
@@ -718,17 +738,28 @@ verify_source_signature() {
 }
 
 inspect_source_package() {
-    python3 - "$SOURCE_PACKAGE" "$CONFIRM_ROLLBACK_KERNEL" "$OUTPUT_DIR/source-package.json" \
-        "$OUTPUT_DIR/source-module-manifest.txt" <<'PY'
-import hashlib, json, pathlib, posixpath, stat, tarfile, sys
-package=pathlib.Path(sys.argv[1]); version=sys.argv[2]; summary=pathlib.Path(sys.argv[3]); modules_out=pathlib.Path(sys.argv[4])
+    local summary=$OUTPUT_DIR/source-package.json
+    local manifest=$OUTPUT_DIR/source-module-manifest.txt
+    local inspection_log=$OUTPUT_DIR/source-package-inspection.log
+    local payload_fields
+    rm -f -- "$summary" "$manifest" "$inspection_log"
+    python3 - "$SOURCE_PACKAGE" "$CONFIRM_ROLLBACK_KERNEL" "$summary" "$manifest" "$inspection_log" <<'PY'
+import hashlib, json, os, pathlib, posixpath, stat, tarfile, sys, tempfile
+package=pathlib.Path(sys.argv[1]); version=sys.argv[2]; summary=pathlib.Path(sys.argv[3])
+modules_out=pathlib.Path(sys.argv[4]); log=pathlib.Path(sys.argv[5])
+def reject(reason):
+    log.write_text(reason.rstrip()+'\n',encoding='utf-8')
+    raise SystemExit(1)
 expected=f'kernel-generic-{version}-x86_64-1.txz'
-if package.name != expected or not package.is_file() or package.is_symlink(): raise SystemExit(1)
+if package.name != expected: reject(f'unexpected package basename: {package.name}')
+if not package.is_file() or package.is_symlink(): reject('package is not a non-symlink regular file')
 def normalize(name):
+    original=name
     while name.startswith('./'): name=name[2:]
-    if not name or name.startswith('/'): raise SystemExit(1)
+    if name in ('','.'): return None
+    if name.startswith('/'): reject(f'absolute archive path: {original}')
     value=posixpath.normpath(name)
-    if value in ('','.','..') or value.startswith('../'): raise SystemExit(1)
+    if value in ('','..') or value.startswith('../'): reject(f'unsafe archive path: {original}')
     return value
 def safe_link(name,target):
     if not target or target.startswith('/'): return False
@@ -736,59 +767,89 @@ def safe_link(name,target):
     return value not in ('','.','..') and not value.startswith('../')
 def stream_hash(archive, member):
     stream=archive.extractfile(member)
-    if stream is None: raise SystemExit(1)
+    if stream is None: reject(f'cannot read regular archive member: {member.name}')
     h=hashlib.sha256(); size=0
     for chunk in iter(lambda: stream.read(1024*1024), b''): h.update(chunk); size += len(chunk)
-    if size <= 0: raise SystemExit(1)
+    if size <= 0: reject(f'empty regular archive member is not accepted: {member.name}')
     return h.hexdigest(), size
-seen=set(); kernels=[]; modules=[]; module_bytes=0; member_count=0; doinst=None
-with tarfile.open(package, 'r:*') as archive:
-    for member in archive:
-        member_count += 1
-        name=normalize(member.name)
-        if name in seen: raise SystemExit(1)
-        seen.add(name)
-        if member.ischr() or member.isblk() or member.isfifo(): raise SystemExit(1)
-        if member.issym() or member.islnk():
-            if not safe_link(name, member.linkname): raise SystemExit(1)
-            continue
-        if not (member.isfile() or member.isdir()): raise SystemExit(1)
-        if member.isfile() and (member.mode & (stat.S_ISUID | stat.S_ISGID | stat.S_IWOTH)): raise SystemExit(1)
-        if member.isfile() and (member.uid != 0 or member.gid != 0): raise SystemExit(1)
-        if member.isfile() and name in (f'boot/vmlinuz-{version}', f'boot/vmlinuz-generic-{version}'):
-            digest,size=stream_hash(archive,member); kernels.append({'member':name,'sha256':digest,'size':size,'mode':oct(member.mode & 0o777)})
-        prefix=f'lib/modules/{version}/'
-        if member.isfile() and name.startswith(prefix):
-            digest,size=stream_hash(archive,member)
-            rel=name[len(prefix):]
-            modules.append({'path':rel,'sha256':digest,'size':size,'mode':oct(member.mode & 0o777)})
-            module_bytes += size
-        if member.isfile() and name == 'install/doinst.sh':
-            digest,size=stream_hash(archive,member); doinst={'sha256':digest,'size':size,'mode':oct(member.mode & 0o777)}
-if len(kernels) != 1 or not modules: raise SystemExit(1)
+seen=set(); kernels=[]; modules=[]; module_bytes=0; member_count=0; doinst=None; root_directory_count=0
+try:
+    with tarfile.open(package, 'r:*') as archive:
+        for member in archive:
+            member_count += 1
+            name=normalize(member.name)
+            if name is None:
+                root_directory_count += 1
+                if root_directory_count != 1: reject('duplicate archive root directory entry')
+                if not member.isdir(): reject('archive root entry is not a directory')
+                if member.uid != 0 or member.gid != 0: reject('archive root directory is not root-owned')
+                if member.mode & (stat.S_ISUID | stat.S_ISGID | stat.S_IWOTH):
+                    reject('archive root directory mode is unsafe')
+                continue
+            if name in seen: reject(f'duplicate normalized archive path: {name}')
+            seen.add(name)
+            if member.ischr() or member.isblk() or member.isfifo(): reject(f'unsafe special archive member: {name}')
+            if member.issym() or member.islnk():
+                if not safe_link(name, member.linkname): reject(f'unsafe archive link: {name} -> {member.linkname}')
+                continue
+            if not (member.isfile() or member.isdir()): reject(f'unsupported archive member type: {name}')
+            if member.isfile() and (member.mode & (stat.S_ISUID | stat.S_ISGID | stat.S_IWOTH)):
+                reject(f'unsafe regular-file mode: {name}')
+            if member.isfile() and (member.uid != 0 or member.gid != 0):
+                reject(f'non-root-owned regular file: {name}')
+            if member.isfile() and name in (f'boot/vmlinuz-{version}', f'boot/vmlinuz-generic-{version}'):
+                digest,size=stream_hash(archive,member)
+                kernels.append({'member':name,'sha256':digest,'size':size,'mode':oct(member.mode & 0o777)})
+            prefix=f'lib/modules/{version}/'
+            if member.isfile() and name.startswith(prefix):
+                digest,size=stream_hash(archive,member)
+                rel=name[len(prefix):]
+                modules.append({'path':rel,'sha256':digest,'size':size,'mode':oct(member.mode & 0o777)})
+                module_bytes += size
+            if member.isfile() and name == 'install/doinst.sh':
+                digest,size=stream_hash(archive,member)
+                doinst={'sha256':digest,'size':size,'mode':oct(member.mode & 0o777)}
+except (tarfile.TarError, OSError) as exc:
+    reject(f'archive read failure: {exc}')
+if len(kernels) != 1: reject(f'expected one versioned kernel member, found {len(kernels)}')
+if not modules: reject('module tree contains no regular payload files')
 module_objects=[m for m in modules if m['path'].startswith('kernel/') and m['path'].endswith(('.ko','.ko.gz','.ko.xz','.ko.zst'))]
-if not module_objects: raise SystemExit(1)
+if not module_objects: reject('module tree contains no kernel module objects')
 modules=sorted(modules,key=lambda x:x['path'])
-modules_out.write_text(''.join(f"{m['sha256']}  {m['size']}  {m['mode']}  {m['path']}\n" for m in modules),encoding='utf-8')
+manifest_text=''.join(f"{m['sha256']}  {m['size']}  {m['mode']}  {m['path']}\n" for m in modules)
 package_hash=hashlib.sha256()
 with package.open('rb') as stream:
     for chunk in iter(lambda: stream.read(1024*1024),b''): package_hash.update(chunk)
 data={
  'filename':package.name,'package_sha256':package_hash.hexdigest(),'package_size':package.stat().st_size,
- 'member_count':member_count,'kernel':kernels[0],'module_member_count':len(modules),
+ 'member_count':member_count,'archive_root_directory_count':root_directory_count,
+ 'kernel':kernels[0],'module_member_count':len(modules),
  'module_object_count':len(module_objects),'module_payload_bytes':module_bytes,'doinst':doinst,
  'paths_safe':True,'ownership_safe':True,'modes_safe':True,
 }
-summary.write_text(json.dumps(data,indent=2,sort_keys=True)+'\n',encoding='utf-8')
+summary_tmp=summary.with_name(summary.name+'.tmp')
+manifest_tmp=modules_out.with_name(modules_out.name+'.tmp')
+try:
+    manifest_tmp.write_text(manifest_text,encoding='utf-8')
+    summary_tmp.write_text(json.dumps(data,indent=2,sort_keys=True)+'\n',encoding='utf-8')
+    os.replace(manifest_tmp,modules_out)
+    os.replace(summary_tmp,summary)
+    log.write_text('package inspection completed successfully\n',encoding='utf-8')
+except OSError as exc:
+    for path in (summary_tmp,manifest_tmp):
+        try: path.unlink()
+        except FileNotFoundError: pass
+    reject(f'cannot publish package inspection outputs: {exc}')
 PY
-    IFS=$'\t' read -r KERNEL_MEMBER KERNEL_SHA256 KERNEL_SIZE MODULE_FILE_COUNT MODULE_PAYLOAD_BYTES < <(
-        python3 - "$OUTPUT_DIR/source-package.json" <<'PY'
+    [ -f "$summary" ] && [ ! -L "$summary" ] && [ -f "$manifest" ] && [ ! -L "$manifest" ] || return 1
+    payload_fields=$(python3 - "$summary" <<'PY'
 import json,sys
 d=json.load(open(sys.argv[1],encoding='utf-8'))
 print(d['kernel']['member'],d['kernel']['sha256'],d['kernel']['size'],d['module_member_count'],d['module_payload_bytes'],sep='\t')
 PY
-    )
-    MODULE_MANIFEST_SHA256=$(file_sha256 "$OUTPUT_DIR/source-module-manifest.txt") || return 1
+    ) || return 1
+    IFS=$'\t' read -r KERNEL_MEMBER KERNEL_SHA256 KERNEL_SIZE MODULE_FILE_COUNT MODULE_PAYLOAD_BYTES <<< "$payload_fields" || return 1
+    MODULE_MANIFEST_SHA256=$(file_sha256 "$manifest") || return 1
     [ -n "$KERNEL_MEMBER" ] && [ "$KERNEL_SIZE" -gt 0 ] && [ "$MODULE_FILE_COUNT" -gt 0 ] \
         && is_sha256 "$MODULE_MANIFEST_SHA256"
 }
@@ -922,17 +983,18 @@ write_apply_plan() {
         "$CONFIRM_ACTIVE_KERNEL" "$CONFIRM_ROLLBACK_KERNEL" "$ROOT_UUID" "$ROOT_SOURCE" \
         "$OUTPUT_DIR/projected-mkinitrd-command.json" "$OUTPUT_DIR/projected-$fragment_name" \
         "$CONFIRM_INVENTORY_EVIDENCE_SHA256" "$CONFIRM_FAILED_PREFLIGHT_EVIDENCE_SHA256" \
-        "$CONFIRM_REVISION_1_FAILED_PREFLIGHT_EVIDENCE_SHA256" "$CONFIRM_SOURCE_PLAN_SHA256" <<'PY'
+        "$CONFIRM_REVISION_1_FAILED_PREFLIGHT_EVIDENCE_SHA256" "$CONFIRM_REVISION_2_FAILED_PREFLIGHT_EVIDENCE_SHA256" \
+        "$CONFIRM_SOURCE_PLAN_SHA256" <<'PY'
 import json,pathlib,sys
 (out,pkg,sig,pkgsha,sigsha,signing_fingerprint,primary_fingerprint,kernel_member,kernel_sha,kernel_size,module_count,module_bytes,module_manifest_sha,
- space_state,space_reserve,estimated_initrd,space_required,space_available,active,rollback,root_uuid,root_source,mkinitrd_path,fragment_path,inventory_sha,failed_sha,revision1_failed_sha,scope_sha)=sys.argv[1:]
+ space_state,space_reserve,estimated_initrd,space_required,space_available,active,rollback,root_uuid,root_source,mkinitrd_path,fragment_path,inventory_sha,failed_sha,revision1_failed_sha,revision2_failed_sha,scope_sha)=sys.argv[1:]
 mkinitrd=json.load(open(mkinitrd_path,encoding='utf-8'))['command_vector']
 fragment_name=f'41_slackware_rollback_{rollback.replace(".","_")}'
 data={
- 'scenario':'current-rollback-source-and-plan-preflight-revision-2','target':'slackware-current',
+ 'scenario':'current-rollback-source-and-plan-preflight-revision-3','target':'slackware-current',
  'active_kernel':active,'rollback_kernel':rollback,'root_uuid':root_uuid,'root_source':root_source,
  'inventory_archive_sha256':inventory_sha,'failed_preflight_archive_sha256':failed_sha,
- 'revision_1_failed_preflight_archive_sha256':revision1_failed_sha,'source_plan_scope_sha256':scope_sha,
+ 'revision_1_failed_preflight_archive_sha256':revision1_failed_sha,'revision_2_failed_preflight_archive_sha256':revision2_failed_sha,'source_plan_scope_sha256':scope_sha,
  'source':{'package_path':pkg,'signature_path':sig,'package_sha256':pkgsha,'signature_sha256':sigsha,'signing_fingerprint':signing_fingerprint,'valid_primary_fingerprint':primary_fingerprint},
  'payload':{'kernel_member':kernel_member,'kernel_destination':f'/boot/vmlinuz-{rollback}','kernel_sha256':kernel_sha,'kernel_size':int(kernel_size),'module_destination':f'/lib/modules/{rollback}','module_member_count':int(module_count),'module_payload_bytes':int(module_bytes),'module_manifest_sha256':module_manifest_sha},
  'space_budget':{'state':space_state,'reserve_bytes_per_filesystem':int(space_reserve),'estimated_initrd_bytes':int(estimated_initrd),'aggregate_required_bytes':int(space_required),'minimum_available_bytes':int(space_available)},
@@ -1002,18 +1064,19 @@ write_analysis() {
         "$SPACE_STATE" "$SPACE_RESERVE_BYTES" "$ESTIMATED_INITRD_BYTES" "$SPACE_REQUIRED_BYTES" "$SPACE_AVAILABLE_BYTES" "$APPLY_READY" \
         "$NEXT_STAGE" "$PASS_COUNT" "$FAILURE_COUNT" "$SKIP_COUNT" "$CONFIRM_INVENTORY_EVIDENCE_SHA256" \
         "$CONFIRM_FAILED_PREFLIGHT_EVIDENCE_SHA256" "$CONFIRM_REVISION_1_FAILED_PREFLIGHT_EVIDENCE_SHA256" \
-        "$CONFIRM_SOURCE_PLAN_SHA256" <<'PY'
+        "$CONFIRM_REVISION_2_FAILED_PREFLIGHT_EVIDENCE_SHA256" "$CONFIRM_SOURCE_PLAN_SHA256" <<'PY'
 import json,pathlib,sys
 (out,host,fqdn,running,active,rollback,root_uuid,root_source,acquisition,pkg,sig,pkgsha,sigsha,
  pkgsize,sigsize,signing_fingerprint,primary_fingerprint,kernel_member,kernel_sha,kernel_size,module_count,module_bytes,module_manifest_sha,
  space_state,space_reserve,estimated_initrd,space_required,space_available,ready,next_stage,
- passes,failures,skips,inventory_sha,failed_sha,revision1_failed_sha,scope_sha)=sys.argv[1:]
+ passes,failures,skips,inventory_sha,failed_sha,revision1_failed_sha,revision2_failed_sha,scope_sha)=sys.argv[1:]
 data={
- 'scenario':'current-rollback-source-and-plan-preflight-revision-2','target':'slackware-current','hostname_short':host,
+ 'scenario':'current-rollback-source-and-plan-preflight-revision-3','target':'slackware-current','hostname_short':host,
  'hostname_fqdn':fqdn,'running_kernel':running,'active_kernel':active,'rollback_kernel':rollback,
  'root_uuid':root_uuid,'root_source':root_source,'inventory_archive_sha256':inventory_sha,
  'failed_preflight_archive_sha256':failed_sha,
  'revision_1_failed_preflight_archive_sha256':revision1_failed_sha,
+ 'revision_2_failed_preflight_archive_sha256':revision2_failed_sha,
  'source_plan_scope_sha256':scope_sha,'rollback_module_state':'depmod-metadata-only-placeholder',
  'source_acquisition':acquisition,'source_package':{'path':pkg,'sha256':pkgsha,'size':int(pkgsize or 0)},
  'source_signature':{'path':sig,'sha256':sigsha,'size':int(sigsize or 0),'signing_fingerprint':signing_fingerprint,'valid_fingerprint':primary_fingerprint},
@@ -1031,7 +1094,7 @@ PY
 
 write_summary() {
     cat > "$OUTPUT_DIR/summary.txt" <<EOF_SUMMARY
-scenario=current-rollback-source-and-plan-preflight-revision-2
+scenario=current-rollback-source-and-plan-preflight-revision-3
 target=$TARGET
 result=$([ "$FAILURE_COUNT" -eq 0 ] && printf PASS || printf FAIL)
 passes=$PASS_COUNT
@@ -1046,6 +1109,7 @@ rollback_module_state=depmod-metadata-only-placeholder
 inventory_evidence_sha256=$CONFIRM_INVENTORY_EVIDENCE_SHA256
 failed_preflight_evidence_sha256=$CONFIRM_FAILED_PREFLIGHT_EVIDENCE_SHA256
 revision_1_failed_preflight_evidence_sha256=$CONFIRM_REVISION_1_FAILED_PREFLIGHT_EVIDENCE_SHA256
+revision_2_failed_preflight_evidence_sha256=$CONFIRM_REVISION_2_FAILED_PREFLIGHT_EVIDENCE_SHA256
 source_plan_scope_sha256=$CONFIRM_SOURCE_PLAN_SHA256
 source_acquisition=$SOURCE_ACQUISITION
 source_package=$SOURCE_PACKAGE
@@ -1133,7 +1197,7 @@ main() {
         if [ "$TEST_MODE" = 1 ] && { [ "$command_name" = findmnt ] || [ "$command_name" = hostname ] || [ "$command_name" = uname ]; }; then continue; fi
         command -v "$command_name" >/dev/null 2>&1 || { error "required command missing: $command_name"; return 2; }
     done
-    for reviewed_file in "$DIAGNOSTIC_RECORD" "$FAILED_PREFLIGHT_RECORD" "$REVISION_1_FAILED_PREFLIGHT_RECORD" "$GENINITRD_RECORD" "$SIGNING_KEY" "$PLAN_POLICY" "$PLAN_SCRIPT"; do
+    for reviewed_file in "$DIAGNOSTIC_RECORD" "$FAILED_PREFLIGHT_RECORD" "$REVISION_1_FAILED_PREFLIGHT_RECORD" "$REVISION_2_FAILED_PREFLIGHT_RECORD" "$GENINITRD_RECORD" "$SIGNING_KEY" "$PLAN_POLICY" "$PLAN_SCRIPT"; do
         require_regular_file "$reviewed_file" || { error "reviewed file is missing or unsafe: $reviewed_file"; return 2; }
     done
     bash -n "$PLAN_SCRIPT" || { error 'source and plan preflight has invalid shell syntax'; return 2; }
@@ -1153,7 +1217,7 @@ main() {
 
     if validate_reviewed_boundary; then
         REVIEWED_BOUNDARY_VALID=true
-        record_pass 'the corrected inventory, both failed step-87 diagnostics, reviewed signing key, historical initrd command, exact code, and revision scope are bound'
+        record_pass 'the corrected inventory, all three failed step-87 diagnostics, reviewed signing key, historical initrd command, exact code, and revision scope are bound'
     else
         record_failure 'the corrected diagnostic boundary, either failed step-87 evidence record, or explicit revision scope is missing, changed, or mismatched'
     fi

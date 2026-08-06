@@ -1,0 +1,55 @@
+{
+  "accepted": false,
+  "active_kernel": "6.18.42",
+  "apply_authorized": false,
+  "apply_ready": false,
+  "archive_sha256": "bc28dd82557236f0938f71c4255eee6ea2f477f2f8676f32209af6fae3ce420e",
+  "assertions": {
+    "failures": 1,
+    "passes": 57,
+    "skips": 3
+  },
+  "captured_at": "2026-08-06T14:16:42Z",
+  "executed_script_sha256": "516397c136ab9dd75d90eba7a5e1f969ef36c30e1725e05a2e3fbf3060b09c93",
+  "failure_cause": "safe-root-directory-entry-rejected",
+  "failure_details": [
+    "Source acquisition, exact SHA-256 validation, and detached-signature verification all passed.",
+    "The package inspector rejected the normal archive root entry named '.' before publishing source-package.json or source-module-manifest.txt.",
+    "The exact signed package root entry is a root-owned directory with mode 0755 and no payload.",
+    "Space evaluation, complete-plan publication, and apply readiness were skipped; the host remained unchanged."
+  ],
+  "hostname_fqdn": "pcold-slack.pcold-slack.org",
+  "hostname_short": "pcold-slack",
+  "initial_failed_preflight_archive_sha256": "d2a5398c789f14cfee07d53a55e4ca7da8aab85dd0387b51f437120401f9ba14",
+  "inventory_archive_sha256": "cd2769c18e93b17596028b33b00a1d6e14bb81336172935bb18b0bef3568ed56",
+  "next_stage": "current-rollback-source-and-plan-preflight-revision-3",
+  "package_database_mutated": false,
+  "package_installation_performed": false,
+  "reboot_performed": false,
+  "revision_1_failed_preflight_archive_sha256": "5dc24b1863a818cd0500fd08ea569995e627411a66181ccebcbb74698bbac35e",
+  "rollback_kernel": "6.18.40",
+  "rollback_module_state": "depmod-metadata-only-placeholder",
+  "scenario": "current-rollback-source-and-plan-preflight-revision-2-failed-diagnostic",
+  "source_acquisition": "pre-staged",
+  "source_package": {
+    "filename": "kernel-generic-6.18.40-x86_64-1.txz",
+    "safe_archive_root": {
+      "gid": 0,
+      "mode": "0755",
+      "name": ".",
+      "size": 0,
+      "type": "directory",
+      "uid": 0
+    },
+    "sha256": "90dcee03829a3755b74b52a679fadea2619d96a38e12c461ee6e6866c9c598cc",
+    "size": 78712412
+  },
+  "source_signature": {
+    "filename": "kernel-generic-6.18.40-x86_64-1.txz.asc",
+    "primary_fingerprint": "EC5649DA401E22ABFA6736EF6A4463C040102233",
+    "sha256": "1222c391801227dc389dcd46de91d1915e61df12f436614ebd0a24b1697fdd39"
+  },
+  "source_signature_valid": true,
+  "system_state_mutated": false,
+  "target": "slackware-current"
+}
