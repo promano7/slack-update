@@ -1,0 +1,101 @@
+{
+  "schema": 1,
+  "scenario": "current-rollback-reconstruction-authorized-apply-review",
+  "target": "slackware-current",
+  "accepted": true,
+  "accepted_at_utc": "2026-08-06T17:36:30Z",
+  "archive_sha256": "8da16204e339d8c1a4e5756ba938a6f22ecb4528a67e32a726954c935c612fb5",
+  "assertions": {
+    "passes": 8,
+    "failures": 0,
+    "skips": 0
+  },
+  "hostname_short": "pcold-slack",
+  "hostname_fqdn": "pcold-slack.pcold-slack.org",
+  "active_kernel": "6.18.42",
+  "rollback_kernel": "6.18.40",
+  "source_plan_evidence_sha256": "ce45977bbcacb237163d821a43d5a79f5246bfca54bc3fb4ca6edfc30243fbfb",
+  "authorization_review_scope_sha256": "03751103875a56b092e92bd4f915016320e5663000598a7c0fe3c5023aad2b50",
+  "apply_contract_sha256": "1a2a59d73a72cb609bc1622e5882adddfc1a6f117d6602e0ba3abe238badd923",
+  "source": {
+    "package_path": "/home/promano/slack-update-source-6.18.40/kernel-generic-6.18.40-x86_64-1.txz",
+    "package_sha256": "90dcee03829a3755b74b52a679fadea2619d96a38e12c461ee6e6866c9c598cc",
+    "signature_path": "/home/promano/slack-update-source-6.18.40/kernel-generic-6.18.40-x86_64-1.txz.asc",
+    "signature_sha256": "1222c391801227dc389dcd46de91d1915e61df12f436614ebd0a24b1697fdd39"
+  },
+  "payload": {
+    "kernel_member": "boot/vmlinuz-6.18.40",
+    "kernel_destination": "/boot/vmlinuz-6.18.40",
+    "kernel_sha256": "8899359f0c1f6fc018f8079ba0c76e886b12b8087ff7dccc695c459b40fb9aae",
+    "kernel_size": 14434816,
+    "module_destination": "/lib/modules/6.18.40",
+    "module_member_count": 5504,
+    "module_object_count": 5490,
+    "module_payload_bytes": 431714444,
+    "module_manifest_sha256": "615b21541969101d5e2f46f5755d509e47d499a7f22ff78dd4bed347bc05e655"
+  },
+  "initrd": {
+    "destination": "/boot/initrd-6.18.40.img",
+    "command_vector": [
+      "mkinitrd", "-c", "-k", "6.18.40", "-f", "ext4", "-r", "/dev/sda2", "-m",
+      "xhci-pci:ohci-pci:ehci-pci:xhci-hcd:uhci-hcd:ehci-hcd:hid:usbhid:i2c-hid:hid_generic:hid-asus:hid-cherry:hid-logitech:hid-logitech-dj:hid-logitech-hidpp:hid-lenovo:hid-microsoft:hid_multitouch",
+      "-u", "-o", "/boot/initrd-6.18.40.img"
+    ]
+  },
+  "grub": {
+    "fragment_destination": "/etc/grub.d/41_slackware_rollback_6_18_40",
+    "fragment_mode": "0755",
+    "fragment_sha256": "ae0a5324e43c7b922cbcd12e0ed260742c8be3b2d435e9068d996573ce6ad479",
+    "entry_id": "slackware-rollback-6.18.40",
+    "default_must_remain": "0",
+    "source_initrd_vector": [
+      "/boot/intel-ucode.img",
+      "/boot/amd-ucode.img",
+      "/boot/initrd-generic.img"
+    ],
+    "projected_initrd_vector": [
+      "/boot/intel-ucode.img",
+      "/boot/amd-ucode.img",
+      "/boot/initrd-6.18.40.img"
+    ]
+  },
+  "backup_root": "/var/lib/slack-update/rollback-backups/6.18.40",
+  "stage_root": "/var/tmp/slack-update-rollback-apply/6.18.40",
+  "ordered_actions": [
+    "revalidate-boundary-and-source-hashes",
+    "create-owner-only-backup-and-extraction-directories",
+    "back-up-depmod-metadata-placeholder-and-active-grub-config",
+    "extract-only-reviewed-kernel-and-module-tree-to-private-staging",
+    "verify-staged-kernel-and-complete-module-manifest",
+    "install-versioned-rollback-kernel-and-module-tree",
+    "run-depmod-for-rollback-kernel",
+    "run-reviewed-versioned-mkinitrd-command",
+    "install-explicit-rollback-grub-fragment",
+    "generate-and-validate-temporary-grub-config",
+    "prove-default-remains-active-6.18.42-entry",
+    "atomically-replace-grub-config-and-verify-final-state"
+  ],
+  "rollback_limits": [
+    "do-not-change-generic-kernel-link",
+    "do-not-change-generic-initrd-link",
+    "do-not-change-grub-default",
+    "retain-source-package-signature-and-backups"
+  ],
+  "artifact_sha256": {
+    "summary.txt": "7c43321e3d085b32c0e7729dcd685f11340344fbf99a49e32cb552f641991ed7",
+    "apply-authorization.json": "dd30e4f6b51c5380e164891b9adbe2faf8d3ef20303a7d88a2bf519ba24acd55",
+    "reviewed-plan.json": "a328ee4868d92617fbc8e9c0f17a626b56fb50cdb0d274b57c9115aae27bb949"
+  },
+  "system_state_mutated": false,
+  "repository_metadata_refreshed": false,
+  "package_installation_performed": false,
+  "package_database_mutated": false,
+  "depmod_executed": false,
+  "initrd_generated": false,
+  "grub_mutated": false,
+  "reboot_performed": false,
+  "apply_ready": true,
+  "apply_authorized": true,
+  "apply_executed": false,
+  "next_stage": "current-rollback-reconstruction-authorized-apply"
+}

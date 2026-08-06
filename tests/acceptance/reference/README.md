@@ -1289,3 +1289,30 @@ sudo bash tests/acceptance/reference/test-current-rollback-reconstruction-author
 
 Script SHA-256 is `db031cf1185da410efdac5229a34e823ce90d32d29b0c258e08e89488b5c0725`, policy SHA-256 is `9c315dd0d7da4196d1ab2c69353ff7a42abe66742a7a73ba8c236e365a501e4b`, confirmation scope SHA-256 is `03751103875a56b092e92bd4f915016320e5663000598a7c0fe3c5023aad2b50`, and canonical apply-contract SHA-256 is `1a2a59d73a72cb609bc1622e5882adddfc1a6f117d6602e0ba3abe238badd923`. The focused harness contains 46 checks. The complete inventory contains 51 suites and 3,529 checks with zero failures; static validation covers 84 shell scripts and 96 JSON files.
 
+
+### Current rollback reconstruction authorized apply and immediate verification (step 89)
+
+Run this boundary only after accepting step 88 and while the exact historical package and signature remain in `/home/promano/slack-update-source-6.18.40`. It is intentionally a combined apply-and-post-state verification so block 1 can finish in one additional machine execution without a separate verification command.
+
+```bash
+sudo bash tests/acceptance/reference/test-current-rollback-reconstruction-authorized-apply.sh \
+    --target slackware-current \
+    --execute-authorized-apply \
+    --confirm-hostname pcold-slack \
+    --confirm-hostname-fqdn pcold-slack.pcold-slack.org \
+    --confirm-authorization-evidence-sha256 8da16204e339d8c1a4e5756ba938a6f22ecb4528a67e32a726954c935c612fb5 \
+    --confirm-active-kernel 6.18.42 \
+    --confirm-rollback-kernel 6.18.40 \
+    --confirm-apply-contract-sha256 1a2a59d73a72cb609bc1622e5882adddfc1a6f117d6602e0ba3abe238badd923 \
+    --confirm-apply-scope-sha256 df59fe7d67ce54859da0db6c07f055d67ae6ce212498d3a28926432ec0610af9 \
+    --source-package /home/promano/slack-update-source-6.18.40/kernel-generic-6.18.40-x86_64-1.txz \
+    --source-signature /home/promano/slack-update-source-6.18.40/kernel-generic-6.18.40-x86_64-1.txz.asc
+```
+
+The wrapper must not refresh repositories, install or register the package, mutate the package database, change generic boot links, change the GRUB default, or reboot. It must rerun the non-mutating authorization review before creating the transaction directories. Preserve `/boot/initrd-tree` across the reviewed `mkinitrd -c` execution, because it is a reusable working tree rather than an authorized persistent change.
+
+On success require the exact rollback kernel hash, all 5,490 module objects, valid depmod metadata, a nonempty gzip-valid versioned initrd, an executable fragment with the reviewed hash, one rollback menuentry with Intel and AMD microcode before the rollback initrd, the active generic entry first, unchanged active kernel/initrd hashes and generic links, unchanged package database, and running kernel 6.18.42. Only then report `pause_safe=true` and route to the optional boot test.
+
+On any failure after mutation begins, restore the captured baseline and prove the complete before/after snapshots match. A nonzero result may still report `pause_safe=true` when rollback restoration is proven. Never advise poweroff when the final output reports `pause_safe=false`.
+
+The focused harness contains 70 checks covering the successful commit, source and authorization rejection before mutation, depmod failure, partial mkinitrd failure, GRUB-generation failure, invalid generated rollback vectors, automatic baseline restoration, generic-link preservation, owner-only backups, and `/boot/initrd-tree` preservation. The complete inventory contains 52 suites and 3,599 checks with zero failures; static validation covers 86 shell scripts and 98 JSON files.

@@ -318,3 +318,11 @@ A non-mutating recovery verification may declare `pause_safe=true` only when it 
 Missing rollback artifacts must never be described as preserved. Record separately whether the old kernel image, old initrd, and old module tree exist. A safe pause after the installed target boot pair is verified does not itself authorize reboot; keep `reboot_authorized=false` until a dedicated reboot review is accepted.
 
 The accepted Slackware-current safe-pause record is `tests/fixtures/reference/acceptance/normal-update/slackware-current-post-package-boot-recovery-20260805-accepted.json`, with archive SHA-256 `b2e3ee1d4bcdc243afbde0160d7d7f50e985e365f9580551fea6def4d6ae1f96`. Once this exact boundary is accepted, later repository publications are a new update cycle and must not invalidate or restart the completed transaction. The next contribution must focus only on a dedicated reboot review bound to the installed 6.18.42 pair; it must not refresh metadata, reinstall packages, or claim that the degraded 6.18.40 disk rollback exists.
+
+### Optional rollback reconstruction apply boundary
+
+Changes to `test-current-rollback-reconstruction-authorized-apply.sh` require a new code-bound confirmation scope and must preserve the separation between the historical source package and the installed package database. Do not introduce Slackpkg metadata refresh, package-manager installation, generic-link changes, GRUB default changes, or reboot commands.
+
+The executor must remain transactional. Before mutation, rerun the accepted authorization review and capture package plus sensitive state. Stage and verify the complete payload before installing it. Keep owner-only backups of the module placeholder, active GRUB configuration, and any existing `/boot/initrd-tree`. Validate the temporary GRUB configuration before same-directory atomic replacement. Every failure path after mutation begins must attempt restoration and must set `pause_safe=true` only after byte-equivalent baseline verification.
+
+Acceptance changes must extend the focused harness with both commit and rollback cases. At minimum cover depmod failure, mkinitrd failure after partial output creation, GRUB generation or semantic-validation failure, source drift before mutation, authorization rejection before mutation, generic-link preservation, package-database immutability, and initrd-tree restoration.
