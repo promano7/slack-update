@@ -201,15 +201,15 @@ EOF_GRUB
 }
 
 write_records_and_policy() {
-    local root=$1 diagnostic=$2 failed=$3 geninitrd=$4 policy=$5 inventory_archive=$6
-    local failed_archive=$7 package=$8 signature=$9
-    python3 - "$root" "$diagnostic" "$failed" "$geninitrd" "$policy" "$TMP/signing-key.asc" \
-        "$SCRIPT" "$inventory_archive" "$failed_archive" "$SIGNING_FINGERPRINT" "$package" "$signature" <<'PY'
+    local root=$1 diagnostic=$2 failed=$3 revision1_failed=$4 geninitrd=$5 policy=$6 inventory_archive=$7
+    local failed_archive=$8 revision1_failed_archive=$9 package=${10} signature=${11}
+    python3 - "$root" "$diagnostic" "$failed" "$revision1_failed" "$geninitrd" "$policy" "$TMP/signing-key.asc" \
+        "$SCRIPT" "$inventory_archive" "$failed_archive" "$revision1_failed_archive" "$SIGNING_FINGERPRINT" "$package" "$signature" <<'PY'
 import hashlib,json,pathlib,sys
 root=pathlib.Path(sys.argv[1]); diagnostic=pathlib.Path(sys.argv[2]); failed=pathlib.Path(sys.argv[3])
-geninitrd=pathlib.Path(sys.argv[4]); policy_path=pathlib.Path(sys.argv[5]); key=pathlib.Path(sys.argv[6])
-script=pathlib.Path(sys.argv[7]); inventory=sys.argv[8]; failed_archive=sys.argv[9]; fingerprint=sys.argv[10]
-package=pathlib.Path(sys.argv[11]); signature=pathlib.Path(sys.argv[12])
+revision1_failed=pathlib.Path(sys.argv[4]); geninitrd=pathlib.Path(sys.argv[5]); policy_path=pathlib.Path(sys.argv[6]); key=pathlib.Path(sys.argv[7])
+script=pathlib.Path(sys.argv[8]); inventory=sys.argv[9]; failed_archive=sys.argv[10]; revision1_failed_archive=sys.argv[11]; fingerprint=sys.argv[12]
+package=pathlib.Path(sys.argv[13]); signature=pathlib.Path(sys.argv[14])
 def sha(path): return hashlib.sha256(pathlib.Path(path).read_bytes()).hexdigest()
 def size(path): return pathlib.Path(path).stat().st_size
 def write(path,data): path.write_text(json.dumps(data,indent=2,sort_keys=True)+'\n',encoding='utf-8')
@@ -228,6 +228,11 @@ write(failed,{
  'archive_sha256':failed_archive,'executed_script_sha256':'37756428b0fbb9e106ce1853414f8032d803fdc6bb9ec9fef642ed82bd4c8a74',
  'system_state_mutated':False,
 })
+write(revision1_failed,{
+ 'scenario':'current-rollback-source-and-plan-preflight-revision-1-failed-diagnostic','target':'slackware-current','accepted':False,
+ 'archive_sha256':revision1_failed_archive,'executed_script_sha256':'8dc3eceb45c6c531aaf8e3f74e907cf4eb2b45a3aa113f43876b57405def47bd',
+ 'assertions':{'passes':41,'failures':1,'skips':5},'source_acquisition':'unchecked','system_state_mutated':False,
+})
 vector=['mkinitrd','-c','-k','6.18.40','-f','ext4','-r','/dev/sda2','-m','xhci-pci:usbhid','-u','-o','/boot/initrd.gz']
 write(geninitrd,{'scenario':'current-geninitrd-command-preflight','target':'slackware-current','accepted':True,'current_command_vector':vector})
 placeholder={
@@ -245,11 +250,13 @@ placeholder={
  'modules.weakdep':{'kind':'regular','mode':'0644','size':55},
 }
 base={
- 'scenario':'current-rollback-source-and-plan-preflight-revision-1','target':'slackware-current','reviewed':True,
+ 'scenario':'current-rollback-source-and-plan-preflight-revision-2','target':'slackware-current','reviewed':True,
  'required_hostname_short':'pcold-slack','required_hostname_fqdn':'pcold-slack.pcold-slack.org',
  'required_root_uuid':'ba7632d7-7469-483e-830d-59c88d985866','active_kernel':'6.18.42','rollback_kernel':'6.18.40',
  'inventory_archive_sha256':inventory,'failed_preflight_archive_sha256':failed_archive,
- 'diagnostic_record_sha256':sha(diagnostic),'failed_preflight_record_sha256':sha(failed),'geninitrd_record_sha256':sha(geninitrd),
+ 'revision_1_failed_preflight_archive_sha256':revision1_failed_archive,
+ 'diagnostic_record_sha256':sha(diagnostic),'failed_preflight_record_sha256':sha(failed),
+ 'revision_1_failed_preflight_record_sha256':sha(revision1_failed),'geninitrd_record_sha256':sha(geninitrd),
  'signing_key_sha256':sha(key),'signing_key_fingerprint':fingerprint,'plan_script_sha256':sha(script),
  'repository_metadata_refresh_allowed':False,'package_installation_allowed':False,'initrd_generation_allowed':False,
  'grub_mutation_allowed':False,'reboot_execution_allowed':False,'package_database_mutation_allowed':False,
@@ -273,13 +280,15 @@ base={
  'minimum_free_space_reserve_bytes':1024,'estimated_initrd_bytes':4096,
 }
 scope=(
- 'operation=current-rollback-source-and-plan-preflight-revision-1\n' 'target=slackware-current\n'
+ 'operation=current-rollback-source-and-plan-preflight-revision-2\n' 'target=slackware-current\n'
  'hostname_short=pcold-slack\n' 'hostname_fqdn=pcold-slack.pcold-slack.org\n'
  'active_kernel=6.18.42\n' 'rollback_kernel=6.18.40\n'
  f'root_uuid={base["required_root_uuid"]}\n' f'inventory_archive_sha256={inventory}\n'
  f'failed_preflight_archive_sha256={failed_archive}\n'
+ f'revision_1_failed_preflight_archive_sha256={revision1_failed_archive}\n'
  f'diagnostic_record_sha256={base["diagnostic_record_sha256"]}\n'
  f'failed_preflight_record_sha256={base["failed_preflight_record_sha256"]}\n'
+ f'revision_1_failed_preflight_record_sha256={base["revision_1_failed_preflight_record_sha256"]}\n'
  f'geninitrd_record_sha256={base["geninitrd_record_sha256"]}\n'
  f'signing_key_sha256={base["signing_key_sha256"]}\n' f'plan_script_sha256={base["plan_script_sha256"]}\n'
 ).encode()
@@ -304,10 +313,12 @@ prepare_case() {
     CASE_SOURCE="$TMP/$name-source"
     CASE_DIAGNOSTIC="$TMP/$name-diagnostic.json"
     CASE_FAILED="$TMP/$name-failed-preflight.json"
+    CASE_REVISION1_FAILED="$TMP/$name-revision-1-failed-preflight.json"
     CASE_GENINITRD="$TMP/$name-geninitrd.json"
     CASE_POLICY="$TMP/$name-policy.json"
     CASE_INVENTORY_ARCHIVE=$(printf 'a%.0s' {1..64})
     CASE_FAILED_ARCHIVE=$(printf 'c%.0s' {1..64})
+    CASE_REVISION1_FAILED_ARCHIVE=$(printf 'd%.0s' {1..64})
     CASE_MARKER="$TMP/$name-prohibited"
     rm -rf "$CASE_ROOT"
     cp -a -- "$CANONICAL_ROOT" "$CASE_ROOT"
@@ -321,8 +332,8 @@ prepare_case() {
         create_package "$CASE_PACKAGE" "$variant"
         cp -- "$CANONICAL_SIGNATURE" "$CASE_SIGNATURE"
     fi
-    write_records_and_policy "$CASE_ROOT" "$CASE_DIAGNOSTIC" "$CASE_FAILED" "$CASE_GENINITRD" "$CASE_POLICY" \
-        "$CASE_INVENTORY_ARCHIVE" "$CASE_FAILED_ARCHIVE" "$CASE_PACKAGE" "$CASE_SIGNATURE"
+    write_records_and_policy "$CASE_ROOT" "$CASE_DIAGNOSTIC" "$CASE_FAILED" "$CASE_REVISION1_FAILED" "$CASE_GENINITRD" "$CASE_POLICY" \
+        "$CASE_INVENTORY_ARCHIVE" "$CASE_FAILED_ARCHIVE" "$CASE_REVISION1_FAILED_ARCHIVE" "$CASE_PACKAGE" "$CASE_SIGNATURE"
 }
 
 run_case() {
@@ -351,6 +362,7 @@ run_case() {
         SLACK_UPDATE_TEST_PRIMARY_FINGERPRINT="$SIGNING_FINGERPRINT" \
         ROLLBACK_PLAN_DIAGNOSTIC_RECORD="$CASE_DIAGNOSTIC" \
         ROLLBACK_PLAN_FAILED_PREFLIGHT_RECORD="$CASE_FAILED" \
+        ROLLBACK_PLAN_REVISION_1_FAILED_PREFLIGHT_RECORD="$CASE_REVISION1_FAILED" \
         ROLLBACK_PLAN_GENINITRD_RECORD="$CASE_GENINITRD" \
         ROLLBACK_PLAN_SIGNING_KEY="$TMP/signing-key.asc" \
         ROLLBACK_PLAN_POLICY="$CASE_POLICY" \
@@ -363,6 +375,7 @@ run_case() {
             --confirm-hostname-fqdn pcold-slack.pcold-slack.org \
             --confirm-inventory-evidence-sha256 "$CASE_INVENTORY_ARCHIVE" \
             --confirm-failed-preflight-evidence-sha256 "$CASE_FAILED_ARCHIVE" \
+            --confirm-revision-1-failed-preflight-evidence-sha256 "$CASE_REVISION1_FAILED_ARCHIVE" \
             --confirm-active-kernel 6.18.42 \
             --confirm-rollback-kernel 6.18.40 \
             --confirm-source-plan-sha256 "${CASE_SCOPE_OVERRIDE:-$scope}" \
@@ -377,6 +390,20 @@ assert_contains 'Acquire or reuse the exact historical Slackware package' <(bash
 prepare_case missing-pair
 rm "$CASE_SIGNATURE"
 assert_failure 'an incomplete pre-staged package/signature pair should fail safely' run_case
+assert_contains $'source-signature-lstat\tFAIL' "$CASE_OUTPUT/source-acquisition-checks.tsv" 'a missing signature should identify the exact failed lstat check'
+assert_contains $'source-signature-open-nofollow\tSKIP' "$CASE_OUTPUT/source-acquisition-checks.tsv" 'dependent signature-open diagnostics should be skipped after missing lstat'
+
+prepare_case symlink-package
+rm "$CASE_PACKAGE"
+ln -s "$CANONICAL_PACKAGE" "$CASE_PACKAGE"
+assert_failure 'a symbolic-link pre-staged package should be rejected safely' run_case
+assert_contains $'source-package-no-symbolic-link\tFAIL' "$CASE_OUTPUT/source-acquisition-checks.tsv" 'a symbolic-link package should identify the exact no-link failure'
+assert_contains $'source-package-open-nofollow\tSKIP' "$CASE_OUTPUT/source-acquisition-checks.tsv" 'safe opening should be skipped for a rejected symbolic link'
+
+prepare_case mode-0600
+chmod 0600 "$CASE_PACKAGE" "$CASE_SIGNATURE"
+assert_success 'owner-only regular pre-staged source files should pass acquisition and verification' run_case
+assert_contains $'source-package-open-nofollow\tPASS' "$CASE_OUTPUT/source-acquisition-checks.tsv" 'a mode-0600 package should open safely under the root preflight'
 
 prepare_case baseline
 CASE_REAL_GPG=1
@@ -389,6 +416,13 @@ assert_equal false "$(json_value "$ANALYSIS" apply_authorized)" 'the preflight m
 assert_equal depmod-metadata-only-placeholder "$(json_value "$ANALYSIS" rollback_module_state)" 'the observed rollback directory should be classified as metadata-only'
 assert_equal 0 "$(json_value "$ANALYSIS" assertions.skips)" 'a successful baseline should not skip any stage'
 assert_equal pre-staged "$(json_value "$ANALYSIS" source_acquisition)" 'the explicit source pair should be classified as pre-staged'
+assert_equal "$(sha256sum "$CASE_PACKAGE" | awk '{print $1}')" "$(json_value "$ANALYSIS" source_package.sha256)" 'the safely opened package digest should be recorded before signature verification'
+assert_equal "$(sha256sum "$CASE_SIGNATURE" | awk '{print $1}')" "$(json_value "$ANALYSIS" source_signature.sha256)" 'the safely opened signature digest should be recorded before signature verification'
+assert_contains $'source-package-open-nofollow\tPASS' "$CASE_OUTPUT/source-acquisition-checks.tsv" 'the package should be opened without following symbolic links'
+assert_contains $'source-signature-open-nofollow\tPASS' "$CASE_OUTPUT/source-acquisition-checks.tsv" 'the signature should be opened without following symbolic links'
+assert_contains $'source-package-sha256\tPASS' "$CASE_OUTPUT/source-acquisition-checks.tsv" 'the package digest should match during acquisition'
+assert_contains $'source-signature-sha256\tPASS' "$CASE_OUTPUT/source-acquisition-checks.tsv" 'the signature digest should match during acquisition'
+assert_file_exists "$CASE_OUTPUT/source-acquisition.json" 'source acquisition metadata should be emitted'
 assert_equal "$SIGNING_FINGERPRINT" "$(json_value "$ANALYSIS" source_signature.valid_fingerprint)" 'the exact primary signing-key fingerprint should be recorded'
 assert_equal "$SIGNING_SUBKEY_FINGERPRINT" "$(json_value "$ANALYSIS" source_signature.signing_fingerprint)" 'the actual signing-subkey fingerprint should be recorded'
 assert_equal boot/vmlinuz-6.18.40 "$(json_value "$ANALYSIS" payload.kernel_member)" 'the exact versioned kernel member should be selected'
@@ -415,11 +449,11 @@ assert_failure 'no prohibited command should have executed during the baseline p
 prepare_case long-output-path
 CASE_OUTPUT="$TMP/$(printf 'evidence-path-segment-%.0s' {1..5})/slackware-current-long-output"
 CASE_REAL_GPG=1
-assert_success 'a long evidence path should not break GnuPG agent socket creation' run_case
+assert_success 'a long evidence path should not affect isolated gpgv verification' run_case
 unset CASE_REAL_GPG
-assert_contains '/tmp/slack-update-gpg.' "$CASE_OUTPUT/gpg-home-path.txt" 'GnuPG should use a short temporary home outside the evidence tree'
-GPG_HOME_USED=$(cat "$CASE_OUTPUT/gpg-home-path.txt")
-assert_failure 'the temporary GnuPG home should be removed after verification' test -e "$GPG_HOME_USED"
+assert_contains '/tmp/slack-update-gpgv.' "$CASE_OUTPUT/gpg-keyring-directory.txt" 'gpgv should use a short isolated keyring directory outside the evidence tree'
+GPG_KEYRING_DIR_USED=$(cat "$CASE_OUTPUT/gpg-keyring-directory.txt")
+assert_failure 'the temporary gpgv keyring directory should be removed after verification' test -e "$GPG_KEYRING_DIR_USED"
 
 prepare_case download
 CASE_SOURCE_MODE=download
@@ -433,8 +467,8 @@ prepare_case bad-signature
 printf 'tamper\n' >> "$CASE_PACKAGE"
 assert_failure 'a package changed after signing should fail closed' run_case
 assert_equal 1 "$(json_value "$CASE_OUTPUT/source-and-plan-analysis.json" assertions.failures)" 'a bad signature should produce one root failure rather than dependent false failures'
-assert_equal 4 "$(json_value "$CASE_OUTPUT/source-and-plan-analysis.json" assertions.skips)" 'dependent package, space, plan, and readiness stages should be skipped'
-assert_contains 'SKIP: package payload inspection requires a valid detached signature' "$CASE_OUTPUT/assertions.log" 'the package stage should be explicitly skipped after signature failure'
+assert_equal 5 "$(json_value "$CASE_OUTPUT/source-and-plan-analysis.json" assertions.skips)" 'signature, package, space, plan, and readiness stages should be skipped after acquisition detects a digest mismatch'
+assert_contains 'source acquisition [source-package-sha256]' "$CASE_OUTPUT/assertions.log" 'the exact package digest mismatch should be identified during acquisition'
 
 prepare_case low-space
 CASE_SPACE_AVAILABLE=1
@@ -490,7 +524,7 @@ assert_not_contains 'slackpkg update' "$SCRIPT" 'the preflight source must not r
 assert_not_contains 'installpkg "' "$SCRIPT" 'the preflight source must not install a package'
 assert_not_contains 'upgradepkg "' "$SCRIPT" 'the preflight source must not upgrade a package'
 assert_not_contains 'removepkg "' "$SCRIPT" 'the preflight source must not remove a package'
-assert_contains 'mktemp -d /tmp/slack-update-gpg.' "$SCRIPT" 'the preflight should use a short GnuPG home'
+assert_contains 'mktemp -d /tmp/slack-update-gpgv.' "$SCRIPT" 'the preflight should use a short isolated gpgv keyring directory'
 assert_not_contains 'local home=$OUTPUT_DIR/gnupg' "$SCRIPT" 'the preflight must not nest GNUPGHOME below the evidence path'
 assert_contains 'record_skip' "$SCRIPT" 'dependent stages should be represented as skips'
 assert_contains '[ "$TEST_MODE" = 1 ]' "$SCRIPT" 'the signature bypass must remain restricted to test mode'

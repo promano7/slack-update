@@ -26,7 +26,22 @@ Slack-Update is intended to provide a desktop-oriented update experience similar
 
 ## Current optional rollback continuation
 
-The mandatory Slackware-current update remains closed at accepted step 85 with kernel 6.18.42 active. Step 86 and the failed initial step-87 run established, without modifying the host, that `/lib/modules/6.18.40` contains no module objects but does contain a reviewed depmod metadata placeholder. The initial step-87 script is rejected. Use only revision 1 below; it reuses the exact package and detached signature already retained in `/home/promano`, verifies them privately, and projects the complete reconstruction without installing packages, generating an initrd, modifying GRUB, or rebooting.
+The mandatory Slackware-current update remains closed at accepted step 85 with kernel 6.18.42 active. Step 87 revision 1 was also non-mutating, but its source-acquisition gate returned one undifferentiated failure before recording the package or signature metadata. Use only revision 2 below. It binds both failed step-87 archives, validates each pre-staged file with `lstat`, rejects symbolic links, opens it with `O_NOFOLLOW`, records size and SHA-256 independently, verifies the detached signature with isolated `gpgv`, and projects the complete reconstruction without installing packages, generating an initrd, modifying GRUB, or rebooting.
+
+Normalize the already retained package and signature into owner-only regular files before running the preflight:
+
+```bash
+sudo install -d -o promano -g users -m 0700 \
+    /home/promano/slack-update-source-6.18.40
+
+sudo install -o promano -g users -m 0600 \
+    /home/promano/kernel-generic-6.18.40-x86_64-1.txz \
+    /home/promano/slack-update-source-6.18.40/kernel-generic-6.18.40-x86_64-1.txz
+
+sudo install -o promano -g users -m 0600 \
+    /home/promano/kernel-generic-6.18.40-x86_64-1.txz.asc \
+    /home/promano/slack-update-source-6.18.40/kernel-generic-6.18.40-x86_64-1.txz.asc
+```
 
 ```bash
 sudo bash tests/acceptance/reference/test-current-rollback-source-and-plan-preflight.sh \
@@ -35,14 +50,15 @@ sudo bash tests/acceptance/reference/test-current-rollback-source-and-plan-prefl
     --confirm-hostname-fqdn pcold-slack.pcold-slack.org \
     --confirm-inventory-evidence-sha256 cd2769c18e93b17596028b33b00a1d6e14bb81336172935bb18b0bef3568ed56 \
     --confirm-failed-preflight-evidence-sha256 d2a5398c789f14cfee07d53a55e4ca7da8aab85dd0387b51f437120401f9ba14 \
+    --confirm-revision-1-failed-preflight-evidence-sha256 5dc24b1863a818cd0500fd08ea569995e627411a66181ccebcbb74698bbac35e \
     --confirm-active-kernel 6.18.42 \
     --confirm-rollback-kernel 6.18.40 \
-    --confirm-source-plan-sha256 5e215b8c53becb65b216fadb2e38bbeb57f8fc590856e405728db76fc60efb95 \
-    --source-package /home/promano/kernel-generic-6.18.40-x86_64-1.txz \
-    --source-signature /home/promano/kernel-generic-6.18.40-x86_64-1.txz.asc
+    --confirm-source-plan-sha256 571f30dacef5001b21bf6890ea13ad56dddb48c769dea456f01b03033dd8b27b \
+    --source-package /home/promano/slack-update-source-6.18.40/kernel-generic-6.18.40-x86_64-1.txz \
+    --source-signature /home/promano/slack-update-source-6.18.40/kernel-generic-6.18.40-x86_64-1.txz.asc
 ```
 
-A successful result may declare the signed source and exact plan ready for a separate authorized-apply review, but it never authorizes or performs reconstruction. The reviewed revision-1 script SHA-256 is `8dc3eceb45c6c531aaf8e3f74e907cf4eb2b45a3aa113f43876b57405def47bd`.
+A successful result may declare the signed source and exact plan ready for a separate authorized-apply review, but it never authorizes or performs reconstruction. The reviewed revision-2 script SHA-256 is `516397c136ab9dd75d90eba7a5e1f969ef36c30e1725e05a2e3fbf3060b09c93`.
 
 ## Goals
 

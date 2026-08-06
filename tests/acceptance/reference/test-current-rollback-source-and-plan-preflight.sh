@@ -13,6 +13,7 @@ DEFAULT_OUTPUT_ROOT=${ROLLBACK_PLAN_OUTPUT_ROOT:-/var/tmp/slack-update-acceptanc
 DEFAULT_SOURCE_STAGING_ROOT=${ROLLBACK_PLAN_SOURCE_STAGING_ROOT:-/var/tmp/slack-update-rollback-source}
 DIAGNOSTIC_RECORD=${ROLLBACK_PLAN_DIAGNOSTIC_RECORD:-$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-rollback-reconstruction-inventory-20260806-corrected-diagnostic.json}
 FAILED_PREFLIGHT_RECORD=${ROLLBACK_PLAN_FAILED_PREFLIGHT_RECORD:-$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-rollback-source-and-plan-preflight-20260806-failed-diagnostic.json}
+REVISION_1_FAILED_PREFLIGHT_RECORD=${ROLLBACK_PLAN_REVISION_1_FAILED_PREFLIGHT_RECORD:-$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-rollback-source-and-plan-preflight-revision-1-20260806-failed-diagnostic.json}
 GENINITRD_RECORD=${ROLLBACK_PLAN_GENINITRD_RECORD:-$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-command-preflight-20260805-accepted.json}
 SIGNING_KEY=${ROLLBACK_PLAN_SIGNING_KEY:-$REPOSITORY_ROOT/tests/fixtures/reference/keys/slackware-security.gpg.asc}
 PLAN_POLICY=${ROLLBACK_PLAN_POLICY:-$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-rollback-source-and-plan-preflight-policy.json}
@@ -27,6 +28,7 @@ CONFIRM_HOSTNAME=
 CONFIRM_HOSTNAME_FQDN=
 CONFIRM_INVENTORY_EVIDENCE_SHA256=
 CONFIRM_FAILED_PREFLIGHT_EVIDENCE_SHA256=
+CONFIRM_REVISION_1_FAILED_PREFLIGHT_EVIDENCE_SHA256=
 CONFIRM_ACTIVE_KERNEL=
 CONFIRM_ROLLBACK_KERNEL=
 CONFIRM_SOURCE_PLAN_SHA256=
@@ -43,6 +45,7 @@ ARCHITECTURE=
 ROOT_UUID=
 ROOT_SOURCE=
 SOURCE_ACQUISITION=unchecked
+SOURCE_ACQUISITION_CHECKS=
 SOURCE_PACKAGE_SHA256=
 SOURCE_SIGNATURE_SHA256=
 SOURCE_PACKAGE_SIZE=0
@@ -80,6 +83,7 @@ Usage: ${0##*/} --target slackware-current \\
                      --confirm-hostname-fqdn FQDN \\
                      --confirm-inventory-evidence-sha256 SHA256 \\
                      --confirm-failed-preflight-evidence-sha256 SHA256 \\
+                     --confirm-revision-1-failed-preflight-evidence-sha256 SHA256 \\
                      --confirm-active-kernel VERSION \\
                      --confirm-rollback-kernel VERSION \\
                      --confirm-source-plan-sha256 SHA256 [options]
@@ -96,6 +100,7 @@ Required options:
       --confirm-hostname-fqdn FQDN
       --confirm-inventory-evidence-sha256 SHA256
       --confirm-failed-preflight-evidence-sha256 SHA256
+      --confirm-revision-1-failed-preflight-evidence-sha256 SHA256
       --confirm-active-kernel VERSION
       --confirm-rollback-kernel VERSION
       --confirm-source-plan-sha256 SHA256
@@ -132,6 +137,7 @@ parse_arguments() {
             --confirm-hostname-fqdn) [ "$#" -ge 2 ] || return 1; CONFIRM_HOSTNAME_FQDN=$2; shift 2 ;;
             --confirm-inventory-evidence-sha256) [ "$#" -ge 2 ] || return 1; CONFIRM_INVENTORY_EVIDENCE_SHA256=${2,,}; shift 2 ;;
             --confirm-failed-preflight-evidence-sha256) [ "$#" -ge 2 ] || return 1; CONFIRM_FAILED_PREFLIGHT_EVIDENCE_SHA256=${2,,}; shift 2 ;;
+            --confirm-revision-1-failed-preflight-evidence-sha256) [ "$#" -ge 2 ] || return 1; CONFIRM_REVISION_1_FAILED_PREFLIGHT_EVIDENCE_SHA256=${2,,}; shift 2 ;;
             --confirm-active-kernel) [ "$#" -ge 2 ] || return 1; CONFIRM_ACTIVE_KERNEL=$2; shift 2 ;;
             --confirm-rollback-kernel) [ "$#" -ge 2 ] || return 1; CONFIRM_ROLLBACK_KERNEL=$2; shift 2 ;;
             --confirm-source-plan-sha256) [ "$#" -ge 2 ] || return 1; CONFIRM_SOURCE_PLAN_SHA256=${2,,}; shift 2 ;;
@@ -148,6 +154,7 @@ parse_arguments() {
     case "$CONFIRM_HOSTNAME$CONFIRM_HOSTNAME_FQDN" in *[[:space:]]*) return 1 ;; esac
     is_sha256 "$CONFIRM_INVENTORY_EVIDENCE_SHA256" || return 1
     is_sha256 "$CONFIRM_FAILED_PREFLIGHT_EVIDENCE_SHA256" || return 1
+    is_sha256 "$CONFIRM_REVISION_1_FAILED_PREFLIGHT_EVIDENCE_SHA256" || return 1
     is_sha256 "$CONFIRM_SOURCE_PLAN_SHA256" || return 1
     is_safe_kernel_version "$CONFIRM_ACTIVE_KERNEL" || return 1
     is_safe_kernel_version "$CONFIRM_ROLLBACK_KERNEL" || return 1
@@ -177,13 +184,15 @@ PY
 }
 
 validate_reviewed_boundary() {
-    python3 - "$PLAN_POLICY" "$PLAN_SCRIPT" "$DIAGNOSTIC_RECORD" "$FAILED_PREFLIGHT_RECORD" "$GENINITRD_RECORD" "$SIGNING_KEY" \
+    python3 - "$PLAN_POLICY" "$PLAN_SCRIPT" "$DIAGNOSTIC_RECORD" "$FAILED_PREFLIGHT_RECORD" \
+        "$REVISION_1_FAILED_PREFLIGHT_RECORD" "$GENINITRD_RECORD" "$SIGNING_KEY" \
         "$CONFIRM_HOSTNAME" "$CONFIRM_HOSTNAME_FQDN" "$CONFIRM_INVENTORY_EVIDENCE_SHA256" \
-        "$CONFIRM_FAILED_PREFLIGHT_EVIDENCE_SHA256" "$CONFIRM_ACTIVE_KERNEL" "$CONFIRM_ROLLBACK_KERNEL" \
-        "$CONFIRM_SOURCE_PLAN_SHA256" <<'PY'
+        "$CONFIRM_FAILED_PREFLIGHT_EVIDENCE_SHA256" "$CONFIRM_REVISION_1_FAILED_PREFLIGHT_EVIDENCE_SHA256" \
+        "$CONFIRM_ACTIVE_KERNEL" "$CONFIRM_ROLLBACK_KERNEL" "$CONFIRM_SOURCE_PLAN_SHA256" <<'PY'
 import hashlib, json, pathlib, sys
-(policy_path, script_path, diagnostic_path, failed_path, geninitrd_path, key_path, host, fqdn,
- inventory_archive, failed_archive, active, rollback, confirmed_scope) = sys.argv[1:]
+(policy_path, script_path, diagnostic_path, failed_path, revision1_failed_path, geninitrd_path, key_path,
+ host, fqdn, inventory_archive, failed_archive, revision1_failed_archive, active, rollback,
+ confirmed_scope) = sys.argv[1:]
 def regular(path):
     p=pathlib.Path(path)
     if not p.is_file() or p.is_symlink(): raise SystemExit(1)
@@ -192,11 +201,16 @@ def sha(path): return hashlib.sha256(regular(path).read_bytes()).hexdigest()
 policy=json.loads(regular(policy_path).read_text(encoding='utf-8'))
 diagnostic=json.loads(regular(diagnostic_path).read_text(encoding='utf-8'))
 failed=json.loads(regular(failed_path).read_text(encoding='utf-8'))
+revision1_failed=json.loads(regular(revision1_failed_path).read_text(encoding='utf-8'))
 geninitrd=json.loads(regular(geninitrd_path).read_text(encoding='utf-8'))
-script_sha=sha(script_path); diagnostic_sha=sha(diagnostic_path); failed_sha=sha(failed_path)
-geninitrd_sha=sha(geninitrd_path); key_sha=sha(key_path)
+script_sha=sha(script_path)
+diagnostic_sha=sha(diagnostic_path)
+failed_sha=sha(failed_path)
+revision1_failed_sha=sha(revision1_failed_path)
+geninitrd_sha=sha(geninitrd_path)
+key_sha=sha(key_path)
 scope=(
- 'operation=current-rollback-source-and-plan-preflight-revision-1\n'
+ 'operation=current-rollback-source-and-plan-preflight-revision-2\n'
  'target=slackware-current\n'
  f'hostname_short={host}\n'
  f'hostname_fqdn={fqdn}\n'
@@ -205,8 +219,10 @@ scope=(
  f'root_uuid={policy.get("required_root_uuid", "")}\n'
  f'inventory_archive_sha256={inventory_archive}\n'
  f'failed_preflight_archive_sha256={failed_archive}\n'
+ f'revision_1_failed_preflight_archive_sha256={revision1_failed_archive}\n'
  f'diagnostic_record_sha256={diagnostic_sha}\n'
  f'failed_preflight_record_sha256={failed_sha}\n'
+ f'revision_1_failed_preflight_record_sha256={revision1_failed_sha}\n'
  f'geninitrd_record_sha256={geninitrd_sha}\n'
  f'signing_key_sha256={key_sha}\n'
  f'plan_script_sha256={script_sha}\n'
@@ -214,14 +230,19 @@ scope=(
 calculated=hashlib.sha256(scope).hexdigest()
 vector=geninitrd.get('current_command_vector', [])
 checks=[
- policy.get('scenario') == 'current-rollback-source-and-plan-preflight-revision-1',
- policy.get('target') == 'slackware-current', policy.get('reviewed') is True,
- policy.get('required_hostname_short') == host, policy.get('required_hostname_fqdn') == fqdn,
- policy.get('active_kernel') == active, policy.get('rollback_kernel') == rollback,
+ policy.get('scenario') == 'current-rollback-source-and-plan-preflight-revision-2',
+ policy.get('target') == 'slackware-current',
+ policy.get('reviewed') is True,
+ policy.get('required_hostname_short') == host,
+ policy.get('required_hostname_fqdn') == fqdn,
+ policy.get('active_kernel') == active,
+ policy.get('rollback_kernel') == rollback,
  policy.get('inventory_archive_sha256') == inventory_archive,
  policy.get('failed_preflight_archive_sha256') == failed_archive,
+ policy.get('revision_1_failed_preflight_archive_sha256') == revision1_failed_archive,
  policy.get('diagnostic_record_sha256') == diagnostic_sha,
  policy.get('failed_preflight_record_sha256') == failed_sha,
+ policy.get('revision_1_failed_preflight_record_sha256') == revision1_failed_sha,
  policy.get('geninitrd_record_sha256') == geninitrd_sha,
  policy.get('signing_key_sha256') == key_sha,
  policy.get('plan_script_sha256') == script_sha,
@@ -240,6 +261,11 @@ checks=[
  failed.get('archive_sha256') == failed_archive,
  failed.get('executed_script_sha256') == '37756428b0fbb9e106ce1853414f8032d803fdc6bb9ec9fef642ed82bd4c8a74',
  failed.get('system_state_mutated') is False,
+ revision1_failed.get('archive_sha256') == revision1_failed_archive,
+ revision1_failed.get('executed_script_sha256') == '8dc3eceb45c6c531aaf8e3f74e907cf4eb2b45a3aa113f43876b57405def47bd',
+ revision1_failed.get('assertions') == {'failures':1,'passes':41,'skips':5},
+ revision1_failed.get('source_acquisition') == 'unchecked',
+ revision1_failed.get('system_state_mutated') is False,
  geninitrd.get('accepted') is True,
  geninitrd.get('current_command_vector') == vector,
  len(vector) >= 12 and vector[0] == 'mkinitrd' and '-k' in vector and vector[vector.index('-k')+1] == rollback,
@@ -422,46 +448,219 @@ record_live_boundary_results() {
     return "$status"
 }
 
+source_acquisition_check() {
+    printf '%s\t%s\t%s\n' "$1" "$2" "$3" >> "$SOURCE_ACQUISITION_CHECKS"
+}
+
+inspect_source_pair() {
+    local result=0
+    python3 - "$SOURCE_PACKAGE" "$SOURCE_SIGNATURE" \
+        "$(policy_value expected_package_filename)" \
+        "$(policy_value expected_package_sha256)" \
+        "$(policy_value expected_signature_sha256)" \
+        "$SOURCE_ACQUISITION" "$SOURCE_ACQUISITION_CHECKS" \
+        "$OUTPUT_DIR/source-acquisition.json" <<'PY' || result=$?
+import hashlib, json, os, pathlib, stat, sys
+(package_path, signature_path, expected_package_name, expected_package_sha,
+ expected_signature_sha, acquisition, checks_path, output_path)=sys.argv[1:]
+checks=[]
+def add(key,status,detail):
+    checks.append((key,status,detail.replace('\t',' ').replace('\n',' ')))
+def inspect(role, raw_path, expected_name, expected_sha):
+    path=pathlib.Path(raw_path)
+    data={'path':raw_path,'expected_filename':expected_name,'expected_sha256':expected_sha,
+          'exists':False,'is_symlink':False,'is_regular':False,'opened_nofollow':False,
+          'mode':'','uid':None,'gid':None,'size':0,'sha256':''}
+    add(f'{role}-basename','PASS' if path.name==expected_name else 'FAIL',
+        f'{role} basename is {path.name!r}; expected {expected_name!r}')
+    try:
+        lst=os.lstat(path)
+    except OSError as exc:
+        add(f'{role}-lstat','FAIL',f'{role} cannot be inspected with lstat: {exc}')
+        for suffix,detail in (
+            ('no-symbolic-link',f'{role} link status requires successful lstat'),
+            ('regular-file',f'{role} type requires successful lstat'),
+            ('open-nofollow',f'{role} safe open requires a regular non-link file'),
+            ('positive-size',f'{role} size requires successful safe open'),
+            ('sha256',f'{role} digest requires successful safe open'),
+        ): add(f'{role}-{suffix}','SKIP',detail)
+        return data
+    data.update(exists=True,is_symlink=stat.S_ISLNK(lst.st_mode),
+                is_regular=stat.S_ISREG(lst.st_mode),mode=f'{stat.S_IMODE(lst.st_mode):04o}',
+                uid=lst.st_uid,gid=lst.st_gid,size=lst.st_size)
+    add(f'{role}-lstat','PASS',
+        f'{role} lstat succeeded: mode={data["mode"]} uid={lst.st_uid} gid={lst.st_gid} size={lst.st_size}')
+    if data['is_symlink']:
+        add(f'{role}-no-symbolic-link','FAIL',f'{role} is a symbolic link and is rejected')
+    else:
+        add(f'{role}-no-symbolic-link','PASS',f'{role} is not a symbolic link')
+    if not data['is_regular']:
+        add(f'{role}-regular-file','FAIL' if not data['is_symlink'] else 'SKIP',
+            f'{role} must be a regular file')
+        add(f'{role}-open-nofollow','SKIP',f'{role} safe open requires a regular non-link file')
+        add(f'{role}-positive-size','SKIP',f'{role} size requires successful safe open')
+        add(f'{role}-sha256','SKIP',f'{role} digest requires successful safe open')
+        return data
+    add(f'{role}-regular-file','PASS',f'{role} is a regular file')
+    flags=os.O_RDONLY | getattr(os,'O_CLOEXEC',0) | getattr(os,'O_NOFOLLOW',0)
+    try:
+        fd=os.open(path,flags)
+    except OSError as exc:
+        add(f'{role}-open-nofollow','FAIL',f'{role} cannot be opened safely without following links: {exc}')
+        add(f'{role}-positive-size','SKIP',f'{role} size requires successful safe open')
+        add(f'{role}-sha256','SKIP',f'{role} digest requires successful safe open')
+        return data
+    try:
+        fst=os.fstat(fd)
+        if not stat.S_ISREG(fst.st_mode):
+            add(f'{role}-open-nofollow','FAIL',f'{role} changed type during safe open')
+            add(f'{role}-positive-size','SKIP',f'{role} size requires a stable regular file')
+            add(f'{role}-sha256','SKIP',f'{role} digest requires a stable regular file')
+            return data
+        data.update(opened_nofollow=True,mode=f'{stat.S_IMODE(fst.st_mode):04o}',
+                    uid=fst.st_uid,gid=fst.st_gid,size=fst.st_size)
+        add(f'{role}-open-nofollow','PASS',
+            f'{role} opened with O_NOFOLLOW and remained regular')
+        digest=hashlib.sha256()
+        while True:
+            chunk=os.read(fd,1024*1024)
+            if not chunk: break
+            digest.update(chunk)
+        data['sha256']=digest.hexdigest()
+    finally:
+        os.close(fd)
+    add(f'{role}-positive-size','PASS' if data['size']>0 else 'FAIL',
+        f'{role} size is {data["size"]} byte(s)')
+    add(f'{role}-sha256','PASS' if data['sha256']==expected_sha else 'FAIL',
+        f'{role} SHA-256 is {data["sha256"] or "unavailable"}; expected {expected_sha}')
+    return data
+package=inspect('source-package',package_path,expected_package_name,expected_package_sha)
+signature=inspect('source-signature',signature_path,expected_package_name+'.asc',expected_signature_sha)
+with open(checks_path,'a',encoding='utf-8') as stream:
+    for key,status,detail in checks:
+        stream.write(f'{key}\t{status}\t{detail}\n')
+payload={'acquisition':acquisition,'package':package,'signature':signature,
+         'valid':not any(status=='FAIL' for _,status,_ in checks)}
+pathlib.Path(output_path).write_text(json.dumps(payload,indent=2,sort_keys=True)+'\n',encoding='utf-8')
+raise SystemExit(0 if payload['valid'] else 1)
+PY
+    if [ -s "$OUTPUT_DIR/source-acquisition.json" ]; then
+        IFS=$'\t' read -r SOURCE_PACKAGE_SHA256 SOURCE_PACKAGE_SIZE SOURCE_SIGNATURE_SHA256 SOURCE_SIGNATURE_SIZE < <(
+            python3 - "$OUTPUT_DIR/source-acquisition.json" <<'PY'
+import json,sys
+data=json.load(open(sys.argv[1],encoding='utf-8'))
+print(data['package'].get('sha256',''),data['package'].get('size',0),
+      data['signature'].get('sha256',''),data['signature'].get('size',0),sep='\t')
+PY
+        )
+    fi
+    return "$result"
+}
+
 acquire_source() {
     local expected expected_sig package_url signature_url tmp_package tmp_signature
-    expected=$(policy_value expected_package_filename) || return 1
+    SOURCE_ACQUISITION_CHECKS="$OUTPUT_DIR/source-acquisition-checks.tsv"
+    : > "$SOURCE_ACQUISITION_CHECKS"
+    expected=$(policy_value expected_package_filename) || {
+        source_acquisition_check source-policy FAIL 'the expected package filename is unavailable from policy'
+        return 1
+    }
     expected_sig="$expected.asc"
     if [ -n "$SOURCE_PACKAGE" ]; then
-        [ "${SOURCE_PACKAGE##*/}" = "$expected" ] && [ "${SOURCE_SIGNATURE##*/}" = "$expected_sig" ] || return 1
-        require_regular_file "$SOURCE_PACKAGE" && require_regular_file "$SOURCE_SIGNATURE" || return 1
         SOURCE_ACQUISITION=pre-staged
-        return 0
+        source_acquisition_check source-mode PASS 'an explicit pre-staged package and signature pair was requested'
+        inspect_source_pair
+        return $?
     fi
     [ -n "$SOURCE_STAGING_DIR" ] || SOURCE_STAGING_DIR="$DEFAULT_SOURCE_STAGING_ROOT/$CONFIRM_ROLLBACK_KERNEL"
-    [ ! -L "$SOURCE_STAGING_DIR" ] || return 1
-    mkdir -m 0700 -p -- "$SOURCE_STAGING_DIR" || return 1
+    if [ -L "$SOURCE_STAGING_DIR" ]; then
+        source_acquisition_check source-staging-directory FAIL 'the source staging directory is a symbolic link'
+        return 1
+    fi
+    if mkdir -m 0700 -p -- "$SOURCE_STAGING_DIR"; then
+        source_acquisition_check source-staging-directory PASS "private source staging is available at $SOURCE_STAGING_DIR"
+    else
+        source_acquisition_check source-staging-directory FAIL "private source staging could not be created at $SOURCE_STAGING_DIR"
+        return 1
+    fi
     SOURCE_PACKAGE="$SOURCE_STAGING_DIR/$expected"
     SOURCE_SIGNATURE="$SOURCE_STAGING_DIR/$expected_sig"
     if [ -e "$SOURCE_PACKAGE" ] || [ -L "$SOURCE_PACKAGE" ] || [ -e "$SOURCE_SIGNATURE" ] || [ -L "$SOURCE_SIGNATURE" ]; then
-        require_regular_file "$SOURCE_PACKAGE" && require_regular_file "$SOURCE_SIGNATURE" || return 1
         SOURCE_ACQUISITION=reused-staging
-        return 0
+        source_acquisition_check source-mode PASS 'an existing staged package/signature pair will be validated'
+        inspect_source_pair
+        return $?
     fi
-    package_url=$(policy_value package_url) || return 1
-    signature_url=$(policy_value signature_url) || return 1
-    case "$package_url:$signature_url" in https://*:https://*) ;; *) return 1 ;; esac
+    package_url=$(policy_value package_url) || {
+        source_acquisition_check source-package-url FAIL 'the package URL is unavailable from policy'
+        return 1
+    }
+    signature_url=$(policy_value signature_url) || {
+        source_acquisition_check source-signature-url FAIL 'the signature URL is unavailable from policy'
+        return 1
+    }
+    case "$package_url:$signature_url" in
+        https://*:https://*)
+            source_acquisition_check source-https-policy PASS 'both historical source URLs require HTTPS'
+            ;;
+        *)
+            source_acquisition_check source-https-policy FAIL 'one or both historical source URLs are not HTTPS'
+            return 1
+            ;;
+    esac
     tmp_package="$SOURCE_PACKAGE.partial.$$"
     tmp_signature="$SOURCE_SIGNATURE.partial.$$"
-    trap 'rm -f -- "$tmp_package" "$tmp_signature"' RETURN
-    curl --proto '=https' --proto-redir '=https' --tlsv1.2 --fail --location --show-error \
-        --output "$tmp_package" "$package_url" || return 1
-    curl --proto '=https' --proto-redir '=https' --tlsv1.2 --fail --location --show-error \
-        --output "$tmp_signature" "$signature_url" || return 1
-    require_regular_file "$tmp_package" && require_regular_file "$tmp_signature" || return 1
-    chmod 0600 "$tmp_package" "$tmp_signature" || return 1
-    mv -- "$tmp_package" "$SOURCE_PACKAGE" || return 1
-    mv -- "$tmp_signature" "$SOURCE_SIGNATURE" || return 1
-    trap - RETURN
+    if curl --proto '=https' --proto-redir '=https' --tlsv1.2 --fail --location --show-error \
+        --output "$tmp_package" "$package_url"; then
+        source_acquisition_check source-package-download PASS 'the historical package download completed'
+    else
+        source_acquisition_check source-package-download FAIL 'the historical package download failed'
+        rm -f -- "$tmp_package" "$tmp_signature"
+        return 1
+    fi
+    if curl --proto '=https' --proto-redir '=https' --tlsv1.2 --fail --location --show-error \
+        --output "$tmp_signature" "$signature_url"; then
+        source_acquisition_check source-signature-download PASS 'the detached-signature download completed'
+    else
+        source_acquisition_check source-signature-download FAIL 'the detached-signature download failed'
+        rm -f -- "$tmp_package" "$tmp_signature"
+        return 1
+    fi
+    chmod 0600 "$tmp_package" "$tmp_signature" || {
+        source_acquisition_check source-download-mode FAIL 'downloaded source permissions could not be restricted'
+        rm -f -- "$tmp_package" "$tmp_signature"
+        return 1
+    }
+    mv -- "$tmp_package" "$SOURCE_PACKAGE" && mv -- "$tmp_signature" "$SOURCE_SIGNATURE" || {
+        source_acquisition_check source-download-publish FAIL 'downloaded source files could not be published atomically'
+        rm -f -- "$tmp_package" "$tmp_signature"
+        return 1
+    }
+    source_acquisition_check source-download-publish PASS 'downloaded source files were published into private staging'
     SOURCE_ACQUISITION=downloaded-https
+    inspect_source_pair
+}
+
+record_source_acquisition_results() {
+    local status=0 key result detail
+    acquire_source || status=$?
+    if [ ! -s "$SOURCE_ACQUISITION_CHECKS" ]; then
+        record_failure 'source acquisition failed before producing individual diagnostic checks'
+        return 1
+    fi
+    while IFS=$'\t' read -r key result detail; do
+        case "$result" in
+            PASS) record_pass "source acquisition [$key]: $detail" ;;
+            FAIL) record_failure "source acquisition [$key]: $detail" ;;
+            SKIP) record_skip "source acquisition [$key]: $detail" ;;
+            *) record_failure "source acquisition [$key]: invalid diagnostic result $result" ;;
+        esac
+    done < "$SOURCE_ACQUISITION_CHECKS"
+    return "$status"
 }
 
 verify_source_signature() {
-    local home status=$OUTPUT_DIR/gpg-status.txt expected result=0
+    local keyring_dir keyring status=$OUTPUT_DIR/gpg-status.txt expected result=0
     if [ "$TEST_MODE" = 1 ] && [ -n "${SLACK_UPDATE_TEST_SIGNATURE_MODE:-}" ]; then
         [ "$SLACK_UPDATE_TEST_SIGNATURE_MODE" = valid ] || return 1
         expected=$(policy_value signing_key_fingerprint) || return 1
@@ -475,18 +674,21 @@ verify_source_signature() {
         [ "$SOURCE_PACKAGE_SIZE" -gt 0 ] && [ "$SOURCE_SIGNATURE_SIZE" -gt 0 ] || return 1
         [ "$SOURCE_PACKAGE_SHA256" = "$(policy_value expected_package_sha256)" ] || return 1
         [ "$SOURCE_SIGNATURE_SHA256" = "$(policy_value expected_signature_sha256)" ] || return 1
-        printf 'test-mode signature verification bypass\n' > "$OUTPUT_DIR/gpg-import.log"
+        printf 'test-mode detached-signature verification bypass\n' > "$OUTPUT_DIR/gpg-keyring-build.log"
         printf '[GNUPG:] VALIDSIG %s 0 0 0 0 0 0 0 0 %s\n' \
             "$SIGNATURE_FINGERPRINT" "$SIGNATURE_PRIMARY_FINGERPRINT" > "$status"
         : > "$OUTPUT_DIR/gpg-verify.log"
         return 0
     fi
-    home=$(mktemp -d /tmp/slack-update-gpg.XXXXXX) || return 1
-    chmod 0700 "$home" || { rm -rf -- "$home"; return 1; }
-    printf '%s\n' "$home" > "$OUTPUT_DIR/gpg-home-path.txt"
-    gpg --batch --homedir "$home" --import "$SIGNING_KEY" > "$OUTPUT_DIR/gpg-import.log" 2>&1 || result=1
+    keyring_dir=$(mktemp -d /tmp/slack-update-gpgv.XXXXXX) || return 1
+    chmod 0700 "$keyring_dir" || { rm -rf -- "$keyring_dir"; return 1; }
+    keyring="$keyring_dir/slackware.gpg"
+    printf '%s\n' "$keyring_dir" > "$OUTPUT_DIR/gpg-keyring-directory.txt"
+    gpg --batch --yes --dearmor --output "$keyring" "$SIGNING_KEY" \
+        > "$OUTPUT_DIR/gpg-keyring-build.log" 2>&1 || result=1
     if [ "$result" -eq 0 ]; then
-        gpg --batch --homedir "$home" --status-fd 1 --verify "$SOURCE_SIGNATURE" "$SOURCE_PACKAGE" \
+        gpgv --homedir "$keyring_dir" --keyring "$keyring" --status-fd 1 \
+            "$SOURCE_SIGNATURE" "$SOURCE_PACKAGE" \
             > "$status" 2> "$OUTPUT_DIR/gpg-verify.log" || result=1
     fi
     if [ "$result" -eq 0 ]; then
@@ -511,8 +713,7 @@ verify_source_signature() {
         [ "$SOURCE_PACKAGE_SHA256" = "$(policy_value expected_package_sha256)" ] || result=1
         [ "$SOURCE_SIGNATURE_SHA256" = "$(policy_value expected_signature_sha256)" ] || result=1
     fi
-    gpgconf --homedir "$home" --kill gpg-agent >/dev/null 2>&1 || true
-    rm -rf -- "$home"
+    rm -rf -- "$keyring_dir"
     return "$result"
 }
 
@@ -721,16 +922,17 @@ write_apply_plan() {
         "$CONFIRM_ACTIVE_KERNEL" "$CONFIRM_ROLLBACK_KERNEL" "$ROOT_UUID" "$ROOT_SOURCE" \
         "$OUTPUT_DIR/projected-mkinitrd-command.json" "$OUTPUT_DIR/projected-$fragment_name" \
         "$CONFIRM_INVENTORY_EVIDENCE_SHA256" "$CONFIRM_FAILED_PREFLIGHT_EVIDENCE_SHA256" \
-        "$CONFIRM_SOURCE_PLAN_SHA256" <<'PY'
+        "$CONFIRM_REVISION_1_FAILED_PREFLIGHT_EVIDENCE_SHA256" "$CONFIRM_SOURCE_PLAN_SHA256" <<'PY'
 import json,pathlib,sys
 (out,pkg,sig,pkgsha,sigsha,signing_fingerprint,primary_fingerprint,kernel_member,kernel_sha,kernel_size,module_count,module_bytes,module_manifest_sha,
- space_state,space_reserve,estimated_initrd,space_required,space_available,active,rollback,root_uuid,root_source,mkinitrd_path,fragment_path,inventory_sha,failed_sha,scope_sha)=sys.argv[1:]
+ space_state,space_reserve,estimated_initrd,space_required,space_available,active,rollback,root_uuid,root_source,mkinitrd_path,fragment_path,inventory_sha,failed_sha,revision1_failed_sha,scope_sha)=sys.argv[1:]
 mkinitrd=json.load(open(mkinitrd_path,encoding='utf-8'))['command_vector']
 fragment_name=f'41_slackware_rollback_{rollback.replace(".","_")}'
 data={
- 'scenario':'current-rollback-source-and-plan-preflight-revision-1','target':'slackware-current',
+ 'scenario':'current-rollback-source-and-plan-preflight-revision-2','target':'slackware-current',
  'active_kernel':active,'rollback_kernel':rollback,'root_uuid':root_uuid,'root_source':root_source,
- 'inventory_archive_sha256':inventory_sha,'failed_preflight_archive_sha256':failed_sha,'source_plan_scope_sha256':scope_sha,
+ 'inventory_archive_sha256':inventory_sha,'failed_preflight_archive_sha256':failed_sha,
+ 'revision_1_failed_preflight_archive_sha256':revision1_failed_sha,'source_plan_scope_sha256':scope_sha,
  'source':{'package_path':pkg,'signature_path':sig,'package_sha256':pkgsha,'signature_sha256':sigsha,'signing_fingerprint':signing_fingerprint,'valid_primary_fingerprint':primary_fingerprint},
  'payload':{'kernel_member':kernel_member,'kernel_destination':f'/boot/vmlinuz-{rollback}','kernel_sha256':kernel_sha,'kernel_size':int(kernel_size),'module_destination':f'/lib/modules/{rollback}','module_member_count':int(module_count),'module_payload_bytes':int(module_bytes),'module_manifest_sha256':module_manifest_sha},
  'space_budget':{'state':space_state,'reserve_bytes_per_filesystem':int(space_reserve),'estimated_initrd_bytes':int(estimated_initrd),'aggregate_required_bytes':int(space_required),'minimum_available_bytes':int(space_available)},
@@ -799,17 +1001,19 @@ write_analysis() {
         "$KERNEL_SHA256" "$KERNEL_SIZE" "$MODULE_FILE_COUNT" "$MODULE_PAYLOAD_BYTES" "$MODULE_MANIFEST_SHA256" \
         "$SPACE_STATE" "$SPACE_RESERVE_BYTES" "$ESTIMATED_INITRD_BYTES" "$SPACE_REQUIRED_BYTES" "$SPACE_AVAILABLE_BYTES" "$APPLY_READY" \
         "$NEXT_STAGE" "$PASS_COUNT" "$FAILURE_COUNT" "$SKIP_COUNT" "$CONFIRM_INVENTORY_EVIDENCE_SHA256" \
-        "$CONFIRM_FAILED_PREFLIGHT_EVIDENCE_SHA256" "$CONFIRM_SOURCE_PLAN_SHA256" <<'PY'
+        "$CONFIRM_FAILED_PREFLIGHT_EVIDENCE_SHA256" "$CONFIRM_REVISION_1_FAILED_PREFLIGHT_EVIDENCE_SHA256" \
+        "$CONFIRM_SOURCE_PLAN_SHA256" <<'PY'
 import json,pathlib,sys
 (out,host,fqdn,running,active,rollback,root_uuid,root_source,acquisition,pkg,sig,pkgsha,sigsha,
  pkgsize,sigsize,signing_fingerprint,primary_fingerprint,kernel_member,kernel_sha,kernel_size,module_count,module_bytes,module_manifest_sha,
  space_state,space_reserve,estimated_initrd,space_required,space_available,ready,next_stage,
- passes,failures,skips,inventory_sha,failed_sha,scope_sha)=sys.argv[1:]
+ passes,failures,skips,inventory_sha,failed_sha,revision1_failed_sha,scope_sha)=sys.argv[1:]
 data={
- 'scenario':'current-rollback-source-and-plan-preflight-revision-1','target':'slackware-current','hostname_short':host,
+ 'scenario':'current-rollback-source-and-plan-preflight-revision-2','target':'slackware-current','hostname_short':host,
  'hostname_fqdn':fqdn,'running_kernel':running,'active_kernel':active,'rollback_kernel':rollback,
  'root_uuid':root_uuid,'root_source':root_source,'inventory_archive_sha256':inventory_sha,
  'failed_preflight_archive_sha256':failed_sha,
+ 'revision_1_failed_preflight_archive_sha256':revision1_failed_sha,
  'source_plan_scope_sha256':scope_sha,'rollback_module_state':'depmod-metadata-only-placeholder',
  'source_acquisition':acquisition,'source_package':{'path':pkg,'sha256':pkgsha,'size':int(pkgsize or 0)},
  'source_signature':{'path':sig,'sha256':sigsha,'size':int(sigsize or 0),'signing_fingerprint':signing_fingerprint,'valid_fingerprint':primary_fingerprint},
@@ -827,7 +1031,7 @@ PY
 
 write_summary() {
     cat > "$OUTPUT_DIR/summary.txt" <<EOF_SUMMARY
-scenario=current-rollback-source-and-plan-preflight-revision-1
+scenario=current-rollback-source-and-plan-preflight-revision-2
 target=$TARGET
 result=$([ "$FAILURE_COUNT" -eq 0 ] && printf PASS || printf FAIL)
 passes=$PASS_COUNT
@@ -841,6 +1045,7 @@ rollback_kernel=$CONFIRM_ROLLBACK_KERNEL
 rollback_module_state=depmod-metadata-only-placeholder
 inventory_evidence_sha256=$CONFIRM_INVENTORY_EVIDENCE_SHA256
 failed_preflight_evidence_sha256=$CONFIRM_FAILED_PREFLIGHT_EVIDENCE_SHA256
+revision_1_failed_preflight_evidence_sha256=$CONFIRM_REVISION_1_FAILED_PREFLIGHT_EVIDENCE_SHA256
 source_plan_scope_sha256=$CONFIRM_SOURCE_PLAN_SHA256
 source_acquisition=$SOURCE_ACQUISITION
 source_package=$SOURCE_PACKAGE
@@ -889,8 +1094,14 @@ publish_evidence() {
     printf 'Evidence SHA-256: %s\n' "$(file_sha256 "$archive")"
     printf 'Copy evidence command: sudo install -o %s -g %s -m 0600 %q /home/%s/%q\n' "$owner" "$group" "$archive" "$owner" "$(basename -- "$archive")"
     printf 'Copy sidecar command: sudo install -o %s -g %s -m 0600 %q /home/%s/%q\n' "$owner" "$group" "$archive.sha256" "$owner" "$(basename -- "$archive.sha256")"
-    printf 'Copy package command: sudo install -o %s -g %s -m 0600 %q /home/%s/%q\n' "$owner" "$group" "$SOURCE_PACKAGE" "$owner" "$(basename -- "$SOURCE_PACKAGE")"
-    printf 'Copy signature command: sudo install -o %s -g %s -m 0600 %q /home/%s/%q\n' "$owner" "$group" "$SOURCE_SIGNATURE" "$owner" "$(basename -- "$SOURCE_SIGNATURE")"
+    printf 'Copy evidence pair command: sudo install -o %s -g %s -m 0600 %q /home/%s/%q && sudo install -o %s -g %s -m 0600 %q /home/%s/%q\n'         "$owner" "$group" "$archive" "$owner" "$(basename -- "$archive")"         "$owner" "$group" "$archive.sha256" "$owner" "$(basename -- "$archive.sha256")"
+    if [ "$SOURCE_ACQUISITION" = pre-staged ]; then
+        printf 'Source package retained: %s\n' "$SOURCE_PACKAGE"
+        printf 'Source signature retained: %s\n' "$SOURCE_SIGNATURE"
+    else
+        printf 'Copy package command: sudo install -o %s -g %s -m 0600 %q /home/%s/%q\n' "$owner" "$group" "$SOURCE_PACKAGE" "$owner" "$(basename -- "$SOURCE_PACKAGE")"
+        printf 'Copy signature command: sudo install -o %s -g %s -m 0600 %q /home/%s/%q\n' "$owner" "$group" "$SOURCE_SIGNATURE" "$owner" "$(basename -- "$SOURCE_SIGNATURE")"
+    fi
     printf 'Verify evidence command: cd /home/%s && sha256sum -c %q\n' "$owner" "$(basename -- "$archive.sha256")"
 }
 
@@ -918,11 +1129,11 @@ main() {
     fi
     slackware_version=$(cat "$(rooted /etc/slackware-version)" 2>/dev/null || true)
     [ "$slackware_version" = 'Slackware 15.0+' ] || { error 'Slackware-current target mismatch'; return 2; }
-    for command_name in awk bash chmod cmp curl date df find findmnt gpg gpgconf grep grub-editenv grub-script-check hostname id mkdir mktemp mv python3 readlink rm sha256sum sort stat tar tee uname wc; do
+    for command_name in awk bash chmod cmp curl date df find findmnt gpg gpgv grep grub-editenv grub-script-check hostname id mkdir mktemp mv python3 readlink rm sha256sum sort stat tar tee uname wc; do
         if [ "$TEST_MODE" = 1 ] && { [ "$command_name" = findmnt ] || [ "$command_name" = hostname ] || [ "$command_name" = uname ]; }; then continue; fi
         command -v "$command_name" >/dev/null 2>&1 || { error "required command missing: $command_name"; return 2; }
     done
-    for reviewed_file in "$DIAGNOSTIC_RECORD" "$FAILED_PREFLIGHT_RECORD" "$GENINITRD_RECORD" "$SIGNING_KEY" "$PLAN_POLICY" "$PLAN_SCRIPT"; do
+    for reviewed_file in "$DIAGNOSTIC_RECORD" "$FAILED_PREFLIGHT_RECORD" "$REVISION_1_FAILED_PREFLIGHT_RECORD" "$GENINITRD_RECORD" "$SIGNING_KEY" "$PLAN_POLICY" "$PLAN_SCRIPT"; do
         require_regular_file "$reviewed_file" || { error "reviewed file is missing or unsafe: $reviewed_file"; return 2; }
     done
     bash -n "$PLAN_SCRIPT" || { error 'source and plan preflight has invalid shell syntax'; return 2; }
@@ -942,9 +1153,9 @@ main() {
 
     if validate_reviewed_boundary; then
         REVIEWED_BOUNDARY_VALID=true
-        record_pass 'the corrected inventory, failed step-87 evidence, reviewed signing key, historical initrd command, exact code, and revision scope are bound'
+        record_pass 'the corrected inventory, both failed step-87 diagnostics, reviewed signing key, historical initrd command, exact code, and revision scope are bound'
     else
-        record_failure 'the corrected diagnostic boundary, failed step-87 evidence, or explicit revision scope is missing, changed, or mismatched'
+        record_failure 'the corrected diagnostic boundary, either failed step-87 evidence record, or explicit revision scope is missing, changed, or mismatched'
     fi
 
     capture_package_database "$OUTPUT_DIR/packages.before.txt" \
@@ -957,11 +1168,8 @@ main() {
         LIVE_BOUNDARY_VALID=true
     fi
 
-    if acquire_source; then
+    if record_source_acquisition_results; then
         SOURCE_ACQUIRED=true
-        record_pass "the exact historical package and detached signature are available through $SOURCE_ACQUISITION"
-    else
-        record_failure 'the exact historical package and signature could not be acquired or reused safely'
     fi
 
     if [ "$SOURCE_ACQUIRED" = true ]; then

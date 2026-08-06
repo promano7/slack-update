@@ -1,0 +1,41 @@
+{
+  "accepted": false,
+  "active_kernel": "6.18.42",
+  "apply_authorized": false,
+  "apply_ready": false,
+  "archive_sha256": "5dc24b1863a818cd0500fd08ea569995e627411a66181ccebcbb74698bbac35e",
+  "assertions": {
+    "failures": 1,
+    "passes": 41,
+    "skips": 5
+  },
+  "captured_at": "2026-08-06T13:10:44Z",
+  "executed_script_sha256": "8dc3eceb45c6c531aaf8e3f74e907cf4eb2b45a3aa113f43876b57405def47bd",
+  "failure_causes": [
+    "The pre-staged source acquisition returned a single undifferentiated failure before recording file metadata, sizes, or hashes.",
+    "The evidence therefore cannot distinguish basename, existence, file type, symbolic-link, readability, or open failure for either source file.",
+    "Dependent signature, payload, space, and complete-plan stages were correctly skipped and the host remained unchanged."
+  ],
+  "hostname_fqdn": "pcold-slack.pcold-slack.org",
+  "hostname_short": "pcold-slack",
+  "initial_failed_preflight_archive_sha256": "d2a5398c789f14cfee07d53a55e4ca7da8aab85dd0387b51f437120401f9ba14",
+  "inventory_archive_sha256": "cd2769c18e93b17596028b33b00a1d6e14bb81336172935bb18b0bef3568ed56",
+  "next_stage": "current-rollback-source-and-plan-preflight-revision-2",
+  "package_database_mutated": false,
+  "package_installation_performed": false,
+  "reboot_performed": false,
+  "rollback_kernel": "6.18.40",
+  "rollback_module_state": "depmod-metadata-only-placeholder",
+  "scenario": "current-rollback-source-and-plan-preflight-revision-1-failed-diagnostic",
+  "separately_supplied_source_files": {
+    "package_filename": "kernel-generic-6.18.40-x86_64-1.txz",
+    "package_sha256": "90dcee03829a3755b74b52a679fadea2619d96a38e12c461ee6e6866c9c598cc",
+    "signature_filename": "kernel-generic-6.18.40-x86_64-1.txz.asc",
+    "signature_sha256": "1222c391801227dc389dcd46de91d1915e61df12f436614ebd0a24b1697fdd39"
+  },
+  "source_acquisition": "unchecked",
+  "source_package_path": "/home/promano/kernel-generic-6.18.40-x86_64-1.txz",
+  "source_signature_path": "/home/promano/kernel-generic-6.18.40-x86_64-1.txz.asc",
+  "system_state_mutated": false,
+  "target": "slackware-current"
+}

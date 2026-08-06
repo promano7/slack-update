@@ -50,7 +50,7 @@
   "package_installation_allowed": false,
   "package_name_snapshot_sha256": "4c8e78a76c6097c60d6ed5391fd6c203b32eeadcf274d1ab71f81a6bbe549170",
   "package_url": "https://slackware.uk/cumulative/slackware64-current/slackware64/a/kernel-generic-6.18.40-x86_64-1.txz",
-  "plan_script_sha256": "8dc3eceb45c6c531aaf8e3f74e907cf4eb2b45a3aa113f43876b57405def47bd",
+  "plan_script_sha256": "516397c136ab9dd75d90eba7a5e1f969ef36c30e1725e05a2e3fbf3060b09c93",
   "reboot_execution_allowed": false,
   "repository_metadata_refresh_allowed": false,
   "required_hostname_fqdn": "pcold-slack.pcold-slack.org",
@@ -58,6 +58,8 @@
   "required_rollback_module_state": "depmod-metadata-only-placeholder",
   "required_root_uuid": "ba7632d7-7469-483e-830d-59c88d985866",
   "reviewed": true,
+  "revision_1_failed_preflight_archive_sha256": "5dc24b1863a818cd0500fd08ea569995e627411a66181ccebcbb74698bbac35e",
+  "revision_1_failed_preflight_record_sha256": "a79d9f05bfd6943de9710f47fd2b1c340b2be067c2a0ac0c1ad93400b4a9fbf6",
   "rollback_kernel": "6.18.40",
   "rollback_placeholder_entries": {
     "misc": {
@@ -120,7 +122,7 @@
       "size": 55
     }
   },
-  "scenario": "current-rollback-source-and-plan-preflight-revision-1",
+  "scenario": "current-rollback-source-and-plan-preflight-revision-2",
   "setup": {
     "sha256": "74e06b7f6c2de719ec6877edcf419d7bae558509d3f61f06fb7ba4c3b175a0fe",
     "size": 8126
@@ -128,7 +130,7 @@
   "signature_url": "https://slackware.uk/cumulative/slackware64-current/slackware64/a/kernel-generic-6.18.40-x86_64-1.txz.asc",
   "signing_key_fingerprint": "EC5649DA401E22ABFA6736EF6A4463C040102233",
   "signing_key_sha256": "82af92f3a9abdae815534912e7c438f1bad50b8516bb8d75fe9e08444f727daf",
-  "source_plan_scope_sha256": "5e215b8c53becb65b216fadb2e38bbeb57f8fc590856e405728db76fc60efb95",
+  "source_plan_scope_sha256": "571f30dacef5001b21bf6890ea13ad56dddb48c769dea456f01b03033dd8b27b",
   "source_staging_mutation_allowed": true,
   "target": "slackware-current"
 }
