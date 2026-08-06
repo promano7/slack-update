@@ -1,0 +1,124 @@
+{
+  "schema": 1,
+  "scenario": "current-rollback-source-and-plan-preflight-revision-6",
+  "target": "slackware-current",
+  "accepted": true,
+  "accepted_at_utc": "2026-08-06T16:53:56Z",
+  "archive_sha256": "ce45977bbcacb237163d821a43d5a79f5246bfca54bc3fb4ca6edfc30243fbfb",
+  "assertions": {
+    "passes": 61,
+    "failures": 0,
+    "skips": 0
+  },
+  "hostname_short": "pcold-slack",
+  "hostname_fqdn": "pcold-slack.pcold-slack.org",
+  "active_kernel": "6.18.42",
+  "rollback_kernel": "6.18.40",
+  "root_source": "/dev/sda2",
+  "root_uuid": "ba7632d7-7469-483e-830d-59c88d985866",
+  "installed_package_count": 2040,
+  "rollback_module_state": "depmod-metadata-only-placeholder",
+  "source_plan_scope_sha256": "92cc5d316f66ea2205751b83e88a3f749c6ec4f7d7a8a534106ebc5cc7d38f6e",
+  "source_plan_script_sha256": "d306e3c1d9d5a2cc2298d6367601d39e6573569211db422fdbfda5cb4e5aba8b",
+  "source_plan_policy_sha256": "92bcaf0e2038d4979e3c6f8dc054171053af5e5d555dba223aa7e670ebabbcaa",
+  "source": {
+    "package_path": "/home/promano/slack-update-source-6.18.40/kernel-generic-6.18.40-x86_64-1.txz",
+    "package_sha256": "90dcee03829a3755b74b52a679fadea2619d96a38e12c461ee6e6866c9c598cc",
+    "package_size": 78712412,
+    "signature_path": "/home/promano/slack-update-source-6.18.40/kernel-generic-6.18.40-x86_64-1.txz.asc",
+    "signature_sha256": "1222c391801227dc389dcd46de91d1915e61df12f436614ebd0a24b1697fdd39",
+    "signature_size": 232,
+    "primary_fingerprint": "EC5649DA401E22ABFA6736EF6A4463C040102233"
+  },
+  "payload": {
+    "kernel_member": "boot/vmlinuz-6.18.40",
+    "kernel_destination": "/boot/vmlinuz-6.18.40",
+    "kernel_sha256": "8899359f0c1f6fc018f8079ba0c76e886b12b8087ff7dccc695c459b40fb9aae",
+    "kernel_size": 14434816,
+    "module_destination": "/lib/modules/6.18.40",
+    "module_member_count": 5504,
+    "module_object_count": 5490,
+    "module_payload_bytes": 431714444,
+    "module_manifest_sha256": "615b21541969101d5e2f46f5755d509e47d499a7f22ff78dd4bed347bc05e655"
+  },
+  "initrd": {
+    "destination": "/boot/initrd-6.18.40.img",
+    "command_vector": [
+      "mkinitrd", "-c", "-k", "6.18.40", "-f", "ext4", "-r", "/dev/sda2", "-m",
+      "xhci-pci:ohci-pci:ehci-pci:xhci-hcd:uhci-hcd:ehci-hcd:hid:usbhid:i2c-hid:hid_generic:hid-asus:hid-cherry:hid-logitech:hid-logitech-dj:hid-logitech-hidpp:hid-lenovo:hid-microsoft:hid_multitouch",
+      "-u", "-o", "/boot/initrd-6.18.40.img"
+    ]
+  },
+  "grub": {
+    "fragment_destination": "/etc/grub.d/41_slackware_rollback_6_18_40",
+    "fragment_mode": "0755",
+    "entry_id": "slackware-rollback-6.18.40",
+    "default_must_remain": "0",
+    "source_initrd_vector": [
+      "/boot/intel-ucode.img",
+      "/boot/amd-ucode.img",
+      "/boot/initrd-generic.img"
+    ],
+    "projected_initrd_vector": [
+      "/boot/intel-ucode.img",
+      "/boot/amd-ucode.img",
+      "/boot/initrd-6.18.40.img"
+    ]
+  },
+  "space_budget": {
+    "state": "sufficient",
+    "aggregate_required_bytes": 1195382528,
+    "minimum_available_bytes": 183805456384,
+    "reserve_bytes_per_filesystem": 268435456,
+    "estimated_initrd_bytes": 34614366
+  },
+  "ordered_actions": [
+    "revalidate-boundary-and-source-hashes",
+    "create-owner-only-backup-and-extraction-directories",
+    "back-up-depmod-metadata-placeholder-and-active-grub-config",
+    "extract-only-reviewed-kernel-and-module-tree-to-private-staging",
+    "verify-staged-kernel-and-complete-module-manifest",
+    "install-versioned-rollback-kernel-and-module-tree",
+    "run-depmod-for-rollback-kernel",
+    "run-reviewed-versioned-mkinitrd-command",
+    "install-explicit-rollback-grub-fragment",
+    "generate-and-validate-temporary-grub-config",
+    "prove-default-remains-active-6.18.42-entry",
+    "atomically-replace-grub-config-and-verify-final-state"
+  ],
+  "rollback_limits": [
+    "do-not-change-generic-kernel-link",
+    "do-not-change-generic-initrd-link",
+    "do-not-change-grub-default",
+    "retain-source-package-signature-and-backups"
+  ],
+  "artifact_sha256": {
+    "summary.txt": "627d53674ee795afc1055816a43ced227c4f19d1620b023da2faebd6bbf25cbc",
+    "source-and-plan-analysis.json": "6b8560b50055a6e3060459dd5b6930b78d6fc200ddc3b5eced686ad43f2d5c99",
+    "reconstruction-plan.json": "359a1b8730dba76c21e6d7b032b0ad4e0ba1139b474b1e5609579902e529fc71",
+    "projected-apply-commands.txt": "fbdede344abd41988cd381f7991c9fffaf46bd50f11480e06d971c2b51443971",
+    "projected-grub-menuentry.cfg": "3084dd04cc0be42385623c010b379b340b2d1d47bba78afe04e66b8d7343eaf3",
+    "projected-41_slackware_rollback_6_18_40": "ae0a5324e43c7b922cbcd12e0ed260742c8be3b2d435e9068d996573ce6ad479",
+    "projected-grub-entry.json": "ab1f2c2caac78fdf325fd680d0a0baa52d98ec4afe7cb830b514f93ca9b1d580",
+    "projected-mkinitrd-command.sh": "83e6ea6af562a6ad6e4052d9ae872eac9ed96953aa8bbe3ff10cc0f24c834bf0",
+    "projected-mkinitrd-command.json": "e5330e5f540c0b5e3d3a7e497cefce6ddc97170858bdd832138a861ba153f397",
+    "space-budget.json": "db7e247139cbeb82ebfb04e745e4e68641c30ff0008ed52f2ed12f2942cd1b95",
+    "live-boundary.json": "b27351f75a033275783901f02418139a846319b730a43cba26bfdcb59c554eb4",
+    "source-package.json": "9b959917641b84e8446fb7ccd78bf673dc3450bf5be45fb42a7b4597c8e17e95",
+    "source-module-manifest.txt": "615b21541969101d5e2f46f5755d509e47d499a7f22ff78dd4bed347bc05e655",
+    "packages.before.txt": "349557f219bb967bd5cafd835a494b413059cea61545012f072f62daf5b6f675",
+    "package-names.before.txt": "4c8e78a76c6097c60d6ed5391fd6c203b32eeadcf274d1ab71f81a6bbe549170",
+    "sensitive.before.txt": "de7b6f943ca2b9419f9e912351743ef05706cda3d6dd351fd4a6531aebf2e627"
+  },
+  "system_state_mutated": false,
+  "repository_metadata_refreshed": false,
+  "package_installation_performed": false,
+  "package_database_mutated": false,
+  "depmod_executed": false,
+  "initrd_generated": false,
+  "grub_mutated": false,
+  "reboot_performed": false,
+  "apply_ready": true,
+  "apply_authorized": false,
+  "next_stage": "current-rollback-reconstruction-authorized-apply-review"
+}

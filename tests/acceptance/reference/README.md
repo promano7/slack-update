@@ -1257,3 +1257,35 @@ sudo bash tests/acceptance/reference/test-current-rollback-source-and-plan-prefl
 Revision 6 script SHA-256 is `d306e3c1d9d5a2cc2298d6367601d39e6573569211db422fdbfda5cb4e5aba8b`. Policy SHA-256 is `92bcaf0e2038d4979e3c6f8dc054171053af5e5d555dba223aa7e670ebabbcaa`, revision-5 diagnostic-record SHA-256 is `22d8108ff3dc2a87d741c9a899508a27e5fd4f0bce8f06cbb5049dd39f18f117`, and confirmation scope SHA-256 is `92cc5d316f66ea2205751b83e88a3f749c6ec4f7d7a8a534106ebc5cc7d38f6e`. The focused revision-6 harness contains 125 checks. The complete inventory contains 50 suites and 3,483 checks with zero failures; static validation covers 82 shell scripts and 94 JSON files.
 
 A clean result records `apply_ready=true`, `apply_authorized=false`, and `next_stage=current-rollback-reconstruction-authorized-apply-review`. It still forbids package installation, package-database mutation, `depmod`, `mkinitrd`, GenInitrd execution, GRUB mutation, metadata refresh, and reboot. Copy the evidence archive and sidecar together using the exact `Copy evidence pair command` printed by the script; do not enumerate the private `/var/tmp` evidence directory as an unprivileged user.
+
+### Accepted signed rollback source and reconstruction plan (step 87)
+
+The real revision-6 run passed 61 assertions with zero failures and zero skips. Its archive SHA-256 is `ce45977bbcacb237163d821a43d5a79f5246bfca54bc3fb4ca6edfc30243fbfb`; the accepted record is `tests/fixtures/reference/acceptance/normal-update/slackware-current-rollback-source-and-plan-preflight-20260806-accepted.json`, SHA-256 `95e24090154ac0d4a1d714100ac19ddbb6d2740961f675439a571334f318c597`.
+
+The accepted record fixes the source package and detached-signature identities, Slackware primary fingerprint, kernel and complete module-manifest hashes, space budget, versioned initrd command, two-image early-microcode order, explicit rollback GRUB fragment, active default `0`, twelve ordered actions, and no-mutation boundary. The real run ended with `apply_ready=true`, `apply_authorized=false`, and `next_stage=current-rollback-reconstruction-authorized-apply-review`.
+
+### Slackware-current rollback reconstruction authorized-apply review (step 88)
+
+`test-current-rollback-reconstruction-authorized-apply-review.sh` is the separate non-mutating authorization boundary. It requires the exact accepted step-87 archive SHA-256, exact hostname and kernel versions, explicit authorization-review scope, and retained package/signature paths. It validates its own script, the accepted record, the revision-6 source-plan script and policy, and the confirmation scope before doing any nested work.
+
+The review captures package and rollback-sensitive state, verifies the retained source hashes, reruns revision 6 into a private nested evidence directory, and semantically validates the fresh summary, live boundary, source package, module manifest, space budget, `mkinitrd` vector, ordered Intel/AMD microcode vector, explicit rollback entry, twelve-action plan, rollback limits, and byte-identical nested snapshots. It then captures the outer state again and requires exact equality.
+
+A clean review writes `reviewed-plan.json` plus `apply-authorization.json` and reports `apply_ready=true`, `apply_authorized=true`, `apply_executed=false`, and `next_stage=current-rollback-reconstruction-authorized-apply`. Authorization remains restricted to a later executor that independently reproduces the canonical apply contract fixed by SHA-256. This review cannot refresh metadata, invoke package installation tools, extract into `/boot` or `/lib/modules`, execute `depmod` or `mkinitrd`, modify GRUB or generic links, change the default selector, or reboot.
+
+Run:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-rollback-reconstruction-authorized-apply-review.sh \
+    --target slackware-current \
+    --confirm-hostname pcold-slack \
+    --confirm-hostname-fqdn pcold-slack.pcold-slack.org \
+    --confirm-source-plan-evidence-sha256 ce45977bbcacb237163d821a43d5a79f5246bfca54bc3fb4ca6edfc30243fbfb \
+    --confirm-active-kernel 6.18.42 \
+    --confirm-rollback-kernel 6.18.40 \
+    --confirm-authorization-review-sha256 03751103875a56b092e92bd4f915016320e5663000598a7c0fe3c5023aad2b50 \
+    --source-package /home/promano/slack-update-source-6.18.40/kernel-generic-6.18.40-x86_64-1.txz \
+    --source-signature /home/promano/slack-update-source-6.18.40/kernel-generic-6.18.40-x86_64-1.txz.asc
+```
+
+Script SHA-256 is `db031cf1185da410efdac5229a34e823ce90d32d29b0c258e08e89488b5c0725`, policy SHA-256 is `9c315dd0d7da4196d1ab2c69353ff7a42abe66742a7a73ba8c236e365a501e4b`, confirmation scope SHA-256 is `03751103875a56b092e92bd4f915016320e5663000598a7c0fe3c5023aad2b50`, and canonical apply-contract SHA-256 is `1a2a59d73a72cb609bc1622e5882adddfc1a6f117d6602e0ba3abe238badd923`. The focused harness contains 46 checks. The complete inventory contains 51 suites and 3,529 checks with zero failures; static validation covers 84 shell scripts and 96 JSON files.
+

@@ -129,11 +129,15 @@ Before submitting a change to the reference script:
 44. Run `tests/reference/test-current-userspace-apply-review-preflight-harness.sh` when baseline/addition union binding, exact action classification, nested ELF output archiving, portable sidecar verification, stale-evidence replacement, reference-engine package commands, deferred post-install handling, GenInitrd policy restoration, GRUB ownership, failure blocking, or userspace application non-execution boundaries are affected.
 45. Run `tests/reference/test-current-rollback-reconstruction-inventory-harness.sh` when optional rollback classification, empty-directory handling, exact local package inspection, module-manifest comparison, space estimation, or inventory non-mutation boundaries are affected.
 46. Run `tests/reference/test-current-rollback-source-and-plan-preflight-harness.sh` when failed-preflight evidence binding, depmod metadata-placeholder classification, signed historical source acquisition, isolated GPG keyring handling, primary/subkey binding, archive safety, prerequisite-skip semantics, kernel/module manifesting, reconstruction space budgeting, placeholder backup, zero-to-two reviewed early-microcode images, initrd source-order preservation, GRUB projection, or apply-denial boundaries are affected.
-47. Confirm that destructive commands are not exercised outside an isolated or explicitly recoverable Slackware test system.
-48. Record the relevant acceptance scenario.
-49. Preserve deterministic output and exit-code behavior.
-50. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
-51. Ensure every new or modified comment is written in English.
+47. Run `tests/reference/test-current-rollback-reconstruction-authorized-apply-review-harness.sh` when accepted step-87 binding, explicit authorization scope, retained-source revalidation, nested fresh-preflight composition, semantic action-plan auditing, before/after state comparison, authorization-record generation, or apply-execution denial is affected.
+48. Confirm that destructive commands are not exercised outside an isolated or explicitly recoverable Slackware test system.
+49. Record the relevant acceptance scenario.
+50. Preserve deterministic output and exit-code behavior.
+51. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
+52. Ensure every new or modified comment is written in English.
+
+
+Optional rollback reconstruction authorization must remain distinct from execution. The authorization review must bind an accepted source-and-plan archive, exact retained source hashes, exact review code, and an explicit confirmation scope; rerun the non-mutating source-and-plan preflight into nested evidence; audit the payload, initrd vector, microcode order, GRUB fragment, ordered actions, backup limits, and recovery constraints; and prove package plus rollback-sensitive state remain unchanged. It may emit `apply_authorized=true` only with `apply_executed=false` and only for the canonical apply contract fixed by SHA-256. It must not refresh repositories, install or register the historical package, execute package scripts, run `depmod` or `mkinitrd`, modify GRUB or generic links, change `grubenv`, or reboot.
 
 Never run the apply workflow on a production machine merely to validate a contribution.
 

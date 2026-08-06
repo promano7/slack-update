@@ -2216,7 +2216,7 @@ sudo bash tests/acceptance/reference/test-current-candidate-chain-refresh-prefli
 
 The expected classification, while the repository remains unchanged, is `changed-userspace-set` with target `6.18.42`, `kernel_transaction_changed=false`, `strict_candidate_superset=true`, `added_candidate_count=68`, `removed_candidate_count=0`, `next_stage=review-fresh-userspace-candidates`, `apply_ready=false`, and `apply_authorized=false`. The wrapper refreshes metadata only through the existing normal-update preflight, verifies critical-candidate accounting, preserves package and boot state, and publishes one outer archive with a portable sidecar. Copy and verify both files directly in `/home/promano`. Do not run readiness or apply until the fresh userspace evidence is reviewed.
 
-The step-64 repository matrix contains 37 suites and 2,545 checks. The candidate-chain harness contributes 79 checks and the readiness harness contributes 71 checks.
+The step-64 repository matrix contains 37 suites and 2,546 checks. The candidate-chain harness contributes 79 checks and the readiness harness contributes 71 checks.
 
 ### Phase 1 step 65: userspace candidate review for kernel-evidence rebind
 
@@ -2504,3 +2504,39 @@ The accepted boundary records `pause_safe=true`, `reboot_verified=true`, `update
 Rollback reconstruction for 6.18.40 is optional and separate because only its module tree remains. The machine may remain at this safe checkpoint indefinitely before that optional work is considered.
 
 Step 85 adds no executable code or new suite. The complete inventory remains 48 suites and 3,311 checks with zero failures; static validation covers 78 shell scripts and 84 JSON files.
+
+### Accepted signed rollback source and reconstruction plan (step 87)
+
+The real revision-6 preflight passed all 61 assertions with zero failures and zero skips. Archive SHA-256 `ce45977bbcacb237163d821a43d5a79f5246bfca54bc3fb4ca6edfc30243fbfb` was copied to `/home/promano` with its sidecar and verified. The immutable accepted record is `tests/fixtures/reference/acceptance/normal-update/slackware-current-rollback-source-and-plan-preflight-20260806-accepted.json`, SHA-256 `95e24090154ac0d4a1d714100ac19ddbb6d2740961f675439a571334f318c597`.
+
+The accepted boundary proves that the exact signed `kernel-generic-6.18.40-x86_64-1.txz` supplies `/boot/vmlinuz-6.18.40` and the complete 6.18.40 module tree, that the detached Slackware signature and primary fingerprint are valid, that the conservative 1,195,382,528-byte aggregate budget is available, and that the reviewed initrd command targets only `/boot/initrd-6.18.40.img`. The explicit rollback GRUB entry preserves the active source order:
+
+```text
+initrd /boot/intel-ucode.img /boot/amd-ucode.img /boot/initrd-6.18.40.img
+```
+
+The active 6.18.42 kernel, initrd, generic links, package database, GenInitrd controls, GRUB configuration, and metadata-only 6.18.40 placeholder were identical before and after the preflight. The accepted result is `apply_ready=true`, `apply_authorized=false`, and `next_stage=current-rollback-reconstruction-authorized-apply-review`.
+
+### Rollback reconstruction authorized-apply review (step 88)
+
+Run the separate non-mutating authorization review only while the exact package and signature remain under `/home/promano/slack-update-source-6.18.40`:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-rollback-reconstruction-authorized-apply-review.sh \
+    --target slackware-current \
+    --confirm-hostname pcold-slack \
+    --confirm-hostname-fqdn pcold-slack.pcold-slack.org \
+    --confirm-source-plan-evidence-sha256 ce45977bbcacb237163d821a43d5a79f5246bfca54bc3fb4ca6edfc30243fbfb \
+    --confirm-active-kernel 6.18.42 \
+    --confirm-rollback-kernel 6.18.40 \
+    --confirm-authorization-review-sha256 03751103875a56b092e92bd4f915016320e5663000598a7c0fe3c5023aad2b50 \
+    --source-package /home/promano/slack-update-source-6.18.40/kernel-generic-6.18.40-x86_64-1.txz \
+    --source-signature /home/promano/slack-update-source-6.18.40/kernel-generic-6.18.40-x86_64-1.txz.asc
+```
+
+Step 88 binds the accepted step-87 archive and code, rechecks both retained source hashes, reruns revision 6 as nested fresh evidence, validates the exact payload, module manifest, `mkinitrd` vector, microcode order, GRUB fragment, default-selection limit, backup paths, twelve-action sequence, and recovery limits, then proves the package database and rollback-sensitive state are unchanged. Only then does it write `apply-authorization.json` with `apply_ready=true`, `apply_authorized=true`, `apply_executed=false`, and `next_stage=current-rollback-reconstruction-authorized-apply`.
+
+This authorization does not execute the reconstruction. Repository refresh, package installation or registration, extraction into the installed system, `depmod`, `mkinitrd`, GRUB replacement, `grubenv` changes, generic-link changes, and reboot remain forbidden. The authorization is usable only by a later executor that independently reproduces the authorized canonical apply contract, which must independently revalidate every live boundary and source hash before its first mutation.
+
+Step-88 script SHA-256 is `db031cf1185da410efdac5229a34e823ce90d32d29b0c258e08e89488b5c0725`; policy SHA-256 is `9c315dd0d7da4196d1ab2c69353ff7a42abe66742a7a73ba8c236e365a501e4b`; confirmation scope SHA-256 is `03751103875a56b092e92bd4f915016320e5663000598a7c0fe3c5023aad2b50`; canonical apply-contract SHA-256 is `1a2a59d73a72cb609bc1622e5882adddfc1a6f117d6602e0ba3abe238badd923`. The focused harness contains 46 checks. The complete inventory contains 51 suites and 3,529 checks with zero failures; static validation covers 84 shell scripts and 96 JSON files.
+
