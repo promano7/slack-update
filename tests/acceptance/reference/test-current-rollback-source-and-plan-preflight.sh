@@ -17,6 +17,7 @@ REVISION_1_FAILED_PREFLIGHT_RECORD=${ROLLBACK_PLAN_REVISION_1_FAILED_PREFLIGHT_R
 REVISION_2_FAILED_PREFLIGHT_RECORD=${ROLLBACK_PLAN_REVISION_2_FAILED_PREFLIGHT_RECORD:-$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-rollback-source-and-plan-preflight-revision-2-20260806-failed-diagnostic.json}
 REVISION_3_FAILED_PREFLIGHT_RECORD=${ROLLBACK_PLAN_REVISION_3_FAILED_PREFLIGHT_RECORD:-$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-rollback-source-and-plan-preflight-revision-3-20260806-failed-diagnostic.json}
 REVISION_4_REJECTED_PLAN_RECORD=${ROLLBACK_PLAN_REVISION_4_REJECTED_PLAN_RECORD:-$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-rollback-source-and-plan-preflight-revision-4-20260806-rejected-plan-diagnostic.json}
+REVISION_5_FAILED_PREFLIGHT_RECORD=${ROLLBACK_PLAN_REVISION_5_FAILED_PREFLIGHT_RECORD:-$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-rollback-source-and-plan-preflight-revision-5-20260806-failed-diagnostic.json}
 GENINITRD_RECORD=${ROLLBACK_PLAN_GENINITRD_RECORD:-$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-command-preflight-20260805-accepted.json}
 SIGNING_KEY=${ROLLBACK_PLAN_SIGNING_KEY:-$REPOSITORY_ROOT/tests/fixtures/reference/keys/slackware-security.gpg.asc}
 PLAN_POLICY=${ROLLBACK_PLAN_POLICY:-$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/slackware-current-rollback-source-and-plan-preflight-policy.json}
@@ -35,6 +36,7 @@ CONFIRM_REVISION_1_FAILED_PREFLIGHT_EVIDENCE_SHA256=
 CONFIRM_REVISION_2_FAILED_PREFLIGHT_EVIDENCE_SHA256=
 CONFIRM_REVISION_3_FAILED_PREFLIGHT_EVIDENCE_SHA256=
 CONFIRM_REVISION_4_REJECTED_PLAN_EVIDENCE_SHA256=
+CONFIRM_REVISION_5_FAILED_PREFLIGHT_EVIDENCE_SHA256=
 CONFIRM_ACTIVE_KERNEL=
 CONFIRM_ROLLBACK_KERNEL=
 CONFIRM_SOURCE_PLAN_SHA256=
@@ -93,6 +95,7 @@ Usage: ${0##*/} --target slackware-current \\
                      --confirm-revision-2-failed-preflight-evidence-sha256 SHA256 \\
                      --confirm-revision-3-failed-preflight-evidence-sha256 SHA256 \\
                      --confirm-revision-4-rejected-plan-evidence-sha256 SHA256 \\
+                     --confirm-revision-5-failed-preflight-evidence-sha256 SHA256 \
                      --confirm-active-kernel VERSION \\
                      --confirm-rollback-kernel VERSION \\
                      --confirm-source-plan-sha256 SHA256 [options]
@@ -113,6 +116,7 @@ Required options:
       --confirm-revision-2-failed-preflight-evidence-sha256 SHA256
       --confirm-revision-3-failed-preflight-evidence-sha256 SHA256
       --confirm-revision-4-rejected-plan-evidence-sha256 SHA256
+      --confirm-revision-5-failed-preflight-evidence-sha256 SHA256
       --confirm-active-kernel VERSION
       --confirm-rollback-kernel VERSION
       --confirm-source-plan-sha256 SHA256
@@ -153,6 +157,7 @@ parse_arguments() {
             --confirm-revision-2-failed-preflight-evidence-sha256) [ "$#" -ge 2 ] || return 1; CONFIRM_REVISION_2_FAILED_PREFLIGHT_EVIDENCE_SHA256=${2,,}; shift 2 ;;
             --confirm-revision-3-failed-preflight-evidence-sha256) [ "$#" -ge 2 ] || return 1; CONFIRM_REVISION_3_FAILED_PREFLIGHT_EVIDENCE_SHA256=${2,,}; shift 2 ;;
             --confirm-revision-4-rejected-plan-evidence-sha256) [ "$#" -ge 2 ] || return 1; CONFIRM_REVISION_4_REJECTED_PLAN_EVIDENCE_SHA256=${2,,}; shift 2 ;;
+            --confirm-revision-5-failed-preflight-evidence-sha256) [ "$#" -ge 2 ] || return 1; CONFIRM_REVISION_5_FAILED_PREFLIGHT_EVIDENCE_SHA256=${2,,}; shift 2 ;;
             --confirm-active-kernel) [ "$#" -ge 2 ] || return 1; CONFIRM_ACTIVE_KERNEL=$2; shift 2 ;;
             --confirm-rollback-kernel) [ "$#" -ge 2 ] || return 1; CONFIRM_ROLLBACK_KERNEL=$2; shift 2 ;;
             --confirm-source-plan-sha256) [ "$#" -ge 2 ] || return 1; CONFIRM_SOURCE_PLAN_SHA256=${2,,}; shift 2 ;;
@@ -173,6 +178,7 @@ parse_arguments() {
     is_sha256 "$CONFIRM_REVISION_2_FAILED_PREFLIGHT_EVIDENCE_SHA256" || return 1
     is_sha256 "$CONFIRM_REVISION_3_FAILED_PREFLIGHT_EVIDENCE_SHA256" || return 1
     is_sha256 "$CONFIRM_REVISION_4_REJECTED_PLAN_EVIDENCE_SHA256" || return 1
+    is_sha256 "$CONFIRM_REVISION_5_FAILED_PREFLIGHT_EVIDENCE_SHA256" || return 1
     is_sha256 "$CONFIRM_SOURCE_PLAN_SHA256" || return 1
     is_safe_kernel_version "$CONFIRM_ACTIVE_KERNEL" || return 1
     is_safe_kernel_version "$CONFIRM_ROLLBACK_KERNEL" || return 1
@@ -203,15 +209,15 @@ PY
 
 validate_reviewed_boundary() {
     python3 - "$PLAN_POLICY" "$PLAN_SCRIPT" "$DIAGNOSTIC_RECORD" "$FAILED_PREFLIGHT_RECORD" \
-        "$REVISION_1_FAILED_PREFLIGHT_RECORD" "$REVISION_2_FAILED_PREFLIGHT_RECORD" "$REVISION_3_FAILED_PREFLIGHT_RECORD" "$REVISION_4_REJECTED_PLAN_RECORD" "$GENINITRD_RECORD" "$SIGNING_KEY" \
+        "$REVISION_1_FAILED_PREFLIGHT_RECORD" "$REVISION_2_FAILED_PREFLIGHT_RECORD" "$REVISION_3_FAILED_PREFLIGHT_RECORD" "$REVISION_4_REJECTED_PLAN_RECORD" "$REVISION_5_FAILED_PREFLIGHT_RECORD" "$GENINITRD_RECORD" "$SIGNING_KEY" \
         "$CONFIRM_HOSTNAME" "$CONFIRM_HOSTNAME_FQDN" "$CONFIRM_INVENTORY_EVIDENCE_SHA256" \
         "$CONFIRM_FAILED_PREFLIGHT_EVIDENCE_SHA256" "$CONFIRM_REVISION_1_FAILED_PREFLIGHT_EVIDENCE_SHA256" \
-        "$CONFIRM_REVISION_2_FAILED_PREFLIGHT_EVIDENCE_SHA256" "$CONFIRM_REVISION_3_FAILED_PREFLIGHT_EVIDENCE_SHA256" "$CONFIRM_REVISION_4_REJECTED_PLAN_EVIDENCE_SHA256" \
+        "$CONFIRM_REVISION_2_FAILED_PREFLIGHT_EVIDENCE_SHA256" "$CONFIRM_REVISION_3_FAILED_PREFLIGHT_EVIDENCE_SHA256" "$CONFIRM_REVISION_4_REJECTED_PLAN_EVIDENCE_SHA256" "$CONFIRM_REVISION_5_FAILED_PREFLIGHT_EVIDENCE_SHA256" \
         "$CONFIRM_ACTIVE_KERNEL" "$CONFIRM_ROLLBACK_KERNEL" "$CONFIRM_SOURCE_PLAN_SHA256" <<'PY'
 import hashlib, json, pathlib, sys
-(policy_path, script_path, diagnostic_path, failed_path, revision1_failed_path, revision2_failed_path, revision3_failed_path, revision4_rejected_path,
+(policy_path, script_path, diagnostic_path, failed_path, revision1_failed_path, revision2_failed_path, revision3_failed_path, revision4_rejected_path, revision5_failed_path,
  geninitrd_path, key_path, host, fqdn, inventory_archive, failed_archive, revision1_failed_archive,
- revision2_failed_archive, revision3_failed_archive, revision4_rejected_archive, active, rollback, confirmed_scope) = sys.argv[1:]
+ revision2_failed_archive, revision3_failed_archive, revision4_rejected_archive, revision5_failed_archive, active, rollback, confirmed_scope) = sys.argv[1:]
 def regular(path):
     p=pathlib.Path(path)
     if not p.is_file() or p.is_symlink(): raise SystemExit(1)
@@ -224,6 +230,7 @@ revision1_failed=json.loads(regular(revision1_failed_path).read_text(encoding='u
 revision2_failed=json.loads(regular(revision2_failed_path).read_text(encoding='utf-8'))
 revision3_failed=json.loads(regular(revision3_failed_path).read_text(encoding='utf-8'))
 revision4_rejected=json.loads(regular(revision4_rejected_path).read_text(encoding='utf-8'))
+revision5_failed=json.loads(regular(revision5_failed_path).read_text(encoding='utf-8'))
 geninitrd=json.loads(regular(geninitrd_path).read_text(encoding='utf-8'))
 script_sha=sha(script_path)
 diagnostic_sha=sha(diagnostic_path)
@@ -232,10 +239,11 @@ revision1_failed_sha=sha(revision1_failed_path)
 revision2_failed_sha=sha(revision2_failed_path)
 revision3_failed_sha=sha(revision3_failed_path)
 revision4_rejected_sha=sha(revision4_rejected_path)
+revision5_failed_sha=sha(revision5_failed_path)
 geninitrd_sha=sha(geninitrd_path)
 key_sha=sha(key_path)
 scope=(
- 'operation=current-rollback-source-and-plan-preflight-revision-5\n'
+ 'operation=current-rollback-source-and-plan-preflight-revision-6\n'
  'target=slackware-current\n'
  f'hostname_short={host}\n'
  f'hostname_fqdn={fqdn}\n'
@@ -248,12 +256,14 @@ scope=(
  f'revision_2_failed_preflight_archive_sha256={revision2_failed_archive}\n'
  f'revision_3_failed_preflight_archive_sha256={revision3_failed_archive}\n'
  f'revision_4_rejected_plan_archive_sha256={revision4_rejected_archive}\n'
+ f'revision_5_failed_preflight_archive_sha256={revision5_failed_archive}\n'
  f'diagnostic_record_sha256={diagnostic_sha}\n'
  f'failed_preflight_record_sha256={failed_sha}\n'
  f'revision_1_failed_preflight_record_sha256={revision1_failed_sha}\n'
  f'revision_2_failed_preflight_record_sha256={revision2_failed_sha}\n'
  f'revision_3_failed_preflight_record_sha256={revision3_failed_sha}\n'
  f'revision_4_rejected_plan_record_sha256={revision4_rejected_sha}\n'
+ f'revision_5_failed_preflight_record_sha256={revision5_failed_sha}\n'
  f'geninitrd_record_sha256={geninitrd_sha}\n'
  f'signing_key_sha256={key_sha}\n'
  f'plan_script_sha256={script_sha}\n'
@@ -261,7 +271,7 @@ scope=(
 calculated=hashlib.sha256(scope).hexdigest()
 vector=geninitrd.get('current_command_vector', [])
 checks=[
- policy.get('scenario') == 'current-rollback-source-and-plan-preflight-revision-5',
+ policy.get('scenario') == 'current-rollback-source-and-plan-preflight-revision-6',
  policy.get('target') == 'slackware-current',
  policy.get('reviewed') is True,
  policy.get('required_hostname_short') == host,
@@ -274,12 +284,14 @@ checks=[
  policy.get('revision_2_failed_preflight_archive_sha256') == revision2_failed_archive,
  policy.get('revision_3_failed_preflight_archive_sha256') == revision3_failed_archive,
  policy.get('revision_4_rejected_plan_archive_sha256') == revision4_rejected_archive,
+ policy.get('revision_5_failed_preflight_archive_sha256') == revision5_failed_archive,
  policy.get('diagnostic_record_sha256') == diagnostic_sha,
  policy.get('failed_preflight_record_sha256') == failed_sha,
  policy.get('revision_1_failed_preflight_record_sha256') == revision1_failed_sha,
  policy.get('revision_2_failed_preflight_record_sha256') == revision2_failed_sha,
  policy.get('revision_3_failed_preflight_record_sha256') == revision3_failed_sha,
  policy.get('revision_4_rejected_plan_record_sha256') == revision4_rejected_sha,
+ policy.get('revision_5_failed_preflight_record_sha256') == revision5_failed_sha,
  policy.get('geninitrd_record_sha256') == geninitrd_sha,
  policy.get('signing_key_sha256') == key_sha,
  policy.get('plan_script_sha256') == script_sha,
@@ -326,6 +338,15 @@ checks=[
  revision4_rejected.get('apply_authorized') is False,
  revision4_rejected.get('failure_cause') == 'rollback-grub-entry-retained-active-initrd-and-reordered-microcode',
  revision4_rejected.get('system_state_mutated') is False,
+ revision5_failed.get('archive_sha256') == revision5_failed_archive,
+ revision5_failed.get('scenario') == 'current-rollback-source-and-plan-preflight-revision-5-failed-diagnostic',
+ revision5_failed.get('executed_script_sha256') == '0a923befda11399ddcf18b886036627e236fcf7d26b8686dc21c93296c331fb8',
+ revision5_failed.get('assertions') == {'failures':1,'passes':58,'skips':2},
+ revision5_failed.get('source_signature_valid') is True,
+ revision5_failed.get('source_package_valid') is True,
+ revision5_failed.get('space_state') == 'sufficient',
+ revision5_failed.get('failure_cause') == 'multiple-reviewed-microcode-images-rejected-by-single-image-limit',
+ revision5_failed.get('system_state_mutated') is False,
  geninitrd.get('accepted') is True,
  geninitrd.get('current_command_vector') == vector,
  len(vector) >= 12 and vector[0] == 'mkinitrd' and '-k' in vector and vector[vector.index('-k')+1] == rollback,
@@ -979,15 +1000,20 @@ project_grub_entry() {
     local grub fragment_name
     grub=$(rooted /boot/grub/grub.cfg)
     fragment_name="41_slackware_rollback_${CONFIRM_ROLLBACK_KERNEL//./_}"
-    python3 - "$grub" "$CONFIRM_ACTIVE_KERNEL" "$CONFIRM_ROLLBACK_KERNEL" "$OUTPUT_DIR/projected-grub-menuentry.cfg" \
-        "$OUTPUT_DIR/projected-$fragment_name" "$OUTPUT_DIR/projected-grub-entry.json" <<'PY'
+    rm -f -- "$OUTPUT_DIR/projected-grub-menuentry.cfg" "$OUTPUT_DIR/projected-$fragment_name" \
+        "$OUTPUT_DIR/projected-grub-entry.json" "$OUTPUT_DIR/grub-source-entry.json"
+    if ! python3 - "$grub" "$CONFIRM_ACTIVE_KERNEL" "$CONFIRM_ROLLBACK_KERNEL" "$OUTPUT_DIR/projected-grub-menuentry.cfg" \
+        "$OUTPUT_DIR/projected-$fragment_name" "$OUTPUT_DIR/projected-grub-entry.json" "$OUTPUT_DIR/grub-source-entry.json" \
+        2> "$OUTPUT_DIR/grub-projection.log" <<'PY'
 import json,pathlib,re,shlex,sys
-source=pathlib.Path(sys.argv[1]).read_text(encoding='utf-8').splitlines()
+source_path=pathlib.Path(sys.argv[1])
 active=sys.argv[2]
 version=sys.argv[3]
 entry_output=pathlib.Path(sys.argv[4])
 fragment_output=pathlib.Path(sys.argv[5])
 metadata_output=pathlib.Path(sys.argv[6])
+source_metadata_output=pathlib.Path(sys.argv[7])
+source=source_path.read_text(encoding='utf-8').splitlines()
 started=False
 depth=0
 entry=[]
@@ -1007,9 +1033,12 @@ indent=header[:len(header)-len(header.lstrip())]
 entry[0]=f"{indent}menuentry 'Slackware GNU/Linux (rollback {version})' --id 'slackware-rollback-{version}' {{"
 linux_count=0
 initrd_count=0
-microcode=[]
 source_initrd_vector=[]
+microcode=[]
+active_tokens=[]
 projected_initrd_vector=[]
+source_order_valid=False
+allowed_microcode={'/boot/intel-ucode.img','/boot/amd-ucode.img'}
 for i,line in enumerate(entry):
     stripped=line.strip()
     if re.match(r'^linux(?:efi)?\s+', stripped):
@@ -1031,17 +1060,26 @@ for i,line in enumerate(entry):
             x for x in payload
             if re.search(r'(?:^|/)initrd(?:-[^/]*)?\.img$',x) and x not in active_tokens
         ]
-        microcode=[x for x in payload if re.fullmatch(r'/boot/(?:amd|intel)-ucode\.img',x)]
-        unknown=[x for x in payload if x not in active_tokens and x not in microcode]
+        microcode=[x for x in payload if x in allowed_microcode]
+        unknown=[x for x in payload if x not in active_tokens and x not in allowed_microcode]
+        source_order_valid=(payload == microcode + active_tokens)
+        source_metadata_output.write_text(json.dumps({
+          'active_kernel':active,
+          'source_initrd_vector':source_initrd_vector,
+          'source_microcode_vector':microcode,
+          'active_initrd_tokens':active_tokens,
+          'source_order_valid':source_order_valid,
+          'allowed_microcode_images':sorted(allowed_microcode),
+        },indent=2,sort_keys=True)+'\n',encoding='utf-8')
         if (
             len(active_tokens) != 1
             or foreign_initrd
             or unknown
             or len(microcode) != len(set(microcode))
-            or len(microcode) > 1
+            or not source_order_valid
         ):
             raise SystemExit(
-                'the active initrd vector is not exactly one reviewed initrd plus at most one microcode image'
+                'the active initrd vector must contain zero, one, or two unique reviewed microcode images followed by exactly one reviewed active initrd'
             )
         projected_initrd_vector=microcode+[f'/boot/initrd-{version}.img']
         entry[i]=line[:len(line)-len(line.lstrip())]+shlex.join([command]+projected_initrd_vector)
@@ -1061,13 +1099,20 @@ metadata_output.write_text(json.dumps({
   'active_kernel':active,
   'rollback_kernel':version,
   'source_initrd_vector':source_initrd_vector,
+  'source_microcode_vector':microcode,
   'microcode_images':microcode,
+  'microcode_image_count':len(microcode),
+  'source_order_valid':source_order_valid,
   'projected_initrd_vector':projected_initrd_vector,
   'active_initrd_retained':False,
+  'microcode_order_preserved':projected_initrd_vector[:-1] == microcode,
   'microcode_precedes_rollback_initrd':projected_initrd_vector == microcode+[f'/boot/initrd-{version}.img'],
   'executed':False,
 },indent=2,sort_keys=True)+'\n',encoding='utf-8')
 PY
+    then
+        return 1
+    fi
     chmod 0755 "$OUTPUT_DIR/projected-$fragment_name" || return 1
     bash -n "$OUTPUT_DIR/projected-$fragment_name" || return 1
     grub-script-check "$OUTPUT_DIR/projected-grub-menuentry.cfg" >/dev/null 2>&1 || return 1
@@ -1083,23 +1128,23 @@ write_apply_plan() {
         "$OUTPUT_DIR/projected-mkinitrd-command.json" "$OUTPUT_DIR/projected-$fragment_name" "$OUTPUT_DIR/projected-grub-entry.json" \
         "$CONFIRM_INVENTORY_EVIDENCE_SHA256" "$CONFIRM_FAILED_PREFLIGHT_EVIDENCE_SHA256" \
         "$CONFIRM_REVISION_1_FAILED_PREFLIGHT_EVIDENCE_SHA256" "$CONFIRM_REVISION_2_FAILED_PREFLIGHT_EVIDENCE_SHA256" \
-        "$CONFIRM_REVISION_3_FAILED_PREFLIGHT_EVIDENCE_SHA256" "$CONFIRM_REVISION_4_REJECTED_PLAN_EVIDENCE_SHA256" "$CONFIRM_SOURCE_PLAN_SHA256" <<'PY'
+        "$CONFIRM_REVISION_3_FAILED_PREFLIGHT_EVIDENCE_SHA256" "$CONFIRM_REVISION_4_REJECTED_PLAN_EVIDENCE_SHA256" "$CONFIRM_REVISION_5_FAILED_PREFLIGHT_EVIDENCE_SHA256" "$CONFIRM_SOURCE_PLAN_SHA256" <<'PY'
 import json,pathlib,sys
 (out,pkg,sig,pkgsha,sigsha,signing_fingerprint,primary_fingerprint,kernel_member,kernel_sha,kernel_size,module_count,module_bytes,module_manifest_sha,
- space_state,space_reserve,estimated_initrd,space_required,space_available,active,rollback,root_uuid,root_source,mkinitrd_path,fragment_path,grub_entry_path,inventory_sha,failed_sha,revision1_failed_sha,revision2_failed_sha,revision3_failed_sha,revision4_rejected_sha,scope_sha)=sys.argv[1:]
+ space_state,space_reserve,estimated_initrd,space_required,space_available,active,rollback,root_uuid,root_source,mkinitrd_path,fragment_path,grub_entry_path,inventory_sha,failed_sha,revision1_failed_sha,revision2_failed_sha,revision3_failed_sha,revision4_rejected_sha,revision5_failed_sha,scope_sha)=sys.argv[1:]
 mkinitrd=json.load(open(mkinitrd_path,encoding='utf-8'))['command_vector']
 grub_entry=json.load(open(grub_entry_path,encoding='utf-8'))
 fragment_name=f'41_slackware_rollback_{rollback.replace(".","_")}'
 data={
- 'scenario':'current-rollback-source-and-plan-preflight-revision-5','target':'slackware-current',
+ 'scenario':'current-rollback-source-and-plan-preflight-revision-6','target':'slackware-current',
  'active_kernel':active,'rollback_kernel':rollback,'root_uuid':root_uuid,'root_source':root_source,
  'inventory_archive_sha256':inventory_sha,'failed_preflight_archive_sha256':failed_sha,
- 'revision_1_failed_preflight_archive_sha256':revision1_failed_sha,'revision_2_failed_preflight_archive_sha256':revision2_failed_sha,'revision_3_failed_preflight_archive_sha256':revision3_failed_sha,'revision_4_rejected_plan_archive_sha256':revision4_rejected_sha,'source_plan_scope_sha256':scope_sha,
+ 'revision_1_failed_preflight_archive_sha256':revision1_failed_sha,'revision_2_failed_preflight_archive_sha256':revision2_failed_sha,'revision_3_failed_preflight_archive_sha256':revision3_failed_sha,'revision_4_rejected_plan_archive_sha256':revision4_rejected_sha,'revision_5_failed_preflight_archive_sha256':revision5_failed_sha,'source_plan_scope_sha256':scope_sha,
  'source':{'package_path':pkg,'signature_path':sig,'package_sha256':pkgsha,'signature_sha256':sigsha,'signing_fingerprint':signing_fingerprint,'valid_primary_fingerprint':primary_fingerprint},
  'payload':{'kernel_member':kernel_member,'kernel_destination':f'/boot/vmlinuz-{rollback}','kernel_sha256':kernel_sha,'kernel_size':int(kernel_size),'module_destination':f'/lib/modules/{rollback}','module_member_count':int(module_count),'module_payload_bytes':int(module_bytes),'module_manifest_sha256':module_manifest_sha},
  'space_budget':{'state':space_state,'reserve_bytes_per_filesystem':int(space_reserve),'estimated_initrd_bytes':int(estimated_initrd),'aggregate_required_bytes':int(space_required),'minimum_available_bytes':int(space_available)},
  'initrd':{'destination':f'/boot/initrd-{rollback}.img','command_vector':mkinitrd},
- 'grub':{'fragment_destination':f'/etc/grub.d/{fragment_name}','fragment_mode':'0755','entry_id':f'slackware-rollback-{rollback}','default_must_remain':'0','active_default_kernel':'/boot/vmlinuz-generic','source_initrd_vector':grub_entry['source_initrd_vector'],'microcode_images':grub_entry['microcode_images'],'projected_initrd_vector':grub_entry['projected_initrd_vector'],'active_initrd_retained':False,'microcode_precedes_rollback_initrd':True},
+ 'grub':{'fragment_destination':f'/etc/grub.d/{fragment_name}','fragment_mode':'0755','entry_id':f'slackware-rollback-{rollback}','default_must_remain':'0','active_default_kernel':'/boot/vmlinuz-generic','source_initrd_vector':grub_entry['source_initrd_vector'],'microcode_images':grub_entry['microcode_images'],'microcode_image_count':grub_entry['microcode_image_count'],'source_order_valid':grub_entry['source_order_valid'],'projected_initrd_vector':grub_entry['projected_initrd_vector'],'active_initrd_retained':False,'microcode_order_preserved':grub_entry['microcode_order_preserved'],'microcode_precedes_rollback_initrd':True},
  'ordered_actions':[
   {'order':1,'id':'revalidate-boundary-and-source-hashes'},
   {'order':2,'id':'create-owner-only-backup-and-extraction-directories'},
@@ -1164,14 +1209,14 @@ write_analysis() {
         "$SPACE_STATE" "$SPACE_RESERVE_BYTES" "$ESTIMATED_INITRD_BYTES" "$SPACE_REQUIRED_BYTES" "$SPACE_AVAILABLE_BYTES" "$APPLY_READY" \
         "$NEXT_STAGE" "$PASS_COUNT" "$FAILURE_COUNT" "$SKIP_COUNT" "$CONFIRM_INVENTORY_EVIDENCE_SHA256" \
         "$CONFIRM_FAILED_PREFLIGHT_EVIDENCE_SHA256" "$CONFIRM_REVISION_1_FAILED_PREFLIGHT_EVIDENCE_SHA256" \
-        "$CONFIRM_REVISION_2_FAILED_PREFLIGHT_EVIDENCE_SHA256" "$CONFIRM_REVISION_3_FAILED_PREFLIGHT_EVIDENCE_SHA256" "$CONFIRM_REVISION_4_REJECTED_PLAN_EVIDENCE_SHA256" "$CONFIRM_SOURCE_PLAN_SHA256" <<'PY'
+        "$CONFIRM_REVISION_2_FAILED_PREFLIGHT_EVIDENCE_SHA256" "$CONFIRM_REVISION_3_FAILED_PREFLIGHT_EVIDENCE_SHA256" "$CONFIRM_REVISION_4_REJECTED_PLAN_EVIDENCE_SHA256" "$CONFIRM_REVISION_5_FAILED_PREFLIGHT_EVIDENCE_SHA256" "$CONFIRM_SOURCE_PLAN_SHA256" <<'PY'
 import json,pathlib,sys
 (out,host,fqdn,running,active,rollback,root_uuid,root_source,acquisition,pkg,sig,pkgsha,sigsha,
  pkgsize,sigsize,signing_fingerprint,primary_fingerprint,kernel_member,kernel_sha,kernel_size,module_count,module_bytes,module_manifest_sha,
  space_state,space_reserve,estimated_initrd,space_required,space_available,ready,next_stage,
- passes,failures,skips,inventory_sha,failed_sha,revision1_failed_sha,revision2_failed_sha,revision3_failed_sha,revision4_rejected_sha,scope_sha)=sys.argv[1:]
+ passes,failures,skips,inventory_sha,failed_sha,revision1_failed_sha,revision2_failed_sha,revision3_failed_sha,revision4_rejected_sha,revision5_failed_sha,scope_sha)=sys.argv[1:]
 data={
- 'scenario':'current-rollback-source-and-plan-preflight-revision-5','target':'slackware-current','hostname_short':host,
+ 'scenario':'current-rollback-source-and-plan-preflight-revision-6','target':'slackware-current','hostname_short':host,
  'hostname_fqdn':fqdn,'running_kernel':running,'active_kernel':active,'rollback_kernel':rollback,
  'root_uuid':root_uuid,'root_source':root_source,'inventory_archive_sha256':inventory_sha,
  'failed_preflight_archive_sha256':failed_sha,
@@ -1179,6 +1224,7 @@ data={
  'revision_2_failed_preflight_archive_sha256':revision2_failed_sha,
  'revision_3_failed_preflight_archive_sha256':revision3_failed_sha,
  'revision_4_rejected_plan_archive_sha256':revision4_rejected_sha,
+ 'revision_5_failed_preflight_archive_sha256':revision5_failed_sha,
  'source_plan_scope_sha256':scope_sha,'rollback_module_state':'depmod-metadata-only-placeholder',
  'source_acquisition':acquisition,'source_package':{'path':pkg,'sha256':pkgsha,'size':int(pkgsize or 0)},
  'source_signature':{'path':sig,'sha256':sigsha,'size':int(sigsize or 0),'signing_fingerprint':signing_fingerprint,'valid_fingerprint':primary_fingerprint},
@@ -1196,7 +1242,7 @@ PY
 
 write_summary() {
     cat > "$OUTPUT_DIR/summary.txt" <<EOF_SUMMARY
-scenario=current-rollback-source-and-plan-preflight-revision-5
+scenario=current-rollback-source-and-plan-preflight-revision-6
 target=$TARGET
 result=$([ "$FAILURE_COUNT" -eq 0 ] && printf PASS || printf FAIL)
 passes=$PASS_COUNT
@@ -1214,6 +1260,7 @@ revision_1_failed_preflight_evidence_sha256=$CONFIRM_REVISION_1_FAILED_PREFLIGHT
 revision_2_failed_preflight_evidence_sha256=$CONFIRM_REVISION_2_FAILED_PREFLIGHT_EVIDENCE_SHA256
 revision_3_failed_preflight_evidence_sha256=$CONFIRM_REVISION_3_FAILED_PREFLIGHT_EVIDENCE_SHA256
 revision_4_rejected_plan_evidence_sha256=$CONFIRM_REVISION_4_REJECTED_PLAN_EVIDENCE_SHA256
+revision_5_failed_preflight_evidence_sha256=$CONFIRM_REVISION_5_FAILED_PREFLIGHT_EVIDENCE_SHA256
 source_plan_scope_sha256=$CONFIRM_SOURCE_PLAN_SHA256
 source_acquisition=$SOURCE_ACQUISITION
 source_package=$SOURCE_PACKAGE
@@ -1301,7 +1348,7 @@ main() {
         if [ "$TEST_MODE" = 1 ] && { [ "$command_name" = findmnt ] || [ "$command_name" = hostname ] || [ "$command_name" = uname ]; }; then continue; fi
         command -v "$command_name" >/dev/null 2>&1 || { error "required command missing: $command_name"; return 2; }
     done
-    for reviewed_file in "$DIAGNOSTIC_RECORD" "$FAILED_PREFLIGHT_RECORD" "$REVISION_1_FAILED_PREFLIGHT_RECORD" "$REVISION_2_FAILED_PREFLIGHT_RECORD" "$REVISION_3_FAILED_PREFLIGHT_RECORD" "$GENINITRD_RECORD" "$SIGNING_KEY" "$PLAN_POLICY" "$PLAN_SCRIPT"; do
+    for reviewed_file in "$DIAGNOSTIC_RECORD" "$FAILED_PREFLIGHT_RECORD" "$REVISION_1_FAILED_PREFLIGHT_RECORD" "$REVISION_2_FAILED_PREFLIGHT_RECORD" "$REVISION_3_FAILED_PREFLIGHT_RECORD" "$REVISION_4_REJECTED_PLAN_RECORD" "$REVISION_5_FAILED_PREFLIGHT_RECORD" "$GENINITRD_RECORD" "$SIGNING_KEY" "$PLAN_POLICY" "$PLAN_SCRIPT"; do
         require_regular_file "$reviewed_file" || { error "reviewed file is missing or unsafe: $reviewed_file"; return 2; }
     done
     bash -n "$PLAN_SCRIPT" || { error 'source and plan preflight has invalid shell syntax'; return 2; }
@@ -1321,7 +1368,7 @@ main() {
 
     if validate_reviewed_boundary; then
         REVIEWED_BOUNDARY_VALID=true
-        record_pass 'the corrected inventory, four failed diagnostics, rejected revision-4 plan, reviewed signing key, historical initrd command, exact code, and revision-5 scope are bound'
+        record_pass 'the corrected inventory, five failed diagnostics, rejected revision-4 plan, reviewed signing key, historical initrd command, exact code, and revision-6 scope are bound'
     else
         record_failure 'the corrected diagnostic boundary, a failed step-87 evidence record, or explicit revision scope is missing, changed, or mismatched'
     fi

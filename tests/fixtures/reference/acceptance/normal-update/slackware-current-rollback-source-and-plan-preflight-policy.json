@@ -50,7 +50,7 @@
   "package_installation_allowed": false,
   "package_name_snapshot_sha256": "4c8e78a76c6097c60d6ed5391fd6c203b32eeadcf274d1ab71f81a6bbe549170",
   "package_url": "https://slackware.uk/cumulative/slackware64-current/slackware64/a/kernel-generic-6.18.40-x86_64-1.txz",
-  "plan_script_sha256": "0a923befda11399ddcf18b886036627e236fcf7d26b8686dc21c93296c331fb8",
+  "plan_script_sha256": "d306e3c1d9d5a2cc2298d6367601d39e6573569211db422fdbfda5cb4e5aba8b",
   "reboot_execution_allowed": false,
   "repository_metadata_refresh_allowed": false,
   "required_hostname_fqdn": "pcold-slack.pcold-slack.org",
@@ -66,6 +66,8 @@
   "revision_3_failed_preflight_record_sha256": "1ab88f07299fbbe8366365cbc6e480819e261f2b30bc337a70d9d41ac1043145",
   "revision_4_rejected_plan_archive_sha256": "11122a514f1f1c75cfcb52e5d4f310ed7719235c23f4389b6e16e3d13f513134",
   "revision_4_rejected_plan_record_sha256": "5ae40ea0f89c4999e6edd6b277b13c7c46c352783418af8d3ecddd7bb59d5a86",
+  "revision_5_failed_preflight_archive_sha256": "ff6d4a338b2da9ce4547128f6d0472f781dd47300f2b82658cae18cf94b6c8da",
+  "revision_5_failed_preflight_record_sha256": "22d8108ff3dc2a87d741c9a899508a27e5fd4f0bce8f06cbb5049dd39f18f117",
   "rollback_kernel": "6.18.40",
   "rollback_placeholder_entries": {
     "misc": {
@@ -128,7 +130,7 @@
       "size": 55
     }
   },
-  "scenario": "current-rollback-source-and-plan-preflight-revision-5",
+  "scenario": "current-rollback-source-and-plan-preflight-revision-6",
   "setup": {
     "sha256": "74e06b7f6c2de719ec6877edcf419d7bae558509d3f61f06fb7ba4c3b175a0fe",
     "size": 8126
@@ -136,7 +138,7 @@
   "signature_url": "https://slackware.uk/cumulative/slackware64-current/slackware64/a/kernel-generic-6.18.40-x86_64-1.txz.asc",
   "signing_key_fingerprint": "EC5649DA401E22ABFA6736EF6A4463C040102233",
   "signing_key_sha256": "82af92f3a9abdae815534912e7c438f1bad50b8516bb8d75fe9e08444f727daf",
-  "source_plan_scope_sha256": "72f58b575c93c478fb5562733a526fa4c283b76222a4c5090b7e5f4da343b7aa",
+  "source_plan_scope_sha256": "92cc5d316f66ea2205751b83e88a3f749c6ec4f7d7a8a534106ebc5cc7d38f6e",
   "source_staging_mutation_allowed": true,
   "target": "slackware-current"
 }

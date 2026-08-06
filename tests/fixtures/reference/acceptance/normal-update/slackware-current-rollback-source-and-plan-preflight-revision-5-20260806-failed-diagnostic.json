@@ -1,0 +1,37 @@
+{
+  "accepted": false,
+  "active_kernel": "6.18.42",
+  "apply_authorized": false,
+  "apply_ready": false,
+  "archive_sha256": "ff6d4a338b2da9ce4547128f6d0472f781dd47300f2b82658cae18cf94b6c8da",
+  "assertions": {
+    "failures": 1,
+    "passes": 58,
+    "skips": 2
+  },
+  "captured_at": "2026-08-06T16:25:24Z",
+  "executed_script_sha256": "0a923befda11399ddcf18b886036627e236fcf7d26b8686dc21c93296c331fb8",
+  "failure_cause": "multiple-reviewed-microcode-images-rejected-by-single-image-limit",
+  "failure_details": [
+    "The signed package, detached signature, complete payload inspection, conservative space budget, and reviewed mkinitrd projection all passed.",
+    "The active GRUB initrd vector contains more than one reviewed early-microcode image before the active generic initrd.",
+    "Revision 5 incorrectly limited the vector to at most one AMD or Intel microcode image and therefore rejected the real host entry.",
+    "The rollback GRUB fragment and complete apply plan were not published; the installed system remained unchanged."
+  ],
+  "hostname_fqdn": "pcold-slack.pcold-slack.org",
+  "hostname_short": "pcold-slack",
+  "initrd_projection_valid": true,
+  "next_stage": "current-rollback-source-and-plan-preflight-revision-6",
+  "package_database_mutated": false,
+  "package_installation_performed": false,
+  "reboot_performed": false,
+  "rollback_kernel": "6.18.40",
+  "rollback_module_state": "depmod-metadata-only-placeholder",
+  "scenario": "current-rollback-source-and-plan-preflight-revision-5-failed-diagnostic",
+  "source_acquisition": "pre-staged",
+  "source_package_valid": true,
+  "source_signature_valid": true,
+  "space_state": "sufficient",
+  "system_state_mutated": false,
+  "target": "slackware-current"
+}

@@ -1206,32 +1206,34 @@ The real inventory archive SHA-256 is `cd2769c18e93b17596028b33b00a1d6e14bb81336
 
 The corrected record is `tests/fixtures/reference/acceptance/normal-update/slackware-current-rollback-reconstruction-inventory-20260806-corrected-diagnostic.json`. It supersedes only the optional rollback description. The immutable step-85 mandatory-update closure remains accepted and closed.
 
-### Signed rollback source and reconstruction-plan preflight revision 5 (step 87)
+### Signed rollback source and reconstruction-plan preflight revision 6 (step 87)
 
-The first delivered step-87 script and revisions 1 through 3 remained non-mutating diagnostic runs. Their immutable archive SHA-256 values are:
+The initial delivered step 87 and revisions 1 through 3 remained non-mutating diagnostic runs. Their immutable archive SHA-256 values are:
 
 - Initial step 87: `d2a5398c789f14cfee07d53a55e4ca7da8aab85dd0387b51f437120401f9ba14`.
 - Revision 1: `5dc24b1863a818cd0500fd08ea569995e627411a66181ccebcbb74698bbac35e`.
 - Revision 2: `bc28dd82557236f0938f71c4255eee6ea2f477f2f8676f32209af6fae3ce420e`.
 - Revision 3: `45b5b35fd51ef962d5865185679eeb28f3a2435ddddbca70500608706f4396ca`.
 
-Revision 4 archive SHA-256 `11122a514f1f1c75cfcb52e5d4f310ed7719235c23f4389b6e16e3d13f513134` passed all 61 assertions and correctly accepted the exact signed package, payload inventory, and conservative space budget. It left the host unchanged. Post-run review nevertheless rejected its projected GRUB entry before any application was authorized: the vector retained `/boot/initrd-generic.img`, which belongs to active kernel 6.18.42, and placed `/boot/amd-ucode.img` after the rollback initrd. Therefore its `apply_ready=true` result is superseded for planning purposes. The immutable diagnostic record classifies the run as `rollback-grub-entry-retained-active-initrd-and-reordered-microcode`; the mandatory update closure remains accepted.
+Revision 4 archive SHA-256 `11122a514f1f1c75cfcb52e5d4f310ed7719235c23f4389b6e16e3d13f513134` passed all 61 assertions and accepted the exact signed package, payload inventory, and conservative space budget. Post-run review rejected its projected GRUB entry because it retained the active 6.18.42 initrd and reordered microcode. Its `apply_ready=true` result is superseded for planning purposes.
 
-Revision 5 preserves the accepted source, signature, package, payload, and space checks while replacing only the GRUB projection boundary. It requires the active menuentry to contain exactly one reviewed active initrd and at most one reviewed CPU microcode image, removes the active initrd, and projects either:
-
-```text
-initrd /boot/amd-ucode.img /boot/initrd-6.18.40.img
-```
-
-or, when no reviewed microcode image is present:
+Revision 5 archive SHA-256 `ff6d4a338b2da9ce4547128f6d0472f781dd47300f2b82658cae18cf94b6c8da` passed 58 assertions, failed one GRUB-vector assertion, skipped two dependent stages, and left the host unchanged. It failed safely because the real active entry contains both reviewed early-microcode images before the active initrd:
 
 ```text
-initrd /boot/initrd-6.18.40.img
+initrd /boot/intel-ucode.img /boot/amd-ucode.img /boot/initrd-generic.img
 ```
 
-Foreign initrds, duplicate microcode images, unknown initrd arguments, retention of `/boot/initrd-generic.img` or `/boot/initrd-6.18.42.img`, and placement of microcode after the rollback initrd all fail closed. No reconstruction command is executed.
+Its policy allowed at most one microcode image. The immutable revision-5 diagnostic record classifies this as `multiple-reviewed-microcode-images-rejected-by-single-image-limit`.
 
-Keep the exact package and signature under `/home/promano/slack-update-source-6.18.40` until the complete on-disk reconstruction has been accepted. Run only revision 5:
+Revision 6 preserves the accepted source, signature, package, payload, space, and mkinitrd checks while replacing only the GRUB projection boundary. It requires zero to two unique reviewed microcode images from the exact set `intel-ucode.img` and `amd-ucode.img`, preserves their source order, requires exactly one reviewed active initrd after them, and replaces only that active initrd. On this host it projects:
+
+```text
+initrd /boot/intel-ucode.img /boot/amd-ucode.img /boot/initrd-6.18.40.img
+```
+
+A host with no reviewed microcode projects only `/boot/initrd-6.18.40.img`. Duplicate or unknown microcode images, unknown initrd arguments, foreign or retained active initrds, and microcode after the active initrd fail closed. Projection failure is recorded in `grub-projection.log` and does not produce a secondary `chmod` error. No reconstruction command is executed.
+
+Keep the exact package and signature under `/home/promano/slack-update-source-6.18.40` until the complete on-disk reconstruction has been accepted. Run only revision 6:
 
 ```bash
 sudo bash tests/acceptance/reference/test-current-rollback-source-and-plan-preflight.sh \
@@ -1244,13 +1246,14 @@ sudo bash tests/acceptance/reference/test-current-rollback-source-and-plan-prefl
     --confirm-revision-2-failed-preflight-evidence-sha256 bc28dd82557236f0938f71c4255eee6ea2f477f2f8676f32209af6fae3ce420e \
     --confirm-revision-3-failed-preflight-evidence-sha256 45b5b35fd51ef962d5865185679eeb28f3a2435ddddbca70500608706f4396ca \
     --confirm-revision-4-rejected-plan-evidence-sha256 11122a514f1f1c75cfcb52e5d4f310ed7719235c23f4389b6e16e3d13f513134 \
+    --confirm-revision-5-failed-preflight-evidence-sha256 ff6d4a338b2da9ce4547128f6d0472f781dd47300f2b82658cae18cf94b6c8da \
     --confirm-active-kernel 6.18.42 \
     --confirm-rollback-kernel 6.18.40 \
-    --confirm-source-plan-sha256 72f58b575c93c478fb5562733a526fa4c283b76222a4c5090b7e5f4da343b7aa \
+    --confirm-source-plan-sha256 92cc5d316f66ea2205751b83e88a3f749c6ec4f7d7a8a534106ebc5cc7d38f6e \
     --source-package /home/promano/slack-update-source-6.18.40/kernel-generic-6.18.40-x86_64-1.txz \
     --source-signature /home/promano/slack-update-source-6.18.40/kernel-generic-6.18.40-x86_64-1.txz.asc
 ```
 
-Revision 5 script SHA-256 is `0a923befda11399ddcf18b886036627e236fcf7d26b8686dc21c93296c331fb8`. Policy SHA-256 is `e845d4cecfbcfee2d9e005444fb3ddb208b6d3a55f88bc144af004ba3e3ac864`, the revision-4 rejected-plan record SHA-256 is `5ae40ea0f89c4999e6edd6b277b13c7c46c352783418af8d3ecddd7bb59d5a86`, and the confirmation scope SHA-256 is `72f58b575c93c478fb5562733a526fa4c283b76222a4c5090b7e5f4da343b7aa`. The focused revision-5 harness contains 115 checks. The complete inventory contains 50 suites and 3,473 checks with zero failures; static validation covers 82 shell scripts and 93 JSON files.
+Revision 6 script SHA-256 is `d306e3c1d9d5a2cc2298d6367601d39e6573569211db422fdbfda5cb4e5aba8b`. Policy SHA-256 is `92bcaf0e2038d4979e3c6f8dc054171053af5e5d555dba223aa7e670ebabbcaa`, revision-5 diagnostic-record SHA-256 is `22d8108ff3dc2a87d741c9a899508a27e5fd4f0bce8f06cbb5049dd39f18f117`, and confirmation scope SHA-256 is `92cc5d316f66ea2205751b83e88a3f749c6ec4f7d7a8a534106ebc5cc7d38f6e`. The focused revision-6 harness contains 125 checks. The complete inventory contains 50 suites and 3,483 checks with zero failures; static validation covers 82 shell scripts and 94 JSON files.
 
 A clean result records `apply_ready=true`, `apply_authorized=false`, and `next_stage=current-rollback-reconstruction-authorized-apply-review`. It still forbids package installation, package-database mutation, `depmod`, `mkinitrd`, GenInitrd execution, GRUB mutation, metadata refresh, and reboot. Copy the evidence archive and sidecar together using the exact `Copy evidence pair command` printed by the script; do not enumerate the private `/var/tmp` evidence directory as an unprivileged user.

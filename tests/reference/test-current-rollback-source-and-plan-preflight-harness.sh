@@ -77,9 +77,11 @@ TEST_KEY_FIXTURE="$REPOSITORY_ROOT/tests/fixtures/reference/keys/slackware-test-
 TEST_PACKAGE_FIXTURE="$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/normal-update/test-kernel-generic-6.18.40-x86_64-1.txz"
 TEST_SIGNATURE_FIXTURE="$TEST_PACKAGE_FIXTURE.asc"
 cp -- "$TEST_KEY_FIXTURE" "$TMP/signing-key.asc"
-SIGNING_FINGERPRINT=$(gpg --batch --show-keys --with-colons "$TMP/signing-key.asc" |
+HARNESS_GNUPGHOME="$TMP/gnupg"
+mkdir -m 0700 "$HARNESS_GNUPGHOME"
+SIGNING_FINGERPRINT=$(GNUPGHOME="$HARNESS_GNUPGHOME" gpg --batch --show-keys --with-colons "$TMP/signing-key.asc" |
     awk -F: '$1=="fpr" {print $10; exit}')
-SIGNING_SUBKEY_FINGERPRINT=$(gpg --batch --show-keys --with-colons "$TMP/signing-key.asc" |
+SIGNING_SUBKEY_FINGERPRINT=$(GNUPGHOME="$HARNESS_GNUPGHOME" gpg --batch --show-keys --with-colons "$TMP/signing-key.asc" |
     awk -F: '$1=="sub" {subkey=1; next} subkey && $1=="fpr" {print $10; exit}')
 
 write_root_file() {
@@ -187,7 +189,7 @@ else
 fi
 menuentry 'Slackware-15.0+, with Linux generic' --id slackware-generic {
   linux /boot/vmlinuz-generic root=UUID=ba7632d7-7469-483e-830d-59c88d985866 ro
-  initrd /boot/amd-ucode.img /boot/initrd-generic.img
+  initrd /boot/intel-ucode.img /boot/amd-ucode.img /boot/initrd-generic.img
 }
 menuentry 'Diagnostic shell' --id diagnostic-shell {
   linux /boot/vmlinuz-diagnostic root=/dev/sda2 ro
@@ -205,17 +207,17 @@ EOF_GRUB
 }
 
 write_records_and_policy() {
-    local root=$1 diagnostic=$2 failed=$3 revision1_failed=$4 revision2_failed=$5 revision3_failed=$6 revision4_rejected=$7 geninitrd=$8 policy=$9 inventory_archive=${10}
-    local failed_archive=${11} revision1_failed_archive=${12} revision2_failed_archive=${13} revision3_failed_archive=${14} revision4_rejected_archive=${15} package=${16} signature=${17}
-    python3 - "$root" "$diagnostic" "$failed" "$revision1_failed" "$revision2_failed" "$revision3_failed" "$revision4_rejected" "$geninitrd" "$policy" "$TMP/signing-key.asc" \
-        "$SCRIPT" "$inventory_archive" "$failed_archive" "$revision1_failed_archive" "$revision2_failed_archive" "$revision3_failed_archive" "$revision4_rejected_archive" "$SIGNING_FINGERPRINT" "$package" "$signature" <<'PY'
+    local root=$1 diagnostic=$2 failed=$3 revision1_failed=$4 revision2_failed=$5 revision3_failed=$6 revision4_rejected=$7 revision5_failed=$8 geninitrd=$9 policy=${10} inventory_archive=${11}
+    local failed_archive=${12} revision1_failed_archive=${13} revision2_failed_archive=${14} revision3_failed_archive=${15} revision4_rejected_archive=${16} revision5_failed_archive=${17} package=${18} signature=${19}
+    python3 - "$root" "$diagnostic" "$failed" "$revision1_failed" "$revision2_failed" "$revision3_failed" "$revision4_rejected" "$revision5_failed" "$geninitrd" "$policy" "$TMP/signing-key.asc" \
+        "$SCRIPT" "$inventory_archive" "$failed_archive" "$revision1_failed_archive" "$revision2_failed_archive" "$revision3_failed_archive" "$revision4_rejected_archive" "$revision5_failed_archive" "$SIGNING_FINGERPRINT" "$package" "$signature" <<'PY'
 import hashlib,json,pathlib,sys
 root=pathlib.Path(sys.argv[1]); diagnostic=pathlib.Path(sys.argv[2]); failed=pathlib.Path(sys.argv[3])
-revision1_failed=pathlib.Path(sys.argv[4]); revision2_failed=pathlib.Path(sys.argv[5]); revision3_failed=pathlib.Path(sys.argv[6]); revision4_rejected=pathlib.Path(sys.argv[7]); geninitrd=pathlib.Path(sys.argv[8])
-policy_path=pathlib.Path(sys.argv[9]); key=pathlib.Path(sys.argv[10]); script=pathlib.Path(sys.argv[11])
-inventory=sys.argv[12]; failed_archive=sys.argv[13]; revision1_failed_archive=sys.argv[14]
-revision2_failed_archive=sys.argv[15]; revision3_failed_archive=sys.argv[16]; revision4_rejected_archive=sys.argv[17]; fingerprint=sys.argv[18]
-package=pathlib.Path(sys.argv[19]); signature=pathlib.Path(sys.argv[20])
+revision1_failed=pathlib.Path(sys.argv[4]); revision2_failed=pathlib.Path(sys.argv[5]); revision3_failed=pathlib.Path(sys.argv[6]); revision4_rejected=pathlib.Path(sys.argv[7]); revision5_failed=pathlib.Path(sys.argv[8]); geninitrd=pathlib.Path(sys.argv[9])
+policy_path=pathlib.Path(sys.argv[10]); key=pathlib.Path(sys.argv[11]); script=pathlib.Path(sys.argv[12])
+inventory=sys.argv[13]; failed_archive=sys.argv[14]; revision1_failed_archive=sys.argv[15]
+revision2_failed_archive=sys.argv[16]; revision3_failed_archive=sys.argv[17]; revision4_rejected_archive=sys.argv[18]; revision5_failed_archive=sys.argv[19]; fingerprint=sys.argv[20]
+package=pathlib.Path(sys.argv[21]); signature=pathlib.Path(sys.argv[22])
 def sha(path): return hashlib.sha256(pathlib.Path(path).read_bytes()).hexdigest()
 def size(path): return pathlib.Path(path).stat().st_size
 def write(path,data): path.write_text(json.dumps(data,indent=2,sort_keys=True)+'\n',encoding='utf-8')
@@ -258,6 +260,13 @@ write(revision4_rejected,{
  'failure_cause':'rollback-grub-entry-retained-active-initrd-and-reordered-microcode',
  'system_state_mutated':False,
 })
+write(revision5_failed,{
+ 'scenario':'current-rollback-source-and-plan-preflight-revision-5-failed-diagnostic','target':'slackware-current','accepted':False,
+ 'archive_sha256':revision5_failed_archive,'executed_script_sha256':'0a923befda11399ddcf18b886036627e236fcf7d26b8686dc21c93296c331fb8',
+ 'assertions':{'passes':58,'failures':1,'skips':2},'source_acquisition':'pre-staged',
+ 'source_signature_valid':True,'source_package_valid':True,'space_state':'sufficient',
+ 'failure_cause':'multiple-reviewed-microcode-images-rejected-by-single-image-limit','system_state_mutated':False,
+})
 vector=['mkinitrd','-c','-k','6.18.40','-f','ext4','-r','/dev/sda2','-m','xhci-pci:usbhid','-u','-o','/boot/initrd.gz']
 write(geninitrd,{'scenario':'current-geninitrd-command-preflight','target':'slackware-current','accepted':True,'current_command_vector':vector})
 placeholder={
@@ -275,7 +284,7 @@ placeholder={
  'modules.weakdep':{'kind':'regular','mode':'0644','size':55},
 }
 base={
- 'scenario':'current-rollback-source-and-plan-preflight-revision-5','target':'slackware-current','reviewed':True,
+ 'scenario':'current-rollback-source-and-plan-preflight-revision-6','target':'slackware-current','reviewed':True,
  'required_hostname_short':'pcold-slack','required_hostname_fqdn':'pcold-slack.pcold-slack.org',
  'required_root_uuid':'ba7632d7-7469-483e-830d-59c88d985866','active_kernel':'6.18.42','rollback_kernel':'6.18.40',
  'inventory_archive_sha256':inventory,'failed_preflight_archive_sha256':failed_archive,
@@ -283,9 +292,10 @@ base={
  'revision_2_failed_preflight_archive_sha256':revision2_failed_archive,
  'revision_3_failed_preflight_archive_sha256':revision3_failed_archive,
  'revision_4_rejected_plan_archive_sha256':revision4_rejected_archive,
+ 'revision_5_failed_preflight_archive_sha256':revision5_failed_archive,
  'diagnostic_record_sha256':sha(diagnostic),'failed_preflight_record_sha256':sha(failed),
  'revision_1_failed_preflight_record_sha256':sha(revision1_failed),
- 'revision_2_failed_preflight_record_sha256':sha(revision2_failed),'revision_3_failed_preflight_record_sha256':sha(revision3_failed),'revision_4_rejected_plan_record_sha256':sha(revision4_rejected),'geninitrd_record_sha256':sha(geninitrd),
+ 'revision_2_failed_preflight_record_sha256':sha(revision2_failed),'revision_3_failed_preflight_record_sha256':sha(revision3_failed),'revision_4_rejected_plan_record_sha256':sha(revision4_rejected),'revision_5_failed_preflight_record_sha256':sha(revision5_failed),'geninitrd_record_sha256':sha(geninitrd),
  'signing_key_sha256':sha(key),'signing_key_fingerprint':fingerprint,'plan_script_sha256':sha(script),
  'repository_metadata_refresh_allowed':False,'package_installation_allowed':False,'initrd_generation_allowed':False,
  'grub_mutation_allowed':False,'reboot_execution_allowed':False,'package_database_mutation_allowed':False,
@@ -309,7 +319,7 @@ base={
  'minimum_free_space_reserve_bytes':1024,'estimated_initrd_bytes':4096,
 }
 scope=(
- 'operation=current-rollback-source-and-plan-preflight-revision-5\n' 'target=slackware-current\n'
+ 'operation=current-rollback-source-and-plan-preflight-revision-6\n' 'target=slackware-current\n'
  'hostname_short=pcold-slack\n' 'hostname_fqdn=pcold-slack.pcold-slack.org\n'
  'active_kernel=6.18.42\n' 'rollback_kernel=6.18.40\n'
  f'root_uuid={base["required_root_uuid"]}\n' f'inventory_archive_sha256={inventory}\n'
@@ -318,12 +328,14 @@ scope=(
  f'revision_2_failed_preflight_archive_sha256={revision2_failed_archive}\n'
  f'revision_3_failed_preflight_archive_sha256={revision3_failed_archive}\n'
  f'revision_4_rejected_plan_archive_sha256={revision4_rejected_archive}\n'
+ f'revision_5_failed_preflight_archive_sha256={revision5_failed_archive}\n'
  f'diagnostic_record_sha256={base["diagnostic_record_sha256"]}\n'
  f'failed_preflight_record_sha256={base["failed_preflight_record_sha256"]}\n'
  f'revision_1_failed_preflight_record_sha256={base["revision_1_failed_preflight_record_sha256"]}\n'
  f'revision_2_failed_preflight_record_sha256={base["revision_2_failed_preflight_record_sha256"]}\n'
  f'revision_3_failed_preflight_record_sha256={base["revision_3_failed_preflight_record_sha256"]}\n'
  f'revision_4_rejected_plan_record_sha256={base["revision_4_rejected_plan_record_sha256"]}\n'
+ f'revision_5_failed_preflight_record_sha256={base["revision_5_failed_preflight_record_sha256"]}\n'
  f'geninitrd_record_sha256={base["geninitrd_record_sha256"]}\n'
  f'signing_key_sha256={base["signing_key_sha256"]}\n' f'plan_script_sha256={base["plan_script_sha256"]}\n'
 ).encode()
@@ -352,6 +364,7 @@ prepare_case() {
     CASE_REVISION2_FAILED="$TMP/$name-revision-2-failed-preflight.json"
     CASE_REVISION3_FAILED="$TMP/$name-revision-3-failed-preflight.json"
     CASE_REVISION4_REJECTED="$TMP/$name-revision-4-rejected-plan.json"
+    CASE_REVISION5_FAILED="$TMP/$name-revision-5-failed-preflight.json"
     CASE_GENINITRD="$TMP/$name-geninitrd.json"
     CASE_POLICY="$TMP/$name-policy.json"
     CASE_INVENTORY_ARCHIVE=$(printf 'a%.0s' {1..64})
@@ -360,6 +373,7 @@ prepare_case() {
     CASE_REVISION2_FAILED_ARCHIVE=$(printf 'e%.0s' {1..64})
     CASE_REVISION3_FAILED_ARCHIVE=$(printf 'f%.0s' {1..64})
     CASE_REVISION4_REJECTED_ARCHIVE=$(printf '9%.0s' {1..64})
+    CASE_REVISION5_FAILED_ARCHIVE=$(printf '8%.0s' {1..64})
     CASE_MARKER="$TMP/$name-prohibited"
     rm -rf "$CASE_ROOT"
     cp -a -- "$CANONICAL_ROOT" "$CASE_ROOT"
@@ -373,8 +387,8 @@ prepare_case() {
         create_package "$CASE_PACKAGE" "$variant"
         cp -- "$CANONICAL_SIGNATURE" "$CASE_SIGNATURE"
     fi
-    write_records_and_policy "$CASE_ROOT" "$CASE_DIAGNOSTIC" "$CASE_FAILED" "$CASE_REVISION1_FAILED" "$CASE_REVISION2_FAILED" "$CASE_REVISION3_FAILED" "$CASE_REVISION4_REJECTED" "$CASE_GENINITRD" "$CASE_POLICY" \
-        "$CASE_INVENTORY_ARCHIVE" "$CASE_FAILED_ARCHIVE" "$CASE_REVISION1_FAILED_ARCHIVE" "$CASE_REVISION2_FAILED_ARCHIVE" "$CASE_REVISION3_FAILED_ARCHIVE" "$CASE_REVISION4_REJECTED_ARCHIVE" "$CASE_PACKAGE" "$CASE_SIGNATURE"
+    write_records_and_policy "$CASE_ROOT" "$CASE_DIAGNOSTIC" "$CASE_FAILED" "$CASE_REVISION1_FAILED" "$CASE_REVISION2_FAILED" "$CASE_REVISION3_FAILED" "$CASE_REVISION4_REJECTED" "$CASE_REVISION5_FAILED" "$CASE_GENINITRD" "$CASE_POLICY" \
+        "$CASE_INVENTORY_ARCHIVE" "$CASE_FAILED_ARCHIVE" "$CASE_REVISION1_FAILED_ARCHIVE" "$CASE_REVISION2_FAILED_ARCHIVE" "$CASE_REVISION3_FAILED_ARCHIVE" "$CASE_REVISION4_REJECTED_ARCHIVE" "$CASE_REVISION5_FAILED_ARCHIVE" "$CASE_PACKAGE" "$CASE_SIGNATURE"
 }
 
 run_case() {
@@ -407,6 +421,7 @@ run_case() {
         ROLLBACK_PLAN_REVISION_2_FAILED_PREFLIGHT_RECORD="$CASE_REVISION2_FAILED" \
         ROLLBACK_PLAN_REVISION_3_FAILED_PREFLIGHT_RECORD="$CASE_REVISION3_FAILED" \
         ROLLBACK_PLAN_REVISION_4_REJECTED_PLAN_RECORD="$CASE_REVISION4_REJECTED" \
+        ROLLBACK_PLAN_REVISION_5_FAILED_PREFLIGHT_RECORD="$CASE_REVISION5_FAILED" \
         ROLLBACK_PLAN_GENINITRD_RECORD="$CASE_GENINITRD" \
         ROLLBACK_PLAN_SIGNING_KEY="$TMP/signing-key.asc" \
         ROLLBACK_PLAN_POLICY="$CASE_POLICY" \
@@ -423,6 +438,7 @@ run_case() {
             --confirm-revision-2-failed-preflight-evidence-sha256 "$CASE_REVISION2_FAILED_ARCHIVE" \
             --confirm-revision-3-failed-preflight-evidence-sha256 "$CASE_REVISION3_FAILED_ARCHIVE" \
             --confirm-revision-4-rejected-plan-evidence-sha256 "$CASE_REVISION4_REJECTED_ARCHIVE" \
+            --confirm-revision-5-failed-preflight-evidence-sha256 "$CASE_REVISION5_FAILED_ARCHIVE" \
             --confirm-active-kernel 6.18.42 \
             --confirm-rollback-kernel 6.18.40 \
             --confirm-source-plan-sha256 "${CASE_SCOPE_OVERRIDE:-$scope}" \
@@ -492,15 +508,18 @@ assert_equal /boot/initrd-6.18.40.img "$(json_value "$PLAN" initrd.destination)"
 assert_equal slackware-rollback-6.18.40 "$(json_value "$PLAN" grub.entry_id)" 'the explicit rollback GRUB id should be fixed'
 assert_equal 12 "$(json_value "$PLAN" ordered_actions.11.order)" 'the plan should contain all twelve ordered actions'
 assert_contains '/boot/vmlinuz-6.18.40' "$CASE_OUTPUT/projected-grub-menuentry.cfg" 'the projected GRUB entry should use the rollback kernel'
-assert_contains 'initrd /boot/amd-ucode.img /boot/initrd-6.18.40.img' "$CASE_OUTPUT/projected-grub-menuentry.cfg" 'the projected GRUB entry should place microcode before only the rollback initrd'
+assert_contains 'initrd /boot/intel-ucode.img /boot/amd-ucode.img /boot/initrd-6.18.40.img' "$CASE_OUTPUT/projected-grub-menuentry.cfg" 'the projected GRUB entry should preserve both reviewed microcode images before only the rollback initrd'
 assert_not_contains '/boot/initrd-generic.img' "$CASE_OUTPUT/projected-grub-menuentry.cfg" 'the projected rollback entry must not retain the active generic initrd'
 assert_not_contains '/boot/initrd-6.18.42.img' "$CASE_OUTPUT/projected-grub-menuentry.cfg" 'the projected rollback entry must not retain the active versioned initrd'
 assert_file_exists "$CASE_OUTPUT/projected-grub-entry.json" 'the projected GRUB initrd vector metadata should be emitted'
-assert_equal /boot/amd-ucode.img "$(json_value "$CASE_OUTPUT/projected-grub-entry.json" projected_initrd_vector.0)" 'the microcode image should remain first'
-assert_equal /boot/initrd-6.18.40.img "$(json_value "$CASE_OUTPUT/projected-grub-entry.json" projected_initrd_vector.1)" 'the rollback initrd should be the only ordinary initrd'
+assert_equal /boot/intel-ucode.img "$(json_value "$CASE_OUTPUT/projected-grub-entry.json" projected_initrd_vector.0)" 'the Intel microcode image should remain first'
+assert_equal /boot/amd-ucode.img "$(json_value "$CASE_OUTPUT/projected-grub-entry.json" projected_initrd_vector.1)" 'the AMD microcode image should retain its source order'
+assert_equal /boot/initrd-6.18.40.img "$(json_value "$CASE_OUTPUT/projected-grub-entry.json" projected_initrd_vector.2)" 'the rollback initrd should be the only ordinary initrd'
+assert_equal 2 "$(json_value "$CASE_OUTPUT/projected-grub-entry.json" microcode_image_count)" 'both reviewed microcode images should be counted'
+assert_equal true "$(json_value "$CASE_OUTPUT/projected-grub-entry.json" microcode_order_preserved)" 'the microcode order should be preserved explicitly'
 assert_equal false "$(json_value "$CASE_OUTPUT/projected-grub-entry.json" active_initrd_retained)" 'the active initrd should be explicitly excluded'
 assert_equal true "$(json_value "$CASE_OUTPUT/projected-grub-entry.json" microcode_precedes_rollback_initrd)" 'the projected initrd order should be explicitly validated'
-assert_equal /boot/initrd-6.18.40.img "$(json_value "$PLAN" grub.projected_initrd_vector.1)" 'the reconstruction plan should bind the corrected rollback initrd vector'
+assert_equal /boot/initrd-6.18.40.img "$(json_value "$PLAN" grub.projected_initrd_vector.2)" 'the reconstruction plan should bind the corrected rollback initrd vector after both microcode images'
 assert_equal false "$(json_value "$PLAN" grub.active_initrd_retained)" 'the reconstruction plan should forbid retaining the active initrd'
 assert_contains "mkinitrd -c -k 6.18.40" "$CASE_OUTPUT/projected-mkinitrd-command.sh" 'the projected mkinitrd command should preserve the accepted vector'
 assert_contains 'EXPECTED_MODULE_MANIFEST_SHA256=' "$CASE_OUTPUT/projected-apply-commands.txt" 'the apply projection should bind the module manifest'
@@ -515,7 +534,7 @@ assert_file_exists "$CASE_OUTPUT.tar.gz.sha256" 'the evidence sidecar should be 
 assert_failure 'no prohibited command should have executed during the baseline preflight' test -e "$CASE_MARKER"
 
 prepare_case no-microcode
-sed -i 's#initrd /boot/amd-ucode.img /boot/initrd-generic.img#initrd /boot/initrd-generic.img#' "$CASE_ROOT/boot/grub/grub.cfg"
+sed -i 's#initrd /boot/intel-ucode.img /boot/amd-ucode.img /boot/initrd-generic.img#initrd /boot/initrd-generic.img#' "$CASE_ROOT/boot/grub/grub.cfg"
 python3 - "$CASE_ROOT" "$CASE_POLICY" <<'PY'
 import hashlib,json,pathlib,sys
 root=pathlib.Path(sys.argv[1]); policy_path=pathlib.Path(sys.argv[2])
@@ -529,7 +548,7 @@ assert_contains 'initrd /boot/initrd-6.18.40.img' "$CASE_OUTPUT/projected-grub-m
 assert_not_contains 'ucode.img' "$CASE_OUTPUT/projected-grub-menuentry.cfg" 'a no-microcode host should not invent a microcode image'
 
 prepare_case mixed-active-initrds
-sed -i 's#initrd /boot/amd-ucode.img /boot/initrd-generic.img#initrd /boot/amd-ucode.img /boot/initrd-generic.img /boot/initrd-6.18.41.img#' "$CASE_ROOT/boot/grub/grub.cfg"
+sed -i 's#initrd /boot/intel-ucode.img /boot/amd-ucode.img /boot/initrd-generic.img#initrd /boot/intel-ucode.img /boot/amd-ucode.img /boot/initrd-generic.img /boot/initrd-6.18.41.img#' "$CASE_ROOT/boot/grub/grub.cfg"
 # Keep the live-boundary policy aligned so the failure is isolated to the projection parser.
 python3 - "$CASE_ROOT" "$CASE_POLICY" <<'PY'
 import hashlib,json,pathlib,sys
@@ -540,7 +559,7 @@ PY
 assert_failure 'a foreign ordinary initrd in the active vector should fail GRUB projection' run_case
 
 prepare_case duplicate-microcode
-sed -i 's#initrd /boot/amd-ucode.img /boot/initrd-generic.img#initrd /boot/amd-ucode.img /boot/amd-ucode.img /boot/initrd-generic.img#' "$CASE_ROOT/boot/grub/grub.cfg"
+sed -i 's#initrd /boot/intel-ucode.img /boot/amd-ucode.img /boot/initrd-generic.img#initrd /boot/intel-ucode.img /boot/amd-ucode.img /boot/amd-ucode.img /boot/initrd-generic.img#' "$CASE_ROOT/boot/grub/grub.cfg"
 python3 - "$CASE_ROOT" "$CASE_POLICY" <<'PY'
 import hashlib,json,pathlib,sys
 root=pathlib.Path(sys.argv[1]); p=pathlib.Path(sys.argv[2]); d=json.loads(p.read_text())
@@ -548,6 +567,19 @@ g=root/'boot/grub/grub.cfg'; d['active_grub']={'sha256':hashlib.sha256(g.read_by
 p.write_text(json.dumps(d,indent=2,sort_keys=True)+'\n')
 PY
 assert_failure 'duplicate microcode images should fail GRUB projection' run_case
+assert_contains 'must contain zero, one, or two unique reviewed microcode images followed by exactly one reviewed active initrd' "$CASE_OUTPUT/grub-projection.log" 'duplicate microcode rejection should be diagnosed without a chmod secondary error'
+assert_not_contains 'cannot access' "$CASE_OUTPUT/grub-projection.log" 'a projection failure should not emit a missing-output chmod error'
+
+prepare_case active-initrd-before-microcode
+sed -i 's#initrd /boot/intel-ucode.img /boot/amd-ucode.img /boot/initrd-generic.img#initrd /boot/initrd-generic.img /boot/intel-ucode.img /boot/amd-ucode.img#' "$CASE_ROOT/boot/grub/grub.cfg"
+python3 - "$CASE_ROOT" "$CASE_POLICY" <<'PY'
+import hashlib,json,pathlib,sys
+root=pathlib.Path(sys.argv[1]); p=pathlib.Path(sys.argv[2]); d=json.loads(p.read_text())
+g=root/'boot/grub/grub.cfg'; d['active_grub']={'sha256':hashlib.sha256(g.read_bytes()).hexdigest(),'size':g.stat().st_size}
+p.write_text(json.dumps(d,indent=2,sort_keys=True)+'\n')
+PY
+assert_failure 'an active initrd placed before early microcode should fail GRUB projection' run_case
+assert_equal false "$(json_value "$CASE_OUTPUT/grub-source-entry.json" source_order_valid)" 'the source-order diagnostic should identify the invalid vector order'
 
 prepare_case long-output-path
 CASE_OUTPUT="$TMP/$(printf 'evidence-path-segment-%.0s' {1..5})/slackware-current-long-output"
@@ -640,6 +672,9 @@ assert_contains 'space-budget-df.log' "$SCRIPT" 'df diagnostics should be retain
 assert_contains "projected_initrd_vector=microcode+[f'/boot/initrd-{version}.img']" "$SCRIPT" 'the projection should place microcode before only the rollback initrd'
 assert_contains "active_initrd_retained':False" "$SCRIPT" 'the plan should record that no active initrd is retained'
 assert_contains "len(microcode) != len(set(microcode))" "$SCRIPT" 'duplicate microcode images should be rejected'
+assert_contains "'/boot/intel-ucode.img','/boot/amd-ucode.img'" "$SCRIPT" 'both reviewed early-microcode images should be supported'
+assert_contains 'source_order_valid=(payload == microcode + active_tokens)' "$SCRIPT" 'the active initrd must follow all early-microcode images'
+assert_contains 'grub-projection.log' "$SCRIPT" 'GRUB projection failures should retain a deterministic diagnostic log'
 assert_contains "foreign_initrd" "$SCRIPT" 'foreign ordinary initrds should be rejected'
 assert_contains '[ "$TEST_MODE" = 1 ]' "$SCRIPT" 'the signature bypass must remain restricted to test mode'
 assert_contains 'Copy evidence command:' "$SCRIPT" 'real execution should print the evidence copy command'

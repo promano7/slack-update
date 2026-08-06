@@ -26,9 +26,9 @@ Slack-Update is intended to provide a desktop-oriented update experience similar
 
 ## Current optional rollback continuation
 
-The mandatory Slackware-current update remains closed at accepted step 85 with kernel 6.18.42 active. The real step-87 revision-4 preflight authenticated and inspected the complete historical 6.18.40 package, confirmed sufficient space, and made no system changes. Its archive SHA-256 is `11122a514f1f1c75cfcb52e5d4f310ed7719235c23f4389b6e16e3d13f513134`.
+The mandatory Slackware-current update remains closed at accepted step 85 with kernel 6.18.42 active. Step 87 revision 5 authenticated and inspected the exact signed 6.18.40 package, confirmed sufficient space, projected the accepted mkinitrd command, and made no system changes. Its archive SHA-256 is `ff6d4a338b2da9ce4547128f6d0472f781dd47300f2b82658cae18cf94b6c8da`.
 
-That run is **not accepted for apply authorization** despite reporting `apply_ready=true`: semantic review found that its projected GRUB entry retained `/boot/initrd-generic.img` for active kernel 6.18.42 and placed the rollback initrd before `/boot/amd-ucode.img`. Revision 5 supersedes only that projected plan and keeps the mandatory update closure intact.
+That run failed safely at the GRUB boundary because the active entry contains two reviewed early-microcode images, `/boot/intel-ucode.img` and `/boot/amd-ucode.img`, before `/boot/initrd-generic.img`. Revision 5 allowed at most one microcode image. Revision 6 supersedes only that failed projection and keeps the mandatory update closure intact.
 
 Keep these two source files until the complete on-disk rollback reconstruction has been accepted:
 
@@ -37,7 +37,7 @@ Keep these two source files until the complete on-disk rollback reconstruction h
 /home/promano/slack-update-source-6.18.40/kernel-generic-6.18.40-x86_64-1.txz.asc
 ```
 
-Run only revision 5:
+Run only revision 6:
 
 ```bash
 sudo bash tests/acceptance/reference/test-current-rollback-source-and-plan-preflight.sh \
@@ -50,23 +50,23 @@ sudo bash tests/acceptance/reference/test-current-rollback-source-and-plan-prefl
     --confirm-revision-2-failed-preflight-evidence-sha256 bc28dd82557236f0938f71c4255eee6ea2f477f2f8676f32209af6fae3ce420e \
     --confirm-revision-3-failed-preflight-evidence-sha256 45b5b35fd51ef962d5865185679eeb28f3a2435ddddbca70500608706f4396ca \
     --confirm-revision-4-rejected-plan-evidence-sha256 11122a514f1f1c75cfcb52e5d4f310ed7719235c23f4389b6e16e3d13f513134 \
+    --confirm-revision-5-failed-preflight-evidence-sha256 ff6d4a338b2da9ce4547128f6d0472f781dd47300f2b82658cae18cf94b6c8da \
     --confirm-active-kernel 6.18.42 \
     --confirm-rollback-kernel 6.18.40 \
-    --confirm-source-plan-sha256 72f58b575c93c478fb5562733a526fa4c283b76222a4c5090b7e5f4da343b7aa \
+    --confirm-source-plan-sha256 92cc5d316f66ea2205751b83e88a3f749c6ec4f7d7a8a534106ebc5cc7d38f6e \
     --source-package /home/promano/slack-update-source-6.18.40/kernel-generic-6.18.40-x86_64-1.txz \
     --source-signature /home/promano/slack-update-source-6.18.40/kernel-generic-6.18.40-x86_64-1.txz.asc
 ```
 
-Revision 5 projects the real-host initrd vector as:
+Revision 6 projects the real-host initrd vector as:
 
 ```text
-initrd /boot/amd-ucode.img /boot/initrd-6.18.40.img
+initrd /boot/intel-ucode.img /boot/amd-ucode.img /boot/initrd-6.18.40.img
 ```
 
-It rejects any retained active initrd, any foreign versioned initrd, duplicate microcode images, unknown initrd arguments, or an active entry that does not contain exactly one reviewed kernel and initrd command. It remains a strictly non-mutating preflight: package installation, package-database changes, `depmod`, `mkinitrd`, GRUB modification, metadata refresh, and reboot are all forbidden. A clean result may again report `apply_ready=true`, but `apply_authorized=false` must remain fixed until a separate reviewed apply wrapper is prepared.
+It preserves zero, one, or two unique reviewed microcode images in their original order and replaces only the reviewed active initrd. It rejects retained or foreign initrds, duplicate microcode images, unknown initrd arguments, microcode after the initrd, or an active entry without exactly one reviewed kernel and initrd command. It remains strictly non-mutating: package installation, package-database changes, `depmod`, `mkinitrd`, GRUB modification, metadata refresh, and reboot are forbidden. A clean result may report `apply_ready=true`, but `apply_authorized=false` remains fixed until a separate reviewed apply wrapper is prepared.
 
-Revision-5 script SHA-256 is `0a923befda11399ddcf18b886036627e236fcf7d26b8686dc21c93296c331fb8` and the confirmation scope is `72f58b575c93c478fb5562733a526fa4c283b76222a4c5090b7e5f4da343b7aa`.
-
+Revision-6 script SHA-256 is `d306e3c1d9d5a2cc2298d6367601d39e6573569211db422fdbfda5cb4e5aba8b`, policy SHA-256 is `92bcaf0e2038d4979e3c6f8dc054171053af5e5d555dba223aa7e670ebabbcaa`, revision-5 diagnostic-record SHA-256 is `22d8108ff3dc2a87d741c9a899508a27e5fd4f0bce8f06cbb5049dd39f18f117`, and the confirmation scope is `92cc5d316f66ea2205751b83e88a3f749c6ec4f7d7a8a534106ebc5cc7d38f6e`.
 
 ## Goals
 
