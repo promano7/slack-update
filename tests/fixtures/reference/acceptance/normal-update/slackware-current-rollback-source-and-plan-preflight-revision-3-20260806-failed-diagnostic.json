@@ -1,0 +1,57 @@
+{
+  "accepted": false,
+  "active_kernel": "6.18.42",
+  "apply_authorized": false,
+  "apply_ready": false,
+  "archive_sha256": "45b5b35fd51ef962d5865185679eeb28f3a2435ddddbca70500608706f4396ca",
+  "assertions": {
+    "failures": 1,
+    "passes": 58,
+    "skips": 2
+  },
+  "captured_at": "2026-08-06T15:19:31Z",
+  "executed_script_sha256": "409a4558a4bb92712ad192158962267159a3dd037c3f0159056ad969f7e63291",
+  "failure_cause": "df-posix-output-option-conflict",
+  "failure_details": [
+    "Source acquisition, exact SHA-256 validation, detached-signature verification, and complete package inspection all passed.",
+    "Slackware df rejected the mutually exclusive combination '-P' and '--output=avail' before any space values were recorded.",
+    "The signed package supplied one versioned kernel, 5,504 module-tree files, and 5,490 kernel module objects.",
+    "The complete reconstruction plan and apply readiness were skipped; the host remained unchanged."
+  ],
+  "hostname_fqdn": "pcold-slack.pcold-slack.org",
+  "hostname_short": "pcold-slack",
+  "initial_failed_preflight_archive_sha256": "d2a5398c789f14cfee07d53a55e4ca7da8aab85dd0387b51f437120401f9ba14",
+  "inventory_archive_sha256": "cd2769c18e93b17596028b33b00a1d6e14bb81336172935bb18b0bef3568ed56",
+  "next_stage": "current-rollback-source-and-plan-preflight-revision-4",
+  "package_database_mutated": false,
+  "package_installation_performed": false,
+  "reboot_performed": false,
+  "revision_1_failed_preflight_archive_sha256": "5dc24b1863a818cd0500fd08ea569995e627411a66181ccebcbb74698bbac35e",
+  "revision_2_failed_preflight_archive_sha256": "bc28dd82557236f0938f71c4255eee6ea2f477f2f8676f32209af6fae3ce420e",
+  "rollback_kernel": "6.18.40",
+  "rollback_module_state": "depmod-metadata-only-placeholder",
+  "scenario": "current-rollback-source-and-plan-preflight-revision-3-failed-diagnostic",
+  "source_acquisition": "pre-staged",
+  "source_package": {
+    "filename": "kernel-generic-6.18.40-x86_64-1.txz",
+    "kernel_member": "boot/vmlinuz-6.18.40",
+    "kernel_sha256": "8899359f0c1f6fc018f8079ba0c76e886b12b8087ff7dccc695c459b40fb9aae",
+    "kernel_size": 14434816,
+    "module_manifest_sha256": "615b21541969101d5e2f46f5755d509e47d499a7f22ff78dd4bed347bc05e655",
+    "module_member_count": 5504,
+    "module_object_count": 5490,
+    "module_payload_bytes": 431714444,
+    "sha256": "90dcee03829a3755b74b52a679fadea2619d96a38e12c461ee6e6866c9c598cc",
+    "size": 78712412
+  },
+  "source_package_valid": true,
+  "source_signature": {
+    "filename": "kernel-generic-6.18.40-x86_64-1.txz.asc",
+    "primary_fingerprint": "EC5649DA401E22ABFA6736EF6A4463C040102233",
+    "sha256": "1222c391801227dc389dcd46de91d1915e61df12f436614ebd0a24b1697fdd39"
+  },
+  "source_signature_valid": true,
+  "space_state": "unchecked",
+  "system_state_mutated": false,
+  "target": "slackware-current"
+}

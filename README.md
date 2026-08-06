@@ -26,7 +26,7 @@ Slack-Update is intended to provide a desktop-oriented update experience similar
 
 ## Current optional rollback continuation
 
-The mandatory Slackware-current update remains closed at accepted step 85 with kernel 6.18.42 active. Step 87 revision 2 safely acquired and authenticated the exact historical source pair, but its package inspector rejected the normal root directory member `.` in the official `.txz`. The run remained non-mutating and is bound as the third rejected step-87 diagnostic. Use only revision 3 below.
+The mandatory Slackware-current update remains closed at accepted step 85 with kernel 6.18.42 active. Step 87 revision 3 safely acquired, authenticated, and inspected the complete historical package, but Slackware `df` rejected the mutually exclusive `-P` and `--output=avail` options before the space budget could be calculated. The run remained non-mutating and is bound as the fourth rejected step-87 diagnostic. Use only revision 4 below.
 
 Keep these two files until the complete on-disk rollback reconstruction has been accepted:
 
@@ -44,14 +44,15 @@ sudo bash tests/acceptance/reference/test-current-rollback-source-and-plan-prefl
     --confirm-failed-preflight-evidence-sha256 d2a5398c789f14cfee07d53a55e4ca7da8aab85dd0387b51f437120401f9ba14 \
     --confirm-revision-1-failed-preflight-evidence-sha256 5dc24b1863a818cd0500fd08ea569995e627411a66181ccebcbb74698bbac35e \
     --confirm-revision-2-failed-preflight-evidence-sha256 bc28dd82557236f0938f71c4255eee6ea2f477f2f8676f32209af6fae3ce420e \
+    --confirm-revision-3-failed-preflight-evidence-sha256 45b5b35fd51ef962d5865185679eeb28f3a2435ddddbca70500608706f4396ca \
     --confirm-active-kernel 6.18.42 \
     --confirm-rollback-kernel 6.18.40 \
-    --confirm-source-plan-sha256 130d459ec76ba27eb1e8468bf48b4c2ae4b097250e03d3226a85424270ab6e0f \
+    --confirm-source-plan-sha256 055be31d9d09f7fb8f4e1c1b4f7142e8d56a211a642ee346e727e99b75128531 \
     --source-package /home/promano/slack-update-source-6.18.40/kernel-generic-6.18.40-x86_64-1.txz \
     --source-signature /home/promano/slack-update-source-6.18.40/kernel-generic-6.18.40-x86_64-1.txz.asc
 ```
 
-Revision 3 accepts at most one normalized archive root member only when it is a root-owned safe directory, excludes it from payload paths, and continues to reject absolute paths, traversal, duplicates, unsafe links, special files, unsafe modes, and non-root-owned regular files. Package-inspection outputs are published atomically and failures produce `source-package-inspection.log` without secondary missing-file tracebacks. A successful result may declare the signed source and exact plan ready for a separate authorized-apply review, but it never authorizes or performs reconstruction. The reviewed revision-3 script SHA-256 is `409a4558a4bb92712ad192158962267159a3dd037c3f0159056ad969f7e63291`.
+Revision 4 preserves the accepted signature and package-inspection logic, binds revision-3 evidence `45b5b35fd51ef962d5865185679eeb28f3a2435ddddbca70500608706f4396ca`, and samples free space with Slackware-compatible `df -B1 --output=avail` rather than combining `-P` with `--output`. Any `df` diagnostics are retained in `space-budget-df.log`. A successful result may declare the signed source and exact plan ready for a separate authorized-apply review, but it never authorizes or performs reconstruction. The reviewed revision-4 script SHA-256 is `2a0e98ed08e138385ca2983d1f7047c1ef5a54613b50d0305fd5f9414ad47099` and the confirmation scope is `055be31d9d09f7fb8f4e1c1b4f7142e8d56a211a642ee346e727e99b75128531`.
 
 
 ## Goals
