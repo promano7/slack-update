@@ -1199,3 +1199,62 @@ Accepted facts include live kernel and osrelease 6.18.42, architecture `x86_64`,
 This closes the mandatory Slackware-current update boundary with `pause_safe=true`, `reboot_verified=true`, `update_closed=true`, and `mandatory_work_remaining=false`. No previous acceptance stage must be rerun because of later repository publications. The only declared continuation is the separate and optional `optional-rollback-reconstruction-review`.
 
 Step 85 adds only the accepted JSON record and documentation. The inventory remains 48 suites and 3,311 checks with zero failures; static validation covers 78 shell scripts and 84 JSON files.
+
+### Optional Slackware-current rollback reconstruction inventory (step 86)
+
+This stage begins only from the accepted step-85 closure. It is independent of
+later Slackware-current publications and must not refresh repository metadata or
+repeat any candidate, payload, readiness, apply, recovery, or reboot stage.
+
+Run:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-rollback-reconstruction-inventory.sh \
+    --target slackware-current \
+    --confirm-hostname pcold-slack \
+    --confirm-hostname-fqdn pcold-slack.pcold-slack.org \
+    --confirm-closure-evidence-sha256 5d6fe97ddd81d1c99d0dd807127d6e98b8479d8e719d6c6ffb346fe167c915eb \
+    --confirm-active-kernel 6.18.42 \
+    --confirm-rollback-kernel 6.18.40 \
+    --confirm-inventory-sha256 e09af439eb6a8678b2e83a5c53bb0b368cf7531d42a1d725c6904a234d96bc31
+```
+
+The reviewed script SHA-256 is
+`d6b9eadf865156c81626ebc988fec9c031f30fe5ac2a9aa1dbfc56d015b1b585`.
+The command is read-only with respect to the installed system. It validates the
+accepted host and root identity, exact closed package database, active 6.18.42
+kernel/initrd/modules and generic links, preserved 6.18.40 module tree and depmod
+metadata, unchanged GenInitrd controls, unchanged syntax-valid GRUB default, and
+conservative free space for a future kernel, initrd, GRUB staging, and reserve.
+It captures package and rollback-sensitive state before and after inventory.
+
+By default it searches recursively only below `/var/cache/packages` for exactly
+one regular `kernel-generic-6.18.40-x86_64-1.txz`. A found archive must have safe
+members and links, contain exactly one regular `/boot/vmlinuz-6.18.40`, contain a
+nonempty 6.18.40 kernel-module payload, and expose the same module-path manifest
+as the preserved `/lib/modules/6.18.40` tree. The package and embedded kernel are
+hashed without installing or extracting them into the live system, and the
+source identity is rechecked before completion.
+
+Three accepted classifications are possible:
+
+- `source_state=exact-local-package`, `space_state=sufficient`, and
+  `reconstruction_viable=true` advance to
+  `current-rollback-reconstruction-preflight`;
+- `source_state=not-found-in-reviewed-root` is still a clean inventory, but
+  advances only to `current-rollback-source-acquisition-review`;
+- insufficient boot space advances only to
+  `current-rollback-space-remediation-review`.
+
+Ambiguous duplicate candidates, symlinked archives, unsafe archive paths or
+links, corruption, a missing kernel image, a module-manifest mismatch, drift in
+the accepted closure, or any before/after mutation fails closed. The command
+never runs Slackpkg, package tools, `mkinitrd`, GenInitrd, `grub-mkconfig`, or a
+reboot. Use the printed commands to copy the generated archive and sidecar
+directly to `/home/promano` with `promano:users` ownership and verify the
+sidecar there before continuing.
+
+The focused step-86 harness contains 42 checks. The complete prepared step-86
+inventory contains 49 suites and 3,353 checks with zero failures; static
+validation covers 80 shell scripts and 85 JSON files.
+
