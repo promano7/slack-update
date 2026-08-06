@@ -1,0 +1,69 @@
+{
+  "active_artifacts": {
+    "initrd_sha256": "21ab641ca5b04e831b7cb776bd8ecee00f96e0b53d21d8fe3b5033dbacd9febc",
+    "initrd_size": 16514239,
+    "kernel_sha256": "bdbd0e5187e1252f1ef9bb9ac771430be5f2367fb9e8a5f42e1b172efb1cb3d4",
+    "kernel_size": 14443008
+  },
+  "active_grub": {
+    "sha256": "5fdff76d42ddec26b0c212668c4981a9ea2853a98b3260f33850c91ccf8ac247",
+    "size": 6018
+  },
+  "active_kernel": "6.18.42",
+  "apply_authorized": false,
+  "apply_ready_when_valid": true,
+  "default_source_staging_dir": "/var/tmp/slack-update-rollback-source/6.18.40",
+  "depmod_execution_allowed": false,
+  "diagnostic_record_sha256": "364082980ee11464ab6eeaf217075e3ff259d8f7ad536fda0e937e493d193ce5",
+  "estimated_initrd_bytes": 34614366,
+  "expected_package_filename": "kernel-generic-6.18.40-x86_64-1.txz",
+  "forbidden_package_records": [
+    "kernel-generic-6.18.40-x86_64-1",
+    "kernel-headers-6.18.40-x86-1",
+    "kernel-source-6.18.40-noarch-1"
+  ],
+  "generator": {
+    "sha256": "90a65fd4edb8a1c0952c14d682046a9a6acfece4639599ea4b3079c5daadeeac",
+    "size": 29822
+  },
+  "geninitrd": {
+    "sha256": "0ff507821ebe8b18dbe5b2ebd0b97e7ca7b951bf848915883f9714c47e017d06",
+    "size": 6411
+  },
+  "geninitrd_policy": {
+    "sha256": "b779a2b578515a9e2059047311bf817723183b90707f1e31ce67bd96fd19b283",
+    "size": 2989
+  },
+  "geninitrd_record_sha256": "db20b03e03d49f13ce35aecfced4e010889ccfdd20323014c0d5bca789b0b2e7",
+  "grub_mutation_allowed": false,
+  "initrd_generation_allowed": false,
+  "installed_package_count": 2040,
+  "inventory_archive_sha256": "cd2769c18e93b17596028b33b00a1d6e14bb81336172935bb18b0bef3568ed56",
+  "minimum_free_space_reserve_bytes": 268435456,
+  "next_stage": "current-rollback-reconstruction-authorized-apply-review",
+  "package_database_mutation_allowed": false,
+  "package_database_snapshot_sha256": "349557f219bb967bd5cafd835a494b413059cea61545012f072f62daf5b6f675",
+  "package_installation_allowed": false,
+  "package_name_snapshot_sha256": "4c8e78a76c6097c60d6ed5391fd6c203b32eeadcf274d1ab71f81a6bbe549170",
+  "package_url": "https://slackware.uk/cumulative/slackware64-current/slackware64/a/kernel-generic-6.18.40-x86_64-1.txz",
+  "plan_script_sha256": "37756428b0fbb9e106ce1853414f8032d803fdc6bb9ec9fef642ed82bd4c8a74",
+  "reboot_execution_allowed": false,
+  "repository_metadata_refresh_allowed": false,
+  "required_hostname_fqdn": "pcold-slack.pcold-slack.org",
+  "required_hostname_short": "pcold-slack",
+  "required_rollback_module_state": "empty-directory-placeholder",
+  "required_root_uuid": "ba7632d7-7469-483e-830d-59c88d985866",
+  "reviewed": true,
+  "rollback_kernel": "6.18.40",
+  "scenario": "current-rollback-source-and-plan-preflight",
+  "setup": {
+    "sha256": "74e06b7f6c2de719ec6877edcf419d7bae558509d3f61f06fb7ba4c3b175a0fe",
+    "size": 8126
+  },
+  "signature_url": "https://slackware.uk/cumulative/slackware64-current/slackware64/a/kernel-generic-6.18.40-x86_64-1.txz.asc",
+  "signing_key_fingerprint": "EC5649DA401E22ABFA6736EF6A4463C040102233",
+  "signing_key_sha256": "82af92f3a9abdae815534912e7c438f1bad50b8516bb8d75fe9e08444f727daf",
+  "source_plan_scope_sha256": "6967f280c30067bb82b0da2b8b83fac0b189560621838832a477e247a246fdc7",
+  "source_staging_mutation_allowed": true,
+  "target": "slackware-current"
+}

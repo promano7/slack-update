@@ -290,6 +290,15 @@ assert_contains 'source_state=exact-local-package' "$CASE_OUTPUT/summary.txt" 's
 assert_contains 'reconstruction_viable=true' "$CASE_OUTPUT/summary.txt" 'summary should expose viability'
 assert_contains 'the kernel, initrd, module, GenInitrd, and GRUB state remained unchanged' "$CASE_OUTPUT/assertions.log" 'before/after invariants should pass'
 
+prepare_case empty-module-placeholder
+rm -rf "$CASE_ROOT/lib/modules/6.18.40"/*
+assert_success 'an empty rollback module directory should be accepted as a corrected placeholder state' run_case
+ANALYSIS="$CASE_OUTPUT/rollback-inventory-analysis.json"
+assert_equal empty-directory-placeholder "$(json_value "$ANALYSIS" rollback_module_state)" 'the empty module directory should be classified exactly'
+assert_equal 0 "$(json_value "$ANALYSIS" installed_module_file_count)" 'the empty placeholder should report zero installed modules'
+assert_equal true "$(json_value "$ANALYSIS" reconstruction_viable)" 'a complete package should make the empty placeholder reconstructible'
+assert_contains 'rollback_module_state=empty-directory-placeholder' "$CASE_OUTPUT/summary.txt" 'summary should expose the corrected empty state'
+
 prepare_case missing-source
 rm -f "$CASE_SOURCE/slackware64/a/kernel-generic-6.18.40-x86_64-1.txz"
 assert_success 'a missing local source should still complete the inventory safely' run_case

@@ -46,6 +46,7 @@ SOURCE_PACKAGE_SIZE=0
 SOURCE_KERNEL_SHA256=
 SOURCE_KERNEL_SIZE=0
 SOURCE_MODULE_COUNT=0
+ROLLBACK_MODULE_STATE=unknown
 INSTALLED_MODULE_COUNT=0
 BOOT_FREE_BYTES=0
 BOOT_REQUIRED_BYTES=0
@@ -410,7 +411,7 @@ validate_active_artifacts() {
     [ -L "$initrd_link" ] && [ "$(readlink -- "$initrd_link")" = "initrd-$CONFIRM_ACTIVE_KERNEL.img" ]
 }
 
-validate_rollback_modules() {
+classify_rollback_modules() {
     local modules output
     modules=$(rooted "/lib/modules/$CONFIRM_ROLLBACK_KERNEL")
     output=$OUTPUT_DIR/rollback-modules.json
@@ -422,6 +423,7 @@ import json, pathlib, sys
 root = pathlib.Path(sys.argv[1])
 version = sys.argv[2]
 out = pathlib.Path(sys.argv[3])
+all_members = sorted(p.relative_to(root).as_posix() for p in root.rglob('*'))
 required = ['modules.alias', 'modules.builtin', 'modules.dep']
 missing = [name for name in required if not (root / name).is_file() or (root / name).is_symlink()]
 module_files = sorted(
@@ -429,19 +431,23 @@ module_files = sorted(
     if p.is_file() and not p.is_symlink() and '/kernel/' in f'/{p.relative_to(root).as_posix()}'
     and any(p.name.endswith(ext) for ext in ('.ko', '.ko.gz', '.ko.xz', '.ko.zst'))
 )
-if missing or not module_files:
+if not all_members:
+    state = 'empty-directory-placeholder'
+elif not missing and module_files:
+    state = 'preserved-populated-module-tree'
+else:
     raise SystemExit(1)
 out.write_text(json.dumps({
     'kernel_version': version,
+    'member_count': len(all_members),
     'module_file_count': len(module_files),
     'required_metadata': required,
     'required_metadata_missing': missing,
-    'state': 'preserved-populated-module-tree',
+    'state': state,
 }, indent=2, sort_keys=True) + '\n', encoding='utf-8')
-print(len(module_files))
+print(f'{state} {len(module_files)}')
 PY
 }
-
 validate_geninitrd_boundary() {
     validate_exact_regular "$(rooted /etc/default/geninitrd)" "$(policy_value "$RECOVERY_POLICY" geninitrd.policy_sha256)" "$(policy_value "$RECOVERY_POLICY" geninitrd.policy_size)" || return 1
     validate_exact_regular "$(rooted /usr/sbin/geninitrd)" "$(policy_value "$RECOVERY_POLICY" geninitrd.geninitrd_sha256)" "$(policy_value "$RECOVERY_POLICY" geninitrd.geninitrd_size)" || return 1
@@ -756,13 +762,13 @@ write_analysis() {
     python3 - "$OUTPUT_DIR/rollback-inventory-analysis.json" "$HOSTNAME_SHORT" "$HOSTNAME_FQDN" \
         "$RUNNING_KERNEL" "$CONFIRM_ACTIVE_KERNEL" "$CONFIRM_ROLLBACK_KERNEL" "$ROOT_UUID" "$ROOT_SOURCE" \
         "$SOURCE_ROOT" "$SOURCE_STATE" "$SOURCE_PACKAGE" "$SOURCE_PACKAGE_SHA256" "$SOURCE_PACKAGE_SIZE" \
-        "$SOURCE_KERNEL_SHA256" "$SOURCE_KERNEL_SIZE" "$SOURCE_MODULE_COUNT" "$INSTALLED_MODULE_COUNT" \
+        "$SOURCE_KERNEL_SHA256" "$SOURCE_KERNEL_SIZE" "$SOURCE_MODULE_COUNT" "$ROLLBACK_MODULE_STATE" "$INSTALLED_MODULE_COUNT" \
         "$BOOT_FREE_BYTES" "$BOOT_REQUIRED_BYTES" "$SPACE_STATE" "$RECONSTRUCTION_VIABLE" "$NEXT_STAGE" \
         "$PASS_COUNT" "$FAILURE_COUNT" "$CONFIRM_CLOSURE_EVIDENCE_SHA256" "$CONFIRM_INVENTORY_SHA256" <<'PY'
 import json, pathlib, sys
 (out, host, fqdn, running, active, rollback, root_uuid, root_source, source_root,
  source_state, package_path, package_sha, package_size, kernel_sha, kernel_size,
- source_modules, installed_modules, free_bytes, required_bytes, space_state,
+ source_modules, module_state, installed_modules, free_bytes, required_bytes, space_state,
  viable, next_stage, passes, failures, closure_sha, inventory_sha) = sys.argv[1:]
 def number(value): return int(value or 0)
 data={
@@ -773,7 +779,7 @@ data={
  'source_search_root':source_root,'source_state':source_state,
  'source_package': None if not package_path else {'path':package_path,'sha256':package_sha,'size':number(package_size)},
  'source_kernel': None if not kernel_sha else {'sha256':kernel_sha,'size':number(kernel_size)},
- 'source_module_file_count':number(source_modules),'installed_module_file_count':number(installed_modules),
+ 'source_module_file_count':number(source_modules),'rollback_module_state':module_state,'installed_module_file_count':number(installed_modules),
  'boot_space':{'available_bytes':number(free_bytes),'required_bytes':number(required_bytes),'state':space_state},
  'repository_metadata_refreshed':False,'package_mutation_performed':False,'initrd_generated':False,
  'grub_mutation_performed':False,'reboot_performed':False,'host_mutated':False,
@@ -807,6 +813,7 @@ source_package_sha256=$SOURCE_PACKAGE_SHA256
 source_kernel_sha256=$SOURCE_KERNEL_SHA256
 source_kernel_size=$SOURCE_KERNEL_SIZE
 source_module_file_count=$SOURCE_MODULE_COUNT
+rollback_module_state=$ROLLBACK_MODULE_STATE
 installed_module_file_count=$INSTALLED_MODULE_COUNT
 boot_free_bytes=$BOOT_FREE_BYTES
 boot_required_bytes=$BOOT_REQUIRED_BYTES
@@ -850,8 +857,8 @@ publish_evidence() {
 finish() {
     write_analysis || return 2
     write_summary
-    printf 'Slackware-current rollback inventory: active=%s, rollback=%s, source=%s, modules=%s, space=%s, viable=%s, next-stage=%s\n' \
-        "$CONFIRM_ACTIVE_KERNEL" "$CONFIRM_ROLLBACK_KERNEL" "$SOURCE_STATE" "$INSTALLED_MODULE_COUNT" "$SPACE_STATE" "$RECONSTRUCTION_VIABLE" "$NEXT_STAGE"
+    printf 'Slackware-current rollback inventory: active=%s, rollback=%s, source=%s, module-state=%s, modules=%s, space=%s, viable=%s, next-stage=%s\n' \
+        "$CONFIRM_ACTIVE_KERNEL" "$CONFIRM_ROLLBACK_KERNEL" "$SOURCE_STATE" "$ROLLBACK_MODULE_STATE" "$INSTALLED_MODULE_COUNT" "$SPACE_STATE" "$RECONSTRUCTION_VIABLE" "$NEXT_STAGE"
     publish_evidence || return 2
     [ "$FAILURE_COUNT" -eq 0 ]
 }
@@ -934,11 +941,19 @@ main() {
         && record_pass 'the active 6.18.42 kernel, initrd, modules, and generic links retain their accepted identities' \
         || record_failure 'the accepted active kernel, initrd, modules, or generic links changed after closure'
 
-    if INSTALLED_MODULE_COUNT=$(validate_rollback_modules); then
-        record_pass 'the 6.18.40 rollback remains modules-only with a populated module tree and required depmod metadata'
+    module_result=
+    if module_result=$(classify_rollback_modules); then
+        ROLLBACK_MODULE_STATE=${module_result% *}
+        INSTALLED_MODULE_COUNT=${module_result##* }
+        if [ "$ROLLBACK_MODULE_STATE" = preserved-populated-module-tree ]; then
+            record_pass 'the 6.18.40 rollback has a populated module tree with required depmod metadata'
+        else
+            record_pass 'the 6.18.40 path is an empty directory placeholder; the exact source package must restore all modules'
+        fi
     else
+        ROLLBACK_MODULE_STATE=invalid
         INSTALLED_MODULE_COUNT=0
-        record_failure 'the preserved 6.18.40 module tree is missing, empty, unsafe, or no longer modules-only'
+        record_failure 'the 6.18.40 module path is missing, unsafe, or partially populated without a complete module boundary'
     fi
 
     validate_geninitrd_boundary \
@@ -952,15 +967,23 @@ main() {
     source_result=0
     resolve_source_package "$SOURCE_ROOT" || source_result=$?
     if [ "$source_result" -eq 0 ]; then
-        if inspect_source_package "$SOURCE_PACKAGE" "$OUTPUT_DIR/source-package.json" "$OUTPUT_DIR/source-package-modules.txt" \
-            && capture_installed_module_manifest "$OUTPUT_DIR/installed-rollback-modules.txt" \
-            && cmp -s "$OUTPUT_DIR/source-package-modules.txt" "$OUTPUT_DIR/installed-rollback-modules.txt" \
-            && load_source_summary "$OUTPUT_DIR/source-package.json"; then
+        source_payload_valid=false
+        if inspect_source_package "$SOURCE_PACKAGE" "$OUTPUT_DIR/source-package.json" "$OUTPUT_DIR/source-package-modules.txt"; then
+            if [ "$ROLLBACK_MODULE_STATE" = preserved-populated-module-tree ]; then
+                capture_installed_module_manifest "$OUTPUT_DIR/installed-rollback-modules.txt" \
+                    && cmp -s "$OUTPUT_DIR/source-package-modules.txt" "$OUTPUT_DIR/installed-rollback-modules.txt" \
+                    && source_payload_valid=true
+            else
+                : > "$OUTPUT_DIR/installed-rollback-modules.txt"
+                [ -s "$OUTPUT_DIR/source-package-modules.txt" ] && source_payload_valid=true
+            fi
+        fi
+        if [ "$source_payload_valid" = true ] && load_source_summary "$OUTPUT_DIR/source-package.json"; then
             SOURCE_STATE=exact-local-package
-            record_pass 'one exact safe local 6.18.40 kernel package supplies the missing image and matches the preserved module payload'
+            record_pass 'one exact safe local 6.18.40 package supplies the missing kernel image and complete module payload'
         else
             SOURCE_STATE=invalid-or-module-mismatched-package
-            record_failure 'the local 6.18.40 package is corrupt, unsafe, incomplete, or does not match the preserved module payload'
+            record_failure 'the local 6.18.40 package is corrupt, unsafe, incomplete, or incompatible with the observed module state'
         fi
     elif [ "$source_result" -eq 3 ]; then
         SOURCE_STATE=not-found-in-reviewed-root

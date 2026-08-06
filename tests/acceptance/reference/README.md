@@ -1194,67 +1194,48 @@ The focused step-84 harness contains 83 checks. The complete prepared step-84 in
 
 The corrected real `current-kernel-post-reboot-verification` run passed all 14 assertions with zero failures. Archive SHA-256 `5d6fe97ddd81d1c99d0dd807127d6e98b8479d8e719d6c6ffb346fe167c915eb` was copied to `/home/promano` and verified. The immutable accepted record is `tests/fixtures/reference/acceptance/normal-update/slackware-current-kernel-post-reboot-verification-20260805-accepted.json`, SHA-256 `2735cb3f3a30270432984661dfcdcd5a3e3787190c34867a01651ffcfaaa678a`.
 
-Accepted facts include live kernel and osrelease 6.18.42, architecture `x86_64`, a nonzero boot ID, `BOOT_IMAGE=/boot/vmlinuz-generic`, root UUID `ba7632d7-7469-483e-830d-59c88d985866`, the exact 2,040-record installed transaction, target kernel/initrd/modules and generic links, restored GenInitrd controls, unchanged GRUB SHA-256 `5fdff76d42ddec26b0c212668c4981a9ea2853a98b3260f33850c91ccf8ac247`, selector `0`, no active `next_entry`, and rollback state `degraded-modules-only`. Package and sensitive before/after snapshots are byte-identical.
+Accepted facts include live kernel and osrelease 6.18.42, architecture `x86_64`, a nonzero boot ID, `BOOT_IMAGE=/boot/vmlinuz-generic`, root UUID `ba7632d7-7469-483e-830d-59c88d985866`, the exact 2,040-record installed transaction, target kernel/initrd/modules and generic links, restored GenInitrd controls, unchanged GRUB SHA-256 `5fdff76d42ddec26b0c212668c4981a9ea2853a98b3260f33850c91ccf8ac247`, selector `0`, and no active `next_entry`. Package and sensitive before/after snapshots are byte-identical. The record also classified rollback as `degraded-modules-only`; step 86 later supersedes only that optional classification with `empty-directory-placeholder` while leaving the mandatory closure intact.
 
 This closes the mandatory Slackware-current update boundary with `pause_safe=true`, `reboot_verified=true`, `update_closed=true`, and `mandatory_work_remaining=false`. No previous acceptance stage must be rerun because of later repository publications. The only declared continuation is the separate and optional `optional-rollback-reconstruction-review`.
 
 Step 85 adds only the accepted JSON record and documentation. The inventory remains 48 suites and 3,311 checks with zero failures; static validation covers 78 shell scripts and 84 JSON files.
 
-### Optional Slackware-current rollback reconstruction inventory (step 86)
+### Rejected Slackware-current rollback reconstruction inventory (step 86)
 
-This stage begins only from the accepted step-85 closure. It is independent of
-later Slackware-current publications and must not refresh repository metadata or
-repeat any candidate, payload, readiness, apply, recovery, or reboot stage.
+The real inventory run used evidence archive SHA-256 `cd2769c18e93b17596028b33b00a1d6e14bb81336172935bb18b0bef3568ed56`, passed 13 assertions, and failed two. It made no system changes. The exact 2,040-record package database, active 6.18.42 kernel/initrd/modules and generic links, GenInitrd controls, and syntax-valid GRUB configuration remained byte-identical before and after the run; `/boot` also had ample free space. The exact `kernel-generic-6.18.40-x86_64-1.txz` was not found below `/var/cache/packages`.
+
+The failure exposed an earlier classification defect: `/lib/modules/6.18.40` exists, but it contains zero members and zero module files. It is an `empty-directory-placeholder`, not a preserved modules-only rollback. The corrected diagnostic record is `tests/fixtures/reference/acceptance/normal-update/slackware-current-rollback-reconstruction-inventory-20260806-diagnostic.json`. Do not alter the immutable accepted step-85 closure record; its mandatory-update closure remains valid, while the optional rollback description is superseded by this diagnostic.
+
+The corrected inventory implementation now distinguishes a populated complete module tree from an empty placeholder and accepts the latter only when a later exact package supplies both the versioned kernel and a complete nonempty module payload. Its focused harness contains 47 checks.
+
+### Signed rollback source and reconstruction-plan preflight (step 87)
 
 Run:
 
 ```bash
-sudo bash tests/acceptance/reference/test-current-rollback-reconstruction-inventory.sh \
+sudo bash tests/acceptance/reference/test-current-rollback-source-and-plan-preflight.sh \
     --target slackware-current \
     --confirm-hostname pcold-slack \
     --confirm-hostname-fqdn pcold-slack.pcold-slack.org \
-    --confirm-closure-evidence-sha256 5d6fe97ddd81d1c99d0dd807127d6e98b8479d8e719d6c6ffb346fe167c915eb \
+    --confirm-inventory-evidence-sha256 cd2769c18e93b17596028b33b00a1d6e14bb81336172935bb18b0bef3568ed56 \
     --confirm-active-kernel 6.18.42 \
     --confirm-rollback-kernel 6.18.40 \
-    --confirm-inventory-sha256 e09af439eb6a8678b2e83a5c53bb0b368cf7531d42a1d725c6904a234d96bc31
+    --confirm-source-plan-sha256 6967f280c30067bb82b0da2b8b83fac0b189560621838832a477e247a246fdc7
 ```
 
-The reviewed script SHA-256 is
-`d6b9eadf865156c81626ebc988fec9c031f30fe5ac2a9aa1dbfc56d015b1b585`.
-The command is read-only with respect to the installed system. It validates the
-accepted host and root identity, exact closed package database, active 6.18.42
-kernel/initrd/modules and generic links, preserved 6.18.40 module tree and depmod
-metadata, unchanged GenInitrd controls, unchanged syntax-valid GRUB default, and
-conservative free space for a future kernel, initrd, GRUB staging, and reserve.
-It captures package and rollback-sensitive state before and after inventory.
+The reviewed script SHA-256 is `37756428b0fbb9e106ce1853414f8032d803fdc6bb9ec9fef642ed82bd4c8a74`. The command begins from the unchanged step-86 diagnostic boundary and does not refresh Slackware-current metadata. It may create only private evidence and source-staging files below `/var/tmp`; it must not call package installation tools, `depmod`, `mkinitrd`, GenInitrd, `grub-mkconfig`, or reboot.
 
-By default it searches recursively only below `/var/cache/packages` for exactly
-one regular `kernel-generic-6.18.40-x86_64-1.txz`. A found archive must have safe
-members and links, contain exactly one regular `/boot/vmlinuz-6.18.40`, contain a
-nonempty 6.18.40 kernel-module payload, and expose the same module-path manifest
-as the preserved `/lib/modules/6.18.40` tree. The package and embedded kernel are
-hashed without installing or extracting them into the live system, and the
-source identity is rechecked before completion.
+Unless an explicit regular package/signature pair is supplied with `--source-package` and `--source-signature`, the preflight downloads or reuses exactly:
 
-Three accepted classifications are possible:
+- `kernel-generic-6.18.40-x86_64-1.txz`;
+- `kernel-generic-6.18.40-x86_64-1.txz.asc`.
 
-- `source_state=exact-local-package`, `space_state=sufficient`, and
-  `reconstruction_viable=true` advance to
-  `current-rollback-reconstruction-preflight`;
-- `source_state=not-found-in-reviewed-root` is still a clean inventory, but
-  advances only to `current-rollback-source-acquisition-review`;
-- insufficient boot space advances only to
-  `current-rollback-space-remediation-review`.
+The default owner-only staging directory is `/var/tmp/slack-update-rollback-source/6.18.40`. Both source URLs must use HTTPS. The detached signature is verified in a private GnuPG home against the reviewed Slackware primary-key fingerprint `EC5649DA401E22ABFA6736EF6A4463C040102233`. GnuPG may report the actual signing subkey separately, but it is accepted only when `VALIDSIG` chains that single subkey to the exact reviewed primary key; a missing, invalid, ambiguous, or differently rooted source fails closed.
 
-Ambiguous duplicate candidates, symlinked archives, unsafe archive paths or
-links, corruption, a missing kernel image, a module-manifest mismatch, drift in
-the accepted closure, or any before/after mutation fails closed. The command
-never runs Slackpkg, package tools, `mkinitrd`, GenInitrd, `grub-mkconfig`, or a
-reboot. Use the printed commands to copy the generated archive and sidecar
-directly to `/home/promano` with `promano:users` ownership and verify the
-sidecar there before continuing.
+The package is inspected as an archive without extraction into the installed system. It must contain exactly one safe regular `boot/vmlinuz-6.18.40`, a nonempty root-owned 6.18.40 module payload including at least one module object, no path traversal, no unsafe links, no device/FIFO members, no setuid/setgid or world-writable regular files, and no duplicate normalized paths. The preflight records package, signature, kernel, and module-manifest SHA-256 identities.
 
-The focused step-86 harness contains 42 checks. The complete prepared step-86
-inventory contains 49 suites and 3,353 checks with zero failures; static
-validation covers 80 shell scripts and 85 JSON files.
+A conservative budget groups the final kernel and projected initrd, complete module payload, private apply staging, GRUB backup/staging, and a 256 MiB reserve by their actual destination filesystems. It then projects the accepted historical `mkinitrd` vector only to `/boot/initrd-6.18.40.img`, derives a syntax-valid explicit `slackware-rollback-6.18.40` GRUB entry from the accepted active entry, and keeps the active default selector at literal `0` with no `next_entry`.
 
+A clean result records twelve ordered reconstruction, verification, backup, and recovery actions, `apply_ready=true`, `apply_authorized=false`, and `next_stage=current-rollback-reconstruction-authorized-apply-review`. Use the printed commands to copy the evidence archive, sidecar, verified package, and detached signature directly to `/home/promano` with `promano:users` ownership. Verify the sidecar there and retain all four files plus the full terminal output. No apply action is permitted until the resulting evidence receives a separate review and explicit authorization.
+
+The focused step-87 harness contains 51 checks. The complete prepared step-87 inventory contains 50 suites and 3,409 checks with zero failures; static validation covers 82 shell scripts and 87 JSON files.

@@ -127,11 +127,13 @@ Before submitting a change to the reference script:
 42. Run `tests/reference/test-current-userspace-configuration-service-review-preflight-harness.sh` when exact configuration/service path manifests, contributing package hashes, static file classification, XDG or native-messaging validation, PAM/XML/shell-helper checking, systemd user-unit scope, preset handling, or non-execution boundaries are affected.
 43. Run `tests/reference/test-current-userspace-elf-runtime-review-preflight-harness.sh` when exact package or per-package ELF bindings, static `readelf` parsing, loader-cache shadowing, transaction provider indexing, runtime path restrictions, hardening checks, dependency resolution, or ELF non-execution boundaries are affected.
 44. Run `tests/reference/test-current-userspace-apply-review-preflight-harness.sh` when baseline/addition union binding, exact action classification, nested ELF output archiving, portable sidecar verification, stale-evidence replacement, reference-engine package commands, deferred post-install handling, GenInitrd policy restoration, GRUB ownership, failure blocking, or userspace application non-execution boundaries are affected.
-45. Confirm that destructive commands are not exercised outside an isolated or explicitly recoverable Slackware test system.
-46. Record the relevant acceptance scenario.
-47. Preserve deterministic output and exit-code behavior.
-48. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
-49. Ensure every new or modified comment is written in English.
+45. Run `tests/reference/test-current-rollback-reconstruction-inventory-harness.sh` when optional rollback classification, empty-directory handling, exact local package inspection, module-manifest comparison, space estimation, or inventory non-mutation boundaries are affected.
+46. Run `tests/reference/test-current-rollback-source-and-plan-preflight-harness.sh` when signed historical source acquisition, signing-key binding, archive safety, kernel/module manifesting, reconstruction space budgeting, initrd or GRUB projection, or apply-denial boundaries are affected.
+47. Confirm that destructive commands are not exercised outside an isolated or explicitly recoverable Slackware test system.
+48. Record the relevant acceptance scenario.
+49. Preserve deterministic output and exit-code behavior.
+50. Exercise `enabled`, `disabled`, and `auto` when changing optional-module behavior.
+51. Ensure every new or modified comment is written in English.
 
 Never run the apply workflow on a production machine merely to validate a contribution.
 

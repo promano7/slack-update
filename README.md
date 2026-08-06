@@ -16,12 +16,30 @@ Slack-Update is intended to provide a desktop-oriented update experience similar
 - [x] Reference shell script created
 - [ ] Reference shell script validated on real Slackware 15.0 and Slackware-current installations
   - [x] Slackware-current reviewed 137-package transaction installed and safe-pause verified with the 6.18.42 generic kernel/initrd pair
-  - [ ] Slackware-current reboot into 6.18.42 and post-reboot verification accepted
+  - [x] Slackware-current reboot into 6.18.42 and post-reboot verification accepted
+  - [ ] Optional on-disk rollback reconstruction for 6.18.40 completed
 - [x] Public GitHub repository created: `slack-update`
 - [ ] Build system selected
 - [x] License selected: **GNU GPL v3 or later (`GPL-3.0-or-later`)**
 - [x] Supported Slackware targets defined: **Slackware 15.0 and Slackware-current**
 - [ ] First C milestone started
+
+## Current optional rollback continuation
+
+The mandatory Slackware-current update is closed at accepted step 85 with kernel 6.18.42 active. Step 86 then established, without modifying the host, that `/lib/modules/6.18.40` is only an empty directory placeholder and that the historical package is not present in `/var/cache/packages`. The next optional machine boundary is step 87: acquire or reuse the exact signed `kernel-generic-6.18.40-x86_64-1.txz`, verify and inspect it privately, and project the complete reconstruction without installing packages, generating an initrd, modifying GRUB, or rebooting.
+
+```bash
+sudo bash tests/acceptance/reference/test-current-rollback-source-and-plan-preflight.sh \
+    --target slackware-current \
+    --confirm-hostname pcold-slack \
+    --confirm-hostname-fqdn pcold-slack.pcold-slack.org \
+    --confirm-inventory-evidence-sha256 cd2769c18e93b17596028b33b00a1d6e14bb81336172935bb18b0bef3568ed56 \
+    --confirm-active-kernel 6.18.42 \
+    --confirm-rollback-kernel 6.18.40 \
+    --confirm-source-plan-sha256 6967f280c30067bb82b0da2b8b83fac0b189560621838832a477e247a246fdc7
+```
+
+A successful result may declare the source and plan ready for a separate authorized-apply review, but it never authorizes or performs reconstruction.
 
 ## Goals
 
