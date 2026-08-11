@@ -1388,3 +1388,46 @@ A successful result may set `source_ready=true`, `plan_ready=true`, and
 `apply_authorized=false`. The package-name snapshot and all reviewed ELILO
 artifacts must compare byte-for-byte before and after. Evidence sidecars use only
 the archive basename and are copied directly to `/home/promano`.
+
+
+### ELILO oldkernel cleanup authorization review
+
+After a real step-93 source-and-plan archive is accepted, run `test-elilo-oldkernel-cleanup-authorization-review.sh`. The review is non-mutating and binds the accepted step-93 evidence plus canonical apply contract. It revalidates the running 5.15.209 kernel, exact package-name snapshot, ELILO/boot snapshot, populated active and rollback module trees, and the three cached active package archives by SHA-256.
+
+A clean result may set `cleanup_ready=true`, `cleanup_authorized=true`, and `apply_authorized=true`, but must keep `apply_executed=false`. This authorization is valid only for the exact fourteen-action contract and does not itself run `removepkg`, `upgradepkg`, modify ELILO, delete rollback artifacts, refresh repositories, or reboot. The next stage is `elilo-oldkernel-cleanup-authorized-apply`.
+
+Production command for the accepted 2026-08-11 step-93 evidence:
+
+```bash
+sudo bash tests/acceptance/reference/test-elilo-oldkernel-cleanup-authorization-review.sh \
+    --target slackware-15.0 \
+    --confirm-hostname-fqdn vbox-slack15.vbox-slack15.org \
+    --confirm-source-plan-evidence-sha256 1f2cb93ff141c5474cd106304d03f1edd8084cefc90bad81cc3701db06846201 \
+    --confirm-active-kernel 5.15.209 \
+    --confirm-rollback-kernel 5.15.19 \
+    --confirm-authorization-review-sha256 bde7ac7470138574f0c2616d4b68a62311c57c32f6b4596277c60f0c9e760328
+```
+
+### ELILO oldkernel cleanup authorized apply
+
+After the real step-94 authorization archive is accepted, `test-elilo-oldkernel-cleanup-authorized-apply.sh` is the only reviewed destructive entry point for this cleanup contract. It requires `--execute-authorized-cleanup`, the exact step-94 evidence SHA-256, active and rollback versions, canonical apply-contract SHA-256, and the code-bound apply-scope SHA-256. No repository refresh, network access, or automatic reboot is permitted.
+
+Before the first `removepkg` call, the executor creates a private recovery snapshot under `/var/lib/slack-update/elilo-cleanup-backups/` containing `/boot`, both reviewed module trees, and `/var/lib/pkgtools`, with manifests and archive SHA-256 values. The successful path removes only the three reviewed rollback package records, reinstalls the exact cached 5.15.209 generic/huge/modules archives, verifies the active module/package state, stages and atomically activates an ELILO config without `oldkernel`, proves the active boot chain, and deletes only `/boot/efi/EFI/Slackware/vmlinuz` plus `/boot/efi/EFI/Slackware/initrd.gz`. The legacy `/boot/initrd.gz` remains outside the authorized deletion contract.
+
+Any failure after mutation begins must trigger recovery. `pause_safe=true` may be reported only when the cleanup commits coherently or the pre-apply package, boot, and module state is restored exactly. A successful cleanup retains the recovery snapshot until the later post-apply reboot verification and reports `reboot_required=true`; do not remove that backup before the reboot boundary is accepted.
+
+Production command for the accepted 2026-08-11 step-94 evidence:
+
+```bash
+sudo bash tests/acceptance/reference/test-elilo-oldkernel-cleanup-authorized-apply.sh \
+    --target slackware-15.0 \
+    --execute-authorized-cleanup \
+    --confirm-hostname-fqdn vbox-slack15.vbox-slack15.org \
+    --confirm-authorization-evidence-sha256 9ed0b6f4c989e4ea5d1742fc47d2ae5c31979e64fc3dffcc1aa7e5ed15934553 \
+    --confirm-active-kernel 5.15.209 \
+    --confirm-rollback-kernel 5.15.19 \
+    --confirm-apply-contract-sha256 e5b587aacb911a05428706a09c3d7a85dc35a9802e46ccf8131cb3569dd6806f \
+    --confirm-apply-scope-sha256 006e228aee659ae65c18a7f4a541245dd9ed8bfa32a1de8d820e30603db56938
+```
+
+

@@ -1,0 +1,21 @@
+{
+  "active_kernel": "5.15.209",
+  "apply_authorized": true,
+  "apply_contract_sha256": "e5b587aacb911a05428706a09c3d7a85dc35a9802e46ccf8131cb3569dd6806f",
+  "apply_executed": false,
+  "archive_sha256": "9ed0b6f4c989e4ea5d1742fc47d2ae5c31979e64fc3dffcc1aa7e5ed15934553",
+  "cleanup_authorized": true,
+  "cleanup_plan_sha256": "2082e56223033181c32b3561591da59f1a630734641cccb07a68aa0a71efa1bb",
+  "cleanup_ready": true,
+  "failures": 0,
+  "hostname_fqdn": "vbox-slack15.vbox-slack15.org",
+  "next_stage": "elilo-oldkernel-cleanup-authorized-apply",
+  "passes": 4,
+  "rollback_kernel": "5.15.19",
+  "scenario": "elilo-oldkernel-cleanup-authorization-review",
+  "schema": 1,
+  "skips": 0,
+  "source_plan_archive_sha256": "1f2cb93ff141c5474cd106304d03f1edd8084cefc90bad81cc3701db06846201",
+  "status": "accepted-authorization-review",
+  "target": "slackware-15.0"
+}

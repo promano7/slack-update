@@ -17,7 +17,7 @@ Slack-Update is intended to provide a desktop-oriented update experience similar
 - [ ] Reference shell script validated on real Slackware 15.0 and Slackware-current installations
   - [x] Slackware-current reviewed 137-package transaction installed and safe-pause verified with the 6.18.42 generic kernel/initrd pair
   - [x] Slackware-current reboot into 6.18.42 and post-reboot verification accepted
-  - [ ] Optional on-disk rollback reconstruction for 6.18.40 completed
+  - [x] Optional on-disk rollback reconstruction for 6.18.40 completed and real boot/return demonstrated
 - [x] Public GitHub repository created: `slack-update`
 - [ ] Build system selected
 - [x] License selected: **GNU GPL v3 or later (`GPL-3.0-or-later`)**
@@ -67,6 +67,15 @@ initrd /boot/intel-ucode.img /boot/amd-ucode.img /boot/initrd-6.18.40.img
 It preserves zero, one, or two unique reviewed microcode images in their original order and replaces only the reviewed active initrd. It rejects retained or foreign initrds, duplicate microcode images, unknown initrd arguments, microcode after the initrd, or an active entry without exactly one reviewed kernel and initrd command. It remains strictly non-mutating: package installation, package-database changes, `depmod`, `mkinitrd`, GRUB modification, metadata refresh, and reboot are forbidden. A clean result may report `apply_ready=true`, but `apply_authorized=false` remains fixed until a separate reviewed apply wrapper is prepared.
 
 Revision-6 script SHA-256 is `d306e3c1d9d5a2cc2298d6367601d39e6573569211db422fdbfda5cb4e5aba8b`, policy SHA-256 is `92bcaf0e2038d4979e3c6f8dc054171053af5e5d555dba223aa7e670ebabbcaa`, revision-5 diagnostic-record SHA-256 is `22d8108ff3dc2a87d741c9a899508a27e5fd4f0bce8f06cbb5049dd39f18f117`, and the confirmation scope is `92cc5d316f66ea2205751b83e88a3f749c6ec4f7d7a8a534106ebc5cc7d38f6e`.
+
+
+## Slackware 15.0 ELILO cleanup continuation
+
+The mature ELILO oldkernel retention boundary is accepted with active kernel `5.15.209`, rollback `5.15.19`, and cleanup eligibility satisfied. Step 93 authenticated the exact locally cached 5.15.209 `kernel-generic`, `kernel-huge`, and `kernel-modules` archives and completed the fourteen-action cleanup simulation without mutation.
+
+Step 94 is the separate authorization review. It revalidates the unchanged package/ELILO boundary and exact cached archive SHA-256 identities, then may authorize only canonical cleanup apply contract `e5b587aacb911a05428706a09c3d7a85dc35a9802e46ccf8131cb3569dd6806f`. The review itself does not remove or reinstall packages, edit ELILO, delete rollback artifacts, refresh repositories, or reboot. Real cleanup remains a later stage.
+
+Step 94 is now accepted with evidence SHA-256 `9ed0b6f4c989e4ea5d1742fc47d2ae5c31979e64fc3dffcc1aa7e5ed15934553`. Step 95 is the separately code-bound real apply stage. It revalidates that authorization and the exact cached active package archives, creates a persistent private recovery snapshot before package mutation, then executes only the fourteen authorized cleanup actions. The transaction removes the exact 5.15.19 generic/huge/modules records, reinstalls the exact 5.15.209 active triple, removes the reviewed ELILO `oldkernel` stanza, verifies the active versioned boot chain, and deletes only the two authorized legacy EFI rollback files. It deliberately retains `/boot/initrd.gz`. On any failure after mutation starts it must attempt exact recovery and reports `pause_safe=true` only if recovery is proven exact. On success it retains the recovery backup until a post-apply reboot review, reports `reboot_required=true`, and does not reboot automatically.
 
 ## Goals
 
