@@ -77,6 +77,8 @@ Step 94 is the separate authorization review. It revalidates the unchanged packa
 
 Step 94 is now accepted with evidence SHA-256 `9ed0b6f4c989e4ea5d1742fc47d2ae5c31979e64fc3dffcc1aa7e5ed15934553`. Step 95 is the separately code-bound real apply stage. It revalidates that authorization and the exact cached active package archives, creates a persistent private recovery snapshot before package mutation, then executes only the fourteen authorized cleanup actions. The transaction removes the exact 5.15.19 generic/huge/modules records, reinstalls the exact 5.15.209 active triple, removes the reviewed ELILO `oldkernel` stanza, verifies the active versioned boot chain, and deletes only the two authorized legacy EFI rollback files. It deliberately retains `/boot/initrd.gz`. On any failure after mutation starts it must attempt exact recovery and reports `pause_safe=true` only if recovery is proven exact. On success it retains the recovery backup until a post-apply reboot review, reports `reboot_required=true`, and does not reboot automatically.
 
+The first real step-95 apply on 2026-08-11 did not commit: the cleanup itself reached the expected package and ELILO state, but reinstalling the active kernel modules regenerated six `depmod` index files, so the original byte-identical whole-module-tree assertion failed. Automatic recovery restored the exact pre-apply state and retained the private recovery backup. Step 96 is therefore a non-mutating recovery review; it verifies that exact restoration persists and records the narrow `generated-depmod-index-byte-drift` false negative before any revised cleanup executor can be considered.
+
 ## Goals
 
 - Provide a reliable and understandable update workflow for Slackware.

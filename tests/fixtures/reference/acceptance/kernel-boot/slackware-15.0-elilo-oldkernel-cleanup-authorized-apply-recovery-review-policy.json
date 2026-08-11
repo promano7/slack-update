@@ -1,0 +1,10 @@
+{
+  "schema": 1,
+  "scenario": "elilo-oldkernel-cleanup-authorized-apply-recovery-review",
+  "reviewed": true,
+  "expected_script_sha256": "598278ce708afdb4bd6604474f0be8df22ad141c2a2bff7f9469c36fa8872a86",
+  "accepted_authorization_record_sha256": "4289573e994c900fcec0e4a039dac75141bebabfc4ee9289adb08d5b4ce0d40d",
+  "failed_apply_diagnostic_sha256": "62fc603678bb5d5644a8d1f825eed9415fdba962b9e99cf75eba908f8ad08524",
+  "failed_apply_archive_sha256": "96a634ddfb4a131dec836a000d8e216b4716ace1924cecbb7f0490f48773131f",
+  "confirmation_scope_sha256": "1606e8e9a25f3eb9a9da372bc7133f9e20fd8dde73f012d93f0c0de6e53fd5e2"
+}

@@ -1431,3 +1431,22 @@ sudo bash tests/acceptance/reference/test-elilo-oldkernel-cleanup-authorized-app
 ```
 
 
+
+
+### ELILO oldkernel cleanup authorized-apply recovery review
+
+After a step-95 apply reports a recovered failure, run `test-elilo-oldkernel-cleanup-authorized-apply-recovery-review.sh` before any retry. This boundary is strictly non-mutating. It binds the failed apply archive and accepted step-94 authorization, verifies that the private recovery archive is still intact, and recomputes the live package-name, selected-boot, active-module, and rollback-module manifests against the exact pre-apply hashes.
+
+The accepted 2026-08-11 diagnostic classifies the step-95 failure as `generated-depmod-index-byte-drift`: only `modules.alias{,.bin}`, `modules.dep{,.bin}`, and `modules.symbols{,.bin}` changed after the active `kernel-modules` package was reinstalled; no kernel module object changed, and the package set had already reached the exact expected cleanup state. A clean recovery review reports `recovery_verified=true`, `retry_design_required=true`, `cleanup_authorized=false`, `apply_authorized=false`, `apply_executed=false`, and `pause_safe=true`. It must not perform package operations, modify ELILO, delete rollback files, refresh repositories, or reboot.
+
+Production command for the recovered 2026-08-11 step-95 evidence:
+
+```bash
+sudo bash tests/acceptance/reference/test-elilo-oldkernel-cleanup-authorized-apply-recovery-review.sh \
+    --target slackware-15.0 \
+    --confirm-hostname-fqdn vbox-slack15.vbox-slack15.org \
+    --confirm-failed-apply-evidence-sha256 96a634ddfb4a131dec836a000d8e216b4716ace1924cecbb7f0490f48773131f \
+    --confirm-active-kernel 5.15.209 \
+    --confirm-rollback-kernel 5.15.19 \
+    --confirm-recovery-review-sha256 1606e8e9a25f3eb9a9da372bc7133f9e20fd8dde73f012d93f0c0de6e53fd5e2
+```
