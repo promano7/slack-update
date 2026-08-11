@@ -1,0 +1,100 @@
+{
+  "accepted": true,
+  "archive_sha256": "1f2cb93ff141c5474cd106304d03f1edd8084cefc90bad81cc3701db06846201",
+  "captured_at_utc": "2026-08-11T18:19:18Z",
+  "scenario": "elilo-oldkernel-cleanup-source-and-plan-preflight",
+  "target": "slackware-15.0",
+  "hostname_fqdn": "vbox-slack15.vbox-slack15.org",
+  "active_kernel": "5.15.209",
+  "rollback_kernel": "5.15.19",
+  "source_ready": true,
+  "plan_ready": true,
+  "cleanup_ready": true,
+  "cleanup_authorized": false,
+  "apply_authorized": false,
+  "passes": 7,
+  "failures": 0,
+  "skips": 0,
+  "package_name_snapshot_sha256": "b295eaa1abde0f961d21227d51988cead0a7794a298a5a980b19fb312d7b897a",
+  "boot_state_snapshot_sha256": "95bbc279c56b63d088bc25a54abda0dcdf0e70fa920fc32b22260bfafe9fdec5",
+  "cleanup_plan_file_sha256": "94256819f8a35dd04ae17031d8cc4c164f4145ab8640d5292090c44634907a9e",
+  "cleanup_plan_sha256": "2082e56223033181c32b3561591da59f1a630734641cccb07a68aa0a71efa1bb",
+  "cleanup_inventory_sha256": "ebc757f1f30c3812059af412bfdf730d02c4516bc6aa623f8c077677313a6bff",
+  "active_archives_manifest_sha256": "73df0f4853d8e518f3c4c659d6c3938317039026b3f1a2ae01f0afdb88c363cd",
+  "archive_inspection_sha256": "3cd7174ae983270dff0e4b7ba5e49dadaaa0339dd521bb6d385f3df4cdbeaca0",
+  "dry_run_result_sha256": "75073a24bc101a3abac27137c113bf75a82fdbe555b22f4669d9fa5776e9332f",
+  "active_archives": [
+    {
+      "record": "kernel-generic-5.15.209-x86_64-1",
+      "path": "/var/cache/packages/patches/packages/linux-5.15.209/kernel-generic-5.15.209-x86_64-1.txz",
+      "sha256": "12b0070fcf821ee2193f84b8e8e28c3c1f5cea7e83e618e871ed4e30c0b24f3a"
+    },
+    {
+      "record": "kernel-huge-5.15.209-x86_64-1",
+      "path": "/var/cache/packages/patches/packages/linux-5.15.209/kernel-huge-5.15.209-x86_64-1.txz",
+      "sha256": "f12a9640b15df65d39b0e1037290d9f7916e88453d63dab78fcefd5da317ae96"
+    },
+    {
+      "record": "kernel-modules-5.15.209-x86_64-1",
+      "path": "/var/cache/packages/patches/packages/linux-5.15.209/kernel-modules-5.15.209-x86_64-1.txz",
+      "sha256": "7ddbeb7610d6a7e4a3da9f866f3ad8ec03b0859ebc1ff6046970eb627e068500"
+    }
+  ],
+  "rollback_packages": [
+    "kernel-generic-5.15.19-x86_64-2",
+    "kernel-huge-5.15.19-x86_64-2",
+    "kernel-modules-5.15.19-x86_64-2"
+  ],
+  "active_packages": [
+    "kernel-generic-5.15.209-x86_64-1",
+    "kernel-huge-5.15.209-x86_64-1",
+    "kernel-modules-5.15.209-x86_64-1"
+  ],
+  "other_kernel_packages_preserved": [
+    "kernel-firmware-20250912_f0f4634-noarch-1",
+    "kernel-headers-5.15.209-x86-1",
+    "kernel-source-5.15.209-noarch-1"
+  ],
+  "elilo": {
+    "config": "/boot/efi/EFI/Slackware/elilo.conf",
+    "config_sha256": "434bd121571d7ea9347ed9e7b91228f058d6aed7a3ffdd08609129c1ab6bfa74",
+    "active_label": "vmlinuz",
+    "active_kernel": "vmlinuz-generic-5.15.209",
+    "active_initrd": "initrd-generic-5.15.209.gz",
+    "active_kernel_sha256": "7a001bd59a0a86567e18798bfa4951dc5ef916004d92daed9a1e532eff04a2a9",
+    "active_initrd_sha256": "777c8d971342b15c9d5ece42d26e869b8d804ac37a17044113aae18aa51124df",
+    "rollback_label": "oldkernel",
+    "rollback_kernel": "vmlinuz",
+    "rollback_initrd": "initrd.gz",
+    "rollback_kernel_sha256": "41a1eb3cf8ab261bcac4e8be67d32a8eb766847257886fcb8b4153ebc654639a",
+    "rollback_initrd_sha256": "f30e0948e987d7b8e57fb5cffc02f2d43d9e9e1b0823cdf974f2c20804528fe4"
+  },
+  "ordered_actions": [
+    "revalidate_inventory_and_running_kernel",
+    "verify_exact_active_package_archives",
+    "archive_package_and_boot_state",
+    "remove_exact_rollback_package_records",
+    "reinstall_exact_active_package_set",
+    "verify_active_package_records_and_module_tree",
+    "stage_elilo_config_without_oldkernel",
+    "validate_active_elilo_entry_and_staged_config",
+    "atomically_activate_elilo_config",
+    "prove_oldkernel_is_no_longer_referenced",
+    "verify_active_boot_chain",
+    "delete_only_unreferenced_rollback_artifacts",
+    "capture_and_compare_final_state",
+    "publish_private_evidence_and_portable_sha256"
+  ],
+  "safety_invariants": [
+    "abort unless the running kernel remains the accepted active kernel",
+    "remove only the exact rollback package records",
+    "reinstall the exact active package set before boot-loader rollback removal",
+    "preserve kernel headers source and firmware packages",
+    "delete rollback files only after proving they are unreferenced",
+    "keep cleanup authorization separate from planning and eligibility",
+    "never modify the active ELILO configuration in place",
+    "retain rollback EFI files until oldkernel removal is atomically active",
+    "keep the versioned active kernel and initrd byte-identical across boot and EFI"
+  ],
+  "next_stage": "elilo-oldkernel-cleanup-authorization-review"
+}
