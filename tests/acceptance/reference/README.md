@@ -1454,3 +1454,20 @@ sudo bash tests/acceptance/reference/test-elilo-oldkernel-cleanup-authorized-app
 ### ELILO cleanup apply revision review
 
 `test-elilo-oldkernel-cleanup-authorized-apply-revision-review.sh` is a non-mutating boundary after a recovered cleanup false negative. It verifies the recovered state and retained recovery archive, reviews the exact revised executor and its closed six-file depmod exception, and can authorize only a later retry.
+
+The accepted 2026-08-11 revision-review archive SHA-256 is `4ed50105ad880742638c91426cdc3d9e9a8dcd04425f5fe74709e9ae708024e7`. After that acceptance, revision 1 of `test-elilo-oldkernel-cleanup-authorized-apply.sh` may be executed only with both the original step-94 authorization evidence and the accepted step-97 revision evidence:
+
+```bash
+sudo bash tests/acceptance/reference/test-elilo-oldkernel-cleanup-authorized-apply.sh \
+    --target slackware-15.0 \
+    --execute-authorized-cleanup \
+    --confirm-hostname-fqdn vbox-slack15.vbox-slack15.org \
+    --confirm-authorization-evidence-sha256 9ed0b6f4c989e4ea5d1742fc47d2ae5c31979e64fc3dffcc1aa7e5ed15934553 \
+    --confirm-revision-evidence-sha256 4ed50105ad880742638c91426cdc3d9e9a8dcd04425f5fe74709e9ae708024e7 \
+    --confirm-active-kernel 5.15.209 \
+    --confirm-rollback-kernel 5.15.19 \
+    --confirm-apply-contract-sha256 e5b587aacb911a05428706a09c3d7a85dc35a9802e46ccf8131cb3569dd6806f \
+    --confirm-apply-scope-sha256 423c19029954bf893443cced45f556cb121913889cdc94d9391ef4dcbb8b2585
+```
+
+This is a destructive transaction. It must retain the private recovery snapshot on success, must not reboot automatically, and must report `pause_safe=true` only after either a coherent committed cleanup or proven exact recovery. Do not reboot after the command until its evidence has been reviewed.

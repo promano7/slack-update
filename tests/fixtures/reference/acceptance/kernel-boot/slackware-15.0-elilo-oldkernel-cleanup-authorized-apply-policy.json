@@ -1,33 +1,18 @@
 {
   "accepted_authorization_archive_sha256": "9ed0b6f4c989e4ea5d1742fc47d2ae5c31979e64fc3dffcc1aa7e5ed15934553",
   "accepted_authorization_record_sha256": "4289573e994c900fcec0e4a039dac75141bebabfc4ee9289adb08d5b4ce0d40d",
+  "accepted_revision_archive_sha256": "4ed50105ad880742638c91426cdc3d9e9a8dcd04425f5fe74709e9ae708024e7",
+  "accepted_revision_record_sha256": "7f927e0238ad95b5240a41430ae6e9ab76e825869b7929fe996721e51c14e1c4",
   "accepted_source_plan_record_sha256": "2154bb568b48ed313837858dc2bc3e8406e25c7a6b354282c8ba9d348f2cef09",
-  "active_kernel": "5.15.209",
-  "allowed_package_tools": [
-    "/sbin/removepkg",
-    "/sbin/upgradepkg"
-  ],
   "apply_contract_sha256": "e5b587aacb911a05428706a09c3d7a85dc35a9802e46ccf8131cb3569dd6806f",
-  "automatic_recovery_required_after_mutation_failure": true,
-  "confirmation_scope_sha256": "006e228aee659ae65c18a7f4a541245dd9ed8bfa32a1de8d820e30603db56938",
-  "expected_script_sha256": "33178bd9cd99db62629c24e930e2853b837a23d06ba5f7b84967bf15f98f5789",
-  "hostname_fqdn": "vbox-slack15.vbox-slack15.org",
-  "legacy_boot_initrd_retained_by_contract": "/boot/initrd.gz",
+  "confirmation_scope_sha256": "423c19029954bf893443cced45f556cb121913889cdc94d9391ef4dcbb8b2585",
+  "expected_script_sha256": "680bf2e4b18f3ff9a3939c4fa947a689347ed15c4f25df343241f62fe55a21de",
   "network_access_required": false,
   "next_stage_on_success": "elilo-oldkernel-cleanup-post-apply-reboot-review",
-  "pause_safe_requires_commit_or_exact_recovery": true,
   "reboot_execution_allowed": false,
   "recovery_backup_retained_until_post_reboot_verification": true,
-  "recovery_backup_root": "/var/lib/slack-update/elilo-cleanup-backups",
   "repository_refresh_allowed": false,
   "reviewed": true,
-  "rollback_efi_artifacts": [
-    "/boot/efi/EFI/Slackware/vmlinuz",
-    "/boot/efi/EFI/Slackware/initrd.gz"
-  ],
-  "rollback_kernel": "5.15.19",
-  "scenario": "elilo-oldkernel-cleanup-authorized-apply",
-  "schema": 1,
-  "target": "slackware-15.0",
-  "transaction_requires_private_recovery_snapshot": true
+  "scenario": "elilo-oldkernel-cleanup-authorized-apply-revision-1",
+  "schema": 2
 }

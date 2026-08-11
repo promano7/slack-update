@@ -81,6 +81,8 @@ The first real step-95 apply on 2026-08-11 did not commit: the cleanup itself re
 
 Step 97 reviews a revised executor after the recovered state was reconfirmed even after an intervening VM reboot. The revision permits byte drift only in the six reviewed top-level depmod indexes (`modules.alias{,.bin}`, `modules.dep{,.bin}`, and `modules.symbols{,.bin}`), requires every kernel module object and every other module-tree file to remain byte-identical, and requires read-only `depmod -n` validation. Step 97 does not apply cleanup; it only authorizes a later retry bound to the exact revised executor.
 
+Step 97 is now accepted with evidence SHA-256 `4ed50105ad880742638c91426cdc3d9e9a8dcd04425f5fe74709e9ae708024e7`. Step 98 enables the exact reviewed executor as revision 1 of the authorized apply. The second attempt remains bound to the original canonical cleanup contract and the accepted revision evidence, preserves the same private recovery and automatic rollback rules, performs no repository refresh or network access, and still requires a separate post-apply reboot review before the retained recovery backup can become eligible for removal.
+
 
 ## Goals
 
