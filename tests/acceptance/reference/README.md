@@ -1370,3 +1370,21 @@ sudo bash tests/acceptance/reference/test-current-rollback-return-verification-c
 
 A clean result requires the normal generic GRUB path to have returned to 6.18.42, retains the tested 6.18.40 kernel/initrd/module tree and explicit rollback entry, proves the package and boot-sensitive state are unchanged during verification, and reports `normal_return_verified=true`, `rollback_retained=true`, `rollback_boot_demonstration_closed=true`, `pause_safe=true`, `current_work_remaining=false`, and `next_stage=slackware-15.0-elilo-preflight-repeat-review`. The accepted step-91 record SHA-256 is `ba33afa568a550ef16659861d25dc41769d2bec6ae76ad8d47658a12f35e64a0`; script SHA-256 is `a3663e1a254a7bcc24b427681ec581e96b325f40314fb713eccfd9040731f2eb`, policy SHA-256 is `06fcc1c72b9405db7edd64f1590ad7a9f1c9edeff07ab3c08a100f0ee16a5a10`, confirmation scope SHA-256 is `083e44cb173729870b9f825da8363b4576ea501767c126a5384f4438863de8de`, and focused harness SHA-256 is `c2b797f5fffb075298e3c9a7305d05c3839236556df5c63a49d78c6ce5c166e3`.
 
+
+
+### ELILO oldkernel cleanup source-and-plan preflight
+
+After the mature Slackware 15.0 retention evidence is accepted, run
+`test-elilo-oldkernel-cleanup-source-and-plan-preflight.sh`. The boundary is
+strictly non-mutating and local-cache-only. It binds the accepted mature
+retention archive, exact script, canonical cleanup planner, canonical dry-run
+executor, and reviewed Slackware signing key. It authenticates the existing
+Slackpkg checksum metadata, verifies the exact cached active 5.15.209 package
+triple, structurally inspects those archives, produces the real-system cleanup
+inventory and deterministic plan, and runs the fourteen-step dry-run simulation.
+
+A successful result may set `source_ready=true`, `plan_ready=true`, and
+`cleanup_ready=true`, but must always keep `cleanup_authorized=false` and
+`apply_authorized=false`. The package-name snapshot and all reviewed ELILO
+artifacts must compare byte-for-byte before and after. Evidence sidecars use only
+the archive basename and are copied directly to `/home/promano`.

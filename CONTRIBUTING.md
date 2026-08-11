@@ -343,3 +343,6 @@ A successful review may authorize only a normal manual reboot using the unchange
 
 For Phase 1 step 92, preserve the accepted step-91 return-review archive boundary `c4a8e207ad3af7ef118c2371f3cec0694c1e5fca50599d4b5a2e89daa2b77d7f` and run only the non-mutating `test-current-rollback-return-verification-closure.sh`. The closure must prove the host returned through `/boot/vmlinuz-generic` to 6.18.42 while retaining the tested 6.18.40 rollback, and must not refresh Slackware-current metadata, mutate packages, modify GRUB/grubenv, or reboot. The reviewed closure scope is `083e44cb173729870b9f825da8363b4576ea501767c126a5384f4438863de8de`. A clean result closes the optional Slackware-current rollback boot demonstration and routes project work back to the pending Slackware 15.0 ELILO preflight repeat.
 
+
+
+25. Run `tests/reference/test-elilo-oldkernel-cleanup-source-and-plan-preflight-harness.sh` whenever the mature ELILO retention acceptance record, authenticated Slackpkg checksum handling, local active-kernel archive resolution, package-archive structural inspection, real-system cleanup inventory generation, fourteen-step dry-run integration, or cleanup-readiness gating changes. Real cleanup must remain unauthorized in this boundary.

@@ -1,0 +1,33 @@
+{
+  "accepted_retention_record_sha256": "5ffd8e41dd466e259e50b27164df4d34082b979b30e3eda39afc67ee7c36e29f",
+  "active_kernel": "5.15.209",
+  "apply_authorized": false,
+  "cleanup_authorized": false,
+  "confirmation_scope_sha256": "8dec059faaf5af26d59311e0efe80e2a1c7ffd4b4ffe2f8e362ad0228514b3c8",
+  "dry_runner_sha256": "66559fab9a7c94dd4e68e6557f4eafc83dbc8427bdc80b7e6ddb9923711f6300",
+  "expected_script_sha256": "85260001640e7930764c9f36bb884c8a57e63020fe74d12069a4b14effd718ec",
+  "hostname_fqdn": "vbox-slack15.vbox-slack15.org",
+  "metadata_primary_fingerprint": "EC5649DA401E22ABFA6736EF6A4463C040102233",
+  "next_required_stage": "review accepted source-and-plan evidence and issue a separate plan-bound cleanup authorization",
+  "planner_sha256": "eccff88e96a3c78fe65e1ee40fd1099ba8fc373564e6d9c9490bdc4fb6cf28fd",
+  "planning": {
+    "commands_executed": [],
+    "mutations_performed": [],
+    "require_fourteen_step_dry_run": true,
+    "require_real_system_inventory": true
+  },
+  "retention_evidence_sha256": "dacf3bf5ecbe1464b9aacd42457f47dcf91d8e79eed61a29bed40173e89c81af",
+  "reviewed": true,
+  "rollback_kernel": "5.15.19",
+  "scenario": "elilo-oldkernel-cleanup-source-and-plan-policy",
+  "schema": 1,
+  "signing_key_sha256": "82af92f3a9abdae815534912e7c438f1bad50b8516bb8d75fe9e08444f727daf",
+  "source_policy": {
+    "local_cache_only": true,
+    "network_download_allowed": false,
+    "repository_refresh_allowed": false,
+    "require_authenticated_slackpkg_checksums": true,
+    "require_exact_active_archive_triple": true
+  },
+  "target": "slackware-15.0"
+}

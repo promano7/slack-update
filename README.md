@@ -2608,3 +2608,44 @@ sudo bash tests/acceptance/reference/test-current-rollback-return-verification-c
 
 A clean result requires the normal generic GRUB path to have returned to 6.18.42, retains the tested 6.18.40 kernel/initrd/module tree and explicit rollback entry, proves the package and boot-sensitive state are unchanged during verification, and reports `normal_return_verified=true`, `rollback_retained=true`, `rollback_boot_demonstration_closed=true`, `pause_safe=true`, `current_work_remaining=false`, and `next_stage=slackware-15.0-elilo-preflight-repeat-review`. The accepted step-91 record SHA-256 is `ba33afa568a550ef16659861d25dc41769d2bec6ae76ad8d47658a12f35e64a0`; script SHA-256 is `a3663e1a254a7bcc24b427681ec581e96b325f40314fb713eccfd9040731f2eb`, policy SHA-256 is `06fcc1c72b9405db7edd64f1590ad7a9f1c9edeff07ab3c08a100f0ee16a5a10`, confirmation scope SHA-256 is `083e44cb173729870b9f825da8363b4576ea501767c126a5384f4438863de8de`, and focused harness SHA-256 is `c2b797f5fffb075298e3c9a7305d05c3839236556df5c63a49d78c6ce5c166e3`.
 
+
+
+### Slackware 15.0 ELILO mature cleanup source-and-plan preflight
+
+The 2026-08-11 mature retention rerun is accepted with archive SHA-256
+`dacf3bf5ecbe1464b9aacd42457f47dcf91d8e79eed61a29bed40173e89c81af`.
+It runs kernel `5.15.209`, retains rollback `5.15.19`, satisfies the seven-day
+retention and later-boot gates, preserves exactly three active plus three
+rollback boot-kernel package records, and still records
+`cleanup_authorized=false`.
+
+Step 93 verifies the inputs required before any cleanup authorization. It never
+runs `slackpkg update` or `slackpkg download`: the exact active
+`kernel-generic`, `kernel-huge`, and `kernel-modules` `5.15.209-x86_64-1`
+archives must already exist as unique regular files below `/var/cache/packages`.
+The preflight authenticates the existing Slackpkg `CHECKSUMS.md5` metadata using
+its detached signature and the reviewed Slackware signing key, checks each
+archive against that authenticated metadata, inspects the package members, and
+computes a SHA-256 for each exact archive.
+
+Run:
+
+```bash
+sudo bash tests/acceptance/reference/test-elilo-oldkernel-cleanup-source-and-plan-preflight.sh \
+    --target slackware-15.0 \
+    --confirm-hostname-fqdn vbox-slack15.vbox-slack15.org \
+    --confirm-retention-evidence-sha256 dacf3bf5ecbe1464b9aacd42457f47dcf91d8e79eed61a29bed40173e89c81af \
+    --confirm-active-kernel 5.15.209 \
+    --confirm-rollback-kernel 5.15.19 \
+    --confirm-cleanup-plan-review-sha256 8dec059faaf5af26d59311e0efe80e2a1c7ffd4b4ffe2f8e362ad0228514b3c8
+```
+
+A clean result emits `source_ready=true`, `plan_ready=true`, and
+`cleanup_ready=true`, but must retain `cleanup_authorized=false` and
+`apply_authorized=false`. The real-system inventory is passed through the
+canonical cleanup planner and then through the existing dry-run executor under a
+dry-run-only authorization. Exactly fourteen proposed actions are rendered as
+data; no command or mutation is executed. Missing cache archives, unauthenticated
+checksum metadata, kernel drift, package-record drift, or ELILO artifact drift
+fail closed. A successful result routes only to the separate
+`elilo-oldkernel-cleanup-authorization-review`.

@@ -1,0 +1,19 @@
+{
+  "active_kernel": "6.18.42",
+  "archive_sha256": "4fb16a55e48441f6e74cda471ff776d82f179eb396f7365d43d5f86499179334",
+  "captured_at_utc": "2026-08-11T17:36:35Z",
+  "current_work_remaining": false,
+  "failures": 0,
+  "normal_return_verified": true,
+  "note": "The copied sidecar referenced the original absolute /var/tmp path; the uploaded archive digest was independently recomputed and matched.",
+  "passes": 5,
+  "pause_safe": true,
+  "result": "PASS",
+  "rollback_boot_demonstration_closed": true,
+  "rollback_kernel": "6.18.40",
+  "rollback_retained": true,
+  "scenario": "current-rollback-return-verification-closure",
+  "skips": 0,
+  "status": "accepted",
+  "target": "slackware-current"
+}

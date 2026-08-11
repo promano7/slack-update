@@ -1,0 +1,70 @@
+{
+  "cleanup_authorized": false,
+  "cleanup_eligible": true,
+  "elilo": {
+    "active_image": "vmlinuz-generic-5.15.209",
+    "active_initrd": "initrd-generic-5.15.209.gz",
+    "active_initrd_sha256": "777c8d971342b15c9d5ece42d26e869b8d804ac37a17044113aae18aa51124df",
+    "active_kernel_sha256": "7a001bd59a0a86567e18798bfa4951dc5ef916004d92daed9a1e532eff04a2a9",
+    "config": "/boot/efi/EFI/Slackware/elilo.conf",
+    "config_sha256": "434bd121571d7ea9347ed9e7b91228f058d6aed7a3ffdd08609129c1ab6bfa74",
+    "default_label": "vmlinuz",
+    "rollback_image": "vmlinuz",
+    "rollback_initrd": "initrd.gz",
+    "rollback_initrd_sha256": "f30e0948e987d7b8e57fb5cffc02f2d43d9e9e1b0823cdf974f2c20804528fe4",
+    "rollback_kernel_sha256": "41a1eb3cf8ab261bcac4e8be67d32a8eb766847257886fcb8b4153ebc654639a",
+    "rollback_label": "oldkernel"
+  },
+  "evidence": {
+    "archive_sha256": "dacf3bf5ecbe1464b9aacd42457f47dcf91d8e79eed61a29bed40173e89c81af",
+    "captured_at_utc": "2026-08-11T17:46:14Z",
+    "failures": 0,
+    "integrity_verified_after_upload": true,
+    "passes": 24,
+    "portable_sidecar": true
+  },
+  "immutability": {
+    "boot_state_unchanged": true,
+    "package_database_unchanged": true,
+    "package_name_snapshot_sha256": "b295eaa1abde0f961d21227d51988cead0a7794a298a5a980b19fb312d7b897a",
+    "retained_artifacts_manifest_sha256": "95bbc279c56b63d088bc25a54abda0dcdf0e70fa920fc32b22260bfafe9fdec5"
+  },
+  "kernel": {
+    "active": "5.15.209",
+    "active_module_tree_present": true,
+    "active_package_records": [
+      "kernel-generic-5.15.209-x86_64-1",
+      "kernel-huge-5.15.209-x86_64-1",
+      "kernel-modules-5.15.209-x86_64-1"
+    ],
+    "rollback": "5.15.19",
+    "rollback_module_tree_present": true,
+    "rollback_package_records": [
+      "kernel-generic-5.15.19-x86_64-2",
+      "kernel-huge-5.15.19-x86_64-2",
+      "kernel-modules-5.15.19-x86_64-2"
+    ]
+  },
+  "next_required_stage": "verify exact active package sources and generate a real-system cleanup plan before separate authorization",
+  "platform": {
+    "boot_loader": "elilo",
+    "firmware": "uefi",
+    "hostname": "vbox-slack15.vbox-slack15.org",
+    "package_database_configured": "/var/log/packages",
+    "package_database_resolved": "/var/lib/pkgtools/packages",
+    "slackware_version": "Slackware 15.0"
+  },
+  "retention": {
+    "accepted_reboot_reviewed_at_local": "2026-08-01T19:51:00+02:00",
+    "age_seconds_at_capture": 863713,
+    "later_boot_after_review_observed": true,
+    "minimum_days": 7,
+    "observed_boot_started_at_utc": "2026-08-11T17:44:26Z",
+    "required_seconds": 604800,
+    "required_successful_boots": 2,
+    "window_met": true
+  },
+  "scenario": "elilo-oldkernel-retention-preflight",
+  "status": "accepted-mature-retention",
+  "target": "slackware-15.0"
+}
