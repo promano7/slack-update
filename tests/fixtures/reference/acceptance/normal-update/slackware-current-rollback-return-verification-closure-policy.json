@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "scenario": "current-rollback-return-verification-closure",
+  "target": "slackware-current",
+  "reviewed": true,
+  "expected_review_script_sha256": "a3663e1a254a7bcc24b427681ec581e96b325f40314fb713eccfd9040731f2eb",
+  "accepted_return_review_record_sha256": "ba33afa568a550ef16659861d25dc41769d2bec6ae76ad8d47658a12f35e64a0",
+  "accepted_return_review_archive_sha256": "c4a8e207ad3af7ef118c2371f3cec0694c1e5fca50599d4b5a2e89daa2b77d7f",
+  "confirmation_scope_sha256": "083e44cb173729870b9f825da8363b4576ea501767c126a5384f4438863de8de",
+  "hostname_short": "pcold-slack",
+  "hostname_fqdn": "pcold-slack.pcold-slack.org",
+  "active_kernel": "6.18.42",
+  "rollback_kernel": "6.18.40",
+  "repository_metadata_refresh_allowed": false,
+  "package_database_mutation_allowed": false,
+  "grub_configuration_mutation_allowed": false,
+  "grubenv_mutation_allowed": false,
+  "reboot_execution_allowed": false,
+  "success_pause_safe": true,
+  "success_current_work_remaining": false,
+  "success_next_stage": "slackware-15.0-elilo-preflight-repeat-review"
+}

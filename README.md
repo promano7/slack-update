@@ -2590,3 +2590,21 @@ sudo bash tests/acceptance/reference/test-current-rollback-boot-verification-and
 A clean result reports `rollback_boot_verified=true`, `return_authorized=true`, `return_executed=false`, `manual_selection_required=false`, and `next_stage=current-rollback-return-manual-reboot`. Copy and verify the evidence pair first. Then reboot normally without editing GRUB and without manually selecting the rollback entry; the unchanged first/default path is expected to return to 6.18.42. Do not refresh Slackware-current metadata before the final return verification.
 
 Step 91 never invokes Slackpkg, `grub-mkconfig`, package mutation, grubenv setters, reboot, shutdown, or poweroff. The package database and boot-sensitive snapshots must be byte-identical before and after the review.
+
+### Phase 1 step 92: rollback normal-return verification and closure
+
+Run step 92 only after step 91 was accepted and the machine was rebooted normally without manually selecting the rollback entry. The host must report `uname -r` as `6.18.42`. This boundary is read-only and independent of later Slackware-current publications: it does not invoke Slackpkg, refresh repository metadata, mutate packages, modify GRUB or grubenv, or reboot.
+
+```bash
+sudo bash tests/acceptance/reference/test-current-rollback-return-verification-closure.sh \
+    --target slackware-current \
+    --confirm-hostname pcold-slack \
+    --confirm-hostname-fqdn pcold-slack.pcold-slack.org \
+    --confirm-return-review-evidence-sha256 c4a8e207ad3af7ef118c2371f3cec0694c1e5fca50599d4b5a2e89daa2b77d7f \
+    --confirm-active-kernel 6.18.42 \
+    --confirm-rollback-kernel 6.18.40 \
+    --confirm-closure-sha256 083e44cb173729870b9f825da8363b4576ea501767c126a5384f4438863de8de
+```
+
+A clean result requires the normal generic GRUB path to have returned to 6.18.42, retains the tested 6.18.40 kernel/initrd/module tree and explicit rollback entry, proves the package and boot-sensitive state are unchanged during verification, and reports `normal_return_verified=true`, `rollback_retained=true`, `rollback_boot_demonstration_closed=true`, `pause_safe=true`, `current_work_remaining=false`, and `next_stage=slackware-15.0-elilo-preflight-repeat-review`. The accepted step-91 record SHA-256 is `ba33afa568a550ef16659861d25dc41769d2bec6ae76ad8d47658a12f35e64a0`; script SHA-256 is `a3663e1a254a7bcc24b427681ec581e96b325f40314fb713eccfd9040731f2eb`, policy SHA-256 is `06fcc1c72b9405db7edd64f1590ad7a9f1c9edeff07ab3c08a100f0ee16a5a10`, confirmation scope SHA-256 is `083e44cb173729870b9f825da8363b4576ea501767c126a5384f4438863de8de`, and focused harness SHA-256 is `c2b797f5fffb075298e3c9a7305d05c3839236556df5c63a49d78c6ce5c166e3`.
+
