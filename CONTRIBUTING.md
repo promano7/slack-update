@@ -333,3 +333,10 @@ Changes to `test-current-rollback-boot-authorization-review.sh` must remain non-
 
 This boundary may authorize only a manual selection of the exact reviewed rollback entry. It must never call Slackpkg, regenerate GRUB, edit grubenv, change the configured default, reboot, power off, or execute the boot itself. Before/after package and sensitive snapshots must be byte-identical. A successful result routes only to `current-rollback-boot-test-manual-reboot`.
 
+
+
+### Optional rollback boot verification and return boundary
+
+Changes to `test-current-rollback-boot-verification-and-return-review.sh` must remain non-mutating and must bind the accepted step-90 authorization archive. Require the running kernel and kernel osrelease to match the rollback version, retain the exact package database, kernel/initrd/module identities, validate module `vermagic`, preserve the active generic links and first/default GRUB entry, and reject a pending `next_entry`, saved rollback selection, conflicting `BOOT_IMAGE`, root UUID drift, package drift, or boot-artifact drift.
+
+A successful review may authorize only a normal manual reboot using the unchanged configured default. It must not call Slackpkg, regenerate GRUB, set or unset grubenv variables, change packages, reboot, shut down, or power off. Before/after package and sensitive snapshots must be byte-identical. The next stage is the final post-return verification on 6.18.42.

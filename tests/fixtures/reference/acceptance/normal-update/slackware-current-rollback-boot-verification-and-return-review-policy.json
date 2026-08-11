@@ -1,0 +1,22 @@
+{
+  "accepted_boot_authorization_archive_sha256": "f78f4a249c1fa44b1e6d171f1f283cd6679dd90623a34686fcf225d1cc1681fa",
+  "accepted_boot_authorization_record_sha256": "d5a503ca478be5a12589eae61e8061b0616671c04b230e85904adae23967b2c4",
+  "active_kernel": "6.18.42",
+  "authorized_return_action": "normal reboot using the unchanged active default without manual rollback selection",
+  "confirmation_scope_sha256": "247fefc960f7dc333ffe64328baaaff04e03fbe42ca17f144145ed862472684a",
+  "expected_return_kernel": "6.18.42",
+  "expected_review_script_sha256": "b5b129a6c973fed4ad13f26e9bd6e06dfc14e9cdec780fabcfe05801d157ae3b",
+  "grub_mutation_forbidden": true,
+  "grubenv_mutation_forbidden": true,
+  "hostname_fqdn": "pcold-slack.pcold-slack.org",
+  "hostname_short": "pcold-slack",
+  "package_mutation_forbidden": true,
+  "reboot_execution_forbidden": true,
+  "repository_metadata_refresh_forbidden": true,
+  "required_running_kernel": "6.18.40",
+  "reviewed": true,
+  "rollback_kernel": "6.18.40",
+  "scenario": "current-rollback-boot-verification-and-return-review",
+  "schema": 1,
+  "target": "slackware-current"
+}

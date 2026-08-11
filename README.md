@@ -2570,3 +2570,23 @@ sudo bash tests/acceptance/reference/test-current-rollback-boot-authorization-re
 
 A clean result reports `boot_authorized=true`, `boot_executed=false`, `manual_selection_required=true`, and `next_stage=current-rollback-boot-test-manual-reboot`. Copy and verify the evidence pair before rebooting. Then reboot manually and select exactly `Slackware GNU/Linux (rollback 6.18.40)` / `slackware-rollback-6.18.40`; do not edit GRUB, set a one-time grubenv entry, or refresh Slackware-current metadata first.
 
+
+
+### Phase 1 step 91: rollback boot verification and normal-return review
+
+Run step 91 only after step 90 was accepted and the machine was manually booted by selecting `Slackware GNU/Linux (rollback 6.18.40)` once. The review is read-only. It requires the running kernel and kernel osrelease to be `6.18.40`, validates the reviewed root source and UUID, records `/proc/cmdline`, rejects a conflicting `BOOT_IMAGE`, checks the exact rollback kernel and gzip-valid initrd, rebuilds the accepted 5,490-object module manifest, verifies module `vermagic`, and proves the persistent GRUB default still points to the active 6.18.42 generic kernel/initrd pair.
+
+```bash
+sudo bash tests/acceptance/reference/test-current-rollback-boot-verification-and-return-review.sh \
+    --target slackware-current \
+    --confirm-hostname pcold-slack \
+    --confirm-hostname-fqdn pcold-slack.pcold-slack.org \
+    --confirm-boot-authorization-evidence-sha256 f78f4a249c1fa44b1e6d171f1f283cd6679dd90623a34686fcf225d1cc1681fa \
+    --confirm-active-kernel 6.18.42 \
+    --confirm-rollback-kernel 6.18.40 \
+    --confirm-return-review-sha256 247fefc960f7dc333ffe64328baaaff04e03fbe42ca17f144145ed862472684a
+```
+
+A clean result reports `rollback_boot_verified=true`, `return_authorized=true`, `return_executed=false`, `manual_selection_required=false`, and `next_stage=current-rollback-return-manual-reboot`. Copy and verify the evidence pair first. Then reboot normally without editing GRUB and without manually selecting the rollback entry; the unchanged first/default path is expected to return to 6.18.42. Do not refresh Slackware-current metadata before the final return verification.
+
+Step 91 never invokes Slackpkg, `grub-mkconfig`, package mutation, grubenv setters, reboot, shutdown, or poweroff. The package database and boot-sensitive snapshots must be byte-identical before and after the review.

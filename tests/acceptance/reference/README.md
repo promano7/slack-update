@@ -1334,3 +1334,21 @@ sudo bash tests/acceptance/reference/test-current-rollback-boot-authorization-re
 
 A clean result reports `boot_authorized=true`, `boot_executed=false`, `manual_selection_required=true`, and `next_stage=current-rollback-boot-test-manual-reboot`. Copy and verify the evidence pair before rebooting. Then reboot manually and select exactly `Slackware GNU/Linux (rollback 6.18.40)` / `slackware-rollback-6.18.40`; do not edit GRUB, set a one-time grubenv entry, or refresh Slackware-current metadata first.
 
+
+
+### Phase 1 step 91: rollback boot verification and normal-return review
+
+After manually selecting the authorized rollback entry and observing `uname -r` as `6.18.40`, run:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-rollback-boot-verification-and-return-review.sh \
+    --target slackware-current \
+    --confirm-hostname pcold-slack \
+    --confirm-hostname-fqdn pcold-slack.pcold-slack.org \
+    --confirm-boot-authorization-evidence-sha256 f78f4a249c1fa44b1e6d171f1f283cd6679dd90623a34686fcf225d1cc1681fa \
+    --confirm-active-kernel 6.18.42 \
+    --confirm-rollback-kernel 6.18.40 \
+    --confirm-return-review-sha256 247fefc960f7dc333ffe64328baaaff04e03fbe42ca17f144145ed862472684a
+```
+
+The boundary verifies the real rollback runtime, exact module tree and `vermagic`, root UUID, persistent rollback entry, clear grubenv state, and unchanged 6.18.42 generic default. It is read-only. On success, copy and verify the evidence pair, then reboot normally without selecting the rollback entry; the final post-return test must observe 6.18.42.
