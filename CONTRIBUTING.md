@@ -326,3 +326,10 @@ Changes to `test-current-rollback-reconstruction-authorized-apply.sh` require a 
 The executor must remain transactional. Before mutation, rerun the accepted authorization review and capture package plus sensitive state. Stage and verify the complete payload before installing it. Keep owner-only backups of the module placeholder, active GRUB configuration, and any existing `/boot/initrd-tree`. Validate the temporary GRUB configuration before same-directory atomic replacement. Every failure path after mutation begins must attempt restoration and must set `pause_safe=true` only after byte-equivalent baseline verification.
 
 Acceptance changes must extend the focused harness with both commit and rollback cases. At minimum cover depmod failure, mkinitrd failure after partial output creation, GRUB generation or semantic-validation failure, source drift before mutation, authorization rejection before mutation, generic-link preservation, package-database immutability, and initrd-tree restoration.
+
+### Optional rollback boot authorization boundary
+
+Changes to `test-current-rollback-boot-authorization-review.sh` must remain non-mutating. Bind the accepted step-89 reconstruction, exact package database snapshot, active 6.18.42 boot pair, versioned 6.18.40 kernel/initrd/module tree, explicit rollback fragment, active GRUB semantics, and grubenv state before issuing authorization. Reject duplicate or ambiguous rollback entries, a pending `next_entry`, a saved rollback selection, package drift, generic-link drift, or any boot artifact mismatch.
+
+This boundary may authorize only a manual selection of the exact reviewed rollback entry. It must never call Slackpkg, regenerate GRUB, edit grubenv, change the configured default, reboot, power off, or execute the boot itself. Before/after package and sensitive snapshots must be byte-identical. A successful result routes only to `current-rollback-boot-test-manual-reboot`.
+

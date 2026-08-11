@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "scenario": "current-rollback-boot-authorization-review",
+  "target": "slackware-current",
+  "reviewed": true,
+  "expected_review_script_sha256": "3e02371aa4d50bf61ab96185948a21b9fde97c5402bd3411287be43675db29b2",
+  "accepted_apply_record_sha256": "83f1db00313c8249a8c08e3d3b3764df4093385c96f5669b29b8c4d984d5f36b",
+  "accepted_apply_archive_sha256": "dc19821f783ad334a49073eaf7596fdbf48471bd8e20fb87753266b9159f475d",
+  "confirmation_scope_sha256": "5a3ea1d21c691d16259f2e7409e5c684391f1a0ead1a4eafe105e7291a7f96e7",
+  "hostname_short": "pcold-slack",
+  "hostname_fqdn": "pcold-slack.pcold-slack.org",
+  "active_kernel": "6.18.42",
+  "rollback_kernel": "6.18.40",
+  "boot_entry_id": "slackware-rollback-6.18.40",
+  "boot_entry_title": "Slackware GNU/Linux (rollback 6.18.40)",
+  "manual_selection_required": true,
+  "grubenv_mutation_allowed": false,
+  "grub_configuration_mutation_allowed": false,
+  "package_database_mutation_allowed": false,
+  "repository_metadata_refresh_allowed": false,
+  "reboot_execution_allowed": false,
+  "success_next_stage": "current-rollback-boot-test-manual-reboot"
+}

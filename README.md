@@ -2552,3 +2552,21 @@ A clean result reports `apply_executed=true`, `apply_committed=true`, `rollback_
 If a failure occurs after mutation starts, the wrapper restores the captured GRUB configuration, removes newly created rollback boot artifacts, restores the original module placeholder and `/boot/initrd-tree`, and compares the full sensitive and package snapshots. A failed run permits poweroff only when it explicitly reports `pause_safe=true`; otherwise the machine must remain on for manual recovery review.
 
 Script SHA-256 is `d98fa9546cc2be38a27436a279f740bd4d7427163287cc774bd77496acde0644`, policy SHA-256 is `960599ca8763b8e67d65f770b4957eb25b36e5666f455836d045e3488acbb839`, accepted step-88 record SHA-256 is `5f65bc36c7f00a4a7baa601ecd0f4732452cff4132ddfb8dde2b8fc5532978a4`, confirmation scope SHA-256 is `df59fe7d67ce54859da0db6c07f055d67ae6ce212498d3a28926432ec0610af9`, and focused-harness SHA-256 is `8313e892a2659181400ec1cadc6f11aa6a87bcb2bea8d9580f8e59aca09ed6db`. The focused harness contains 70 checks. The complete inventory contains 52 suites and 3,599 checks with zero failures; static validation covers 86 shell scripts and 98 JSON files.
+
+### Phase 1 step 90: rollback boot authorization review
+
+After the accepted step-89 reconstruction, run this review before attempting the optional real boot of 6.18.40. The review is non-mutating and does not refresh Slackware-current metadata, modify packages or GRUB, edit grubenv, or reboot. It requires the exact step-89 package snapshot and boot artifacts, verifies that the 6.18.40 rollback entry is unique and complete, proves 6.18.42 remains the first/default path, and rejects any pending `next_entry` or saved rollback selection.
+
+```bash
+sudo bash tests/acceptance/reference/test-current-rollback-boot-authorization-review.sh \
+    --target slackware-current \
+    --confirm-hostname pcold-slack \
+    --confirm-hostname-fqdn pcold-slack.pcold-slack.org \
+    --confirm-apply-evidence-sha256 dc19821f783ad334a49073eaf7596fdbf48471bd8e20fb87753266b9159f475d \
+    --confirm-active-kernel 6.18.42 \
+    --confirm-rollback-kernel 6.18.40 \
+    --confirm-boot-review-sha256 5a3ea1d21c691d16259f2e7409e5c684391f1a0ead1a4eafe105e7291a7f96e7
+```
+
+A clean result reports `boot_authorized=true`, `boot_executed=false`, `manual_selection_required=true`, and `next_stage=current-rollback-boot-test-manual-reboot`. Copy and verify the evidence pair before rebooting. Then reboot manually and select exactly `Slackware GNU/Linux (rollback 6.18.40)` / `slackware-rollback-6.18.40`; do not edit GRUB, set a one-time grubenv entry, or refresh Slackware-current metadata first.
+
