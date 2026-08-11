@@ -1,0 +1,20 @@
+{
+  "accepted_recovery_record_sha256": "ad01d766112978f0e484e12831bc1a2ceabe85f44915d88be341ed56b133a5e3",
+  "accepted_revision_record_sha256": "7f927e0238ad95b5240a41430ae6e9ab76e825869b7929fe996721e51c14e1c4",
+  "active_kernel": "5.15.209",
+  "confirmation_scope_sha256": "31a091a8a82bba78e67b2dcf121d0e580932e700bca0b1c61007fefdd2420c2e",
+  "diagnostic_command": "/sbin/depmod -n 5.15.209",
+  "expected_script_sha256": "6fac9f9e07202ea392bbad8efa7f9c094e4eb5d13ad5cef10a88734783722cf0",
+  "failed_revision_1_archive_sha256": "e44fd3dbb0f0ba9ca2e2d131c36c6b8389b234855028b7581baf2994ece6f3bd",
+  "failed_revision_1_diagnostic_sha256": "b59e003a016f8bfcae4351303f410ed7876c24d69a7c7249c9bd0c4fb3ec914c",
+  "hostname_fqdn": "vbox-slack15.vbox-slack15.org",
+  "mutation_forbidden": true,
+  "next_stage_if_depmod_nonzero": "elilo-oldkernel-cleanup-depmod-validation-revision-review",
+  "next_stage_if_depmod_zero": "elilo-oldkernel-cleanup-final-predicate-instrumentation-review",
+  "reviewed": true,
+  "rollback_kernel": "5.15.19",
+  "scenario": "elilo-oldkernel-cleanup-final-contract-diagnostic",
+  "schema": 1,
+  "target": "slackware-15.0",
+  "third_attempt_authorized": false
+}

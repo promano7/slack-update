@@ -354,3 +354,8 @@ For Phase 1 step 92, preserve the accepted step-91 return-review archive boundar
 ## Generated module indexes
 
 When validating a reinstalled Slackware kernel module tree, do not treat generated depmod indexes as immutable package payload. Any exception must be an explicit closed path set, while `.ko*` objects and all non-generated files remain byte-identical and depmod is validated read-only.
+
+
+### ELILO cleanup retry diagnostics
+
+A recovered ELILO cleanup failure is not permission to retry the destructive transaction. When an aggregated final-state assertion fails, add or run a non-mutating diagnostic that records each unresolved predicate before revising or reauthorizing the executor. Preserve the retained private recovery archive until a later successful reboot-verification boundary explicitly permits cleanup.

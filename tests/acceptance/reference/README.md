@@ -1471,3 +1471,22 @@ sudo bash tests/acceptance/reference/test-elilo-oldkernel-cleanup-authorized-app
 ```
 
 This is a destructive transaction. It must retain the private recovery snapshot on success, must not reboot automatically, and must report `pause_safe=true` only after either a coherent committed cleanup or proven exact recovery. Do not reboot after the command until its evidence has been reviewed.
+
+
+### ELILO cleanup revision-1 final-contract diagnostic
+
+The second destructive cleanup attempt (step 98) was also recovered exactly and is not authorization for another retry. Its evidence SHA-256 is `e44fd3dbb0f0ba9ca2e2d131c36c6b8389b234855028b7581baf2994ece6f3bd`. Offline comparison proves that the attempted final package set was exact, every stable active-module file and every `.ko*` object remained byte-identical, and only the six reviewed generated depmod indexes changed.
+
+Before any third attempt, run the non-mutating final-contract diagnostic:
+
+```bash
+sudo bash tests/acceptance/reference/test-elilo-oldkernel-cleanup-final-contract-diagnostic.sh \
+    --target slackware-15.0 \
+    --confirm-hostname-fqdn vbox-slack15.vbox-slack15.org \
+    --confirm-failed-revision-evidence-sha256 e44fd3dbb0f0ba9ca2e2d131c36c6b8389b234855028b7581baf2994ece6f3bd \
+    --confirm-active-kernel 5.15.209 \
+    --confirm-rollback-kernel 5.15.19 \
+    --confirm-final-diagnostic-sha256 31a091a8a82bba78e67b2dcf121d0e580932e700bca0b1c61007fefdd2420c2e
+```
+
+The diagnostic revalidates the exact recovered state and retained private recovery archive, then executes only `/sbin/depmod -n 5.15.209`. It records the exit status plus stdout/stderr hashes and verifies package, boot, and module manifests are unchanged by the probe. It always keeps `third_attempt_authorized=false`, `cleanup_authorized=false`, `apply_authorized=false`, and `apply_executed=false`. A non-zero depmod exit routes to `elilo-oldkernel-cleanup-depmod-validation-revision-review`; a zero exit routes to `elilo-oldkernel-cleanup-final-predicate-instrumentation-review`.
