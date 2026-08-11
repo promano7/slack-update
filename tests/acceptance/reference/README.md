@@ -1450,3 +1450,7 @@ sudo bash tests/acceptance/reference/test-elilo-oldkernel-cleanup-authorized-app
     --confirm-rollback-kernel 5.15.19 \
     --confirm-recovery-review-sha256 1606e8e9a25f3eb9a9da372bc7133f9e20fd8dde73f012d93f0c0de6e53fd5e2
 ```
+
+### ELILO cleanup apply revision review
+
+`test-elilo-oldkernel-cleanup-authorized-apply-revision-review.sh` is a non-mutating boundary after a recovered cleanup false negative. It verifies the recovered state and retained recovery archive, reviews the exact revised executor and its closed six-file depmod exception, and can authorize only a later retry.

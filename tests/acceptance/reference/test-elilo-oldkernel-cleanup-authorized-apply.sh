@@ -13,6 +13,7 @@ SELF=$SCRIPT_DIR/test-elilo-oldkernel-cleanup-authorized-apply.sh
 POLICY=${ELILO_CLEANUP_APPLY_POLICY_PATH:-$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-15.0-elilo-oldkernel-cleanup-authorized-apply-policy.json}
 ACCEPTED_AUTH=${ELILO_CLEANUP_ACCEPTED_AUTH_PATH:-$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-15.0-elilo-oldkernel-cleanup-authorization-review-20260811-accepted.json}
 ACCEPTED_PLAN=${ELILO_CLEANUP_ACCEPTED_PLAN_PATH:-$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-15.0-elilo-oldkernel-cleanup-source-and-plan-preflight-20260811-accepted.json}
+ACCEPTED_REVISION=${ELILO_CLEANUP_ACCEPTED_REVISION_PATH:-$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-15.0-elilo-oldkernel-cleanup-authorized-apply-revision-review-20260811-accepted.json}
 
 TARGET=
 EXECUTE=0
@@ -22,6 +23,7 @@ CONFIRM_ACTIVE_KERNEL=
 CONFIRM_ROLLBACK_KERNEL=
 CONFIRM_CONTRACT_SHA256=
 CONFIRM_SCOPE_SHA256=
+CONFIRM_REVISION_EVIDENCE_SHA256=
 OUTPUT_DIR=
 PASS_COUNT=0
 FAILURE_COUNT=0
@@ -37,6 +39,7 @@ TEST_MODE=${SLACK_UPDATE_TEST_MODE:-0}
 ROOT_PREFIX=${SLACK_UPDATE_TEST_ROOT:-}
 REMOVEPKG=${ELILO_CLEANUP_REMOVEPKG:-/sbin/removepkg}
 UPGRADEPKG=${ELILO_CLEANUP_UPGRADEPKG:-/sbin/upgradepkg}
+DEPMOD=${ELILO_CLEANUP_DEPMOD:-/sbin/depmod}
 FAIL_AT=${ELILO_CLEANUP_FAIL_AT:-}
 TRANSACTION_STARTED=false
 MUTATION_STARTED=false
@@ -49,7 +52,8 @@ Usage: ${0##*/} --target slackware-15.0 --execute-authorized-cleanup \\
   --confirm-hostname-fqdn vbox-slack15.vbox-slack15.org \\
   --confirm-authorization-evidence-sha256 SHA256 \\
   --confirm-active-kernel 5.15.209 --confirm-rollback-kernel 5.15.19 \\
-  --confirm-apply-contract-sha256 SHA256 --confirm-apply-scope-sha256 SHA256
+  --confirm-apply-contract-sha256 SHA256 --confirm-revision-evidence-sha256 SHA256 \\
+  --confirm-apply-scope-sha256 SHA256
 
 Apply the exact authorized ELILO oldkernel cleanup. The transaction removes only
 the three reviewed 5.15.19 boot-kernel package records, reinstalls the exact
@@ -79,6 +83,7 @@ parse_args(){
    --confirm-active-kernel) CONFIRM_ACTIVE_KERNEL=$2; shift 2;;
    --confirm-rollback-kernel) CONFIRM_ROLLBACK_KERNEL=$2; shift 2;;
    --confirm-apply-contract-sha256) CONFIRM_CONTRACT_SHA256=${2,,}; shift 2;;
+   --confirm-revision-evidence-sha256) CONFIRM_REVISION_EVIDENCE_SHA256=${2,,}; shift 2;;
    --confirm-apply-scope-sha256) CONFIRM_SCOPE_SHA256=${2,,}; shift 2;;
    --output-dir) OUTPUT_DIR=$2; shift 2;;
    -h|--help) usage; exit 0;;
@@ -88,7 +93,7 @@ parse_args(){
  [ "$TARGET" = slackware-15.0 ] && [ "$EXECUTE" -eq 1 ] && [ -n "$CONFIRM_HOSTNAME_FQDN" ] \
   && is_sha "$CONFIRM_AUTH_EVIDENCE_SHA256" && safe_ver "$CONFIRM_ACTIVE_KERNEL" \
   && safe_ver "$CONFIRM_ROLLBACK_KERNEL" && [ "$CONFIRM_ACTIVE_KERNEL" != "$CONFIRM_ROLLBACK_KERNEL" ] \
-  && is_sha "$CONFIRM_CONTRACT_SHA256" && is_sha "$CONFIRM_SCOPE_SHA256"
+  && is_sha "$CONFIRM_CONTRACT_SHA256" && is_sha "$CONFIRM_REVISION_EVIDENCE_SHA256" && is_sha "$CONFIRM_SCOPE_SHA256"
 }
 
 json_get(){ python3 - "$1" "$2" <<'PY'
@@ -102,33 +107,36 @@ PY
 }
 
 validate_static(){
- python3 - "$POLICY" "$SELF" "$ACCEPTED_AUTH" "$ACCEPTED_PLAN" "$CONFIRM_HOSTNAME_FQDN" "$CONFIRM_AUTH_EVIDENCE_SHA256" "$CONFIRM_ACTIVE_KERNEL" "$CONFIRM_ROLLBACK_KERNEL" "$CONFIRM_CONTRACT_SHA256" "$CONFIRM_SCOPE_SHA256" <<'PY'
+ python3 - "$POLICY" "$SELF" "$ACCEPTED_AUTH" "$ACCEPTED_PLAN" "$ACCEPTED_REVISION" "$CONFIRM_HOSTNAME_FQDN" "$CONFIRM_AUTH_EVIDENCE_SHA256" "$CONFIRM_ACTIVE_KERNEL" "$CONFIRM_ROLLBACK_KERNEL" "$CONFIRM_CONTRACT_SHA256" "$CONFIRM_REVISION_EVIDENCE_SHA256" "$CONFIRM_SCOPE_SHA256" <<'PY'
 import hashlib,json,pathlib,sys
-pol,script,auth,plan,host,evidence,active,rollback,contract,scope_confirm=sys.argv[1:]
+pol,script,auth,plan,revision,host,evidence,active,rollback,contract,revision_evidence,scope_confirm=sys.argv[1:]
 def reg(p):
  p=pathlib.Path(p)
  if not p.is_file() or p.is_symlink(): raise SystemExit(1)
  return p
 def sh(p): return hashlib.sha256(reg(p).read_bytes()).hexdigest()
-p=json.loads(reg(pol).read_text()); a=json.loads(reg(auth).read_text()); pl=json.loads(reg(plan).read_text())
+p=json.loads(reg(pol).read_text()); a=json.loads(reg(auth).read_text()); pl=json.loads(reg(plan).read_text()); r=json.loads(reg(revision).read_text())
 scope=(
-'operation=elilo-oldkernel-cleanup-authorized-apply\n'
-' target=slackware-15.0\n'.replace(' ','')+
-f'hostname_fqdn={host}\n'+f'authorization_evidence_sha256={evidence}\n'+f'active_kernel={active}\n'+f'rollback_kernel={rollback}\n'+f'apply_contract_sha256={contract}\n'+f'accepted_authorization_record_sha256={sh(auth)}\n'+f'authorized_apply_script_sha256={sh(script)}\n').encode()
+'operation=elilo-oldkernel-cleanup-authorized-apply-revision-1\n'
+'target=slackware-15.0\n'
+f'hostname_fqdn={host}\n'+f'authorization_evidence_sha256={evidence}\n'+f'revision_evidence_sha256={revision_evidence}\n'+f'active_kernel={active}\n'+f'rollback_kernel={rollback}\n'+f'apply_contract_sha256={contract}\n'+f'accepted_authorization_record_sha256={sh(auth)}\n'+f'accepted_revision_record_sha256={sh(revision)}\n'+f'authorized_apply_script_sha256={sh(script)}\n').encode()
 calc=hashlib.sha256(scope).hexdigest()
-checks=[p.get('schema')==1,p.get('scenario')=='elilo-oldkernel-cleanup-authorized-apply',p.get('reviewed') is True,
+checks=[p.get('schema')==2,p.get('scenario')=='elilo-oldkernel-cleanup-authorized-apply-revision-1',p.get('reviewed') is True,
  p.get('expected_script_sha256')==sh(script),p.get('accepted_authorization_record_sha256')==sh(auth),
- p.get('accepted_source_plan_record_sha256')==sh(plan),p.get('accepted_authorization_archive_sha256')==evidence,
+ p.get('accepted_source_plan_record_sha256')==sh(plan),p.get('accepted_revision_record_sha256')==sh(revision),
+ p.get('accepted_authorization_archive_sha256')==evidence,p.get('accepted_revision_archive_sha256')==revision_evidence,
  p.get('apply_contract_sha256')==contract,p.get('confirmation_scope_sha256')==scope_confirm==calc,
  a.get('status')=='accepted-authorization-review',a.get('archive_sha256')==evidence,a.get('cleanup_authorized') is True,
  a.get('apply_authorized') is True,a.get('apply_executed') is False,a.get('hostname_fqdn')==host,
  a.get('active_kernel')==active,a.get('rollback_kernel')==rollback,a.get('apply_contract_sha256')==contract,
- pl.get('accepted') is True,pl.get('cleanup_plan_sha256')==a.get('cleanup_plan_sha256'),
- pl.get('hostname_fqdn')==host,pl.get('active_kernel')==active,pl.get('rollback_kernel')==rollback]
+ r.get('status')=='accepted-apply-revision-review',r.get('archive_sha256')==revision_evidence,
+ r.get('retry_authorized') is True,r.get('apply_executed') is False,r.get('hostname_fqdn')==host,
+ r.get('active_kernel')==active,r.get('rollback_kernel')==rollback,r.get('base_apply_contract_sha256')==contract,
+ r.get('revised_apply_script_sha256')==sh(script),
+ pl.get('accepted') is True,pl.get('cleanup_plan_sha256')==a.get('cleanup_plan_sha256')]
 raise SystemExit(0 if all(checks) else 1)
 PY
 }
-
 init_output(){
  local base recovery_base
  RUN_STAMP=$(date -u +%Y%m%dT%H%M%SZ) || return 1
@@ -166,6 +174,34 @@ module_manifest(){
  [ -d "$dir" ] && [ ! -L "$dir" ] || return 1
  (cd "$dir" && find . -type f -print0 | LC_ALL=C sort -z | while IFS= read -r -d '' f; do sha256sum -- "$f"; done) > "$out"
 }
+is_generated_depmod_index(){
+ case "$1" in
+  ./modules.alias|./modules.alias.bin|./modules.dep|./modules.dep.bin|./modules.symbols|./modules.symbols.bin) return 0;;
+  *) return 1;;
+ esac
+}
+module_stable_manifest(){
+ local version=$1 out=$2 dir; dir=$(rooted "/lib/modules/$version")
+ [ -d "$dir" ] && [ ! -L "$dir" ] || return 1
+ (
+  cd "$dir" || exit 1
+  find . -type f -print0 | LC_ALL=C sort -z | while IFS= read -r -d '' f; do
+   is_generated_depmod_index "$f" || sha256sum -- "$f"
+  done
+ ) > "$out"
+}
+module_object_manifest(){
+ local version=$1 out=$2 dir; dir=$(rooted "/lib/modules/$version")
+ [ -d "$dir" ] && [ ! -L "$dir" ] || return 1
+ (cd "$dir" && find . -type f -name '*.ko*' -print0 | LC_ALL=C sort -z | while IFS= read -r -d '' f; do sha256sum -- "$f"; done) > "$out"
+}
+verify_generated_depmod_indexes(){
+ local version=$1 dir f; dir=$(rooted "/lib/modules/$version")
+ for f in modules.alias modules.alias.bin modules.dep modules.dep.bin modules.symbols modules.symbols.bin; do
+  [ -f "$dir/$f" ] && [ ! -L "$dir/$f" ] || return 1
+ done
+ "$DEPMOD" -n "$version" >/dev/null 2>&1
+}
 
 verify_live_boundary(){
  local ok=true expected rec path digest
@@ -181,6 +217,8 @@ verify_live_boundary(){
  [ "$(sha "$OUTPUT_DIR/boot.before.sha256" 2>/dev/null)" = "$expected" ] || ok=false
  module_manifest "$CONFIRM_ACTIVE_KERNEL" "$OUTPUT_DIR/modules-active.before.sha256" || ok=false
  module_manifest "$CONFIRM_ROLLBACK_KERNEL" "$OUTPUT_DIR/modules-rollback.before.sha256" || ok=false
+ module_stable_manifest "$CONFIRM_ACTIVE_KERNEL" "$OUTPUT_DIR/modules-active-stable.before.sha256" || ok=false
+ module_object_manifest "$CONFIRM_ACTIVE_KERNEL" "$OUTPUT_DIR/modules-active-objects.before.sha256" || ok=false
  while IFS=$'\t' read -r rec path digest; do
    [ -f "$(rooted "$path")" ] && [ ! -L "$(rooted "$path")" ] && [ "$(sha "$(rooted "$path")" 2>/dev/null)" = "$digest" ] || ok=false
  done < <(python3 - "$ACCEPTED_PLAN" <<'PY'
@@ -208,7 +246,7 @@ check_space_and_backup(){
  tar -C "$rootbase" -cpf "$recovery/boot.tar" boot || return 1
  tar -C "$rootbase" -cpf "$recovery/modules.tar" "lib/modules/$CONFIRM_ACTIVE_KERNEL" "lib/modules/$CONFIRM_ROLLBACK_KERNEL" || return 1
  tar -C "$rootbase" -cpf "$recovery/pkgtools.tar" var/lib/pkgtools || return 1
- cp -a -- "$OUTPUT_DIR/packages.before.txt" "$OUTPUT_DIR/boot.before.sha256" "$OUTPUT_DIR/modules-active.before.sha256" "$OUTPUT_DIR/modules-rollback.before.sha256" "$recovery/" || return 1
+ cp -a -- "$OUTPUT_DIR/packages.before.txt" "$OUTPUT_DIR/boot.before.sha256" "$OUTPUT_DIR/modules-active.before.sha256" "$OUTPUT_DIR/modules-rollback.before.sha256" "$OUTPUT_DIR/modules-active-stable.before.sha256" "$OUTPUT_DIR/modules-active-objects.before.sha256" "$recovery/" || return 1
  (cd "$recovery" && sha256sum boot.tar modules.tar pkgtools.tar) > "$recovery/archive.sha256" || return 1
  cp -a -- "$recovery/archive.sha256" "$OUTPUT_DIR/recovery-archive.sha256" || return 1
  RECOVERY_RETAINED=true
@@ -288,20 +326,26 @@ verify_active_boot(){
 }
 delete_efi_rollback(){ rm -- "$(rooted /boot/efi/EFI/Slackware/vmlinuz)" "$(rooted /boot/efi/EFI/Slackware/initrd.gz)"; }
 
-capture_final(){ capture_names "$OUTPUT_DIR/packages.after.txt" || return 1; module_manifest "$CONFIRM_ACTIVE_KERNEL" "$OUTPUT_DIR/modules-active.after.sha256" || return 1; }
+capture_final(){
+ capture_names "$OUTPUT_DIR/packages.after.txt" || return 1
+ module_manifest "$CONFIRM_ACTIVE_KERNEL" "$OUTPUT_DIR/modules-active.after.sha256" || return 1
+ module_stable_manifest "$CONFIRM_ACTIVE_KERNEL" "$OUTPUT_DIR/modules-active-stable.after.sha256" || return 1
+ module_object_manifest "$CONFIRM_ACTIVE_KERNEL" "$OUTPUT_DIR/modules-active-objects.after.sha256" || return 1
+}
 verify_final(){
  python3 - "$OUTPUT_DIR/packages.before.txt" "$OUTPUT_DIR/packages.after.txt" "$ACCEPTED_PLAN" <<'PY'
 import json,sys
 before=set(open(sys.argv[1]).read().splitlines()); after=set(open(sys.argv[2]).read().splitlines()); a=json.load(open(sys.argv[3]))
 if after != before-set(a['rollback_packages']): raise SystemExit(1)
 PY
- cmp -s "$OUTPUT_DIR/modules-active.before.sha256" "$OUTPUT_DIR/modules-active.after.sha256" || return 1
+ cmp -s "$OUTPUT_DIR/modules-active-stable.before.sha256" "$OUTPUT_DIR/modules-active-stable.after.sha256" || return 1
+ cmp -s "$OUTPUT_DIR/modules-active-objects.before.sha256" "$OUTPUT_DIR/modules-active-objects.after.sha256" || return 1
+ verify_generated_depmod_indexes "$CONFIRM_ACTIVE_KERNEL" || return 1
  [ ! -e "$(rooted /boot/efi/EFI/Slackware/vmlinuz)" ] && [ ! -e "$(rooted /boot/efi/EFI/Slackware/initrd.gz)" ] || return 1
  [ ! -e "$(rooted "/boot/vmlinuz-generic-$CONFIRM_ROLLBACK_KERNEL")" ] || return 1
  if [ -d "$(rooted "/lib/modules/$CONFIRM_ROLLBACK_KERNEL")" ]; then [ -z "$(find "$(rooted "/lib/modules/$CONFIRM_ROLLBACK_KERNEL")" -type f -name '*.ko*' -print -quit 2>/dev/null)" ] || return 1; fi
  verify_active_boot
 }
-
 recover(){
  local recovery=$RECOVERY_DIR rootbase=${ROOT_PREFIX:-/}
  RECOVERY_ATTEMPTED=true
@@ -332,6 +376,7 @@ hostname=$CONFIRM_HOSTNAME_FQDN
 active_kernel=$CONFIRM_ACTIVE_KERNEL
 rollback_kernel=$CONFIRM_ROLLBACK_KERNEL
 authorization_evidence_sha256=$CONFIRM_AUTH_EVIDENCE_SHA256
+revision_evidence_sha256=$CONFIRM_REVISION_EVIDENCE_SHA256
 apply_contract_sha256=$CONFIRM_CONTRACT_SHA256
 apply_executed=$APPLY_EXECUTED
 apply_committed=$APPLY_COMMITTED
@@ -353,10 +398,10 @@ main(){
  parse_args "$@" || { usage >&2; return 2; }
  [ "$(id -u)" -eq 0 ] || { err 'must run as root'; return 2; }
  if [ "$TEST_MODE" != 1 ]; then
-  [ -z "$ROOT_PREFIX" ] && [ "$REMOVEPKG" = /sbin/removepkg ] && [ "$UPGRADEPKG" = /sbin/upgradepkg ] && [ -z "$FAIL_AT" ] || { err 'test-only overrides are forbidden in production mode'; return 2; }
+  [ -z "$ROOT_PREFIX" ] && [ "$REMOVEPKG" = /sbin/removepkg ] && [ "$UPGRADEPKG" = /sbin/upgradepkg ] && [ "$DEPMOD" = /sbin/depmod ] && [ -z "$FAIL_AT" ] || { err 'test-only overrides are forbidden in production mode'; return 2; }
  fi
  init_output || return 2
- if validate_static; then pass 'the accepted step-94 authorization, exact code, apply contract, and execution scope are bound'; else fail 'the static authorized cleanup boundary does not match'; fi
+ if validate_static; then pass 'the accepted step-94 authorization, accepted revision review, exact revised code, apply contract, and execution scope are bound'; else fail 'the static authorized cleanup boundary does not match'; fi
  if [ "$FAILURE_COUNT" -eq 0 ] && verify_live_boundary; then pass 'the live 5.15.209 ELILO state, exact package set, module trees, boot artifacts, and cached active archives still match the authorization boundary'; else if [ "$FAILURE_COUNT" -eq 0 ]; then fail 'the live cleanup boundary drifted before execution'; else skip 'live validation requires a valid static boundary'; fi; fi
  if [ "$FAILURE_COUNT" -eq 0 ] && check_space_and_backup; then pass 'a private recovery snapshot and sufficient recovery space were secured before mutation'; else if [ "$FAILURE_COUNT" -eq 0 ]; then fail 'the recovery snapshot could not be secured safely'; else skip 'recovery capture requires a valid live boundary'; fi; fi
  if [ "$FAILURE_COUNT" -eq 0 ]; then

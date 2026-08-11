@@ -1,0 +1,11 @@
+{
+  "accepted_recovery_archive_sha256": "2c1b622653231a3a499ce4aa4076414f7edcfa9d7fdb174b102d7144665742d4",
+  "accepted_recovery_record_sha256": "ad01d766112978f0e484e12831bc1a2ceabe85f44915d88be341ed56b133a5e3",
+  "confirmation_scope_sha256": "8944c790b26b82d9b8a348417695f7e42730baca5216cf7935b2037bf948a368",
+  "expected_script_sha256": "7b0728b59ea251d40586ca2bd22583efb7772ad1224802662f3c86fadf0f1ba9",
+  "reviewed": true,
+  "revised_apply_script_sha256": "680bf2e4b18f3ff9a3939c4fa947a689347ed15c4f25df343241f62fe55a21de",
+  "revision_contract_sha256": "5054c7126abf2b9d2694640318934d25fc41d60d5830802ac9f10af29fb15aea",
+  "scenario": "elilo-oldkernel-cleanup-authorized-apply-revision-review",
+  "schema": 1
+}

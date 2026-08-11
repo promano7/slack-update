@@ -79,6 +79,9 @@ Step 94 is now accepted with evidence SHA-256 `9ed0b6f4c989e4ea5d1742fc47d2ae5c3
 
 The first real step-95 apply on 2026-08-11 did not commit: the cleanup itself reached the expected package and ELILO state, but reinstalling the active kernel modules regenerated six `depmod` index files, so the original byte-identical whole-module-tree assertion failed. Automatic recovery restored the exact pre-apply state and retained the private recovery backup. Step 96 is therefore a non-mutating recovery review; it verifies that exact restoration persists and records the narrow `generated-depmod-index-byte-drift` false negative before any revised cleanup executor can be considered.
 
+Step 97 reviews a revised executor after the recovered state was reconfirmed even after an intervening VM reboot. The revision permits byte drift only in the six reviewed top-level depmod indexes (`modules.alias{,.bin}`, `modules.dep{,.bin}`, and `modules.symbols{,.bin}`), requires every kernel module object and every other module-tree file to remain byte-identical, and requires read-only `depmod -n` validation. Step 97 does not apply cleanup; it only authorizes a later retry bound to the exact revised executor.
+
+
 ## Goals
 
 - Provide a reliable and understandable update workflow for Slackware.

@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "scenario": "elilo-oldkernel-cleanup-authorized-apply-revision-contract",
+  "reviewed": true,
+  "active_kernel": "5.15.209",
+  "rollback_kernel": "5.15.19",
+  "base_apply_contract_sha256": "e5b587aacb911a05428706a09c3d7a85dc35a9802e46ccf8131cb3569dd6806f",
+  "immutable_module_validation": {
+    "compare_all_kernel_module_objects_byte_for_byte": true,
+    "compare_all_non_generated_module_files_byte_for_byte": true,
+    "generated_depmod_indexes_allowed_to_change": [
+      "./modules.alias",
+      "./modules.alias.bin",
+      "./modules.dep",
+      "./modules.dep.bin",
+      "./modules.symbols",
+      "./modules.symbols.bin"
+    ],
+    "additional_generated_paths_allowed": false,
+    "require_all_six_generated_indexes_after_reinstall": true,
+    "require_read_only_depmod_validation": true,
+    "read_only_depmod_command": "/sbin/depmod -n 5.15.209"
+  },
+  "recovery_rules_unchanged": true,
+  "rollback_package_set_unchanged": true,
+  "active_package_reinstall_set_unchanged": true,
+  "elilo_actions_unchanged": true,
+  "efi_cleanup_scope_unchanged": true
+}
