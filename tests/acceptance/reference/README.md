@@ -1528,3 +1528,22 @@ sudo bash tests/acceptance/reference/test-elilo-oldkernel-cleanup-rollback-modul
 ```
 
 A clean result reports `survivor_review_ready=true`, `survivor_removal_scope_ready=true`, `third_attempt_authorized=false`, `pause_safe=true`, and routes to `elilo-oldkernel-cleanup-rollback-module-survivor-authorization-review`.
+
+
+### ELILO cleanup rollback-module survivor authorization review
+
+After the accepted step-101 survivor review, run `test-elilo-oldkernel-cleanup-rollback-module-survivor-authorization-review.sh`. The review revalidates the exact recovered package/boot/module state and the exact three reviewed VirtualBox rollback objects plus their active counterparts. It emits `survivor-deletion-authorization.json` and may set only `survivor_deletion_authorized=true`. Recursive removal of `/lib/modules/5.15.19`, removal of any 5.15.209 counterpart, execution, and a third cleanup attempt remain forbidden.
+
+Production command:
+
+```bash
+sudo bash tests/acceptance/reference/test-elilo-oldkernel-cleanup-rollback-module-survivor-authorization-review.sh \
+    --target slackware-15.0 \
+    --confirm-hostname-fqdn vbox-slack15.vbox-slack15.org \
+    --confirm-survivor-review-evidence-sha256 90eb0d6a9c08acfc68993c8a6a967be17bdaa435aceef82b267483d5d05fe456 \
+    --confirm-active-kernel 5.15.209 \
+    --confirm-rollback-kernel 5.15.19 \
+    --confirm-survivor-authorization-sha256 6d83c315fd64fbe0894f2d55aaadb84a106a6eae57ffb11508734ea0e9b0be84
+```
+
+A clean result reports `survivor_deletion_authorized=true`, `recursive_module_tree_removal_authorized=false`, `active_counterpart_removal_authorized=false`, `third_attempt_authorized=false`, `cleanup_authorized=false`, `apply_authorized=false`, `apply_executed=false`, and `pause_safe=true`.

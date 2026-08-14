@@ -366,3 +366,8 @@ A recovered ELILO cleanup failure is not permission to retry the destructive tra
 ### ELILO cleanup rollback-module survivor review (step 101)
 
 Step 100 confirmed that the failed final rollback-module predicate is caused by exactly three package-unowned VirtualBox Guest Additions objects under the 5.15.19 rollback tree: `vboxguest.ko`, `vboxsf.ko`, and `vboxvideo.ko`. Step 101 is a non-mutating review only. It revalidates the recovered boundary, scans every installed package `FILE LIST:` to prove that none owns those rollback paths, validates rollback `modinfo` identity/vermagic, and requires matching 5.15.209 active counterparts. It fingerprints the exact three rollback objects and their active counterparts into an evidence-local survivor-removal contract. Recursive removal of `/lib/modules/5.15.19`, removal of active counterparts, and any third cleanup attempt remain unauthorized until a separate review accepts that exact scope. A clean step-101 result remains `pause_safe=true`.
+
+
+### ELILO rollback survivor deletion authorization
+
+Any cleanup revision that handles package-unowned rollback modules must separate discovery, deletion authorization, and destructive execution. Authorization must be path- and SHA-256-bound, must preserve active-kernel counterparts, must forbid recursive rollback-tree removal, and must not imply authorization for the cleanup transaction itself.

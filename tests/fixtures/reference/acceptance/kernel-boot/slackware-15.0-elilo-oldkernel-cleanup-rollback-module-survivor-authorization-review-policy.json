@@ -1,0 +1,23 @@
+{
+  "accepted_survivor_review_archive_sha256": "90eb0d6a9c08acfc68993c8a6a967be17bdaa435aceef82b267483d5d05fe456",
+  "accepted_survivor_review_record_sha256": "c946664eaa81065168983423f87793a296b3282b270b345485d838f53b8f1b39",
+  "active_counterpart_removal_authorized": false,
+  "active_kernel": "5.15.209",
+  "apply_authorized": false,
+  "apply_executed": false,
+  "cleanup_authorized": false,
+  "confirmation_scope_sha256": "6d83c315fd64fbe0894f2d55aaadb84a106a6eae57ffb11508734ea0e9b0be84",
+  "expected_script_sha256": "f7ec25de2c6b2b9c8b30823f4601e4b2edcfab3c8777fbbfd966bb9712c59a9a",
+  "hostname_fqdn": "vbox-slack15.vbox-slack15.org",
+  "mutation_forbidden": true,
+  "next_stage": "elilo-oldkernel-cleanup-rollback-module-survivor-authorized-apply-revision-review",
+  "recursive_module_tree_removal_authorized": false,
+  "reviewed": true,
+  "rollback_kernel": "5.15.19",
+  "scenario": "elilo-oldkernel-cleanup-rollback-module-survivor-authorization-review",
+  "schema": 1,
+  "survivor_deletion_authorization_contract_sha256": "e1eb7c7ab124a23432e2f7101618a44765bff2702a97e225944ab8643b3db42b",
+  "survivor_deletion_authorized": true,
+  "target": "slackware-15.0",
+  "third_attempt_authorized": false
+}

@@ -1,0 +1,69 @@
+{
+  "accepted": true,
+  "active_kernel": "5.15.209",
+  "active_module_manifest_sha256": "a284a504efad1e6bcd200ab6dd453cafad557b575f4231a25bb12f06bcd23695",
+  "apply_authorized": false,
+  "apply_executed": false,
+  "archive_sha256": "90eb0d6a9c08acfc68993c8a6a967be17bdaa435aceef82b267483d5d05fe456",
+  "boot_manifest_sha256": "95bbc279c56b63d088bc25a54abda0dcdf0e70fa920fc32b22260bfafe9fdec5",
+  "cleanup_authorized": false,
+  "hostname_fqdn": "vbox-slack15.vbox-slack15.org",
+  "next_stage": "elilo-oldkernel-cleanup-rollback-module-survivor-authorization-review",
+  "package_snapshot_sha256": "b295eaa1abde0f961d21227d51988cead0a7794a298a5a980b19fb312d7b897a",
+  "pause_safe": true,
+  "recovery_backup_verify_log_sha256": "3540f04cdbcff220429681dc04b133044df152d889f556e9bf938809be5d374d",
+  "rollback_kernel": "5.15.19",
+  "rollback_module_manifest_sha256": "49fb193b78b668eaf5dba1788c1e18861e6c77f083e9e50c5edc2a57965eed26",
+  "scenario": "elilo-oldkernel-cleanup-rollback-module-survivor-revision-review",
+  "schema": 1,
+  "survivor_removal_contract": {
+    "active_counterpart_removal_authorized": false,
+    "active_kernel": "5.15.209",
+    "deletion_authorized": false,
+    "recursive_module_tree_removal_authorized": false,
+    "removal_method": "unlink-exact-reviewed-paths-after-rollback-package-removal-before-final-verification",
+    "reviewed": true,
+    "rollback_kernel": "5.15.19",
+    "scenario": "elilo-oldkernel-cleanup-rollback-module-survivor-removal-contract",
+    "schema": 1,
+    "survivor_count": 3,
+    "survivors": [
+      {
+        "active_counterpart_path": "/lib/modules/5.15.209/misc/vboxguest.ko",
+        "active_counterpart_sha256": "451e053db655a690957123bffe561e289a472ca86eb6ecd8ff158eb795d3256c",
+        "active_counterpart_vermagic": "5.15.209 SMP preempt mod_unload",
+        "installed_package_owners": [],
+        "module_name": "vboxguest",
+        "rollback_path": "/lib/modules/5.15.19/misc/vboxguest.ko",
+        "rollback_sha256": "afc06fa546242112635a8c4a53f0f944d3e110137aa8c72fcb5bca7fad13bdcf",
+        "rollback_vermagic": "5.15.19 SMP preempt mod_unload"
+      },
+      {
+        "active_counterpart_path": "/lib/modules/5.15.209/misc/vboxsf.ko",
+        "active_counterpart_sha256": "f6efaf67a652a827529957cb7facfd6271504509e096e51b77620f07330b5612",
+        "active_counterpart_vermagic": "5.15.209 SMP preempt mod_unload",
+        "installed_package_owners": [],
+        "module_name": "vboxsf",
+        "rollback_path": "/lib/modules/5.15.19/misc/vboxsf.ko",
+        "rollback_sha256": "b288833148a0a5a544dede04c469fc978f63cff59ca270683de6630b8ac096a0",
+        "rollback_vermagic": "5.15.19 SMP preempt mod_unload"
+      },
+      {
+        "active_counterpart_path": "/lib/modules/5.15.209/misc/vboxvideo.ko",
+        "active_counterpart_sha256": "55aeb448385cac506452f3d8c87fd9f2414b84d97e7b8b846fc26c4120bfac84",
+        "active_counterpart_vermagic": "5.15.209 SMP preempt mod_unload",
+        "installed_package_owners": [],
+        "module_name": "vboxvideo",
+        "rollback_path": "/lib/modules/5.15.19/misc/vboxvideo.ko",
+        "rollback_sha256": "c1d1add732d2cd67dd544ac27aae5e2b0e1dcc4796e49cce7dbac5a3977657d3",
+        "rollback_vermagic": "5.15.19 SMP preempt mod_unload"
+      }
+    ],
+    "third_attempt_authorized": false
+  },
+  "survivor_removal_contract_sha256": "e5c79023a5a258a8350d076d298a13a68f77bfbfcc8271d43963c0a8b8d4d31e",
+  "survivor_removal_scope_ready": true,
+  "survivor_review_ready": true,
+  "survivor_review_tsv_sha256": "7fd2d42383f7db7ddfde22bbb866438a51a71a60f9d205436b8be721956d2cf1",
+  "third_attempt_authorized": false
+}
