@@ -1,0 +1,84 @@
+{
+  "active_kernel": "5.15.209",
+  "base_apply_contract_sha256": "e5b587aacb911a05428706a09c3d7a85dc35a9802e46ccf8131cb3569dd6806f",
+  "execution_authorized": false,
+  "integration": {
+    "ordering": [
+      "remove_exact_rollback_package_records",
+      "reinstall_exact_active_package_set",
+      "verify_active_after_packages",
+      "unlink_exact_reviewed_rollback_survivors",
+      "stage_elilo_config_without_oldkernel",
+      "atomically_activate_elilo_config",
+      "verify_active_boot",
+      "delete_only_unreferenced_rollback_artifacts",
+      "capture_and_compare_final_state"
+    ],
+    "post_unlink_requirements": [
+      "all_three_authorized_rollback_paths_absent",
+      "all_three_active_counterparts_present_and_sha256_exact",
+      "no_other_rollback_module_objects_remain"
+    ],
+    "pre_unlink_requirements": [
+      "rollback_path_is_regular_not_symlink",
+      "rollback_path_sha256_matches_authorized_value",
+      "active_counterpart_is_regular_not_symlink",
+      "active_counterpart_sha256_matches_authorized_value"
+    ],
+    "unlink_tool": "/usr/bin/unlink"
+  },
+  "previous_module_validation_revision_contract_sha256": "5054c7126abf2b9d2694640318934d25fc41d60d5830802ac9f10af29fb15aea",
+  "prohibitions": {
+    "active_counterpart_removal": true,
+    "additional_survivor_paths": true,
+    "network_access": true,
+    "reboot_execution": true,
+    "recursive_rollback_module_tree_removal": true,
+    "repository_refresh": true
+  },
+  "recovery": {
+    "exact_recovery_verification_required": true,
+    "recovery_backup_retained_until_post_reboot_verification": true,
+    "survivors_covered_by_pre_mutation_full_rollback_module_tree_snapshot": true
+  },
+  "reviewed": true,
+  "rollback_kernel": "5.15.19",
+  "scenario": "elilo-oldkernel-cleanup-survivor-integrated-apply-revision-contract",
+  "schema": 1,
+  "survivor_count": 3,
+  "survivor_deletion_authorization_archive_sha256": "405327481b0c7459aab7ddab5b1a2f325fffb6ac2312ed1b4a18afc36d32fe6a",
+  "survivor_deletion_authorization_contract_sha256": "e1eb7c7ab124a23432e2f7101618a44765bff2702a97e225944ab8643b3db42b",
+  "survivors": [
+    {
+      "active_counterpart_path": "/lib/modules/5.15.209/misc/vboxguest.ko",
+      "active_counterpart_sha256": "451e053db655a690957123bffe561e289a472ca86eb6ecd8ff158eb795d3256c",
+      "active_counterpart_vermagic": "5.15.209 SMP preempt mod_unload",
+      "installed_package_owners": [],
+      "module_name": "vboxguest",
+      "rollback_path": "/lib/modules/5.15.19/misc/vboxguest.ko",
+      "rollback_sha256": "afc06fa546242112635a8c4a53f0f944d3e110137aa8c72fcb5bca7fad13bdcf",
+      "rollback_vermagic": "5.15.19 SMP preempt mod_unload"
+    },
+    {
+      "active_counterpart_path": "/lib/modules/5.15.209/misc/vboxsf.ko",
+      "active_counterpart_sha256": "f6efaf67a652a827529957cb7facfd6271504509e096e51b77620f07330b5612",
+      "active_counterpart_vermagic": "5.15.209 SMP preempt mod_unload",
+      "installed_package_owners": [],
+      "module_name": "vboxsf",
+      "rollback_path": "/lib/modules/5.15.19/misc/vboxsf.ko",
+      "rollback_sha256": "b288833148a0a5a544dede04c469fc978f63cff59ca270683de6630b8ac096a0",
+      "rollback_vermagic": "5.15.19 SMP preempt mod_unload"
+    },
+    {
+      "active_counterpart_path": "/lib/modules/5.15.209/misc/vboxvideo.ko",
+      "active_counterpart_sha256": "55aeb448385cac506452f3d8c87fd9f2414b84d97e7b8b846fc26c4120bfac84",
+      "active_counterpart_vermagic": "5.15.209 SMP preempt mod_unload",
+      "installed_package_owners": [],
+      "module_name": "vboxvideo",
+      "rollback_path": "/lib/modules/5.15.19/misc/vboxvideo.ko",
+      "rollback_sha256": "c1d1add732d2cd67dd544ac27aae5e2b0e1dcc4796e49cce7dbac5a3977657d3",
+      "rollback_vermagic": "5.15.19 SMP preempt mod_unload"
+    }
+  ],
+  "third_attempt_authorized": false
+}

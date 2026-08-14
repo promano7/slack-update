@@ -1547,3 +1547,22 @@ sudo bash tests/acceptance/reference/test-elilo-oldkernel-cleanup-rollback-modul
 ```
 
 A clean result reports `survivor_deletion_authorized=true`, `recursive_module_tree_removal_authorized=false`, `active_counterpart_removal_authorized=false`, `third_attempt_authorized=false`, `cleanup_authorized=false`, `apply_authorized=false`, `apply_executed=false`, and `pause_safe=true`.
+
+### ELILO cleanup survivor-integrated apply revision review (step 103)
+
+After accepting step 102, run `test-elilo-oldkernel-cleanup-rollback-module-survivor-authorized-apply-revision-review.sh`. This review is non-mutating. It binds the exact step-102 survivor-deletion authorization, the revised apply executor, its survivor-integration contract, and a prepared apply policy that explicitly denies execution. It verifies the live recovered package/boot/module boundary and all six rollback/active survivor fingerprints before reviewing code semantics.
+
+Production command:
+
+```bash
+sudo bash tests/acceptance/reference/test-elilo-oldkernel-cleanup-rollback-module-survivor-authorized-apply-revision-review.sh \
+    --target slackware-15.0 \
+    --confirm-hostname-fqdn vbox-slack15.vbox-slack15.org \
+    --confirm-survivor-authorization-evidence-sha256 405327481b0c7459aab7ddab5b1a2f325fffb6ac2312ed1b4a18afc36d32fe6a \
+    --confirm-active-kernel 5.15.209 \
+    --confirm-rollback-kernel 5.15.19 \
+    --confirm-apply-revision-review-sha256 5046db267744d0e759a36e57344eb2cc5e9dc41df28ca101530a1d10f540ab80
+```
+
+A clean result reports `revision_ready=true`, `survivor_integration_ready=true`, `third_attempt_authorized=false`, `cleanup_authorized=false`, `apply_authorized=false`, `apply_executed=false`, and `pause_safe=true`, then routes only to `elilo-oldkernel-cleanup-third-attempt-authorization-review`. The revised executor also requires a future accepted third-attempt authorization record, which is intentionally absent from step 103.
+

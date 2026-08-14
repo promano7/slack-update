@@ -371,3 +371,12 @@ Step 100 confirmed that the failed final rollback-module predicate is caused by 
 ### ELILO rollback survivor deletion authorization
 
 Any cleanup revision that handles package-unowned rollback modules must separate discovery, deletion authorization, and destructive execution. Authorization must be path- and SHA-256-bound, must preserve active-kernel counterparts, must forbid recursive rollback-tree removal, and must not imply authorization for the cleanup transaction itself.
+
+### ELILO survivor-integrated cleanup executor revision
+
+Any revision that consumes the step-102 survivor deletion authorization must keep discovery, deletion authorization, executor revision review, third-attempt authorization, and destructive execution as separate boundaries. The revised executor may unlink only the three authorized rollback paths and must verify each rollback SHA-256 plus its 5.15.209 active counterpart immediately before unlink. Recursive removal of `/lib/modules/5.15.19` is forbidden as a cleanup action.
+
+The unlink stage must occur after exact rollback package removal, active-package reinstallation, and active-package verification, but before ELILO mutation and final-state verification. The pre-mutation full rollback-module recovery snapshot must continue to cover all three survivor paths. A prepared revision must remain impossible to execute until a separate accepted third-attempt authorization record is present and bound by the production policy.
+
+30. Run `tests/reference/test-elilo-oldkernel-cleanup-rollback-module-survivor-authorized-apply-revision-review-harness.sh` whenever the accepted step-102 survivor authorization, exact-unlink integration contract, prepared apply policy, or third-attempt fail-closed gate changes. Also rerun `tests/reference/test-elilo-oldkernel-cleanup-authorized-apply-harness.sh` whenever unlink ordering, survivor fingerprints, active-counterpart preservation, or recovery of the three survivor objects changes.
+

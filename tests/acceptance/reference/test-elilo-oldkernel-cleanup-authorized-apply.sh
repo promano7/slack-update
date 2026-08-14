@@ -14,6 +14,8 @@ POLICY=${ELILO_CLEANUP_APPLY_POLICY_PATH:-$REPOSITORY_ROOT/tests/fixtures/refere
 ACCEPTED_AUTH=${ELILO_CLEANUP_ACCEPTED_AUTH_PATH:-$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-15.0-elilo-oldkernel-cleanup-authorization-review-20260811-accepted.json}
 ACCEPTED_PLAN=${ELILO_CLEANUP_ACCEPTED_PLAN_PATH:-$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-15.0-elilo-oldkernel-cleanup-source-and-plan-preflight-20260811-accepted.json}
 ACCEPTED_REVISION=${ELILO_CLEANUP_ACCEPTED_REVISION_PATH:-$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-15.0-elilo-oldkernel-cleanup-authorized-apply-revision-review-20260811-accepted.json}
+ACCEPTED_SURVIVOR_AUTH=${ELILO_CLEANUP_ACCEPTED_SURVIVOR_AUTH_PATH:-$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-15.0-elilo-oldkernel-cleanup-rollback-module-survivor-authorization-review-20260814-accepted.json}
+ACCEPTED_THIRD_AUTH=${ELILO_CLEANUP_ACCEPTED_THIRD_AUTH_PATH:-$REPOSITORY_ROOT/tests/fixtures/reference/acceptance/kernel-boot/slackware-15.0-elilo-oldkernel-cleanup-third-attempt-authorization-review-20260814-accepted.json}
 
 TARGET=
 EXECUTE=0
@@ -24,6 +26,8 @@ CONFIRM_ROLLBACK_KERNEL=
 CONFIRM_CONTRACT_SHA256=
 CONFIRM_SCOPE_SHA256=
 CONFIRM_REVISION_EVIDENCE_SHA256=
+CONFIRM_SURVIVOR_AUTH_EVIDENCE_SHA256=
+CONFIRM_THIRD_AUTH_EVIDENCE_SHA256=
 OUTPUT_DIR=
 PASS_COUNT=0
 FAILURE_COUNT=0
@@ -40,6 +44,7 @@ ROOT_PREFIX=${SLACK_UPDATE_TEST_ROOT:-}
 REMOVEPKG=${ELILO_CLEANUP_REMOVEPKG:-/sbin/removepkg}
 UPGRADEPKG=${ELILO_CLEANUP_UPGRADEPKG:-/sbin/upgradepkg}
 DEPMOD=${ELILO_CLEANUP_DEPMOD:-/sbin/depmod}
+UNLINK=${ELILO_CLEANUP_UNLINK:-/usr/bin/unlink}
 FAIL_AT=${ELILO_CLEANUP_FAIL_AT:-}
 TRANSACTION_STARTED=false
 MUTATION_STARTED=false
@@ -53,13 +58,16 @@ Usage: ${0##*/} --target slackware-15.0 --execute-authorized-cleanup \\
   --confirm-authorization-evidence-sha256 SHA256 \\
   --confirm-active-kernel 5.15.209 --confirm-rollback-kernel 5.15.19 \\
   --confirm-apply-contract-sha256 SHA256 --confirm-revision-evidence-sha256 SHA256 \\
+  --confirm-survivor-authorization-evidence-sha256 SHA256 \\
+  --confirm-third-attempt-authorization-evidence-sha256 SHA256 \\
   --confirm-apply-scope-sha256 SHA256
 
 Apply the exact authorized ELILO oldkernel cleanup. The transaction removes only
 the three reviewed 5.15.19 boot-kernel package records, reinstalls the exact
-verified 5.15.209 boot-kernel archives, atomically removes the oldkernel ELILO
-stanza, deletes only the now-unreferenced legacy EFI rollback kernel/initrd, and
-verifies the final active boot chain. A private recovery snapshot is captured
+verified 5.15.209 boot-kernel archives, unlinks only the three separately
+authorized package-unowned 5.15.19 VirtualBox module survivors, atomically
+removes the oldkernel ELILO stanza, deletes only the now-unreferenced legacy
+EFI rollback kernel/initrd, and verifies the final active boot chain. A private recovery snapshot is captured
 before mutation. Any failure after mutation triggers best-effort restoration and
 pause_safe=true is reported only if that restoration is proven exact.
 EOF_USAGE
@@ -84,6 +92,8 @@ parse_args(){
    --confirm-rollback-kernel) CONFIRM_ROLLBACK_KERNEL=$2; shift 2;;
    --confirm-apply-contract-sha256) CONFIRM_CONTRACT_SHA256=${2,,}; shift 2;;
    --confirm-revision-evidence-sha256) CONFIRM_REVISION_EVIDENCE_SHA256=${2,,}; shift 2;;
+   --confirm-survivor-authorization-evidence-sha256) CONFIRM_SURVIVOR_AUTH_EVIDENCE_SHA256=${2,,}; shift 2;;
+   --confirm-third-attempt-authorization-evidence-sha256) CONFIRM_THIRD_AUTH_EVIDENCE_SHA256=${2,,}; shift 2;;
    --confirm-apply-scope-sha256) CONFIRM_SCOPE_SHA256=${2,,}; shift 2;;
    --output-dir) OUTPUT_DIR=$2; shift 2;;
    -h|--help) usage; exit 0;;
@@ -93,7 +103,9 @@ parse_args(){
  [ "$TARGET" = slackware-15.0 ] && [ "$EXECUTE" -eq 1 ] && [ -n "$CONFIRM_HOSTNAME_FQDN" ] \
   && is_sha "$CONFIRM_AUTH_EVIDENCE_SHA256" && safe_ver "$CONFIRM_ACTIVE_KERNEL" \
   && safe_ver "$CONFIRM_ROLLBACK_KERNEL" && [ "$CONFIRM_ACTIVE_KERNEL" != "$CONFIRM_ROLLBACK_KERNEL" ] \
-  && is_sha "$CONFIRM_CONTRACT_SHA256" && is_sha "$CONFIRM_REVISION_EVIDENCE_SHA256" && is_sha "$CONFIRM_SCOPE_SHA256"
+  && is_sha "$CONFIRM_CONTRACT_SHA256" && is_sha "$CONFIRM_REVISION_EVIDENCE_SHA256" \
+  && is_sha "$CONFIRM_SURVIVOR_AUTH_EVIDENCE_SHA256" && is_sha "$CONFIRM_THIRD_AUTH_EVIDENCE_SHA256" \
+  && is_sha "$CONFIRM_SCOPE_SHA256"
 }
 
 json_get(){ python3 - "$1" "$2" <<'PY'
@@ -107,32 +119,41 @@ PY
 }
 
 validate_static(){
- python3 - "$POLICY" "$SELF" "$ACCEPTED_AUTH" "$ACCEPTED_PLAN" "$ACCEPTED_REVISION" "$CONFIRM_HOSTNAME_FQDN" "$CONFIRM_AUTH_EVIDENCE_SHA256" "$CONFIRM_ACTIVE_KERNEL" "$CONFIRM_ROLLBACK_KERNEL" "$CONFIRM_CONTRACT_SHA256" "$CONFIRM_REVISION_EVIDENCE_SHA256" "$CONFIRM_SCOPE_SHA256" <<'PY'
+ python3 - "$POLICY" "$SELF" "$ACCEPTED_AUTH" "$ACCEPTED_PLAN" "$ACCEPTED_REVISION" "$ACCEPTED_SURVIVOR_AUTH" "$ACCEPTED_THIRD_AUTH" "$CONFIRM_HOSTNAME_FQDN" "$CONFIRM_AUTH_EVIDENCE_SHA256" "$CONFIRM_ACTIVE_KERNEL" "$CONFIRM_ROLLBACK_KERNEL" "$CONFIRM_CONTRACT_SHA256" "$CONFIRM_REVISION_EVIDENCE_SHA256" "$CONFIRM_SURVIVOR_AUTH_EVIDENCE_SHA256" "$CONFIRM_THIRD_AUTH_EVIDENCE_SHA256" "$CONFIRM_SCOPE_SHA256" <<'PY'
 import hashlib,json,pathlib,sys
-pol,script,auth,plan,revision,host,evidence,active,rollback,contract,revision_evidence,scope_confirm=sys.argv[1:]
+pol,script,auth,plan,revision,survivor_auth,third_auth,host,evidence,active,rollback,contract,revision_evidence,survivor_evidence,third_evidence,scope_confirm=sys.argv[1:]
 def reg(p):
  p=pathlib.Path(p)
  if not p.is_file() or p.is_symlink(): raise SystemExit(1)
  return p
 def sh(p): return hashlib.sha256(reg(p).read_bytes()).hexdigest()
-p=json.loads(reg(pol).read_text()); a=json.loads(reg(auth).read_text()); pl=json.loads(reg(plan).read_text()); r=json.loads(reg(revision).read_text())
+p=json.loads(reg(pol).read_text()); a=json.loads(reg(auth).read_text()); pl=json.loads(reg(plan).read_text()); r=json.loads(reg(revision).read_text()); sa=json.loads(reg(survivor_auth).read_text()); ta=json.loads(reg(third_auth).read_text())
 scope=(
-'operation=elilo-oldkernel-cleanup-authorized-apply-revision-1\n'
+'operation=elilo-oldkernel-cleanup-authorized-apply-revision-2-prepared\n'
 'target=slackware-15.0\n'
-f'hostname_fqdn={host}\n'+f'authorization_evidence_sha256={evidence}\n'+f'revision_evidence_sha256={revision_evidence}\n'+f'active_kernel={active}\n'+f'rollback_kernel={rollback}\n'+f'apply_contract_sha256={contract}\n'+f'accepted_authorization_record_sha256={sh(auth)}\n'+f'accepted_revision_record_sha256={sh(revision)}\n'+f'authorized_apply_script_sha256={sh(script)}\n').encode()
+f'hostname_fqdn={host}\n'+f'authorization_evidence_sha256={evidence}\n'+f'revision_evidence_sha256={revision_evidence}\n'+f'survivor_authorization_evidence_sha256={survivor_evidence}\n'+f'third_attempt_authorization_evidence_sha256={third_evidence}\n'+f'active_kernel={active}\n'+f'rollback_kernel={rollback}\n'+f'apply_contract_sha256={contract}\n'+f'accepted_authorization_record_sha256={sh(auth)}\n'+f'accepted_revision_record_sha256={sh(revision)}\n'+f'accepted_survivor_authorization_record_sha256={sh(survivor_auth)}\n'+f'accepted_third_attempt_authorization_record_sha256={sh(third_auth)}\n'+f'authorized_apply_script_sha256={sh(script)}\n').encode()
 calc=hashlib.sha256(scope).hexdigest()
-checks=[p.get('schema')==2,p.get('scenario')=='elilo-oldkernel-cleanup-authorized-apply-revision-1',p.get('reviewed') is True,
+checks=[p.get('schema')==3,p.get('scenario')=='elilo-oldkernel-cleanup-authorized-apply-revision-2-prepared',p.get('reviewed') is True,
+ p.get('execution_authorized') is True,p.get('third_attempt_authorized') is True,
  p.get('expected_script_sha256')==sh(script),p.get('accepted_authorization_record_sha256')==sh(auth),
  p.get('accepted_source_plan_record_sha256')==sh(plan),p.get('accepted_revision_record_sha256')==sh(revision),
+ p.get('accepted_survivor_authorization_record_sha256')==sh(survivor_auth),p.get('accepted_third_attempt_authorization_record_sha256')==sh(third_auth),
  p.get('accepted_authorization_archive_sha256')==evidence,p.get('accepted_revision_archive_sha256')==revision_evidence,
+ p.get('accepted_survivor_authorization_archive_sha256')==survivor_evidence,p.get('accepted_third_attempt_authorization_archive_sha256')==third_evidence,
  p.get('apply_contract_sha256')==contract,p.get('confirmation_scope_sha256')==scope_confirm==calc,
  a.get('status')=='accepted-authorization-review',a.get('archive_sha256')==evidence,a.get('cleanup_authorized') is True,
  a.get('apply_authorized') is True,a.get('apply_executed') is False,a.get('hostname_fqdn')==host,
  a.get('active_kernel')==active,a.get('rollback_kernel')==rollback,a.get('apply_contract_sha256')==contract,
  r.get('status')=='accepted-apply-revision-review',r.get('archive_sha256')==revision_evidence,
  r.get('retry_authorized') is True,r.get('apply_executed') is False,r.get('hostname_fqdn')==host,
- r.get('active_kernel')==active,r.get('rollback_kernel')==rollback,r.get('base_apply_contract_sha256')==contract,
- r.get('revised_apply_script_sha256')==sh(script),
+ r.get('active_kernel')==active,r.get('rollback_kernel')==rollback,
+ sa.get('accepted') is True,sa.get('archive_sha256')==survivor_evidence,sa.get('hostname_fqdn')==host,
+ sa.get('active_kernel')==active,sa.get('rollback_kernel')==rollback,sa.get('survivor_deletion_authorized') is True,
+ sa.get('recursive_module_tree_removal_authorized') is False,sa.get('active_counterpart_removal_authorized') is False,
+ sa.get('third_attempt_authorized') is False,sa.get('execution_authorized') is False,
+ ta.get('accepted') is True,ta.get('archive_sha256')==third_evidence,ta.get('third_attempt_authorized') is True,
+ ta.get('apply_authorized') is True,ta.get('apply_executed') is False,ta.get('hostname_fqdn')==host,
+ ta.get('active_kernel')==active,ta.get('rollback_kernel')==rollback,
  pl.get('accepted') is True,pl.get('cleanup_plan_sha256')==a.get('cleanup_plan_sha256')]
 raise SystemExit(0 if all(checks) else 1)
 PY
@@ -231,7 +252,60 @@ import json,sys
 for x in json.load(open(sys.argv[1]))['rollback_packages']: print(x)
 PY
 ); do [ -f "$PACKAGE_DATABASE/$rec" ] || ok=false; done
+ verify_authorized_survivors_live || ok=false
  [ "$ok" = true ]
+}
+
+
+verify_authorized_survivors_live(){
+ python3 - "$ACCEPTED_SURVIVOR_AUTH" "$ROOT_PREFIX" <<'PY'
+import hashlib,json,pathlib,sys
+a=json.load(open(sys.argv[1])); root=pathlib.Path(sys.argv[2] or '/')
+for x in a['survivors']:
+ for path,key in ((x['rollback_path'],'rollback_sha256'),(x['active_counterpart_path'],'active_counterpart_sha256')):
+  p=root/path.lstrip('/')
+  if not p.is_file() or p.is_symlink(): raise SystemExit(1)
+  if hashlib.sha256(p.read_bytes()).hexdigest()!=x[key]: raise SystemExit(1)
+PY
+}
+
+unlink_exact_authorized_survivors(){
+ local path digest active_path active_digest
+ while IFS=$'\t' read -r path digest active_path active_digest; do
+  [ -f "$(rooted "$path")" ] && [ ! -L "$(rooted "$path")" ] || return 1
+  [ "$(sha "$(rooted "$path")")" = "$digest" ] || return 1
+  [ -f "$(rooted "$active_path")" ] && [ ! -L "$(rooted "$active_path")" ] || return 1
+  [ "$(sha "$(rooted "$active_path")")" = "$active_digest" ] || return 1
+  "$UNLINK" -- "$(rooted "$path")" || return 1
+ done < <(python3 - "$ACCEPTED_SURVIVOR_AUTH" <<'PY'
+import json,sys
+for x in json.load(open(sys.argv[1]))['survivors']:
+ print('\t'.join((x['rollback_path'],x['rollback_sha256'],x['active_counterpart_path'],x['active_counterpart_sha256'])))
+PY
+ )
+}
+
+verify_authorized_survivors_absent(){
+ local path
+ while IFS= read -r path; do
+  [ ! -e "$(rooted "$path")" ] && [ ! -L "$(rooted "$path")" ] || return 1
+ done < <(python3 - "$ACCEPTED_SURVIVOR_AUTH" <<'PY'
+import json,sys
+for x in json.load(open(sys.argv[1]))['survivors']: print(x['rollback_path'])
+PY
+ )
+ verify_authorized_survivors_active_counterparts
+}
+
+verify_authorized_survivors_active_counterparts(){
+ python3 - "$ACCEPTED_SURVIVOR_AUTH" "$ROOT_PREFIX" <<'PY'
+import hashlib,json,pathlib,sys
+a=json.load(open(sys.argv[1])); root=pathlib.Path(sys.argv[2] or '/')
+for x in a['survivors']:
+ p=root/x['active_counterpart_path'].lstrip('/')
+ if not p.is_file() or p.is_symlink(): raise SystemExit(1)
+ if hashlib.sha256(p.read_bytes()).hexdigest()!=x['active_counterpart_sha256']: raise SystemExit(1)
+PY
 }
 
 check_space_and_backup(){
@@ -343,6 +417,7 @@ PY
  verify_generated_depmod_indexes "$CONFIRM_ACTIVE_KERNEL" || return 1
  [ ! -e "$(rooted /boot/efi/EFI/Slackware/vmlinuz)" ] && [ ! -e "$(rooted /boot/efi/EFI/Slackware/initrd.gz)" ] || return 1
  [ ! -e "$(rooted "/boot/vmlinuz-generic-$CONFIRM_ROLLBACK_KERNEL")" ] || return 1
+ verify_authorized_survivors_absent || return 1
  if [ -d "$(rooted "/lib/modules/$CONFIRM_ROLLBACK_KERNEL")" ]; then [ -z "$(find "$(rooted "/lib/modules/$CONFIRM_ROLLBACK_KERNEL")" -type f -name '*.ko*' -print -quit 2>/dev/null)" ] || return 1; fi
  verify_active_boot
 }
@@ -377,6 +452,8 @@ active_kernel=$CONFIRM_ACTIVE_KERNEL
 rollback_kernel=$CONFIRM_ROLLBACK_KERNEL
 authorization_evidence_sha256=$CONFIRM_AUTH_EVIDENCE_SHA256
 revision_evidence_sha256=$CONFIRM_REVISION_EVIDENCE_SHA256
+survivor_authorization_evidence_sha256=$CONFIRM_SURVIVOR_AUTH_EVIDENCE_SHA256
+third_attempt_authorization_evidence_sha256=$CONFIRM_THIRD_AUTH_EVIDENCE_SHA256
 apply_contract_sha256=$CONFIRM_CONTRACT_SHA256
 apply_executed=$APPLY_EXECUTED
 apply_committed=$APPLY_COMMITTED
@@ -398,10 +475,10 @@ main(){
  parse_args "$@" || { usage >&2; return 2; }
  [ "$(id -u)" -eq 0 ] || { err 'must run as root'; return 2; }
  if [ "$TEST_MODE" != 1 ]; then
-  [ -z "$ROOT_PREFIX" ] && [ "$REMOVEPKG" = /sbin/removepkg ] && [ "$UPGRADEPKG" = /sbin/upgradepkg ] && [ "$DEPMOD" = /sbin/depmod ] && [ -z "$FAIL_AT" ] || { err 'test-only overrides are forbidden in production mode'; return 2; }
+  [ -z "$ROOT_PREFIX" ] && [ "$REMOVEPKG" = /sbin/removepkg ] && [ "$UPGRADEPKG" = /sbin/upgradepkg ] && [ "$DEPMOD" = /sbin/depmod ] && [ "$UNLINK" = /usr/bin/unlink ] && [ -z "$FAIL_AT" ] || { err 'test-only overrides are forbidden in production mode'; return 2; }
  fi
  init_output || return 2
- if validate_static; then pass 'the accepted step-94 authorization, accepted revision review, exact revised code, apply contract, and execution scope are bound'; else fail 'the static authorized cleanup boundary does not match'; fi
+ if validate_static; then pass 'the accepted step-94 authorization, accepted revision review, exact survivor authorization, revised code, apply contract, and prepared execution scope are bound'; else fail 'the static authorized cleanup boundary does not match'; fi
  if [ "$FAILURE_COUNT" -eq 0 ] && verify_live_boundary; then pass 'the live 5.15.209 ELILO state, exact package set, module trees, boot artifacts, and cached active archives still match the authorization boundary'; else if [ "$FAILURE_COUNT" -eq 0 ]; then fail 'the live cleanup boundary drifted before execution'; else skip 'live validation requires a valid static boundary'; fi; fi
  if [ "$FAILURE_COUNT" -eq 0 ] && check_space_and_backup; then pass 'a private recovery snapshot and sufficient recovery space were secured before mutation'; else if [ "$FAILURE_COUNT" -eq 0 ]; then fail 'the recovery snapshot could not be secured safely'; else skip 'recovery capture requires a valid live boundary'; fi; fi
  if [ "$FAILURE_COUNT" -eq 0 ]; then
@@ -412,6 +489,7 @@ main(){
  fi
  if [ "$FAILURE_COUNT" -eq 0 ]; then if maybe_fail reinstall_exact_active_package_set && run_reinstall; then pass 'the exact three verified active 5.15.209 packages were reinstalled'; else fail 'active package reinstallation failed or was intentionally interrupted'; fi; fi
  if [ "$FAILURE_COUNT" -eq 0 ]; then if verify_active_after_packages; then pass 'the active package records and module tree are intact and the rollback records are absent'; else fail 'package or module state is unsafe after the package transaction'; fi; fi
+ if [ "$FAILURE_COUNT" -eq 0 ]; then if maybe_fail unlink_exact_reviewed_rollback_survivors && unlink_exact_authorized_survivors && verify_authorized_survivors_absent; then pass 'only the exact three separately authorized rollback VirtualBox module survivors were unlinked and active counterparts remained intact'; else fail 'exact rollback module survivor unlink failed or was intentionally interrupted'; fi; fi
  if [ "$FAILURE_COUNT" -eq 0 ]; then if maybe_fail stage_elilo_config_without_oldkernel && stage_elilo && validate_staged_elilo; then pass 'a validated ELILO configuration without oldkernel was staged without in-place editing'; else fail 'the staged ELILO configuration could not be produced safely'; fi; fi
  if [ "$FAILURE_COUNT" -eq 0 ]; then if maybe_fail atomically_activate_elilo_config && activate_elilo && prove_unreferenced; then pass 'the oldkernel-free ELILO configuration was atomically activated and no longer references rollback'; else fail 'ELILO activation or oldkernel dereference proof failed'; fi; fi
  if [ "$FAILURE_COUNT" -eq 0 ]; then if verify_active_boot; then pass 'the active 5.15.209 boot chain remains byte-identical across /boot and EFI'; else fail 'the active boot chain changed unexpectedly'; fi; fi

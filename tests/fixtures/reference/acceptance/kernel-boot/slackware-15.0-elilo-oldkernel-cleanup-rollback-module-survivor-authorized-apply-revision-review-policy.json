@@ -1,0 +1,21 @@
+{
+  "accepted_survivor_authorization_archive_sha256": "405327481b0c7459aab7ddab5b1a2f325fffb6ac2312ed1b4a18afc36d32fe6a",
+  "accepted_survivor_authorization_record_sha256": "59e1d20f96b52667555b616f6aca63db6fbf9286657d7c94ee7cad8f38ab5af6",
+  "active_kernel": "5.15.209",
+  "apply_authorized": false,
+  "apply_executed": false,
+  "cleanup_authorized": false,
+  "confirmation_scope_sha256": "5046db267744d0e759a36e57344eb2cc5e9dc41df28ca101530a1d10f540ab80",
+  "expected_script_sha256": "e675ab97d5650ef3ec92ba8fb4f5f49ef410ae4766201e87e083351b9396bf05",
+  "hostname_fqdn": "vbox-slack15.vbox-slack15.org",
+  "integration_contract_sha256": "aa321fd44baa1db20cde121ff172c12efb80eb2629f80c9ebaf00bee3bc4fc5f",
+  "mutation_forbidden": true,
+  "next_stage": "elilo-oldkernel-cleanup-third-attempt-authorization-review",
+  "prepared_apply_policy_sha256": "4b3ce6ce5d33d24fec5b30b4f403b84796fffe1433fe4c8aa2a2cabec561ab38",
+  "reviewed": true,
+  "revised_apply_script_sha256": "7b42e2df3f99eaa7a92bbb2b91bcc97aa63d5cb0f755b935788409533ada937c",
+  "rollback_kernel": "5.15.19",
+  "scenario": "elilo-oldkernel-cleanup-rollback-module-survivor-authorized-apply-revision-review",
+  "schema": 1,
+  "third_attempt_authorized": false
+}
