@@ -90,6 +90,8 @@ Step 103 has now passed on the real Slackware 15.0 VM with archive SHA-256 `9e3c
 
 This is an intentional safe-pause checkpoint. The VM may be powered off and later resumed at step 104 without repeating steps 93-103 solely because remote Slackware repository metadata changes. Do not remove `/var/lib/slack-update/elilo-cleanup-backups/` or clean the exact locally cached 5.15.209 kernel package archives before the ELILO cleanup and post-reboot verification chain is formally closed.
 
+Step 104 is now prepared as the separate third-attempt authorization review. It is non-mutating and revalidates the accepted step-103 live boundary, all three exact rollback VirtualBox survivors and active counterparts, and the exact cached 5.15.209 kernel archives. A clean result authorizes the third attempt and apply contract but still leaves destructive execution disabled; the current prepared apply policy remains fail-closed until a later boundary accepts the real step-104 evidence. No repository refresh or network access is part of this authorization.
+
 
 ## Goals
 

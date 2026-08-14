@@ -1568,5 +1568,25 @@ A clean result reports `revision_ready=true`, `survivor_integration_ready=true`,
 
 The real step-103 review passed all 5 assertions on 2026-08-14 with evidence archive SHA-256 `9e3c9d1c6aa462a7fb7fb09eb95ffebd9945faba94d8c3b74274dd61b400a1c0`. Its before/after package, boot, active-module, and rollback-module manifests are byte-identical. The accepted record is `tests/fixtures/reference/acceptance/kernel-boot/slackware-15.0-elilo-oldkernel-cleanup-rollback-module-survivor-authorized-apply-revision-review-20260814-accepted.json`.
 
-This accepted result is a safe pause boundary. No third cleanup attempt is authorized, and step 104 has not been prepared in this checkpoint. The VM may be powered off. Preserve `/var/lib/slack-update/elilo-cleanup-backups/` and the exact locally cached active 5.15.209 kernel archives; repository publication drift alone does not invalidate this locally bound continuation.
+This accepted result was the safe-pause boundary from which step 104 is now prepared. No third cleanup attempt was authorized by step 103 itself. Preserve `/var/lib/slack-update/elilo-cleanup-backups/` and the exact locally cached active 5.15.209 kernel archives; repository publication drift alone does not invalidate this locally bound continuation.
+
+### ELILO cleanup third-attempt authorization review (step 104)
+
+After the accepted step-103 safe-pause checkpoint, run `test-elilo-oldkernel-cleanup-third-attempt-authorization-review.sh`. This review is non-mutating. It binds the exact accepted step-103 record, exact survivor-integrated executor, integration contract, prepared fail-closed apply policy, and exact locally cached active 5.15.209 package archives. It also revalidates the recovered package, selected boot, active-module, rollback-module, and six rollback/active survivor fingerprints.
+
+Production command:
+
+```bash
+sudo bash tests/acceptance/reference/test-elilo-oldkernel-cleanup-third-attempt-authorization-review.sh \
+    --target slackware-15.0 \
+    --confirm-hostname-fqdn vbox-slack15.vbox-slack15.org \
+    --confirm-revision-review-evidence-sha256 9e3c9d1c6aa462a7fb7fb09eb95ffebd9945faba94d8c3b74274dd61b400a1c0 \
+    --confirm-active-kernel 5.15.209 \
+    --confirm-rollback-kernel 5.15.19 \
+    --confirm-third-attempt-authorization-sha256 3f4cd3c8816964bd3c48099805eb93a48c2d07c8a40039afcf1793ce797bbb1e
+```
+
+A clean result reports `third_attempt_authorized=true`, `cleanup_authorized=true`, `apply_authorized=true`, `execution_authorized=false`, `apply_executed=false`, and `pause_safe=true`, then routes to `elilo-oldkernel-cleanup-authorized-apply-revision-2`. The distinction is deliberate: step 104 authorizes the reviewed attempt, but the destructive executor remains fail-closed because its prepared policy still has no accepted step-104 record and retains `execution_authorized=false`. A later boundary must accept the real step-104 evidence and explicitly prepare execution.
+
+The review performs no repository refresh, network access, package mutation, ELILO edit, module deletion, or reboot. Preserve `/var/lib/slack-update/elilo-cleanup-backups/` and the exact cached 5.15.209 package archives until the later cleanup/reboot chain closes. A clean step-104 result remains a pause-safe boundary.
 
