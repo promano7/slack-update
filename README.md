@@ -2684,3 +2684,22 @@ sudo bash tests/acceptance/reference/test-elilo-oldkernel-cleanup-final-contract
 ```
 
 The diagnostic revalidates the exact recovered state and retained private recovery archive, then executes only `/sbin/depmod -n 5.15.209`. It records the exit status plus stdout/stderr hashes and verifies package, boot, and module manifests are unchanged by the probe. It always keeps `third_attempt_authorized=false`, `cleanup_authorized=false`, `apply_authorized=false`, and `apply_executed=false`. A non-zero depmod exit routes to `elilo-oldkernel-cleanup-depmod-validation-revision-review`; a zero exit routes to `elilo-oldkernel-cleanup-final-predicate-instrumentation-review`.
+
+### ELILO cleanup final-predicate instrumentation review
+
+After the accepted step-99 diagnostic returned `depmod_dry_run_rc=0`, step 100 remains strictly read-only. It binds the recovered revision-1 failure and the accepted step-99 archive, revalidates the exact recovered live state and private recovery backup, then decomposes the previously aggregated `capture_final && verify_final` boundary. In addition, it compares every regular file below `/lib/modules/5.15.19` with the `FILE LIST:` ownership union of the exact three rollback package records. Any package-unowned `.ko*` object is recorded as a projected survivor of `removepkg` and confirms the `rollback-module-object-survivors` root-cause class. No third cleanup attempt is authorized.
+
+Run:
+
+```bash
+sudo bash tests/acceptance/reference/test-elilo-oldkernel-cleanup-final-predicate-instrumentation-review.sh \
+    --target slackware-15.0 \
+    --confirm-hostname-fqdn vbox-slack15.vbox-slack15.org \
+    --confirm-final-diagnostic-evidence-sha256 a967cec7cf1b81f1abcf8d8df5bc02973c8990a6103440b3e6dceecc795eb44d \
+    --confirm-active-kernel 5.15.209 \
+    --confirm-rollback-kernel 5.15.19 \
+    --confirm-instrumentation-review-sha256 a6b1e736b8984fa4b119ae5ea7fdfec7e6e9e3f87c6e043395c0c2c765edfc41
+```
+
+A clean diagnostic always keeps `third_attempt_authorized=false`, `cleanup_authorized=false`, `apply_authorized=false`, and `apply_executed=false`. If package-unowned rollback module objects are found, `root_cause_confirmed=true` routes to `elilo-oldkernel-cleanup-rollback-module-survivor-revision-review`; otherwise the result routes to `elilo-oldkernel-cleanup-instrumented-third-attempt-review`.
+

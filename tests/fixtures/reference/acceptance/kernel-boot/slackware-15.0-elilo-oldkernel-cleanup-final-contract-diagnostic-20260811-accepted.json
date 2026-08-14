@@ -1,0 +1,22 @@
+{
+  "active_kernel": "5.15.209",
+  "apply_authorized": false,
+  "apply_executed": false,
+  "archive_sha256": "a967cec7cf1b81f1abcf8d8df5bc02973c8990a6103440b3e6dceecc795eb44d",
+  "cleanup_authorized": false,
+  "depmod_dry_run_rc": 0,
+  "diagnostic_complete": true,
+  "failures": 0,
+  "hostname_fqdn": "vbox-slack15.vbox-slack15.org",
+  "next_stage": "elilo-oldkernel-cleanup-final-predicate-instrumentation-review",
+  "passes": 5,
+  "pause_safe": true,
+  "rollback_kernel": "5.15.19",
+  "root_cause_confirmed": false,
+  "scenario": "elilo-oldkernel-cleanup-final-contract-diagnostic",
+  "schema": 1,
+  "skips": 0,
+  "status": "accepted-final-contract-diagnostic",
+  "target": "slackware-15.0",
+  "third_attempt_authorized": false
+}

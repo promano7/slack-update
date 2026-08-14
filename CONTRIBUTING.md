@@ -359,3 +359,5 @@ When validating a reinstalled Slackware kernel module tree, do not treat generat
 ### ELILO cleanup retry diagnostics
 
 A recovered ELILO cleanup failure is not permission to retry the destructive transaction. When an aggregated final-state assertion fails, add or run a non-mutating diagnostic that records each unresolved predicate before revising or reauthorizing the executor. Preserve the retained private recovery archive until a later successful reboot-verification boundary explicitly permits cleanup.
+
+- ELILO oldkernel cleanup retries must remain denied after step 99 until the final-predicate instrumentation review has classified rollback package-unowned module survivors or explicitly routed to runtime instrumentation.
