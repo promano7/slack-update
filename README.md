@@ -84,6 +84,13 @@ Step 97 reviews a revised executor after the recovered state was reconfirmed eve
 Step 97 is now accepted with evidence SHA-256 `4ed50105ad880742638c91426cdc3d9e9a8dcd04425f5fe74709e9ae708024e7`. Step 98 enables the exact reviewed executor as revision 1 of the authorized apply. The second attempt remains bound to the original canonical cleanup contract and the accepted revision evidence, preserves the same private recovery and automatic rollback rules, performs no repository refresh or network access, and still requires a separate post-apply reboot review before the retained recovery backup can become eligible for removal.
 
 
+Step 98 reached the intended cleanup state but recovered safely after a second false negative. Steps 99 and 100 isolated the remaining cause: three package-unowned VirtualBox Guest Additions modules under `/lib/modules/5.15.19/misc/` survive removal of the Slackware rollback kernel packages. Steps 101 and 102 reviewed and authorized only later unlink of those exact three rollback objects, with path, SHA-256, vermagic, package-ownership, and 5.15.209 active-counterpart checks; recursive rollback-tree deletion and active-counterpart deletion remain forbidden.
+
+Step 103 has now passed on the real Slackware 15.0 VM with archive SHA-256 `9e3c9d1c6aa462a7fb7fb09eb95ffebd9945faba94d8c3b74274dd61b400a1c0`. The survivor-integrated transactional executor is reviewed and recovery-covered, but no third cleanup attempt is authorized or executable yet. The accepted state is `revision_ready=true`, `survivor_integration_ready=true`, `third_attempt_authorized=false`, `cleanup_authorized=false`, `apply_authorized=false`, `apply_executed=false`, and `pause_safe=true`. The next stage is the separate step-104 third-attempt authorization review.
+
+This is an intentional safe-pause checkpoint. The VM may be powered off and later resumed at step 104 without repeating steps 93-103 solely because remote Slackware repository metadata changes. Do not remove `/var/lib/slack-update/elilo-cleanup-backups/` or clean the exact locally cached 5.15.209 kernel package archives before the ELILO cleanup and post-reboot verification chain is formally closed.
+
+
 ## Goals
 
 - Provide a reliable and understandable update workflow for Slackware.

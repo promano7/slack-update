@@ -1566,3 +1566,7 @@ sudo bash tests/acceptance/reference/test-elilo-oldkernel-cleanup-rollback-modul
 
 A clean result reports `revision_ready=true`, `survivor_integration_ready=true`, `third_attempt_authorized=false`, `cleanup_authorized=false`, `apply_authorized=false`, `apply_executed=false`, and `pause_safe=true`, then routes only to `elilo-oldkernel-cleanup-third-attempt-authorization-review`. The revised executor also requires a future accepted third-attempt authorization record, which is intentionally absent from step 103.
 
+The real step-103 review passed all 5 assertions on 2026-08-14 with evidence archive SHA-256 `9e3c9d1c6aa462a7fb7fb09eb95ffebd9945faba94d8c3b74274dd61b400a1c0`. Its before/after package, boot, active-module, and rollback-module manifests are byte-identical. The accepted record is `tests/fixtures/reference/acceptance/kernel-boot/slackware-15.0-elilo-oldkernel-cleanup-rollback-module-survivor-authorized-apply-revision-review-20260814-accepted.json`.
+
+This accepted result is a safe pause boundary. No third cleanup attempt is authorized, and step 104 has not been prepared in this checkpoint. The VM may be powered off. Preserve `/var/lib/slack-update/elilo-cleanup-backups/` and the exact locally cached active 5.15.209 kernel archives; repository publication drift alone does not invalidate this locally bound continuation.
+
