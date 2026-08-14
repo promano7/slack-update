@@ -361,3 +361,8 @@ When validating a reinstalled Slackware kernel module tree, do not treat generat
 A recovered ELILO cleanup failure is not permission to retry the destructive transaction. When an aggregated final-state assertion fails, add or run a non-mutating diagnostic that records each unresolved predicate before revising or reauthorizing the executor. Preserve the retained private recovery archive until a later successful reboot-verification boundary explicitly permits cleanup.
 
 - ELILO oldkernel cleanup retries must remain denied after step 99 until the final-predicate instrumentation review has classified rollback package-unowned module survivors or explicitly routed to runtime instrumentation.
+
+
+### ELILO cleanup rollback-module survivor review (step 101)
+
+Step 100 confirmed that the failed final rollback-module predicate is caused by exactly three package-unowned VirtualBox Guest Additions objects under the 5.15.19 rollback tree: `vboxguest.ko`, `vboxsf.ko`, and `vboxvideo.ko`. Step 101 is a non-mutating review only. It revalidates the recovered boundary, scans every installed package `FILE LIST:` to prove that none owns those rollback paths, validates rollback `modinfo` identity/vermagic, and requires matching 5.15.209 active counterparts. It fingerprints the exact three rollback objects and their active counterparts into an evidence-local survivor-removal contract. Recursive removal of `/lib/modules/5.15.19`, removal of active counterparts, and any third cleanup attempt remain unauthorized until a separate review accepts that exact scope. A clean step-101 result remains `pause_safe=true`.

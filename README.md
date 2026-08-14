@@ -2703,3 +2703,8 @@ sudo bash tests/acceptance/reference/test-elilo-oldkernel-cleanup-final-predicat
 
 A clean diagnostic always keeps `third_attempt_authorized=false`, `cleanup_authorized=false`, `apply_authorized=false`, and `apply_executed=false`. If package-unowned rollback module objects are found, `root_cause_confirmed=true` routes to `elilo-oldkernel-cleanup-rollback-module-survivor-revision-review`; otherwise the result routes to `elilo-oldkernel-cleanup-instrumented-third-attempt-review`.
 
+
+
+### ELILO cleanup rollback-module survivor review (step 101)
+
+Step 100 confirmed that the failed final rollback-module predicate is caused by exactly three package-unowned VirtualBox Guest Additions objects under the 5.15.19 rollback tree: `vboxguest.ko`, `vboxsf.ko`, and `vboxvideo.ko`. Step 101 is a non-mutating review only. It revalidates the recovered boundary, scans every installed package `FILE LIST:` to prove that none owns those rollback paths, validates rollback `modinfo` identity/vermagic, and requires matching 5.15.209 active counterparts. It fingerprints the exact three rollback objects and their active counterparts into an evidence-local survivor-removal contract. Recursive removal of `/lib/modules/5.15.19`, removal of active counterparts, and any third cleanup attempt remain unauthorized until a separate review accepts that exact scope. A clean step-101 result remains `pause_safe=true`.

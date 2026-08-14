@@ -1509,3 +1509,22 @@ sudo bash tests/acceptance/reference/test-elilo-oldkernel-cleanup-final-predicat
 
 A clean diagnostic always keeps `third_attempt_authorized=false`, `cleanup_authorized=false`, `apply_authorized=false`, and `apply_executed=false`. If package-unowned rollback module objects are found, `root_cause_confirmed=true` routes to `elilo-oldkernel-cleanup-rollback-module-survivor-revision-review`; otherwise the result routes to `elilo-oldkernel-cleanup-instrumented-third-attempt-review`.
 
+
+
+### ELILO cleanup rollback-module survivor revision review
+
+After step 100 confirms `rollback-package-unowned-module-object-survivors`, run `test-elilo-oldkernel-cleanup-rollback-module-survivor-revision-review.sh`. The review is read-only and accepts only the exact three discovered VirtualBox Guest Additions rollback paths. It verifies that no installed package owns them, requires rollback `modinfo` names/vermagic for 5.15.19, and requires matching active counterparts with 5.15.209 vermagic. It emits `survivor-review.tsv` and `survivor-removal-contract.json`; the latter fingerprints both sides and explicitly keeps `deletion_authorized=false`, `recursive_module_tree_removal_authorized=false`, and `third_attempt_authorized=false`.
+
+Production command:
+
+```bash
+sudo bash tests/acceptance/reference/test-elilo-oldkernel-cleanup-rollback-module-survivor-revision-review.sh \
+    --target slackware-15.0 \
+    --confirm-hostname-fqdn vbox-slack15.vbox-slack15.org \
+    --confirm-instrumentation-evidence-sha256 ef8664635cd51be9a3b087ae2414afb8b35027d40462ec8b506b453f8c0b04c1 \
+    --confirm-active-kernel 5.15.209 \
+    --confirm-rollback-kernel 5.15.19 \
+    --confirm-survivor-review-sha256 f5e65d581ca8be463773950f2cd643f7e7da352e9eb208711f4bab9f1a9444d5
+```
+
+A clean result reports `survivor_review_ready=true`, `survivor_removal_scope_ready=true`, `third_attempt_authorized=false`, `pause_safe=true`, and routes to `elilo-oldkernel-cleanup-rollback-module-survivor-authorization-review`.

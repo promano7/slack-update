@@ -1,0 +1,27 @@
+{
+  "accepted_instrumentation_archive_sha256": "ef8664635cd51be9a3b087ae2414afb8b35027d40462ec8b506b453f8c0b04c1",
+  "accepted_instrumentation_record_sha256": "7f9076d382113d9d5e05746ab98ee8b168b310aa8514d99cd497483f9d038503",
+  "active_kernel": "5.15.209",
+  "confirmation_scope_sha256": "f5e65d581ca8be463773950f2cd643f7e7da352e9eb208711f4bab9f1a9444d5",
+  "expected_script_sha256": "232ef17f7fbae30f03b68111381ac423afd30c5a4f2f35a21c1d67294f16535b",
+  "expected_survivor_paths": [
+    "/lib/modules/5.15.19/misc/vboxguest.ko",
+    "/lib/modules/5.15.19/misc/vboxsf.ko",
+    "/lib/modules/5.15.19/misc/vboxvideo.ko"
+  ],
+  "failed_revision_1_diagnostic_sha256": "b59e003a016f8bfcae4351303f410ed7876c24d69a7c7249c9bd0c4fb3ec914c",
+  "hostname_fqdn": "vbox-slack15.vbox-slack15.org",
+  "mutation_forbidden": true,
+  "next_stage": "elilo-oldkernel-cleanup-rollback-module-survivor-authorization-review",
+  "recursive_module_tree_removal_authorized": false,
+  "require_active_counterparts": true,
+  "require_active_modinfo_resolution": true,
+  "require_no_installed_package_owner": true,
+  "require_rollback_vermagic": true,
+  "reviewed": true,
+  "rollback_kernel": "5.15.19",
+  "scenario": "elilo-oldkernel-cleanup-rollback-module-survivor-revision-review",
+  "schema": 1,
+  "target": "slackware-15.0",
+  "third_attempt_authorized": false
+}

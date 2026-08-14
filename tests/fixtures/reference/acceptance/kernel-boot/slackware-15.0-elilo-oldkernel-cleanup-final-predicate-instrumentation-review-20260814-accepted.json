@@ -1,0 +1,32 @@
+{
+  "schema": 1,
+  "scenario": "elilo-oldkernel-cleanup-final-predicate-instrumentation-review",
+  "accepted": true,
+  "archive_sha256": "ef8664635cd51be9a3b087ae2414afb8b35027d40462ec8b506b453f8c0b04c1",
+  "evidence_utc": "20260814T151748Z",
+  "hostname_fqdn": "vbox-slack15.vbox-slack15.org",
+  "active_kernel": "5.15.209",
+  "rollback_kernel": "5.15.19",
+  "diagnostic_complete": true,
+  "root_cause_confirmed": true,
+  "root_cause_classification": "rollback-package-unowned-module-object-survivors",
+  "unowned_rollback_files": 3,
+  "unowned_rollback_module_objects": 3,
+  "unowned_rollback_module_object_paths": [
+    "/lib/modules/5.15.19/misc/vboxguest.ko",
+    "/lib/modules/5.15.19/misc/vboxsf.ko",
+    "/lib/modules/5.15.19/misc/vboxvideo.ko"
+  ],
+  "package_snapshot_sha256": "b295eaa1abde0f961d21227d51988cead0a7794a298a5a980b19fb312d7b897a",
+  "boot_manifest_sha256": "95bbc279c56b63d088bc25a54abda0dcdf0e70fa920fc32b22260bfafe9fdec5",
+  "active_module_manifest_sha256": "a284a504efad1e6bcd200ab6dd453cafad557b575f4231a25bb12f06bcd23695",
+  "rollback_module_manifest_sha256": "49fb193b78b668eaf5dba1788c1e18861e6c77f083e9e50c5edc2a57965eed26",
+  "rollback_unowned_module_objects_sha256": "8d31e3d198cf642218d23426e46725ac618d3d3ae06e31caebb28d1de487b08b",
+  "final_predicate_instrumentation_sha256": "dd245013fdd376c46a84ebb1c42a7a2976d87f18b801fb2180eaa70912b9f7c4",
+  "third_attempt_authorized": false,
+  "cleanup_authorized": false,
+  "apply_authorized": false,
+  "apply_executed": false,
+  "pause_safe": true,
+  "next_stage": "elilo-oldkernel-cleanup-rollback-module-survivor-revision-review"
+}
