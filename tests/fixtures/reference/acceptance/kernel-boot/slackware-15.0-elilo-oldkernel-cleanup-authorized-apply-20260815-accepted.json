@@ -1,0 +1,79 @@
+{
+  "schema": 1,
+  "scenario": "elilo-oldkernel-cleanup-authorized-apply",
+  "status": "accepted-committed-cleanup",
+  "accepted": true,
+  "archive_sha256": "d3f68ec2a2947c75fddadbdae57246db7b535c926fc83952ef2d9960aa8ac0fa",
+  "hostname_fqdn": "vbox-slack15.vbox-slack15.org",
+  "active_kernel": "5.15.209",
+  "rollback_kernel": "5.15.19",
+  "production_executor_sha256": "7b42e2df3f99eaa7a92bbb2b91bcc97aa63d5cb0f755b935788409533ada937c",
+  "production_policy_sha256": "98cfb6ead03debb184884da422d9050050f97060991c56cbf5806574e9ab919f",
+  "apply_contract_sha256": "e5b587aacb911a05428706a09c3d7a85dc35a9802e46ccf8131cb3569dd6806f",
+  "apply_scope_sha256": "f9a1beb3973633e4f9af8b2571628f0b24d14338e915e11afc94ac6ef9849e37",
+  "authorization_evidence_sha256": "9ed0b6f4c989e4ea5d1742fc47d2ae5c31979e64fc3dffcc1aa7e5ed15934553",
+  "revision_evidence_sha256": "4ed50105ad880742638c91426cdc3d9e9a8dcd04425f5fe74709e9ae708024e7",
+  "survivor_authorization_evidence_sha256": "405327481b0c7459aab7ddab5b1a2f325fffb6ac2312ed1b4a18afc36d32fe6a",
+  "third_attempt_authorization_evidence_sha256": "c9b208042303ed775ed4750b36e4665ed683db7e12a2f33e0544236a30cecdee",
+  "apply_executed": true,
+  "apply_committed": true,
+  "recovery_attempted": false,
+  "recovery_restored": false,
+  "recovery_backup_retained": true,
+  "recovery_backup_path": "/var/lib/slack-update/elilo-cleanup-backups/5.15.19-20260815T160020Z",
+  "pause_safe": true,
+  "reboot_required": true,
+  "reboot_authorized": false,
+  "reboot_executed": false,
+  "next_stage": "elilo-oldkernel-cleanup-post-apply-reboot-review",
+  "post_package_snapshot_sha256": "ab69ead76bd994fd5198fa0351b9ecc66a6b2af986965751750e54aaa69e054f",
+  "active_module_object_manifest_sha256": "4edc368213108a4d359d6ebe51ddd52e80669b6b78695fc7b64a5c89c4be2425",
+  "active_boot_artifacts": {
+    "/boot/vmlinuz-generic-5.15.209": "7a001bd59a0a86567e18798bfa4951dc5ef916004d92daed9a1e532eff04a2a9",
+    "/boot/initrd-generic-5.15.209.gz": "777c8d971342b15c9d5ece42d26e869b8d804ac37a17044113aae18aa51124df",
+    "/boot/efi/EFI/Slackware/vmlinuz-generic-5.15.209": "7a001bd59a0a86567e18798bfa4951dc5ef916004d92daed9a1e532eff04a2a9",
+    "/boot/efi/EFI/Slackware/initrd-generic-5.15.209.gz": "777c8d971342b15c9d5ece42d26e869b8d804ac37a17044113aae18aa51124df"
+  },
+  "rollback_package_records_absent": [
+    "kernel-generic-5.15.19-x86_64-2",
+    "kernel-huge-5.15.19-x86_64-2",
+    "kernel-modules-5.15.19-x86_64-2"
+  ],
+  "active_package_records_present": [
+    "kernel-generic-5.15.209-x86_64-1",
+    "kernel-huge-5.15.209-x86_64-1",
+    "kernel-modules-5.15.209-x86_64-1"
+  ],
+  "legacy_efi_rollback_artifacts_absent": [
+    "/boot/efi/EFI/Slackware/vmlinuz",
+    "/boot/efi/EFI/Slackware/initrd.gz"
+  ],
+  "authorized_rollback_survivors_absent": [
+    "/lib/modules/5.15.19/misc/vboxguest.ko",
+    "/lib/modules/5.15.19/misc/vboxsf.ko",
+    "/lib/modules/5.15.19/misc/vboxvideo.ko"
+  ],
+  "recovery_archives": {
+    "boot.tar": "ede0c895d7c9abc6b6c72ce9550b04d835d4a7a3cf843ca858c3ac64357beb85",
+    "modules.tar": "ffc38a087235183bf846012812e71392c0e927c7bd80532c8330d0e85626e781",
+    "pkgtools.tar": "50a0d5ac17ca56a634b7e81a47282eae263d6f6239799efee05207ae8c02e31f"
+  },
+  "evidence_members": {
+    "assertions_sha256": "f7c7229c79455aa17e24672375fad4362b3239c877793f10043372376f4929ee",
+    "summary_sha256": "333ef7262e2407b658b946a9f6ea6a1e6d5436adfb0806e1471421149d555038",
+    "packages_before_sha256": "b295eaa1abde0f961d21227d51988cead0a7794a298a5a980b19fb312d7b897a",
+    "packages_after_sha256": "ab69ead76bd994fd5198fa0351b9ecc66a6b2af986965751750e54aaa69e054f",
+    "boot_before_sha256": "95bbc279c56b63d088bc25a54abda0dcdf0e70fa920fc32b22260bfafe9fdec5",
+    "modules_active_before_sha256": "a284a504efad1e6bcd200ab6dd453cafad557b575f4231a25bb12f06bcd23695",
+    "modules_active_after_sha256": "a9671e2a56152d1b0edfaa1a81ca319e50398ce531533e636d4f30657bb8272f",
+    "modules_active_objects_before_sha256": "4edc368213108a4d359d6ebe51ddd52e80669b6b78695fc7b64a5c89c4be2425",
+    "modules_active_objects_after_sha256": "4edc368213108a4d359d6ebe51ddd52e80669b6b78695fc7b64a5c89c4be2425",
+    "modules_active_stable_before_sha256": "c01a1b554d3d2589ea880a15ff2d6d3a987e5bf743a45c9e47e74c92c5c3db76",
+    "modules_active_stable_after_sha256": "c01a1b554d3d2589ea880a15ff2d6d3a987e5bf743a45c9e47e74c92c5c3db76",
+    "modules_rollback_before_sha256": "49fb193b78b668eaf5dba1788c1e18861e6c77f083e9e50c5edc2a57965eed26",
+    "recovery_archive_sha256": "9e8e360dd455f64508cb28223ad17af3f8e983dca24de5af937971d2a6b70013",
+    "recovery_location_sha256": "fc49d5d6822e779525dac93505acb7ee32a68c6f94284964099a7a4bf132ab69",
+    "upgradepkg_log_sha256": "07b7a264a261433689c1a6ce0ac7f8ec53d2396acaa211cb9ab5a8401bb808f6",
+    "removepkg_log_sha256": "df9ba8ac1e1729f53b700425a5cde7d1042a9c226078eb751e53f81a0562a91e"
+  }
+}
