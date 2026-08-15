@@ -1,0 +1,46 @@
+{
+  "schema": 1,
+  "scenario": "elilo-oldkernel-cleanup-recovery-backup-release-review",
+  "reviewed": true,
+  "release_review_authorized": true,
+  "package_mutation_authorized": false,
+  "boot_mutation_authorized": false,
+  "recovery_backup_mutation_authorized": false,
+  "removal_execution_authorized": false,
+  "repository_refresh_authorized": false,
+  "network_access_authorized": false,
+  "reboot_authorized": false,
+  "expected_script_sha256": "f9d9f69ce33f0ac88ad514dd0955ff578a0ee552fbd0ce34b518fc0f48b5961e",
+  "accepted_post_reboot_record_sha256": "28b1d780e35ad2c0fa7cda2deaf372475b6967145f74b572f5b2eb8307dfcce0",
+  "accepted_post_reboot_archive_sha256": "71b23d0175203eb6dc3ea5d8a93353c5eb68bb2bf49d83f7ae92f9a141fa4a1c",
+  "hostname_fqdn": "vbox-slack15.vbox-slack15.org",
+  "active_kernel": "5.15.209",
+  "rollback_kernel": "5.15.19",
+  "accepted_boot_id": "626f1a3a-606a-4dd3-8ff2-64d78032cadf",
+  "recovery_backup_path": "/var/lib/slack-update/elilo-cleanup-backups/5.15.19-20260815T160020Z",
+  "post_package_snapshot_sha256": "ab69ead76bd994fd5198fa0351b9ecc66a6b2af986965751750e54aaa69e054f",
+  "active_module_object_manifest_sha256": "4edc368213108a4d359d6ebe51ddd52e80669b6b78695fc7b64a5c89c4be2425",
+  "rollback_module_objects_manifest_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "boot_state_sha256": "6600fc6131428963ec9726983a061990e3605ed724e19ca0f718337793a224b8",
+  "elilo_conf_sha256": "94b77b9f70a9d3b22d146c36af0ee6bbf09133d0b1931a2e731e881d3edc37f6",
+  "recovery_manifest_sha256": "9e8e360dd455f64508cb28223ad17af3f8e983dca24de5af937971d2a6b70013",
+  "recovery_archives": {
+    "boot_tar": "ede0c895d7c9abc6b6c72ce9550b04d835d4a7a3cf843ca858c3ac64357beb85",
+    "modules_tar": "ffc38a087235183bf846012812e71392c0e927c7bd80532c8330d0e85626e781",
+    "pkgtools_tar": "50a0d5ac17ca56a634b7e81a47282eae263d6f6239799efee05207ae8c02e31f"
+  },
+  "expected_directory_members": [
+    "boot.tar",
+    "modules.tar",
+    "pkgtools.tar"
+  ],
+  "removal_target_sha256": "fb4798006e393ce84856c7afed4484aaaa2990952dcc9928f0787c56fb57874d",
+  "successful_result": {
+    "release_review_passed": true,
+    "recovery_backup_retained": true,
+    "recovery_backup_removal_authorized": true,
+    "removal_executed": false,
+    "pause_safe": true,
+    "next_stage": "elilo-oldkernel-cleanup-recovery-backup-authorized-removal"
+  }
+}
