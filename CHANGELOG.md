@@ -462,3 +462,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Explicitly proves that rollback package/module/ELILO destructive targets and the historical recovery-backup destructive target are absent.
 - Records historical destructive authorizations as consumed and requires `pending_destructive_action=false` with no new mutation authorization.
 - A successful step 115 advances only to `elilo-oldkernel-cleanup-scenario-closure-checkpoint`; step 116 remains the planned safe-stop scenario closure.
+
+## Phase 1 step 116 — ELILO oldkernel cleanup scenario-closure checkpoint prepared
+
+- Accepted the real Slackware 15.0 step-115 destructive-boundary closure evidence (`439465cf4c48ec85c7257a0fefa12d561796212f3aa807215a06a9ac897000d4`).
+- Added the final non-mutating scenario-closure checkpoint for the ELILO oldkernel cleanup chain.
+- Revalidates the stable 5.15.209 boot identity, exact package/module/boot/ELILO baselines, rollback absence, and continued absence of the retired recovery path.
+- Requires historical destructive authorizations to remain consumed, `pending_destructive_action=false`, `machine_action_required=false`, and no new destructive authorization.
+- A successful checkpoint closes the ELILO oldkernel cleanup scenario, requires any future work to start from a fresh review boundary, and returns only to `phase-1-resume-planning` with `pause_safe=true`.
+- This is the planned safe-stop checkpoint after steps 113–116; no further machine action is required before pausing or powering off the Slackware 15.0 VM.
