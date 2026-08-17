@@ -2754,3 +2754,7 @@ Step 115 closes the destructive boundary after the accepted final-state review. 
 ## Phase 1 step 116 — ELILO oldkernel cleanup scenario closure
 
 Step 116 is the final non-mutating checkpoint for the Slackware 15.0 ELILO oldkernel cleanup scenario. It accepts the step-115 destructive-boundary closure, revalidates the stable 5.15.209 boot and final persistent baselines, requires rollback and recovery targets to remain absent, confirms that all historical destructive authorizations are consumed, and leaves no pending machine action. A successful result closes this cleanup scenario at a safe power-off boundary; any future phase-1 work must begin from a fresh review boundary rather than reusing the closed cleanup authorization chain.
+
+## Accepted ELILO oldkernel cleanup closure
+
+The Slackware 15.0 ELILO oldkernel cleanup scenario is accepted as closed after step 116. The machine is at a safe no-action checkpoint on kernel 5.15.209: rollback package/module/ELILO targets are absent, the retired recovery backup is absent, all destructive authorizations are consumed, and no machine action is pending. Future Phase 1 work must start from a fresh review boundary at `phase-1-resume-planning`.

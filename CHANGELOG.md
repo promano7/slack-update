@@ -471,3 +471,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Requires historical destructive authorizations to remain consumed, `pending_destructive_action=false`, `machine_action_required=false`, and no new destructive authorization.
 - A successful checkpoint closes the ELILO oldkernel cleanup scenario, requires any future work to start from a fresh review boundary, and returns only to `phase-1-resume-planning` with `pause_safe=true`.
 - This is the planned safe-stop checkpoint after steps 113–116; no further machine action is required before pausing or powering off the Slackware 15.0 VM.
+
+## Phase 1 step 116 — ELILO oldkernel cleanup scenario closure accepted
+
+- Accepted the real Slackware 15.0 scenario-closure checkpoint evidence with archive SHA-256 `35e90aee6ef7f5e2abee65c3e08fd4357624896a2e622ba7e4c96907d08d815f`.
+- The checkpoint passed all 10 runtime assertions with zero failures and zero skips. Package, boot, ELILO, active-module, rollback-module, and retired-recovery-path state were byte-identical before and after the review.
+- The host retains the stable ELILO boot identity on kernel `5.15.209`; the transient boot ID is evidence only and is not a future equality requirement.
+- Rollback packages, rollback module objects, executable ELILO rollback references, and the retired recovery backup remain absent.
+- The ELILO oldkernel cleanup scenario is formally closed: `destructive_boundary_closed=true`, `historical_authorizations_consumed=true`, `pending_destructive_action=false`, and `machine_action_required=false`.
+- This is a real safe power-off/pause boundary. No machine action is required. Any later phase-1 work must start from a fresh review boundary and must not reuse the closed cleanup authorization chain.
+- Resume point: `phase-1-resume-planning`. The next session should begin by reviewing the remaining Phase 1 objectives rather than by extending the closed ELILO oldkernel cleanup scenario.
