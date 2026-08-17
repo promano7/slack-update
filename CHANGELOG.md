@@ -454,3 +454,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Bound the accepted cleanup lineage from the committed apply through reboot verification, recovery release/removal, and independent post-removal verification.
 - The final-state review never authorizes destructive action and advances only to `elilo-oldkernel-cleanup-destructive-boundary-closure`.
 - Planned safe-stop sequence remains steps 114–116, with step 116 intended to close this ELILO oldkernel cleanup scenario.
+
+## Phase 1 step 115 — ELILO oldkernel cleanup destructive-boundary closure prepared
+
+- Accepted the real Slackware 15.0 step-114 final-state review evidence (`cfd6ddac3ab880f09188790e775929961e54e22e28aec63960b346210bbff2e3`).
+- Added a non-mutating closure review that revalidates the final package/module/boot/ELILO baselines and persistent recovery-backup absence.
+- Explicitly proves that rollback package/module/ELILO destructive targets and the historical recovery-backup destructive target are absent.
+- Records historical destructive authorizations as consumed and requires `pending_destructive_action=false` with no new mutation authorization.
+- A successful step 115 advances only to `elilo-oldkernel-cleanup-scenario-closure-checkpoint`; step 116 remains the planned safe-stop scenario closure.

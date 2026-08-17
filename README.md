@@ -2746,3 +2746,7 @@ Step 113 independently verifies the committed step-112 recovery-backup removal. 
 ### Slackware 15.0 ELILO oldkernel cleanup final-state review
 
 Step 114 accepts the independent step-113 post-removal verification and performs a final non-mutating functional review of the completed cleanup. It requires the stable versioned 5.15.209 ELILO boot identity, the accepted package and active-module baselines, zero rollback module objects, the accepted boot/ELILO hashes, one active ELILO image/initrd pair with no executable rollback reference, and continued absence of the retired recovery-backup path. The stage does not authorize destructive action and advances only to a separate destructive-boundary closure review.
+
+## Phase 1 step 115 — ELILO oldkernel cleanup destructive-boundary closure
+
+Step 115 closes the destructive boundary after the accepted final-state review. It is review-only and verifies that the rollback package/module/ELILO targets and the retired recovery-backup target remain absent, that historical destructive authorizations have been consumed, and that no destructive action remains pending. It preserves stable boot identity without requiring transient boot-ID equality and advances only to the scenario-closure checkpoint.
