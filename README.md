@@ -2779,3 +2779,18 @@ defaults and bootstrap initializers separately, requires all eight current
 overlaps to remain value-identical, and keeps the five module activation modes
 deferred. The boundary changes no runtime behavior and requires no machine
 action.
+
+<!-- step-120-configuration-compatibility-checkpoint:start -->
+### Phase 1 configuration compatibility checkpoint
+
+The Phase 1 configuration/default review is closed by a repository-only
+compatibility checkpoint. The existing runtime and shipped configuration
+template remain byte-identical to the reviewed boundary, the 34-row parity
+contract remains accepted, and the common configuration surface for Slackware
+15.0 and Slackware-current is preserved without requiring a machine or package
+repository revalidation.
+
+No configuration action is pending. Future configuration work must open a
+fresh review boundary; module `enabled`/`disabled`/`auto` migration remains
+deferred.
+<!-- step-120-configuration-compatibility-checkpoint:end -->

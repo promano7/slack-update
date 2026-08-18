@@ -492,3 +492,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Next stage after reviewing the real inventory: `phase-1-configuration-schema-defaults`.
 - Phase 1 step 118 prepares a repository-only configuration schema/defaults review. It recognizes that the reference implementation already contains a configuration loader instead of introducing a parallel parser, inventories exactly 35 distinct `CONFIG_*` variables, including the configuration-source selector, keeps the five module activation modes deferred, and separately records the real `data/config/slack-update.conf` section/key surface. The boundary is read-only and does not promote system PATH, GenInitrd/boot safety paths, or package/boot command identities into user configuration. Runtime behavior remains unchanged; the next stage is the default-parity freeze.
 - Phase 1 step 119 freezes configuration default parity without changing runtime behavior. The reviewed contract maps all 34 `data/config/slack-update.conf` keys one-to-one to the existing `CONFIG_*` surface, records 28 normal configuration rows, one schema-control row, and five deferred module-mode rows, and requires the eight bootstrap/template overlaps to remain value-identical. `CONFIG_FILE` remains a configuration-source selector rather than a template key. No Slackware machine action or repository-state binding is introduced; the next stage is the configuration compatibility checkpoint.
+
+<!-- step-120-configuration-compatibility-checkpoint:start -->
+- Step 120 closes the Phase 1 configuration/default review at a repository-only
+  compatibility checkpoint. It binds the exact step-119 parity artifacts,
+  preserves the byte-identical reference implementation and configuration
+  template, keeps all 34 configuration mappings accepted, and records that the
+  common Slackware 15.0 / Slackware-current configuration surface is preserved.
+  No machine action or Slackware repository-state dependency remains; future
+  work requires a fresh review boundary and module mode migration remains
+  deferred. This is a safe pause and resumes only at `phase-1-resume-planning`.
+<!-- step-120-configuration-compatibility-checkpoint:end -->
