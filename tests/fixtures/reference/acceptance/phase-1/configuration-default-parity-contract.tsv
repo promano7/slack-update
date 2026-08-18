@@ -1,0 +1,35 @@
+variable	key	classification	bootstrap_initializer	template_value
+CONFIG_SCHEMA_VERSION	core.schema_version	schema-control	<empty>	1
+CONFIG_WORK_DIR	core.work_dir	existing-config-surface	<empty>	/var/lib/slack-update
+CONFIG_LOG_DIR	core.log_dir	existing-config-surface	<empty>	/var/log/slack-update
+CONFIG_LOCK_FILE	core.lock_file	existing-config-surface	<empty>	/var/run/slack-update.lock
+CONFIG_LOG_RETENTION_DAYS	core.log_retention_days	existing-config-surface	<empty>	30
+CONFIG_PACKAGE_DATABASE	core.package_database	existing-config-surface	<empty>	/var/log/packages
+CONFIG_SLACKWARE_INSTALL_NEW	slackware.install_new	existing-config-surface	<empty>	true
+CONFIG_SLACKWARE_UPGRADE_ALL	slackware.upgrade_all	existing-config-surface	<empty>	true
+CONFIG_FLATPAK_MODE	flatpak.mode	deferred-module-mode	auto	auto
+CONFIG_SBO_MODE	sbo.mode	deferred-module-mode	auto	auto
+CONFIG_SBOPKG_CONFIG	sbo.sbopkg_config	existing-config-surface	<empty>	/etc/sbopkg/sbopkg.conf
+CONFIG_SBO_QUEUE_DIR_FALLBACK	sbo.queue_dir_fallback	existing-config-surface	<empty>	/var/lib/sbopkg/queues
+CONFIG_SBO_PACKAGE_TAG	sbo.package_tag	existing-config-surface	<empty>	_SBo
+CONFIG_SBO_OPTIONS_FILE	sbo.options_file	existing-config-surface	/etc/slack-update/sbo-options.sqf	/etc/slack-update/sbo-options.sqf
+CONFIG_ELF_MODE	elf.mode	deferred-module-mode	auto	auto
+CONFIG_ELF_SCAN_PATHS	elf.scan_paths	existing-config-surface	<empty>	/usr/bin:/usr/sbin:/usr/libexec:/opt
+CONFIG_ABI_PACKAGES	packages.abi	existing-config-surface	<empty>	glibc gcc glib2 dbus libffi zlib zstd lz4 mesa gtk+3 gtk4 cairo cairomm1 pango harfbuzz libdrm libinput gtkmm3 openexr ffmpeg gstreamer gst-plugins-base pipewire openssl openssl-solibs gnutls curl libpng libjpeg-turbo libtiff alsa-lib libvorbis libopus flac nss nspr
+CONFIG_CINNAMON_ABI_PACKAGES	packages.cinnamon_abi	existing-config-surface	<empty>	mesa gtk+3 gtk4 cairo pango harfbuzz libdrm libinput ffmpeg openexr gtkmm3 cairomm1 libX11 libxcb libXext libXrender atk
+CONFIG_CRITICAL_PACKAGES	packages.critical	existing-config-surface	<empty>	glibc dbus openssl openssl-solibs
+CONFIG_KERNEL_PACKAGES	packages.kernel	existing-config-surface	<empty>	kernel-generic kernel-huge kernel-modules kernel-headers
+CONFIG_KERNEL_BOOT_PACKAGES	packages.kernel_boot	existing-config-surface	<empty>	kernel-generic kernel-huge kernel-modules
+CONFIG_KERNEL_HEADERS_PACKAGES	packages.kernel_headers	existing-config-surface	<empty>	kernel-headers
+CONFIG_BOOT_MODE	boot.mode	deferred-module-mode	auto	auto
+CONFIG_MKINITRD_CONFIG	boot.mkinitrd_config	existing-config-surface	<empty>	/etc/mkinitrd.conf
+CONFIG_INITRD_DEFAULT_OUTPUT	boot.initrd_default_output	existing-config-surface	<empty>	/boot/initrd.gz
+CONFIG_INITRD_KERNEL_PACKAGE	boot.kernel_package	existing-config-surface	kernel-generic	kernel-generic
+CONFIG_KERNEL_MODULES_DIRECTORY	boot.modules_directory	existing-config-surface	/lib/modules	/lib/modules
+CONFIG_GRUB_DIRECTORY	boot.grub_directory	existing-config-surface	<empty>	/boot/grub
+CONFIG_GRUB_CONFIG	boot.grub_config	existing-config-surface	<empty>	/boot/grub/grub.cfg
+CONFIG_CINNAMON_MODE	cinnamon.mode	deferred-module-mode	auto	auto
+CONFIG_CSB_REPOSITORY	cinnamon.repository	existing-config-surface	<empty>	/var/lib/slack-update/csb
+CONFIG_CSB_REMOTE	cinnamon.remote	existing-config-surface	<empty>	https://github.com/CinnamonSlackBuilds/csb.git
+CONFIG_CSB_BRANCH	cinnamon.branch	existing-config-surface	<empty>	master
+CONFIG_CSB_BUILDER	cinnamon.builder	existing-config-surface	<empty>	build-cinnamon.sh

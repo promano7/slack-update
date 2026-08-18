@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-configuration-default-parity-freeze",
+  "review_only": true,
+  "runtime_behavior_change": false,
+  "default_parity_frozen": true,
+  "source_path": "tools/reference/slack-update-reference.sh",
+  "source_sha256": "0dc4a4def9b063b9a598975f46e7458c5771eb8d8603f4fa8bbd9dfc07c4d4c6",
+  "template_path": "data/config/slack-update.conf",
+  "template_sha256": "4845e2c5038fe8896409f90b6287de33a011a76874229cb76479aa6cd4253bba",
+  "contract_path": "tests/fixtures/reference/acceptance/phase-1/configuration-default-parity-contract.tsv",
+  "contract_sha256": "2b6f200c4de671356c0ffcf2ab8d10428421b145c32b44a5a6efe8c146f95125",
+  "expected_contract_rows": 34,
+  "configuration_source_variable": "CONFIG_FILE",
+  "configuration_source_is_template_key": false,
+  "schema_control_rows": 1,
+  "existing_config_surface_rows": 28,
+  "deferred_module_mode_rows": 5,
+  "bootstrap_template_overlap_rows": 8,
+  "deferred_module_mode_variables": [
+    "CONFIG_FLATPAK_MODE",
+    "CONFIG_SBO_MODE",
+    "CONFIG_ELF_MODE",
+    "CONFIG_BOOT_MODE",
+    "CONFIG_CINNAMON_MODE"
+  ],
+  "non_module_bootstrap_template_overlaps": {
+    "CONFIG_SBO_OPTIONS_FILE": "/etc/slack-update/sbo-options.sqf",
+    "CONFIG_INITRD_KERNEL_PACKAGE": "kernel-generic",
+    "CONFIG_KERNEL_MODULES_DIRECTORY": "/lib/modules"
+  },
+  "hardcoded_values_not_promoted": [
+    "SLACK_UPDATE_SYSTEM_PATH",
+    "GENINITRD_POLICY_PATH",
+    "GENINITRD_NAMED_INITRD_LINK",
+    "GENINITRD_NAMED_INITRD_GRUB_PATH",
+    "GENINITRD_VERSIONED_INITRD_DIRECTORY",
+    "GENERIC_KERNEL_LINK",
+    "slackpkg",
+    "mkinitrd",
+    "grub-mkconfig"
+  ],
+  "machine_action_required": false,
+  "slackware_repository_state_dependency": false,
+  "module_mode_migration_deferred": true,
+  "next_stage": "phase-1-configuration-compatibility-checkpoint"
+}

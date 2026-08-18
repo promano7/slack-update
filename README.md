@@ -2770,3 +2770,12 @@ reference implementation. It records all `CONFIG_*` bootstrap initializers and
 the real section/key surface in `data/config/slack-update.conf` without changing
 runtime behavior. The five module activation modes remain deferred to the later
 `enabled`/`disabled`/`auto` migration boundary.
+
+### Phase 1 configuration default parity freeze
+
+Phase 1 step 119 freezes a one-to-one contract between the 34 existing
+configuration-template keys and their `CONFIG_*` variables. It records template
+defaults and bootstrap initializers separately, requires all eight current
+overlaps to remain value-identical, and keeps the five module activation modes
+deferred. The boundary changes no runtime behavior and requires no machine
+action.
