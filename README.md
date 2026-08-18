@@ -2762,3 +2762,11 @@ The Slackware 15.0 ELILO oldkernel cleanup scenario is accepted as closed after 
 ## Phase 1 step 117 — configuration boundary review
 
 Step 117 starts a fresh Phase 1 review boundary after the accepted ELILO oldkernel cleanup closure. It adds a repository-local, read-only inventory of hardcoded assignments, system paths, and external command assumptions in `tools/reference/slack-update-reference.sh`. The inventory does not create a runtime configuration file or change behavior; every candidate must first be classified as user-configurable, environment-derived, internal, safety-invariant, or deferred module-mode policy. Module `enabled`/`disabled`/`auto` behavior remains explicitly deferred.
+
+### Phase 1 configuration schema/defaults review
+
+Phase 1 step 118 inventories the configuration schema that already exists in the
+reference implementation. It records all `CONFIG_*` bootstrap initializers and
+the real section/key surface in `data/config/slack-update.conf` without changing
+runtime behavior. The five module activation modes remain deferred to the later
+`enabled`/`disabled`/`auto` migration boundary.

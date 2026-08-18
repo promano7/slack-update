@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-configuration-schema-defaults-review",
+  "review_only": true,
+  "runtime_behavior_change": false,
+  "configuration_file_created": false,
+  "existing_configuration_surface": true,
+  "source_path": "tools/reference/slack-update-reference.sh",
+  "source_sha256": "0dc4a4def9b063b9a598975f46e7458c5771eb8d8603f4fa8bbd9dfc07c4d4c6",
+  "template_path": "data/config/slack-update.conf",
+  "expected_config_variable_count": 35,
+  "configuration_source_variables": [
+    "CONFIG_FILE"
+  ],
+  "schema_control_variables": [
+    "CONFIG_SCHEMA_VERSION"
+  ],
+  "deferred_module_mode_variables": [
+    "CONFIG_FLATPAK_MODE",
+    "CONFIG_SBO_MODE",
+    "CONFIG_ELF_MODE",
+    "CONFIG_BOOT_MODE",
+    "CONFIG_CINNAMON_MODE"
+  ],
+  "reviewed_bootstrap_initializers": {
+    "CONFIG_FLATPAK_MODE": "auto",
+    "CONFIG_SBO_MODE": "auto",
+    "CONFIG_SBO_OPTIONS_FILE": "/etc/slack-update/sbo-options.sqf",
+    "CONFIG_ELF_MODE": "auto",
+    "CONFIG_BOOT_MODE": "auto",
+    "CONFIG_INITRD_KERNEL_PACKAGE": "kernel-generic",
+    "CONFIG_KERNEL_MODULES_DIRECTORY": "/lib/modules",
+    "CONFIG_CINNAMON_MODE": "auto"
+  },
+  "hardcoded_values_not_promoted_by_this_boundary": [
+    "SLACK_UPDATE_SYSTEM_PATH",
+    "GENINITRD_POLICY_PATH",
+    "GENINITRD_NAMED_INITRD_LINK",
+    "GENINITRD_NAMED_INITRD_GRUB_PATH",
+    "GENINITRD_VERSIONED_INITRD_DIRECTORY",
+    "GENERIC_KERNEL_LINK",
+    "slackpkg",
+    "mkinitrd",
+    "grub-mkconfig"
+  ],
+  "module_mode_migration_deferred": true,
+  "next_stage": "phase-1-configuration-default-parity-freeze"
+}
