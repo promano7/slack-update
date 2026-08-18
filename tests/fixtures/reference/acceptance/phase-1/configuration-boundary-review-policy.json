@@ -1,0 +1,36 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-configuration-boundary-review",
+  "status": "prepared-review-only",
+  "reviewed": true,
+  "accepted_step_116_record_sha256": "7bd0a490df1b86ba83313dfba752c9d8aafc34ec93d2bff34505b79c36d0c635",
+  "accepted_step_116_archive_sha256": "35e90aee6ef7f5e2abee65c3e08fd4357624896a2e622ba7e4c96907d08d815f",
+  "accepted_step_116_next_stage": "phase-1-resume-planning",
+  "inventory_script_sha256": "4582d37c3b765b253c816b4fcbd8f05a69e67382907882ccdd73cc28d0a60fbe",
+  "review_document_sha256": "afdf520b1bff550184863903b451a89b42fbf3f38afe3178c48b408d201e8abd",
+  "inventory_source": "tools/reference/slack-update-reference.sh",
+  "runtime_behavior_change": false,
+  "configuration_file_created": false,
+  "migration_authorized": false,
+  "machine_action_required": false,
+  "network_access_allowed": false,
+  "package_mutation_allowed": false,
+  "boot_mutation_allowed": false,
+  "module_mutation_allowed": false,
+  "repository_refresh_allowed": false,
+  "module_mode_migration_deferred": true,
+  "candidate_classes": [
+    "assignment",
+    "absolute-path",
+    "external-command"
+  ],
+  "required_review_classifications": [
+    "user-configurable-default",
+    "environment-derived",
+    "internal-constant",
+    "safety-invariant",
+    "deferred-module-mode"
+  ],
+  "next_stage": "phase-1-configuration-schema-defaults",
+  "pause_safe": true
+}

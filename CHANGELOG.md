@@ -481,3 +481,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - The ELILO oldkernel cleanup scenario is formally closed: `destructive_boundary_closed=true`, `historical_authorizations_consumed=true`, `pending_destructive_action=false`, and `machine_action_required=false`.
 - This is a real safe power-off/pause boundary. No machine action is required. Any later phase-1 work must start from a fresh review boundary and must not reuse the closed cleanup authorization chain.
 - Resume point: `phase-1-resume-planning`. The next session should begin by reviewing the remaining Phase 1 objectives rather than by extending the closed ELILO oldkernel cleanup scenario.
+
+## Phase 1 step 117 — configuration boundary review prepared
+
+- Started a fresh Phase 1 boundary from the accepted step-116 safe-pause checkpoint; the closed ELILO oldkernel authorization chain is not reused.
+- Added a deterministic, read-only inventory for hardcoded uppercase assignments, literal system paths, and external package/boot/module command assumptions in the production reference engine.
+- Defined the required step-118 classification set: `user-configurable-default`, `environment-derived`, `internal-constant`, `safety-invariant`, and `deferred-module-mode`.
+- Explicitly keeps destructive authorization gates, accepted evidence/scopes, fail-closed behavior, host/kernel confirmations, and rollback/recovery authorization lineage non-configurable.
+- Step 117 creates no runtime configuration file, changes no runtime behavior, requires no machine action, and leaves module `enabled`/`disabled`/`auto` migration deferred.
+- Next stage after reviewing the real inventory: `phase-1-configuration-schema-defaults`.

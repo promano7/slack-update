@@ -2758,3 +2758,7 @@ Step 116 is the final non-mutating checkpoint for the Slackware 15.0 ELILO oldke
 ## Accepted ELILO oldkernel cleanup closure
 
 The Slackware 15.0 ELILO oldkernel cleanup scenario is accepted as closed after step 116. The machine is at a safe no-action checkpoint on kernel 5.15.209: rollback package/module/ELILO targets are absent, the retired recovery backup is absent, all destructive authorizations are consumed, and no machine action is pending. Future Phase 1 work must start from a fresh review boundary at `phase-1-resume-planning`.
+
+## Phase 1 step 117 — configuration boundary review
+
+Step 117 starts a fresh Phase 1 review boundary after the accepted ELILO oldkernel cleanup closure. It adds a repository-local, read-only inventory of hardcoded assignments, system paths, and external command assumptions in `tools/reference/slack-update-reference.sh`. The inventory does not create a runtime configuration file or change behavior; every candidate must first be classified as user-configurable, environment-derived, internal, safety-invariant, or deferred module-mode policy. Module `enabled`/`disabled`/`auto` behavior remains explicitly deferred.
