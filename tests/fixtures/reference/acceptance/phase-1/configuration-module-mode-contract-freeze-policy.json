@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-configuration-module-mode-contract-freeze",
+  "freeze_only": true,
+  "accepted_step121_scenario": "phase-1-configuration-module-mode-boundary-review",
+  "accepted_step121_policy_path": "tests/fixtures/reference/acceptance/phase-1/configuration-module-mode-boundary-review-policy.json",
+  "accepted_step121_policy_sha256": "a03e299a87596ad66246031c3a47839bac5ab2a869073c43eeae6be0788ebc4e",
+  "source_path": "tools/reference/slack-update-reference.sh",
+  "source_sha256": "0dc4a4def9b063b9a598975f46e7458c5771eb8d8603f4fa8bbd9dfc07c4d4c6",
+  "template_path": "data/config/slack-update.conf",
+  "template_sha256": "4845e2c5038fe8896409f90b6287de33a011a76874229cb76479aa6cd4253bba",
+  "contract_path": "tests/fixtures/reference/acceptance/phase-1/configuration-module-mode-contract.tsv",
+  "contract_sha256": "f97ee5aa941b94f64570bd119b4870a4a85c8affde3212395ee09e8c44ff5eb9",
+  "supported_targets": [
+    "slackware-15.0",
+    "slackware-current"
+  ],
+  "module_count": 5,
+  "mode_count": 3,
+  "contract_row_count": 15,
+  "mode_values": [
+    "enabled",
+    "disabled",
+    "auto"
+  ],
+  "default_mode": "auto",
+  "mode_contract_frozen": true,
+  "runtime_behavior_change": false,
+  "configuration_template_change": false,
+  "source_change_authorized": false,
+  "template_change_authorized": false,
+  "machine_action_required": false,
+  "slackware_repository_state_dependency": false,
+  "boot_safety_specialization_preserved": true,
+  "next_stage": "phase-1-configuration-module-mode-conformance-review",
+  "pause_safe": true
+}

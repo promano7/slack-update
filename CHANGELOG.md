@@ -515,3 +515,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Step 121 changes no runtime behavior or configuration template, requires no Slackware machine action, and has no package-repository-state dependency.
 - Next stage after the focused review passes: `phase-1-configuration-module-mode-contract-freeze`.
 <!-- step-121-configuration-module-mode-boundary-review:end -->
+
+<!-- step-122-configuration-module-mode-contract-freeze:start -->
+## Phase 1 step 122 — optional-module mode contract freeze prepared
+
+- Froze the accepted step-121 `enabled` / `disabled` / `auto` behavior as an explicit 15-row compatibility matrix covering Flatpak, SBo, ELF, boot, and Cinnamon.
+- Preserved `auto` as the shipped default for all five modules and retained the reviewed strict/bypass/conditional semantics without changing runtime behavior.
+- Preserved existing applicability rules: `enabled` is strict when an applicable module lacks mandatory requirements, but does not make an otherwise irrelevant module run.
+- Preserved the boot safety specialization so only validated supported preparation paths may be selected automatically, disabled mode bypasses boot preparation, and enabled mode reports missing mandatory preparation requirements as errors.
+- Bound the freeze to the exact accepted step-121 policy, unchanged reference implementation, unchanged configuration template, and exact TSV contract digest.
+- Step 122 is repository-only, requires no Slackware machine action, has no package-repository-state dependency, and authorizes no source or template change.
+- Next stage after the freeze passes: `phase-1-configuration-module-mode-conformance-review`.
+<!-- step-122-configuration-module-mode-contract-freeze:end -->

@@ -1,0 +1,16 @@
+module	variable	key	default_mode	mode	probe_policy	run_policy	missing_requirements	applicability_policy	outcome_when_unavailable
+flatpak	CONFIG_FLATPAK_MODE	flatpak.mode	auto	enabled	required	attempt-when-applicable	error	module-applicability-retained	error
+flatpak	CONFIG_FLATPAK_MODE	flatpak.mode	auto	disabled	bypassed	never	not-evaluated	bypassed	disabled
+flatpak	CONFIG_FLATPAK_MODE	flatpak.mode	auto	auto	conditional	when-available-and-applicable	non-fatal	module-applicability-retained	skipped-non-fatally
+sbo	CONFIG_SBO_MODE	sbo.mode	auto	enabled	required	attempt-when-applicable	error	module-applicability-retained	error
+sbo	CONFIG_SBO_MODE	sbo.mode	auto	disabled	bypassed	never	not-evaluated	bypassed	disabled
+sbo	CONFIG_SBO_MODE	sbo.mode	auto	auto	conditional	when-available-and-applicable	non-fatal	module-applicability-retained	skipped-non-fatally
+elf	CONFIG_ELF_MODE	elf.mode	auto	enabled	required	attempt-when-applicable	error	module-applicability-retained	error
+elf	CONFIG_ELF_MODE	elf.mode	auto	disabled	bypassed	never	not-evaluated	bypassed	disabled
+elf	CONFIG_ELF_MODE	elf.mode	auto	auto	conditional	when-available-and-applicable	non-fatal	module-applicability-retained	skipped-non-fatally
+boot	CONFIG_BOOT_MODE	boot.mode	auto	enabled	required	attempt-when-applicable	error	validated-supported-preparation-path-required	error
+boot	CONFIG_BOOT_MODE	boot.mode	auto	disabled	bypassed	never	not-evaluated	bypassed	disabled
+boot	CONFIG_BOOT_MODE	boot.mode	auto	auto	conditional	when-available-and-applicable	non-fatal	validated-supported-preparation-path-only	skipped-non-fatally
+cinnamon	CONFIG_CINNAMON_MODE	cinnamon.mode	auto	enabled	required	attempt-when-applicable	error	module-applicability-retained	error
+cinnamon	CONFIG_CINNAMON_MODE	cinnamon.mode	auto	disabled	bypassed	never	not-evaluated	bypassed	disabled
+cinnamon	CONFIG_CINNAMON_MODE	cinnamon.mode	auto	auto	conditional	when-available-and-applicable	non-fatal	module-applicability-retained	skipped-non-fatally
