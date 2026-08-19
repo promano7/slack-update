@@ -1,0 +1,2 @@
+discrepancy_id	module	mode	classification	safety_domain	resolution_direction	contract_preservation	source_remediation_required	future_source_scope	target_behavior	source_change_authorized	contract_change_authorized
+boot-auto-partial-path-availability	boot	auto	implementation-conformance-gap	boot-preparation	preserve-contract-tighten-source	required	true	boot-auto-partial-applicability-only	auto-not-runnable-unless-validated-supported-preparation-path	false	false

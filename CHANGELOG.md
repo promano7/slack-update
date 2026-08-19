@@ -549,3 +549,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Kept Slackware 15.0 and Slackware-current in scope without machine action or Slackware repository-state dependency.
 - Next stage: `phase-1-configuration-module-mode-remediation-decision-freeze`.
 <!-- step-124-configuration-module-mode-conformance-discrepancy-classification:end -->
+
+<!-- step-125-configuration-module-mode-remediation-decision-freeze:start -->
+## Phase 1 step 125 — optional-module mode remediation decision frozen
+
+- Froze the step-124 resolution for `boot-auto-partial-path-availability` as `preserve-contract-tighten-source`.
+- Required preservation of the frozen `boot=auto` contract and recorded that a future source remediation is required.
+- Limited the future implementation scope to `boot-auto-partial-applicability-only`, targeting `auto-not-runnable-unless-validated-supported-preparation-path`.
+- Did not authorize a source edit, contract change, configuration-template change, or runtime behavior change in this step.
+- Preserved Slackware 15.0 and Slackware-current as mandatory targets without machine action or Slackware repository-state dependency.
+- Kept the boundary pause-safe; next stage: `phase-1-configuration-module-mode-source-remediation-design`.
+<!-- step-125-configuration-module-mode-remediation-decision-freeze:end -->
