@@ -503,3 +503,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
   work requires a fresh review boundary and module mode migration remains
   deferred. This is a safe pause and resumes only at `phase-1-resume-planning`.
 <!-- step-120-configuration-compatibility-checkpoint:end -->
+
+<!-- step-121-configuration-module-mode-boundary-review:start -->
+## Phase 1 step 121 — optional-module mode boundary review prepared
+
+- Opened the fresh Phase 1 configuration boundary required by the accepted step-120 compatibility checkpoint; no step-117–120 authorization lineage is reused.
+- Added a repository-only review of the existing `enabled`, `disabled`, and `auto` behavior for the Flatpak, SBo, ELF, boot, and Cinnamon optional modules.
+- Bound the review to the exact step-120 reference implementation and configuration-template hashes and to the frozen five-row deferred module-mode surface from step 119.
+- Preserved `auto` as the default for all five optional modules. `enabled` remains strict when mandatory requirements are missing, `disabled` bypasses module execution, and `auto` keeps unavailable or irrelevant optional software non-fatal.
+- Preserved the boot-mode safety specialization: auto selection remains limited to validated supported preparation paths, disabled suppresses boot preparation, and enabled retains strict failure reporting.
+- Step 121 changes no runtime behavior or configuration template, requires no Slackware machine action, and has no package-repository-state dependency.
+- Next stage after the focused review passes: `phase-1-configuration-module-mode-contract-freeze`.
+<!-- step-121-configuration-module-mode-boundary-review:end -->

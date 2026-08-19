@@ -1,0 +1,87 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-configuration-module-mode-boundary-review",
+  "review_only": true,
+  "fresh_boundary": true,
+  "accepted_step120_pause_safe": true,
+  "accepted_step120_future_work_requires_fresh_boundary": true,
+  "accepted_step120_next_stage": "phase-1-resume-planning",
+  "accepted_step120_policy_path": "tests/fixtures/reference/acceptance/phase-1/configuration-compatibility-checkpoint-policy.json",
+  "accepted_step120_policy_sha256": "dbd3ff99948b6f5e3a42ae46f9d0b27f6fe26f41e84069df614b9f23239cf92a",
+  "source_path": "tools/reference/slack-update-reference.sh",
+  "source_sha256": "0dc4a4def9b063b9a598975f46e7458c5771eb8d8603f4fa8bbd9dfc07c4d4c6",
+  "template_path": "data/config/slack-update.conf",
+  "template_sha256": "4845e2c5038fe8896409f90b6287de33a011a76874229cb76479aa6cd4253bba",
+  "parity_contract_path": "tests/fixtures/reference/acceptance/phase-1/configuration-default-parity-contract.tsv",
+  "parity_contract_sha256": "2b6f200c4de671356c0ffcf2ab8d10428421b145c32b44a5a6efe8c146f95125",
+  "runtime_behavior_change": false,
+  "configuration_template_change": false,
+  "mode_contract_change": false,
+  "supported_targets": [
+    "slackware-15.0",
+    "slackware-current"
+  ],
+  "mode_values": [
+    "enabled",
+    "disabled",
+    "auto"
+  ],
+  "default_mode": "auto",
+  "mode_semantics": {
+    "enabled": {
+      "probe_policy": "required",
+      "run_policy": "attempt-when-applicable",
+      "missing_requirements": "error"
+    },
+    "disabled": {
+      "probe_policy": "bypassed",
+      "run_policy": "never",
+      "missing_requirements": "not-evaluated"
+    },
+    "auto": {
+      "probe_policy": "conditional",
+      "run_policy": "when-available-and-applicable",
+      "missing_requirements": "non-fatal"
+    }
+  },
+  "reviewed_modules": [
+    {
+      "module": "flatpak",
+      "variable": "CONFIG_FLATPAK_MODE",
+      "key": "flatpak.mode",
+      "default": "auto"
+    },
+    {
+      "module": "sbo",
+      "variable": "CONFIG_SBO_MODE",
+      "key": "sbo.mode",
+      "default": "auto"
+    },
+    {
+      "module": "elf",
+      "variable": "CONFIG_ELF_MODE",
+      "key": "elf.mode",
+      "default": "auto"
+    },
+    {
+      "module": "boot",
+      "variable": "CONFIG_BOOT_MODE",
+      "key": "boot.mode",
+      "default": "auto"
+    },
+    {
+      "module": "cinnamon",
+      "variable": "CONFIG_CINNAMON_MODE",
+      "key": "cinnamon.mode",
+      "default": "auto"
+    }
+  ],
+  "boot_auto_specialization": "select-validated-supported-preparation-paths",
+  "disabled_must_not_probe_or_run": true,
+  "enabled_missing_requirements_are_errors": true,
+  "auto_unavailable_or_irrelevant_is_non_fatal": true,
+  "machine_action_required": false,
+  "slackware_repository_state_dependency": false,
+  "next_stage": "phase-1-configuration-module-mode-contract-freeze",
+  "pause_safe": true
+}
