@@ -527,3 +527,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Step 122 is repository-only, requires no Slackware machine action, has no package-repository-state dependency, and authorizes no source or template change.
 - Next stage after the freeze passes: `phase-1-configuration-module-mode-conformance-review`.
 <!-- step-122-configuration-module-mode-contract-freeze:end -->
+
+<!-- step-123-configuration-module-mode-conformance-review:start -->
+## Phase 1 step 123 — optional-module mode conformance review prepared
+
+- Compared the unchanged reference implementation with the complete 15-row optional-module mode contract frozen in step 122.
+- Recorded 14 conforming rows and one explicit discrepancy rather than silently normalizing the accepted implementation.
+- Identified `boot=auto` as `boot-auto-partial-path-availability`: the frozen contract says auto selects validated supported preparation paths only, while the accepted source can mark a one-capability boot path as `partial`, available, and runnable before per-action gating.
+- Preserved the accepted source and configuration template byte-for-byte and authorized neither source nor contract changes.
+- Kept Slackware 15.0 and Slackware-current in scope without requiring machine action or Slackware repository state.
+- Next stage: `phase-1-configuration-module-mode-conformance-discrepancy-classification`.
+<!-- step-123-configuration-module-mode-conformance-review:end -->

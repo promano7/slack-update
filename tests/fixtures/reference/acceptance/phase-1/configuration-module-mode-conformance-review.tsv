@@ -1,0 +1,16 @@
+module	mode	status	observed_behavior	discrepancy_id
+flatpak	enabled	conformant	strict-unavailable-error-and-run-when-available	-
+flatpak	disabled	conformant	probe-and-run-bypassed	-
+flatpak	auto	conformant	conditional-availability-and-nonfatal-unavailable	-
+sbo	enabled	conformant	strict-toolchain-unavailable-error-and-run-when-available	-
+sbo	disabled	conformant	probe-and-run-bypassed	-
+sbo	auto	conformant	conditional-toolchain-and-nonfatal-unavailable	-
+elf	enabled	conformant	strict-backend-unavailable-error-and-run-when-available	-
+elf	disabled	conformant	probe-and-run-bypassed	-
+elf	auto	conformant	conditional-backend-and-nonfatal-unavailable	-
+boot	enabled	conformant	requires-validated-supported-preparation-layout	-
+boot	disabled	conformant	probe-and-boot-actions-bypassed	-
+boot	auto	discrepancy	partial-preparation-layout-may-be-marked-available-and-runnable	boot-auto-partial-path-availability
+cinnamon	enabled	conformant	strict-git-requirement-with-rebuild-still-trigger-gated	-
+cinnamon	disabled	conformant	probe-and-run-bypassed	-
+cinnamon	auto	conformant	installation-and-git-conditional-and-nonfatal-unavailable	-
