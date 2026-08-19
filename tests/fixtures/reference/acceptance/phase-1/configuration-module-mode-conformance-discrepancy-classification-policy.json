@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-configuration-module-mode-conformance-discrepancy-classification",
+  "classification_only": true,
+  "accepted_step123_scenario": "phase-1-configuration-module-mode-conformance-review",
+  "source_path": "tools/reference/slack-update-reference.sh",
+  "source_sha256": "0dc4a4def9b063b9a598975f46e7458c5771eb8d8603f4fa8bbd9dfc07c4d4c6",
+  "template_path": "data/config/slack-update.conf",
+  "template_sha256": "4845e2c5038fe8896409f90b6287de33a011a76874229cb76479aa6cd4253bba",
+  "contract_path": "tests/fixtures/reference/acceptance/phase-1/configuration-module-mode-contract.tsv",
+  "contract_sha256": "f97ee5aa941b94f64570bd119b4870a4a85c8affde3212395ee09e8c44ff5eb9",
+  "step123_review_path": "tests/fixtures/reference/acceptance/phase-1/configuration-module-mode-conformance-review.tsv",
+  "step123_review_sha256": "8d642b84b9e23c7c88a5af259ec4ff75bc68d57e60f7b87d1baaa7664f40e9e1",
+  "step123_policy_path": "tests/fixtures/reference/acceptance/phase-1/configuration-module-mode-conformance-review-policy.json",
+  "step123_policy_sha256": "823fee83b57d701f3e4fe6021d778f1217ad58c82dc4356c405b6ebb04420753",
+  "supported_targets": [
+    "slackware-15.0",
+    "slackware-current"
+  ],
+  "discrepancy": {
+    "id": "boot-auto-partial-path-availability",
+    "module": "boot",
+    "mode": "auto",
+    "classification": "implementation-conformance-gap",
+    "safety_domain": "boot-preparation",
+    "frozen_contract": "validated-supported-preparation-path-only",
+    "observed_behavior": "partial-preparation-layout-may-be-marked-available-and-runnable",
+    "resolution_direction": "preserve-contract-tighten-source",
+    "contract_change_recommended": false,
+    "source_change_recommended": true
+  },
+  "runtime_behavior_change": false,
+  "configuration_template_change": false,
+  "source_change_authorized": false,
+  "contract_change_authorized": false,
+  "machine_action_required": false,
+  "slackware_repository_state_dependency": false,
+  "next_stage": "phase-1-configuration-module-mode-remediation-decision-freeze",
+  "pause_safe": true
+}

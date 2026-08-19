@@ -538,3 +538,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Kept Slackware 15.0 and Slackware-current in scope without requiring machine action or Slackware repository state.
 - Next stage: `phase-1-configuration-module-mode-conformance-discrepancy-classification`.
 <!-- step-123-configuration-module-mode-conformance-review:end -->
+
+<!-- step-124-configuration-module-mode-conformance-discrepancy-classification:start -->
+## Phase 1 step 124 — optional-module mode conformance discrepancy classified
+
+- Classified the single step-123 discrepancy `boot-auto-partial-path-availability` as an `implementation-conformance-gap` in the boot-preparation safety domain.
+- Preserved the frozen `boot=auto` contract requiring a validated supported preparation path instead of widening it to encode the historical partial-layout branch.
+- Recorded the resolution direction as `preserve-contract-tighten-source`: a future source remediation is recommended, while no source change is authorized by this step.
+- Preserved the reference implementation, configuration template, frozen 15-row contract, and accepted step-123 review byte-for-byte.
+- Kept Slackware 15.0 and Slackware-current in scope without machine action or Slackware repository-state dependency.
+- Next stage: `phase-1-configuration-module-mode-remediation-decision-freeze`.
+<!-- step-124-configuration-module-mode-conformance-discrepancy-classification:end -->
