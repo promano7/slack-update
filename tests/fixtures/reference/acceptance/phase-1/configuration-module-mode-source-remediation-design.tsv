@@ -1,0 +1,2 @@
+discrepancy_id	function	mode	edit_strategy	remove_partial_runnable_branch	preserve_complete_layouts	partial_auto_state	partial_auto_run	contract_change	template_change	source_change_authorized
+boot-auto-partial-path-availability	probe_boot_module	auto	remove-auto-partial-availability-branch	true	true	unavailable	0	false	false	false

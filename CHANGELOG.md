@@ -560,3 +560,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Preserved Slackware 15.0 and Slackware-current as mandatory targets without machine action or Slackware repository-state dependency.
 - Kept the boundary pause-safe; next stage: `phase-1-configuration-module-mode-source-remediation-design`.
 <!-- step-125-configuration-module-mode-remediation-decision-freeze:end -->
+
+<!-- step-126-configuration-module-mode-source-remediation-design:start -->
+## Phase 1 step 126 — optional-module mode source remediation designed
+
+- Designed the minimal source remediation for `boot-auto-partial-path-availability` without modifying the accepted reference implementation.
+- Limited the future edit to `probe_boot_module()` and the `boot=auto` partial-applicability branch only.
+- Selected `remove-auto-partial-availability-branch`: incomplete initrd-only or GRUB-only capability sets will fall through to the existing unavailable/non-runnable path instead of creating `BOOT_PREPARATION_LAYOUT=partial`.
+- Preserved the validated `mkinitrd-managed` and `direct-generic-no-initrd` layouts, enabled-mode strict failure behavior, disabled-mode bypass behavior, the configuration template, and the frozen 15-row contract.
+- Froze a repository-only regression boundary covering complete, partial, absent, enabled, disabled, Slackware 15.0, and Slackware-current cases.
+- Step 126 authorizes no source or contract change, requires no machine action, and has no Slackware repository-state dependency.
+- Next stage: `phase-1-configuration-module-mode-source-remediation-authorization-review`.
+<!-- step-126-configuration-module-mode-source-remediation-design:end -->
