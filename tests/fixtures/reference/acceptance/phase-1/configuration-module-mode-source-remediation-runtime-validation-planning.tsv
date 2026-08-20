@@ -1,0 +1,4 @@
+test_id	target	environment	host_binding	boot_profile	expected_boot_auto_result	characterization_gate	machine_executions	reboots	repository_refresh	package_mutation	boot_mutation	evidence_archive	status
+runtime-slackware-15	Slackware 15.0	existing-vm	vbox-slack15.vbox-slack15.org	elilo-generic-with-initrd	fail-closed-unless-independently-supported-path-is-proven	required-before-runtime-verdict	1	0	false	false	false	required	planned
+runtime-slackware-current	Slackware-current	new-vm-preferred	bind-at-authorization	grub-direct-generic-no-initrd	available-runnable-as-direct-generic-no-initrd	required-before-runtime-verdict	1	0	false	false	false	required	planned
+physical-current-fallback	Slackware-current	physical-fallback-only	bind-only-if-required	hardware-specific-only	not-planned	not-applicable	0	0	false	false	false	not-planned	fallback

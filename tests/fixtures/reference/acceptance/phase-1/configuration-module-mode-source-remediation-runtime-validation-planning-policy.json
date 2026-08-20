@@ -1,0 +1,82 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-configuration-module-mode-source-remediation-runtime-validation-planning",
+  "planning_only": true,
+  "source_path": "tools/reference/slack-update-reference.sh",
+  "source_sha256": "c5fcf486469e7ca6cbbc894a21899ae9330cbe5ecc6247372728b9ee8caff86c",
+  "template_path": "data/config/slack-update.conf",
+  "template_sha256": "4845e2c5038fe8896409f90b6287de33a011a76874229cb76479aa6cd4253bba",
+  "step129_review_path": "tests/fixtures/reference/acceptance/phase-1/configuration-module-mode-source-remediation-regression-review.tsv",
+  "step129_review_sha256": "95343b045a16a9fe943b46e1e7887173c9b7f1bb2c18ddcc8e2de867afc94ee8",
+  "step129_policy_path": "tests/fixtures/reference/acceptance/phase-1/configuration-module-mode-source-remediation-regression-review-policy.json",
+  "step129_policy_sha256": "f97b4e392a7fdacd7bc6585c7b790231614041a163f733cac171a21bf3259ff2",
+  "supported_targets": [
+    "slackware-15.0",
+    "slackware-current"
+  ],
+  "runtime_validation_pending": true,
+  "planned_machine_executions": 2,
+  "planned_reboots": 0,
+  "machine_execution_authorized": false,
+  "machine_action_required_in_step130": false,
+  "future_machine_action_required": true,
+  "repository_refresh_required": false,
+  "slackware_repository_state_dependency": false,
+  "package_mutation_authorized": false,
+  "boot_mutation_authorized": false,
+  "source_change_authorized": false,
+  "configuration_template_change_authorized": false,
+  "contract_change_authorized": false,
+  "evidence": {
+    "archive_required_per_machine_execution": true,
+    "sha256_sidecar_required": true,
+    "copy_directory": "/home/promano",
+    "owner": "promano",
+    "group": "users"
+  },
+  "slackware_15_plan": {
+    "environment": "existing-vm",
+    "expected_hostname_fqdn": "vbox-slack15.vbox-slack15.org",
+    "expected_boot_profile": "elilo-generic-with-initrd",
+    "characterization_and_runtime_probe_combined": true,
+    "expected_boot_auto_rule": "fail-closed-unless-independently-supported-path-is-proven",
+    "machine_executions": 1,
+    "reboots": 0
+  },
+  "slackware_current_plan": {
+    "environment": "new-vm-preferred",
+    "hostname_fqdn_binding": "deferred-to-runtime-validation-authorization",
+    "required_boot_profile": "grub-direct-generic-no-initrd",
+    "characterization_and_runtime_probe_combined": true,
+    "expected_boot_auto_rule": "available-runnable-as-direct-generic-no-initrd",
+    "machine_executions": 1,
+    "reboots": 0,
+    "vm_snapshot_recommended_before_binding": true
+  },
+  "physical_current_fallback": {
+    "default_required": false,
+    "planned_machine_executions": 0,
+    "allowed_only_if": [
+      "a required property cannot be validated faithfully in the VM",
+      "the accepted VM cannot satisfy the required direct-generic-no-initrd profile without changing the validation objective",
+      "a later review explicitly authorizes hardware-specific confirmation"
+    ]
+  },
+  "runtime_acceptance_rules": {
+    "characterization_precedes_verdict_in_each_execution": true,
+    "characterization_failure_stops_before_runtime_acceptance": true,
+    "no_guest_state_mutation_to_force_a_profile": true,
+    "actual_boot_profile_cross_checked_independently": true,
+    "boot_auto_must_be_runnable_only_for_a_validated_supported_preparation_path": true,
+    "step128_source_sha256_must_match_on_target": true,
+    "pre_and_post_non_mutation_evidence_required": true
+  },
+  "repository_regression_coverage_retained": {
+    "contract_rows": 15,
+    "conforming_rows": 15,
+    "behavioral_cases": 7,
+    "mkinitrd_managed_path_needs_extra_machine_execution": false
+  },
+  "next_stage": "phase-1-configuration-module-mode-source-remediation-runtime-validation-authorization",
+  "pause_safe": true
+}

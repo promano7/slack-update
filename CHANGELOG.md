@@ -610,3 +610,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Requires no machine action and has no Slackware repository-state dependency; runtime validation on Slackware 15.0 and Slackware-current remains required.
 - Next stage: `phase-1-configuration-module-mode-source-remediation-runtime-validation-planning`.
 <!-- step-129-configuration-module-mode-source-remediation-regression-review:end -->
+
+<!-- step-130-configuration-module-mode-source-remediation-runtime-validation-planning:start -->
+## Phase 1 step 130 — optional-module mode runtime validation planned
+
+- Planned target runtime acceptance for the step-128 `boot=auto` source remediation after step 129 closed repository conformance at 15/15 rows.
+- Limited the default target work to exactly two non-mutating machine executions: one on the established Slackware 15.0 VM and one on a new Slackware-current VM.
+- Combined characterization and runtime probing within each planned execution so an unrecognized target stops before any runtime verdict instead of requiring a separate characterization run.
+- Kept the established Slackware 15.0 VM `vbox-slack15.vbox-slack15.org`; the future harness must cross-check its UEFI/ELILO generic+initrd profile and accept `boot=auto` as runnable only if an independently supported preparation path is actually proven.
+- Selected a new Slackware-current VM as the preferred current target, with its exact hostname deferred to the later authorization boundary and with `grub-direct-generic-no-initrd` required before binding.
+- Kept the physical Slackware-current host out of the default plan; it is fallback-only if a later review proves that VM validation cannot faithfully cover a required property.
+- Planned zero reboots, zero package mutations, zero boot mutations, and no `slackpkg update`; runtime validation is independent of Slackware repository publication timing.
+- Required one evidence `.tar.gz` plus `.sha256` per future machine execution, copied directly to `/home/promano` with ownership `promano:users`.
+- Step 130 authorizes no machine execution or source/configuration/contract change and remains pause-safe.
+- Next stage: `phase-1-configuration-module-mode-source-remediation-runtime-validation-authorization`.
+<!-- step-130-configuration-module-mode-source-remediation-runtime-validation-planning:end -->
