@@ -572,3 +572,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Step 126 authorizes no source or contract change, requires no machine action, and has no Slackware repository-state dependency.
 - Next stage: `phase-1-configuration-module-mode-source-remediation-authorization-review`.
 <!-- step-126-configuration-module-mode-source-remediation-design:end -->
+
+<!-- step-127-configuration-module-mode-source-remediation-authorization-review:start -->
+## Phase 1 step 127 — optional-module mode source remediation authorized
+
+- Performed the separate repository-only authorization review for the source remediation designed in step 126.
+- Authorized exactly one future edit in `probe_boot_module()` for `boot=auto`: removal of the historical partial-applicability branch identified by `boot-auto-partial-path-availability`.
+- Bound authorization consumption to the exact accepted pre-edit source SHA-256; any intervening source change invalidates the authorization.
+- Kept the configuration template, frozen 15-row module-mode contract, capability detectors, validated complete boot layouts, enabled-mode semantics, and disabled-mode semantics outside the authorized edit scope.
+- Recorded `source_change_authorized=true` while keeping `source_change_applied=false`; step 127 itself changes no runtime behavior.
+- Requires no machine action and has no Slackware repository-state dependency; the repository-only boundary remains pause-safe.
+- Next stage: `phase-1-configuration-module-mode-source-remediation-implementation`.
+<!-- step-127-configuration-module-mode-source-remediation-authorization-review:end -->

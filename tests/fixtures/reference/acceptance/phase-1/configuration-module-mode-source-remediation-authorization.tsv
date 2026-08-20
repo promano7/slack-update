@@ -1,0 +1,2 @@
+discrepancy_id	function	mode	authorization_scope	authorized_edit	source_change_authorized	contract_change_authorized	template_change_authorized	capability_probe_change_authorized	enabled_semantics_change_authorized	disabled_semantics_change_authorized
+boot-auto-partial-path-availability	probe_boot_module	auto	boot-auto-partial-applicability-only	remove-auto-partial-availability-branch	true	false	false	false	false	false
