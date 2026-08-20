@@ -2013,15 +2013,6 @@ probe_boot_module() {
         || [ "$BOOT_PREPARATION_LAYOUT" = direct-generic-no-initrd ]; then
         BOOT_MODULE_STATE=available
         BOOT_MODULE_RUN=1
-    elif [ "$BOOT_INITRD_AVAILABLE" -eq 1 ] || [ "$BOOT_GRUB_AVAILABLE" -eq 1 ]; then
-        BOOT_MODULE_STATE=available
-        BOOT_MODULE_RUN=1
-        BOOT_PREPARATION_LAYOUT=partial
-        if [ -n "$BOOT_DIRECT_GENERIC_REASON" ]; then
-            BOOT_MODULE_REASON="auto mode detected a partial boot preparation path: $BOOT_DIRECT_GENERIC_REASON"
-        else
-            BOOT_MODULE_REASON="auto mode detected a partial boot preparation path"
-        fi
     else
         BOOT_MODULE_STATE=unavailable
         BOOT_MODULE_REASON="no supported initrd or GRUB preparation path was detected"

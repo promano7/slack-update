@@ -584,3 +584,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Requires no machine action and has no Slackware repository-state dependency; the repository-only boundary remains pause-safe.
 - Next stage: `phase-1-configuration-module-mode-source-remediation-implementation`.
 <!-- step-127-configuration-module-mode-source-remediation-authorization-review:end -->
+
+<!-- step-128-configuration-module-mode-source-remediation-implementation:start -->
+## Phase 1 step 128 — optional-module mode source remediation implemented
+
+- Consumed the step-127 narrow source authorization and removed exactly the historical `boot=auto` partial-applicability branch from `probe_boot_module()`.
+- Incomplete auto boot-preparation capability sets now reach the existing fail-closed unavailable/non-runnable fallback instead of becoming `available`, runnable, and `partial`.
+- Preserved the validated `mkinitrd-managed` and `direct-generic-no-initrd` layouts, capability probes, enabled-mode strict semantics, and disabled-mode bypass semantics.
+- Preserved the configuration template and frozen 15-row module-mode contract byte-for-byte.
+- Recorded the concrete post-edit source SHA-256 and added an exact-delta proof that reconstructs the authorized pre-edit source identity from the remediated source.
+- Added repository-local behavioral regression coverage for both valid auto layouts, both partial auto cases, no-capability auto mode, enabled partial mode, and disabled mode.
+- Recorded `source_change_applied=true`, `authorization_consumed=true`, and `further_source_change_authorized=false`; no additional source edit is authorized by this step.
+- Requires no machine action and has no Slackware repository-state dependency; next stage: `phase-1-configuration-module-mode-source-remediation-regression-review`.
+<!-- step-128-configuration-module-mode-source-remediation-implementation:end -->
