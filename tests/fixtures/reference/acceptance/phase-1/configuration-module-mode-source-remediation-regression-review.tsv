@@ -1,0 +1,16 @@
+module	mode	status	observed_behavior	evidence_basis	resolved_discrepancy_id
+flatpak	enabled	conformant	strict-unavailable-error-and-run-when-available	step123-conformance-plus-step128-exact-delta	-
+flatpak	disabled	conformant	probe-and-run-bypassed	step123-conformance-plus-step128-exact-delta	-
+flatpak	auto	conformant	conditional-availability-and-nonfatal-unavailable	step123-conformance-plus-step128-exact-delta	-
+sbo	enabled	conformant	strict-toolchain-unavailable-error-and-run-when-available	step123-conformance-plus-step128-exact-delta	-
+sbo	disabled	conformant	probe-and-run-bypassed	step123-conformance-plus-step128-exact-delta	-
+sbo	auto	conformant	conditional-toolchain-and-nonfatal-unavailable	step123-conformance-plus-step128-exact-delta	-
+elf	enabled	conformant	strict-backend-unavailable-error-and-run-when-available	step123-conformance-plus-step128-exact-delta	-
+elf	disabled	conformant	probe-and-run-bypassed	step123-conformance-plus-step128-exact-delta	-
+elf	auto	conformant	conditional-backend-and-nonfatal-unavailable	step123-conformance-plus-step128-exact-delta	-
+boot	enabled	conformant	requires-validated-supported-preparation-layout	step123-conformance-plus-step128-exact-delta	-
+boot	disabled	conformant	probe-and-boot-actions-bypassed	step123-conformance-plus-step128-exact-delta	-
+boot	auto	conformant	validated-supported-preparation-layout-only	step128-behavioral-regression	boot-auto-partial-path-availability
+cinnamon	enabled	conformant	strict-git-requirement-with-rebuild-still-trigger-gated	step123-conformance-plus-step128-exact-delta	-
+cinnamon	disabled	conformant	probe-and-run-bypassed	step123-conformance-plus-step128-exact-delta	-
+cinnamon	auto	conformant	installation-and-git-conditional-and-nonfatal-unavailable	step123-conformance-plus-step128-exact-delta	-

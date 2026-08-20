@@ -597,3 +597,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Recorded `source_change_applied=true`, `authorization_consumed=true`, and `further_source_change_authorized=false`; no additional source edit is authorized by this step.
 - Requires no machine action and has no Slackware repository-state dependency; next stage: `phase-1-configuration-module-mode-source-remediation-regression-review`.
 <!-- step-128-configuration-module-mode-source-remediation-implementation:end -->
+
+<!-- step-129-configuration-module-mode-source-remediation-regression-review:start -->
+## Phase 1 step 129 — optional-module mode source remediation regression reviewed
+
+- Re-reviewed the complete frozen 15-row optional-module mode contract after the step-128 source remediation.
+- Combined the fourteen step-123 conforming rows with the step-128 exact-delta proof and independently revalidated the single remediated `boot=auto` row.
+- Recorded full repository-level conformance: 15 conforming rows, zero discrepancies, with `boot-auto-partial-path-availability` resolved.
+- Re-ran isolated behavioral regression for both valid auto layouts, both partial auto layouts, no-capability auto mode, enabled partial mode, and disabled mode.
+- Bound the review to post-remediation source SHA-256 `c5fcf486469e7ca6cbbc894a21899ae9330cbe5ecc6247372728b9ee8caff86c` and preserved the configuration template and frozen contract byte-for-byte.
+- Preserved the consumed authorization boundary: `further_source_change_authorized=false`; no source, contract, or configuration-template edit is authorized by this review.
+- Requires no machine action and has no Slackware repository-state dependency; runtime validation on Slackware 15.0 and Slackware-current remains required.
+- Next stage: `phase-1-configuration-module-mode-source-remediation-runtime-validation-planning`.
+<!-- step-129-configuration-module-mode-source-remediation-regression-review:end -->
