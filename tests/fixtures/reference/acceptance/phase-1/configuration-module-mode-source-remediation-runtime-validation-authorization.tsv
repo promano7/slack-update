@@ -1,0 +1,4 @@
+authorization_id	target	environment	host_binding	required_boot_profile	scope_authorized	execution_authorized_now	binding_required	machine_execution_limit	reboots_allowed	repository_refresh_allowed	package_mutation_allowed	boot_mutation_allowed	evidence_required	status
+runtime-slackware-15	slackware-15.0	existing-vm	vbox-slack15.vbox-slack15.org	elilo-generic-with-initrd	true	false	false	1	0	false	false	false	true	scope-approved-held
+runtime-slackware-current	slackware-current	new-vm-preferred	pending-current-vm-fqdn	grub-direct-generic-no-initrd	true	false	true	1	0	false	false	false	true	scope-approved-pending-binding
+physical-current-fallback	slackware-current	physical-fallback-only	not-bound	hardware-specific-only	false	false	true	0	0	false	false	false	false	fallback-not-authorized

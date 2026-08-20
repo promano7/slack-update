@@ -625,3 +625,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Step 130 authorizes no machine execution or source/configuration/contract change and remains pause-safe.
 - Next stage: `phase-1-configuration-module-mode-source-remediation-runtime-validation-authorization`.
 <!-- step-130-configuration-module-mode-source-remediation-runtime-validation-planning:end -->
+
+<!-- step-131-configuration-module-mode-source-remediation-runtime-validation-authorization:start -->
+## Phase 1 step 131 — optional-module mode runtime validation scope authorized
+
+- Approved the narrow two-target runtime-validation scope planned in step 130 while keeping all machine execution non-consumable until target binding is complete.
+- Preserved exactly two eventual non-mutating executions and zero reboots: one on the established Slackware 15.0 VM and one on the new Slackware-current VM.
+- Kept `machine_execution_authorized=false` and `authorization_consumable=false` because the Slackware-current VM FQDN is not yet bound.
+- Retained the accepted Slackware 15.0 identity `vbox-slack15.vbox-slack15.org`, but intentionally held its execution until the common target-binding freeze is complete.
+- Approved the Slackware-current validation envelope with required profile `grub-direct-generic-no-initrd` without inventing a hostname before the VM exists.
+- Required the next target-binding stage to freeze the actual current-VM FQDN and execution harnesses without itself running target validation.
+- Preserved the non-mutation boundary: no repository refresh, package changes, boot changes, source/configuration/contract changes, or reboot are authorized.
+- Preserved evidence requirements for each eventual machine execution: one `.tar.gz` plus `.sha256`, copied directly to `/home/promano` and retained as `promano:users` until review.
+- Kept the physical Slackware-current host outside the default authorization and subject to a new explicit review if hardware-specific validation is ever required.
+- Step 131 requires no machine action, has no Slackware repository-state dependency, and remains pause-safe.
+- Next stage: `phase-1-configuration-module-mode-source-remediation-runtime-validation-target-binding`.
+<!-- step-131-configuration-module-mode-source-remediation-runtime-validation-authorization:end -->

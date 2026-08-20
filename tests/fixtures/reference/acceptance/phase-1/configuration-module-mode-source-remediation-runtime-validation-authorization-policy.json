@@ -1,0 +1,89 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-configuration-module-mode-source-remediation-runtime-validation-authorization",
+  "authorization_review_only": true,
+  "source_path": "tools/reference/slack-update-reference.sh",
+  "source_sha256": "c5fcf486469e7ca6cbbc894a21899ae9330cbe5ecc6247372728b9ee8caff86c",
+  "template_path": "data/config/slack-update.conf",
+  "template_sha256": "4845e2c5038fe8896409f90b6287de33a011a76874229cb76479aa6cd4253bba",
+  "step130_plan_path": "tests/fixtures/reference/acceptance/phase-1/configuration-module-mode-source-remediation-runtime-validation-planning.tsv",
+  "step130_plan_sha256": "452b5b6eb8c5901171579127284c041de446d8a20e7feebaf35a5161b01fe89c",
+  "step130_policy_path": "tests/fixtures/reference/acceptance/phase-1/configuration-module-mode-source-remediation-runtime-validation-planning-policy.json",
+  "step130_policy_sha256": "ab74c4cae4e5a80d52188c309134e494167034c04d96672e505d1a6cc13fdc79",
+  "supported_targets": [
+    "slackware-15.0",
+    "slackware-current"
+  ],
+  "runtime_validation_scope_authorized": true,
+  "runtime_validation_pending": true,
+  "machine_execution_authorized": false,
+  "authorization_consumable": false,
+  "authorization_blocker": "slackware-current-vm-host-binding-pending",
+  "machine_action_required_in_step131": false,
+  "future_machine_action_required": true,
+  "machine_execution_limit_after_binding": 2,
+  "reboot_limit_after_binding": 0,
+  "repository_refresh_required": false,
+  "slackware_repository_state_dependency": false,
+  "package_mutation_authorized": false,
+  "boot_mutation_authorized": false,
+  "source_change_authorized": false,
+  "configuration_template_change_authorized": false,
+  "contract_change_authorized": false,
+  "slackware_15_authorization": {
+    "environment": "existing-vm",
+    "expected_hostname_fqdn": "vbox-slack15.vbox-slack15.org",
+    "expected_boot_profile": "elilo-generic-with-initrd",
+    "scope_authorized": true,
+    "identity_binding_complete": true,
+    "execution_authorized_now": false,
+    "held_until_common_target_binding_freeze": true,
+    "machine_execution_limit": 1,
+    "reboot_limit": 0
+  },
+  "slackware_current_authorization": {
+    "environment": "new-vm-preferred",
+    "hostname_fqdn_binding": "pending-current-vm-fqdn",
+    "required_boot_profile": "grub-direct-generic-no-initrd",
+    "scope_authorized": true,
+    "identity_binding_complete": false,
+    "execution_authorized_now": false,
+    "binding_required_before_execution": true,
+    "machine_execution_limit": 1,
+    "reboot_limit": 0
+  },
+  "physical_current_fallback": {
+    "default_authorized": false,
+    "machine_execution_limit": 0,
+    "requires_new_explicit_review": true
+  },
+  "authorized_runtime_protocol": {
+    "characterization_and_runtime_probe_combined": true,
+    "characterization_failure_is_stop_condition": true,
+    "actual_boot_profile_cross_checked_independently": true,
+    "boot_auto_runnable_only_for_validated_supported_path": true,
+    "accepted_source_sha256_required_on_target": true,
+    "pre_and_post_non_mutation_evidence_required": true,
+    "repository_refresh_forbidden": true,
+    "package_mutation_forbidden": true,
+    "boot_mutation_forbidden": true,
+    "reboot_forbidden": true
+  },
+  "evidence": {
+    "archive_required_per_machine_execution": true,
+    "sha256_sidecar_required": true,
+    "copy_directory": "/home/promano",
+    "owner": "promano",
+    "group": "users",
+    "preserve_until_reviewed": true
+  },
+  "target_binding_requirements": {
+    "slackware_15_binding_already_complete": true,
+    "slackware_current_vm_must_exist_before_binding": true,
+    "slackware_current_fqdn_must_be_frozen_before_execution": true,
+    "execution_harnesses_must_be_bound_before_machine_execution": true,
+    "binding_stage_must_not_execute_target_validation": true
+  },
+  "next_stage": "phase-1-configuration-module-mode-source-remediation-runtime-validation-target-binding",
+  "pause_safe": true
+}
