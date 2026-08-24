@@ -729,3 +729,28 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Authorized no source edit, Slackware-current rerun, Slackware 15.0 execution, repository refresh, package action, reboot, or boot mutation.
 - Successful revision-2 verification restores the repository-only step-137 implementation checkpoint and advances to the repository-local regression review.
 <!-- step-137-r2-configuration-module-mode-source-remediation-runtime-validation-direct-generic-initialization-remediation-implementation-verification-fix:end -->
+
+
+<!-- step-138-direct-generic-initialization-remediation-regression-review:start -->
+## Phase 1 step 138 — direct-generic initialization remediation regression reviewed
+
+- Revalidated the accepted step-137 source remediation at SHA-256 `aeb0ecd032f8988c8e16d1e3a71a8609ea414c39ab69338b96b0ef01b81bbcd7` without changing source, configuration, or contract state.
+- Re-ran the corrected step-137 exact-delta reconstruction and shell-syntax validation against the accepted post-remediation source.
+- Added an executable `set -u` regression fixture using the source's exact `probe_direct_generic_boot_layout()` function: the remediated fixture must pass `/boot/vmlinuz-generic` unchanged to the classifier and set direct-generic availability successfully.
+- Added a historical sensitivity fixture that removes only the global initialization and must reproduce the reviewed `GENERIC_KERNEL_LINK: unbound variable` failure, proving the new regression covers the step-133 defect boundary.
+- Preserved the configuration template and optional-module contract byte-for-byte and preserved the consumed step-136 source authorization with `further_source_change_authorized=false`.
+- Kept all machine execution unauthorized: the Slackware-current rerun is not yet authorized and Slackware 15.0 remains held.
+- Requires no repository refresh, package/boot mutation, reboot, or machine action and is independent of Slackware-current publication state.
+- Next stage: `phase-1-configuration-module-mode-source-remediation-runtime-validation-slackware-current-rerun-authorization-review`; the repository-only boundary remains pause-safe.
+<!-- step-138-direct-generic-initialization-remediation-regression-review:end -->
+
+<!-- step-138-r1-direct-generic-initialization-remediation-regression-review-locale-fix:start -->
+### Phase 1 step 138 revision 1 — locale-stable historical regression verification
+
+- Preserved the accepted post-remediation source SHA-256 `aeb0ecd032f8988c8e16d1e3a71a8609ea414c39ab69338b96b0ef01b81bbcd7`; revision 1 performs no source mutation.
+- Classified the initial step-138 failure as a locale-sensitive regression-helper defect: the historical `set -u` fixture failed at `GENERIC_KERNEL_LINK`, but the helper also required Bash's English literal `unbound variable` while inheriting the host locale.
+- Made both executable probe fixtures deterministic by launching them with `LC_ALL=C` and `LANG=C`, while retaining the strict historical check for the reviewed variable and unset-variable diagnostic.
+- Preserved the executable remediated-path assertion that `/boot/vmlinuz-generic` reaches the classifier unchanged and that the probe completes under `set -u`.
+- Kept the step-136 source authorization consumed and non-reusable; no further source edit, Slackware-current rerun, Slackware 15.0 execution, repository refresh, reboot, package action, or boot mutation is authorized.
+- The correction remains repository-only, publication-state independent, and pause-safe; successful review advances only to the Slackware-current rerun authorization review.
+<!-- step-138-r1-direct-generic-initialization-remediation-regression-review-locale-fix:end -->
