@@ -641,3 +641,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Step 131 requires no machine action, has no Slackware repository-state dependency, and remains pause-safe.
 - Next stage: `phase-1-configuration-module-mode-source-remediation-runtime-validation-target-binding`.
 <!-- step-131-configuration-module-mode-source-remediation-runtime-validation-authorization:end -->
+
+<!-- step-132-configuration-module-mode-source-remediation-runtime-validation-target-binding:start -->
+## Phase 1 step 132 — optional-module mode runtime-validation targets bound
+
+- Completed the repository-only target binding required by step 131 without executing either target validation.
+- Bound Slackware-current to `vbox-slackcurrent.vbox-slackcurrent.org`, kernel `6.18.45`, root `/dev/sda2`, and the independently characterized `grub-direct-generic-no-initrd` profile.
+- Preserved the established Slackware 15.0 binding `vbox-slack15.vbox-slack15.org`, kernel `5.15.209`, and the accepted UEFI/ELILO generic+initrd closure.
+- Froze one exact non-mutating runtime harness per target and recorded both harness SHA-256 identities in the target-binding TSV and policy.
+- Converted the step-131 scope into a consumable execution boundary for the first target: `target_binding_complete=true`, overall `machine_execution_authorized=true`, and `authorization_consumable=true`, with exactly two total execution slots and zero reboots; Slackware 15.0 remains individually non-consumable until the current evidence review.
+- Frozen execution order is Slackware-current first, then evidence review, then Slackware 15.0; the second harness requires the accepted current-review policy digest and explicit release gate before it can consume its execution.
+- Kept the physical Slackware-current host fallback-only and unauthorized by default.
+- Preserved the accepted reference source, configuration template, optional-module contract, package state, boot state, and Slackware repository state; no refresh or machine action occurs in step 132.
+- Each future execution must emit one evidence `.tar.gz` plus `.sha256`, copied directly to `/home/promano` as `promano:users` and preserved until review.
+- Step 132 remains pause-safe; next stage: `phase-1-configuration-module-mode-source-remediation-runtime-validation-slackware-current-execution`.
+<!-- step-132-configuration-module-mode-source-remediation-runtime-validation-target-binding:end -->
