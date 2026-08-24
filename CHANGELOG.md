@@ -679,3 +679,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - No Slackware repository refresh is required; the boundary has no repository-state dependency and remains pause-safe.
 - Next stage: `phase-1-configuration-module-mode-source-remediation-runtime-validation-direct-generic-initialization-remediation-authorization-review`.
 <!-- step-135-configuration-module-mode-source-remediation-runtime-validation-direct-generic-initialization-remediation-design:end -->
+
+<!-- step-136-configuration-module-mode-source-remediation-runtime-validation-direct-generic-initialization-remediation-authorization-review:start -->
+## Phase 1 step 136 — direct-generic initialization remediation authorized
+
+- Reviewed and granted a single-use source-edit authorization for the exact relocation frozen by step 135.
+- Bound authorization consumption to accepted pre-edit source SHA-256 `c5fcf486469e7ca6cbbc894a21899ae9330cbe5ecc6247372728b9ee8caff86c`; any source-identity mismatch invalidates the authorization.
+- Authorized only moving the existing `GENERIC_KERNEL_LINK=/boot/vmlinuz-generic` assignment from `classify_direct_generic_boot_layout()` to immediately after `GENINITRD_VERSIONED_INITRD_DIRECTORY=/boot`.
+- Requires the assignment to remain exactly once with the same value and mutability; function-signature changes, classifier argument changes, `readonly`, boot-layout semantic changes, and any unrelated source edit remain unauthorized.
+- Preserved the configuration template, frozen optional-module contract, accepted step-134 failure review, and step-135 design without mutation.
+- Step 136 records `source_change_applied=false` and `source_change_authorized=true`; the authorization can be consumed only by the next exact repository-local implementation and grants no subsequent source-edit permission.
+- No Slackware-current rerun or Slackware 15.0 execution is authorized. No reboot, package, boot, or repository action is required.
+- The boundary has no Slackware repository-state dependency and remains pause-safe.
+- Next stage: `phase-1-configuration-module-mode-source-remediation-runtime-validation-direct-generic-initialization-remediation-implementation`.
+<!-- step-136-configuration-module-mode-source-remediation-runtime-validation-direct-generic-initialization-remediation-authorization-review:end -->
