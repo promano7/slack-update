@@ -56,6 +56,7 @@ GENINITRD_POLICY_PATH=/etc/default/geninitrd
 GENINITRD_NAMED_INITRD_LINK=/boot/initrd-generic.img
 GENINITRD_NAMED_INITRD_GRUB_PATH=/boot/initrd-generic.img
 GENINITRD_VERSIONED_INITRD_DIRECTORY=/boot
+GENERIC_KERNEL_LINK=/boot/vmlinuz-generic
 
 # Command-line interface functions
 
@@ -1834,7 +1835,6 @@ classify_direct_generic_boot_layout() {
     BOOT_DIRECT_GENERIC_KERNEL_VERSION=
     BOOT_DIRECT_GENERIC_PACKAGE_RECORD=
     BOOT_DIRECT_GENERIC_BOOT_IMAGE=
-    GENERIC_KERNEL_LINK=/boot/vmlinuz-generic
 
     is_safe_kernel_version "$running_kernel" || {
         BOOT_DIRECT_GENERIC_REASON="running kernel version is unsafe: $running_kernel"

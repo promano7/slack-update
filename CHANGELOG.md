@@ -693,3 +693,39 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - The boundary has no Slackware repository-state dependency and remains pause-safe.
 - Next stage: `phase-1-configuration-module-mode-source-remediation-runtime-validation-direct-generic-initialization-remediation-implementation`.
 <!-- step-136-configuration-module-mode-source-remediation-runtime-validation-direct-generic-initialization-remediation-authorization-review:end -->
+
+<!-- step-137-configuration-module-mode-source-remediation-runtime-validation-direct-generic-initialization-remediation-implementation:start -->
+## Phase 1 step 137 — direct-generic initialization remediation implemented
+
+- Consumed the single-use step-136 source authorization and applied only the relocation frozen by step 135.
+- Moved the existing mutable `GENERIC_KERNEL_LINK=/boot/vmlinuz-generic` assignment from `classify_direct_generic_boot_layout()` to immediately after `GENINITRD_VERSIONED_INITRD_DIRECTORY=/boot`, before the first reviewed probe expansion.
+- Preserved the assignment value and count, classifier/probe signatures, classifier `generic_link` argument, direct-generic boot semantics, configuration template, and frozen optional-module contract.
+- Bound the resulting source to a post-edit SHA-256 recorded during overlay application.
+- Added exact-delta reconstruction: validation removes the relocated global assignment, restores it at its exact former classifier position, and requires the reconstructed source SHA-256 to equal the authorized pre-edit identity `c5fcf486469e7ca6cbbc894a21899ae9330cbe5ecc6247372728b9ee8caff86c`.
+- Step 137 records `source_change_applied=true`, `authorization_consumed=true`, and `further_source_change_authorized=false`.
+- No Slackware-current rerun is authorized; Slackware 15.0 remains held. No machine or repository action is required.
+- This repository-only boundary remains independent of Slackware publication state and pause-safe.
+- Next stage: `phase-1-configuration-module-mode-source-remediation-runtime-validation-direct-generic-initialization-remediation-regression-review`.
+<!-- step-137-configuration-module-mode-source-remediation-runtime-validation-direct-generic-initialization-remediation-implementation:end -->
+
+<!-- step-137-r1-configuration-module-mode-source-remediation-runtime-validation-direct-generic-initialization-remediation-implementation-verification-fix:start -->
+### Phase 1 step 137 revision 1 — direct-generic implementation verification corrected
+
+- Preserved the already applied step-137 source relocation and its post-edit SHA-256 `aeb0ecd032f8988c8e16d1e3a71a8609ea414c39ab69338b96b0ef01b81bbcd7`; revision 1 performs no source mutation.
+- Classified the initial 42-pass/31-failure result as a verification-helper defect after the post-edit source shape and implementation records had already passed.
+- Replaced the invalid file-global uniqueness requirement for `BOOT_DIRECT_GENERIC_BOOT_IMAGE=` with a classifier-local reconstruction landmark scoped to `classify_direct_generic_boot_layout()`.
+- Preserved the exact-delta requirement: reconstruction must still recover authorized pre-edit source SHA-256 `c5fcf486469e7ca6cbbc894a21899ae9330cbe5ecc6247372728b9ee8caff86c`.
+- Kept the step-136 authorization consumed and non-reusable; no further source edit, Slackware-current rerun, Slackware 15.0 execution, repository refresh, reboot, package action, or boot mutation is authorized.
+- The corrected verification remains repository-only, publication-state independent, and pause-safe; successful review advances to the repository-local regression review.
+<!-- step-137-r1-configuration-module-mode-source-remediation-runtime-validation-direct-generic-initialization-remediation-implementation-verification-fix:end -->
+
+<!-- step-137-r2-configuration-module-mode-source-remediation-runtime-validation-direct-generic-initialization-remediation-implementation-verification-fix:start -->
+### Phase 1 step 137 revision 2 — revision-1 document assertion corrected
+
+- Preserved the accepted post-edit reference source SHA-256 `aeb0ecd032f8988c8e16d1e3a71a8609ea414c39ab69338b96b0ef01b81bbcd7` and the corrected classifier-local exact-delta helper unchanged.
+- Classified the revision-1 23-pass/1-failure result as a line-oriented document assertion defect: the Markdown statement was semantically correct but wrapped across a physical newline.
+- Replaced the brittle `grep -F` prose fragment check with whitespace-normalized semantic verification of the complete statement and existing source/authorization bindings.
+- Preserved the accepted implementation TSV, implementation policy, revision-1 document, and consumed/non-reusable step-136 source authorization.
+- Authorized no source edit, Slackware-current rerun, Slackware 15.0 execution, repository refresh, package action, reboot, or boot mutation.
+- Successful revision-2 verification restores the repository-only step-137 implementation checkpoint and advances to the repository-local regression review.
+<!-- step-137-r2-configuration-module-mode-source-remediation-runtime-validation-direct-generic-initialization-remediation-implementation-verification-fix:end -->
