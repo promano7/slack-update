@@ -754,3 +754,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Kept the step-136 source authorization consumed and non-reusable; no further source edit, Slackware-current rerun, Slackware 15.0 execution, repository refresh, reboot, package action, or boot mutation is authorized.
 - The correction remains repository-only, publication-state independent, and pause-safe; successful review advances only to the Slackware-current rerun authorization review.
 <!-- step-138-r1-direct-generic-initialization-remediation-regression-review-locale-fix:end -->
+
+## Phase 1 step 139 — Slackware-current rerun authorization review
+
+- Accepted the step-138 locale-stable direct-generic initialization regression review.
+- Preserved the remediated reference source at `aeb0ecd032f8988c8e16d1e3a71a8609ea414c39ab69338b96b0ef01b81bbcd7` and the immutable step-132 VM target binding at `97337512e059c26924b19db0f7b4fb61023af8741e331125d9b32e5d99181ec6`.
+- Kept the consumed step-133 execution authorization non-reusable.
+- Froze a new Slackware-current rerun harness at `tests/acceptance/reference/test-configuration-module-mode-source-remediation-runtime-validation-slackware-current-rerun.sh` with SHA-256 `0099213437acb8184019dd4f98f63de8f1c6821924ad08f93e8ff85f4288b120`.
+- Granted exactly one fresh, consumable, non-mutating Slackware-current rerun authorization with zero reboots and no repository refresh, package mutation, or boot mutation.
+- Kept Slackware 15.0 held and unauthorized pending review of the rerun evidence.
+- Recorded `pause_safe=true`; new Slackware-current publications do not invalidate this repository-only checkpoint.
+- Next stage: `phase-1-configuration-module-mode-source-remediation-runtime-validation-slackware-current-rerun-execution`.
