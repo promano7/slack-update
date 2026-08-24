@@ -666,3 +666,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Classified the abort as a source runtime-initialization defect: `probe_direct_generic_boot_layout()` expands unset `GENERIC_KERNEL_LINK` before `classify_direct_generic_boot_layout()` can execute the accepted source's only assignment of that variable.
 - Kept source changes and all machine execution unauthorized. The step-132 Slackware-current authorization cannot be reused and Slackware 15.0 remains held.
 - Advanced only to a repository-only direct-generic initialization remediation design. The reviewed boundary is independent of Slackware repository publication state and is pause-safe.
+
+<!-- step-135-configuration-module-mode-source-remediation-runtime-validation-direct-generic-initialization-remediation-design:start -->
+## Phase 1 step 135 — direct-generic initialization remediation designed
+
+- Designed the narrow source remediation for the step-133 `GENERIC_KERNEL_LINK` unbound-variable abort accepted by step 134.
+- Bound the design to accepted source SHA-256 `c5fcf486469e7ca6cbbc894a21899ae9330cbe5ecc6247372728b9ee8caff86c` and the authenticated step-134 failure-review records.
+- Froze a relocation-only source delta: move the existing `GENERIC_KERNEL_LINK=/boot/vmlinuz-generic` assignment out of `classify_direct_generic_boot_layout()` and place it immediately after the existing top-level `GENINITRD_VERSIONED_INITRD_DIRECTORY=/boot` initialization anchor.
+- Requires the assignment to remain exactly once, keep the same value and mutability, and occur before either direct-generic function can consume it.
+- Preserves both direct-generic function signatures, the classifier's explicit `generic_link` argument, all boot-layout semantics, the previously remediated `boot=auto` fail-closed behavior, the configuration template, and the frozen optional-module contract.
+- Step 135 authorizes no source change and no machine execution. The consumed step-132 Slackware-current authorization remains non-reusable and Slackware 15.0 remains held.
+- No Slackware repository refresh is required; the boundary has no repository-state dependency and remains pause-safe.
+- Next stage: `phase-1-configuration-module-mode-source-remediation-runtime-validation-direct-generic-initialization-remediation-authorization-review`.
+<!-- step-135-configuration-module-mode-source-remediation-runtime-validation-direct-generic-initialization-remediation-design:end -->
