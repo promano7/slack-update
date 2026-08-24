@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-configuration-module-mode-source-remediation-runtime-validation-slackware-current-failure-review",
+  "review_only": true,
+  "source_sha256": "c5fcf486469e7ca6cbbc894a21899ae9330cbe5ecc6247372728b9ee8caff86c",
+  "template_sha256": "4845e2c5038fe8896409f90b6287de33a011a76874229cb76479aa6cd4253bba",
+  "step132_binding_policy_sha256": "97337512e059c26924b19db0f7b4fb61023af8741e331125d9b32e5d99181ec6",
+  "step132_current_harness_sha256": "9f54d2c7d27f46e7d522a8046274d67860a5a59f455e796e467b7f6d23961d62",
+  "step133_evidence": {
+    "archive_basename": "slackware-current-configuration-module-mode-source-remediation-runtime-validation-failed-20260824T075926Z.tar.gz",
+    "archive_sha256": "78193b32b52094ec164a051f34589e33ca3918eb0a5bc0c0927033ea797840ed",
+    "authenticated": true,
+    "assertions_passed_before_failure": 16,
+    "assertions_failed_before_failure": 0
+  },
+  "target": {
+    "name": "slackware-current",
+    "hostname_fqdn": "vbox-slackcurrent.vbox-slackcurrent.org",
+    "running_kernel": "6.18.45",
+    "boot_profile": "grub-direct-generic-no-initrd",
+    "root_device": "/dev/sda2",
+    "characterization_accepted": true
+  },
+  "execution": {
+    "attempt_consumed": true,
+    "runtime_probe_completed": false,
+    "runtime_probe_accepted": false,
+    "rerun_under_step132_authorization_permitted": false
+  },
+  "non_mutation": {
+    "package_state_preserved": true,
+    "boot_state_preserved": true,
+    "source_state_preserved": true,
+    "template_state_preserved": true,
+    "system_state_preserved": true
+  },
+  "failure": {
+    "stage": "probe_boot_module",
+    "function": "probe_direct_generic_boot_layout",
+    "type": "unbound-shell-variable",
+    "variable": "GENERIC_KERNEL_LINK",
+    "reported_source_line": 1943,
+    "message": "GENERIC_KERNEL_LINK: unbound variable",
+    "classification": "source-runtime-initialization-defect"
+  },
+  "remediation_required": true,
+  "source_change_authorized": false,
+  "configuration_template_change_authorized": false,
+  "contract_change_authorized": false,
+  "machine_execution_authorized": false,
+  "slackware_current_rerun_authorized": false,
+  "slackware_15_execution_released": false,
+  "slackware_15_execution_authorized": false,
+  "repository_refresh_required": false,
+  "slackware_repository_state_dependency": false,
+  "machine_action_required": false,
+  "next_stage": "phase-1-configuration-module-mode-source-remediation-runtime-validation-direct-generic-initialization-remediation-design",
+  "pause_safe": true
+}

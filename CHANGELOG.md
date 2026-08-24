@@ -656,3 +656,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Each future execution must emit one evidence `.tar.gz` plus `.sha256`, copied directly to `/home/promano` as `promano:users` and preserved until review.
 - Step 132 remains pause-safe; next stage: `phase-1-configuration-module-mode-source-remediation-runtime-validation-slackware-current-execution`.
 <!-- step-132-configuration-module-mode-source-remediation-runtime-validation-target-binding:end -->
+
+### Phase 1 step 134 — Slackware-current runtime-validation failure review
+
+- Authenticated the consumed Slackware-current runtime-validation failure evidence archive with SHA-256 `78193b32b52094ec164a051f34589e33ca3918eb0a5bc0c0927033ea797840ed`.
+- Accepted all sixteen pre-probe target-characterization assertions for `vbox-slackcurrent.vbox-slackcurrent.org`, kernel `6.18.45`, and the frozen `grub-direct-generic-no-initrd` profile.
+- Recorded the execution attempt as consumed while the runtime probe remained incomplete and unaccepted.
+- Confirmed that package, boot, accepted source, and configuration-template state were all preserved after the abort.
+- Classified the abort as a source runtime-initialization defect: `probe_direct_generic_boot_layout()` expands unset `GENERIC_KERNEL_LINK` before `classify_direct_generic_boot_layout()` can execute the accepted source's only assignment of that variable.
+- Kept source changes and all machine execution unauthorized. The step-132 Slackware-current authorization cannot be reused and Slackware 15.0 remains held.
+- Advanced only to a repository-only direct-generic initialization remediation design. The reviewed boundary is independent of Slackware repository publication state and is pause-safe.

@@ -1,0 +1,2 @@
+review_id	target	evidence_sha256	characterization_accepted	execution_attempt_consumed	runtime_probe_completed	system_state_preserved	failure_class	failure_variable	rerun_authorized	slackware_15_released	remediation_required	status
+current-runtime-failure-review	slackware-current	78193b32b52094ec164a051f34589e33ca3918eb0a5bc0c0927033ea797840ed	true	true	false	true	source-runtime-initialization-defect	GENERIC_KERNEL_LINK	false	false	true	accepted-failure-review
