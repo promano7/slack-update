@@ -789,3 +789,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Kept the step-139 rerun attempt consumed and non-reusable; no replacement Slackware-current rerun, Slackware 15.0 execution, boot mutation, reboot, package action, repository refresh, or other machine execution is authorized.
 - The checkpoint remains repository-only, independent of later Slackware-current publications, and `pause_safe=true`; the next stage remains boot-selection drift remediation design.
 <!-- step-141-r1-configuration-module-mode-source-remediation-runtime-validation-slackware-current-rerun-manual-review-document-assertion-fix:end -->
+
+<!-- step-142-configuration-module-mode-source-remediation-runtime-validation-slackware-current-boot-selection-drift-remediation-design:start -->
+## Phase 1 step 142 — Slackware-current boot-selection drift remediation design
+
+- Accepted the step-141 `frozen-boot-selection-mismatch` diagnosis without reopening the unexercised source remediation.
+- Designed a selection-only recovery: a later separately authorized reboot may manually select the existing `Slackware-current slack-update direct generic (no initrd)` GRUB entry whose frozen linux command is `linux /boot/vmlinuz-generic root=/dev/sda2 ro`.
+- Explicitly excluded persistent or one-shot GRUB state mutation, including changes to `GRUB_DEFAULT`, `grub.cfg`, the custom GRUB script, `grubenv`, `grub-mkconfig`, `grub-reboot`, `grub-set-default`, and `grub-editenv`.
+- Froze the step-140 pre-recovery GRUB identities: `grub.cfg` SHA-256 `f9864ba5d8bbe78689b3b1e3ff337049e48026c1cd3f4289b3d4297af3a40593` and custom GRUB script SHA-256 `766bc1d8fabee076d521c641e19eeb03353733657031975a87131e72dd31bec1`.
+- Required a post-reboot characterization that proves the live root token is exactly `/dev/sda2`, preserves kernel `6.18.45`, `/boot/vmlinuz-generic`, `/dev/sda2`, the no-initrd menuentry, and the frozen GRUB hashes, while withholding the runtime probe.
+- Kept the consumed step-139 rerun authorization non-reusable; no replacement rerun or Slackware 15.0 execution is authorized.
+- Granted no machine execution, reboot, boot mutation, package action, source/template/contract change, or repository refresh.
+- Advanced only to a separate repository-only boot-selection recovery authorization review; the design is independent of Slackware-current publication state and `pause_safe=true`.
+<!-- step-142-configuration-module-mode-source-remediation-runtime-validation-slackware-current-boot-selection-drift-remediation-design:end -->
