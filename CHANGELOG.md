@@ -802,3 +802,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Granted no machine execution, reboot, boot mutation, package action, source/template/contract change, or repository refresh.
 - Advanced only to a separate repository-only boot-selection recovery authorization review; the design is independent of Slackware-current publication state and `pause_safe=true`.
 <!-- step-142-configuration-module-mode-source-remediation-runtime-validation-slackware-current-boot-selection-drift-remediation-design:end -->
+
+<!-- step-143-configuration-module-mode-source-remediation-runtime-validation-slackware-current-boot-selection-recovery-authorization-review:start -->
+## Phase 1 step 143 — Slackware-current boot-selection recovery authorization review
+
+- Accepted the step-142 selection-only recovery design and preserved its exact record, policy, helper, harness, and document identities.
+- Granted one fresh consumable authorization for exactly one future Slackware-current boot-selection recovery sequence on `vbox-slackcurrent.vbox-slackcurrent.org`, with a maximum of one reboot and one manual interactive selection of `Slackware-current slack-update direct generic (no initrd)`.
+- Distinguished the authorized interactive selection of an already existing GRUB entry from boot mutation: persistent/default boot selection, GRUB environment changes, `grub.cfg` regeneration, package changes, repository refresh, source/template/contract changes, and all other boot configuration mutation remain forbidden.
+- Required a fail-closed pre-reboot gate that revalidates the frozen VM, kernel, mounted root, dedicated menuentry, and GRUB hashes before the reboot can proceed.
+- Required post-reboot characterization to prove live `root=/dev/sda2`, mounted `/dev/sda2`, kernel `6.18.45`, `/boot/vmlinuz-generic`, the no-initrd entry, and frozen GRUB identities before any later rerun can be considered.
+- Explicitly withheld the runtime probe and any replacement Slackware-current rerun; the consumed step-139 authorization remains non-reusable and Slackware 15.0 remains held and unauthorized.
+- Step 143 itself performs no machine action. The authorization is independent of Slackware-current publication state, requires no repository refresh, and closes this repository-only burst at `pause_safe=true`.
+<!-- step-143-configuration-module-mode-source-remediation-runtime-validation-slackware-current-boot-selection-recovery-authorization-review:end -->
