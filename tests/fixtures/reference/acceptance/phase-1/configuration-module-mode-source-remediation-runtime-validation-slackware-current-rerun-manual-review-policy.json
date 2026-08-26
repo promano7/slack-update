@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-configuration-module-mode-source-remediation-runtime-validation-slackware-current-rerun-manual-review",
+  "review_only": true,
+  "source_sha256": "aeb0ecd032f8988c8e16d1e3a71a8609ea414c39ab69338b96b0ef01b81bbcd7",
+  "template_sha256": "4845e2c5038fe8896409f90b6287de33a011a76874229cb76479aa6cd4253bba",
+  "step132_binding_policy_sha256": "97337512e059c26924b19db0f7b4fb61023af8741e331125d9b32e5d99181ec6",
+  "step139_rerun_authorization_policy_sha256": "5d0dc91852d8efe5ff203be68468ca5db4cfb6c718e1f4430caf4bf75550a6ba",
+  "step140_rerun_harness_sha256": "0099213437acb8184019dd4f98f63de8f1c6821924ad08f93e8ff85f4288b120",
+  "step140_evidence": {
+    "archive_basename": "slackware-current-configuration-module-mode-source-remediation-runtime-validation-rerun-20260826T103832Z.tar.gz",
+    "archive_sha256": "def71e947186de4e3df4f4af4cddc55f0b41397076e17fbc1b97f13129e58eb8",
+    "authenticated": true,
+    "passes": 16,
+    "failures": 1,
+    "skips": 2
+  },
+  "target": {
+    "hostname_fqdn": "vbox-slackcurrent.vbox-slackcurrent.org",
+    "running_kernel": "6.18.45",
+    "required_boot_profile": "grub-direct-generic-no-initrd",
+    "boot_image": "/boot/vmlinuz-generic",
+    "frozen_root_device": "/dev/sda2",
+    "mounted_root_device": "/dev/sda2",
+    "live_root_token": "UUID=d1a09d24-cdbf-41cd-8cd6-2faff4d72863",
+    "dedicated_menuentry": "Slackware-current slack-update direct generic (no initrd)",
+    "dedicated_menuentry_root_token": "/dev/sda2",
+    "underlying_root_device_matches": true,
+    "frozen_boot_selection_matches": false,
+    "characterization_accepted": false
+  },
+  "execution": {
+    "rerun_attempt_started": true,
+    "rerun_attempt_consumed": true,
+    "harness_reported_authorization_consumed_by_execution": false,
+    "runtime_probe_completed": false,
+    "runtime_probe_accepted": false,
+    "rerun_under_step139_authorization_permitted": false
+  },
+  "non_mutation": {
+    "package_state_preserved": true,
+    "boot_state_preserved": true,
+    "source_state_preserved": true,
+    "template_state_preserved": true,
+    "system_state_preserved": true
+  },
+  "failure": {
+    "stage": "pre-probe-target-characterization",
+    "assertion": "live-root-device-matches-frozen-direct-generic-boot-entry",
+    "classification": "frozen-boot-selection-mismatch",
+    "source_runtime_initialization_remediation_exercised": false,
+    "source_runtime_initialization_remediation_rejected": false
+  },
+  "boot_selection_remediation_required": true,
+  "source_change_required": false,
+  "source_change_authorized": false,
+  "configuration_template_change_authorized": false,
+  "contract_change_authorized": false,
+  "machine_execution_authorized": false,
+  "reboot_authorized": false,
+  "boot_mutation_authorized": false,
+  "slackware_current_rerun_authorized": false,
+  "slackware_15_execution_released": false,
+  "slackware_15_execution_authorized": false,
+  "repository_refresh_required": false,
+  "slackware_repository_state_dependency": false,
+  "machine_action_required": false,
+  "next_stage": "phase-1-configuration-module-mode-source-remediation-runtime-validation-slackware-current-boot-selection-drift-remediation-design",
+  "pause_safe": true
+}

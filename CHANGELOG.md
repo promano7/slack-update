@@ -765,3 +765,27 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Kept Slackware 15.0 held and unauthorized pending review of the rerun evidence.
 - Recorded `pause_safe=true`; new Slackware-current publications do not invalidate this repository-only checkpoint.
 - Next stage: `phase-1-configuration-module-mode-source-remediation-runtime-validation-slackware-current-rerun-execution`.
+
+<!-- step-141-configuration-module-mode-source-remediation-runtime-validation-slackware-current-rerun-manual-review:start -->
+## Phase 1 step 141 — Slackware-current rerun manual review
+
+- Authenticated the step-140 rerun evidence archive at SHA-256 `def71e947186de4e3df4f4af4cddc55f0b41397076e17fbc1b97f13129e58eb8`.
+- Recorded the fail-closed result as 16 passes, one characterization failure, and two skips; the remediated runtime probe was never invoked.
+- Confirmed that `/` is still mounted from `/dev/sda2`, while the live kernel command line uses `root=UUID=d1a09d24-cdbf-41cd-8cd6-2faff4d72863` and the frozen dedicated GRUB entry still passes `root=/dev/sda2`.
+- Classified the result as `frozen-boot-selection-mismatch`: the underlying root partition is unchanged, but the running session does not prove the exact boot selection frozen by step 132.
+- Confirmed that package, boot, accepted source, and configuration-template state remained preserved before and after step 140.
+- Treated the single step-139 rerun attempt as consumed for fail-closed continuation even though the harness correctly reports that runtime execution authorization was not consumed because the probe was never entered.
+- Granted no source, configuration, contract, package, boot, repository, reboot, or machine mutation; no replacement Slackware-current rerun is authorized and Slackware 15.0 remains held.
+- Advanced only to a repository-only boot-selection-drift remediation design. No repository refresh is required and `pause_safe=true`.
+<!-- step-141-configuration-module-mode-source-remediation-runtime-validation-slackware-current-rerun-manual-review:end -->
+
+<!-- step-141-r1-configuration-module-mode-source-remediation-runtime-validation-slackware-current-rerun-manual-review-document-assertion-fix:start -->
+### Phase 1 step 141 revision 1 — manual-review document assertion corrected
+
+- Preserved the accepted step-141 manual-review diagnosis, authenticated step-140 evidence SHA-256 `def71e947186de4e3df4f4af4cddc55f0b41397076e17fbc1b97f13129e58eb8`, helper, TSV, policy, and document unchanged.
+- Classified the initial 59-pass/1-failure result as a line-oriented document assertion defect: the Markdown statement was semantically correct but `runtime probe was never invoked` wrapped across a physical newline.
+- Replaced only the brittle `grep -F` prose check in the step-141 harness with whitespace-normalized semantic verification of `runtime probe was never invoked` and `neither exercised nor rejected`.
+- Kept the failure classification `frozen-boot-selection-mismatch`; the repaired source path remains unexercised and no new source change is required or authorized.
+- Kept the step-139 rerun attempt consumed and non-reusable; no replacement Slackware-current rerun, Slackware 15.0 execution, boot mutation, reboot, package action, repository refresh, or other machine execution is authorized.
+- The checkpoint remains repository-only, independent of later Slackware-current publications, and `pause_safe=true`; the next stage remains boot-selection drift remediation design.
+<!-- step-141-r1-configuration-module-mode-source-remediation-runtime-validation-slackware-current-rerun-manual-review-document-assertion-fix:end -->

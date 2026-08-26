@@ -1,0 +1,2 @@
+review_id	target	evidence_sha256	characterization_accepted	runtime_probe_completed	system_state_preserved	failure_class	live_root_token	mounted_root_device	frozen_root_device	rerun_attempt_consumed	rerun_authorized	slackware_15_released	remediation_required	status
+current-rerun-manual-review	slackware-current	def71e947186de4e3df4f4af4cddc55f0b41397076e17fbc1b97f13129e58eb8	false	false	true	frozen-boot-selection-mismatch	UUID=d1a09d24-cdbf-41cd-8cd6-2faff4d72863	/dev/sda2	/dev/sda2	true	false	false	true	accepted-manual-review
