@@ -854,3 +854,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
   action and is publication-independent with `pause_safe=true`.
 - Next stage:
   `phase-1-configuration-module-mode-source-remediation-runtime-validation-slackware-current-post-recovery-rerun-execution`.
+
+
+<!-- step-148-configuration-module-mode-source-remediation-runtime-validation-slackware-current-post-recovery-rerun-review:start -->
+## Phase 1 step 148 — Slackware-current post-recovery rerun review
+
+- Authenticated the accepted step-147 evidence archive at SHA-256 `cccabfa5e3258fee7485bab6cb6b5b0dbc687cf8850d0b96deb9e96854072a46` and bound it to the exact step-146 authorization policy, authorization record, and frozen step-147 execution harness.
+- Accepted the recovered Slackware-current runtime result: kernel `6.18.45`, `/boot/vmlinuz-generic`, live `root=/dev/sda2`, mounted `/dev/sda2`, and `grub-direct-generic-no-initrd` all match the reviewed boundary.
+- Accepted the exercised remediated runtime probe: `boot=auto`, module state `available`, runnable state `1`, layout `direct-generic-no-initrd`, initrd capability `0`, GRUB capability `1`, and direct-generic capability `1`.
+- Confirmed byte-identical package inventory, Slackpkg metadata, and boot-state captures before and after the probe, with accepted source and template identities preserved and no repository refresh, package mutation, boot mutation, or reboot.
+- Recorded the single-use step-146 authorization as consumed and non-reusable. No replacement Slackware-current rerun is authorized.
+- Accepted the source remediation as exercised and successful on Slackware-current.
+- Released Slackware 15.0 only to a fresh authorization review. Direct machine execution remains unauthorized because the old step-132 Slackware 15.0 harness is bound to the pre-remediation source SHA-256 `c5fcf486469e7ca6cbbc894a21899ae9330cbe5ecc6247372728b9ee8caff86c`, not the accepted remediated source SHA-256 `aeb0ecd032f8988c8e16d1e3a71a8609ea414c39ab69338b96b0ef01b81bbcd7`.
+- Recorded `machine_action_required=false`, `repository_refresh_required=false`, publication-state independence, and `pause_safe=true`.
+- Next stage: `phase-1-configuration-module-mode-source-remediation-runtime-validation-slackware-15-post-current-rerun-authorization-review`.
+<!-- step-148-configuration-module-mode-source-remediation-runtime-validation-slackware-current-post-recovery-rerun-review:end -->
