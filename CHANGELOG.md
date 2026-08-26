@@ -826,3 +826,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Kept the runtime probe, repository refresh, package mutation, source/template/contract mutation, persistent or one-shot GRUB mutation, replacement Slackware-current rerun, and Slackware 15.0 execution unauthorized.
 - Recorded that the checkpoint is publication-state independent before the pre-reboot gate, but `pause_safe=false` while the recovery handoff is armed; a successful post-reboot characterization advances only to a fresh manual evidence review.
 <!-- step-144-slackware-current-boot-selection-recovery-execution:end -->
+
+<!-- step-145-slackware-current-boot-selection-recovery-manual-review:start -->
+## Phase 1 step 145 — Slackware-current boot-selection recovery manual review
+
+- Authenticated the accepted step-144 pre-reboot evidence at SHA-256 `7779072439d48eaace4b3a5b468647887fe89ca173eb78b1cdb0cb5876d9f60f`, including handoff marker SHA-256 `9d3a00371ef60a1bcd0a399feba31004a98ba807fbd6445de574bd94f9a48cd7`.
+- Authenticated the accepted post-reboot evidence at SHA-256 `0356cb5ac64e8a560b132c61d0c9df3228de1a74af2cd32fef9323850c4b5eb9` with 24 passes, zero failures, and zero skips.
+- Accepted the selection-only recovery: the live root token changed from the pre-recovery UUID token to exact `root=/dev/sda2`, while kernel `6.18.45`, `/boot/vmlinuz-generic`, mounted `/dev/sda2`, and the frozen no-initrd GRUB entry remained intact.
+- Confirmed preservation of package state, Slackpkg metadata, `grub.cfg`, the custom GRUB script, `grubenv`, `/etc/default/grub`, accepted source SHA-256 `aeb0ecd032f8988c8e16d1e3a71a8609ea414c39ab69338b96b0ef01b81bbcd7`, and configuration-template SHA-256 `4845e2c5038fe8896409f90b6287de33a011a76874229cb76479aa6cd4253bba`.
+- Recorded the step-143 recovery authorization as consumed and non-reusable; the older step-139 rerun authorization also remains consumed and non-reusable.
+- Kept the runtime probe uninvoked, so the source remediation remains neither exercised nor rejected and requires a fresh Slackware-current rerun authorization review before execution.
+- Granted no runtime probe, rerun, reboot, repository refresh, package/boot/source/template/contract mutation, or Slackware 15.0 execution.
+- Advanced only to `phase-1-configuration-module-mode-source-remediation-runtime-validation-slackware-current-rerun-authorization-review`; the checkpoint is publication-state independent and `pause_safe=true`.
+<!-- step-145-slackware-current-boot-selection-recovery-manual-review:end -->
