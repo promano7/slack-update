@@ -814,3 +814,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Explicitly withheld the runtime probe and any replacement Slackware-current rerun; the consumed step-139 authorization remains non-reusable and Slackware 15.0 remains held and unauthorized.
 - Step 143 itself performs no machine action. The authorization is independent of Slackware-current publication state, requires no repository refresh, and closes this repository-only burst at `pause_safe=true`.
 <!-- step-143-configuration-module-mode-source-remediation-runtime-validation-slackware-current-boot-selection-recovery-authorization-review:end -->
+
+<!-- step-144-slackware-current-boot-selection-recovery-execution:start -->
+## Phase 1 step 144 — Slackware-current boot-selection recovery execution boundary
+
+- Preserved the accepted step-143 recovery authorization policy at SHA-256 `ef59179103f9fb2c7e1a7142abc1a302f59d06c2e7ca9eb9fe9658614f6aec6c` and authorization ID `slackware-current-interactive-frozen-boot-selection-recovery`.
+- Froze a two-stage machine execution harness at SHA-256 `300335ef07df2f091e9b0d8f849f8c65fcece5a134880301d684c36bb10bf12f` and execution policy at SHA-256 `4d056fcf9287ffbbdf83ec8b9fc5bb709b781989f59a719639aab77f58c93e6f`.
+- Required a fail-closed pre-reboot gate that revalidates the frozen FQDN, UEFI state, kernel `6.18.45`, mounted `/dev/sda2`, `/boot/vmlinuz-generic -> /boot/vmlinuz-6.18.45`, exact dedicated menuentry, and both frozen GRUB hashes before arming the recovery handoff.
+- Kept reboot execution outside the harness. After a separately reviewed clean pre-reboot result, at most one manual `sudo /sbin/reboot` and one interactive selection of `Slackware-current slack-update direct generic (no initrd)` may consume the step-143 authorization.
+- Required post-reboot proof of a new boot after the pre-gate, explicit operator confirmation of the single authorized reboot and menuentry, live `root=/dev/sda2`, mounted `/dev/sda2`, frozen kernel/image/GRUB identities, and preserved package, Slackpkg metadata, GRUB environment/default, source, and template fingerprints.
+- Kept the runtime probe, repository refresh, package mutation, source/template/contract mutation, persistent or one-shot GRUB mutation, replacement Slackware-current rerun, and Slackware 15.0 execution unauthorized.
+- Recorded that the checkpoint is publication-state independent before the pre-reboot gate, but `pause_safe=false` while the recovery handoff is armed; a successful post-reboot characterization advances only to a fresh manual evidence review.
+<!-- step-144-slackware-current-boot-selection-recovery-execution:end -->

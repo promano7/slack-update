@@ -1,0 +1,2 @@
+authorization_id	target	pre_reboot_gate	reboot_limit	interactive_selection_limit	menuentry	harness_reboots	runtime_probe_authorized	repository_refresh_authorized	package_mutation_authorized	boot_mutation_authorized	slackware_15_authorized	next_stage
+slackware-current-interactive-frozen-boot-selection-recovery	slackware-current	required	1	1	Slackware-current slack-update direct generic (no initrd)	false	false	false	false	false	false	phase-1-configuration-module-mode-source-remediation-runtime-validation-slackware-current-boot-selection-recovery-manual-review
