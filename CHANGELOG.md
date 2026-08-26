@@ -839,3 +839,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Granted no runtime probe, rerun, reboot, repository refresh, package/boot/source/template/contract mutation, or Slackware 15.0 execution.
 - Advanced only to `phase-1-configuration-module-mode-source-remediation-runtime-validation-slackware-current-rerun-authorization-review`; the checkpoint is publication-state independent and `pause_safe=true`.
 <!-- step-145-slackware-current-boot-selection-recovery-manual-review:end -->
+
+### Phase 1 step 146 — Slackware-current post-recovery rerun authorization review
+
+- Accepted the authenticated step-145 boot-selection recovery review as the
+  prerequisite for a fresh Slackware-current runtime-validation rerun.
+- Froze a new single-use, zero-reboot rerun authorization and execution harness
+  bound to the recovered live `root=/dev/sda2` state, kernel `6.18.45`, the
+  accepted remediated source, configuration template, and target binding.
+- Explicitly kept the consumed step-139 and step-143 authorizations
+  non-reusable and kept Slackware 15.0 execution held.
+- Authorized no repository refresh, package mutation, boot mutation, source
+  change, configuration change, or reboot. Step 146 itself requires no machine
+  action and is publication-independent with `pause_safe=true`.
+- Next stage:
+  `phase-1-configuration-module-mode-source-remediation-runtime-validation-slackware-current-post-recovery-rerun-execution`.
