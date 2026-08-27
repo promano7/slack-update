@@ -1,0 +1,80 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-configuration-module-mode-source-remediation-runtime-validation-slackware-15-post-current-rerun-failure-review",
+  "review_only": true,
+  "source_sha256": "aeb0ecd032f8988c8e16d1e3a71a8609ea414c39ab69338b96b0ef01b81bbcd7",
+  "template_sha256": "4845e2c5038fe8896409f90b6287de33a011a76874229cb76479aa6cd4253bba",
+  "step149_authorization_policy_sha256": "d2877fce33c417ff8318fbed3e64a0fe409786f475a1d25ccf97f712a159037f",
+  "step149_authorization_record_sha256": "7058af65141f55d664857ada09d1c29431012f78925c38d4af08d628478d0634",
+  "step150_execution_harness_sha256": "346dbb03d30a6ef260d4860a44c160dbbf8e3652887903f1e204d46c1ad14e75",
+  "step132_target_binding_policy_sha256": "97337512e059c26924b19db0f7b4fb61023af8741e331125d9b32e5d99181ec6",
+  "accepted_elilo_closure_record_sha256": "7bd0a490df1b86ba83313dfba752c9d8aafc34ec93d2bff34505b79c36d0c635",
+  "step150_evidence": {
+    "archive_basename": "slackware-15-configuration-module-mode-source-remediation-runtime-validation-post-current-rerun-20260827T155021Z.tar.gz",
+    "archive_sha256": "72d62a7b12f95674eefe31fd6b9698519c717d8a0a4d36a90270e62024e5cb78",
+    "sidecar_sha256": "32415a62dcd3d68a5c7f11058269de76c08bd7203693dbad3f2c056d54d873cd",
+    "assertions_sha256": "d65c87072abb326ab12728dc857d6c76154d426e31eacddda907d376c1342947",
+    "summary_sha256": "98ae78fa88ab7dfe1f128e9bcebd44d721c61a64e5ef0e496e342d69b2f5a67e",
+    "boot_state_sha256": "150028405fafc7a301d90db4c50a74308e8a42ab62398dc62eeaacf84c9785e3",
+    "package_inventory_sha256": "ab69ead76bd994fd5198fa0351b9ecc66a6b2af986965751750e54aaa69e054f",
+    "slackpkg_metadata_sha256": "aaad889d44b0c45b87fe35bbe7ee96588f57a02ff46c55f9095d12011dbdec7a",
+    "authenticated": true,
+    "passes": 19,
+    "failures": 2,
+    "skips": 2
+  },
+  "target": {
+    "hostname_fqdn": "vbox-slack15.vbox-slack15.org",
+    "slackware_version": "Slackware 15.0",
+    "running_kernel": "5.15.209",
+    "required_boot_profile": "elilo-generic-with-initrd",
+    "uefi_present": true,
+    "required_boot_image_suffix": "\\EFI\\Slackware\\vmlinuz-generic-5.15.209",
+    "elilo_conf_sha256": "94b77b9f70a9d3b22d146c36af0ee6bbf09133d0b1931a2e731e881d3edc37f6",
+    "accepted_elilo_core_identity_match": true
+  },
+  "characterization_failure": {
+    "mkinitrd_config": {
+      "harness_expected": "regular-non-symlink-file",
+      "observed": "absent",
+      "accepted_elilo_closure_froze_predicate": false
+    },
+    "grub_path": {
+      "harness_expected": "absent",
+      "observed": "directory",
+      "accepted_elilo_closure_froze_predicate": false
+    },
+    "runtime_probe_withheld_fail_closed": true,
+    "classification": "unfrozen-target-characterization-assumption-mismatch",
+    "boot_regression_confirmed": false,
+    "source_runtime_defect_confirmed": false,
+    "harness_characterization_overconstrained_relative_to_accepted_evidence": true
+  },
+  "execution": {
+    "attempt_consumed": true,
+    "runtime_probe_invoked": false,
+    "runtime_probe_accepted": false,
+    "rerun_under_step149_authorization_permitted": false
+  },
+  "non_mutation": {
+    "package_state_preserved": true,
+    "slackpkg_metadata_preserved": true,
+    "boot_state_preserved": true,
+    "source_state_preserved": true,
+    "template_state_preserved": true,
+    "system_state_preserved": true
+  },
+  "remediation_design_required": true,
+  "source_change_authorized": false,
+  "configuration_template_change_authorized": false,
+  "contract_change_authorized": false,
+  "execution_harness_change_authorized": false,
+  "machine_execution_authorized": false,
+  "slackware_15_rerun_authorized": false,
+  "repository_refresh_required": false,
+  "slackware_repository_state_dependency": false,
+  "machine_action_required": false,
+  "future_work_requires_fresh_boundary": true,
+  "next_stage": "phase-1-configuration-module-mode-source-remediation-runtime-validation-slackware-15-characterization-remediation-design",
+  "pause_safe": true
+}

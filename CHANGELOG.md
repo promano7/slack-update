@@ -881,3 +881,27 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Step 149 itself performs no machine action, remains independent of Slackware publication state, and records `pause_safe=true`.
 - Next stage: `phase-1-configuration-module-mode-source-remediation-runtime-validation-slackware-15-post-current-rerun-execution`.
 <!-- step-149-configuration-module-mode-source-remediation-runtime-validation-slackware-15-post-current-rerun-authorization-review:end -->
+
+<!-- step-151-configuration-module-mode-source-remediation-runtime-validation-slackware-15-post-current-rerun-failure-review:start -->
+## Phase 1 step 151 — Slackware 15.0 post-current-rerun failure review
+
+- Authenticated the consumed step-150 Slackware 15.0 evidence archive at SHA-256 `72d62a7b12f95674eefe31fd6b9698519c717d8a0a4d36a90270e62024e5cb78`.
+- Confirmed nineteen PASS assertions, two fail-closed characterization failures, two skips, `runtime_probe_invoked=false`, and consumption of the single step-149 execution authorization.
+- Confirmed that the accepted Slackware 15.0 ELILO core identity remains intact: FQDN, Slackware release, UEFI state, kernel `5.15.209`, kernel command-line boot identity, and accepted ELILO configuration all match the frozen closure.
+- Classified the missing `/etc/mkinitrd.conf` and present `/boot/grub` directory as an `unfrozen-target-characterization-assumption-mismatch`: neither predicate was frozen by the accepted ELILO scenario-closure record, so the step-150 evidence does not establish a boot regression.
+- Confirmed that the accepted source runtime probe was never invoked and therefore no source runtime defect or runtime verdict is established by this attempt.
+- Confirmed byte-identical before/after package inventory, Slackpkg metadata, boot state, accepted source identity, and configuration-template identity; `system_state_preserved=true`.
+- Granted no rerun, machine execution, harness/source/template/contract change, repository refresh, boot mutation, package mutation, or reboot.
+- Future work requires a fresh boundary and a repository-only design for corrected Slackware 15.0 target characterization before any new execution can be considered.
+- Step 151 requires no machine action, remains independent of Slackware publication state, and records `pause_safe=true`.
+- Next stage: `phase-1-configuration-module-mode-source-remediation-runtime-validation-slackware-15-characterization-remediation-design`.
+<!-- step-151-configuration-module-mode-source-remediation-runtime-validation-slackware-15-post-current-rerun-failure-review:end -->
+
+<!-- step-151-r1-configuration-module-mode-source-remediation-runtime-validation-slackware-15-post-current-rerun-failure-review:start -->
+### Phase 1 step 151 revision 1 — failure-review documentation assertion fix
+
+- Corrected only the step-151 reference-document line wrapping so the already-recorded consumed-authorization statement is represented by the literal phrase `cannot be reused` on one line.
+- Preserved the step-151 failure classification, authenticated step-150 evidence identity, accepted source/template identities, consumed step-149 authorization, uninvoked runtime-probe boundary, and all machine/non-mutation conclusions unchanged.
+- No helper, policy, fixture, execution harness, source, configuration template, contract, machine state, package state, boot state, or authorization boundary changed.
+- Revision 1 is repository-only, requires no machine action or Slackware repository refresh, and preserves `pause_safe=true`.
+<!-- step-151-r1-configuration-module-mode-source-remediation-runtime-validation-slackware-15-post-current-rerun-failure-review:end -->
