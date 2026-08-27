@@ -869,3 +869,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Recorded `machine_action_required=false`, `repository_refresh_required=false`, publication-state independence, and `pause_safe=true`.
 - Next stage: `phase-1-configuration-module-mode-source-remediation-runtime-validation-slackware-15-post-current-rerun-authorization-review`.
 <!-- step-148-configuration-module-mode-source-remediation-runtime-validation-slackware-current-post-recovery-rerun-review:end -->
+
+<!-- step-149-configuration-module-mode-source-remediation-runtime-validation-slackware-15-post-current-rerun-authorization-review:start -->
+## Phase 1 step 149 — Slackware 15.0 post-current-rerun authorization review
+
+- Accepted step 148 as the prerequisite release boundary after successful Slackware-current runtime validation of the remediated source.
+- Explicitly rejected reuse of the historical step-132 Slackware 15.0 execution harness because it remains bound to the pre-remediation source identity.
+- Froze a fresh Slackware 15.0 execution harness against accepted source SHA-256 `aeb0ecd032f8988c8e16d1e3a71a8609ea414c39ab69338b96b0ef01b81bbcd7`, the unchanged configuration template, the accepted ELILO closure, the historical target identity, and the exact step-148 review.
+- Granted exactly one consumable future execution on `vbox-slack15.vbox-slack15.org`, with zero reboots and no repository refresh, package mutation, boot mutation, source/template change, or contract change.
+- Required fail-closed target characterization before the runtime probe and preservation of package inventory, Slackpkg metadata, boot state, source, and template before/after execution.
+- Step 149 itself performs no machine action, remains independent of Slackware publication state, and records `pause_safe=true`.
+- Next stage: `phase-1-configuration-module-mode-source-remediation-runtime-validation-slackware-15-post-current-rerun-execution`.
+<!-- step-149-configuration-module-mode-source-remediation-runtime-validation-slackware-15-post-current-rerun-authorization-review:end -->

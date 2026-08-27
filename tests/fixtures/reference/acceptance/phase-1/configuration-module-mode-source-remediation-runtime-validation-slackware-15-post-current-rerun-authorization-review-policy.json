@@ -1,0 +1,71 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-configuration-module-mode-source-remediation-runtime-validation-slackware-15-post-current-rerun-authorization-review",
+  "review_only": true,
+  "authorization_id": "runtime-slackware-15-post-current-rerun",
+  "step148_review_policy_path": "tests/fixtures/reference/acceptance/phase-1/configuration-module-mode-source-remediation-runtime-validation-slackware-current-post-recovery-rerun-review-policy.json",
+  "step148_review_policy_sha256": "de2813f328b1af80531d68a22c049f9c3be58b6a445398c5c3795b49036ead4b",
+  "step148_review_record_path": "tests/fixtures/reference/acceptance/phase-1/configuration-module-mode-source-remediation-runtime-validation-slackware-current-post-recovery-rerun-review.tsv",
+  "step148_review_record_sha256": "9f8c384d4709e8161ac2f6a3e928b7f3e7baea677e7d850c4c061c1aa4d71361",
+  "accepted_source_sha256": "aeb0ecd032f8988c8e16d1e3a71a8609ea414c39ab69338b96b0ef01b81bbcd7",
+  "configuration_template_sha256": "4845e2c5038fe8896409f90b6287de33a011a76874229cb76479aa6cd4253bba",
+  "step132_target_binding_policy_path": "tests/fixtures/reference/acceptance/phase-1/configuration-module-mode-source-remediation-runtime-validation-target-binding-policy.json",
+  "step132_target_binding_policy_sha256": "97337512e059c26924b19db0f7b4fb61023af8741e331125d9b32e5d99181ec6",
+  "step132_bound_source_sha256": "c5fcf486469e7ca6cbbc894a21899ae9330cbe5ecc6247372728b9ee8caff86c",
+  "obsolete_step132_slackware15_harness_path": "tests/acceptance/reference/test-configuration-module-mode-source-remediation-runtime-validation-slackware-15.sh",
+  "obsolete_step132_slackware15_harness_sha256": "0226e6d48483e0014c699e5affe224bceaa07f8d767673ba30700c7ee21b670c",
+  "obsolete_step132_slackware15_harness_reusable": false,
+  "authorization_record_path": "tests/fixtures/reference/acceptance/phase-1/configuration-module-mode-source-remediation-runtime-validation-slackware-15-post-current-rerun-authorization.tsv",
+  "authorization_record_sha256": "7058af65141f55d664857ada09d1c29431012f78925c38d4af08d628478d0634",
+  "target": {
+    "environment": "existing-vm",
+    "hostname_fqdn": "vbox-slack15.vbox-slack15.org",
+    "required_boot_profile": "elilo-generic-with-initrd",
+    "accepted_kernel": "5.15.209",
+    "required_boot_image_suffix": "\\EFI\\Slackware\\vmlinuz-generic-5.15.209",
+    "elilo_conf_path": "/boot/efi/EFI/Slackware/elilo.conf",
+    "elilo_conf_sha256": "94b77b9f70a9d3b22d146c36af0ee6bbf09133d0b1931a2e731e881d3edc37f6",
+    "accepted_closure_record_path": "tests/fixtures/reference/acceptance/kernel-boot/slackware-15.0-elilo-oldkernel-cleanup-scenario-closure-checkpoint-20260817-accepted.json",
+    "accepted_closure_record_sha256": "7bd0a490df1b86ba83313dfba752c9d8aafc34ec93d2bff34505b79c36d0c635"
+  },
+  "execution": {
+    "execution_harness": "tests/acceptance/reference/test-configuration-module-mode-source-remediation-runtime-validation-slackware-15-post-current-rerun.sh",
+    "execution_harness_sha256": "346dbb03d30a6ef260d4860a44c160dbbf8e3652887903f1e204d46c1ad14e75",
+    "expected_runtime_verdict": {
+      "boot_mode": "auto",
+      "boot_module_state": "unavailable",
+      "boot_module_run": 0,
+      "boot_preparation_layout": "unknown",
+      "boot_initrd_available": 1,
+      "boot_grub_available": 0,
+      "boot_direct_generic_available": 0,
+      "boot_module_reason": "no supported initrd or GRUB preparation path was detected"
+    },
+    "evidence_must_preserve": [
+      "package_inventory",
+      "slackpkg_metadata",
+      "boot_state",
+      "source",
+      "configuration_template"
+    ]
+  },
+  "authorization": {
+    "execution_authorized": true,
+    "authorization_consumable": true,
+    "machine_execution_limit": 1,
+    "reboot_limit": 0,
+    "repository_refresh_authorized": false,
+    "package_mutation_authorized": false,
+    "boot_mutation_authorized": false,
+    "source_change_authorized": false,
+    "configuration_template_change_authorized": false,
+    "contract_change_authorized": false,
+    "authorization_consumed_on_execution_attempt": true,
+    "retry_authorized": false
+  },
+  "step149_machine_action_required": false,
+  "future_machine_action_required": true,
+  "slackware_repository_state_dependency": false,
+  "next_stage": "phase-1-configuration-module-mode-source-remediation-runtime-validation-slackware-15-post-current-rerun-execution",
+  "pause_safe": true
+}
