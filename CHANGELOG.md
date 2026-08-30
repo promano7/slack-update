@@ -970,3 +970,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Recorded publication-state independence, `machine_action_required=false` for the authorization review itself, and `pause_safe=true`.
 - Next stage: `phase-1-configuration-module-mode-source-remediation-runtime-validation-slackware-15-characterization-remediated-rerun-execution`.
 <!-- step-156-configuration-module-mode-source-remediation-runtime-validation-slackware-15-characterization-remediated-rerun-authorization-review:end -->
+
+<!-- step-158-configuration-module-mode-source-remediation-runtime-validation-slackware-15-characterization-remediated-rerun-review:start -->
+## Phase 1 step 158 — Slackware 15.0 characterization-remediated rerun reviewed
+
+- Authenticated the step-157 evidence archive at SHA-256 `8a740eb47558c13fb418cb460c581ed45a7d2d3ad73f1e7b6f0b62560741ef4d` and accepted its 21-pass, zero-failure, zero-skip result.
+- Accepted the corrected Slackware 15.0 characterization boundary: the live target matches the historically evidenced ELILO core identity, runtime capability bits come from the live probe, and the historical exact capability vector is not an acceptance requirement.
+- Accepted `boot=auto` fail-closed semantics on the observed incomplete preparation layout: module state `unavailable`, runnable state `0`, layout `unknown`, initrd capability `0`, GRUB capability `1`, and direct-generic capability `0`.
+- Confirmed byte-identical package inventory, Slackpkg metadata, boot state, accepted source identity, and configuration-template identity before and after execution; no repository refresh, package/boot mutation, or reboot occurred.
+- Recorded the fresh step-156 authorization as consumed and non-reusable; no retry or additional machine execution is authorized.
+- Preserved the accepted Slackware-current step-148 runtime review and recorded runtime validation as accepted on both mandatory Slackware targets.
+- Released only to `phase-1-configuration-module-mode-source-remediation-runtime-validation-closure-review`; no machine action or repository refresh is required.
+- Recorded `pause_safe=true` and `future_work_requires_fresh_boundary=true`; this is a strong safe pause independent of later Slackware-current publications.
+<!-- step-158-configuration-module-mode-source-remediation-runtime-validation-slackware-15-characterization-remediated-rerun-review:end -->
