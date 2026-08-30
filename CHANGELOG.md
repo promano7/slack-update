@@ -918,3 +918,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Recorded `machine_action_required=false`, publication-state independence, `future_work_requires_fresh_boundary=true`, and `pause_safe=true`.
 - Next stage: `phase-1-configuration-module-mode-source-remediation-runtime-validation-slackware-15-characterization-remediation-authorization-review`.
 <!-- step-152-configuration-module-mode-source-remediation-runtime-validation-slackware-15-characterization-remediation-design:end -->
+
+<!-- step-153-configuration-module-mode-source-remediation-runtime-validation-slackware-15-characterization-remediation-authorization-review:start -->
+## Phase 1 step 153 — Slackware 15.0 characterization remediation authorization review
+
+- Accepted the exact step-152 design, policy, and reference document as the authorization input for correcting the Slackware 15.0 characterization boundary.
+- Granted a narrow, single-use repository authorization to create one new successor execution harness at `tests/acceptance/reference/test-configuration-module-mode-source-remediation-runtime-validation-slackware-15-characterization-remediated-rerun.sh`.
+- Kept the consumed step-150 harness immutable and prohibited modification of any other execution harness, source, configuration template, optional-module contract, historical target binding, or accepted ELILO closure.
+- Required the successor harness to gate only on accepted ELILO core identity; `/etc/mkinitrd.conf` and `/boot/grub` remain evidence-only runtime capability inputs and the live probe must determine capability bits.
+- Preserved semantic `boot=auto` fail-closed acceptance for an incomplete preparation layout instead of requiring the historical step-132 exact capability vector.
+- Authorized no machine execution, Slackware 15.0 rerun, reboot, package/boot mutation, or repository refresh; the consumed step-149 machine authorization remains non-reusable.
+- Recorded `execution_harness_change_authorized=true`, `execution_harness_change_applied=false`, `machine_action_required=false`, `future_work_requires_fresh_boundary=true`, and `pause_safe=true`.
+- Next stage: `phase-1-configuration-module-mode-source-remediation-runtime-validation-slackware-15-characterization-remediation-implementation`.
+<!-- step-153-configuration-module-mode-source-remediation-runtime-validation-slackware-15-characterization-remediation-authorization-review:end -->
