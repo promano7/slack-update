@@ -957,3 +957,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Recorded `future_work_requires_fresh_boundary=true`, publication-state independence, and `pause_safe=true`; this is a strong safe pause.
 - Next stage: `phase-1-configuration-module-mode-source-remediation-runtime-validation-slackware-15-characterization-remediated-rerun-authorization-review`.
 <!-- step-155-configuration-module-mode-source-remediation-runtime-validation-slackware-15-characterization-remediation-implementation-review:end -->
+
+<!-- step-156-configuration-module-mode-source-remediation-runtime-validation-slackware-15-characterization-remediated-rerun-authorization-review:start -->
+## Phase 1 step 156 — Slackware 15.0 characterization-remediated rerun authorization review
+
+- Created the fresh machine-execution authorization boundary required by the accepted step-155 implementation review and bound it to step-155 policy SHA-256 `c8da64247cc5a6020a82876eac2617be6b34901e65241bec100993387c6a1945`.
+- Froze the reviewed successor execution harness at SHA-256 `6a852531722c3c1b2d5412c1097db569ab355d72983151be64f17ceff8ab48f7`, together with the accepted source/template identities, historical step-132 target binding, accepted Slackware 15.0 ELILO closure, consumed step-150 harness, and consumed step-153 repository authorization.
+- Granted exactly one consumable, non-mutating Slackware 15.0 execution against `vbox-slack15.vbox-slack15.org`, kernel `5.15.209`, with zero reboots and no retry.
+- Preserved the corrected characterization semantics: the pre-probe gate is limited to accepted ELILO core identity, live runtime probing supplies capability bits, and the historical exact capability vector is not an acceptance requirement.
+- Authorized no Slackware repository refresh, package mutation, boot mutation, source change, configuration-template change, optional-module contract change, historical target-binding change, or execution-harness change.
+- Kept the consumed step-149 machine authorization non-reusable and the step-153 repository authorization consumed; this is a new boundary rather than a reopening of either old authorization.
+- Recorded publication-state independence, `machine_action_required=false` for the authorization review itself, and `pause_safe=true`.
+- Next stage: `phase-1-configuration-module-mode-source-remediation-runtime-validation-slackware-15-characterization-remediated-rerun-execution`.
+<!-- step-156-configuration-module-mode-source-remediation-runtime-validation-slackware-15-characterization-remediated-rerun-authorization-review:end -->
