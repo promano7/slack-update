@@ -905,3 +905,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - No helper, policy, fixture, execution harness, source, configuration template, contract, machine state, package state, boot state, or authorization boundary changed.
 - Revision 1 is repository-only, requires no machine action or Slackware repository refresh, and preserves `pause_safe=true`.
 <!-- step-151-r1-configuration-module-mode-source-remediation-runtime-validation-slackware-15-post-current-rerun-failure-review:end -->
+
+<!-- step-152-configuration-module-mode-source-remediation-runtime-validation-slackware-15-characterization-remediation-design:start -->
+## Phase 1 step 152 — Slackware 15.0 characterization remediation design
+
+- Accepted the step-151 `unfrozen-target-characterization-assumption-mismatch` as the sole design input and kept the consumed step-149 authorization non-reusable.
+- Designed a two-layer successor characterization boundary: the pre-probe gate is limited to the accepted Slackware 15.0 ELILO core identity, while `/etc/mkinitrd.conf` and `/boot/grub` remain runtime capability observations rather than historical target-identity predicates.
+- Required a future successor harness to keep the step-150 observations in evidence but to stop requiring mkinitrd configuration presence or GRUB-directory absence before invoking the accepted runtime probe.
+- Replaced the historical exact capability-vector expectation with semantic validation of the remediated `boot=auto` fail-closed incomplete-layout behavior; `BOOT_INITRD_AVAILABLE` and `BOOT_GRUB_AVAILABLE` must be recorded from the live probe rather than predeclared from step 132.
+- Kept the consumed step-150 execution harness and historical step-132 target-binding policy immutable; any implementation must create a separately reviewed successor boundary.
+- Authorized no harness implementation, source/template/contract/target-binding change, machine execution, rerun, reboot, package/boot mutation, or repository refresh.
+- Recorded `machine_action_required=false`, publication-state independence, `future_work_requires_fresh_boundary=true`, and `pause_safe=true`.
+- Next stage: `phase-1-configuration-module-mode-source-remediation-runtime-validation-slackware-15-characterization-remediation-authorization-review`.
+<!-- step-152-configuration-module-mode-source-remediation-runtime-validation-slackware-15-characterization-remediation-design:end -->

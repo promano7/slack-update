@@ -1,0 +1,101 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-configuration-module-mode-source-remediation-runtime-validation-slackware-15-characterization-remediation-design",
+  "design_only": true,
+  "accepted_source_sha256": "aeb0ecd032f8988c8e16d1e3a71a8609ea414c39ab69338b96b0ef01b81bbcd7",
+  "configuration_template_sha256": "4845e2c5038fe8896409f90b6287de33a011a76874229cb76479aa6cd4253bba",
+  "step151_failure_review_policy_sha256": "d46131b85ba1857412890e0738487dc1c0df8a6406646d8f93758e6fc41c9791",
+  "step151_failure_review_record_sha256": "5b3a30a73ba3596d2b6db4acef4b1198d541674824211d1c61d0f42c62e0b7d1",
+  "step151_reference_document_sha256": "3f64d924825a2a5f52e5a62a79f8053f0d7ecc1ef61db436df52887e32d9eb86",
+  "step150_consumed_execution_harness_sha256": "346dbb03d30a6ef260d4860a44c160dbbf8e3652887903f1e204d46c1ad14e75",
+  "step132_target_binding_policy_sha256": "97337512e059c26924b19db0f7b4fb61023af8741e331125d9b32e5d99181ec6",
+  "accepted_elilo_closure_record_sha256": "7bd0a490df1b86ba83313dfba752c9d8aafc34ec93d2bff34505b79c36d0c635",
+  "failure_binding": {
+    "target": "slackware-15.0",
+    "hostname_fqdn": "vbox-slack15.vbox-slack15.org",
+    "classification": "unfrozen-target-characterization-assumption-mismatch",
+    "step150_attempt_consumed": true,
+    "runtime_probe_invoked": false,
+    "runtime_probe_accepted": false,
+    "system_state_preserved": true,
+    "step149_authorization_reusable": false
+  },
+  "frozen_target_identity_gate": {
+    "scope": "accepted-elilo-core-identity-only",
+    "hostname_fqdn": "vbox-slack15.vbox-slack15.org",
+    "slackware_version": "Slackware 15.0",
+    "require_uefi": true,
+    "running_kernel": "5.15.209",
+    "required_boot_image_suffix": "\\EFI\\Slackware\\vmlinuz-generic-5.15.209",
+    "elilo_conf_sha256": "94b77b9f70a9d3b22d146c36af0ee6bbf09133d0b1931a2e731e881d3edc37f6",
+    "accepted_elilo_closure_must_match": true
+  },
+  "unfrozen_capability_inputs": {
+    "mkinitrd_config": {
+      "step150_observed": "absent",
+      "historical_closure_froze_predicate": false,
+      "future_pre_probe_identity_gate": false,
+      "preserve_as_evidence": true
+    },
+    "grub_path": {
+      "step150_observed": "directory",
+      "historical_closure_froze_predicate": false,
+      "future_pre_probe_identity_gate": false,
+      "preserve_as_evidence": true
+    }
+  },
+  "designed_harness_remediation": {
+    "scope": "slackware-15-runtime-target-characterization-only",
+    "successor_harness_required": true,
+    "step150_harness_is_consumed_and_immutable": true,
+    "remove_mkinitrd_regular_file_pre_probe_requirement": true,
+    "remove_grub_absence_pre_probe_requirement": true,
+    "preserve_mkinitrd_observation_in_boot_state_evidence": true,
+    "preserve_grub_path_observation_in_boot_state_evidence": true,
+    "runtime_probe_may_run_only_after_frozen_target_identity_gate_passes": true,
+    "runtime_capability_bits_are_probe_observations_not_historical_identity_predicates": true,
+    "do_not_reuse_step132_exact_capability_vector_as_fresh_target_identity": true,
+    "historical_step132_target_binding_remains_immutable": true,
+    "historical_step149_authorization_remains_consumed": true
+  },
+  "future_runtime_acceptance_semantics": {
+    "boot_mode": "auto",
+    "boot_module_state": "unavailable",
+    "boot_module_run": 0,
+    "boot_preparation_layout": "unknown",
+    "boot_module_reason": "no supported initrd or GRUB preparation path was detected",
+    "boot_direct_generic_available": 0,
+    "boot_initrd_available": "observed-not-predeclared",
+    "boot_grub_available": "observed-not-predeclared",
+    "require_fail_closed_incomplete_layout_semantics": true,
+    "require_source_and_template_identity_preserved": true,
+    "require_package_slackpkg_and_boot_state_preserved": true
+  },
+  "planned_regression_boundary": {
+    "frozen_elilo_core_identity_still_gates_probe": true,
+    "mkinitrd_presence_no_longer_gates_probe": true,
+    "grub_directory_absence_no_longer_gates_probe": true,
+    "mkinitrd_and_grub_observations_still_captured": true,
+    "runtime_probe_not_invoked_on_core_identity_failure": true,
+    "runtime_capability_bits_not_hardcoded_from_step132": true,
+    "auto_incomplete_layout_fail_closed_semantics_preserved": true,
+    "direct_generic_capability_must_remain_unavailable_on_elilo_identity": true,
+    "nonmutation_evidence_boundary_preserved": true,
+    "source_byte_identity_preserved": true,
+    "configuration_template_byte_identity_preserved": true,
+    "optional_module_contract_unchanged": true
+  },
+  "source_change_authorized": false,
+  "configuration_template_change_authorized": false,
+  "contract_change_authorized": false,
+  "target_binding_change_authorized": false,
+  "execution_harness_change_authorized": false,
+  "machine_execution_authorized": false,
+  "slackware_15_rerun_authorized": false,
+  "repository_refresh_required": false,
+  "slackware_repository_state_dependency": false,
+  "machine_action_required": false,
+  "future_work_requires_fresh_boundary": true,
+  "next_stage": "phase-1-configuration-module-mode-source-remediation-runtime-validation-slackware-15-characterization-remediation-authorization-review",
+  "pause_safe": true
+}
