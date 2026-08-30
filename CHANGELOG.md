@@ -931,3 +931,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Recorded `execution_harness_change_authorized=true`, `execution_harness_change_applied=false`, `machine_action_required=false`, `future_work_requires_fresh_boundary=true`, and `pause_safe=true`.
 - Next stage: `phase-1-configuration-module-mode-source-remediation-runtime-validation-slackware-15-characterization-remediation-implementation`.
 <!-- step-153-configuration-module-mode-source-remediation-runtime-validation-slackware-15-characterization-remediation-authorization-review:end -->
+
+<!-- step-154-configuration-module-mode-source-remediation-runtime-validation-slackware-15-characterization-remediation-implementation:start -->
+## Phase 1 step 154 — Slackware 15.0 characterization remediation implementation
+
+- Consumed the single-use step-153 repository authorization by creating the separately named successor Slackware 15.0 execution harness at `tests/acceptance/reference/test-configuration-module-mode-source-remediation-runtime-validation-slackware-15-characterization-remediated-rerun.sh`.
+- Kept the consumed step-150 execution harness immutable and applied no source, configuration-template, optional-module contract, historical target-binding, or accepted ELILO-closure change.
+- Limited the successor pre-probe gate to the accepted ELILO core identity; `/etc/mkinitrd.conf` and `/boot/grub` are now evidence-only runtime capability inputs rather than historical identity predicates.
+- Required live `BOOT_INITRD_AVAILABLE` and `BOOT_GRUB_AVAILABLE` observations from `probe_boot_module()` and replaced the historical exact capability-vector check with semantic `boot=auto` fail-closed incomplete-layout acceptance.
+- Preserved pre/post package inventory, Slackpkg metadata, boot-state, source, and template evidence comparison for any later separately authorized execution.
+- Deliberately created no future execution-authorization policy. The successor harness refuses execution while that policy is absent, so machine execution and the Slackware 15.0 rerun remain unauthorized.
+- Recorded the step-153 repository authorization as consumed, `further_execution_harness_change_authorized=false`, `machine_action_required=false`, publication-state independence, `future_work_requires_fresh_boundary=true`, and `pause_safe=true`.
+- Next stage: `phase-1-configuration-module-mode-source-remediation-runtime-validation-slackware-15-characterization-remediation-implementation-review`.
+<!-- step-154-configuration-module-mode-source-remediation-runtime-validation-slackware-15-characterization-remediation-implementation:end -->
