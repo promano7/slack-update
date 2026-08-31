@@ -1,0 +1,56 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-configuration-module-mode-source-remediation-closure-review",
+  "review_only": true,
+  "step129_repository_conformance": {
+    "policy_path": "tests/fixtures/reference/acceptance/phase-1/configuration-module-mode-source-remediation-regression-review-policy.json",
+    "policy_sha256": "f97b4e392a7fdacd7bc6585c7b790231614041a163f733cac171a21bf3259ff2",
+    "record_path": "tests/fixtures/reference/acceptance/phase-1/configuration-module-mode-source-remediation-regression-review.tsv",
+    "record_sha256": "95343b045a16a9fe943b46e1e7887173c9b7f1bb2c18ddcc8e2de867afc94ee8",
+    "contract_rows": 15,
+    "conforming_rows": 15,
+    "discrepancy_rows": 0
+  },
+  "step138_direct_generic_regression": {
+    "policy_path": "tests/fixtures/reference/acceptance/phase-1/configuration-module-mode-source-remediation-runtime-validation-direct-generic-initialization-remediation-regression-review-policy.json",
+    "policy_sha256": "43c7b538d06e142180aa343bc743ab11c341e71a4ace6ea0909efac1be90f4ac",
+    "record_path": "tests/fixtures/reference/acceptance/phase-1/configuration-module-mode-source-remediation-runtime-validation-direct-generic-initialization-remediation-regression-review.tsv",
+    "record_sha256": "18de033bdde24bf7c1072314cded46e134cee06aac8434f47f3318e97995d30d",
+    "authorization_consumed": true,
+    "further_source_change_authorized": false
+  },
+  "step159_runtime_validation_closure": {
+    "policy_path": "tests/fixtures/reference/acceptance/phase-1/configuration-module-mode-source-remediation-runtime-validation-closure-review-policy.json",
+    "policy_sha256": "50e965ffe36d267b3467d3fde08e64dbbedbf17be3f17c41111d226b07575c4b",
+    "record_path": "tests/fixtures/reference/acceptance/phase-1/configuration-module-mode-source-remediation-runtime-validation-closure-review.tsv",
+    "record_sha256": "11b5d6e9c0c802a244d481b485c9513f4240f390d82dacc96973d7590507cda0",
+    "runtime_validation_closed": true,
+    "mandatory_targets_accepted": true
+  },
+  "accepted_repository_state": {
+    "optional_module_contract_path": "tests/fixtures/reference/acceptance/phase-1/configuration-module-mode-contract.tsv",
+    "optional_module_contract_sha256": "f97ee5aa941b94f64570bd119b4870a4a85c8affde3212395ee09e8c44ff5eb9",
+    "source_path": "tools/reference/slack-update-reference.sh",
+    "source_sha256": "aeb0ecd032f8988c8e16d1e3a71a8609ea414c39ab69338b96b0ef01b81bbcd7",
+    "configuration_template_path": "data/config/slack-update.conf",
+    "configuration_template_sha256": "4845e2c5038fe8896409f90b6287de33a011a76874229cb76479aa6cd4253bba"
+  },
+  "closure": {
+    "original_module_mode_source_remediation_closed": true,
+    "direct_generic_initialization_remediation_closed": true,
+    "runtime_validation_closed": true,
+    "source_remediation_closed": true,
+    "source_change_authorized": false,
+    "additional_machine_execution_authorized": false,
+    "pending_source_remediation_action": false,
+    "repository_refresh_required": false,
+    "machine_action_required": false
+  },
+  "helper_path": "tools/reference/configuration-module-mode-source-remediation-closure-review.sh",
+  "helper_sha256": "85a2b0c898af9318cd7b9ea6943d72faf0348b8b594b9c1e2735124fd819aa18",
+  "record_path": "tests/fixtures/reference/acceptance/phase-1/configuration-module-mode-source-remediation-closure-review.tsv",
+  "record_sha256": "4165eb4c6191eb189666de2a7ebe4d05874de6a6001c5178320e85819335d070",
+  "future_work_requires_fresh_boundary": true,
+  "next_stage": "phase-1-configuration-module-mode-workstream-closure-checkpoint",
+  "pause_safe": true
+}
