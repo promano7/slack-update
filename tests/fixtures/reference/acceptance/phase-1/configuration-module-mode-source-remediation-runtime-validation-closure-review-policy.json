@@ -1,0 +1,42 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-configuration-module-mode-source-remediation-runtime-validation-closure-review",
+  "review_only": true,
+  "step158_slackware_15_review": {
+    "policy_path": "tests/fixtures/reference/acceptance/phase-1/configuration-module-mode-source-remediation-runtime-validation-slackware-15-characterization-remediated-rerun-review-policy.json",
+    "policy_sha256": "2ead4c6e4b144b7bc6c3f927eaeea8c46160cc8ebdf1054684046767444bd46a",
+    "record_path": "tests/fixtures/reference/acceptance/phase-1/configuration-module-mode-source-remediation-runtime-validation-slackware-15-characterization-remediated-rerun-review.tsv",
+    "record_sha256": "dbeded2f525a52dd4155c41963d8e154b6a4e90917c994c4b4a993d81a1e0ba4",
+    "runtime_validation_accepted": true
+  },
+  "step148_slackware_current_review": {
+    "policy_path": "tests/fixtures/reference/acceptance/phase-1/configuration-module-mode-source-remediation-runtime-validation-slackware-current-post-recovery-rerun-review-policy.json",
+    "policy_sha256": "de2813f328b1af80531d68a22c049f9c3be58b6a445398c5c3795b49036ead4b",
+    "record_path": "tests/fixtures/reference/acceptance/phase-1/configuration-module-mode-source-remediation-runtime-validation-slackware-current-post-recovery-rerun-review.tsv",
+    "record_sha256": "9f8c384d4709e8161ac2f6a3e928b7f3e7baea677e7d850c4c061c1aa4d71361",
+    "runtime_validation_accepted": true
+  },
+  "accepted_repository_state": {
+    "source_path": "tools/reference/slack-update-reference.sh",
+    "source_sha256": "aeb0ecd032f8988c8e16d1e3a71a8609ea414c39ab69338b96b0ef01b81bbcd7",
+    "configuration_template_path": "data/config/slack-update.conf",
+    "configuration_template_sha256": "4845e2c5038fe8896409f90b6287de33a011a76874229cb76479aa6cd4253bba"
+  },
+  "closure": {
+    "slackware_15_runtime_validation_accepted": true,
+    "slackware_current_runtime_validation_accepted": true,
+    "mandatory_targets_accepted": true,
+    "characterization_remediation_accepted": true,
+    "runtime_validation_closed": true,
+    "additional_machine_execution_authorized": false,
+    "repository_refresh_required": false,
+    "machine_action_required": false
+  },
+  "helper_path": "tools/reference/configuration-module-mode-source-remediation-runtime-validation-closure-review.sh",
+  "helper_sha256": "b674b1e03cbb84daaff947c3629f309b1aaa633bb9afb63b9a12b83bbce6cae3",
+  "record_path": "tests/fixtures/reference/acceptance/phase-1/configuration-module-mode-source-remediation-runtime-validation-closure-review.tsv",
+  "record_sha256": "11b5d6e9c0c802a244d481b485c9513f4240f390d82dacc96973d7590507cda0",
+  "future_work_requires_fresh_boundary": true,
+  "next_stage": "phase-1-configuration-module-mode-source-remediation-closure-review",
+  "pause_safe": true
+}
