@@ -40,7 +40,7 @@ do
 done
 
 check_hash "$HELPER" '85a2b0c898af9318cd7b9ea6943d72faf0348b8b594b9c1e2735124fd819aa18' 'step-160 closure helper'
-check_hash "$DOC" 'f5e52f482915c164da3075cc1875f225e5cc04f70152abdc19476535ead51d22' 'step-160 reference document'
+check_hash "$DOC" '6a25c1ae41ce067617dc04fc0602dbb1bef1e8076f70727c84eefe27e1b8a3ae' 'step-160 reference document'
 check_hash "$POLICY" '019636bde8167d61ad680680da83500ab3db599b830f16c3b4c7acd6cca42fc9' 'step-160 closure policy'
 check_hash "$RECORD" '4165eb4c6191eb189666de2a7ebe4d05874de6a6001c5178320e85819335d070' 'step-160 closure record'
 check_hash "$STEP129_POLICY" 'f97b4e392a7fdacd7bc6585c7b790231614041a163f733cac171a21bf3259ff2' 'accepted step-129 regression policy'
@@ -119,7 +119,14 @@ if [[ $normalized_doc == *'Step 160 closes the complete source-remediation chain
 else
     fail 'step-160 reference document is incomplete'
 fi
-if grep -Fq 'Phase 1 step 160 source-remediation closure review' "$CHANGELOG" && grep -Fq 'source_remediation_closed=true' "$CHANGELOG"; then pass 'CHANGELOG records step 160'; else fail 'CHANGELOG does not record step 160'; fi
+if grep -Fq 'Phase 1 step 160 source-remediation closure review' "$CHANGELOG" \
+    && grep -Fq 'source_remediation_closed=true' "$CHANGELOG" \
+    && grep -Fq '019636bde8167d61ad680680da83500ab3db599b830f16c3b4c7acd6cca42fc9' "$CHANGELOG" \
+    && grep -Fq '4165eb4c6191eb189666de2a7ebe4d05874de6a6001c5178320e85819335d070' "$CHANGELOG"; then
+    pass 'CHANGELOG records step 160 with final post-r1 policy and record hashes'
+else
+    fail 'CHANGELOG step 160 hashes are stale or incomplete'
+fi
 if grep -Eq '\b(slackpkg|upgradepkg|installpkg|removepkg|grub-mkconfig|mkinitrd|eliloconfig|reboot|shutdown|poweroff)\b' "$HELPER"; then fail 'step-160 helper contains a package, boot, reboot, or shutdown mutation command'; else pass 'step-160 helper contains no package, boot, reboot, or shutdown mutation command'; fi
 if grep -Eq '\b(curl|wget|rsync|scp|ssh)\b' "$HELPER"; then fail 'step-160 helper contains a network client command'; else pass 'step-160 helper contains no network client command'; fi
 printf 'Result: %s (%d passes, %d failures)\n' "$([[ $FAIL_COUNT -eq 0 ]] && printf PASS || printf FAIL)" "$PASS_COUNT" "$FAIL_COUNT"

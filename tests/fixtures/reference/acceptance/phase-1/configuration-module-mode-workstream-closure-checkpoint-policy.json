@@ -1,0 +1,51 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-configuration-module-mode-workstream-closure-checkpoint",
+  "review_only": true,
+  "fresh_boundary_origin": {
+    "step": 121,
+    "policy_path": "tests/fixtures/reference/acceptance/phase-1/configuration-module-mode-boundary-review-policy.json",
+    "policy_sha256": "a03e299a87596ad66246031c3a47839bac5ab2a869073c43eeae6be0788ebc4e",
+    "fresh_boundary": true
+  },
+  "source_remediation_closure": {
+    "policy_path": "tests/fixtures/reference/acceptance/phase-1/configuration-module-mode-source-remediation-closure-review-policy.json",
+    "policy_sha256": "019636bde8167d61ad680680da83500ab3db599b830f16c3b4c7acd6cca42fc9",
+    "record_path": "tests/fixtures/reference/acceptance/phase-1/configuration-module-mode-source-remediation-closure-review.tsv",
+    "record_sha256": "4165eb4c6191eb189666de2a7ebe4d05874de6a6001c5178320e85819335d070",
+    "source_remediation_closed": true,
+    "runtime_validation_closed": true
+  },
+  "accepted_repository_state": {
+    "optional_module_contract_path": "tests/fixtures/reference/acceptance/phase-1/configuration-module-mode-contract.tsv",
+    "optional_module_contract_sha256": "f97ee5aa941b94f64570bd119b4870a4a85c8affde3212395ee09e8c44ff5eb9",
+    "module_count": 5,
+    "mode_count": 3,
+    "contract_rows": 15,
+    "conforming_rows": 15,
+    "discrepancy_rows": 0,
+    "source_path": "tools/reference/slack-update-reference.sh",
+    "source_sha256": "aeb0ecd032f8988c8e16d1e3a71a8609ea414c39ab69338b96b0ef01b81bbcd7",
+    "configuration_template_path": "data/config/slack-update.conf",
+    "configuration_template_sha256": "4845e2c5038fe8896409f90b6287de33a011a76874229cb76479aa6cd4253bba"
+  },
+  "closure": {
+    "mandatory_targets_accepted": true,
+    "source_remediation_closed": true,
+    "runtime_validation_closed": true,
+    "module_mode_workstream_closed": true,
+    "pending_module_mode_action": false,
+    "source_change_authorized": false,
+    "additional_machine_execution_authorized": false,
+    "repository_refresh_required": false,
+    "machine_action_required": false,
+    "slackware_current_publication_invalidates_checkpoint": false
+  },
+  "helper_path": "tools/reference/configuration-module-mode-workstream-closure-checkpoint.sh",
+  "helper_sha256": "6fb6ac22a4f1ef704a2e2a0f9e641766648e9a777c40943206467cd21bf6aa88",
+  "record_path": "tests/fixtures/reference/acceptance/phase-1/configuration-module-mode-workstream-closure-checkpoint.tsv",
+  "record_sha256": "3705921dab84bc1dbb47766743d4623d9b575179b4c449d99a4adf460f5d15e8",
+  "future_work_requires_fresh_boundary": true,
+  "next_stage": "phase-1-resume-planning",
+  "pause_safe": true
+}

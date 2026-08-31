@@ -42,7 +42,7 @@ and the configuration template remains
 `4845e2c5038fe8896409f90b6287de33a011a76874229cb76479aa6cd4253bba`.
 
 The frozen step-160 helper SHA-256 is `85a2b0c898af9318cd7b9ea6943d72faf0348b8b594b9c1e2735124fd819aa18`, policy SHA-256 is
-`930e28f457beceefc82806780691a3a301f23c4803a2359f68754e7a629cb6c8`, and record SHA-256 is `571357abeef182ca6d3fb3d82c6eac1e0f05b11f92459267412a077615ded433`.
+`019636bde8167d61ad680680da83500ab3db599b830f16c3b4c7acd6cca42fc9`, and record SHA-256 is `4165eb4c6191eb189666de2a7ebe4d05874de6a6001c5178320e85819335d070`.
 
 A clean review records `source_remediation_closed=true`,
 `pending_source_remediation_action=false`, `source_change_authorized=false`,
