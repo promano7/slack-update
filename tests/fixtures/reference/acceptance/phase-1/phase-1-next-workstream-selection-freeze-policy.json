@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-next-workstream-selection-freeze",
+  "review_only": true,
+  "accepted_inventory": {
+    "step": 163,
+    "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-remaining-work-inventory-policy.json",
+    "policy_sha256": "fb9ab7db1adad032b29be14a6100fdc6221eefd8de3360374085e8b3d76e4f03",
+    "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-remaining-work-inventory.tsv",
+    "record_sha256": "8a1160121683117fc247cbf35d2943d35b6b219323e8e58a2fb9baed165f8b01"
+  },
+  "selection": {
+    "selected_workstream": "reference-comment-language-audit",
+    "classification": "repository-review",
+    "scope": "repository-only",
+    "phase_1_blocking": true,
+    "machine_execution_required": false,
+    "repository_refresh_required": false,
+    "roadmap_reconciliation_selected": false,
+    "acceptance_matrix_selected": false,
+    "selection_frozen": true
+  },
+  "authorization": {
+    "source_change_authorized": false,
+    "repository_refresh_authorized": false,
+    "network_refresh_authorized": false,
+    "machine_execution_authorized": false,
+    "package_action_authorized": false,
+    "boot_action_authorized": false,
+    "phase_2_start_authorized": false,
+    "future_work_requires_explicit_authorization": true
+  },
+  "helper_path": "tools/reference/phase-1-next-workstream-selection-freeze.sh",
+  "helper_sha256": "6699f69a84d8fb75db0e0b0a40e188b813576c2d4eda896c00ababd5200b0bb4",
+  "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-next-workstream-selection-freeze.tsv",
+  "record_sha256": "9a00e18b56d4ce0a98b3c90db94fb1528e73e0501a6bc493769841cbacbcb79d",
+  "next_stage": "phase-1-reference-comment-language-audit-contract-freeze",
+  "slackware_current_publication_invalidates_selection": false,
+  "pause_safe": false
+}

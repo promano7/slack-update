@@ -1,0 +1,4 @@
+workstream	selection_state	scope	phase_1_blocking	machine_execution_required	repository_refresh_required	disposition
+reference-comment-language-audit	selected	repository-only	true	false	false	freeze the English-comment audit as the next blocking Phase 1 workstream
+roadmap-state-reconciliation	pending-not-selected	repository-only	false	false	false	retain as planning hygiene after the blocking repository audit
+acceptance-matrix-remainder	pending-not-selected	mixed-design-and-runtime	true	true	conditional	retain for a later explicitly authorized acceptance boundary after repository-only blocking review
