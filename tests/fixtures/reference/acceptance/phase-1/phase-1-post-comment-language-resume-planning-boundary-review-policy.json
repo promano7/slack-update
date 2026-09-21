@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-post-comment-language-resume-planning-boundary-review",
+  "review_only": true,
+  "accepted_checkpoint": {
+    "step": 169,
+    "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-reference-comment-language-remediation-closure-review-policy.json",
+    "policy_sha256": "d0cc3e26dd663e5f1117a327a088084b6c734a6ced608191f1ce174b5be4e11c",
+    "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-reference-comment-language-remediation-closure-review.tsv",
+    "record_sha256": "c0cc272c7270945d289068d024ff7a14abe275c03292b310e058a829b0528f44",
+    "comment_language_workstream_closed": true,
+    "source_remediation_closed": true,
+    "comment_language_conformance_pass": true,
+    "strong_safe_pause": true,
+    "machine_action_required": false,
+    "future_work_requires_fresh_boundary": true,
+    "next_stage": "phase-1-resume-planning-after-comment-language-closure"
+  },
+  "fresh_boundary": {
+    "opened": true,
+    "scope": "phase-1-resume-planning-after-comment-language-closure",
+    "purpose": "select the next remaining Phase 1 workstream without reusing any earlier operational authorization",
+    "slackware_current_publication_invalidates_boundary": false
+  },
+  "remaining_phase_1_work": {
+    "roadmap_reconciliation": "pending-repository-only-nonblocking",
+    "acceptance_matrix_remainder": "pending-future-machine-work",
+    "reference_freeze": "blocked-behind-remaining-acceptance-work",
+    "c_port": "blocked-by-phase-1-gate"
+  },
+  "authorization": {
+    "source_change_authorized": false,
+    "repository_refresh_authorized": false,
+    "network_refresh_authorized": false,
+    "machine_execution_authorized": false,
+    "package_action_authorized": false,
+    "boot_action_authorized": false,
+    "phase_2_start_authorized": false,
+    "future_work_requires_explicit_authorization": true
+  },
+  "machine_action_required": false,
+  "helper_path": "tools/reference/phase-1-post-comment-language-resume-planning-boundary-review.sh",
+  "helper_sha256": "89b887d296eb02ce599c7a9d84afd86e180b9f984466d092f4d62d3356a3a78f",
+  "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-post-comment-language-resume-planning-boundary-review.tsv",
+  "record_sha256": "0063d67c00a3d441fd32d225b70b4da210c9b9fd301a5928dbf20116668fca05",
+  "next_stage": "phase-1-post-comment-language-next-workstream-selection-freeze",
+  "pause_safe": false
+}
