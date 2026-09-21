@@ -1,0 +1,11 @@
+contract_item	scope	requirement	classification	disposition
+target	tools/reference/slack-update-reference.sh	audit this file only	mandatory	bind the execution step to the exact target SHA-256 observed at audit time
+shell-comments	syntactic shell comments	English prose required	mandatory	include only lexical comments recognized outside quotes and shell expansions
+shebang	first interpreter line	not language prose	excluded	exclude #! from comment-language classification
+heredoc-content	here-document bodies	not shell comments	excluded	do not classify leading # characters in heredoc payloads as shell comments
+quoted-hash	quoted text and shell tokens containing #	not shell comments	excluded	do not classify literal or syntactic # characters as comments
+technical-directive	shellcheck SPDX and equivalent machine directives	English prose not required	allowed-non-prose	classify as technical-directive rather than language defect
+commented-code	comment text that is solely a code or command fragment	English prose not applicable	allowed-non-prose	classify as code-fragment only when no natural-language prose is present
+natural-language-comment	comment prose	English only	conformance-critical	classify each prose comment as english-prose or language-defect
+audit-pass	complete target inventory	zero language-defect rows	conformance-gate	PASS requires complete coverage and zero language defects
+remediation	any discovered language defect	separate explicit source-change authorization required	blocked	step 165 does not authorize editing the reference script

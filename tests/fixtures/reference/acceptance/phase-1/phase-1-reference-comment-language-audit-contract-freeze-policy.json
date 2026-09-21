@@ -1,0 +1,48 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-reference-comment-language-audit-contract-freeze",
+  "review_only": true,
+  "accepted_selection": {
+    "step": 164,
+    "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-next-workstream-selection-freeze-policy.json",
+    "policy_sha256": "d2dfa3d4e1fe716d841a416a15f2c162573bca029b7f5742c543d5d071373c11",
+    "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-next-workstream-selection-freeze.tsv",
+    "record_sha256": "9a00e18b56d4ce0a98b3c90db94fb1528e73e0501a6bc493769841cbacbcb79d"
+  },
+  "contract": {
+    "workstream": "reference-comment-language-audit",
+    "target_path": "tools/reference/slack-update-reference.sh",
+    "target_hash_binding": "execution-time-sha256",
+    "shell_lexical_comments_only": true,
+    "shebang_excluded": true,
+    "heredoc_payload_excluded": true,
+    "quoted_or_syntactic_hash_excluded": true,
+    "technical_directives_allowed_as_non_prose": true,
+    "commented_code_allowed_as_non_prose": true,
+    "mixed_prose_and_code_is_prose": true,
+    "natural_language_required": "English",
+    "pass_requires_complete_inventory": true,
+    "pass_requires_zero_language_defects": true,
+    "audit_execution_required": true,
+    "source_remediation_authorized": false
+  },
+  "authorization": {
+    "source_change_authorized": false,
+    "repository_refresh_authorized": false,
+    "network_refresh_authorized": false,
+    "machine_execution_authorized": false,
+    "package_action_authorized": false,
+    "boot_action_authorized": false,
+    "phase_2_start_authorized": false,
+    "future_work_requires_explicit_authorization": true
+  },
+  "helper_path": "tools/reference/phase-1-reference-comment-language-audit-contract-freeze.sh",
+  "helper_sha256": "4caccfbc03f880ba4679126de5d2e10aa70ee22d9c2805694a9042da03680d1b",
+  "document_path": "docs/reference/phase-1-reference-comment-language-audit-contract-freeze.md",
+  "document_sha256": "b6ed4dd397c92a2c0a79dbca0b72d29f2ad693e6d0bc44e99f407e8a3568ea92",
+  "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-reference-comment-language-audit-contract-freeze.tsv",
+  "record_sha256": "74c5cbda7c4fd609844352747af29f4ffe24e84dd9ef934cb6671dcb25523743",
+  "next_stage": "phase-1-reference-comment-language-audit-execution",
+  "slackware_current_publication_invalidates_contract": false,
+  "pause_safe": false
+}
