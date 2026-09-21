@@ -1006,3 +1006,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Does not modify the reference source or authorize remediation, repository/network refresh, Slackware machine execution, package/boot actions, or Phase 2.
 - Routes a non-zero defect result to `phase-1-reference-comment-language-remediation-design`; a zero-defect result routes to the audit closure review.
 
+## Phase 1 step 167 reference comment-language remediation design
+
+- Freezes the exact step-166 defect inventory and authorizes only one-for-one English translation of those syntactic comment payloads.
+- Binds the design to the accepted step-166 policy/record hashes and unchanged reference-source SHA-256.
+- Forbids executable-code changes, line-count changes, non-defect comment edits, runtime-string edits, heredoc edits, repository/network refreshes, machine execution, package/boot actions, and Phase 2.
+- Routes the workstream to `phase-1-reference-comment-language-remediation-implementation`; closure still requires a zero-defect re-audit.
+

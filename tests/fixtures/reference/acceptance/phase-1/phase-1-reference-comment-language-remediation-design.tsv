@@ -1,0 +1,18 @@
+defect_id	line_number	comment_sha256	comment_text	authorized_change	preserve_code_prefix	preserve_line_count	disposition
+D001	2466	c845219862da37d6e8e46ce86410401e61f1386d897871e79ad361b987de5d9f	Rotacion de logs — conservar solo los ultimos 30 dias.	translate-comment-payload-to-English	yes	yes	authorized-for-step-168
+D002	2467	cc3dfa7ff64558148cb947dfd79d01fc248c86ac208e106b9bdcc8f33095cbe7	FIX #10: La rotacion se ejecuta ANTES de abrir el log de esta ejecucion,	translate-comment-payload-to-English	yes	yes	authorized-for-step-168
+D003	2468	301479ea947aae8786c2a02bdef28a4bdedecd0821834e5e4193b553dbb2766c	por lo que nunca puede borrar el fichero run-$DATE.log actual.	translate-comment-payload-to-English	yes	yes	authorized-for-step-168
+D004	2487	808b1bbf81d7468bff7858f08a9776fa4f03152260863265284cb2946ea65d44	Redirigir log filtrando codigos ANSI	translate-comment-payload-to-English	yes	yes	authorized-for-step-168
+D005	2488	a4416640536997eafc37103658fb12790fad4cd6f5351137d002c5f60e940eaf	FIX #10: Se eliminan emojis del log para evitar problemas de encoding en cron.	translate-comment-payload-to-English	yes	yes	authorized-for-step-168
+D006	2489	88a2122bd86ff1ee487cb300801784eb51a4a79b0d3ddd11a833e8674ea79a76	La salida de consola (si se ejecuta interactivamente) los mostrara igualmente	translate-comment-payload-to-English	yes	yes	authorized-for-step-168
+D007	2490	5d79c41d539196b1c55c40ddf08a198c0b454135950b4a9392a1d853a1a16327	porque el tee escribe a stdout antes del filtro de ANSI.	translate-comment-payload-to-English	yes	yes	authorized-for-step-168
+D008	4152	cfeeaa4b4d753cb6cd46c53bed0413baabe285d2a62fd9eef1caf15b6d262f4b	FIX #3: Acumular en temporal y hacer merge para no contaminar QUEUE_EXTRA	translate-comment-payload-to-English	yes	yes	authorized-for-step-168
+D009	4153	134952eacfeaca14902fb32be62e311dd79f7997d2fecf39a87d624298d0ff42	con datos de ejecuciones anteriores cuando ABI no disparo (bloque [7]).	translate-comment-payload-to-English	yes	yes	authorized-for-step-168
+D010	4157	fa1c30c14b0aa2acc4da97e6846c935d6cadb546e6274a294ea28160d8386ece	FIX #4: Anclar con grep -P para cubrir rutas con y sin barra inicial	translate-comment-payload-to-English	yes	yes	authorized-for-step-168
+D011	4158	b952c56612a90c64080dcee9763eb32030297db919578c5ecae8a22856874634	en los manifiestos de /var/log/packages (algunos omiten el '/' inicial).	translate-comment-payload-to-English	yes	yes	authorized-for-step-168
+D012	4213	bca1b63b0755529e8784bee13cd9794026ddad28e4f56297151c325c568b8032	FIX #5: Sustituido 'sbopkg -b -i "string largo"' por 'sbopkg -b -B fichero'.	translate-comment-payload-to-English	yes	yes	authorized-for-step-168
+D013	4214	d4809e199efa8d38c2981bc040e67c5648ab4ca8581d475ef81621ee4225baca	Pasar todos los paquetes como un unico string con -i puede superar ARG_MAX	translate-comment-payload-to-English	yes	yes	authorized-for-step-168
+D014	4215	40133a1ba9fb47a2820e81f276fcd501485d8321fb55684a680ad33b126c470c	cuando la cola es grande. Usar -B con el fichero .sqf es mas robusto y es	translate-comment-payload-to-English	yes	yes	authorized-for-step-168
+D015	4216	4207cc12e32c87ce987ecec8b1135b76fd485085f353a16afabe93f61d59f9ea	la forma recomendada por sbopkg para listas de paquetes.	translate-comment-payload-to-English	yes	yes	authorized-for-step-168
+D016	5165	b0fb249a44386e5b8a3afe7d868c01e7640d61144a56b2c337f483abb7dcd3ae	FIX #10: Eliminados emojis para evitar problemas de encoding en entornos	translate-comment-payload-to-English	yes	yes	authorized-for-step-168
+D017	5166	d11fba3dfb7823dade560236ab40926139e2c9a476964136ef53cd5ebe1d84a1	cron sin locale UTF-8. Se sustituyen por marcadores de texto plano.	translate-comment-payload-to-English	yes	yes	authorized-for-step-168

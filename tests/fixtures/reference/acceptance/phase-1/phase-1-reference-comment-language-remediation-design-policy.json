@@ -1,0 +1,47 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-reference-comment-language-remediation-design",
+  "review_only": true,
+  "accepted_audit": {
+    "step": 166,
+    "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-reference-comment-language-audit-execution-policy.json",
+    "policy_sha256": "ffb923f80fe04a7aaaccaf605cbcb5ce8a95221dd7a685cedbf8abe8ca3ff1b7",
+    "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-reference-comment-language-audit-execution.tsv",
+    "record_sha256": "f7efdc50612ec630a36e851c7b835f02eca006efc74d9f9768e40d4a4422f1cd",
+    "target_path": "tools/reference/slack-update-reference.sh",
+    "target_sha256": "aeb0ecd032f8988c8e16d1e3a71a8609ea414c39ab69338b96b0ef01b81bbcd7",
+    "language_defects": 17
+  },
+  "remediation_design": {
+    "authorized_rows": 17,
+    "translation_requirement": "English natural-language comment prose",
+    "change_unit": "syntactic shell-comment payload only",
+    "preserve_code_prefix_through_hash": true,
+    "preserve_line_count": true,
+    "preserve_nondefect_comments": true,
+    "runtime_strings_out_of_scope": true,
+    "heredoc_payload_out_of_scope": true,
+    "technical_directives_out_of_scope": true,
+    "code_changes_forbidden": true,
+    "implementation_must_run_bash_n": true,
+    "implementation_must_rerun_language_audit": true,
+    "implementation_zero_defect_gate": true
+  },
+  "authorization": {
+    "source_change_authorized": true,
+    "source_change_scope": "only defect rows frozen by this design record",
+    "repository_refresh_authorized": false,
+    "network_refresh_authorized": false,
+    "machine_execution_authorized": false,
+    "package_action_authorized": false,
+    "boot_action_authorized": false,
+    "phase_2_start_authorized": false,
+    "future_work_requires_explicit_authorization": true
+  },
+  "helper_path": "tools/reference/phase-1-reference-comment-language-remediation-design.sh",
+  "helper_sha256": "2a562711de0d463c4cd77e91d2171efb6b272e38aa4d6bd9967bce5de8d7ee1e",
+  "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-reference-comment-language-remediation-design.tsv",
+  "next_stage": "phase-1-reference-comment-language-remediation-implementation",
+  "slackware_current_publication_invalidates_design": false,
+  "pause_safe": false
+}
