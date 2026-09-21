@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-remaining-work-inventory",
+  "review_only": true,
+  "accepted_boundary": {
+    "step": 162,
+    "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-resume-planning-boundary-review-policy.json",
+    "policy_sha256": "47210ad2f1ce84946452c862be172a7e3b803c29772ecf8aae1e693dce4e3ae9",
+    "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-resume-planning-boundary-review.tsv",
+    "record_sha256": "338ca5c43dd79a02b7362c2a4cd661b4333139351902689c7af4d479a4bdf521",
+    "scope": "phase-1-resume-planning"
+  },
+  "inventory": {
+    "row_count": 7,
+    "accepted_evidence_roadmap_stale_count": 2,
+    "pending_repository_only_count": 2,
+    "pending_acceptance_work_count": 1,
+    "blocked_gate_count": 2,
+    "contains_machine_work": true,
+    "machine_work_authorized": false,
+    "roadmap_reconciliation_required": true,
+    "c_port_may_start": false
+  },
+  "authorization": {
+    "source_change_authorized": false,
+    "repository_refresh_authorized": false,
+    "network_refresh_authorized": false,
+    "machine_execution_authorized": false,
+    "package_action_authorized": false,
+    "boot_action_authorized": false,
+    "phase_2_start_authorized": false,
+    "future_work_requires_explicit_authorization": true
+  },
+  "helper_path": "tools/reference/phase-1-remaining-work-inventory.sh",
+  "helper_sha256": "100419b14c72d7a9e71ce0c3f99603b4e7d6ba6d90deeea46658f5b4deec7d22",
+  "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-remaining-work-inventory.tsv",
+  "record_sha256": "8a1160121683117fc247cbf35d2943d35b6b219323e8e58a2fb9baed165f8b01",
+  "next_stage": "phase-1-next-workstream-selection-freeze",
+  "slackware_current_publication_invalidates_inventory": false,
+  "pause_safe": false
+}

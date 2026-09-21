@@ -1,0 +1,8 @@
+workstream	classification	state	scope	machine_execution_required	repository_refresh_required	phase_1_blocking	disposition
+roadmap-state-reconciliation	planning-hygiene	pending	repository-only	false	false	false	reconcile roadmap items whose checkbox state no longer matches accepted Phase 1 evidence before selecting new runtime work
+reference-comment-language-audit	repository-review	pending	repository-only	false	false	true	verify that comments in the shell reference satisfy the English-only Phase 1 requirement
+configuration-schema-compatibility-roadmap	accepted-evidence-roadmap-stale	accepted	repository-only	false	false	false	accepted configuration and optional-module mode evidence exists; roadmap state requires reconciliation only
+normal-update-roadmap-stale-items	accepted-evidence-roadmap-stale	accepted	repository-only	false	false	false	accepted Slackware-current transaction and Slackware 15.0 ELILO cleanup evidence supersede historical unchecked roadmap subitems
+acceptance-matrix-remainder	acceptance-work	pending	mixed-design-and-runtime	true	conditional	true	remaining failure-mode and optional-module scenarios still require explicit per-scenario review boundaries before machine execution
+reference-freeze	phase-gate	blocked	repository-only	false	false	true	freeze expected outputs, fixtures, JSON schema v1, and reference-v1 only after blocking acceptance work is resolved
+c-port-start	phase-transition	blocked	future-phase	false	false	true	C implementation remains prohibited until the Phase 1 completion gate and reference freeze are accepted

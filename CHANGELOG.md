@@ -7,6 +7,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 ## [Unreleased]
 
 ### Acceptance status
+<!-- step-163-phase-1-remaining-work-inventory:start -->
+- Phase 1 step 163 remaining-work inventory classifies seven high-level workstreams without reopening any closed authorization chain. It distinguishes accepted evidence with stale roadmap state from genuinely pending work, keeps the acceptance-matrix remainder explicit, blocks the reference freeze until blocking acceptance work is resolved, and preserves the prohibition on starting the C port. No source change, repository/network refresh, machine execution, package action, boot action, or Phase 2 start is authorized. The next stage is `phase-1-next-workstream-selection-freeze`; this is not the requested end-of-session safe pause, so `pause_safe=false`.
+<!-- step-163-phase-1-remaining-work-inventory:end -->
 <!-- step-162-phase-1-resume-planning-boundary-review:start -->
 - Phase 1 step 162 resume-planning fresh boundary review opens a new repository-only planning boundary from the accepted step-161 strong safe pause. The optional-module mode workstream, source-remediation chain, and runtime-validation chain remain closed, both mandatory Slackware targets remain accepted, and no prior source or machine authorization is reused. The boundary authorizes no source change, repository/network refresh, machine execution, package action, or boot action; later Slackware-current publications do not invalidate it. The next stage is `phase-1-remaining-work-inventory`; this active planning boundary is not the requested end-of-session safe pause, so `pause_safe=false`.
 <!-- step-162-phase-1-resume-planning-boundary-review:end -->
