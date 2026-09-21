@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-roadmap-state-reconciliation-review",
+  "review_only": true,
+  "accepted_execution": {
+    "step": 173,
+    "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-roadmap-state-reconciliation-execution-policy.json",
+    "policy_sha256": "3e8e87dfc82d8ecde69144bfc0805abb413c85901af5ef97c0e6a05f734cdb9e",
+    "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-roadmap-state-reconciliation-execution.tsv",
+    "record_sha256": "3b876857640b4cc6f7502f3b9a40718fd1ca205de9bd5ce71c4154be248aee94",
+    "helper_path": "tools/reference/phase-1-roadmap-state-reconciliation-execution.sh",
+    "helper_sha256": "16580a7077164ad351c0e5b9543498c10518f5d17d18da02440591d253776d47",
+    "readme_sha256": "6cfc1556fd6ef50089be4f3b5472c268dd01a8330b6262e46b51994712a7cfad"
+  },
+  "review": {
+    "state": "accepted",
+    "selected_workstream": "roadmap-state-reconciliation",
+    "target_path": "README.md",
+    "change_class": "documentation-roadmap-presentation-only",
+    "rollback_closure_bound_to_step": 92,
+    "elilo_cleanup_closure_bound_to_step": 116,
+    "historical_checklist_preserved": true,
+    "acceptance_matrix_complete": false,
+    "roadmap_reconciliation_closed": true,
+    "reference_freeze_status": "blocked-behind-remaining-acceptance-work",
+    "c_port_status": "blocked-by-phase-1-gate"
+  },
+  "remaining_phase_1_work": {
+    "acceptance_matrix_remainder": "pending-future-machine-work",
+    "reference_freeze": "blocked-behind-remaining-acceptance-work",
+    "c_port": "blocked-by-phase-1-gate"
+  },
+  "authorization": {
+    "source_change_authorized": false,
+    "documentation_change_authorized": false,
+    "repository_refresh_authorized": false,
+    "network_refresh_authorized": false,
+    "machine_execution_authorized": false,
+    "package_action_authorized": false,
+    "boot_action_authorized": false,
+    "phase_2_start_authorized": false,
+    "future_work_requires_explicit_authorization": true,
+    "future_work_requires_fresh_boundary": true
+  },
+  "safe_pause": {
+    "pause_safe": false,
+    "strong_safe_pause": false,
+    "machine_action_required": false,
+    "slackware_current_publication_invalidates_review": false
+  },
+  "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-roadmap-state-reconciliation-review.tsv",
+  "next_stage": "phase-1-acceptance-matrix-remainder-inventory"
+}
