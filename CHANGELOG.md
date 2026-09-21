@@ -999,3 +999,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 <!-- step-158-configuration-module-mode-source-remediation-runtime-validation-slackware-15-characterization-remediated-rerun-review:end -->
 
 - Phase 1 step 165 reference comment-language audit contract freeze binds the selected `reference-comment-language-audit` workstream to `tools/reference/slack-update-reference.sh` and freezes lexical scope for actual shell comments. Shebangs, heredoc payloads, quoted or syntactic `#` tokens, technical directives, and pure code fragments are distinguished from natural-language comment prose. Natural-language comments must be English, and later audit PASS requires complete target coverage with zero `language-defect` rows. The target SHA-256 is intentionally bound at audit execution time. Step 165 does not assert a defect and authorizes no source change, repository/network refresh, machine execution, package action, boot action, or Phase 2 start. The next stage is `phase-1-reference-comment-language-audit-execution`; `pause_safe=false`.
+## Phase 1 step 166 reference comment-language audit execution
+
+- Executes the frozen step-165 lexical comment-language audit against the exact `tools/reference/slack-update-reference.sh` present at application time.
+- Generates a complete syntactic-comment inventory and an acceptance policy bound to the target SHA-256.
+- Does not modify the reference source or authorize remediation, repository/network refresh, Slackware machine execution, package/boot actions, or Phase 2.
+- Routes a non-zero defect result to `phase-1-reference-comment-language-remediation-design`; a zero-defect result routes to the audit closure review.
+

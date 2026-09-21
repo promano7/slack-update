@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-reference-comment-language-audit-execution",
+  "review_only": true,
+  "accepted_contract": {
+    "step": 165,
+    "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-reference-comment-language-audit-contract-freeze-policy.json",
+    "policy_sha256": "3df64c07bf2169f78add075ff0febaf04f3c418d8f1cbdb7435ebe9498209d4d",
+    "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-reference-comment-language-audit-contract-freeze.tsv",
+    "record_sha256": "74c5cbda7c4fd609844352747af29f4ffe24e84dd9ef934cb6671dcb25523743"
+  },
+  "audit": {
+    "target_path": "tools/reference/slack-update-reference.sh",
+    "target_sha256": "aeb0ecd032f8988c8e16d1e3a71a8609ea414c39ab69338b96b0ef01b81bbcd7",
+    "inventory_complete": true,
+    "total_comments": 108,
+    "english_prose": 49,
+    "technical_directive": 0,
+    "code_fragment": 42,
+    "language_defects": 17,
+    "conformance_pass": false,
+    "source_modified": false
+  },
+  "authorization": {
+    "source_change_authorized": false,
+    "repository_refresh_authorized": false,
+    "network_refresh_authorized": false,
+    "machine_execution_authorized": false,
+    "package_action_authorized": false,
+    "boot_action_authorized": false,
+    "phase_2_start_authorized": false,
+    "future_work_requires_explicit_authorization": true
+  },
+  "helper_path": "tools/reference/phase-1-reference-comment-language-audit-execution.sh",
+  "helper_sha256": "ae80606727a703ace033a0fcb52116d46841df3c9ba09b94fc36daba358f69d1",
+  "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-reference-comment-language-audit-execution.tsv",
+  "next_stage": "phase-1-reference-comment-language-remediation-design",
+  "slackware_current_publication_invalidates_audit": false,
+  "pause_safe": false
+}

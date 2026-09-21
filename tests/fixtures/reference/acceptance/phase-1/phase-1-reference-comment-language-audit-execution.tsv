@@ -1,0 +1,109 @@
+line_number	classification	reason	comment_sha256	comment_text
+2	code-fragment	separator-or-empty	e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855	
+3	english-prose	no-spanish-lexical-evidence	0ee16a0bf4b5397488e91f5bc533998b12b4ff8cf4351cdc43bb61ff5f63fe88	slack-update-reference.sh — Unattended Slackware 15.0/current + SBo + Flatpak + Cinnamon update reference
+4	code-fragment	separator-or-empty	e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855	
+5	english-prose	no-spanish-lexical-evidence	17b9dd225bb7977103bc505d4eac735c009bb17ca2d4407c3d0a2ea5f1f49a30	Installation:
+6	english-prose	no-spanish-lexical-evidence	f7da3ed711dde709b28c9405df6234f893fefdbab9de4c55415f7a0243eae56f	install -Dm755 slack-update-reference.sh /usr/local/sbin/slack-update
+7	english-prose	no-spanish-lexical-evidence	2968fcdd140d7e9d7d27059d1b794d0469c20e8a14b10119cbe102944b536451	install -Dm644 data/config/slack-update.conf /etc/slack-update/slack-update.conf
+8	code-fragment	separator-or-empty	e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855	
+9	english-prose	no-spanish-lexical-evidence	1ebecc827a87e5430f43ca1041ad499f689f600dc69b7e23207480e0aec3aa36	Manual use:   slack-update
+10	english-prose	no-spanish-lexical-evidence	2d7ecb53104d9fb40760dbf9fb5c9eb755711737669f0c893f094900c514adf7	Cron example: 0 3 * * 0 /usr/local/sbin/slack-update --check
+15	english-prose	no-spanish-lexical-evidence	3fd1e5e9809abcb9adf865b5a0bb15894f92b24855a38a478ea0805f838c976c	Use a deterministic root execution environment for cron and other unattended
+16	english-prose	no-spanish-lexical-evidence	fd505ea3cf66db82f058c8d80bba9fb72f57768a2246a93319db228b74134aad	launchers. Administrative Slackware commands may live in sbin directories
+17	english-prose	no-spanish-lexical-evidence	de36ae3fc8568abd42de335b8024182720f74fe1da19224138e9d83e5631c4ad	that are commonly absent from a minimal cron PATH.
+41	english-prose	no-spanish-lexical-evidence	15f994c07e526cad66f3e5cf0f475cc0213fd7fd151feff198aaf0e3d5d4c187	Stable process exit codes shared with the future C implementation.
+52	english-prose	no-spanish-lexical-evidence	7de9b92db6a5dba76b2833d7ec4e84bee3637660b3e4d1f97e47acf1401c14e3	Slackware-current GenInitrd policy path. This is intentionally mutable in
+53	english-prose	no-spanish-lexical-evidence	a7e799476ddbb185aea6fcad9139778856a18f6647e1da1886d941590c474753	the reference implementation so the isolated regression harness can point it
+54	english-prose	no-spanish-lexical-evidence	4663378ceb8d6e569412de2f476eeb3b80abfa9d951339c8b4be7a9d493c75e9	at a private fixture without touching the host.
+61	english-prose	no-spanish-lexical-evidence	d0ef6d48e553e0408d697764bf48a6dbc966bd93b5869ac6a64f3d64ad1f8dc3	Command-line interface functions
+144	english-prose	no-spanish-lexical-evidence	26642b7d0f16a272b02342dd3a207f6216d7f3e475a1f6cd98e4770327254781	Configuration functions
+603	english-prose	no-spanish-lexical-evidence	81f723680d249da0c2d4067b8d40641d089ab877377dacdbc0cd7cde8d231f95	Slackware package record parsing
+686	english-prose	no-spanish-lexical-evidence	0af5e2b3e64f5264d8555d9707e7d7797496522b3d071a90ac0f44f99a907ccf	Follow a command-line compatibility symlink such as /var/log/packages,
+687	english-prose	no-spanish-lexical-evidence	12d7eab39f40843166dc2ca9a95e3b63b4cedbe328109fd0c182b434ad20d2d3	but do not follow symlinks stored inside the package database itself.
+949	english-prose	no-spanish-lexical-evidence	6cebf0160c9489983e9a91d64e959f27c7a8a474da68e44c9b70e2d0d455c0f9	Queue references and deselected entries are control records, not targets.
+1621	english-prose	no-spanish-lexical-evidence	265bdc4ba9c896e91c54d2c99681cfc6b5167d9dd413cf4699150f205b9ce530	Optional module activation functions
+2106	english-prose	no-spanish-lexical-evidence	9c67f48e058096728334d991a3f96ae2edd3daa340a2952d4bf09130bba4da6b	Runtime setup functions
+2126	english-prose	no-spanish-lexical-evidence	0889f96ea4f397fbd2c58d793b11bcf0394caecd7111207362a2e21ceb82f34a	Keep the lock file open for the complete process lifetime.
+2151	english-prose	no-spanish-lexical-evidence	a3e2a91682919610771c872b1e0ce25b061c900509c8557275204e00e1c8a1b1	0=none, 1=needed, 2=ok, 3=fail
+2316	english-prose	no-spanish-lexical-evidence	9ec17c11bfe18536199ab695024f6297b403d187ef5f361747358f24d66e0b50	Temporary files are created here so the trap covers them immediately.
+2450	english-prose	no-spanish-lexical-evidence	27d82aa934df980587a82b1f5c5071d21425680ea75e638da0af9dd4dd14612c	Prevent recursive or duplicate cleanup while terminating from a signal.
+2466	language-defect	spanish-lexical-evidence	c845219862da37d6e8e46ce86410401e61f1386d897871e79ad361b987de5d9f	Rotacion de logs — conservar solo los ultimos 30 dias.
+2467	language-defect	spanish-lexical-evidence	cc3dfa7ff64558148cb947dfd79d01fc248c86ac208e106b9bdcc8f33095cbe7	FIX #10: La rotacion se ejecuta ANTES de abrir el log de esta ejecucion,
+2468	language-defect	spanish-lexical-evidence	301479ea947aae8786c2a02bdef28a4bdedecd0821834e5e4193b553dbb2766c	por lo que nunca puede borrar el fichero run-$DATE.log actual.
+2487	language-defect	spanish-lexical-evidence	808b1bbf81d7468bff7858f08a9776fa4f03152260863265284cb2946ea65d44	Redirigir log filtrando codigos ANSI
+2488	language-defect	spanish-lexical-evidence	a4416640536997eafc37103658fb12790fad4cd6f5351137d002c5f60e940eaf	FIX #10: Se eliminan emojis del log para evitar problemas de encoding en cron.
+2489	language-defect	spanish-lexical-evidence	88a2122bd86ff1ee487cb300801784eb51a4a79b0d3ddd11a833e8674ea79a76	La salida de consola (si se ejecuta interactivamente) los mostrara igualmente
+2490	language-defect	spanish-lexical-evidence	5d79c41d539196b1c55c40ddf08a198c0b454135950b4a9392a1d853a1a16327	porque el tee escribe a stdout antes del filtro de ANSI.
+2492	english-prose	no-spanish-lexical-evidence	d5535c675e21522119898f69e4ae89ad975b8b759e2cfef29c4b23caf545ad45	Keep stdout reserved for machine-readable output.
+2509	english-prose	no-spanish-lexical-evidence	1fe6bdba11d153537d51b38026322a77b55c7b7f0d5d3d530d43e78e0164945d	Check workflow functions
+2582	english-prose	no-spanish-lexical-evidence	c9057df142951a00d0142760ebdf89fa37ecb9ff981148deab7fb2fbbb9e2ae2	Dry-run workflow functions
+2975	english-prose	no-spanish-lexical-evidence	0654daf74d8adae54435d02074a09128e4e0a4d9f92cee88b94ef34750523798	Update workflow functions
+2978	english-prose	no-spanish-lexical-evidence	b4728a623e7ca765d793e75fb2fbc91a901ef9ea7f16a2b518c263cdbf02f96f	Capture a validated baseline and remove any stale post-update snapshot.
+3001	english-prose	no-spanish-lexical-evidence	d3bb8aa101ce86f1ad9f7f10bc828c1ea0d47403bc9b90791f14db31bcb34a34	slackpkg 15.0 uses status 20 when install-new or upgrade-all has no
+3002	english-prose	no-spanish-lexical-evidence	67de5fde8f678c1f88fb7b271ee86d0b96096e500dde4e2bd9abb77819aeb11b	matching packages. Preserve that raw status for reporting, but treat the
+3003	english-prose	no-spanish-lexical-evidence	5c949254d0b0b1c04c83d589d36d976c277d302c6396e3795c786baf5659c46a	no-op as a successful package action.
+3334	code-fragment	separator-or-empty	ce0fe24f0941faa11a308ff85721d1239c9b78bac9e2355f4e7c561a335f9af3	---------------------------
+3335	code-fragment	non-prose-heading-or-code	d7e94016fef5ecd69837dd56f62ee05ff225d15add51c52ab08ec0815e73e48f	[1] UPDATE SYSTEM
+3336	code-fragment	separator-or-empty	ce0fe24f0941faa11a308ff85721d1239c9b78bac9e2355f4e7c561a335f9af3	---------------------------
+3365	english-prose	no-spanish-lexical-evidence	a1e895bd2d13dd13ac350dd9672aad8032b94bbe0643834e63b92a46cec14863	Capture and validate the package state produced by Slackware operations.
+3406	code-fragment	separator-or-empty	ce0fe24f0941faa11a308ff85721d1239c9b78bac9e2355f4e7c561a335f9af3	---------------------------
+3407	code-fragment	non-prose-heading-or-code	6589a0d0f09001419fd7c617d34ef99b6ce2685fafd15c48e4d942493e44f54b	[2] FLATPAK
+3408	code-fragment	separator-or-empty	ce0fe24f0941faa11a308ff85721d1239c9b78bac9e2355f4e7c561a335f9af3	---------------------------
+3421	code-fragment	separator-or-empty	ce0fe24f0941faa11a308ff85721d1239c9b78bac9e2355f4e7c561a335f9af3	---------------------------
+3422	code-fragment	non-prose-heading-or-code	9ced3e035f827bc01e81361706889e2afc001f232f31687a1c7597efd90353ff	[3] ABI + CINNAMON DETECTION
+3423	code-fragment	separator-or-empty	ce0fe24f0941faa11a308ff85721d1239c9b78bac9e2355f4e7c561a335f9af3	---------------------------
+3439	english-prose	no-spanish-lexical-evidence	42210dbb5c7d9c41aeb938ffafb55f0ae302a0e8ea32409ed0df7f75bd64e968	Critical package changes require a restart to become fully effective.
+3466	code-fragment	separator-or-empty	ce0fe24f0941faa11a308ff85721d1239c9b78bac9e2355f4e7c561a335f9af3	---------------------------
+3467	code-fragment	non-prose-heading-or-code	b51422f8e0b9dd1e47fc4ca662f0903f1b5dd4ffe5c018ccd17e5a67806d2d77	[4] KERNEL DETECTION
+3468	code-fragment	separator-or-empty	ce0fe24f0941faa11a308ff85721d1239c9b78bac9e2355f4e7c561a335f9af3	---------------------------
+3472	english-prose	no-spanish-lexical-evidence	df7ca884ea83faffc854bb8a04ecc5daa745448316b424593b37092207e0aec2	Kernel package groups are loaded from the validated configuration.
+3482	english-prose	no-spanish-lexical-evidence	2bc09d3a797f40fcdc6f43050571dbad09f7ee87df96a875e7b6cc63e77ca66e	Only kernel image or module changes schedule boot preparation.
+3774	code-fragment	separator-or-empty	ce0fe24f0941faa11a308ff85721d1239c9b78bac9e2355f4e7c561a335f9af3	---------------------------
+3775	english-prose	no-spanish-lexical-evidence	e34fb2354d3b029246ea18d509570995d0c1187e15d440d08dec24784a50c635	[5] SBo SYNC
+3776	code-fragment	separator-or-empty	ce0fe24f0941faa11a308ff85721d1239c9b78bac9e2355f4e7c561a335f9af3	---------------------------
+3823	code-fragment	separator-or-empty	ce0fe24f0941faa11a308ff85721d1239c9b78bac9e2355f4e7c561a335f9af3	---------------------------
+3824	code-fragment	non-prose-heading-or-code	5167a1026298c2a8526dc114856b2c354c6bd1f3310d85a5b4d056717c1cb652	[6] BUILD QUEUES
+3825	code-fragment	separator-or-empty	ce0fe24f0941faa11a308ff85721d1239c9b78bac9e2355f4e7c561a335f9af3	---------------------------
+3861	code-fragment	separator-or-empty	ce0fe24f0941faa11a308ff85721d1239c9b78bac9e2355f4e7c561a335f9af3	---------------------------
+3862	english-prose	no-spanish-lexical-evidence	66a99ec2831428ec7e89fb7e11cff52253f6eaf57aa593eaefaa8fb4642130f6	[7] ABI FORCES SBo REBUILD
+3863	code-fragment	separator-or-empty	ce0fe24f0941faa11a308ff85721d1239c9b78bac9e2355f4e7c561a335f9af3	---------------------------
+4047	code-fragment	separator-or-empty	ce0fe24f0941faa11a308ff85721d1239c9b78bac9e2355f4e7c561a335f9af3	---------------------------
+4048	code-fragment	non-prose-heading-or-code	a6981b7bd11a66ef84054bd8f72f594402ee082645393182c13904137df5758e	[8] BROKEN LIBS DETECTION
+4049	code-fragment	separator-or-empty	ce0fe24f0941faa11a308ff85721d1239c9b78bac9e2355f4e7c561a335f9af3	---------------------------
+4080	english-prose	no-spanish-lexical-evidence	b1ba09b47436af5cc3cc8e6980c53b50cc80b86fb08670143cf9b7797b60addb	broken.txt represents only the current static inspection result.
+4145	code-fragment	separator-or-empty	ce0fe24f0941faa11a308ff85721d1239c9b78bac9e2355f4e7c561a335f9af3	---------------------------
+4146	english-prose	no-spanish-lexical-evidence	39a8a9756dd9266a13be1d2ed066df891ad392c79772f29987551bf0495bacbe	[9] MAP BROKEN TO SBo PKGS
+4147	code-fragment	separator-or-empty	ce0fe24f0941faa11a308ff85721d1239c9b78bac9e2355f4e7c561a335f9af3	---------------------------
+4152	language-defect	spanish-lexical-evidence	cfeeaa4b4d753cb6cd46c53bed0413baabe285d2a62fd9eef1caf15b6d262f4b	FIX #3: Acumular en temporal y hacer merge para no contaminar QUEUE_EXTRA
+4153	language-defect	spanish-lexical-evidence	134952eacfeaca14902fb32be62e311dd79f7997d2fecf39a87d624298d0ff42	con datos de ejecuciones anteriores cuando ABI no disparo (bloque [7]).
+4157	language-defect	spanish-lexical-evidence	fa1c30c14b0aa2acc4da97e6846c935d6cadb546e6274a294ea28160d8386ece	FIX #4: Anclar con grep -P para cubrir rutas con y sin barra inicial
+4158	language-defect	spanish-lexical-evidence	b952c56612a90c64080dcee9763eb32030297db919578c5ecae8a22856874634	en los manifiestos de /var/log/packages (algunos omiten el '/' inicial).
+4163	english-prose	no-spanish-lexical-evidence	057066a8d5b7cd343163f6a86a8b2f352ce225ae90c45d06b7292fb72eebe874	Merge the existing ABI targets and broken-object owners deterministically.
+4194	code-fragment	separator-or-empty	ce0fe24f0941faa11a308ff85721d1239c9b78bac9e2355f4e7c561a335f9af3	---------------------------
+4195	code-fragment	non-prose-heading-or-code	5a14cd08a0b6b3aee8ce56c611a7738cedda558e26eeecbdbd0d06beae7af7bc	[10] BUILD FINAL QUEUE + APPLY
+4196	code-fragment	separator-or-empty	ce0fe24f0941faa11a308ff85721d1239c9b78bac9e2355f4e7c561a335f9af3	---------------------------
+4213	language-defect	spanish-lexical-evidence	bca1b63b0755529e8784bee13cd9794026ddad28e4f56297151c325c568b8032	FIX #5: Sustituido 'sbopkg -b -i "string largo"' por 'sbopkg -b -B fichero'.
+4214	language-defect	spanish-lexical-evidence	d4809e199efa8d38c2981bc040e67c5648ab4ca8581d475ef81621ee4225baca	Pasar todos los paquetes como un unico string con -i puede superar ARG_MAX
+4215	language-defect	spanish-lexical-evidence	40133a1ba9fb47a2820e81f276fcd501485d8321fb55684a680ad33b126c470c	cuando la cola es grande. Usar -B con el fichero .sqf es mas robusto y es
+4216	language-defect	spanish-lexical-evidence	4207cc12e32c87ce987ecec8b1135b76fd485085f353a16afabe93f61d59f9ea	la forma recomendada por sbopkg para listas de paquetes.
+4225	english-prose	no-spanish-lexical-evidence	b3751e48d3f0c136bc029528ca27fc2d8acc182a27206d9a67976d8edb333359	Reuse the static reader for post-build verification. Inspected objects
+4226	english-prose	no-spanish-lexical-evidence	e9d49807645bcbfaa1f1a6dc44339962291d8ea46a77151fa65951ea93070dff	are never invoked as commands and no dynamic-loader trace mode is used.
+4236	code-fragment	separator-or-empty	ce0fe24f0941faa11a308ff85721d1239c9b78bac9e2355f4e7c561a335f9af3	---------------------------
+4237	code-fragment	non-prose-heading-or-code	0641a9c32431e5c0fd6a9d7a9c9a2985f74ee5a21b37caf637bd4859ee9ad553	[11] CINNAMON BUILD
+4238	code-fragment	separator-or-empty	ce0fe24f0941faa11a308ff85721d1239c9b78bac9e2355f4e7c561a335f9af3	---------------------------
+4513	code-fragment	separator-or-empty	ce0fe24f0941faa11a308ff85721d1239c9b78bac9e2355f4e7c561a335f9af3	---------------------------
+4514	code-fragment	non-prose-heading-or-code	9cf076a684181b7149a4b08b1c601c9a72b19cd7153dc2fc1d4fefbef607382c	[12] INITRD
+4515	code-fragment	separator-or-empty	ce0fe24f0941faa11a308ff85721d1239c9b78bac9e2355f4e7c561a335f9af3	---------------------------
+5081	code-fragment	separator-or-empty	ce0fe24f0941faa11a308ff85721d1239c9b78bac9e2355f4e7c561a335f9af3	---------------------------
+5082	code-fragment	non-prose-heading-or-code	8cb0f1d397b4d2b95e35f3d9a5499e8313ea888d00b8f2e23990fdd311a30dbb	[13] GRUB
+5083	code-fragment	separator-or-empty	ce0fe24f0941faa11a308ff85721d1239c9b78bac9e2355f4e7c561a335f9af3	---------------------------
+5163	code-fragment	separator-or-empty	ce0fe24f0941faa11a308ff85721d1239c9b78bac9e2355f4e7c561a335f9af3	---------------------------
+5164	code-fragment	non-prose-heading-or-code	c06d3a82731baebc97502df24b44f8604c8efcc6dc00a2a7662962b1088b082d	RESUMEN
+5165	language-defect	spanish-lexical-evidence	b0fb249a44386e5b8a3afe7d868c01e7640d61144a56b2c337f483abb7dcd3ae	FIX #10: Eliminados emojis para evitar problemas de encoding en entornos
+5166	language-defect	spanish-lexical-evidence	d11fba3dfb7823dade560236ab40926139e2c9a476964136ef53cd5ebe1d84a1	cron sin locale UTF-8. Se sustituyen por marcadores de texto plano.
+5167	code-fragment	separator-or-empty	ce0fe24f0941faa11a308ff85721d1239c9b78bac9e2355f4e7c561a335f9af3	---------------------------
+5363	english-prose	no-spanish-lexical-evidence	a5f51eb733d625559d511fb4f20b8360d424b004f3d7695159030c0f7e4fedb7	Structured result functions
+5470	english-prose	no-spanish-lexical-evidence	85858a4c2cc1f0359f473ec66ae3039f79b240b4f0f6b3345d35ff0b89fe57a6	Machine-readable progress event functions
+6135	english-prose	no-spanish-lexical-evidence	95b16ffd5f2b7f9251e29b1c24d21c6321d480ff60129661e53155f0b1e41650	Workflow coordinators
+6460	english-prose	no-spanish-lexical-evidence	49a9236137fa51263baf187787db963e81e2478404e2864264670f1acc78c679	Entry point
+6490	english-prose	no-spanish-lexical-evidence	54dd31e7de974c6d221405780a8ae0f2f2faf23a87295ff84bc69851398a4407	Install cleanup coverage immediately after the process owns the lock.
