@@ -1,0 +1,58 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-acceptance-matrix-remainder-inventory-review-and-strong-safe-pause",
+  "review_only": true,
+  "accepted_inventory": {
+    "step": 175,
+    "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-acceptance-matrix-remainder-inventory-policy.json",
+    "policy_sha256": "819a5696fb9854f64a012ba6091750b40c1d658e5edd61a93c0c1e03264b16fe",
+    "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-acceptance-matrix-remainder-inventory.tsv",
+    "record_sha256": "ad4697b230ab2b22a6d3cdf2e4cc2c74a61e469b9d70da11e7f25082265dd5ff"
+  },
+  "review": {
+    "inventory_family_count": 6,
+    "inventory_scenario_count": 24,
+    "inventory_consistent": true,
+    "roadmap_reconciliation_closed": true,
+    "accepted_core_scenarios_must_not_be_replayed": true,
+    "accepted_core_coverage_count": 5,
+    "remaining_work_requires_fresh_scenario_boundary": true,
+    "candidate_set_bound": false,
+    "family_selected_for_execution": false,
+    "live_runtime_chain_open": false,
+    "acceptance_matrix_complete": false,
+    "reference_freeze_status": "blocked-behind-remaining-acceptance-work",
+    "c_port_status": "blocked-by-phase-1-gate"
+  },
+  "authorization": {
+    "source_change_authorized": false,
+    "documentation_change_authorized": false,
+    "repository_refresh_authorized": false,
+    "network_refresh_authorized": false,
+    "machine_execution_authorized": false,
+    "package_action_authorized": false,
+    "boot_action_authorized": false,
+    "phase_2_start_authorized": false,
+    "future_work_requires_explicit_authorization": true,
+    "future_work_requires_fresh_boundary": true
+  },
+  "safe_pause": {
+    "pause_safe": true,
+    "strong_safe_pause": true,
+    "machine_action_required": false,
+    "no_open_operational_authorization": true,
+    "slackware_current_publication_invalidates_checkpoint": false,
+    "accepted_inventory_remains_valid_across_publication": true
+  },
+  "continuation": {
+    "next_family_selection_required": true,
+    "selection_must_occur_after_fresh_boundary": true,
+    "repository_refresh_must_be_justified_by_selected_scenario": true,
+    "no_runtime_family_preselected": true
+  },
+  "evidence": {
+    "review_helper_sha256": "ce9d2058788e7743d62d63114a6531b9238cbc142cb3d6994fd4c4ae6264bc7b"
+  },
+  "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-acceptance-matrix-remainder-inventory-review-and-strong-safe-pause.tsv",
+  "next_stage": "phase-1-acceptance-matrix-remainder-resume-planning"
+}
