@@ -1042,3 +1042,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Kept the acceptance-matrix remainder explicitly pending for a later scenario-specific boundary; reference freeze remains blocked behind that acceptance work and Phase 2 remains prohibited.
 - Authorized no source, repository/network, machine, package, boot, or Phase 2 action; a later Slackware-current publication does not invalidate this repository-only selection.
 - Routed continuation to `phase-1-roadmap-state-reconciliation-contract-freeze`; this active chain is not the requested end-of-session strong safe pause.
+
+## Phase 1 step 172 roadmap-state reconciliation contract freeze — 2026-09-21
+
+- Froze the selected `roadmap-state-reconciliation` workstream to a documentation-only `README.md` contract.
+- Required stale Slackware-current rollback and Slackware 15.0 ELILO cleanup continuation text to become non-actionable accepted-closure summaries, and required `Immediate next steps` to reflect the still-open Phase 1 gate.
+- Explicitly forbade claiming the acceptance matrix complete or mass-updating its checkboxes; reference freeze remains blocked and the C port remains gated.
+- Authorized only the next-stage README reconciliation and no source-code, configuration, runtime-test, repository/network, machine, package, boot, or Phase 2 action.
+- Routed continuation to `phase-1-roadmap-state-reconciliation-execution`; this active chain is not the requested end-of-session strong safe pause.
