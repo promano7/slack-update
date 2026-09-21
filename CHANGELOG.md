@@ -1050,3 +1050,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Explicitly forbade claiming the acceptance matrix complete or mass-updating its checkboxes; reference freeze remains blocked and the C port remains gated.
 - Authorized only the next-stage README reconciliation and no source-code, configuration, runtime-test, repository/network, machine, package, boot, or Phase 2 action.
 - Routed continuation to `phase-1-roadmap-state-reconciliation-execution`; this active chain is not the requested end-of-session strong safe pause.
+
+## Phase 1 step 173 roadmap-state reconciliation execution — 2026-09-21
+
+- Executed only the README roadmap-presentation reconciliation frozen at step 172.
+- Replaced the stale Slackware-current rollback continuation with a non-actionable accepted step-92 closure summary and replaced the stale Slackware 15.0 ELILO cleanup continuation with a non-actionable accepted step-116 closure summary.
+- Added the current Phase 1 gate to `Immediate next steps`: remaining real-system acceptance work is still pending, `reference-v1` remains blocked behind that work, and the C port remains blocked by the Phase 1 gate; the detailed historical checklist is preserved rather than mass-updated.
+- Changed no source code, configuration, or runtime acceptance behavior and authorized no repository/network refresh, machine, package, boot, or Phase 2 action.
+- Routed continuation to `phase-1-roadmap-state-reconciliation-review`; this active chain is not the requested end-of-session strong safe pause.

@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-roadmap-state-reconciliation-execution",
+  "accepted_contract": {
+    "step": 172,
+    "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-roadmap-state-reconciliation-contract-freeze-policy.json",
+    "policy_sha256": "0b9bfc71f9677fbadf76c94394b5517c6c9ecfc4cfdc8ec535703ac2147913bc",
+    "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-roadmap-state-reconciliation-contract-freeze.tsv",
+    "record_sha256": "c4419ace9ac4dabbe0c31beaba24ca0469fc2f7463bdbf49d7e68e4778748b43"
+  },
+  "execution": {
+    "state": "completed",
+    "target_paths": ["README.md"],
+    "change_class": "documentation-roadmap-presentation-only",
+    "current_rollback_presentation": "accepted-step-92-closure-summary",
+    "elilo_cleanup_presentation": "accepted-step-116-closure-summary",
+    "immediate_next_steps": "current-phase-1-gates-and-pending-work",
+    "historical_checklist_preserved": true,
+    "acceptance_matrix_complete": false,
+    "acceptance_matrix_checkbox_mass_update_performed": false,
+    "reference_freeze_status": "blocked-behind-remaining-acceptance-work",
+    "c_port_status": "blocked-by-phase-1-gate"
+  },
+  "authorization": {
+    "repository_refresh_authorized": false,
+    "network_refresh_authorized": false,
+    "machine_execution_authorized": false,
+    "package_action_authorized": false,
+    "boot_action_authorized": false,
+    "phase_2_start_authorized": false
+  },
+  "machine_action_required": false,
+  "helper_path": "tools/reference/phase-1-roadmap-state-reconciliation-execution.sh",
+  "helper_sha256": "16580a7077164ad351c0e5b9543498c10518f5d17d18da02440591d253776d47",
+  "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-roadmap-state-reconciliation-execution.tsv",
+  "record_sha256": "3b876857640b4cc6f7502f3b9a40718fd1ca205de9bd5ce71c4154be248aee94",
+  "next_stage": "phase-1-roadmap-state-reconciliation-review",
+  "slackware_current_publication_invalidates_execution": false,
+  "pause_safe": false
+}

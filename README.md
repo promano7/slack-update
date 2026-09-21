@@ -24,77 +24,31 @@ Slack-Update is intended to provide a desktop-oriented update experience similar
 - [x] Supported Slackware targets defined: **Slackware 15.0 and Slackware-current**
 - [ ] First C milestone started
 
-## Current optional rollback continuation
+## Accepted Slackware-current rollback closure
 
-The mandatory Slackware-current update remains closed at accepted step 85 with kernel 6.18.42 active. Step 87 revision 5 authenticated and inspected the exact signed 6.18.40 package, confirmed sufficient space, projected the accepted mkinitrd command, and made no system changes. Its archive SHA-256 is `ff6d4a338b2da9ce4547128f6d0472f781dd47300f2b82658cae18cf94b6c8da`.
+The Slackware-current rollback demonstration is accepted as closed at Phase 1
+step 92. The host returned through the normal generic GRUB path to kernel
+`6.18.42` after the reviewed one-time boot of retained rollback kernel `6.18.40`.
+The tested rollback kernel, initrd, module tree, and explicit rollback GRUB entry
+remain retained as accepted recovery evidence.
 
-That run failed safely at the GRUB boundary because the active entry contains two reviewed early-microcode images, `/boot/intel-ucode.img` and `/boot/amd-ucode.img`, before `/boot/initrd-generic.img`. Revision 5 allowed at most one microcode image. Revision 6 supersedes only that failed projection and keeps the mandatory update closure intact.
+No rollback boot, return reboot, package action, GRUB mutation, or repository
+refresh is pending or authorized by this summary. Any future Slackware-current
+acceptance work must open a fresh scenario-specific review boundary; the closed
+rollback authorization chain must not be reused.
 
-Keep these two source files until the complete on-disk rollback reconstruction has been accepted:
+## Accepted Slackware 15.0 ELILO cleanup closure
 
-```text
-/home/promano/slack-update-source-6.18.40/kernel-generic-6.18.40-x86_64-1.txz
-/home/promano/slack-update-source-6.18.40/kernel-generic-6.18.40-x86_64-1.txz.asc
-```
+The Slackware 15.0 ELILO oldkernel cleanup scenario is accepted as closed at
+Phase 1 step 116. The machine is at the accepted final state on kernel
+`5.15.209`: the retired `5.15.19` rollback package, module, ELILO, and EFI targets
+are absent, the retained recovery backup has been released and removed, and all
+historical destructive authorizations are consumed.
 
-Run only revision 6:
-
-```bash
-sudo bash tests/acceptance/reference/test-current-rollback-source-and-plan-preflight.sh \
-    --target slackware-current \
-    --confirm-hostname pcold-slack \
-    --confirm-hostname-fqdn pcold-slack.pcold-slack.org \
-    --confirm-inventory-evidence-sha256 cd2769c18e93b17596028b33b00a1d6e14bb81336172935bb18b0bef3568ed56 \
-    --confirm-failed-preflight-evidence-sha256 d2a5398c789f14cfee07d53a55e4ca7da8aab85dd0387b51f437120401f9ba14 \
-    --confirm-revision-1-failed-preflight-evidence-sha256 5dc24b1863a818cd0500fd08ea569995e627411a66181ccebcbb74698bbac35e \
-    --confirm-revision-2-failed-preflight-evidence-sha256 bc28dd82557236f0938f71c4255eee6ea2f477f2f8676f32209af6fae3ce420e \
-    --confirm-revision-3-failed-preflight-evidence-sha256 45b5b35fd51ef962d5865185679eeb28f3a2435ddddbca70500608706f4396ca \
-    --confirm-revision-4-rejected-plan-evidence-sha256 11122a514f1f1c75cfcb52e5d4f310ed7719235c23f4389b6e16e3d13f513134 \
-    --confirm-revision-5-failed-preflight-evidence-sha256 ff6d4a338b2da9ce4547128f6d0472f781dd47300f2b82658cae18cf94b6c8da \
-    --confirm-active-kernel 6.18.42 \
-    --confirm-rollback-kernel 6.18.40 \
-    --confirm-source-plan-sha256 92cc5d316f66ea2205751b83e88a3f749c6ec4f7d7a8a534106ebc5cc7d38f6e \
-    --source-package /home/promano/slack-update-source-6.18.40/kernel-generic-6.18.40-x86_64-1.txz \
-    --source-signature /home/promano/slack-update-source-6.18.40/kernel-generic-6.18.40-x86_64-1.txz.asc
-```
-
-Revision 6 projects the real-host initrd vector as:
-
-```text
-initrd /boot/intel-ucode.img /boot/amd-ucode.img /boot/initrd-6.18.40.img
-```
-
-It preserves zero, one, or two unique reviewed microcode images in their original order and replaces only the reviewed active initrd. It rejects retained or foreign initrds, duplicate microcode images, unknown initrd arguments, microcode after the initrd, or an active entry without exactly one reviewed kernel and initrd command. It remains strictly non-mutating: package installation, package-database changes, `depmod`, `mkinitrd`, GRUB modification, metadata refresh, and reboot are forbidden. A clean result may report `apply_ready=true`, but `apply_authorized=false` remains fixed until a separate reviewed apply wrapper is prepared.
-
-Revision-6 script SHA-256 is `d306e3c1d9d5a2cc2298d6367601d39e6573569211db422fdbfda5cb4e5aba8b`, policy SHA-256 is `92bcaf0e2038d4979e3c6f8dc054171053af5e5d555dba223aa7e670ebabbcaa`, revision-5 diagnostic-record SHA-256 is `22d8108ff3dc2a87d741c9a899508a27e5fd4f0bce8f06cbb5049dd39f18f117`, and the confirmation scope is `92cc5d316f66ea2205751b83e88a3f749c6ec4f7d7a8a534106ebc5cc7d38f6e`.
-
-
-## Slackware 15.0 ELILO cleanup continuation
-
-The mature ELILO oldkernel retention boundary is accepted with active kernel `5.15.209`, rollback `5.15.19`, and cleanup eligibility satisfied. Step 93 authenticated the exact locally cached 5.15.209 `kernel-generic`, `kernel-huge`, and `kernel-modules` archives and completed the fourteen-action cleanup simulation without mutation.
-
-Step 94 is the separate authorization review. It revalidates the unchanged package/ELILO boundary and exact cached archive SHA-256 identities, then may authorize only canonical cleanup apply contract `e5b587aacb911a05428706a09c3d7a85dc35a9802e46ccf8131cb3569dd6806f`. The review itself does not remove or reinstall packages, edit ELILO, delete rollback artifacts, refresh repositories, or reboot. Real cleanup remains a later stage.
-
-Step 94 is now accepted with evidence SHA-256 `9ed0b6f4c989e4ea5d1742fc47d2ae5c31979e64fc3dffcc1aa7e5ed15934553`. Step 95 is the separately code-bound real apply stage. It revalidates that authorization and the exact cached active package archives, creates a persistent private recovery snapshot before package mutation, then executes only the fourteen authorized cleanup actions. The transaction removes the exact 5.15.19 generic/huge/modules records, reinstalls the exact 5.15.209 active triple, removes the reviewed ELILO `oldkernel` stanza, verifies the active versioned boot chain, and deletes only the two authorized legacy EFI rollback files. It deliberately retains `/boot/initrd.gz`. On any failure after mutation starts it must attempt exact recovery and reports `pause_safe=true` only if recovery is proven exact. On success it retains the recovery backup until a post-apply reboot review, reports `reboot_required=true`, and does not reboot automatically.
-
-The first real step-95 apply on 2026-08-11 did not commit: the cleanup itself reached the expected package and ELILO state, but reinstalling the active kernel modules regenerated six `depmod` index files, so the original byte-identical whole-module-tree assertion failed. Automatic recovery restored the exact pre-apply state and retained the private recovery backup. Step 96 is therefore a non-mutating recovery review; it verifies that exact restoration persists and records the narrow `generated-depmod-index-byte-drift` false negative before any revised cleanup executor can be considered.
-
-Step 97 reviews a revised executor after the recovered state was reconfirmed even after an intervening VM reboot. The revision permits byte drift only in the six reviewed top-level depmod indexes (`modules.alias{,.bin}`, `modules.dep{,.bin}`, and `modules.symbols{,.bin}`), requires every kernel module object and every other module-tree file to remain byte-identical, and requires read-only `depmod -n` validation. Step 97 does not apply cleanup; it only authorizes a later retry bound to the exact revised executor.
-
-Step 97 is now accepted with evidence SHA-256 `4ed50105ad880742638c91426cdc3d9e9a8dcd04425f5fe74709e9ae708024e7`. Step 98 enables the exact reviewed executor as revision 1 of the authorized apply. The second attempt remains bound to the original canonical cleanup contract and the accepted revision evidence, preserves the same private recovery and automatic rollback rules, performs no repository refresh or network access, and still requires a separate post-apply reboot review before the retained recovery backup can become eligible for removal.
-
-
-Step 98 reached the intended cleanup state but recovered safely after a second false negative. Steps 99 and 100 isolated the remaining cause: three package-unowned VirtualBox Guest Additions modules under `/lib/modules/5.15.19/misc/` survive removal of the Slackware rollback kernel packages. Steps 101 and 102 reviewed and authorized only later unlink of those exact three rollback objects, with path, SHA-256, vermagic, package-ownership, and 5.15.209 active-counterpart checks; recursive rollback-tree deletion and active-counterpart deletion remain forbidden.
-
-Step 103 passed on the real Slackware 15.0 VM with archive SHA-256 `9e3c9d1c6aa462a7fb7fb09eb95ffebd9945faba94d8c3b74274dd61b400a1c0`, reviewing the exact survivor-integrated transactional executor without authorizing a third destructive attempt.
-Step 104 then passed all five assertions with archive SHA-256 `c9b208042303ed775ed4750b36e4665ed683db7e12a2f33e0544236a30cecdee`. It revalidated the recovered 5.15.209/5.15.19 boundary, the three exact rollback VirtualBox survivors and active counterparts, and the exact cached active kernel archives. Its accepted result authorizes the third attempt, cleanup, and apply while deliberately keeping `execution_authorized=false` and `apply_executed=false`.
-Step 105 activates production execution only for the unchanged survivor-integrated executor SHA-256 `7b42e2df3f99eaa7a92bbb2b91bcc97aa63d5cb0f755b935788409533ada937c`. The production policy binds the accepted steps 93, 94, 97, 102, and 104 records, canonical cleanup contract `e5b587aacb911a05428706a09c3d7a85dc35a9802e46ccf8131cb3569dd6806f`, exact third-attempt evidence, and confirmation scope `f9a1beb3973633e4f9af8b2571628f0b24d14338e915e11afc94ac6ef9849e37`.
-The third attempt may unlink only the three separately authorized rollback VirtualBox survivors; recursive rollback-module-tree deletion and removal of active counterparts remain forbidden. A private recovery snapshot is still required before mutation, repository refresh and network access remain forbidden, and the executor never reboots automatically. A committed cleanup must proceed to the separate post-apply reboot review before the retained recovery backup can become eligible for removal.
-The real step-105 apply has now passed all 12 assertions with archive SHA-256 `d3f68ec2a2947c75fddadbdae57246db7b535c926fc83952ef2d9960aa8ac0fa`. The cleanup committed successfully: the rollback kernel package triple is absent, the active 5.15.209 package triple and module objects remain intact, the three separately authorized rollback VirtualBox survivors are absent, ELILO contains only the active versioned boot pair, and the two legacy EFI rollback artifacts are gone. Recovery was not attempted, and the private recovery snapshot remains retained at `/var/lib/slack-update/elilo-cleanup-backups/5.15.19-20260815T160020Z`.
-Step 106 is the separate non-mutating post-apply reboot review. It binds the accepted step-105 result, exact package snapshot, active kernel-module object manifest, four active boot-artifact hashes, absence of rollback module objects and rollback EFI artifacts, and all three recovery archives. A clean review may authorize one later normal manual reboot, but the review itself never changes packages or ELILO, refreshes repositories, removes recovery data, or executes reboot. The recovery backup remains protected until a separate post-reboot verification accepts the boot.
-The real step-106 reboot review has now passed all 11 assertions with archive SHA-256 `8c8cbdf911a860ed2b0681a3888812e4d3af59869ac93b3ec337e996ea1fc244`, authorizing exactly one normal manual reboot while keeping the recovery snapshot protected. The subsequent manual reboot returned on kernel 5.15.209 with `BOOT_IMAGE` selecting `vmlinuz-generic-5.15.209`; ELILO still contains only the active executable entry. Step 107 adds a read-only post-reboot verification that proves the current kernel boot began after the accepted step-106 review, validates the running `BOOT_IMAGE`, and rechecks the exact package, module-object, boot-artifact, ELILO, rollback-absence, and recovery manifests. A successful result does not remove recovery data: it advances only to a separate recovery-backup release review.
-The real step-107 post-reboot verification has now passed all 13 assertions with archive SHA-256 `71b23d0175203eb6dc3ea5d8a93353c5eb68bb2bf49d83f7ae92f9a141fa4a1c`. It proves that the accepted reboot actually occurred after step 106, that the host is running the versioned ELILO 5.15.209 image, and that package, boot, active-module, rollback-absence, and recovery state survived unchanged. Step 108 is a read-only recovery-backup release review. It additionally requires the same accepted boot ID and requires the recovery directory to contain exactly the three reviewed regular archives (`boot.tar`, `modules.tar`, and `pkgtools.tar`) with their accepted hashes. A clean review may authorize only a later separately gated removal; step 108 itself never deletes recovery data.
-
+No cleanup, package, ELILO, recovery-backup, reboot, or repository action is
+pending or authorized by this summary. Any future Slackware 15.0 Phase 1 work
+must begin from a fresh reviewed boundary rather than reusing the closed cleanup
+authorization chain.
 
 ## Goals
 
@@ -1953,6 +1907,18 @@ Slack-Update 1.0 will be ready when:
 - [ ] Installation, configuration, recovery, and security behavior are documented.
 
 ## Immediate next steps
+
+> [!NOTE]
+> **Current Phase 1 gate:** substantial reference validation has been accepted,
+> but remaining real-system acceptance work is still pending. `reference-v1` remains blocked behind that work, and the C port remains blocked by the Phase 1 gate.
+> Any remaining machine work must start from a fresh scenario-specific review and authorization boundary.
+>
+> The detailed checklist is preserved below as historical execution evidence.
+> Individual unchecked entries may have been superseded by later accepted steps;
+> they are not authorization to replay an earlier operational chain. The complete
+> acceptance matrix must not be claimed complete until the remaining coverage is
+> explicitly accepted.
+
 
 - [x] Commit the completed Phase 0 repository structure.
 - [x] Tag the initial planning state as `planning-v1` after the Phase 0 commit.
