@@ -1,0 +1,54 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-reference-comment-language-remediation-implementation",
+  "review_only": false,
+  "accepted_design": {
+    "step": 167,
+    "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-reference-comment-language-remediation-design-policy.json",
+    "policy_sha256": "8f54370f98d494296b22142186d8a9997064ae145731afd514a3624af6718202",
+    "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-reference-comment-language-remediation-design.tsv",
+    "record_sha256": "a2396628e7a2c3aec8f681b7acabb9042a92c4c92b8555f6c22f0b0da0615c5c"
+  },
+  "implementation": {
+    "target_path": "tools/reference/slack-update-reference.sh",
+    "source_before_sha256": "aeb0ecd032f8988c8e16d1e3a71a8609ea414c39ab69338b96b0ef01b81bbcd7",
+    "source_after_sha256": "086b28b42be3135ebf47a28c1fcd2e5652f8fdd261e696ad48e612a241edf4ea",
+    "authorized_translations": 17,
+    "changed_lines": 17,
+    "line_count_preserved": true,
+    "code_prefix_preserved": true,
+    "nonauthorized_change_detected": false,
+    "reverse_reconstruction_matches_source_before": true,
+    "bash_n_pass": true,
+    "source_modified": true
+  },
+  "reaudit": {
+    "helper_path": "tools/reference/phase-1-reference-comment-language-audit-execution.sh",
+    "helper_sha256": "ae80606727a703ace033a0fcb52116d46841df3c9ba09b94fc36daba358f69d1",
+    "inventory_complete": true,
+    "total_comments": 108,
+    "english_prose": 66,
+    "technical_directive": 0,
+    "code_fragment": 42,
+    "language_defects": 0,
+    "conformance_pass": true,
+    "ephemeral_policy_sha256": "ba6941e20740c961a884791a16021e1513742308cea8a925d597e65d333605a1",
+    "ephemeral_record_sha256": "3617837aacd7361f7a1aa281d926a3a34ac270efa1860f6a7a16cebe98fa354f"
+  },
+  "authorization": {
+    "source_change_authorized": false,
+    "repository_refresh_authorized": false,
+    "network_refresh_authorized": false,
+    "machine_execution_authorized": false,
+    "package_action_authorized": false,
+    "boot_action_authorized": false,
+    "phase_2_start_authorized": false,
+    "future_work_requires_explicit_authorization": true
+  },
+  "helper_path": "tools/reference/phase-1-reference-comment-language-remediation-implementation.sh",
+  "helper_sha256": "42cbf30b1665584cbd09970939bbedc8f29633a3f1774073c97d3a8d3917e38a",
+  "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-reference-comment-language-remediation-implementation.tsv",
+  "next_stage": "phase-1-reference-comment-language-remediation-closure-review",
+  "slackware_current_publication_invalidates_implementation": false,
+  "pause_safe": false
+}

@@ -1013,3 +1013,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Forbids executable-code changes, line-count changes, non-defect comment edits, runtime-string edits, heredoc edits, repository/network refreshes, machine execution, package/boot actions, and Phase 2.
 - Routes the workstream to `phase-1-reference-comment-language-remediation-implementation`; closure still requires a zero-defect re-audit.
 
+
+## Phase 1 step 168 reference comment-language remediation implementation — 2026-09-21
+
+- Applied exactly the seventeen comment-payload translations authorized by step 167.
+- Preserved executable code, comment delimiters, line count, non-defect comments, runtime strings, and heredoc payloads; reverse reconstruction must match the exact pre-change source SHA-256.
+- Required `bash -n` and a full rerun of the accepted comment-language audit with zero language defects before the implementation can be accepted.
+- Granted no further source, repository, network, machine, package, boot, or Phase 2 authorization; step 169 remains the required closure review.

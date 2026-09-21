@@ -2463,9 +2463,9 @@ install_runtime_traps() {
 }
 
 rotate_logs() {
-    # Rotacion de logs — conservar solo los ultimos 30 dias.
-    # FIX #10: La rotacion se ejecuta ANTES de abrir el log de esta ejecucion,
-    # por lo que nunca puede borrar el fichero run-$DATE.log actual.
+    # Log rotation — keep only the last 30 days.
+    # FIX #10: Rotation runs BEFORE opening the log for this execution,
+    # so it can never delete the current run-$DATE.log file.
     find "$LOGDIR" -name 'run-*.log' -mtime +"$LOG_RETENTION_DAYS" -delete 2>/dev/null || true
 }
 
@@ -2484,10 +2484,10 @@ configure_logging() {
         return 1
     fi
 
-    # Redirigir log filtrando codigos ANSI
-    # FIX #10: Se eliminan emojis del log para evitar problemas de encoding en cron.
-    # La salida de consola (si se ejecuta interactivamente) los mostrara igualmente
-    # porque el tee escribe a stdout antes del filtro de ANSI.
+    # Redirect logging while filtering ANSI codes
+    # FIX #10: Emoji characters are removed from the log to avoid encoding problems in cron.
+    # Console output (when run interactively) will still display them
+    # because tee writes to stdout before the ANSI filter.
     if [ "$JSON_OUTPUT" -eq 1 ] || [ "$EVENTS_OUTPUT" -eq 1 ]; then
         # Keep stdout reserved for machine-readable output.
         if ! exec 3>&1; then
@@ -4149,13 +4149,13 @@ map_broken_objects_to_sbo_packages() {
     echo "[9] Mapeando binarios rotos a paquetes SBo"
 
     if [ -s "$BROKEN" ]; then
-        # FIX #3: Acumular en temporal y hacer merge para no contaminar QUEUE_EXTRA
-        # con datos de ejecuciones anteriores cuando ABI no disparo (bloque [7]).
+        # FIX #3: Accumulate in a temporary file and merge to avoid contaminating QUEUE_EXTRA
+        # with data from previous runs when ABI was not triggered (block [7]).
         _BROKEN_PKGS=$(mktemp)
         while read -r bin; do
             [ -e "$bin" ] || continue
-            # FIX #4: Anclar con grep -P para cubrir rutas con y sin barra inicial
-            # en los manifiestos de /var/log/packages (algunos omiten el '/' inicial).
+            # FIX #4: Anchor with grep -P to cover paths with and without a leading slash
+            # in /var/log/packages manifests (some omit the initial '/').
             grep -rlP "^/?${bin#/}$" "$PACKAGE_DATABASE"/ 2>/dev/null \
                 | package_names_with_build_suffix_from_stream "$SBO_PACKAGE_TAG"
         done < "$BROKEN" | LC_ALL=C sort -u > "$_BROKEN_PKGS"
@@ -4210,10 +4210,10 @@ build_and_apply_sbo_queue() {
     echo "  Total paquetes en cola: $TOTAL"
 
     if [ "$TOTAL" -gt 0 ]; then
-        # FIX #5: Sustituido 'sbopkg -b -i "string largo"' por 'sbopkg -b -B fichero'.
-        # Pasar todos los paquetes como un unico string con -i puede superar ARG_MAX
-        # cuando la cola es grande. Usar -B con el fichero .sqf es mas robusto y es
-        # la forma recomendada por sbopkg para listas de paquetes.
+        # FIX #5: Replaced 'sbopkg -b -i "long string"' with 'sbopkg -b -B file'.
+        # Passing all packages as a single string with -i can exceed ARG_MAX
+        # when the queue is large. Using -B with the .sqf file is more robust and is
+        # the form recommended by sbopkg for package lists.
         SBO_BUILD_STATUS=0
         if sbopkg -b -B "$QUEUE_FINAL"; then
             echo "  [OK] Cola SBo procesada"
@@ -5162,8 +5162,8 @@ update_grub_configuration() {
 print_summary() {
     # ---------------------------
     # RESUMEN
-    # FIX #10: Eliminados emojis para evitar problemas de encoding en entornos
-    # cron sin locale UTF-8. Se sustituyen por marcadores de texto plano.
+    # FIX #10: Emoji characters removed to avoid encoding problems in environments
+    # where cron has no UTF-8 locale. They are replaced with plain-text markers.
     # ---------------------------
 
     echo
