@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-post-comment-language-next-workstream-selection-freeze",
+  "review_only": true,
+  "accepted_boundary": {
+    "step": 170,
+    "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-post-comment-language-resume-planning-boundary-review-policy.json",
+    "policy_sha256": "b5fb9bc7dc95a27a7d2c119eceb5142a8d7c851044b78d2484ae165f346cf7b8",
+    "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-post-comment-language-resume-planning-boundary-review.tsv",
+    "record_sha256": "0063d67c00a3d441fd32d225b70b4da210c9b9fd301a5928dbf20116668fca05"
+  },
+  "selection": {
+    "selected_workstream": "roadmap-state-reconciliation",
+    "classification": "planning-hygiene",
+    "scope": "repository-only",
+    "phase_1_blocking": false,
+    "machine_execution_required": false,
+    "repository_refresh_required": false,
+    "acceptance_matrix_selected": false,
+    "acceptance_matrix_requires_later_explicit_boundary": true,
+    "reference_freeze_status": "blocked-behind-remaining-acceptance-work",
+    "c_port_status": "blocked-by-phase-1-gate",
+    "selection_frozen": true
+  },
+  "authorization": {
+    "source_change_authorized": false,
+    "repository_refresh_authorized": false,
+    "network_refresh_authorized": false,
+    "machine_execution_authorized": false,
+    "package_action_authorized": false,
+    "boot_action_authorized": false,
+    "phase_2_start_authorized": false,
+    "future_work_requires_explicit_authorization": true
+  },
+  "machine_action_required": false,
+  "helper_path": "tools/reference/phase-1-post-comment-language-next-workstream-selection-freeze.sh",
+  "helper_sha256": "b60846d097e6a4c5355ca6d4b5f8e200cb8139cf6597cb8c85d30013912030d7",
+  "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-post-comment-language-next-workstream-selection-freeze.tsv",
+  "record_sha256": "88734d47d6b85c2dc8e05f527ac0613bc01aad9254ffac1fc75ad98508ca5e0d",
+  "next_stage": "phase-1-roadmap-state-reconciliation-contract-freeze",
+  "slackware_current_publication_invalidates_selection": false,
+  "pause_safe": false
+}
