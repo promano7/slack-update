@@ -1,0 +1,39 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-resume-planning-boundary-review",
+  "review_only": true,
+  "accepted_checkpoint": {
+    "step": 161,
+    "policy_path": "tests/fixtures/reference/acceptance/phase-1/configuration-module-mode-workstream-closure-checkpoint-policy.json",
+    "policy_sha256": "0b06a01e33b33da1eba3e6e4566c1b1ea929d801b8c5d1357d93b3e55cbc6fb9",
+    "record_path": "tests/fixtures/reference/acceptance/phase-1/configuration-module-mode-workstream-closure-checkpoint.tsv",
+    "record_sha256": "3705921dab84bc1dbb47766743d4623d9b575179b4c449d99a4adf460f5d15e8",
+    "module_mode_workstream_closed": true,
+    "source_remediation_closed": true,
+    "runtime_validation_closed": true,
+    "mandatory_targets_accepted": true,
+    "next_stage": "phase-1-resume-planning",
+    "pause_safe": true
+  },
+  "fresh_boundary": {
+    "opened": true,
+    "scope": "phase-1-resume-planning",
+    "purpose": "inventory remaining Phase 1 repository work before selecting a new workstream",
+    "slackware_current_publication_invalidates_boundary": false
+  },
+  "authorization": {
+    "source_change_authorized": false,
+    "repository_refresh_authorized": false,
+    "network_refresh_authorized": false,
+    "machine_execution_authorized": false,
+    "package_action_authorized": false,
+    "boot_action_authorized": false,
+    "future_work_requires_explicit_authorization": true
+  },
+  "helper_path": "tools/reference/phase-1-resume-planning-boundary-review.sh",
+  "helper_sha256": "a5f2b1009346621f77d9b3b79f4ad3c49fa6b7772e24af0bc81e164fee0a53f6",
+  "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-resume-planning-boundary-review.tsv",
+  "record_sha256": "338ca5c43dd79a02b7362c2a4cd661b4333139351902689c7af4d479a4bdf521",
+  "next_stage": "phase-1-remaining-work-inventory",
+  "pause_safe": false
+}

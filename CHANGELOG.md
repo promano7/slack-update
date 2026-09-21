@@ -7,6 +7,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 ## [Unreleased]
 
 ### Acceptance status
+<!-- step-162-phase-1-resume-planning-boundary-review:start -->
+- Phase 1 step 162 resume-planning fresh boundary review opens a new repository-only planning boundary from the accepted step-161 strong safe pause. The optional-module mode workstream, source-remediation chain, and runtime-validation chain remain closed, both mandatory Slackware targets remain accepted, and no prior source or machine authorization is reused. The boundary authorizes no source change, repository/network refresh, machine execution, package action, or boot action; later Slackware-current publications do not invalidate it. The next stage is `phase-1-remaining-work-inventory`; this active planning boundary is not the requested end-of-session safe pause, so `pause_safe=false`.
+<!-- step-162-phase-1-resume-planning-boundary-review:end -->
 <!-- step-161-configuration-module-mode-workstream-closure-checkpoint:start -->
 - Phase 1 step 161 optional-module mode workstream closure checkpoint closes the fresh step-121 through step-160 module-mode workstream at a strong safe pause. The frozen 15-row contract remains fully conforming with zero discrepancies, both source remediations and the two-target runtime-validation chain remain closed, and `module_mode_workstream_closed=true` with no pending module-mode action, source change, machine execution, repository refresh, or machine action authorized or required. Later Slackware-current publications do not invalidate this checkpoint. Future Phase 1 work must open a fresh boundary from `phase-1-resume-planning`; `pause_safe=true`.
 <!-- step-161-configuration-module-mode-workstream-closure-checkpoint:end -->
