@@ -1066,3 +1066,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Kept the acceptance matrix explicitly incomplete; `reference-v1` remains blocked behind the remaining acceptance work and the C port remains blocked by the Phase 1 gate.
 - Authorized no source, documentation, repository/network, machine, package, boot, or Phase 2 action and routed continuation to `phase-1-acceptance-matrix-remainder-inventory`.
 - This review is repository-only and publication-stable, but it is not yet the requested end-of-session strong safe pause.
+
+## Phase 1 step 175 acceptance-matrix remainder inventory — 2026-09-21
+
+- Refined the accepted step-163 high-level `acceptance-matrix-remainder` after the step-174 roadmap reconciliation closure into six explicit pending runtime families containing 24 scenarios.
+- Excluded already accepted core coverage from replay: fully updated/no-change behavior, normal Slackware package updates, `install-new`, kernel package updates, and accepted configuration/optional-module mode contracts.
+- Kept every remaining family behind a future fresh scenario-specific runtime boundary; no live candidate set, repository refresh, network access, machine execution, package action, boot action, or Phase 2 start is authorized.
+- Preserved the Phase 1 gates: the acceptance matrix is incomplete, `reference-v1` remains blocked, and the C port remains blocked.
+- Routed continuation to `phase-1-acceptance-matrix-remainder-inventory-review-and-strong-safe-pause`; step 175 itself is not yet the requested end-of-session strong safe pause.

@@ -1,0 +1,70 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-acceptance-matrix-remainder-inventory",
+  "review_only": true,
+  "accepted_roadmap_review": {
+    "step": 174,
+    "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-roadmap-state-reconciliation-review-policy.json",
+    "policy_sha256": "63da904c6c3b97acba8d648c0f586780ff460885755d5fa31371b055e853e119",
+    "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-roadmap-state-reconciliation-review.tsv",
+    "record_sha256": "ab250e343bf2c1968f6a6c27021b50d2aaf598a2fb791b6f0c10ecfbd81a3861"
+  },
+  "accepted_prior_inventory": {
+    "step": 163,
+    "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-remaining-work-inventory-policy.json",
+    "policy_sha256": "fb9ab7db1adad032b29be14a6100fdc6221eefd8de3360374085e8b3d76e4f03",
+    "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-remaining-work-inventory.tsv",
+    "record_sha256": "8a1160121683117fc247cbf35d2943d35b6b219323e8e58a2fb9baed165f8b01"
+  },
+  "inventory": {
+    "family_count": 6,
+    "scenario_count": 24,
+    "classification": "pending-real-system-acceptance-remainder",
+    "contains_machine_work": true,
+    "machine_work_authorized": false,
+    "candidate_set_bound": false,
+    "repository_refresh_required_now": false,
+    "roadmap_reconciliation_closed": true,
+    "accepted_core_scenarios_must_not_be_replayed": true,
+    "accepted_core_coverage": [
+      "fully-updated-no-changes",
+      "normal-slackware-package-update",
+      "install-new-introduces-new-packages",
+      "kernel-package-update",
+      "configuration-and-optional-module-mode-contracts"
+    ],
+    "remaining_families": [
+      {"id": "kernel-package-edge", "scenario_count": 1},
+      {"id": "boot-safety-failure-paths", "scenario_count": 7},
+      {"id": "sbo-elf-optional-runtime", "scenario_count": 6},
+      {"id": "cinnamon-optional-runtime", "scenario_count": 3},
+      {"id": "flatpak-optional-runtime", "scenario_count": 3},
+      {"id": "execution-control-failure-paths", "scenario_count": 4}
+    ]
+  },
+  "gates": {
+    "acceptance_matrix_complete": false,
+    "reference_freeze_status": "blocked-behind-remaining-acceptance-work",
+    "c_port_status": "blocked-by-phase-1-gate"
+  },
+  "authorization": {
+    "source_change_authorized": false,
+    "documentation_change_authorized": false,
+    "repository_refresh_authorized": false,
+    "network_refresh_authorized": false,
+    "machine_execution_authorized": false,
+    "package_action_authorized": false,
+    "boot_action_authorized": false,
+    "phase_2_start_authorized": false,
+    "future_work_requires_explicit_authorization": true,
+    "future_work_requires_fresh_boundary": true
+  },
+  "safe_pause": {
+    "pause_safe": false,
+    "strong_safe_pause": false,
+    "machine_action_required": false,
+    "slackware_current_publication_invalidates_inventory": false
+  },
+  "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-acceptance-matrix-remainder-inventory.tsv",
+  "next_stage": "phase-1-acceptance-matrix-remainder-inventory-review-and-strong-safe-pause"
+}
