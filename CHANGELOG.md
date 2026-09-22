@@ -1096,3 +1096,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Preserved all four accepted scenarios: pre-sync network failure, simultaneous execution, safe-operation signal handling, and non-interactive cron execution.
 - Bound no live candidate set, opened no runtime execution chain, and granted no source/documentation, repository/network refresh, machine, package, boot, or Phase 2 authorization.
 - Preserved the remaining Phase 1 gates and routed the next stage to `phase-1-execution-control-failure-paths-contract-freeze`.
+
+## Phase 1 step 179 execution-control failure-paths contract freeze — 2026-09-22
+
+- Consumed the accepted step-178 `execution-control-failure-paths` family selection and froze a four-scenario bounded runtime-validation contract.
+- Required controlled fail-closed handling for pre-sync network failure, concurrent execution rejection, separate SIGINT/SIGTERM/SIGHUP safe-operation runs, and a real cron/no-TTY run.
+- Froze no-package/no-boot-mutation, cleanup, evidence, and target-binding requirements while keeping the exact VM binding deferred.
+- Granted no machine, network, repository-refresh, package, boot, reboot, source, or Phase 2 authority; only the next runtime-boundary design stage is authorized.
+- Next stage: `phase-1-execution-control-failure-paths-runtime-boundary-design`.

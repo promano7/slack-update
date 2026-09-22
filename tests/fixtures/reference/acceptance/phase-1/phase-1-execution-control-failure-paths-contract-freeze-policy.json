@@ -1,0 +1,109 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-execution-control-failure-paths-contract-freeze",
+  "review_only": true,
+  "accepted_selection": {
+    "step": 178,
+    "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-acceptance-matrix-remainder-family-selection-freeze-policy.json",
+    "policy_sha256": "9f06efed40e4bcf0f32939a9e4c0b6ec77b930696cd6cad0ad12ed1b75c168a0",
+    "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-acceptance-matrix-remainder-family-selection-freeze.tsv",
+    "record_sha256": "8b783f4b7fc442a3fb5da2731e88b4c6882650cac1dbbc822073519b8f34a32c",
+    "selected_family": "execution-control-failure-paths",
+    "scenario_count": 4
+  },
+  "contract": {
+    "state": "frozen",
+    "family": "execution-control-failure-paths",
+    "scenario_count": 4,
+    "scenario_contracts": [
+      {
+        "id": "network-failure-before-repository-synchronization",
+        "inventory_text": "Network failure before repository synchronization.",
+        "fault_model": "controlled-failure-before-any-successful-repository-synchronization",
+        "persistent_network_configuration_change_allowed": false,
+        "successful_repository_synchronization_allowed": false,
+        "package_or_boot_mutation_allowed": false,
+        "required_result": "fail-closed-with-clean-control-state"
+      },
+      {
+        "id": "simultaneous-execution-attempt",
+        "inventory_text": "Simultaneous execution attempt.",
+        "fault_model": "second-process-attempt-while-first-process-is-held-at-a-safe-non-mutating-point",
+        "second_process_may_proceed_concurrently": false,
+        "stale_execution_guard_allowed_after_test": false,
+        "package_or_boot_mutation_allowed": false,
+        "required_result": "second-attempt-rejected-and-control-state-cleaned"
+      },
+      {
+        "id": "signals-during-safe-test-operations",
+        "inventory_text": "SIGINT, SIGTERM, and SIGHUP during safe test operations.",
+        "signals": [
+          "SIGINT",
+          "SIGTERM",
+          "SIGHUP"
+        ],
+        "one_signal_per_run": true,
+        "signal_injection_point": "safe-non-mutating-test-operation",
+        "stale_execution_guard_allowed_after_test": false,
+        "package_or_boot_mutation_allowed": false,
+        "required_result": "termination-is-observable-and-control-state-is-cleaned"
+      },
+      {
+        "id": "cron-without-interactive-terminal",
+        "inventory_text": "Execution from cron with no interactive terminal.",
+        "execution_context": "real-cron-noninteractive-context",
+        "interactive_terminal_allowed": false,
+        "persistent_cron_entry_allowed_after_test": false,
+        "package_or_boot_mutation_allowed": false,
+        "required_result": "noninteractive-behavior-is-deterministic-and-clean"
+      }
+    ],
+    "target_class": "slackware-current-runtime-validation-vm",
+    "target_binding_deferred": true,
+    "runtime_boundary_required": true,
+    "candidate_set_bound": false,
+    "live_runtime_chain_open": false,
+    "live_package_publication_dependency": false,
+    "repository_refresh_default": "forbidden",
+    "repository_refresh_exception": "only-a-later-explicit-runtime-boundary-may-authorize-a-controlled-failing-sync-attempt",
+    "network_access_default": "forbidden",
+    "source_change_allowed_during_runtime_validation": false,
+    "package_mutation_allowed": false,
+    "boot_mutation_allowed": false,
+    "reboot_required": false,
+    "persistent_system_configuration_change_allowed": false,
+    "evidence_requirements": [
+      "target-identity-and-runtime-boundary",
+      "one-result-record-per-scenario",
+      "separate-result-record-per-signal",
+      "pre-and-post-control-state",
+      "proof-of-no-package-or-boot-mutation",
+      "cleanup-result-for-temporary-runtime-artifacts"
+    ],
+    "acceptance_rule": "all-four-scenarios-must-pass-under-one-explicitly-authorized-bounded-runtime-chain"
+  },
+  "gates": {
+    "acceptance_matrix_complete": false,
+    "reference_freeze_status": "blocked-behind-remaining-acceptance-work",
+    "c_port_status": "blocked-by-phase-1-gate"
+  },
+  "authorization": {
+    "runtime_boundary_design_authorized_for_next_stage": true,
+    "source_change_authorized": false,
+    "documentation_change_authorized": false,
+    "repository_refresh_authorized": false,
+    "network_refresh_authorized": false,
+    "machine_execution_authorized": false,
+    "package_action_authorized": false,
+    "boot_action_authorized": false,
+    "phase_2_start_authorized": false,
+    "future_machine_work_requires_explicit_authorization": true
+  },
+  "machine_action_required": false,
+  "slackware_current_publication_invalidates_contract": false,
+  "helper_path": "tools/reference/phase-1-execution-control-failure-paths-contract-freeze.sh",
+  "helper_sha256": "1da5e60a3c7f015c3817e51baf5d7c0598408df274cca49fdcfaee10256f81d1",
+  "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-execution-control-failure-paths-contract-freeze.tsv",
+  "next_stage": "phase-1-execution-control-failure-paths-runtime-boundary-design",
+  "pause_safe": false
+}
