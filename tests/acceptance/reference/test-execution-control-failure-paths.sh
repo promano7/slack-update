@@ -23,7 +23,7 @@ for pair in "$BUILDER|step-185 runtime-executor builder" "$EXECUTOR|step-185 gen
 done
 [[ $(sha "$AUTH_POLICY") == '16ca30b51e7f2875f45587611b7d7b4bbfdaa490a1f36b1adb96d12f34df67a3' ]] && pass 'accepted step-184 authorization policy has the exact reviewed SHA-256' || fail 'step-184 authorization policy SHA-256 mismatch'
 [[ $(sha "$AUTH_RECORD") == '2c366f62c26f1af7e62d574037da584365c2e17aa7e74bc489d4952b5767c762' ]] && pass 'accepted step-184 authorization record has the exact reviewed SHA-256' || fail 'step-184 authorization record SHA-256 mismatch'
-[[ $(sha "$REFERENCE") == '086b28b42be3135ebf47a28c1fcd2e5652f8fdd261e696ad48e612a241edf4ea' ]] && pass 'reference script still matches the frozen SHA-256' || fail 'reference script drifted from the frozen identity'
+[[ $(sha "$REFERENCE") == '1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415' ]] && pass 'reference script still matches the frozen SHA-256' || fail 'reference script drifted from the frozen identity'
 [[ $(sha "$CONFIG") == '4845e2c5038fe8896409f90b6287de33a011a76874229cb76479aa6cd4253bba' ]] && pass 'effective config still matches the frozen SHA-256' || fail 'effective config drifted from the frozen identity'
 bash -n "$BUILDER" && pass 'step-185 builder is shell-syntax valid' || fail 'step-185 builder has invalid shell syntax'
 bash -n "$EXECUTOR" && pass 'step-185 generated executor is shell-syntax valid' || fail 'step-185 generated executor has invalid shell syntax'
@@ -57,7 +57,7 @@ cmp -s "$EXECUTOR" "$tmp/executor.sh" && pass 'committed executor is exactly rep
 extract_between(){ local begin=$1 end=$2 source=$3 dest=$4; awk -v b="$begin" -v e="$end" '$0==b{on=1;next}$0==e{exit}on{print}' "$source" | base64 -d > "$dest"; }
 extract_between '__SLACK_UPDATE_REFERENCE_PAYLOAD_BEGIN__' '__SLACK_UPDATE_REFERENCE_PAYLOAD_END__' "$EXECUTOR" "$tmp/reference.sh"
 extract_between '__SLACK_UPDATE_CONFIG_PAYLOAD_BEGIN__' '__SLACK_UPDATE_CONFIG_PAYLOAD_END__' "$EXECUTOR" "$tmp/config.conf"
-[[ $(sha "$tmp/reference.sh") == '086b28b42be3135ebf47a28c1fcd2e5652f8fdd261e696ad48e612a241edf4ea' ]] && pass 'executor embeds the exact frozen reference script' || fail 'embedded reference script identity mismatch'
+[[ $(sha "$tmp/reference.sh") == '1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415' ]] && pass 'executor embeds the exact frozen reference script' || fail 'embedded reference script identity mismatch'
 [[ $(sha "$tmp/config.conf") == '4845e2c5038fe8896409f90b6287de33a011a76874229cb76479aa6cd4253bba' ]] && pass 'executor embeds the exact frozen effective config' || fail 'embedded effective config identity mismatch'
 for needle in "EXPECTED_FQDN='vbox-slackcurrent.vbox-slackcurrent.org'" "EXPECTED_KERNEL='6.18.45'" "EXPECTED_BOOT_ID='cb85100b-9993-4876-ab32-b2457ed0ac6d'" "RUNTIME_ACK='--execute-runtime-validation'" 'unshare --net --' '--internal-lock-probe' 'INT:130 TERM:143 HUP:129' 'CRON_WAIT_SECONDS=90' 'root_crontab_restored_exactly'; do grep -Fq -- "$needle" "$EXECUTOR" && pass "executor contains reviewed contract element: $needle" || fail "executor missing reviewed contract element: $needle"; done
 if grep -Eq '\b(upgradepkg|installpkg|removepkg|grub-mkconfig|mkinitrd|eliloconfig|reboot|shutdown|poweroff)\b' "$BUILDER"; then fail 'builder contains an unauthorized package, boot, reboot, or shutdown mutation command'; else pass 'builder contains no package, boot, reboot, or shutdown mutation command'; fi

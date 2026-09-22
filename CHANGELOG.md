@@ -1177,3 +1177,21 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Classified the original `reboot` match as a harness false positive caused by fields such as `reboot_authorized` and `target_reboot_invalidates_authorization`.
 - Kept the accepted step-185 implementation identities, exact runtime payload SHA-256, frozen VM binding, and step-186 runtime authorization unchanged.
 - No runtime execution, repository refresh, package action, boot action, reboot, or network refresh is performed or newly authorized by this remediation.
+
+## Phase 1 step 187-r2 network-failure fail-closed remediation and runtime reauthorization
+
+- Recorded the first step-187 runtime attempt as a valid acceptance failure: inside an isolated network namespace, `slackpkg check-updates` returned 0 and the reference `--check` incorrectly reported no repository updates.
+- Remediated the reference check path so it resolves the single active Slackpkg mirror and verifies the mirror `ChangeLog.txt` transport before trusting the Slackpkg check status.
+- Kept the check non-destructive: no `slackpkg update`, repository metadata refresh, package action, boot action, or reboot is introduced by the remediation.
+- Regenerated the standalone runtime executor from the remediated reference script and the unchanged frozen configuration, and superseded the previous runtime payload identity with the new exact SHA-256 recorded by the step-187-r2 policy.
+- Preserved the accepted runtime binding to `vbox-slackcurrent.vbox-slackcurrent.org`, kernel `6.18.45`, and boot ID `cb85100b-9993-4876-ab32-b2457ed0ac6d`; a reboot still invalidates runtime authorization.
+- Authorized only a rerun of the same four execution-control failure-path scenarios followed by evidence review; Phase 2 remains unauthorized.
+- Superseded the uncommitted 187-r1 overlay, whose transactional apply aborted at the source-patch anchor; 187-r2 uses structure-based patch anchors while preserving the same fail-closed remediation.
+
+## Phase 1 step 187-r3 supersession-aware runtime authorization review fix
+
+- Preserved the step-186 helper, policy, record, and documentation byte-for-byte as historical acceptance artifacts for the original step-185 payload.
+- Corrected the step-186 regression harness so it no longer replays the historical helper against the superseding step-187 runtime artifacts; it now verifies historical identities and validates live authorization through the remediation policy.
+- Added the exact observed network-failure evidence sentence required by the remediation review without changing the fail-closed implementation.
+- Kept the remediated reference script, builder, executor, effective configuration, runtime target FQDN, kernel, and boot ID unchanged.
+- Runtime rerun remains the only authorized next stage; repository refresh, package actions, boot actions, reboot, and Phase 2 remain unauthorized.

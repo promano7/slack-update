@@ -1,0 +1,56 @@
+{
+  "accepted_runtime_failure": {
+    "classification": "reference-check-fail-open-on-unreachable-mirror",
+    "evidence_archive_published": false,
+    "reference_exit_code": 0,
+    "status": "failed-network",
+    "stderr_bytes": 0,
+    "step": 187
+  },
+  "authorization": {
+    "boot_action_authorized": false,
+    "copy_executor_to_runtime_target_authorized": true,
+    "network_refresh_authorized": false,
+    "package_action_authorized": false,
+    "phase_2_start_authorized": false,
+    "reboot_authorized": false,
+    "repository_refresh_authorized": false,
+    "runtime_scenario_execution_authorized": true
+  },
+  "machine_action_required": true,
+  "next_stage": "phase-1-execution-control-failure-paths-runtime-validation-rerun",
+  "pause_safe": false,
+  "remediation": {
+    "acceptance_harness_sha256": "0ce04751466f0c31cd55f96f8e3d79e41153655c65b14bf54ee42aa80b18268f",
+    "builder_sha256": "1fd71518ac2fcd4033e6768326959ec49ccc7d61acc096566862ba17bfbaca6b",
+    "effective_config_sha256": "4845e2c5038fe8896409f90b6287de33a011a76874229cb76479aa6cd4253bba",
+    "executor_sha256": "262ce8667437ed9de94682ec31773094409e286cd721d4a351963cd59b59fecc",
+    "mirror_probe": "single-active-slackpkg-mirror-ChangeLog-transport-probe",
+    "network_probe_command": "wget --spider --quiet --timeout=15 --tries=1",
+    "reference_script_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415",
+    "review_revision": "187-r3",
+    "slackpkg_update_introduced": false,
+    "state": "implemented-and-regression-reviewed",
+    "step_186_harness_sha256": "6ff46b710f58769a20a8261ed7d085828516608f135a76223d19bc64a83abc19"
+  },
+  "runtime_binding": {
+    "boot_id": "cb85100b-9993-4876-ab32-b2457ed0ac6d",
+    "hostname_fqdn": "vbox-slackcurrent.vbox-slackcurrent.org",
+    "target_reboot_invalidates_authorization": true,
+    "target_repository_required": false,
+    "target_sha256_verification_required_before_execution": true,
+    "uname_release": "6.18.45"
+  },
+  "scenario": "phase-1-execution-control-failure-paths-network-failure-remediation-and-runtime-reauthorization",
+  "schema": 1,
+  "supersession": {
+    "historical_builder_sha256": "69846171f89a1ec0e6be3856680b6c3e8f7b6121819a9bae1d46ba69400c7578",
+    "historical_executor_sha256": "13aa5c511c3caaaea51757f3ae6f71c4ba255470ff76be49fc830fabffc1e326",
+    "historical_step_186_helper_immutable": true,
+    "historical_step_186_helper_replay_required": false,
+    "historical_step_186_policy_immutable": true,
+    "historical_step_186_record_immutable": true,
+    "superseding_builder_sha256": "1fd71518ac2fcd4033e6768326959ec49ccc7d61acc096566862ba17bfbaca6b",
+    "superseding_executor_sha256": "262ce8667437ed9de94682ec31773094409e286cd721d4a351963cd59b59fecc"
+  }
+}

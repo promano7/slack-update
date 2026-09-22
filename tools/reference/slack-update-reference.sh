@@ -57,6 +57,12 @@ GENINITRD_NAMED_INITRD_LINK=/boot/initrd-generic.img
 GENINITRD_NAMED_INITRD_GRUB_PATH=/boot/initrd-generic.img
 GENINITRD_VERSIONED_INITRD_DIRECTORY=/boot
 GENERIC_KERNEL_LINK=/boot/vmlinuz-generic
+# Slackpkg mirror probing is intentionally separate from slackpkg check-updates.
+# Some slackpkg versions can return success when the configured mirror cannot be
+# reached, so the non-destructive check workflow verifies the mirror ChangeLog
+# transport before trusting the slackpkg status.
+SLACKPKG_MIRRORS_FILE=/etc/slackpkg/mirrors
+SLACKPKG_MIRROR_PROBE_TIMEOUT_SECONDS=15
 
 # Command-line interface functions
 
@@ -2508,23 +2514,109 @@ print_start_banner() {
 
 # Check workflow functions
 
+resolve_active_slackpkg_mirror() {
+    local raw_line
+    local line
+    local active_mirror=
+    local active_count=0
+
+    SLACKPKG_ACTIVE_MIRROR=
+    SLACKPKG_MIRROR_ERROR=
+    if [ ! -r "$SLACKPKG_MIRRORS_FILE" ]; then
+        SLACKPKG_MIRROR_ERROR="slackpkg mirrors file is not readable: $SLACKPKG_MIRRORS_FILE"
+        return 1
+    fi
+
+    while IFS= read -r raw_line || [ -n "$raw_line" ]; do
+        line=${raw_line%$'\r'}
+        line=$(trim_whitespace "$line")
+        case "$line" in
+            ''|'#'*) continue ;;
+        esac
+        active_mirror=$line
+        active_count=$((active_count + 1))
+    done < "$SLACKPKG_MIRRORS_FILE"
+
+    case "$active_count" in
+        1)
+            SLACKPKG_ACTIVE_MIRROR=$active_mirror
+            ;;
+        0)
+            SLACKPKG_MIRROR_ERROR="slackpkg mirrors file has no active mirror"
+            return 1
+            ;;
+        *)
+            SLACKPKG_MIRROR_ERROR="slackpkg mirrors file has multiple active mirrors"
+            return 1
+            ;;
+    esac
+}
+
+probe_slackpkg_mirror_changelog() {
+    local target
+    local local_path
+
+    resolve_active_slackpkg_mirror || return 1
+    target=${SLACKPKG_ACTIVE_MIRROR%/}/ChangeLog.txt
+    case "$SLACKPKG_ACTIVE_MIRROR" in
+        http://*|https://*|ftp://*)
+            if ! command -v wget >/dev/null 2>&1; then
+                SLACKPKG_MIRROR_ERROR="wget is required to probe the configured slackpkg mirror"
+                return 1
+            fi
+            if ! wget --spider --quiet \
+                --timeout="$SLACKPKG_MIRROR_PROBE_TIMEOUT_SECONDS" \
+                --tries=1 -- "$target"; then
+                SLACKPKG_MIRROR_ERROR="configured Slackware mirror ChangeLog is unreachable: $target"
+                return 1
+            fi
+            ;;
+        file://*)
+            local_path=${target#file://}
+            if [ ! -r "$local_path" ]; then
+                SLACKPKG_MIRROR_ERROR="configured local Slackware mirror ChangeLog is unreadable: $local_path"
+                return 1
+            fi
+            ;;
+        /*)
+            if [ ! -r "$target" ]; then
+                SLACKPKG_MIRROR_ERROR="configured local Slackware mirror ChangeLog is unreadable: $target"
+                return 1
+            fi
+            ;;
+        *)
+            SLACKPKG_MIRROR_ERROR="configured slackpkg mirror uses an unsupported location: $SLACKPKG_ACTIVE_MIRROR"
+            return 1
+            ;;
+    esac
+}
+
 check_slackware_updates() {
     echo "[CHECK] Slackware updates"
+    CHECK_ERROR=
 
     if ! command -v slackpkg >/dev/null 2>&1; then
         CHECK_STATUS=127
-        echo "  [ERROR] slackpkg is not available"
+        CHECK_ERROR="slackpkg is not available"
+        echo "  [ERROR] $CHECK_ERROR"
+        return 1
+    fi
+
+    if ! probe_slackpkg_mirror_changelog; then
+        CHECK_STATUS=69
+        CHECK_ERROR=${SLACKPKG_MIRROR_ERROR:-"Slackware repository mirror probe failed"}
+        echo "  [ERROR] $CHECK_ERROR"
         return 1
     fi
 
     slackpkg -batch=on -default_answer=n check-updates
     CHECK_STATUS=$?
-
     case "$CHECK_STATUS" in
         0|100)
             ;;
         *)
-            echo "  [ERROR] slackpkg check-updates failed with exit code $CHECK_STATUS"
+            CHECK_ERROR="slackpkg check-updates failed with exit code $CHECK_STATUS"
+            echo "  [ERROR] $CHECK_ERROR"
             return 1
             ;;
     esac
@@ -5592,12 +5684,16 @@ prepare_json_messages() {
 
     case "$OPERATION" in
         check)
-            if [ "$CHECK_STATUS" -ne 0 ] && [ "$CHECK_STATUS" -ne 100 ]; then
+            if [ -n "${CHECK_ERROR:-}" ]; then
+                RESULT_ERRORS+=("$CHECK_ERROR")
+            elif [ "$CHECK_STATUS" -ne 0 ] && [ "$CHECK_STATUS" -ne 100 ]; then
                 RESULT_ERRORS+=("slackpkg check-updates failed with exit code $CHECK_STATUS")
             fi
             ;;
         dry-run)
-            if [ "$CHECK_STATUS" -ne 0 ] && [ "$CHECK_STATUS" -ne 100 ]; then
+            if [ -n "${CHECK_ERROR:-}" ]; then
+                RESULT_ERRORS+=("$CHECK_ERROR")
+            elif [ "$CHECK_STATUS" -ne 0 ] && [ "$CHECK_STATUS" -ne 100 ]; then
                 RESULT_ERRORS+=("slackpkg check-updates failed with exit code $CHECK_STATUS")
             fi
             append_enabled_module_requirement_errors
