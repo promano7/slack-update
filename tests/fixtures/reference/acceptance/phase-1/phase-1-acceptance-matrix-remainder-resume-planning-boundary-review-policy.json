@@ -1,0 +1,55 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-acceptance-matrix-remainder-resume-planning-boundary-review",
+  "review_only": true,
+  "accepted_checkpoint": {
+    "step": 176,
+    "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-acceptance-matrix-remainder-inventory-review-and-strong-safe-pause-policy.json",
+    "policy_sha256": "86eaf01a35bfee7bae0450d669b06a3d1aa3f6f7e8d47776a09f036d62ff6ea6",
+    "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-acceptance-matrix-remainder-inventory-review-and-strong-safe-pause.tsv",
+    "record_sha256": "eff7de99e6a31e47cd09fff61aa26d600f34f09cffedce5cabafb0736be6c389",
+    "strong_safe_pause": true,
+    "inventory_family_count": 6,
+    "inventory_scenario_count": 24,
+    "accepted_inventory_remains_valid_across_publication": true
+  },
+  "fresh_boundary": {
+    "opened": true,
+    "scope": "phase-1-acceptance-matrix-remainder-resume-planning",
+    "purpose": "select one accepted remainder family without inheriting any prior operational authorization",
+    "candidate_set_bound": false,
+    "family_selected_for_execution": false,
+    "live_runtime_chain_open": false,
+    "slackware_current_publication_invalidates_boundary": false
+  },
+  "inventory": {
+    "family_count": 6,
+    "scenario_count": 24,
+    "inventory_consistent": true,
+    "accepted_core_scenarios_must_not_be_replayed": true,
+    "remaining_work_requires_fresh_scenario_boundary": true
+  },
+  "gates": {
+    "acceptance_matrix_complete": false,
+    "reference_freeze_status": "blocked-behind-remaining-acceptance-work",
+    "c_port_status": "blocked-by-phase-1-gate"
+  },
+  "authorization": {
+    "source_change_authorized": false,
+    "documentation_change_authorized": false,
+    "repository_refresh_authorized": false,
+    "network_refresh_authorized": false,
+    "machine_execution_authorized": false,
+    "package_action_authorized": false,
+    "boot_action_authorized": false,
+    "phase_2_start_authorized": false,
+    "future_work_requires_explicit_authorization": true
+  },
+  "machine_action_required": false,
+  "pause_safe": false,
+  "evidence": {
+    "boundary_helper_sha256": "891a212bb94dc766bdcb6f71791beff2e1cf089483d1e9c986beb0d1132bed3a"
+  },
+  "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-acceptance-matrix-remainder-resume-planning-boundary-review.tsv",
+  "next_stage": "phase-1-acceptance-matrix-remainder-family-selection-freeze"
+}
