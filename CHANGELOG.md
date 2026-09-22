@@ -1162,3 +1162,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Implemented the four bounded runtime scenarios, exact binding revalidation, cleanup gates, protected-state fingerprints, and evidence publication path.
 - Added the repository acceptance harness; runtime copy/execution remains unauthorized pending step 186 review.
 - `pause_safe=false`; next stage: `phase-1-execution-control-failure-paths-runtime-executor-implementation-review-and-runtime-authorization`.
+
+## Phase 1 step 186 execution-control runtime-executor implementation review and runtime authorization
+
+- Accepted the step-185 runtime-executor implementation after `PASS (48 passes, 0 failures)`.
+- Froze builder SHA-256 `69846171f89a1ec0e6be3856680b6c3e8f7b6121819a9bae1d46ba69400c7578` and executor SHA-256 `13aa5c511c3caaaea51757f3ae6f71c4ba255470ff76be49fc830fabffc1e326`.
+- Authorized copying and executing only that exact payload on the frozen Slackware-current VM binding.
+- Kept repository refresh, external network success, package/boot mutation, reboot, and persistent configuration changes unauthorized.
+- Required exact root-crontab restoration and post-execution evidence review; `pause_safe=false`.
+
+## Phase 1 step 186-r1 runtime-authorization harness token-boundary fix
+
+- Corrected the step-186 static mutation-command assertion so command names are matched only as shell-command tokens rather than as substrings inside declarative field names.
+- Classified the original `reboot` match as a harness false positive caused by fields such as `reboot_authorized` and `target_reboot_invalidates_authorization`.
+- Kept the accepted step-185 implementation identities, exact runtime payload SHA-256, frozen VM binding, and step-186 runtime authorization unchanged.
+- No runtime execution, repository refresh, package action, boot action, reboot, or network refresh is performed or newly authorized by this remediation.
