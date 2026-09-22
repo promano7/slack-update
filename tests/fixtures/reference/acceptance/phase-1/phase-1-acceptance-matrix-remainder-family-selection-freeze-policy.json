@@ -1,0 +1,62 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-acceptance-matrix-remainder-family-selection-freeze",
+  "review_only": true,
+  "accepted_boundary": {
+    "step": 177,
+    "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-acceptance-matrix-remainder-resume-planning-boundary-review-policy.json",
+    "policy_sha256": "3a90d6bde471d3a55eca0cec86fb34f4c4678e4a0d046f2fa40450868bc18bef",
+    "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-acceptance-matrix-remainder-resume-planning-boundary-review.tsv",
+    "record_sha256": "e9615d879ae1adcb4e062e4f2911e810d47198a37c90c031b8aee7ab81c2f0a8"
+  },
+  "accepted_inventory": {
+    "step": 175,
+    "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-acceptance-matrix-remainder-inventory-policy.json",
+    "policy_sha256": "819a5696fb9854f64a012ba6091750b40c1d658e5edd61a93c0c1e03264b16fe",
+    "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-acceptance-matrix-remainder-inventory.tsv",
+    "record_sha256": "ad4697b230ab2b22a6d3cdf2e4cc2c74a61e469b9d70da11e7f25082265dd5ff",
+    "family_count": 6,
+    "scenario_count": 24
+  },
+  "selection": {
+    "selected_family": "execution-control-failure-paths",
+    "scenario_count": 4,
+    "scenarios": [
+      "Network failure before repository synchronization.",
+      "Simultaneous execution attempt.",
+      "SIGINT, SIGTERM, and SIGHUP during safe test operations.",
+      "Execution from cron with no interactive terminal."
+    ],
+    "classification": "pending-real-system-acceptance-remainder",
+    "runtime_boundary_required": true,
+    "repository_refresh_requirement": "conditional",
+    "selection_frozen": true,
+    "selection_basis": "deterministic failure injection independent of live package publication and suitable for one bounded runtime validation chain",
+    "candidate_set_bound": false,
+    "live_runtime_chain_open": false,
+    "slackware_current_publication_invalidates_selection": false
+  },
+  "gates": {
+    "acceptance_matrix_complete": false,
+    "reference_freeze_status": "blocked-behind-remaining-acceptance-work",
+    "c_port_status": "blocked-by-phase-1-gate"
+  },
+  "authorization": {
+    "source_change_authorized": false,
+    "documentation_change_authorized": false,
+    "repository_refresh_authorized": false,
+    "network_refresh_authorized": false,
+    "machine_execution_authorized": false,
+    "package_action_authorized": false,
+    "boot_action_authorized": false,
+    "phase_2_start_authorized": false,
+    "future_work_requires_explicit_authorization": true
+  },
+  "machine_action_required": false,
+  "pause_safe": false,
+  "evidence": {
+    "selection_helper_sha256": "f116401777129c9dc83fc3a574572863c9028f6c6d3bd0837b9283e46b5e83ac"
+  },
+  "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-acceptance-matrix-remainder-family-selection-freeze.tsv",
+  "next_stage": "phase-1-execution-control-failure-paths-contract-freeze"
+}

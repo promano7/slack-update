@@ -1089,3 +1089,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Preserved the accepted 24-scenario, six-family remainder inventory and the rule that already accepted core scenarios must not be replayed.
 - Selected no runtime family, bound no live candidate set, opened no runtime chain, and granted no source/documentation, repository/network refresh, machine, package, boot, or Phase 2 authorization.
 - Preserved all Phase 1 gates and routed the next step to `phase-1-acceptance-matrix-remainder-family-selection-freeze`.
+
+## Phase 1 step 178 acceptance-matrix remainder family selection freeze — 2026-09-22
+
+- Consumed the accepted step-177 fresh planning boundary and froze `execution-control-failure-paths` as the next remainder family.
+- Preserved all four accepted scenarios: pre-sync network failure, simultaneous execution, safe-operation signal handling, and non-interactive cron execution.
+- Bound no live candidate set, opened no runtime execution chain, and granted no source/documentation, repository/network refresh, machine, package, boot, or Phase 2 authorization.
+- Preserved the remaining Phase 1 gates and routed the next stage to `phase-1-execution-control-failure-paths-contract-freeze`.
