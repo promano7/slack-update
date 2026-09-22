@@ -1143,3 +1143,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Defined a controller-generated single-file payload so the Slackware-current VM does not require a repository checkout.
 - Limited derived runtime configuration changes to temporary work, log, and lock paths inside the evidence tree.
 - Froze deterministic lock, signal, network-namespace, cron, fingerprint, cleanup, and evidence-publication rules without authorizing implementation or runtime execution.
+
+## Phase 1 step 184 execution-control runtime-executor implementation authorization review
+
+- Accepted the frozen step-183 runtime-executor implementation design as the
+  sole basis for repository implementation.
+- Authorized implementation of the controller builder, standalone executor,
+  repository acceptance harness, documentation, and implementation records.
+- Kept target copying and all runtime scenario execution unauthorized.
+- Preserved the exact step-182 VM binding and prohibited package, boot,
+  repository-refresh, network-refresh, and reboot actions.
+- Set the next stage to runtime-executor implementation; `pause_safe=false`.
