@@ -1154,3 +1154,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Preserved the exact step-182 VM binding and prohibited package, boot,
   repository-refresh, network-refresh, and reboot actions.
 - Set the next stage to runtime-executor implementation; `pause_safe=false`.
+
+## Phase 1 step 185 execution-control runtime-executor implementation
+
+- Implemented the controller-side builder for the standalone execution-control failure-path runtime payload.
+- The builder verifies the frozen reference-script and effective-config SHA-256 identities before generating the payload.
+- Implemented the four bounded runtime scenarios, exact binding revalidation, cleanup gates, protected-state fingerprints, and evidence publication path.
+- Added the repository acceptance harness; runtime copy/execution remains unauthorized pending step 186 review.
+- `pause_safe=false`; next stage: `phase-1-execution-control-failure-paths-runtime-executor-implementation-review-and-runtime-authorization`.

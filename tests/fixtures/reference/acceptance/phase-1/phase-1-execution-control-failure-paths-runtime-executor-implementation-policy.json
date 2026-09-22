@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-execution-control-failure-paths-runtime-executor-implementation",
+  "review_only": false,
+  "accepted_implementation_authorization": {
+    "step": 184,
+    "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-execution-control-failure-paths-runtime-executor-implementation-authorization-review-policy.json",
+    "policy_sha256": "16ca30b51e7f2875f45587611b7d7b4bbfdaa490a1f36b1adb96d12f34df67a3",
+    "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-execution-control-failure-paths-runtime-executor-implementation-authorization-review.tsv",
+    "record_sha256": "2c366f62c26f1af7e62d574037da584365c2e17aa7e74bc489d4952b5767c762"
+  },
+  "implementation": {
+    "state": "implemented-awaiting-review",
+    "family": "execution-control-failure-paths",
+    "scenario_count": 4,
+    "builder_path": "tools/reference/phase-1-execution-control-failure-paths-runtime-executor-build.sh",
+    "executor_path": "tools/reference/phase-1-execution-control-failure-paths-runtime-executor.sh",
+    "repository_acceptance_harness_path": "tests/acceptance/reference/test-execution-control-failure-paths.sh",
+    "reference_script_path": "tools/reference/slack-update-reference.sh",
+    "reference_script_sha256": "086b28b42be3135ebf47a28c1fcd2e5652f8fdd261e696ad48e612a241edf4ea",
+    "effective_config_path": "data/config/slack-update.conf",
+    "effective_config_sha256": "4845e2c5038fe8896409f90b6287de33a011a76874229cb76479aa6cd4253bba",
+    "payload_form": "single-self-contained-shell-script",
+    "target_requires_repository": false,
+    "runtime_acknowledgement": "--execute-runtime-validation",
+    "frozen_binding": {
+      "hostname_fqdn": "vbox-slackcurrent.vbox-slackcurrent.org",
+      "uname_release": "6.18.45",
+      "boot_id": "cb85100b-9993-4876-ab32-b2457ed0ac6d"
+    },
+    "runtime_evidence_root": "/var/tmp/slack-update-acceptance/execution-control-failure-paths",
+    "published_archive_path": "/home/promano/slack-update-phase-1-execution-control-failure-paths-evidence.tar.gz",
+    "published_sha256_path": "/home/promano/slack-update-phase-1-execution-control-failure-paths-evidence.tar.gz.sha256",
+    "implemented_scenarios": [
+      "network-failure-before-repository-synchronization",
+      "simultaneous-execution-attempt",
+      "signals-during-safe-test-operations",
+      "cron-without-interactive-terminal"
+    ],
+    "signal_exit_codes": {
+      "SIGINT": 130,
+      "SIGTERM": 143,
+      "SIGHUP": 129
+    },
+    "simultaneous_second_exit_code": 6,
+    "cron_maximum_wait_seconds": 90,
+    "implementation_identity_rule": "builder-and-generated-executor-identities-remain-unfrozen-until-step-186-review",
+    "copy_to_target_authorized": false,
+    "runtime_execution_authorized": false
+  },
+  "global_mutation_guards": {
+    "repository_refresh_authorized": false,
+    "external_network_access_authorized": false,
+    "package_mutation_authorized": false,
+    "boot_mutation_authorized": false,
+    "reboot_authorized": false,
+    "persistent_configuration_change_authorized": false
+  },
+  "authorization": {
+    "runtime_executor_implementation_review_authorized_for_next_stage": true,
+    "copy_executor_to_runtime_target_authorized": false,
+    "runtime_scenario_execution_authorized": false,
+    "repository_refresh_authorized": false,
+    "network_refresh_authorized": false,
+    "package_action_authorized": false,
+    "boot_action_authorized": false,
+    "reboot_authorized": false,
+    "phase_2_start_authorized": false
+  },
+  "machine_action_required": false,
+  "target_must_remain_on_frozen_boot_id": "cb85100b-9993-4876-ab32-b2457ed0ac6d",
+  "slackware_current_publication_invalidates_implementation": false,
+  "next_stage": "phase-1-execution-control-failure-paths-runtime-executor-implementation-review-and-runtime-authorization",
+  "pause_safe": false
+}
