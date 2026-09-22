@@ -1119,3 +1119,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Added an autonomous root-via-sudo probe that records VM identity, source/configuration hashes, required capabilities, running `crond`, root-crontab readability, and ephemeral network-namespace support without repository refresh, external network access, package/boot mutation, reboot, or persistent configuration change.
 - Runtime target observation is the only machine action authorized by this step; the four failure-path scenarios and their executor remain unauthorized.
 - Next stage: `phase-1-execution-control-failure-paths-runtime-target-binding-freeze`; `pause_safe=false`.
+
+## Phase 1 step 181-r1 standalone target-binding probe remediation
+
+- Revised the accepted step-181 target-binding probe after the validation VM correctly reported that no `slack-update` repository was present on the target.
+- The controller-side apply step now freezes the current reference-script and effective-config SHA-256 identities directly into a single standalone probe; no repository copy, clone, pull, or refresh is required on the VM.
+- Preserved the step-180 binding contract, including `reference-script-sha256` and `effective-config-sha256`, while making their origin explicit as the accepted controller repository rather than target-resident files.
+- Preserved the read-only runtime boundary: no repository/network refresh, package or boot mutation, reboot, persistent configuration change, runtime executor implementation, or failure-path scenario execution is authorized.
+- Next stage after a successful standalone observation: `phase-1-execution-control-failure-paths-runtime-target-binding-freeze`; `pause_safe=false`.

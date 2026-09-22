@@ -1,6 +1,7 @@
 {
   "schema": 1,
   "scenario": "phase-1-execution-control-failure-paths-runtime-target-binding-review",
+  "revision": "r1-standalone-probe",
   "review_only": true,
   "accepted_runtime_boundary_design": {
     "step": 180,
@@ -16,24 +17,25 @@
     "target_class": "slackware-current-runtime-validation-vm",
     "expected_hostname_fqdn": "vbox-slackcurrent.vbox-slackcurrent.org",
     "binding_probe_path": "tools/reference/phase-1-execution-control-failure-paths-runtime-target-binding-probe.sh",
-    "binding_probe_sha256": "a2f54a55ff191cec920b067130c0e4520d4987b01755e9170762f1738656ecfe",
+    "binding_probe_sha256": "fbf840f19c51aaa29c3d6fb1eb00d6ca87bf2b594b91cb4524d31e4853fbc82b",
     "probe_execution": "root-via-sudo",
-    "probe_scope": "read-only-target-observation-plus-ephemeral-network-namespace-capability-check",
-    "repo_root_candidates": [
-      "/home/promano/GitHub/slack-update",
-      "/home/promano/Descargas/slack-update-main"
-    ],
-    "reference_script_path": "tools/reference/slack-update-reference.sh",
-    "effective_config_path": "data/config/slack-update.conf",
+    "probe_scope": "standalone-read-only-target-observation-plus-ephemeral-network-namespace-capability-check",
+    "target_repository_required": false,
+    "source_identity_origin": "controller-repo-frozen-into-standalone-probe",
+    "reference_script_path_on_controller": "tools/reference/slack-update-reference.sh",
+    "reference_script_sha256": "086b28b42be3135ebf47a28c1fcd2e5652f8fdd261e696ad48e612a241edf4ea",
+    "effective_config_path_on_controller": "data/config/slack-update.conf",
+    "effective_config_sha256": "4845e2c5038fe8896409f90b6287de33a011a76874229cb76479aa6cd4253bba",
     "required_binding_fields": [
       "hostname",
       "hostname-fqdn",
       "uname-release",
       "slackware-version",
       "boot-id",
-      "repo-root",
       "reference-script-sha256",
       "effective-config-sha256",
+      "source-identity-origin",
+      "target-repository-required",
       "probe-sha256"
     ],
     "required_capability_observations": [
@@ -57,7 +59,7 @@
     "reboot_allowed": false,
     "persistent_system_configuration_change_allowed": false,
     "missing_capability_action": "block-and-report-without-installing-or-changing-target",
-    "binding_success_rule": "expected-fqdn-all-required-files-and-capabilities-present-read-only-probe-pass",
+    "binding_success_rule": "expected-fqdn-embedded-source-identities-and-all-required-capabilities-present-read-only-probe-pass",
     "binding_failure_rule": "stop-before-executor-implementation-and-report-observation"
   },
   "gates": {
@@ -81,7 +83,7 @@
   "machine_action_type": "read-only-target-binding-observation",
   "slackware_current_publication_invalidates_review": false,
   "helper_path": "tools/reference/phase-1-execution-control-failure-paths-runtime-target-binding-review.sh",
-  "helper_sha256": "b186507eb8e94312e6360142e1dc797b63ba46a55f5d3a7b2aa729b6fd5ccd72",
+  "helper_sha256": "32d1e0865c2ae733e2ee7caccc686684d257fcfda0d0c1e64da4c50b40312490",
   "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-execution-control-failure-paths-runtime-target-binding-review.tsv",
   "next_stage": "phase-1-execution-control-failure-paths-runtime-target-binding-freeze",
   "pause_safe": false

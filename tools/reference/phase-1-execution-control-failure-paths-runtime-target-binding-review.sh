@@ -6,11 +6,10 @@ usage() {
     cat <<'USAGE'
 Usage: phase-1-execution-control-failure-paths-runtime-target-binding-review.sh [--output-dir DIR] [--help]
 
-Freeze the read-only target-binding review contract for the selected Phase 1
-execution-control failure-path family. This helper does not probe a live
-machine and does not authorize the four runtime scenarios. It records the
-expected VM identity, required read-only capability probe, source/configuration
-identity inputs, and the next target-binding freeze gate.
+Generate the revised step-181 target-binding policy and record after the
+standalone probe has been materialized with controller-side source/configuration
+SHA-256 identities. This helper does not probe a live machine and authorizes no
+runtime failure-path scenario.
 USAGE
 }
 
@@ -40,12 +39,14 @@ design_policy="$acceptance_dir/phase-1-execution-control-failure-paths-runtime-b
 design_record="$acceptance_dir/phase-1-execution-control-failure-paths-runtime-boundary-design.tsv"
 helper_path="$repo_root/tools/reference/phase-1-execution-control-failure-paths-runtime-target-binding-review.sh"
 probe_path="$repo_root/tools/reference/phase-1-execution-control-failure-paths-runtime-target-binding-probe.sh"
+reference_script="$repo_root/tools/reference/slack-update-reference.sh"
+effective_config="$repo_root/data/config/slack-update.conf"
 
 require_regular() {
     local file=$1
     [[ -f $file && ! -L $file ]] || { printf 'ERROR: required regular file missing or unsafe: %s\n' "$file" >&2; exit 3; }
 }
-for required in "$design_policy" "$design_record" "$helper_path" "$probe_path"; do
+for required in "$design_policy" "$design_record" "$helper_path" "$probe_path" "$reference_script" "$effective_config"; do
     require_regular "$required"
 done
 
@@ -72,16 +73,23 @@ design_policy_sha=$(sha256sum -- "$design_policy" | awk '{print $1}')
 design_record_sha=$(sha256sum -- "$design_record" | awk '{print $1}')
 helper_sha=$(sha256sum -- "$helper_path" | awk '{print $1}')
 probe_sha=$(sha256sum -- "$probe_path" | awk '{print $1}')
+reference_sha=$(sha256sum -- "$reference_script" | awk '{print $1}')
+config_sha=$(sha256sum -- "$effective_config" | awk '{print $1}')
+
+probe_reference_sha=$(sed -n "s/^readonly FROZEN_REFERENCE_SCRIPT_SHA256='\([0-9a-f]\{64\}\)'$/\1/p" "$probe_path")
+probe_config_sha=$(sed -n "s/^readonly FROZEN_EFFECTIVE_CONFIG_SHA256='\([0-9a-f]\{64\}\)'$/\1/p" "$probe_path")
+[[ $probe_reference_sha == "$reference_sha" ]] || { printf 'ERROR: probe reference-script identity does not match controller repo\n' >&2; exit 6; }
+[[ $probe_config_sha == "$config_sha" ]] || { printf 'ERROR: probe effective-config identity does not match controller repo\n' >&2; exit 6; }
 
 python3 - "$design_policy" "$design_record" "$policy" "$record" \
-    "$design_policy_sha" "$design_record_sha" "$helper_sha" "$probe_sha" <<'INNERPY'
+    "$design_policy_sha" "$design_record_sha" "$helper_sha" "$probe_sha" "$reference_sha" "$config_sha" <<'INNERPY'
 import csv
 import json
 import sys
 from pathlib import Path
 
 design_policy_path, design_record_path, out_policy, out_record = map(Path, sys.argv[1:5])
-design_policy_sha, design_record_sha, helper_sha, probe_sha = sys.argv[5:9]
+design_policy_sha, design_record_sha, helper_sha, probe_sha, reference_sha, config_sha = sys.argv[5:11]
 design = json.loads(design_policy_path.read_text(encoding='utf-8'))
 with design_record_path.open(encoding='utf-8', newline='') as handle:
     design_record = dict(csv.reader(handle, delimiter='\t'))
@@ -97,6 +105,7 @@ assert design_record['scenario_count'] == '4'
 policy = {
     'schema': 1,
     'scenario': 'phase-1-execution-control-failure-paths-runtime-target-binding-review',
+    'revision': 'r1-standalone-probe',
     'review_only': True,
     'accepted_runtime_boundary_design': {
         'step': 180,
@@ -114,22 +123,23 @@ policy = {
         'binding_probe_path': 'tools/reference/phase-1-execution-control-failure-paths-runtime-target-binding-probe.sh',
         'binding_probe_sha256': probe_sha,
         'probe_execution': 'root-via-sudo',
-        'probe_scope': 'read-only-target-observation-plus-ephemeral-network-namespace-capability-check',
-        'repo_root_candidates': [
-            '/home/promano/GitHub/slack-update',
-            '/home/promano/Descargas/slack-update-main',
-        ],
-        'reference_script_path': 'tools/reference/slack-update-reference.sh',
-        'effective_config_path': 'data/config/slack-update.conf',
+        'probe_scope': 'standalone-read-only-target-observation-plus-ephemeral-network-namespace-capability-check',
+        'target_repository_required': False,
+        'source_identity_origin': 'controller-repo-frozen-into-standalone-probe',
+        'reference_script_path_on_controller': 'tools/reference/slack-update-reference.sh',
+        'reference_script_sha256': reference_sha,
+        'effective_config_path_on_controller': 'data/config/slack-update.conf',
+        'effective_config_sha256': config_sha,
         'required_binding_fields': [
             'hostname',
             'hostname-fqdn',
             'uname-release',
             'slackware-version',
             'boot-id',
-            'repo-root',
             'reference-script-sha256',
             'effective-config-sha256',
+            'source-identity-origin',
+            'target-repository-required',
             'probe-sha256',
         ],
         'required_capability_observations': [
@@ -145,7 +155,7 @@ policy = {
         'reboot_allowed': False,
         'persistent_system_configuration_change_allowed': False,
         'missing_capability_action': 'block-and-report-without-installing-or-changing-target',
-        'binding_success_rule': 'expected-fqdn-all-required-files-and-capabilities-present-read-only-probe-pass',
+        'binding_success_rule': 'expected-fqdn-embedded-source-identities-and-all-required-capabilities-present-read-only-probe-pass',
         'binding_failure_rule': 'stop-before-executor-implementation-and-report-observation',
     },
     'gates': {
@@ -177,6 +187,7 @@ policy = {
 
 record_rows = [
     ('check', 'value'),
+    ('revision', 'r1-standalone-probe'),
     ('accepted_runtime_boundary_design_step', '180'),
     ('accepted_runtime_boundary_design_policy_sha256', design_policy_sha),
     ('accepted_runtime_boundary_design_record_sha256', design_record_sha),
@@ -187,8 +198,12 @@ record_rows = [
     ('expected_hostname_fqdn', 'vbox-slackcurrent.vbox-slackcurrent.org'),
     ('binding_probe_sha256', probe_sha),
     ('probe_execution', 'root-via-sudo'),
-    ('reference_script_path', 'tools/reference/slack-update-reference.sh'),
-    ('effective_config_path', 'data/config/slack-update.conf'),
+    ('target_repository_required', 'no'),
+    ('source_identity_origin', 'controller-repo-frozen-into-standalone-probe'),
+    ('reference_script_path_on_controller', 'tools/reference/slack-update-reference.sh'),
+    ('reference_script_sha256', reference_sha),
+    ('effective_config_path_on_controller', 'data/config/slack-update.conf'),
+    ('effective_config_sha256', config_sha),
     ('repository_refresh_allowed', 'no'),
     ('successful_external_network_access_required', 'no'),
     ('package_mutation_allowed', 'no'),

@@ -1,52 +1,56 @@
 # Phase 1 execution-control failure-paths runtime target-binding review
 
-Step 181 consumes the accepted step-180 runtime-boundary design and freezes the
-read-only target-binding review for the **`execution-control-failure-paths`**
-family. The selected target is the Slackware-current validation VM with FQDN
-`vbox-slackcurrent.vbox-slackcurrent.org`.
+Step 181-r1 revises the accepted step-181 target-binding observation after the
+first VM probe correctly reported that no `slack-update` repository was present
+on the validation VM. The runtime-boundary contract from step 180 remains
+unchanged: the binding must record the reference-script and effective-config
+SHA-256 identities, but the target itself does not need to host the repository.
 
-## Read-only runtime observation
+## Standalone runtime observation
 
-The runtime observation is performed by
-`tools/reference/phase-1-execution-control-failure-paths-runtime-target-binding-probe.sh`. It must be run through `sudo` on the validation VM. It reads the
-hostname, FQDN, running kernel, Slackware version, boot ID, and the SHA-256
-identities of `tools/reference/slack-update-reference.sh` and
-`data/config/slack-update.conf`. It also verifies the capabilities required by
-the frozen step-180 design: Bash, Python 3, SHA-256 tooling, tar, `flock`,
-process/signal tools, `crontab`, a running `crond`, and creation of an ephemeral
-network namespace.
+The revised probe at
+`tools/reference/phase-1-execution-control-failure-paths-runtime-target-binding-probe.sh`
+is materialized by the overlay on the controller repository. During that
+materialization, the SHA-256 identities of
+`tools/reference/slack-update-reference.sh` and
+`data/config/slack-update.conf` are embedded directly into the probe. The
+resulting single file can therefore be copied to the Slackware-current
+validation VM without copying, cloning, or refreshing the repository there.
+
+The probe must be run through `sudo` on
+`vbox-slackcurrent.vbox-slackcurrent.org`. It reads hostname, FQDN, running
+kernel, Slackware version and boot ID, reports the two embedded controller-side
+source identities, and verifies the capabilities required by the frozen
+step-180 design: Bash, Python 3, SHA-256 tooling, tar, `flock`, process/signal
+tools, `crontab`, a running `crond`, and creation of an ephemeral network
+namespace.
 
 The `unshare --net` check only creates a temporary namespace and runs `true`;
 it does not contact an external network or change host networking. The root
 crontab check is read-only. The probe must not refresh repositories, install or
 remove packages, modify boot state, reboot, or alter persistent configuration.
-If a required capability is absent, the chain stops and reports the missing
-capability instead of changing the VM.
+If a capability is absent, the chain stops instead of changing the VM.
 
-The probe can discover the established VM repo paths
-`/home/promano/GitHub/slack-update` or
-`/home/promano/Descargas/slack-update-main`; if discovery is ambiguous, an
-explicit `--repo-root` is required. A successful observation prints a TSV
-record beginning with `binding_status	PASS`. That complete output is the input
-to step 182, which will freeze the exact target binding before any runtime
-executor implementation is authorized.
+A successful observation starts with `binding_status\tPASS` and also reports
+`target-repository-required\tno` and
+`source-identity-origin\tcontroller-repo-frozen-at-step-181-r1`. The complete
+output is the input to step 182, which will freeze the exact target binding
+before any runtime executor implementation is authorized.
 
 ## Authorization boundary
 
-Step 181 authorizes only this read-only target observation and, after a
-successful observation, the next target-binding freeze. It does **not**
-authorize the four failure-path scenarios, implementation of their runtime
-executor, repository refresh, network refresh, package actions, boot actions,
-reboot, or Phase 2. A later Slackware-current publication does not invalidate
-this identity/capability review because no live package candidate set is bound.
+Step 181-r1 changes only the mechanics of source/configuration identity
+transport. It preserves the step-181 authorization boundary: only the read-only
+target observation is allowed. The four failure-path scenarios, their runtime
+executor, repository/network refresh, package actions, boot actions, reboot,
+and Phase 2 remain unauthorized. A later Slackware-current publication does
+not invalidate this identity/capability review because no live package
+candidate set is bound.
 
 The acceptance matrix remains incomplete and this is not the requested
-end-of-session strong safe pause.
-
-Frozen helper SHA-256: `b186507eb8e94312e6360142e1dc797b63ba46a55f5d3a7b2aa729b6fd5ccd72`.  
-Frozen probe SHA-256: `a2f54a55ff191cec920b067130c0e4520d4987b01755e9170762f1738656ecfe`.  
-Frozen policy SHA-256: `38d595562c77071df235f788b0bae08b5a7ceb0112265b485226c6307772647f`.  
-Frozen record SHA-256: `6325a4e1b39fa705ce0d34a464f4971380f89fa6580740d671769dc3991295b0`.
+end-of-session strong safe pause. Exact helper, probe, source, configuration,
+policy and record SHA-256 identities are frozen and cross-checked by the policy,
+record and step-181 harness after overlay application.
 
 The next stage is
 `phase-1-execution-control-failure-paths-runtime-target-binding-freeze`.
