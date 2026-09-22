@@ -1127,3 +1127,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Preserved the step-180 binding contract, including `reference-script-sha256` and `effective-config-sha256`, while making their origin explicit as the accepted controller repository rather than target-resident files.
 - Preserved the read-only runtime boundary: no repository/network refresh, package or boot mutation, reboot, persistent configuration change, runtime executor implementation, or failure-path scenario execution is authorized.
 - Next stage after a successful standalone observation: `phase-1-execution-control-failure-paths-runtime-target-binding-freeze`; `pause_safe=false`.
+
+## Phase 1 step 182 execution-control runtime target-binding freeze
+
+- Froze the successful step-181-r1 standalone observation as the exact Slackware-current validation target for the selected execution-control failure-path family.
+- Bound the runtime chain to FQDN `vbox-slackcurrent.vbox-slackcurrent.org`, kernel `6.18.45`, boot ID `cb85100b-9993-4876-ab32-b2457ed0ac6d`, and the accepted controller reference/configuration/probe SHA-256 identities.
+- Recorded all required runtime capabilities as PASS and preserved the observed no-refresh/no-network/no-package/no-boot/no-restart/no-persistent-change boundary.
+- Defined binding invalidation: target reboot, running-kernel change, or controller reference/configuration identity change returns the chain to target-binding review; a later Slackware-current publication alone does not invalidate the binding.
+- Authorized only the next repository stage, runtime-executor implementation design; runtime executor implementation and all four runtime scenarios remain unauthorized. `pause_safe=false`.
