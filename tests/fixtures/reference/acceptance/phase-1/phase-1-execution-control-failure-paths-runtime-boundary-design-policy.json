@@ -1,0 +1,137 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-execution-control-failure-paths-runtime-boundary-design",
+  "review_only": true,
+  "accepted_contract": {
+    "step": 179,
+    "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-execution-control-failure-paths-contract-freeze-policy.json",
+    "policy_sha256": "5ea897b193250dd99d9f7ac988cdd2fc95f1bc48df41c8d6189b6a689e1c1dd9",
+    "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-execution-control-failure-paths-contract-freeze.tsv",
+    "record_sha256": "7a6ed7b1342f8d741debdc40de7d39bf1063fb84cb0e57e6f60f8e42db9f4bd6",
+    "family": "execution-control-failure-paths",
+    "scenario_count": 4
+  },
+  "runtime_boundary_design": {
+    "state": "frozen",
+    "target_class": "slackware-current-runtime-validation-vm",
+    "target_binding_deferred": true,
+    "target_binding_must_record": [
+      "hostname",
+      "hostname-fqdn",
+      "uname-release",
+      "slackware-version",
+      "boot-id",
+      "reference-script-sha256",
+      "effective-config-sha256"
+    ],
+    "planned_acceptance_executor_path": "tests/acceptance/reference/test-execution-control-failure-paths.sh",
+    "planned_execution_acknowledgement": "--execute-runtime-validation",
+    "privilege_boundary": "root-via-sudo",
+    "runtime_evidence_root": "/var/tmp/slack-update-acceptance/execution-control-failure-paths",
+    "published_archive_path": "/home/promano/slack-update-phase-1-execution-control-failure-paths-evidence.tar.gz",
+    "published_sha256_path": "/home/promano/slack-update-phase-1-execution-control-failure-paths-evidence.tar.gz.sha256",
+    "published_owner": "promano:users",
+    "published_mode": "0600",
+    "required_capabilities": [
+      "bash",
+      "python3",
+      "sha256sum",
+      "tar",
+      "flock",
+      "unshare-network-namespace",
+      "kill",
+      "ps",
+      "crontab",
+      "running-crond"
+    ],
+    "missing_capability_action": "block-without-installing-or-changing-the-target",
+    "repository_refresh_allowed": false,
+    "successful_network_access_allowed": false,
+    "package_mutation_allowed": false,
+    "boot_mutation_allowed": false,
+    "reboot_allowed": false,
+    "source_change_allowed_on_target": false,
+    "persistent_system_configuration_change_allowed": false,
+    "scenario_designs": [
+      {
+        "id": "network-failure-before-repository-synchronization",
+        "method": "run-the-reference-check-inside-a-temporary-network-namespace-with-no-usable-external-interface",
+        "host_network_configuration_change": false,
+        "successful_repository_synchronization_allowed": false,
+        "required_observation": "network-or-repository-stage-fails-before-any-successful-synchronization-and-control-state-is-clean"
+      },
+      {
+        "id": "simultaneous-execution-attempt",
+        "method": "start-a-real-reference-process-at-a-safe-check-path-observe-lock-acquisition-stop-it-temporarily-then-start-a-second-real-attempt",
+        "first_process_package_or_boot_mutation_allowed": false,
+        "second_process_may_acquire_execution_lock": false,
+        "required_observation": "second-attempt-is-rejected-while-first-lock-is-live-and-final-lock-state-is-clean"
+      },
+      {
+        "id": "signals-during-safe-test-operations",
+        "method": "for-each-required-signal-start-a-real-safe-check-process-observe-lock-acquisition-and-deliver-the-signal-before-any-mutating-stage",
+        "signals": [
+          "SIGINT",
+          "SIGTERM",
+          "SIGHUP"
+        ],
+        "expected_statuses": {
+          "SIGINT": 130,
+          "SIGTERM": 143,
+          "SIGHUP": 129
+        },
+        "one_signal_per_run": true,
+        "required_observation": "signal-status-is-observable-lock-is-released-and-temporary-control-state-is-clean"
+      },
+      {
+        "id": "cron-without-interactive-terminal",
+        "method": "install-one-temporary-root-crontab-entry-that-launches-the-bounded-safe-check-wrapper-with-no-terminal-wait-for-one-run-then-restore-the-exact-prior-crontab",
+        "real_cron_required": true,
+        "existing_root_crontab_must_be_backed_up_and_restored_exactly": true,
+        "persistent_cron_entry_allowed_after_test": false,
+        "required_observation": "cron-run-has-no-interactive-terminal-produces-deterministic-evidence-and-leaves-the-original-crontab-exactly-restored"
+      }
+    ],
+    "pre_post_evidence": [
+      "installed-package-database-manifest",
+      "running-kernel-and-command-line",
+      "boot-artifact-fingerprint-set",
+      "execution-lock-state",
+      "runtime-work-and-log-state",
+      "root-crontab-byte-state"
+    ],
+    "cleanup_requirements": [
+      "no-live-test-process",
+      "execution-lock-released",
+      "temporary-network-namespace-gone",
+      "temporary-cron-entry-gone",
+      "original-root-crontab-restored-byte-for-byte",
+      "temporary-acceptance-runtime-files-removed-or-contained-in-root-only-evidence"
+    ],
+    "success_rule": "all-four-scenarios-and-all-three-signal-runs-pass-with-identical-package-and-boot-state-and-clean-control-state",
+    "failure_rule": "stop-the-chain-preserve-evidence-clean-temporary-control-state-and-do-not-proceed-to-family-closure"
+  },
+  "gates": {
+    "acceptance_matrix_complete": false,
+    "reference_freeze_status": "blocked-behind-remaining-acceptance-work",
+    "c_port_status": "blocked-by-phase-1-gate"
+  },
+  "authorization": {
+    "target_binding_review_authorized_for_next_stage": true,
+    "runtime_executor_implementation_authorized": false,
+    "runtime_execution_authorized": false,
+    "repository_refresh_authorized": false,
+    "network_refresh_authorized": false,
+    "package_action_authorized": false,
+    "boot_action_authorized": false,
+    "reboot_authorized": false,
+    "phase_2_start_authorized": false
+  },
+  "machine_action_required": false,
+  "slackware_current_publication_invalidates_design": false,
+  "helper_path": "tools/reference/phase-1-execution-control-failure-paths-runtime-boundary-design.sh",
+  "helper_sha256": "abaea6bcb3fa132b1379ac8ca3e7ed3b28e77e21956a95f5cd1f019ac2f1b6f6",
+  "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-execution-control-failure-paths-runtime-boundary-design.tsv",
+  "next_stage": "phase-1-execution-control-failure-paths-runtime-target-binding-review",
+  "pause_safe": false
+}

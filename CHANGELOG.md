@@ -1104,3 +1104,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Froze no-package/no-boot-mutation, cleanup, evidence, and target-binding requirements while keeping the exact VM binding deferred.
 - Granted no machine, network, repository-refresh, package, boot, reboot, source, or Phase 2 authority; only the next runtime-boundary design stage is authorized.
 - Next stage: `phase-1-execution-control-failure-paths-runtime-boundary-design`.
+
+## Phase 1 step 180 execution-control failure-paths runtime-boundary design — 2026-09-22
+
+- Consumed the accepted step-179 four-scenario contract and froze a non-mutating Slackware-current runtime-boundary design.
+- Designed network failure through a temporary network namespace, real-lock contention, separate SIGINT/SIGTERM/SIGHUP trials, and one real cron/no-TTY run with exact root-crontab restoration.
+- Froze target-binding, capability, package/boot invariance, cleanup, and private evidence-publication requirements without binding a VM or implementing the runtime executor.
+- Granted no runtime execution, repository-refresh, successful-network, package, boot, reboot, target-source-change, persistent-system-configuration, or Phase 2 authority; only the next target-binding review is authorized.
+- Next stage: `phase-1-execution-control-failure-paths-runtime-target-binding-review`.
