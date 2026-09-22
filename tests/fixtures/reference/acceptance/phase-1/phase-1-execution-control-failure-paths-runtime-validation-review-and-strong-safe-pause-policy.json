@@ -1,0 +1,125 @@
+{
+  "accepted_runtime_validation": {
+    "boot_id": "cb85100b-9993-4876-ab32-b2457ed0ac6d",
+    "derived_config_sha256": "5ce1ae35abe6c9f1fd92ef1d7f2fa2c6d31215f0a97c675e71a3a8a8f79cf79a",
+    "evidence_archive_path": "/home/promano/slack-update-phase-1-execution-control-failure-paths-evidence.tar.gz",
+    "evidence_archive_sha256": "da2f111515e9b7ddc322ca4403cfa543b5710c1c05b94c6fa7dca2a5c336290d",
+    "evidence_sha256_file_path": "/home/promano/slack-update-phase-1-execution-control-failure-paths-evidence.tar.gz.sha256",
+    "evidence_sha256_file_sha256": "d8c78699ded46b642ff2eb1bf0c4ad349ed23b2febbc12fd6cd8751ee711aa05",
+    "hostname_fqdn": "vbox-slackcurrent.vbox-slackcurrent.org",
+    "published_mode": "0600",
+    "published_owner": "promano:users",
+    "rerun_status": "PASS",
+    "safety_results": {
+      "boot_artifacts_unchanged": true,
+      "lock_clean": true,
+      "package_database_unchanged": true,
+      "root_crontab_restored_exactly": true,
+      "runtime_binding_preserved": true,
+      "slackpkg_state_unchanged": true
+    },
+    "scenario_results": {
+      "cron_without_interactive_terminal": {
+        "driver_state": "completed",
+        "status": "PASS",
+        "tty_state": "absent"
+      },
+      "network_failure": {
+        "fail_closed": true,
+        "reference_exit_code": 1,
+        "status": "PASS"
+      },
+      "signal_SIGHUP": {
+        "exit_code": 129,
+        "status": "PASS"
+      },
+      "signal_SIGINT": {
+        "exit_code": 130,
+        "status": "PASS"
+      },
+      "signal_SIGTERM": {
+        "exit_code": 143,
+        "status": "PASS"
+      },
+      "simultaneous_execution": {
+        "first_exit_code": 0,
+        "second_exit_code": 6,
+        "status": "PASS"
+      }
+    },
+    "step": 187,
+    "uname_release": "6.18.45"
+  },
+  "accepted_source_remediation": {
+    "acceptance_harness_sha256": "0ce04751466f0c31cd55f96f8e3d79e41153655c65b14bf54ee42aa80b18268f",
+    "builder_sha256": "1fd71518ac2fcd4033e6768326959ec49ccc7d61acc096566862ba17bfbaca6b",
+    "effective_config_sha256": "4845e2c5038fe8896409f90b6287de33a011a76874229cb76479aa6cd4253bba",
+    "executor_sha256": "262ce8667437ed9de94682ec31773094409e286cd721d4a351963cd59b59fecc",
+    "network_failure_defect_classification": "reference-check-fail-open-on-unreachable-mirror",
+    "reference_script_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415",
+    "remediation_state": "accepted",
+    "review_revision": "187-r3"
+  },
+  "authorization": {
+    "boot_action_authorized": false,
+    "documentation_change_authorized": false,
+    "future_work_requires_explicit_authorization": true,
+    "future_work_requires_fresh_boundary": true,
+    "machine_execution_authorized": false,
+    "network_refresh_authorized": false,
+    "package_action_authorized": false,
+    "phase_2_start_authorized": false,
+    "reboot_authorized": false,
+    "repository_refresh_authorized": false,
+    "runtime_scenario_execution_authorized": false,
+    "source_change_authorized": false
+  },
+  "closed_family": {
+    "closure_status": "accepted",
+    "family": "execution-control-failure-paths",
+    "replay_required_by_default": false,
+    "scenario_count": 4
+  },
+  "continuation": {
+    "next_family_selection_required": true,
+    "no_runtime_family_preselected": true,
+    "repository_refresh_must_be_justified_by_selected_scenario": true,
+    "selection_must_occur_after_fresh_boundary": true
+  },
+  "evidence": {
+    "review_helper_sha256": "296617f1e499a74151b68c96d08fb90273a0acbd30b566dcced6cc1a9f504fae",
+    "step_175_policy_sha256": "819a5696fb9854f64a012ba6091750b40c1d658e5edd61a93c0c1e03264b16fe",
+    "step_175_record_sha256": "ad4697b230ab2b22a6d3cdf2e4cc2c74a61e469b9d70da11e7f25082265dd5ff",
+    "step_187_r3_policy_sha256": "b4f09cafce7b2e6f4fc45b451f010b7ff683be259fab8a3872b3a7c3e3bdb569",
+    "step_187_r3_record_sha256": "efc3f04b821f40b388935870c458b34ca7407aef66af91328e7953ad086caa16"
+  },
+  "gates": {
+    "acceptance_matrix_complete": false,
+    "c_port_status": "blocked-by-phase-1-gate",
+    "phase_2_start_authorized": false,
+    "reference_freeze_status": "blocked-behind-remaining-acceptance-work"
+  },
+  "next_stage": "phase-1-acceptance-matrix-remainder-resume-planning",
+  "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-execution-control-failure-paths-runtime-validation-review-and-strong-safe-pause.tsv",
+  "remaining_inventory": {
+    "candidate_set_bound": false,
+    "contains_machine_work": true,
+    "family_count": 5,
+    "machine_work_authorized": false,
+    "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-acceptance-matrix-remainder-after-execution-control-closure.tsv",
+    "record_sha256": "8aa3f1dbe177ec336025f4b3983e22b07205d8bf72fb214442704764131094e9",
+    "scenario_count": 20,
+    "source_inventory_step": 175
+  },
+  "review_only": true,
+  "safe_pause": {
+    "accepted_runtime_closure_remains_valid_across_publication": true,
+    "machine_action_required": false,
+    "no_open_operational_authorization": true,
+    "pause_safe": true,
+    "slackware_current_publication_invalidates_checkpoint": false,
+    "strong_safe_pause": true
+  },
+  "scenario": "phase-1-execution-control-failure-paths-runtime-validation-review-and-strong-safe-pause",
+  "schema": 1
+}
