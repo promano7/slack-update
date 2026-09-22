@@ -1,0 +1,152 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-execution-control-failure-paths-runtime-executor-implementation-design",
+  "review_only": true,
+  "accepted_target_binding": {
+    "step": 182,
+    "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-execution-control-failure-paths-runtime-target-binding-freeze-policy.json",
+    "policy_sha256": "2d14aef443f78ac3982538dc6cdb53d844cb987459ee824db4cf8d7b3c77f092",
+    "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-execution-control-failure-paths-runtime-target-binding-freeze.tsv",
+    "record_sha256": "ca54d25b07938c9dfc9240f670fa0a5d03b47c35dd3e133e0a7fe8305eea2f49",
+    "hostname_fqdn": "vbox-slackcurrent.vbox-slackcurrent.org",
+    "uname_release": "6.18.45",
+    "boot_id": "cb85100b-9993-4876-ab32-b2457ed0ac6d",
+    "reference_script_sha256": "086b28b42be3135ebf47a28c1fcd2e5652f8fdd261e696ad48e612a241edf4ea",
+    "effective_config_sha256": "4845e2c5038fe8896409f90b6287de33a011a76874229cb76479aa6cd4253bba"
+  },
+  "runtime_executor_implementation_design": {
+    "state": "frozen",
+    "family": "execution-control-failure-paths",
+    "scenario_count": 4,
+    "controller_builder_path": "tools/reference/phase-1-execution-control-failure-paths-runtime-executor-build.sh",
+    "standalone_executor_path": "tools/reference/phase-1-execution-control-failure-paths-runtime-executor.sh",
+    "repository_acceptance_harness_path": "tests/acceptance/reference/test-execution-control-failure-paths.sh",
+    "target_requires_repository": false,
+    "payload_form": "single-self-contained-shell-script",
+    "payload_generation": "controller-generated-from-frozen-reference-script-and-effective-config",
+    "embedded_reference_script_sha256": "086b28b42be3135ebf47a28c1fcd2e5652f8fdd261e696ad48e612a241edf4ea",
+    "embedded_effective_config_sha256": "4845e2c5038fe8896409f90b6287de33a011a76874229cb76479aa6cd4253bba",
+    "runtime_acknowledgement": "--execute-runtime-validation",
+    "privilege_boundary": "root-via-sudo",
+    "pre_execution_binding_gate": {
+      "same_hostname_fqdn_required": true,
+      "same_uname_release_required": true,
+      "same_boot_id_required": true,
+      "embedded_reference_script_sha256_required": true,
+      "embedded_effective_config_sha256_required": true,
+      "drift_action": "stop-before-any-scenario-and-return-to-target-binding-review"
+    },
+    "runtime_evidence_root": "/var/tmp/slack-update-acceptance/execution-control-failure-paths",
+    "published_archive_path": "/home/promano/slack-update-phase-1-execution-control-failure-paths-evidence.tar.gz",
+    "published_sha256_path": "/home/promano/slack-update-phase-1-execution-control-failure-paths-evidence.tar.gz.sha256",
+    "published_owner": "promano:users",
+    "published_mode": "0600",
+    "runtime_config_derivation": {
+      "source_must_match_frozen_effective_config_sha256": true,
+      "allowed_overrides": [
+        "core.work_dir",
+        "core.log_dir",
+        "core.lock_file"
+      ],
+      "override_scope": "root-owned-temporary-evidence-tree-only",
+      "all_other_configuration_values_must_remain_identical": true,
+      "derived_config_sha256_must_be_recorded": true
+    },
+    "reference_driver_design": {
+      "mode": "source-exact-frozen-reference-script-with-main-guard-inactive",
+      "functions_used_for-safe-control-tests": [
+        "initialize_execution_environment",
+        "load_configuration",
+        "require_root",
+        "acquire_instance_lock",
+        "install_runtime_traps",
+        "release_instance_lock"
+      ],
+      "package_or_boot_workflow_may_run": false,
+      "safe_hold_mechanism": "executor-owned-fifo-after-real-reference-lock-acquisition"
+    },
+    "scenario_implementations": [
+      {
+        "id": "network-failure-before-repository-synchronization",
+        "execution": "run-the-exact-frozen-reference-script-with---check-inside-an-ephemeral-network-namespace-using-the-derived-runtime-config",
+        "successful_external_network_access_allowed": false,
+        "required_result": "reference-check-fails-before-successful-repository-synchronization-and-control-state-is-clean"
+      },
+      {
+        "id": "simultaneous-execution-attempt",
+        "execution": "start-safe-reference-driver-hold-after-real-lock-acquisition-then-start-a-second-safe-reference-driver-against-the-same-lock",
+        "expected_second_exit_code": 6,
+        "required_result": "second-attempt-rejected-while-first-lock-is-live-then-first-process-released-and-lock-clean"
+      },
+      {
+        "id": "signals-during-safe-test-operations",
+        "execution": "for-each-signal-start-safe-reference-driver-hold-after-real-lock-acquisition-deliver-signal-and-observe-cleanup",
+        "signals": {
+          "SIGINT": 130,
+          "SIGTERM": 143,
+          "SIGHUP": 129
+        },
+        "required_result": "each-signal-exit-code-observed-and-lock-clean-after-each-run"
+      },
+      {
+        "id": "cron-without-interactive-terminal",
+        "execution": "install-one-temporary-root-crontab-entry-that-runs-the-safe-reference-driver-wrapper-records-no-tty-state-and-completion-then-restore-the-prior-root-crontab",
+        "real_running_crond_required": true,
+        "maximum_wait_seconds": 90,
+        "required_result": "one-real-cron-run-completes-without-interactive-terminal-and-prior-root-crontab-is-restored-exactly"
+      }
+    ],
+    "pre_post_fingerprints": [
+      "package-database-content-manifest",
+      "running-kernel",
+      "proc-cmdline",
+      "boot-artifact-content-and-symlink-manifest",
+      "execution-lock-state",
+      "runtime-work-and-log-state",
+      "root-crontab-state"
+    ],
+    "global_mutation_guards": {
+      "repository_refresh_allowed": false,
+      "successful_external_network_access_allowed": false,
+      "package_mutation_allowed": false,
+      "boot_mutation_allowed": false,
+      "reboot_allowed": false,
+      "persistent_configuration_change_allowed": false,
+      "target_source_installation_allowed": false
+    },
+    "cleanup_gate": [
+      "no-live-test-process",
+      "reference-lock-released",
+      "temporary-network-namespace-gone",
+      "temporary-cron-entry-gone",
+      "prior-root-crontab-restored-exactly",
+      "runtime-files-contained-under-evidence-root"
+    ],
+    "evidence_archive_rule": "publish-only-after-cleanup-gate-and-post-fingerprint-capture",
+    "failure_rule": "preserve-evidence-at-current-stage-clean-temporary-control-state-stop-chain-and-do-not-run-later-scenarios",
+    "success_rule": "all-four-scenarios-and-three-signal-runs-pass-with-identical-package-and-boot-fingerprints-and-clean-control-state"
+  },
+  "gates": {
+    "acceptance_matrix_complete": false,
+    "reference_freeze_status": "blocked-behind-remaining-acceptance-work",
+    "c_port_status": "blocked-by-phase-1-gate"
+  },
+  "authorization": {
+    "runtime_executor_implementation_authorization_review_authorized_for_next_stage": true,
+    "runtime_executor_implementation_authorized": false,
+    "runtime_scenario_execution_authorized": false,
+    "repository_refresh_authorized": false,
+    "network_refresh_authorized": false,
+    "package_action_authorized": false,
+    "boot_action_authorized": false,
+    "reboot_authorized": false,
+    "phase_2_start_authorized": false
+  },
+  "machine_action_required": false,
+  "slackware_current_publication_invalidates_design": false,
+  "helper_path": "tools/reference/phase-1-execution-control-failure-paths-runtime-executor-implementation-design.sh",
+  "helper_sha256": "3e4db3a9e945b1dc070daff1924a4b0e2344060251edb82ab5622c17e6602d0d",
+  "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-execution-control-failure-paths-runtime-executor-implementation-design.tsv",
+  "next_stage": "phase-1-execution-control-failure-paths-runtime-executor-implementation-authorization-review",
+  "pause_safe": false
+}

@@ -1135,3 +1135,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Recorded all required runtime capabilities as PASS and preserved the observed no-refresh/no-network/no-package/no-boot/no-restart/no-persistent-change boundary.
 - Defined binding invalidation: target reboot, running-kernel change, or controller reference/configuration identity change returns the chain to target-binding review; a later Slackware-current publication alone does not invalidate the binding.
 - Authorized only the next repository stage, runtime-executor implementation design; runtime executor implementation and all four runtime scenarios remain unauthorized. `pause_safe=false`.
+
+## Phase 1 step 183 execution-control runtime-executor implementation design
+
+- Froze the standalone runtime-executor implementation design for the four selected execution-control failure paths.
+- Preserved the exact step-182 FQDN, kernel, boot-ID, reference-script, and effective-configuration binding as a mandatory pre-execution gate.
+- Defined a controller-generated single-file payload so the Slackware-current VM does not require a repository checkout.
+- Limited derived runtime configuration changes to temporary work, log, and lock paths inside the evidence tree.
+- Froze deterministic lock, signal, network-namespace, cron, fingerprint, cleanup, and evidence-publication rules without authorizing implementation or runtime execution.
