@@ -1112,3 +1112,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Froze target-binding, capability, package/boot invariance, cleanup, and private evidence-publication requirements without binding a VM or implementing the runtime executor.
 - Granted no runtime execution, repository-refresh, successful-network, package, boot, reboot, target-source-change, persistent-system-configuration, or Phase 2 authority; only the next target-binding review is authorized.
 - Next stage: `phase-1-execution-control-failure-paths-runtime-target-binding-review`.
+
+## Phase 1 step 181 execution-control failure-paths runtime target-binding review
+
+- Accepted step 180 runtime-boundary design and froze the read-only target-binding review for `vbox-slackcurrent.vbox-slackcurrent.org`.
+- Added an autonomous root-via-sudo probe that records VM identity, source/configuration hashes, required capabilities, running `crond`, root-crontab readability, and ephemeral network-namespace support without repository refresh, external network access, package/boot mutation, reboot, or persistent configuration change.
+- Runtime target observation is the only machine action authorized by this step; the four failure-path scenarios and their executor remain unauthorized.
+- Next stage: `phase-1-execution-control-failure-paths-runtime-target-binding-freeze`; `pause_safe=false`.
