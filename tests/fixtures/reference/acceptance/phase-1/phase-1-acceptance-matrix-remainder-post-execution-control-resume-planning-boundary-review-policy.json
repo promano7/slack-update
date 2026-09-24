@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-acceptance-matrix-remainder-post-execution-control-resume-planning-boundary-review",
+  "review_only": true,
+  "accepted_checkpoint": {
+    "step": 188,
+    "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-execution-control-failure-paths-runtime-validation-review-and-strong-safe-pause-policy.json",
+    "policy_sha256": "b7a78b9dfbb6eeb3c802820a2566deae96f43c5dace3a22a8e88ab513f623d63",
+    "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-execution-control-failure-paths-runtime-validation-review-and-strong-safe-pause.tsv",
+    "record_sha256": "427e07e26cfc9449c0df3e0bd20cc97dfcc681825e1a073d0d83ea9fd49969fb",
+    "strong_safe_pause": true,
+    "closed_family": "execution-control-failure-paths",
+    "closed_family_replay_required_by_default": false,
+    "accepted_runtime_closure_remains_valid_across_publication": true
+  },
+  "fresh_boundary": {
+    "opened": true,
+    "scope": "phase-1-acceptance-matrix-remainder-resume-planning",
+    "purpose": "select one residual Phase 1 family without inheriting step-187 runtime authority or reopening the closed execution-control family",
+    "candidate_set_bound": false,
+    "family_selected_for_execution": false,
+    "live_runtime_chain_open": false,
+    "slackware_current_publication_invalidates_boundary": false
+  },
+  "inventory": {
+    "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-acceptance-matrix-remainder-after-execution-control-closure.tsv",
+    "record_sha256": "8aa3f1dbe177ec336025f4b3983e22b07205d8bf72fb214442704764131094e9",
+    "family_count": 5,
+    "scenario_count": 20,
+    "inventory_consistent": true,
+    "closed_execution_control_family_excluded": true,
+    "accepted_closed_families_must_not_be_replayed": true,
+    "remaining_work_requires_fresh_scenario_boundary": true
+  },
+  "gates": {
+    "acceptance_matrix_complete": false,
+    "reference_freeze_status": "blocked-behind-remaining-acceptance-work",
+    "c_port_status": "blocked-by-phase-1-gate"
+  },
+  "authorization": {
+    "source_change_authorized": false,
+    "documentation_change_authorized": false,
+    "repository_refresh_authorized": false,
+    "network_refresh_authorized": false,
+    "machine_execution_authorized": false,
+    "package_action_authorized": false,
+    "boot_action_authorized": false,
+    "reboot_authorized": false,
+    "runtime_scenario_execution_authorized": false,
+    "phase_2_start_authorized": false,
+    "future_work_requires_explicit_authorization": true
+  },
+  "machine_action_required": false,
+  "pause_safe": false,
+  "evidence": {
+    "boundary_helper_sha256": "97d111172833e386d7761cc1fdcedf0868ffc062b6230b56e73091a5d363393a"
+  },
+  "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-acceptance-matrix-remainder-post-execution-control-resume-planning-boundary-review.tsv",
+  "next_stage": "phase-1-acceptance-matrix-remainder-post-execution-control-family-selection-freeze"
+}

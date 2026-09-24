@@ -1205,3 +1205,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Reduced the Phase 1 acceptance remainder from six families / 24 scenarios to five families / 20 scenarios.
 - Revoked the consumed runtime authorization and established a strong safe pause with no runtime family selected and no operational authorization left open.
 - Kept the acceptance matrix incomplete, `reference-v1`, C port, and Phase 2 blocked; next stage is `phase-1-acceptance-matrix-remainder-resume-planning`.
+
+## Phase 1 step 189 post-execution-control remainder resume-planning boundary review — 2026-09-24
+
+- Resumed from the accepted step-188 execution-control strong-safe-pause checkpoint and opened a fresh repository-only boundary for the remaining Phase 1 acceptance work.
+- Preserved the exact five-family / 20-scenario residual inventory and kept the closed `execution-control-failure-paths` family excluded from default replay.
+- Selected no runtime family, bound no live candidate set, opened no runtime chain, and inherited no step-187 runtime authorization.
+- Granted no source/documentation, repository/network refresh, machine, package, boot, reboot, runtime-scenario, or Phase 2 authorization.
+- Preserved all Phase 1 gates and routed the next step to `phase-1-acceptance-matrix-remainder-post-execution-control-family-selection-freeze`.
