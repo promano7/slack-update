@@ -1255,3 +1255,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Read package records and compute the package-database manifest from the canonical directory while preserving a fail-closed layout check.
 - Preserved the step-193 authorization boundary: the rerun remains read-only and authorizes no repository refresh, network access, package mutation, boot mutation, persistent configuration change, or reboot.
 - The next stage remains `phase-1-kernel-package-edge-runtime-target-binding-freeze` only after a successful corrected observation.
+
+## Phase 1 step 193-r2 kernel-package-edge boot-package observation remediation
+
+- Corrected the standalone step-193 target-binding probe after the live Slackware-current VM showed that not every configured cross-release boot-sensitive package name is installed on the target.
+- Preserved the configured boot-sensitive policy set `kernel-generic kernel-huge kernel-modules` without treating absence of a configured name as an observation failure.
+- Required each configured boot-sensitive name to resolve to zero or one installed package record, rejected ambiguous multiple records, required at least one configured boot-sensitive package to be installed, and recorded per-name `installed`/`absent` status.
+- Preserved the header requirement of exactly one installed `kernel-headers` record, the canonical pkgtools database checks introduced by step 193-r1, and the complete read-only authorization boundary.
+- No repository refresh, network access, package mutation, boot mutation, persistent configuration change, or reboot is authorized; the next stage remains `phase-1-kernel-package-edge-runtime-target-binding-freeze` only after a successful corrected observation.

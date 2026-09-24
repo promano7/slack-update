@@ -8,7 +8,7 @@ target_binding_review_state	runtime-observation-required
 target_class	slackware-current-runtime-validation-vm
 expected_hostname_fqdn	vbox-slackcurrent.vbox-slackcurrent.org
 binding_probe_path	tools/reference/phase-1-kernel-package-edge-runtime-target-binding-probe.sh
-binding_probe_sha256	da2540ccf76749d625721529c660f57861720f3f0e70814ae6fd9865123ea5b6
+binding_probe_sha256	bda22255aaa1db2dad4f8a28ed89719ddc89dbb03989fa3facd0a19c6d65ac6f
 probe_execution	root-via-sudo
 probe_scope	standalone-read-only-target-identity-package-state-and-capability-observation
 target_repository_required	no
@@ -20,6 +20,9 @@ configured_kernel_boot	kernel-generic kernel-huge kernel-modules
 package_database	/var/log/packages
 package_database_canonical	/var/lib/pkgtools/packages
 package_database_resolution_required	yes
+boot_package_records_must_be_unambiguous	yes
+at_least_one_configured_boot_package_must_be_installed	yes
+absent_configured_boot_packages_allowed	yes
 repository_refresh_allowed	no
 network_access_allowed	no
 package_mutation_allowed	no

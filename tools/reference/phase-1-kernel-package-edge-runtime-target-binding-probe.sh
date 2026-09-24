@@ -120,27 +120,35 @@ fi
     exit 7
 }
 
-boot_records_complete=yes
+boot_records_unambiguous=yes
+installed_boot_package_count=0
 boot_record_lines=()
 IFS=' ' read -r -a kernel_boot_packages <<< "$FROZEN_KERNEL_BOOT"
 for package_name in "${kernel_boot_packages[@]}"; do
     records=$(package_records "$package_name")
     count=0
+    status=absent
     if [[ -n $records ]]; then
         count=$(printf '%s\n' "$records" | awk 'NF { count++ } END { print count+0 }')
     fi
-    if [[ $count -ne 1 ]]; then
-        boot_records_complete=no
-    fi
-    if [[ -n $records ]]; then
+    if [[ $count -gt 1 ]]; then
+        boot_records_unambiguous=no
+    elif [[ $count -eq 1 ]]; then
+        status=installed
+        installed_boot_package_count=$((installed_boot_package_count + 1))
         while IFS= read -r record; do
             [[ -n $record ]] && boot_record_lines+=("$package_name|$record")
         done <<< "$records"
     fi
     printf -v "boot_count_${package_name//-/_}" '%s' "$count"
+    printf -v "boot_status_${package_name//-/_}" '%s' "$status"
 done
-[[ $boot_records_complete == yes ]] || {
-    printf 'ERROR: configured kernel boot package records are incomplete or ambiguous\n' >&2
+[[ $boot_records_unambiguous == yes ]] || {
+    printf 'ERROR: configured kernel boot package records are ambiguous\n' >&2
+    exit 8
+}
+[[ $installed_boot_package_count -ge 1 ]] || {
+    printf 'ERROR: no configured kernel boot package is installed\n' >&2
     exit 8
 }
 
@@ -172,10 +180,13 @@ printf 'package_database_resolved\t%s\n' "$package_database_resolved"
 printf 'package_database_manifest_sha256\t%s\n' "$package_db_manifest_sha"
 printf 'header_package_record_count\t%s\n' "$header_count"
 printf 'header_package_record\t%s\n' "$header_records"
-printf 'boot_package_records_complete\t%s\n' "$boot_records_complete"
+printf 'boot_package_records_unambiguous\t%s\n' "$boot_records_unambiguous"
+printf 'installed_boot_package_count\t%s\n' "$installed_boot_package_count"
 for package_name in "${kernel_boot_packages[@]}"; do
-    variable_name="boot_count_${package_name//-/_}"
-    printf 'boot_package_record_count_%s\t%s\n' "$package_name" "${!variable_name}"
+    count_variable="boot_count_${package_name//-/_}"
+    status_variable="boot_status_${package_name//-/_}"
+    printf 'boot_package_record_count_%s\t%s\n' "$package_name" "${!count_variable}"
+    printf 'boot_package_record_status_%s\t%s\n' "$package_name" "${!status_variable}"
 done
 for item in "${boot_record_lines[@]}"; do
     printf 'boot_package_record\t%s\n' "$item"

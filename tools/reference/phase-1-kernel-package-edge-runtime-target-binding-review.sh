@@ -59,7 +59,7 @@ check_hash() {
 }
 check_hash "$design_policy" 'a8e20a7a76b3c3b959ec8a2375c1d2c96cf11cbbdc0dfbd56cdfa3ac2696330a'
 check_hash "$design_record" 'e244ecf5286a9b9e4f448151c1926469bb5c8b892091ea26e52b61c85c8e1d9e'
-check_hash "$probe_path" 'da2540ccf76749d625721529c660f57861720f3f0e70814ae6fd9865123ea5b6'
+check_hash "$probe_path" 'bda22255aaa1db2dad4f8a28ed89719ddc89dbb03989fa3facd0a19c6d65ac6f'
 
 if [[ -z $output_dir ]]; then
     output_dir=$acceptance_dir
@@ -131,7 +131,7 @@ binding = {
         'package-database-canonical',
         'package-database-resolved',
         'header-package-record',
-        'configured-boot-package-records',
+        'configured-boot-package-observations',
         'slackpkg-config-fingerprints',
         'probe-sha256',
     ],
@@ -148,7 +148,9 @@ binding = {
     ],
     'successful_observation_requires_exact_fqdn': True,
     'successful_observation_requires_one_header_record': True,
-    'successful_observation_requires_complete_boot_records': True,
+    'successful_observation_requires_unambiguous_boot_records': True,
+    'successful_observation_requires_at_least_one_installed_configured_boot_package': True,
+    'absent_configured_boot_packages_allowed': True,
     'successful_observation_requires_all_capabilities': True,
     'repository_refresh_allowed': False,
     'network_access_allowed': False,
@@ -228,6 +230,9 @@ rows = [
     ('package_database', binding['package_database']),
     ('package_database_canonical', binding['package_database_canonical']),
     ('package_database_resolution_required', 'yes'),
+    ('boot_package_records_must_be_unambiguous', 'yes'),
+    ('at_least_one_configured_boot_package_must_be_installed', 'yes'),
+    ('absent_configured_boot_packages_allowed', 'yes'),
     ('repository_refresh_allowed', 'no'),
     ('network_access_allowed', 'no'),
     ('package_mutation_allowed', 'no'),

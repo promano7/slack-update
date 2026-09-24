@@ -19,14 +19,24 @@ VM. It embeds the controller identities that are relevant to this scenario:
 - effective configuration SHA-256
   `4845e2c5038fe8896409f90b6287de33a011a76874229cb76479aa6cd4253bba`;
 - configured header set: `kernel-headers`;
-- configured boot set: `kernel-generic kernel-huge kernel-modules`.
+- configured boot-sensitive set: `kernel-generic kernel-huge kernel-modules`.
 
-The probe is bound to `vbox-slackcurrent.vbox-slackcurrent.org`. It records
-the target hostname/FQDN, architecture, running kernel, Slackware version, boot
-ID, package-database manifest hash, the exact installed `kernel-headers`
-record, the three configured boot-package records, and SHA-256 fingerprints of
-`/etc/slackpkg/slackpkg.conf` and `/etc/slackpkg/mirrors` when present. It
-also verifies availability of the commands required by the step-192 design.
+The configured boot-sensitive set is a cross-release policy set rather than a
+requirement that every listed package be installed on every target. In current
+Slackware-current layouts, a configured name may legitimately be absent. The
+probe therefore records each configured boot-sensitive package as `installed`
+or `absent`, rejects more than one installed record for any configured name,
+and requires at least one configured boot-sensitive package to be installed.
+This preserves a fail-closed observation while keeping the configuration valid
+for both Slackware 15.0 and Slackware-current.
+
+The probe is bound to `vbox-slackcurrent.vbox-slackcurrent.org`. It records the
+target hostname/FQDN, architecture, running kernel, Slackware version, boot ID,
+package-database manifest hash, the exact installed `kernel-headers` record,
+the per-name boot-sensitive package status and record count, any installed
+boot-sensitive package records, and SHA-256 fingerprints of
+`/etc/slackpkg/slackpkg.conf` and `/etc/slackpkg/mirrors` when present. It also
+verifies availability of the commands required by the step-192 design.
 
 The observation validates the modern pkgtools layout before reading package
 state: `/var/log/packages` must be a symbolic link resolving exactly to the
@@ -35,7 +45,8 @@ must itself be a real directory rather than a symbolic link. Package records
 and the manifest fingerprint are read from the canonical directory.
 
 The observation fails closed unless exactly one `kernel-headers` package
-record and exactly one record for each configured boot package are present. A
+record is present, every configured boot-sensitive name has zero or one package
+record, and at least one configured boot-sensitive package is installed. A
 successful output starts with `binding_status<TAB>PASS`. The complete output
 must be returned to the controller and is the only live observation accepted by
 the next binding-freeze gate.
@@ -65,9 +76,9 @@ reboot, or Phase 2.
 The acceptance matrix remains incomplete. This is an active chain rather than
 the requested end-of-session strong safe pause, so `pause_safe=false`.
 
-Frozen probe SHA-256: `f3b6e03f4ac1a89f9a80aef0ed1dbdc16966fae91f06aa57963d92a51eabc465`.  
-Frozen helper SHA-256: `968ba7cd830cc2cf4f6242a1b3e2c43a1ec9f624c400a025018d2c19a4dc9d22`.  
-Frozen policy SHA-256: `3873f5f84402d4601a2755ca69c9c2f1e697846b70e66555f90fb18159341d30`.  
-Frozen record SHA-256: `771401c8d5bfde6c7b14eab7d8ef450b2712f85631f4f5158d6613fb74d68f23`.
+Frozen probe SHA-256: `bda22255aaa1db2dad4f8a28ed89719ddc89dbb03989fa3facd0a19c6d65ac6f`.  
+Frozen helper SHA-256: `15788b1c8f973fc9bdffaa6c582b313632025a1d98f691f3f89211019b8a99a2`.  
+Frozen policy SHA-256: `834276083c8e4d50c2c5510e10c21c512bb10ee85a88b70baeebf7a494d5f7a1`.  
+Frozen record SHA-256: `6fc9cc61a4ac84eff07f2cf273aabda043f13115b53f35fdfa670c7a64815160`.
 
 The next stage is `phase-1-kernel-package-edge-runtime-target-binding-freeze`.
