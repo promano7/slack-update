@@ -1,0 +1,143 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-kernel-package-edge-runtime-boundary-design",
+  "review_only": true,
+  "accepted_contract": {
+    "step": 191,
+    "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-contract-freeze-policy.json",
+    "policy_sha256": "95f065e015106467e25f81d1cb9c4199967edd51aee821ed70d3001c301a35fc",
+    "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-contract-freeze.tsv",
+    "record_sha256": "ab90fa4f61dd5de7db5fe76cebcd72adfe7d25c95d6925aeb1c67bd09db7f28d",
+    "family": "kernel-package-edge",
+    "scenario_count": 1
+  },
+  "runtime_boundary_design": {
+    "state": "frozen",
+    "target_class": "slackware-current-runtime-validation-vm",
+    "target_binding_deferred": true,
+    "package_pair_binding_deferred": true,
+    "local_source_binding_deferred": true,
+    "live_candidate_set_bound": false,
+    "live_runtime_chain_open": false,
+    "planned_acceptance_executor_path": "tests/acceptance/reference/test-kernel-package-edge.sh",
+    "planned_execution_acknowledgement": "--execute-runtime-validation",
+    "privilege_boundary": "root-via-sudo",
+    "runtime_evidence_root": "/var/tmp/slack-update-acceptance/kernel-package-edge",
+    "published_archive_path": "/home/promano/slack-update-phase-1-kernel-package-edge-evidence.tar.gz",
+    "published_sha256_path": "/home/promano/slack-update-phase-1-kernel-package-edge-evidence.tar.gz.sha256",
+    "published_owner": "promano:users",
+    "published_mode": "0600",
+    "required_capabilities": [
+      "bash",
+      "python3",
+      "sha256sum",
+      "tar",
+      "flock",
+      "slackpkg",
+      "upgradepkg",
+      "pkgtools-package-database"
+    ],
+    "missing_capability_action": "block-without-installing-or-changing-the-target",
+    "transition": {
+      "strategy": "controlled-predecessor-stage-then-reference-upgrade-against-immutable-local-slackpkg-source",
+      "official_package_artifacts_required": true,
+      "predecessor_artifact_role": "temporarily-stage-only-the-selected-configured-kernel-header-package-behind-the-bound-target-version",
+      "target_artifact_role": "provide-the-bound-official-header-package-version-returned-by-the-reference-apply",
+      "exact_package_pair_binding_deferred": true,
+      "package_pair_must_share_slackware_package_name": true,
+      "predecessor_must_differ_from_target": true,
+      "boot_packages_must_already_match_target_source_before-staging": true,
+      "staging_package_mutation_must_touch_only_selected_header_package": true,
+      "tested_transition_must_be_performed_by_reference_apply": true,
+      "reference_apply_path": "tools/reference/slack-update-reference.sh",
+      "reference_apply_mode": "--apply",
+      "source_strategy": "immutable-local-slackpkg-compatible-source",
+      "source_must_be_network-independent_during-runtime": true,
+      "source_metadata_and_target_package_must_be_hash-bound": true,
+      "candidate_guard": "after-local-source-refresh-exactly-one-upgrade-candidate-and-it-is-the-selected-kernel-header-package",
+      "install_new_candidate_count_required": 0,
+      "non_header_upgrade_candidate_count_required": 0,
+      "kernel_boot_upgrade_candidate_count_required": 0,
+      "candidate_guard_failure_action": "abort-before-reference-apply-and-restore-pre-test-state"
+    },
+    "evidence": {
+      "pre_baseline": [
+        "target-identity-and-boot-id",
+        "reference-script-sha256-and-effective-configuration-sha256",
+        "configured-kernel-header-and-kernel-boot-package-sets",
+        "installed-package-snapshot",
+        "running-kernel",
+        "boot-artifact-fingerprint-set",
+        "slackpkg-configuration-and-state-fingerprints"
+      ],
+      "bound_source": [
+        "predecessor-package-filename-version-and-sha256",
+        "target-package-filename-version-and-sha256",
+        "local-source-metadata-sha256-set",
+        "proof-both-package-artifacts-are-official-slackware-current-packages"
+      ],
+      "staged_precondition": [
+        "only-selected-header-package-differs-from-baseline",
+        "all-configured-kernel-boot-packages-still-match-baseline",
+        "candidate-guard-exactly-one-header-upgrade",
+        "running-kernel-unchanged",
+        "boot-artifact-fingerprints-unchanged"
+      ],
+      "reference_transition": [
+        "reference-standard-output-and-standard-error",
+        "reference-exit-status",
+        "before-and-after-package-snapshots",
+        "kernel-trigger-equals-one",
+        "initrd-update-equals-zero",
+        "grub-update-equals-zero",
+        "external-module-warning-observed",
+        "no-boot-preparation-action-observed"
+      ],
+      "final_state": [
+        "selected-header-package-restored-to-bound-target-version",
+        "zero-configured-kernel-boot-package-delta",
+        "running-kernel-unchanged",
+        "boot-artifact-fingerprints-unchanged",
+        "original-slackpkg-configuration-restored-byte-for-byte",
+        "temporary-source-and-runtime-artifacts-clean-or-contained-in-evidence",
+        "final-package-state-coherent"
+      ]
+    },
+    "configuration_restore_rule": "all-temporary-slackpkg-configuration-changes-must-be-restored-byte-for-byte",
+    "boot_mutation_allowed": false,
+    "boot_configuration_mutation_allowed": false,
+    "reboot_allowed": false,
+    "network_access_during_runtime_allowed": false,
+    "unrelated_package_mutation_allowed": false,
+    "setup_header_package_mutation_may_be_authorized_later": true,
+    "reference_header_package_mutation_may_be_authorized_later": true,
+    "rollback_rule": "on-any-failure-restore-bound-target-header-package-and-original-slackpkg-configuration-preserve-evidence-and-stop-the-chain",
+    "success_rule": "reference-apply-observes-exact-header-only-delta-with-kernel-trigger-one-initrd-zero-grub-zero-and-identical-boot-state"
+  },
+  "gates": {
+    "acceptance_matrix_complete": false,
+    "reference_freeze_status": "blocked-behind-remaining-acceptance-work",
+    "c_port_status": "blocked-by-phase-1-gate"
+  },
+  "authorization": {
+    "target_binding_review_authorized_for_next_stage": true,
+    "package_pair_binding_authorized": false,
+    "local_source_binding_authorized": false,
+    "runtime_executor_implementation_authorized": false,
+    "runtime_execution_authorized": false,
+    "repository_refresh_authorized": false,
+    "network_refresh_authorized": false,
+    "machine_execution_authorized": false,
+    "package_action_authorized": false,
+    "boot_action_authorized": false,
+    "reboot_authorized": false,
+    "phase_2_start_authorized": false
+  },
+  "machine_action_required": false,
+  "slackware_current_publication_invalidates_design": false,
+  "helper_path": "tools/reference/phase-1-kernel-package-edge-runtime-boundary-design.sh",
+  "helper_sha256": "6d60eab66bf569832f6998193629ec04993e22554b792e1ceae37076241bd7c8",
+  "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-boundary-design.tsv",
+  "next_stage": "phase-1-kernel-package-edge-runtime-target-binding-review",
+  "pause_safe": false
+}

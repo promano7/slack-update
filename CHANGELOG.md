@@ -1228,3 +1228,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Froze the expected reference behavior: `KERNEL_TRIGGER=1`, `INITRD_UPDATE=0`, `GRUB_UPDATE=0`, external-module warning observable, no boot preparation, unchanged running kernel and boot-artifact fingerprints, and no reboot.
 - Deferred exact VM, candidate-set, and package-source binding to a fresh runtime boundary and granted no repository/network refresh, machine, package, boot, reboot, runtime-scenario, source, or Phase 2 authorization.
 - Next stage: `phase-1-kernel-package-edge-runtime-boundary-design`.
+
+## Phase 1 step 192 kernel-package-edge runtime-boundary design — 2026-09-24
+
+- Consumed the accepted step-191 header-only contract and froze a reproducible runtime-boundary design without binding a machine, package pair, local source, or live candidate set.
+- Chose a controlled predecessor-stage / reference-upgrade strategy using genuine Slackware-current header package artifacts and an immutable local `slackpkg`-compatible source, eliminating publication races during runtime execution.
+- Required a candidate guard with exactly one selected header upgrade and zero `install-new`, non-header, or configured kernel-boot candidates before the reference apply may run.
+- Required the tested transition to be performed by `tools/reference/slack-update-reference.sh --apply`, with `KERNEL_TRIGGER=1`, `INITRD_UPDATE=0`, `GRUB_UPDATE=0`, no boot preparation, unchanged running kernel/boot artifacts, exact `slackpkg` configuration restoration, and deterministic rollback on failure.
+- Granted only the next target-binding review; no package/source binding, repository/network refresh, machine, package, boot, reboot, runtime execution, executor implementation, or Phase 2 authorization is granted.
+- Next stage: `phase-1-kernel-package-edge-runtime-target-binding-review`.
