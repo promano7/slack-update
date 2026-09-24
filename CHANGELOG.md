@@ -1213,3 +1213,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Selected no runtime family, bound no live candidate set, opened no runtime chain, and inherited no step-187 runtime authorization.
 - Granted no source/documentation, repository/network refresh, machine, package, boot, reboot, runtime-scenario, or Phase 2 authorization.
 - Preserved all Phase 1 gates and routed the next step to `phase-1-acceptance-matrix-remainder-post-execution-control-family-selection-freeze`.
+
+## Phase 1 step 190 post-execution-control remainder family selection freeze — 2026-09-24
+
+- Consumed the accepted step-189 fresh planning boundary and froze `kernel-package-edge` as the next residual Phase 1 family.
+- Preserved the exact single scenario, `Kernel headers update without a kernel image update.`, while keeping the closed `execution-control-failure-paths` family excluded from replay.
+- Bound no live candidate set, opened no runtime execution chain, and granted no source/documentation, repository/network refresh, machine, package, boot, reboot, runtime-scenario, or Phase 2 authorization.
+- Preserved the remaining Phase 1 gates and routed the next stage to `phase-1-kernel-package-edge-contract-freeze`.

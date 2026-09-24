@@ -1,0 +1,61 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-acceptance-matrix-remainder-post-execution-control-family-selection-freeze",
+  "review_only": true,
+  "accepted_boundary": {
+    "step": 189,
+    "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-acceptance-matrix-remainder-post-execution-control-resume-planning-boundary-review-policy.json",
+    "policy_sha256": "e14c2a8ac8d11fe5d8416bf52e724e5883c523228193e4f0c1235a5510540c9f",
+    "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-acceptance-matrix-remainder-post-execution-control-resume-planning-boundary-review.tsv",
+    "record_sha256": "8a9a5e70ea1eec093f0ed5528d99f9436b3eafcaa835002227c25b817164bacc"
+  },
+  "accepted_inventory": {
+    "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-acceptance-matrix-remainder-after-execution-control-closure.tsv",
+    "record_sha256": "8aa3f1dbe177ec336025f4b3983e22b07205d8bf72fb214442704764131094e9",
+    "family_count": 5,
+    "scenario_count": 20,
+    "closed_family": "execution-control-failure-paths",
+    "closed_family_excluded": true
+  },
+  "selection": {
+    "selected_family": "kernel-package-edge",
+    "scenario_count": 1,
+    "scenarios": [
+      "Kernel headers update without a kernel image update."
+    ],
+    "classification": "pending-real-system-acceptance-remainder",
+    "runtime_boundary_required": true,
+    "repository_refresh_requirement": "conditional",
+    "selection_frozen": true,
+    "selection_basis": "single narrow kernel-package edge scenario that can be isolated from boot-safety and optional-module acceptance families",
+    "candidate_set_bound": false,
+    "live_runtime_chain_open": false,
+    "closed_execution_control_family_reopened": false,
+    "slackware_current_publication_invalidates_selection": false
+  },
+  "gates": {
+    "acceptance_matrix_complete": false,
+    "reference_freeze_status": "blocked-behind-remaining-acceptance-work",
+    "c_port_status": "blocked-by-phase-1-gate"
+  },
+  "authorization": {
+    "source_change_authorized": false,
+    "documentation_change_authorized": false,
+    "repository_refresh_authorized": false,
+    "network_refresh_authorized": false,
+    "machine_execution_authorized": false,
+    "package_action_authorized": false,
+    "boot_action_authorized": false,
+    "reboot_authorized": false,
+    "runtime_scenario_execution_authorized": false,
+    "phase_2_start_authorized": false,
+    "future_work_requires_explicit_authorization": true
+  },
+  "machine_action_required": false,
+  "pause_safe": false,
+  "evidence": {
+    "selection_helper_sha256": "5469e526a37457d78d615d258ce6a6f456531e7ba683297bd53226315b95454a"
+  },
+  "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-acceptance-matrix-remainder-post-execution-control-family-selection-freeze.tsv",
+  "next_stage": "phase-1-kernel-package-edge-contract-freeze"
+}
