@@ -1237,3 +1237,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Required the tested transition to be performed by `tools/reference/slack-update-reference.sh --apply`, with `KERNEL_TRIGGER=1`, `INITRD_UPDATE=0`, `GRUB_UPDATE=0`, no boot preparation, unchanged running kernel/boot artifacts, exact `slackpkg` configuration restoration, and deterministic rollback on failure.
 - Granted only the next target-binding review; no package/source binding, repository/network refresh, machine, package, boot, reboot, runtime execution, executor implementation, or Phase 2 authorization is granted.
 - Next stage: `phase-1-kernel-package-edge-runtime-target-binding-review`.
+
+## Phase 1 step 193 kernel-package-edge runtime target-binding review
+
+- Consumed the accepted step-192 runtime-boundary design without opening a package or repository mutation boundary.
+- Added a standalone read-only probe bound to `vbox-slackcurrent.vbox-slackcurrent.org` and to the accepted controller reference/configuration identities.
+- Froze observation of the running kernel, boot ID, architecture, package-database manifest, exact `kernel-headers` record, configured kernel boot-package records, and slackpkg configuration fingerprints.
+- Required exactly one installed record for `kernel-headers`, `kernel-generic`, `kernel-huge`, and `kernel-modules`; an incomplete or ambiguous package state fails closed.
+- Authorized only the read-only target observation and the later binding freeze after a successful observation. Package-pair/source binding, runtime implementation/execution, repository/network refresh, package/boot mutation, reboot, and Phase 2 remain unauthorized.
+- A later Slackware-current publication does not invalidate this review because no live metadata or candidate set is bound; a target reboot invalidates the observation through the frozen boot-ID requirement.
+- Next stage: `phase-1-kernel-package-edge-runtime-target-binding-freeze`. This step is not a strong safe pause (`pause_safe=false`).
