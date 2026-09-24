@@ -1281,3 +1281,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Froze the deterministic minimal `file://` local-source design at `/var/tmp/slack-update-acceptance/kernel-package-edge/local-source`, exposing only the bound 6.18.45 target package and requiring `ChangeLog.txt`, `FILELIST.TXT`, `PACKAGES.TXT`, and `CHECKSUMS.md5` plus a frozen read-only tree manifest before runtime.
 - Preserved the exact header-only candidate guard, reference `--apply` transition, no-boot/no-reboot constraints, and step-194 target-binding invalidation rules.
 - Authorized only `phase-1-kernel-package-edge-package-pair-and-local-source-binding-review`; controller artifact acquisition, target copy, package/source binding, executor implementation, runtime execution, repository/network refresh, machine/package/boot action, reboot, and Phase 2 remain unauthorized. This is not a safe pause (`pause_safe=false`).
+
+## Phase 1 step 196 kernel-package-edge package-pair and local-source binding review — 2026-09-24
+
+- Consumed the accepted step-195 package-pair/local-source design and froze the controller-only artifact acquisition review gate without opening any target-VM mutation boundary.
+- Preserved the logical predecessor/target pair `kernel-headers-6.18.44-x86-1` → `kernel-headers-6.18.45-x86-1` and froze exact HTTPS package/signature origins in the Slackware UK cumulative Slackware64-current archive.
+- Froze the Slackware Linux Project signing-key identity as fingerprint `EC5649DA401E22ABFA6736EF6A4463C040102233`, long key ID `6A4463C040102233`, and UID `Slackware Linux Project <security@slackware.com>` using the project `GPG-KEY` origin from `mirrors.slackware.com`.
+- Added an unprivileged controller acquisition probe that downloads only the frozen key/package/signature URLs, disables automatic GPG key retrieval, requires `VALIDSIG` for the frozen fingerprint on both package signatures, and emits SHA-256 binding evidence plus an acquired-files manifest.
+- Authorized only this exact controller acquisition observation and its frozen HTTPS URLs; target-VM network/action, target copy, package/source binding, local-source build, package/boot mutation, reboot, runtime execution, and Phase 2 remain unauthorized.
+- Required preservation of the complete controller evidence directory for `phase-1-kernel-package-edge-package-pair-and-local-source-binding-freeze`. This is not a strong safe pause (`pause_safe=false`).

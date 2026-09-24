@@ -1,0 +1,80 @@
+{
+  "accepted_binding_design": {
+    "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-package-pair-and-local-source-binding-design-policy.json",
+    "policy_sha256": "ce33fc2ead2335c50cd9e47146f8d1d818a49e1cb3169b06fe9a983af60f6015",
+    "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-package-pair-and-local-source-binding-design.tsv",
+    "record_sha256": "aa37378cc4e3af31fc37a0a111b9ab0e39f3bf784e011168f962e165927a01a5",
+    "step": 195
+  },
+  "artifact_binding_review": {
+    "artifact_origins": {
+      "predecessor_package_url": "https://slackware.uk/cumulative/slackware64-current/slackware64/d/kernel-headers-6.18.44-x86-1.txz",
+      "predecessor_signature_url": "https://slackware.uk/cumulative/slackware64-current/slackware64/d/kernel-headers-6.18.44-x86-1.txz.asc",
+      "target_package_url": "https://slackware.uk/cumulative/slackware64-current/slackware64/d/kernel-headers-6.18.45-x86-1.txz",
+      "target_signature_url": "https://slackware.uk/cumulative/slackware64-current/slackware64/d/kernel-headers-6.18.45-x86-1.txz.asc"
+    },
+    "boot_action_allowed": false,
+    "controller_probe_must_run_unprivileged": true,
+    "controller_probe_path": "tools/reference/phase-1-kernel-package-edge-controller-artifact-acquisition-probe.sh",
+    "controller_probe_sha256": "943af8b0995368b34c3fc79efaac09cbbdebebc1ea5929a4c566ccfd2ef1e586",
+    "output_directory_must_be_new": true,
+    "package_action_allowed": false,
+    "package_and_signature_sha256_binding_deferred_to_next_freeze": true,
+    "pair_history_review": {
+      "consecutive_in_cumulative_archive": true,
+      "predecessor_archive_timestamp": "2026-08-10 03:40",
+      "predecessor_record": "kernel-headers-6.18.44-x86-1",
+      "target_archive_timestamp": "2026-08-20 05:19",
+      "target_record": "kernel-headers-6.18.45-x86-1"
+    },
+    "reboot_allowed": false,
+    "required_probe_evidence": [
+      "signing_key_fingerprint",
+      "signing_key_sha256",
+      "predecessor_package_sha256",
+      "predecessor_signature_sha256",
+      "target_package_sha256",
+      "target_signature_sha256",
+      "predecessor_signature_valid",
+      "target_signature_valid",
+      "binding_evidence_sha256",
+      "acquired_files_manifest_sha256"
+    ],
+    "signing_key": {
+      "expected_long_key_id": "6A4463C040102233",
+      "expected_primary_fingerprint": "EC5649DA401E22ABFA6736EF6A4463C040102233",
+      "expected_uid": "Slackware Linux Project <security@slackware.com>",
+      "key_file_sha256_binding_deferred_to_probe": true,
+      "url": "https://mirrors.slackware.com/slackware/slackware-current/GPG-KEY"
+    },
+    "state": "frozen-awaiting-controller-acquisition-evidence",
+    "target_vm_action_allowed": false,
+    "target_vm_must_remain_offline": true,
+    "transport": "https-only"
+  },
+  "authorization": {
+    "boot_action_authorized": false,
+    "controller_artifact_acquisition_authorized": true,
+    "controller_network_access_authorized_only_for_frozen_probe_urls": true,
+    "local_source_binding_authorized": false,
+    "local_source_build_authorized": false,
+    "package_action_authorized": false,
+    "package_pair_binding_authorized": false,
+    "phase_2_start_authorized": false,
+    "reboot_authorized": false,
+    "runtime_executor_implementation_authorized": false,
+    "runtime_scenario_execution_authorized": false,
+    "target_artifact_copy_authorized": false,
+    "target_vm_action_authorized": false,
+    "target_vm_network_access_authorized": false
+  },
+  "controller_action_required": true,
+  "helper_path": "tools/reference/phase-1-kernel-package-edge-package-pair-and-local-source-binding-review.sh",
+  "helper_sha256": "512c2bb9146a740ba05a2b839b406550d3d0f11e9e9e59ed53c8486c62f38301",
+  "machine_action_required": false,
+  "next_stage": "phase-1-kernel-package-edge-package-pair-and-local-source-binding-freeze",
+  "pause_safe": false,
+  "review_only": true,
+  "scenario": "phase-1-kernel-package-edge-package-pair-and-local-source-binding-review",
+  "schema": 1
+}

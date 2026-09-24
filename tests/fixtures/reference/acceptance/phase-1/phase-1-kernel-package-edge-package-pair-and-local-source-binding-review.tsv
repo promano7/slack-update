@@ -1,0 +1,33 @@
+artifact_binding_review_state	frozen-awaiting-controller-acquisition-evidence
+controller_probe_path	tools/reference/phase-1-kernel-package-edge-controller-artifact-acquisition-probe.sh
+controller_probe_sha256	943af8b0995368b34c3fc79efaac09cbbdebebc1ea5929a4c566ccfd2ef1e586
+controller_probe_must_run_unprivileged	yes
+signing_key_url	https://mirrors.slackware.com/slackware/slackware-current/GPG-KEY
+signing_key_expected_fingerprint	EC5649DA401E22ABFA6736EF6A4463C040102233
+signing_key_expected_long_id	6A4463C040102233
+signing_key_expected_uid	Slackware Linux Project <security@slackware.com>
+predecessor_package_url	https://slackware.uk/cumulative/slackware64-current/slackware64/d/kernel-headers-6.18.44-x86-1.txz
+predecessor_signature_url	https://slackware.uk/cumulative/slackware64-current/slackware64/d/kernel-headers-6.18.44-x86-1.txz.asc
+target_package_url	https://slackware.uk/cumulative/slackware64-current/slackware64/d/kernel-headers-6.18.45-x86-1.txz
+target_signature_url	https://slackware.uk/cumulative/slackware64-current/slackware64/d/kernel-headers-6.18.45-x86-1.txz.asc
+predecessor_archive_timestamp	2026-08-10 03:40
+target_archive_timestamp	2026-08-20 05:19
+pair_consecutive_in_cumulative_archive	yes
+package_and_signature_sha256_binding_deferred_to_next_freeze	yes
+controller_artifact_acquisition_authorized	yes
+controller_network_access_authorized_only_for_frozen_probe_urls	yes
+target_vm_network_access_authorized	no
+target_vm_action_authorized	no
+target_artifact_copy_authorized	no
+package_pair_binding_authorized	no
+local_source_binding_authorized	no
+local_source_build_authorized	no
+runtime_scenario_execution_authorized	no
+package_action_authorized	no
+boot_action_authorized	no
+reboot_authorized	no
+phase_2_start_authorized	no
+controller_action_required	yes
+machine_action_required	no
+next_stage	phase-1-kernel-package-edge-package-pair-and-local-source-binding-freeze
+pause_safe	no
