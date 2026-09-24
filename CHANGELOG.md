@@ -1298,3 +1298,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Closed the temporary controller artifact-acquisition and network authorization opened by step 196; any re-download now requires a fresh explicit authorization boundary.
 - Preserved the untouched/offline target VM boundary and authorized no target copy, local-source build, package/boot mutation, reboot, runtime execution, or Phase 2 work.
 - Routed only to `phase-1-kernel-package-edge-local-source-construction-review`. This remains inside the active family chain and is not yet the strong safe pause (`pause_safe=false`).
+
+## Phase 1 step 198 kernel-package-edge local-source construction review — 2026-09-24
+
+- Consumed the accepted step-197 byte binding and step-195 local-source design without opening any controller-network, target-machine, package, boot, reboot, or runtime-execution boundary.
+- Preserved the external step-196 evidence root and froze the accepted 6.18.45 target package bytes as the only package that a future isolated source may expose; the 6.18.44 predecessor remains staging-only input.
+- Reconfirmed the planned local-source root, `file://` URI, target relative path, required metadata set, read-only/tree-manifest requirements, exact header-only candidate guard, and reference `--apply` transition.
+- Deliberately left `tools/reference/phase-1-kernel-package-edge-local-source-build.sh` unimplemented and unauthorized until its real `slackpkg` metadata behavior is reviewed under a fresh continuation boundary.
+- Required fresh target revalidation before any later machine action and authorized only the strong-safe-pause review; later Slackware-current publication does not invalidate the frozen package bytes or this construction review.
+- Next stage: `phase-1-kernel-package-edge-local-source-construction-review-and-strong-safe-pause`. This step itself remains inside the active chain (`pause_safe=false`).

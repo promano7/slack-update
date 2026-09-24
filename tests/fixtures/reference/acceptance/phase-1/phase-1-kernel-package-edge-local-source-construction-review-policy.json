@@ -1,0 +1,73 @@
+{
+  "accepted_byte_binding": {
+    "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-package-pair-and-local-source-binding-freeze-policy.json",
+    "policy_sha256": "79c0841d604556960fef613b2d0e2c1ed54e2ae32cdac5ddef8b3787363a4d12",
+    "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-package-pair-and-local-source-binding-freeze.tsv",
+    "record_sha256": "abcd032f614dc42e24f820fd8360f864b729897eba964c91d62a1171da0f9449",
+    "step": 197
+  },
+  "accepted_local_source_design": {
+    "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-package-pair-and-local-source-binding-design-policy.json",
+    "policy_sha256": "ce33fc2ead2335c50cd9e47146f8d1d818a49e1cb3169b06fe9a983af60f6015",
+    "step": 195
+  },
+  "authorization": {
+    "boot_action_authorized": false,
+    "controller_artifact_acquisition_authorized": false,
+    "controller_network_access_authorized": false,
+    "local_source_build_authorized": false,
+    "package_action_authorized": false,
+    "phase_2_start_authorized": false,
+    "reboot_authorized": false,
+    "runtime_executor_implementation_authorized": false,
+    "runtime_scenario_execution_authorized": false,
+    "strong_safe_pause_review_authorized_for_next_stage": true,
+    "target_artifact_copy_authorized": false,
+    "target_vm_action_authorized": false,
+    "target_vm_network_access_authorized": false
+  },
+  "construction_review": {
+    "boot_mutation_forbidden": true,
+    "builder_execution_authorized": false,
+    "builder_implementation_state": "not-implemented",
+    "candidate_guard_preserved": "after-local-source-refresh-exactly-one-upgrade-candidate-and-it-is-the-selected-kernel-header-package",
+    "evidence_root": "/home/promano/slack-update-phase-1-step-196-kernel-package-edge-artifacts",
+    "evidence_root_must_remain_unchanged": true,
+    "fresh_explicit_authorization_required_before_target_copy_or_build": true,
+    "fresh_target_revalidation_required_before_any_machine_action": true,
+    "input_byte_binding_state": "accepted-byte-binding-frozen",
+    "later_slackware_current_publication_invalidates_review": false,
+    "local_source_tree_built": false,
+    "local_source_tree_manifest_bound": false,
+    "planned_builder_path": "tools/reference/phase-1-kernel-package-edge-local-source-build.sh",
+    "predecessor_artifact_must_not_be_exposed_by_local_source": true,
+    "reboot_forbidden": true,
+    "reference_transition_preserved": "tools/reference/slack-update-reference.sh --apply",
+    "required_metadata_files": [
+      "ChangeLog.txt",
+      "FILELIST.TXT",
+      "PACKAGES.TXT",
+      "CHECKSUMS.md5"
+    ],
+    "runtime_mirror_uri": "file:///var/tmp/slack-update-acceptance/kernel-package-edge/local-source",
+    "runtime_network_access_forbidden": true,
+    "runtime_root": "/var/tmp/slack-update-acceptance/kernel-package-edge/local-source",
+    "state": "reviewed-awaiting-fresh-construction-boundary",
+    "target_artifact": "kernel-headers-6.18.45-x86-1.txz",
+    "target_copy_authorized": false,
+    "target_package_sha256": "c7b56b50f0abdec8f35628d526bb05488c257f667ab9c2be1a7a3e07d97da63c",
+    "target_relative_path": "slackware64/d/kernel-headers-6.18.45-x86-1.txz",
+    "tree_must_be_read_only_before_runtime": true,
+    "tree_must_verify_unchanged_before_and_after_reference_apply": true
+  },
+  "controller_action_required": false,
+  "helper_path": "tools/reference/phase-1-kernel-package-edge-local-source-construction-review.sh",
+  "helper_sha256": "dbe4a95c37c0c01d3c272a9a39ce2197e90e7256bdfae580885b172c98458cb4",
+  "machine_action_required": false,
+  "next_stage": "phase-1-kernel-package-edge-local-source-construction-review-and-strong-safe-pause",
+  "pause_safe": false,
+  "review_only": true,
+  "scenario": "phase-1-kernel-package-edge-local-source-construction-review",
+  "schema": 1,
+  "strong_safe_pause_ready_for_review": true
+}
