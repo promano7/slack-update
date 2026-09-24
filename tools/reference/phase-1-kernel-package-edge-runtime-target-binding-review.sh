@@ -59,7 +59,7 @@ check_hash() {
 }
 check_hash "$design_policy" 'a8e20a7a76b3c3b959ec8a2375c1d2c96cf11cbbdc0dfbd56cdfa3ac2696330a'
 check_hash "$design_record" 'e244ecf5286a9b9e4f448151c1926469bb5c8b892091ea26e52b61c85c8e1d9e'
-check_hash "$probe_path" 'f3b6e03f4ac1a89f9a80aef0ed1dbdc16966fae91f06aa57963d92a51eabc465'
+check_hash "$probe_path" 'da2540ccf76749d625721529c660f57861720f3f0e70814ae6fd9865123ea5b6'
 
 if [[ -z $output_dir ]]; then
     output_dir=$acceptance_dir
@@ -116,6 +116,8 @@ binding = {
     'configured_kernel_headers': ['kernel-headers'],
     'configured_kernel_boot': ['kernel-generic', 'kernel-huge', 'kernel-modules'],
     'package_database': '/var/log/packages',
+    'package_database_canonical': '/var/lib/pkgtools/packages',
+    'successful_observation_requires_exact_package_database_resolution': True,
     'required_binding_fields': [
         'target-hostname',
         'hostname-fqdn',
@@ -126,6 +128,8 @@ binding = {
         'reference-script-sha256',
         'effective-config-sha256',
         'package-database-manifest-sha256',
+        'package-database-canonical',
+        'package-database-resolved',
         'header-package-record',
         'configured-boot-package-records',
         'slackpkg-config-fingerprints',
@@ -140,6 +144,7 @@ binding = {
         'slackpkg',
         'upgradepkg',
         'pkgtools-package-database',
+        'pkgtools-package-database-layout',
     ],
     'successful_observation_requires_exact_fqdn': True,
     'successful_observation_requires_one_header_record': True,
@@ -221,6 +226,8 @@ rows = [
     ('configured_kernel_headers', 'kernel-headers'),
     ('configured_kernel_boot', 'kernel-generic kernel-huge kernel-modules'),
     ('package_database', binding['package_database']),
+    ('package_database_canonical', binding['package_database_canonical']),
+    ('package_database_resolution_required', 'yes'),
     ('repository_refresh_allowed', 'no'),
     ('network_access_allowed', 'no'),
     ('package_mutation_allowed', 'no'),

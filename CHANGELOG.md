@@ -1247,3 +1247,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Authorized only the read-only target observation and the later binding freeze after a successful observation. Package-pair/source binding, runtime implementation/execution, repository/network refresh, package/boot mutation, reboot, and Phase 2 remain unauthorized.
 - A later Slackware-current publication does not invalidate this review because no live metadata or candidate set is bound; a target reboot invalidates the observation through the frozen boot-ID requirement.
 - Next stage: `phase-1-kernel-package-edge-runtime-target-binding-freeze`. This step is not a strong safe pause (`pause_safe=false`).
+
+## Phase 1 step 193-r1 kernel-package-edge pkgtools database layout remediation
+
+- Corrected the standalone step-193 target-binding probe after the live Slackware-current VM exposed the expected pkgtools compatibility symlink at `/var/log/packages`.
+- Kept `/var/log/packages` as the compatibility identity but now require it to resolve exactly to the canonical `/var/lib/pkgtools/packages` directory.
+- Read package records and compute the package-database manifest from the canonical directory while preserving a fail-closed layout check.
+- Preserved the step-193 authorization boundary: the rerun remains read-only and authorizes no repository refresh, network access, package mutation, boot mutation, persistent configuration change, or reboot.
+- The next stage remains `phase-1-kernel-package-edge-runtime-target-binding-freeze` only after a successful corrected observation.

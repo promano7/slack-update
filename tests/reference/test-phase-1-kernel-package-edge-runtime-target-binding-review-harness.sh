@@ -36,11 +36,11 @@ do
     check_regular "${spec%%|*}" "${spec#*|}"
 done
 
-check_hash "$HELPER" '968ba7cd830cc2cf4f6242a1b3e2c43a1ec9f624c400a025018d2c19a4dc9d22' 'step-193 target-binding review helper'
-check_hash "$PROBE" 'f3b6e03f4ac1a89f9a80aef0ed1dbdc16966fae91f06aa57963d92a51eabc465' 'step-193 standalone target-binding probe'
-check_hash "$DOC" 'e6e24f18fec24be2c5ce242448e6b90cda3d7d4226ca325a0508a94d9059fbd4' 'step-193 reference document'
-check_hash "$POLICY" '3873f5f84402d4601a2755ca69c9c2f1e697846b70e66555f90fb18159341d30' 'step-193 target-binding policy'
-check_hash "$RECORD" '771401c8d5bfde6c7b14eab7d8ef450b2712f85631f4f5158d6613fb74d68f23' 'step-193 target-binding record'
+check_hash "$HELPER" 'c8ecaa14ca28e0c7be9f528cbd5ff5d05313a05b3bdc458dd434aa3d8a32a68b' 'step-193 target-binding review helper'
+check_hash "$PROBE" 'da2540ccf76749d625721529c660f57861720f3f0e70814ae6fd9865123ea5b6' 'step-193 standalone target-binding probe'
+check_hash "$DOC" '4dde1dc1ff861adf065eaf1f4820cdb1ab814dd5c1b9e75b5fbd1ae4902867a2' 'step-193 reference document'
+check_hash "$POLICY" 'f840f642934d51ed4e2fc1501ee006fc97d409733b8b5eaaa6c1d7ce70bcf57c' 'step-193 target-binding policy'
+check_hash "$RECORD" '492f084e99b92990af0af5ca1738a2025423bf6318b7a5e9e3502bd26f6373fa' 'step-193 target-binding record'
 check_hash "$STEP192_HELPER" '6d60eab66bf569832f6998193629ec04993e22554b792e1ceae37076241bd7c8' 'accepted step-192 runtime-boundary helper'
 check_hash "$STEP192_POLICY" 'a8e20a7a76b3c3b959ec8a2375c1d2c96cf11cbbdc0dfbd56cdfa3ac2696330a' 'accepted step-192 runtime-boundary policy'
 check_hash "$STEP192_RECORD" 'e244ecf5286a9b9e4f448151c1926469bb5c8b892091ea26e52b61c85c8e1d9e' 'accepted step-192 runtime-boundary record'
@@ -64,7 +64,7 @@ expect_line $'target_binding_review_state\truntime-observation-required' 'target
 expect_line $'target_class\tslackware-current-runtime-validation-vm' 'target class remains Slackware-current validation VM'
 expect_line $'expected_hostname_fqdn\tvbox-slackcurrent.vbox-slackcurrent.org' 'target FQDN is frozen'
 expect_line $'binding_probe_path\ttools/reference/phase-1-kernel-package-edge-runtime-target-binding-probe.sh' 'standalone probe path is frozen'
-expect_line $'binding_probe_sha256\tf3b6e03f4ac1a89f9a80aef0ed1dbdc16966fae91f06aa57963d92a51eabc465' 'standalone probe SHA-256 is frozen'
+expect_line $'binding_probe_sha256\tda2540ccf76749d625721529c660f57861720f3f0e70814ae6fd9865123ea5b6' 'standalone probe SHA-256 is frozen'
 expect_line $'probe_execution\troot-via-sudo' 'probe privilege boundary is frozen'
 expect_line $'target_repository_required\tno' 'target repository is not required'
 expect_line $'source_identity_origin\tcontroller-repo-frozen-at-step-193' 'source identity origin is frozen on the controller'
@@ -72,7 +72,9 @@ expect_line $'reference_script_sha256\t1014658196f384b29756827b9074fb0393aeaaf82
 expect_line $'effective_config_sha256\t4845e2c5038fe8896409f90b6287de33a011a76874229cb76479aa6cd4253bba' 'effective configuration identity is frozen'
 expect_line $'configured_kernel_headers\tkernel-headers' 'configured kernel-header set is frozen'
 expect_line $'configured_kernel_boot\tkernel-generic kernel-huge kernel-modules' 'configured kernel boot-package set is frozen'
-expect_line $'package_database\t/var/log/packages' 'pkgtools package database path is frozen'
+expect_line $'package_database\t/var/log/packages' 'pkgtools compatibility package database path is frozen'
+expect_line $'package_database_canonical\t/var/lib/pkgtools/packages' 'pkgtools canonical package database path is frozen'
+expect_line $'package_database_resolution_required\tyes' 'pkgtools compatibility path must resolve exactly to the canonical database'
 expect_line $'repository_refresh_allowed\tno' 'repository refresh is forbidden during observation'
 expect_line $'network_access_allowed\tno' 'network access is forbidden during observation'
 expect_line $'package_mutation_allowed\tno' 'package mutation is forbidden during observation'
@@ -112,12 +114,15 @@ assert p['review_only'] is True and p['accepted_runtime_boundary_design']['step'
 b=p['target_binding_review']
 assert b['state']=='runtime-observation-required'
 assert b['expected_hostname_fqdn']=='vbox-slackcurrent.vbox-slackcurrent.org'
-assert b['binding_probe_sha256']=='f3b6e03f4ac1a89f9a80aef0ed1dbdc16966fae91f06aa57963d92a51eabc465'
+assert b['binding_probe_sha256']=='da2540ccf76749d625721529c660f57861720f3f0e70814ae6fd9865123ea5b6'
 assert b['target_repository_required'] is False
 assert b['reference_script_sha256']=='1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415'
 assert b['effective_config_sha256']=='4845e2c5038fe8896409f90b6287de33a011a76874229cb76479aa6cd4253bba'
 assert b['configured_kernel_headers']==['kernel-headers']
 assert b['configured_kernel_boot']==['kernel-generic','kernel-huge','kernel-modules']
+assert b['package_database']=='/var/log/packages'
+assert b['package_database_canonical']=='/var/lib/pkgtools/packages'
+assert b['successful_observation_requires_exact_package_database_resolution'] is True
 assert b['successful_observation_requires_exact_fqdn'] is True
 assert b['successful_observation_requires_one_header_record'] is True
 assert b['successful_observation_requires_complete_boot_records'] is True
@@ -151,14 +156,17 @@ if grep -Fqx "readonly FROZEN_REFERENCE_SCRIPT_SHA256='1014658196f384b29756827b9
 if grep -Fqx "readonly FROZEN_EFFECTIVE_CONFIG_SHA256='4845e2c5038fe8896409f90b6287de33a011a76874229cb76479aa6cd4253bba'" "$PROBE"; then pass 'standalone probe embeds the effective configuration SHA-256'; else fail 'standalone probe effective configuration identity mismatch'; fi
 if grep -Fqx "readonly FROZEN_KERNEL_HEADERS='kernel-headers'" "$PROBE" && grep -Fqx "readonly FROZEN_KERNEL_BOOT='kernel-generic kernel-huge kernel-modules'" "$PROBE"; then pass 'standalone probe embeds the frozen header and boot package sets'; else fail 'standalone probe package sets are not frozen'; fi
 if grep -Fq 'expected exactly one installed record' "$PROBE" && grep -Fq 'configured kernel boot package records are incomplete or ambiguous' "$PROBE"; then pass 'standalone probe fails closed on ambiguous header or boot package records'; else fail 'standalone probe package-record fail-closed guards are incomplete'; fi
+if grep -Fqx "readonly PACKAGE_DATABASE='/var/log/packages'" "$PROBE" && grep -Fqx "readonly PACKAGE_DATABASE_CANONICAL='/var/lib/pkgtools/packages'" "$PROBE"; then pass 'standalone probe freezes compatibility and canonical pkgtools database paths'; else fail 'standalone probe pkgtools database paths are not frozen'; fi
+if grep -Fq 'package_database_resolved=$(readlink -f -- "$PACKAGE_DATABASE"' "$PROBE" && grep -Fq '[[ $package_database_resolved == "$PACKAGE_DATABASE_CANONICAL" ]]' "$PROBE"; then pass 'standalone probe fails closed unless the compatibility symlink resolves to the canonical database'; else fail 'standalone probe package-database resolution guard is incomplete'; fi
+if grep -Fq 'for candidate in "$PACKAGE_DATABASE_CANONICAL/$package_name-"*' "$PROBE" && grep -Fq 'manifest_hash "$PACKAGE_DATABASE_CANONICAL"' "$PROBE"; then pass 'standalone probe reads package records and manifest from the canonical database'; else fail 'standalone probe does not consistently use the canonical package database'; fi
 if grep -Fq $'binding_status\\tPASS' "$PROBE" && grep -Fq $'target_repository_required\\tno' "$PROBE"; then pass 'standalone probe exposes the required PASS and standalone markers'; else fail 'standalone probe output contract markers are incomplete'; fi
 if grep -Eq '^[[:space:]]*(sudo[[:space:]]+)?(slackpkg|upgradepkg|installpkg|removepkg|grub-mkconfig|mkinitrd|eliloconfig|reboot|shutdown|poweroff)([[:space:]]|$)' "$PROBE"; then fail 'standalone probe executes a package, boot, reboot, or shutdown mutation command'; else pass 'standalone probe executes no package, boot, reboot, or shutdown mutation command'; fi
 if grep -Eq '^[[:space:]]*(curl|wget|rsync|scp|ssh|ping)([[:space:]]|$)' "$PROBE"; then fail 'standalone probe executes a network client command'; else pass 'standalone probe executes no network client command'; fi
 if grep -Eq '^[[:space:]]*(cp|mv|rm|install|touch|mkdir|chmod|chown)([[:space:]]|$)' "$PROBE"; then fail 'standalone probe executes a persistent filesystem mutation command'; else pass 'standalone probe executes no persistent filesystem mutation command'; fi
 
 normalized_doc=$(tr '\n' ' ' < "$DOC" | tr -s '[:space:]' ' ')
-if [[ $normalized_doc == *'standalone probe'* && $normalized_doc == *'exactly one `kernel-headers` package record'* && $normalized_doc == *'A later Slackware-current publication does not invalidate this review'* && $normalized_doc == *'phase-1-kernel-package-edge-runtime-target-binding-freeze'* ]]; then pass 'reference document records standalone observation, fail-closed package state, publication rule, and next stage'; else fail 'step-193 reference document is incomplete'; fi
-if grep -Fq 'Phase 1 step 193 kernel-package-edge runtime target-binding review' "$CHANGELOG" && grep -Fq 'phase-1-kernel-package-edge-runtime-target-binding-freeze' "$CHANGELOG"; then pass 'CHANGELOG records step 193'; else fail 'CHANGELOG does not record step 193'; fi
+if [[ $normalized_doc == *'standalone probe'* && $normalized_doc == *'/var/log/packages'* && $normalized_doc == *'/var/lib/pkgtools/packages'* && $normalized_doc == *'exactly one `kernel-headers` package record'* && $normalized_doc == *'A later Slackware-current publication does not invalidate this review'* && $normalized_doc == *'phase-1-kernel-package-edge-runtime-target-binding-freeze'* ]]; then pass 'reference document records canonical pkgtools layout, fail-closed package state, publication rule, and next stage'; else fail 'step-193 reference document is incomplete'; fi
+if grep -Fq 'Phase 1 step 193 kernel-package-edge runtime target-binding review' "$CHANGELOG" && grep -Fq 'Phase 1 step 193-r1 kernel-package-edge pkgtools database layout remediation' "$CHANGELOG" && grep -Fq 'phase-1-kernel-package-edge-runtime-target-binding-freeze' "$CHANGELOG"; then pass 'CHANGELOG records step 193 and remediation 193-r1'; else fail 'CHANGELOG does not record step 193-r1 remediation'; fi
 
 printf 'Result: %s (%d passes, %d failures)\n' "$( [[ $FAIL_COUNT -eq 0 ]] && printf PASS || printf FAIL )" "$PASS_COUNT" "$FAIL_COUNT"
 [[ $FAIL_COUNT -eq 0 ]]

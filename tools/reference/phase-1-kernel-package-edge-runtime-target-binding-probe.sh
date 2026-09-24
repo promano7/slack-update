@@ -8,6 +8,7 @@ readonly FROZEN_EFFECTIVE_CONFIG_SHA256='4845e2c5038fe8896409f90b6287de33a011a76
 readonly FROZEN_KERNEL_HEADERS='kernel-headers'
 readonly FROZEN_KERNEL_BOOT='kernel-generic kernel-huge kernel-modules'
 readonly PACKAGE_DATABASE='/var/log/packages'
+readonly PACKAGE_DATABASE_CANONICAL='/var/lib/pkgtools/packages'
 
 usage() {
     cat <<'USAGE'
@@ -46,7 +47,20 @@ done
 for path in /etc/slackware-version /proc/sys/kernel/random/boot_id; do
     [[ -f $path && ! -L $path ]] || { printf 'ERROR: required target identity file missing or unsafe: %s\n' "$path" >&2; exit 4; }
 done
-[[ -d $PACKAGE_DATABASE && ! -L $PACKAGE_DATABASE ]] || { printf 'ERROR: package database missing or unsafe: %s\n' "$PACKAGE_DATABASE" >&2; exit 4; }
+[[ -d $PACKAGE_DATABASE_CANONICAL && ! -L $PACKAGE_DATABASE_CANONICAL ]] || {
+    printf 'ERROR: canonical package database missing or unsafe: %s\n' "$PACKAGE_DATABASE_CANONICAL" >&2
+    exit 4
+}
+[[ -L $PACKAGE_DATABASE ]] || {
+    printf 'ERROR: compatibility package database is not the expected symlink: %s\n' "$PACKAGE_DATABASE" >&2
+    exit 4
+}
+package_database_resolved=$(readlink -f -- "$PACKAGE_DATABASE" 2>/dev/null || true)
+[[ $package_database_resolved == "$PACKAGE_DATABASE_CANONICAL" ]] || {
+    printf 'ERROR: package database symlink target mismatch\nexpected: %s\nactual:   %s\n' \
+        "$PACKAGE_DATABASE_CANONICAL" "${package_database_resolved:-<unresolved>}" >&2
+    exit 4
+}
 
 fqdn=$(hostname -f 2>/dev/null || true)
 [[ $fqdn == "$EXPECTED_FQDN" ]] || {
@@ -71,7 +85,7 @@ package_records() {
     local candidate base
     local records=()
     shopt -s nullglob
-    for candidate in "$PACKAGE_DATABASE/$package_name-"*; do
+    for candidate in "$PACKAGE_DATABASE_CANONICAL/$package_name-"*; do
         [[ -f $candidate && ! -L $candidate ]] || continue
         base=${candidate##*/}
         records+=("$base")
@@ -137,7 +151,7 @@ boot_id=$(cat /proc/sys/kernel/random/boot_id)
 hostname_short=$(hostname)
 uname_release=$(uname -r)
 uname_machine=$(uname -m)
-package_db_manifest_sha=$(manifest_hash "$PACKAGE_DATABASE")
+package_db_manifest_sha=$(manifest_hash "$PACKAGE_DATABASE_CANONICAL")
 slackpkg_conf_sha=$(regular_file_hash_or_absent /etc/slackpkg/slackpkg.conf)
 slackpkg_mirrors_sha=$(regular_file_hash_or_absent /etc/slackpkg/mirrors)
 
@@ -153,6 +167,8 @@ printf 'effective_config_sha256\t%s\n' "$FROZEN_EFFECTIVE_CONFIG_SHA256"
 printf 'configured_kernel_headers\t%s\n' "$FROZEN_KERNEL_HEADERS"
 printf 'configured_kernel_boot\t%s\n' "$FROZEN_KERNEL_BOOT"
 printf 'package_database\t%s\n' "$PACKAGE_DATABASE"
+printf 'package_database_canonical\t%s\n' "$PACKAGE_DATABASE_CANONICAL"
+printf 'package_database_resolved\t%s\n' "$package_database_resolved"
 printf 'package_database_manifest_sha256\t%s\n' "$package_db_manifest_sha"
 printf 'header_package_record_count\t%s\n' "$header_count"
 printf 'header_package_record\t%s\n' "$header_records"

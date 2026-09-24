@@ -28,6 +28,12 @@ record, the three configured boot-package records, and SHA-256 fingerprints of
 `/etc/slackpkg/slackpkg.conf` and `/etc/slackpkg/mirrors` when present. It
 also verifies availability of the commands required by the step-192 design.
 
+The observation validates the modern pkgtools layout before reading package
+state: `/var/log/packages` must be a symbolic link resolving exactly to the
+canonical `/var/lib/pkgtools/packages` directory, and that canonical directory
+must itself be a real directory rather than a symbolic link. Package records
+and the manifest fingerprint are read from the canonical directory.
+
 The observation fails closed unless exactly one `kernel-headers` package
 record and exactly one record for each configured boot package are present. A
 successful output starts with `binding_status<TAB>PASS`. The complete output
