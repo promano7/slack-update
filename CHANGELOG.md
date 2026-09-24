@@ -1263,3 +1263,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Required each configured boot-sensitive name to resolve to zero or one installed package record, rejected ambiguous multiple records, required at least one configured boot-sensitive package to be installed, and recorded per-name `installed`/`absent` status.
 - Preserved the header requirement of exactly one installed `kernel-headers` record, the canonical pkgtools database checks introduced by step 193-r1, and the complete read-only authorization boundary.
 - No repository refresh, network access, package mutation, boot mutation, persistent configuration change, or reboot is authorized; the next stage remains `phase-1-kernel-package-edge-runtime-target-binding-freeze` only after a successful corrected observation.
+
+## Phase 1 step 194 kernel-package-edge runtime target-binding freeze — 2026-09-24
+
+- Consumed the successful corrected step-193-r2 standalone VM observation and froze `vbox-slackcurrent.vbox-slackcurrent.org` as the exact pre-staging runtime target for the `kernel-package-edge` family.
+- Froze kernel `6.18.45`, boot ID `5e79b100-55a8-415d-a6ea-1cb8c568c2eb`, controller reference/configuration identities, canonical pkgtools layout, package-database manifest, and the exact installed `kernel-headers-6.18.45-x86-1` record.
+- Froze the cross-release boot-sensitive observations: `kernel-generic-6.18.45-x86_64-1` installed, `kernel-huge` absent, and `kernel-modules` absent, with no ambiguity.
+- Froze the observed `slackpkg.conf` and `mirrors` fingerprints and recorded that the accepted observation performed no repository refresh, network access, package action, boot action, persistent configuration change, or reboot.
+- Required the exact pre-staging machine/package state to remain unchanged until an explicitly authorized staging boundary; target reboot, kernel drift, package-database drift, slackpkg configuration drift, or controller reference/configuration drift fails closed back to target-binding review.
+- Authorized only `phase-1-kernel-package-edge-package-pair-and-local-source-binding-design`; package/source binding, runtime implementation/execution, repository/network refresh, package/boot action, reboot, and Phase 2 remain unauthorized. This is not a safe pause (`pause_safe=false`).
