@@ -1,0 +1,71 @@
+{
+  "accepted_binding_review": {
+    "controller_probe_path": "tools/reference/phase-1-kernel-package-edge-controller-artifact-acquisition-probe.sh",
+    "controller_probe_sha256": "943af8b0995368b34c3fc79efaac09cbbdebebc1ea5929a4c566ccfd2ef1e586",
+    "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-package-pair-and-local-source-binding-review-policy.json",
+    "policy_sha256": "ba6fe4afb14cc5c7793c2ac610660706648eb2bbf5a8b95ea31199efe18cb03b",
+    "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-package-pair-and-local-source-binding-review.tsv",
+    "record_sha256": "27c86a17e6f98984cb2101749d3fba21b14be697dca7382f9016ef90ef83df2a",
+    "step": 196
+  },
+  "artifact_byte_binding": {
+    "accepted_observation_side_effects": {
+      "boot_action_performed": false,
+      "package_action_performed": false,
+      "reboot_performed": false,
+      "target_vm_action_performed": false,
+      "target_vm_network_access_performed": false
+    },
+    "acquired_files_manifest_sha256": "1292ade434fd52b90f4230955610d5a0ca70fb0c586a6a6488ecf912621cf86f",
+    "binding_evidence_sha256": "dd3037a58a3a2455d5c4e960ac027bed3dc644a193c22e9ec806a43d91b2ae63",
+    "controller_redownload_requires_new_explicit_authorization": true,
+    "evidence_root": "/home/promano/slack-update-phase-1-step-196-kernel-package-edge-artifacts",
+    "evidence_root_must_be_preserved_unchanged": true,
+    "later_archive_or_slackware_current_publication_invalidates_byte_binding": false,
+    "local_source_tree_binding_state": "not-built",
+    "observation_status": "PASS",
+    "package_pair": {
+      "predecessor_artifact": "kernel-headers-6.18.44-x86-1.txz",
+      "predecessor_package_sha256": "3e7ab26d4a5ae1bd4e13f568dc7b8d6705eb670b94fed231ca01fefae2466a9d",
+      "predecessor_record": "kernel-headers-6.18.44-x86-1",
+      "predecessor_signature": "kernel-headers-6.18.44-x86-1.txz.asc",
+      "predecessor_signature_sha256": "e818c8b1c665aabc8724e8a301de5a711eb949bbf2dfd92dba8ce5ced7bdcf21",
+      "predecessor_signature_valid": true,
+      "target_artifact": "kernel-headers-6.18.45-x86-1.txz",
+      "target_package_sha256": "c7b56b50f0abdec8f35628d526bb05488c257f667ab9c2be1a7a3e07d97da63c",
+      "target_record": "kernel-headers-6.18.45-x86-1",
+      "target_signature": "kernel-headers-6.18.45-x86-1.txz.asc",
+      "target_signature_sha256": "66787e515d7d4420daab5aac412cd8ac5921a1dff037147b8216e1017ac1c801",
+      "target_signature_valid": true
+    },
+    "signing_key": {
+      "file_sha256": "82af92f3a9abdae815534912e7c438f1bad50b8516bb8d75fe9e08444f727daf",
+      "fingerprint": "EC5649DA401E22ABFA6736EF6A4463C040102233"
+    },
+    "state": "accepted-byte-binding-frozen"
+  },
+  "authorization": {
+    "boot_action_authorized": false,
+    "controller_artifact_acquisition_authorized": false,
+    "controller_network_access_authorized": false,
+    "local_source_build_authorized": false,
+    "local_source_construction_review_authorized_for_next_stage": true,
+    "package_action_authorized": false,
+    "phase_2_start_authorized": false,
+    "reboot_authorized": false,
+    "runtime_executor_implementation_authorized": false,
+    "runtime_scenario_execution_authorized": false,
+    "target_artifact_copy_authorized": false,
+    "target_vm_action_authorized": false,
+    "target_vm_network_access_authorized": false
+  },
+  "controller_action_required": false,
+  "freeze_only": true,
+  "helper_path": "tools/reference/phase-1-kernel-package-edge-package-pair-and-local-source-binding-freeze.sh",
+  "helper_sha256": "f9bacedb9c65576a9b7eb32ac53e4465088f5ef8700976ed8a5b6cb31d2f7ebb",
+  "machine_action_required": false,
+  "next_stage": "phase-1-kernel-package-edge-local-source-construction-review",
+  "pause_safe": false,
+  "scenario": "phase-1-kernel-package-edge-package-pair-and-local-source-binding-freeze",
+  "schema": 1
+}

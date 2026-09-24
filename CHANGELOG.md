@@ -1290,3 +1290,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Added an unprivileged controller acquisition probe that downloads only the frozen key/package/signature URLs, disables automatic GPG key retrieval, requires `VALIDSIG` for the frozen fingerprint on both package signatures, and emits SHA-256 binding evidence plus an acquired-files manifest.
 - Authorized only this exact controller acquisition observation and its frozen HTTPS URLs; target-VM network/action, target copy, package/source binding, local-source build, package/boot mutation, reboot, runtime execution, and Phase 2 remain unauthorized.
 - Required preservation of the complete controller evidence directory for `phase-1-kernel-package-edge-package-pair-and-local-source-binding-freeze`. This is not a strong safe pause (`pause_safe=false`).
+
+## Phase 1 step 197 kernel-package-edge package-pair and local-source binding freeze — 2026-09-24
+
+- Consumed the successful step-196 controller acquisition observation and froze the exact byte identities for `GPG-KEY`, the 6.18.44 predecessor package/signature, the 6.18.45 target package/signature, `binding-evidence.tsv`, and `acquired-files.sha256`.
+- Accepted both detached-signature validations for the frozen Slackware signing fingerprint `EC5649DA401E22ABFA6736EF6A4463C040102233` and preserved the complete external evidence root for later local-source construction verification.
+- Closed the temporary controller artifact-acquisition and network authorization opened by step 196; any re-download now requires a fresh explicit authorization boundary.
+- Preserved the untouched/offline target VM boundary and authorized no target copy, local-source build, package/boot mutation, reboot, runtime execution, or Phase 2 work.
+- Routed only to `phase-1-kernel-package-edge-local-source-construction-review`. This remains inside the active family chain and is not yet the strong safe pause (`pause_safe=false`).
