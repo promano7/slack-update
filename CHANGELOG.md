@@ -1220,3 +1220,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Preserved the exact single scenario, `Kernel headers update without a kernel image update.`, while keeping the closed `execution-control-failure-paths` family excluded from replay.
 - Bound no live candidate set, opened no runtime execution chain, and granted no source/documentation, repository/network refresh, machine, package, boot, reboot, runtime-scenario, or Phase 2 authorization.
 - Preserved the remaining Phase 1 gates and routed the next stage to `phase-1-kernel-package-edge-contract-freeze`.
+
+## Phase 1 step 191 kernel-package-edge contract freeze — 2026-09-24
+
+- Consumed the accepted step-190 `kernel-package-edge` selection and froze the single header-only kernel package runtime-validation contract.
+- Required a controlled real-system package-state transition with at least one configured kernel-header package delta and zero configured kernel boot-package deltas.
+- Froze the expected reference behavior: `KERNEL_TRIGGER=1`, `INITRD_UPDATE=0`, `GRUB_UPDATE=0`, external-module warning observable, no boot preparation, unchanged running kernel and boot-artifact fingerprints, and no reboot.
+- Deferred exact VM, candidate-set, and package-source binding to a fresh runtime boundary and granted no repository/network refresh, machine, package, boot, reboot, runtime-scenario, source, or Phase 2 authorization.
+- Next stage: `phase-1-kernel-package-edge-runtime-boundary-design`.
