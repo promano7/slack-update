@@ -1326,3 +1326,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Kept the local-source builder unimplemented, the local-source tree unbuilt, and its manifest unbound; no target copy or construction action is authorized.
 - Granted no repository/network refresh, target-machine/network, package, boot, reboot, runtime-execution, source, documentation, or Phase 2 authority.
 - Opened only the planning chain to `phase-1-kernel-package-edge-local-source-construction-fresh-target-revalidation-review`. This is not a safe pause (`pause_safe=false`).
+
+## Phase 1 step 201 kernel-package-edge fresh target revalidation review — 2026-09-26
+
+- Consumed the accepted step-200 resume-planning boundary and opened only a standalone read-only post-pause observation of `vbox-slackcurrent.vbox-slackcurrent.org`.
+- Kept the step-194 target binding expired while using its accepted package/configuration state solely as the compatibility baseline for the frozen 6.18.44→6.18.45 `kernel-headers` artifact pair.
+- Added a self-contained revalidation probe that accepts a fresh boot ID but fails closed on FQDN, architecture, running-kernel, pkgtools database, installed header/boot-package, or `slackpkg` configuration drift.
+- Preserved the signed artifact byte binding and unchanged external evidence root; no artifact reacquisition, VM network access, repository refresh, target copy, local-source construction, package/boot mutation, reboot, or runtime scenario execution is authorized.
+- Kept the local-source builder unimplemented and bound no live candidate set.
+- Authorized only the read-only revalidation observation and a subsequent repository-only freeze after successful returned evidence. Next stage: `phase-1-kernel-package-edge-local-source-construction-fresh-target-revalidation-freeze`; `pause_safe=false`.
