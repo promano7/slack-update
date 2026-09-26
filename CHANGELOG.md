@@ -1335,3 +1335,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Preserved the signed artifact byte binding and unchanged external evidence root; no artifact reacquisition, VM network access, repository refresh, target copy, local-source construction, package/boot mutation, reboot, or runtime scenario execution is authorized.
 - Kept the local-source builder unimplemented and bound no live candidate set.
 - Authorized only the read-only revalidation observation and a subsequent repository-only freeze after successful returned evidence. Next stage: `phase-1-kernel-package-edge-local-source-construction-fresh-target-revalidation-freeze`; `pause_safe=false`.
+
+## Phase 1 step 201-r1 fresh target revalidation failure review — 2026-09-26
+
+- Recorded the step-201 fail-closed package-database manifest drift from baseline `3aeaf9f…` to observed `726a67…`; no successful post-pause target revalidation is claimed.
+- Kept the accepted 6.18.44→6.18.45 signed `kernel-headers` byte binding unchanged and did not accept the new package-database manifest.
+- Added a standalone read-only characterization probe bound to the exact failed manifest and to the accepted 2026-09-24 16:18:07 UTC baseline observation time.
+- The probe reports current kernel-package records, `slackpkg` fingerprints, and pkgtools installed/removed records newer than the baseline so the drift can be classified without mutation.
+- Authorized only this characterization observation; network/repository refresh, package/boot mutation, reboot, target copy, local-source construction, runtime execution, and Phase 2 remain forbidden.
+- Next stage: `phase-1-kernel-package-edge-local-source-construction-package-database-drift-characterization-review`; `pause_safe=false`.

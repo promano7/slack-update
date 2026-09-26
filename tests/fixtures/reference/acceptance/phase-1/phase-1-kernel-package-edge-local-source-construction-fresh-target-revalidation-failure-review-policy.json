@@ -1,0 +1,53 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-kernel-package-edge-local-source-construction-fresh-target-revalidation-failure-review",
+  "revision": "r1-package-database-drift-characterization",
+  "review_only": true,
+  "accepted_step_201": {
+    "policy_sha256": "77aee964cbe04b9f7e49e4d5f9427b2d98aebf08b3fefe6074aae944220304fa",
+    "record_sha256": "1fbaf768672fd13b9f51ef65ebfdff4bef3a7c10958b42cae8ec1c3046dc1dd0",
+    "probe_sha256": "d8c0a9f73e99a228c75b58483d9c0ea4c777e2d41296a05a089c69635cc5b7e4"
+  },
+  "observed_failure": {
+    "class": "package-database-manifest-drift",
+    "expected_manifest_sha256": "3aeaf9f193f5bc5c92f10ee3c5063be0b17a0e3001eccbc57bc4037c4343e910",
+    "actual_manifest_sha256": "726a67acda9e270555a0a8d9f80e78a8f66400d843a947480c0d7d8ad4a7a1b6",
+    "step_201_failed_closed": true,
+    "successful_revalidation_not_claimed": true
+  },
+  "characterization": {
+    "state": "read-only-characterization-authorized",
+    "probe_path": "tools/reference/phase-1-kernel-package-edge-local-source-construction-package-database-drift-characterization-probe.sh",
+    "probe_sha256": "523decebbbda74069ebdd97e3ed8c3465514eee65f3ce673c4d845eb8d9098f2",
+    "baseline_observed_utc": "2026-09-24T16:18:07Z",
+    "same_failed_manifest_required": true,
+    "recent_installed_records_reported": true,
+    "recent_removed_records_reported": true,
+    "kernel_package_state_reported": true,
+    "slackpkg_fingerprints_reported": true,
+    "network_access_allowed": false,
+    "package_mutation_allowed": false,
+    "boot_mutation_allowed": false,
+    "persistent_configuration_change_allowed": false,
+    "reboot_allowed": false
+  },
+  "authorization": {
+    "package_database_drift_characterization_authorized": true,
+    "fresh_target_revalidation_freeze_authorized": false,
+    "target_artifact_copy_authorized": false,
+    "local_source_build_authorized": false,
+    "runtime_scenario_execution_authorized": false,
+    "repository_refresh_authorized": false,
+    "network_refresh_authorized": false,
+    "package_action_authorized": false,
+    "boot_action_authorized": false,
+    "reboot_authorized": false,
+    "phase_2_start_authorized": false
+  },
+  "machine_action_required": true,
+  "machine_action_type": "read-only-package-database-drift-characterization",
+  "pause_safe": false,
+  "helper_path": "tools/reference/phase-1-kernel-package-edge-local-source-construction-fresh-target-revalidation-failure-review.sh",
+  "helper_sha256": "68af5b209a8c1453e35c903193041a14378c5879c3969211a24b143f5d7688c5",
+  "next_stage": "phase-1-kernel-package-edge-local-source-construction-package-database-drift-characterization-review"
+}
