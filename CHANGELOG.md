@@ -1380,3 +1380,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Preserved the builder prohibition on network access and package/slackpkg/boot/reboot mutation; generated metadata remains non-authoritative for package authenticity.
 - Authorized only repository-only builder implementation review. Artifact copy, local-source construction, runtime execution, package/boot mutation, reboot, and Phase 2 remain forbidden.
 - Next stage: `phase-1-kernel-package-edge-local-source-construction-builder-implementation-review`; `pause_safe=false`.
+
+## Phase 1 step 205 kernel-package-edge local-source construction builder implementation review — 2026-09-26
+
+- Consumed the accepted step-204 frozen builder design and implemented `tools/reference/phase-1-kernel-package-edge-local-source-build.sh` for repository review only.
+- Bound the implementation to the exact frozen 6.18.45 `kernel-headers` input and SHA-256, with the 6.18.44 predecessor excluded from builder input and local-source candidates.
+- Implemented fail-closed regular-file/symlink/SHA/output-path guards, temporary-tree construction, deterministic minimal Slackpkg metadata, exact single-candidate validation, read-only `root:root` finalization, and external SHA-256 tree-manifest verification.
+- Added a repository-only library test seam so the harness can exercise valid input plus wrong-SHA, symlink, and pre-existing-output failures without root or target-machine mutation; production constants and paths are not overridable.
+- Preserved the no-network/no-package/no-slackpkg-configuration/no-boot/no-reboot mutation contract and did not authorize execution of the builder or any target artifact copy.
+- Authorized only `phase-1-kernel-package-edge-local-source-construction-builder-implementation-freeze`; `pause_safe=false`.
