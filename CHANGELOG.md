@@ -1371,3 +1371,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Required fail-closed temporary-tree construction, no overwrite of a pre-existing final tree, no embedded time/hostname/boot identity, an external sorted SHA-256 tree manifest, and final read-only `root:root` ownership/modes.
 - Preserved the no-network/no-package/no-slackpkg-configuration/no-boot/no-reboot mutation contract for the builder itself and kept the builder unimplemented.
 - Authorized only `phase-1-kernel-package-edge-local-source-construction-builder-design-freeze`; `pause_safe=false`.
+
+## Phase 1 step 204 kernel-package-edge local-source construction builder design freeze — 2026-09-26
+
+- Consumed the accepted step-203 builder design review and froze its deterministic minimal single-candidate `file://` source contract without implementing or executing the builder.
+- Preserved the frozen post-pause target binding and signed 6.18.44/6.18.45 artifact byte binding, while keeping 6.18.44 excluded from the generated source and reserved for later staging.
+- Froze the exact target input, source layout, metadata set, `PACKAGES.TXT` semantics, fail-closed temporary-tree promotion, external SHA-256 tree manifest, and read-only `root:root` final modes.
+- Preserved the builder prohibition on network access and package/slackpkg/boot/reboot mutation; generated metadata remains non-authoritative for package authenticity.
+- Authorized only repository-only builder implementation review. Artifact copy, local-source construction, runtime execution, package/boot mutation, reboot, and Phase 2 remain forbidden.
+- Next stage: `phase-1-kernel-package-edge-local-source-construction-builder-implementation-review`; `pause_safe=false`.
