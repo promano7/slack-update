@@ -1445,3 +1445,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Required fresh target revalidation, preserved-local-source tree revalidation, and a fresh candidate-set binding before any runtime scenario execution; none of those live actions is authorized by this step.
 - Granted no controller acquisition/network, repository/network refresh, target-copy, builder rerun, predecessor staging, package, boot, reboot, runtime-scenario, source/documentation, or Phase 2 authority.
 - Routed only to `phase-1-kernel-package-edge-post-local-source-build-revalidation-review`; no machine or controller action is required and `pause_safe=false` because the family chain has been reopened.
+
+## Phase 1 step 212 kernel-package-edge post-local-source-build revalidation review — 2026-09-26
+
+- Consumed the accepted step-211 fresh planning boundary and opened one narrow read-only target-machine revalidation gate.
+- Added standalone probe `tools/reference/phase-1-kernel-package-edge-post-local-source-build-revalidation-probe.sh` at SHA-256 `44a68d5e63b873c5df836cccb4ffa525852e45a15fda0b332a7ee6ef56899383` to reobserve target identity/package state and verify the preserved staged target plus local-source tree.
+- Kept the historical step-202 target binding expired; the probe records a fresh boot ID while requiring the accepted package database, kernel package, Slackpkg configuration, staged-target SHA/mode/owner, tree-manifest SHA, sidecar verification, read-only tree modes, single-candidate contract, and predecessor exclusion.
+- Authorized only transport/execution of that exact read-only probe. Repository/network refresh, builder/stager execution, artifact replacement, predecessor staging, candidate binding, runtime scenario execution, package/Slackpkg mutation, boot action, reboot, and Phase 2 remain forbidden.
+- Required complete returned probe output before any further machine action. Next stage: `phase-1-kernel-package-edge-post-local-source-build-revalidation-freeze`; `pause_safe=false`.
