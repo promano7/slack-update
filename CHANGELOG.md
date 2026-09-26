@@ -1509,3 +1509,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Authorized exactly one executor invocation with `--execute-runtime-validation`, including temporary 6.18.44 header staging, local-only Slackpkg metadata refresh, same-transaction candidate binding, and frozen reference apply; package mutation is limited to the 6.18.45→6.18.44→6.18.45 header transition.
 - Kept external network access, generic repository refresh, boot/initrd/GRUB mutation, reboot, persistent configuration change, executor rebuild, artifact redownload, and Phase 2 forbidden.
 - Required final restoration to the accepted 6.18.45 package/boot/source/configuration state and publication of the runtime evidence archive plus SHA-256 before any further machine action. Next stage: `phase-1-kernel-package-edge-runtime-transaction-validation-result-review`; `pause_safe=false`.
+## Phase 1 step 218 kernel-package-edge runtime transaction first-attempt failure review — 2026-09-26
+
+- Recorded the first step-217-authorized runtime transaction as fail-closed with `ERROR: refreshed local pkglist contains 2032 package rows instead of exactly one` before reference apply execution.
+- Classified the immediate failure as a candidate-binding guard/Slackpkg metadata assumption requiring evidence-backed characterization rather than a rerun.
+- Authorized exactly one read-only failure-characterization probe, SHA-256 `a5ec4bb7ecffa052edd540729c8f1cf44e0c68e4e0283d196ae4ad71a6898ae1`, to verify rollback of the temporary 6.18.44 header stage and restoration of Slackpkg, GenInitrd, package, boot, staged-target, and local-source invariants.
+- Required the failed runtime evidence root to remain preserved and required published PASS evidence to remain absent.
+- Kept runtime rerun, package/Slackpkg mutation, repository/network access, boot action, reboot, persistent configuration change, and Phase 2 forbidden; `pause_safe=false`.
+- Next stage: `phase-1-kernel-package-edge-runtime-transaction-first-attempt-failure-characterization-freeze`.

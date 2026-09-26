@@ -1,0 +1,22 @@
+step	218
+review_status	PASS
+observed_runtime_result	FAIL
+observed_error	refreshed local pkglist contains 2032 package rows instead of exactly one
+failure_class	candidate-binding-guard-assumption
+mutation_had_started	yes
+cleanup_verification_required	yes
+failure_probe_sha256	a5ec4bb7ecffa052edd540729c8f1cf44e0c68e4e0283d196ae4ad71a6898ae1
+failure_probe_acknowledgement	--observe-failure-cleanup
+machine_action_required	yes
+machine_action_type	read-only-failure-characterization
+runtime_rerun_authorized	no
+package_action_authorized	no
+slackpkg_mutation_authorized	no
+network_access_authorized	no
+boot_action_authorized	no
+reboot_authorized	no
+persistent_configuration_change_authorized	no
+published_success_evidence_expected	no
+failed_evidence_root_must_be_preserved	yes
+pause_safe	no
+next_stage	phase-1-kernel-package-edge-runtime-transaction-first-attempt-failure-characterization-freeze
