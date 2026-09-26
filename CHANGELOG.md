@@ -1500,3 +1500,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Required failure recovery to restore the 6.18.45 target header, original Slackpkg configuration/state, and GenInitrd policy; successful evidence publication remains gated on unchanged package baseline, boot identity/artifacts, local source, staged target, and no reboot.
 - Repository acceptance passed `PASS (69 passes, 0 failures)`; no runtime build, transport, predecessor copy/staging, Slackpkg mutation, candidate binding, reference apply, package/network/boot action, reboot, or Phase 2 authority is opened by this step.
 - Next stage: `phase-1-kernel-package-edge-runtime-transaction-executor-runtime-authorization-review`; no machine/controller action is required and `pause_safe=false`.
+
+## Phase 1 step 217 kernel-package-edge runtime transaction executor runtime authorization review — 2026-09-26
+
+- Consumed the exact accepted step-216 implementation and repository acceptance result `PASS (69 passes, 0 failures)` and opened one single-use runtime authorization for the bounded kernel-header edge transaction.
+- Froze the only transportable executor at SHA-256 `09544b0f1b58a39a988ed705bf4d0d99b0da611bba070972d76828b5c0f93300` and the only transportable predecessor `kernel-headers-6.18.44-x86-1.txz` at SHA-256 `3e7ab26d4a5ae1bd4e13f568dc7b8d6705eb670b94fed231ca01fefae2466a9d`; executor rebuild and predecessor redownload remain forbidden.
+- Bound execution to `vbox-slackcurrent.vbox-slackcurrent.org`, running kernel `6.18.45`, boot ID `91901677-1dc3-4a39-a4b1-3f87e6875234`, the frozen package/Slackpkg identity, staged 6.18.45 target, and preserved local-source tree; any drift must abort before first mutation.
+- Authorized exactly one executor invocation with `--execute-runtime-validation`, including temporary 6.18.44 header staging, local-only Slackpkg metadata refresh, same-transaction candidate binding, and frozen reference apply; package mutation is limited to the 6.18.45→6.18.44→6.18.45 header transition.
+- Kept external network access, generic repository refresh, boot/initrd/GRUB mutation, reboot, persistent configuration change, executor rebuild, artifact redownload, and Phase 2 forbidden.
+- Required final restoration to the accepted 6.18.45 package/boot/source/configuration state and publication of the runtime evidence archive plus SHA-256 before any further machine action. Next stage: `phase-1-kernel-package-edge-runtime-transaction-validation-result-review`; `pause_safe=false`.
