@@ -1525,3 +1525,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Recorded revised probe SHA-256 `0f9388cde7fcb178e8f06ff2b200d503c29fb454fa9502091701cc5d2752098d`.
 - No package, Slackpkg, repository/network, boot, reboot, evidence deletion, runtime rerun, or Phase 2 authority is opened; the failed evidence root remains preserved and `pause_safe=false`.
 - Next stage remains `phase-1-kernel-package-edge-runtime-transaction-first-attempt-failure-characterization-freeze`.
+
+## Phase 1 step 219 kernel-package-edge runtime transaction failure characterization freeze and remediation boundary review — 2026-09-26
+
+- Consumed the accepted step-218-r1 read-only characterization result `failure_characterization_status=PASS` and froze the first runtime attempt as a contained failure with successful rollback to the accepted 6.18.45 package, Slackpkg, GenInitrd, and `/boot` state.
+- Froze the observed Slackpkg contradiction: refresh exit code `0` together with `error-downloading-from-local-source`; the restored pre-existing `pkglist` has 2032 rows with exactly one target row, and the accepted local-source v1 lacks `CHECKSUMS.md5.asc`.
+- Retired the first executor's assumptions that zero exit status alone proves refresh success or that total `pkglist` row count is a valid candidate guard without independent freshness proof.
+- Preserved the accepted local-source v1 and failed runtime evidence root as immutable evidence; neither may be edited in place or deleted for remediation.
+- Selected a separate deterministic `local-source-v2` remediation boundary with Slackpkg refresh-compatibility metadata, explicit workdir freshness proof, target-specific candidate binding, and real-tab TSV evidence. Package authenticity remains bound by the frozen package SHA-256 and the new tree manifest rather than by the local compatibility `.asc` artifact.
+- Kept runtime rerun, package/Slackpkg mutation, repository/network access, boot action, reboot, persistent configuration change, evidence deletion, and Phase 2 forbidden; no machine or controller action is required and `pause_safe=false`.
+- Next stage: `phase-1-kernel-package-edge-runtime-transaction-remediation-boundary-review-and-strong-safe-pause`.
