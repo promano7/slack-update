@@ -1480,3 +1480,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Required the candidate binding to be created and consumed inside one fail-closed runtime transaction, invalidated by any package, boot-ID, local-source, or Slackpkg-configuration change and never carried across a pause.
 - Required failure rollback to restore the 6.18.45 target header package and byte-for-byte Slackpkg configuration; leaving the predecessor installed is not an acceptable successful terminal state.
 - Opened only repository-side `phase-1-kernel-package-edge-runtime-transaction-executor-design-review`; predecessor transport/staging, Slackpkg changes, metadata refresh, live candidate binding, package/network/boot/reboot action, runtime apply, and Phase 2 remain forbidden; `pause_safe=false`.
+
+## Phase 1 step 215 kernel-package-edge runtime transaction executor design review — 2026-09-26
+
+- Consumed the accepted step-214 same-transaction candidate-binding contract and froze the repository-only design for a standalone kernel-package-edge runtime transaction executor.
+- Bound the executor design to the fresh boot/package/Slackpkg identity, exact reference script and effective configuration hashes, the signed 6.18.44 predecessor bytes, the staged 6.18.45 target, and the preserved read-only local source tree.
+- Required a derived runtime configuration that isolates the scenario by disabling Flatpak, SBo, ELF, and Cinnamon while preserving Slackware package behavior, package classification, and `boot.mode=auto`.
+- Required candidate refresh and reference apply to run without external network access, with temporary local-only Slackpkg configuration/state backed up and restored byte-for-byte.
+- Froze the transaction order and rollback contract: revalidate, stage only the 6.18.44 header, prove the header-only delta, bind exactly one 6.18.45 header upgrade, run the frozen reference apply, and restore the accepted final state on both success and failure.
+- Kept executor build/transport, predecessor transport/staging, Slackpkg mutation, candidate binding, reference apply, package/network/boot action, reboot, and Phase 2 unauthorized.
+- Opened only repository-side `phase-1-kernel-package-edge-runtime-transaction-executor-implementation-review`; no machine/controller action is required and `pause_safe=false`.
