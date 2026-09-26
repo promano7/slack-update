@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "scenario": "phase-1-kernel-package-edge-local-source-construction-resume-planning-boundary-review",
+  "review_only": true,
+  "accepted_checkpoint": {
+    "step": 199,
+    "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-local-source-construction-review-and-strong-safe-pause-policy.json",
+    "policy_sha256": "6577709a7fc3b822a9e7e6bcf4f94c973d0a12d829b3a65efc7da4a5038d6a43",
+    "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-local-source-construction-review-and-strong-safe-pause.tsv",
+    "record_sha256": "4bd523d8f5958f6227ef6ee48f208e8253a06a2c7f9d9a1b6664286286fda8a1",
+    "strong_safe_pause": true,
+    "no_open_operational_authorization": true,
+    "later_slackware_current_publication_invalidates_checkpoint": false
+  },
+  "fresh_boundary": {
+    "opened": true,
+    "scope": "phase-1-kernel-package-edge-local-source-construction-resume-planning",
+    "purpose": "resume the selected kernel-package-edge family without inheriting any pre-pause runtime or operational authorization",
+    "selected_family_preserved": true,
+    "live_runtime_chain_open": false,
+    "runtime_candidate_set_bound": false,
+    "slackware_current_publication_invalidates_boundary": false
+  },
+  "selected_family": {
+    "family": "kernel-package-edge",
+    "family_closed": false,
+    "scenario_count": 1,
+    "selected_scenario": "Kernel headers update without a kernel image update."
+  },
+  "artifact_byte_binding": {
+    "state": "accepted-byte-binding-frozen",
+    "evidence_root": "/home/promano/slack-update-phase-1-step-196-kernel-package-edge-artifacts",
+    "evidence_root_must_remain_unchanged": true,
+    "signing_key_fingerprint": "EC5649DA401E22ABFA6736EF6A4463C040102233",
+    "predecessor_package_sha256": "3e7ab26d4a5ae1bd4e13f568dc7b8d6705eb670b94fed231ca01fefae2466a9d",
+    "target_package_sha256": "c7b56b50f0abdec8f35628d526bb05488c257f667ab9c2be1a7a3e07d97da63c",
+    "binding_evidence_sha256": "dd3037a58a3a2455d5c4e960ac027bed3dc644a193c22e9ec806a43d91b2ae63",
+    "acquired_files_manifest_sha256": "1292ade434fd52b90f4230955610d5a0ca70fb0c586a6a6488ecf912621cf86f",
+    "survives_later_publication": true,
+    "controller_reacquisition_authorized": false
+  },
+  "local_source_state": {
+    "builder_path": "tools/reference/phase-1-kernel-package-edge-local-source-build.sh",
+    "builder_implementation_state": "not-implemented",
+    "local_source_tree_built": false,
+    "local_source_tree_manifest_bound": false,
+    "runtime_root": "/var/tmp/slack-update-acceptance/kernel-package-edge/local-source",
+    "runtime_mirror_uri": "file:///var/tmp/slack-update-acceptance/kernel-package-edge/local-source",
+    "target_artifact": "kernel-headers-6.18.45-x86-1.txz",
+    "predecessor_artifact_must_not_be_exposed_by_local_source": true
+  },
+  "runtime_revalidation": {
+    "prior_target_binding_reusable": false,
+    "fresh_target_revalidation_required_before_machine_action": true,
+    "fresh_candidate_set_required_before_runtime": true,
+    "target_observation_authorized_now": false,
+    "target_copy_authorized_now": false,
+    "target_network_access_authorized_now": false
+  },
+  "authorization": {
+    "source_change_authorized": false,
+    "documentation_change_authorized": false,
+    "controller_artifact_acquisition_authorized": false,
+    "controller_network_access_authorized": false,
+    "repository_refresh_authorized": false,
+    "network_refresh_authorized": false,
+    "target_vm_action_authorized": false,
+    "target_vm_network_access_authorized": false,
+    "target_artifact_copy_authorized": false,
+    "local_source_build_authorized": false,
+    "runtime_executor_implementation_authorized": false,
+    "runtime_scenario_execution_authorized": false,
+    "package_action_authorized": false,
+    "boot_action_authorized": false,
+    "reboot_authorized": false,
+    "phase_2_start_authorized": false,
+    "future_work_requires_explicit_authorization": true
+  },
+  "gates": {
+    "acceptance_matrix_complete": false,
+    "kernel_package_edge_family_closed": false,
+    "reference_freeze_status": "blocked-behind-remaining-acceptance-work",
+    "c_port_status": "blocked-by-phase-1-gate"
+  },
+  "machine_action_required": false,
+  "controller_action_required": false,
+  "pause_safe": false,
+  "helper_path": "tools/reference/phase-1-kernel-package-edge-local-source-construction-resume-planning-boundary-review.sh",
+  "helper_sha256": "a57737ee593324c4f4e09157b609acd015497bcca6c6786ec5207146f1cd7ad5",
+  "record_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-local-source-construction-resume-planning-boundary-review.tsv",
+  "next_stage": "phase-1-kernel-package-edge-local-source-construction-fresh-target-revalidation-review"
+}
