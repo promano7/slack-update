@@ -1408,3 +1408,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Froze final target path `/var/tmp/slack-update-acceptance/kernel-package-edge/staging-input/kernel-headers-6.18.45-x86-1.txz`, owner `root:root`, and mode `0444`.
 - Did not authorize artifact copy/staging, stager execution, builder execution, local-source construction, repository refresh, package/boot action, reboot, or Phase 2.
 - Authorized only repository-only `phase-1-kernel-package-edge-local-source-construction-target-artifact-staging-authorization-review`; no machine action is required and `pause_safe=false`.
+
+## Phase 1 step 208 kernel-package-edge target-artifact staging authorization review — 2026-09-26
+
+- Consumed the accepted step-207 staging review and froze the reviewed stager bytes at SHA-256 `a57303868eff7ee5ad8bb597d0dff52dec74887732fe590c40bae0edeb7d05eb` without modification.
+- Authorized one narrow machine action: create/transfer a byte-for-byte transport copy of the already authenticated `kernel-headers-6.18.45-x86-1.txz` and execute the exact reviewed stager once on `vbox-slackcurrent`.
+- Kept authenticity anchored in the frozen step-197 package/signature binding; the VM transport path remains untrusted until the stager verifies regular-file type, filename, and SHA-256 `c7b56b50f0abdec8f35628d526bb05488c257f667ab9c2be1a7a3e07d97da63c`.
+- Required the frozen step-202 runtime/package/slackpkg state and absent acceptance root immediately before staging; any drift fails closed. Successful staging consumes the single-use authority because the final acceptance root then exists.
+- Kept builder execution, local-source construction, repository refresh, package/slackpkg mutation, network acquisition, boot action, reboot, runtime scenario execution, and Phase 2 forbidden.
+- Required returned staging evidence review before any further machine action. Next stage: `phase-1-kernel-package-edge-local-source-construction-target-artifact-staging-result-review`; `pause_safe=false`.
