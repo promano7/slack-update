@@ -1389,3 +1389,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Added a repository-only library test seam so the harness can exercise valid input plus wrong-SHA, symlink, and pre-existing-output failures without root or target-machine mutation; production constants and paths are not overridable.
 - Preserved the no-network/no-package/no-slackpkg-configuration/no-boot/no-reboot mutation contract and did not authorize execution of the builder or any target artifact copy.
 - Authorized only `phase-1-kernel-package-edge-local-source-construction-builder-implementation-freeze`; `pause_safe=false`.
+
+## Phase 1 step 206 kernel-package-edge local-source construction builder implementation freeze — 2026-09-26
+
+- Consumed the accepted step-205 repository review and froze the exact builder implementation at SHA-256 `59a6a2bf27b7f48cecf8016c63205b8b6c558ed4a0b1bbd2b7523f0d6108ba92` without changing its bytes.
+- Bound the accepted step-205 policy, record, helper, harness, document, and builder identities so later repository drift fails closed.
+- Preserved the deterministic single-candidate 6.18.45 local-source contract, the 6.18.44 predecessor exclusion, repository-only test seam, and no-network/no-package/no-slackpkg/no-boot/no-reboot builder constraints.
+- Did not authorize builder execution, target artifact copy, local-source construction, repository/candidate refresh, runtime execution, package/boot mutation, reboot, or Phase 2.
+- Authorized only repository-only `phase-1-kernel-package-edge-local-source-construction-target-artifact-staging-review`, which must define the exact fail-closed target staging boundary before any VM copy.
+- No machine action is required; `pause_safe=false`.
