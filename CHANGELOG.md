@@ -1471,3 +1471,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Preserved all accepted step-212 VM evidence, the fresh step-213 boot/package/Slackpkg identity, staged target, local-source tree, and no-side-effect result unchanged.
 - Opened no machine, package, Slackpkg, repository/network, boot, reboot, builder, stager, runtime-execution, or Phase 2 authority.
 - The corrected step-213 policy/record supersede only the erroneous repository metadata field and remain the required input for `phase-1-kernel-package-edge-runtime-candidate-set-binding-review`; `pause_safe=false`.
+
+## Phase 1 step 214 kernel-package-edge runtime candidate-set binding review — 2026-09-26
+
+- Consumed the corrected step-213-r1 fresh runtime identity and resolved the remaining candidate-binding sequencing boundary without opening any machine authority.
+- Recorded that a truthful upgrade candidate cannot exist while `kernel-headers-6.18.45-x86-1` is already installed and the immutable local source exposes the same 6.18.45 target; durable pre-staging candidate binding is therefore forbidden.
+- Froze the later live candidate contract: after staging only `kernel-headers-6.18.44-x86-1`, exactly one upgrade back to `kernel-headers-6.18.45-x86-1` must exist, with zero `install-new`, non-header upgrade, and configured boot-package upgrade candidates.
+- Required the candidate binding to be created and consumed inside one fail-closed runtime transaction, invalidated by any package, boot-ID, local-source, or Slackpkg-configuration change and never carried across a pause.
+- Required failure rollback to restore the 6.18.45 target header package and byte-for-byte Slackpkg configuration; leaving the predecessor installed is not an acceptable successful terminal state.
+- Opened only repository-side `phase-1-kernel-package-edge-runtime-transaction-executor-design-review`; predecessor transport/staging, Slackpkg changes, metadata refresh, live candidate binding, package/network/boot/reboot action, runtime apply, and Phase 2 remain forbidden; `pause_safe=false`.
