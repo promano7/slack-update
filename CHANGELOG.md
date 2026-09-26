@@ -1362,3 +1362,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Preserved the signed 6.18.44/6.18.45 `kernel-headers` byte binding and unchanged external evidence root; no artifact reacquisition is authorized.
 - Kept the local-source builder unimplemented, the local-source tree unbuilt, and target copy/runtime/package/boot/reboot/network actions forbidden.
 - Closed the temporary target-observation authority and opened only repository-only `phase-1-kernel-package-edge-local-source-construction-builder-design-review`; `pause_safe=false`.
+
+## Phase 1 step 203 kernel-package-edge local-source construction builder design review — 2026-09-26
+
+- Consumed the accepted step-202 fresh target binding and the frozen step-197 artifact bytes without opening target-copy, package, boot, reboot, repository-refresh, or runtime-execution authority.
+- Froze the proposed builder execution contract for `tools/reference/phase-1-kernel-package-edge-local-source-build.sh`: target-VM execution under sudo, a single frozen 6.18.45 target-package input, and explicit exclusion of the 6.18.44 predecessor from the generated source.
+- Froze a deterministic minimal `file://` source containing exactly one package candidate plus `ChangeLog.txt`, `FILELIST.TXT`, `PACKAGES.TXT`, and `CHECKSUMS.md5`, with package authenticity remaining anchored in the accepted detached-signature binding rather than generated metadata.
+- Required fail-closed temporary-tree construction, no overwrite of a pre-existing final tree, no embedded time/hostname/boot identity, an external sorted SHA-256 tree manifest, and final read-only `root:root` ownership/modes.
+- Preserved the no-network/no-package/no-slackpkg-configuration/no-boot/no-reboot mutation contract for the builder itself and kept the builder unimplemented.
+- Authorized only `phase-1-kernel-package-edge-local-source-construction-builder-design-freeze`; `pause_safe=false`.
