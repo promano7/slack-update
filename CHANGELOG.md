@@ -1490,3 +1490,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Froze the transaction order and rollback contract: revalidate, stage only the 6.18.44 header, prove the header-only delta, bind exactly one 6.18.45 header upgrade, run the frozen reference apply, and restore the accepted final state on both success and failure.
 - Kept executor build/transport, predecessor transport/staging, Slackpkg mutation, candidate binding, reference apply, package/network/boot action, reboot, and Phase 2 unauthorized.
 - Opened only repository-side `phase-1-kernel-package-edge-runtime-transaction-executor-implementation-review`; no machine/controller action is required and `pause_safe=false`.
+
+## Phase 1 step 216 kernel-package-edge runtime transaction executor implementation review — 2026-09-26
+
+- Consumed the accepted step-215 transaction design and implemented a reproducible controller builder, reviewed executor body, canonical standalone runtime payload, and repository-only acceptance harness.
+- Froze builder SHA-256 `348301a0d421d0e0a12ee48a33b843a1b0a7b7434ea02399964d63e716a57eea`, executor-body SHA-256 `47fc2b067ac361562fc2921bf6df5b66bc4054456cea88297b9a53fb96514581`, and canonical executor SHA-256 `09544b0f1b58a39a988ed705bf4d0d99b0da611bba070972d76828b5c0f93300`.
+- Verified deterministic payload reproduction and exact embedding of the frozen reference script and effective configuration; the target VM will not require a Git repository.
+- Implemented fail-closed target revalidation, private mutable-state backup, rollback trap, header-only predecessor staging guard, network-isolated local metadata refresh, same-transaction single-candidate binding, frozen reference `--apply --json`, and final restoration/invariant gates.
+- Required failure recovery to restore the 6.18.45 target header, original Slackpkg configuration/state, and GenInitrd policy; successful evidence publication remains gated on unchanged package baseline, boot identity/artifacts, local source, staged target, and no reboot.
+- Repository acceptance passed `PASS (69 passes, 0 failures)`; no runtime build, transport, predecessor copy/staging, Slackpkg mutation, candidate binding, reference apply, package/network/boot action, reboot, or Phase 2 authority is opened by this step.
+- Next stage: `phase-1-kernel-package-edge-runtime-transaction-executor-runtime-authorization-review`; no machine/controller action is required and `pause_safe=false`.
