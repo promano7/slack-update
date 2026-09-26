@@ -1453,3 +1453,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Kept the historical step-202 target binding expired; the probe records a fresh boot ID while requiring the accepted package database, kernel package, Slackpkg configuration, staged-target SHA/mode/owner, tree-manifest SHA, sidecar verification, read-only tree modes, single-candidate contract, and predecessor exclusion.
 - Authorized only transport/execution of that exact read-only probe. Repository/network refresh, builder/stager execution, artifact replacement, predecessor staging, candidate binding, runtime scenario execution, package/Slackpkg mutation, boot action, reboot, and Phase 2 remain forbidden.
 - Required complete returned probe output before any further machine action. Next stage: `phase-1-kernel-package-edge-post-local-source-build-revalidation-freeze`; `pause_safe=false`.
+
+## Phase 1 step 213 kernel-package-edge post-local-source-build revalidation freeze — 2026-09-26
+
+- Consumed the successful step-212 read-only post-build revalidation result and froze a fresh current runtime identity without reusing the historical step-202 live binding.
+- Bound fresh boot ID `91901677-1dc3-4a39-a4b1-3f87e6875234`, package-database manifest `726a67acda9e270555a0a8d9f80e78a8f66400d843a947480c0d7d8ad4a7a1b6`, the accepted kernel package records, and Slackpkg configuration fingerprints as the current continuation baseline.
+- Reaccepted the staged 6.18.45 target and preserved local-source tree at external tree-manifest SHA-256 `0a47285c0503565263e64369e2a3816e8fdfd34e18a0f5e25eb53ee378082e4e`, including sidecar verification, read-only tree constraints, one target candidate, and predecessor exclusion.
+- Recorded the probe's no-side-effect result: no repository refresh, network access, package/Slackpkg mutation, boot action, persistent configuration change, or reboot occurred.
+- Kept the fresh candidate set explicitly unbound and authorized only repository-side candidate-binding review against the frozen step-213 identity.
+- Did not authorize predecessor staging, candidate binding on the VM, runtime scenario execution, builder/stager execution, repository/network refresh, package/boot action, reboot, or Phase 2.
+- No machine/controller action is required by this freeze; `pause_safe=false`. Next stage: `phase-1-kernel-package-edge-runtime-candidate-set-binding-review`.
