@@ -34,11 +34,11 @@ check_sha "$step217_harness" '6b1fa1baad11a67aa6453db2806a636ccc77877e69f6863c4a
 check_sha "$step217_policy" 'ac49b4b12a9478351761f948d66cca7afaa225a18a2e1e4a7834ed84bfd8bdec' 'accepted step-217 policy'
 check_sha "$step217_record" 'ca3371e8667c4bb56937740210901ac13f2decac1d29cfb5758b3d294bb9745a' 'accepted step-217 record'
 check_sha "$executor" '09544b0f1b58a39a988ed705bf4d0d99b0da611bba070972d76828b5c0f93300' 'authorized step-217 executor'
-check_sha "$probe" 'a5ec4bb7ecffa052edd540729c8f1cf44e0c68e4e0283d196ae4ad71a6898ae1' 'step-218 failure probe'
-check_sha "$helper" '33d3e6baca7939094f2f9e6c5e647b591b1777f7f1554be43431e2dab1cf08e2' 'step-218 helper'
-check_sha "$doc" 'b0577935144dfee7f55b1aaf4b0985b0d75b1859b6210c3447cf5d1ba6b4ce2a' 'step-218 document'
-check_sha "$policy" '09934cb1d0916eacccd63b9a3cf190e7cd3d10602a2ac21bf2ba0f3fc08647df' 'step-218 policy'
-check_sha "$record" 'c344f20510ee613a2b7e9035fcc6bf2b252eb08a98a63e5b6a055e92335944ee' 'step-218 record'
+check_sha "$probe" '0f9388cde7fcb178e8f06ff2b200d503c29fb454fa9502091701cc5d2752098d' 'step-218 failure probe'
+check_sha "$helper" '423993452485a6247969d8f64c174cc06e9002aaeb57ceed02133acd0b3f20af' 'step-218 helper'
+check_sha "$doc" '104521f9a9ec24c79e7769129a5bf8967646f65e738c774c7f4d91fe173763d6' 'step-218 document'
+check_sha "$policy" 'b60151eb7065a9300e931c8918f00553d8b34924fbbcd6d27def95787886389d' 'step-218 policy'
+check_sha "$record" '07141eefbc338fe7b41bae866c26ce7b7c4eba0a0aec7d4ead0b48d85ac66627' 'step-218 record'
 
 bash -n "$helper" && pass 'step-218 helper passes bash syntax validation' || fail 'step-218 helper passes bash syntax validation'
 bash -n "$probe" && pass 'step-218 probe passes bash syntax validation' || fail 'step-218 probe passes bash syntax validation'
@@ -67,8 +67,10 @@ assert p['observed_runtime_result']=='FAIL'
 assert p['failure_class']=='candidate-binding-guard-assumption'
 assert p['mutation_had_started'] is True
 assert p['cleanup_verification_required'] is True
-assert p['failure_probe_sha256']=='a5ec4bb7ecffa052edd540729c8f1cf44e0c68e4e0283d196ae4ad71a6898ae1'
+assert p['failure_probe_sha256']=='0f9388cde7fcb178e8f06ff2b200d503c29fb454fa9502091701cc5d2752098d'
 assert p['failure_probe_acknowledgement']=='--observe-failure-cleanup'
+assert p['review_revision']=='218-r1'
+assert p['preflight_encoding_compatibility']=='literal-backslash-t-or-real-tab'
 assert p['machine_action_required'] is True
 assert p['machine_action_type']=='read-only-failure-characterization'
 for k in ('runtime_rerun_authorized','package_action_authorized','slackpkg_mutation_authorized','network_access_authorized','boot_action_authorized','reboot_authorized','persistent_configuration_change_authorized'):
@@ -79,14 +81,16 @@ assert p['pause_safe'] is False
 assert p['next_stage']=='phase-1-kernel-package-edge-runtime-transaction-first-attempt-failure-characterization-freeze'
 PY
 
-for pair in   'step|218'   'review_status|PASS'   'observed_runtime_result|FAIL'   'failure_class|candidate-binding-guard-assumption'   'cleanup_verification_required|yes'   'runtime_rerun_authorized|no'   'package_action_authorized|no'   'slackpkg_mutation_authorized|no'   'network_access_authorized|no'   'boot_action_authorized|no'   'reboot_authorized|no'   'failed_evidence_root_must_be_preserved|yes'   'pause_safe|no'; do
+for pair in   'step|218'   'review_status|PASS'   'observed_runtime_result|FAIL'   'failure_class|candidate-binding-guard-assumption'   'cleanup_verification_required|yes'   'runtime_rerun_authorized|no'   'package_action_authorized|no'   'slackpkg_mutation_authorized|no'   'network_access_authorized|no'   'boot_action_authorized|no'   'reboot_authorized|no'   'failed_evidence_root_must_be_preserved|yes'   'review_revision|218-r1'   'preflight_encoding_compatibility|literal-backslash-t-or-real-tab'   'pause_safe|no'; do
     key=${pair%%|*}; value=${pair#*|}; grep -Fxq "$key"$'\t'"$value" "$record" && pass "record freezes: $key" || fail "record freezes: $key"
 done
 
 grep -Fq 'rollback trap must be verified' "$doc" && pass 'reference document requires cleanup verification' || fail 'reference document requires cleanup verification'
 grep -Fq 'CHECKSUMS.md5.asc' "$doc" && pass 'reference document records missing Slackpkg signature metadata check' || fail 'reference document records missing Slackpkg signature metadata check'
 grep -Fq 'No rerun' "$doc" && pass 'reference document keeps runtime rerun closed' || fail 'reference document keeps runtime rerun closed'
+grep -Fq 'literal `\t` separators' "$doc" && pass 'reference document records first-probe parser mismatch' || fail 'reference document records first-probe parser mismatch'
 grep -Fq '## Phase 1 step 218 kernel-package-edge runtime transaction first-attempt failure review' "$repo_root/CHANGELOG.md" && pass 'CHANGELOG records step 218' || fail 'CHANGELOG records step 218'
+grep -Fq '## Phase 1 step 218-r1 kernel-package-edge failure-probe preflight-format remediation' "$repo_root/CHANGELOG.md" && pass 'CHANGELOG records step 218-r1' || fail 'CHANGELOG records step 218-r1'
 
 if grep -Eq '^[[:space:]]*(upgradepkg|installpkg|removepkg|slackpkg|reboot|shutdown|poweroff)[[:space:]]' "$probe"; then
     fail 'step-218 probe contains no executable package/boot command'
@@ -113,6 +117,7 @@ grep -Fq "boot_fingerprint" "$probe" && pass 'probe compares /boot fingerprint' 
 grep -Fq "geninitrd_policy_fingerprint" "$probe" && pass 'probe compares GenInitrd fingerprint' || fail 'probe compares GenInitrd fingerprint'
 grep -Fq 'CHECKSUMS.md5.asc' "$probe" && pass 'probe checks local-source signature metadata absence' || fail 'probe checks local-source signature metadata absence'
 grep -Fq "runtime_rerun_authorized\tno" "$probe" && pass 'probe reports rerun remains unauthorized' || fail 'probe reports rerun remains unauthorized'
+grep -Fq 'if [[ $line == "$key\\t"* ]]' "$probe" && pass 'probe accepts literal backslash-t preflight encoding' || fail 'probe accepts literal backslash-t preflight encoding'
 
 printf 'Result: %s (%d passes, %d failures)\n' "$([[ $failures -eq 0 ]] && echo PASS || echo FAIL)" "$passes" "$failures"
 [[ $failures -eq 0 ]]

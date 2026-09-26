@@ -32,8 +32,10 @@ cat > "$out/phase-1-kernel-package-edge-runtime-transaction-first-attempt-failur
   "failure_class": "candidate-binding-guard-assumption",
   "mutation_had_started": true,
   "cleanup_verification_required": true,
-  "failure_probe_sha256": "a5ec4bb7ecffa052edd540729c8f1cf44e0c68e4e0283d196ae4ad71a6898ae1",
+  "failure_probe_sha256": "0f9388cde7fcb178e8f06ff2b200d503c29fb454fa9502091701cc5d2752098d",
   "failure_probe_acknowledgement": "--observe-failure-cleanup",
+  "review_revision": "218-r1",
+  "preflight_encoding_compatibility": "literal-backslash-t-or-real-tab",
   "machine_action_required": true,
   "machine_action_type": "read-only-failure-characterization",
   "runtime_rerun_authorized": false,
@@ -58,8 +60,10 @@ observed_error	refreshed local pkglist contains 2032 package rows instead of exa
 failure_class	candidate-binding-guard-assumption
 mutation_had_started	yes
 cleanup_verification_required	yes
-failure_probe_sha256	a5ec4bb7ecffa052edd540729c8f1cf44e0c68e4e0283d196ae4ad71a6898ae1
+failure_probe_sha256	0f9388cde7fcb178e8f06ff2b200d503c29fb454fa9502091701cc5d2752098d
 failure_probe_acknowledgement	--observe-failure-cleanup
+review_revision	218-r1
+preflight_encoding_compatibility	literal-backslash-t-or-real-tab
 machine_action_required	yes
 machine_action_type	read-only-failure-characterization
 runtime_rerun_authorized	no
@@ -77,5 +81,5 @@ TSV
 
 printf 'review_status\tPASS\n'
 printf 'runtime_rerun_authorized\tno\n'
-printf 'failure_probe_sha256\t%s\n' 'a5ec4bb7ecffa052edd540729c8f1cf44e0c68e4e0283d196ae4ad71a6898ae1'
+printf 'failure_probe_sha256\t%s\n' '0f9388cde7fcb178e8f06ff2b200d503c29fb454fa9502091701cc5d2752098d'
 printf 'next_stage\tphase-1-kernel-package-edge-runtime-transaction-first-attempt-failure-characterization-freeze\n'

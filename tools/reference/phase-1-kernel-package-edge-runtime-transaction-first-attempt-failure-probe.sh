@@ -109,8 +109,18 @@ tree_fingerprint() {
 }
 
 tsv_value() {
-    local file=$1 key=$2
-    awk -F '\t' -v key="$key" '$1 == key {print substr($0, length($1)+2); exit}' "$file"
+    local file=$1 key=$2 line
+    while IFS= read -r line; do
+        if [[ $line == "$key"$'\t'* ]]; then
+            printf '%s\n' "${line#*$'\t'}"
+            return 0
+        fi
+        if [[ $line == "$key\\t"* ]]; then
+            printf '%s\n' "${line#"$key\\t"}"
+            return 0
+        fi
+    done < "$file"
+    return 1
 }
 
 verify_local_source_tree() {

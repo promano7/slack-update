@@ -1517,3 +1517,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Required the failed runtime evidence root to remain preserved and required published PASS evidence to remain absent.
 - Kept runtime rerun, package/Slackpkg mutation, repository/network access, boot action, reboot, persistent configuration change, and Phase 2 forbidden; `pause_safe=false`.
 - Next stage: `phase-1-kernel-package-edge-runtime-transaction-first-attempt-failure-characterization-freeze`.
+
+## Phase 1 step 218-r1 kernel-package-edge failure-probe preflight-format remediation — 2026-09-26
+
+- Corrected the read-only step-218 failure-characterization probe after its first invocation rejected the preserved `preflight.tsv` because the step-217 executor had written literal `\t` separators rather than real TSV tabs.
+- Revised only the probe parser and its frozen review metadata so it accepts either the exact literal-backslash-tab encoding from the failed first attempt or real tab separators; all cleanup and invariant checks remain unchanged.
+- Recorded revised probe SHA-256 `0f9388cde7fcb178e8f06ff2b200d503c29fb454fa9502091701cc5d2752098d`.
+- No package, Slackpkg, repository/network, boot, reboot, evidence deletion, runtime rerun, or Phase 2 authority is opened; the failed evidence root remains preserved and `pause_safe=false`.
+- Next stage remains `phase-1-kernel-package-edge-runtime-transaction-first-attempt-failure-characterization-freeze`.
