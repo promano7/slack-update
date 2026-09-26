@@ -1344,3 +1344,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - The probe reports current kernel-package records, `slackpkg` fingerprints, and pkgtools installed/removed records newer than the baseline so the drift can be classified without mutation.
 - Authorized only this characterization observation; network/repository refresh, package/boot mutation, reboot, target copy, local-source construction, runtime execution, and Phase 2 remain forbidden.
 - Next stage: `phase-1-kernel-package-edge-local-source-construction-package-database-drift-characterization-review`; `pause_safe=false`.
+
+## Phase 1 step 201-r2 package-database drift characterization review — 2026-09-26
+
+- Consumed the successful step-201-r1 read-only characterization of the package-database drift from `3aeaf9f…` to `726a67…`.
+- Classified the observed drift as outside the kernel-package-edge scenario: the only pkgtools installed record newer than the accepted baseline is `pCloudDrive-2.3.0-x86_64-1_SBo`, with no removed records reported.
+- Confirmed that `kernel-headers-6.18.45-x86-1`, `kernel-generic-6.18.45-x86_64-1`, `kernel-huge` absence, `kernel-modules` absence, and the accepted `slackpkg` fingerprints remain unchanged.
+- Added a corrected read-only fresh-target revalidation probe bound to the exact characterized manifest, the exact `pCloudDrive` drift record set, and step-201-r1 boot ID `d767c4ed-b21f-4c6f-9a1e-db7948c285cf`; any additional drift fails closed.
+- Authorized only the corrected read-only revalidation rerun. Target copy, local-source construction, runtime execution, repository/network refresh, package/boot mutation, reboot, and Phase 2 remain forbidden.
+- Next stage after a successful rerun: `phase-1-kernel-package-edge-local-source-construction-fresh-target-revalidation-freeze`; `pause_safe=false`.
