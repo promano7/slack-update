@@ -168,7 +168,8 @@ policy = {
         'candidate_set_state': 'not-yet-bound',
         'fresh_candidate_binding_required': True,
         'candidate_binding_must_consume_frozen_step_213_identity': True,
-        'predecessor_record': 'kernel-headers-6.18.45-x86-1',
+        'predecessor_record': 'kernel-headers-6.18.44-x86-1',
+        'predecessor_record_source': 'frozen-predecessor-artifact',
         'target_candidate': 'kernel-headers-6.18.45-x86-1.txz',
         'target_candidate_sha256': accepted['frozen_target_sha256'],
         'repository_only_candidate_binding_review_authorized': True,
@@ -203,7 +204,7 @@ policy = {
 out_policy.write_text(json.dumps(policy, indent=2, sort_keys=True) + '\n', encoding='utf-8')
 rows = [
     ('step','213'),
-    ('revision','post-build-revalidation-result-freeze'),
+    ('revision','post-build-revalidation-result-freeze-r1'),
     ('revalidation_status','PASS'),
     ('accepted_step_212_policy_sha256',p212_sha),
     ('accepted_step_212_record_sha256',r212_sha),
@@ -226,6 +227,7 @@ rows = [
     ('predecessor_excluded_from_local_source','yes'),
     ('fresh_runtime_identity','frozen'),
     ('historical_step_202_binding_reused','no'),
+    ('predecessor_record','kernel-headers-6.18.44-x86-1'),
     ('fresh_candidate_set_bound','no'),
     ('repository_only_candidate_binding_review_authorized','yes'),
     ('runtime_candidate_binding_authorized','no'),

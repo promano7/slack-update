@@ -14,6 +14,13 @@ The staged target remains `kernel-headers-6.18.45-x86-1.txz` at SHA-256 `c7b56b5
 
 The step-212 probe reported no repository refresh, network access, package action, Slackpkg configuration change, boot action, persistent configuration change, or reboot.
 
+
+## Step 213-r1 predecessor-record remediation
+
+Step 213-r1 corrects one repository-only semantic field in the frozen candidate-binding boundary. The predecessor record is `kernel-headers-6.18.44-x86-1`, matching the already frozen predecessor artifact `kernel-headers-6.18.44-x86-1.txz` and SHA-256 `3e7ab26d4a5ae1bd4e13f568dc7b8d6705eb670b94fed231ca01fefae2466a9d`. The original step-213 policy incorrectly labeled the installed target record `kernel-headers-6.18.45-x86-1` as `predecessor_record`.
+
+This remediation changes no accepted VM evidence, authorization, package state, local-source bytes, boot identity, or runtime state. The corrected step-213 policy/record supersede the original repository-only candidate-boundary metadata and remain the required input for step 214.
+
 ## Candidate binding boundary
 
 A fresh candidate set is still not bound. Step 213 authorizes only repository-side review of the candidate binding contract against this frozen runtime/local-source identity. It does not authorize candidate binding on the VM, predecessor staging, runtime execution, `upgradepkg`, `slackpkg`, repository refresh, boot mutation, reboot, builder/stager execution, or Phase 2.

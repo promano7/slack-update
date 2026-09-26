@@ -63,6 +63,7 @@ checks={
  'fresh runtime identity is frozen': f['state']=='frozen' and r['fresh_runtime_identity']=='frozen',
  'candidate set remains unbound': f['fresh_candidate_set_bound'] is False and c['candidate_set_state']=='not-yet-bound' and r['fresh_candidate_set_bound']=='no',
  'fresh candidate binding remains required': c['fresh_candidate_binding_required'] is True,
+ 'predecessor record matches frozen 6.18.44 artifact': c['predecessor_record']=='kernel-headers-6.18.44-x86-1' and c['predecessor_record_source']=='frozen-predecessor-artifact' and a['frozen_predecessor_artifact']=='kernel-headers-6.18.44-x86-1.txz' and r['predecessor_record']=='kernel-headers-6.18.44-x86-1',
  'only repository candidate review is opened': z['repository_only_candidate_binding_review_authorized'] is True,
  'runtime candidate binding is still forbidden': z['runtime_candidate_binding_authorized'] is False,
  'predecessor staging is forbidden': z['predecessor_package_staging_authorized'] is False,
@@ -85,6 +86,7 @@ assert 'accepted evidence records no reboot' grep -Fq '"reboot_performed": false
 assert 'reference document records current fresh boot ID' grep -Fq '91901677-1dc3-4a39-a4b1-3f87e6875234' "$doc"
 assert 'reference document records candidate set remains unbound' grep -Fq 'fresh candidate set is still not bound' "$doc"
 assert 'CHANGELOG records step 213' grep -Fq '## Phase 1 step 213 kernel-package-edge post-local-source-build revalidation freeze' "$repo_root/CHANGELOG.md"
+assert 'CHANGELOG records step 213-r1 remediation' grep -Fq '## Phase 1 step 213-r1 kernel-package-edge predecessor-record remediation' "$repo_root/CHANGELOG.md"
 assert 'helper contains no executable network/package/boot/reboot command' bash -c '! grep -Eq "(^|[;&|[:space:]])(slackpkg|upgradepkg|installpkg|removepkg|reboot|shutdown|poweroff|curl|wget)[[:space:]]" "$1"' _ "$helper"
 
 printf 'Result: %s (%d passes, %d failures)\n' "$([[ $failures -eq 0 ]] && printf PASS || printf FAIL)" "$passes" "$failures"

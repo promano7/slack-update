@@ -1463,3 +1463,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Kept the fresh candidate set explicitly unbound and authorized only repository-side candidate-binding review against the frozen step-213 identity.
 - Did not authorize predecessor staging, candidate binding on the VM, runtime scenario execution, builder/stager execution, repository/network refresh, package/boot action, reboot, or Phase 2.
 - No machine/controller action is required by this freeze; `pause_safe=false`. Next stage: `phase-1-kernel-package-edge-runtime-candidate-set-binding-review`.
+
+## Phase 1 step 213-r1 kernel-package-edge predecessor-record remediation — 2026-09-26
+
+- Corrected the repository-only step-213 `candidate_binding_boundary.predecessor_record` from the installed target record `kernel-headers-6.18.45-x86-1` to the already frozen predecessor record `kernel-headers-6.18.44-x86-1`.
+- Added an explicit predecessor-record source marker and TSV field so the candidate-binding chain fails closed if the 6.18.44 predecessor identity is lost or confused with the installed 6.18.45 target.
+- Preserved all accepted step-212 VM evidence, the fresh step-213 boot/package/Slackpkg identity, staged target, local-source tree, and no-side-effect result unchanged.
+- Opened no machine, package, Slackpkg, repository/network, boot, reboot, builder, stager, runtime-execution, or Phase 2 authority.
+- The corrected step-213 policy/record supersede only the erroneous repository metadata field and remain the required input for `phase-1-kernel-package-edge-runtime-candidate-set-binding-review`; `pause_safe=false`.
