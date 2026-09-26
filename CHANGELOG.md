@@ -1417,3 +1417,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Required the frozen step-202 runtime/package/slackpkg state and absent acceptance root immediately before staging; any drift fails closed. Successful staging consumes the single-use authority because the final acceptance root then exists.
 - Kept builder execution, local-source construction, repository refresh, package/slackpkg mutation, network acquisition, boot action, reboot, runtime scenario execution, and Phase 2 forbidden.
 - Required returned staging evidence review before any further machine action. Next stage: `phase-1-kernel-package-edge-local-source-construction-target-artifact-staging-result-review`; `pause_safe=false`.
+
+## Phase 1 step 209 kernel-package-edge target-artifact staging result review — 2026-09-26
+
+- Consumed the successful step-208 target-artifact staging result and accepted the exact staged target SHA-256, `root:root` ownership, `0444` mode, boot ID, package-database manifest, and reported no-side-effect flags.
+- Marked the single-use staging/copy authority consumed and revoked further stager execution or target-artifact replacement; the accepted staging root must remain unchanged.
+- Preserved the frozen builder at SHA-256 `59a6a2bf27b7f48cecf8016c63205b8b6c558ed4a0b1bbd2b7523f0d6108ba92` and authorized only a byte-for-byte builder transport copy plus one exact `--build-local-source` execution on the already staged VM.
+- Kept local-source construction fail-closed on staged-target SHA and absent output paths; the builder remains local-only and cannot refresh repositories, mutate packages/`slackpkg`, alter boot state, reboot, or acquire network bytes.
+- Kept runtime scenario execution and Phase 2 forbidden and required returned build evidence review before any further machine action.
+- Next stage: `phase-1-kernel-package-edge-local-source-construction-build-result-review-and-strong-safe-pause`; `pause_safe=false` until the build result is reviewed.
