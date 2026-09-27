@@ -1,3 +1,13 @@
+## Phase 1 step 231 kernel-package-edge runtime-transaction remediation post-local-source-v2-build resume-planning boundary review — 2026-09-27
+
+- Reopened the still-incomplete `kernel-package-edge` runtime-remediation workstream from the accepted step-230 strong safe pause through a fresh repository-only planning boundary.
+- Preserved the accepted `local-source-v2` root, frozen external tree-manifest SHA-256 `e775e47078c266f6f0219aa5899c430293d6181433e53deec02e30fb127ca945`, manifest sidecar, staged target SHA-256 `c7b56b50f0abdec8f35628d526bb05488c257f667ab9c2be1a7a3e07d97da63c`, `local-source-v1`, and historical failed runtime evidence unchanged.
+- Kept the step-228/229 boot/package observation expired and prohibited reuse of prior target identity, candidate binding, runtime authorization, or consumed builder authority.
+- Required a future fresh target observation plus v2 manifest/sidecar/tree verification and staged-target verification before runtime use, followed by a fresh same-transaction candidate set.
+- Preserved the executor-remediation contract: transaction-owned new empty Slackpkg workdir, target-specific candidate guard, real-tab TSV evidence, explicit rejection of `error-downloading-from-local-source`, and no external network access.
+- Opened no machine/controller authority and no target observation, transport, package, Slackpkg, repository/network, candidate-binding, runtime, boot, reboot, cleanup, persistent-configuration, or Phase 2 authority; `pause_safe=false` because the family workstream is reopened.
+- Next stage: `phase-1-kernel-package-edge-runtime-transaction-remediation-post-local-source-v2-build-revalidation-review`.
+
 ## Phase 1 step 230 kernel-package-edge runtime-transaction remediation local-source-v2 build result review and strong safe pause — 2026-09-27
 
 - Accepted the single step-229 local-source-v2 builder execution as `PASS`: root `/var/tmp/slack-update-acceptance/kernel-package-edge/local-source-v2`, target SHA-256 `c7b56b50f0abdec8f35628d526bb05488c257f667ab9c2be1a7a3e07d97da63c`, priority trees `patches,slackware64,extra,pasture,testing`, and compatibility `CHECKSUMS.md5.asc` present.
