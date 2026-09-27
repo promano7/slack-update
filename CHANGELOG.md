@@ -1,3 +1,13 @@
+## Phase 1 step 236 kernel-package-edge runtime-transaction remediation runtime executor design review — 2026-09-27
+
+- Consumed the accepted step-235 target-specific candidate-binding freeze and reviewed the repository-only design for a separately named remediated runtime executor generation.
+- Preserved the first executor body, builder, standalone payload, and failed runtime evidence as immutable historical evidence; their former runtime authorization remains retired and none may be modified in place.
+- Replaced the failed refresh assumptions with a transaction-owned Slackpkg `WORKDIR` and `TEMP`, requiring an initially absent fresh-workdir `pkglist`, exit status zero, captured stdout/stderr without `error-downloading-from-local-source`, and unchanged canonical `/var/lib/slackpkg` state.
+- Kept the global `pkglist` row-count guard retired and froze target-specific binding for exactly one `kernel-headers-6.18.45-x86-1` candidate at `./slackware64/d` after staging the exact 6.18.44 predecessor, with zero unexpected candidate classes.
+- Required full `local-source-v2` manifest/sidecar/exact-coverage/priority/compatibility verification immediately before refresh and preserved package authenticity through the frozen target SHA-256 and v2 tree manifest.
+- Required all remediated TSV evidence to use real tab characters and a new runtime evidence root, while preserving the existing package-transition, reference-apply, rollback, boot-invariance, and no-reboot semantics.
+- Opened only repository-side `phase-1-kernel-package-edge-runtime-transaction-remediation-runtime-executor-implementation-review`; implementation transport/execution, package/Slackpkg mutation, runtime rerun, network/boot/reboot action, cleanup, and Phase 2 remain forbidden; `pause_safe=false`.
+
 ## Phase 1 step 235 kernel-package-edge runtime-transaction remediation runtime candidate-set binding freeze — 2026-09-27
 
 - Consumed the accepted step-234 repository-only candidate-set binding review and froze its semantics without creating a live candidate set or inheriting machine authority.
