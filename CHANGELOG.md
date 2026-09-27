@@ -1,3 +1,10 @@
+## Phase 1 step 226 kernel-package-edge runtime-transaction remediation local-source-v2 builder implementation review — 2026-09-27
+
+- Implemented and repository-reviewed the deterministic `local-source-v2` builder at `tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v2-build.sh` (SHA-256 `8e2803813e9004130b26b402346cf81061377efe78974e902c65f7807d841b2d`) against the exact design frozen at step 225.
+- Added deterministic priority-tree metadata for `patches`, `slackware64`, `extra`, `pasture`, and `testing`, complete `FILELIST.TXT`, bounded compatibility `CHECKSUMS.md5.asc`, deterministic MD5 metadata, epoch-zero mtimes, and external v2 SHA-256 tree-manifest publication.
+- Added repository-only synthetic-package tests covering exact input binding, symlink rejection, single-candidate publication, predecessor exclusion, priority indexes, deterministic rendering, manifest verification, and fail-closed rejection of pre-existing final v2 paths.
+- Kept builder execution, target observation, v2 construction, Slackpkg/repository refresh, runtime candidate binding, executor remediation/rerun, package/network/boot action, reboot, evidence cleanup, and Phase 2 unauthorized; opened only repository-side implementation freeze and kept `pause_safe=false`.
+
 ## Phase 1 step 225 kernel-package-edge runtime-transaction remediation local-source-v2 design freeze — 2026-09-27
 
 - Consumed the accepted step-224 repository-only design review and froze the local-source-v2 design without changing its semantics.
