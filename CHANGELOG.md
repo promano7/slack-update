@@ -1,3 +1,13 @@
+## Phase 1 step 234 kernel-package-edge runtime-transaction remediation runtime candidate-set binding review — 2026-09-27
+
+- Consumed the accepted step-233-r1 fresh runtime identity only as repository review input; no machine authority, live candidate binding, or prior runtime authorization is inherited.
+- Reaffirmed that the truthful pre-staging upgrade-candidate count is zero while `kernel-headers-6.18.45-x86-1` is installed and that the live candidate may exist only after staging the exact 6.18.44 predecessor inside the future atomic transaction.
+- Bound the future candidate source exclusively to accepted `local-source-v2`, external tree-manifest SHA-256 `e775e47078c266f6f0219aa5899c430293d6181433e53deec02e30fb127ca945`, and target SHA-256 `c7b56b50f0abdec8f35628d526bb05488c257f667ab9c2be1a7a3e07d97da63c`.
+- Required a transaction-owned new empty Slackpkg workdir, absent pre-refresh `pkglist`, fresh post-refresh workdir `pkglist`, zero refresh exit status, explicit rejection of `error-downloading-from-local-source`, and no reuse of `/var/lib/slackpkg/pkglist` as freshness evidence.
+- Retired the global `pkglist` row-count guard and froze target-specific validation: exactly one `kernel-headers` 6.18.44→6.18.45 candidate from `./slackware64/d`, with zero `install-new`, non-header upgrade, and configured boot-package upgrade candidates.
+- Required same-transaction candidate binding/consumption, real-tab TSV evidence, fail-closed invalidation on relevant state/refresh changes, and preservation of v1, v2, staged target, and failed-runtime evidence.
+- Authorized only repository-side candidate-binding contract freeze; executor remediation/rerun, target observation, Slackpkg/repository refresh, package/network/boot/reboot/cleanup actions, and Phase 2 remain forbidden. Next stage: `phase-1-kernel-package-edge-runtime-transaction-remediation-runtime-candidate-set-binding-freeze`; `pause_safe=false`.
+
 ## Phase 1 step 233-r1 kernel-package-edge post-local-source-v2-build revalidation freeze whitespace remediation — 2026-09-27
 
 - Removed the two trailing-space Markdown line breaks from the step-233 reference document so the accepted repository state passes `git diff --check` cleanly.
