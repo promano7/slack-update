@@ -1,3 +1,12 @@
+## Phase 1 step 235 kernel-package-edge runtime-transaction remediation runtime candidate-set binding freeze — 2026-09-27
+
+- Consumed the accepted step-234 repository-only candidate-set binding review and froze its semantics without creating a live candidate set or inheriting machine authority.
+- Froze the truthful sequencing rule that the 6.18.45 target cannot be an upgrade candidate before exact 6.18.44 predecessor staging and that binding plus consumption must remain inside one bounded runtime transaction.
+- Froze the remediated refresh proof: new empty transaction-owned Slackpkg workdir, newly generated `pkglist`, zero refresh exit status, explicit rejection of `error-downloading-from-local-source`, and no reliance on the pre-existing `/var/lib/slackpkg/pkglist`.
+- Permanently retired the global `pkglist` row-count guard for this scenario and froze target-specific acceptance at exactly one `kernel-headers-6.18.45-x86-1` candidate with zero unexpected candidate classes.
+- Preserved local-source-v2, staged target, failed runtime evidence, rollback invariants, external-network prohibition, package/boot constraints, and real-tab TSV evidence requirements unchanged.
+- Opened only repository-side `phase-1-kernel-package-edge-runtime-transaction-remediation-runtime-executor-design-review`; implementation, transport, staging, refresh, live candidate binding, runtime rerun, package/Slackpkg mutation, network, boot, reboot, cleanup, and Phase 2 remain forbidden; `pause_safe=false`.
+
 ## Phase 1 step 234 kernel-package-edge runtime-transaction remediation runtime candidate-set binding review — 2026-09-27
 
 - Consumed the accepted step-233-r1 fresh runtime identity only as repository review input; no machine authority, live candidate binding, or prior runtime authorization is inherited.
