@@ -1,3 +1,12 @@
+## Phase 1 step 246 kernel-package-edge runtime-transaction second remediation implementation-contract freeze — 2026-09-27
+
+- Consumed accepted step 245 and froze the exact `local-source-v3` builder bytes at SHA-256 `56cf6248b90d8120f8a949a7a0ceeeec544bb95b18f40e49344ad06fc7d5c582` as `implemented-frozen-not-executed`.
+- Reaccepted deterministic v3 rendering, the exact Slackpkg `PGP` compatibility marker, absence of a forged OpenPGP signature block, single target package exposure, predecessor absence, and fail-closed output publication.
+- Froze the future runtime-transaction-remediation-v2 executor contract as `reviewed-frozen-not-implemented`; implementation still requires the exact accepted v3 manifest identity.
+- Required a new pre-build target/baseline revalidation before any builder transport or execution; no machine authority is inherited.
+- Kept target observation, probe transport, v3 build, package/Slackpkg/network/boot actions, executor-v2 implementation/transport/rerun, cleanup, reboot, and Phase 2 closed.
+- Next stage: `phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v3-prebuild-fresh-target-revalidation-review`.
+
 ## Phase 1 step 245 kernel-package-edge runtime-transaction second remediation implementation-contract review
 
 - Reviewed repository-only `local-source-v3` builder implementation at SHA-256 `56cf6248b90d8120f8a949a7a0ceeeec544bb95b18f40e49344ad06fc7d5c582`.
