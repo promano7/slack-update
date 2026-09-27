@@ -1,3 +1,11 @@
+## Phase 1 step 247 kernel-package-edge runtime-transaction local-source-v3 prebuild fresh target revalidation review — 2026-09-27
+
+- Consumed the accepted step-246 implementation-contract freeze and preserved the exact local-source-v3 builder at SHA-256 `56cf6248b90d8120f8a949a7a0ceeeec544bb95b18f40e49344ad06fc7d5c582` without opening builder execution.
+- Authorized one exact standalone read-only prebuild observation to revalidate the restored target baseline, staged target bytes, preserved local-source-v2 failure evidence, failed remediation evidence, and absence of all local-source-v3 final/temporary outputs.
+- Made the probe independent of any preserved executor copy in `~/Descargas`; canonical target state and preserved `/var/tmp` evidence are sufficient.
+- Kept local-source-v3 builder transport/execution, package/Slackpkg/network/boot actions, executor-v2 implementation/transport/rerun, cleanup, reboot, and Phase 2 closed.
+- Next stage after a successful observation: `phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v3-prebuild-fresh-target-revalidation-freeze-and-build-authorization-review`; `pause_safe=false`.
+
 ## Phase 1 step 246 kernel-package-edge runtime-transaction second remediation implementation-contract freeze — 2026-09-27
 
 - Consumed accepted step 245 and froze the exact `local-source-v3` builder bytes at SHA-256 `56cf6248b90d8120f8a949a7a0ceeeec544bb95b18f40e49344ad06fc7d5c582` as `implemented-frozen-not-executed`.
