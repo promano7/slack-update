@@ -1,3 +1,12 @@
+## Phase 1 step 237 kernel-package-edge runtime-transaction remediation runtime executor implementation review — 2026-09-27
+
+- Consumed the accepted step-236 repository-only remediation design and implemented a new body, builder, canonical standalone executor, and repository acceptance harness without modifying the historical failed executor generation.
+- Froze remediated body SHA-256 `ec25c18a03cb5bf267b755a2d9fb62f67f90e97f476bf9ffee6145414563ef3b`, builder SHA-256 `a86ece6f7e7bb44fe928d9f24e8a9eb055202e71a44ccf7c3e42c4e610b8a379`, and canonical executor SHA-256 `9647531df1ff4183a9fc0ea60db3b5d6f01179ef0a5971148e47f8223f645c4c`; deterministic rebuild reproduces the canonical payload byte-for-byte.
+- Implemented transaction-owned Slackpkg `WORKDIR`/`TEMP`, fresh-workdir `pkglist` proof, explicit rejection of `error-downloading-from-local-source`, exact local-source-v2 revalidation immediately before refresh, and preservation of canonical `/var/lib/slackpkg` only as rollback baseline rather than freshness evidence.
+- Replaced the retired global `pkglist` row-count assumption with a target-specific, source-backed guard over Slackpkg fields; auxiliary metadata rows without backing v2 package bytes are ignored as non-candidates, while unexpected source-backed packages fail closed.
+- Corrected the candidate parser to use an explicit space field separator despite the executor-wide newline/tab `IFS`, and covered both auxiliary-row acceptance and unexpected-package rejection with synthetic repository tests.
+- Preserved rollback/final invariants, local-source v1 and failed-runtime evidence, and converted preflight/candidate/result evidence to real-tab TSV; repository acceptance passed `PASS (118 passes, 0 failures)`.
+- Opened only repository-side implementation freeze. Executor transport/execution, predecessor staging, Slackpkg mutation, live candidate binding, package/network/boot/reboot action, evidence cleanup, and Phase 2 remain forbidden. Next stage: `phase-1-kernel-package-edge-runtime-transaction-remediation-runtime-executor-implementation-freeze`; `pause_safe=false`.
 ## Phase 1 step 236 kernel-package-edge runtime-transaction remediation runtime executor design review — 2026-09-27
 
 - Consumed the accepted step-235 target-specific candidate-binding freeze and reviewed the repository-only design for a separately named remediated runtime executor generation.
