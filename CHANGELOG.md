@@ -1,3 +1,11 @@
+## Phase 1 step 227 kernel-package-edge runtime-transaction remediation local-source-v2 builder implementation freeze — 2026-09-27
+
+- Consumed the accepted step-226 implementation review and froze the exact local-source-v2 builder at SHA-256 `8e2803813e9004130b26b402346cf81061377efe78974e902c65f7807d841b2d` without executing or transporting it.
+- Preserved the frozen v2 design, immutable local-source-v1, failed runtime evidence, staged 6.18.45 target, deterministic metadata/priority-tree contract, fresh-workdir refresh contract, and target-specific candidate guard.
+- Required a new fresh target revalidation before any builder transport or execution; the previously frozen runtime identity confers no machine authority.
+- Kept target observation, builder transport/execution, v2 construction, Slackpkg/repository refresh, candidate binding, runtime rerun, package/network/boot action, reboot, evidence cleanup, and Phase 2 unauthorized.
+- Opened only repository-side `phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v2-prebuild-fresh-target-revalidation-review`; no machine/controller action is required and `pause_safe=false`.
+
 ## Phase 1 step 226 kernel-package-edge runtime-transaction remediation local-source-v2 builder implementation review — 2026-09-27
 
 - Implemented and repository-reviewed the deterministic `local-source-v2` builder at `tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v2-build.sh` (SHA-256 `8e2803813e9004130b26b402346cf81061377efe78974e902c65f7807d841b2d`) against the exact design frozen at step 225.
