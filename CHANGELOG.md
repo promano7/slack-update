@@ -1,3 +1,11 @@
+## Phase 1 step 228 kernel-package-edge runtime-transaction remediation local-source-v2 prebuild fresh target revalidation review — 2026-09-27
+
+- Consumed the accepted step-227 builder implementation freeze and preserved the exact local-source-v2 builder at SHA-256 `8e2803813e9004130b26b402346cf81061377efe78974e902c65f7807d841b2d` without transporting or executing it.
+- Added exact read-only prebuild probe `phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v2-prebuild-fresh-target-revalidation-review-probe.sh` at SHA-256 `207ce41439c6ce2fe0f98a40266528bed4178073d5bab781d19b6d938bc64984` to revalidate the restored Slackware-current target immediately before any future builder use.
+- Required the preserved local-source-v1, staged target and failed-run evidence to remain intact and required all final and temporary local-source-v2 build outputs to be absent.
+- Authorized only one probe transport/copy plus one root read-only observation; builder transport/execution, v2 construction, Slackpkg/repository refresh, candidate binding, package/network/boot action, reboot, evidence cleanup and Phase 2 remain closed.
+- Routed a successful returned observation to `phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v2-prebuild-fresh-target-revalidation-freeze-and-build-authorization-review`; `pause_safe=false`.
+
 ## Phase 1 step 227 kernel-package-edge runtime-transaction remediation local-source-v2 builder implementation freeze — 2026-09-27
 
 - Consumed the accepted step-226 implementation review and froze the exact local-source-v2 builder at SHA-256 `8e2803813e9004130b26b402346cf81061377efe78974e902c65f7807d841b2d` without executing or transporting it.
