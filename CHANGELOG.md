@@ -1,3 +1,13 @@
+## Phase 1 step 244 kernel-package-edge runtime-transaction second failure remediation design freeze — 2026-09-27
+
+- Consumed the accepted step-243 repository-only second-remediation design review and froze that design unchanged as `frozen-not-implemented`.
+- Froze `local-source-v3` as a new generation derived from the v2 package/priority-tree contract while preserving `local-source-v2`, the failed executor generation, and failed runtime evidence as immutable historical inputs.
+- Froze the v3 compatibility `.asc` contract: literal `PGP compatibility marker for Slackpkg checkchangelog only.`, no cryptographic authenticity claim, no upstream-signature impersonation, and no `BEGIN PGP SIGNATURE`.
+- Froze a future `runtime-transaction-remediation-v2` executor generation bound to v3, with the human-spaced `Error downloading from ` failure guard, exit-status validation, and independent fresh transaction-owned `pkglist` proof.
+- Retained transaction-owned WORKDIR/TEMP, no external network, exact predecessor/target bytes, target-specific same-transaction candidate binding, real-tab evidence, rollback, Slackpkg/GenInitrd restoration, unchanged boot artifacts, and no reboot.
+- Authorized only repository-side implementation-contract review; v3 builder implementation/build, executor-v2 implementation/transport/rerun, package/Slackpkg mutation, network, boot/reboot, cleanup, and Phase 2 remain closed.
+- Next stage: `phase-1-kernel-package-edge-runtime-transaction-remediation-runtime-failure-remediation-implementation-contract-review`; `machine_action_required=false`, `controller_action_required=false`, `pause_safe=false`.
+
 ## Phase 1 step 243 kernel-package-edge runtime-transaction second failure remediation design review — 2026-09-27
 
 - Consumed the accepted step-242 failure-characterization freeze with rollback baseline `PASS` and preserved the consumed runtime authority, local-source-v2, failed executor generation and failed evidence as immutable historical inputs.
