@@ -1,3 +1,12 @@
+## Phase 1 step 224 kernel-package-edge runtime-transaction remediation local-source-v2 design review — 2026-09-27
+
+- Consumed the accepted step-223 fresh remediation identity as repository-only design input while inheriting no target-machine authority.
+- Froze the separate `local-source-v2` root, external tree manifest/sidecar, exact 6.18.45 target package binding, immutable v1/failed-evidence preservation contract, deterministic read-only publication modes, and fail-closed non-overwrite behavior.
+- Defined Slackpkg refresh-compatibility metadata including bounded non-authenticating `CHECKSUMS.md5.asc` plus `PACKAGES.TXT` under the designed x86_64 priority trees `patches`, `slackware64`, `extra`, `pasture`, and `testing`, with the target stanza only in `slackware64`.
+- Replaced stale-workdir ambiguity with a future transaction-owned new empty Slackpkg workdir: `pkglist` must be absent before refresh and created in that workdir; `/var/lib/slackpkg/pkglist` is not refresh evidence.
+- Preserved refresh acceptance requirements: exit status zero, no `error-downloading-from-local-source`, verified v2 source binding, exactly one target-specific header row with the 6.18.44 predecessor installed, zero unrelated candidate classes, and same-transaction binding/consumption using real-tab TSV evidence.
+- Kept builder implementation/build, target observation/transport, Slackpkg refresh/mutation, candidate binding, runtime remediation/rerun, package/network/boot/reboot action, evidence cleanup, and Phase 2 closed.
+- Opened only repository-side `phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v2-design-freeze`; no machine/controller action is required and `pause_safe=false`.
 ## Phase 1 step 223 kernel-package-edge runtime-transaction remediation fresh-target revalidation freeze — 2026-09-27
 
 - Consumed the successful step-222 read-only target observation and froze fresh boot ID `cd975bdc-a133-47d1-9e92-e9b51bef9d99` for remediation design without reusing the step-213 boot binding or step-217 runtime authorization.
