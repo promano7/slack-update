@@ -1,3 +1,12 @@
+## Phase 1 step 222 kernel-package-edge runtime transaction remediation fresh target revalidation review
+
+- Consumed the accepted step-221 repository-only planning boundary and opened exactly one fresh read-only target observation.
+- Reused steps 213, 217, and 219 only as historical state evidence; no prior boot ID, target binding, candidate binding, or runtime authorization is reusable.
+- Bound the new standalone probe to the restored 6.18.45 package/Slackpkg baseline, preserved staged target, preserved `local-source` v1 tree, and contained-failure evidence invariants.
+- Required a newly observed boot ID while allowing a rebooted-but-otherwise-unchanged VM to pass; any package, configuration, local-source, staged-target, failed-evidence, or boot-artifact drift fails closed.
+- Authorized only exact probe transport plus one `sudo ... --observe-fresh-target-revalidation` invocation; no package, Slackpkg, repository/network, boot, reboot, evidence-cleanup, `local-source-v2`, runtime-rerun, or Phase 2 action is authorized.
+- Opened only `phase-1-kernel-package-edge-runtime-transaction-remediation-fresh-target-revalidation-freeze` after a successful returned observation; `pause_safe=false`.
+
 ## Phase 1 step 221 kernel-package-edge runtime transaction remediation resume-planning boundary review
 
 - Resumed the open `kernel-package-edge` remediation from the accepted step-220 strong safe pause under a fresh repository-only planning boundary.
