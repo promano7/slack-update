@@ -1,3 +1,12 @@
+## Phase 1 step 221 kernel-package-edge runtime transaction remediation resume-planning boundary review
+
+- Resumed the open `kernel-package-edge` remediation from the accepted step-220 strong safe pause under a fresh repository-only planning boundary.
+- Preserved `local-source` v1, the failed runtime evidence root, staged target, external artifact evidence, and the contained-failure record unchanged.
+- Preserved the frozen `local-source-v2` remediation requirements without authorizing design, implementation, build, transport, or runtime validation.
+- Kept the step-217 runtime authorization and all prior target/candidate bindings consumed and non-reusable.
+- Required a fresh target revalidation before any future machine action and granted no target observation authority in this step.
+- Opened only `phase-1-kernel-package-edge-runtime-transaction-remediation-fresh-target-revalidation-review`; the active planning chain is not a safe pause.
+
 ## Phase 1 step 220 kernel-package-edge runtime transaction remediation boundary review and strong safe pause
 
 - Accepted the step-219 contained-failure characterization and remediation boundary as `PASS`.
