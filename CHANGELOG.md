@@ -1,3 +1,11 @@
+## Phase 1 step 241 kernel-package-edge runtime-transaction remediation runtime result failure characterization review — 2026-09-27
+
+- Consumed the accepted step-240 one-use runtime authority as spent after the remediated executor started once and failed with `fresh transaction-owned Slackpkg pkglist is missing or unsafe`; a second executor run is forbidden.
+- Opened one read-only characterization observation to prove rollback restoration and inspect the preserved transaction-owned Slackpkg refresh evidence without mutating packages, Slackpkg, boot state, or evidence.
+- Recorded a pending hypothesis that `local-source-v2`'s non-signature compatibility `.asc` lacks Slackpkg's required `PGP` marker while the executor searched for a non-matching hyphenated error token; runtime confirmation is required before freezing that mechanism.
+- Kept runtime rerun, package/Slackpkg actions, metadata refresh, external network, boot, reboot, evidence cleanup, and Phase 2 closed.
+- Next stage after a successful read-only probe: `phase-1-kernel-package-edge-runtime-transaction-remediation-runtime-failure-characterization-freeze`; this is not a pause-safe boundary.
+
 ## Phase 1 step 240 kernel-package-edge runtime-transaction remediation runtime authorization freeze — 2026-09-27
 
 - Consumed the accepted step-239 repository-only runtime authorization review and froze exactly one bounded runtime-remediation authority.

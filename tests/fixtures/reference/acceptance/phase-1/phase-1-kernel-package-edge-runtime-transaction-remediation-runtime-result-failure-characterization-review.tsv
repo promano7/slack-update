@@ -1,0 +1,24 @@
+step	241
+revision	runtime-result-failure-characterization-review
+review_status	PASS
+observed_runtime_result	FAIL
+observed_runtime_error	fresh transaction-owned Slackpkg pkglist is missing or unsafe
+single_use_runtime_authority_state	consumed-by-failed-runtime-start
+authorization_use_count	1
+second_execution_forbidden	yes
+failure_hypothesis_state	pending-read-only-runtime-confirmation
+failure_hypothesis	compatibility-asc-pgp-marker-rejection-plus-error-signal-guard-mismatch
+probe_sha256	bdb06d4a10ef6ef5994f49078beb70c2b2d9b02e7775ad7d9fac66664802f22a
+probe_transport_copy_authorized	yes
+failure_characterization_observation_authorized	yes
+runtime_rerun_authorized	no
+package_action_authorized	no
+slackpkg_mutation_authorized	no
+network_access_authorized	no
+boot_action_authorized	no
+reboot_authorized	no
+evidence_cleanup_authorized	no
+machine_action_required	yes
+controller_action_required	yes
+pause_safe	no
+next_stage	phase-1-kernel-package-edge-runtime-transaction-remediation-runtime-failure-characterization-freeze
