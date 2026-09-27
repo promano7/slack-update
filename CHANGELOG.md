@@ -1,3 +1,13 @@
+## Phase 1 step 243 kernel-package-edge runtime-transaction second failure remediation design review — 2026-09-27
+
+- Consumed the accepted step-242 failure-characterization freeze with rollback baseline `PASS` and preserved the consumed runtime authority, local-source-v2, failed executor generation and failed evidence as immutable historical inputs.
+- Reviewed a new `local-source-v3` generation rather than mutating v2: v3 retains the accepted package/priority-tree contract but its compatibility `CHECKSUMS.md5.asc` must contain the literal `PGP` compatibility marker required by the observed installed Slackpkg gate while explicitly making no authenticity claim and never containing `BEGIN PGP SIGNATURE`.
+- Required a later new runtime executor generation bound only to the exact post-build v3 manifest; the failed remediation executor remains immutable.
+- Replaced the failed hyphenated download-error assumption in the design with the observed human-spaced `Error downloading from ` guard, while retaining exit-code validation plus independent transaction-owned `pkglist` freshness proof.
+- Retained isolated WORKDIR/TEMP, no external network, target-specific same-transaction candidate binding, real-tab evidence, exact predecessor/target bytes, rollback, Slackpkg/GenInitrd restoration, unchanged boot artifacts and no reboot.
+- Authorized only repository-side remediation design freeze; builder implementation/build, executor implementation/transport/rerun, package/Slackpkg mutation, network, boot/reboot, cleanup and Phase 2 remain closed.
+- Next stage: `phase-1-kernel-package-edge-runtime-transaction-remediation-runtime-failure-remediation-design-freeze`; `machine_action_required=false`, `controller_action_required=false`, `pause_safe=false`.
+
 ## Phase 1 step 242 kernel-package-edge runtime-transaction remediation runtime failure characterization freeze — 2026-09-27
 
 - Consumed the successful step-241 read-only observation and froze the rollback baseline as restored: kernel headers 6.18.45, package database, Slackpkg configuration/state, GenInitrd policy, `/boot`, and boot ID all match the accepted pre-runtime identity; success evidence remains absent.
