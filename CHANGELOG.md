@@ -1,3 +1,12 @@
+## Phase 1 step 232 kernel-package-edge runtime-transaction remediation post-local-source-v2-build revalidation review — 2026-09-27
+
+- Consumed the accepted step-231 repository-only resume boundary and opened exactly one single-use read-only target observation; no prior boot ID, candidate binding, runtime authorization, or consumed builder authority is reused.
+- Added standalone post-v2-build probe `phase-1-kernel-package-edge-runtime-transaction-remediation-post-local-source-v2-build-revalidation-review-probe.sh`, bound to the restored 6.18.45 package/Slackpkg baseline, staged target, preserved local-source-v1, accepted local-source-v2, and historical failed-run evidence.
+- Required the accepted v2 tree-manifest SHA-256 `e775e47078c266f6f0219aa5899c430293d6181433e53deec02e30fb127ca945`, external sidecar, exact manifest coverage, immutable ownership/modes, priority-tree metadata, compatibility `CHECKSUMS.md5.asc`, exact target SHA-256, and absence of predecessor/temporary-builder outputs to verify before continuation.
+- Preserved local-source-v1 and the failed runtime evidence root unchanged, including the accepted `/boot`, Slackpkg-state, and GenInitrd fingerprints and absence of any published success evidence.
+- Authorized only exact probe transport/copy and one `sudo ... --observe-post-v2-build-revalidation` invocation; repository/network refresh, candidate binding, executor remediation, package/Slackpkg mutation, runtime rerun, boot action, reboot, cleanup, persistent-configuration change, and Phase 2 remain forbidden.
+- A successful returned observation routes only to `phase-1-kernel-package-edge-runtime-transaction-remediation-post-local-source-v2-build-revalidation-freeze`; `machine_action_required=true`, `controller_action_required=true`, and `pause_safe=false`.
+
 ## Phase 1 step 231 kernel-package-edge runtime-transaction remediation post-local-source-v2-build resume-planning boundary review — 2026-09-27
 
 - Reopened the still-incomplete `kernel-package-edge` runtime-remediation workstream from the accepted step-230 strong safe pause through a fresh repository-only planning boundary.
