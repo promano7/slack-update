@@ -37,6 +37,6 @@ Step 233 opens only repository-side review of the remediation candidate-binding 
 
 The next stage is `phase-1-kernel-package-edge-runtime-transaction-remediation-runtime-candidate-set-binding-review`. This is not a safe pause: the family remains active, with `machine_action_required=false`, `controller_action_required=false`, `pause_safe=false`, and `strong_safe_pause=false`.
 
-Frozen helper SHA-256: `e0b4937cd3a1144c374d39e00e374c6744f061beee2a76e2aa3e01a4cc53ecb6`.  
-Frozen policy SHA-256: `154b4bb46612da3f3827a04d7cc1d61968fdf153170f2cba8a8acfaecf5b13c2`.  
+Frozen helper SHA-256: `e0b4937cd3a1144c374d39e00e374c6744f061beee2a76e2aa3e01a4cc53ecb6`.
+Frozen policy SHA-256: `154b4bb46612da3f3827a04d7cc1d61968fdf153170f2cba8a8acfaecf5b13c2`.
 Frozen record SHA-256: `b6c5351f987c5b36a61cd284c07c0a1aaafb51610ed7f44857311541f67ba4c1`.

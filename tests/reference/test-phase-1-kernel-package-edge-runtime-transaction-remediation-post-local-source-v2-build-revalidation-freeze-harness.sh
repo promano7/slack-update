@@ -37,6 +37,10 @@ assert_hash 'accepted step-232 document hash is frozen' "$prior_doc" 'fc175317a5
 assert_hash 'accepted step-232 harness hash is frozen' "$prior_harness" '78275412b94d58aea5be7f65da737cc7ae248aabee3391e2a75bef91c5c1d7c2'
 assert_hash 'accepted step-232 policy hash is frozen' "$prior_policy" 'ef430d92d9163247c2ae9a7c6fd681eb5c032a8a4746702cd03d0645aa40e4e6'
 assert_hash 'accepted step-232 record hash is frozen' "$prior_record" '7cd3736efb81ea4480e3f28a9c2c06e98690ad53762bfab39a4a5db614b4a0cc'
+assert_hash 'step-233 helper hash remains frozen after r1' "$helper" 'e0b4937cd3a1144c374d39e00e374c6744f061beee2a76e2aa3e01a4cc53ecb6'
+assert_hash 'step-233 policy hash remains frozen after r1' "$policy" '154b4bb46612da3f3827a04d7cc1d61968fdf153170f2cba8a8acfaecf5b13c2'
+assert_hash 'step-233 record hash remains frozen after r1' "$record" 'b6c5351f987c5b36a61cd284c07c0a1aaafb51610ed7f44857311541f67ba4c1'
+assert_hash 'step-233 corrected document hash is frozen after r1' "$doc" '1a4e5b51176172dfcf6a43cfbb6ba2e545a2d049aa084224a3c813f93787b917'
 assert 'step-233 helper passes bash syntax validation' bash -n "$helper"
 assert 'step-233 helper exposes non-mutating help' "$helper" --help
 if "$helper" --definitely-invalid >/dev/null 2>&1; then fail 'step-233 helper rejects unknown option'; else pass 'step-233 helper rejects unknown option'; fi
@@ -97,6 +101,8 @@ while IFS=$'\t' read -r state label; do [[ $state == PASS ]] && pass "$label" ||
 assert 'reference document records accepted fresh boot ID' grep -Fq 'fc6032e0-cfe2-4b5a-b4d8-2f60308cbcd9' "$doc"
 assert 'reference document binds future source to local-source-v2' grep -Fq 'file:///var/tmp/slack-update-acceptance/kernel-package-edge/local-source-v2' "$doc"
 assert 'reference document keeps live candidate set unbound' grep -Fq 'No live candidate set is frozen by this step' "$doc"
+assert 'step-233 corrected document has no trailing whitespace' bash -c '! grep -nE "[[:blank:]]+$" "$1" >/dev/null' _ "$doc"
+assert 'CHANGELOG records step 233-r1 whitespace remediation' grep -Fq '## Phase 1 step 233-r1 kernel-package-edge post-local-source-v2-build revalidation freeze whitespace remediation' "$repo_root/CHANGELOG.md"
 assert 'CHANGELOG records step 233' grep -Fq '## Phase 1 step 233 kernel-package-edge runtime-transaction remediation post-local-source-v2-build revalidation freeze' "$repo_root/CHANGELOG.md"
 assert 'step-233 helper contains no executable network, package, boot, reboot, or shutdown command' bash -c '! grep -Eq "(^|[;&|[:space:]])(slackpkg|upgradepkg|installpkg|removepkg|reboot|shutdown|poweroff|curl|wget)[[:space:]]" "$1"' _ "$helper"
 
