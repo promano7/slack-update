@@ -1,3 +1,12 @@
+## Phase 1 step 249 kernel-package-edge local-source-v3 builder output remediation freeze and build authorization review — 2026-09-27
+
+- Consumed accepted step 248 and froze the corrected `local-source-v3` builder r1 at SHA-256 `80cc0244df0ed578576d5dd74b962dcf3d279afe5e22c08b8d3e7b65d7e2ba30`; the historical builder `56cf6248b90d8120f8a949a7a0ceeeec544bb95b18f40e49344ad06fc7d5c582` remains preserved with execution count zero.
+- Reverified that r1 differs only in the two evidence labels, retains deterministic byte-identical v3 rendering, the exact Slackpkg `PGP` compatibility marker, and no signature impersonation.
+- Consumed the successful fresh prebuild observation as the sole machine-state basis and bound one builder execution to boot ID `fc6032e0-cfe2-4b5a-b4d8-2f60308cbcd9` and staged target SHA-256 `c7b56b50f0abdec8f35628d526bb05488c257f667ab9c2be1a7a3e07d97da63c`.
+- Authorized exactly one transport and root execution of the corrected builder with `--build-local-source-v3`; authority is consumed on builder start and no second execution is authorized.
+- Kept package/Slackpkg mutation, repository refresh, network, boot/reboot, executor-v2 implementation/transport, runtime rerun, evidence cleanup, and Phase 2 closed.
+- Next stage after one successful build: `phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v3-build-result-review-and-strong-safe-pause`; `pause_safe=false` while the authorized machine action remains outstanding.
+
 ## Phase 1 step 248 kernel-package-edge runtime-transaction local-source-v3 prebuild revalidation freeze and builder output-contract remediation review — 2026-09-27
 
 - Consumed and froze the successful step-247 read-only prebuild observation on boot ID `fc6032e0-cfe2-4b5a-b4d8-2f60308cbcd9`; local-source-v3 outputs remained absent and the restored baseline remained intact.
