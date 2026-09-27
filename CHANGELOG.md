@@ -1,3 +1,10 @@
+## Phase 1 step 225 kernel-package-edge runtime-transaction remediation local-source-v2 design freeze — 2026-09-27
+
+- Consumed the accepted step-224 repository-only design review and froze the local-source-v2 design without changing its semantics.
+- Preserved immutable local-source-v1, failed runtime evidence, staged 6.18.45 target, frozen runtime identity, priority-tree metadata contract, compatibility `CHECKSUMS.md5.asc`, fresh Slackpkg workdir requirement, and target-specific candidate guard.
+- Kept builder execution, v2 construction, Slackpkg/repository refresh, candidate binding, runtime executor remediation/rerun, package/network/boot action, reboot, evidence cleanup, and Phase 2 unauthorized.
+- Opened only repository-side `phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v2-builder-implementation-review`; no machine/controller action is required and `pause_safe=false`.
+
 ## Phase 1 step 224 kernel-package-edge runtime-transaction remediation local-source-v2 design review — 2026-09-27
 
 - Consumed the accepted step-223 fresh remediation identity as repository-only design input while inheriting no target-machine authority.
