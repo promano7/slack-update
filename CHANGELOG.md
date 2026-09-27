@@ -1,3 +1,11 @@
+## Phase 1 step 248 kernel-package-edge runtime-transaction local-source-v3 prebuild revalidation freeze and builder output-contract remediation review — 2026-09-27
+
+- Consumed and froze the successful step-247 read-only prebuild observation on boot ID `fc6032e0-cfe2-4b5a-b4d8-2f60308cbcd9`; local-source-v3 outputs remained absent and the restored baseline remained intact.
+- Found before build authorization that the never-executed frozen v3 builder still emitted two stale v2 evidence keys (`local_source_v2_build_status` and `local_source_v2_root`).
+- Preserved the original builder unchanged at SHA-256 `56cf6248b90d8120f8a949a7a0ceeeec544bb95b18f40e49344ad06fc7d5c582` and reviewed a separate r1 builder at SHA-256 `80cc0244df0ed578576d5dd74b962dcf3d279afe5e22c08b8d3e7b65d7e2ba30` whose only changes correct those two evidence labels to v3.
+- Reproved synthetic render/manifest equivalence so construction semantics remain unchanged; no builder transport/execution or machine action is authorized by this step.
+- Next stage: `phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v3-builder-output-remediation-freeze-and-build-authorization-review`; `pause_safe=false`.
+
 ## Phase 1 step 247 kernel-package-edge runtime-transaction local-source-v3 prebuild fresh target revalidation review — 2026-09-27
 
 - Consumed the accepted step-246 implementation-contract freeze and preserved the exact local-source-v3 builder at SHA-256 `56cf6248b90d8120f8a949a7a0ceeeec544bb95b18f40e49344ad06fc7d5c582` without opening builder execution.
