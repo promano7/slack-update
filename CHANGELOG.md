@@ -1,3 +1,11 @@
+## Phase 1 step 254 kernel-package-edge runtime-transaction remediation executor-v2 implementation review — 2026-09-28
+- Implemented the repository-only executor v2 frozen by step 246 and bound by step 253 to fresh boot ID `047e744d-d2ea-4d9a-8746-7734b58db3b2` and accepted `local-source-v3` manifest SHA-256 `8a19d7f1c8b5b6f57ce92d9bd0b3c84523878b48bd2a82a4231c8cecd66aed8b`.
+- Added reviewed v2 body, reproducible builder and canonical payload; repository acceptance is `PASS (94 passes, 0 failures)` and the builder reproduces the canonical executor byte-for-byte.
+- Corrected the refresh-success guard to fail closed on the exact human-spaced `Error downloading from ` signal even when Slackpkg exits zero, while retaining stdout/stderr capture, fresh transaction-owned `pkglist` proof and same-transaction target-specific candidate binding.
+- Revalidated `local-source-v3` semantics in the executor, including the exact `PGP` compatibility marker and OpenPGP-impersonation guard, while preserving historical `local-source-v2` no-`PGP` state and failed remediation evidence unchanged.
+- Isolated future v2 evidence under new paths so historical failed remediation evidence cannot be overwritten; rollback, restored Slackpkg/GenInitrd state, unchanged boot artifacts, no external network and no reboot remain mandatory.
+- Opened only `phase-1-kernel-package-edge-runtime-transaction-remediation-runtime-executor-v2-implementation-freeze`; transport, candidate binding, runtime/package/Slackpkg/network/boot/reboot authority remain closed and `pause_safe=false`.
+
 ## Phase 1 step 253 kernel-package-edge runtime-transaction remediation post-local-source-v3 build revalidation freeze — 2026-09-28
 - Consumed the successful single-use step-252 read-only observation and revoked its probe authority; fresh boot ID `047e744d-d2ea-4d9a-8746-7734b58db3b2` is frozen with the unchanged 6.18.45 package/Slackpkg baseline.
 - Revalidated and froze accepted `local-source-v3` at manifest SHA-256 `8a19d7f1c8b5b6f57ce92d9bd0b3c84523878b48bd2a82a4231c8cecd66aed8b`, including sidecar, exact coverage, priority-tree contract, exact target bytes, `PGP` compatibility marker and absence of an OpenPGP signature block.
