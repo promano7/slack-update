@@ -1,3 +1,13 @@
+## Phase 1 step 251 kernel-package-edge runtime-transaction remediation post-local-source-v3 build resume-planning boundary review — 2026-09-28
+
+- Reopened the kernel-package-edge remediation workstream through a repository-only boundary after the accepted step-250 strong safe pause; no machine or controller action is required and no operational authority is inherited.
+- Preserved the accepted local-source-v3 tree at manifest SHA-256 `8a19d7f1c8b5b6f57ce92d9bd0b3c84523878b48bd2a82a4231c8cecd66aed8b`, staged target SHA-256 `c7b56b50f0abdec8f35628d526bb05488c257f667ab9c2be1a7a3e07d97da63c`, and corrected builder r1 SHA-256 `80cc0244df0ed578576d5dd74b962dcf3d279afe5e22c08b8d3e7b65d7e2ba30`.
+- Bound the already frozen step-246 executor-v2 contract to the accepted v3 manifest identity for future implementation review, without authorizing implementation, transport, candidate binding, or runtime execution.
+- Kept the executor-v2 refresh-success corrections frozen: reject the human-spaced `Error downloading from ` signal, do not use the earlier hyphenated synthetic guard, require both Slackpkg exit zero and a fresh transaction-owned `pkglist`, and require target-specific same-transaction candidate binding.
+- Expired all prior live target authority and required a fresh target plus local-source-v3 tree revalidation before any future machine action or executor-v2 implementation/runtime use.
+- Kept package/Slackpkg mutation, repository refresh, network, boot/reboot, cleanup, executor-v2 implementation/transport, runtime rerun, and Phase 2 closed.
+- Next stage: `phase-1-kernel-package-edge-runtime-transaction-remediation-post-local-source-v3-build-revalidation-review`; `pause_safe=false` while the workstream is reopened.
+
 ## Phase 1 step 250 kernel-package-edge local-source-v3 build result review and strong safe pause — 2026-09-27
 
 - Consumed the successful single corrected-builder execution from step 249: `local_source_v3_build_status=PASS` with builder SHA-256 `80cc0244df0ed578576d5dd74b962dcf3d279afe5e22c08b8d3e7b65d7e2ba30` and target SHA-256 `c7b56b50f0abdec8f35628d526bb05488c257f667ab9c2be1a7a3e07d97da63c`.
