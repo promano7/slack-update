@@ -1,3 +1,10 @@
+## Phase 1 step 255 kernel-package-edge runtime-transaction remediation executor-v2 implementation freeze — 2026-09-28
+- Consumed the accepted step-254 implementation review and froze executor-v2 body, builder, canonical payload and acceptance harness at their reviewed SHA-256 identities.
+- Rebuilt the canonical executor byte-for-byte and reran repository acceptance at `PASS (94 passes, 0 failures)` before freezing the implementation state.
+- Preserved the exact human-spaced `Error downloading from ` fail-closed guard, fresh transaction-owned `pkglist`, same-transaction target binding and accepted `local-source-v3` manifest/PGP compatibility contract.
+- Preserved historical failed-remediation and `local-source-v2` evidence unchanged; rollback, restored Slackpkg/GenInitrd state, unchanged boot artifacts, no external network and no reboot remain mandatory.
+- Opened only `phase-1-kernel-package-edge-runtime-transaction-remediation-runtime-executor-v2-runtime-authorization-review`; transport, candidate binding, runtime/package/Slackpkg/network/boot/reboot authority remain closed and `pause_safe=false`.
+
 ## Phase 1 step 254 kernel-package-edge runtime-transaction remediation executor-v2 implementation review — 2026-09-28
 - Implemented the repository-only executor v2 frozen by step 246 and bound by step 253 to fresh boot ID `047e744d-d2ea-4d9a-8746-7734b58db3b2` and accepted `local-source-v3` manifest SHA-256 `8a19d7f1c8b5b6f57ce92d9bd0b3c84523878b48bd2a82a4231c8cecd66aed8b`.
 - Added reviewed v2 body, reproducible builder and canonical payload; repository acceptance is `PASS (94 passes, 0 failures)` and the builder reproduces the canonical executor byte-for-byte.
