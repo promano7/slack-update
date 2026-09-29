@@ -1,3 +1,13 @@
+## Phase 1 step 259 kernel-package-edge runtime-transaction remediation empty-pkglist root-cause review — 2026-09-29
+- Consumed only the repository-review continuation opened by the step-258 strong safe pause; no target observation, package/Slackpkg mutation, network, boot, reboot, cleanup, or runtime action was authorized or performed.
+- Froze the empty `pkglist` cause as a metadata-format incompatibility: accepted `local-source-v3` writes package checksum entries with GNU `md5sum --tag`, so package lines end in the digest instead of the `.txz` path.
+- Bound the Slackpkg package-list contract in which `CHECKSUMS.md5` package entries are selected by a terminal Slackware package extension and the final whitespace-delimited field is the package path; the tagged v3 entry is therefore excluded before `pkglist.awk` can produce a row.
+- Reproduced the failure repository-only: tagged output produces zero package-filter matches, while ordinary untagged GNU `md5sum` output leaves the package path as the final field and passes the terminal `.txz` filter.
+- Determined that the frozen cause exactly explains the observed zero-byte pkglist SHA-256 `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`; candidate row matching is not causal because no row existed.
+- Preserved accepted `local-source-v3`, its builder, failed executor-v2 evidence and executor-v2 as immutable history; executor-v2 rerun remains forbidden.
+- Selected a new `local-source-v4` remediation direction using untagged GNU MD5 lines with the package path as the final field. No v4 implementation/build or machine authority is opened.
+- Next stage: `phase-1-kernel-package-edge-runtime-transaction-remediation-empty-pkglist-root-cause-freeze-and-local-source-v4-boundary-review`; `machine_action_required=false`, `controller_action_required=false`, `pause_safe=false`.
+
 ## Phase 1 step 258 kernel-package-edge runtime-transaction remediation executor-v2 failed result review and strong safe pause — 2026-09-28
 - Consumed the single-use step-257 runtime authorization after the only executor-v2 invocation terminated fail-closed at candidate binding with `ERROR: fresh pkglist exposes 0 exact target candidates instead of one`.
 - Frozen the observed local Slackpkg refresh result: exit code `0`, no human-spaced download-error signal, regular transaction-owned `pkglist`, but zero bytes and SHA-256 `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`; no candidate row existed to match.
