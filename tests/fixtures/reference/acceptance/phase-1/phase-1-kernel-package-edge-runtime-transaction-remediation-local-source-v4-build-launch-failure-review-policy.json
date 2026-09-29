@@ -1,0 +1,57 @@
+{
+  "accepted_step267": {
+    "builder": "38e83b300807fd23748bd2aa9e0ce86230da7a7270b6f01e9f54671331db80b7",
+    "commit": "0f82eac",
+    "document": "52403327b577b910c13c47ce1a36631b92c70e6085ef59cf44847719d6cb6044",
+    "executor": "f91ee0a2ff9f9410c968d5ce9c78080bb7e8de6ff4307e734ea71cb121ce6985",
+    "harness": "c235f3428b3e7893bc795893d380915a88900b6b229838395b5207bb1a29adb5",
+    "helper": "19e18b03a3ede501479dd6feda45f9abba9ee5b4ac78a51a2f04f185de47e709",
+    "policy": "8dd97f9e4593c6ecb2081f342c9f0a0af308650eac58abf375c92880a2e1f405",
+    "record": "5cb4fa2687c238cf88d15539b337da771da06555d2eaba8ea889302132f7c2f1"
+  },
+  "authorization_after_failure": {
+    "chmod_and_rerun_authorized": false,
+    "manual_builder_execution_authorized": false,
+    "rerun_authorized": false,
+    "state": "failed-at-launch-invalidated"
+  },
+  "closed_actions": [
+    "step267 executor rerun",
+    "builder execution",
+    "chmod as remediation",
+    "local-source-v4 build",
+    "slackpkg refresh",
+    "package mutation",
+    "network",
+    "boot",
+    "reboot",
+    "evidence cleanup",
+    "Phase 2"
+  ],
+  "next_stage": "phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build-launch-failure-characterization-freeze-and-strong-safe-pause",
+  "observed_failure": {
+    "authorization_boot_id": "d34855ae-e039-4005-a842-1bef51082195",
+    "authorization_use_count": 1,
+    "authorized_builder_sha256": "38e83b300807fd23748bd2aa9e0ce86230da7a7270b6f01e9f54671331db80b7",
+    "builder_execution_starting": "yes",
+    "failure_class": "permission-denied-on-direct-script-exec",
+    "failure_stage": "direct-builder-launch-before-builder-entry",
+    "preflight_status": "PASS",
+    "shell_error": "Permission denied"
+  },
+  "read_only_characterization_probe": {
+    "required_output": "complete",
+    "sha256": "5bebb4e56e3d39d2346a004fe7b5055a208b02ce5673f65d023bb66c44d9ea63",
+    "transport_and_single_execution_authorized": true
+  },
+  "remediation_boundary": {
+    "implementation_authorized": false,
+    "new_build_authorization_authorized": false,
+    "reason": "bind execution to verified script content rather than transported executable bit/direct exec semantics",
+    "selected": "invoke-frozen-builder-through-bash"
+  },
+  "review_status": "PASS",
+  "scenario": "phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build-launch-failure-review",
+  "step": 268,
+  "strong_safe_pause": false
+}

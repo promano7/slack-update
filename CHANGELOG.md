@@ -1950,3 +1950,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Authorized only exact builder+executor transport and one executor invocation with `--execute-authorized-local-source-v4-build`; no second execution or rerun after failure is authorized.
 - Slackpkg/repository refresh, package/network/configuration/boot/reboot/cleanup actions, runtime rerun and Phase 2 remain closed.
 - Machine/controller action is required for the single authorized build attempt; `strong_safe_pause=false`. Next stage is build-result review and strong-safe-pause determination.
+## Phase 1 step 268 — local-source-v4 authorized-build launch failure review
+
+- Recorded the single step-267 attempt as preflight-PASS but failed at the direct builder launch with `Permission denied` before builder entry.
+- Invalidated the step-267 authorization after its one attempt; executor rerun, manual builder execution and `chmod +x` plus rerun remain forbidden.
+- Classified the failure at the transport/direct-exec permission boundary rather than in local-source-v4 builder logic; builder content SHA-256 remains `38e83b300807fd23748bd2aa9e0ce86230da7a7270b6f01e9f54671331db80b7`.
+- Selected a future remediation boundary that invokes the exact SHA-bound builder through `bash`, but did not implement or authorize that remediation.
+- Added read-only post-failure characterization probe SHA-256 `5bebb4e56e3d39d2346a004fe7b5055a208b02ce5673f65d023bb66c44d9ea63` to verify complete v4 output absence and preservation of target, v3, failed-v2, Slackpkg, boot and GenInitrd invariants.
+- Only the exact read-only probe transport/execution is authorized. No build, Slackpkg/package/network/boot/reboot/cleanup or Phase 2 authority is open.
+- Complete probe output is required for step 269 failure-characterization freeze and strong-safe-pause determination; `strong_safe_pause=false`.
