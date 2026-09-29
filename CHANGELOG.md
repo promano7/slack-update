@@ -1924,3 +1924,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Kept v4 builder execution and build authority closed.
 - Opened only a bounded read-only fresh target/output-absence revalidation as the next stage; Slackpkg refresh, package/configuration mutation, network, boot and reboot remain forbidden.
 - This is not a strong safe pause (`strong_safe_pause=false`).
+## Phase 1 step 265 — local-source-v4 fresh target and output-absence revalidation review
+
+- Consumed the accepted step-264 builder implementation freeze and preserved the frozen local-source-v4 builder SHA-256 `38e83b300807fd23748bd2aa9e0ce86230da7a7270b6f01e9f54671331db80b7` without executing it.
+- Added read-only target probe `tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-fresh-target-and-output-absence-revalidation-review-probe.sh` at SHA-256 `16ff1bc70e72a1fe363747f29db627d0cb76835ec265340771a23237cebe57fd` to reobserve the current Slackware-current target, package database, staged target, accepted local-source-v3 tree, failed-v2 evidence and rollback fingerprints.
+- Required the failed-v2 zero-byte `pkglist` SHA-256 `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`, absent candidate binding/result, and accepted local-source-v3 manifest SHA-256 `8a19d7f1c8b5b6f57ce92d9bd0b3c84523878b48bd2a82a4231c8cecd66aed8b` to remain preserved.
+- Required `local-source-v4`, both v4 manifest files and every `.local-source-v4.build.*` temporary root to be absent before any future build.
+- Authorized only transport/execution of the exact read-only probe; builder execution/build, Slackpkg refresh, package/configuration mutation, network, boot, reboot, evidence cleanup, runtime rerun and Phase 2 remain closed.
+- Complete returned probe output is required for `phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-revalidation-freeze-and-build-authorization-review`; this is not a strong safe pause.
