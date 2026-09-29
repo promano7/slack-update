@@ -1,3 +1,12 @@
+## Phase 1 step 263 kernel-package-edge runtime-transaction remediation local-source-v4 builder implementation review — 2026-09-29
+
+- Consumed the accepted step-262 frozen design and implemented separate `local-source-v4` builder `tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build.sh` at SHA-256 `38e83b300807fd23748bd2aa9e0ce86230da7a7270b6f01e9f54671331db80b7` without executing its production path.
+- Proved the v4 builder is an exact allowlisted mechanical derivative of immutable v3-r1 SHA-256 `80cc0244df0ed578576d5dd74b962dcf3d279afe5e22c08b8d3e7b65d7e2ba30`: only frozen v3→v4 identity substitutions and the `CHECKSUMS.md5` writer/validator correction are present.
+- Replaced GNU tagged MD5 records with ordinary untagged `md5sum -- "$rel"` output so every eligible checksum path is the terminal field, and strengthened validation to exact line count plus exactly one exact text-mode binding per eligible file with tagged records forbidden.
+- Passed repository-only library-seam synthetic acceptance for valid untagged bindings and rejection of tagged, missing, duplicate, binary-marker/malformed, and extra bindings; production main was not entered.
+- Preserved target/package identity, predecessor exclusion, priority trees/stanzas, `FILELIST.TXT`, compatibility `.asc`, deterministic metadata, external SHA-256 manifest, fail-closed publication, root-only production, local-only behavior, and no package/Slackpkg/network/boot/reboot/persistent-config actions.
+- Kept builder execution, v4 build and all machine/runtime authority closed; opened only repository-side `phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-builder-implementation-freeze`. No machine/controller action is required and `pause_safe=false`.
+
 ## Phase 1 step 262 kernel-package-edge runtime-transaction remediation local-source-v4 builder design freeze — 2026-09-29
 
 - Consumed the accepted step-261 repository-only builder design review and froze the `local-source-v4` design as `design-frozen-not-implemented` without creating or executing a production builder.
