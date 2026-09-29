@@ -1,3 +1,12 @@
+## Phase 1 step 260 kernel-package-edge runtime-transaction remediation empty-pkglist root-cause freeze and local-source-v4 boundary review — 2026-09-29
+
+- Consumed the accepted step-259 repository-only root-cause review and accepted `slackpkg-incompatible-tagged-checksums-md5-package-line-format` as the exact frozen cause of the zero-byte executor-v2 `pkglist`; candidate matching remains non-causal and executor-v2 rerun remains forbidden.
+- Defined `local-source-v4` as the required remediation revision and constrained its functional delta to `CHECKSUMS.md5` record representation: every checksum-covered regular file must use ordinary untagged GNU `md5sum` output with the relative path as the final field; tagged `MD5 (...) = digest` records are forbidden.
+- Preserved the 6.18.45 target package bytes/SHA-256, predecessor exclusion, single-package source, package location/stanzas, priority-tree behavior, `FILELIST.TXT`, deterministic mtimes, compatibility `.asc` semantics, external authenticity binding, fail-closed output-path checks, and local-only/no-mutation behavior.
+- Reserved v4 output identities at `/var/tmp/slack-update-acceptance/kernel-package-edge/local-source-v4`, `local-source-v4.tree.sha256`, and `local-source-v4.tree.sha256.sha256`, with production switch `--build-local-source-v4`; allowed only revision identity/text/path and checksum-validation changes required by v4.
+- Kept accepted v3 artifacts/builder and failed executor-v2 evidence immutable and opened no target observation, builder implementation/build, package, Slackpkg, network, boot, reboot, cleanup, runtime-rerun, or Phase 2 authority.
+- Next stage: `phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-builder-design-review`; no machine/controller action is required and `pause_safe=false` while the repository-only remediation chain remains open.
+
 ## Phase 1 step 259 kernel-package-edge runtime-transaction remediation empty-pkglist root-cause review — 2026-09-29
 - Consumed only the repository-review continuation opened by the step-258 strong safe pause; no target observation, package/Slackpkg mutation, network, boot, reboot, cleanup, or runtime action was authorized or performed.
 - Froze the empty `pkglist` cause as a metadata-format incompatibility: accepted `local-source-v3` writes package checksum entries with GNU `md5sum --tag`, so package lines end in the digest instead of the `.txz` path.
