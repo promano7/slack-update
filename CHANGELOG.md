@@ -1,3 +1,12 @@
+## Phase 1 step 262 kernel-package-edge runtime-transaction remediation local-source-v4 builder design freeze — 2026-09-29
+
+- Consumed the accepted step-261 repository-only builder design review and froze the `local-source-v4` design as `design-frozen-not-implemented` without creating or executing a production builder.
+- Preserved the accepted v3-r1 builder at SHA-256 `80cc0244df0ed578576d5dd74b962dcf3d279afe5e22c08b8d3e7b65d7e2ba30` as immutable baseline and retained the functional remediation boundary at `CHECKSUMS.md5` record representation only.
+- Froze ordinary untagged GNU `md5sum` output with the relative path as final field and exact one-binding-per-eligible-file validation; tagged, missing, duplicate, malformed/binary-marker, and extra bindings must be rejected.
+- Required the next implementation review to prove the exact v3 baseline hash, an allowlisted mechanical v3→v4 diff, and repository-only synthetic positive/negative checksum tests through the library-only seam.
+- Kept builder production execution, v4 build, target observation, transport, Slackpkg refresh/configuration, candidate binding, runtime rerun, package/network/boot/reboot actions, evidence cleanup, and Phase 2 forbidden.
+- Opened only repository-side `phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-builder-implementation-review`; no machine/controller action is required and `pause_safe=false`.
+
 ## Phase 1 step 261 kernel-package-edge runtime-transaction remediation local-source-v4 builder design review — 2026-09-29
 
 - Consumed the accepted step-260 root-cause freeze and v4 boundary and reviewed the repository-only design for a separately named `local-source-v4` builder without implementing or executing it.
