@@ -1,0 +1,121 @@
+{
+  "accepted_step_263": {
+    "document_sha256": "df86e5f3e7002dd6fbffd53951d15242c917ad0514c5122e38597b7f7dd9c72b",
+    "harness_sha256": "09e8242d0ec4a457cce3df528e73a92419d4c6f663d2127d4ff25521a1cfc5b2",
+    "helper_sha256": "546cc2c6bcb50ea64dfcde09d9facdd997dc6f1c615e04c07d944596d2557445",
+    "policy_sha256": "2d43ad83fbdd51dfcadcb9dc0b2f61403ab4ab883c18108c02b0e2595efe1dc7",
+    "record_sha256": "42289765f73553f2d8ffac31c1d04dbe3208045c5e2e8a3375260b227e0eee28"
+  },
+  "accepted_v3_builder": {
+    "must_remain_unchanged": true,
+    "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v3-build-r1.sh",
+    "role": "immutable design baseline and historical evidence",
+    "sha256": "80cc0244df0ed578576d5dd74b962dcf3d279afe5e22c08b8d3e7b65d7e2ba30"
+  },
+  "authorization": {
+    "boot_action_authorized": false,
+    "evidence_cleanup_authorized": false,
+    "fresh_target_and_v4_output_absence_revalidation_authorized": true,
+    "local_source_metadata_refresh_authorized": false,
+    "local_source_v4_build_authorized": false,
+    "local_source_v4_builder_execution_authorized": false,
+    "network_access_authorized": false,
+    "package_action_authorized": false,
+    "persistent_configuration_change_authorized": false,
+    "phase_2_start_authorized": false,
+    "reboot_authorized": false,
+    "repository_only_v4_builder_implementation_freeze_authorized": false,
+    "repository_refresh_authorized": false,
+    "runtime_execution_or_rerun_authorized": false,
+    "slackpkg_mutation_authorized": false
+  },
+  "controller_action_required": false,
+  "fresh_revalidation_gate": {
+    "must_not_execute_v4_builder": true,
+    "must_not_mutate_packages_or_configuration": true,
+    "must_not_refresh_slackpkg": true,
+    "must_open_no_build_authority": true,
+    "must_prove_v4_output_paths_absent": true,
+    "must_revalidate_predecessor_absent": true,
+    "must_revalidate_target_filename": "kernel-headers-6.18.45-x86-1.txz",
+    "must_revalidate_target_sha256": "c7b56b50f0abdec8f35628d526bb05488c257f667ab9c2be1a7a3e07d97da63c",
+    "repository_only": false,
+    "target_machine_read_only_revalidation_required": true
+  },
+  "frozen_inputs": {
+    "failed_v2_pkglist_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "functional_remediation_scope": "CHECKSUMS.md5 record representation only",
+    "package_location": "./slackware64/d",
+    "predecessor_filename": "kernel-headers-6.18.44-x86-1.txz",
+    "root_cause_class": "slackpkg-incompatible-tagged-checksums-md5-package-line-format",
+    "target_filename": "kernel-headers-6.18.45-x86-1.txz",
+    "target_relative_path": "slackware64/d/kernel-headers-6.18.45-x86-1.txz",
+    "target_sha256": "c7b56b50f0abdec8f35628d526bb05488c257f667ab9c2be1a7a3e07d97da63c"
+  },
+  "frozen_v4_builder": {
+    "mechanical_v3_derivative_verified": true,
+    "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build.sh",
+    "production_execution_performed": false,
+    "repository_acceptance_rerun_required": true,
+    "sha256": "38e83b300807fd23748bd2aa9e0ce86230da7a7270b6f01e9f54671331db80b7",
+    "state": "implementation-frozen-not-executed"
+  },
+  "future_work_requires_explicit_authorization": true,
+  "helper_path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-builder-implementation-freeze.sh",
+  "helper_sha256": "a2a95740b9d1837a6d0ef7ad5510199868b5ae07087ef692c55375f46af0beb7",
+  "implementation_freeze": {
+    "checksum_line_shape": "<32-lowercase-hex-md5><two spaces>./relative/path",
+    "checksum_path_is_final_field": true,
+    "checksum_writer": "md5sum -- \"$rel\"",
+    "exact_binding_validator_required": true,
+    "functional_remediation_scope": "CHECKSUMS.md5 record representation only",
+    "production_execution_forbidden_and_not_performed": true,
+    "reviewed_builder_identity_frozen": true,
+    "step_263_repository_acceptance_must_pass": true,
+    "synthetic_gate_set_frozen": [
+      "valid-untagged-pass",
+      "tagged-reject",
+      "missing-reject",
+      "duplicate-reject",
+      "binary-marker-or-malformed-reject",
+      "extra-reject"
+    ],
+    "tagged_writer_forbidden": true,
+    "v3_baseline_identity_reproved": true
+  },
+  "machine_action_class": "read-only-target-and-output-absence-revalidation",
+  "machine_action_required": true,
+  "next_stage": "phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-fresh-target-and-output-absence-revalidation",
+  "pause_safe": false,
+  "review_only": true,
+  "review_status": "PASS",
+  "scenario": "phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-builder-implementation-freeze",
+  "schema": 1,
+  "step": 264,
+  "strong_safe_pause": false,
+  "unchanged_behavior_contract": {
+    "compatibility_asc_semantics": true,
+    "deterministic_mtime_normalization": true,
+    "exactly_one_target_package_archive": true,
+    "external_sha256_tree_manifest_and_sidecar": true,
+    "filelist_generation": true,
+    "input_validation_and_target_sha256_binding": true,
+    "local_only_no_network": true,
+    "no_package_slackpkg_boot_reboot_or_persistent_config_action": true,
+    "output_path_absence_preflight": true,
+    "package_description_extraction": true,
+    "package_stanza_generation": true,
+    "post_publish_manifest_verification": true,
+    "predecessor_absent": true,
+    "priority_tree_set": [
+      "patches",
+      "slackware64",
+      "extra",
+      "pasture",
+      "testing"
+    ],
+    "root_ownership_and_0555_0444_finalization": true,
+    "root_required_for_production": true,
+    "temporary_sibling_build_then_publish": true
+  }
+}

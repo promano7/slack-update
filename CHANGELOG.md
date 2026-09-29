@@ -1916,3 +1916,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Selected a separate deterministic `local-source-v2` remediation boundary with Slackpkg refresh-compatibility metadata, explicit workdir freshness proof, target-specific candidate binding, and real-tab TSV evidence. Package authenticity remains bound by the frozen package SHA-256 and the new tree manifest rather than by the local compatibility `.asc` artifact.
 - Kept runtime rerun, package/Slackpkg mutation, repository/network access, boot action, reboot, persistent configuration change, evidence deletion, and Phase 2 forbidden; no machine or controller action is required and `pause_safe=false`.
 - Next stage: `phase-1-kernel-package-edge-runtime-transaction-remediation-boundary-review-and-strong-safe-pause`.
+## Phase 1 step 264 — local-source-v4 builder implementation freeze
+
+- Froze the reviewed `local-source-v4` builder at SHA-256 `38e83b300807fd23748bd2aa9e0ce86230da7a7270b6f01e9f54671331db80b7` with state `implementation-frozen-not-executed`.
+- Re-required the complete step-263 repository acceptance, including the valid untagged case and all five negative checksum-binding classes, without production builder execution.
+- Preserved immutable v3-r1 baseline SHA-256 `80cc0244df0ed578576d5dd74b962dcf3d279afe5e22c08b8d3e7b65d7e2ba30` and the checksum-representation-only remediation boundary.
+- Kept v4 builder execution and build authority closed.
+- Opened only a bounded read-only fresh target/output-absence revalidation as the next stage; Slackpkg refresh, package/configuration mutation, network, boot and reboot remain forbidden.
+- This is not a strong safe pause (`strong_safe_pause=false`).
