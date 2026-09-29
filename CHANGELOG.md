@@ -1941,3 +1941,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Reviewed an exact single-use future build boundary for frozen builder SHA-256 `38e83b300807fd23748bd2aa9e0ce86230da7a7270b6f01e9f54671331db80b7`, bound to the fresh boot ID and requiring exact transport, SHA verification, `--build-local-source-v4`, output-absence recheck and complete returned build output.
 - Did not grant builder transport, builder execution or build authority; Slackpkg/repository refresh, package/network/configuration/boot/reboot/cleanup actions and runtime rerun remain closed.
 - No machine or controller action is required. Next stage: `phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build-authorization-freeze`; `strong_safe_pause=false`.
+
+## Phase 1 step 267 — local-source-v4 build-authorization freeze
+
+- Froze and granted exactly one `local-source-v4` build attempt, bound to boot ID `d34855ae-e039-4005-a842-1bef51082195`.
+- Bound frozen builder SHA-256 `38e83b300807fd23748bd2aa9e0ce86230da7a7270b6f01e9f54671331db80b7` and single-use executor SHA-256 `f91ee0a2ff9f9410c968d5ce9c78080bb7e8de6ff4307e734ea71cb121ce6985`.
+- The executor revalidates the complete accepted target/Slackpkg/v3/failed-v2/output-absence boundary immediately before invoking the builder.
+- Authorized only exact builder+executor transport and one executor invocation with `--execute-authorized-local-source-v4-build`; no second execution or rerun after failure is authorized.
+- Slackpkg/repository refresh, package/network/configuration/boot/reboot/cleanup actions, runtime rerun and Phase 2 remain closed.
+- Machine/controller action is required for the single authorized build attempt; `strong_safe_pause=false`. Next stage is build-result review and strong-safe-pause determination.

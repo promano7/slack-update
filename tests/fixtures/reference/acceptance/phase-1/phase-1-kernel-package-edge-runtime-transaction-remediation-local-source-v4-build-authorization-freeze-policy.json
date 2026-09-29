@@ -1,0 +1,76 @@
+{
+  "accepted_step_266": {
+    "document_sha256": "3ce7f916d39efe4b3e80ac8648015f74bab61dda43f4c78d0ec72ff757311535",
+    "harness_sha256": "ca0c690ce437428c4a0f803f9e2c94b03a19e40e141318a6c0ef7341eac06f9a",
+    "helper_sha256": "6b16ee9a7e904b173849486ba4119842e1fcc73ae41508286b039c8016a58171",
+    "policy_sha256": "fd6ce003f5b46451a94319b3949d7354396934b937068dd0b1a871c942f197a3",
+    "record_sha256": "d0bf5b8e88aaf8dab683ccff439d356071a222b184f85050509e54393b674a87"
+  },
+  "authorization": {
+    "boot_action_authorized": false,
+    "builder_and_executor_transport_authorized": true,
+    "evidence_cleanup_authorized": false,
+    "local_source_v4_build_authorized": true,
+    "local_source_v4_builder_execution_authorized": true,
+    "network_access_authorized": false,
+    "package_action_authorized": false,
+    "persistent_configuration_change_authorized": false,
+    "phase_2_start_authorized": false,
+    "reboot_authorized": false,
+    "repository_refresh_authorized": false,
+    "runtime_rerun_authorized": false,
+    "slackpkg_refresh_authorized": false
+  },
+  "controller_action_required": true,
+  "expected_success_outputs": {
+    "root": "/var/tmp/slack-update-acceptance/kernel-package-edge/local-source-v4",
+    "tree_manifest": "/var/tmp/slack-update-acceptance/kernel-package-edge/local-source-v4.tree.sha256",
+    "tree_manifest_sidecar": "/var/tmp/slack-update-acceptance/kernel-package-edge/local-source-v4.tree.sha256.sha256"
+  },
+  "frozen_single_use_executor": {
+    "acknowledgement": "--execute-authorized-local-source-v4-build",
+    "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build-authorization-freeze-executor.sh",
+    "sha256": "f91ee0a2ff9f9410c968d5ce9c78080bb7e8de6ff4307e734ea71cb121ce6985"
+  },
+  "frozen_v4_builder": {
+    "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build.sh",
+    "sha256": "38e83b300807fd23748bd2aa9e0ce86230da7a7270b6f01e9f54671331db80b7"
+  },
+  "future_work_requires_explicit_authorization": true,
+  "helper_path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build-authorization-freeze.sh",
+  "helper_sha256": "19e18b03a3ede501479dd6feda45f9abba9ee5b4ac78a51a2f04f185de47e709",
+  "machine_action_required": true,
+  "next_stage": "phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build-result-review-and-strong-safe-pause",
+  "pause_safe": false,
+  "review_only": false,
+  "review_status": "PASS",
+  "scenario": "phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build-authorization-freeze",
+  "schema": 1,
+  "single_build_authorization": {
+    "authorization_bound_boot_id": "d34855ae-e039-4005-a842-1bef51082195",
+    "authorization_use_count": 1,
+    "boot_mutation_allowed": false,
+    "builder_and_executor_transport_authorized": true,
+    "builder_execution_authorized": true,
+    "builder_sha256": "38e83b300807fd23748bd2aa9e0ce86230da7a7270b6f01e9f54671331db80b7",
+    "complete_executor_output_must_be_returned_for_result_review": true,
+    "evidence_cleanup_allowed": false,
+    "executor_must_revalidate_full_boundary_immediately_before_build": true,
+    "executor_sha256": "f91ee0a2ff9f9410c968d5ce9c78080bb7e8de6ff4307e734ea71cb121ce6985",
+    "final_outputs_must_be_absent": true,
+    "local_source_v4_build_authorized": true,
+    "network_access_allowed": false,
+    "no_second_execution_authorized": true,
+    "package_mutation_allowed": false,
+    "persistent_configuration_change_allowed": false,
+    "reboot_allowed": false,
+    "repository_refresh_allowed": false,
+    "rerun_after_failure_authorized": false,
+    "same_boot_required_at_execution": true,
+    "slackpkg_refresh_allowed": false,
+    "state": "frozen-and-authorized",
+    "temporary_build_roots_must_be_absent": true
+  },
+  "step": 267,
+  "strong_safe_pause": false
+}
