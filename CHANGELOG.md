@@ -1,3 +1,12 @@
+## Phase 1 step 261 kernel-package-edge runtime-transaction remediation local-source-v4 builder design review — 2026-09-29
+
+- Consumed the accepted step-260 root-cause freeze and v4 boundary and reviewed the repository-only design for a separately named `local-source-v4` builder without implementing or executing it.
+- Preserved the exact accepted v3-r1 builder at SHA-256 `80cc0244df0ed578576d5dd74b962dcf3d279afe5e22c08b8d3e7b65d7e2ba30` as immutable design baseline and historical evidence; v3 is not edited in place.
+- Limited the functional v4 delta to ordinary untagged GNU `md5sum` records with the package path as final field, while permitting only mechanical v3→v4 revision-identity substitutions around paths, switch, labels, status keys, temporary prefix, and library seam.
+- Required v4 checksum validation to prove exactly one exact `<md5>  <relative-path>` binding for every eligible generated regular file and reject tagged, missing, duplicate, malformed, binary-marker, or extra bindings.
+- Preserved target bytes/SHA-256, predecessor exclusion, priority-tree/package metadata behavior, compatibility `.asc` semantics, deterministic mtimes/permissions, output-absence checks, external SHA-256 tree manifest, fail-closed publication, and local-only/no-mutation behavior.
+- Kept v4 implementation/build, target observation, transport, Slackpkg refresh/configuration, runtime rerun, package/network/boot/reboot actions, evidence cleanup, and Phase 2 forbidden; no machine/controller action is required and `pause_safe=false`.
+- Opened only repository-side `phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-builder-design-freeze`.
 ## Phase 1 step 260 kernel-package-edge runtime-transaction remediation empty-pkglist root-cause freeze and local-source-v4 boundary review — 2026-09-29
 
 - Consumed the accepted step-259 repository-only root-cause review and accepted `slackpkg-incompatible-tagged-checksums-md5-package-line-format` as the exact frozen cause of the zero-byte executor-v2 `pkglist`; candidate matching remains non-causal and executor-v2 rerun remains forbidden.
