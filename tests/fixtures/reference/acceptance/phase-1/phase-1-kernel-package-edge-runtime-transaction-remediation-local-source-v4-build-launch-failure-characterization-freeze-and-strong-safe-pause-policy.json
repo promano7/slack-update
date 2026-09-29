@@ -1,0 +1,82 @@
+{
+  "accepted_step_268": {
+    "commit": "cd9253a",
+    "document_sha256": "d836c961acb5b1ac77e7e09e565b0442c82d1c838f6a1719c684bef9b2d9c3b0",
+    "harness_sha256": "91375e62de5bbd1d9c2559125b5b560857c68ab4337556ada1b51839a693b773",
+    "helper_sha256": "da49e1e5688dfc95291fa13a2078d12e7d8ba54220bd9a7d3854964440a764d9",
+    "policy_sha256": "78e9f5701fce6a2f876bfe4d245faddb42db10119869d3e5d13837eb76e96f19",
+    "probe_sha256": "5bebb4e56e3d39d2346a004fe7b5055a208b02ce5673f65d023bb66c44d9ea63",
+    "record_sha256": "f36666492820f274802c03ff57784c844213d72616bc808b90b3abf9bdfd7be1"
+  },
+  "authorization": {
+    "builder_execution_authorized": false,
+    "builder_transport_authorized": false,
+    "chmod_remediation_authorized": false,
+    "evidence_cleanup_authorized": false,
+    "local_source_v4_build_authorized": false,
+    "network_access_authorized": false,
+    "package_action_authorized": false,
+    "persistent_configuration_change_authorized": false,
+    "phase_2_start_authorized": false,
+    "probe_execution_authorized": false,
+    "reboot_authorized": false,
+    "repository_only_launch_remediation_review_authorized": true,
+    "runtime_executor_rerun_authorized": false,
+    "slackpkg_mutation_authorized": false,
+    "step267_executor_rerun_authorized": false
+  },
+  "controller_action_required": false,
+  "failure_characterization": {
+    "authorization_boot_id": "d34855ae-e039-4005-a842-1bef51082195",
+    "authorization_reuse_authorized": false,
+    "builder_execution_completed": false,
+    "builder_sha256": "38e83b300807fd23748bd2aa9e0ce86230da7a7270b6f01e9f54671331db80b7",
+    "builder_transport_mode": "0644",
+    "builder_transport_executable_bit_visible": false,
+    "class": "permission-denied-on-direct-script-exec",
+    "executor_sha256": "f91ee0a2ff9f9410c968d5ce9c78080bb7e8de6ff4307e734ea71cb121ce6985",
+    "executor_transport_mode": "0644",
+    "frozen": true,
+    "local_source_v4_build_performed": false,
+    "stage": "direct-builder-launch-before-builder-entry"
+  },
+  "next_stage": "phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build-launch-remediation-review",
+  "preservation_contract": {
+    "accepted_local_source_v3_must_remain_unchanged": true,
+    "failed_v2_evidence_must_remain_unchanged": true,
+    "local_source_v4_final_outputs_must_remain_absent": true,
+    "local_source_v4_temporary_build_roots_must_remain_absent": true,
+    "step267_executor_must_not_be_rerun": true,
+    "transported_builder_must_not_be_modified_or_executed": true
+  },
+  "remediation_boundary": {
+    "candidate": "invoke-frozen-builder-through-bash-after-new-review-and-authorization",
+    "implementation_authorized": false,
+    "new_build_authorization_authorized": false,
+    "reason": "bind execution to verified builder content rather than the transported executable bit"
+  },
+  "review_status": "PASS",
+  "safe_pause": {
+    "controller_action_required": false,
+    "fresh_revalidation_required_before_any_future_machine_action": true,
+    "future_machine_action_requires_new_explicit_authorization": true,
+    "machine_action_required": false,
+    "no_open_operational_authorization": true,
+    "pause_safe": true,
+    "strong_safe_pause": true
+  },
+  "scenario": "phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build-launch-failure-characterization-freeze-and-strong-safe-pause",
+  "schema": 1,
+  "step": 269,
+  "strong_safe_pause": true,
+  "verified_post_failure_state": {
+    "boot_slackpkg_geninitrd_state_preserved": true,
+    "failed_v2_evidence_preserved": true,
+    "local_source_v3_tree_verified": true,
+    "local_source_v4_root_absent": true,
+    "local_source_v4_temporary_build_roots_absent": true,
+    "local_source_v4_tree_manifest_absent": true,
+    "local_source_v4_tree_manifest_sidecar_absent": true,
+    "probe_side_effects": "none-read-only"
+  }
+}
