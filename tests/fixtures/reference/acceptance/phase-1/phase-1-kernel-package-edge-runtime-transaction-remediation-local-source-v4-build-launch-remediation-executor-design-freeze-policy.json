@@ -1,0 +1,155 @@
+{
+  "accepted_checkpoint": {
+    "acceptance_result": "PASS (74 passes, 0 failures)",
+    "commit": "f5ed5c7",
+    "sha256_bindings": {
+      "docs/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build-launch-remediation-executor-design-review.md": "2013acdd90d389d9456a60f88b5e96418df9425707c1e62a9dc400a24310bfe3",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build-launch-remediation-executor-design-review-policy.json": "de60e477125d883754e6b4aba1d1c6698a7a3c9b0e4255495737db0addd1e499",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build-launch-remediation-executor-design-review.tsv": "c313e3fb16c7c9e4d9807e0c1abdf2ffde3b8041ff33bb59c0a97481bd5175aa",
+      "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build-launch-remediation-executor-design-review-harness.sh": "a70d06bca3169abd569a33d4859d20780dcae4e0b34719b5e66faa501d17ed94",
+      "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build-authorization-freeze-executor.sh": "f91ee0a2ff9f9410c968d5ce9c78080bb7e8de6ff4307e734ea71cb121ce6985",
+      "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build-launch-remediation-executor-design-review.sh": "669121d485c92b6f536511eba57742f781c069b484d02dad0f440296af912ffc",
+      "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build.sh": "38e83b300807fd23748bd2aa9e0ce86230da7a7270b6f01e9f54671331db80b7"
+    },
+    "step": 272
+  },
+  "authorization": {
+    "boot_action_authorized": false,
+    "builder_execution_authorized": false,
+    "builder_transport_authorized": false,
+    "chmod_remediation_authorized": false,
+    "evidence_cleanup_authorized": false,
+    "local_source_v4_build_authorized": false,
+    "network_access_authorized": false,
+    "package_action_authorized": false,
+    "persistent_configuration_change_authorized": false,
+    "phase_2_start_authorized": false,
+    "reboot_authorized": false,
+    "remediation_implementation_authorized": true,
+    "repository_only_executor_implementation_review_authorized": true,
+    "runtime_executor_rerun_authorized": false,
+    "slackpkg_mutation_authorized": false,
+    "step267_executor_rerun_authorized": false,
+    "target_observation_authorized": false
+  },
+  "controller_action_required": false,
+  "evidence_scope": "repository-only-design-freeze-no-production-implementation-or-target-observation",
+  "freeze_status": "PASS",
+  "frozen_design": {
+    "allowed_derivation_changes": [
+      "new-executor-identity-help-switch-status-labels",
+      "mandatory-fresh-boot-id-argument-with-no-historical-default",
+      "bash-required-command-and-quoted-bash-launch",
+      "isolated-launch-function-and-library-only-test-seam"
+    ],
+    "authorization_boot_id": {
+      "argument_count": 3,
+      "data_only_no_eval_or_source": true,
+      "equals_current_boot_id_before_launch": true,
+      "historical_default_allowed": false,
+      "required": true,
+      "source": "new-explicit-authorization-after-fresh-read-only-target-revalidation",
+      "strict_lowercase_uuid_format": true,
+      "unknown_duplicate_missing_extra_arguments_rejected": true
+    },
+    "builder_nonzero_exit_propagates": true,
+    "executor_implemented": false,
+    "frozen_launch_contract": {
+      "builder_content_immutable": true,
+      "builder_exit_status_must_propagate": true,
+      "chmod_remediation_allowed": false,
+      "executable_bit_required": false,
+      "fresh_target_revalidation_before_new_authorization": true,
+      "future_executor_must_be_separately_named": true,
+      "future_launch_command": "bash -- \"$builder\" --build-local-source-v4",
+      "old_boot_id_is_historical_only": true,
+      "old_executor_and_authorization_reuse_allowed": false,
+      "preserve_all_target_and_output_absence_guards": true,
+      "reject_before_launch_on_any_drift": true,
+      "require_bash_available": true,
+      "require_exact_sha256_before_launch": true,
+      "require_regular_non_symlink_builder": true,
+      "single_attempt_even_on_failure": true,
+      "state": "launch-remediation-frozen-not-implemented"
+    },
+    "future_execution_argv": [
+      "--execute-authorized-local-source-v4-build-v2",
+      "--authorization-boot-id",
+      "<fresh-authorized-uuid>"
+    ],
+    "future_executor_basename": "phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build-launch-remediation-executor.sh",
+    "guard_functions_preserved_exactly": [
+      "regular_sha256",
+      "package_records",
+      "package_database_manifest_hash",
+      "path_fingerprint",
+      "tree_fingerprint",
+      "tsv_value",
+      "verify_local_source_v3",
+      "verify_failed_v2_evidence",
+      "verify_v4_outputs_absent"
+    ],
+    "guard_implementation_baseline": "phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build-authorization-freeze-executor.sh",
+    "implementation_acceptance_required": [
+      "exact-allowlisted-derivation-from-failed-executor",
+      "unchanged-guard-function-bodies-and-immutable-builder",
+      "strict-cli-no-old-switch-no-implicit-boot-binding",
+      "guard-rejection-prevents-surrogate-entry",
+      "mode-0644-and-spaced-path-launch",
+      "missing-symlink-changed-builder-rejected",
+      "exact-builder-argument",
+      "nonzero-exit-no-success-publication"
+    ],
+    "launch_count_per_invocation": 1,
+    "library_only_seam": {
+      "explicit_opt_in": true,
+      "no_automatic_main_entry": true,
+      "no_mutation_of_frozen_production_constants_for_tests": true,
+      "production_default_runs_main": true,
+      "synthetic_surrogate_only": true
+    },
+    "persistent_attempt_marker_added": false,
+    "preflight_before_launch": true,
+    "preflight_guard_inventory": [
+      "root-execution",
+      "required-commands-including-bash",
+      "regular-non-symlink-builder",
+      "exact-builder-sha256",
+      "canonical-package-database-and-compat-symlink",
+      "acceptance-root",
+      "fresh-authorization-boot-id",
+      "fqdn-architecture-running-kernel-slackware-release",
+      "package-database-manifest",
+      "installed-header-and-generic-records",
+      "no-huge-or-modules-records",
+      "slackpkg-config-and-mirrors",
+      "staged-target-sha256",
+      "accepted-v3-tree-and-sidecar",
+      "preserved-failed-v2-evidence",
+      "unchanged-boot-slackpkg-geninitrd-fingerprints",
+      "all-v4-final-and-temporary-outputs-absent"
+    ],
+    "production_builder_arguments": [
+      "--build-local-source-v4"
+    ],
+    "production_builder_entered": false,
+    "single_use_enforcement": "controller-one-attempt-authorization-protocol-no-automatic-or-manual-retry",
+    "state": "executor-design-frozen-not-implemented",
+    "success_publication_after_zero_builder_exit_only": true,
+    "target_observation_performed": false
+  },
+  "implementation_scope": "repository-only-separately-named-executor-and-synthetic-acceptance-no-production-entry",
+  "machine_action_required": false,
+  "next_stage": "phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build-launch-remediation-executor-implementation-review",
+  "pause_safe": false,
+  "preservation": {
+    "accepted_v3_and_failed_v2_evidence_immutable": true,
+    "failed_step267_executor_immutable": true,
+    "no_new_machine_state_claim": true
+  },
+  "review_status": "PASS",
+  "scenario": "phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build-launch-remediation-executor-design-freeze",
+  "schema": 1,
+  "step": 273,
+  "strong_safe_pause": false
+}
