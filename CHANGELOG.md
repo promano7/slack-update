@@ -1,3 +1,12 @@
+## Phase 1 step 272 — local-source-v4 build-launch remediation executor design review — 2026-09-30
+
+- Consumed accepted step 271 (`cd73456`) with full 53-pass acceptance and reviewed the separately named executor design without implementation or production entry.
+- Reserved `phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build-launch-remediation-executor.sh` and the new strict switch `--execute-authorized-local-source-v4-build-v2` with mandatory `--authorization-boot-id UUID` supplied by a later fresh explicit authorization; no historical/default boot binding is allowed.
+- Limited derivation from the immutable failed executor to identity/CLI/status changes, fresh boot input, Bash launch and an isolated synthetic library seam; existing verification function bodies and every preflight guard must remain unchanged.
+- Required one exact quoted Bash launch, immutable regular-file/SHA binding, strict arguments, preflight rejection before launch, builder failure propagation and success publication only after exit zero.
+- Defined single-attempt authority through the controller procedure, with no automatic/manual retry and no new persistent attempt marker; required meaningful synthetic implementation acceptance without host/production actions.
+- Next stage: `phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build-launch-remediation-executor-design-freeze`. Only repository design freeze is open; `machine_action_required=false`, `controller_action_required=false`, `pause_safe=false`, `strong_safe_pause=false`.
+
 ## Phase 1 step 271 — local-source-v4 build-launch remediation freeze — 2026-09-30
 
 - Consumed accepted step 270 (`179245c`) and re-required its full repository acceptance: PASS, 62 passes and zero failures, with no production builder entry.
