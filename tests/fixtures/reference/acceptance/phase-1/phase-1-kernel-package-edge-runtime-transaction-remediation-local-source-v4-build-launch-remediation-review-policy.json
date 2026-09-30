@@ -1,0 +1,67 @@
+{
+  "accepted_checkpoint": {
+    "commit": "b039f08",
+    "sha256_bindings": {
+      "docs/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build-launch-failure-characterization-freeze-and-strong-safe-pause.md": "ec594d3f941da828fa7bd4bcd598c275e67ba0cd3f48b9f5b014382f5ed147fd",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build-launch-failure-characterization-freeze-and-strong-safe-pause-policy.json": "2323a05d34c9377a4bd2d96253f17b8fbdae6ce7b6fe17505a97f1ef5c68eb82",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build-launch-failure-characterization-freeze-and-strong-safe-pause.tsv": "f0df24341e034dddad4c7efaf3628b8ed4e17b78fa847325cfbd967aebcef95a",
+      "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build-launch-failure-characterization-freeze-and-strong-safe-pause-harness.sh": "82929658a9ec5741c6ce1e8946634525e4148ddb265364ec38a4393ce06ec1d1",
+      "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build-authorization-freeze-executor.sh": "f91ee0a2ff9f9410c968d5ce9c78080bb7e8de6ff4307e734ea71cb121ce6985",
+      "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build-launch-failure-characterization-freeze-and-strong-safe-pause.sh": "9dd7fa6bc61a5ea5f68ff26da857140ecfb31cedc6203876e8db719c720586b1",
+      "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build.sh": "38e83b300807fd23748bd2aa9e0ce86230da7a7270b6f01e9f54671331db80b7"
+    },
+    "step": 269
+  },
+  "authorization": {
+    "boot_action_authorized": false,
+    "builder_execution_authorized": false,
+    "builder_transport_authorized": false,
+    "chmod_remediation_authorized": false,
+    "evidence_cleanup_authorized": false,
+    "local_source_v4_build_authorized": false,
+    "network_access_authorized": false,
+    "package_action_authorized": false,
+    "persistent_configuration_change_authorized": false,
+    "phase_2_start_authorized": false,
+    "reboot_authorized": false,
+    "remediation_implementation_authorized": false,
+    "repository_only_launch_remediation_freeze_authorized": true,
+    "runtime_executor_rerun_authorized": false,
+    "slackpkg_mutation_authorized": false,
+    "step267_executor_rerun_authorized": false,
+    "target_observation_authorized": false
+  },
+  "controller_action_required": false,
+  "evidence_scope": "repository-only-synthetic-surrogate-no-production-builder-entry",
+  "machine_action_required": false,
+  "next_stage": "phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build-launch-remediation-freeze",
+  "pause_safe": false,
+  "preservation": {
+    "accepted_v3_and_failed_v2_evidence_immutable": true,
+    "failed_step267_executor_immutable": true,
+    "no_new_machine_state_claim": true
+  },
+  "remediation": {
+    "builder_content_immutable": true,
+    "builder_exit_status_must_propagate": true,
+    "chmod_remediation_allowed": false,
+    "executable_bit_required": false,
+    "fresh_target_revalidation_before_new_authorization": true,
+    "future_executor_must_be_separately_named": true,
+    "future_launch_command": "bash -- \"$builder\" --build-local-source-v4",
+    "old_boot_id_is_historical_only": true,
+    "old_executor_and_authorization_reuse_allowed": false,
+    "preserve_all_target_and_output_absence_guards": true,
+    "reject_before_launch_on_any_drift": true,
+    "require_bash_available": true,
+    "require_exact_sha256_before_launch": true,
+    "require_regular_non_symlink_builder": true,
+    "single_attempt_even_on_failure": true,
+    "state": "reviewed-not-frozen-not-implemented"
+  },
+  "review_status": "PASS",
+  "scenario": "phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build-launch-remediation-review",
+  "schema": 1,
+  "step": 270,
+  "strong_safe_pause": false
+}

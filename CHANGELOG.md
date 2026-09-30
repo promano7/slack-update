@@ -1,3 +1,13 @@
+## Phase 1 step 270 — local-source-v4 build-launch remediation review — 2026-09-30
+
+- Resumed from accepted step 269 (`b039f08`) through repository-only launch remediation review; no historical operational authorization or boot identity is reused.
+- Reviewed a separately named future executor invoking the unchanged SHA-bound v4 builder through `bash -- "$builder" --build-local-source-v4`, without requiring a transported executable bit or chmod remediation.
+- Required exact regular-file/SHA validation, Bash availability, preserved argument boundaries and failure exit status, all existing preflight/output-absence guards, fresh target revalidation and a new single-attempt authorization before any future build.
+- Added synthetic repository acceptance for mode-0644 direct-launch failure, Bash launch through a spaced path, rejected missing/symlink/changed inputs, exact arguments and failure-status propagation; the production builder is never entered.
+- Preserved the failed step-267 executor, immutable builder, accepted v3 and failed-v2 evidence; no target observation, transport, implementation, build, package/Slackpkg/network/boot/reboot/cleanup or Phase 2 authority is granted.
+- Corrected delivery revision r1 after the original installer rejected a whole-CHANGELOG snapshot hash: retain all seven accepted artifact SHA-256 prerequisites, validate the step-269 continuation entry, reject duplicate step-270 entries, and prepend this entry while preserving the existing changelog bytes. This packaging correction does not alter the review artifacts or open machine authority.
+- Next stage: `phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build-launch-remediation-freeze`. No machine/controller action is required; `pause_safe=false`, `strong_safe_pause=false` while repository review remains open.
+
 ## Phase 1 step 263 kernel-package-edge runtime-transaction remediation local-source-v4 builder implementation review — 2026-09-29
 
 - Consumed the accepted step-262 frozen design and implemented separate `local-source-v4` builder `tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build.sh` at SHA-256 `38e83b300807fd23748bd2aa9e0ce86230da7a7270b6f01e9f54671331db80b7` without executing its production path.
