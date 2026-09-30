@@ -1,3 +1,15 @@
+## Phase 1 step 279 — local-source-v4 preflight boot-drift failure result review and strong safe pause — 2026-09-30
+
+- Consumed accepted step 278 (`b5782fd`), 137-pass user acceptance, successful user commit/push and clean tree, plus its single returned immutable-executor invocation. Both transported SHA checks passed, but the build attempt failed with controller exit status 1.
+- Froze authorization boot ID 79a19518-0d0a-4c57-ac1f-679a39edefbd and error-observed current boot ID 0b85f61f-21e8-4593-b473-043cb6a2beb7; the cause/time of the boot identity change is unknown. The terminal boot guard rejected the attempt before full preflight PASS, builder-start publication or builder launch.
+- Reviewed exact SHA-bound executor control flow: the executed prefix only reads state and the terminal fail function exits 1. No filesystem write, builder entry, build-owned temporary transaction, partial publication or deferred cleanup is attributed to this attempt; this is a source/output inference, not a post-failure live probe.
+- Preserved immutable builder/executor and historical observation bytes. Current v4 output absence and full current v3/failed-v2/package/Slackpkg/boot/GenInitrd preservation are not independently observed or claimed; the old boot binding is invalid for future machine work.
+- Consumed and revoked all step-278 build/transport authority, retained consumed probe/historical-authority closure, and forbade automatic/manual retry, boot-argument substitution, manual builder/chmod/cleanup, further observation, runtime rerun and Phase 2.
+- Closed strong safe pause on reviewed effect-free pre-builder rejection, no pending machine transaction and complete authority revocation, independent of later -current refresh. Only repository resume planning is open; future machine work requires fresh revalidation and new explicit authorization.
+- Repository failed-result review acceptance: PASS (145 passes, 0 failures), with full accepted 137-pass predecessor acceptance and inert replay of the exact boot guard; no new live observation or production main/builder entry occurred in acceptance.
+- Overlay installer acceptance: PASS (20 checks against real files and Git operations with a synthetic advertised-HEAD shim for the archive input), including installed 145-pass suite and rejection of duplicate application.
+- Continuation state: step-279 closure overlay prepared for user acceptance/commit; no further machine action is required. Next stage: `phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-preflight-boot-drift-resume-planning-boundary-review`. `machine_action_required=false`, `controller_action_required=false`, `pause_safe=true`, `strong_safe_pause=true` upon acceptance of this review.
+
 ## Phase 1 step 278 — local-source-v4 launch-remediation build-authorization freeze — 2026-09-30
 
 - Consumed accepted step 277 (`d19a209`, 112 passes and zero failures) and froze its reviewed one-attempt contract without new live observation or production execution in repository acceptance.
