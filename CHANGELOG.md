@@ -1,3 +1,14 @@
+## Phase 1 step 278 — local-source-v4 launch-remediation build-authorization freeze — 2026-09-30
+
+- Consumed accepted step 277 (`d19a209`, 112 passes and zero failures) and froze its reviewed one-attempt contract without new live observation or production execution in repository acceptance.
+- Granted exactly one new-executor build attempt bound to boot ID 79a19518-0d0a-4c57-ac1f-679a39edefbd, executor SHA-256 43e07ebfbf2c4ddd263cfbea9214477e620901dbd391aff9ff45c23bd2e8752d and immutable builder SHA-256 38e83b300807fd23748bd2aa9e0ce86230da7a7270b6f01e9f54671331db80b7; preserved every immediate preflight/output-absence guard and the verified Bash launch.
+- Kept all 41 accepted observation fields/provenance unchanged, with probe authority consumed and no rerun; retained accepted v3, failed-v2 evidence and the failed step-267 executor as immutable history.
+- Required passing repository acceptance, a step-278 commit and clean tree, exact two-file transport and SHA verification, one sudo/Bash invocation, and complete output/exit-status return. Invocation consumes authority even on preflight failure, builder failure or interruption; no automatic/manual retry, old executor, manual builder/chmod or evidence cleanup is allowed.
+- Limited effects to v4 outputs and existing builder-owned temporary construction/cleanup; no package/Slackpkg/network/configuration/boot/reboot action, further observation, runtime rerun or Phase 2 authority is granted.
+- Repository acceptance: PASS (137 passes, 0 failures), including full accepted step-277 acceptance. Overlay installer acceptance: PASS (19 checks against real files/Git operations with only the archive HEAD represented by a synthetic shim); no live target or production builder was entered.
+- Continuation state: overlay prepared and repository-tested; user application/acceptance/commit, one authorized VM attempt and actual result review remain pending. No VM build result or safe-pause outcome is claimed by this snapshot.
+- Success next stage: `phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build-launch-remediation-build-result-review-and-strong-safe-pause`; failure route: `phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build-launch-remediation-build-failure-result-review`. Both routes require actual result review and authority revocation before strong safe pause. `machine_action_required=true`, `controller_action_required=true`, `pause_safe=false`, `strong_safe_pause=false`.
+
 ## Phase 1 step 277 — local-source-v4 launch-remediation revalidation freeze and build-authorization review — 2026-09-30
 
 - Consumed accepted step 276 (904d44a), complete 102-pass repository acceptance and the successful returned read-only observation; revoked probe authority with no rerun allowed.
