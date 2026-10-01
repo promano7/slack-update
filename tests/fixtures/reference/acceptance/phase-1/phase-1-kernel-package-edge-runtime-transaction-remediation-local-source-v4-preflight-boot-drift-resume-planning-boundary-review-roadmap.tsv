@@ -1,0 +1,10 @@
+step	stage	scope	future_gate	conditional_pause_candidate
+280	phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-preflight-boot-drift-resume-planning-boundary-review	repository-only	none	no
+281	phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-preflight-boot-drift-revalidation-design-review	repository-only	none	no
+282	phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-preflight-boot-drift-revalidation-design-freeze	repository-only	none	no
+283	phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-preflight-boot-drift-revalidation-probe-implementation-review	repository-only-synthetic-tests	none	no
+284	phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-preflight-boot-drift-revalidation-probe-implementation-freeze	repository-only	none	no
+285	phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-preflight-boot-drift-fresh-target-and-output-absence-revalidation-authorization	repository-review-then-one-read-only-observation	new-single-use-probe-authorization-required	no
+286	phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-preflight-boot-drift-revalidation-freeze-and-build-authorization-review	repository-only-after-complete-observation-return	none	no
+287	phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-preflight-boot-drift-build-authorization-freeze	repository-freeze-then-one-build-attempt	new-single-use-build-authorization-required	no
+288	phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-preflight-boot-drift-build-result-review-and-strong-safe-pause	repository-result-review	none-without-separate-failure-authorization	yes

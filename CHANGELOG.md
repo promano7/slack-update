@@ -1,3 +1,14 @@
+## Phase 1 step 280 — local-source-v4 preflight boot-drift resume planning boundary review — 2026-10-01
+
+- Consumed confirmed accepted step 279 at user commit prefix `3031f09`, full `PASS (145 passes, 0 failures)`, completed user commit/push and clean tree; superseded its historical prepared/pending delivery wording without changing the accepted checkpoint artifacts or inventing a full commit ID.
+- Opened repository-only resume planning with no inherited operational permission; preserved the exact boot-drift failure/effect review, consumed authorization closure, historical observations and immutable builder/executors/probe. No current target preservation or v4 output-absence claim is made.
+- Selected a separately named future read-only revalidation probe design review; required all existing applicable non-boot target/output guards, freshly observed canonical UUID, complete returned observation, no constant patching/cleanup on drift, and a new explicit build authorization.
+- Required an uninterrupted VM boot from future observation through the one authorized attempt, with the immutable executor's immediate full preflight retained. Historical UUID equality alone neither grants nor prevents new authority; fresh evidence must supply the binding.
+- Recorded a provisional nine-step route (280–288), with at most three optional failure-characterization/closure steps (289–291). The roadmap grants no execution authority and does not promise pause at a fixed number; actual result/effect review and closure determine strong pause.
+- Repository acceptance: PASS (165 passes, 0 failures), including the full accepted 145-pass predecessor suite. No production main, builder, live observation, package/Slackpkg/network/configuration/boot/reboot/cleanup action, runtime rerun or Phase 2 is authorized.
+- Overlay installer acceptance: PASS (24 checks), including unchanged accepted repository bytes, installed 165-pass suite, exact commit script and clean synthetic Git tree; only the omitted historical HEAD prefix is represented by a narrow test shim.
+- Continuation state: step-280 overlay prepared for user application/acceptance/commit; `machine_action_required=false`, `controller_action_required=false`, `pause_safe=false`, `strong_safe_pause=false` for the reopened planning workstream. Step 279 remains the accepted historical strong-pause checkpoint. Next stage: `phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-preflight-boot-drift-revalidation-design-review`.
+
 ## Phase 1 step 279 — local-source-v4 preflight boot-drift failure result review and strong safe pause — 2026-09-30
 
 - Consumed accepted step 278 (`b5782fd`), 137-pass user acceptance, successful user commit/push and clean tree, plus its single returned immutable-executor invocation. Both transported SHA checks passed, but the build attempt failed with controller exit status 1.
