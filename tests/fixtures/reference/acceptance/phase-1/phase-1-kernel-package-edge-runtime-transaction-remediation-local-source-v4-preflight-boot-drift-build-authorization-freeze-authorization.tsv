@@ -1,0 +1,3 @@
+role	path	sha256	scope
+authorized-immutable-executor	tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build-launch-remediation-executor.sh	43e07ebfbf2c4ddd263cfbea9214477e620901dbd391aff9ff45c23bd2e8752d	single-invocation-only-after-user-repository-acceptance
+authorized-immutable-builder	tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-build.sh	38e83b300807fd23748bd2aa9e0ce86230da7a7270b6f01e9f54671331db80b7	transport-with-executor-execution-only-through-verified-executor
