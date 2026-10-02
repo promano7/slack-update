@@ -1,0 +1,11 @@
+step	stage	scope	future_gate	conditional_pause_candidate
+289	phase-1-kernel-package-edge-runtime-transaction-remediation-post-local-source-v4-build-resume-planning-boundary-review	repository-only	none	no
+290	phase-1-kernel-package-edge-runtime-transaction-remediation-post-local-source-v4-build-revalidation-design-review	repository-only	accepted-step289	no
+291	phase-1-kernel-package-edge-runtime-transaction-remediation-post-local-source-v4-build-revalidation-design-freeze	repository-only	accepted-design	no
+292	phase-1-kernel-package-edge-runtime-transaction-remediation-post-local-source-v4-build-revalidation-probe-implementation-review	repository-only-synthetic	frozen-design	no
+293	phase-1-kernel-package-edge-runtime-transaction-remediation-post-local-source-v4-build-revalidation-probe-implementation-freeze	repository-only	accepted-implementation	no
+294	phase-1-kernel-package-edge-runtime-transaction-remediation-post-local-source-v4-build-fresh-target-and-source-revalidation-authorization	one-read-only-observation	new-single-use-probe-authorization	no
+295	phase-1-kernel-package-edge-runtime-transaction-remediation-post-local-source-v4-build-revalidation-freeze	repository-only	complete-returned-observation-and-exit-status	no
+296	phase-1-kernel-package-edge-runtime-transaction-remediation-post-local-source-v4-build-runtime-boundary-review	repository-only	accepted-fresh-revalidation	no
+297	phase-1-kernel-package-edge-runtime-transaction-remediation-post-local-source-v4-build-runtime-boundary-freeze	repository-only	accepted-source-candidate-executor-boundary	no
+298	phase-1-kernel-package-edge-runtime-transaction-remediation-post-local-source-v4-build-boundary-closure-and-strong-safe-pause	repository-only-closure	reviewed-effects-and-all-authority-closed	yes

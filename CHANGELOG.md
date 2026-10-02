@@ -1,3 +1,13 @@
+## Phase 1 step 289 — post-local-source-v4 build resume planning boundary review — 2026-10-02
+
+- Consumed confirmed step 288, user commit prefix `7df17a9`, full `PASS (152 passes, 0 failures)`, completed user commit/push and clean tree. Superseded prepared/pending wording without modifying accepted artifacts or inventing a full commit ID. Step 288 remains the accepted historical strong-pause checkpoint.
+- Preserved the actual successful build return, v4 manifest identity `a4b0fc122c6274c7fdf70907661511bcf6ba475a2aa3bc46b96e5bcbf6ed3db8`, target/v3/v2/failed-runtime evidence and immutable tools. Old live binding remains expired; no current target, ownership/modes, temp-absence or boot claim is made.
+- Opened only repository design review of a separately named read-only postbuild target/v4 revalidation probe. Built v4 must be verified as present against its exact manifest/sidecar; historical output-absence probes cannot be reused. All applicable target/history guards and no-authentication compatibility-marker semantics remain required.
+- Selected provisional 289–298 route with optional 299–300 failure closure. The preferred route reviews fresh observation, freezes the source/candidate/executor runtime boundary and closes authority; it grants no runtime attempt, executor implementation or machine permission. No pause by an arbitrary step number is promised.
+- Required future single-use observation authority, complete return/exit/effect review, stop on drift, no patched constants or cleanup, and fresh evidence/new authorization with immediate preflight before later runtime. Preserved human-spaced download error detection, transaction-owned pkglist and same-transaction exact-target binding requirements.
+- Repository acceptance: PASS (155 passes, 0 failures), including the full accepted 152-pass predecessor suite. Overlay installer acceptance: PASS (20 checks, 0 failures). No production main, builder or live observation is entered.
+- Continuation state: step-289 overlay prepared for user application/acceptance/commit/push/clean-tree confirmation. `machine_action_required=false`, `controller_action_required=false`, `pause_safe=false`, `strong_safe_pause=false` for the reopened workstream. Phase1 and kernel-package-edge remain incomplete; Phase2 stays closed. Next stage: `phase-1-kernel-package-edge-runtime-transaction-remediation-post-local-source-v4-build-revalidation-design-review`.
+
 ## Phase 1 step 288 — local-source-v4 actual build result review and strong safe pause — 2026-10-01
 
 - Consumed accepted step 287, user commit prefix `c9170da`, full `PASS (155 passes, 0 failures)`, completed commit/push and clean tree; superseded its prepared/pending wording without changing accepted artifacts or inventing a full object ID.
