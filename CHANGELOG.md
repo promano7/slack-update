@@ -1,3 +1,11 @@
+## Phase 1 step304 — private v4 runtime executor implementation review — 2026-10-03
+
+- Confirmed303, user prefix4c39d12, complete169 PASS, overlay/commit/push and clean tree. Preserved1310 accepted artifacts and exact CHANGELOG suffix, design302/freeze303/contract inputs and reversible receipt.
+- Added reserved closed executor candidate with actual private filesystem control engine and explicit sealed file-only injected backend. Thirteen frozen functions, signal/exit barrier, verified physical backups, private stage effects, candidate oracle AST, guarded nested protocol emulator, physical restoration and exclusive external receipt. Real reference/host package or boot commands never executed.
+- Executed private success and every stage entry/post-effect fault, actual catchable signals at isolation, nested refresh SHA/error guards, cleanup/original status, backup guard, unknown argv, partial publication and source/history metadata preservation. No live source observation or operational SHA/grant binding inferred from private candidate hashes.
+- Review remains incomplete/not frozen. Mandatory305 child supervision/uncatchable-loss null evidence implementation and deeper partial-write/signal/evidence/publication fault matrices stay required. Real reference/selector/backend/namespace/platform-lock integration unresolved; original mandatory coverage cannot be weakened. Historical169 predecessor reruns in exact1310 snapshot without changing absence assertions.
+- Repository acceptance: 279 PASS. Installer/commit acceptance: 29 checks PASS. Prepared304; only repository failure coverage305 after user304 application/tests/commit/push/clean tree. No machine/controller action, pause_safe=false/strong_safe_pause=false; historical298 valid, Phase1/kernel-package-edge incomplete and Phase2 closed.
+
 ## Phase 1 step303 — v4 runtime executor design freeze — 2026-10-03
 
 - Consumed confirmed302, user commit prefix6dab914, full183 PASS, overlay/commit/push and clean tree. Preserved1303 accepted artifacts, exact CHANGELOG tail and reversible original receipt, no invented full ID or independent host/GitHub inspection.
