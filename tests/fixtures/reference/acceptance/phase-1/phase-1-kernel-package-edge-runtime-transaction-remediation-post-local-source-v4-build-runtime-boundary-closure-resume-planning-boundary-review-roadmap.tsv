@@ -1,0 +1,11 @@
+step	stage	scope	objective	machine_authority	requires_previous_user_checkpoint	conditional_pause_candidate
+299	phase-1-kernel-package-edge-runtime-transaction-remediation-post-local-source-v4-build-runtime-boundary-closure-resume-planning-boundary-review	resume-planning	Explicit resume; accepted checkpoint and provisional route only.	no	no	no
+300	phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-review	contract-review	Detailed transaction, isolation, candidate and restoration contract.	no	yes	no
+301	phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-freeze	contract-freeze	Freeze reviewed invariants and failure outcomes.	no	yes	no
+302	phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-review	design-review	Map every invariant to executor stages, traps, evidence and test seams.	no	yes	no
+303	phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-freeze	design-freeze	Freeze implementation specification; next implementation gate is repository only.	no	yes	no
+304	phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-review	implementation-review	New v4 executor candidate, closed production entry, exact payload identities.	no	yes	no
+305	phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-failure-coverage-review	failure-coverage-review	Synthetic stage failures, signals, restore failures and publication suppression.	no	yes	no
+306	phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-freeze	implementation-freeze	Freeze reviewed candidate and complete synthetic acceptance.	no	yes	no
+307	phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-implementation-effect-and-authority-closure-review	closure-review	Review repository effects, pending obligations and all consumed or revoked rights.	no	yes	no
+308	phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-implementation-closure-and-strong-safe-pause	conditional-closure	Close workstream and expire bindings; strong pause after user confirmation.	no	yes	yes
