@@ -1,0 +1,1196 @@
+{
+  "acceptance_evidence_scope": "full232-exact306-snapshot-recursively-including420-review-and285-private-checks-plus-effect-lineage-and-authority-gates-no-live-proof",
+  "accepted_private_freeze_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-freeze-freeze.json",
+  "accepted_private_freeze_sha256": "3b1c489d903fabe66e14acd43416eae075feb44923a1314a316e7a2c38997f41",
+  "actual_reference_payload_executed": false,
+  "authority_review": {
+    "candidate_hashes_grant_no_authority": true,
+    "confirmed_prior_repository_rights": "299-through305-consumed-by-next-confirmed-repository-checkpoint",
+    "current_operational_rights": "closed-not-granted-by-this-block",
+    "final308_must_close_all_stage_rights": true,
+    "final308_must_expire_old_and_future_unused_live_bindings": true,
+    "final308_repository_closure_right": "conditional-on-complete-user307-checkpoint-only",
+    "final_closure_complete": false,
+    "historical_live_bindings_reusable": false,
+    "source306_repository_right": "used-for-prepared307-review-user307-consumption-checkpoint-pending"
+  },
+  "candidate_sha256_bindings": {
+    "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-failure-coverage-review-private.py": "04782004cb683563a9a7ca8522d808686db359f7117e0c9355de189b088c39a4",
+    "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-failure-coverage-candidate-private.py": "9c6bf6d82a15eef3eb74ae8e3aa7ccfbff46af07ec0c105f6c2db4fa5402d7e4",
+    "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-failure-coverage-candidate.sh": "d861b551c1197b3d83c3535741d8cca5011294b5ea0c8a27d80fd686aa489939"
+  },
+  "controller_action_required": false,
+  "coverage_complete": true,
+  "coverage_complete_scope": "mandatory-private-synthetic-control-and-failure-tests-only",
+  "frozen_function_order": [
+    "verify_immediate_preflight",
+    "arm_cleanup_traps",
+    "create_owned_workspace",
+    "capture_and_verify_baseline",
+    "stage_exact_predecessor",
+    "configure_local_isolation",
+    "refresh_and_validate_pkglist",
+    "bind_exact_candidate",
+    "run_guarded_reference",
+    "restore_baseline",
+    "verify_restoration",
+    "finalize_stage_evidence",
+    "publish_evidence_and_receipt"
+  ],
+  "frozen_implementation_specification": {
+    "adapter_design": {
+      "allowed_argv": [
+        [
+          "-batch=on",
+          "-default_answer=y",
+          "update"
+        ],
+        [
+          "-batch=on",
+          "-default_answer=y",
+          "-postinst=off",
+          "install-new"
+        ],
+        [
+          "-batch=on",
+          "-default_answer=y",
+          "-postinst=off",
+          "upgrade-all"
+        ]
+      ],
+      "binding_checks_before_each_call": [
+        "same-grant-boot",
+        "source-manifest-and-target-SHA",
+        "regular-owned-pkglist-bound-SHA",
+        "exact-eight-field-single-target-only-candidate"
+      ],
+      "install_new_candidate_count": 0,
+      "nested_calls_have_complete_stream_exit_evidence": true,
+      "no_recursive_PATH_resolution_or_network_fallback": true,
+      "pure_oracle_scope": "argument-and-bound-pkglist-contract-fixture-not-real-command-adapter-or-production-selector-proof",
+      "real_backend_absolute_path_and_sha256": null,
+      "requires_verified_predecessor_for_upgrade": true,
+      "state": "required-new-component-designed-not-implemented",
+      "update_post_checks": [
+        "exit0",
+        "both-streams-no-human-spaced-download-error",
+        "regular-nonempty-pkglist",
+        "exact-bound-pkglist-SHA-unchanged"
+      ],
+      "upgrade_all_candidate_count": 1
+    },
+    "child_supervision_design": {
+      "child_quiescence_required_before_restore": true,
+      "missing_child_status_after_uncatchable_loss_remains_null": true,
+      "no_forced_restore_while_command_active": true,
+      "nonquiescent_child_keeps_pending_machine_obligations": true,
+      "owned_child_groups_tracked": true,
+      "signals_forwarded_to_owned_groups_only": true,
+      "wait_and_drain_streams_before_recording_known_exit": true
+    },
+    "cleanup_design": {
+      "cleanup_status_separate": true,
+      "disable_recursive_traps_at_entry": true,
+      "dispatch_state": [
+        "unarmed",
+        "armed",
+        "running",
+        "completed",
+        "failed"
+      ],
+      "never_restore_from_unverified_backups": true,
+      "no_blind_recursive_removal_of_production_state": true,
+      "only_whitelisted_canonical_manifest_entries_restorable": true,
+      "original_status_latched_before_cleanup": true,
+      "preserve_evidence_backups_source_and_history": true,
+      "repeated_cleanup_is_noop_after_verified_completion": true,
+      "restore_order": [
+        "target-header",
+        "slackpkg-config",
+        "mirrors",
+        "slackpkg-state-manifest",
+        "GenInitrd-presence-and-bytes",
+        "owned-work-cache-lock"
+      ],
+      "signal_codes": {
+        "HUP": 129,
+        "INT": 130,
+        "TERM": 143
+      },
+      "success_requires_explicit_all_invariants_verified": true,
+      "uncatchable_loss_no_completion_guarantee": true,
+      "unknown_statuses_remain_null": true,
+      "unsafe_restore_or_boot_drift_keeps_pending_machine_obligations": true
+    },
+    "command_templates": {
+      "apply": [
+        "unshare",
+        "-n",
+        "--",
+        "env",
+        "-i",
+        "PATH=<owned-adapters>:<reviewed-system-path>",
+        "LC_ALL=C",
+        "SLACK_UPDATE_CONFIG=<derived-config>",
+        "bash",
+        "<verified-reference>",
+        "--apply",
+        "--json"
+      ],
+      "predecessor": [
+        "upgradepkg",
+        "<verified-predecessor-path>"
+      ],
+      "refresh": [
+        "unshare",
+        "-n",
+        "--",
+        "<reviewed-real-slackpkg>",
+        "-batch=on",
+        "-default_answer=y",
+        "update"
+      ],
+      "restore_header": [
+        "upgradepkg",
+        "--install-new",
+        "<verified-baseline-target>"
+      ],
+      "template_scope": "design-data-only-no-eval-source-or-execution-in302"
+    },
+    "config_derivation_design": {
+      "adapter_sha256": null,
+      "derived_config_sha256": null,
+      "disabled_modules": [
+        "flatpak",
+        "sbo",
+        "elf",
+        "cinnamon"
+      ],
+      "exact_unique_keys_required": [
+        "core.work_dir",
+        "core.log_dir",
+        "core.lock_file",
+        "flatpak.mode",
+        "sbo.mode",
+        "elf.mode",
+        "cinnamon.mode"
+      ],
+      "mirror_uri": "file:///var/tmp/slack-update-acceptance/kernel-package-edge/local-source-v4/",
+      "parsed_as_data_never_sourced": true,
+      "slackware_install_new_and_upgrade_all_preserved": true,
+      "source_config_sha256": "4845e2c5038fe8896409f90b6287de33a011a76874229cb76479aa6cd4253bba",
+      "temporary_slackpkg_keys": {
+        "CHECKGPG": "off",
+        "TEMP": "<owned-slackpkg-temp>",
+        "WORKDIR": "<owned-slackpkg-work>"
+      }
+    },
+    "implementation_test_design": {
+      "forbid_real_commands": [
+        "slackpkg",
+        "upgradepkg",
+        "installpkg",
+        "removepkg",
+        "reboot",
+        "mkinitrd",
+        "grub-mkconfig"
+      ],
+      "mandatory_tests": [
+        "each-stage-failure",
+        "catchable-signals",
+        "uncatchable-loss-null-status",
+        "cleanup-idempotence",
+        "cleanup-failure-original-status",
+        "failed-backup-before-production-write",
+        "nested-reference-refresh-pkglist-drift",
+        "adapter-unknown-argv",
+        "publication-partial-receipt",
+        "source-and-history-preservation"
+      ],
+      "production_entry_closed_until_separate_fresh_grant": true,
+      "scope": "planned-implementation-tests-not-executed-runtime302",
+      "synthetic_backend": "private-temp-filesystem-and-explicit-injected-backend-no-host-command-PATH-fallback"
+    },
+    "path_design": {
+      "exclusive_absent_paths_before_creation": true,
+      "no_force_rename_or_cleanup_of_existing_destination": true,
+      "owned_root_mode": "0700",
+      "production_paths": {
+        "boot": "/boot",
+        "geninitrd": "/etc/default/geninitrd",
+        "mirrors": "/etc/slackpkg/mirrors",
+        "package_database": "/var/lib/pkgtools/packages",
+        "package_database_compat": "/var/log/packages",
+        "slackpkg_conf": "/etc/slackpkg/slackpkg.conf",
+        "slackpkg_state": "/var/lib/slackpkg"
+      },
+      "publication_mode": "0600",
+      "publication_owner": "promano:users",
+      "publication_parent": "/home/promano",
+      "publication_prefix": "slack-update-phase-1-kernel-package-edge-runtime-remediation-v4-",
+      "publication_suffixes": [
+        ".tar.gz",
+        ".tar.gz.sha256",
+        ".publication.json"
+      ],
+      "roles": {
+        "adapters": "adapters",
+        "backup": "backup",
+        "binding": "evidence/candidate-binding.json",
+        "cleanup": "evidence/cleanup",
+        "derived_config": "payload/derived.conf",
+        "lock": "slack-update.lock",
+        "log": "log",
+        "reference": "payload/slack-update-reference.sh",
+        "slackpkg_temp": "slackpkg-cache",
+        "slackpkg_work": "slackpkg-workdir",
+        "source_config": "payload/source.conf",
+        "stages": "evidence/stages",
+        "work": "work"
+      },
+      "scope": "symbolic-proposal-only-actual-paths-require-later-grant",
+      "token_binding": "new-grant-attempt-token-only-never-derived-from-old-boot",
+      "token_pattern": "[a-z0-9]{32}",
+      "transaction_parent": "/var/tmp/slack-update-acceptance/kernel-package-edge",
+      "transaction_prefix": "runtime-transaction-remediation-v4-",
+      "transaction_root": null,
+      "validate_existing_ancestors_canonical_non_symlink": true
+    },
+    "preflight_design": {
+      "backend_paths_hashes_and_platform_lock_bindings": null,
+      "concurrent_package_configuration_writers": "must-be-excluded-by-later-reviewed-grant-and-platform-lock-binding-no-claim-from-private-reference-lock",
+      "new_grant_required": true,
+      "no_actual_operational_observation": true,
+      "old_boot_or_grant_substitution_forbidden": true,
+      "pre_mutation_capture": "bounded-in-memory-full-streams-or-fail-closed-no-complete-evidence-claim-on-overflow",
+      "same_grant_boot_rechecked_before_each_production_write_and_apply": true
+    },
+    "publication_design": {
+      "archive_contains": "stages0-through11-cleanup-and-publication-preparation-not-self-referential-last-stage-completion",
+      "archive_sidecar_pair_atomicity_claim": false,
+      "failure_evidence_never_success": true,
+      "final_stage_evidence": "external-last-stage-stdout-stderr-exit-in-last-committed-publication-receipt",
+      "incomplete_archive_sidecar_or_receipt_keeps_pending_controller_obligations": true,
+      "no_overwrite": true,
+      "receipt_committed_last": true,
+      "receipt_required_for_success": true,
+      "restore_failure_evidence_keeps_backups_for_separate_recovery": true
+    },
+    "stages": [
+      {
+        "effect": "read-only",
+        "evidence": {
+          "early_buffer": true,
+          "exit_record": "evidence/stages/00-immediate-preflight.json",
+          "publication_receipt_external": false,
+          "stderr": "evidence/stages/00-immediate-preflight.stderr",
+          "stdout": "evidence/stages/00-immediate-preflight.stdout"
+        },
+        "failure_boundary": "stop-later-stages-preserve-original-status-run-only-safe-idempotent-restore-and-evidence-no-retry",
+        "function": "verify_immediate_preflight",
+        "guard": "new grant, fresh target/source/artifact/predecessor binding and same grant boot; safe absent owned paths",
+        "index": 0,
+        "operation": "Read current target/boot/package DB/source manifest and sidecar, archive identities, payload/backend IDs and absent owned/publication paths against new grant; buffer early streams in memory; consume grant on invocation.",
+        "stage": "immediate-preflight",
+        "test_seams": [
+          "stage-entry-failure",
+          "stage-mid-effect-failure",
+          "HUP-INT-TERM",
+          "uncatchable-loss",
+          "evidence-write-failure",
+          "no-filesystem-mutation"
+        ]
+      },
+      {
+        "effect": "process-only",
+        "evidence": {
+          "early_buffer": true,
+          "exit_record": "evidence/stages/01-arm-idempotent-traps.json",
+          "publication_receipt_external": false,
+          "stderr": "evidence/stages/01-arm-idempotent-traps.stderr",
+          "stdout": "evidence/stages/01-arm-idempotent-traps.stdout"
+        },
+        "failure_boundary": "stop-later-stages-preserve-original-status-run-only-safe-idempotent-restore-and-evidence-no-retry",
+        "function": "arm_cleanup_traps",
+        "guard": "EXIT/HUP/INT/TERM cleanup registered before first filesystem mutation",
+        "index": 1,
+        "operation": "Register EXIT/HUP/INT/TERM dispatcher with original status, reentrancy state and unset owned-root flags; no filesystem lock or logging before this barrier.",
+        "stage": "arm-idempotent-traps",
+        "test_seams": [
+          "stage-entry-failure",
+          "stage-mid-effect-failure",
+          "HUP-INT-TERM",
+          "uncatchable-loss",
+          "evidence-write-failure",
+          "no-filesystem-mutation"
+        ]
+      },
+      {
+        "effect": "owned-files",
+        "evidence": {
+          "early_buffer": false,
+          "exit_record": "evidence/stages/02-initialize-owned-workspace.json",
+          "publication_receipt_external": false,
+          "stderr": "evidence/stages/02-initialize-owned-workspace.stderr",
+          "stdout": "evidence/stages/02-initialize-owned-workspace.stdout"
+        },
+        "failure_boundary": "stop-later-stages-preserve-original-status-run-only-safe-idempotent-restore-and-evidence-no-retry",
+        "function": "create_owned_workspace",
+        "guard": "create exclusive owned evidence/temp roots; record partial construction on failure",
+        "index": 2,
+        "operation": "Exclusive mkdir0700 after traps; set owned-root-created immediately; create stage journals, verified immutable payload copies, adapter directory and private WORKDIR/TEMP; preserve partial construction.",
+        "stage": "initialize-owned-workspace",
+        "test_seams": [
+          "stage-entry-failure",
+          "stage-mid-effect-failure",
+          "HUP-INT-TERM",
+          "uncatchable-loss",
+          "evidence-write-failure",
+          "cleanup-failure",
+          "double-cleanup"
+        ]
+      },
+      {
+        "effect": "owned-files",
+        "evidence": {
+          "early_buffer": false,
+          "exit_record": "evidence/stages/03-capture-verify-backups.json",
+          "publication_receipt_external": false,
+          "stderr": "evidence/stages/03-capture-verify-backups.stderr",
+          "stdout": "evidence/stages/03-capture-verify-backups.stdout"
+        },
+        "failure_boundary": "stop-later-stages-preserve-original-status-run-only-safe-idempotent-restore-and-evidence-no-retry",
+        "function": "capture_and_verify_baseline",
+        "guard": "capture exact production baseline bytes, modes and owner before package/config writes",
+        "index": 3,
+        "operation": "Copy config/mirrors/state with original metadata, capture header names/content, package record bytes, GenInitrd presence and boot/source/history fingerprints; compare all backups before setting backup_ready.",
+        "stage": "capture-verify-backups",
+        "test_seams": [
+          "stage-entry-failure",
+          "stage-mid-effect-failure",
+          "HUP-INT-TERM",
+          "uncatchable-loss",
+          "evidence-write-failure",
+          "cleanup-failure",
+          "double-cleanup"
+        ]
+      },
+      {
+        "effect": "package-state",
+        "evidence": {
+          "early_buffer": false,
+          "exit_record": "evidence/stages/04-stage-exact-predecessor.json",
+          "publication_receipt_external": false,
+          "stderr": "evidence/stages/04-stage-exact-predecessor.stderr",
+          "stdout": "evidence/stages/04-stage-exact-predecessor.stdout"
+        },
+        "failure_boundary": "stop-later-stages-preserve-original-status-run-only-safe-idempotent-restore-and-evidence-no-retry",
+        "function": "stage_exact_predecessor",
+        "guard": "use separately validated exact predecessor artifact; no unrelated package action",
+        "index": 4,
+        "operation": "Recheck new grant boot and exact predecessor SHA/path; upgradepkg exact predecessor only; compare package record delta to target-header-only predecessor transition.",
+        "stage": "stage-exact-predecessor",
+        "test_seams": [
+          "stage-entry-failure",
+          "stage-mid-effect-failure",
+          "HUP-INT-TERM",
+          "uncatchable-loss",
+          "evidence-write-failure",
+          "cleanup-failure",
+          "double-cleanup"
+        ]
+      },
+      {
+        "effect": "configuration-state",
+        "evidence": {
+          "early_buffer": false,
+          "exit_record": "evidence/stages/05-isolate-local-configuration.json",
+          "publication_receipt_external": false,
+          "stderr": "evidence/stages/05-isolate-local-configuration.stderr",
+          "stdout": "evidence/stages/05-isolate-local-configuration.stdout"
+        },
+        "failure_boundary": "stop-later-stages-preserve-original-status-run-only-safe-idempotent-restore-and-evidence-no-retry",
+        "function": "configure_local_isolation",
+        "guard": "use reviewed local v4 URI and isolated state; forbid external network during refresh/apply",
+        "index": 5,
+        "operation": "Derive config as data into owned path, optional modules disabled, core work/log/lock owned; set CHECKGPG=off, WORKDIR/TEMP owned and one exact file URI in temporary production Slackpkg config/mirrors; compare derived keys and source SHA.",
+        "stage": "isolate-local-configuration",
+        "test_seams": [
+          "stage-entry-failure",
+          "stage-mid-effect-failure",
+          "HUP-INT-TERM",
+          "uncatchable-loss",
+          "evidence-write-failure",
+          "cleanup-failure",
+          "double-cleanup"
+        ]
+      },
+      {
+        "effect": "owned-state",
+        "evidence": {
+          "early_buffer": false,
+          "exit_record": "evidence/stages/06-refresh-new-pkglist.json",
+          "publication_receipt_external": false,
+          "stderr": "evidence/stages/06-refresh-new-pkglist.stderr",
+          "stdout": "evidence/stages/06-refresh-new-pkglist.stdout"
+        },
+        "failure_boundary": "stop-later-stages-preserve-original-status-run-only-safe-idempotent-restore-and-evidence-no-retry",
+        "function": "refresh_and_validate_pkglist",
+        "guard": "absent-before/fresh-regular-nonempty-after; exit0 plus both-stream download-error guard",
+        "index": 6,
+        "operation": "Run real Slackpkg update inside network namespace with no fallback; record complete streams/exit; require absent-before fresh regular nonempty pkglist, reject human-spaced download error in both streams.",
+        "stage": "refresh-new-pkglist",
+        "test_seams": [
+          "stage-entry-failure",
+          "stage-mid-effect-failure",
+          "HUP-INT-TERM",
+          "uncatchable-loss",
+          "evidence-write-failure",
+          "cleanup-failure",
+          "double-cleanup"
+        ]
+      },
+      {
+        "effect": "read-only",
+        "evidence": {
+          "early_buffer": false,
+          "exit_record": "evidence/stages/07-bind-exact-candidate.json",
+          "publication_receipt_external": false,
+          "stderr": "evidence/stages/07-bind-exact-candidate.stderr",
+          "stdout": "evidence/stages/07-bind-exact-candidate.stdout"
+        },
+        "failure_boundary": "stop-later-stages-preserve-original-status-run-only-safe-idempotent-restore-and-evidence-no-retry",
+        "function": "bind_exact_candidate",
+        "guard": "one exact eight-field target row; same-transaction source/pkglist/archive hashes before apply",
+        "index": 7,
+        "operation": "Extract immutable accepted candidate oracle by AST in implementation design; validate one exact eight-field target row, zero unrelated candidates, source/archive/pkglist SHA; persist binding owned to same transaction.",
+        "stage": "bind-exact-candidate",
+        "test_seams": [
+          "stage-entry-failure",
+          "stage-mid-effect-failure",
+          "HUP-INT-TERM",
+          "uncatchable-loss",
+          "evidence-write-failure",
+          "cleanup-failure",
+          "double-cleanup"
+        ]
+      },
+      {
+        "effect": "package-state",
+        "evidence": {
+          "early_buffer": false,
+          "exit_record": "evidence/stages/08-reference-apply.json",
+          "publication_receipt_external": false,
+          "stderr": "evidence/stages/08-reference-apply.stderr",
+          "stdout": "evidence/stages/08-reference-apply.stdout"
+        },
+        "failure_boundary": "stop-later-stages-preserve-original-status-run-only-safe-idempotent-restore-and-evidence-no-retry",
+        "function": "run_guarded_reference",
+        "guard": "only reviewed exact payload, after target-only binding; no boot or unrelated candidates",
+        "index": 8,
+        "operation": "Use immutable reviewed reference under network namespace and sanitized env; guarded Slackpkg adapter rechecks binding before EVERY internal update/install-new/upgrade-all, validates post-update identical bound pkglist, and captures nested evidence.",
+        "stage": "reference-apply",
+        "test_seams": [
+          "stage-entry-failure",
+          "stage-mid-effect-failure",
+          "HUP-INT-TERM",
+          "uncatchable-loss",
+          "evidence-write-failure",
+          "cleanup-failure",
+          "double-cleanup"
+        ]
+      },
+      {
+        "effect": "restoration",
+        "evidence": {
+          "early_buffer": false,
+          "exit_record": "evidence/stages/09-restore-production-baseline.json",
+          "publication_receipt_external": false,
+          "stderr": "evidence/stages/09-restore-production-baseline.stderr",
+          "stdout": "evidence/stages/09-restore-production-baseline.stdout"
+        },
+        "failure_boundary": "stop-later-stages-preserve-original-status-run-only-safe-idempotent-restore-and-evidence-no-retry",
+        "function": "restore_baseline",
+        "guard": "restore target baseline header, config/mirrors/state and owned temporary changes",
+        "index": 9,
+        "operation": "Idempotent dispatcher restores verified config/mirrors/state/header baseline using whitelisted paths and verified backups; removes only explicitly owned mutable work/cache/lock paths; keeps evidence and backups.",
+        "stage": "restore-production-baseline",
+        "test_seams": [
+          "stage-entry-failure",
+          "stage-mid-effect-failure",
+          "HUP-INT-TERM",
+          "uncatchable-loss",
+          "evidence-write-failure",
+          "cleanup-failure",
+          "double-cleanup"
+        ]
+      },
+      {
+        "effect": "read-only",
+        "evidence": {
+          "early_buffer": false,
+          "exit_record": "evidence/stages/10-verify-restoration-invariants.json",
+          "publication_receipt_external": false,
+          "stderr": "evidence/stages/10-verify-restoration-invariants.stderr",
+          "stdout": "evidence/stages/10-verify-restoration-invariants.stdout"
+        },
+        "failure_boundary": "stop-later-stages-preserve-original-status-run-only-safe-idempotent-restore-and-evidence-no-retry",
+        "function": "verify_restoration",
+        "guard": "verify header names/content, unrelated package records, config/state/GenInitrd/boot and preserved inputs",
+        "index": 10,
+        "operation": "Compare original header names/content, unrelated records, config/mirrors bytes/owner/modes, state, GenInitrd, boot and source/history; restoration complete flag only after all match.",
+        "stage": "verify-restoration-invariants",
+        "test_seams": [
+          "stage-entry-failure",
+          "stage-mid-effect-failure",
+          "HUP-INT-TERM",
+          "uncatchable-loss",
+          "evidence-write-failure",
+          "cleanup-failure",
+          "double-cleanup"
+        ]
+      },
+      {
+        "effect": "owned-files",
+        "evidence": {
+          "early_buffer": false,
+          "exit_record": "evidence/stages/11-capture-complete-evidence.json",
+          "publication_receipt_external": false,
+          "stderr": "evidence/stages/11-capture-complete-evidence.stderr",
+          "stdout": "evidence/stages/11-capture-complete-evidence.stdout"
+        },
+        "failure_boundary": "stop-later-stages-preserve-original-status-run-only-safe-idempotent-restore-and-evidence-no-retry",
+        "function": "finalize_stage_evidence",
+        "guard": "per-stage stdout/stderr/exit, original failure/signal and cleanup outcomes; preserve failure evidence",
+        "index": 11,
+        "operation": "Complete all known per-stage stream/exit/signal and cleanup evidence; unknown statuses remain null; no original status overwritten; preserve failure evidence and pending obligations.",
+        "stage": "capture-complete-evidence",
+        "test_seams": [
+          "stage-entry-failure",
+          "stage-mid-effect-failure",
+          "HUP-INT-TERM",
+          "uncatchable-loss",
+          "evidence-write-failure",
+          "cleanup-failure",
+          "double-cleanup"
+        ]
+      },
+      {
+        "effect": "owned-files",
+        "evidence": {
+          "early_buffer": false,
+          "exit_record": "evidence/stages/12-publish-reviewed-result.json",
+          "publication_receipt_external": true,
+          "stderr": "evidence/stages/12-publish-reviewed-result.stderr",
+          "stdout": "evidence/stages/12-publish-reviewed-result.stdout"
+        },
+        "failure_boundary": "stop-later-stages-preserve-original-status-run-only-safe-idempotent-restore-and-evidence-no-retry",
+        "function": "publish_evidence_and_receipt",
+        "guard": "success only after all guards/restoration/evidence; failure/none never success",
+        "index": 12,
+        "operation": "Prepare exclusive archive and sidecar without overwrite; external publication receipt records last-stage stdout/stderr/exit and final eligibility; receipt commits last; no self-containing archive or atomic pair claim.",
+        "stage": "publish-reviewed-result",
+        "test_seams": [
+          "stage-entry-failure",
+          "stage-mid-effect-failure",
+          "HUP-INT-TERM",
+          "uncatchable-loss",
+          "evidence-write-failure",
+          "cleanup-failure",
+          "double-cleanup"
+        ]
+      }
+    ],
+    "unresolved_execution_bindings": {
+      "configuration_sha256": null,
+      "current_boot_id": null,
+      "current_predecessor_availability": null,
+      "executor_sha256": null,
+      "new_grant_id": null,
+      "reference_payload_sha256": null,
+      "resolution_required_in_later_design_revalidation_and_authorization": true,
+      "transaction_work_root": null
+    }
+  },
+  "frozen_stage_order": [
+    "immediate-preflight",
+    "arm-idempotent-traps",
+    "initialize-owned-workspace",
+    "capture-verify-backups",
+    "stage-exact-predecessor",
+    "isolate-local-configuration",
+    "refresh-new-pkglist",
+    "bind-exact-candidate",
+    "reference-apply",
+    "restore-production-baseline",
+    "verify-restoration-invariants",
+    "capture-complete-evidence",
+    "publish-reviewed-result"
+  ],
+  "implementation_freeze_scope": "exact-closed-repository-candidate-and-private-acceptance-only",
+  "implementation_frozen": true,
+  "kernel_package_edge_complete": false,
+  "machine_action_required": false,
+  "mandatory_tests": [
+    "each-stage-failure",
+    "catchable-signals",
+    "uncatchable-loss-null-status",
+    "cleanup-idempotence",
+    "cleanup-failure-original-status",
+    "failed-backup-before-production-write",
+    "nested-reference-refresh-pkglist-drift",
+    "adapter-unknown-argv",
+    "publication-partial-receipt",
+    "source-and-history-preservation"
+  ],
+  "mandatory_tests_may_not_be_weakened": true,
+  "next_stage": "phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-implementation-closure-and-strong-safe-pause",
+  "next_stage_authority": "repository-only-final-closure308-after-complete-user307-checkpoint-not-runtime-or-accepted-strong-pause",
+  "no_authority_from_candidate_hashes": true,
+  "not_based_on_preflight_alone": true,
+  "obligations_review": {
+    "deferred_operational_capabilities": [
+      {
+        "blocks_repository_only_pause": false,
+        "component": "real-reference-integration-and-selector-equivalence",
+        "current_authority": false,
+        "current_controller_action_required": false,
+        "current_machine_action_required": false,
+        "disposition": "deferred-closed-capability-requires-separate-reviewed-future-workstream",
+        "must_resolve_before_operational_use": true,
+        "resolution_evidence": null
+      },
+      {
+        "blocks_repository_only_pause": false,
+        "component": "namespace-command-transport-and-no-fallback",
+        "current_authority": false,
+        "current_controller_action_required": false,
+        "current_machine_action_required": false,
+        "disposition": "deferred-closed-capability-requires-separate-reviewed-future-workstream",
+        "must_resolve_before_operational_use": true,
+        "resolution_evidence": null
+      },
+      {
+        "blocks_repository_only_pause": false,
+        "component": "absolute-backend-path-and-SHA",
+        "current_authority": false,
+        "current_controller_action_required": false,
+        "current_machine_action_required": false,
+        "disposition": "deferred-closed-capability-requires-separate-reviewed-future-workstream",
+        "must_resolve_before_operational_use": true,
+        "resolution_evidence": null
+      },
+      {
+        "blocks_repository_only_pause": false,
+        "component": "reviewed-platform-writer-serialization",
+        "current_authority": false,
+        "current_controller_action_required": false,
+        "current_machine_action_required": false,
+        "disposition": "deferred-closed-capability-requires-separate-reviewed-future-workstream",
+        "must_resolve_before_operational_use": true,
+        "resolution_evidence": null
+      },
+      {
+        "blocks_repository_only_pause": false,
+        "component": "fresh-single-use-grant-source-target-predecessor-and-boot",
+        "current_authority": false,
+        "current_controller_action_required": false,
+        "current_machine_action_required": false,
+        "disposition": "deferred-closed-capability-requires-separate-reviewed-future-workstream",
+        "must_resolve_before_operational_use": true,
+        "resolution_evidence": null
+      },
+      {
+        "blocks_repository_only_pause": false,
+        "component": "real-source-and-archive-revalidation",
+        "current_authority": false,
+        "current_controller_action_required": false,
+        "current_machine_action_required": false,
+        "disposition": "deferred-closed-capability-requires-separate-reviewed-future-workstream",
+        "must_resolve_before_operational_use": true,
+        "resolution_evidence": null
+      },
+      {
+        "blocks_repository_only_pause": false,
+        "component": "operational-owner-and-publication-path-bindings",
+        "current_authority": false,
+        "current_controller_action_required": false,
+        "current_machine_action_required": false,
+        "disposition": "deferred-closed-capability-requires-separate-reviewed-future-workstream",
+        "must_resolve_before_operational_use": true,
+        "resolution_evidence": null
+      }
+    ],
+    "live_target_pending_obligations": "not-observed-no-new-real-attempt-in-this-repository-only-block",
+    "new_real_partial_publication_started_in_block": false,
+    "new_real_transaction_started_in_block": false,
+    "private_failure_obligation_states": "synthetic-test-outcomes-only-not-live-target-cleanup-or-rollback-authority",
+    "private_test_children_controller_scope": "owned-fixed-Python-test-groups-only-not-host-processes",
+    "required_repository_delivery_controller_cleanup": false,
+    "required_repository_delivery_machine_cleanup": false,
+    "scope": "repository-delivery-and-owned-private-fixtures-not-current-host-observation"
+  },
+  "operational_bindings": {
+    "configuration_sha256": null,
+    "current_boot_id": null,
+    "current_predecessor_availability": null,
+    "executor_sha256": null,
+    "new_grant_id": null,
+    "reference_payload_sha256": null,
+    "resolution_required_in_later_design_revalidation_and_authorization": true,
+    "transaction_work_root": null
+  },
+  "operational_components_require_separate_review_before_use": true,
+  "operational_conformance": false,
+  "operational_executor_sha256": null,
+  "operational_implementation_complete": false,
+  "operational_readiness": false,
+  "pause_safe": false,
+  "phase1_matrix_complete": false,
+  "phase2_open": false,
+  "predecessor_candidate_sha256_bindings": {
+    "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-review-private.py": "51583aa2eaa1bfc2b9fcb9ae62f5af8509ef884aa6e4cf805c65ab216f449cd5",
+    "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-private.py": "8aaa66ba445efa1d08fdfa7eb79ffd2474ae8e9ab216b81c5342fd75ee9b7e8d",
+    "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor.sh": "fe1671195b70d5016cbdc77d6c3bcbe06f3b6e1108699b53916f8eab4891cb07"
+  },
+  "prepared307_effect": {
+    "changed_existing_repository_paths": [
+      "CHANGELOG.md"
+    ],
+    "effect_scope": "documentation-policy-descriptor-receipt-record-review-helper-and-harness-only-no-runtime-command-or-candidate-edit",
+    "new_repository_artifact_count": 7,
+    "user_checkpoint_pending": true
+  },
+  "private_coverage": {
+    "executed_private": [
+      "thirteen-ordered-stages-and-all-entry-post-effect-faults",
+      "actual-partial-package-config-backup-binding-restoration-publication-effects",
+      "catchable-signals-at-every-armed-stage-and-cleanup-reentrancy",
+      "owned-child-session-tracking-signal-forwarding-wait-and-complete-large-stream-drain",
+      "nonquiescent-child-no-rollback-null-unobserved-exit",
+      "actual-uncatchable-parent-loss-read-only-surviving-evidence-null-statuses-no-cause-inference",
+      "cleanup-idempotence-and-separate-original-status-and-failure",
+      "verified-backup-before-write-tamper-boot-directory-and-foreign-state-refusal",
+      "nested-reference-refresh-drift-error-and-unknown-argv",
+      "per-stage-cleanup-summary-and-final-evidence-write-failure",
+      "partial-receipt-write-exclusive-commit-and-success-suppression",
+      "source-history-root-metadata-backup-evidence-preservation"
+    ],
+    "pending305": []
+  },
+  "production_backend_implemented": false,
+  "production_entry_closed": true,
+  "repository_effect_ledger": {
+    "accepted_last_step": 306,
+    "accepted_repository_file_count": 1337,
+    "all_current_stage_rights_are_repository_only": true,
+    "baseline_non_changelog_bytes_preserved": true,
+    "baseline_repository_file_count": 1274,
+    "baseline_step": 298,
+    "changed_existing_repository_paths": [
+      "CHANGELOG.md"
+    ],
+    "new_artifact_sha256_bindings": {
+      "docs/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-freeze.md": "9e9dab06e9f0ab651cb821d97d8e3603cdd94981a6506490a42bdde815b0720d",
+      "docs/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-review.md": "101efd83614109c1f6763ae1135d2fb1ad9a644310a7e3f8ea36355e149cfe57",
+      "docs/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-failure-coverage-review.md": "e50dd7655df12c381f00b3929f59d9e478c31bd9f3bfa5887849f20e1484fd86",
+      "docs/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-freeze.md": "971b3ee1319b68d38b63531009b8e413b2ec2e47ea823064c9240b3d656801a1",
+      "docs/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-review.md": "b6cf22bc40026c1cf211f86a72e2a633081b6d8f8ad99b0c5d70f85e02a624ae",
+      "docs/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-freeze.md": "3613325d74331ff646bda91dfb9ce0a7dcfa58da0647bcf7b99a3ff89ffdcf1c",
+      "docs/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-review.md": "927a846704d3cb45e562ad0eba58987aca0189bc14107f669c14153c71175cd4",
+      "docs/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-post-local-source-v4-build-runtime-boundary-closure-resume-planning-boundary-review.md": "c52d8dacffb8f9b4475a96deb6b0a0fc601b2200fb5493413f18f8da60455e8d",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-freeze-freeze.json": "e3299ffcb5631429fb8ad6cbd876b783ef2905c212844f501c417c5f0ec77011",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-freeze-policy.json": "965c308498aaf163a5dd1c31760634d3d4188ad9f804b45bfd0d0d3e3266a90f",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-freeze-step302-user-acceptance.json": "c8d6b00b2e5b56632d23e69813ce6aa3ebb19020ea5d5552a35fac913a2a59db",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-freeze.tsv": "2f92129787b56cbddb757fae5b9c8daed9e7611170fee8e886a8c8d0d9b493b8",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-review-design.json": "194e1281c8a2057b74ffaac3f4b2519797fcacbc6f5543995bb9bb23df62c0f1",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-review-policy.json": "dd4edd50a149196e8d62c826ef802475b20c1c1ed9cfa5dfed17e717cfa96df4",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-review-step301-user-acceptance.json": "68a2962885d8f2968a33c0e4ad4143e39405de179c39f1eeaf9c43b3ee3e786d",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-review.tsv": "fb4beec6a0e17410d045e8fb3845eff36dfe5b73f14598689c5511c7addfc19b",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-failure-coverage-review-coverage.json": "0960e85113a76daa3bddaa98a902bc03a77bb797d9b5f0c426c7029e73987946",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-failure-coverage-review-policy.json": "7a5ce800e4e04a62f0c23ace7ace48b7bc0877eda71690d48863648f418fb787",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-failure-coverage-review-step304-user-acceptance.json": "14260b7a92138f679aef3ca1b63de1305ffe65c9ed60f095d9a38fa06d7bfeff",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-failure-coverage-review.tsv": "6fcfb1994fa1fef9b16077b389b178d6dde8ac2c80eb004713d2693b40dac8e9",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-freeze-freeze.json": "3b1c489d903fabe66e14acd43416eae075feb44923a1314a316e7a2c38997f41",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-freeze-policy.json": "746ac177f859e20253973fc045183f10373ef6f6e512bd7592148ead6084c7fb",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-freeze-step305-user-acceptance.json": "f3d85c855d5cddfd6550d5b0830cd80cd641c3921e8f7cde334855d770c6612c",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-freeze.tsv": "5c6837601791a5931e969dae53c86d9c9c8e93ec04ed0b0d6f872a159bdec675",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-review-implementation.json": "fe4781bb7f45d79664c89cfd7de7bad0d2190c39bea763c1504a8c03bfa83977",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-review-policy.json": "08fb3ec2527123c5984bb27e4a15da78cb86cdbebd9d7713fa44cda71294c481",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-review-step303-user-acceptance.json": "1eeef66ef54c087985ccca0270eb5df457afd9510ee1884606e4a613f3414753",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-review.tsv": "f3ebceb34bee522e1870ee2762480afdba5f9516fff66036c7baa7503c82f764",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-freeze-freeze.json": "91eba578026d6bb807f2b318e9db94b236e2ee8d378692b5469e1d8088070219",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-freeze-policy.json": "7d98db1fd55e27730bf5251ae892f1e9bf3c5eb004db04bd5bbe09f7b8a3f778",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-freeze-step300-user-acceptance.json": "f8b108256967f36fce2d84be451ae3d66116c1a29c50a693446affb21a91e864",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-freeze.tsv": "8f0cfd706df2655c7b910a10a26aa2915cf42f598e6050b8b1ead0bbfcf91f42",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-review-contract.json": "f341e76a83148ec8ee3a438cf8a82f469490bd8b9aed82afda97c9cddc12f291",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-review-policy.json": "c234a649f26f2ef83e18ca92d74b6f7b0c66e095d2f21c4ed8eda8a7a545c6da",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-review-step299-user-acceptance.json": "0f89aac6e6d2a511f444410c08d8c5446a3e646caf3d95353869524c03a5eb53",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-review.tsv": "db5fa42e32ba08264edfaf1099262e0e01b3491dadbc77c1125e386108a32186",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-post-local-source-v4-build-runtime-boundary-closure-resume-planning-boundary-review-checkpoint-confirmation.json": "96bfae4a558456dc53a7eb7b313e5b20a03e9ee693c4a1e1f609ccc5b182cdeb",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-post-local-source-v4-build-runtime-boundary-closure-resume-planning-boundary-review-policy.json": "c90cada68176cea957390da133be2342f6155f1b62dfd3331e6fc8e54a2fdfdf",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-post-local-source-v4-build-runtime-boundary-closure-resume-planning-boundary-review-roadmap.tsv": "6de179130cc63ea418d6c134fca26bb53f5bc1252a119976223c10be51a8fb67",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-post-local-source-v4-build-runtime-boundary-closure-resume-planning-boundary-review-step298-user-acceptance.json": "96e3a850cfd24be65eedabae09933dd3c79dd8edb97d585862467a121418c804",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-post-local-source-v4-build-runtime-boundary-closure-resume-planning-boundary-review.tsv": "697616cf7af36d0b57b240e197e3f2f727c833e26f37ce834ed222c778e8346d",
+      "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-freeze-harness.sh": "5f3f6243abbe13617745f0f43fe4d55d15f6c9354c2790c4e1554f6952b1d692",
+      "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-review-harness.sh": "ba5f8f5c3efbc676c179a6386534404b19d9f271470a6cc42cef9bad9bed6fe2",
+      "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-failure-coverage-review-harness.sh": "658569d9953efb57549926cd1ad0334ac3d53ae24f5a6aa48ae11ec88b8faa12",
+      "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-failure-coverage-review-private.py": "04782004cb683563a9a7ca8522d808686db359f7117e0c9355de189b088c39a4",
+      "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-freeze-harness.sh": "a3de73d265e6e6e40a6198589a787e7994234512f7122c6891adafeea89271ba",
+      "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-review-harness.sh": "5c5544f5a9ae79ec299cdf51de2712cc18fa1366db0f8a9bab33d0310e783dfc",
+      "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-review-private.py": "51583aa2eaa1bfc2b9fcb9ae62f5af8509ef884aa6e4cf805c65ab216f449cd5",
+      "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-freeze-harness.sh": "a3b1aa1784a8a1a913f1ed213803d6adf85f390105b99356cbcc5ff67ffde5ac",
+      "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-review-harness.sh": "d73253838f83804c3e1e1c1eea01d3f8172cf5d4528b7dfc32eba900df967da8",
+      "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-post-local-source-v4-build-runtime-boundary-closure-resume-planning-boundary-review-harness.sh": "6757e5ea23c3378de5e67854f43920d6ca35536ede8f632d5e807b105d029da2",
+      "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-freeze.sh": "6b548145e0919e6fb053fb6571435b6d2051b6e03d2efe4660c11150b7be1e14",
+      "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-review.sh": "3f093e42683df2920f24273d048409766f33695f7da3a4a98a92137817a1661f",
+      "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-failure-coverage-candidate-private.py": "9c6bf6d82a15eef3eb74ae8e3aa7ccfbff46af07ec0c105f6c2db4fa5402d7e4",
+      "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-failure-coverage-candidate.sh": "d861b551c1197b3d83c3535741d8cca5011294b5ea0c8a27d80fd686aa489939",
+      "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-failure-coverage-review.sh": "23d17390b5be5e65519a4fc21f77e630b974fd87be04f60cdcd5498e8db9d085",
+      "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-freeze.sh": "0f8159abc9c8a5cafb956bfca05ae3cdd1963e7f6503293b006ac82b87a0bba0",
+      "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-review.sh": "b426bfa248f3a4b7e9aa8370ede0187e4c7bee5c3bccefdbc77dab691b162da2",
+      "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-private.py": "8aaa66ba445efa1d08fdfa7eb79ffd2474ae8e9ab216b81c5342fd75ee9b7e8d",
+      "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor.sh": "fe1671195b70d5016cbdc77d6c3bcbe06f3b6e1108699b53916f8eab4891cb07",
+      "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-freeze.sh": "708f35abe9b0cadfa92917248333e9eaf2b87edc96c1b600d65ea93fb7b13b0f",
+      "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-review.sh": "87bf6e535c4253afb17fd4a3c13165946ffa2f839acfda708244a7fca51b262f",
+      "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-post-local-source-v4-build-runtime-boundary-closure-resume-planning-boundary-review.sh": "71058e1854bb3da5d41d384f3f147e0f234b101649629f61d00d82e0911c379b"
+    },
+    "new_repository_artifact_count": 63,
+    "no_operational_authority_granted_in_block": true,
+    "rows": [
+      {
+        "all_other_accepted_bytes_preserved": true,
+        "changed_existing_repository_paths": [
+          "CHANGELOG.md"
+        ],
+        "confirmed_acceptance": "PASS (119 passes, 0 failures)",
+        "confirmed_commit_full": null,
+        "confirmed_commit_prefix": "435df6b",
+        "confirmed_user_application_commit_push_clean_tree": true,
+        "new_artifact_sha256_bindings": {
+          "docs/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-post-local-source-v4-build-runtime-boundary-closure-resume-planning-boundary-review.md": "c52d8dacffb8f9b4475a96deb6b0a0fc601b2200fb5493413f18f8da60455e8d",
+          "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-post-local-source-v4-build-runtime-boundary-closure-resume-planning-boundary-review-checkpoint-confirmation.json": "96bfae4a558456dc53a7eb7b313e5b20a03e9ee693c4a1e1f609ccc5b182cdeb",
+          "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-post-local-source-v4-build-runtime-boundary-closure-resume-planning-boundary-review-policy.json": "c90cada68176cea957390da133be2342f6155f1b62dfd3331e6fc8e54a2fdfdf",
+          "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-post-local-source-v4-build-runtime-boundary-closure-resume-planning-boundary-review-roadmap.tsv": "6de179130cc63ea418d6c134fca26bb53f5bc1252a119976223c10be51a8fb67",
+          "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-post-local-source-v4-build-runtime-boundary-closure-resume-planning-boundary-review-step298-user-acceptance.json": "96e3a850cfd24be65eedabae09933dd3c79dd8edb97d585862467a121418c804",
+          "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-post-local-source-v4-build-runtime-boundary-closure-resume-planning-boundary-review.tsv": "697616cf7af36d0b57b240e197e3f2f727c833e26f37ce834ed222c778e8346d",
+          "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-post-local-source-v4-build-runtime-boundary-closure-resume-planning-boundary-review-harness.sh": "6757e5ea23c3378de5e67854f43920d6ca35536ede8f632d5e807b105d029da2",
+          "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-post-local-source-v4-build-runtime-boundary-closure-resume-planning-boundary-review.sh": "71058e1854bb3da5d41d384f3f147e0f234b101649629f61d00d82e0911c379b"
+        },
+        "new_repository_artifact_count": 8,
+        "next_repository_checkpoint_confirmed": true,
+        "next_repository_stage": "phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-review",
+        "next_repository_stage_right": "repository_only_transaction_contract_review_authorized",
+        "operational_rights_granted": false,
+        "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-post-local-source-v4-build-runtime-boundary-closure-resume-planning-boundary-review-policy.json",
+        "policy_sha256": "c90cada68176cea957390da133be2342f6155f1b62dfd3331e6fc8e54a2fdfdf",
+        "repository_file_count_after": 1282,
+        "repository_file_count_before": 1274,
+        "scenario": "phase-1-kernel-package-edge-runtime-transaction-remediation-post-local-source-v4-build-runtime-boundary-closure-resume-planning-boundary-review",
+        "stage_right_disposition": "consumed-by-confirmed-next-repository-checkpoint",
+        "step": 299
+      },
+      {
+        "all_other_accepted_bytes_preserved": true,
+        "changed_existing_repository_paths": [
+          "CHANGELOG.md"
+        ],
+        "confirmed_acceptance": "PASS (247 passes, 0 failures)",
+        "confirmed_commit_full": null,
+        "confirmed_commit_prefix": "20599ff",
+        "confirmed_user_application_commit_push_clean_tree": true,
+        "new_artifact_sha256_bindings": {
+          "docs/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-review.md": "927a846704d3cb45e562ad0eba58987aca0189bc14107f669c14153c71175cd4",
+          "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-review-contract.json": "f341e76a83148ec8ee3a438cf8a82f469490bd8b9aed82afda97c9cddc12f291",
+          "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-review-policy.json": "c234a649f26f2ef83e18ca92d74b6f7b0c66e095d2f21c4ed8eda8a7a545c6da",
+          "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-review-step299-user-acceptance.json": "0f89aac6e6d2a511f444410c08d8c5446a3e646caf3d95353869524c03a5eb53",
+          "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-review.tsv": "db5fa42e32ba08264edfaf1099262e0e01b3491dadbc77c1125e386108a32186",
+          "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-review-harness.sh": "d73253838f83804c3e1e1c1eea01d3f8172cf5d4528b7dfc32eba900df967da8",
+          "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-review.sh": "87bf6e535c4253afb17fd4a3c13165946ffa2f839acfda708244a7fca51b262f"
+        },
+        "new_repository_artifact_count": 7,
+        "next_repository_checkpoint_confirmed": true,
+        "next_repository_stage": "phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-freeze",
+        "next_repository_stage_right": "repository_only_transaction_contract_freeze_authorized",
+        "operational_rights_granted": false,
+        "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-review-policy.json",
+        "policy_sha256": "c234a649f26f2ef83e18ca92d74b6f7b0c66e095d2f21c4ed8eda8a7a545c6da",
+        "repository_file_count_after": 1289,
+        "repository_file_count_before": 1282,
+        "scenario": "phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-review",
+        "stage_right_disposition": "consumed-by-confirmed-next-repository-checkpoint",
+        "step": 300
+      },
+      {
+        "all_other_accepted_bytes_preserved": true,
+        "changed_existing_repository_paths": [
+          "CHANGELOG.md"
+        ],
+        "confirmed_acceptance": "PASS (152 passes, 0 failures)",
+        "confirmed_commit_full": null,
+        "confirmed_commit_prefix": "7226226",
+        "confirmed_user_application_commit_push_clean_tree": true,
+        "new_artifact_sha256_bindings": {
+          "docs/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-freeze.md": "3613325d74331ff646bda91dfb9ce0a7dcfa58da0647bcf7b99a3ff89ffdcf1c",
+          "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-freeze-freeze.json": "91eba578026d6bb807f2b318e9db94b236e2ee8d378692b5469e1d8088070219",
+          "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-freeze-policy.json": "7d98db1fd55e27730bf5251ae892f1e9bf3c5eb004db04bd5bbe09f7b8a3f778",
+          "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-freeze-step300-user-acceptance.json": "f8b108256967f36fce2d84be451ae3d66116c1a29c50a693446affb21a91e864",
+          "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-freeze.tsv": "8f0cfd706df2655c7b910a10a26aa2915cf42f598e6050b8b1ead0bbfcf91f42",
+          "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-freeze-harness.sh": "a3b1aa1784a8a1a913f1ed213803d6adf85f390105b99356cbcc5ff67ffde5ac",
+          "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-freeze.sh": "708f35abe9b0cadfa92917248333e9eaf2b87edc96c1b600d65ea93fb7b13b0f"
+        },
+        "new_repository_artifact_count": 7,
+        "next_repository_checkpoint_confirmed": true,
+        "next_repository_stage": "phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-review",
+        "next_repository_stage_right": "repository_only_runtime_executor_design_review_authorized",
+        "operational_rights_granted": false,
+        "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-freeze-policy.json",
+        "policy_sha256": "7d98db1fd55e27730bf5251ae892f1e9bf3c5eb004db04bd5bbe09f7b8a3f778",
+        "repository_file_count_after": 1296,
+        "repository_file_count_before": 1289,
+        "scenario": "phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-freeze",
+        "stage_right_disposition": "consumed-by-confirmed-next-repository-checkpoint",
+        "step": 301
+      },
+      {
+        "all_other_accepted_bytes_preserved": true,
+        "changed_existing_repository_paths": [
+          "CHANGELOG.md"
+        ],
+        "confirmed_acceptance": "PASS (183 passes, 0 failures)",
+        "confirmed_commit_full": null,
+        "confirmed_commit_prefix": "6dab914",
+        "confirmed_user_application_commit_push_clean_tree": true,
+        "new_artifact_sha256_bindings": {
+          "docs/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-review.md": "101efd83614109c1f6763ae1135d2fb1ad9a644310a7e3f8ea36355e149cfe57",
+          "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-review-design.json": "194e1281c8a2057b74ffaac3f4b2519797fcacbc6f5543995bb9bb23df62c0f1",
+          "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-review-policy.json": "dd4edd50a149196e8d62c826ef802475b20c1c1ed9cfa5dfed17e717cfa96df4",
+          "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-review-step301-user-acceptance.json": "68a2962885d8f2968a33c0e4ad4143e39405de179c39f1eeaf9c43b3ee3e786d",
+          "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-review.tsv": "fb4beec6a0e17410d045e8fb3845eff36dfe5b73f14598689c5511c7addfc19b",
+          "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-review-harness.sh": "ba5f8f5c3efbc676c179a6386534404b19d9f271470a6cc42cef9bad9bed6fe2",
+          "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-review.sh": "3f093e42683df2920f24273d048409766f33695f7da3a4a98a92137817a1661f"
+        },
+        "new_repository_artifact_count": 7,
+        "next_repository_checkpoint_confirmed": true,
+        "next_repository_stage": "phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-freeze",
+        "next_repository_stage_right": "repository_only_runtime_executor_design_freeze_authorized",
+        "operational_rights_granted": false,
+        "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-review-policy.json",
+        "policy_sha256": "dd4edd50a149196e8d62c826ef802475b20c1c1ed9cfa5dfed17e717cfa96df4",
+        "repository_file_count_after": 1303,
+        "repository_file_count_before": 1296,
+        "scenario": "phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-review",
+        "stage_right_disposition": "consumed-by-confirmed-next-repository-checkpoint",
+        "step": 302
+      },
+      {
+        "all_other_accepted_bytes_preserved": true,
+        "changed_existing_repository_paths": [
+          "CHANGELOG.md"
+        ],
+        "confirmed_acceptance": "PASS (169 passes, 0 failures)",
+        "confirmed_commit_full": null,
+        "confirmed_commit_prefix": "4c39d12",
+        "confirmed_user_application_commit_push_clean_tree": true,
+        "new_artifact_sha256_bindings": {
+          "docs/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-freeze.md": "9e9dab06e9f0ab651cb821d97d8e3603cdd94981a6506490a42bdde815b0720d",
+          "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-freeze-freeze.json": "e3299ffcb5631429fb8ad6cbd876b783ef2905c212844f501c417c5f0ec77011",
+          "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-freeze-policy.json": "965c308498aaf163a5dd1c31760634d3d4188ad9f804b45bfd0d0d3e3266a90f",
+          "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-freeze-step302-user-acceptance.json": "c8d6b00b2e5b56632d23e69813ce6aa3ebb19020ea5d5552a35fac913a2a59db",
+          "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-freeze.tsv": "2f92129787b56cbddb757fae5b9c8daed9e7611170fee8e886a8c8d0d9b493b8",
+          "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-freeze-harness.sh": "5f3f6243abbe13617745f0f43fe4d55d15f6c9354c2790c4e1554f6952b1d692",
+          "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-freeze.sh": "6b548145e0919e6fb053fb6571435b6d2051b6e03d2efe4660c11150b7be1e14"
+        },
+        "new_repository_artifact_count": 7,
+        "next_repository_checkpoint_confirmed": true,
+        "next_repository_stage": "phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-review",
+        "next_repository_stage_right": "repository_only_runtime_executor_implementation_review_authorized",
+        "operational_rights_granted": false,
+        "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-freeze-policy.json",
+        "policy_sha256": "965c308498aaf163a5dd1c31760634d3d4188ad9f804b45bfd0d0d3e3266a90f",
+        "repository_file_count_after": 1310,
+        "repository_file_count_before": 1303,
+        "scenario": "phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-freeze",
+        "stage_right_disposition": "consumed-by-confirmed-next-repository-checkpoint",
+        "step": 303
+      },
+      {
+        "all_other_accepted_bytes_preserved": true,
+        "changed_existing_repository_paths": [
+          "CHANGELOG.md"
+        ],
+        "confirmed_acceptance": "PASS (279 passes, 0 failures)",
+        "confirmed_commit_full": null,
+        "confirmed_commit_prefix": "a8bc533",
+        "confirmed_user_application_commit_push_clean_tree": true,
+        "new_artifact_sha256_bindings": {
+          "docs/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-review.md": "b6cf22bc40026c1cf211f86a72e2a633081b6d8f8ad99b0c5d70f85e02a624ae",
+          "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-review-implementation.json": "fe4781bb7f45d79664c89cfd7de7bad0d2190c39bea763c1504a8c03bfa83977",
+          "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-review-policy.json": "08fb3ec2527123c5984bb27e4a15da78cb86cdbebd9d7713fa44cda71294c481",
+          "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-review-step303-user-acceptance.json": "1eeef66ef54c087985ccca0270eb5df457afd9510ee1884606e4a613f3414753",
+          "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-review.tsv": "f3ebceb34bee522e1870ee2762480afdba5f9516fff66036c7baa7503c82f764",
+          "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-review-harness.sh": "5c5544f5a9ae79ec299cdf51de2712cc18fa1366db0f8a9bab33d0310e783dfc",
+          "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-review-private.py": "51583aa2eaa1bfc2b9fcb9ae62f5af8509ef884aa6e4cf805c65ab216f449cd5",
+          "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-review.sh": "b426bfa248f3a4b7e9aa8370ede0187e4c7bee5c3bccefdbc77dab691b162da2",
+          "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-private.py": "8aaa66ba445efa1d08fdfa7eb79ffd2474ae8e9ab216b81c5342fd75ee9b7e8d",
+          "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor.sh": "fe1671195b70d5016cbdc77d6c3bcbe06f3b6e1108699b53916f8eab4891cb07"
+        },
+        "new_repository_artifact_count": 10,
+        "next_repository_checkpoint_confirmed": true,
+        "next_repository_stage": "phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-failure-coverage-review",
+        "next_repository_stage_right": "repository_only_runtime_executor_implementation_failure_coverage_authorized",
+        "operational_rights_granted": false,
+        "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-review-policy.json",
+        "policy_sha256": "08fb3ec2527123c5984bb27e4a15da78cb86cdbebd9d7713fa44cda71294c481",
+        "repository_file_count_after": 1320,
+        "repository_file_count_before": 1310,
+        "scenario": "phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-review",
+        "stage_right_disposition": "consumed-by-confirmed-next-repository-checkpoint",
+        "step": 304
+      },
+      {
+        "all_other_accepted_bytes_preserved": true,
+        "changed_existing_repository_paths": [
+          "CHANGELOG.md"
+        ],
+        "confirmed_acceptance": "PASS (420 passes, 0 failures)",
+        "confirmed_commit_full": null,
+        "confirmed_commit_prefix": "024c820",
+        "confirmed_user_application_commit_push_clean_tree": true,
+        "new_artifact_sha256_bindings": {
+          "docs/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-failure-coverage-review.md": "e50dd7655df12c381f00b3929f59d9e478c31bd9f3bfa5887849f20e1484fd86",
+          "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-failure-coverage-review-coverage.json": "0960e85113a76daa3bddaa98a902bc03a77bb797d9b5f0c426c7029e73987946",
+          "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-failure-coverage-review-policy.json": "7a5ce800e4e04a62f0c23ace7ace48b7bc0877eda71690d48863648f418fb787",
+          "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-failure-coverage-review-step304-user-acceptance.json": "14260b7a92138f679aef3ca1b63de1305ffe65c9ed60f095d9a38fa06d7bfeff",
+          "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-failure-coverage-review.tsv": "6fcfb1994fa1fef9b16077b389b178d6dde8ac2c80eb004713d2693b40dac8e9",
+          "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-failure-coverage-review-harness.sh": "658569d9953efb57549926cd1ad0334ac3d53ae24f5a6aa48ae11ec88b8faa12",
+          "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-failure-coverage-review-private.py": "04782004cb683563a9a7ca8522d808686db359f7117e0c9355de189b088c39a4",
+          "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-failure-coverage-candidate-private.py": "9c6bf6d82a15eef3eb74ae8e3aa7ccfbff46af07ec0c105f6c2db4fa5402d7e4",
+          "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-failure-coverage-candidate.sh": "d861b551c1197b3d83c3535741d8cca5011294b5ea0c8a27d80fd686aa489939",
+          "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-failure-coverage-review.sh": "23d17390b5be5e65519a4fc21f77e630b974fd87be04f60cdcd5498e8db9d085"
+        },
+        "new_repository_artifact_count": 10,
+        "next_repository_checkpoint_confirmed": true,
+        "next_repository_stage": "phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-freeze",
+        "next_repository_stage_right": "repository_only_runtime_executor_implementation_freeze_authorized",
+        "operational_rights_granted": false,
+        "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-failure-coverage-review-policy.json",
+        "policy_sha256": "7a5ce800e4e04a62f0c23ace7ace48b7bc0877eda71690d48863648f418fb787",
+        "repository_file_count_after": 1330,
+        "repository_file_count_before": 1320,
+        "scenario": "phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-failure-coverage-review",
+        "stage_right_disposition": "consumed-by-confirmed-next-repository-checkpoint",
+        "step": 305
+      },
+      {
+        "all_other_accepted_bytes_preserved": true,
+        "changed_existing_repository_paths": [
+          "CHANGELOG.md"
+        ],
+        "confirmed_acceptance": "PASS (232 passes, 0 failures)",
+        "confirmed_commit_full": null,
+        "confirmed_commit_prefix": "51d3641",
+        "confirmed_user_application_commit_push_clean_tree": true,
+        "new_artifact_sha256_bindings": {
+          "docs/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-freeze.md": "971b3ee1319b68d38b63531009b8e413b2ec2e47ea823064c9240b3d656801a1",
+          "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-freeze-freeze.json": "3b1c489d903fabe66e14acd43416eae075feb44923a1314a316e7a2c38997f41",
+          "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-freeze-policy.json": "746ac177f859e20253973fc045183f10373ef6f6e512bd7592148ead6084c7fb",
+          "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-freeze-step305-user-acceptance.json": "f3d85c855d5cddfd6550d5b0830cd80cd641c3921e8f7cde334855d770c6612c",
+          "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-freeze.tsv": "5c6837601791a5931e969dae53c86d9c9c8e93ec04ed0b0d6f872a159bdec675",
+          "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-freeze-harness.sh": "a3de73d265e6e6e40a6198589a787e7994234512f7122c6891adafeea89271ba",
+          "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-freeze.sh": "0f8159abc9c8a5cafb956bfca05ae3cdd1963e7f6503293b006ac82b87a0bba0"
+        },
+        "new_repository_artifact_count": 7,
+        "next_repository_checkpoint_confirmed": false,
+        "next_repository_stage": "phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-implementation-effect-and-authority-closure-review",
+        "next_repository_stage_right": "repository_only_runtime_implementation_effect_and_authority_closure_review_authorized",
+        "operational_rights_granted": false,
+        "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-freeze-policy.json",
+        "policy_sha256": "746ac177f859e20253973fc045183f10373ef6f6e512bd7592148ead6084c7fb",
+        "repository_file_count_after": 1337,
+        "repository_file_count_before": 1330,
+        "scenario": "phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-freeze",
+        "stage_right_disposition": "used-for-prepared307-review-user307-consumption-checkpoint-pending",
+        "step": 306
+      }
+    ],
+    "scope": "confirmed-repository-effects299-through306-no-live-machine-effect-proof"
+  },
+  "repository_only": true,
+  "reviewed_freeze_artifact_sha256_bindings": {
+    "docs/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-freeze.md": "971b3ee1319b68d38b63531009b8e413b2ec2e47ea823064c9240b3d656801a1",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-freeze-freeze.json": "3b1c489d903fabe66e14acd43416eae075feb44923a1314a316e7a2c38997f41",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-freeze-policy.json": "746ac177f859e20253973fc045183f10373ef6f6e512bd7592148ead6084c7fb",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-freeze.tsv": "5c6837601791a5931e969dae53c86d9c9c8e93ec04ed0b0d6f872a159bdec675",
+    "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-freeze-harness.sh": "a3de73d265e6e6e40a6198589a787e7994234512f7122c6891adafeea89271ba",
+    "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-freeze.sh": "0f8159abc9c8a5cafb956bfca05ae3cdd1963e7f6503293b006ac82b87a0bba0"
+  },
+  "runtime_attempt_planned": false,
+  "schema": 1,
+  "scope": "repository-private-workstream299-306-with-prepared307-effects-no-live-observation-or-operational-completeness",
+  "separate_fresh_revalidation_grant_and_immediate_preflight_required": true,
+  "state": "repository-effects-authority-and-obligations-reviewed-final-closure-pending",
+  "step": 307,
+  "strong_pause_by_numeric_step_guaranteed": false,
+  "strong_pause_condition_review": {
+    "all_effects_and_obligations_reviewed": {
+      "required": true,
+      "state": "reviewed-through-confirmed306-in-repository-private-scope-final308-checkpoint-pending"
+    },
+    "all_stage_and_operational_rights_consumed_or_revoked": {
+      "required": true,
+      "state": "pending-final308-closure-and-complete-user-checkpoint"
+    },
+    "code_and_failure_evidence_bound": {
+      "required": true,
+      "state": "reviewed-through-confirmed306-in-repository-private-scope-final308-checkpoint-pending"
+    },
+    "complete_repository_acceptance_reviewed": {
+      "required": true,
+      "state": "reviewed-through-confirmed306-in-repository-private-scope-final308-checkpoint-pending"
+    },
+    "completed_checkpoint_independent_of_later_current_publication": {
+      "required": true,
+      "state": "reviewed-through-confirmed306-in-repository-private-scope-final308-checkpoint-pending"
+    },
+    "no_required_machine_or_controller_cleanup": {
+      "required": true,
+      "state": "reviewed-through-confirmed306-in-repository-private-scope-final308-checkpoint-pending"
+    },
+    "no_unresolved_transaction_or_partial_publication": {
+      "required": true,
+      "state": "reviewed-through-confirmed306-in-repository-private-scope-final308-checkpoint-pending"
+    },
+    "not_based_on_preflight_alone": {
+      "required": true,
+      "state": "reviewed-through-confirmed306-in-repository-private-scope-final308-checkpoint-pending"
+    },
+    "old_and_future_unused_live_bindings_expired": {
+      "required": true,
+      "state": "pending-final308-closure-and-complete-user-checkpoint"
+    },
+    "user_application_acceptance_commit_push_clean_tree_confirmed": {
+      "required": true,
+      "state": "pending-final308-closure-and-complete-user-checkpoint"
+    }
+  },
+  "strong_safe_pause": false,
+  "supporting_artifact_sha256_bindings": {
+    "data/config/slack-update.conf": "4845e2c5038fe8896409f90b6287de33a011a76874229cb76479aa6cd4253bba",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-freeze-freeze.json": "e3299ffcb5631429fb8ad6cbd876b783ef2905c212844f501c417c5f0ec77011",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-design-review-design.json": "194e1281c8a2057b74ffaac3f4b2519797fcacbc6f5543995bb9bb23df62c0f1",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-freeze-freeze.json": "91eba578026d6bb807f2b318e9db94b236e2ee8d378692b5469e1d8088070219",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-transaction-contract-review-contract.json": "f341e76a83148ec8ee3a438cf8a82f469490bd8b9aed82afda97c9cddc12f291",
+    "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor.sh": "deb2d96c1590c176ae93f75cbf66161fe5a26f00401d9179f1082e3a1399f07d",
+    "tools/reference/slack-update-reference.sh": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+  },
+  "unresolved_operational_components": [
+    "real-reference-integration-and-selector-equivalence",
+    "namespace-command-transport-and-no-fallback",
+    "absolute-backend-path-and-SHA",
+    "reviewed-platform-writer-serialization",
+    "fresh-single-use-grant-source-target-predecessor-and-boot",
+    "real-source-and-archive-revalidation",
+    "operational-owner-and-publication-path-bindings"
+  ]
+}
