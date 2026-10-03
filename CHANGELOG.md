@@ -1,3 +1,11 @@
+## Phase 1 step305 — private v4 runtime executor failure coverage review — 2026-10-03
+
+- Confirmed304:a8bc533, full279 exact PASS, overlay/commit/push and clean tree by user return. Preserved1320 accepted artifacts including candidate304, exact CHANGELOG suffix and reversible original receipt. Separate305 candidate version; immutable design/contract/history untouched.
+- Completed mandatory private control/failure coverage: all stage faults, actual partial effects, catchable signals/reentrancy, owned Python child groups with complete wait/stream drain, nonquiescent rollback refusal and real uncatchable parent loss with null unknown statuses and read-only surviving evidence.
+- Verified backups include root metadata; restore whitelist excludes boot/foreign package/directory writes. Tampered backups, boot/source/foreign-state drift remain pending without deletion or success. Per-stage/cleanup/summary/final evidence faults retain original status; exclusive partial receipt and no-overwrite last commit suppress success on incomplete publication.
+- coverage_complete is private-only, not operational conformance/readiness. Real reference/selector/backend/namespace/platform-lock/source/grant/boot integration unresolved; no live execution or installed executor. Freeze306 may cover only exact closed repository candidate/private acceptance after user305 checkpoint. Mandatory scope cannot be weakened.
+- Repository acceptance: 420 PASS. Installer/commit acceptance: 29 checks PASS. Prepared305, machine_action/controller_action false, pause_safe=false/strong_safe_pause=false. Historical298 valid; Phase1/kernel-package-edge incomplete and Phase2 closed. Closure307–308 conditional, reserve309–310 retained.
+
 ## Phase 1 step304 — private v4 runtime executor implementation review — 2026-10-03
 
 - Confirmed303, user prefix4c39d12, complete169 PASS, overlay/commit/push and clean tree. Preserved1310 accepted artifacts and exact CHANGELOG suffix, design302/freeze303/contract inputs and reversible receipt.
