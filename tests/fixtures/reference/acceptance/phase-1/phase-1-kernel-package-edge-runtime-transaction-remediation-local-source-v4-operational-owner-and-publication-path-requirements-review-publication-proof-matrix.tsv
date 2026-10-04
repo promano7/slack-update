@@ -1,0 +1,15 @@
+id	negative_case	required_evidence	scope	status
+owner-mapping	name-only-wrong-UID-GID-user-namespace-or-mode	actual-reviewed-promano-users-numeric-identity-and-effective-authority-metadata	future-operational-conformance-not-executed	required-not-proven
+ancestry	leaf-safe-but-parent-link-mount-ACL-or-directory-writer-drift	complete-canonical-parent-object-mount-ACL-and-writer-binding	future-operational-conformance-not-executed	required-not-proven
+exclusive-create	precheck-followed-by-existing-or-dangling-symlink	actual-exclusive-create-or-supported-no-replace-commit-with-no-degraded-fallback	future-operational-conformance-not-executed	required-not-proven
+role-overlap	owned-cleanup-path-aliases-source-history-or-production	complete-role-and-resource-alias-map-plus-whitelisted-same-attempt-cleanup	future-operational-conformance-not-executed	required-not-proven
+traps-partial	mkdir-before-traps-or-unrecorded-partial-root	314-compatible-traps-first-and-immediate-owned-creation-journal-with-preserved-failure	future-operational-conformance-not-executed	required-not-proven
+child-restore	publish-or-release-with-live-child-or-unsafe-restore	313-continuous-target-guard-child-drain-and-verified-original-baseline-or-pending	future-operational-conformance-not-executed	required-not-proven
+publication-writers	recipient-can-rewrite-archive-before-receipt-or-handoff	separate-publication-directory-content-writer-controls-and-consumer-revalidation	future-operational-conformance-not-executed	required-not-proven
+captured-data	archive-live-source-reread-or-target-write-after-release	actual-archiver-input-effects-and-captured-closed-data-only-proof	future-operational-conformance-not-executed	required-not-proven
+pair-boundary	archive-and-sidecar-as-one-atomic-result	separate-exclusive-leaves-and-last-external-receipt-no-pair-atomicity-claim	future-operational-conformance-not-executed	required-not-proven
+durability	rename-close-file-flush-success-with-missing-directory-sync	actual-filesystem-supported-no-replace-and-file-metadata-directory-storage-proof	future-operational-conformance-not-executed	required-not-proven
+receipt-evidence	self-containing-receipt-or-missing-stage12-streams-status	external-last-receipt-binds-both-hashes-attempt-complete-status-and-provenance	future-operational-conformance-not-executed	required-not-proven
+partial-result	missing-leaf-sync-error-or-uncatchable-loss-as-success	pending-controller-obligations-preserved-artifacts-and-null-unknowns-no-retry	future-operational-conformance-not-executed	required-not-proven
+failure-result	complete-contained-failure-labelled-PASS	original-failure-and-cleanup-status-separated-reviewed-failure-evidence-not-success	future-operational-conformance-not-executed	required-not-proven
+authority-closure	receipt-SHA-or-toy-schedule-as-live-grant-safe-pause	nonreusable-attempt-integrity-consumer-proof-effects-obligations-rights-closure	future-operational-conformance-not-executed	required-not-proven
