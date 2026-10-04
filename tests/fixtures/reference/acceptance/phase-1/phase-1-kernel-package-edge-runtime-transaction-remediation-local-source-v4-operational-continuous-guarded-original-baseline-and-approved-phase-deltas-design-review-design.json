@@ -1,0 +1,353 @@
+{
+  "baseline_contract": {
+    "actual_backup_bindings": null,
+    "actual_baseline": null,
+    "expected": "original-to-reviewed-predecessor-to-local-isolation-and-fresh-pkglist-to-exact-target-to-original; preserve-original-inputs-through-all-approved-deltas",
+    "identity": "single-original-production-baseline-under-continuous-guard-content-owner-mode-type-presence-absence-and-canonical-alias-objects-not-early-preflight-or-self-rebound-current-state",
+    "owned_artifacts": "only-individually-recorded-whitelisted-transaction-owned-work-backup-binding-evidence-effects-separated; no-broad-subtree-exclusion-to-hide-target-drift",
+    "scope": "exact-target-config-state-boot-GenInitrd-unrelated-package-source-archive-code-dependency-and-identity-invariants"
+  },
+  "compatibility_scope": [
+    "Slackware-15.0",
+    "Slackware-current"
+  ],
+  "design_version": "guarded-original-phase-v1-review-not-operational-freeze",
+  "future_proof_obligations": [
+    {
+      "evidence": "Actual complete15.0/current writer/native lock/controlled entrypoint inventory, canonical DB aliases/mounts/objects/API/lifetime and every source/backend/dependency/content writer, not advisory lock name or process scan.",
+      "id": "platform-writers-and-guard-identity",
+      "status": "required-not-proven"
+    },
+    {
+      "evidence": "Actual traps-first explicit successor barrier between stages1/2 acquires stable exclusion and fresh original state before owned writes; stage3 verified backups match captured content/meta/presence without reusing stage0 preflight or reordering frozen history.",
+      "id": "interstage-fresh-original-baseline",
+      "status": "required-not-proven"
+    },
+    {
+      "evidence": "Actual exact predecessor/target/original archive roles and permitted package/header/config/mirrors/state changes, invariant unrelated records/boot/GenInitrd/source/code/identity through whole helper graph; no observed-state self-rebind.",
+      "id": "approved-phase-delta-equivalence",
+      "status": "required-not-proven"
+    },
+    {
+      "evidence": "Actual raw SHA bound once after fresh regular refresh, all nested updates preserve it; approved same-byte regular replacement requires identity/writer proof; restoring original production state does not change audit pin or permit more package consumers.",
+      "id": "raw-pkglist-pin-and-restored-production-role",
+      "status": "required-not-proven"
+    },
+    {
+      "evidence": "Actual distinct non-child-unlockable supervisor guard survives failure or prevents all surviving writes; known owned children drain before bounded323 authorized same-identity original restore, unknown/lost guard stays pending without forced release/reacquire.",
+      "id": "owner-child-failure-and-safe-recovery",
+      "status": "required-not-proven"
+    },
+    {
+      "evidence": "Actual restoration/full invariant verification/target evidence under continuous guard before release; only reviewed owned evidence/backups remain, no broad exclusion hiding drift; separate publication controls and last receipt from closed data.",
+      "id": "target-evidence-closure-and-publication-separation",
+      "status": "required-not-proven"
+    }
+  ],
+  "guard_contract": {
+    "actual_guard_object": null,
+    "actual_native_protocol": null,
+    "actual_writer_inventory": null,
+    "admission": "reviewed-common-compatible-protocol-or-proven-controlled-entrypoint-prevention; unknown-or-nonparticipating-writer-blocks-admission",
+    "continuity": "before-and-through-every-owned-target-config-package-nested-refresh-helper-consumption-recovery-and-target-evidence-effect",
+    "coverage": "all-seven-requirement-domains-and-every-overlapping-direct-manual-scheduled-helper-privileged-writer-through-entire-mutation-window",
+    "failure": "loss-contention-object-replacement-unverifiable-owner-or-writer-state-latches-stop-and-pending; no-force-unlock-unlink-recreate-reacquire-or-rebind",
+    "handle": "stable-supervisor-owned-distinct-from-reference-FD9-not-child-inherited-unlockable; actual-object-API-range-mount-open-description-lifetime-proof-required",
+    "owner_loss": "parent-exit-not-child-quiescence; exclusion-must-survive-or-independently-prevent-all-surviving-writes-otherwise-unknown-pending",
+    "release": "known-owned-child-quiescence-exact-original-restoration-full-invariants-and-target-evidence-before-release; no-target-writes-afterward"
+  },
+  "interstage_contract": {
+    "authority": "same-original-consumed-active-attempt-and323-live-split-rights; no-unused-grant-per-call",
+    "history": "frozen0/1/2/3-stages-not-rewritten; explicit-successor-integration-barrier-between1-and2",
+    "order": "stage0-readonly-memory-preflight-then-stage1-traps-then-acquire-outer-guard-and-fresh-revalidate-capture-original-in-memory-before-stage2-owned-writes",
+    "stage3": "persist-and-verify-exact-original-backups-from-guarded-capture-content-metadata-and-presence-before-predecessor-config-package-writes"
+  },
+  "pkglist_contract": {
+    "actual_raw_pin": null,
+    "binding": "fresh-regular-nonempty-refresh-exit0-both-stream-guards-then-bind-raw-SHA-once-for-stage7-and-all-nested-consumers",
+    "replacement": "logical-row-equivalence-not-same-raw-bytes; only-explicitly-reviewed-regular-object-replacement-with-identical-bound-raw-SHA-and-independent-identity-writer-proof",
+    "restoration": "restore-original-production-state-and-pkglist-under-original-backups-without-changing-owned-audit-pin; no-further-package-consumer-after-restore"
+  },
+  "prerequisite_gates": [
+    "same_consumed_authenticated_attempt",
+    "reviewed_external_forward_recovery_fence",
+    "complete_platform_writers_and_native_protocol",
+    "independent_stable_outer_guard_identity",
+    "owner_failure_child_containment",
+    "checked_source_archive_backend_dependencies",
+    "canonical_alias_parent_owner_objects",
+    "same_safe_boot_target_identity",
+    "reviewed_original_backup_roles",
+    "namespace_FD_no_fallback"
+  ],
+  "preserved_cross_obligations": [
+    {
+      "id": "claim-traps-containment",
+      "negative_case": "promote-review-or-private-fixture-to-resolved-claim-traps-containment",
+      "required_evidence": "No local ledger before traps; no unreviewed admission socket/service inherited by isolated backend; no protocol chosen",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "guarded-baseline",
+      "negative_case": "promote-review-or-private-fixture-to-resolved-guarded-baseline",
+      "required_evidence": "Keep frozen stages unchanged; interstage integration and real baseline proof still required",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "binding-effect-classification",
+      "negative_case": "promote-review-or-private-fixture-to-resolved-binding-effect-classification",
+      "required_evidence": "Explicit owned binding effect classification and traps/guard/grant integration review before operational freeze; do not rewrite frozen bytes",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "whole-effect-graph",
+      "negative_case": "promote-review-or-private-fixture-to-resolved-whole-effect-graph",
+      "required_evidence": "Persistent forward failure latch and complete actual helpers/selectors/namespace FD/identity/writer graph; no fallback",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "retained-bytes-and-writers",
+      "negative_case": "promote-review-or-private-fixture-to-resolved-retained-bytes-and-writers",
+      "required_evidence": "Actual ancestry aliases and content/dependency writer exclusion continuously through checked-byte consumption; no self-rehash/rebind",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "same-attempt-phase-deltas",
+      "negative_case": "promote-review-or-private-fixture-to-resolved-same-attempt-phase-deltas",
+      "required_evidence": "Never demand unused grant per nested call or rebind baseline to foreign drift; independently verified archive roles and same-boot scope",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "pkglist-selector-status",
+      "negative_case": "promote-review-or-private-fixture-to-resolved-pkglist-selector-status",
+      "required_evidence": "SHA bound once; zero install-new one upgrade required; raw helper0/20 differs from frozen emulator and real mandatory upgrade20 fails",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "target-publication-controls",
+      "negative_case": "promote-review-or-private-fixture-to-resolved-target-publication-controls",
+      "required_evidence": "Drain children verify restore close target evidence then release; captured closed data only; separate publication controls through receipt/handoff",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "last-receipt-durability",
+      "negative_case": "promote-review-or-private-fixture-to-resolved-last-receipt-durability",
+      "required_evidence": "Actual supported no-replace file/meta/directory/storage semantics and trusted origin; no pair atomicity self-containing receipt or SHA authority",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "failure-recovery-rights",
+      "negative_case": "promote-review-or-private-fixture-to-resolved-failure-recovery-rights",
+      "required_evidence": "No blanket exemption renewal replay retry or wrong-boot restore; preserve unknown/pending obligations and backups for separately authorized recovery",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    }
+  ],
+  "previous_design_bindings": {
+    "320": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-admission-and-durable-consumption-design-review-design.json",
+      "sha256": "206070db792430966f1b1654d29d7fecabaf43288f1d208b1332d5a40432726f"
+    },
+    "321": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-admission-handoff-and-namespace-fd-design-review-design.json",
+      "sha256": "c814396b3d002f3398b1d024ab30d9b74dfa6d84aee0c87df93215f571bd1540"
+    },
+    "322": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-stage7-owned-binding-effect-design-review-design.json",
+      "sha256": "ff7428e2039927559130a6b0f58611a669f30215221aaf3887e3fa360438a494"
+    },
+    "323": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+      "sha256": "40a574a020fcd8a5a6e79d0faebea6e00e62283751a94bcd877a9b47182d8b98"
+    }
+  },
+  "private_model_scope": "complete-synthetic-before-after-phase-vectors-and-finite-guard-owner-failure-model-not-live-inventory-lock-state-backup-or-restoration-proof",
+  "proof_state": {
+    "actual_backups_verified": false,
+    "actual_children_drained": false,
+    "actual_grant_consumed": false,
+    "actual_guard_acquired": false,
+    "actual_guard_failure_containment_proven": false,
+    "actual_guard_released": false,
+    "actual_host_obligations_claimed_absent": false,
+    "actual_host_obligations_closed": false,
+    "actual_host_obligations_observed": null,
+    "actual_live_bindings": null,
+    "actual_native_protocol_proven": false,
+    "actual_original_baseline_captured": false,
+    "actual_phase_deltas_proven": false,
+    "actual_raw_pin_bound": false,
+    "actual_restoration_verified": false,
+    "actual_writer_exclusion_proven": false,
+    "historical_v2_sourced_or_run": false,
+    "operational_conformance": false,
+    "operational_implementation_complete": false,
+    "operational_readiness": false,
+    "selected_guarded_original_contract": true
+  },
+  "publication_contract": "target-guard-closure-does-not-prove-recipient-content-writer-exclusion; separate316/325-controls-through-last-receipt-use-captured-closed-data-only",
+  "recovery_contract": {
+    "order": "persistent-forward-stop-known-owned-child-drain-verified-original-backup-restore-full-invariants-target-evidence-then-release",
+    "policy": "exact323-retained-finite-same-attempt-rights-fence-deadline-budget-and-safe-identity-not-blanket-exemption",
+    "unknown": "partial-package-config-binding-guard-or-child-outcome-never-auto-close-retry-rehash-rebind-or-restore-foreign-drift; retain-original-status-backups-and-pending-obligations"
+  },
+  "remaining_design_reviews": [
+    325,
+    326,
+    327,
+    328
+  ],
+  "remaining_operational_blockers": [
+    "314-durable-claim-traps-gap-retained",
+    "admission-service-no-broker-FD-isolation-integration-unresolved",
+    "stage7-readonly-versus-owned-binding-effect-classification-unresolved",
+    "all-seven-capabilities-still-require-operational-implementation-and-conformance",
+    "actual-recovery-expiry-revocation-policy-unselected",
+    "actual-current-machine-and-controller-obligations-unobserved"
+  ],
+  "requirements": {
+    "all_seven_resource_writer_domains": true,
+    "approved_phase_deltas_not_initialDB_equality": true,
+    "bounded_safe_same_attempt_recovery_only": true,
+    "complete_target_evidence_under_guard": true,
+    "early_preflight_not_baseline": true,
+    "exact_original_backup_content_metadata_presence": true,
+    "frozen_history_unchanged": true,
+    "guard_before_fresh_original_capture": true,
+    "no_child_unlock_or_surviving_unexcluded_writer": true,
+    "no_self_rebind_original_or_raw_pkglist": true,
+    "no_target_writes_after_release": true,
+    "original_production_restore_does_not_change_audit_pin": true,
+    "owned_artifacts_individual_whitelist_only": true,
+    "publication_rights_separate": true,
+    "quiescence_before_restore_and_release": true,
+    "raw_pin_once_nested_calls_samebytes": true,
+    "stable_supervisor_guard_not_referenceFD9": true,
+    "traps_before_guarded_owned_writes": true,
+    "unknown_writer_blocks_admission": true,
+    "unrelated_boot_source_backend_invariants_preserved": true
+  },
+  "resource_domains": [
+    "package-database",
+    "Slackpkg-state",
+    "configuration-and-mirrors",
+    "boot-and-GenInitrd",
+    "source-and-archives",
+    "backend-and-dependencies",
+    "transaction-owned-state"
+  ],
+  "review_status": "PASS-interstage-and-phase-contract-only-actual-implementation-and-conformance-blocked",
+  "schema": 1,
+  "scope": "continuous-guarded-original-baseline-and-approved-phase-deltas-design-only",
+  "selected_policy": "stable-external-outer-exclusion-fresh-original-capture-and-immutable-approved-phase-expectations",
+  "seven_requirements_bindings": [
+    {
+      "capability": "real-reference-integration-and-selector-equivalence",
+      "operational_conformance": false,
+      "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-reference-integration-and-selector-requirements-review-policy.json",
+      "policy_sha256": "9fcb69804f2d3abff675044f477b903416314bb7a195a938e45b1ee1f1260fa1",
+      "requirements_status": "reviewed-not-operationally-complete",
+      "review_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-reference-integration-and-selector-requirements-review-review.json",
+      "review_sha256": "69d846f1a5473cc8e2859ee7f3a242047c32d49e364601f9429054a742cdabf8",
+      "step": 310
+    },
+    {
+      "capability": "namespace-command-transport-and-no-fallback",
+      "operational_conformance": false,
+      "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-namespace-transport-and-no-fallback-requirements-review-policy.json",
+      "policy_sha256": "3f321ef0ca8317cb6261d707dc158ae306ef92435430e824d77e42b9e066b8a8",
+      "requirements_status": "reviewed-not-operationally-complete",
+      "review_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-namespace-transport-and-no-fallback-requirements-review-review.json",
+      "review_sha256": "ed2b6651ab1f54eaea7cd33c765f9d677a0cb257d47840237babd966281b9af9",
+      "step": 311
+    },
+    {
+      "capability": "absolute-backend-path-and-SHA",
+      "operational_conformance": false,
+      "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-absolute-backend-identity-requirements-review-policy.json",
+      "policy_sha256": "8e64828bd8abfb55f36e326177c8ddb24bb0e81a3f20bf592b949f9e1a0fc80a",
+      "requirements_status": "reviewed-not-operationally-complete",
+      "review_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-absolute-backend-identity-requirements-review-review.json",
+      "review_sha256": "b23906d94ad0111daf310cf563ad056020ec4066e14b341bec7bf6e0ae28dd26",
+      "step": 312
+    },
+    {
+      "capability": "reviewed-platform-writer-serialization",
+      "operational_conformance": false,
+      "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-platform-writer-serialization-requirements-review-policy.json",
+      "policy_sha256": "4f387f3b9fb6c90f8b018b45fa0e3529786c5908d6a3027a2113a7a9f25d47e8",
+      "requirements_status": "reviewed-not-operationally-complete",
+      "review_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-platform-writer-serialization-requirements-review-review.json",
+      "review_sha256": "ba896b35f91d1adc6692a6813652752b158eb258af3267c85e80ec024fe856f4",
+      "step": 313
+    },
+    {
+      "capability": "fresh-single-use-grant-source-target-predecessor-and-boot",
+      "operational_conformance": false,
+      "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-fresh-single-use-grant-requirements-review-policy.json",
+      "policy_sha256": "3e9bdf7b20fef359781964c489aeee00749fc9039b8397c72eeb2c95c8e9a64f",
+      "requirements_status": "reviewed-not-operationally-complete",
+      "review_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-fresh-single-use-grant-requirements-review-review.json",
+      "review_sha256": "73c7905dede694806bf8062ff0063775f8f927e7dada91a0bf339e87061affb6",
+      "step": 314
+    },
+    {
+      "capability": "real-source-and-archive-revalidation",
+      "operational_conformance": false,
+      "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-real-source-and-archive-revalidation-requirements-review-policy.json",
+      "policy_sha256": "b8fbffd1dff20736ad71850677aa613aa557c792b42c8616f9d8fe3073c0efe2",
+      "requirements_status": "reviewed-not-operationally-complete",
+      "review_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-real-source-and-archive-revalidation-requirements-review-review.json",
+      "review_sha256": "36a7f9559aaa87550ed7f4b2544960df4ec71775cb3444fd6070279e4613f5f0",
+      "step": 315
+    },
+    {
+      "capability": "operational-owner-and-publication-path-bindings",
+      "operational_conformance": false,
+      "policy_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-owner-and-publication-path-requirements-review-policy.json",
+      "policy_sha256": "b816d61589c59fefa1c35df234269c05f1698eddab6c615a99ae030356729377",
+      "requirements_status": "reviewed-not-operationally-complete",
+      "review_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-owner-and-publication-path-requirements-review-review.json",
+      "review_sha256": "30c9472c9b68fd6073783c678600c9c5f41730a43a6525b132c2a0d725213ecf",
+      "step": 316
+    }
+  ],
+  "step": 324,
+  "successor_sequence": [
+    "arm-traps",
+    "acquire-outer-guard",
+    "fresh-original-capture",
+    "initialize-owned-workspace",
+    "verify-original-backups",
+    "stage-exact-predecessor",
+    "isolate-local-config",
+    "refresh-new-pkglist",
+    "pin-raw-pkglist",
+    "commit-owned-binding",
+    "target-only-apply",
+    "drain-owned-children",
+    "restore-original",
+    "verify-original",
+    "close-target-evidence",
+    "release-target-control"
+  ],
+  "unresolved_design_edges": [
+    "325-whole-service-fence-helper-selector-source-backend-publication-effect-graph",
+    "326-complete-failure-model-and-independent-platform-conformance-plan",
+    "actual-writer-native-lock-alias-guard-baseline-backup-delta-child-restoration-and-closure-proofs-unimplemented"
+  ],
+  "writer_resource_map_binding": {
+    "domain_count": 7,
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-platform-writer-serialization-requirements-review-writer-resource-map.tsv",
+    "sha256": "9f3b0fe638ca801fec47dd8bcf36c3caf92c016da61e3d1706e06a665765b39c"
+  }
+}
