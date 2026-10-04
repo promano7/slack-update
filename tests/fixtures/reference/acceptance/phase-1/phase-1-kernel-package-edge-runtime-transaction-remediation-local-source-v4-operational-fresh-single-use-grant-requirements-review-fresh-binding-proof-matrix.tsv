@@ -1,0 +1,13 @@
+id	negative_case	required_evidence	scope	status
+issuer-scope	self-issued-UUID-or-stale-text	authenticated-issuer-integrity-exact-target-executor-command-and-effect-scope	future-operational-conformance-not-executed	required-not-proven
+atomic-consumption	two-preflight-readers-claim-same-grant	durable-authoritative-atomic-exclusive-claim-and-conflict-rejection	future-operational-conformance-not-executed	required-not-proven
+invocation-burn	failed-preflight-reopens-unused	claim-at-invocation-terminal-consumption-even-on-early-failure	future-operational-conformance-not-executed	required-not-proven
+claim-traps-order	local-ledger-lock-log-write-before-traps	separately-reviewed-claim-protocol-compatible-with-read-only-stage0-and-traps-barrier	future-operational-conformance-not-executed	required-not-proven
+guard-freshness	reuse-pre-exclusion-preflight	fresh-capture-revalidate-under313-exclusion-after-traps-before-mutation	future-operational-conformance-not-executed	required-not-proven
+binding-closure	changed-source-target-predecessor-baseline-boot-or-executor	same-attempt-versioned-object-content-scope-and-owner-proof-before-each-action	future-operational-conformance-not-executed	required-not-proven
+stage-deltas	foreign-delta-rebound-or-approved-predecessor-rejected	explicit-stage-specific-approved-transition-and-original-baseline-invariants	future-operational-conformance-not-executed	required-not-proven
+nested-consumption	require-unused-on-each-call-or-allow-new-attempt	same-consumed-active-owner-and-fresh-every-call-plus310-selector-status-latch	future-operational-conformance-not-executed	required-not-proven
+deadline-revocation	expiry-bypass-or-clock-rollback-assumption	reviewed-issuer-expiry-revocation-clock-and-bounded-recovery-policy	future-operational-conformance-not-executed	required-not-proven
+safe-recovery	blanket-stop-cleanup-or-restore-on-wrong-boot	same-attempt-whitelisted-verified-backups-child-quiescence-or-pending-obligations	future-operational-conformance-not-executed	required-not-proven
+crash-ledger	lost-ledger-state-promoted-to-unused-or-success	durable-unambiguous-consumed-state-and-no-retry-no-reissue-no-false-pause	future-operational-conformance-not-executed	required-not-proven
+receipt-authority	private-positive-or-closed-receipt-promoted-to-grant	316-last-receipt-effect-rights-closure-and-private-proof-provenance	future-operational-conformance-not-executed	required-not-proven

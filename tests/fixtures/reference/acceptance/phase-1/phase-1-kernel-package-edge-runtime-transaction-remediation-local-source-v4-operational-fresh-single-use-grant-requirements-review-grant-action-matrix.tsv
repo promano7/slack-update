@@ -1,0 +1,14 @@
+index	stage	effect	grant_state	freshness	transition	status
+0	immediate-preflight	read-only	consumed-active-same-attempt	early-buffer-not-guarded-proof	approved-stage-specific-only-original-baseline-preserved	required-not-operationally-implemented
+1	arm-idempotent-traps	process-only	consumed-active-same-attempt	early-buffer-not-guarded-proof	approved-stage-specific-only-original-baseline-preserved	required-not-operationally-implemented
+2	initialize-owned-workspace	owned-files	consumed-active-same-attempt	fresh-under-held-exclusion-before-action	approved-stage-specific-only-original-baseline-preserved	required-not-operationally-implemented
+3	capture-verify-backups	owned-files	consumed-active-same-attempt	fresh-under-held-exclusion-before-action	approved-stage-specific-only-original-baseline-preserved	required-not-operationally-implemented
+4	stage-exact-predecessor	package-state	consumed-active-same-attempt	fresh-under-held-exclusion-before-action	approved-stage-specific-only-original-baseline-preserved	required-not-operationally-implemented
+5	isolate-local-configuration	configuration-state	consumed-active-same-attempt	fresh-under-held-exclusion-before-action	approved-stage-specific-only-original-baseline-preserved	required-not-operationally-implemented
+6	refresh-new-pkglist	owned-state	consumed-active-same-attempt	fresh-under-held-exclusion-before-action	approved-stage-specific-only-original-baseline-preserved	required-not-operationally-implemented
+7	bind-exact-candidate	read-only	consumed-active-same-attempt	fresh-under-held-exclusion-before-action	approved-stage-specific-only-original-baseline-preserved	required-not-operationally-implemented
+8	reference-apply	package-state	consumed-active-same-attempt	fresh-under-held-exclusion-before-action	approved-stage-specific-only-original-baseline-preserved	required-not-operationally-implemented
+9	restore-production-baseline	restoration	consumed-active-same-attempt	fresh-under-held-exclusion-before-action	approved-stage-specific-only-original-baseline-preserved	required-not-operationally-implemented
+10	verify-restoration-invariants	read-only	consumed-active-same-attempt	fresh-under-held-exclusion-before-action	approved-stage-specific-only-original-baseline-preserved	required-not-operationally-implemented
+11	capture-complete-evidence	owned-files	consumed-active-same-attempt	fresh-under-held-exclusion-before-action	approved-stage-specific-only-original-baseline-preserved	required-not-operationally-implemented
+12	publish-reviewed-result	owned-files	consumed-terminal-nonreusable	captured-closed-evidence-only-no-target-write	approved-stage-specific-only-original-baseline-preserved	required-not-operationally-implemented
