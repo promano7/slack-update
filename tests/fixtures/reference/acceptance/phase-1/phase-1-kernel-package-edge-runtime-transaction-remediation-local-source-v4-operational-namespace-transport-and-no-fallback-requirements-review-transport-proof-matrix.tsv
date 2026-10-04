@@ -1,0 +1,15 @@
+id	negative_case	required_evidence	scope	status
+namespace-availability	unavailable-kernel-permission-capability-or-launcher-failure	reject-before-any-payload-no-host-fallback	future-operational-conformance-not-executed	required-not-proven
+namespace-handshake	missing-or-host-identity-or-stale-process-handle	fresh-owned-identity-handshake-before-dispatch	future-operational-conformance-not-executed	required-not-proven
+descendant-inheritance	missing-child-or-escaped-reference-adapter-backend-script	complete-owned-process-graph-same-namespace-per-group	future-operational-conformance-not-executed	required-not-proven
+independent-groups	reuse-unverified-handle-or-demand-one-global-namespace	preserve-two-fresh-template-creations-and-owned-handoff	future-operational-conformance-not-executed	required-not-proven
+inherited-descriptors	unknown-FD-host-socket-namespace-FD-or-host-socket-on-stdio	explicit-owned-FD-types-and-closure-with-no-hidden-broker	future-operational-conformance-not-executed	required-not-proven
+broker-reentry-controls	pathname-UNIX-helper-setns-nsenter-or-capability-escape	reviewed-filesystem-broker-reentry-and-privilege-controls	future-operational-conformance-not-executed	required-not-proven
+launcher-supervision	unsupported-flag-nonforwarded-signal-or-live-child-at-restore	versioned-launcher-process-group-signal-wait-drain-proof	future-operational-conformance-not-executed	required-not-proven
+environment	proxy-BASH_ENV-ENV-LD_PRELOAD-exported-function-or-unreviewed-PATH	exact-environment-allowlist-no-shell-init-or-command-fallback	future-operational-conformance-not-executed	required-not-proven
+local-mirror	remote-authority-query-fragment-percent-traversal-duplicate-or-fallback-mirror	one-exact-canonical-file-URI-active-line-and-bound-backend-parser	future-operational-conformance-not-executed	required-not-proven
+real-source	missing-symlink-ancestry-or-source-manifest-drift	fresh-source-path-owner-archive-proof-no-network-retry	future-operational-conformance-not-executed	required-not-proven
+nested-refresh	nonzero-download-error-nonregular-stale-or-changed-pkglist	latched-original-failure-and-no-later-dispatch-no-rebind	future-operational-conformance-not-executed	required-not-proven
+whole-effect-scope	uncovered-predecessor-restore-or-package-script-transport	separate-reviewed-containment-before-unwrapped-stage	future-operational-conformance-not-executed	required-not-proven
+backend-compatibility	backend-version-transport-or-interpreter-unbound	separate15-current-identity-and-version-evidence-before-real-use	future-operational-conformance-not-executed	required-not-proven
+evidence-and-authority	synthetic-success-promoted-to-live-grant-or-conformance	fixture-only-proof-operational-slots-null-and-production-closed	future-operational-conformance-not-executed	required-not-proven

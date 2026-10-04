@@ -1,0 +1,5 @@
+stage	template_json	group	scope	gap
+refresh	["unshare","-n","--","<reviewed-real-slackpkg>","-batch=on","-default_answer=y","update"]	fresh-refresh	design-data-not-executed	actual-launcher-identity-FDs-backend-transport-and-supervision-unbound
+apply	["unshare","-n","--","env","-i","PATH=<owned-adapters>:<reviewed-system-path>","LC_ALL=C","SLACK_UPDATE_CONFIG=<derived-config>","bash","<verified-reference>","--apply","--json"]	fresh-apply	design-data-not-executed	all-reference-adapter-backend-and-package-script-descendants-unbound
+predecessor	["upgradepkg","<verified-predecessor-path>"]	null	design-data-not-executed	no-network-wrapper-in-template-separate-containment-proof-required
+restore_header	["upgradepkg","--install-new","<verified-baseline-target>"]	null	design-data-not-executed	no-network-wrapper-in-template-separate-containment-proof-required

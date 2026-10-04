@@ -1,0 +1,393 @@
+{
+  "blockers": [
+    "actual-launcher-platform-and-backend-payload-evidence-absent",
+    "descriptor-broker-reentry-and-supervision-controls-not-implemented",
+    "predecessor-and-restore-containment-not-proven",
+    "five-further-capabilities-require-separate-reviews",
+    "real-operational-implementation-and-conformance-not-run"
+  ],
+  "candidate_sha256_bindings": {
+    "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-failure-coverage-review-private.py": "04782004cb683563a9a7ca8522d808686db359f7117e0c9355de189b088c39a4",
+    "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-failure-coverage-candidate-private.py": "9c6bf6d82a15eef3eb74ae8e3aa7ccfbff46af07ec0c105f6c2db4fa5402d7e4",
+    "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-failure-coverage-candidate.sh": "d861b551c1197b3d83c3535741d8cca5011294b5ea0c8a27d80fd686aa489939"
+  },
+  "capability": "namespace-command-transport-and-no-fallback",
+  "command_scope": [
+    {
+      "gap": "actual-launcher-identity-FDs-backend-transport-and-supervision-unbound",
+      "group": "fresh-refresh",
+      "scope": "design-data-not-executed",
+      "stage": "refresh",
+      "template": [
+        "unshare",
+        "-n",
+        "--",
+        "<reviewed-real-slackpkg>",
+        "-batch=on",
+        "-default_answer=y",
+        "update"
+      ]
+    },
+    {
+      "gap": "all-reference-adapter-backend-and-package-script-descendants-unbound",
+      "group": "fresh-apply",
+      "scope": "design-data-not-executed",
+      "stage": "apply",
+      "template": [
+        "unshare",
+        "-n",
+        "--",
+        "env",
+        "-i",
+        "PATH=<owned-adapters>:<reviewed-system-path>",
+        "LC_ALL=C",
+        "SLACK_UPDATE_CONFIG=<derived-config>",
+        "bash",
+        "<verified-reference>",
+        "--apply",
+        "--json"
+      ]
+    },
+    {
+      "gap": "no-network-wrapper-in-template-separate-containment-proof-required",
+      "group": null,
+      "scope": "design-data-not-executed",
+      "stage": "predecessor",
+      "template": [
+        "upgradepkg",
+        "<verified-predecessor-path>"
+      ]
+    },
+    {
+      "gap": "no-network-wrapper-in-template-separate-containment-proof-required",
+      "group": null,
+      "scope": "design-data-not-executed",
+      "stage": "restore_header",
+      "template": [
+        "upgradepkg",
+        "--install-new",
+        "<verified-baseline-target>"
+      ]
+    }
+  ],
+  "freeze_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-freeze-freeze.json",
+  "immutable_design_facts": {
+    "command_templates": {
+      "apply": [
+        "unshare",
+        "-n",
+        "--",
+        "env",
+        "-i",
+        "PATH=<owned-adapters>:<reviewed-system-path>",
+        "LC_ALL=C",
+        "SLACK_UPDATE_CONFIG=<derived-config>",
+        "bash",
+        "<verified-reference>",
+        "--apply",
+        "--json"
+      ],
+      "predecessor": [
+        "upgradepkg",
+        "<verified-predecessor-path>"
+      ],
+      "refresh": [
+        "unshare",
+        "-n",
+        "--",
+        "<reviewed-real-slackpkg>",
+        "-batch=on",
+        "-default_answer=y",
+        "update"
+      ],
+      "restore_header": [
+        "upgradepkg",
+        "--install-new",
+        "<verified-baseline-target>"
+      ],
+      "template_scope": "design-data-only-no-eval-source-or-execution-in302"
+    },
+    "config_derivation": {
+      "adapter_sha256": null,
+      "derived_config_sha256": null,
+      "disabled_modules": [
+        "flatpak",
+        "sbo",
+        "elf",
+        "cinnamon"
+      ],
+      "exact_unique_keys_required": [
+        "core.work_dir",
+        "core.log_dir",
+        "core.lock_file",
+        "flatpak.mode",
+        "sbo.mode",
+        "elf.mode",
+        "cinnamon.mode"
+      ],
+      "mirror_uri": "file:///var/tmp/slack-update-acceptance/kernel-package-edge/local-source-v4/",
+      "parsed_as_data_never_sourced": true,
+      "slackware_install_new_and_upgrade_all_preserved": true,
+      "source_config_sha256": "4845e2c5038fe8896409f90b6287de33a011a76874229cb76479aa6cd4253bba",
+      "temporary_slackpkg_keys": {
+        "CHECKGPG": "off",
+        "TEMP": "<owned-slackpkg-temp>",
+        "WORKDIR": "<owned-slackpkg-work>"
+      }
+    },
+    "freeze_sha256": "3b1c489d903fabe66e14acd43416eae075feb44923a1314a316e7a2c38997f41",
+    "function_slices": {
+      "probe_slackpkg_mirror_changelog": {
+        "end_line": 2592,
+        "sha256": "02a4081b6f126e65d47f17b425f1547ef12f87e2a79329dc1228df3066a15aff",
+        "start_line": 2555
+      },
+      "resolve_active_slackpkg_mirror": {
+        "end_line": 2553,
+        "sha256": "9e9b1f37d8c176486083d46310bac2fb101ba42b5cfd50822f47c990ff1de98d",
+        "start_line": 2517
+      },
+      "update_slackware_system": {
+        "end_line": 3454,
+        "sha256": "f3b69155b700765d5c635c040750787c6c6b574646972a6bab63ed2e29577c6e",
+        "start_line": 3425
+      }
+    },
+    "reference_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+  },
+  "mandatory_private_tests": [
+    "each-stage-failure",
+    "catchable-signals",
+    "uncatchable-loss-null-status",
+    "cleanup-idempotence",
+    "cleanup-failure-original-status",
+    "failed-backup-before-production-write",
+    "nested-reference-refresh-pkglist-drift",
+    "adapter-unknown-argv",
+    "publication-partial-receipt",
+    "source-and-history-preservation"
+  ],
+  "namespace_bindings": {
+    "apply": null,
+    "broker_and_reentry_controls": null,
+    "descendants": null,
+    "host": null,
+    "launcher_version": null,
+    "open_descriptors": null,
+    "process_group": null,
+    "refresh": null
+  },
+  "other_deferred_capabilities": [
+    "absolute-backend-path-and-SHA",
+    "reviewed-platform-writer-serialization",
+    "fresh-single-use-grant-source-target-predecessor-and-boot",
+    "real-source-and-archive-revalidation",
+    "operational-owner-and-publication-path-bindings"
+  ],
+  "permitted_current_effects": [
+    "repository-review-metadata-and-private-temp-evidence",
+    "bound-static-source-and-template-inspection",
+    "pure-synthetic-admission-no-dispatch"
+  ],
+  "previously_reviewed_requirements": [
+    "real-reference-integration-and-selector-equivalence"
+  ],
+  "primary_documentation": [
+    {
+      "target_version_proven": false,
+      "topic": "network-resource-scope-and-CONFIG_NET_NS",
+      "url": "https://man7.org/linux/man-pages/man7/network_namespaces.7.html"
+    },
+    {
+      "target_version_proven": false,
+      "topic": "explicit-command-network-only-and-version-sensitive-fork-signal-semantics",
+      "url": "https://man7.org/linux/man-pages/man1/unshare.1.html"
+    },
+    {
+      "target_version_proven": false,
+      "topic": "FD-inheritance-and-close-on-exec",
+      "url": "https://man7.org/linux/man-pages/man2/execve.2.html"
+    },
+    {
+      "target_version_proven": false,
+      "topic": "pathname-versus-abstract-sockets-and-FD-passing",
+      "url": "https://man7.org/linux/man-pages/man7/unix.7.html"
+    }
+  ],
+  "prior_review_sha256": "69d846f1a5473cc8e2859ee7f3a242047c32d49e364601f9429054a742cdabf8",
+  "prohibited_current_effects": [
+    "real-unshare-setns-nsenter-network-or-transport-command",
+    "whole-reference-source-or-main-entry",
+    "real-backend-selector-or-package-command",
+    "host-package-config-boot-write",
+    "old-v2-source-or-run",
+    "grant-issuance-or-live-binding-reuse",
+    "cleanup-of-source-history-or-live-state"
+  ],
+  "proof_obligations": [
+    {
+      "id": "namespace-availability",
+      "negative_case": "unavailable-kernel-permission-capability-or-launcher-failure",
+      "required_evidence": "reject-before-any-payload-no-host-fallback",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "namespace-handshake",
+      "negative_case": "missing-or-host-identity-or-stale-process-handle",
+      "required_evidence": "fresh-owned-identity-handshake-before-dispatch",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "descendant-inheritance",
+      "negative_case": "missing-child-or-escaped-reference-adapter-backend-script",
+      "required_evidence": "complete-owned-process-graph-same-namespace-per-group",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "independent-groups",
+      "negative_case": "reuse-unverified-handle-or-demand-one-global-namespace",
+      "required_evidence": "preserve-two-fresh-template-creations-and-owned-handoff",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "inherited-descriptors",
+      "negative_case": "unknown-FD-host-socket-namespace-FD-or-host-socket-on-stdio",
+      "required_evidence": "explicit-owned-FD-types-and-closure-with-no-hidden-broker",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "broker-reentry-controls",
+      "negative_case": "pathname-UNIX-helper-setns-nsenter-or-capability-escape",
+      "required_evidence": "reviewed-filesystem-broker-reentry-and-privilege-controls",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "launcher-supervision",
+      "negative_case": "unsupported-flag-nonforwarded-signal-or-live-child-at-restore",
+      "required_evidence": "versioned-launcher-process-group-signal-wait-drain-proof",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "environment",
+      "negative_case": "proxy-BASH_ENV-ENV-LD_PRELOAD-exported-function-or-unreviewed-PATH",
+      "required_evidence": "exact-environment-allowlist-no-shell-init-or-command-fallback",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "local-mirror",
+      "negative_case": "remote-authority-query-fragment-percent-traversal-duplicate-or-fallback-mirror",
+      "required_evidence": "one-exact-canonical-file-URI-active-line-and-bound-backend-parser",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "real-source",
+      "negative_case": "missing-symlink-ancestry-or-source-manifest-drift",
+      "required_evidence": "fresh-source-path-owner-archive-proof-no-network-retry",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "nested-refresh",
+      "negative_case": "nonzero-download-error-nonregular-stale-or-changed-pkglist",
+      "required_evidence": "latched-original-failure-and-no-later-dispatch-no-rebind",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "whole-effect-scope",
+      "negative_case": "uncovered-predecessor-restore-or-package-script-transport",
+      "required_evidence": "separate-reviewed-containment-before-unwrapped-stage",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "backend-compatibility",
+      "negative_case": "backend-version-transport-or-interpreter-unbound",
+      "required_evidence": "separate15-current-identity-and-version-evidence-before-real-use",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "evidence-and-authority",
+      "negative_case": "synthetic-success-promoted-to-live-grant-or-conformance",
+      "required_evidence": "fixture-only-proof-operational-slots-null-and-production-closed",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    }
+  ],
+  "proof_state": {
+    "actual_namespace_created": false,
+    "actual_namespace_identity_observed": false,
+    "actual_selector_equivalence_proven": false,
+    "actual_slackpkg_selector_executed": false,
+    "actual_transport_executed": false,
+    "operational_capability_complete": false,
+    "operational_conformance": false,
+    "operational_readiness": false,
+    "private_admission_fixture_only": true,
+    "production_entry_closed": true,
+    "real_reference_main_entered": false,
+    "requirements_review_complete": true,
+    "static_design_binding": true
+  },
+  "requirements": {
+    "absolute_launcher_interpreter_backend_identities_deferred_to312": true,
+    "actual_backend_transport_and_environment_require_version_bound_review": true,
+    "env_clear_does_not_sanitize_open_descriptors": true,
+    "every_descriptor_allowlisted_owned_and_reviewed_including_stdio": true,
+    "filesystem_pathname_UNIX_brokers_reentry_capabilities_and_helpers_require_reviewed_controls": true,
+    "fresh_namespace_per_frozen_refresh_and_apply_invocation": true,
+    "fresh_owned_handles_and_process_identity_not_unverified_PID_only": true,
+    "fresh_source_ancestry_archive_and_owner_proof_deferred_to315_316": true,
+    "host_namespace_fallback_retry_or_degraded_mode_forbidden": true,
+    "kernel_capability_permission_and_version_proof_required_per_platform": true,
+    "namespace_creation_or_verification_failure_rejects_before_payload": true,
+    "namespace_handshake_before_payload_dispatch": true,
+    "namespace_identity_must_differ_from_host": true,
+    "namespace_is_not_process_group_or_signal_forwarding_proof": true,
+    "nested_update_hash_stream_and_failure_latch_from310_preserved": true,
+    "network_namespace_is_not_filesystem_or_writer_isolation": true,
+    "no_actual_namespace_or_transport_execution_in311": true,
+    "no_rebinding_on_nested_update_or_source_error": true,
+    "no_retained_host_network_or_namespace_descriptor": true,
+    "no_shell_default_when_launcher_payload_missing": true,
+    "no_unreviewed_fork_or_forward_signal_option_change": true,
+    "owned_children_signal_wait_drain_before_restore_and_last_receipt": true,
+    "predecessor_and_restore_outside_current_network_templates_require_separate_containment_proof": true,
+    "raw_exit_signal_and_both_stream_evidence_preserved": true,
+    "reference_main_and_package_scripts_covered_before_entry": true,
+    "refresh_and_apply_are_separate_namespace_groups": true,
+    "within_group_reference_adapters_backends_and_all_descendants_inherit_bound_namespace": true
+  },
+  "review_status": "PASS",
+  "reviewed_requirements_not_frozen": true,
+  "schema": 1,
+  "scope": "separate-namespace-transport-no-fallback-requirements-review-only",
+  "step": 311,
+  "transport_requirements": {
+    "actual_backend_configuration": null,
+    "actual_source_ancestry": null,
+    "authority_query_fragment_percent_encoding_traversal_and_remote_scheme_rejected": true,
+    "backend_transport_parser_and_configuration_evidence_required": true,
+    "canonical_file_URI_only": true,
+    "exact_environment_allowlist": {
+      "LC_ALL": "C",
+      "PATH": "<owned-adapters>:<reviewed-system-path>",
+      "SLACK_UPDATE_CONFIG": "<derived-config>"
+    },
+    "exact_mirror_uri": "file:///var/tmp/slack-update-acceptance/kernel-package-edge/local-source-v4/",
+    "lexical_fixture_is_not_backend_or_realpath_proof": true,
+    "one_active_mirror_line": true,
+    "parsed_configuration_is_data_never_sourced": true,
+    "source_hash_missing_download_error_or_drift_stop_without_retry": true
+  }
+}
