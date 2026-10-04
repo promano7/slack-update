@@ -1,0 +1,21 @@
+step	317
+requirements_review_status	PASS
+accepted_checkpoint_commit	8461d2a
+accepted_checkpoint_acceptance	PASS (1203 passes, 0 failures)
+first_push_succeeded	yes
+cross_dependency_review_complete	yes
+seven_operational_capabilities_complete	no
+operational_conformance	no
+actual_receipt_committed	no
+actual_machine_obligations	null
+actual_controller_obligations	null
+production_entry_closed	yes
+operational_executor_sha256	null
+runtime_attempt_authorized	no
+user_step317_checkpoint_confirmed	no
+machine_action_required	no
+controller_action_required	no
+pause_safe	no
+strong_safe_pause	no
+next_stage_authorized	no
+next_stage	phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-requirements-freeze-and-strong-safe-pause
