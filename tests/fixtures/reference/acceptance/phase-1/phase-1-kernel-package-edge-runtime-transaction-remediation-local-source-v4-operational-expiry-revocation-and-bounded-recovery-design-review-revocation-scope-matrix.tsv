@@ -1,0 +1,6 @@
+revocation_scope	forward_rights	recovery_rights	actual_proof
+none	conditional	conditional	not-proven
+forward	stopped	conditional	not-proven
+recovery	stopped	stopped	not-proven
+all	stopped	stopped	not-proven
+unknown	stopped	stopped	not-proven
