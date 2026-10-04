@@ -1,0 +1,15 @@
+id	negative_case	required_evidence	scope	status
+historical-fresh	accepted294-display-reused-as-current-source	fresh-actual-object-and-bytes-proof-under-new314-grant-and313-guard	future-operational-conformance-not-executed	required-not-proven
+manifest-anchor	attacker-rewrites-tree-manifest-and-sidecar-together	external-reviewed-manifest-sidecar-target-anchors-plus-complete-inventory	future-operational-conformance-not-executed	required-not-proven
+inventory	missing-extra-link-special-file-or-directory-metadata-drift	actual17-entry-object-content-and-owner316-map-with-uncontrolled-alias-rejection	future-operational-conformance-not-executed	required-not-proven
+metadata-compatibility	tagged-MD5-extra-rows-or-asc-as-signature	exact9-untagged-MD5-and-frozen-non-authenticating-marker-with-SHA-authority-separated	future-operational-conformance-not-executed	required-not-proven
+role-isolation	predecessor-in-source-or-restore-input-not-approved	independent-predecessor-and-baseline-role-path-content-grant-proofs	future-operational-conformance-not-executed	required-not-proven
+archive-decoder	safe-member-descriptors-not-derived-from-real-bytes	version-bound-decoder-and-complete-member-link-script-effect-graph-from-retained-checked-archives	future-operational-conformance-not-executed	required-not-proven
+archive-effects	link-traversal-overwrite-special-file-script-or-boot-helper	exact-canonical-member-link-and-script-effect-scope-with-resource-bounds	future-operational-conformance-not-executed	required-not-proven
+check-use-window	path-replacement-or-inplace-edit-after-SHA	312-checked-object-and-complete313-writer-exclusion-through-consumption	future-operational-conformance-not-executed	required-not-proven
+fresh-generation	stale-empty-symlinked-pkglist-or-zero-exit-with-error	absent-before-owned-regular-fresh-after-with-complete-streams-exit-and-attempt-evidence	future-operational-conformance-not-executed	required-not-proven
+row-binding	missing-duplicate-extra-eight-field-alias-or-traversal	one-exact-target-row-zero-unrelated-and-raw-SHA-bound-once	future-operational-conformance-not-executed	required-not-proven
+nested-drift	same-logical-row-different-bytes-rehashed-after-update	every-call-revalidation-and-identical-already-bound-pkglist-raw-SHA-no-rebind	future-operational-conformance-not-executed	required-not-proven
+selector-role	one-oracle-row-as-actual-backend-selector-proof	310-real-versioned-full-selected-vectors-install-new-zero-upgrade-one-effect	future-operational-conformance-not-executed	required-not-proven
+restore-source	missing-baseline-unsafe-boot-or-foreign-state-rebound	314-safe-bounded-same-attempt-recovery-original-baseline-and-pending-obligations	future-operational-conformance-not-executed	required-not-proven
+private-provenance	toy-inventory-SHA-or-descriptor-promoted-to-live-proof	all-live315-bindings-null-no-dispatch-authority-and316-publication-provenance	future-operational-conformance-not-executed	required-not-proven

@@ -1,0 +1,8 @@
+role	path	identity	use	status
+source-tree	/var/tmp/slack-update-acceptance/kernel-package-edge/local-source-v4	external-manifest-plus-complete-inventory-and-bytes	all-source-consumption-under-held-exclusion	historical-path-required-not-current-proof
+manifest	/var/tmp/slack-update-acceptance/kernel-package-edge/local-source-v4.tree.sha256	a4b0fc122c6274c7fdf70907661511bcf6ba475a2aa3bc46b96e5bcbf6ed3db8	externally-anchored11-file-bindings	historical-SHA-required-not-current-proof
+sidecar	/var/tmp/slack-update-acceptance/kernel-package-edge/local-source-v4.tree.sha256.sha256	7cd7b99c730f388ddc949d22ad5ed98da703ea8050dfa31dc11456683f2176fc	exact-single-manifest-row-not-self-issued-authority	historical-SHA-required-not-current-proof
+target	./slackware64/d/kernel-headers-6.18.45-x86-1.txz	c7b56b50f0abdec8f35628d526bb05488c257f667ab9c2be1a7a3e07d97da63c	only-mirror-candidate-and-approved-target-effect	historical-SHA-required-not-current-proof
+predecessor	independent-grant-bound-path-unresolved	kernel-headers-6.18.44-x86-1.txz	separate-approved-predecessor-stage-never-in-source	not-currently-available-or-bound
+baseline-restore	independent-grant-bound-path-or-exact-approved-target-role-unresolved	kernel-headers-6.18.45-x86-1	verified-original-baseline-restoration-only	not-currently-available-or-bound
+pkglist	new-transaction-owned-backend-derived-path-unresolved	fresh-raw-SHA-bound-once-same-attempt	every-nested-call-and-identical-post-update-SHA	not-generated-or-bound
