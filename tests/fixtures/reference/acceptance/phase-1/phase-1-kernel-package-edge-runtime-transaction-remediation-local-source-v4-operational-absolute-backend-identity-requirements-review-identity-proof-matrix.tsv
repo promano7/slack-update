@@ -1,0 +1,15 @@
+id	negative_case	required_evidence	scope	status
+absolute-path	basename-relative-dot-dot-double-slash-control-or-unbound-alternate	reviewed-canonical-absolute-path-and-opened-object-proof	future-operational-conformance-not-executed	required-not-proven
+backend-SHA	malformed-self-declared-changed-or-other-platform-digest	exact-approved-raw-content-SHA-with-platform-and-source-provenance	future-operational-conformance-not-executed	required-not-proven
+adapter-recursion	backend-is-adapter-by-path-inode-alias-or-PATH-function	distinct-reviewed-objects-and-direct-nonrecursive-backend-dispatch	future-operational-conformance-not-executed	required-not-proven
+ancestor-and-mount	symlink-ancestor-magic-link-unreviewed-mount-or-path-replacement	stable-reviewed-ancestry-root-and-opened-object-identity	future-operational-conformance-not-executed	required-not-proven
+type-and-access	directory-FIFO-socket-device-nonexecutable-or-unreviewed-ACL-capability	actual-regular-kind-effective-access-owner-mode-and-privilege-evidence	future-operational-conformance-not-executed	required-not-proven
+script-interpreter	changed-shebang-env-PATH-interpreter-or-unknown-option	explicit-versioned-interpreter-path-SHA-and-exact-invocation	future-operational-conformance-not-executed	required-not-proven
+dependencies	unbound-sourced-helper-filter-config-loader-library-or-subcommand	complete-versioned-reachable-source-and-runtime-dependency-closure	future-operational-conformance-not-executed	required-not-proven
+replacement-race	hash-approved-path-replaced-before-execution	reviewed-same-checked-object-consumption-mechanism	future-operational-conformance-not-executed	required-not-proven
+content-race	same-object-bytes-or-dependencies-modified-after-hash	writer-exclusion-and-content-stability-through-consumption-not-FD-alone	future-operational-conformance-not-executed	required-not-proven
+descriptor-policy	script-FD-CLOEXEC-breaks-launch-or-unreviewed-FD-retained	version-specific-script-exec-and311-owned-descriptor-policy-consistency	future-operational-conformance-not-executed	required-not-proven
+unsupported-platform	unsupported-syscall-flag-libc-or-missing-identity-binding	15-current-version-proof-and-fail-closed-no-alternative-lookup	future-operational-conformance-not-executed	required-not-proven
+repeat-dispatch	stale-initial-hash-reused-for-nested-predecessor-or-restore	same-transaction-recheck-all-stages-with-latched-original-failure	future-operational-conformance-not-executed	required-not-proven
+semantic-separation	backend-SHA-promoted-to-selector-transport-or-grant-proof	310-selector311-containment-and-fresh-authority-proof-remain-separate	future-operational-conformance-not-executed	required-not-proven
+evidence-and-authority	synthetic-identities-promoted-to-actual-binding-or-conformance	finite-private-scope-live-slots-null-no-dispatch-authority	future-operational-conformance-not-executed	required-not-proven

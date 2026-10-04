@@ -1,0 +1,663 @@
+{
+  "backend_role_map": [
+    {
+      "binding": "canonical-path-raw-SHA-version-platform-and-dependency-closure",
+      "role": "slackpkg-backend",
+      "source": "actual-reviewed-Slackpkg-payload-absent",
+      "status": "required-not-bound"
+    },
+    {
+      "binding": "canonical-path-raw-SHA-interpreter-and-helper-closure",
+      "role": "pkgtools-upgradepkg",
+      "source": "frozen-predecessor-and-restore-templates",
+      "status": "required-not-bound"
+    },
+    {
+      "binding": "canonical-path-raw-SHA-version-and-signal-semantics",
+      "role": "namespace-launcher",
+      "source": "frozen-refresh-and-apply-unshare-token",
+      "status": "required-not-bound"
+    },
+    {
+      "binding": "canonical-path-raw-SHA-and-exact-allowlist",
+      "role": "environment-launcher",
+      "source": "frozen-apply-env-token",
+      "status": "required-not-bound"
+    },
+    {
+      "binding": "canonical-path-raw-SHA-version-and-invocation",
+      "role": "shell-interpreter",
+      "source": "frozen-apply-bash-token-and-future-backend-shebang",
+      "status": "required-not-bound"
+    },
+    {
+      "binding": "fresh-operational-payload-object-path-and-approved-repository-SHA",
+      "role": "reference-payload",
+      "source": "immutable-reviewed-repository-reference",
+      "status": "repository-SHA-known-operational-path-null"
+    },
+    {
+      "binding": "approved-implementation-path-SHA-and-direct-backend-protocol",
+      "role": "guarded-adapter",
+      "source": "frozen-required-new-component-not-implemented",
+      "status": "not-operationally-implemented"
+    },
+    {
+      "binding": "all-sourced-helpers-filters-config-loaders-libraries-and-subcommands",
+      "role": "transitive-dependencies",
+      "source": "must-be-derived-from-actual-versioned-source-not-assumed-list",
+      "status": "actual-complete-inventory-unavailable"
+    }
+  ],
+  "blockers": [
+    "actual-Slackpkg-pkgtools-launcher-and-interpreter-payloads-unavailable",
+    "complete-real-transitive-dependency-graph-unavailable",
+    "same-object-and-content-stability-mechanism-not-reviewed-or-implemented",
+    "four-further-capabilities-require-separate-reviews",
+    "real-operational-implementation-and-conformance-not-run"
+  ],
+  "candidate_sha256_bindings": {
+    "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-failure-coverage-review-private.py": "04782004cb683563a9a7ca8522d808686db359f7117e0c9355de189b088c39a4",
+    "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-failure-coverage-candidate-private.py": "9c6bf6d82a15eef3eb74ae8e3aa7ccfbff46af07ec0c105f6c2db4fa5402d7e4",
+    "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-failure-coverage-candidate.sh": "d861b551c1197b3d83c3535741d8cca5011294b5ea0c8a27d80fd686aa489939"
+  },
+  "capability": "absolute-backend-path-and-SHA",
+  "freeze_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-freeze-freeze.json",
+  "immutable_design_facts": {
+    "adapter_design": {
+      "allowed_argv": [
+        [
+          "-batch=on",
+          "-default_answer=y",
+          "update"
+        ],
+        [
+          "-batch=on",
+          "-default_answer=y",
+          "-postinst=off",
+          "install-new"
+        ],
+        [
+          "-batch=on",
+          "-default_answer=y",
+          "-postinst=off",
+          "upgrade-all"
+        ]
+      ],
+      "binding_checks_before_each_call": [
+        "same-grant-boot",
+        "source-manifest-and-target-SHA",
+        "regular-owned-pkglist-bound-SHA",
+        "exact-eight-field-single-target-only-candidate"
+      ],
+      "install_new_candidate_count": 0,
+      "nested_calls_have_complete_stream_exit_evidence": true,
+      "no_recursive_PATH_resolution_or_network_fallback": true,
+      "pure_oracle_scope": "argument-and-bound-pkglist-contract-fixture-not-real-command-adapter-or-production-selector-proof",
+      "real_backend_absolute_path_and_sha256": null,
+      "requires_verified_predecessor_for_upgrade": true,
+      "state": "required-new-component-designed-not-implemented",
+      "update_post_checks": [
+        "exit0",
+        "both-streams-no-human-spaced-download-error",
+        "regular-nonempty-pkglist",
+        "exact-bound-pkglist-SHA-unchanged"
+      ],
+      "upgrade_all_candidate_count": 1
+    },
+    "command_templates": {
+      "apply": [
+        "unshare",
+        "-n",
+        "--",
+        "env",
+        "-i",
+        "PATH=<owned-adapters>:<reviewed-system-path>",
+        "LC_ALL=C",
+        "SLACK_UPDATE_CONFIG=<derived-config>",
+        "bash",
+        "<verified-reference>",
+        "--apply",
+        "--json"
+      ],
+      "predecessor": [
+        "upgradepkg",
+        "<verified-predecessor-path>"
+      ],
+      "refresh": [
+        "unshare",
+        "-n",
+        "--",
+        "<reviewed-real-slackpkg>",
+        "-batch=on",
+        "-default_answer=y",
+        "update"
+      ],
+      "restore_header": [
+        "upgradepkg",
+        "--install-new",
+        "<verified-baseline-target>"
+      ],
+      "template_scope": "design-data-only-no-eval-source-or-execution-in302"
+    },
+    "freeze_sha256": "3b1c489d903fabe66e14acd43416eae075feb44923a1314a316e7a2c38997f41",
+    "function_slices": {
+      "main": {
+        "end_line": 6633,
+        "sha256": "f130236d36ec27475789b7c65ca252ca33529e91d90f2e3206a9e3fc186980da",
+        "start_line": 6558
+      },
+      "slackpkg_apply_action_failed": {
+        "end_line": 3107,
+        "sha256": "b643fc49a6da72e2e0889e517523cffa1c8e39e5cdd92a40b2bd7f5d4111fde6",
+        "start_line": 3089
+      },
+      "update_slackware_system": {
+        "end_line": 3454,
+        "sha256": "f3b69155b700765d5c635c040750787c6c6b574646972a6bab63ed2e29577c6e",
+        "start_line": 3425
+      }
+    },
+    "reference_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+  },
+  "mandatory_private_tests": [
+    "each-stage-failure",
+    "catchable-signals",
+    "uncatchable-loss-null-status",
+    "cleanup-idempotence",
+    "cleanup-failure-original-status",
+    "failed-backup-before-production-write",
+    "nested-reference-refresh-pkglist-drift",
+    "adapter-unknown-argv",
+    "publication-partial-receipt",
+    "source-and-history-preservation"
+  ],
+  "operational_identity_bindings": {
+    "actual_dependency_graph": null,
+    "actual_source_provenance": null,
+    "content_stability_mechanism": null,
+    "interpreter_paths_and_sha256": null,
+    "launcher_paths_and_sha256": null,
+    "opened_object_identity": null,
+    "owner_and_access_bindings": null,
+    "pkgtools_path": null,
+    "pkgtools_sha256": null,
+    "platform_writer_exclusion": null,
+    "slackpkg_path": null,
+    "slackpkg_sha256": null,
+    "slackpkg_version": null
+  },
+  "other_deferred_capabilities": [
+    "reviewed-platform-writer-serialization",
+    "fresh-single-use-grant-source-target-predecessor-and-boot",
+    "real-source-and-archive-revalidation",
+    "operational-owner-and-publication-path-bindings"
+  ],
+  "permitted_current_effects": [
+    "repository-review-metadata-and-private-temp-evidence",
+    "bound-static-source-and-template-inspection",
+    "pure-synthetic-identity-admission-no-dispatch"
+  ],
+  "previously_reviewed_requirements": [
+    "real-reference-integration-and-selector-equivalence",
+    "namespace-command-transport-and-no-fallback"
+  ],
+  "primary_documentation": [
+    {
+      "target_version_proven": false,
+      "topic": "all-component-versus-leaf-only-resolution-controls",
+      "url": "https://man7.org/linux/man-pages/man2/openat2.2.html"
+    },
+    {
+      "target_version_proven": false,
+      "topic": "checked-object-versus-content-stability-and-script-FD-policy",
+      "url": "https://man7.org/linux/man-pages/man3/fexecve.3.html"
+    },
+    {
+      "target_version_proven": false,
+      "topic": "script-interpreter-and-ELF-loader",
+      "url": "https://man7.org/linux/man-pages/man2/execve.2.html"
+    },
+    {
+      "target_version_proven": false,
+      "topic": "PATH-search-and-shell-error-fallback",
+      "url": "https://man7.org/linux/man-pages/man3/exec.3.html"
+    },
+    {
+      "target_version_proven": false,
+      "topic": "filesystem-resolution-context",
+      "url": "https://man7.org/linux/man-pages/man7/path_resolution.7.html"
+    }
+  ],
+  "prior_review_sha256": "ed2b6651ab1f54eaea7cd33c765f9d677a0cb257d47840237babd966281b9af9",
+  "private_fixture_specification": {
+    "dispatch_authority": false,
+    "live_evidence_origin": false,
+    "platform_records": {
+      "Slackware-15.0": {
+        "adapter": {
+          "ancestry": "synthetic-reviewed-non-symlink",
+          "content": "#!/__step312_private__/slack15/bash\nsynthetic-identity-only:Slackware-15.0:adapter\n",
+          "dependencies": [
+            "slackpkg"
+          ],
+          "format": "script",
+          "interpreter_role": "bash",
+          "mode": "synthetic-reviewed-mode",
+          "object": "toy-object-slack15-6",
+          "owner": "synthetic-reviewed-owner",
+          "path": "/__step312_private__/slack15/adapter",
+          "privileges": "synthetic-reviewed-none",
+          "regular": true,
+          "sha256": "404b88a44898ed8142e2b478bd28a7608014587bdb2ba1e47f9bcf3a310cf30d",
+          "version": "synthetic-slack15-adapter"
+        },
+        "bash": {
+          "ancestry": "synthetic-reviewed-non-symlink",
+          "content": "synthetic-identity-only:Slackware-15.0:bash\n",
+          "dependencies": [],
+          "format": "elf",
+          "interpreter_role": null,
+          "mode": "synthetic-reviewed-mode",
+          "object": "toy-object-slack15-4",
+          "owner": "synthetic-reviewed-owner",
+          "path": "/__step312_private__/slack15/bash",
+          "privileges": "synthetic-reviewed-none",
+          "regular": true,
+          "sha256": "bb27176bc9a3cf96f3fb2edd2172c81c0df88eb63b27f3137a43d8d5d144483c",
+          "version": "synthetic-slack15-bash"
+        },
+        "env": {
+          "ancestry": "synthetic-reviewed-non-symlink",
+          "content": "synthetic-identity-only:Slackware-15.0:env\n",
+          "dependencies": [],
+          "format": "elf",
+          "interpreter_role": null,
+          "mode": "synthetic-reviewed-mode",
+          "object": "toy-object-slack15-3",
+          "owner": "synthetic-reviewed-owner",
+          "path": "/__step312_private__/slack15/env",
+          "privileges": "synthetic-reviewed-none",
+          "regular": true,
+          "sha256": "b905f66f7686fbafc4f1f541ebcfefadef4e396e0146504c7fe5847e08753bdf",
+          "version": "synthetic-slack15-env"
+        },
+        "helper": {
+          "ancestry": "synthetic-reviewed-non-symlink",
+          "content": "synthetic-identity-only:Slackware-15.0:helper\n",
+          "dependencies": [],
+          "format": "data",
+          "interpreter_role": null,
+          "mode": "synthetic-reviewed-mode",
+          "object": "toy-object-slack15-7",
+          "owner": "synthetic-reviewed-owner",
+          "path": "/__step312_private__/slack15/helper",
+          "privileges": "synthetic-reviewed-none",
+          "regular": true,
+          "sha256": "4605b30334b8b6be96433c8d81e54e241ee58a45f6908341957edf41ca88befb",
+          "version": "synthetic-slack15-helper"
+        },
+        "reference": {
+          "ancestry": "synthetic-reviewed-non-symlink",
+          "content": "#!/__step312_private__/slack15/bash\nsynthetic-identity-only:Slackware-15.0:reference\n",
+          "dependencies": [
+            "adapter"
+          ],
+          "format": "script",
+          "interpreter_role": "bash",
+          "mode": "synthetic-reviewed-mode",
+          "object": "toy-object-slack15-5",
+          "owner": "synthetic-reviewed-owner",
+          "path": "/__step312_private__/slack15/reference",
+          "privileges": "synthetic-reviewed-none",
+          "regular": true,
+          "sha256": "57c5ffd09cbf30bc2df01a35485672b458253c8054a7d6d7dfb87c7bed82f7ab",
+          "version": "synthetic-slack15-reference"
+        },
+        "slackpkg": {
+          "ancestry": "synthetic-reviewed-non-symlink",
+          "content": "#!/__step312_private__/slack15/bash\nsynthetic-identity-only:Slackware-15.0:slackpkg\n",
+          "dependencies": [
+            "helper",
+            "upgradepkg"
+          ],
+          "format": "script",
+          "interpreter_role": "bash",
+          "mode": "synthetic-reviewed-mode",
+          "object": "toy-object-slack15-0",
+          "owner": "synthetic-reviewed-owner",
+          "path": "/__step312_private__/slack15/slackpkg",
+          "privileges": "synthetic-reviewed-none",
+          "regular": true,
+          "sha256": "84825d3a16ef3552a08df14e665068c8f4a96db7fb312d56970e3a26820b1dc0",
+          "version": "synthetic-slack15-slackpkg"
+        },
+        "unshare": {
+          "ancestry": "synthetic-reviewed-non-symlink",
+          "content": "synthetic-identity-only:Slackware-15.0:unshare\n",
+          "dependencies": [],
+          "format": "elf",
+          "interpreter_role": null,
+          "mode": "synthetic-reviewed-mode",
+          "object": "toy-object-slack15-2",
+          "owner": "synthetic-reviewed-owner",
+          "path": "/__step312_private__/slack15/unshare",
+          "privileges": "synthetic-reviewed-none",
+          "regular": true,
+          "sha256": "dd9bbaf659ae78dd6797e8a6dc8bca5400e02c1ef022554b961f0e69d58a78b3",
+          "version": "synthetic-slack15-unshare"
+        },
+        "upgradepkg": {
+          "ancestry": "synthetic-reviewed-non-symlink",
+          "content": "#!/__step312_private__/slack15/bash\nsynthetic-identity-only:Slackware-15.0:upgradepkg\n",
+          "dependencies": [],
+          "format": "script",
+          "interpreter_role": "bash",
+          "mode": "synthetic-reviewed-mode",
+          "object": "toy-object-slack15-1",
+          "owner": "synthetic-reviewed-owner",
+          "path": "/__step312_private__/slack15/upgradepkg",
+          "privileges": "synthetic-reviewed-none",
+          "regular": true,
+          "sha256": "8c07ff5f0fbb698023308f3fabdf983906c86e37b9e97f6eb7d7144a70cc8a91",
+          "version": "synthetic-slack15-upgradepkg"
+        }
+      },
+      "Slackware-current": {
+        "adapter": {
+          "ancestry": "synthetic-reviewed-non-symlink",
+          "content": "#!/__step312_private__/current/bash\nsynthetic-identity-only:Slackware-current:adapter\n",
+          "dependencies": [
+            "slackpkg"
+          ],
+          "format": "script",
+          "interpreter_role": "bash",
+          "mode": "synthetic-reviewed-mode",
+          "object": "toy-object-current-6",
+          "owner": "synthetic-reviewed-owner",
+          "path": "/__step312_private__/current/adapter",
+          "privileges": "synthetic-reviewed-none",
+          "regular": true,
+          "sha256": "5ec8379bc5cb88d955acd659269eb50eb4bed0e1cf97688c38986cd0fe34fde3",
+          "version": "synthetic-current-adapter"
+        },
+        "bash": {
+          "ancestry": "synthetic-reviewed-non-symlink",
+          "content": "synthetic-identity-only:Slackware-current:bash\n",
+          "dependencies": [],
+          "format": "elf",
+          "interpreter_role": null,
+          "mode": "synthetic-reviewed-mode",
+          "object": "toy-object-current-4",
+          "owner": "synthetic-reviewed-owner",
+          "path": "/__step312_private__/current/bash",
+          "privileges": "synthetic-reviewed-none",
+          "regular": true,
+          "sha256": "9d80ecefcfc2e8743366d71913314bb3453d56ad8df8c27bcfce690a441a33f1",
+          "version": "synthetic-current-bash"
+        },
+        "env": {
+          "ancestry": "synthetic-reviewed-non-symlink",
+          "content": "synthetic-identity-only:Slackware-current:env\n",
+          "dependencies": [],
+          "format": "elf",
+          "interpreter_role": null,
+          "mode": "synthetic-reviewed-mode",
+          "object": "toy-object-current-3",
+          "owner": "synthetic-reviewed-owner",
+          "path": "/__step312_private__/current/env",
+          "privileges": "synthetic-reviewed-none",
+          "regular": true,
+          "sha256": "265d4f6d4243bff88fb41c30b462e9623c3ef9ab7c512528fcaba1052612f8ff",
+          "version": "synthetic-current-env"
+        },
+        "helper": {
+          "ancestry": "synthetic-reviewed-non-symlink",
+          "content": "synthetic-identity-only:Slackware-current:helper\n",
+          "dependencies": [],
+          "format": "data",
+          "interpreter_role": null,
+          "mode": "synthetic-reviewed-mode",
+          "object": "toy-object-current-7",
+          "owner": "synthetic-reviewed-owner",
+          "path": "/__step312_private__/current/helper",
+          "privileges": "synthetic-reviewed-none",
+          "regular": true,
+          "sha256": "4811e2675b70949b6a5fbd20053c04891de147428be6c12432ccb5b17790a4a1",
+          "version": "synthetic-current-helper"
+        },
+        "reference": {
+          "ancestry": "synthetic-reviewed-non-symlink",
+          "content": "#!/__step312_private__/current/bash\nsynthetic-identity-only:Slackware-current:reference\n",
+          "dependencies": [
+            "adapter"
+          ],
+          "format": "script",
+          "interpreter_role": "bash",
+          "mode": "synthetic-reviewed-mode",
+          "object": "toy-object-current-5",
+          "owner": "synthetic-reviewed-owner",
+          "path": "/__step312_private__/current/reference",
+          "privileges": "synthetic-reviewed-none",
+          "regular": true,
+          "sha256": "2676ad97df0fcc5eac814edfdcd3b4388defadcb28b0768690189407d6a02aac",
+          "version": "synthetic-current-reference"
+        },
+        "slackpkg": {
+          "ancestry": "synthetic-reviewed-non-symlink",
+          "content": "#!/__step312_private__/current/bash\nsynthetic-identity-only:Slackware-current:slackpkg\n",
+          "dependencies": [
+            "helper",
+            "upgradepkg"
+          ],
+          "format": "script",
+          "interpreter_role": "bash",
+          "mode": "synthetic-reviewed-mode",
+          "object": "toy-object-current-0",
+          "owner": "synthetic-reviewed-owner",
+          "path": "/__step312_private__/current/slackpkg",
+          "privileges": "synthetic-reviewed-none",
+          "regular": true,
+          "sha256": "c5f3d79d44038ee2cb01890a87372f0c476c47f0cf03d7043da6c7634b381c26",
+          "version": "synthetic-current-slackpkg"
+        },
+        "unshare": {
+          "ancestry": "synthetic-reviewed-non-symlink",
+          "content": "synthetic-identity-only:Slackware-current:unshare\n",
+          "dependencies": [],
+          "format": "elf",
+          "interpreter_role": null,
+          "mode": "synthetic-reviewed-mode",
+          "object": "toy-object-current-2",
+          "owner": "synthetic-reviewed-owner",
+          "path": "/__step312_private__/current/unshare",
+          "privileges": "synthetic-reviewed-none",
+          "regular": true,
+          "sha256": "5c70b147adfbb915ab6142c8e98e89350593a6a80292ea67642840d26dc15576",
+          "version": "synthetic-current-unshare"
+        },
+        "upgradepkg": {
+          "ancestry": "synthetic-reviewed-non-symlink",
+          "content": "#!/__step312_private__/current/bash\nsynthetic-identity-only:Slackware-current:upgradepkg\n",
+          "dependencies": [],
+          "format": "script",
+          "interpreter_role": "bash",
+          "mode": "synthetic-reviewed-mode",
+          "object": "toy-object-current-1",
+          "owner": "synthetic-reviewed-owner",
+          "path": "/__step312_private__/current/upgradepkg",
+          "privileges": "synthetic-reviewed-none",
+          "regular": true,
+          "sha256": "9ee8d51750a7bc1025208b8c6ae673cd4b3ac2c0f3e27175845207fdb4184ee0",
+          "version": "synthetic-current-upgradepkg"
+        }
+      }
+    },
+    "scope": "toy-known-role-identity-graph-not-actual-Slackware-inventory"
+  },
+  "prohibited_current_effects": [
+    "actual-backend-binary-discovery-read-hash-version-or-execution",
+    "whole-reference-source-or-main-entry",
+    "real-selector-package-namespace-network-or-boot-command",
+    "grant-issuance-or-live-binding-reuse",
+    "old-v2-source-or-run",
+    "cleanup-of-source-history-or-live-state"
+  ],
+  "proof_obligations": [
+    {
+      "id": "absolute-path",
+      "negative_case": "basename-relative-dot-dot-double-slash-control-or-unbound-alternate",
+      "required_evidence": "reviewed-canonical-absolute-path-and-opened-object-proof",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "backend-SHA",
+      "negative_case": "malformed-self-declared-changed-or-other-platform-digest",
+      "required_evidence": "exact-approved-raw-content-SHA-with-platform-and-source-provenance",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "adapter-recursion",
+      "negative_case": "backend-is-adapter-by-path-inode-alias-or-PATH-function",
+      "required_evidence": "distinct-reviewed-objects-and-direct-nonrecursive-backend-dispatch",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "ancestor-and-mount",
+      "negative_case": "symlink-ancestor-magic-link-unreviewed-mount-or-path-replacement",
+      "required_evidence": "stable-reviewed-ancestry-root-and-opened-object-identity",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "type-and-access",
+      "negative_case": "directory-FIFO-socket-device-nonexecutable-or-unreviewed-ACL-capability",
+      "required_evidence": "actual-regular-kind-effective-access-owner-mode-and-privilege-evidence",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "script-interpreter",
+      "negative_case": "changed-shebang-env-PATH-interpreter-or-unknown-option",
+      "required_evidence": "explicit-versioned-interpreter-path-SHA-and-exact-invocation",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "dependencies",
+      "negative_case": "unbound-sourced-helper-filter-config-loader-library-or-subcommand",
+      "required_evidence": "complete-versioned-reachable-source-and-runtime-dependency-closure",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "replacement-race",
+      "negative_case": "hash-approved-path-replaced-before-execution",
+      "required_evidence": "reviewed-same-checked-object-consumption-mechanism",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "content-race",
+      "negative_case": "same-object-bytes-or-dependencies-modified-after-hash",
+      "required_evidence": "writer-exclusion-and-content-stability-through-consumption-not-FD-alone",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "descriptor-policy",
+      "negative_case": "script-FD-CLOEXEC-breaks-launch-or-unreviewed-FD-retained",
+      "required_evidence": "version-specific-script-exec-and311-owned-descriptor-policy-consistency",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "unsupported-platform",
+      "negative_case": "unsupported-syscall-flag-libc-or-missing-identity-binding",
+      "required_evidence": "15-current-version-proof-and-fail-closed-no-alternative-lookup",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "repeat-dispatch",
+      "negative_case": "stale-initial-hash-reused-for-nested-predecessor-or-restore",
+      "required_evidence": "same-transaction-recheck-all-stages-with-latched-original-failure",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "semantic-separation",
+      "negative_case": "backend-SHA-promoted-to-selector-transport-or-grant-proof",
+      "required_evidence": "310-selector311-containment-and-fresh-authority-proof-remain-separate",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "evidence-and-authority",
+      "negative_case": "synthetic-identities-promoted-to-actual-binding-or-conformance",
+      "required_evidence": "finite-private-scope-live-slots-null-no-dispatch-authority",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    }
+  ],
+  "proof_state": {
+    "actual_backend_identity_observed": false,
+    "actual_backend_identity_proven": false,
+    "actual_backend_payload_available": false,
+    "actual_dependency_closure_proven": false,
+    "actual_namespace_created": false,
+    "actual_selector_equivalence_proven": false,
+    "actual_slackpkg_selector_executed": false,
+    "actual_transport_executed": false,
+    "execution_race_closed": false,
+    "operational_capability_complete": false,
+    "operational_conformance": false,
+    "operational_readiness": false,
+    "private_identity_fixture_only": true,
+    "production_entry_closed": true,
+    "real_reference_main_entered": false,
+    "requirements_review_complete": true,
+    "static_design_binding": true
+  },
+  "requirements": {
+    "SHA_is_identity_not_grant_or_semantic_selector_equivalence": true,
+    "actual_regular_type_owner_mode_ACL_capability_and_access_evidence_required": true,
+    "adapter_calls_direct_bound_backend_never_itself_or_PATH_recursion": true,
+    "all_exact_argv_stream_raw_status_and_failure_latch_guards_from310_preserved": true,
+    "basename_version_package_label_or_which_is_not_identity_proof": true,
+    "canonical_absolute_reviewed_backend_path_and_exact_SHA_required": true,
+    "complete_dependency_inventory_must_come_from_actual_versioned_backend_source": true,
+    "content_and_dependency_write_exclusion_required_through_consumption": true,
+    "current_backend_versions_paths_SHA_and_dependency_graph_remain_null": true,
+    "hash_then_pathname_exec_replacement_race_must_be_closed": true,
+    "hashes_from_approved_manifest_not_self_declared_current_bytes": true,
+    "launcher_env_interpreter_pkgtools_and_all_reachable_helpers_in_identity_inventory": true,
+    "leaf_no_follow_alone_does_not_prove_all_ancestors": true,
+    "metadata_digest_dependency_or_path_drift_latches_and_stops_no_rebind": true,
+    "namespace_environment_descriptor_and_quiescence_requirements_from311_preserved": true,
+    "newest_documentation_flags_not_assumed_available_on15_or_current": true,
+    "no_backend_or_selector_or_identity_probe_execution_authorized_by312": true,
+    "no_unreviewed_env_shebang_interpreter_search_or_shell_fallback": true,
+    "one_primary_SHA_does_not_bind_all_runtime_dependencies": true,
+    "openat2_fexecve_or_equivalent_mechanism_requires_actual_platform_review": true,
+    "owner_policy_binding_separate316_and_writer_serialization_separate313": true,
+    "per_platform_backends_interpreters_dependencies_versions_and_semantics_separately_bound": true,
+    "regular_file_opened_object_and_canonical_ancestry_must_be_verified": true,
+    "repeat_identity_checks_before_each_refresh_apply_nested_predecessor_restore_dispatch": true,
+    "retained_descriptor_does_not_prevent_in_place_content_modification": true,
+    "same_checked_object_and_content_consumed_at_dispatch_required": true,
+    "script_descriptor_and_close_on_exec_semantics_must_be_reviewed_with311_FD_policy": true,
+    "script_interpreter_shebang_and_explicit_interpreter_argv_reviewed": true,
+    "source_helpers_configs_filters_and_dynamic_loader_dependency_closure_required": true,
+    "unreviewed_symlink_magic_link_mount_transition_and_object_alias_rejected": true,
+    "unsupported_identity_mechanism_rejects_no_degraded_lookup_or_retry": true
+  },
+  "review_status": "PASS",
+  "reviewed_requirements_not_frozen": true,
+  "schema": 1,
+  "scope": "separate-absolute-backend-path-and-SHA-requirements-review-only",
+  "step": 312
+}

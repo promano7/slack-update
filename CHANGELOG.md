@@ -1,3 +1,14 @@
+## Phase 1 step312 — absolute backend identity requirements review — 2026-10-04
+
+- Confirmed311:390008b prefix only, full366 PASS, first push succeeded, chained empty short status and matching HEAD/origin. Full commit ID unknown; no independent host/GitHub inspection. Preserve original return and immutable prepared311 wording externally.
+- Preserve1379 accepted artifacts and exact CHANGELOG suffix; add ten requirements/policy/receipt/role/proof/test artifacts, prepared snapshot1389. Candidate/reference/freeze/history untouched. Full366 predecessor suite reruns exact1379 snapshot with286/280/324 nested unchanged.
+- Review third dependency only: canonical absolute backend/SHA from approved manifest, distinct adapter/backend objects, direct nonrecursive resolution, exact argv and no PATH/env-shebang/shell fallback. Include launcher/interpreter/pkgtools and actual complete helper/config/filter/loader/library closure; one primary SHA is insufficient.
+- Bind bytes consumed, not just an earlier pathname hash. Checked object, stable ancestry/mount context and content/dependency writer exclusion must close replacement and in-place modification races. Retained FD alone does not ensure content stability. Script interpreter and close-on-exec behavior require version-specific review consistent with311 descriptor policy.
+- Preserve all frozen symbolic templates; newer openat2/fexecve mechanisms are review candidates only, not implemented or assumed compatible. Recheck every refresh/apply/nested/predecessor/restore dispatch; drift latches failure without rehash/rebind/degraded lookup/retry. Actual paths/SHA/version/dependency/owner bindings remain null.
+- Current proof is typed toy identity/graph admission plus static accepted design and unchanged historical suites. No actual backend discovery/read/hash/version/execute or live observation. Fixture success returns no dispatch, identity, dependency closure, race closure or operational conformance authority. Actual selector equivalence remains false.
+- Four further requirement reviews313–316 separate. All seven operational dependencies still require implementation/conformance/fresh authority. V2 never sourced/run; mandatory private coverage preserved. Prepared312 checkpoint pending; next313 writer serialization only after complete user application/tests/commit/push/clean-tree return.
+- Route309–318 unchanged;319–320 reserve ungranted. No new strong pause or machine/controller action. Historical308 valid, Phase1/kernel-package-edge incomplete, Phase2/production closed.
+
 ## Phase 1 step311 — namespace transport and no-fallback requirements review — 2026-10-04
 
 - Confirmed310:d848166 prefix only, complete286 PASS, first push succeeded, chained empty short status and matching HEAD/origin. No independent target/GitHub inspection; full ID unknown. Preserve immutable prepared310 wording and original return externally.
