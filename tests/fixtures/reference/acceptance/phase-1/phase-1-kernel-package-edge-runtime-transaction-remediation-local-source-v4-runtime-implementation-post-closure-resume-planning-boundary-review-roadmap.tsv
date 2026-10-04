@@ -1,0 +1,11 @@
+step	stage	scope	capability	machine_authority	conditional_pause_candidate
+309	phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-implementation-post-closure-resume-planning-boundary-review	resume-planning	-	no	no
+310	phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-reference-integration-and-selector-requirements-review	separate-capability-requirements-review	real-reference-integration-and-selector-equivalence	no	no
+311	phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-namespace-transport-and-no-fallback-requirements-review	separate-capability-requirements-review	namespace-command-transport-and-no-fallback	no	no
+312	phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-absolute-backend-identity-requirements-review	separate-capability-requirements-review	absolute-backend-path-and-SHA	no	no
+313	phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-platform-writer-serialization-requirements-review	separate-capability-requirements-review	reviewed-platform-writer-serialization	no	no
+314	phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-fresh-single-use-grant-requirements-review	separate-capability-requirements-review	fresh-single-use-grant-source-target-predecessor-and-boot	no	no
+315	phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-real-source-and-archive-revalidation-requirements-review	separate-capability-requirements-review	real-source-and-archive-revalidation	no	no
+316	phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-owner-and-publication-path-requirements-review	separate-capability-requirements-review	operational-owner-and-publication-path-bindings	no	no
+317	phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-requirements-effects-and-authority-closure-review	cross-dependency-effects-and-authority-closure-review	-	no	no
+318	phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-requirements-freeze-and-strong-safe-pause	requirements-freeze-and-conditional-strong-pause	-	no	yes
