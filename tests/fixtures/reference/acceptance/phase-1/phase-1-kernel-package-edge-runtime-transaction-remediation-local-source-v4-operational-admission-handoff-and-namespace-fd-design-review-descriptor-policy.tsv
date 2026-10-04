@@ -1,0 +1,5 @@
+role	object	origin	allowed_lifetime	service_reachability
+stdin-stdout-stderr	bounded-pipe	reviewed-isolated-stream	command-stream	denied
+retained-code	bound-read-only-file	reviewed-code-object	until-reviewed-consumption-then-close-before-unreviewed-helper	denied
+bootstrap	read-only-one-way-pipe	external-service-to-supervisor-memory	stage0-only-close-before-command	never-in-backend
+service-or-unknown	any	any	none	denied

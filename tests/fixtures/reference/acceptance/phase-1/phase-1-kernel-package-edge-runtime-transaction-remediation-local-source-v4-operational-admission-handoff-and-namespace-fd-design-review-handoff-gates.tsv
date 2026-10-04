@@ -1,0 +1,12 @@
+gate	status	actual_proof
+receipt_authenticated	required-before-command	not-proven
+exact_original_context	required-before-command	not-proven
+independent_launch_origin	required-before-command	not-proven
+within_input_bound	required-before-command	not-proven
+complete_EOF_before_deadline	required-before-command	not-proven
+bootstrap_closed	required-before-command	not-proven
+worker_traps_armed	required-before-command	not-proven
+guarded_fresh_baseline	required-before-command	not-proven
+all_child_descriptors_reviewed	required-before-command	not-proven
+namespace_transport_reviewed	required-before-command	not-proven
+no_host_fallback	required-before-command	not-proven
