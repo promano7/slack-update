@@ -1,3 +1,12 @@
+## Phase 1 step327 — scoped effects obligations and rights crossclosure review — 2026-10-04
+
+- Confirmed326 prefixaae7c8b, complete ordered3404 PASS, first push successful, clean tree and matching HEAD/origin. Original247354-byte return preserved, full ID unknown. Prepared326 metadata/flags/history/evidence unchanged;318 remains last confirmed strong pause.
+- Preserve1521 accepted files except additive CHANGELOG; nine new artifacts. Full3404 predecessor and all nested history exact. Cross-index30 designed effects/every325 edge/seven capabilities/ten obligations/42 immutable320–326 future proofs/nine rights windows/52 required-not-run platform cases.
+- Distinguish issuer own policy, authenticated known-unused admission, consumed same-attempt launch/bootstrap/service/worker/nested, finite original retained recovery and separate captured-data publication. No new grant per call/receipt, forward renewal, replay/relaunch/repin/reacquire/wrong-boot restore or target refresh after release.
+- Reconcile inherited blocker design dispositions without rewriting or waiving any frozen proof: service own barrier before ledger, worker stage0 no ledger effects, offline no-broker handoff, stage1/outerguard/freshoriginal barrier, explicit successor stage7 owned effects. Actual graph/entry/fence/native protocols/selectors/writers remain unselected/unproven.
+- Drain/full original verification/target evidence before release; separate record/last receipt origin/durability/handoff. Unknown partial outcomes retain artifacts/original status/pending scope. Complete private index never actual effects/obligations/rights closure, global absence, readiness or new authorization.
+- All42 inherited and four new future proofs/seven capabilities/ten obligations required-not-proven;52 independent cases not run, actual host/live bindings null/unobserved. Current repository/private delivery no new machine/controller cleanup.327 user application/commit/push pending;328 conditional scoped repository integration-design freeze/pause after accepted return. Production/Phase2 closed; Phase1/kernel incomplete.
+
 ## Phase 1 step326 — finite failure model and independent conformance plan review — 2026-10-04
 
 - Confirmed325 prefix0c5caa7, complete ordered1004 PASS, first successful push, clean tree and matching HEAD/origin. Original86575-byte return preserved; full ID unknown; prepared325 flags and failed development logs unchanged.318 remains last confirmed strong pause.
