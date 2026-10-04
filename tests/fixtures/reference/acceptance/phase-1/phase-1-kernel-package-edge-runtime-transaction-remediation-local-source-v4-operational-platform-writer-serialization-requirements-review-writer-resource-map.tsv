@@ -1,0 +1,8 @@
+domain	resources	writers	evidence	status
+package-database	/var/lib/pkgtools/packages;/var/log/packages	direct-pkgtools;Slackpkg;wrappers;manual-package-writes	actual-alias-object-writer-entrypoint-and-protocol-map	required-not-live-bound
+Slackpkg-state	/var/lib/slackpkg;derived-TEMP-WORKDIR	refresh;check-updates;apply;scheduled-wrapper;state-cleanup	actual-backend-state-and-refresh-writer-exclusion	required-not-live-bound
+configuration-and-mirrors	/etc/slackpkg/mirrors;/etc/slackpkg/slackpkg.conf;derived-config	package-config-scripts;manual-editor;restore;configuration-manager	complete-mutation-window-and-owner-entrypoint-control	required-not-live-bound
+boot-and-GenInitrd	/boot;/etc/default/geninitrd	kernel-package-scripts;boot-tools;GenInitrd;manual-config;restore	all-reachable-boot-config-writers-and-restore-exclusion	required-not-live-bound
+source-and-archives	fresh-local-source-tree;manifest;target;predecessor;baseline-archives	builder;staging;cleanup;package-source-edit	source-and-archive-content-stability-through-consumption	required-not-live-bound
+backend-and-dependencies	approved-launcher-interpreter-backend-and-all-runtime-dependencies	platform-updater;package-replacement;manual-payload-edit	312-complete-content-dependency-writer-exclusion	required-not-live-bound
+transaction-owned-state	owned-work-backup-binding-evidence-and-restore-paths	owned-supervisor;owned-adapters;owned-children;foreign-overlap	only-reviewed-owned-writers-and-exclusive-path-bindings316	required-not-live-bound

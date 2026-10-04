@@ -1,0 +1,15 @@
+id	negative_case	required_evidence	scope	status
+inventory	missing-manual-scheduled-direct-helper-or-privileged-writer	actual-versioned-entrypoint-and-resource-overlap-inventory	future-operational-conformance-not-executed	required-not-proven
+noncooperation	writer-ignores-private-or-advisory-lock	reviewed-common-protocol-or-controlled-entrypoint-exclusion	future-operational-conformance-not-executed	required-not-proven
+future-admission	empty-process-scan-followed-by-new-writer	prevent-unreviewed-writer-start-for-entire-window	future-operational-conformance-not-executed	required-not-proven
+protocol-identity	different-inode-range-filesystem-or-incompatible-lock-API	same-reviewed-lock-object-and-actual-interoperability-proof	future-operational-conformance-not-executed	required-not-proven
+capture-window	baseline-read-before-exclusion-or-stale-preflight-reused	acquire-first-then-fresh-capture-and-revalidation	future-operational-conformance-not-executed	required-not-proven
+full-mutation-window	unlock-between-refresh-predecessor-nested-apply-or-restore	continuous-owned-exclusion-across-all-guarded-stages	future-operational-conformance-not-executed	required-not-proven
+child-quiescence	restore-release-or-receipt-with-live-descendant	owned-signal-wait-drain-before-restore-and-release	future-operational-conformance-not-executed	required-not-proven
+owner-failure	supervisor-dies-releasing-guard-while-child-keeps-writing	reviewed-failure-containment-guaranteeing-no-unexcluded-survivor	future-operational-conformance-not-executed	required-not-proven
+descriptor-control	reference-FD9-overwrites-or-child-unlocks-outer-guard	distinct-supervisor-owned-guard-handle-and311-FD-policy-proof	future-operational-conformance-not-executed	required-not-proven
+content-stability	backend-source-archive-or-dependency-writer-not-covered	312-object-content-stability-and315-source-use-window-exclusion	future-operational-conformance-not-executed	required-not-proven
+guard-drift	unlink-recreate-stale-PID-force-unlock-lost-lock	stable-object-lifetime-stop-no-cleanup-force-or-rebind	future-operational-conformance-not-executed	required-not-proven
+native-lock-order	unknown-backend-lock-order-recursive-self-conflict-or-deadlock	versioned-native-lock-and-acquisition-order-review	future-operational-conformance-not-executed	required-not-proven
+release-publication	target-write-after-release-or-last-receipt-before-effect-closure	baseline-verify-target-evidence-close-release-external-receipt-last	future-operational-conformance-not-executed	required-not-proven
+evidence-authority	toy-schedule-promoted-to-live-platform-serialization	private-finite-scope-operational-slots-null-no-dispatch-grant	future-operational-conformance-not-executed	required-not-proven

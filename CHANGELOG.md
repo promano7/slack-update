@@ -1,3 +1,15 @@
+## Phase 1 step313 — platform writer serialization requirements review — 2026-10-04
+
+- Confirmed312:95c3006 prefix only, full590 PASS, first push succeeded, chained empty short status and matching HEAD/origin. Full commit ID unknown, no independent host/GitHub inspection. Preserve original return and immutable prepared312 wording externally.
+- Preserve1389 accepted artifacts and exact CHANGELOG suffix; add ten requirements/policy/receipt/resource/proof/test artifacts, prepared snapshot1399. Full590 predecessor suite reruns exact1389 snapshot with366/286/280/324 nested unchanged. Reference/candidate/freeze/history untouched.
+- Review fourth dependency only. Exact reference FD9 flock instance guard is not platform exclusion. Need actual versioned writer/resource/entrypoint and native lock inventory for15/current, compatible common lock protocol or controlled exclusion of every overlapping nonparticipant. Empty process scan/preflight cannot prevent future writers.
+- Acquire owned stable exclusion before fresh baseline capture and mutation revalidation; retain through predecessor/refresh/apply/nested calls, owned child wait/drain, restoration verification and target evidence closure. Release only after guarded effects close, no target writes afterward; external last receipt uses captured data after guard closure.
+- Review actual lock object/range/mount/API interoperability, native lock order and reentrancy. Different lock names, PID files, flock/fcntl or private locks do not imply compatibility. Drift/contention/loss rejects with failure latch, no force unlock/unlink/stale-PID cleanup/rebind/retry.
+- Outer guard must be distinct from reference FD9 and not child-unlockable. Descriptor ownership/lifetime and supervisor failure must prevent unexcluded surviving children. Preserve311 containment/FD/quiescence and312 object/content stability; source/backend/helper/config/boot writers require coverage, owner/grant bindings remain separate314–316.
+- Current proof is pure typed finite toy writer/resource/event schedule plus static bound lock slices and unchanged historical acceptance. No real lock/process/service/writer probe or action, backend/target operation or live observation. Fixture success yields no real serialization/protocol/grant/conformance; all operational slots null.
+- Three further requirement reviews314–316 remain separate; all seven operational dependencies still need implementation/conformance/fresh authority. V2 never sourced/run, mandatory private coverage unchanged. Prepared313 user checkpoint pending, next314 only after complete application/tests/commit/push/clean-tree return.
+- Route309–318 unchanged,319–320 reserve ungranted. No new strong pause/machine/controller action. Historical308 valid, Phase1/kernel-package-edge incomplete, Phase2/production closed.
+
 ## Phase 1 step312 — absolute backend identity requirements review — 2026-10-04
 
 - Confirmed311:390008b prefix only, full366 PASS, first push succeeded, chained empty short status and matching HEAD/origin. Full commit ID unknown; no independent host/GitHub inspection. Preserve original return and immutable prepared311 wording externally.

@@ -1,0 +1,417 @@
+{
+  "blockers": [
+    "actual15-current-writer-and-native-lock-inventory-absent",
+    "common-protocol-or-entrypoint-exclusion-not-operationally-bound",
+    "owner-failure-and-child-quiescence-guarantee-not-implemented",
+    "three-further-capabilities-require-separate-reviews",
+    "operational-implementation-and-conformance-not-run"
+  ],
+  "candidate_sha256_bindings": {
+    "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-failure-coverage-review-private.py": "04782004cb683563a9a7ca8522d808686db359f7117e0c9355de189b088c39a4",
+    "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-failure-coverage-candidate-private.py": "9c6bf6d82a15eef3eb74ae8e3aa7ccfbff46af07ec0c105f6c2db4fa5402d7e4",
+    "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-failure-coverage-candidate.sh": "d861b551c1197b3d83c3535741d8cca5011294b5ea0c8a27d80fd686aa489939"
+  },
+  "capability": "reviewed-platform-writer-serialization",
+  "freeze_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-freeze-freeze.json",
+  "immutable_design_facts": {
+    "command_templates": {
+      "apply": [
+        "unshare",
+        "-n",
+        "--",
+        "env",
+        "-i",
+        "PATH=<owned-adapters>:<reviewed-system-path>",
+        "LC_ALL=C",
+        "SLACK_UPDATE_CONFIG=<derived-config>",
+        "bash",
+        "<verified-reference>",
+        "--apply",
+        "--json"
+      ],
+      "predecessor": [
+        "upgradepkg",
+        "<verified-predecessor-path>"
+      ],
+      "refresh": [
+        "unshare",
+        "-n",
+        "--",
+        "<reviewed-real-slackpkg>",
+        "-batch=on",
+        "-default_answer=y",
+        "update"
+      ],
+      "restore_header": [
+        "upgradepkg",
+        "--install-new",
+        "<verified-baseline-target>"
+      ],
+      "template_scope": "design-data-only-no-eval-source-or-execution-in302"
+    },
+    "freeze_sha256": "3b1c489d903fabe66e14acd43416eae075feb44923a1314a316e7a2c38997f41",
+    "function_slices": {
+      "acquire_instance_lock": {
+        "end_line": 2140,
+        "sha256": "ece5bbeba936abd074563740080b312f11064a3b2e2f856222ca2ced2aaee6f7",
+        "start_line": 2121
+      },
+      "main": {
+        "end_line": 6633,
+        "sha256": "f130236d36ec27475789b7c65ca252ca33529e91d90f2e3206a9e3fc186980da",
+        "start_line": 6558
+      },
+      "release_instance_lock": {
+        "end_line": 2149,
+        "sha256": "9789126423a6eee16a26313d2ec015b43172129b7486ea3dbc3d07e174b8026e",
+        "start_line": 2142
+      }
+    },
+    "production_paths": {
+      "boot": "/boot",
+      "geninitrd": "/etc/default/geninitrd",
+      "mirrors": "/etc/slackpkg/mirrors",
+      "package_database": "/var/lib/pkgtools/packages",
+      "package_database_compat": "/var/log/packages",
+      "slackpkg_conf": "/etc/slackpkg/slackpkg.conf",
+      "slackpkg_state": "/var/lib/slackpkg"
+    },
+    "reference_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415",
+    "writer_preflight_design": {
+      "backend_paths_hashes_and_platform_lock_bindings": null,
+      "concurrent_package_configuration_writers": "must-be-excluded-by-later-reviewed-grant-and-platform-lock-binding-no-claim-from-private-reference-lock",
+      "new_grant_required": true,
+      "no_actual_operational_observation": true,
+      "old_boot_or_grant_substitution_forbidden": true,
+      "pre_mutation_capture": "bounded-in-memory-full-streams-or-fail-closed-no-complete-evidence-claim-on-overflow",
+      "same_grant_boot_rechecked_before_each_production_write_and_apply": true
+    }
+  },
+  "mandatory_private_tests": [
+    "each-stage-failure",
+    "catchable-signals",
+    "uncatchable-loss-null-status",
+    "cleanup-idempotence",
+    "cleanup-failure-original-status",
+    "failed-backup-before-production-write",
+    "nested-reference-refresh-pkglist-drift",
+    "adapter-unknown-argv",
+    "publication-partial-receipt",
+    "source-and-history-preservation"
+  ],
+  "operational_writer_bindings": {
+    "actual_common_lock_protocol": null,
+    "actual_entrypoint_controls": null,
+    "actual_filesystem_and_mount_semantics": null,
+    "actual_guard_path_object_and_owner": null,
+    "actual_lock_acquisition_and_lifetime": null,
+    "actual_native_backend_lock_order": null,
+    "actual_outer_guard_descriptor_policy": null,
+    "actual_owner_failure_containment": null,
+    "actual_resource_alias_map": null,
+    "actual_restore_release_receipt_evidence": null,
+    "actual_writer_inventory": null
+  },
+  "other_deferred_capabilities": [
+    "fresh-single-use-grant-source-target-predecessor-and-boot",
+    "real-source-and-archive-revalidation",
+    "operational-owner-and-publication-path-bindings"
+  ],
+  "permitted_current_effects": [
+    "repository-review-metadata-and-private-temp-evidence",
+    "bound-static-reference-lock-and-template-inspection",
+    "pure-synthetic-writer-schedule-admission"
+  ],
+  "previously_reviewed_requirements": [
+    "real-reference-integration-and-selector-equivalence",
+    "namespace-command-transport-and-no-fallback",
+    "absolute-backend-path-and-SHA"
+  ],
+  "primary_documentation": [
+    {
+      "target_version_proven": false,
+      "topic": "advisory-open-description-lifetime-and-filesystem-specific-interaction",
+      "url": "https://man7.org/linux/man-pages/man2/flock.2.html"
+    },
+    {
+      "target_version_proven": false,
+      "topic": "distinct-record-lock-lifetime-and-advisory-cooperation",
+      "url": "https://man7.org/linux/man-pages/man2/fcntl_locking.2.html"
+    },
+    {
+      "target_version_proven": false,
+      "topic": "version-sensitive-wrapper-FD-and-child-lifetime",
+      "url": "https://man7.org/linux/man-pages/man1/flock.1.html"
+    }
+  ],
+  "prior_review_sha256": "b23906d94ad0111daf310cf563ad056020ec4066e14b341bec7bf6e0ae28dd26",
+  "private_fixture_specification": {
+    "blocked_writers": [
+      "direct_pkgtools",
+      "manual_config",
+      "scheduled_refresh",
+      "payload_replacement"
+    ],
+    "dispatch_stages": [
+      "predecessor",
+      "initial-refresh",
+      "apply-entry",
+      "nested-update",
+      "install-new",
+      "upgrade-all"
+    ],
+    "domain_bindings": {
+      "Slackpkg-state": "synthetic-owned-domain:Slackpkg-state",
+      "backend-and-dependencies": "synthetic-owned-domain:backend-and-dependencies",
+      "boot-and-GenInitrd": "synthetic-owned-domain:boot-and-GenInitrd",
+      "configuration-and-mirrors": "synthetic-owned-domain:configuration-and-mirrors",
+      "package-database": "synthetic-owned-domain:package-database",
+      "source-and-archives": "synthetic-owned-domain:source-and-archives",
+      "transaction-owned-state": "synthetic-owned-domain:transaction-owned-state"
+    },
+    "guard": {
+      "acquired_nonblocking": true,
+      "all_entrypoints_controlled": true,
+      "ancestry": "synthetic-reviewed-stable",
+      "child_cannot_unlock": true,
+      "contention": false,
+      "native_lock_order": "synthetic-reviewed-order",
+      "object": "synthetic-stable-guard-object",
+      "outer_FD_distinct_from_reference9": true,
+      "owner": "synthetic-outer-owner",
+      "owner_failure_containment": "synthetic-no-unexcluded-survivor",
+      "protocol": "synthetic-exclusive-protocol"
+    },
+    "scope": "finite-toy-resource-writer-and-event-model-not-native-platform-protocol",
+    "writers": {
+      "direct_pkgtools": "synthetic-admission-blocked",
+      "manual_config": "synthetic-admission-blocked",
+      "owned_adapter": "synthetic-guarded",
+      "owned_backend_child": "synthetic-supervised-guarded",
+      "owned_supervisor": "synthetic-guarded",
+      "payload_replacement": "synthetic-admission-blocked",
+      "scheduled_refresh": "synthetic-admission-blocked"
+    }
+  },
+  "prohibited_current_effects": [
+    "actual-lock-acquisition-unlock-or-force-removal",
+    "host-process-writer-service-cron-or-lock-probe",
+    "stop-start-disable-or-kill-any-real-writer",
+    "whole-reference-source-main-or-real-backend-package-command",
+    "actual-network-namespace-config-boot-or-package-write",
+    "grant-issuance-or-live-binding-reuse",
+    "old-v2-source-or-run",
+    "cleanup-of-source-history-or-live-state"
+  ],
+  "proof_obligations": [
+    {
+      "id": "inventory",
+      "negative_case": "missing-manual-scheduled-direct-helper-or-privileged-writer",
+      "required_evidence": "actual-versioned-entrypoint-and-resource-overlap-inventory",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "noncooperation",
+      "negative_case": "writer-ignores-private-or-advisory-lock",
+      "required_evidence": "reviewed-common-protocol-or-controlled-entrypoint-exclusion",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "future-admission",
+      "negative_case": "empty-process-scan-followed-by-new-writer",
+      "required_evidence": "prevent-unreviewed-writer-start-for-entire-window",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "protocol-identity",
+      "negative_case": "different-inode-range-filesystem-or-incompatible-lock-API",
+      "required_evidence": "same-reviewed-lock-object-and-actual-interoperability-proof",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "capture-window",
+      "negative_case": "baseline-read-before-exclusion-or-stale-preflight-reused",
+      "required_evidence": "acquire-first-then-fresh-capture-and-revalidation",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "full-mutation-window",
+      "negative_case": "unlock-between-refresh-predecessor-nested-apply-or-restore",
+      "required_evidence": "continuous-owned-exclusion-across-all-guarded-stages",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "child-quiescence",
+      "negative_case": "restore-release-or-receipt-with-live-descendant",
+      "required_evidence": "owned-signal-wait-drain-before-restore-and-release",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "owner-failure",
+      "negative_case": "supervisor-dies-releasing-guard-while-child-keeps-writing",
+      "required_evidence": "reviewed-failure-containment-guaranteeing-no-unexcluded-survivor",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "descriptor-control",
+      "negative_case": "reference-FD9-overwrites-or-child-unlocks-outer-guard",
+      "required_evidence": "distinct-supervisor-owned-guard-handle-and311-FD-policy-proof",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "content-stability",
+      "negative_case": "backend-source-archive-or-dependency-writer-not-covered",
+      "required_evidence": "312-object-content-stability-and315-source-use-window-exclusion",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "guard-drift",
+      "negative_case": "unlink-recreate-stale-PID-force-unlock-lost-lock",
+      "required_evidence": "stable-object-lifetime-stop-no-cleanup-force-or-rebind",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "native-lock-order",
+      "negative_case": "unknown-backend-lock-order-recursive-self-conflict-or-deadlock",
+      "required_evidence": "versioned-native-lock-and-acquisition-order-review",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "release-publication",
+      "negative_case": "target-write-after-release-or-last-receipt-before-effect-closure",
+      "required_evidence": "baseline-verify-target-evidence-close-release-external-receipt-last",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    },
+    {
+      "id": "evidence-authority",
+      "negative_case": "toy-schedule-promoted-to-live-platform-serialization",
+      "required_evidence": "private-finite-scope-operational-slots-null-no-dispatch-grant",
+      "scope": "future-operational-conformance-not-executed",
+      "status": "required-not-proven"
+    }
+  ],
+  "proof_state": {
+    "actual_backend_identity_proven": false,
+    "actual_lock_acquired": false,
+    "actual_lock_protocol_proven": false,
+    "actual_namespace_created": false,
+    "actual_selector_equivalence_proven": false,
+    "actual_slackpkg_selector_executed": false,
+    "actual_transport_executed": false,
+    "actual_writer_inventory_observed": false,
+    "execution_race_closed": false,
+    "operational_capability_complete": false,
+    "operational_conformance": false,
+    "operational_readiness": false,
+    "owner_failure_containment_proven": false,
+    "platform_writer_exclusion_proven": false,
+    "private_schedule_fixture_only": true,
+    "production_entry_closed": true,
+    "real_reference_main_entered": false,
+    "requirements_review_complete": true,
+    "static_reference_lock_binding": true
+  },
+  "requirements": {
+    "15_current_filesystem_tool_versions_and_writer_controls_require_separate_evidence": true,
+    "310_status_selector_and311_containment_guards_preserved_separately": true,
+    "312_checked_object_content_stability_depends_on_complete_writer_exclusion": true,
+    "actual_common_lock_protocol_object_range_and_filesystem_semantics_required": true,
+    "actual_versioned_writer_inventory_and_resource_overlap_required_for_each_platform": true,
+    "advisory_lock_success_does_not_block_uncooperative_writes": true,
+    "all_writer_entrypoints_must_cooperate_or_be_prevented_by_reviewed_admission_control": true,
+    "descriptor_inheritance_close_unlock_and_owner_crash_semantics_reviewed_with311": true,
+    "direct_pkgtools_Slackpkg_wrappers_scripts_manual_and_scheduled_writers_covered": true,
+    "empty_process_scan_or_preflight_is_not_future_writer_exclusion": true,
+    "exclusive_stable_guard_owned_by_outer_supervisor_before_baseline_capture": true,
+    "external_receipt_commits_last_from_captured_data_after_guard_closure": true,
+    "flock_fcntl_PID_file_and_lock_path_names_not_assumed_interoperable": true,
+    "fresh_preflight_and_binding_rechecked_under_held_exclusion_before_mutation": true,
+    "hold_exclusion_through_refresh_predecessor_apply_nested_calls_and_restoration": true,
+    "hold_through_owned_child_wait_drain_baseline_verification_and_target_evidence_closure": true,
+    "lock_acquisition_observation_distinct_from_authority_and_source_owner_bindings": true,
+    "lock_contention_loss_unverifiable_handle_or_unsupported_protocol_latches_stop": true,
+    "lock_guard_ancestry_object_lifetime_and_mount_context_must_remain_stable": true,
+    "nested_backend_native_locks_order_and_reentrancy_must_be_reviewed": true,
+    "no_actual_lock_process_service_or_writer_probe_in313": true,
+    "no_deadlock_free_or_native_pkgtools_lock_behavior_assumed_without_payload_source": true,
+    "no_force_unlock_unlink_stale_PID_cleanup_or_rebind_retry": true,
+    "no_guarded_target_write_after_release_or_external_receipt": true,
+    "outer_guard_FD_not_reference_FD9_and_not_unlockable_by_untrusted_child": true,
+    "owner_failure_must_not_release_exclusion_while_owned_writers_survive": true,
+    "package_DB_compat_path_alias_and_mount_context_must_resolve_same_guarded_domain": true,
+    "private_reference_lock_does_not_replace_actual_backend_lock_inventory": true,
+    "reference_instance_lock_is_not_platform_writer_exclusion": true,
+    "release_only_after_all_guarded_effects_and_children_closed": true,
+    "source_archive_backend_dependency_and_configuration_writers_covered": true,
+    "unknown_or_nonparticipating_writer_without_exclusion_proof_rejects": true
+  },
+  "review_status": "PASS",
+  "reviewed_requirements_not_frozen": true,
+  "schema": 1,
+  "scope": "separate-platform-writer-serialization-requirements-review-only",
+  "step": 313,
+  "writer_resource_map": [
+    {
+      "domain": "package-database",
+      "evidence": "actual-alias-object-writer-entrypoint-and-protocol-map",
+      "resources": "/var/lib/pkgtools/packages;/var/log/packages",
+      "status": "required-not-live-bound",
+      "writers": "direct-pkgtools;Slackpkg;wrappers;manual-package-writes"
+    },
+    {
+      "domain": "Slackpkg-state",
+      "evidence": "actual-backend-state-and-refresh-writer-exclusion",
+      "resources": "/var/lib/slackpkg;derived-TEMP-WORKDIR",
+      "status": "required-not-live-bound",
+      "writers": "refresh;check-updates;apply;scheduled-wrapper;state-cleanup"
+    },
+    {
+      "domain": "configuration-and-mirrors",
+      "evidence": "complete-mutation-window-and-owner-entrypoint-control",
+      "resources": "/etc/slackpkg/mirrors;/etc/slackpkg/slackpkg.conf;derived-config",
+      "status": "required-not-live-bound",
+      "writers": "package-config-scripts;manual-editor;restore;configuration-manager"
+    },
+    {
+      "domain": "boot-and-GenInitrd",
+      "evidence": "all-reachable-boot-config-writers-and-restore-exclusion",
+      "resources": "/boot;/etc/default/geninitrd",
+      "status": "required-not-live-bound",
+      "writers": "kernel-package-scripts;boot-tools;GenInitrd;manual-config;restore"
+    },
+    {
+      "domain": "source-and-archives",
+      "evidence": "source-and-archive-content-stability-through-consumption",
+      "resources": "fresh-local-source-tree;manifest;target;predecessor;baseline-archives",
+      "status": "required-not-live-bound",
+      "writers": "builder;staging;cleanup;package-source-edit"
+    },
+    {
+      "domain": "backend-and-dependencies",
+      "evidence": "312-complete-content-dependency-writer-exclusion",
+      "resources": "approved-launcher-interpreter-backend-and-all-runtime-dependencies",
+      "status": "required-not-live-bound",
+      "writers": "platform-updater;package-replacement;manual-payload-edit"
+    },
+    {
+      "domain": "transaction-owned-state",
+      "evidence": "only-reviewed-owned-writers-and-exclusive-path-bindings316",
+      "resources": "owned-work-backup-binding-evidence-and-restore-paths",
+      "status": "required-not-live-bound",
+      "writers": "owned-supervisor;owned-adapters;owned-children;foreign-overlap"
+    }
+  ]
+}
