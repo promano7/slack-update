@@ -1,0 +1,11 @@
+case	modeled_consumed	modeled_worker_invocation	modeled_quarantine	modeled_machine_pending	modeled_controller_pending
+unauthenticated-request	no	no	no	no	no
+authenticated-binding-mismatch	yes	no	no	no	no
+claim-durability-unknown	null	no	yes	no	yes
+claim-committed-ack-lost	yes	no	yes	no	yes
+launch-slot-durability-unknown	yes	no	yes	no	yes
+launch-slot-spent-crash-before-spawn	yes	no	yes	no	yes
+spawn-outcome-unknown	yes	yes	yes	yes	yes
+worker-preflight-failed	yes	yes	no	no	no
+worker-stage0-passed	yes	yes	no	no	no
+worker-stage1-traps-armed	yes	yes	no	no	no

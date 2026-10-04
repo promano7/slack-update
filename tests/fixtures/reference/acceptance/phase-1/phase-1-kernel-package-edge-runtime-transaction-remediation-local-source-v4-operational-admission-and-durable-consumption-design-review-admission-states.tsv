@@ -1,0 +1,7 @@
+state	consumption	worker_launch	reuse
+unauthenticated	no-victim-grant-consumption	denied	no-authority
+claim-unknown	null	denied	quarantined-no-replay
+consumed-active	durable-required-not-proven	launch-slot-must-be-spent	denied
+launch-slot-spent	consumed	at-most-one-syscall	denied
+spawn-unknown	consumed	no-retry	denied-pending-obligations
+worker-preflight-failed	consumed	no-relaunch	denied
