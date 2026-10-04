@@ -1,0 +1,4 @@
+order	argv	status_variable	caller_failure_handler
+0	-batch=on -default_answer=y update	SLACKPKG_UPDATE_STATUS	record-status-and-continue-caller
+1	-batch=on -default_answer=y -postinst=off install-new	SLACKPKG_INSTALL_NEW_STATUS	record-status-and-continue-caller
+2	-batch=on -default_answer=y -postinst=off upgrade-all	SLACKPKG_UPGRADE_ALL_STATUS	record-status-and-continue-caller
