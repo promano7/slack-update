@@ -1,0 +1,11 @@
+step	stage	entry_requires_confirmed_step	scope	runtime_authorized	conditional_pause_candidate
+319	resume-planning-boundary-review	318	repository-design-only	no	no
+320	admission-and-durable-consumption-design-review	319	repository-design-only	no	no
+321	admission-handoff-and-namespace-fd-design-review	320	repository-design-only	no	no
+322	stage7-owned-binding-effect-design-review	321	repository-design-only	no	no
+323	expiry-revocation-and-bounded-recovery-design-review	322	repository-design-only	no	no
+324	guarded-baseline-and-phase-delta-integration-design-review	323	repository-design-only	no	no
+325	reference-effects-and-publication-integration-design-review	324	repository-design-only	no	no
+326	integration-failure-model-and-conformance-plan-review	325	repository-design-only	no	no
+327	integration-design-effects-obligations-and-rights-closure-review	326	repository-design-only	no	no
+328	integration-design-freeze-and-conditional-strong-safe-pause	327	repository-design-only	no	yes
