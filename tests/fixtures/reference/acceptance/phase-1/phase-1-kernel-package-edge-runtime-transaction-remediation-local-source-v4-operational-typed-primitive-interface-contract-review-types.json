@@ -1,0 +1,331 @@
+{
+  "actual_abi": null,
+  "actual_authority": false,
+  "actual_evidence": null,
+  "outcome_tags": [
+    "known-complete",
+    "known-failed",
+    "unknown",
+    "not-attempted"
+  ],
+  "schema": 1,
+  "scope": "nominal-private-type-definitions-not-native-ABI",
+  "step": 332,
+  "types": [
+    {
+      "authority": false,
+      "kind": "nominal-private-symbolic-view",
+      "name": "armed-traps-view",
+      "native_abi": null,
+      "proof_status": "required-not-proven",
+      "real_value": null,
+      "representation": "closed fields: type,scope,attempt,boot,symbol,authority; private original fixture context only"
+    },
+    {
+      "authority": false,
+      "kind": "nominal-private-symbolic-view",
+      "name": "authenticated-policy-view",
+      "native_abi": null,
+      "proof_status": "required-not-proven",
+      "real_value": null,
+      "representation": "closed fields: type,scope,attempt,boot,symbol,authority; private original fixture context only"
+    },
+    {
+      "authority": false,
+      "kind": "nominal-private-symbolic-view",
+      "name": "candidate-binding-view",
+      "native_abi": null,
+      "proof_status": "required-not-proven",
+      "real_value": null,
+      "representation": "closed fields: type,scope,attempt,boot,symbol,authority; private original fixture context only"
+    },
+    {
+      "authority": false,
+      "kind": "nominal-private-symbolic-view",
+      "name": "closed-bootstrap-view",
+      "native_abi": null,
+      "proof_status": "required-not-proven",
+      "real_value": null,
+      "representation": "closed fields: type,scope,attempt,boot,symbol,authority; private original fixture context only"
+    },
+    {
+      "authority": false,
+      "kind": "nominal-private-symbolic-view",
+      "name": "closed-target-evidence-view",
+      "native_abi": null,
+      "proof_status": "required-not-proven",
+      "real_value": null,
+      "representation": "closed fields: type,scope,attempt,boot,symbol,authority; private original fixture context only"
+    },
+    {
+      "authority": false,
+      "kind": "nominal-private-symbolic-view",
+      "name": "complete-effect-graph-view",
+      "native_abi": null,
+      "proof_status": "required-not-proven",
+      "real_value": null,
+      "representation": "closed fields: type,scope,attempt,boot,symbol,authority; private original fixture context only"
+    },
+    {
+      "authority": false,
+      "kind": "nominal-private-symbolic-view",
+      "name": "consumed-original-context",
+      "native_abi": null,
+      "proof_status": "required-not-proven",
+      "real_value": null,
+      "representation": "closed fields: type,scope,attempt,boot,symbol,authority; private original fixture context only"
+    },
+    {
+      "authority": false,
+      "kind": "nominal-private-symbolic-view",
+      "name": "contained-runtime-view",
+      "native_abi": null,
+      "proof_status": "required-not-proven",
+      "real_value": null,
+      "representation": "closed fields: type,scope,attempt,boot,symbol,authority; private original fixture context only"
+    },
+    {
+      "authority": false,
+      "kind": "nominal-private-symbolic-view",
+      "name": "contained-snapshot-view",
+      "native_abi": null,
+      "proof_status": "required-not-proven",
+      "real_value": null,
+      "representation": "closed fields: type,scope,attempt,boot,symbol,authority; private original fixture context only"
+    },
+    {
+      "authority": false,
+      "kind": "nominal-private-symbolic-view",
+      "name": "continuous-guard-view",
+      "native_abi": null,
+      "proof_status": "required-not-proven",
+      "real_value": null,
+      "representation": "closed fields: type,scope,attempt,boot,symbol,authority; private original fixture context only"
+    },
+    {
+      "authority": false,
+      "kind": "nominal-private-symbolic-view",
+      "name": "dependency-closure-view",
+      "native_abi": null,
+      "proof_status": "required-not-proven",
+      "real_value": null,
+      "representation": "closed fields: type,scope,attempt,boot,symbol,authority; private original fixture context only"
+    },
+    {
+      "authority": false,
+      "kind": "nominal-private-symbolic-view",
+      "name": "early-observation-view",
+      "native_abi": null,
+      "proof_status": "required-not-proven",
+      "real_value": null,
+      "representation": "closed fields: type,scope,attempt,boot,symbol,authority; private original fixture context only"
+    },
+    {
+      "authority": false,
+      "kind": "nominal-private-symbolic-view",
+      "name": "exact-predecessor-view",
+      "native_abi": null,
+      "proof_status": "required-not-proven",
+      "real_value": null,
+      "representation": "closed fields: type,scope,attempt,boot,symbol,authority; private original fixture context only"
+    },
+    {
+      "authority": false,
+      "kind": "nominal-private-symbolic-view",
+      "name": "full-selector-vector-view",
+      "native_abi": null,
+      "proof_status": "required-not-proven",
+      "real_value": null,
+      "representation": "closed fields: type,scope,attempt,boot,symbol,authority; private original fixture context only"
+    },
+    {
+      "authority": false,
+      "kind": "nominal-private-symbolic-view",
+      "name": "isolated-config-view",
+      "native_abi": null,
+      "proof_status": "required-not-proven",
+      "real_value": null,
+      "representation": "closed fields: type,scope,attempt,boot,symbol,authority; private original fixture context only"
+    },
+    {
+      "authority": false,
+      "kind": "nominal-private-symbolic-view",
+      "name": "issuer-policy-view",
+      "native_abi": null,
+      "proof_status": "required-not-proven",
+      "real_value": null,
+      "representation": "closed fields: type,scope,attempt,boot,symbol,authority; private original fixture context only"
+    },
+    {
+      "authority": false,
+      "kind": "nominal-private-symbolic-view",
+      "name": "known-child-set-view",
+      "native_abi": null,
+      "proof_status": "required-not-proven",
+      "real_value": null,
+      "representation": "closed fields: type,scope,attempt,boot,symbol,authority; private original fixture context only"
+    },
+    {
+      "authority": false,
+      "kind": "nominal-private-symbolic-view",
+      "name": "last-receipt-origin-view",
+      "native_abi": null,
+      "proof_status": "required-not-proven",
+      "real_value": null,
+      "representation": "closed fields: type,scope,attempt,boot,symbol,authority; private original fixture context only"
+    },
+    {
+      "authority": false,
+      "kind": "nominal-private-symbolic-view",
+      "name": "live-original-fence-view",
+      "native_abi": null,
+      "proof_status": "required-not-proven",
+      "real_value": null,
+      "representation": "closed fields: type,scope,attempt,boot,symbol,authority; private original fixture context only"
+    },
+    {
+      "authority": false,
+      "kind": "nominal-private-symbolic-view",
+      "name": "nested-call-result-view",
+      "native_abi": null,
+      "proof_status": "required-not-proven",
+      "real_value": null,
+      "representation": "closed fields: type,scope,attempt,boot,symbol,authority; private original fixture context only"
+    },
+    {
+      "authority": false,
+      "kind": "nominal-private-symbolic-view",
+      "name": "original-backups-view",
+      "native_abi": null,
+      "proof_status": "required-not-proven",
+      "real_value": null,
+      "representation": "closed fields: type,scope,attempt,boot,symbol,authority; private original fixture context only"
+    },
+    {
+      "authority": false,
+      "kind": "nominal-private-symbolic-view",
+      "name": "original-baseline-view",
+      "native_abi": null,
+      "proof_status": "required-not-proven",
+      "real_value": null,
+      "representation": "closed fields: type,scope,attempt,boot,symbol,authority; private original fixture context only"
+    },
+    {
+      "authority": false,
+      "kind": "nominal-private-symbolic-view",
+      "name": "original-restoration-result-view",
+      "native_abi": null,
+      "proof_status": "required-not-proven",
+      "real_value": null,
+      "representation": "closed fields: type,scope,attempt,boot,symbol,authority; private original fixture context only"
+    },
+    {
+      "authority": false,
+      "kind": "nominal-private-symbolic-view",
+      "name": "original-verification-view",
+      "native_abi": null,
+      "proof_status": "required-not-proven",
+      "real_value": null,
+      "representation": "closed fields: type,scope,attempt,boot,symbol,authority; private original fixture context only"
+    },
+    {
+      "authority": false,
+      "kind": "nominal-private-symbolic-view",
+      "name": "owned-path-set-view",
+      "native_abi": null,
+      "proof_status": "required-not-proven",
+      "real_value": null,
+      "representation": "closed fields: type,scope,attempt,boot,symbol,authority; private original fixture context only"
+    },
+    {
+      "authority": false,
+      "kind": "nominal-private-symbolic-view",
+      "name": "package-effect-result-view",
+      "native_abi": null,
+      "proof_status": "required-not-proven",
+      "real_value": null,
+      "representation": "closed fields: type,scope,attempt,boot,symbol,authority; private original fixture context only"
+    },
+    {
+      "authority": false,
+      "kind": "nominal-private-symbolic-view",
+      "name": "publication-control-view",
+      "native_abi": null,
+      "proof_status": "required-not-proven",
+      "real_value": null,
+      "representation": "closed fields: type,scope,attempt,boot,symbol,authority; private original fixture context only"
+    },
+    {
+      "authority": false,
+      "kind": "nominal-private-symbolic-view",
+      "name": "publication-record-view",
+      "native_abi": null,
+      "proof_status": "required-not-proven",
+      "real_value": null,
+      "representation": "closed fields: type,scope,attempt,boot,symbol,authority; private original fixture context only"
+    },
+    {
+      "authority": false,
+      "kind": "nominal-private-symbolic-view",
+      "name": "quiescent-child-view",
+      "native_abi": null,
+      "proof_status": "required-not-proven",
+      "real_value": null,
+      "representation": "closed fields: type,scope,attempt,boot,symbol,authority; private original fixture context only"
+    },
+    {
+      "authority": false,
+      "kind": "nominal-private-symbolic-view",
+      "name": "raw-pkglist-pin-view",
+      "native_abi": null,
+      "proof_status": "required-not-proven",
+      "real_value": null,
+      "representation": "closed fields: type,scope,attempt,boot,symbol,authority; private original fixture context only"
+    },
+    {
+      "authority": false,
+      "kind": "nominal-private-symbolic-view",
+      "name": "recovery-budget-view",
+      "native_abi": null,
+      "proof_status": "required-not-proven",
+      "real_value": null,
+      "representation": "closed fields: type,scope,attempt,boot,symbol,authority; private original fixture context only"
+    },
+    {
+      "authority": false,
+      "kind": "nominal-private-symbolic-view",
+      "name": "source-closure-view",
+      "native_abi": null,
+      "proof_status": "required-not-proven",
+      "real_value": null,
+      "representation": "closed fields: type,scope,attempt,boot,symbol,authority; private original fixture context only"
+    },
+    {
+      "authority": false,
+      "kind": "nominal-private-symbolic-view",
+      "name": "spent-launch-view",
+      "native_abi": null,
+      "proof_status": "required-not-proven",
+      "real_value": null,
+      "representation": "closed fields: type,scope,attempt,boot,symbol,authority; private original fixture context only"
+    },
+    {
+      "authority": false,
+      "kind": "nominal-private-symbolic-view",
+      "name": "target-release-view",
+      "native_abi": null,
+      "proof_status": "required-not-proven",
+      "real_value": null,
+      "representation": "closed fields: type,scope,attempt,boot,symbol,authority; private original fixture context only"
+    },
+    {
+      "authority": false,
+      "kind": "nominal-private-symbolic-view",
+      "name": "whole-entry-result-view",
+      "native_abi": null,
+      "proof_status": "required-not-proven",
+      "real_value": null,
+      "representation": "closed fields: type,scope,attempt,boot,symbol,authority; private original fixture context only"
+    }
+  ]
+}
