@@ -1,0 +1,224 @@
+#!/bin/bash
+set -euo pipefail
+export LC_ALL=C
+script_dir=$(CDPATH= cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
+repo_root=$(CDPATH= cd -- "$script_dir/../.." && pwd -P)
+if [[ $# -eq 1 && $1 == --help ]]; then
+    printf 'Usage: %s --output-dir DIR\nRepository-only independently authored candidate negative tests review; no shell sourcing or runtime dispatch.\n' "${0##*/}"
+    exit 0
+fi
+[[ $# -eq 2 && $1 == --output-dir && -n $2 ]] || { printf 'ERROR: expected --output-dir DIR\n' >&2; exit 2; }
+python3 - "$repo_root" "$2" <<'PYREVIEW'
+import ast
+import hashlib
+import json
+import re
+import subprocess
+import sys
+import tempfile
+from pathlib import Path
+def encoded(value):return (json.dumps(value,ensure_ascii=False,sort_keys=True,indent=2)+'\n').encode()
+def sha(value):return hashlib.sha256(value).hexdigest()
+def exact(actual,expected,label):
+    if encoded(actual)!=encoded(expected):raise ValueError(label)
+def safe_relative(rel):
+    if type(rel) is not str or not rel or '\\' in rel or any(x in ('','.','..') for x in rel.split('/')):raise ValueError('unsafe relative path')
+    return Path(rel)
+def safe_file(root,rel):
+    p=root/safe_relative(rel)
+    if not p.is_file() or p.is_symlink() or p.absolute()!=p.resolve() or not p.resolve().is_relative_to(root.resolve()):raise ValueError('missing or unsafe file '+rel)
+    return p.read_bytes()
+def verify_history(root,policy):
+    bindings=policy['baseline_sha256_bindings']
+    exact(sha(encoded(bindings)),BASELINE_SHA256,'accepted1602 manifest')
+    exact(len(bindings),1602,'accepted1602 count')
+    history={}
+    for rel,digest in bindings.items():
+        raw=safe_file(root,rel)
+        if rel=='CHANGELOG.md':
+            prefix=CHANGELOG_PREFIX.encode()
+            exact(raw[:len(prefix)].hex(),prefix.hex(),'336 CHANGELOG prefix')
+            exact(len(raw),policy['accepted_changelog_size_bytes']+len(prefix),'additive CHANGELOG length')
+            raw=raw[len(prefix):]
+        exact(sha(raw),digest,'accepted artifact drift '+rel);history[rel]=raw
+    return history
+def validate_confirmation(c,r):
+    exact(sha(encoded(c)),CONFIRMATION_SHA256,'external confirmed335 receipt')
+    exact(sorted(r),['encoding','original_display_sha256','original_display_size_bytes','text'],'receipt schema')
+    exact(r['encoding'],'utf8-json-text','receipt encoding')
+    exact(sha(r['text'].encode()),RECEIPT_SHA256,'complete original335 return')
+    exact(r['original_display_sha256'],RECEIPT_SHA256,'receipt SHA metadata')
+    exact(len(r['text'].encode()),RECEIPT_SIZE,'receipt size')
+    exact(r['original_display_size_bytes'],RECEIPT_SIZE,'receipt size metadata')
+    lines=r['text'].splitlines()
+    exact(sum(x.startswith('PASS: ') for x in lines),622,'complete622 return')
+    exact(lines.count('Result: PASS (622 passes, 0 failures)'),1,'622 summary')
+    return True
+def run_historical(history):
+    with tempfile.TemporaryDirectory(prefix='step335-exact335-') as directory:
+        snapshot=Path(directory)/'slack-update'
+        for rel,content in history.items():
+            p=snapshot/safe_relative(rel);p.parent.mkdir(parents=True,exist_ok=True);p.write_bytes(content)
+        result=subprocess.run(['bash',str(snapshot/'tests/reference'/('test-'+PRIOR+'-harness.sh'))],capture_output=True)
+        lines=result.stdout.decode().splitlines()
+        if result.returncode or sum(x.startswith('PASS: ') for x in lines)!=622 or lines.count('Result: PASS (622 passes, 0 failures)')!=1:
+            sys.stderr.buffer.write(result.stdout+result.stderr);raise ValueError('full exact622 predecessor acceptance failed')
+        return result.stdout
+import copy
+BASE = 'phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-independently-authored-candidate-negative-tests-review'
+PRIOR = 'phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-independent-oracle-scaffolding-review'
+FIXTURE = 'tests/fixtures/reference/acceptance/phase-1'
+BASELINE_SHA256 = 'a593bf8d4f5f74b91b0c76f42d50a2a4030affc27a501a0cdb629e5a844fb83a'
+CHANGELOG_PREFIX = '## Phase 1 step336 — independently authored candidate negative tests — 2026-10-06\n\n- Confirmed step335 at fcc90cf from complete ordered622 PASS, first push successful, clean status and matching HEAD/origin. Original return/external confirmation retained; full object ID unknown. Historical prepared flags and334 preliminary/review-revision evidence unchanged;328 remains last confirmed strong pause.\n- Preserve all1602 accepted files except additive CHANGELOG; nine new artifacts. Rerun exact622 predecessor and full nested history. Separately author 1166 private contract assertions, including92 positive controls, against accepted331 phase/recovery,332 nominal exchanges,333 inert manifest/parser,334 fault disposition and335 private oracle envelopes. Expected rejection/fields are explicit contract expectations, never captured or generated by candidate output or its fixture builders.\n- Exercise original attempt/boot/actor/rights and irreversible stop; consumed/spent quarantine; every original recovery gate and unchanged branch without never-created backups; all85 declared nominal phase/interface contexts with failed/unknown/unattempted payload rejection; every30 component/95 design edge/46 proof/52 native case blocker and13 source SHA bindings; strict bounded JSON; unknown target/control/publication recovery/replay denial; owned unknown distinct from target; raw exit0 never no-effect; independent evidence mismatch/pending/provenance/context/fault-control boundaries.\n- Independent assertion sensitivity rejects accept-all/reject-all stubs, false PASS masking, authority promotion and bool/int coercion. Candidate pure definitions are loaded only as private subjects; shell preambles/Python main/reference main/frozenv2 never run. These finite schema/contract tests and controls are not native independence, actual oracle, raw effect evidence, fault scheduling or full refinement proof.\n- Preserve all46 required-not-proven proofs/52 required-not-run native templates,16 native gaps,81 macro cuts/nine owned microsteps and all retained eight320-327 views/30 domains/95 relations/27 phases/26 interfaces/35 types/13 stages/nine windows/seven capabilities/ten obligations. Native versions/boot/source/authority/collector/verifier/captures/results unselected; live bindings null, host unobserved never absent/global closure.\n- No native/runtime/VM/preflight/refresh/target/package/restore/operational publication/service channel or new batch cleanup.337 proof/effect/rights/gap reconciliation requires complete336 user acceptance.338 scoped candidate freeze/pause remains conditional. Production/Phase2 closed; Phase1/kernel incomplete.\n\n'
+OWN_HASHES = {'docs/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-independently-authored-candidate-negative-tests-review.md': '263694f461c36e0781af3407f1ed0ded35c2cf1d06d87fed71b3ce93bd7801f2', 'tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-independently-authored-candidate-negative-tests-review-policy.json': '11ef718f9e39ba9b329fb6543c557bbc41d301a54cd3a2403443963e85c8b972', 'tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-independently-authored-candidate-negative-tests-review-review.json': '7fa0808264154e2d15d7a738e225cea24fa3415d1f01d1d276f1ace1dcf380ac', 'tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-independently-authored-candidate-negative-tests-review-negative-cases.json': '1c0000cb335d5d75eb022b76a134eb8d3bc0ffe6493a193b6c00a6fc9f10c4ef', 'tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-independently-authored-candidate-negative-tests-review-checkpoint-confirmation.json': '932dfd1aa7656f389d92d6bb9c7335052067b553948e2bcf06406b2cb013189b', 'tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-independently-authored-candidate-negative-tests-review-step335-user-acceptance.json': '6a6e5e136560a470cc7c5f81751c8736968d3929b24957512c1d879aec6e477a', 'tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-independently-authored-candidate-negative-tests-review-coverage.tsv': '85c1cedabc5ccfdd1e45f712851c2ac70ed99e87c0acade8e0faca0825629749'}
+CONFIRMATION_SHA256 = '932dfd1aa7656f389d92d6bb9c7335052067b553948e2bcf06406b2cb013189b'
+RECEIPT_SHA256 = '702afe3b656ee2f54c14d959e6d0a71eea74ffc5244ebfa7f75e3368fcea754b'
+RECEIPT_SIZE = 59913
+CANDIDATE_TOOL_PATHS = {'phase': 'tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-inert-successor-entry-and-phase-map-review.sh', 'interfaces': 'tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-typed-primitive-interface-contract-review.sh', 'manifest': 'tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-non-dispatching-candidate-manifest-validator-review.sh', 'fault': 'tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-failure-refinement-mapping-and-gap-review.sh', 'oracle': 'tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-independent-oracle-scaffolding-review.sh'}
+PHASE_PATH = 'tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-inert-successor-entry-and-phase-map-review-phase-map.json'
+CATALOG_PATH = 'tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-typed-primitive-interface-contract-review-interfaces.json'
+MANIFEST_PATH = 'tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-non-dispatching-candidate-manifest-validator-review-manifest.json'
+REFINEMENT_PATH = 'tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-failure-refinement-mapping-and-gap-review-refinement.json'
+SCAFFOLD_PATH = 'tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-independent-oracle-scaffolding-review-scaffold.json'
+# Independently authored private assertions. Candidate return values never author expectations.
+def load_candidate_definitions(history,path):
+    source=history[path].decode().split("<<'PYREVIEW'\n",1)[1].rsplit('\nPYREVIEW',1)[0]
+    tree=ast.parse(source)
+    # Definitions/constants only: shell preamble and Python main never run.
+    tree.body=[n for n in tree.body if isinstance(n,(ast.Import,ast.ImportFrom,ast.Assign,ast.FunctionDef))]
+    namespace={'__name__':'step336_private_candidate_definitions'}
+    exec(compile(tree,path,'exec'),namespace)
+    return namespace
+
+def negative_environment(history):
+    load=lambda p:json.loads(history[p])
+    modules={k:load_candidate_definitions(history,p) for k,p in CANDIDATE_TOOL_PATHS.items()}
+    phase=load(PHASE_PATH);catalog=load(CATALOG_PATH);manifest=load(MANIFEST_PATH)
+    inventory=load(phase['inherited_inventory_binding']['path'])
+    retained=load(inventory['inherited_obligations_binding']['path'])
+    return dict(history=history,modules=modules,phase=phase,catalog=catalog,manifest=manifest,
+                inventory=inventory,retained=retained,scaffold=load(SCAFFOLD_PATH))
+
+def apply_declared_edits(base,edits):
+    value=copy.deepcopy(base)
+    for edit in edits:
+        exact(sorted(edit),['op','path','value'] if edit['op']=='set' else ['op','path'],'closed mutation recipe')
+        path=edit['path']
+        if type(path) is not list or not path or any(type(k) not in (str,int) for k in path):raise ValueError('mutation path')
+        parent=value
+        for key in path[:-1]:parent=parent[key]
+        if edit['op']=='set':parent[path[-1]]=copy.deepcopy(edit['value'])
+        elif edit['op']=='delete':del parent[path[-1]]
+        else:raise ValueError('closed mutation operation')
+    return value
+
+def invoke_private_candidate(target,value,environment):
+    m=environment['modules']
+    if target=='trace':return m['phase']['evaluate_private_trace'](value)
+    if target=='recovery':return m['phase']['evaluate_private_recovery'](value)
+    if target=='exchange':return m['interfaces']['validate_private_exchange'](value['request'],value['report'],environment['catalog'])
+    if target=='parse':return m['manifest']['parse_candidate_manifest'](bytes.fromhex(value['raw_hex']))
+    if target=='manifest':return m['manifest']['validate_candidate_manifest'](value,environment['history'],environment['catalog'],environment['inventory'],environment['retained'])
+    if target=='fault':return m['fault']['evaluate_private_fault_disposition'](value,environment['phase'])
+    if target=='oracle':return m['oracle']['evaluate_private_oracle_packet'](value,environment['scaffold'])
+    raise ValueError('closed private target, never arbitrary function or dispatcher')
+
+def expectation_holds(expectation,rejected,result):
+    if expectation['kind']=='reject':return rejected and result is None
+    if expectation['kind']!='return' or rejected or type(result) is not dict:return False
+    # Assertion logic does not call any candidate equality/validator/helper.
+    for key,expected in expectation['fields'].items():
+        if key not in result or json.dumps(result[key],sort_keys=True)!=json.dumps(expected,sort_keys=True):return False
+    # No observed candidate bool may create native authority or proof.
+    if any(v is not False for k,v in result.items() if k.startswith('actual_') and type(v) is bool):return False
+    return True
+
+def run_negative_suite(suite,history):
+    environment=negative_environment(history);results=[]
+    ids=[r['id'] for r in suite['cases']]
+    if len(set(ids))!=len(ids):raise ValueError('duplicate private case')
+    for case in suite['cases']:
+        value=apply_declared_edits(suite['input_bases'][case['input_binding']],case['edits'])
+        rejected=False;result=None
+        try:result=invoke_private_candidate(case['target'],value,environment)
+        except (ValueError,KeyError,TypeError,SyntaxError):rejected=True
+        if not expectation_holds(case['expectation'],rejected,result):raise ValueError('independent expectation failed '+case['id']+' '+case['requirement'])
+        results.append(dict(id=case['id'],target=case['target'],private_contract_assertion='PASS',
+                            candidate_declaration_rejected=rejected,actual_native_evidence=None))
+    # Positive and negative harness sensitivity controls: deliberately wrong answers
+    # must fail our own assertions. These are not actual fault injection controls.
+    controls={
+        'reject-all-stub-fails-positive-control':not expectation_holds(dict(kind='return',fields={'model_shape_valid':True}),True,None),
+        'accept-all-stub-fails-rejection-control':not expectation_holds(dict(kind='reject',fields={}),False,{}),
+        'false-PASS-mask-fails-mismatch-control':not expectation_holds(dict(kind='return',fields={'model_declared_evidence_complete':False}),False,{'model_declared_evidence_complete':True}),
+        'authority-promotion-fails-control':not expectation_holds(dict(kind='return',fields={}),False,{'actual_dispatch_authorized':True}),
+        'bool-integer-coercion-fails-control':not expectation_holds(dict(kind='return',fields={'count':1}),False,{'count':True}),
+    }
+    if not all(controls.values()):raise ValueError('independent assertion sensitivity failed')
+    return dict(schema=1,step=336,scope='private-contract-negative-test-results-only',results=results,
+                assertion_sensitivity_controls=controls,private_cases_passed=len(results),
+                baseline_positive_controls=sum(c['baseline_positive_control'] for c in suite['cases']),
+                actual_native_cases_run=0,actual_independent_oracle_selected=False,
+                actual_native_independence_proven=False,actual_runtime_authority=False,
+                actual_operational_conformance=False,actual_target_or_publication_closure=False,
+                actual_host_state='unobserved-not-claimed-absent')
+
+def build_negative_review(history,suite):
+    scaffold=json.loads(history[SCAFFOLD_PATH])
+    return dict(schema=1,step=336,scope='repository-independently-authored-candidate-negative-tests-only',
+                selected_candidate_version='successor-inert-independent-negative-contract-tests-v1',
+                source_bindings=[dict(path=p,sha256=sha(history[p]),scope='accepted-private-definition-or-data-not-native-component') for p in list(CANDIDATE_TOOL_PATHS.values())+[PHASE_PATH,CATALOG_PATH,MANIFEST_PATH,REFINEMENT_PATH,SCAFFOLD_PATH]],
+                private_case_count=len(suite['cases']),positive_control_count=sum(c['baseline_positive_control'] for c in suite['cases']),
+                private_target_counts={t:sum(c['target']==t for c in suite['cases']) for t in ['trace','recovery','exchange','manifest','parse','fault','oracle']},
+                authorship_contract=suite['authorship'],assertion_scope='Separately authored private expected fields/rejections and sensitivity controls. Candidate definitions are subjects only; no candidate result creates expectation. Native independence and full fault refinement remain unproven.',
+                qualified_proof_register=scaffold['qualified_proof_register'],native_gap_register=scaffold['inherited_native_gap_register'],
+                native_case_templates=scaffold['cases'],macro_cut_obligations=scaffold['inherited_macro_cut_obligations'],owned_stage7_microsteps=scaffold['inherited_owned_stage7_microsteps'],
+                actual_native_cases_run=0,actual_native_independence_proven=False,actual_independent_oracle_selected=False,
+                actual_fault_schedules_selected=False,actual_operational_conformance=False,operational_readiness=False,runtime_authority=False,
+                actual_live_bindings=None,actual_host_state='unobserved-not-claimed-absent',actual_global_host_closure_asserted=False,
+                historical_v2_or_reference_main_sourced_run=False,machine_action_required=False,controller_action_required=False,
+                user_step336_checkpoint_confirmed=False,strong_safe_pause=False,last_confirmed_strong_safe_pause_step=328,
+                next_stage='337-proof-effect-rights-gap-reconciliation-after-complete336-return')
+
+def validate_negative_review(value,history,suite):
+    exact(value,build_negative_review(history,suite),'exact independently authored private review and all native blockers')
+    if len(value['qualified_proof_register'])!=46 or len(value['native_case_templates'])!=52:raise ValueError('no proof or native case waiver')
+    return True
+
+
+def main(root,out):
+    if not root.is_dir() or root.absolute()!=root.resolve():raise ValueError('unsafe repository root')
+    for rel,digest in OWN_HASHES.items():exact(sha(safe_file(root,rel)),digest,'changed336 artifact '+rel)
+    load=lambda suffix:json.loads(safe_file(root,FIXTURE+'/'+BASE+suffix))
+    policy=load('-policy.json');history=verify_history(root,policy);suite=load('-negative-cases.json')
+    validate_negative_review(load('-review.json'),history,suite)
+    validate_confirmation(load('-checkpoint-confirmation.json'),load('-step335-user-acceptance.json'))
+    if not out.is_dir() or out.absolute()!=out.resolve():raise ValueError('output must exist without symlink ancestors')
+    suffixes=['-policy.json','-review.json','-negative-cases.json','-checkpoint-confirmation.json','-step335-user-acceptance.json','-coverage.tsv']
+    payloads={BASE+s:safe_file(root,FIXTURE+'/'+BASE+s) for s in suffixes};logname=BASE+'-predecessor-test.log';resultname=BASE+'-private-results.json'
+    if any((out/n).exists() or (out/n).is_symlink() for n in list(payloads)+[logname,resultname]):raise ValueError('occupied private output; no overwrite')
+    payloads[resultname]=encoded(run_negative_suite(suite,history));payloads[logname]=run_historical(history)
+    exact({r:sha(c) for r,c in verify_history(root,policy).items()},{r:sha(c) for r,c in history.items()},'history changed during private validation')
+    for rel,digest in OWN_HASHES.items():exact(sha(safe_file(root,rel)),digest,'336 input changed during validation')
+    created=[]
+    try:
+        for name,content in payloads.items():
+            with (out/name).open('xb') as stream:created.append(out/name);stream.write(content)
+    except BaseException:
+        for p in reversed(created):p.unlink()
+        raise
+    print('exact_step335_acceptance\tPASS (622 passes, 0 failures)')
+    print('step336_independently_authored_negative_contract_tests_status\tPASS')
+    print('actual_native_independence_or_test_authority_proven\tno')
+    print('actual_native_cases_run\t0')
+    print('required_proofs_and_independent_cases\t46-unproven/52-unrun')
+    print('last_confirmed_strong_safe_pause_step\t328')
+    print('strong_safe_pause\tno-user336-acceptance-pending')
+    print('operational_readiness\tno')
+
+if __name__=='__main__':
+    try:main(Path(sys.argv[1]).absolute(),Path(sys.argv[2]).absolute())
+    except (ValueError,OSError,KeyError,TypeError,SyntaxError) as exc:
+        print('ERROR: '+str(exc),file=sys.stderr);sys.exit(1)
+
+PYREVIEW

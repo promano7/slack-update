@@ -1,0 +1,1167 @@
+private_case_id	target	requirement	expected_disposition	baseline_positive_control	actual_native_evidence
+case-0001	trace	complete declared order remains private	return	true	null
+case-0002	trace	original context and actor window service-barrier-authentication/attempt	reject	false	null
+case-0003	trace	original context and actor window service-barrier-authentication/boot	reject	false	null
+case-0004	trace	original context and actor window service-barrier-authentication/actor	reject	false	null
+case-0005	trace	original context and actor window service-barrier-authentication/rights_window	reject	false	null
+case-0006	trace	unknown stop keeps pending service-barrier-authentication	return	false	null
+case-0007	trace	no later action after unknown service-barrier-authentication	reject	false	null
+case-0008	trace	original context and actor window service-original-durable-claim/attempt	reject	false	null
+case-0009	trace	original context and actor window service-original-durable-claim/boot	reject	false	null
+case-0010	trace	original context and actor window service-original-durable-claim/actor	reject	false	null
+case-0011	trace	original context and actor window service-original-durable-claim/rights_window	reject	false	null
+case-0012	trace	unknown stop keeps pending service-original-durable-claim	return	false	null
+case-0013	trace	no later action after unknown service-original-durable-claim	reject	false	null
+case-0014	trace	original context and actor window service-durable-launch-spend/attempt	reject	false	null
+case-0015	trace	original context and actor window service-durable-launch-spend/boot	reject	false	null
+case-0016	trace	original context and actor window service-durable-launch-spend/actor	reject	false	null
+case-0017	trace	original context and actor window service-durable-launch-spend/rights_window	reject	false	null
+case-0018	trace	unknown stop keeps pending service-durable-launch-spend	return	false	null
+case-0019	trace	no later action after unknown service-durable-launch-spend	reject	false	null
+case-0020	trace	original context and actor window service-single-worker-spawn/attempt	reject	false	null
+case-0021	trace	original context and actor window service-single-worker-spawn/boot	reject	false	null
+case-0022	trace	original context and actor window service-single-worker-spawn/actor	reject	false	null
+case-0023	trace	original context and actor window service-single-worker-spawn/rights_window	reject	false	null
+case-0024	trace	unknown stop keeps pending service-single-worker-spawn	return	false	null
+case-0025	trace	no later action after unknown service-single-worker-spawn	reject	false	null
+case-0026	trace	original context and actor window worker0-bounded-auth-read/attempt	reject	false	null
+case-0027	trace	original context and actor window worker0-bounded-auth-read/boot	reject	false	null
+case-0028	trace	original context and actor window worker0-bounded-auth-read/actor	reject	false	null
+case-0029	trace	original context and actor window worker0-bounded-auth-read/rights_window	reject	false	null
+case-0030	trace	unknown stop keeps pending worker0-bounded-auth-read	return	false	null
+case-0031	trace	no later action after unknown worker0-bounded-auth-read	reject	false	null
+case-0032	trace	original context and actor window worker0-close-bootstrap/attempt	reject	false	null
+case-0033	trace	original context and actor window worker0-close-bootstrap/boot	reject	false	null
+case-0034	trace	original context and actor window worker0-close-bootstrap/actor	reject	false	null
+case-0035	trace	original context and actor window worker0-close-bootstrap/rights_window	reject	false	null
+case-0036	trace	unknown stop keeps pending worker0-close-bootstrap	return	false	null
+case-0037	trace	no later action after unknown worker0-close-bootstrap	reject	false	null
+case-0038	trace	original context and actor window worker0-readonly-preflight/attempt	reject	false	null
+case-0039	trace	original context and actor window worker0-readonly-preflight/boot	reject	false	null
+case-0040	trace	original context and actor window worker0-readonly-preflight/actor	reject	false	null
+case-0041	trace	original context and actor window worker0-readonly-preflight/rights_window	reject	false	null
+case-0042	trace	unknown stop keeps pending worker0-readonly-preflight	return	false	null
+case-0043	trace	no later action after unknown worker0-readonly-preflight	reject	false	null
+case-0044	trace	original context and actor window worker1-arm-traps/attempt	reject	false	null
+case-0045	trace	original context and actor window worker1-arm-traps/boot	reject	false	null
+case-0046	trace	original context and actor window worker1-arm-traps/actor	reject	false	null
+case-0047	trace	original context and actor window worker1-arm-traps/rights_window	reject	false	null
+case-0048	trace	unknown stop keeps pending worker1-arm-traps	return	false	null
+case-0049	trace	no later action after unknown worker1-arm-traps	reject	false	null
+case-0050	trace	original context and actor window interstage1-2-guard-freshoriginal/attempt	reject	false	null
+case-0051	trace	original context and actor window interstage1-2-guard-freshoriginal/boot	reject	false	null
+case-0052	trace	original context and actor window interstage1-2-guard-freshoriginal/actor	reject	false	null
+case-0053	trace	original context and actor window interstage1-2-guard-freshoriginal/rights_window	reject	false	null
+case-0054	trace	unknown stop keeps pending interstage1-2-guard-freshoriginal	return	false	null
+case-0055	trace	no later action after unknown interstage1-2-guard-freshoriginal	reject	false	null
+case-0056	trace	original context and actor window worker2-owned-workspace/attempt	reject	false	null
+case-0057	trace	original context and actor window worker2-owned-workspace/boot	reject	false	null
+case-0058	trace	original context and actor window worker2-owned-workspace/actor	reject	false	null
+case-0059	trace	original context and actor window worker2-owned-workspace/rights_window	reject	false	null
+case-0060	trace	unknown stop keeps pending worker2-owned-workspace	return	false	null
+case-0061	trace	no later action after unknown worker2-owned-workspace	reject	false	null
+case-0062	trace	original context and actor window worker3-original-backups/attempt	reject	false	null
+case-0063	trace	original context and actor window worker3-original-backups/boot	reject	false	null
+case-0064	trace	original context and actor window worker3-original-backups/actor	reject	false	null
+case-0065	trace	original context and actor window worker3-original-backups/rights_window	reject	false	null
+case-0066	trace	unknown stop keeps pending worker3-original-backups	return	false	null
+case-0067	trace	no later action after unknown worker3-original-backups	reject	false	null
+case-0068	trace	original context and actor window worker4-exact-predecessor/attempt	reject	false	null
+case-0069	trace	original context and actor window worker4-exact-predecessor/boot	reject	false	null
+case-0070	trace	original context and actor window worker4-exact-predecessor/actor	reject	false	null
+case-0071	trace	original context and actor window worker4-exact-predecessor/rights_window	reject	false	null
+case-0072	trace	unknown stop keeps pending worker4-exact-predecessor	return	false	null
+case-0073	trace	no later action after unknown worker4-exact-predecessor	reject	false	null
+case-0074	trace	original context and actor window worker5-local-isolation/attempt	reject	false	null
+case-0075	trace	original context and actor window worker5-local-isolation/boot	reject	false	null
+case-0076	trace	original context and actor window worker5-local-isolation/actor	reject	false	null
+case-0077	trace	original context and actor window worker5-local-isolation/rights_window	reject	false	null
+case-0078	trace	unknown stop keeps pending worker5-local-isolation	return	false	null
+case-0079	trace	no later action after unknown worker5-local-isolation	reject	false	null
+case-0080	trace	original context and actor window worker6-refresh-pin-once/attempt	reject	false	null
+case-0081	trace	original context and actor window worker6-refresh-pin-once/boot	reject	false	null
+case-0082	trace	original context and actor window worker6-refresh-pin-once/actor	reject	false	null
+case-0083	trace	original context and actor window worker6-refresh-pin-once/rights_window	reject	false	null
+case-0084	trace	unknown stop keeps pending worker6-refresh-pin-once	return	false	null
+case-0085	trace	no later action after unknown worker6-refresh-pin-once	reject	false	null
+case-0086	trace	original context and actor window worker7-validate-pinned-candidate/attempt	reject	false	null
+case-0087	trace	original context and actor window worker7-validate-pinned-candidate/boot	reject	false	null
+case-0088	trace	original context and actor window worker7-validate-pinned-candidate/actor	reject	false	null
+case-0089	trace	original context and actor window worker7-validate-pinned-candidate/rights_window	reject	false	null
+case-0090	trace	unknown stop keeps pending worker7-validate-pinned-candidate	return	false	null
+case-0091	trace	no later action after unknown worker7-validate-pinned-candidate	reject	false	null
+case-0092	trace	original context and actor window worker7-owned-durable-commit/attempt	reject	false	null
+case-0093	trace	original context and actor window worker7-owned-durable-commit/boot	reject	false	null
+case-0094	trace	original context and actor window worker7-owned-durable-commit/actor	reject	false	null
+case-0095	trace	original context and actor window worker7-owned-durable-commit/rights_window	reject	false	null
+case-0096	trace	unknown stop keeps pending worker7-owned-durable-commit	return	false	null
+case-0097	trace	no later action after unknown worker7-owned-durable-commit	reject	false	null
+case-0098	trace	original context and actor window worker8-whole-successor-apply/attempt	reject	false	null
+case-0099	trace	original context and actor window worker8-whole-successor-apply/boot	reject	false	null
+case-0100	trace	original context and actor window worker8-whole-successor-apply/actor	reject	false	null
+case-0101	trace	original context and actor window worker8-whole-successor-apply/rights_window	reject	false	null
+case-0102	trace	unknown stop keeps pending worker8-whole-successor-apply	return	false	null
+case-0103	trace	no later action after unknown worker8-whole-successor-apply	reject	false	null
+case-0104	trace	original context and actor window stop-forward-irreversibly/attempt	reject	false	null
+case-0105	trace	original context and actor window stop-forward-irreversibly/boot	reject	false	null
+case-0106	trace	original context and actor window stop-forward-irreversibly/actor	reject	false	null
+case-0107	trace	original context and actor window stop-forward-irreversibly/rights_window	reject	false	null
+case-0108	trace	unknown stop keeps pending stop-forward-irreversibly	return	false	null
+case-0109	trace	no later action after unknown stop-forward-irreversibly	reject	false	null
+case-0110	trace	original context and actor window drain-known-owned-children/attempt	reject	false	null
+case-0111	trace	original context and actor window drain-known-owned-children/boot	reject	false	null
+case-0112	trace	original context and actor window drain-known-owned-children/actor	reject	false	null
+case-0113	trace	original context and actor window drain-known-owned-children/rights_window	reject	false	null
+case-0114	trace	unknown stop keeps pending drain-known-owned-children	return	false	null
+case-0115	trace	no later action after unknown drain-known-owned-children	reject	false	null
+case-0116	trace	original context and actor window worker9-original-restoration/attempt	reject	false	null
+case-0117	trace	original context and actor window worker9-original-restoration/boot	reject	false	null
+case-0118	trace	original context and actor window worker9-original-restoration/actor	reject	false	null
+case-0119	trace	original context and actor window worker9-original-restoration/rights_window	reject	false	null
+case-0120	trace	unknown stop keeps pending worker9-original-restoration	return	false	null
+case-0121	trace	no later action after unknown worker9-original-restoration	reject	false	null
+case-0122	trace	original context and actor window worker10-original-verification/attempt	reject	false	null
+case-0123	trace	original context and actor window worker10-original-verification/boot	reject	false	null
+case-0124	trace	original context and actor window worker10-original-verification/actor	reject	false	null
+case-0125	trace	original context and actor window worker10-original-verification/rights_window	reject	false	null
+case-0126	trace	unknown stop keeps pending worker10-original-verification	return	false	null
+case-0127	trace	no later action after unknown worker10-original-verification	reject	false	null
+case-0128	trace	original context and actor window worker11-close-target-evidence/attempt	reject	false	null
+case-0129	trace	original context and actor window worker11-close-target-evidence/boot	reject	false	null
+case-0130	trace	original context and actor window worker11-close-target-evidence/actor	reject	false	null
+case-0131	trace	original context and actor window worker11-close-target-evidence/rights_window	reject	false	null
+case-0132	trace	unknown stop keeps pending worker11-close-target-evidence	return	false	null
+case-0133	trace	no later action after unknown worker11-close-target-evidence	reject	false	null
+case-0134	trace	original context and actor window release-target-control/attempt	reject	false	null
+case-0135	trace	original context and actor window release-target-control/boot	reject	false	null
+case-0136	trace	original context and actor window release-target-control/actor	reject	false	null
+case-0137	trace	original context and actor window release-target-control/rights_window	reject	false	null
+case-0138	trace	unknown stop keeps pending release-target-control	return	false	null
+case-0139	trace	no later action after unknown release-target-control	reject	false	null
+case-0140	trace	original context and actor window worker12-publication-controls/attempt	reject	false	null
+case-0141	trace	original context and actor window worker12-publication-controls/boot	reject	false	null
+case-0142	trace	original context and actor window worker12-publication-controls/actor	reject	false	null
+case-0143	trace	original context and actor window worker12-publication-controls/rights_window	reject	false	null
+case-0144	trace	unknown stop keeps pending worker12-publication-controls	return	false	null
+case-0145	trace	no later action after unknown worker12-publication-controls	reject	false	null
+case-0146	trace	original context and actor window worker12-publication-record/attempt	reject	false	null
+case-0147	trace	original context and actor window worker12-publication-record/boot	reject	false	null
+case-0148	trace	original context and actor window worker12-publication-record/actor	reject	false	null
+case-0149	trace	original context and actor window worker12-publication-record/rights_window	reject	false	null
+case-0150	trace	unknown stop keeps pending worker12-publication-record	return	false	null
+case-0151	trace	no later action after unknown worker12-publication-record	reject	false	null
+case-0152	trace	original context and actor window worker12-last-receipt/attempt	reject	false	null
+case-0153	trace	original context and actor window worker12-last-receipt/boot	reject	false	null
+case-0154	trace	original context and actor window worker12-last-receipt/actor	reject	false	null
+case-0155	trace	original context and actor window worker12-last-receipt/rights_window	reject	false	null
+case-0156	trace	unknown stop keeps pending worker12-last-receipt	return	false	null
+case-0157	trace	no later action after unknown worker12-last-receipt	reject	false	null
+case-0158	trace	original context and actor window worker12-durable-handoff/attempt	reject	false	null
+case-0159	trace	original context and actor window worker12-durable-handoff/boot	reject	false	null
+case-0160	trace	original context and actor window worker12-durable-handoff/actor	reject	false	null
+case-0161	trace	original context and actor window worker12-durable-handoff/rights_window	reject	false	null
+case-0162	trace	unknown stop keeps pending worker12-durable-handoff	return	false	null
+case-0163	trace	claim or spend failure never refunded 1	return	false	null
+case-0164	trace	claim or spend failure never refunded 2	return	false	null
+case-0165	recovery	separate backed branch review is not authority	return	true	null
+case-0166	recovery	original recovery gate cannot be bypassed same_original_attempt	return	false	null
+case-0167	recovery	recovery gate has exact bool same_original_attempt	reject	false	null
+case-0168	recovery	original recovery gate cannot be bypassed same_safe_boot_identity	return	false	null
+case-0169	recovery	recovery gate has exact bool same_safe_boot_identity	reject	false	null
+case-0170	recovery	original recovery gate cannot be bypassed forward_stopped	return	false	null
+case-0171	recovery	recovery gate has exact bool forward_stopped	reject	false	null
+case-0172	recovery	original recovery gate cannot be bypassed original_recovery_rights_live	return	false	null
+case-0173	recovery	recovery gate has exact bool original_recovery_rights_live	reject	false	null
+case-0174	recovery	original recovery gate cannot be bypassed finite_deadline_valid	return	false	null
+case-0175	recovery	recovery gate has exact bool finite_deadline_valid	reject	false	null
+case-0176	recovery	original recovery gate cannot be bypassed durable_budget_available	return	false	null
+case-0177	recovery	recovery gate has exact bool durable_budget_available	reject	false	null
+case-0178	recovery	original recovery gate cannot be bypassed durable_budget_spent_before_action	return	false	null
+case-0179	recovery	recovery gate has exact bool durable_budget_spent_before_action	reject	false	null
+case-0180	recovery	original recovery gate cannot be bypassed recovery_fence_continuously_valid	return	false	null
+case-0181	recovery	recovery gate has exact bool recovery_fence_continuously_valid	reject	false	null
+case-0182	recovery	original recovery gate cannot be bypassed guard_continuously_valid	return	false	null
+case-0183	recovery	recovery gate has exact bool guard_continuously_valid	reject	false	null
+case-0184	recovery	original recovery gate cannot be bypassed known_child_quiescence	return	false	null
+case-0185	recovery	recovery gate has exact bool known_child_quiescence	reject	false	null
+case-0186	recovery	original recovery gate cannot be bypassed original_baseline_known	return	false	null
+case-0187	recovery	recovery gate has exact bool original_baseline_known	reject	false	null
+case-0188	recovery	original recovery gate cannot be bypassed phase_within_original_expectation	return	false	null
+case-0189	recovery	recovery gate has exact bool phase_within_original_expectation	reject	false	null
+case-0190	recovery	original recovery gate cannot be bypassed earlier_action_outcome_known	return	false	null
+case-0191	recovery	recovery gate has exact bool earlier_action_outcome_known	reject	false	null
+case-0192	recovery	restore requires existing verified original backups	return	false	null
+case-0193	recovery	unchanged verification does not invent backups	return	true	null
+case-0194	recovery	unchanged verification requires independent observation	return	false	null
+case-0195	exchange	positive nominal context issuer-policy-and-key-provisioning/service-barrier-authentication	return	true	null
+case-0196	exchange	typed caller cannot cross original rights issuer-policy-and-key-provisioning/service-barrier-authentication	reject	false	null
+case-0197	exchange	provider schema actor cannot be replaced issuer-policy-and-key-provisioning/provider_role	reject	false	null
+case-0198	exchange	provider schema actor cannot be replaced issuer-policy-and-key-provisioning/version	reject	false	null
+case-0199	exchange	provider schema actor cannot be replaced issuer-policy-and-key-provisioning/caller_actor	reject	false	null
+case-0200	exchange	nominal view grants no native handle issuer-policy-and-key-provisioning/attempt	reject	false	null
+case-0201	exchange	nominal view grants no native handle issuer-policy-and-key-provisioning/boot	reject	false	null
+case-0202	exchange	nominal view grants no native handle issuer-policy-and-key-provisioning/authority	reject	false	null
+case-0203	exchange	nominal view grants no native handle issuer-policy-and-key-provisioning/symbol	reject	false	null
+case-0204	exchange	uncertain or failed result cannot retain success payload issuer-policy-and-key-provisioning/known-failed	reject	false	null
+case-0205	exchange	uncertain empty nominal result keeps native obligations issuer-policy-and-key-provisioning/known-failed	return	false	null
+case-0206	exchange	uncertain or failed result cannot retain success payload issuer-policy-and-key-provisioning/unknown	reject	false	null
+case-0207	exchange	uncertain empty nominal result keeps native obligations issuer-policy-and-key-provisioning/unknown	return	false	null
+case-0208	exchange	uncertain or failed result cannot retain success payload issuer-policy-and-key-provisioning/not-attempted	reject	false	null
+case-0209	exchange	uncertain empty nominal result keeps native obligations issuer-policy-and-key-provisioning/not-attempted	return	false	null
+case-0210	exchange	positive nominal context durable-admission-claim/service-original-durable-claim	return	true	null
+case-0211	exchange	typed caller cannot cross original rights durable-admission-claim/service-original-durable-claim	reject	false	null
+case-0212	exchange	provider schema actor cannot be replaced durable-admission-claim/provider_role	reject	false	null
+case-0213	exchange	provider schema actor cannot be replaced durable-admission-claim/version	reject	false	null
+case-0214	exchange	provider schema actor cannot be replaced durable-admission-claim/caller_actor	reject	false	null
+case-0215	exchange	nominal view grants no native handle durable-admission-claim/attempt	reject	false	null
+case-0216	exchange	nominal view grants no native handle durable-admission-claim/boot	reject	false	null
+case-0217	exchange	nominal view grants no native handle durable-admission-claim/authority	reject	false	null
+case-0218	exchange	nominal view grants no native handle durable-admission-claim/symbol	reject	false	null
+case-0219	exchange	uncertain or failed result cannot retain success payload durable-admission-claim/known-failed	reject	false	null
+case-0220	exchange	uncertain empty nominal result keeps native obligations durable-admission-claim/known-failed	return	false	null
+case-0221	exchange	uncertain or failed result cannot retain success payload durable-admission-claim/unknown	reject	false	null
+case-0222	exchange	uncertain empty nominal result keeps native obligations durable-admission-claim/unknown	return	false	null
+case-0223	exchange	uncertain or failed result cannot retain success payload durable-admission-claim/not-attempted	reject	false	null
+case-0224	exchange	uncertain empty nominal result keeps native obligations durable-admission-claim/not-attempted	return	false	null
+case-0225	exchange	positive nominal context durable-single-launch-slot/service-durable-launch-spend	return	true	null
+case-0226	exchange	typed caller cannot cross original rights durable-single-launch-slot/service-durable-launch-spend	reject	false	null
+case-0227	exchange	positive nominal context durable-single-launch-slot/service-single-worker-spawn	return	true	null
+case-0228	exchange	typed caller cannot cross original rights durable-single-launch-slot/service-single-worker-spawn	reject	false	null
+case-0229	exchange	provider schema actor cannot be replaced durable-single-launch-slot/provider_role	reject	false	null
+case-0230	exchange	provider schema actor cannot be replaced durable-single-launch-slot/version	reject	false	null
+case-0231	exchange	provider schema actor cannot be replaced durable-single-launch-slot/caller_actor	reject	false	null
+case-0232	exchange	nominal view grants no native handle durable-single-launch-slot/attempt	reject	false	null
+case-0233	exchange	nominal view grants no native handle durable-single-launch-slot/boot	reject	false	null
+case-0234	exchange	nominal view grants no native handle durable-single-launch-slot/authority	reject	false	null
+case-0235	exchange	nominal view grants no native handle durable-single-launch-slot/symbol	reject	false	null
+case-0236	exchange	uncertain or failed result cannot retain success payload durable-single-launch-slot/known-failed	reject	false	null
+case-0237	exchange	uncertain empty nominal result keeps native obligations durable-single-launch-slot/known-failed	return	false	null
+case-0238	exchange	uncertain or failed result cannot retain success payload durable-single-launch-slot/unknown	reject	false	null
+case-0239	exchange	uncertain empty nominal result keeps native obligations durable-single-launch-slot/unknown	return	false	null
+case-0240	exchange	uncertain or failed result cannot retain success payload durable-single-launch-slot/not-attempted	reject	false	null
+case-0241	exchange	uncertain empty nominal result keeps native obligations durable-single-launch-slot/not-attempted	return	false	null
+case-0242	exchange	positive nominal context offline-bootstrap-context/worker0-bounded-auth-read	return	true	null
+case-0243	exchange	typed caller cannot cross original rights offline-bootstrap-context/worker0-bounded-auth-read	reject	false	null
+case-0244	exchange	positive nominal context offline-bootstrap-context/worker0-close-bootstrap	return	true	null
+case-0245	exchange	typed caller cannot cross original rights offline-bootstrap-context/worker0-close-bootstrap	reject	false	null
+case-0246	exchange	provider schema actor cannot be replaced offline-bootstrap-context/provider_role	reject	false	null
+case-0247	exchange	provider schema actor cannot be replaced offline-bootstrap-context/version	reject	false	null
+case-0248	exchange	provider schema actor cannot be replaced offline-bootstrap-context/caller_actor	reject	false	null
+case-0249	exchange	nominal view grants no native handle offline-bootstrap-context/attempt	reject	false	null
+case-0250	exchange	nominal view grants no native handle offline-bootstrap-context/boot	reject	false	null
+case-0251	exchange	nominal view grants no native handle offline-bootstrap-context/authority	reject	false	null
+case-0252	exchange	nominal view grants no native handle offline-bootstrap-context/symbol	reject	false	null
+case-0253	exchange	uncertain or failed result cannot retain success payload offline-bootstrap-context/known-failed	reject	false	null
+case-0254	exchange	uncertain empty nominal result keeps native obligations offline-bootstrap-context/known-failed	return	false	null
+case-0255	exchange	uncertain or failed result cannot retain success payload offline-bootstrap-context/unknown	reject	false	null
+case-0256	exchange	uncertain empty nominal result keeps native obligations offline-bootstrap-context/unknown	return	false	null
+case-0257	exchange	uncertain or failed result cannot retain success payload offline-bootstrap-context/not-attempted	reject	false	null
+case-0258	exchange	uncertain empty nominal result keeps native obligations offline-bootstrap-context/not-attempted	return	false	null
+case-0259	exchange	positive nominal context trusted-time-and-revocation-fence/worker1-arm-traps	return	true	null
+case-0260	exchange	typed caller cannot cross original rights trusted-time-and-revocation-fence/worker1-arm-traps	reject	false	null
+case-0261	exchange	positive nominal context trusted-time-and-revocation-fence/interstage1-2-guard-freshoriginal	return	true	null
+case-0262	exchange	typed caller cannot cross original rights trusted-time-and-revocation-fence/interstage1-2-guard-freshoriginal	reject	false	null
+case-0263	exchange	positive nominal context trusted-time-and-revocation-fence/worker2-owned-workspace	return	true	null
+case-0264	exchange	typed caller cannot cross original rights trusted-time-and-revocation-fence/worker2-owned-workspace	reject	false	null
+case-0265	exchange	positive nominal context trusted-time-and-revocation-fence/worker3-original-backups	return	true	null
+case-0266	exchange	typed caller cannot cross original rights trusted-time-and-revocation-fence/worker3-original-backups	reject	false	null
+case-0267	exchange	positive nominal context trusted-time-and-revocation-fence/worker4-exact-predecessor	return	true	null
+case-0268	exchange	typed caller cannot cross original rights trusted-time-and-revocation-fence/worker4-exact-predecessor	reject	false	null
+case-0269	exchange	positive nominal context trusted-time-and-revocation-fence/worker5-local-isolation	return	true	null
+case-0270	exchange	typed caller cannot cross original rights trusted-time-and-revocation-fence/worker5-local-isolation	reject	false	null
+case-0271	exchange	positive nominal context trusted-time-and-revocation-fence/worker6-refresh-pin-once	return	true	null
+case-0272	exchange	typed caller cannot cross original rights trusted-time-and-revocation-fence/worker6-refresh-pin-once	reject	false	null
+case-0273	exchange	positive nominal context trusted-time-and-revocation-fence/worker7-validate-pinned-candidate	return	true	null
+case-0274	exchange	typed caller cannot cross original rights trusted-time-and-revocation-fence/worker7-validate-pinned-candidate	reject	false	null
+case-0275	exchange	positive nominal context trusted-time-and-revocation-fence/worker7-owned-durable-commit	return	true	null
+case-0276	exchange	typed caller cannot cross original rights trusted-time-and-revocation-fence/worker7-owned-durable-commit	reject	false	null
+case-0277	exchange	positive nominal context trusted-time-and-revocation-fence/worker8-whole-successor-apply	return	true	null
+case-0278	exchange	typed caller cannot cross original rights trusted-time-and-revocation-fence/worker8-whole-successor-apply	reject	false	null
+case-0279	exchange	positive nominal context trusted-time-and-revocation-fence/stop-forward-irreversibly	return	true	null
+case-0280	exchange	typed caller cannot cross original rights trusted-time-and-revocation-fence/stop-forward-irreversibly	reject	false	null
+case-0281	exchange	positive nominal context trusted-time-and-revocation-fence/drain-known-owned-children	return	true	null
+case-0282	exchange	typed caller cannot cross original rights trusted-time-and-revocation-fence/drain-known-owned-children	reject	false	null
+case-0283	exchange	positive nominal context trusted-time-and-revocation-fence/worker9-original-restoration	return	true	null
+case-0284	exchange	typed caller cannot cross original rights trusted-time-and-revocation-fence/worker9-original-restoration	reject	false	null
+case-0285	exchange	positive nominal context trusted-time-and-revocation-fence/worker10-original-verification	return	true	null
+case-0286	exchange	typed caller cannot cross original rights trusted-time-and-revocation-fence/worker10-original-verification	reject	false	null
+case-0287	exchange	positive nominal context trusted-time-and-revocation-fence/worker11-close-target-evidence	return	true	null
+case-0288	exchange	typed caller cannot cross original rights trusted-time-and-revocation-fence/worker11-close-target-evidence	reject	false	null
+case-0289	exchange	positive nominal context trusted-time-and-revocation-fence/release-target-control	return	true	null
+case-0290	exchange	typed caller cannot cross original rights trusted-time-and-revocation-fence/release-target-control	reject	false	null
+case-0291	exchange	provider schema actor cannot be replaced trusted-time-and-revocation-fence/provider_role	reject	false	null
+case-0292	exchange	provider schema actor cannot be replaced trusted-time-and-revocation-fence/version	reject	false	null
+case-0293	exchange	provider schema actor cannot be replaced trusted-time-and-revocation-fence/caller_actor	reject	false	null
+case-0294	exchange	nominal view grants no native handle trusted-time-and-revocation-fence/attempt	reject	false	null
+case-0295	exchange	nominal view grants no native handle trusted-time-and-revocation-fence/boot	reject	false	null
+case-0296	exchange	nominal view grants no native handle trusted-time-and-revocation-fence/authority	reject	false	null
+case-0297	exchange	nominal view grants no native handle trusted-time-and-revocation-fence/symbol	reject	false	null
+case-0298	exchange	uncertain or failed result cannot retain success payload trusted-time-and-revocation-fence/known-failed	reject	false	null
+case-0299	exchange	uncertain empty nominal result keeps native obligations trusted-time-and-revocation-fence/known-failed	return	false	null
+case-0300	exchange	uncertain or failed result cannot retain success payload trusted-time-and-revocation-fence/unknown	reject	false	null
+case-0301	exchange	uncertain empty nominal result keeps native obligations trusted-time-and-revocation-fence/unknown	return	false	null
+case-0302	exchange	uncertain or failed result cannot retain success payload trusted-time-and-revocation-fence/not-attempted	reject	false	null
+case-0303	exchange	uncertain empty nominal result keeps native obligations trusted-time-and-revocation-fence/not-attempted	return	false	null
+case-0304	exchange	positive nominal context worker-readonly-preflight/worker0-readonly-preflight	return	true	null
+case-0305	exchange	typed caller cannot cross original rights worker-readonly-preflight/worker0-readonly-preflight	reject	false	null
+case-0306	exchange	provider schema actor cannot be replaced worker-readonly-preflight/provider_role	reject	false	null
+case-0307	exchange	provider schema actor cannot be replaced worker-readonly-preflight/version	reject	false	null
+case-0308	exchange	provider schema actor cannot be replaced worker-readonly-preflight/caller_actor	reject	false	null
+case-0309	exchange	nominal view grants no native handle worker-readonly-preflight/attempt	reject	false	null
+case-0310	exchange	nominal view grants no native handle worker-readonly-preflight/boot	reject	false	null
+case-0311	exchange	nominal view grants no native handle worker-readonly-preflight/authority	reject	false	null
+case-0312	exchange	nominal view grants no native handle worker-readonly-preflight/symbol	reject	false	null
+case-0313	exchange	uncertain or failed result cannot retain success payload worker-readonly-preflight/known-failed	reject	false	null
+case-0314	exchange	uncertain empty nominal result keeps native obligations worker-readonly-preflight/known-failed	return	false	null
+case-0315	exchange	uncertain or failed result cannot retain success payload worker-readonly-preflight/unknown	reject	false	null
+case-0316	exchange	uncertain empty nominal result keeps native obligations worker-readonly-preflight/unknown	return	false	null
+case-0317	exchange	uncertain or failed result cannot retain success payload worker-readonly-preflight/not-attempted	reject	false	null
+case-0318	exchange	uncertain empty nominal result keeps native obligations worker-readonly-preflight/not-attempted	return	false	null
+case-0319	exchange	positive nominal context worker-traps-and-child-control/worker1-arm-traps	return	true	null
+case-0320	exchange	typed caller cannot cross original rights worker-traps-and-child-control/worker1-arm-traps	reject	false	null
+case-0321	exchange	positive nominal context worker-traps-and-child-control/drain-known-owned-children	return	true	null
+case-0322	exchange	typed caller cannot cross original rights worker-traps-and-child-control/drain-known-owned-children	reject	false	null
+case-0323	exchange	provider schema actor cannot be replaced worker-traps-and-child-control/provider_role	reject	false	null
+case-0324	exchange	provider schema actor cannot be replaced worker-traps-and-child-control/version	reject	false	null
+case-0325	exchange	provider schema actor cannot be replaced worker-traps-and-child-control/caller_actor	reject	false	null
+case-0326	exchange	nominal view grants no native handle worker-traps-and-child-control/attempt	reject	false	null
+case-0327	exchange	nominal view grants no native handle worker-traps-and-child-control/boot	reject	false	null
+case-0328	exchange	nominal view grants no native handle worker-traps-and-child-control/authority	reject	false	null
+case-0329	exchange	nominal view grants no native handle worker-traps-and-child-control/symbol	reject	false	null
+case-0330	exchange	uncertain or failed result cannot retain success payload worker-traps-and-child-control/known-failed	reject	false	null
+case-0331	exchange	uncertain empty nominal result keeps native obligations worker-traps-and-child-control/known-failed	return	false	null
+case-0332	exchange	uncertain or failed result cannot retain success payload worker-traps-and-child-control/unknown	reject	false	null
+case-0333	exchange	uncertain empty nominal result keeps native obligations worker-traps-and-child-control/unknown	return	false	null
+case-0334	exchange	uncertain or failed result cannot retain success payload worker-traps-and-child-control/not-attempted	reject	false	null
+case-0335	exchange	uncertain empty nominal result keeps native obligations worker-traps-and-child-control/not-attempted	return	false	null
+case-0336	exchange	positive nominal context outer-writer-guard-and-original-baseline/interstage1-2-guard-freshoriginal	return	true	null
+case-0337	exchange	typed caller cannot cross original rights outer-writer-guard-and-original-baseline/interstage1-2-guard-freshoriginal	reject	false	null
+case-0338	exchange	positive nominal context outer-writer-guard-and-original-baseline/release-target-control	return	true	null
+case-0339	exchange	typed caller cannot cross original rights outer-writer-guard-and-original-baseline/release-target-control	reject	false	null
+case-0340	exchange	provider schema actor cannot be replaced outer-writer-guard-and-original-baseline/provider_role	reject	false	null
+case-0341	exchange	provider schema actor cannot be replaced outer-writer-guard-and-original-baseline/version	reject	false	null
+case-0342	exchange	provider schema actor cannot be replaced outer-writer-guard-and-original-baseline/caller_actor	reject	false	null
+case-0343	exchange	nominal view grants no native handle outer-writer-guard-and-original-baseline/attempt	reject	false	null
+case-0344	exchange	nominal view grants no native handle outer-writer-guard-and-original-baseline/boot	reject	false	null
+case-0345	exchange	nominal view grants no native handle outer-writer-guard-and-original-baseline/authority	reject	false	null
+case-0346	exchange	nominal view grants no native handle outer-writer-guard-and-original-baseline/symbol	reject	false	null
+case-0347	exchange	uncertain or failed result cannot retain success payload outer-writer-guard-and-original-baseline/known-failed	reject	false	null
+case-0348	exchange	uncertain empty nominal result keeps native obligations outer-writer-guard-and-original-baseline/known-failed	return	false	null
+case-0349	exchange	uncertain or failed result cannot retain success payload outer-writer-guard-and-original-baseline/unknown	reject	false	null
+case-0350	exchange	uncertain empty nominal result keeps native obligations outer-writer-guard-and-original-baseline/unknown	return	false	null
+case-0351	exchange	uncertain or failed result cannot retain success payload outer-writer-guard-and-original-baseline/not-attempted	reject	false	null
+case-0352	exchange	uncertain empty nominal result keeps native obligations outer-writer-guard-and-original-baseline/not-attempted	return	false	null
+case-0353	exchange	positive nominal context owned-runtime-and-original-backups/worker2-owned-workspace	return	true	null
+case-0354	exchange	typed caller cannot cross original rights owned-runtime-and-original-backups/worker2-owned-workspace	reject	false	null
+case-0355	exchange	positive nominal context owned-runtime-and-original-backups/worker3-original-backups	return	true	null
+case-0356	exchange	typed caller cannot cross original rights owned-runtime-and-original-backups/worker3-original-backups	reject	false	null
+case-0357	exchange	provider schema actor cannot be replaced owned-runtime-and-original-backups/provider_role	reject	false	null
+case-0358	exchange	provider schema actor cannot be replaced owned-runtime-and-original-backups/version	reject	false	null
+case-0359	exchange	provider schema actor cannot be replaced owned-runtime-and-original-backups/caller_actor	reject	false	null
+case-0360	exchange	nominal view grants no native handle owned-runtime-and-original-backups/attempt	reject	false	null
+case-0361	exchange	nominal view grants no native handle owned-runtime-and-original-backups/boot	reject	false	null
+case-0362	exchange	nominal view grants no native handle owned-runtime-and-original-backups/authority	reject	false	null
+case-0363	exchange	nominal view grants no native handle owned-runtime-and-original-backups/symbol	reject	false	null
+case-0364	exchange	uncertain or failed result cannot retain success payload owned-runtime-and-original-backups/known-failed	reject	false	null
+case-0365	exchange	uncertain empty nominal result keeps native obligations owned-runtime-and-original-backups/known-failed	return	false	null
+case-0366	exchange	uncertain or failed result cannot retain success payload owned-runtime-and-original-backups/unknown	reject	false	null
+case-0367	exchange	uncertain empty nominal result keeps native obligations owned-runtime-and-original-backups/unknown	return	false	null
+case-0368	exchange	uncertain or failed result cannot retain success payload owned-runtime-and-original-backups/not-attempted	reject	false	null
+case-0369	exchange	uncertain empty nominal result keeps native obligations owned-runtime-and-original-backups/not-attempted	return	false	null
+case-0370	exchange	positive nominal context predecessor-and-local-isolation/worker4-exact-predecessor	return	true	null
+case-0371	exchange	typed caller cannot cross original rights predecessor-and-local-isolation/worker4-exact-predecessor	reject	false	null
+case-0372	exchange	positive nominal context predecessor-and-local-isolation/worker5-local-isolation	return	true	null
+case-0373	exchange	typed caller cannot cross original rights predecessor-and-local-isolation/worker5-local-isolation	reject	false	null
+case-0374	exchange	positive nominal context predecessor-and-local-isolation/worker6-refresh-pin-once	return	true	null
+case-0375	exchange	typed caller cannot cross original rights predecessor-and-local-isolation/worker6-refresh-pin-once	reject	false	null
+case-0376	exchange	provider schema actor cannot be replaced predecessor-and-local-isolation/provider_role	reject	false	null
+case-0377	exchange	provider schema actor cannot be replaced predecessor-and-local-isolation/version	reject	false	null
+case-0378	exchange	provider schema actor cannot be replaced predecessor-and-local-isolation/caller_actor	reject	false	null
+case-0379	exchange	nominal view grants no native handle predecessor-and-local-isolation/attempt	reject	false	null
+case-0380	exchange	nominal view grants no native handle predecessor-and-local-isolation/boot	reject	false	null
+case-0381	exchange	nominal view grants no native handle predecessor-and-local-isolation/authority	reject	false	null
+case-0382	exchange	nominal view grants no native handle predecessor-and-local-isolation/symbol	reject	false	null
+case-0383	exchange	uncertain or failed result cannot retain success payload predecessor-and-local-isolation/known-failed	reject	false	null
+case-0384	exchange	uncertain empty nominal result keeps native obligations predecessor-and-local-isolation/known-failed	return	false	null
+case-0385	exchange	uncertain or failed result cannot retain success payload predecessor-and-local-isolation/unknown	reject	false	null
+case-0386	exchange	uncertain empty nominal result keeps native obligations predecessor-and-local-isolation/unknown	return	false	null
+case-0387	exchange	uncertain or failed result cannot retain success payload predecessor-and-local-isolation/not-attempted	reject	false	null
+case-0388	exchange	uncertain empty nominal result keeps native obligations predecessor-and-local-isolation/not-attempted	return	false	null
+case-0389	exchange	positive nominal context stage7-owned-binding/worker7-validate-pinned-candidate	return	true	null
+case-0390	exchange	typed caller cannot cross original rights stage7-owned-binding/worker7-validate-pinned-candidate	reject	false	null
+case-0391	exchange	positive nominal context stage7-owned-binding/worker7-owned-durable-commit	return	true	null
+case-0392	exchange	typed caller cannot cross original rights stage7-owned-binding/worker7-owned-durable-commit	reject	false	null
+case-0393	exchange	provider schema actor cannot be replaced stage7-owned-binding/provider_role	reject	false	null
+case-0394	exchange	provider schema actor cannot be replaced stage7-owned-binding/version	reject	false	null
+case-0395	exchange	provider schema actor cannot be replaced stage7-owned-binding/caller_actor	reject	false	null
+case-0396	exchange	nominal view grants no native handle stage7-owned-binding/attempt	reject	false	null
+case-0397	exchange	nominal view grants no native handle stage7-owned-binding/boot	reject	false	null
+case-0398	exchange	nominal view grants no native handle stage7-owned-binding/authority	reject	false	null
+case-0399	exchange	nominal view grants no native handle stage7-owned-binding/symbol	reject	false	null
+case-0400	exchange	uncertain or failed result cannot retain success payload stage7-owned-binding/known-failed	reject	false	null
+case-0401	exchange	uncertain empty nominal result keeps native obligations stage7-owned-binding/known-failed	return	false	null
+case-0402	exchange	uncertain or failed result cannot retain success payload stage7-owned-binding/unknown	reject	false	null
+case-0403	exchange	uncertain empty nominal result keeps native obligations stage7-owned-binding/unknown	return	false	null
+case-0404	exchange	uncertain or failed result cannot retain success payload stage7-owned-binding/not-attempted	reject	false	null
+case-0405	exchange	uncertain empty nominal result keeps native obligations stage7-owned-binding/not-attempted	return	false	null
+case-0406	exchange	positive nominal context whole-reference-entry/worker8-whole-successor-apply	return	true	null
+case-0407	exchange	typed caller cannot cross original rights whole-reference-entry/worker8-whole-successor-apply	reject	false	null
+case-0408	exchange	provider schema actor cannot be replaced whole-reference-entry/provider_role	reject	false	null
+case-0409	exchange	provider schema actor cannot be replaced whole-reference-entry/version	reject	false	null
+case-0410	exchange	provider schema actor cannot be replaced whole-reference-entry/caller_actor	reject	false	null
+case-0411	exchange	nominal view grants no native handle whole-reference-entry/attempt	reject	false	null
+case-0412	exchange	nominal view grants no native handle whole-reference-entry/boot	reject	false	null
+case-0413	exchange	nominal view grants no native handle whole-reference-entry/authority	reject	false	null
+case-0414	exchange	nominal view grants no native handle whole-reference-entry/symbol	reject	false	null
+case-0415	exchange	uncertain or failed result cannot retain success payload whole-reference-entry/known-failed	reject	false	null
+case-0416	exchange	uncertain empty nominal result keeps native obligations whole-reference-entry/known-failed	return	false	null
+case-0417	exchange	uncertain or failed result cannot retain success payload whole-reference-entry/unknown	reject	false	null
+case-0418	exchange	uncertain empty nominal result keeps native obligations whole-reference-entry/unknown	return	false	null
+case-0419	exchange	uncertain or failed result cannot retain success payload whole-reference-entry/not-attempted	reject	false	null
+case-0420	exchange	uncertain empty nominal result keeps native obligations whole-reference-entry/not-attempted	return	false	null
+case-0421	exchange	positive nominal context reference-lock-runtime-logs/worker8-whole-successor-apply	return	true	null
+case-0422	exchange	typed caller cannot cross original rights reference-lock-runtime-logs/worker8-whole-successor-apply	reject	false	null
+case-0423	exchange	provider schema actor cannot be replaced reference-lock-runtime-logs/provider_role	reject	false	null
+case-0424	exchange	provider schema actor cannot be replaced reference-lock-runtime-logs/version	reject	false	null
+case-0425	exchange	provider schema actor cannot be replaced reference-lock-runtime-logs/caller_actor	reject	false	null
+case-0426	exchange	nominal view grants no native handle reference-lock-runtime-logs/attempt	reject	false	null
+case-0427	exchange	nominal view grants no native handle reference-lock-runtime-logs/boot	reject	false	null
+case-0428	exchange	nominal view grants no native handle reference-lock-runtime-logs/authority	reject	false	null
+case-0429	exchange	nominal view grants no native handle reference-lock-runtime-logs/symbol	reject	false	null
+case-0430	exchange	uncertain or failed result cannot retain success payload reference-lock-runtime-logs/known-failed	reject	false	null
+case-0431	exchange	uncertain empty nominal result keeps native obligations reference-lock-runtime-logs/known-failed	return	false	null
+case-0432	exchange	uncertain or failed result cannot retain success payload reference-lock-runtime-logs/unknown	reject	false	null
+case-0433	exchange	uncertain empty nominal result keeps native obligations reference-lock-runtime-logs/unknown	return	false	null
+case-0434	exchange	uncertain or failed result cannot retain success payload reference-lock-runtime-logs/not-attempted	reject	false	null
+case-0435	exchange	uncertain empty nominal result keeps native obligations reference-lock-runtime-logs/not-attempted	return	false	null
+case-0436	exchange	positive nominal context reference-snapshots-and-config-scan/worker8-whole-successor-apply	return	true	null
+case-0437	exchange	typed caller cannot cross original rights reference-snapshots-and-config-scan/worker8-whole-successor-apply	reject	false	null
+case-0438	exchange	provider schema actor cannot be replaced reference-snapshots-and-config-scan/provider_role	reject	false	null
+case-0439	exchange	provider schema actor cannot be replaced reference-snapshots-and-config-scan/version	reject	false	null
+case-0440	exchange	provider schema actor cannot be replaced reference-snapshots-and-config-scan/caller_actor	reject	false	null
+case-0441	exchange	nominal view grants no native handle reference-snapshots-and-config-scan/attempt	reject	false	null
+case-0442	exchange	nominal view grants no native handle reference-snapshots-and-config-scan/boot	reject	false	null
+case-0443	exchange	nominal view grants no native handle reference-snapshots-and-config-scan/authority	reject	false	null
+case-0444	exchange	nominal view grants no native handle reference-snapshots-and-config-scan/symbol	reject	false	null
+case-0445	exchange	uncertain or failed result cannot retain success payload reference-snapshots-and-config-scan/known-failed	reject	false	null
+case-0446	exchange	uncertain empty nominal result keeps native obligations reference-snapshots-and-config-scan/known-failed	return	false	null
+case-0447	exchange	uncertain or failed result cannot retain success payload reference-snapshots-and-config-scan/unknown	reject	false	null
+case-0448	exchange	uncertain empty nominal result keeps native obligations reference-snapshots-and-config-scan/unknown	return	false	null
+case-0449	exchange	uncertain or failed result cannot retain success payload reference-snapshots-and-config-scan/not-attempted	reject	false	null
+case-0450	exchange	uncertain empty nominal result keeps native obligations reference-snapshots-and-config-scan/not-attempted	return	false	null
+case-0451	exchange	positive nominal context nested-call-adapter/worker8-whole-successor-apply	return	true	null
+case-0452	exchange	typed caller cannot cross original rights nested-call-adapter/worker8-whole-successor-apply	reject	false	null
+case-0453	exchange	provider schema actor cannot be replaced nested-call-adapter/provider_role	reject	false	null
+case-0454	exchange	provider schema actor cannot be replaced nested-call-adapter/version	reject	false	null
+case-0455	exchange	provider schema actor cannot be replaced nested-call-adapter/caller_actor	reject	false	null
+case-0456	exchange	nominal view grants no native handle nested-call-adapter/attempt	reject	false	null
+case-0457	exchange	nominal view grants no native handle nested-call-adapter/boot	reject	false	null
+case-0458	exchange	nominal view grants no native handle nested-call-adapter/authority	reject	false	null
+case-0459	exchange	nominal view grants no native handle nested-call-adapter/symbol	reject	false	null
+case-0460	exchange	uncertain or failed result cannot retain success payload nested-call-adapter/known-failed	reject	false	null
+case-0461	exchange	uncertain empty nominal result keeps native obligations nested-call-adapter/known-failed	return	false	null
+case-0462	exchange	uncertain or failed result cannot retain success payload nested-call-adapter/unknown	reject	false	null
+case-0463	exchange	uncertain empty nominal result keeps native obligations nested-call-adapter/unknown	return	false	null
+case-0464	exchange	uncertain or failed result cannot retain success payload nested-call-adapter/not-attempted	reject	false	null
+case-0465	exchange	uncertain empty nominal result keeps native obligations nested-call-adapter/not-attempted	return	false	null
+case-0466	exchange	positive nominal context real-backend-and-selector/worker6-refresh-pin-once	return	true	null
+case-0467	exchange	typed caller cannot cross original rights real-backend-and-selector/worker6-refresh-pin-once	reject	false	null
+case-0468	exchange	positive nominal context real-backend-and-selector/worker8-whole-successor-apply	return	true	null
+case-0469	exchange	typed caller cannot cross original rights real-backend-and-selector/worker8-whole-successor-apply	reject	false	null
+case-0470	exchange	provider schema actor cannot be replaced real-backend-and-selector/provider_role	reject	false	null
+case-0471	exchange	provider schema actor cannot be replaced real-backend-and-selector/version	reject	false	null
+case-0472	exchange	provider schema actor cannot be replaced real-backend-and-selector/caller_actor	reject	false	null
+case-0473	exchange	nominal view grants no native handle real-backend-and-selector/attempt	reject	false	null
+case-0474	exchange	nominal view grants no native handle real-backend-and-selector/boot	reject	false	null
+case-0475	exchange	nominal view grants no native handle real-backend-and-selector/authority	reject	false	null
+case-0476	exchange	nominal view grants no native handle real-backend-and-selector/symbol	reject	false	null
+case-0477	exchange	uncertain or failed result cannot retain success payload real-backend-and-selector/known-failed	reject	false	null
+case-0478	exchange	uncertain empty nominal result keeps native obligations real-backend-and-selector/known-failed	return	false	null
+case-0479	exchange	uncertain or failed result cannot retain success payload real-backend-and-selector/unknown	reject	false	null
+case-0480	exchange	uncertain empty nominal result keeps native obligations real-backend-and-selector/unknown	return	false	null
+case-0481	exchange	uncertain or failed result cannot retain success payload real-backend-and-selector/not-attempted	reject	false	null
+case-0482	exchange	uncertain empty nominal result keeps native obligations real-backend-and-selector/not-attempted	return	false	null
+case-0483	exchange	positive nominal context package-tools-and-install-hooks/worker4-exact-predecessor	return	true	null
+case-0484	exchange	typed caller cannot cross original rights package-tools-and-install-hooks/worker4-exact-predecessor	reject	false	null
+case-0485	exchange	positive nominal context package-tools-and-install-hooks/worker8-whole-successor-apply	return	true	null
+case-0486	exchange	typed caller cannot cross original rights package-tools-and-install-hooks/worker8-whole-successor-apply	reject	false	null
+case-0487	exchange	positive nominal context package-tools-and-install-hooks/worker9-original-restoration	return	true	null
+case-0488	exchange	typed caller cannot cross original rights package-tools-and-install-hooks/worker9-original-restoration	reject	false	null
+case-0489	exchange	provider schema actor cannot be replaced package-tools-and-install-hooks/provider_role	reject	false	null
+case-0490	exchange	provider schema actor cannot be replaced package-tools-and-install-hooks/version	reject	false	null
+case-0491	exchange	provider schema actor cannot be replaced package-tools-and-install-hooks/caller_actor	reject	false	null
+case-0492	exchange	nominal view grants no native handle package-tools-and-install-hooks/attempt	reject	false	null
+case-0493	exchange	nominal view grants no native handle package-tools-and-install-hooks/boot	reject	false	null
+case-0494	exchange	nominal view grants no native handle package-tools-and-install-hooks/authority	reject	false	null
+case-0495	exchange	nominal view grants no native handle package-tools-and-install-hooks/symbol	reject	false	null
+case-0496	exchange	uncertain or failed result cannot retain success payload package-tools-and-install-hooks/known-failed	reject	false	null
+case-0497	exchange	uncertain empty nominal result keeps native obligations package-tools-and-install-hooks/known-failed	return	false	null
+case-0498	exchange	uncertain or failed result cannot retain success payload package-tools-and-install-hooks/unknown	reject	false	null
+case-0499	exchange	uncertain empty nominal result keeps native obligations package-tools-and-install-hooks/unknown	return	false	null
+case-0500	exchange	uncertain or failed result cannot retain success payload package-tools-and-install-hooks/not-attempted	reject	false	null
+case-0501	exchange	uncertain empty nominal result keeps native obligations package-tools-and-install-hooks/not-attempted	return	false	null
+case-0502	exchange	positive nominal context source-and-archive-consumption/worker0-readonly-preflight	return	true	null
+case-0503	exchange	typed caller cannot cross original rights source-and-archive-consumption/worker0-readonly-preflight	reject	false	null
+case-0504	exchange	positive nominal context source-and-archive-consumption/worker4-exact-predecessor	return	true	null
+case-0505	exchange	typed caller cannot cross original rights source-and-archive-consumption/worker4-exact-predecessor	reject	false	null
+case-0506	exchange	positive nominal context source-and-archive-consumption/worker6-refresh-pin-once	return	true	null
+case-0507	exchange	typed caller cannot cross original rights source-and-archive-consumption/worker6-refresh-pin-once	reject	false	null
+case-0508	exchange	positive nominal context source-and-archive-consumption/worker8-whole-successor-apply	return	true	null
+case-0509	exchange	typed caller cannot cross original rights source-and-archive-consumption/worker8-whole-successor-apply	reject	false	null
+case-0510	exchange	positive nominal context source-and-archive-consumption/worker9-original-restoration	return	true	null
+case-0511	exchange	typed caller cannot cross original rights source-and-archive-consumption/worker9-original-restoration	reject	false	null
+case-0512	exchange	provider schema actor cannot be replaced source-and-archive-consumption/provider_role	reject	false	null
+case-0513	exchange	provider schema actor cannot be replaced source-and-archive-consumption/version	reject	false	null
+case-0514	exchange	provider schema actor cannot be replaced source-and-archive-consumption/caller_actor	reject	false	null
+case-0515	exchange	nominal view grants no native handle source-and-archive-consumption/attempt	reject	false	null
+case-0516	exchange	nominal view grants no native handle source-and-archive-consumption/boot	reject	false	null
+case-0517	exchange	nominal view grants no native handle source-and-archive-consumption/authority	reject	false	null
+case-0518	exchange	nominal view grants no native handle source-and-archive-consumption/symbol	reject	false	null
+case-0519	exchange	uncertain or failed result cannot retain success payload source-and-archive-consumption/known-failed	reject	false	null
+case-0520	exchange	uncertain empty nominal result keeps native obligations source-and-archive-consumption/known-failed	return	false	null
+case-0521	exchange	uncertain or failed result cannot retain success payload source-and-archive-consumption/unknown	reject	false	null
+case-0522	exchange	uncertain empty nominal result keeps native obligations source-and-archive-consumption/unknown	return	false	null
+case-0523	exchange	uncertain or failed result cannot retain success payload source-and-archive-consumption/not-attempted	reject	false	null
+case-0524	exchange	uncertain empty nominal result keeps native obligations source-and-archive-consumption/not-attempted	return	false	null
+case-0525	exchange	positive nominal context interpreter-helper-dependency-consumption/service-barrier-authentication	return	true	null
+case-0526	exchange	typed caller cannot cross original rights interpreter-helper-dependency-consumption/service-barrier-authentication	reject	false	null
+case-0527	exchange	positive nominal context interpreter-helper-dependency-consumption/service-original-durable-claim	return	true	null
+case-0528	exchange	typed caller cannot cross original rights interpreter-helper-dependency-consumption/service-original-durable-claim	reject	false	null
+case-0529	exchange	positive nominal context interpreter-helper-dependency-consumption/service-durable-launch-spend	return	true	null
+case-0530	exchange	typed caller cannot cross original rights interpreter-helper-dependency-consumption/service-durable-launch-spend	reject	false	null
+case-0531	exchange	positive nominal context interpreter-helper-dependency-consumption/service-single-worker-spawn	return	true	null
+case-0532	exchange	typed caller cannot cross original rights interpreter-helper-dependency-consumption/service-single-worker-spawn	reject	false	null
+case-0533	exchange	positive nominal context interpreter-helper-dependency-consumption/worker0-bounded-auth-read	return	true	null
+case-0534	exchange	typed caller cannot cross original rights interpreter-helper-dependency-consumption/worker0-bounded-auth-read	reject	false	null
+case-0535	exchange	positive nominal context interpreter-helper-dependency-consumption/worker0-close-bootstrap	return	true	null
+case-0536	exchange	typed caller cannot cross original rights interpreter-helper-dependency-consumption/worker0-close-bootstrap	reject	false	null
+case-0537	exchange	positive nominal context interpreter-helper-dependency-consumption/worker0-readonly-preflight	return	true	null
+case-0538	exchange	typed caller cannot cross original rights interpreter-helper-dependency-consumption/worker0-readonly-preflight	reject	false	null
+case-0539	exchange	positive nominal context interpreter-helper-dependency-consumption/worker1-arm-traps	return	true	null
+case-0540	exchange	typed caller cannot cross original rights interpreter-helper-dependency-consumption/worker1-arm-traps	reject	false	null
+case-0541	exchange	positive nominal context interpreter-helper-dependency-consumption/interstage1-2-guard-freshoriginal	return	true	null
+case-0542	exchange	typed caller cannot cross original rights interpreter-helper-dependency-consumption/interstage1-2-guard-freshoriginal	reject	false	null
+case-0543	exchange	positive nominal context interpreter-helper-dependency-consumption/worker2-owned-workspace	return	true	null
+case-0544	exchange	typed caller cannot cross original rights interpreter-helper-dependency-consumption/worker2-owned-workspace	reject	false	null
+case-0545	exchange	positive nominal context interpreter-helper-dependency-consumption/worker3-original-backups	return	true	null
+case-0546	exchange	typed caller cannot cross original rights interpreter-helper-dependency-consumption/worker3-original-backups	reject	false	null
+case-0547	exchange	positive nominal context interpreter-helper-dependency-consumption/worker4-exact-predecessor	return	true	null
+case-0548	exchange	typed caller cannot cross original rights interpreter-helper-dependency-consumption/worker4-exact-predecessor	reject	false	null
+case-0549	exchange	positive nominal context interpreter-helper-dependency-consumption/worker5-local-isolation	return	true	null
+case-0550	exchange	typed caller cannot cross original rights interpreter-helper-dependency-consumption/worker5-local-isolation	reject	false	null
+case-0551	exchange	positive nominal context interpreter-helper-dependency-consumption/worker6-refresh-pin-once	return	true	null
+case-0552	exchange	typed caller cannot cross original rights interpreter-helper-dependency-consumption/worker6-refresh-pin-once	reject	false	null
+case-0553	exchange	positive nominal context interpreter-helper-dependency-consumption/worker7-validate-pinned-candidate	return	true	null
+case-0554	exchange	typed caller cannot cross original rights interpreter-helper-dependency-consumption/worker7-validate-pinned-candidate	reject	false	null
+case-0555	exchange	positive nominal context interpreter-helper-dependency-consumption/worker7-owned-durable-commit	return	true	null
+case-0556	exchange	typed caller cannot cross original rights interpreter-helper-dependency-consumption/worker7-owned-durable-commit	reject	false	null
+case-0557	exchange	positive nominal context interpreter-helper-dependency-consumption/worker8-whole-successor-apply	return	true	null
+case-0558	exchange	typed caller cannot cross original rights interpreter-helper-dependency-consumption/worker8-whole-successor-apply	reject	false	null
+case-0559	exchange	positive nominal context interpreter-helper-dependency-consumption/stop-forward-irreversibly	return	true	null
+case-0560	exchange	typed caller cannot cross original rights interpreter-helper-dependency-consumption/stop-forward-irreversibly	reject	false	null
+case-0561	exchange	positive nominal context interpreter-helper-dependency-consumption/drain-known-owned-children	return	true	null
+case-0562	exchange	typed caller cannot cross original rights interpreter-helper-dependency-consumption/drain-known-owned-children	reject	false	null
+case-0563	exchange	positive nominal context interpreter-helper-dependency-consumption/worker9-original-restoration	return	true	null
+case-0564	exchange	typed caller cannot cross original rights interpreter-helper-dependency-consumption/worker9-original-restoration	reject	false	null
+case-0565	exchange	positive nominal context interpreter-helper-dependency-consumption/worker10-original-verification	return	true	null
+case-0566	exchange	typed caller cannot cross original rights interpreter-helper-dependency-consumption/worker10-original-verification	reject	false	null
+case-0567	exchange	positive nominal context interpreter-helper-dependency-consumption/worker11-close-target-evidence	return	true	null
+case-0568	exchange	typed caller cannot cross original rights interpreter-helper-dependency-consumption/worker11-close-target-evidence	reject	false	null
+case-0569	exchange	positive nominal context interpreter-helper-dependency-consumption/release-target-control	return	true	null
+case-0570	exchange	typed caller cannot cross original rights interpreter-helper-dependency-consumption/release-target-control	reject	false	null
+case-0571	exchange	positive nominal context interpreter-helper-dependency-consumption/worker12-publication-controls	return	true	null
+case-0572	exchange	typed caller cannot cross original rights interpreter-helper-dependency-consumption/worker12-publication-controls	reject	false	null
+case-0573	exchange	positive nominal context interpreter-helper-dependency-consumption/worker12-publication-record	return	true	null
+case-0574	exchange	typed caller cannot cross original rights interpreter-helper-dependency-consumption/worker12-publication-record	reject	false	null
+case-0575	exchange	positive nominal context interpreter-helper-dependency-consumption/worker12-last-receipt	return	true	null
+case-0576	exchange	typed caller cannot cross original rights interpreter-helper-dependency-consumption/worker12-last-receipt	reject	false	null
+case-0577	exchange	positive nominal context interpreter-helper-dependency-consumption/worker12-durable-handoff	return	true	null
+case-0578	exchange	typed caller cannot cross original rights interpreter-helper-dependency-consumption/worker12-durable-handoff	reject	false	null
+case-0579	exchange	provider schema actor cannot be replaced interpreter-helper-dependency-consumption/provider_role	reject	false	null
+case-0580	exchange	provider schema actor cannot be replaced interpreter-helper-dependency-consumption/version	reject	false	null
+case-0581	exchange	provider schema actor cannot be replaced interpreter-helper-dependency-consumption/caller_actor	reject	false	null
+case-0582	exchange	nominal view grants no native handle interpreter-helper-dependency-consumption/attempt	reject	false	null
+case-0583	exchange	nominal view grants no native handle interpreter-helper-dependency-consumption/boot	reject	false	null
+case-0584	exchange	nominal view grants no native handle interpreter-helper-dependency-consumption/authority	reject	false	null
+case-0585	exchange	nominal view grants no native handle interpreter-helper-dependency-consumption/symbol	reject	false	null
+case-0586	exchange	uncertain or failed result cannot retain success payload interpreter-helper-dependency-consumption/known-failed	reject	false	null
+case-0587	exchange	uncertain empty nominal result keeps native obligations interpreter-helper-dependency-consumption/known-failed	return	false	null
+case-0588	exchange	uncertain or failed result cannot retain success payload interpreter-helper-dependency-consumption/unknown	reject	false	null
+case-0589	exchange	uncertain empty nominal result keeps native obligations interpreter-helper-dependency-consumption/unknown	return	false	null
+case-0590	exchange	uncertain or failed result cannot retain success payload interpreter-helper-dependency-consumption/not-attempted	reject	false	null
+case-0591	exchange	uncertain empty nominal result keeps native obligations interpreter-helper-dependency-consumption/not-attempted	return	false	null
+case-0592	exchange	positive nominal context owned-child-quiescence/drain-known-owned-children	return	true	null
+case-0593	exchange	typed caller cannot cross original rights owned-child-quiescence/drain-known-owned-children	reject	false	null
+case-0594	exchange	provider schema actor cannot be replaced owned-child-quiescence/provider_role	reject	false	null
+case-0595	exchange	provider schema actor cannot be replaced owned-child-quiescence/version	reject	false	null
+case-0596	exchange	provider schema actor cannot be replaced owned-child-quiescence/caller_actor	reject	false	null
+case-0597	exchange	nominal view grants no native handle owned-child-quiescence/attempt	reject	false	null
+case-0598	exchange	nominal view grants no native handle owned-child-quiescence/boot	reject	false	null
+case-0599	exchange	nominal view grants no native handle owned-child-quiescence/authority	reject	false	null
+case-0600	exchange	nominal view grants no native handle owned-child-quiescence/symbol	reject	false	null
+case-0601	exchange	uncertain or failed result cannot retain success payload owned-child-quiescence/known-failed	reject	false	null
+case-0602	exchange	uncertain empty nominal result keeps native obligations owned-child-quiescence/known-failed	return	false	null
+case-0603	exchange	uncertain or failed result cannot retain success payload owned-child-quiescence/unknown	reject	false	null
+case-0604	exchange	uncertain empty nominal result keeps native obligations owned-child-quiescence/unknown	return	false	null
+case-0605	exchange	uncertain or failed result cannot retain success payload owned-child-quiescence/not-attempted	reject	false	null
+case-0606	exchange	uncertain empty nominal result keeps native obligations owned-child-quiescence/not-attempted	return	false	null
+case-0607	exchange	positive nominal context same-attempt-original-restoration/worker9-original-restoration	return	true	null
+case-0608	exchange	typed caller cannot cross original rights same-attempt-original-restoration/worker9-original-restoration	reject	false	null
+case-0609	exchange	provider schema actor cannot be replaced same-attempt-original-restoration/provider_role	reject	false	null
+case-0610	exchange	provider schema actor cannot be replaced same-attempt-original-restoration/version	reject	false	null
+case-0611	exchange	provider schema actor cannot be replaced same-attempt-original-restoration/caller_actor	reject	false	null
+case-0612	exchange	nominal view grants no native handle same-attempt-original-restoration/attempt	reject	false	null
+case-0613	exchange	nominal view grants no native handle same-attempt-original-restoration/boot	reject	false	null
+case-0614	exchange	nominal view grants no native handle same-attempt-original-restoration/authority	reject	false	null
+case-0615	exchange	nominal view grants no native handle same-attempt-original-restoration/symbol	reject	false	null
+case-0616	exchange	uncertain or failed result cannot retain success payload same-attempt-original-restoration/known-failed	reject	false	null
+case-0617	exchange	uncertain empty nominal result keeps native obligations same-attempt-original-restoration/known-failed	return	false	null
+case-0618	exchange	uncertain or failed result cannot retain success payload same-attempt-original-restoration/unknown	reject	false	null
+case-0619	exchange	uncertain empty nominal result keeps native obligations same-attempt-original-restoration/unknown	return	false	null
+case-0620	exchange	uncertain or failed result cannot retain success payload same-attempt-original-restoration/not-attempted	reject	false	null
+case-0621	exchange	uncertain empty nominal result keeps native obligations same-attempt-original-restoration/not-attempted	return	false	null
+case-0622	exchange	positive nominal context target-evidence-closure/worker10-original-verification	return	true	null
+case-0623	exchange	typed caller cannot cross original rights target-evidence-closure/worker10-original-verification	reject	false	null
+case-0624	exchange	positive nominal context target-evidence-closure/worker11-close-target-evidence	return	true	null
+case-0625	exchange	typed caller cannot cross original rights target-evidence-closure/worker11-close-target-evidence	reject	false	null
+case-0626	exchange	provider schema actor cannot be replaced target-evidence-closure/provider_role	reject	false	null
+case-0627	exchange	provider schema actor cannot be replaced target-evidence-closure/version	reject	false	null
+case-0628	exchange	provider schema actor cannot be replaced target-evidence-closure/caller_actor	reject	false	null
+case-0629	exchange	nominal view grants no native handle target-evidence-closure/attempt	reject	false	null
+case-0630	exchange	nominal view grants no native handle target-evidence-closure/boot	reject	false	null
+case-0631	exchange	nominal view grants no native handle target-evidence-closure/authority	reject	false	null
+case-0632	exchange	nominal view grants no native handle target-evidence-closure/symbol	reject	false	null
+case-0633	exchange	uncertain or failed result cannot retain success payload target-evidence-closure/known-failed	reject	false	null
+case-0634	exchange	uncertain empty nominal result keeps native obligations target-evidence-closure/known-failed	return	false	null
+case-0635	exchange	uncertain or failed result cannot retain success payload target-evidence-closure/unknown	reject	false	null
+case-0636	exchange	uncertain empty nominal result keeps native obligations target-evidence-closure/unknown	return	false	null
+case-0637	exchange	uncertain or failed result cannot retain success payload target-evidence-closure/not-attempted	reject	false	null
+case-0638	exchange	uncertain empty nominal result keeps native obligations target-evidence-closure/not-attempted	return	false	null
+case-0639	exchange	positive nominal context target-control-release/release-target-control	return	true	null
+case-0640	exchange	typed caller cannot cross original rights target-control-release/release-target-control	reject	false	null
+case-0641	exchange	provider schema actor cannot be replaced target-control-release/provider_role	reject	false	null
+case-0642	exchange	provider schema actor cannot be replaced target-control-release/version	reject	false	null
+case-0643	exchange	provider schema actor cannot be replaced target-control-release/caller_actor	reject	false	null
+case-0644	exchange	nominal view grants no native handle target-control-release/attempt	reject	false	null
+case-0645	exchange	nominal view grants no native handle target-control-release/boot	reject	false	null
+case-0646	exchange	nominal view grants no native handle target-control-release/authority	reject	false	null
+case-0647	exchange	nominal view grants no native handle target-control-release/symbol	reject	false	null
+case-0648	exchange	uncertain or failed result cannot retain success payload target-control-release/known-failed	reject	false	null
+case-0649	exchange	uncertain empty nominal result keeps native obligations target-control-release/known-failed	return	false	null
+case-0650	exchange	uncertain or failed result cannot retain success payload target-control-release/unknown	reject	false	null
+case-0651	exchange	uncertain empty nominal result keeps native obligations target-control-release/unknown	return	false	null
+case-0652	exchange	uncertain or failed result cannot retain success payload target-control-release/not-attempted	reject	false	null
+case-0653	exchange	uncertain empty nominal result keeps native obligations target-control-release/not-attempted	return	false	null
+case-0654	exchange	positive nominal context publication-controls/worker12-publication-controls	return	true	null
+case-0655	exchange	typed caller cannot cross original rights publication-controls/worker12-publication-controls	reject	false	null
+case-0656	exchange	positive nominal context publication-controls/worker12-durable-handoff	return	true	null
+case-0657	exchange	typed caller cannot cross original rights publication-controls/worker12-durable-handoff	reject	false	null
+case-0658	exchange	provider schema actor cannot be replaced publication-controls/provider_role	reject	false	null
+case-0659	exchange	provider schema actor cannot be replaced publication-controls/version	reject	false	null
+case-0660	exchange	provider schema actor cannot be replaced publication-controls/caller_actor	reject	false	null
+case-0661	exchange	nominal view grants no native handle publication-controls/attempt	reject	false	null
+case-0662	exchange	nominal view grants no native handle publication-controls/boot	reject	false	null
+case-0663	exchange	nominal view grants no native handle publication-controls/authority	reject	false	null
+case-0664	exchange	nominal view grants no native handle publication-controls/symbol	reject	false	null
+case-0665	exchange	uncertain or failed result cannot retain success payload publication-controls/known-failed	reject	false	null
+case-0666	exchange	uncertain empty nominal result keeps native obligations publication-controls/known-failed	return	false	null
+case-0667	exchange	uncertain or failed result cannot retain success payload publication-controls/unknown	reject	false	null
+case-0668	exchange	uncertain empty nominal result keeps native obligations publication-controls/unknown	return	false	null
+case-0669	exchange	uncertain or failed result cannot retain success payload publication-controls/not-attempted	reject	false	null
+case-0670	exchange	uncertain empty nominal result keeps native obligations publication-controls/not-attempted	return	false	null
+case-0671	exchange	positive nominal context publication-record/worker12-publication-record	return	true	null
+case-0672	exchange	typed caller cannot cross original rights publication-record/worker12-publication-record	reject	false	null
+case-0673	exchange	provider schema actor cannot be replaced publication-record/provider_role	reject	false	null
+case-0674	exchange	provider schema actor cannot be replaced publication-record/version	reject	false	null
+case-0675	exchange	provider schema actor cannot be replaced publication-record/caller_actor	reject	false	null
+case-0676	exchange	nominal view grants no native handle publication-record/attempt	reject	false	null
+case-0677	exchange	nominal view grants no native handle publication-record/boot	reject	false	null
+case-0678	exchange	nominal view grants no native handle publication-record/authority	reject	false	null
+case-0679	exchange	nominal view grants no native handle publication-record/symbol	reject	false	null
+case-0680	exchange	uncertain or failed result cannot retain success payload publication-record/known-failed	reject	false	null
+case-0681	exchange	uncertain empty nominal result keeps native obligations publication-record/known-failed	return	false	null
+case-0682	exchange	uncertain or failed result cannot retain success payload publication-record/unknown	reject	false	null
+case-0683	exchange	uncertain empty nominal result keeps native obligations publication-record/unknown	return	false	null
+case-0684	exchange	uncertain or failed result cannot retain success payload publication-record/not-attempted	reject	false	null
+case-0685	exchange	uncertain empty nominal result keeps native obligations publication-record/not-attempted	return	false	null
+case-0686	exchange	positive nominal context publication-last-receipt/worker12-last-receipt	return	true	null
+case-0687	exchange	typed caller cannot cross original rights publication-last-receipt/worker12-last-receipt	reject	false	null
+case-0688	exchange	positive nominal context publication-last-receipt/worker12-durable-handoff	return	true	null
+case-0689	exchange	typed caller cannot cross original rights publication-last-receipt/worker12-durable-handoff	reject	false	null
+case-0690	exchange	provider schema actor cannot be replaced publication-last-receipt/provider_role	reject	false	null
+case-0691	exchange	provider schema actor cannot be replaced publication-last-receipt/version	reject	false	null
+case-0692	exchange	provider schema actor cannot be replaced publication-last-receipt/caller_actor	reject	false	null
+case-0693	exchange	nominal view grants no native handle publication-last-receipt/attempt	reject	false	null
+case-0694	exchange	nominal view grants no native handle publication-last-receipt/boot	reject	false	null
+case-0695	exchange	nominal view grants no native handle publication-last-receipt/authority	reject	false	null
+case-0696	exchange	nominal view grants no native handle publication-last-receipt/symbol	reject	false	null
+case-0697	exchange	uncertain or failed result cannot retain success payload publication-last-receipt/known-failed	reject	false	null
+case-0698	exchange	uncertain empty nominal result keeps native obligations publication-last-receipt/known-failed	return	false	null
+case-0699	exchange	uncertain or failed result cannot retain success payload publication-last-receipt/unknown	reject	false	null
+case-0700	exchange	uncertain empty nominal result keeps native obligations publication-last-receipt/unknown	return	false	null
+case-0701	exchange	uncertain or failed result cannot retain success payload publication-last-receipt/not-attempted	reject	false	null
+case-0702	exchange	uncertain empty nominal result keeps native obligations publication-last-receipt/not-attempted	return	false	null
+case-0703	manifest	valid inert declaration does not prove native completion	return	true	null
+case-0704	manifest	declaration cannot waive native blocker runtime_authority	reject	false	null
+case-0705	manifest	declaration cannot waive native blocker operational_readiness	reject	false	null
+case-0706	manifest	declaration cannot waive native blocker actual_dynamic_graph_complete	reject	false	null
+case-0707	manifest	declaration cannot waive native blocker actual_implementation_frozen	reject	false	null
+case-0708	manifest	declaration cannot waive native blocker actual_host_state	reject	false	null
+case-0709	manifest	declaration cannot waive native blocker actual_live_bindings	reject	false	null
+case-0710	manifest	declaration cannot waive native blocker actual_dispatcher	reject	false	null
+case-0711	manifest	declaration cannot waive native blocker actual_selection_gaps	reject	false	null
+case-0712	manifest	every component remains dispatch blocked issuer-policy-and-key-provisioning	reject	false	null
+case-0713	manifest	every component remains dispatch blocked durable-admission-claim	reject	false	null
+case-0714	manifest	every component remains dispatch blocked durable-single-launch-slot	reject	false	null
+case-0715	manifest	every component remains dispatch blocked offline-bootstrap-context	reject	false	null
+case-0716	manifest	every component remains dispatch blocked trusted-time-and-revocation-fence	reject	false	null
+case-0717	manifest	every component remains dispatch blocked worker-readonly-preflight	reject	false	null
+case-0718	manifest	every component remains dispatch blocked worker-traps-and-child-control	reject	false	null
+case-0719	manifest	every component remains dispatch blocked outer-writer-guard-and-original-baseline	reject	false	null
+case-0720	manifest	every component remains dispatch blocked owned-runtime-and-original-backups	reject	false	null
+case-0721	manifest	every component remains dispatch blocked predecessor-and-local-isolation	reject	false	null
+case-0722	manifest	every component remains dispatch blocked stage7-owned-binding	reject	false	null
+case-0723	manifest	every component remains dispatch blocked whole-reference-entry	reject	false	null
+case-0724	manifest	every component remains dispatch blocked reference-lock-runtime-logs	reject	false	null
+case-0725	manifest	every component remains dispatch blocked reference-snapshots-and-config-scan	reject	false	null
+case-0726	manifest	every component remains dispatch blocked reference-GenInitrd-mutation	reject	false	null
+case-0727	manifest	every component remains dispatch blocked reference-optional-module-mutation	reject	false	null
+case-0728	manifest	every component remains dispatch blocked reference-boot-mutation	reject	false	null
+case-0729	manifest	every component remains dispatch blocked nested-call-adapter	reject	false	null
+case-0730	manifest	every component remains dispatch blocked real-backend-and-selector	reject	false	null
+case-0731	manifest	every component remains dispatch blocked package-tools-and-install-hooks	reject	false	null
+case-0732	manifest	every component remains dispatch blocked source-and-archive-consumption	reject	false	null
+case-0733	manifest	every component remains dispatch blocked interpreter-helper-dependency-consumption	reject	false	null
+case-0734	manifest	every component remains dispatch blocked owned-child-quiescence	reject	false	null
+case-0735	manifest	every component remains dispatch blocked same-attempt-original-restoration	reject	false	null
+case-0736	manifest	every component remains dispatch blocked target-evidence-closure	reject	false	null
+case-0737	manifest	every component remains dispatch blocked target-control-release	reject	false	null
+case-0738	manifest	every component remains dispatch blocked publication-controls	reject	false	null
+case-0739	manifest	every component remains dispatch blocked publication-record	reject	false	null
+case-0740	manifest	every component remains dispatch blocked publication-last-receipt	reject	false	null
+case-0741	manifest	every component remains dispatch blocked unresolved-dynamic-helpers-and-dependencies	reject	false	null
+case-0742	manifest	macro relation never promoted to native edge 0	reject	false	null
+case-0743	manifest	macro relation never promoted to native edge 1	reject	false	null
+case-0744	manifest	macro relation never promoted to native edge 2	reject	false	null
+case-0745	manifest	macro relation never promoted to native edge 3	reject	false	null
+case-0746	manifest	macro relation never promoted to native edge 4	reject	false	null
+case-0747	manifest	macro relation never promoted to native edge 5	reject	false	null
+case-0748	manifest	macro relation never promoted to native edge 6	reject	false	null
+case-0749	manifest	macro relation never promoted to native edge 7	reject	false	null
+case-0750	manifest	macro relation never promoted to native edge 8	reject	false	null
+case-0751	manifest	macro relation never promoted to native edge 9	reject	false	null
+case-0752	manifest	macro relation never promoted to native edge 10	reject	false	null
+case-0753	manifest	macro relation never promoted to native edge 11	reject	false	null
+case-0754	manifest	macro relation never promoted to native edge 12	reject	false	null
+case-0755	manifest	macro relation never promoted to native edge 13	reject	false	null
+case-0756	manifest	macro relation never promoted to native edge 14	reject	false	null
+case-0757	manifest	macro relation never promoted to native edge 15	reject	false	null
+case-0758	manifest	macro relation never promoted to native edge 16	reject	false	null
+case-0759	manifest	macro relation never promoted to native edge 17	reject	false	null
+case-0760	manifest	macro relation never promoted to native edge 18	reject	false	null
+case-0761	manifest	macro relation never promoted to native edge 19	reject	false	null
+case-0762	manifest	macro relation never promoted to native edge 20	reject	false	null
+case-0763	manifest	macro relation never promoted to native edge 21	reject	false	null
+case-0764	manifest	macro relation never promoted to native edge 22	reject	false	null
+case-0765	manifest	macro relation never promoted to native edge 23	reject	false	null
+case-0766	manifest	macro relation never promoted to native edge 24	reject	false	null
+case-0767	manifest	macro relation never promoted to native edge 25	reject	false	null
+case-0768	manifest	macro relation never promoted to native edge 26	reject	false	null
+case-0769	manifest	macro relation never promoted to native edge 27	reject	false	null
+case-0770	manifest	macro relation never promoted to native edge 28	reject	false	null
+case-0771	manifest	macro relation never promoted to native edge 29	reject	false	null
+case-0772	manifest	macro relation never promoted to native edge 30	reject	false	null
+case-0773	manifest	macro relation never promoted to native edge 31	reject	false	null
+case-0774	manifest	macro relation never promoted to native edge 32	reject	false	null
+case-0775	manifest	macro relation never promoted to native edge 33	reject	false	null
+case-0776	manifest	macro relation never promoted to native edge 34	reject	false	null
+case-0777	manifest	macro relation never promoted to native edge 35	reject	false	null
+case-0778	manifest	macro relation never promoted to native edge 36	reject	false	null
+case-0779	manifest	macro relation never promoted to native edge 37	reject	false	null
+case-0780	manifest	macro relation never promoted to native edge 38	reject	false	null
+case-0781	manifest	macro relation never promoted to native edge 39	reject	false	null
+case-0782	manifest	macro relation never promoted to native edge 40	reject	false	null
+case-0783	manifest	macro relation never promoted to native edge 41	reject	false	null
+case-0784	manifest	macro relation never promoted to native edge 42	reject	false	null
+case-0785	manifest	macro relation never promoted to native edge 43	reject	false	null
+case-0786	manifest	macro relation never promoted to native edge 44	reject	false	null
+case-0787	manifest	macro relation never promoted to native edge 45	reject	false	null
+case-0788	manifest	macro relation never promoted to native edge 46	reject	false	null
+case-0789	manifest	macro relation never promoted to native edge 47	reject	false	null
+case-0790	manifest	macro relation never promoted to native edge 48	reject	false	null
+case-0791	manifest	macro relation never promoted to native edge 49	reject	false	null
+case-0792	manifest	macro relation never promoted to native edge 50	reject	false	null
+case-0793	manifest	macro relation never promoted to native edge 51	reject	false	null
+case-0794	manifest	macro relation never promoted to native edge 52	reject	false	null
+case-0795	manifest	macro relation never promoted to native edge 53	reject	false	null
+case-0796	manifest	macro relation never promoted to native edge 54	reject	false	null
+case-0797	manifest	macro relation never promoted to native edge 55	reject	false	null
+case-0798	manifest	macro relation never promoted to native edge 56	reject	false	null
+case-0799	manifest	macro relation never promoted to native edge 57	reject	false	null
+case-0800	manifest	macro relation never promoted to native edge 58	reject	false	null
+case-0801	manifest	macro relation never promoted to native edge 59	reject	false	null
+case-0802	manifest	macro relation never promoted to native edge 60	reject	false	null
+case-0803	manifest	macro relation never promoted to native edge 61	reject	false	null
+case-0804	manifest	macro relation never promoted to native edge 62	reject	false	null
+case-0805	manifest	macro relation never promoted to native edge 63	reject	false	null
+case-0806	manifest	macro relation never promoted to native edge 64	reject	false	null
+case-0807	manifest	macro relation never promoted to native edge 65	reject	false	null
+case-0808	manifest	macro relation never promoted to native edge 66	reject	false	null
+case-0809	manifest	macro relation never promoted to native edge 67	reject	false	null
+case-0810	manifest	macro relation never promoted to native edge 68	reject	false	null
+case-0811	manifest	macro relation never promoted to native edge 69	reject	false	null
+case-0812	manifest	macro relation never promoted to native edge 70	reject	false	null
+case-0813	manifest	macro relation never promoted to native edge 71	reject	false	null
+case-0814	manifest	macro relation never promoted to native edge 72	reject	false	null
+case-0815	manifest	macro relation never promoted to native edge 73	reject	false	null
+case-0816	manifest	macro relation never promoted to native edge 74	reject	false	null
+case-0817	manifest	macro relation never promoted to native edge 75	reject	false	null
+case-0818	manifest	macro relation never promoted to native edge 76	reject	false	null
+case-0819	manifest	macro relation never promoted to native edge 77	reject	false	null
+case-0820	manifest	macro relation never promoted to native edge 78	reject	false	null
+case-0821	manifest	macro relation never promoted to native edge 79	reject	false	null
+case-0822	manifest	macro relation never promoted to native edge 80	reject	false	null
+case-0823	manifest	macro relation never promoted to native edge 81	reject	false	null
+case-0824	manifest	macro relation never promoted to native edge 82	reject	false	null
+case-0825	manifest	macro relation never promoted to native edge 83	reject	false	null
+case-0826	manifest	macro relation never promoted to native edge 84	reject	false	null
+case-0827	manifest	macro relation never promoted to native edge 85	reject	false	null
+case-0828	manifest	macro relation never promoted to native edge 86	reject	false	null
+case-0829	manifest	macro relation never promoted to native edge 87	reject	false	null
+case-0830	manifest	macro relation never promoted to native edge 88	reject	false	null
+case-0831	manifest	macro relation never promoted to native edge 89	reject	false	null
+case-0832	manifest	macro relation never promoted to native edge 90	reject	false	null
+case-0833	manifest	macro relation never promoted to native edge 91	reject	false	null
+case-0834	manifest	macro relation never promoted to native edge 92	reject	false	null
+case-0835	manifest	macro relation never promoted to native edge 93	reject	false	null
+case-0836	manifest	macro relation never promoted to native edge 94	reject	false	null
+case-0837	manifest	qualified proof cannot be waived 320/durable-linearizable-claim	reject	false	null
+case-0838	manifest	qualified proof cannot be waived 320/crash-uncertainty-quarantine	reject	false	null
+case-0839	manifest	qualified proof cannot be waived 320/one-launch-after-durable-spend	reject	false	null
+case-0840	manifest	qualified proof cannot be waived 320/service-and-worker-effect-boundaries	reject	false	null
+case-0841	manifest	qualified proof cannot be waived 320/authenticated-isolated-handoff	reject	false	null
+case-0842	manifest	qualified proof cannot be waived 320/phase-and-recovery-rights	reject	false	null
+case-0843	manifest	qualified proof cannot be waived 321/authentic-original-context-and-launch	reject	false	null
+case-0844	manifest	qualified proof cannot be waived 321/bounded-pipe-lifetime	reject	false	null
+case-0845	manifest	qualified proof cannot be waived 321/descriptor-object-capability-inventory	reject	false	null
+case-0846	manifest	qualified proof cannot be waived 321/whole-namespace-and-process-containment	reject	false	null
+case-0847	manifest	qualified proof cannot be waived 321/handoff-loss-no-replay	reject	false	null
+case-0848	manifest	qualified proof cannot be waived 321/platform-interpreter-and-content-consumption	reject	false	null
+case-0849	manifest	qualified proof cannot be waived 322/successor-stage7-implementation-parity	reject	false	null
+case-0850	manifest	qualified proof cannot be waived 322/guarded-original-phase-binding	reject	false	null
+case-0851	manifest	qualified proof cannot be waived 322/actual-candidate-and-raw-inputs	reject	false	null
+case-0852	manifest	qualified proof cannot be waived 322/owned-path-exclusive-durable-commit	reject	false	null
+case-0853	manifest	qualified proof cannot be waived 322/partial-binding-and-prior-obligations	reject	false	null
+case-0854	manifest	qualified proof cannot be waived 322/binding-consumer-and-publication-integrity	reject	false	null
+case-0855	manifest	qualified proof cannot be waived 323/issuer-split-scope-and-clock	reject	false	null
+case-0856	manifest	qualified proof cannot be waived 323/external-live-revocation-fence	reject	false	null
+case-0857	manifest	qualified proof cannot be waived 323/inflight-effect-and-child-drain	reject	false	null
+case-0858	manifest	qualified proof cannot be waived 323/same-attempt-bounded-safe-restoration	reject	false	null
+case-0859	manifest	qualified proof cannot be waived 323/durable-recovery-budget-and-idempotence	reject	false	null
+case-0860	manifest	qualified proof cannot be waived 323/closure-evidence-and-separate-publication	reject	false	null
+case-0861	manifest	qualified proof cannot be waived 324/platform-writers-and-guard-identity	reject	false	null
+case-0862	manifest	qualified proof cannot be waived 324/interstage-fresh-original-baseline	reject	false	null
+case-0863	manifest	qualified proof cannot be waived 324/approved-phase-delta-equivalence	reject	false	null
+case-0864	manifest	qualified proof cannot be waived 324/raw-pkglist-pin-and-restored-production-role	reject	false	null
+case-0865	manifest	qualified proof cannot be waived 324/owner-child-failure-and-safe-recovery	reject	false	null
+case-0866	manifest	qualified proof cannot be waived 324/target-evidence-closure-and-publication-separation	reject	false	null
+case-0867	manifest	qualified proof cannot be waived 325/actual-transitive-graph-and-entry	reject	false	null
+case-0868	manifest	qualified proof cannot be waived 325/service-fence-and-worker-capability-separation	reject	false	null
+case-0869	manifest	qualified proof cannot be waived 325/whole-reference-side-effect-containment	reject	false	null
+case-0870	manifest	qualified proof cannot be waived 325/actual-selector-and-raw-status-equivalence	reject	false	null
+case-0871	manifest	qualified proof cannot be waived 325/checked-byte-archive-package-effect-closure	reject	false	null
+case-0872	manifest	qualified proof cannot be waived 325/target-and-publication-last-receipt-closure	reject	false	null
+case-0873	manifest	qualified proof cannot be waived 326/finite-model-refinement	reject	false	null
+case-0874	manifest	qualified proof cannot be waived 326/independent-service-and-worker-conformance	reject	false	null
+case-0875	manifest	qualified proof cannot be waived 326/independent-selector-and-effect-conformance	reject	false	null
+case-0876	manifest	qualified proof cannot be waived 326/independent-recovery-and-restoration-conformance	reject	false	null
+case-0877	manifest	qualified proof cannot be waived 326/independent-publication-and-receipt-conformance	reject	false	null
+case-0878	manifest	qualified proof cannot be waived 326/scoped-cross-closure-before-readiness	reject	false	null
+case-0879	manifest	qualified proof cannot be waived 327/actual-scoped-effect-obligation-right-closure	reject	false	null
+case-0880	manifest	qualified proof cannot be waived 327/all-inherited-proofs-and-two-platform-conformance	reject	false	null
+case-0881	manifest	qualified proof cannot be waived 327/actual-owned-child-target-recovery-closure	reject	false	null
+case-0882	manifest	qualified proof cannot be waived 327/actual-publication-and-current-scope-reconciliation	reject	false	null
+case-0883	manifest	native platform case cannot be marked run Slackware-15.0/issuer-authentication	reject	false	null
+case-0884	manifest	native platform case cannot be marked run Slackware-15.0/durable-consumption	reject	false	null
+case-0885	manifest	native platform case cannot be marked run Slackware-15.0/single-launch-slot	reject	false	null
+case-0886	manifest	native platform case cannot be marked run Slackware-15.0/bootstrap-bounds	reject	false	null
+case-0887	manifest	native platform case cannot be marked run Slackware-15.0/namespace-FDs	reject	false	null
+case-0888	manifest	native platform case cannot be marked run Slackware-15.0/time-revocation-fence	reject	false	null
+case-0889	manifest	native platform case cannot be marked run Slackware-15.0/rights-budgets	reject	false	null
+case-0890	manifest	native platform case cannot be marked run Slackware-15.0/guard-writer-inventory	reject	false	null
+case-0891	manifest	native platform case cannot be marked run Slackware-15.0/original-backups	reject	false	null
+case-0892	manifest	native platform case cannot be marked run Slackware-15.0/phase-deltas	reject	false	null
+case-0893	manifest	native platform case cannot be marked run Slackware-15.0/stage7-binding	reject	false	null
+case-0894	manifest	native platform case cannot be marked run Slackware-15.0/reference-entry	reject	false	null
+case-0895	manifest	native platform case cannot be marked run Slackware-15.0/actual-selector	reject	false	null
+case-0896	manifest	native platform case cannot be marked run Slackware-15.0/raw-status-latch	reject	false	null
+case-0897	manifest	native platform case cannot be marked run Slackware-15.0/raw-pkglist-pin	reject	false	null
+case-0898	manifest	native platform case cannot be marked run Slackware-15.0/package-hooks-effects	reject	false	null
+case-0899	manifest	native platform case cannot be marked run Slackware-15.0/source-archives	reject	false	null
+case-0900	manifest	native platform case cannot be marked run Slackware-15.0/helper-dependencies	reject	false	null
+case-0901	manifest	native platform case cannot be marked run Slackware-15.0/child-quiescence	reject	false	null
+case-0902	manifest	native platform case cannot be marked run Slackware-15.0/retained-restoration	reject	false	null
+case-0903	manifest	native platform case cannot be marked run Slackware-15.0/original-verification	reject	false	null
+case-0904	manifest	native platform case cannot be marked run Slackware-15.0/signal-crash-interleavings	reject	false	null
+case-0905	manifest	native platform case cannot be marked run Slackware-15.0/publication-controls	reject	false	null
+case-0906	manifest	native platform case cannot be marked run Slackware-15.0/record-last-receipt	reject	false	null
+case-0907	manifest	native platform case cannot be marked run Slackware-15.0/unknown-publication	reject	false	null
+case-0908	manifest	native platform case cannot be marked run Slackware-15.0/cross-closure-oracle	reject	false	null
+case-0909	manifest	native platform case cannot be marked run Slackware-current/issuer-authentication	reject	false	null
+case-0910	manifest	native platform case cannot be marked run Slackware-current/durable-consumption	reject	false	null
+case-0911	manifest	native platform case cannot be marked run Slackware-current/single-launch-slot	reject	false	null
+case-0912	manifest	native platform case cannot be marked run Slackware-current/bootstrap-bounds	reject	false	null
+case-0913	manifest	native platform case cannot be marked run Slackware-current/namespace-FDs	reject	false	null
+case-0914	manifest	native platform case cannot be marked run Slackware-current/time-revocation-fence	reject	false	null
+case-0915	manifest	native platform case cannot be marked run Slackware-current/rights-budgets	reject	false	null
+case-0916	manifest	native platform case cannot be marked run Slackware-current/guard-writer-inventory	reject	false	null
+case-0917	manifest	native platform case cannot be marked run Slackware-current/original-backups	reject	false	null
+case-0918	manifest	native platform case cannot be marked run Slackware-current/phase-deltas	reject	false	null
+case-0919	manifest	native platform case cannot be marked run Slackware-current/stage7-binding	reject	false	null
+case-0920	manifest	native platform case cannot be marked run Slackware-current/reference-entry	reject	false	null
+case-0921	manifest	native platform case cannot be marked run Slackware-current/actual-selector	reject	false	null
+case-0922	manifest	native platform case cannot be marked run Slackware-current/raw-status-latch	reject	false	null
+case-0923	manifest	native platform case cannot be marked run Slackware-current/raw-pkglist-pin	reject	false	null
+case-0924	manifest	native platform case cannot be marked run Slackware-current/package-hooks-effects	reject	false	null
+case-0925	manifest	native platform case cannot be marked run Slackware-current/source-archives	reject	false	null
+case-0926	manifest	native platform case cannot be marked run Slackware-current/helper-dependencies	reject	false	null
+case-0927	manifest	native platform case cannot be marked run Slackware-current/child-quiescence	reject	false	null
+case-0928	manifest	native platform case cannot be marked run Slackware-current/retained-restoration	reject	false	null
+case-0929	manifest	native platform case cannot be marked run Slackware-current/original-verification	reject	false	null
+case-0930	manifest	native platform case cannot be marked run Slackware-current/signal-crash-interleavings	reject	false	null
+case-0931	manifest	native platform case cannot be marked run Slackware-current/publication-controls	reject	false	null
+case-0932	manifest	native platform case cannot be marked run Slackware-current/record-last-receipt	reject	false	null
+case-0933	manifest	native platform case cannot be marked run Slackware-current/unknown-publication	reject	false	null
+case-0934	manifest	native platform case cannot be marked run Slackware-current/cross-closure-oracle	reject	false	null
+case-0935	manifest	exact accepted source SHA cannot drift 0	reject	false	null
+case-0936	manifest	exact accepted source SHA cannot drift 1	reject	false	null
+case-0937	manifest	exact accepted source SHA cannot drift 2	reject	false	null
+case-0938	manifest	exact accepted source SHA cannot drift 3	reject	false	null
+case-0939	manifest	exact accepted source SHA cannot drift 4	reject	false	null
+case-0940	manifest	exact accepted source SHA cannot drift 5	reject	false	null
+case-0941	manifest	exact accepted source SHA cannot drift 6	reject	false	null
+case-0942	manifest	exact accepted source SHA cannot drift 7	reject	false	null
+case-0943	manifest	exact accepted source SHA cannot drift 8	reject	false	null
+case-0944	manifest	exact accepted source SHA cannot drift 9	reject	false	null
+case-0945	manifest	exact accepted source SHA cannot drift 10	reject	false	null
+case-0946	manifest	exact accepted source SHA cannot drift 11	reject	false	null
+case-0947	manifest	exact accepted source SHA cannot drift 12	reject	false	null
+case-0948	parse	strict bounded manifest parser duplicate-key	reject	false	null
+case-0949	parse	strict bounded manifest parser nested-duplicate	reject	false	null
+case-0950	parse	strict bounded manifest parser float	reject	false	null
+case-0951	parse	strict bounded manifest parser nonfinite	reject	false	null
+case-0952	parse	strict bounded manifest parser scalar	reject	false	null
+case-0953	parse	strict bounded manifest parser invalid-UTF8	reject	false	null
+case-0954	parse	strict bounded manifest parser int-overflow	reject	false	null
+case-0955	parse	strict bounded manifest parser deep	reject	false	null
+case-0956	parse	strict bounded manifest parser large-string	reject	false	null
+case-0957	parse	strict bounded manifest parser oversized	reject	false	null
+case-0958	parse	parser shape is not dispatch authority	return	true	null
+case-0959	fault	unknown effect blocks recovery or replay service-barrier-authentication/target	return	false	null
+case-0960	fault	unknown effect blocks recovery or replay service-barrier-authentication/control	return	false	null
+case-0961	fault	unknown effect blocks recovery or replay service-barrier-authentication/publication	return	false	null
+case-0962	fault	unknown effect blocks recovery or replay service-original-durable-claim/target	return	false	null
+case-0963	fault	unknown effect blocks recovery or replay service-original-durable-claim/control	return	false	null
+case-0964	fault	unknown effect blocks recovery or replay service-original-durable-claim/publication	return	false	null
+case-0965	fault	unknown effect blocks recovery or replay service-durable-launch-spend/target	return	false	null
+case-0966	fault	unknown effect blocks recovery or replay service-durable-launch-spend/control	return	false	null
+case-0967	fault	unknown effect blocks recovery or replay service-durable-launch-spend/publication	return	false	null
+case-0968	fault	unknown effect blocks recovery or replay service-single-worker-spawn/target	return	false	null
+case-0969	fault	unknown effect blocks recovery or replay service-single-worker-spawn/control	return	false	null
+case-0970	fault	unknown effect blocks recovery or replay service-single-worker-spawn/publication	return	false	null
+case-0971	fault	unknown effect blocks recovery or replay worker0-bounded-auth-read/target	return	false	null
+case-0972	fault	unknown effect blocks recovery or replay worker0-bounded-auth-read/control	return	false	null
+case-0973	fault	unknown effect blocks recovery or replay worker0-bounded-auth-read/publication	return	false	null
+case-0974	fault	unknown effect blocks recovery or replay worker0-close-bootstrap/target	return	false	null
+case-0975	fault	unknown effect blocks recovery or replay worker0-close-bootstrap/control	return	false	null
+case-0976	fault	unknown effect blocks recovery or replay worker0-close-bootstrap/publication	return	false	null
+case-0977	fault	unknown effect blocks recovery or replay worker0-readonly-preflight/target	return	false	null
+case-0978	fault	unknown effect blocks recovery or replay worker0-readonly-preflight/control	return	false	null
+case-0979	fault	unknown effect blocks recovery or replay worker0-readonly-preflight/publication	return	false	null
+case-0980	fault	unknown effect blocks recovery or replay worker1-arm-traps/target	return	false	null
+case-0981	fault	unknown effect blocks recovery or replay worker1-arm-traps/control	return	false	null
+case-0982	fault	unknown effect blocks recovery or replay worker1-arm-traps/publication	return	false	null
+case-0983	fault	unknown effect blocks recovery or replay interstage1-2-guard-freshoriginal/target	return	false	null
+case-0984	fault	unknown effect blocks recovery or replay interstage1-2-guard-freshoriginal/control	return	false	null
+case-0985	fault	unknown effect blocks recovery or replay interstage1-2-guard-freshoriginal/publication	return	false	null
+case-0986	fault	unknown effect blocks recovery or replay worker2-owned-workspace/target	return	false	null
+case-0987	fault	unknown effect blocks recovery or replay worker2-owned-workspace/control	return	false	null
+case-0988	fault	unknown effect blocks recovery or replay worker2-owned-workspace/publication	return	false	null
+case-0989	fault	unknown effect blocks recovery or replay worker3-original-backups/target	return	false	null
+case-0990	fault	unknown effect blocks recovery or replay worker3-original-backups/control	return	false	null
+case-0991	fault	unknown effect blocks recovery or replay worker3-original-backups/publication	return	false	null
+case-0992	fault	unknown effect blocks recovery or replay worker4-exact-predecessor/target	return	false	null
+case-0993	fault	unknown effect blocks recovery or replay worker4-exact-predecessor/control	return	false	null
+case-0994	fault	unknown effect blocks recovery or replay worker4-exact-predecessor/publication	return	false	null
+case-0995	fault	unknown effect blocks recovery or replay worker5-local-isolation/target	return	false	null
+case-0996	fault	unknown effect blocks recovery or replay worker5-local-isolation/control	return	false	null
+case-0997	fault	unknown effect blocks recovery or replay worker5-local-isolation/publication	return	false	null
+case-0998	fault	unknown effect blocks recovery or replay worker6-refresh-pin-once/target	return	false	null
+case-0999	fault	unknown effect blocks recovery or replay worker6-refresh-pin-once/control	return	false	null
+case-1000	fault	unknown effect blocks recovery or replay worker6-refresh-pin-once/publication	return	false	null
+case-1001	fault	unknown effect blocks recovery or replay worker7-validate-pinned-candidate/target	return	false	null
+case-1002	fault	unknown effect blocks recovery or replay worker7-validate-pinned-candidate/control	return	false	null
+case-1003	fault	unknown effect blocks recovery or replay worker7-validate-pinned-candidate/publication	return	false	null
+case-1004	fault	unknown effect blocks recovery or replay worker7-owned-durable-commit/target	return	false	null
+case-1005	fault	unknown effect blocks recovery or replay worker7-owned-durable-commit/control	return	false	null
+case-1006	fault	unknown effect blocks recovery or replay worker7-owned-durable-commit/publication	return	false	null
+case-1007	fault	unknown effect blocks recovery or replay worker8-whole-successor-apply/target	return	false	null
+case-1008	fault	unknown effect blocks recovery or replay worker8-whole-successor-apply/control	return	false	null
+case-1009	fault	unknown effect blocks recovery or replay worker8-whole-successor-apply/publication	return	false	null
+case-1010	fault	unknown effect blocks recovery or replay stop-forward-irreversibly/target	return	false	null
+case-1011	fault	unknown effect blocks recovery or replay stop-forward-irreversibly/control	return	false	null
+case-1012	fault	unknown effect blocks recovery or replay stop-forward-irreversibly/publication	return	false	null
+case-1013	fault	unknown effect blocks recovery or replay drain-known-owned-children/target	return	false	null
+case-1014	fault	unknown effect blocks recovery or replay drain-known-owned-children/control	return	false	null
+case-1015	fault	unknown effect blocks recovery or replay drain-known-owned-children/publication	return	false	null
+case-1016	fault	unknown effect blocks recovery or replay worker9-original-restoration/target	return	false	null
+case-1017	fault	unknown effect blocks recovery or replay worker9-original-restoration/control	return	false	null
+case-1018	fault	unknown effect blocks recovery or replay worker9-original-restoration/publication	return	false	null
+case-1019	fault	unknown effect blocks recovery or replay worker10-original-verification/target	return	false	null
+case-1020	fault	unknown effect blocks recovery or replay worker10-original-verification/control	return	false	null
+case-1021	fault	unknown effect blocks recovery or replay worker10-original-verification/publication	return	false	null
+case-1022	fault	unknown effect blocks recovery or replay worker11-close-target-evidence/target	return	false	null
+case-1023	fault	unknown effect blocks recovery or replay worker11-close-target-evidence/control	return	false	null
+case-1024	fault	unknown effect blocks recovery or replay worker11-close-target-evidence/publication	return	false	null
+case-1025	fault	unknown effect blocks recovery or replay release-target-control/target	return	false	null
+case-1026	fault	unknown effect blocks recovery or replay release-target-control/control	return	false	null
+case-1027	fault	unknown effect blocks recovery or replay release-target-control/publication	return	false	null
+case-1028	fault	unknown effect blocks recovery or replay worker12-publication-controls/target	return	false	null
+case-1029	fault	unknown effect blocks recovery or replay worker12-publication-controls/control	return	false	null
+case-1030	fault	unknown effect blocks recovery or replay worker12-publication-controls/publication	return	false	null
+case-1031	fault	unknown effect blocks recovery or replay worker12-publication-record/target	return	false	null
+case-1032	fault	unknown effect blocks recovery or replay worker12-publication-record/control	return	false	null
+case-1033	fault	unknown effect blocks recovery or replay worker12-publication-record/publication	return	false	null
+case-1034	fault	unknown effect blocks recovery or replay worker12-last-receipt/target	return	false	null
+case-1035	fault	unknown effect blocks recovery or replay worker12-last-receipt/control	return	false	null
+case-1036	fault	unknown effect blocks recovery or replay worker12-last-receipt/publication	return	false	null
+case-1037	fault	unknown effect blocks recovery or replay worker12-durable-handoff/target	return	false	null
+case-1038	fault	unknown effect blocks recovery or replay worker12-durable-handoff/control	return	false	null
+case-1039	fault	unknown effect blocks recovery or replay worker12-durable-handoff/publication	return	false	null
+case-1040	fault	unknown owned retains artifacts with separate unchanged review	return	true	null
+case-1041	fault	each original condition blocks recovery independently forward_stopped	return	false	null
+case-1042	fault	fault condition is exact bool forward_stopped	reject	false	null
+case-1043	fault	each original condition blocks recovery independently original_recovery_rights_live	return	false	null
+case-1044	fault	fault condition is exact bool original_recovery_rights_live	reject	false	null
+case-1045	fault	each original condition blocks recovery independently phase_within_original_expectation	return	false	null
+case-1046	fault	fault condition is exact bool phase_within_original_expectation	reject	false	null
+case-1047	fault	each original condition blocks recovery independently same_original_attempt	return	false	null
+case-1048	fault	fault condition is exact bool same_original_attempt	reject	false	null
+case-1049	fault	each original condition blocks recovery independently same_safe_boot_identity	return	false	null
+case-1050	fault	fault condition is exact bool same_safe_boot_identity	reject	false	null
+case-1051	fault	each original condition blocks recovery independently original_baseline_known	return	false	null
+case-1052	fault	fault condition is exact bool original_baseline_known	reject	false	null
+case-1053	fault	each original condition blocks recovery independently earlier_target_outcome_known	return	false	null
+case-1054	fault	fault condition is exact bool earlier_target_outcome_known	reject	false	null
+case-1055	fault	each original condition blocks recovery independently continuous_guard_valid	return	false	null
+case-1056	fault	fault condition is exact bool continuous_guard_valid	reject	false	null
+case-1057	fault	each original condition blocks recovery independently known_children_quiescent	return	false	null
+case-1058	fault	fault condition is exact bool known_children_quiescent	reject	false	null
+case-1059	fault	each original condition blocks recovery independently original_recovery_fence_live	return	false	null
+case-1060	fault	fault condition is exact bool original_recovery_fence_live	reject	false	null
+case-1061	fault	each original condition blocks recovery independently finite_original_deadline_valid	return	false	null
+case-1062	fault	fault condition is exact bool finite_original_deadline_valid	reject	false	null
+case-1063	fault	each original condition blocks recovery independently original_budget_durably_prespent	return	false	null
+case-1064	fault	fault condition is exact bool original_budget_durably_prespent	reject	false	null
+case-1065	fault	unknown owned unchanged path does not require backups	return	false	null
+case-1066	fault	backed branch requires verified original backups	return	false	null
+case-1067	fault	neither original branch proven when backups and unchanged absent	return	false	null
+case-1068	fault	exit0 with failed selector is not no-effect proof	return	false	null
+case-1069	fault	single raw status type or domain cannot be forged True	reject	false	null
+case-1070	fault	single raw status type or domain cannot be forged 3	reject	false	null
+case-1071	fault	single raw status type or domain cannot be forged 1.0	reject	false	null
+case-1072	oracle	matching private packet never completes native case	return	true	null
+case-1073	oracle	selfreported PASS cannot mask independent mismatch independent-provenance	return	false	null
+case-1074	oracle	missing or unknown remains pending independent-provenance/declared-unknown	return	false	null
+case-1075	oracle	unknown never empty no-effect independent-provenance/declared-unknown	reject	false	null
+case-1076	oracle	missing or unknown remains pending independent-provenance/declared-missing	return	false	null
+case-1077	oracle	unknown never empty no-effect independent-provenance/declared-missing	reject	false	null
+case-1078	oracle	all independent groups required independent-provenance	reject	false	null
+case-1079	oracle	selfreported PASS cannot mask independent mismatch original-identity-timeline	return	false	null
+case-1080	oracle	missing or unknown remains pending original-identity-timeline/declared-unknown	return	false	null
+case-1081	oracle	unknown never empty no-effect original-identity-timeline/declared-unknown	reject	false	null
+case-1082	oracle	missing or unknown remains pending original-identity-timeline/declared-missing	return	false	null
+case-1083	oracle	unknown never empty no-effect original-identity-timeline/declared-missing	reject	false	null
+case-1084	oracle	all independent groups required original-identity-timeline	reject	false	null
+case-1085	oracle	selfreported PASS cannot mask independent mismatch original-restoration-verification	return	false	null
+case-1086	oracle	missing or unknown remains pending original-restoration-verification/declared-unknown	return	false	null
+case-1087	oracle	unknown never empty no-effect original-restoration-verification/declared-unknown	reject	false	null
+case-1088	oracle	missing or unknown remains pending original-restoration-verification/declared-missing	return	false	null
+case-1089	oracle	unknown never empty no-effect original-restoration-verification/declared-missing	reject	false	null
+case-1090	oracle	all independent groups required original-restoration-verification	reject	false	null
+case-1091	oracle	selfreported PASS cannot mask independent mismatch platform-original-authority	return	false	null
+case-1092	oracle	missing or unknown remains pending platform-original-authority/declared-unknown	return	false	null
+case-1093	oracle	unknown never empty no-effect platform-original-authority/declared-unknown	reject	false	null
+case-1094	oracle	missing or unknown remains pending platform-original-authority/declared-missing	return	false	null
+case-1095	oracle	unknown never empty no-effect platform-original-authority/declared-missing	reject	false	null
+case-1096	oracle	all independent groups required platform-original-authority	reject	false	null
+case-1097	oracle	selfreported PASS cannot mask independent mismatch positive-negative-fault-controls	return	false	null
+case-1098	oracle	missing or unknown remains pending positive-negative-fault-controls/declared-unknown	return	false	null
+case-1099	oracle	unknown never empty no-effect positive-negative-fault-controls/declared-unknown	reject	false	null
+case-1100	oracle	missing or unknown remains pending positive-negative-fault-controls/declared-missing	return	false	null
+case-1101	oracle	unknown never empty no-effect positive-negative-fault-controls/declared-missing	reject	false	null
+case-1102	oracle	all independent groups required positive-negative-fault-controls	reject	false	null
+case-1103	oracle	selfreported PASS cannot mask independent mismatch publication-last-receipt	return	false	null
+case-1104	oracle	missing or unknown remains pending publication-last-receipt/declared-unknown	return	false	null
+case-1105	oracle	unknown never empty no-effect publication-last-receipt/declared-unknown	reject	false	null
+case-1106	oracle	missing or unknown remains pending publication-last-receipt/declared-missing	return	false	null
+case-1107	oracle	unknown never empty no-effect publication-last-receipt/declared-missing	reject	false	null
+case-1108	oracle	all independent groups required publication-last-receipt	reject	false	null
+case-1109	oracle	selfreported PASS cannot mask independent mismatch raw-status-selector-vector	return	false	null
+case-1110	oracle	missing or unknown remains pending raw-status-selector-vector/declared-unknown	return	false	null
+case-1111	oracle	unknown never empty no-effect raw-status-selector-vector/declared-unknown	reject	false	null
+case-1112	oracle	missing or unknown remains pending raw-status-selector-vector/declared-missing	return	false	null
+case-1113	oracle	unknown never empty no-effect raw-status-selector-vector/declared-missing	reject	false	null
+case-1114	oracle	all independent groups required raw-status-selector-vector	reject	false	null
+case-1115	oracle	selfreported PASS cannot mask independent mismatch scoped-closure-or-pending	return	false	null
+case-1116	oracle	missing or unknown remains pending scoped-closure-or-pending/declared-unknown	return	false	null
+case-1117	oracle	unknown never empty no-effect scoped-closure-or-pending/declared-unknown	reject	false	null
+case-1118	oracle	missing or unknown remains pending scoped-closure-or-pending/declared-missing	return	false	null
+case-1119	oracle	unknown never empty no-effect scoped-closure-or-pending/declared-missing	reject	false	null
+case-1120	oracle	all independent groups required scoped-closure-or-pending	reject	false	null
+case-1121	oracle	selfreported PASS cannot mask independent mismatch subject-source-graph	return	false	null
+case-1122	oracle	missing or unknown remains pending subject-source-graph/declared-unknown	return	false	null
+case-1123	oracle	unknown never empty no-effect subject-source-graph/declared-unknown	reject	false	null
+case-1124	oracle	missing or unknown remains pending subject-source-graph/declared-missing	return	false	null
+case-1125	oracle	unknown never empty no-effect subject-source-graph/declared-missing	reject	false	null
+case-1126	oracle	all independent groups required subject-source-graph	reject	false	null
+case-1127	oracle	selfreported PASS cannot mask independent mismatch target-owned-effect-vector	return	false	null
+case-1128	oracle	missing or unknown remains pending target-owned-effect-vector/declared-unknown	return	false	null
+case-1129	oracle	unknown never empty no-effect target-owned-effect-vector/declared-unknown	reject	false	null
+case-1130	oracle	missing or unknown remains pending target-owned-effect-vector/declared-missing	return	false	null
+case-1131	oracle	unknown never empty no-effect target-owned-effect-vector/declared-missing	reject	false	null
+case-1132	oracle	all independent groups required target-owned-effect-vector	reject	false	null
+case-1133	oracle	selfreported PASS cannot mask independent mismatch time-fence-recovery-budget	return	false	null
+case-1134	oracle	missing or unknown remains pending time-fence-recovery-budget/declared-unknown	return	false	null
+case-1135	oracle	unknown never empty no-effect time-fence-recovery-budget/declared-unknown	reject	false	null
+case-1136	oracle	missing or unknown remains pending time-fence-recovery-budget/declared-missing	return	false	null
+case-1137	oracle	unknown never empty no-effect time-fence-recovery-budget/declared-missing	reject	false	null
+case-1138	oracle	all independent groups required time-fence-recovery-budget	reject	false	null
+case-1139	oracle	selfreported PASS cannot mask independent mismatch writer-child-lifetimes	return	false	null
+case-1140	oracle	missing or unknown remains pending writer-child-lifetimes/declared-unknown	return	false	null
+case-1141	oracle	unknown never empty no-effect writer-child-lifetimes/declared-unknown	reject	false	null
+case-1142	oracle	missing or unknown remains pending writer-child-lifetimes/declared-missing	return	false	null
+case-1143	oracle	unknown never empty no-effect writer-child-lifetimes/declared-missing	reject	false	null
+case-1144	oracle	all independent groups required writer-child-lifetimes	reject	false	null
+case-1145	oracle	candidate logic selfreport expectations cannot become sole oracle candidate_logic_used_as_verifier	reject	false	null
+case-1146	oracle	candidate logic selfreport expectations cannot become sole oracle expectation_derived_from_subject	reject	false	null
+case-1147	oracle	candidate logic selfreport expectations cannot become sole oracle subject_report_is_sole_oracle	reject	false	null
+case-1148	oracle	subject cannot replace independent provenance collector	reject	false	null
+case-1149	oracle	subject cannot replace independent provenance verifier	reject	false	null
+case-1150	oracle	subject cannot replace independent provenance expectation_author	reject	false	null
+case-1151	oracle	original oracle context cannot be transplanted attempt_token	reject	false	null
+case-1152	oracle	original oracle context cannot be transplanted boot_token	reject	false	null
+case-1153	oracle	original oracle context cannot be transplanted case_token	reject	false	null
+case-1154	oracle	original oracle context cannot be transplanted platform_token	reject	false	null
+case-1155	oracle	original oracle context cannot be transplanted source_graph_token	reject	false	null
+case-1156	oracle	original oracle context cannot be transplanted test_authority	reject	false	null
+case-1157	oracle	private envelope cannot manufacture native authority actual_authority	reject	false	null
+case-1158	oracle	private envelope cannot manufacture native authority actual_native_bindings	reject	false	null
+case-1159	oracle	private envelope cannot manufacture native authority origin	reject	false	null
+case-1160	oracle	both fault controls must be independently effective positive/declared-ineffective	return	false	null
+case-1161	oracle	both fault controls must be independently effective positive/declared-unknown	return	false	null
+case-1162	oracle	both fault controls must be independently effective positive/declared-missing	return	false	null
+case-1163	oracle	both fault controls must be independently effective negative/declared-ineffective	return	false	null
+case-1164	oracle	both fault controls must be independently effective negative/declared-unknown	return	false	null
+case-1165	oracle	both fault controls must be independently effective negative/declared-missing	return	false	null
+case-1166	oracle	pending cannot hide other effect mismatch	return	false	null
