@@ -1,0 +1,366 @@
+{
+  "actual_runtime_authority": false,
+  "examples": [
+    {
+      "actual_evidence": null,
+      "id": "all-original-conditions-declared-private-only",
+      "input": {
+        "actual_host_state": "unobserved-not-claimed-absent",
+        "conditions": {
+          "actual-host-state-unobserved-never-claimed-absent-or-globally-closed": true,
+          "all-future-runtime-and-unused-live-rights-closed": true,
+          "all-in-scope-repository-candidate-effects-and-obligations-reviewed": true,
+          "all-unknown-actual-graph-primitives-native-protocols-and-conformance-remain-blockers": true,
+          "candidate-validator-has-no-runtime-dispatch-or-service-channel": true,
+          "complete-user-overlay-full-tests-exact-commit-successful-push-clean-tree-matching-HEAD-origin-return": true,
+          "no-batch-runtime-or-partial-operational-publication": true,
+          "no-live-binding-reuse-pause-independent-of-later-current-refresh": true,
+          "no-required-batch-machine-or-controller-cleanup": true
+        },
+        "live_binding": null,
+        "origin": "synthetic-private-fixture",
+        "scope": "repository-candidate-refinement-workstream329-338-only",
+        "test_authority": false
+      },
+      "result": {
+        "actual_global_host_closure": false,
+        "actual_implementation_freeze": false,
+        "actual_operational_conformance": false,
+        "actual_runtime_authority": false,
+        "actual_strong_safe_pause_confirmed": false,
+        "actual_target_or_publication_closure": false,
+        "model_actual_native_cases_still_unrun": 52,
+        "model_actual_proofs_still_required": 46,
+        "model_pending_conditions": [],
+        "model_repository_candidate_freeze_reviewable": true
+      }
+    },
+    {
+      "actual_evidence": null,
+      "id": "pending-complete-user-overlay-full-tests-exact-commit-successful-push-clean-tree-matching-HEAD-origin-return",
+      "input": {
+        "actual_host_state": "unobserved-not-claimed-absent",
+        "conditions": {
+          "actual-host-state-unobserved-never-claimed-absent-or-globally-closed": true,
+          "all-future-runtime-and-unused-live-rights-closed": true,
+          "all-in-scope-repository-candidate-effects-and-obligations-reviewed": true,
+          "all-unknown-actual-graph-primitives-native-protocols-and-conformance-remain-blockers": true,
+          "candidate-validator-has-no-runtime-dispatch-or-service-channel": true,
+          "complete-user-overlay-full-tests-exact-commit-successful-push-clean-tree-matching-HEAD-origin-return": false,
+          "no-batch-runtime-or-partial-operational-publication": true,
+          "no-live-binding-reuse-pause-independent-of-later-current-refresh": true,
+          "no-required-batch-machine-or-controller-cleanup": true
+        },
+        "live_binding": null,
+        "origin": "synthetic-private-fixture",
+        "scope": "repository-candidate-refinement-workstream329-338-only",
+        "test_authority": false
+      },
+      "result": {
+        "actual_global_host_closure": false,
+        "actual_implementation_freeze": false,
+        "actual_operational_conformance": false,
+        "actual_runtime_authority": false,
+        "actual_strong_safe_pause_confirmed": false,
+        "actual_target_or_publication_closure": false,
+        "model_actual_native_cases_still_unrun": 52,
+        "model_actual_proofs_still_required": 46,
+        "model_pending_conditions": [
+          "complete-user-overlay-full-tests-exact-commit-successful-push-clean-tree-matching-HEAD-origin-return"
+        ],
+        "model_repository_candidate_freeze_reviewable": false
+      }
+    },
+    {
+      "actual_evidence": null,
+      "id": "pending-all-in-scope-repository-candidate-effects-and-obligations-reviewed",
+      "input": {
+        "actual_host_state": "unobserved-not-claimed-absent",
+        "conditions": {
+          "actual-host-state-unobserved-never-claimed-absent-or-globally-closed": true,
+          "all-future-runtime-and-unused-live-rights-closed": true,
+          "all-in-scope-repository-candidate-effects-and-obligations-reviewed": false,
+          "all-unknown-actual-graph-primitives-native-protocols-and-conformance-remain-blockers": true,
+          "candidate-validator-has-no-runtime-dispatch-or-service-channel": true,
+          "complete-user-overlay-full-tests-exact-commit-successful-push-clean-tree-matching-HEAD-origin-return": true,
+          "no-batch-runtime-or-partial-operational-publication": true,
+          "no-live-binding-reuse-pause-independent-of-later-current-refresh": true,
+          "no-required-batch-machine-or-controller-cleanup": true
+        },
+        "live_binding": null,
+        "origin": "synthetic-private-fixture",
+        "scope": "repository-candidate-refinement-workstream329-338-only",
+        "test_authority": false
+      },
+      "result": {
+        "actual_global_host_closure": false,
+        "actual_implementation_freeze": false,
+        "actual_operational_conformance": false,
+        "actual_runtime_authority": false,
+        "actual_strong_safe_pause_confirmed": false,
+        "actual_target_or_publication_closure": false,
+        "model_actual_native_cases_still_unrun": 52,
+        "model_actual_proofs_still_required": 46,
+        "model_pending_conditions": [
+          "all-in-scope-repository-candidate-effects-and-obligations-reviewed"
+        ],
+        "model_repository_candidate_freeze_reviewable": false
+      }
+    },
+    {
+      "actual_evidence": null,
+      "id": "pending-candidate-validator-has-no-runtime-dispatch-or-service-channel",
+      "input": {
+        "actual_host_state": "unobserved-not-claimed-absent",
+        "conditions": {
+          "actual-host-state-unobserved-never-claimed-absent-or-globally-closed": true,
+          "all-future-runtime-and-unused-live-rights-closed": true,
+          "all-in-scope-repository-candidate-effects-and-obligations-reviewed": true,
+          "all-unknown-actual-graph-primitives-native-protocols-and-conformance-remain-blockers": true,
+          "candidate-validator-has-no-runtime-dispatch-or-service-channel": false,
+          "complete-user-overlay-full-tests-exact-commit-successful-push-clean-tree-matching-HEAD-origin-return": true,
+          "no-batch-runtime-or-partial-operational-publication": true,
+          "no-live-binding-reuse-pause-independent-of-later-current-refresh": true,
+          "no-required-batch-machine-or-controller-cleanup": true
+        },
+        "live_binding": null,
+        "origin": "synthetic-private-fixture",
+        "scope": "repository-candidate-refinement-workstream329-338-only",
+        "test_authority": false
+      },
+      "result": {
+        "actual_global_host_closure": false,
+        "actual_implementation_freeze": false,
+        "actual_operational_conformance": false,
+        "actual_runtime_authority": false,
+        "actual_strong_safe_pause_confirmed": false,
+        "actual_target_or_publication_closure": false,
+        "model_actual_native_cases_still_unrun": 52,
+        "model_actual_proofs_still_required": 46,
+        "model_pending_conditions": [
+          "candidate-validator-has-no-runtime-dispatch-or-service-channel"
+        ],
+        "model_repository_candidate_freeze_reviewable": false
+      }
+    },
+    {
+      "actual_evidence": null,
+      "id": "pending-all-unknown-actual-graph-primitives-native-protocols-and-conformance-remain-blockers",
+      "input": {
+        "actual_host_state": "unobserved-not-claimed-absent",
+        "conditions": {
+          "actual-host-state-unobserved-never-claimed-absent-or-globally-closed": true,
+          "all-future-runtime-and-unused-live-rights-closed": true,
+          "all-in-scope-repository-candidate-effects-and-obligations-reviewed": true,
+          "all-unknown-actual-graph-primitives-native-protocols-and-conformance-remain-blockers": false,
+          "candidate-validator-has-no-runtime-dispatch-or-service-channel": true,
+          "complete-user-overlay-full-tests-exact-commit-successful-push-clean-tree-matching-HEAD-origin-return": true,
+          "no-batch-runtime-or-partial-operational-publication": true,
+          "no-live-binding-reuse-pause-independent-of-later-current-refresh": true,
+          "no-required-batch-machine-or-controller-cleanup": true
+        },
+        "live_binding": null,
+        "origin": "synthetic-private-fixture",
+        "scope": "repository-candidate-refinement-workstream329-338-only",
+        "test_authority": false
+      },
+      "result": {
+        "actual_global_host_closure": false,
+        "actual_implementation_freeze": false,
+        "actual_operational_conformance": false,
+        "actual_runtime_authority": false,
+        "actual_strong_safe_pause_confirmed": false,
+        "actual_target_or_publication_closure": false,
+        "model_actual_native_cases_still_unrun": 52,
+        "model_actual_proofs_still_required": 46,
+        "model_pending_conditions": [
+          "all-unknown-actual-graph-primitives-native-protocols-and-conformance-remain-blockers"
+        ],
+        "model_repository_candidate_freeze_reviewable": false
+      }
+    },
+    {
+      "actual_evidence": null,
+      "id": "pending-no-batch-runtime-or-partial-operational-publication",
+      "input": {
+        "actual_host_state": "unobserved-not-claimed-absent",
+        "conditions": {
+          "actual-host-state-unobserved-never-claimed-absent-or-globally-closed": true,
+          "all-future-runtime-and-unused-live-rights-closed": true,
+          "all-in-scope-repository-candidate-effects-and-obligations-reviewed": true,
+          "all-unknown-actual-graph-primitives-native-protocols-and-conformance-remain-blockers": true,
+          "candidate-validator-has-no-runtime-dispatch-or-service-channel": true,
+          "complete-user-overlay-full-tests-exact-commit-successful-push-clean-tree-matching-HEAD-origin-return": true,
+          "no-batch-runtime-or-partial-operational-publication": false,
+          "no-live-binding-reuse-pause-independent-of-later-current-refresh": true,
+          "no-required-batch-machine-or-controller-cleanup": true
+        },
+        "live_binding": null,
+        "origin": "synthetic-private-fixture",
+        "scope": "repository-candidate-refinement-workstream329-338-only",
+        "test_authority": false
+      },
+      "result": {
+        "actual_global_host_closure": false,
+        "actual_implementation_freeze": false,
+        "actual_operational_conformance": false,
+        "actual_runtime_authority": false,
+        "actual_strong_safe_pause_confirmed": false,
+        "actual_target_or_publication_closure": false,
+        "model_actual_native_cases_still_unrun": 52,
+        "model_actual_proofs_still_required": 46,
+        "model_pending_conditions": [
+          "no-batch-runtime-or-partial-operational-publication"
+        ],
+        "model_repository_candidate_freeze_reviewable": false
+      }
+    },
+    {
+      "actual_evidence": null,
+      "id": "pending-no-required-batch-machine-or-controller-cleanup",
+      "input": {
+        "actual_host_state": "unobserved-not-claimed-absent",
+        "conditions": {
+          "actual-host-state-unobserved-never-claimed-absent-or-globally-closed": true,
+          "all-future-runtime-and-unused-live-rights-closed": true,
+          "all-in-scope-repository-candidate-effects-and-obligations-reviewed": true,
+          "all-unknown-actual-graph-primitives-native-protocols-and-conformance-remain-blockers": true,
+          "candidate-validator-has-no-runtime-dispatch-or-service-channel": true,
+          "complete-user-overlay-full-tests-exact-commit-successful-push-clean-tree-matching-HEAD-origin-return": true,
+          "no-batch-runtime-or-partial-operational-publication": true,
+          "no-live-binding-reuse-pause-independent-of-later-current-refresh": true,
+          "no-required-batch-machine-or-controller-cleanup": false
+        },
+        "live_binding": null,
+        "origin": "synthetic-private-fixture",
+        "scope": "repository-candidate-refinement-workstream329-338-only",
+        "test_authority": false
+      },
+      "result": {
+        "actual_global_host_closure": false,
+        "actual_implementation_freeze": false,
+        "actual_operational_conformance": false,
+        "actual_runtime_authority": false,
+        "actual_strong_safe_pause_confirmed": false,
+        "actual_target_or_publication_closure": false,
+        "model_actual_native_cases_still_unrun": 52,
+        "model_actual_proofs_still_required": 46,
+        "model_pending_conditions": [
+          "no-required-batch-machine-or-controller-cleanup"
+        ],
+        "model_repository_candidate_freeze_reviewable": false
+      }
+    },
+    {
+      "actual_evidence": null,
+      "id": "pending-all-future-runtime-and-unused-live-rights-closed",
+      "input": {
+        "actual_host_state": "unobserved-not-claimed-absent",
+        "conditions": {
+          "actual-host-state-unobserved-never-claimed-absent-or-globally-closed": true,
+          "all-future-runtime-and-unused-live-rights-closed": false,
+          "all-in-scope-repository-candidate-effects-and-obligations-reviewed": true,
+          "all-unknown-actual-graph-primitives-native-protocols-and-conformance-remain-blockers": true,
+          "candidate-validator-has-no-runtime-dispatch-or-service-channel": true,
+          "complete-user-overlay-full-tests-exact-commit-successful-push-clean-tree-matching-HEAD-origin-return": true,
+          "no-batch-runtime-or-partial-operational-publication": true,
+          "no-live-binding-reuse-pause-independent-of-later-current-refresh": true,
+          "no-required-batch-machine-or-controller-cleanup": true
+        },
+        "live_binding": null,
+        "origin": "synthetic-private-fixture",
+        "scope": "repository-candidate-refinement-workstream329-338-only",
+        "test_authority": false
+      },
+      "result": {
+        "actual_global_host_closure": false,
+        "actual_implementation_freeze": false,
+        "actual_operational_conformance": false,
+        "actual_runtime_authority": false,
+        "actual_strong_safe_pause_confirmed": false,
+        "actual_target_or_publication_closure": false,
+        "model_actual_native_cases_still_unrun": 52,
+        "model_actual_proofs_still_required": 46,
+        "model_pending_conditions": [
+          "all-future-runtime-and-unused-live-rights-closed"
+        ],
+        "model_repository_candidate_freeze_reviewable": false
+      }
+    },
+    {
+      "actual_evidence": null,
+      "id": "pending-actual-host-state-unobserved-never-claimed-absent-or-globally-closed",
+      "input": {
+        "actual_host_state": "unobserved-not-claimed-absent",
+        "conditions": {
+          "actual-host-state-unobserved-never-claimed-absent-or-globally-closed": false,
+          "all-future-runtime-and-unused-live-rights-closed": true,
+          "all-in-scope-repository-candidate-effects-and-obligations-reviewed": true,
+          "all-unknown-actual-graph-primitives-native-protocols-and-conformance-remain-blockers": true,
+          "candidate-validator-has-no-runtime-dispatch-or-service-channel": true,
+          "complete-user-overlay-full-tests-exact-commit-successful-push-clean-tree-matching-HEAD-origin-return": true,
+          "no-batch-runtime-or-partial-operational-publication": true,
+          "no-live-binding-reuse-pause-independent-of-later-current-refresh": true,
+          "no-required-batch-machine-or-controller-cleanup": true
+        },
+        "live_binding": null,
+        "origin": "synthetic-private-fixture",
+        "scope": "repository-candidate-refinement-workstream329-338-only",
+        "test_authority": false
+      },
+      "result": {
+        "actual_global_host_closure": false,
+        "actual_implementation_freeze": false,
+        "actual_operational_conformance": false,
+        "actual_runtime_authority": false,
+        "actual_strong_safe_pause_confirmed": false,
+        "actual_target_or_publication_closure": false,
+        "model_actual_native_cases_still_unrun": 52,
+        "model_actual_proofs_still_required": 46,
+        "model_pending_conditions": [
+          "actual-host-state-unobserved-never-claimed-absent-or-globally-closed"
+        ],
+        "model_repository_candidate_freeze_reviewable": false
+      }
+    },
+    {
+      "actual_evidence": null,
+      "id": "pending-no-live-binding-reuse-pause-independent-of-later-current-refresh",
+      "input": {
+        "actual_host_state": "unobserved-not-claimed-absent",
+        "conditions": {
+          "actual-host-state-unobserved-never-claimed-absent-or-globally-closed": true,
+          "all-future-runtime-and-unused-live-rights-closed": true,
+          "all-in-scope-repository-candidate-effects-and-obligations-reviewed": true,
+          "all-unknown-actual-graph-primitives-native-protocols-and-conformance-remain-blockers": true,
+          "candidate-validator-has-no-runtime-dispatch-or-service-channel": true,
+          "complete-user-overlay-full-tests-exact-commit-successful-push-clean-tree-matching-HEAD-origin-return": true,
+          "no-batch-runtime-or-partial-operational-publication": true,
+          "no-live-binding-reuse-pause-independent-of-later-current-refresh": false,
+          "no-required-batch-machine-or-controller-cleanup": true
+        },
+        "live_binding": null,
+        "origin": "synthetic-private-fixture",
+        "scope": "repository-candidate-refinement-workstream329-338-only",
+        "test_authority": false
+      },
+      "result": {
+        "actual_global_host_closure": false,
+        "actual_implementation_freeze": false,
+        "actual_operational_conformance": false,
+        "actual_runtime_authority": false,
+        "actual_strong_safe_pause_confirmed": false,
+        "actual_target_or_publication_closure": false,
+        "model_actual_native_cases_still_unrun": 52,
+        "model_actual_proofs_still_required": 46,
+        "model_pending_conditions": [
+          "no-live-binding-reuse-pause-independent-of-later-current-refresh"
+        ],
+        "model_repository_candidate_freeze_reviewable": false
+      }
+    }
+  ],
+  "schema": 1,
+  "scope": "synthetic-private-scoped-freeze-boundary-examples-only",
+  "step": 337
+}
