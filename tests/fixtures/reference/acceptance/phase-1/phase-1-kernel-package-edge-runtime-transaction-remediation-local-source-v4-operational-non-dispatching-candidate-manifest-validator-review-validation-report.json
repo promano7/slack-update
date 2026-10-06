@@ -1,0 +1,18 @@
+{
+  "actual_dispatch_authorized": false,
+  "actual_host_closure": false,
+  "actual_operational_conformance": false,
+  "actual_operational_implementation_frozen": false,
+  "actual_operational_readiness": false,
+  "actual_target_or_publication_closure": false,
+  "candidate_declaration_valid": true,
+  "component_domains": 30,
+  "macro_design_relations": 95,
+  "native_selection_or_evidence_complete": false,
+  "nominal_interfaces": 26,
+  "nominal_types": 35,
+  "phase_boundaries": 27,
+  "required_not_proven_proofs": 46,
+  "required_not_run_cases": 52,
+  "unresolved_native_gap_categories": 16
+}
