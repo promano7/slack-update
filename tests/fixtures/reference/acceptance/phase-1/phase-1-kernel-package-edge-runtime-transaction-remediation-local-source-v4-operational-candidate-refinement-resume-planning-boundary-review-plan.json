@@ -1,0 +1,222 @@
+{
+  "actual_global_host_closure_asserted": false,
+  "actual_host_state": "unobserved-not-claimed-absent",
+  "actual_implementation_selection": null,
+  "actual_independent_oracle": null,
+  "actual_transitive_graph_complete": false,
+  "compatibility_claim": "candidate-review-targets-only-no-live-platform-validation",
+  "compatibility_scope": [
+    "Slackware-15.0",
+    "Slackware-current"
+  ],
+  "conditional_pause_step": 338,
+  "controller_action_required": false,
+  "current_live_bindings": null,
+  "current_stage_rights": [
+    "repository-overlay",
+    "private-tests",
+    "exact-commit",
+    "user-push-and-return"
+  ],
+  "future_candidate_artifacts_executable_scope": "static-data-validation-only-no-operational-entry",
+  "historical_bindings_or_grants_reusable": false,
+  "historical_optional329_330_rights_reused": false,
+  "historical_v2_sourced_or_run": false,
+  "inherited_contract_bindings": {
+    "320": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-admission-and-durable-consumption-design-review-design.json",
+      "sha256": "206070db792430966f1b1654d29d7fecabaf43288f1d208b1332d5a40432726f"
+    },
+    "321": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-admission-handoff-and-namespace-fd-design-review-design.json",
+      "sha256": "c814396b3d002f3398b1d024ab30d9b74dfa6d84aee0c87df93215f571bd1540"
+    },
+    "322": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-stage7-owned-binding-effect-design-review-design.json",
+      "sha256": "ff7428e2039927559130a6b0f58611a669f30215221aaf3887e3fa360438a494"
+    },
+    "323": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+      "sha256": "40a574a020fcd8a5a6e79d0faebea6e00e62283751a94bcd877a9b47182d8b98"
+    },
+    "324": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-continuous-guarded-original-baseline-and-approved-phase-deltas-design-review-design.json",
+      "sha256": "c26c93bf5f5dd596c8272cd1328a2f08f970053e6582fdccfbe278b904f20474"
+    },
+    "325": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-whole-service-reference-helper-selector-source-backend-publication-effect-graph-design-review-design.json",
+      "sha256": "d8e1db6acd48e7a1076af9d72a9837d9e1cc83742173d0d1ffe67b3026290d0b"
+    },
+    "326": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-complete-finite-failure-model-and-independent-conformance-plan-review-design.json",
+      "sha256": "32c58f6290c7d3f47a033081b1c9458fbaaf35505e1f659a6e4714491413b5fe"
+    },
+    "327": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-scoped-effects-obligations-rights-crossclosure-review-design.json",
+      "sha256": "a6541e3a485ec6032e5d50dc31d8ee43a3c29ab4b97e44e08776152120f6d7a0"
+    }
+  },
+  "inherited_counts": {
+    "actual_platform_cases_run": 0,
+    "authority_windows": 9,
+    "cross_obligations": 10,
+    "effect_domains": 30,
+    "independent_platform_cases": 52,
+    "inherited320_327_future_proofs": 46,
+    "seven_capabilities": 7
+  },
+  "kernel_package_edge_complete": false,
+  "last_confirmed_strong_safe_pause_step": 328,
+  "later_preparation_requires_complete_predecessor_return": true,
+  "machine_action_required": false,
+  "namespace_authorized": false,
+  "new_user_repository_planning_request": true,
+  "operational_conformance": false,
+  "operational_implementation_frozen": false,
+  "operational_publication_authorized": false,
+  "operational_readiness": false,
+  "pause_conditions": [
+    "complete-user-overlay-full-tests-exact-commit-successful-push-clean-tree-matching-HEAD-origin-return",
+    "all-in-scope-repository-candidate-effects-and-obligations-reviewed",
+    "candidate-validator-has-no-runtime-dispatch-or-service-channel",
+    "all-unknown-actual-graph-primitives-native-protocols-and-conformance-remain-blockers",
+    "no-batch-runtime-or-partial-operational-publication",
+    "no-required-batch-machine-or-controller-cleanup",
+    "all-future-runtime-and-unused-live-rights-closed",
+    "actual-host-state-unobserved-never-claimed-absent-or-globally-closed",
+    "no-live-binding-reuse-pause-independent-of-later-current-refresh"
+  ],
+  "phase1_matrix_complete": false,
+  "phase2_open": false,
+  "preferred_step_range": [
+    329,
+    338
+  ],
+  "preflight_authorized": false,
+  "production_entry_closed": true,
+  "reference_main_sourced_or_run": false,
+  "refresh_authorized": false,
+  "remaining_operational_blockers": [
+    "314-durable-claim-traps-gap-retained",
+    "admission-service-no-broker-FD-isolation-integration-unresolved",
+    "stage7-readonly-versus-owned-binding-effect-classification-unresolved",
+    "all-seven-capabilities-still-require-operational-implementation-and-conformance",
+    "actual-recovery-expiry-revocation-policy-unselected",
+    "actual-current-machine-and-controller-obligations-unobserved"
+  ],
+  "roadmap_is_future_work_not_machine_authority": true,
+  "route": [
+    {
+      "conditional_pause_candidate": false,
+      "deliverable": "Select this new ten-step repository candidate-refinement route and preserve the confirmed328 boundary.",
+      "entry_requires_confirmed_step": 328,
+      "runtime_authorized": false,
+      "scope": "repository-candidate-and-private-validation-only",
+      "stage": "resume-planning",
+      "status": "prepared-not-user-accepted",
+      "step": 329
+    },
+    {
+      "conditional_pause_candidate": false,
+      "deliverable": "Build a source-bound candidate effect/dependency inventory for every30 domain and designed edge; classify dynamic and missing components explicitly, without claiming a complete actual graph.",
+      "entry_requires_confirmed_step": 329,
+      "runtime_authorized": false,
+      "scope": "repository-candidate-and-private-validation-only",
+      "stage": "candidate-graph-inventory",
+      "status": "planned-pending-predecessor-acceptance",
+      "step": 330
+    },
+    {
+      "conditional_pause_candidate": false,
+      "deliverable": "Specify a separate inert successor entry/phase trace, including service barrier, offline stage0, stage1 traps, guard/freshoriginal before stage2, stage3 backups and explicit stage7 owned effects; preserve frozen executables.",
+      "entry_requires_confirmed_step": 330,
+      "runtime_authorized": false,
+      "scope": "repository-candidate-and-private-validation-only",
+      "stage": "successor-entry-phase-map",
+      "status": "planned-pending-predecessor-acceptance",
+      "step": 331
+    },
+    {
+      "conditional_pause_candidate": false,
+      "deliverable": "Define typed interfaces and unresolved implementation choices for claim/launch, authentication/FD containment, writer exclusion/time/revocation, source/selector and record/receipt durability. No native platform support claim.",
+      "entry_requires_confirmed_step": 331,
+      "runtime_authorized": false,
+      "scope": "repository-candidate-and-private-validation-only",
+      "stage": "primitive-interface-contracts",
+      "status": "planned-pending-predecessor-acceptance",
+      "step": 332
+    },
+    {
+      "conditional_pause_candidate": false,
+      "deliverable": "Implement a repository-only candidate manifest validator that rejects unknown edges, incomplete roles and forbidden authority claims. It must never dispatch a runtime, source shell code or contact services.",
+      "entry_requires_confirmed_step": 332,
+      "runtime_authorized": false,
+      "scope": "repository-candidate-and-private-validation-only",
+      "stage": "candidate-validator-implementation",
+      "status": "planned-pending-predecessor-acceptance",
+      "step": 333
+    },
+    {
+      "conditional_pause_candidate": false,
+      "deliverable": "Map candidate effects, errors and lifetimes to the31 macro boundaries/2938 declared families; retain unresolved syscall/crash/concurrency refinements explicitly and extend the private model if needed.",
+      "entry_requires_confirmed_step": 333,
+      "runtime_authorized": false,
+      "scope": "repository-candidate-and-private-validation-only",
+      "stage": "failure-refinement-map",
+      "status": "planned-pending-predecessor-acceptance",
+      "step": 334
+    },
+    {
+      "conditional_pause_candidate": false,
+      "deliverable": "Define observation/oracle separation and versioned positive/negative cases for both platforms. Build only private fixture readers; no real52-case execution or same-logic oracle conformance claim.",
+      "entry_requires_confirmed_step": 334,
+      "runtime_authorized": false,
+      "scope": "repository-candidate-and-private-validation-only",
+      "stage": "independent-oracle-scaffolding",
+      "status": "planned-pending-predecessor-acceptance",
+      "step": 335
+    },
+    {
+      "conditional_pause_candidate": false,
+      "deliverable": "Exercise the candidate checker with independently authored missing-edge, phase-order, role-confusion, raw-status and stale-authority negative fixtures; verify exact frozen-source preservation.",
+      "entry_requires_confirmed_step": 335,
+      "runtime_authorized": false,
+      "scope": "repository-candidate-and-private-validation-only",
+      "stage": "candidate-integrity-negative-validation",
+      "status": "planned-pending-predecessor-acceptance",
+      "step": 336
+    },
+    {
+      "conditional_pause_candidate": false,
+      "deliverable": "Reconcile candidate code/inventory/interfaces/refinement/test scaffolding against all46 proofs, seven capabilities, ten obligations and52 cases. All missing actual implementations or evidence remain blockers.",
+      "entry_requires_confirmed_step": 336,
+      "runtime_authorized": false,
+      "scope": "repository-candidate-and-private-validation-only",
+      "stage": "refinement-gap-and-rights-review",
+      "status": "planned-pending-predecessor-acceptance",
+      "step": 337
+    },
+    {
+      "conditional_pause_candidate": true,
+      "deliverable": "Freeze only the reviewed repository candidate artifacts and unresolved-gap register, then qualify a strong safe pause after complete user acceptance; no operational implementation freeze or readiness.",
+      "entry_requires_confirmed_step": 337,
+      "runtime_authorized": false,
+      "scope": "repository-candidate-and-private-validation-only",
+      "stage": "scoped-candidate-freeze-and-pause",
+      "status": "planned-pending-predecessor-acceptance",
+      "step": 338
+    }
+  ],
+  "runtime_attempt_planned": false,
+  "runtime_authority": false,
+  "schema": 1,
+  "scope": "repository-successor-candidate-refinement-planning-only",
+  "scope_selection": "new-user-request-after-confirmed328-not-historical-optional329-330-reserves",
+  "step": 329,
+  "stop_rule": "Stop after complete338 acceptance. If frozen contracts conflict with candidate choices, retain blockers and revise the route explicitly before candidate freeze; never weaken proof requirements to meet a step count.",
+  "strong_safe_pause": false,
+  "successor_rule": "Prepare330 only after complete329 return. All actual runtime needs separately selected complete implementation, fresh bindings and authority, and independently reviewed two-platform evidence; this route cannot grant it.",
+  "target_authorized": false,
+  "target_pause_scope": "repository-candidate-refinement-workstream329-338-only",
+  "user_step329_checkpoint_confirmed": false
+}
