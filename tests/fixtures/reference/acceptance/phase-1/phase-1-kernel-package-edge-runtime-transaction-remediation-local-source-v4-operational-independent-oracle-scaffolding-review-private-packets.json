@@ -1,0 +1,1048 @@
+{
+  "actual_native_cases_run": 0,
+  "examples": [
+    {
+      "actual_evidence": null,
+      "id": "matching-private-declarations",
+      "input": {
+        "actual_authority": false,
+        "actual_native_bindings": null,
+        "case_ref": {
+          "case_id": "issuer-authentication",
+          "platform": "Slackware-15.0"
+        },
+        "context": {
+          "attempt_token": "fixture-original-attempt-A",
+          "boot_token": "fixture-original-boot-A",
+          "case_token": "fixture-case-issuer-authentication",
+          "platform_token": "fixture-platform15-A",
+          "source_graph_token": "fixture-source-graph-A",
+          "test_authority": "private-schema-test-only-no-native-grant"
+        },
+        "fault_controls": {
+          "negative": "declared-effective",
+          "positive": "declared-effective"
+        },
+        "groups": {
+          "independent-provenance": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "original-identity-timeline": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "original-restoration-verification": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "platform-original-authority": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "positive-negative-fault-controls": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "publication-last-receipt": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "raw-status-selector-vector": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "scoped-closure-or-pending": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "subject-source-graph": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "target-owned-effect-vector": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "time-fence-recovery-budget": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "writer-child-lifetimes": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          }
+        },
+        "identities": {
+          "collector": "fixture-collector-B",
+          "expectation_author": "fixture-verifier-C",
+          "subject": "fixture-subject-A",
+          "verifier": "fixture-verifier-C"
+        },
+        "origin": "synthetic-private-fixture",
+        "reuse": {
+          "candidate_logic_used_as_verifier": false,
+          "expectation_derived_from_subject": false,
+          "subject_report_is_sole_oracle": false
+        },
+        "scope": "oracle-envelope-contract-only",
+        "subject_claimed_status": "PASS"
+      },
+      "result": {
+        "actual_global_host_closure": false,
+        "actual_independent_oracle_selected": false,
+        "actual_native_conformance": false,
+        "actual_native_test_authority_granted": false,
+        "actual_platform_case_status": "required-not-run",
+        "actual_raw_native_capture_present": false,
+        "actual_target_or_publication_closure": false,
+        "model_declared_evidence_complete": true,
+        "model_ineffective_fault_controls": [],
+        "model_mismatch_groups": [],
+        "model_pending_fault_controls": [],
+        "model_pending_groups": [],
+        "model_subject_claim_used_for_acceptance": false,
+        "model_synthetic_schema_valid": true
+      }
+    },
+    {
+      "actual_evidence": null,
+      "id": "claimed-PASS-with-effect-mismatch",
+      "input": {
+        "actual_authority": false,
+        "actual_native_bindings": null,
+        "case_ref": {
+          "case_id": "issuer-authentication",
+          "platform": "Slackware-15.0"
+        },
+        "context": {
+          "attempt_token": "fixture-original-attempt-A",
+          "boot_token": "fixture-original-boot-A",
+          "case_token": "fixture-case-issuer-authentication",
+          "platform_token": "fixture-platform15-A",
+          "source_graph_token": "fixture-source-graph-A",
+          "test_authority": "private-schema-test-only-no-native-grant"
+        },
+        "fault_controls": {
+          "negative": "declared-effective",
+          "positive": "declared-effective"
+        },
+        "groups": {
+          "independent-provenance": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "original-identity-timeline": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "original-restoration-verification": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "platform-original-authority": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "positive-negative-fault-controls": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "publication-last-receipt": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "raw-status-selector-vector": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "scoped-closure-or-pending": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "subject-source-graph": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "target-owned-effect-vector": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 0,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "time-fence-recovery-budget": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "writer-child-lifetimes": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          }
+        },
+        "identities": {
+          "collector": "fixture-collector-B",
+          "expectation_author": "fixture-verifier-C",
+          "subject": "fixture-subject-A",
+          "verifier": "fixture-verifier-C"
+        },
+        "origin": "synthetic-private-fixture",
+        "reuse": {
+          "candidate_logic_used_as_verifier": false,
+          "expectation_derived_from_subject": false,
+          "subject_report_is_sole_oracle": false
+        },
+        "scope": "oracle-envelope-contract-only",
+        "subject_claimed_status": "PASS"
+      },
+      "result": {
+        "actual_global_host_closure": false,
+        "actual_independent_oracle_selected": false,
+        "actual_native_conformance": false,
+        "actual_native_test_authority_granted": false,
+        "actual_platform_case_status": "required-not-run",
+        "actual_raw_native_capture_present": false,
+        "actual_target_or_publication_closure": false,
+        "model_declared_evidence_complete": false,
+        "model_ineffective_fault_controls": [],
+        "model_mismatch_groups": [
+          "target-owned-effect-vector"
+        ],
+        "model_pending_fault_controls": [],
+        "model_pending_groups": [],
+        "model_subject_claim_used_for_acceptance": false,
+        "model_synthetic_schema_valid": true
+      }
+    },
+    {
+      "actual_evidence": null,
+      "id": "unknown-effect-stays-pending",
+      "input": {
+        "actual_authority": false,
+        "actual_native_bindings": null,
+        "case_ref": {
+          "case_id": "issuer-authentication",
+          "platform": "Slackware-15.0"
+        },
+        "context": {
+          "attempt_token": "fixture-original-attempt-A",
+          "boot_token": "fixture-original-boot-A",
+          "case_token": "fixture-case-issuer-authentication",
+          "platform_token": "fixture-platform15-A",
+          "source_graph_token": "fixture-source-graph-A",
+          "test_authority": "private-schema-test-only-no-native-grant"
+        },
+        "fault_controls": {
+          "negative": "declared-effective",
+          "positive": "declared-effective"
+        },
+        "groups": {
+          "independent-provenance": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "original-identity-timeline": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "original-restoration-verification": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "platform-original-authority": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "positive-negative-fault-controls": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "publication-last-receipt": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "raw-status-selector-vector": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "scoped-closure-or-pending": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "subject-source-graph": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "target-owned-effect-vector": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": null,
+            "status": "declared-unknown"
+          },
+          "time-fence-recovery-budget": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "writer-child-lifetimes": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          }
+        },
+        "identities": {
+          "collector": "fixture-collector-B",
+          "expectation_author": "fixture-verifier-C",
+          "subject": "fixture-subject-A",
+          "verifier": "fixture-verifier-C"
+        },
+        "origin": "synthetic-private-fixture",
+        "reuse": {
+          "candidate_logic_used_as_verifier": false,
+          "expectation_derived_from_subject": false,
+          "subject_report_is_sole_oracle": false
+        },
+        "scope": "oracle-envelope-contract-only",
+        "subject_claimed_status": "PASS"
+      },
+      "result": {
+        "actual_global_host_closure": false,
+        "actual_independent_oracle_selected": false,
+        "actual_native_conformance": false,
+        "actual_native_test_authority_granted": false,
+        "actual_platform_case_status": "required-not-run",
+        "actual_raw_native_capture_present": false,
+        "actual_target_or_publication_closure": false,
+        "model_declared_evidence_complete": false,
+        "model_ineffective_fault_controls": [],
+        "model_mismatch_groups": [],
+        "model_pending_fault_controls": [],
+        "model_pending_groups": [
+          "target-owned-effect-vector"
+        ],
+        "model_subject_claim_used_for_acceptance": false,
+        "model_synthetic_schema_valid": true
+      }
+    },
+    {
+      "actual_evidence": null,
+      "id": "ineffective-negative-control",
+      "input": {
+        "actual_authority": false,
+        "actual_native_bindings": null,
+        "case_ref": {
+          "case_id": "issuer-authentication",
+          "platform": "Slackware-15.0"
+        },
+        "context": {
+          "attempt_token": "fixture-original-attempt-A",
+          "boot_token": "fixture-original-boot-A",
+          "case_token": "fixture-case-issuer-authentication",
+          "platform_token": "fixture-platform15-A",
+          "source_graph_token": "fixture-source-graph-A",
+          "test_authority": "private-schema-test-only-no-native-grant"
+        },
+        "fault_controls": {
+          "negative": "declared-ineffective",
+          "positive": "declared-effective"
+        },
+        "groups": {
+          "independent-provenance": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "original-identity-timeline": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "original-restoration-verification": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "platform-original-authority": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "positive-negative-fault-controls": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "publication-last-receipt": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "raw-status-selector-vector": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "scoped-closure-or-pending": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "subject-source-graph": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "target-owned-effect-vector": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "time-fence-recovery-budget": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          },
+          "writer-child-lifetimes": {
+            "expected_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "observed_vector": [
+              {
+                "item_id": "fixture-item-A",
+                "value": 1,
+                "value_type": "integer"
+              }
+            ],
+            "status": "declared-known"
+          }
+        },
+        "identities": {
+          "collector": "fixture-collector-B",
+          "expectation_author": "fixture-verifier-C",
+          "subject": "fixture-subject-A",
+          "verifier": "fixture-verifier-C"
+        },
+        "origin": "synthetic-private-fixture",
+        "reuse": {
+          "candidate_logic_used_as_verifier": false,
+          "expectation_derived_from_subject": false,
+          "subject_report_is_sole_oracle": false
+        },
+        "scope": "oracle-envelope-contract-only",
+        "subject_claimed_status": "PASS"
+      },
+      "result": {
+        "actual_global_host_closure": false,
+        "actual_independent_oracle_selected": false,
+        "actual_native_conformance": false,
+        "actual_native_test_authority_granted": false,
+        "actual_platform_case_status": "required-not-run",
+        "actual_raw_native_capture_present": false,
+        "actual_target_or_publication_closure": false,
+        "model_declared_evidence_complete": false,
+        "model_ineffective_fault_controls": [
+          "negative"
+        ],
+        "model_mismatch_groups": [],
+        "model_pending_fault_controls": [],
+        "model_pending_groups": [],
+        "model_subject_claim_used_for_acceptance": false,
+        "model_synthetic_schema_valid": true
+      }
+    }
+  ],
+  "schema": 1,
+  "scope": "synthetic-private-oracle-packet-examples-not-native-evidence",
+  "step": 335
+}
