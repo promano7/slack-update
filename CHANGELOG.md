@@ -1,3 +1,12 @@
+## Phase 1 step342 — pure bounded bootstrap, traps and fresh-original guard prefix — 2026-10-07
+
+- Confirmed341 at reported1e350de from complete exact ordered462 PASS, first successful push and clean matching HEAD/origin. Full original report retained without normalization; full object ID unknown. Historical preparation flags stay unchanged;338 remains last confirmed strong pause.
+- Preserve all1656 accepted files apart from additive CHANGELOG; nine new artifacts. Separate pure five-phase reducer wraps SHA-pinned unchanged340/341 data, from known consumed/spent/single-owned-worker handoff to bounded authenticated read, read-end closure, readonly preflight, traps and supervisor guard/fresh-original capture.
+- Source321 count/deadline/FD limits remain65536 bytes/10 seconds/FD3. Independent context/launch/scope/authentication/canonical EOF/descriptor/namespace/source/absence-of-worker-service-channel reports remain assumptions, never native proof. No actual stream read, close, timer, signature, process, target or argv dispatch occurs.
+- Read closure obligation survives every failure/signal/timeout/unknown path. One close-only model report may finish capability hygiene after stop; it cannot clear first failure or enable worker advance, reread, retry or relaunch. Unknown/failed close remains pending without repeat. Claim/launch bits stay burned.
+- Readonly early observation cannot become original baseline. Traps and original external live fence/known child set precede supervisor all-writer/alias/guard identity/fresh-original in-memory reports. Unknown guard cannot be reacquired; no ownedstage2/backups/package/config/refresh/pin/stage7/recovery/publication progression in342.
+- All46 native proofs/52 unrun cases/16 gaps/seven capabilities/ten obligations/nine windows and frozen full graph/interface/refinement remain unchanged and pending. Actual host unobserved; actual live bindings null. Production/Phase2 closed; Phase1/kernel incomplete.342 application/tests/exact commit/push/clean matching return pending.343 worker-owned stages follows acceptance;348 conditional scoped freeze/pause unchanged.
+
 ## Phase 1 step341 — pure admission and single-launch prefix reducer — 2026-10-07
 
 - Confirmed340 at reported1804cc1, complete ordered624 PASS identical to prepared/installed, first push successful, reported clean tree and matching HEAD/origin. Complete original return retained, no normalization and full object ID unknown. Historical preparation flags stay unchanged;338 remains last confirmed strong pause.

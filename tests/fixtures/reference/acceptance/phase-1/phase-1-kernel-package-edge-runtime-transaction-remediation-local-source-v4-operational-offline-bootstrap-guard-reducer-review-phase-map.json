@@ -1,0 +1,226 @@
+{
+  "admission341_binding": {
+    "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-admission-launch-reducer.py",
+    "sha256": "1031e9e2099547def50ba1bdfb5fc8ff36fe94ef42540fbeef5c21509db72bed"
+  },
+  "bootstrap_limits": {
+    "deadline_seconds": 10,
+    "maximum_raw_bytes": 65536,
+    "symbolic_read_fd": 3
+  },
+  "core340_binding": {
+    "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-transition-core.py",
+    "sha256": "94c8cc3dfdb0d813a6ec0d2f7c99e11f5866d8cf96b3ba53e852668eb9d03fb5"
+  },
+  "interfaces332_binding": {
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-typed-primitive-interface-contract-review-interfaces.json",
+    "sha256": "a86782e26e1fa0aeb29e497f49207835223db7bf20866db5885d76a2343f3ce4"
+  },
+  "map340_binding": {
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-state-event-schema-review-phase-map.json",
+    "sha256": "23d306b87e275ed590007da464112e7412a702c904c29e32f46f40bf8a337f03"
+  },
+  "native_authority": false,
+  "native_evidence": false,
+  "phase_rows": {
+    "interstage1-2-guard-freshoriginal": {
+      "actor": "supervisor",
+      "position": 8,
+      "window": "forward"
+    },
+    "worker0-bounded-auth-read": {
+      "actor": "worker",
+      "position": 4,
+      "window": "bootstrap"
+    },
+    "worker0-close-bootstrap": {
+      "actor": "worker",
+      "position": 5,
+      "window": "bootstrap"
+    },
+    "worker0-readonly-preflight": {
+      "actor": "worker",
+      "position": 6,
+      "window": "bootstrap"
+    },
+    "worker1-arm-traps": {
+      "actor": "worker",
+      "position": 7,
+      "window": "forward"
+    }
+  },
+  "phase_view_types": {
+    "interstage1-2-guard-freshoriginal": [
+      "armed-traps-view",
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "live-original-fence-view",
+      "original-baseline-view",
+      "source-closure-view"
+    ],
+    "worker0-bounded-auth-read": [
+      "closed-bootstrap-view",
+      "consumed-original-context",
+      "dependency-closure-view",
+      "source-closure-view",
+      "spent-launch-view"
+    ],
+    "worker0-close-bootstrap": [
+      "closed-bootstrap-view",
+      "consumed-original-context",
+      "dependency-closure-view",
+      "source-closure-view",
+      "spent-launch-view"
+    ],
+    "worker0-readonly-preflight": [
+      "closed-bootstrap-view",
+      "consumed-original-context",
+      "dependency-closure-view",
+      "early-observation-view",
+      "source-closure-view"
+    ],
+    "worker1-arm-traps": [
+      "armed-traps-view",
+      "consumed-original-context",
+      "dependency-closure-view",
+      "known-child-set-view",
+      "live-original-fence-view",
+      "source-closure-view"
+    ]
+  },
+  "required_positive_views": {
+    "interstage1-2-guard-freshoriginal": [
+      "consumed-original-context",
+      "dependency-closure-view",
+      "source-closure-view",
+      "armed-traps-view",
+      "live-original-fence-view",
+      "continuous-guard-view",
+      "original-baseline-view"
+    ],
+    "worker0-bounded-auth-read": [
+      "consumed-original-context",
+      "dependency-closure-view",
+      "source-closure-view",
+      "spent-launch-view",
+      "closed-bootstrap-view"
+    ],
+    "worker0-close-bootstrap": [
+      "consumed-original-context",
+      "dependency-closure-view",
+      "source-closure-view",
+      "spent-launch-view",
+      "closed-bootstrap-view"
+    ],
+    "worker0-readonly-preflight": [
+      "consumed-original-context",
+      "dependency-closure-view",
+      "source-closure-view",
+      "closed-bootstrap-view",
+      "early-observation-view"
+    ],
+    "worker1-arm-traps": [
+      "consumed-original-context",
+      "dependency-closure-view",
+      "source-closure-view",
+      "armed-traps-view",
+      "known-child-set-view",
+      "live-original-fence-view"
+    ]
+  },
+  "schema": 1,
+  "scope": "source-bound-private-five-phase-bootstrap-guard-prefix-only",
+  "source321_contract": {
+    "authentication": {
+      "algorithms": "actual-signature-canonicalization-parser-and-key-provisioning-implementation-still-require-separate-selection-and-proof",
+      "covered_fields": [
+        "protocol",
+        "purpose",
+        "issuer",
+        "service_identity",
+        "service_epoch",
+        "grant_id",
+        "attempt_id",
+        "launch_slot",
+        "launch_instance",
+        "grant_state",
+        "launch_state",
+        "boot_binding",
+        "worker_identity",
+        "scope_bindings"
+      ],
+      "independent_one_shot_launch_origin_required": true,
+      "no_admission_socket_or_online_RPC_for_worker": true,
+      "purpose_domain": "slack-update/successor-admission-context-only",
+      "receipt_not_bearer_dispatch_capability": true,
+      "receipt_not_fresh_target_or_storage_proof": true,
+      "signature_scope": "domain-protocol-version-purpose-key-identity-and-complete-original-canonical-context-bytes",
+      "trust_source": "independently-provisioned-reviewed-verifier-and-trust-root-not-receipt-source-tree-path-env-or-self-rehash"
+    },
+    "bootstrap": {
+      "canonical_form": "ASCII-escaped-JSON-sort-keys-compact-separators-no-trailing-bytes-version-bound",
+      "closure": "close-bootstrap-read-end-on-every-success-failure-timeout-or-signal-path-before-child-exec; writer-end-never-inherited-by-worker",
+      "deadline_seconds": 10,
+      "limits_scope": "selected-symbolic-contract-limits-not-proven-real-stream-timer-or-signal-behavior",
+      "maximum_raw_bytes": 65536,
+      "parser_policy": "reject-duplicate-or-extra-fields-invalid-encoding-oversize-incomplete-input-bad-types-and-noncanonical-bytes",
+      "payload_format": "one-canonical-UTF8-JSON-envelope-followed-by-EOF",
+      "process_effect": "read-bounded-buffer-close-read-end-and-clear-authority-env-only-no-worker-filesystem-write",
+      "producer": "independently-authenticated-admission-service-after-durable-consumption-and-slot-spend",
+      "symbolic_read_fd": 3,
+      "trusted_receiver": "reviewed-worker-supervisor-from-the-already-spent320-launch-slot"
+    },
+    "fd_policy": {
+      "all_nested_helpers_and_restore_paths_in_effect_graph": true,
+      "allowlist": "exact-bound-roles-object-kinds-origins-aliases-and-lifetimes-only-not-numeric-FD-shortcut",
+      "backend_cannot_reach_service_via_FD_mount_path_network_cwd_env_or_process_handles": true,
+      "denied": [
+        "bootstrap-input",
+        "bootstrap-writer",
+        "admission-socket",
+        "RPC-channel",
+        "service-ledger-or-trust-key",
+        "host-directory",
+        "pid-handle",
+        "namespace-handle",
+        "unknown-or-aliased-resource"
+      ],
+      "no_close_on_exec_only_inference": true,
+      "required_stream_roles": [
+        "stdin",
+        "stdout",
+        "stderr"
+      ],
+      "retained_code": "only-separately-reviewed-bound-read-only-code-objects-with-reviewed-origin-aliases-interpreter-consumption-and-close-phase",
+      "retained_code_FD_alone_not_identity_or_immutability_proof": true,
+      "standard_FD_numbers_not_safety_proof": true,
+      "streams": "reviewed-bounded-isolated-command-stream-pipes-with-no-service-peer-or-host-escape",
+      "unreviewed_helpers_cannot_inherit_retained_code_or_bootstrap": true
+    },
+    "lifecycle": [
+      "320-authenticate-and-durably-consume",
+      "320-durably-spend-launch-slot",
+      "320-invoke-one-reviewed-worker",
+      "worker-stage0-bounded-read-authenticate-original-context",
+      "worker-stage0-close-bootstrap-on-every-path",
+      "worker-stage1-install-traps",
+      "324-continuous-exclusion-and-fresh-original-baseline",
+      "sanitize-every-child-FD-environment-cwd-and-process-context",
+      "reviewed-namespace-transport-no-fallback",
+      "consume-reviewed-retained-backend-code-and-drain-owned-streams"
+    ],
+    "loss_policy": {
+      "acknowledgement": "optional-bounded-observation-never-authority-to-relaunch-or-readmit",
+      "close_or_child_status_unknown": "do-not-claim-containment-or-machine/controller-closure; no-command-dispatch",
+      "expiry_revocation": "323-policy-pending; authentication-does-not-exempt-expiry-revocation-or-wrong-boot",
+      "lost_or_invalid_receipt": "already-consumed-grant-stays-burned-no-dispatch-replay-or-new-launch; preserve-service-and-worker-evidence",
+      "recovery": "bounded-issuer-reviewed-recovery-not-chosen-or-authorized-here",
+      "service_restart": "320-durable-grant-and-launch-slot-state-is-not-reopened-by-lost-context-or-receipt",
+      "timeout_or_unknown_EOF": "fail-closed-no-owned-worker-write-at-stage0; unknown-reader-child-status-or-service-evidence-remains-pending"
+    },
+    "receipt_binding_rule": "Compare authenticated complete original context to independent reviewed launch/grant bindings; no acceptance of a receipt that defines its own expected identity or scope.",
+    "selected_handoff": "single-bounded-one-way-anonymous-bootstrap-pipe-into-worker-supervisor-memory"
+  },
+  "step": 342
+}

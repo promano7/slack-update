@@ -1,0 +1,49 @@
+{
+  "bootstrap_limits": {
+    "deadline_seconds": 10,
+    "maximum_raw_bytes": 65536,
+    "symbolic_read_fd": 3
+  },
+  "bootstrap_loss_rule": "Same consumed and spent original stays burned. Read-end closure remains pending on every path until a known close report. Stopped prefixes allow at most one unattempted closure phase, solely capability hygiene; no reread/relaunch/worker advance or failure clearing. Failed/unknown close is not retried.",
+  "byte_and_time_rule": "Private count/timing assumptions: 1..65536 raw bytes, symbolic read FD3, elapsed nonnegative and strictly below10000ms, canonical one-envelope-plus-EOF/authentication reports. No actual native stream/parser/signature/timer proof.",
+  "dependencies": {
+    "admission341": {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-admission-launch-reducer.py",
+      "sha256": "1031e9e2099547def50ba1bdfb5fc8ff36fe94ef42540fbeef5c21509db72bed"
+    },
+    "core340": {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-transition-core.py",
+      "sha256": "94c8cc3dfdb0d813a6ec0d2f7c99e11f5866d8cf96b3ba53e852668eb9d03fb5"
+    }
+  },
+  "dependency_aliases": [
+    "slack_update_offline_core340",
+    "slack_update_offline_admission341"
+  ],
+  "dependency_rule": "Caller SHA-pins unchanged340/341 and registers fixed private aliases. Module has no file/IPC/process/target/argv dispatch.",
+  "guard_rule": "Arm traps and establish external original live-fence/child-set reports before supervisor guard acquisition/fresh-original in memory; complete all-writer/alias/identity/freshcapture assumptions required; no guard reacquire.",
+  "identity_rule": "Exact stored consumed/spent/dependency/source/bootstrap/traps/fence views; independent launch/context/scope/authentication/containment reports; no worker broker/service/RPC channel even for live fence.",
+  "linear_model_rule": "Immutable linear prefix retains attempts and first failure. Repeated evaluation/copying is possible; not native/global once execution or authentication.",
+  "native_authority": false,
+  "native_cases_pending": 52,
+  "native_cases_run": 0,
+  "native_evidence": false,
+  "native_gaps_pending": 16,
+  "native_proofs_added": 0,
+  "no_native_effects": true,
+  "operational_readiness": false,
+  "phase_order": [
+    "worker0-bounded-auth-read",
+    "worker0-close-bootstrap",
+    "worker0-readonly-preflight",
+    "worker1-arm-traps",
+    "interstage1-2-guard-freshoriginal"
+  ],
+  "preflight_rule": "Only after known authenticated read and known closure; retain readonly early view separately, never promote it to baseline.",
+  "required_native_proofs_pending": 46,
+  "schema": 1,
+  "scope": "pure-five-phase-bootstrap-traps-guard-prefix",
+  "step": 342,
+  "strong_safe_pause": false,
+  "worker_owned_stage2_authorized": false
+}
