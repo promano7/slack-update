@@ -1,0 +1,45 @@
+{
+  "actual_global_host_closure_asserted": false,
+  "actual_recovery_authority_supplied": false,
+  "branch_rule": "Derived once from guarded worker343 target/backups: restore-original only known changed plus verified original backups; verify-unchanged only known unchanged or original unobserved before owned effect; uncertain target stays blocked. Early341/342 prefixes cannot acquire a new guard through this module.",
+  "budget_rule": "Private original retained scope/deadline/budget supplied as immutable assumptions bound to same consumed context. Fixture0..8 budget; one spend-budget report precedes each drain/restore/verify effect. All attempted spends burn one model unit including unknown/failed durable acknowledgement; denied/unattempted spend consumes none. No refund/reset/new grant/retry within linear trace. Actual original issuer/durable counter proof still required.",
+  "dependencies": {
+    "core340": {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-transition-core.py",
+      "sha256": "94c8cc3dfdb0d813a6ec0d2f7c99e11f5866d8cf96b3ba53e852668eb9d03fb5"
+    },
+    "worker343": {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-worker-stages-reducer.py",
+      "sha256": "2678499696ddc9293998dbcd5916aab29c028b045569ade416b38752629836a8"
+    }
+  },
+  "dependency_aliases": [
+    "slack_update_offline_core340",
+    "slack_update_offline_worker343"
+  ],
+  "failure_rule": "Original forward failure and raw vector remain immutable; recovery failure separate and sticky. Unknown spend/effect halts without retry, preserves affected knowledge and budget/artifacts. Recovery cannot turn incomplete/failed forward execution into success.",
+  "native_authority": false,
+  "native_cases_pending": 52,
+  "native_cases_run": 0,
+  "native_evidence": false,
+  "native_gaps_pending": 16,
+  "native_proofs_added": 0,
+  "next_rule": "Known verified original only prepares345 target evidence/release/publication model; no evidence closure or release here.",
+  "no_native_effects": true,
+  "operational_readiness": false,
+  "phase_order": [
+    "stop-forward-irreversibly",
+    "drain-known-owned-children",
+    "worker9-original-restoration",
+    "worker10-original-verification"
+  ],
+  "recovery_rule": "Exact original guard/baseline/fence/traps/known-child/identity/safe-boot/safe-phase/earlier-outcome/source/finite-recovery-right/deadline gates; drain before any restoration/verification; retained actual recovery controls not worker broker or a new target grant.",
+  "required_native_proofs_pending": 46,
+  "schema": 1,
+  "scope": "pure-stop-drain-original-restore-or-unchanged-verify-model",
+  "step": 344,
+  "stop_rule": "Start finalization immediately latches model forward stopped; stop acknowledgement separate and may be retained despite expired forward rights. No native stop action or host closure proof.",
+  "strong_safe_pause": false,
+  "unbacked_rule": "No restoration write or invented backup for independently unchanged verification; fresh original memory under continuous guard still required.",
+  "unknown_binding_rule": "Unknown or partial owned binding remains pending independently from safe known original target restoration/verification; no deletion or false global closure."
+}

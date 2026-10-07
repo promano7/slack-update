@@ -1,0 +1,247 @@
+{
+  "budget_fixture_domain": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "budget_positive_views": {
+    "drain-known-owned-children": [
+      "consumed-original-context",
+      "continuous-guard-view",
+      "live-original-fence-view",
+      "dependency-closure-view",
+      "source-closure-view",
+      "armed-traps-view",
+      "known-child-set-view"
+    ],
+    "stop-forward-irreversibly": [
+      "consumed-original-context",
+      "dependency-closure-view",
+      "live-original-fence-view",
+      "source-closure-view"
+    ],
+    "worker10-original-verification": [
+      "consumed-original-context",
+      "continuous-guard-view",
+      "live-original-fence-view",
+      "dependency-closure-view",
+      "source-closure-view",
+      "original-baseline-view",
+      "quiescent-child-view"
+    ],
+    "worker9-original-restoration": [
+      "consumed-original-context",
+      "continuous-guard-view",
+      "live-original-fence-view",
+      "dependency-closure-view",
+      "source-closure-view",
+      "original-baseline-view",
+      "quiescent-child-view",
+      "complete-effect-graph-view",
+      "recovery-budget-view"
+    ]
+  },
+  "core340_binding": {
+    "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-transition-core.py",
+    "sha256": "94c8cc3dfdb0d813a6ec0d2f7c99e11f5866d8cf96b3ba53e852668eb9d03fb5"
+  },
+  "effect_positive_views": {
+    "drain-known-owned-children": [
+      "consumed-original-context",
+      "continuous-guard-view",
+      "live-original-fence-view",
+      "dependency-closure-view",
+      "source-closure-view",
+      "armed-traps-view",
+      "known-child-set-view",
+      "quiescent-child-view"
+    ],
+    "stop-forward-irreversibly": [
+      "consumed-original-context",
+      "dependency-closure-view",
+      "live-original-fence-view",
+      "source-closure-view"
+    ],
+    "worker10-original-verification": [
+      "consumed-original-context",
+      "continuous-guard-view",
+      "live-original-fence-view",
+      "dependency-closure-view",
+      "source-closure-view",
+      "original-baseline-view",
+      "quiescent-child-view",
+      "original-verification-view"
+    ],
+    "worker9-original-restoration": [
+      "consumed-original-context",
+      "continuous-guard-view",
+      "live-original-fence-view",
+      "dependency-closure-view",
+      "source-closure-view",
+      "original-baseline-view",
+      "quiescent-child-view",
+      "complete-effect-graph-view",
+      "recovery-budget-view",
+      "original-restoration-result-view",
+      "package-effect-result-view"
+    ]
+  },
+  "guarded_recovery_contract": {
+    "order": "persistent-forward-stop-known-owned-child-drain-verified-original-backup-restore-full-invariants-target-evidence-then-release",
+    "policy": "exact323-retained-finite-same-attempt-rights-fence-deadline-budget-and-safe-identity-not-blanket-exemption",
+    "unknown": "partial-package-config-binding-guard-or-child-outcome-never-auto-close-retry-rehash-rebind-or-restore-foreign-drift; retain-original-status-backups-and-pending-obligations"
+  },
+  "interfaces332_binding": {
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-typed-primitive-interface-contract-review-interfaces.json",
+    "sha256": "a86782e26e1fa0aeb29e497f49207835223db7bf20866db5885d76a2343f3ce4"
+  },
+  "map340_binding": {
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-state-event-schema-review-phase-map.json",
+    "sha256": "23d306b87e275ed590007da464112e7412a702c904c29e32f46f40bf8a337f03"
+  },
+  "native_authority": false,
+  "native_evidence": false,
+  "original_baseline_rule": {
+    "actual_backup_bindings": null,
+    "actual_baseline": null,
+    "expected": "original-to-reviewed-predecessor-to-local-isolation-and-fresh-pkglist-to-exact-target-to-original; preserve-original-inputs-through-all-approved-deltas",
+    "identity": "single-original-production-baseline-under-continuous-guard-content-owner-mode-type-presence-absence-and-canonical-alias-objects-not-early-preflight-or-self-rebound-current-state",
+    "owned_artifacts": "only-individually-recorded-whitelisted-transaction-owned-work-backup-binding-evidence-effects-separated; no-broad-subtree-exclusion-to-hide-target-drift",
+    "scope": "exact-target-config-state-boot-GenInitrd-unrelated-package-source-archive-code-dependency-and-identity-invariants"
+  },
+  "phase_rows": {
+    "drain-known-owned-children": {
+      "actor": "supervisor",
+      "position": 18,
+      "window": "recovery"
+    },
+    "stop-forward-irreversibly": {
+      "actor": "supervisor",
+      "position": 17,
+      "window": "recovery"
+    },
+    "worker10-original-verification": {
+      "actor": "worker",
+      "position": 20,
+      "window": "recovery"
+    },
+    "worker9-original-restoration": {
+      "actor": "worker",
+      "position": 19,
+      "window": "recovery"
+    }
+  },
+  "phase_view_types": {
+    "drain-known-owned-children": [
+      "armed-traps-view",
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "known-child-set-view",
+      "live-original-fence-view",
+      "quiescent-child-view",
+      "source-closure-view"
+    ],
+    "stop-forward-irreversibly": [
+      "consumed-original-context",
+      "dependency-closure-view",
+      "live-original-fence-view",
+      "source-closure-view"
+    ],
+    "worker10-original-verification": [
+      "closed-target-evidence-view",
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "live-original-fence-view",
+      "original-baseline-view",
+      "original-verification-view",
+      "quiescent-child-view",
+      "source-closure-view"
+    ],
+    "worker9-original-restoration": [
+      "complete-effect-graph-view",
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "live-original-fence-view",
+      "original-baseline-view",
+      "original-restoration-result-view",
+      "package-effect-result-view",
+      "quiescent-child-view",
+      "recovery-budget-view",
+      "source-closure-view"
+    ]
+  },
+  "schema": 1,
+  "scope": "private-retained-recovery-over-guarded-worker343-only",
+  "source323_contract": {
+    "clock_contract": {
+      "actual_clock": null,
+      "actual_forward_deadline": null,
+      "actual_recovery_budget": null,
+      "actual_recovery_deadline": null,
+      "fixture": "integer-ticks-forward100-recovery140-budget5-only-synthetic-no-real-seconds-or-host-observation",
+      "rule": "issuer-authenticated-finite-bounds-and-independent-trusted-time-mapping-with-same-boot; no-wallclock-rollback-suspend-epoch-restart-or-unknown-as-valid"
+    },
+    "closure_contract": {
+      "controller": "unknown-durable-claim-launch-binding-budget-child-or-evidence-state-remains-pending-no-auto-delete-release-or-closed-rights-claim",
+      "machine": "only-known-original-restoration-and-known-owned-child-quiescence-with-complete-target-evidence-under-guard-can-close-scoped-target-obligations",
+      "publication": "after-target-closure-use-captured-closed-data-under-independent-publication-controls-through-last-receipt; no-target-refresh-write-or-renewal"
+    },
+    "fence_contract": {
+      "actual_enforcer": null,
+      "actual_transport": null,
+      "compatibility": "321-offline-bootstrap-schema-and-FD-closure-unchanged; no-added-worker-RPC-or-inherited-control-channel; future-successor-fence-policy-and-transport-integration-explicitly-required324/325",
+      "rule": "trusted-external-controller-enforces-original-policy-and-absorbing-revocation-at-every-effect-boundary; worker-and-contained-commands-have-no-service-or-broker-capability",
+      "scope": "live-check-is-original-attempt-validity-not-new-grant-per-action; no-claim-of-instant-revocation-from-offline-receipt-or-finite-lease-alone",
+      "uncertainty": "gate-outcome-loss-or-stale-or-unavailable-status-stops-effects; consumed-grant-launch-slot-and-recovery-budget-never-reopen"
+    },
+    "forward_contract": {
+      "in_flight": "started-effects-and-children-remain-obligations; inability-to-prove-stop-at-safe-effect-boundary-keeps-unknown-pending",
+      "owner": "original-consumed-active-attempt-no-new-or-unused-grant-per-nested-call",
+      "terminal": "normal-forward-completion-also-closes-forward-before-restoration-evidence-and-target-control-release",
+      "termination": "expiry-forward-revocation-or-any-failure-latches-forward-stop-irreversibly; no-new-effect-dispatch-or-revival",
+      "validity": "independent-authenticated-scope-trusted-time-and-continuously-enforced-live-fence-before-and-through-every-permitted-effect"
+    },
+    "recovery_contract": {
+      "boundedness": "finite-issuer-bound-deadline-and-durable-action-budget; spend-before-action; no-renewal-refill-retry-after-unknown-or-new-grant",
+      "expiry_relation": "forward-expiry-or-forward-only-revocation-does-not-itself-revoke-explicitly-retained-recovery; never-blanket-expiry-exemption",
+      "idempotence": "known-already-restored-state-may-return-reviewed-no-op-with-fresh-verification; never-repeat-unknown-package-or-file-action",
+      "order": "stop-forward-then-known-child-quiescence-then-safe-restore-verify-target-evidence-before-release",
+      "owner": "narrow-retained-rights-of-same-original-consumed-attempt-not-another-grant-or-invocation",
+      "preconditions": "traps-guards-owned-canonical-paths-all-writers-excluded-exact-backups-same-safe-identity-original-baseline-and-approved-deltas",
+      "revocation": "recovery/all-revocation-unknown-scope-clock-discontinuity-boot-or-identity-drift-block-recovery-writes-and-preserve-obligations",
+      "status": "keep-original-forward-failure-status-separate-from-recovery-and-publication-status; restoration-cannot-turn-failure-into-success",
+      "validity": "explicit-authenticated-issuer-original-recovery-scope-with-own-finite-deadline-budget-and-live-recovery-fence",
+      "whitelist": [
+        "bounded-owned-child-control-and-drain",
+        "exact-original-backup-restoration",
+        "verify-original-invariants",
+        "capture-owned-target-evidence",
+        "verified-target-control-release"
+      ]
+    },
+    "selected_policy": "immutable-issuer-split-forward-and-recovery-rights-same-consumed-attempt-with-external-live-fence"
+  },
+  "source326_recovery_contract": {
+    "boundary": "Finite macro-event contract and declared fault-family coverage only; no real resources, Bash source/top-level execution, operational simulation or universal concurrency claim.",
+    "budgets": "Integer0..8 recovery fixture budget pre-spent once per attempted action including failures/unknown; denied actions spend no action; no refund/retry/new grant; real durable deadline/budget proof required.",
+    "ordering": "320 service own barrier/auth/irreversible claim/spent launch;321 bounded memory/close before effects;stage1 traps;324 guard/freshoriginal before ownedstage2;verifiedstage3 backups before target mutations;322 binding/325 completegraph and exact selectors.",
+    "outcomes": "ok requires exact rawstatus; known-failure means independently verified no additional effect; unknown keeps affected domain unknown, never no-effect/absence/closed.",
+    "publication": "Verified drained original and closed target evidence before release; separately checked captured-data record and receipt durability plus handoff; unknown outcome never replay/republish or target refresh.",
+    "quarantine": "Unknown claim/slot/spawn/auth/guard/identity/clock/revocation/child/partial target/native writer outcome cannot authorize replay/relaunch/restore/reacquire or false release; preserve scope-specific pending status.",
+    "recovery": "Any finalization permanently latches forward; finite original retained rights/known guard/child ownership; drain before restore; no-target-change branch verifies fresh original without requiring a never-created backup; unknown owned binding may retain artifacts while separately proven target restoration continues."
+  },
+  "step": 344,
+  "worker343_binding": {
+    "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-worker-stages-reducer.py",
+    "sha256": "2678499696ddc9293998dbcd5916aab29c028b045569ade416b38752629836a8"
+  }
+}

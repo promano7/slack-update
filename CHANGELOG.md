@@ -1,3 +1,12 @@
+## Phase 1 step344 — pure irreversible stop and original finite recovery model — 2026-10-07
+
+- Confirmed343 at reportedb3a8db8 from complete1255 ordered PASS, first successful push and clean matching HEAD/origin. Full original report retained without normalization; full object ID unknown.338 remains confirmed strong pause.
+- Preserve all1674 accepted files apart from additive CHANGELOG; nine new artifacts. Pure recovery model wraps unchanged guarded343 data, immediately latches model forward stopped and separately interprets stop/drain/original-restoration/original-verification reports. No native action, target IO or authority.
+- Immutable same-original retained scope/deadline/fixture budget0..8 assumptions. One durable-spend report precedes each bounded action; attempted spend burns a model unit even on failure/unknown, denied/unattempted spends none. No refund/retry/reset/relaunch/guard reacquire or new grant. Actual issuer/counter/time/rights proof remains required-not-proven.
+- Separate known original backup restoration from independently unchanged verification without a never-created backup or restoration write. Uncertain target/identity/guard/children/outcomes block unsafe writes and preserve pending. Unknown owned binding remains separate from safe target verification; partial artifacts retained.
+- Preserve original raw failure/status, separate sticky recovery failure and exact raw vector; restoration never turns failed/incomplete forward execution into success. Verified original only prepares345 evidence/release/publication, no host/global or artifact closure claim.
+- All46 native proofs/52 unrun cases/16 gaps/seven capabilities/ten obligations/nine windows and full source contracts remain pending. Actual host unobserved, bindings null; Production/Phase2 closed; Phase1/kernel incomplete.344 application/commit/push/clean matching receipt pending;345 follows acceptance;348 scoped pause conditional.
+
 ## Phase 1 step343 — pure owned stages, original pin, durable binding and whole successor reports — 2026-10-07
 
 - Confirmed342 at reported914eb3b from complete599 ordered PASS, first successful push and clean matching HEAD/origin. Full original receipt retained without normalization; full object ID unknown;338 remains confirmed strong pause.
