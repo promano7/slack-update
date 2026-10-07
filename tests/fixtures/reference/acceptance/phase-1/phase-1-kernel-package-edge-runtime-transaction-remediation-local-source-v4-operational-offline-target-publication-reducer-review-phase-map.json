@@ -1,0 +1,235 @@
+{
+  "budget_positive_views": {
+    "release-target-control": [
+      "armed-traps-view",
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "live-original-fence-view",
+      "original-baseline-view",
+      "original-verification-view",
+      "quiescent-child-view",
+      "source-closure-view",
+      "closed-target-evidence-view"
+    ],
+    "worker11-close-target-evidence": [
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "live-original-fence-view",
+      "original-baseline-view",
+      "original-verification-view",
+      "quiescent-child-view",
+      "source-closure-view"
+    ]
+  },
+  "core340_binding": {
+    "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-transition-core.py",
+    "sha256": "94c8cc3dfdb0d813a6ec0d2f7c99e11f5866d8cf96b3ba53e852668eb9d03fb5"
+  },
+  "effect_positive_views": {
+    "release-target-control": [
+      "armed-traps-view",
+      "closed-target-evidence-view",
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "live-original-fence-view",
+      "original-baseline-view",
+      "original-verification-view",
+      "quiescent-child-view",
+      "source-closure-view",
+      "target-release-view"
+    ],
+    "worker11-close-target-evidence": [
+      "closed-target-evidence-view",
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "live-original-fence-view",
+      "original-baseline-view",
+      "original-verification-view",
+      "quiescent-child-view",
+      "source-closure-view"
+    ],
+    "worker12-durable-handoff": [
+      "closed-target-evidence-view",
+      "dependency-closure-view",
+      "last-receipt-origin-view",
+      "publication-control-view",
+      "publication-record-view",
+      "source-closure-view",
+      "target-release-view"
+    ],
+    "worker12-last-receipt": [
+      "dependency-closure-view",
+      "last-receipt-origin-view",
+      "publication-control-view",
+      "publication-record-view",
+      "source-closure-view"
+    ],
+    "worker12-publication-controls": [
+      "closed-target-evidence-view",
+      "dependency-closure-view",
+      "publication-control-view",
+      "source-closure-view",
+      "target-release-view"
+    ],
+    "worker12-publication-record": [
+      "closed-target-evidence-view",
+      "dependency-closure-view",
+      "publication-control-view",
+      "publication-record-view",
+      "source-closure-view",
+      "target-release-view"
+    ]
+  },
+  "interfaces332_binding": {
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-typed-primitive-interface-contract-review-interfaces.json",
+    "sha256": "a86782e26e1fa0aeb29e497f49207835223db7bf20866db5885d76a2343f3ce4"
+  },
+  "map340_binding": {
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-state-event-schema-review-phase-map.json",
+    "sha256": "23d306b87e275ed590007da464112e7412a702c904c29e32f46f40bf8a337f03"
+  },
+  "native_authority": false,
+  "native_evidence": false,
+  "phase_rows": {
+    "release-target-control": {
+      "actor": "supervisor",
+      "position": 22,
+      "window": "recovery"
+    },
+    "worker11-close-target-evidence": {
+      "actor": "worker",
+      "position": 21,
+      "window": "recovery"
+    },
+    "worker12-durable-handoff": {
+      "actor": "publisher",
+      "position": 26,
+      "window": "publication"
+    },
+    "worker12-last-receipt": {
+      "actor": "publisher",
+      "position": 25,
+      "window": "publication"
+    },
+    "worker12-publication-controls": {
+      "actor": "publisher",
+      "position": 23,
+      "window": "publication"
+    },
+    "worker12-publication-record": {
+      "actor": "publisher",
+      "position": 24,
+      "window": "publication"
+    }
+  },
+  "phase_view_types": {
+    "release-target-control": [
+      "armed-traps-view",
+      "closed-target-evidence-view",
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "live-original-fence-view",
+      "original-baseline-view",
+      "original-verification-view",
+      "quiescent-child-view",
+      "source-closure-view",
+      "target-release-view"
+    ],
+    "worker11-close-target-evidence": [
+      "closed-target-evidence-view",
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "live-original-fence-view",
+      "original-baseline-view",
+      "original-verification-view",
+      "quiescent-child-view",
+      "source-closure-view"
+    ],
+    "worker12-durable-handoff": [
+      "closed-target-evidence-view",
+      "dependency-closure-view",
+      "last-receipt-origin-view",
+      "publication-control-view",
+      "publication-record-view",
+      "source-closure-view",
+      "target-release-view"
+    ],
+    "worker12-last-receipt": [
+      "dependency-closure-view",
+      "last-receipt-origin-view",
+      "publication-control-view",
+      "publication-record-view",
+      "source-closure-view"
+    ],
+    "worker12-publication-controls": [
+      "closed-target-evidence-view",
+      "dependency-closure-view",
+      "publication-control-view",
+      "source-closure-view",
+      "target-release-view"
+    ],
+    "worker12-publication-record": [
+      "closed-target-evidence-view",
+      "dependency-closure-view",
+      "publication-control-view",
+      "publication-record-view",
+      "source-closure-view",
+      "target-release-view"
+    ]
+  },
+  "publication_branch_rule": "Release after original verification and captured target evidence. Publication has independent captured-data controls through last receipt durability/origin/handoff; no target revalidation/write/refresh or republish after unknown outcome.",
+  "publication_contract": {
+    "actual_durability_backend": null,
+    "actual_paths": null,
+    "actual_receipt_origin": null,
+    "durability": "separate-no-replace-record-then-last-receipt-with-supported-file-meta-directory-storage-proof; no-pair-atomicity-or-self-containing-receipt-hash",
+    "independent": "captured-closed-data-only-with-separate-recipient-ancestry-alias-owner-content-writer-and-authority-controls-through-last-receipt",
+    "target_order": "drain-original-restore-fullverify-target-evidence-under-guard-then-release; no-target-writes-or-refresh-after-release",
+    "unknown": "lost-ack-partial-or-unknown-record-receipt-handoff-retains-artifacts-original-status-pending-controller-obligations-no-replay-republish-or-new-target-grant"
+  },
+  "recovery344_binding": {
+    "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-retained-recovery-reducer.py",
+    "sha256": "8fa9dd38fd7affba5612f093667a118407fb8d8c96531943278b07180904af0a"
+  },
+  "retained_recovery_contract": {
+    "boundedness": "finite-issuer-bound-deadline-and-durable-action-budget; spend-before-action; no-renewal-refill-retry-after-unknown-or-new-grant",
+    "expiry_relation": "forward-expiry-or-forward-only-revocation-does-not-itself-revoke-explicitly-retained-recovery; never-blanket-expiry-exemption",
+    "idempotence": "known-already-restored-state-may-return-reviewed-no-op-with-fresh-verification; never-repeat-unknown-package-or-file-action",
+    "order": "stop-forward-then-known-child-quiescence-then-safe-restore-verify-target-evidence-before-release",
+    "owner": "narrow-retained-rights-of-same-original-consumed-attempt-not-another-grant-or-invocation",
+    "preconditions": "traps-guards-owned-canonical-paths-all-writers-excluded-exact-backups-same-safe-identity-original-baseline-and-approved-deltas",
+    "revocation": "recovery/all-revocation-unknown-scope-clock-discontinuity-boot-or-identity-drift-block-recovery-writes-and-preserve-obligations",
+    "status": "keep-original-forward-failure-status-separate-from-recovery-and-publication-status; restoration-cannot-turn-failure-into-success",
+    "validity": "explicit-authenticated-issuer-original-recovery-scope-with-own-finite-deadline-budget-and-live-recovery-fence",
+    "whitelist": [
+      "bounded-owned-child-control-and-drain",
+      "exact-original-backup-restoration",
+      "verify-original-invariants",
+      "capture-owned-target-evidence",
+      "verified-target-control-release"
+    ]
+  },
+  "schema": 1,
+  "scope": "private-target-evidence-release-and-captured-data-publication-over-verified344-only",
+  "source323_closure_contract": {
+    "controller": "unknown-durable-claim-launch-binding-budget-child-or-evidence-state-remains-pending-no-auto-delete-release-or-closed-rights-claim",
+    "machine": "only-known-original-restoration-and-known-owned-child-quiescence-with-complete-target-evidence-under-guard-can-close-scoped-target-obligations",
+    "publication": "after-target-closure-use-captured-closed-data-under-independent-publication-controls-through-last-receipt; no-target-refresh-write-or-renewal"
+  },
+  "source327_crossclosure_contract": {
+    "closure": "Known children/full original verification/target evidence before release; no later target writes. Record/receipt/handoff separate; any unclassified/unknown actual effect or obligation remains pending.",
+    "design": "All30 designed effect domains/every edge/seven capabilities/ten obligations/42 inherited proofs/nine windows/52 cases indexed. Reviewed disposition never operational proof.",
+    "effects": "Include all service/reference/helper/source/backend/selector/package/config/boot/owned/restore/publication surfaces; actual dynamic graph/entry still unclosed and boot/optional mutations outside scope remain forbidden.",
+    "host": "Current repository/private delivery requires no new machine/controller action. Historical/current actual host bindings unobserved/null; unobserved never absent, closed or globally safe.",
+    "integration": "328 may freeze this repository integration-design workstream after complete327 acceptance. Actual operational implementation freeze/readiness still requires selected graph/primitives/refinement/independent conformance/fresh authority.",
+    "obligations": "Every inherited statement/status/evidence stays byte-bound and required-not-proven, including worker-vs-service claim/traps interpretation and explicit stage7 successor; no frozen rewrite or waived proof.",
+    "rights": "Issuer controls and admission known-unused differ from consumed launch/worker/nested and original finite recovery. Publication uses separate captured-data controls, never a fresh target grant or forward renewal."
+  },
+  "step": 345
+}

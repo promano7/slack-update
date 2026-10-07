@@ -1,0 +1,46 @@
+{
+  "actual_global_host_closure_asserted": false,
+  "actual_pair_atomicity_claimed": false,
+  "actual_publication_authority_supplied": false,
+  "dependencies": {
+    "core340": {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-transition-core.py",
+      "sha256": "94c8cc3dfdb0d813a6ec0d2f7c99e11f5866d8cf96b3ba53e852668eb9d03fb5"
+    },
+    "recovery344": {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-retained-recovery-reducer.py",
+      "sha256": "8fa9dd38fd7affba5612f093667a118407fb8d8c96531943278b07180904af0a"
+    }
+  },
+  "dependency_aliases": [
+    "slack_update_offline_core340",
+    "slack_update_offline_recovery344"
+  ],
+  "durability_rule": "Record then last receipt then durable handoff separate observations. File/data/meta/directory/storage/no-replace/origin payloads required. Receipt binds preceding record, never self-hash or pair atomicity; native proof still missing.",
+  "native_authority": false,
+  "native_cases_pending": 52,
+  "native_cases_run": 0,
+  "native_evidence": false,
+  "native_gaps_pending": 16,
+  "native_proofs_added": 0,
+  "next_rule": "346 adversarial whole sequences;347 full reconciliation;348 conditional scoped pause, no operational/native closure.",
+  "no_native_effects": true,
+  "operational_readiness": false,
+  "phase_order": [
+    "worker11-close-target-evidence",
+    "release-target-control",
+    "worker12-publication-controls",
+    "worker12-publication-record",
+    "worker12-last-receipt",
+    "worker12-durable-handoff"
+  ],
+  "publication_rule": "Separate immutable publisher/recipient/content/record/receipt-origin/handoff scope/deadline plan. Independent publication rights and recipient ancestry/alias/owner/content/writer controls at every boundary, including last receipt/handoff. No target observation/effect/refresh/new grant; captured data only.",
+  "release_rule": "Known capture and all controller obligations known before release. Derived partial/unknown binding, owned path or backup pending blocks release even if reports assert success. Unknown release remains pending; no reacquire. Known release stops claiming current guard/target knowledge; immutable captured verification remains.",
+  "required_native_proofs_pending": 46,
+  "schema": 1,
+  "scope": "pure-target-evidence-release-independent-publication-model",
+  "step": 345,
+  "strong_safe_pause": false,
+  "target_rule": "Only verified original/drained344 prefix. Preserve original failure/forward outcome/bindings. Capture complete scoped evidence under original guard; additional original durable budget pre-spent before capture and release, same limit/deadline/scope/fence, no refill.",
+  "unknown_rule": "Unknown/failure record, receipt or handoff retains earlier outputs/artifacts and sticky publication failure; no replay/republish/retry/target refresh. Original failure cannot become forward success."
+}

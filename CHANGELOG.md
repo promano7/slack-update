@@ -1,3 +1,12 @@
+## Phase 1 step345 — pure target evidence, release and captured-data publication model — 2026-10-07
+
+- Confirmed344 at reportedba4ce74 from full881 ordered PASS, first successful push and clean matching HEAD/origin. Full original receipt retained without normalization; full ID unknown.338 remains last confirmed strong pause.
+- Nine new repository artifacts and additive CHANGELOG preserve all1683 accepted files. Pure immutable finalization wraps verified/drained344, captures original failure/forward outcome/evidence under guard, spends existing original finite budget before capture/release and never refills rights/deadline/budget.
+- Known target evidence and known controller obligations precede release. Partial/unknown binding or backup/owned path remains independently pending and blocks release. Known release stops claiming current guard/target observation, retaining immutable captured verification. No reacquire or later target refresh/write.
+- Separate publisher/recipient/content/record/receipt-origin/handoff scope and finite deadline assumptions. Independent publication controls at each boundary, including last receipt/handoff. Record, last receipt and durable handoff separately require full durability/no-replace/origin reports; no pair atomicity/self-containing receipt hash/native authenticity claim.
+- Unknown publication retains earlier artifacts and original status, separate sticky publication failure, no replay/retry/republish/new target grant. Model success never actual host/global/operational closure; source contracts/native obligations remain frozen.
+- All46 native proofs/52 unrun cases/16 gaps/nine windows/seven capabilities/ten obligations unchanged. Host unobserved, bindings null; Production/Phase2 closed; Phase1/kernel incomplete.345 application/commit/push/clean receipt pending;346 follows acceptance;348 scoped pause conditional.
+
 ## Phase 1 step344 — pure irreversible stop and original finite recovery model — 2026-10-07
 
 - Confirmed343 at reportedb3a8db8 from complete1255 ordered PASS, first successful push and clean matching HEAD/origin. Full original report retained without normalization; full object ID unknown.338 remains confirmed strong pause.
