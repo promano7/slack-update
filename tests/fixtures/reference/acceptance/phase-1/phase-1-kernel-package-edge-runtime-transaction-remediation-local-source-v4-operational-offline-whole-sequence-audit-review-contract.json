@@ -1,0 +1,91 @@
+{
+  "actual_concurrency_exhaustive": false,
+  "actual_global_host_closure_asserted": false,
+  "audit_rule": "Explicit immutable report and transfer operations; five typed families, fixed worker/recovery/publication plans, same original. Every operation has before/after core projection and exact underlying disposition/reason; no IO/native dispatch. Rejected operations preserve typed inner state; early unknowns cannot obtain guard/recovery/publication through a transfer.",
+  "clock_rule": "Carry separate private recovery/publication elapsed observations across composed344345. Observed rollback converts current report to denied unattempted gate and pending without new spend/effect. This supplements unchanged344 scalar time checks and345 local timestamps; admission/forward trusted time still private assumptions with no actual clock mapping.",
+  "coverage_rule": "Finite declared fault families/47-observation golden trace and selected recovery branches. Not exhaustive concurrency/native graph/primitives/authenticity/linearizability/durable once proof. Model copying/reset/re-evaluation remains possible.",
+  "dependencies": {
+    "admission341": {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-admission-launch-reducer.py",
+      "sha256": "1031e9e2099547def50ba1bdfb5fc8ff36fe94ef42540fbeef5c21509db72bed"
+    },
+    "bootstrap342": {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-bootstrap-guard-reducer.py",
+      "sha256": "201636350a88c7562cad5cf04f71d5c582b7ea547c2e98b1f7a3751756b32e89"
+    },
+    "core340": {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-transition-core.py",
+      "sha256": "94c8cc3dfdb0d813a6ec0d2f7c99e11f5866d8cf96b3ba53e852668eb9d03fb5"
+    },
+    "finalization345": {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-target-publication-reducer.py",
+      "sha256": "22fc51ade0c3a213b004b5b90a79fa7f9c5b2c2125748afbcf61b84aac369954"
+    },
+    "recovery344": {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-retained-recovery-reducer.py",
+      "sha256": "8fa9dd38fd7affba5612f093667a118407fb8d8c96531943278b07180904af0a"
+    },
+    "worker343": {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-worker-stages-reducer.py",
+      "sha256": "2678499696ddc9293998dbcd5916aab29c028b045569ade416b38752629836a8"
+    }
+  },
+  "failure_rule": "Forward stop/original failure/raw prefix/finite spent budget remain sticky through later recovery/publication. Derived artifact pending blocks release. Unknown ownership/target/guard cannot auto restore/reacquire/relaunch/replay/republish. Successful recovery/publication does not imply original forward success.",
+  "family_order": [
+    "admission",
+    "bootstrap",
+    "worker",
+    "recovery",
+    "finalization"
+  ],
+  "fault_families": [
+    "known-failure-each-report",
+    "unknown-each-report",
+    "cross-original-event",
+    "wrong-assessment-family",
+    "out-of-order-transfer",
+    "duplicate-raw-call",
+    "forward-revocation-retained-recovery",
+    "recovery-revocation",
+    "budget-exhaustion",
+    "recovery-clock-cross-family-rollback",
+    "publication-clock-rollback",
+    "unknown-owned-binding-controller-pending",
+    "unknown-target-blocked",
+    "unknown-record-receipt-handoff-no-replay"
+  ],
+  "golden_report_count": 43,
+  "golden_total_observations": 47,
+  "max_private_operations": 128,
+  "native_authority": false,
+  "native_cases_pending": 52,
+  "native_cases_run": 0,
+  "native_evidence": false,
+  "native_gaps_pending": 16,
+  "native_proofs_added": 0,
+  "no_native_effects": true,
+  "operational_readiness": false,
+  "private_transfers": [
+    [
+      "admission",
+      "bootstrap"
+    ],
+    [
+      "bootstrap",
+      "worker"
+    ],
+    [
+      "worker",
+      "recovery"
+    ],
+    [
+      "recovery",
+      "finalization"
+    ]
+  ],
+  "required_native_proofs_pending": 46,
+  "schema": 1,
+  "scope": "pure-bounded-adversarial-composition-over-unchanged340345",
+  "step": 346,
+  "strong_safe_pause": false
+}

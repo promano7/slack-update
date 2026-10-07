@@ -1,0 +1,478 @@
+{
+  "dependencies": {
+    "admission341": {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-admission-launch-reducer.py",
+      "sha256": "1031e9e2099547def50ba1bdfb5fc8ff36fe94ef42540fbeef5c21509db72bed"
+    },
+    "bootstrap342": {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-bootstrap-guard-reducer.py",
+      "sha256": "201636350a88c7562cad5cf04f71d5c582b7ea547c2e98b1f7a3751756b32e89"
+    },
+    "core340": {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-transition-core.py",
+      "sha256": "94c8cc3dfdb0d813a6ec0d2f7c99e11f5866d8cf96b3ba53e852668eb9d03fb5"
+    },
+    "finalization345": {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-target-publication-reducer.py",
+      "sha256": "22fc51ade0c3a213b004b5b90a79fa7f9c5b2c2125748afbcf61b84aac369954"
+    },
+    "recovery344": {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-retained-recovery-reducer.py",
+      "sha256": "8fa9dd38fd7affba5612f093667a118407fb8d8c96531943278b07180904af0a"
+    },
+    "worker343": {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-worker-stages-reducer.py",
+      "sha256": "2678499696ddc9293998dbcd5916aab29c028b045569ade416b38752629836a8"
+    }
+  },
+  "families": [
+    "admission",
+    "bootstrap",
+    "worker",
+    "recovery",
+    "finalization"
+  ],
+  "golden_report_count": 43,
+  "golden_total_observations": 47,
+  "golden_transfer_count": 4,
+  "interfaces332_binding": {
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-typed-primitive-interface-contract-review-interfaces.json",
+    "sha256": "a86782e26e1fa0aeb29e497f49207835223db7bf20866db5885d76a2343f3ce4"
+  },
+  "map340_binding": {
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-state-event-schema-review-phase-map.json",
+    "sha256": "23d306b87e275ed590007da464112e7412a702c904c29e32f46f40bf8a337f03"
+  },
+  "max_private_operations": 128,
+  "native_authority": false,
+  "native_evidence": false,
+  "original_phase_count": 27,
+  "phase_rows": {
+    "drain-known-owned-children": {
+      "actor": "supervisor",
+      "position": 18,
+      "window": "recovery"
+    },
+    "interstage1-2-guard-freshoriginal": {
+      "actor": "supervisor",
+      "position": 8,
+      "window": "forward"
+    },
+    "release-target-control": {
+      "actor": "supervisor",
+      "position": 22,
+      "window": "recovery"
+    },
+    "service-barrier-authentication": {
+      "actor": "service",
+      "position": 0,
+      "window": "policy"
+    },
+    "service-durable-launch-spend": {
+      "actor": "service",
+      "position": 2,
+      "window": "launch"
+    },
+    "service-original-durable-claim": {
+      "actor": "service",
+      "position": 1,
+      "window": "admission"
+    },
+    "service-single-worker-spawn": {
+      "actor": "service",
+      "position": 3,
+      "window": "launch"
+    },
+    "stop-forward-irreversibly": {
+      "actor": "supervisor",
+      "position": 17,
+      "window": "recovery"
+    },
+    "worker0-bounded-auth-read": {
+      "actor": "worker",
+      "position": 4,
+      "window": "bootstrap"
+    },
+    "worker0-close-bootstrap": {
+      "actor": "worker",
+      "position": 5,
+      "window": "bootstrap"
+    },
+    "worker0-readonly-preflight": {
+      "actor": "worker",
+      "position": 6,
+      "window": "bootstrap"
+    },
+    "worker1-arm-traps": {
+      "actor": "worker",
+      "position": 7,
+      "window": "forward"
+    },
+    "worker10-original-verification": {
+      "actor": "worker",
+      "position": 20,
+      "window": "recovery"
+    },
+    "worker11-close-target-evidence": {
+      "actor": "worker",
+      "position": 21,
+      "window": "recovery"
+    },
+    "worker12-durable-handoff": {
+      "actor": "publisher",
+      "position": 26,
+      "window": "publication"
+    },
+    "worker12-last-receipt": {
+      "actor": "publisher",
+      "position": 25,
+      "window": "publication"
+    },
+    "worker12-publication-controls": {
+      "actor": "publisher",
+      "position": 23,
+      "window": "publication"
+    },
+    "worker12-publication-record": {
+      "actor": "publisher",
+      "position": 24,
+      "window": "publication"
+    },
+    "worker2-owned-workspace": {
+      "actor": "worker",
+      "position": 9,
+      "window": "forward"
+    },
+    "worker3-original-backups": {
+      "actor": "worker",
+      "position": 10,
+      "window": "forward"
+    },
+    "worker4-exact-predecessor": {
+      "actor": "worker",
+      "position": 11,
+      "window": "forward"
+    },
+    "worker5-local-isolation": {
+      "actor": "worker",
+      "position": 12,
+      "window": "forward"
+    },
+    "worker6-refresh-pin-once": {
+      "actor": "worker",
+      "position": 13,
+      "window": "forward"
+    },
+    "worker7-owned-durable-commit": {
+      "actor": "worker",
+      "position": 15,
+      "window": "forward"
+    },
+    "worker7-validate-pinned-candidate": {
+      "actor": "worker",
+      "position": 14,
+      "window": "forward"
+    },
+    "worker8-whole-successor-apply": {
+      "actor": "worker",
+      "position": 16,
+      "window": "forward"
+    },
+    "worker9-original-restoration": {
+      "actor": "worker",
+      "position": 19,
+      "window": "recovery"
+    }
+  },
+  "phase_view_types": {
+    "drain-known-owned-children": [
+      "armed-traps-view",
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "known-child-set-view",
+      "live-original-fence-view",
+      "quiescent-child-view",
+      "source-closure-view"
+    ],
+    "interstage1-2-guard-freshoriginal": [
+      "armed-traps-view",
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "live-original-fence-view",
+      "original-baseline-view",
+      "source-closure-view"
+    ],
+    "release-target-control": [
+      "armed-traps-view",
+      "closed-target-evidence-view",
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "live-original-fence-view",
+      "original-baseline-view",
+      "original-verification-view",
+      "quiescent-child-view",
+      "source-closure-view",
+      "target-release-view"
+    ],
+    "service-barrier-authentication": [
+      "authenticated-policy-view",
+      "dependency-closure-view",
+      "issuer-policy-view",
+      "source-closure-view"
+    ],
+    "service-durable-launch-spend": [
+      "consumed-original-context",
+      "dependency-closure-view",
+      "source-closure-view",
+      "spent-launch-view"
+    ],
+    "service-original-durable-claim": [
+      "authenticated-policy-view",
+      "consumed-original-context",
+      "dependency-closure-view",
+      "source-closure-view"
+    ],
+    "service-single-worker-spawn": [
+      "consumed-original-context",
+      "dependency-closure-view",
+      "source-closure-view",
+      "spent-launch-view"
+    ],
+    "stop-forward-irreversibly": [
+      "consumed-original-context",
+      "dependency-closure-view",
+      "live-original-fence-view",
+      "source-closure-view"
+    ],
+    "worker0-bounded-auth-read": [
+      "closed-bootstrap-view",
+      "consumed-original-context",
+      "dependency-closure-view",
+      "source-closure-view",
+      "spent-launch-view"
+    ],
+    "worker0-close-bootstrap": [
+      "closed-bootstrap-view",
+      "consumed-original-context",
+      "dependency-closure-view",
+      "source-closure-view",
+      "spent-launch-view"
+    ],
+    "worker0-readonly-preflight": [
+      "closed-bootstrap-view",
+      "consumed-original-context",
+      "dependency-closure-view",
+      "early-observation-view",
+      "source-closure-view"
+    ],
+    "worker1-arm-traps": [
+      "armed-traps-view",
+      "consumed-original-context",
+      "dependency-closure-view",
+      "known-child-set-view",
+      "live-original-fence-view",
+      "source-closure-view"
+    ],
+    "worker10-original-verification": [
+      "closed-target-evidence-view",
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "live-original-fence-view",
+      "original-baseline-view",
+      "original-verification-view",
+      "quiescent-child-view",
+      "source-closure-view"
+    ],
+    "worker11-close-target-evidence": [
+      "closed-target-evidence-view",
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "live-original-fence-view",
+      "original-baseline-view",
+      "original-verification-view",
+      "quiescent-child-view",
+      "source-closure-view"
+    ],
+    "worker12-durable-handoff": [
+      "closed-target-evidence-view",
+      "dependency-closure-view",
+      "last-receipt-origin-view",
+      "publication-control-view",
+      "publication-record-view",
+      "source-closure-view",
+      "target-release-view"
+    ],
+    "worker12-last-receipt": [
+      "dependency-closure-view",
+      "last-receipt-origin-view",
+      "publication-control-view",
+      "publication-record-view",
+      "source-closure-view"
+    ],
+    "worker12-publication-controls": [
+      "closed-target-evidence-view",
+      "dependency-closure-view",
+      "publication-control-view",
+      "source-closure-view",
+      "target-release-view"
+    ],
+    "worker12-publication-record": [
+      "closed-target-evidence-view",
+      "dependency-closure-view",
+      "publication-control-view",
+      "publication-record-view",
+      "source-closure-view",
+      "target-release-view"
+    ],
+    "worker2-owned-workspace": [
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "live-original-fence-view",
+      "original-backups-view",
+      "original-baseline-view",
+      "owned-path-set-view",
+      "source-closure-view"
+    ],
+    "worker3-original-backups": [
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "live-original-fence-view",
+      "original-backups-view",
+      "original-baseline-view",
+      "owned-path-set-view",
+      "source-closure-view"
+    ],
+    "worker4-exact-predecessor": [
+      "complete-effect-graph-view",
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "exact-predecessor-view",
+      "isolated-config-view",
+      "live-original-fence-view",
+      "original-backups-view",
+      "package-effect-result-view",
+      "raw-pkglist-pin-view",
+      "source-closure-view"
+    ],
+    "worker5-local-isolation": [
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "exact-predecessor-view",
+      "isolated-config-view",
+      "live-original-fence-view",
+      "original-backups-view",
+      "raw-pkglist-pin-view",
+      "source-closure-view"
+    ],
+    "worker6-refresh-pin-once": [
+      "complete-effect-graph-view",
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "exact-predecessor-view",
+      "full-selector-vector-view",
+      "isolated-config-view",
+      "live-original-fence-view",
+      "original-backups-view",
+      "raw-pkglist-pin-view",
+      "source-closure-view"
+    ],
+    "worker7-owned-durable-commit": [
+      "candidate-binding-view",
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "live-original-fence-view",
+      "raw-pkglist-pin-view",
+      "source-closure-view"
+    ],
+    "worker7-validate-pinned-candidate": [
+      "candidate-binding-view",
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "live-original-fence-view",
+      "raw-pkglist-pin-view",
+      "source-closure-view"
+    ],
+    "worker8-whole-successor-apply": [
+      "candidate-binding-view",
+      "complete-effect-graph-view",
+      "consumed-original-context",
+      "contained-runtime-view",
+      "contained-snapshot-view",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "full-selector-vector-view",
+      "live-original-fence-view",
+      "nested-call-result-view",
+      "original-baseline-view",
+      "owned-path-set-view",
+      "package-effect-result-view",
+      "raw-pkglist-pin-view",
+      "source-closure-view",
+      "whole-entry-result-view"
+    ],
+    "worker9-original-restoration": [
+      "complete-effect-graph-view",
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "live-original-fence-view",
+      "original-baseline-view",
+      "original-restoration-result-view",
+      "package-effect-result-view",
+      "quiescent-child-view",
+      "recovery-budget-view",
+      "source-closure-view"
+    ]
+  },
+  "private_transfers": [
+    [
+      "admission",
+      "bootstrap"
+    ],
+    [
+      "bootstrap",
+      "worker"
+    ],
+    [
+      "worker",
+      "recovery"
+    ],
+    [
+      "recovery",
+      "finalization"
+    ]
+  ],
+  "schema": 1,
+  "scope": "private-finite-composition-audit-not-native-operational-sequence",
+  "source326_model_contract": {
+    "boundary": "Finite macro-event contract and declared fault-family coverage only; no real resources, Bash source/top-level execution, operational simulation or universal concurrency claim.",
+    "budgets": "Integer0..8 recovery fixture budget pre-spent once per attempted action including failures/unknown; denied actions spend no action; no refund/retry/new grant; real durable deadline/budget proof required.",
+    "ordering": "320 service own barrier/auth/irreversible claim/spent launch;321 bounded memory/close before effects;stage1 traps;324 guard/freshoriginal before ownedstage2;verifiedstage3 backups before target mutations;322 binding/325 completegraph and exact selectors.",
+    "outcomes": "ok requires exact rawstatus; known-failure means independently verified no additional effect; unknown keeps affected domain unknown, never no-effect/absence/closed.",
+    "publication": "Verified drained original and closed target evidence before release; separately checked captured-data record and receipt durability plus handoff; unknown outcome never replay/republish or target refresh.",
+    "quarantine": "Unknown claim/slot/spawn/auth/guard/identity/clock/revocation/child/partial target/native writer outcome cannot authorize replay/relaunch/restore/reacquire or false release; preserve scope-specific pending status.",
+    "recovery": "Any finalization permanently latches forward; finite original retained rights/known guard/child ownership; drain before restore; no-target-change branch verifies fresh original without requiring a never-created backup; unknown owned binding may retain artifacts while separately proven target restoration continues."
+  },
+  "source327_crossclosure_contract": {
+    "closure": "Known children/full original verification/target evidence before release; no later target writes. Record/receipt/handoff separate; any unclassified/unknown actual effect or obligation remains pending.",
+    "design": "All30 designed effect domains/every edge/seven capabilities/ten obligations/42 inherited proofs/nine windows/52 cases indexed. Reviewed disposition never operational proof.",
+    "effects": "Include all service/reference/helper/source/backend/selector/package/config/boot/owned/restore/publication surfaces; actual dynamic graph/entry still unclosed and boot/optional mutations outside scope remain forbidden.",
+    "host": "Current repository/private delivery requires no new machine/controller action. Historical/current actual host bindings unobserved/null; unobserved never absent, closed or globally safe.",
+    "integration": "328 may freeze this repository integration-design workstream after complete327 acceptance. Actual operational implementation freeze/readiness still requires selected graph/primitives/refinement/independent conformance/fresh authority.",
+    "obligations": "Every inherited statement/status/evidence stays byte-bound and required-not-proven, including worker-vs-service claim/traps interpretation and explicit stage7 successor; no frozen rewrite or waived proof.",
+    "rights": "Issuer controls and admission known-unused differ from consumed launch/worker/nested and original finite recovery. Publication uses separate captured-data controls, never a fresh target grant or forward renewal."
+  },
+  "step": 346
+}
