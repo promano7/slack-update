@@ -1,0 +1,559 @@
+{
+  "freeze_binding": {
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-scoped-candidate-artifact-freeze-gap-register-and-safe-pause-review-freeze.json",
+    "sha256": "65f22eb3d22c6ee2f1cdffc50754d780b64f0a61415cfde351b156569e7e58b6"
+  },
+  "native_authority": false,
+  "native_evidence": false,
+  "no_standalone_phase_windows": [
+    "service",
+    "forbidden"
+  ],
+  "nominal_types": [
+    "armed-traps-view",
+    "authenticated-policy-view",
+    "candidate-binding-view",
+    "closed-bootstrap-view",
+    "closed-target-evidence-view",
+    "complete-effect-graph-view",
+    "consumed-original-context",
+    "contained-runtime-view",
+    "contained-snapshot-view",
+    "continuous-guard-view",
+    "dependency-closure-view",
+    "early-observation-view",
+    "exact-predecessor-view",
+    "full-selector-vector-view",
+    "isolated-config-view",
+    "issuer-policy-view",
+    "known-child-set-view",
+    "last-receipt-origin-view",
+    "live-original-fence-view",
+    "nested-call-result-view",
+    "original-backups-view",
+    "original-baseline-view",
+    "original-restoration-result-view",
+    "original-verification-view",
+    "owned-path-set-view",
+    "package-effect-result-view",
+    "publication-control-view",
+    "publication-record-view",
+    "quiescent-child-view",
+    "raw-pkglist-pin-view",
+    "recovery-budget-view",
+    "source-closure-view",
+    "spent-launch-view",
+    "target-release-view",
+    "whole-entry-result-view"
+  ],
+  "original_interface_bindings": [
+    {
+      "canonical_row_sha256": "e493e990aea7f487cbad6774c40b58651fd1613c3900e2cd92d8347cfc6e367b",
+      "id": "issuer-policy-and-key-provisioning"
+    },
+    {
+      "canonical_row_sha256": "93dd4280e3a3ef0622c86a9d82b265fb0a98c881b91543592e510d46804174f3",
+      "id": "durable-admission-claim"
+    },
+    {
+      "canonical_row_sha256": "bb482743aaa00e96ee2dcea703b02f128b8475241364fe57635b6d8706415f30",
+      "id": "durable-single-launch-slot"
+    },
+    {
+      "canonical_row_sha256": "6569775f9e9ece004a4e0f3d32c242460443db88a316af10feed74c0310f6ea3",
+      "id": "offline-bootstrap-context"
+    },
+    {
+      "canonical_row_sha256": "8021f1e223d333d66cf88e19a547d4c165c7002ea43df48ddddf64c89c59b678",
+      "id": "trusted-time-and-revocation-fence"
+    },
+    {
+      "canonical_row_sha256": "4050e660f35af22a23cfdf13b3417dcaea3360aef4c04a1c63c866025125b56c",
+      "id": "worker-readonly-preflight"
+    },
+    {
+      "canonical_row_sha256": "cbd6455800883a868c645ce807627928b85f95c29880fcd0dab76f9eff5e8fcd",
+      "id": "worker-traps-and-child-control"
+    },
+    {
+      "canonical_row_sha256": "faeb7ac63343af75998e4eb6f8cc24d13a16191d1ce112171ad21ced7ad3cdeb",
+      "id": "outer-writer-guard-and-original-baseline"
+    },
+    {
+      "canonical_row_sha256": "04c0bc5eaaba6518be7cf86648a78a06d2d96677ba3542e614e1cac7cde9100d",
+      "id": "owned-runtime-and-original-backups"
+    },
+    {
+      "canonical_row_sha256": "e29d74cbe77dc0076f2722f7cf5f2154954c17cbad669211da0c1dc34252995c",
+      "id": "predecessor-and-local-isolation"
+    },
+    {
+      "canonical_row_sha256": "a1a60a2bee8df9d08ad1f7782bcc21bc364d17157df3c4cdbe65c5081cacfcc0",
+      "id": "stage7-owned-binding"
+    },
+    {
+      "canonical_row_sha256": "008441096c9bd52aad4f16df222b7404be5081ceba47ec98c8dab87ce6dc8fbb",
+      "id": "whole-reference-entry"
+    },
+    {
+      "canonical_row_sha256": "15fa462c63713f7c6ce099f8c31a66dfc211f0beb5c0870ac7a1f6926fa646ec",
+      "id": "reference-lock-runtime-logs"
+    },
+    {
+      "canonical_row_sha256": "04eb623789ed2122906ec533df399f5a8766cf4cc83384f91843e24c80d85327",
+      "id": "reference-snapshots-and-config-scan"
+    },
+    {
+      "canonical_row_sha256": "3ee0c08fb27c33848511b044e2d6274dfafac93e893b433c6601b69ac896a18e",
+      "id": "nested-call-adapter"
+    },
+    {
+      "canonical_row_sha256": "521c1e6c94421280842542f4516901f9a08bd3877476c05a92bfbdd186d2a773",
+      "id": "real-backend-and-selector"
+    },
+    {
+      "canonical_row_sha256": "9e438187125cf05055325b4cd3124e28aad4e16af94eaa350a1ce5d06a60b511",
+      "id": "package-tools-and-install-hooks"
+    },
+    {
+      "canonical_row_sha256": "3c06c1489229ab3dbecf55eebff78238e1517e47b3a6aead82e8457ce89a2c0e",
+      "id": "source-and-archive-consumption"
+    },
+    {
+      "canonical_row_sha256": "35e7e1479156a4cebce87d8bf3f3e4061c842589207617e8aa6ccddfeaae79e5",
+      "id": "interpreter-helper-dependency-consumption"
+    },
+    {
+      "canonical_row_sha256": "bf6c084d948a600898475dba1c42a709e476b2001215f5956ec7500baf5f696b",
+      "id": "owned-child-quiescence"
+    },
+    {
+      "canonical_row_sha256": "324882e29164abb589861d435343128da9cc766ab19bd39884214404865a6dcf",
+      "id": "same-attempt-original-restoration"
+    },
+    {
+      "canonical_row_sha256": "08b814c3bf0848f7a01d271709091e402546f507b4c2fb3d3c0c2aab53075987",
+      "id": "target-evidence-closure"
+    },
+    {
+      "canonical_row_sha256": "418a83c1c333680bdd569404b4f264513fad8a2644f32e5df4b097e18d647423",
+      "id": "target-control-release"
+    },
+    {
+      "canonical_row_sha256": "d2bcc425bebff8a95bb9268621aa09ca7e05e79f2d4580b090c23a6640124e88",
+      "id": "publication-controls"
+    },
+    {
+      "canonical_row_sha256": "181e37fee55431f7a32cee854bad72f684d5dc011ae9891cc8aec1f3ff03a4ed",
+      "id": "publication-record"
+    },
+    {
+      "canonical_row_sha256": "a3168b55883f8ba984224df8e69b7759b6027d40ed5729ce782d0549203bdeb1",
+      "id": "publication-last-receipt"
+    }
+  ],
+  "original_interface_contexts": 85,
+  "phase_view_types": {
+    "drain-known-owned-children": [
+      "armed-traps-view",
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "known-child-set-view",
+      "live-original-fence-view",
+      "quiescent-child-view",
+      "source-closure-view"
+    ],
+    "interstage1-2-guard-freshoriginal": [
+      "armed-traps-view",
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "live-original-fence-view",
+      "original-baseline-view",
+      "source-closure-view"
+    ],
+    "release-target-control": [
+      "armed-traps-view",
+      "closed-target-evidence-view",
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "live-original-fence-view",
+      "original-baseline-view",
+      "original-verification-view",
+      "quiescent-child-view",
+      "source-closure-view",
+      "target-release-view"
+    ],
+    "service-barrier-authentication": [
+      "authenticated-policy-view",
+      "dependency-closure-view",
+      "issuer-policy-view",
+      "source-closure-view"
+    ],
+    "service-durable-launch-spend": [
+      "consumed-original-context",
+      "dependency-closure-view",
+      "source-closure-view",
+      "spent-launch-view"
+    ],
+    "service-original-durable-claim": [
+      "authenticated-policy-view",
+      "consumed-original-context",
+      "dependency-closure-view",
+      "source-closure-view"
+    ],
+    "service-single-worker-spawn": [
+      "consumed-original-context",
+      "dependency-closure-view",
+      "source-closure-view",
+      "spent-launch-view"
+    ],
+    "stop-forward-irreversibly": [
+      "consumed-original-context",
+      "dependency-closure-view",
+      "live-original-fence-view",
+      "source-closure-view"
+    ],
+    "worker0-bounded-auth-read": [
+      "closed-bootstrap-view",
+      "consumed-original-context",
+      "dependency-closure-view",
+      "source-closure-view",
+      "spent-launch-view"
+    ],
+    "worker0-close-bootstrap": [
+      "closed-bootstrap-view",
+      "consumed-original-context",
+      "dependency-closure-view",
+      "source-closure-view",
+      "spent-launch-view"
+    ],
+    "worker0-readonly-preflight": [
+      "closed-bootstrap-view",
+      "consumed-original-context",
+      "dependency-closure-view",
+      "early-observation-view",
+      "source-closure-view"
+    ],
+    "worker1-arm-traps": [
+      "armed-traps-view",
+      "consumed-original-context",
+      "dependency-closure-view",
+      "known-child-set-view",
+      "live-original-fence-view",
+      "source-closure-view"
+    ],
+    "worker10-original-verification": [
+      "closed-target-evidence-view",
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "live-original-fence-view",
+      "original-baseline-view",
+      "original-verification-view",
+      "quiescent-child-view",
+      "source-closure-view"
+    ],
+    "worker11-close-target-evidence": [
+      "closed-target-evidence-view",
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "live-original-fence-view",
+      "original-baseline-view",
+      "original-verification-view",
+      "quiescent-child-view",
+      "source-closure-view"
+    ],
+    "worker12-durable-handoff": [
+      "closed-target-evidence-view",
+      "dependency-closure-view",
+      "last-receipt-origin-view",
+      "publication-control-view",
+      "publication-record-view",
+      "source-closure-view",
+      "target-release-view"
+    ],
+    "worker12-last-receipt": [
+      "dependency-closure-view",
+      "last-receipt-origin-view",
+      "publication-control-view",
+      "publication-record-view",
+      "source-closure-view"
+    ],
+    "worker12-publication-controls": [
+      "closed-target-evidence-view",
+      "dependency-closure-view",
+      "publication-control-view",
+      "source-closure-view",
+      "target-release-view"
+    ],
+    "worker12-publication-record": [
+      "closed-target-evidence-view",
+      "dependency-closure-view",
+      "publication-control-view",
+      "publication-record-view",
+      "source-closure-view",
+      "target-release-view"
+    ],
+    "worker2-owned-workspace": [
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "live-original-fence-view",
+      "original-backups-view",
+      "original-baseline-view",
+      "owned-path-set-view",
+      "source-closure-view"
+    ],
+    "worker3-original-backups": [
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "live-original-fence-view",
+      "original-backups-view",
+      "original-baseline-view",
+      "owned-path-set-view",
+      "source-closure-view"
+    ],
+    "worker4-exact-predecessor": [
+      "complete-effect-graph-view",
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "exact-predecessor-view",
+      "isolated-config-view",
+      "live-original-fence-view",
+      "original-backups-view",
+      "package-effect-result-view",
+      "raw-pkglist-pin-view",
+      "source-closure-view"
+    ],
+    "worker5-local-isolation": [
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "exact-predecessor-view",
+      "isolated-config-view",
+      "live-original-fence-view",
+      "original-backups-view",
+      "raw-pkglist-pin-view",
+      "source-closure-view"
+    ],
+    "worker6-refresh-pin-once": [
+      "complete-effect-graph-view",
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "exact-predecessor-view",
+      "full-selector-vector-view",
+      "isolated-config-view",
+      "live-original-fence-view",
+      "original-backups-view",
+      "raw-pkglist-pin-view",
+      "source-closure-view"
+    ],
+    "worker7-owned-durable-commit": [
+      "candidate-binding-view",
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "live-original-fence-view",
+      "raw-pkglist-pin-view",
+      "source-closure-view"
+    ],
+    "worker7-validate-pinned-candidate": [
+      "candidate-binding-view",
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "live-original-fence-view",
+      "raw-pkglist-pin-view",
+      "source-closure-view"
+    ],
+    "worker8-whole-successor-apply": [
+      "candidate-binding-view",
+      "complete-effect-graph-view",
+      "consumed-original-context",
+      "contained-runtime-view",
+      "contained-snapshot-view",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "full-selector-vector-view",
+      "live-original-fence-view",
+      "nested-call-result-view",
+      "original-baseline-view",
+      "owned-path-set-view",
+      "package-effect-result-view",
+      "raw-pkglist-pin-view",
+      "source-closure-view",
+      "whole-entry-result-view"
+    ],
+    "worker9-original-restoration": [
+      "complete-effect-graph-view",
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "live-original-fence-view",
+      "original-baseline-view",
+      "original-restoration-result-view",
+      "package-effect-result-view",
+      "quiescent-child-view",
+      "recovery-budget-view",
+      "source-closure-view"
+    ]
+  },
+  "phases": {
+    "drain-known-owned-children": {
+      "actor": "supervisor",
+      "position": 18,
+      "window": "recovery"
+    },
+    "interstage1-2-guard-freshoriginal": {
+      "actor": "supervisor",
+      "position": 8,
+      "window": "forward"
+    },
+    "release-target-control": {
+      "actor": "supervisor",
+      "position": 22,
+      "window": "recovery"
+    },
+    "service-barrier-authentication": {
+      "actor": "service",
+      "position": 0,
+      "window": "policy"
+    },
+    "service-durable-launch-spend": {
+      "actor": "service",
+      "position": 2,
+      "window": "launch"
+    },
+    "service-original-durable-claim": {
+      "actor": "service",
+      "position": 1,
+      "window": "admission"
+    },
+    "service-single-worker-spawn": {
+      "actor": "service",
+      "position": 3,
+      "window": "launch"
+    },
+    "stop-forward-irreversibly": {
+      "actor": "supervisor",
+      "position": 17,
+      "window": "recovery"
+    },
+    "worker0-bounded-auth-read": {
+      "actor": "worker",
+      "position": 4,
+      "window": "bootstrap"
+    },
+    "worker0-close-bootstrap": {
+      "actor": "worker",
+      "position": 5,
+      "window": "bootstrap"
+    },
+    "worker0-readonly-preflight": {
+      "actor": "worker",
+      "position": 6,
+      "window": "bootstrap"
+    },
+    "worker1-arm-traps": {
+      "actor": "worker",
+      "position": 7,
+      "window": "forward"
+    },
+    "worker10-original-verification": {
+      "actor": "worker",
+      "position": 20,
+      "window": "recovery"
+    },
+    "worker11-close-target-evidence": {
+      "actor": "worker",
+      "position": 21,
+      "window": "recovery"
+    },
+    "worker12-durable-handoff": {
+      "actor": "publisher",
+      "position": 26,
+      "window": "publication"
+    },
+    "worker12-last-receipt": {
+      "actor": "publisher",
+      "position": 25,
+      "window": "publication"
+    },
+    "worker12-publication-controls": {
+      "actor": "publisher",
+      "position": 23,
+      "window": "publication"
+    },
+    "worker12-publication-record": {
+      "actor": "publisher",
+      "position": 24,
+      "window": "publication"
+    },
+    "worker2-owned-workspace": {
+      "actor": "worker",
+      "position": 9,
+      "window": "forward"
+    },
+    "worker3-original-backups": {
+      "actor": "worker",
+      "position": 10,
+      "window": "forward"
+    },
+    "worker4-exact-predecessor": {
+      "actor": "worker",
+      "position": 11,
+      "window": "forward"
+    },
+    "worker5-local-isolation": {
+      "actor": "worker",
+      "position": 12,
+      "window": "forward"
+    },
+    "worker6-refresh-pin-once": {
+      "actor": "worker",
+      "position": 13,
+      "window": "forward"
+    },
+    "worker7-owned-durable-commit": {
+      "actor": "worker",
+      "position": 15,
+      "window": "forward"
+    },
+    "worker7-validate-pinned-candidate": {
+      "actor": "worker",
+      "position": 14,
+      "window": "forward"
+    },
+    "worker8-whole-successor-apply": {
+      "actor": "worker",
+      "position": 16,
+      "window": "forward"
+    },
+    "worker9-original-restoration": {
+      "actor": "worker",
+      "position": 19,
+      "window": "recovery"
+    }
+  },
+  "rights_windows": [
+    "policy",
+    "admission",
+    "launch",
+    "bootstrap",
+    "service",
+    "forward",
+    "recovery",
+    "publication",
+    "forbidden"
+  ],
+  "schema": 1,
+  "scope": "symbolic-model-mapping-not-native-ABI",
+  "step": 340
+}

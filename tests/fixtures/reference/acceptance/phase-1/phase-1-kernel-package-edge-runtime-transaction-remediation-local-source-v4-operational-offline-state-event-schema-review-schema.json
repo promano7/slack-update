@@ -1,0 +1,268 @@
+{
+  "codec_boundary": "Immutable model value <-> detached symbolic JSON only; no path/argv/handle/broker dispatch or actual evidence. New340 wire is separate from historical332 nominal wire; type-name and phase-context correspondence is source-bound.",
+  "constructors_check_transition_semantics": false,
+  "dataclass_immutability_is_authentication_or_security": false,
+  "decisions": [
+    "accepted-shape",
+    "rejected",
+    "pending"
+  ],
+  "initial_state": {
+    "authority": false,
+    "backups": "unobserved",
+    "baseline": "unobserved",
+    "bootstrap": "unattempted",
+    "children": "unobserved",
+    "claim": "known-unused",
+    "context": {
+      "attempt": "model-attempt-a",
+      "boot": "model-boot-a"
+    },
+    "first_failure": null,
+    "forward": "closed",
+    "guard": "unobserved",
+    "kind": "state",
+    "launch": "unspent",
+    "native_evidence": false,
+    "origin": "synthetic-private-fixture",
+    "owned": "unobserved",
+    "phase": null,
+    "pin": null,
+    "publication": "unattempted",
+    "raw_statuses": [],
+    "recovery_limit": 0,
+    "recovery_spent": 0,
+    "rights": [
+      {
+        "status": "inactive",
+        "window": "policy"
+      },
+      {
+        "status": "inactive",
+        "window": "admission"
+      },
+      {
+        "status": "inactive",
+        "window": "launch"
+      },
+      {
+        "status": "inactive",
+        "window": "bootstrap"
+      },
+      {
+        "status": "inactive",
+        "window": "service"
+      },
+      {
+        "status": "inactive",
+        "window": "forward"
+      },
+      {
+        "status": "inactive",
+        "window": "recovery"
+      },
+      {
+        "status": "inactive",
+        "window": "publication"
+      },
+      {
+        "status": "inactive",
+        "window": "forbidden"
+      }
+    ],
+    "schema": 1,
+    "scope": "offline-transition-core-shape-only",
+    "spawn": "unattempted",
+    "stage7_completed": 0,
+    "target": "unobserved",
+    "traps": false
+  },
+  "input_resource_limits_are_native_conformance": false,
+  "integer_rule": "exact int, never bool; raw statuses retain signed32 values and null uncertainty",
+  "native_authority": false,
+  "native_evidence": false,
+  "operational_entry_selected": false,
+  "outcomes": [
+    "known-success",
+    "known-failure",
+    "unknown",
+    "unattempted"
+  ],
+  "owned_stage7_microsteps": [
+    "validate-exact-inputs",
+    "register-owned-intent",
+    "create-exclusive-stage",
+    "write-complete-bytes",
+    "metadata-and-data-durable",
+    "revalidate-pinned-inputs",
+    "commit-no-replace",
+    "directory-durability-confirmed",
+    "stage-exit-evidence-complete"
+  ],
+  "reasons": [
+    "valid-shape",
+    "rule-rejected",
+    "unknown-observation",
+    "transition-not-implemented"
+  ],
+  "record_fields": {
+    "CoreState": [
+      "context",
+      "phase",
+      "claim",
+      "launch",
+      "spawn",
+      "bootstrap",
+      "traps",
+      "guard",
+      "baseline",
+      "backups",
+      "pin",
+      "stage7_completed",
+      "forward",
+      "children",
+      "owned",
+      "target",
+      "recovery_limit",
+      "recovery_spent",
+      "rights",
+      "raw_statuses",
+      "first_failure",
+      "publication",
+      "authority",
+      "native_evidence"
+    ],
+    "ModelContext": [
+      "attempt",
+      "boot"
+    ],
+    "ModelEvent": [
+      "context",
+      "phase",
+      "actor",
+      "window",
+      "outcome",
+      "operation",
+      "views",
+      "raw_statuses",
+      "authority",
+      "native_evidence"
+    ],
+    "ModelResult": [
+      "context",
+      "decision",
+      "reason",
+      "successor",
+      "authority",
+      "native_evidence"
+    ],
+    "ModelView": [
+      "name",
+      "context",
+      "symbol",
+      "authority",
+      "native_evidence"
+    ],
+    "RawStatus": [
+      "call",
+      "code"
+    ],
+    "RightReport": [
+      "window",
+      "status"
+    ]
+  },
+  "reducers_implemented": false,
+  "right_statuses": [
+    "inactive",
+    "reported-live",
+    "expired",
+    "revoked",
+    "uncertain"
+  ],
+  "schema": 1,
+  "scope": "shape-only-not-transition-validity",
+  "state_enumerations": {
+    "backups": [
+      "unobserved",
+      "verified-original",
+      "uncertain"
+    ],
+    "baseline": [
+      "unobserved",
+      "fresh-original",
+      "uncertain"
+    ],
+    "bootstrap": [
+      "unattempted",
+      "bounded-read",
+      "closed",
+      "uncertain"
+    ],
+    "children": [
+      "unobserved",
+      "known-none",
+      "known-owned",
+      "drained",
+      "uncertain"
+    ],
+    "claim": [
+      "known-unused",
+      "consumed",
+      "uncertain",
+      "known-rejected"
+    ],
+    "forward": [
+      "closed",
+      "active",
+      "stopped"
+    ],
+    "guard": [
+      "unobserved",
+      "continuous",
+      "lost",
+      "uncertain"
+    ],
+    "launch": [
+      "unspent",
+      "spent",
+      "uncertain"
+    ],
+    "owned": [
+      "unobserved",
+      "known-none",
+      "known-binding",
+      "uncertain"
+    ],
+    "publication": [
+      "unattempted",
+      "controls-reported",
+      "record-reported",
+      "receipt-reported",
+      "handoff-reported",
+      "uncertain"
+    ],
+    "spawn": [
+      "unattempted",
+      "known-absent",
+      "known-owned",
+      "uncertain"
+    ],
+    "target": [
+      "unobserved",
+      "known-unchanged",
+      "known-changed",
+      "known-restored",
+      "verified-original",
+      "uncertain"
+    ]
+  },
+  "step": 340,
+  "version": "private-offline-data-v1",
+  "wire_canonical_rule": "ASCII-escaped sorted-key compact JSON, no duplicate keys, whitespace or trailing bytes",
+  "wire_maximum_bytes": 65536,
+  "wire_maximum_depth": 32,
+  "wire_origin": "synthetic-private-fixture",
+  "wire_schema": 1,
+  "wire_scope": "offline-transition-core-shape-only"
+}
