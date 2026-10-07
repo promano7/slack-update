@@ -1,0 +1,2355 @@
+{
+  "contract_bindings": {
+    "320": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-admission-and-durable-consumption-design-review-design.json",
+      "sha256": "206070db792430966f1b1654d29d7fecabaf43288f1d208b1332d5a40432726f"
+    },
+    "321": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-admission-handoff-and-namespace-fd-design-review-design.json",
+      "sha256": "c814396b3d002f3398b1d024ab30d9b74dfa6d84aee0c87df93215f571bd1540"
+    },
+    "322": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-stage7-owned-binding-effect-design-review-design.json",
+      "sha256": "ff7428e2039927559130a6b0f58611a669f30215221aaf3887e3fa360438a494"
+    },
+    "323": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+      "sha256": "40a574a020fcd8a5a6e79d0faebea6e00e62283751a94bcd877a9b47182d8b98"
+    },
+    "324": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-continuous-guarded-original-baseline-and-approved-phase-deltas-design-review-design.json",
+      "sha256": "c26c93bf5f5dd596c8272cd1328a2f08f970053e6582fdccfbe278b904f20474"
+    },
+    "325": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-whole-service-reference-helper-selector-source-backend-publication-effect-graph-design-review-design.json",
+      "sha256": "d8e1db6acd48e7a1076af9d72a9837d9e1cc83742173d0d1ffe67b3026290d0b"
+    },
+    "326": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-complete-finite-failure-model-and-independent-conformance-plan-review-design.json",
+      "sha256": "32c58f6290c7d3f47a033081b1c9458fbaaf35505e1f659a6e4714491413b5fe"
+    },
+    "327": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-scoped-effects-obligations-rights-crossclosure-review-design.json",
+      "sha256": "a6541e3a485ec6032e5d50dc31d8ee43a3c29ab4b97e44e08776152120f6d7a0"
+    }
+  },
+  "normative_rule": "Full source-bound obligations remain normative; row hashes and identifiers are indexes, never waivers or native evidence.",
+  "pause_conditions": [
+    "complete-user-overlay-full-tests-exact-commit-successful-push-clean-tree-matching-HEAD-origin-return",
+    "all-in-scope-repository-candidate-effects-and-obligations-reviewed",
+    "candidate-validator-has-no-runtime-dispatch-or-service-channel",
+    "all-unknown-actual-graph-primitives-native-protocols-and-conformance-remain-blockers",
+    "no-batch-runtime-or-partial-operational-publication",
+    "no-required-batch-machine-or-controller-cleanup",
+    "all-future-runtime-and-unused-live-rights-closed",
+    "actual-host-state-unobserved-never-claimed-absent-or-globally-closed",
+    "no-live-binding-reuse-pause-independent-of-later-current-refresh"
+  ],
+  "registers": {
+    "capabilities": {
+      "rows": [
+        {
+          "canonical_row_sha256": "15764f71fd7cf902d36bcaf8597368fff8f04129ec9a30b6780bb5e08b567e84",
+          "id": "real-reference-integration-and-selector-equivalence",
+          "position": 0
+        },
+        {
+          "canonical_row_sha256": "6ec9252a5173a1abd844a2d0180cb601435eab01a3751963938bcd06b6e95fc4",
+          "id": "namespace-command-transport-and-no-fallback",
+          "position": 1
+        },
+        {
+          "canonical_row_sha256": "079ad1564b0ebd5d8113e16a64783cc5f5455e8358e734ba4120e4995ac994d3",
+          "id": "absolute-backend-path-and-SHA",
+          "position": 2
+        },
+        {
+          "canonical_row_sha256": "082ccc0049227c68be46432fb57813bf848c7543ac2b1daa86154f0c2c5fcb7b",
+          "id": "reviewed-platform-writer-serialization",
+          "position": 3
+        },
+        {
+          "canonical_row_sha256": "86639a2f3ddf157c234a2146fb2896b000efa3ba7ebaa4561ed778be1940595a",
+          "id": "fresh-single-use-grant-source-target-predecessor-and-boot",
+          "position": 4
+        },
+        {
+          "canonical_row_sha256": "620300eafce42183b8ac350d65507a2bf126783508fc399d403e49c39e5e0557",
+          "id": "real-source-and-archive-revalidation",
+          "position": 5
+        },
+        {
+          "canonical_row_sha256": "c2635ed216efe8f3cf6d18fd135dc1236ad6392471c51ce2004030961f902c73",
+          "id": "operational-owner-and-publication-path-bindings",
+          "position": 6
+        }
+      ],
+      "source": "freeze",
+      "source_field": "seven_capability_reconciliation"
+    },
+    "cross_obligations": {
+      "rows": [
+        {
+          "canonical_row_sha256": "c25cb7c925fe91a92f4915ae5353ae24fa94030289c34e318930c2d9aa750ed5",
+          "id": "claim-traps-containment",
+          "position": 0
+        },
+        {
+          "canonical_row_sha256": "043406fecbbf2a83807cb5af2bc69651092978e0ace2997432423f96ed459139",
+          "id": "guarded-baseline",
+          "position": 1
+        },
+        {
+          "canonical_row_sha256": "a9b5b8d21f6825e7eff1d6467e553299276bf8658de8eef4e572be3a3cb15bef",
+          "id": "binding-effect-classification",
+          "position": 2
+        },
+        {
+          "canonical_row_sha256": "e06c59074aeddbbbbfc6ad0647983dd78139b211147fe548fcc7d6544523d6b9",
+          "id": "whole-effect-graph",
+          "position": 3
+        },
+        {
+          "canonical_row_sha256": "5ef187830e1d59d16d755daa934c60b5dc8211481a0078c35d9f199cac247c61",
+          "id": "retained-bytes-and-writers",
+          "position": 4
+        },
+        {
+          "canonical_row_sha256": "cdce00ce743c748d683cf54e46d4b6cea70486a02c22649b6e9eba4842c50944",
+          "id": "same-attempt-phase-deltas",
+          "position": 5
+        },
+        {
+          "canonical_row_sha256": "53e1b1b2cb9ea9e2f466f957353f5e4bc64e06d4f8aa6295985d708618514929",
+          "id": "pkglist-selector-status",
+          "position": 6
+        },
+        {
+          "canonical_row_sha256": "7a7516d51b3fd5ac12bc196ab688e3c4d2a9888e1410bd23a436eee70f1f64ac",
+          "id": "target-publication-controls",
+          "position": 7
+        },
+        {
+          "canonical_row_sha256": "d73d819c6ee0ed4e53865693168d2f1d4769ee6a01a2e5c5b2c04d0a8a5daec0",
+          "id": "last-receipt-durability",
+          "position": 8
+        },
+        {
+          "canonical_row_sha256": "e7c4f806ef930881a2d8061b533a02ea2cd758a35acddca68694d09ed68b7600",
+          "id": "failure-recovery-rights",
+          "position": 9
+        }
+      ],
+      "source": "freeze",
+      "source_field": "ten_cross_obligation_reconciliation"
+    },
+    "domains": {
+      "rows": [
+        {
+          "canonical_row_sha256": "335de50761fee1425a759d81894c66eaf80fcf7472aa94ddc83c3c55a212ef75",
+          "id": "issuer-policy-and-key-provisioning",
+          "position": 0
+        },
+        {
+          "canonical_row_sha256": "d4294368648d77e4cefdcb8cd1143ca7b73a40620d0b0afeba254616b1bdd442",
+          "id": "durable-admission-claim",
+          "position": 1
+        },
+        {
+          "canonical_row_sha256": "301400a44ca2f0370cac1db59b6b20d0057786b23414635077970cc8e62d1299",
+          "id": "durable-single-launch-slot",
+          "position": 2
+        },
+        {
+          "canonical_row_sha256": "5e8b2b03e7307848e265a70a12ed2b19f528ef00fd053f9408f04515ff424bc9",
+          "id": "offline-bootstrap-context",
+          "position": 3
+        },
+        {
+          "canonical_row_sha256": "045449cef5a3089cb268f0974b4f498b05c72f38d80078a4c490ab6752398993",
+          "id": "trusted-time-and-revocation-fence",
+          "position": 4
+        },
+        {
+          "canonical_row_sha256": "897a075618c7ac88a32a01cba534fa9896c7160e7e752dd419f7a696a9b16ea9",
+          "id": "worker-readonly-preflight",
+          "position": 5
+        },
+        {
+          "canonical_row_sha256": "22d7f0724213434e89e115df02c7bd1c862fc2147ef88b2654e9b042fdb800fe",
+          "id": "worker-traps-and-child-control",
+          "position": 6
+        },
+        {
+          "canonical_row_sha256": "6b99d6ada2de903d01c40c25ee9df2112a13bc2dcdaf9b852cebfc238ac22a37",
+          "id": "outer-writer-guard-and-original-baseline",
+          "position": 7
+        },
+        {
+          "canonical_row_sha256": "81d46c9620d71ba3bfb58912c84480e8ce89aa0f6ab996da25fa4d183274bc59",
+          "id": "owned-runtime-and-original-backups",
+          "position": 8
+        },
+        {
+          "canonical_row_sha256": "bea930175e4b00e04a08ee03ebbf0c3913e05f539e19f44d5045426ada5c2fe0",
+          "id": "predecessor-and-local-isolation",
+          "position": 9
+        },
+        {
+          "canonical_row_sha256": "0cbdbbaab1ce86113cf72d3068c980bc584124ebacf7f7f3a4884b1bd6922422",
+          "id": "stage7-owned-binding",
+          "position": 10
+        },
+        {
+          "canonical_row_sha256": "75236dc315688ff965ade8e82849e556626a3ed8e00c3b1f2abd3f828ef75ff2",
+          "id": "whole-reference-entry",
+          "position": 11
+        },
+        {
+          "canonical_row_sha256": "979191d9eebe3f5e5a2d337f7bf98e8c8293a7e79c2637f559a47e63fef3d538",
+          "id": "reference-lock-runtime-logs",
+          "position": 12
+        },
+        {
+          "canonical_row_sha256": "9c3b0c56911e6c6c2693c26fc188c8066845828cb40092effccac2f884badc09",
+          "id": "reference-snapshots-and-config-scan",
+          "position": 13
+        },
+        {
+          "canonical_row_sha256": "64093c3d03655058de06ec487405e777cc598a636ed311ed2878112e21306d44",
+          "id": "reference-GenInitrd-mutation",
+          "position": 14
+        },
+        {
+          "canonical_row_sha256": "d95f1616ddbafa6ade0f616e56756dc3b866bd7856f892336772b972ca14a8c1",
+          "id": "reference-optional-module-mutation",
+          "position": 15
+        },
+        {
+          "canonical_row_sha256": "f0b8e39b9aa01205af2f1cdfb7f13b9b9b5530f3b0824e9cac7dec66df8008f0",
+          "id": "reference-boot-mutation",
+          "position": 16
+        },
+        {
+          "canonical_row_sha256": "99377ff3357423365915817cc140853cb4873cec2283985b6811c835aa1c1dac",
+          "id": "nested-call-adapter",
+          "position": 17
+        },
+        {
+          "canonical_row_sha256": "bce538302008a213db0ce705029dd13a05c1fe3091bd647b8fbb50df0430ee73",
+          "id": "real-backend-and-selector",
+          "position": 18
+        },
+        {
+          "canonical_row_sha256": "d7bfda1de50d19ff6a7e4461c09cb424dd44ee756cf8f88e133d9bf5f742c3e0",
+          "id": "package-tools-and-install-hooks",
+          "position": 19
+        },
+        {
+          "canonical_row_sha256": "efe67f648de442a96770189ae210edf8d21b2d75f726159bb7eb1a739bb49381",
+          "id": "source-and-archive-consumption",
+          "position": 20
+        },
+        {
+          "canonical_row_sha256": "8b2e9899c83d643429176c3d8a6b12033fa5b4c2755b21b0d6fdefe2cea748d4",
+          "id": "interpreter-helper-dependency-consumption",
+          "position": 21
+        },
+        {
+          "canonical_row_sha256": "9f17c70812e1ab5b1495528f6663746dce77af3c9c2b06f4e5a763ddc05817c0",
+          "id": "owned-child-quiescence",
+          "position": 22
+        },
+        {
+          "canonical_row_sha256": "018f33723b5480c8b9cd73bf3d0ff8288fdcfae3957edca6d823a6a139a4b2cb",
+          "id": "same-attempt-original-restoration",
+          "position": 23
+        },
+        {
+          "canonical_row_sha256": "a6ee15f1f6503ff3c325b7abded004b25bdf02ce5a771cc0b916a93f87e439ff",
+          "id": "target-evidence-closure",
+          "position": 24
+        },
+        {
+          "canonical_row_sha256": "0214e6f956282cfa39595d6a5c5f0cfbd50974808832ff93f57cbb7cbcbb7fa8",
+          "id": "target-control-release",
+          "position": 25
+        },
+        {
+          "canonical_row_sha256": "8bfb08e4578510b8152794b24e8454a445199fd880bedda180923268d472ae0c",
+          "id": "publication-controls",
+          "position": 26
+        },
+        {
+          "canonical_row_sha256": "533914d1374a6089b87180336fbc7d214a622531852f8afb8a3084164cb00acc",
+          "id": "publication-record",
+          "position": 27
+        },
+        {
+          "canonical_row_sha256": "e8dde072245ee4a69e34f79f1da901f55f44e312e121c155ce9c49073f0630cf",
+          "id": "publication-last-receipt",
+          "position": 28
+        },
+        {
+          "canonical_row_sha256": "a750b4686a5ce5dec3b60b9a789a1dd20836ce3dc49c8427c91b88f9dcbef5e4",
+          "id": "unresolved-dynamic-helpers-and-dependencies",
+          "position": 29
+        }
+      ],
+      "source": "freeze",
+      "source_field": "effect_domain_reconciliation"
+    },
+    "macro_cuts": {
+      "rows": [
+        {
+          "canonical_row_sha256": "2d36692095057a83b6ee7de810eed4a4346e6de2554a1dd7bb4baad9f483ea0b",
+          "id": "service-barrier-authentication/before-declared-operation",
+          "position": 0
+        },
+        {
+          "canonical_row_sha256": "765bbeada82e05ff7f68ee2d503e1d1872862f62748865b5f9a9e286a099790d",
+          "id": "service-barrier-authentication/within-declared-operation",
+          "position": 1
+        },
+        {
+          "canonical_row_sha256": "fbb85ee7d3698185c592b2425bf99316330af3e2b12ec8bf7504710189605b01",
+          "id": "service-barrier-authentication/after-declared-operation",
+          "position": 2
+        },
+        {
+          "canonical_row_sha256": "6818376094febe436ccc8708e7e2259c649bc277a79678532123fb23d490be2d",
+          "id": "service-original-durable-claim/before-declared-operation",
+          "position": 3
+        },
+        {
+          "canonical_row_sha256": "a14b9a75ab32df28f3122e0d3f44863bd6bd8bd0fb494b689ed5ab11fdee8729",
+          "id": "service-original-durable-claim/within-declared-operation",
+          "position": 4
+        },
+        {
+          "canonical_row_sha256": "25ed356acea5441475ec3764f3c16b043375b4751dd38872abd7b77c312fb59a",
+          "id": "service-original-durable-claim/after-declared-operation",
+          "position": 5
+        },
+        {
+          "canonical_row_sha256": "d3323f2bc87b5113a91a9f28920761cce6a2a8fe51cde1d4296a93ca40763f1f",
+          "id": "service-durable-launch-spend/before-declared-operation",
+          "position": 6
+        },
+        {
+          "canonical_row_sha256": "f2b09bbf7eff28ec0d07e04a9aaeb606a08b8854e65ab9038ef3f0412793cf5b",
+          "id": "service-durable-launch-spend/within-declared-operation",
+          "position": 7
+        },
+        {
+          "canonical_row_sha256": "097c3309b99972f19a08a4cd8cabad418331f6304f557f9578f79f156e07c001",
+          "id": "service-durable-launch-spend/after-declared-operation",
+          "position": 8
+        },
+        {
+          "canonical_row_sha256": "2cc15df4eef5b70ef85c7e919cde5b6b049f9793b99d8dd330c2c4e3cf0634f9",
+          "id": "service-single-worker-spawn/before-declared-operation",
+          "position": 9
+        },
+        {
+          "canonical_row_sha256": "a38e69ecc79231df519c0f8baf72cc82684c2606744fd848c298a9d7eb01d799",
+          "id": "service-single-worker-spawn/within-declared-operation",
+          "position": 10
+        },
+        {
+          "canonical_row_sha256": "098f1aed687b4e07ae773e97fdcd8ce27f42d19be906bea5f433186d5c0a3822",
+          "id": "service-single-worker-spawn/after-declared-operation",
+          "position": 11
+        },
+        {
+          "canonical_row_sha256": "3e5af992a7449fa3aabb12d9c690b5e287b25e0a31c3d477b210eca7431deeb5",
+          "id": "worker0-bounded-auth-read/before-declared-operation",
+          "position": 12
+        },
+        {
+          "canonical_row_sha256": "cf189c277f6a97e10e0c2afdb32f004631c070970fd0f25583e8f6f268f20a5f",
+          "id": "worker0-bounded-auth-read/within-declared-operation",
+          "position": 13
+        },
+        {
+          "canonical_row_sha256": "039b2da9a1cb3113e3b67163223a972c3cf25087420b90a4e8e49ee5d8e15d4c",
+          "id": "worker0-bounded-auth-read/after-declared-operation",
+          "position": 14
+        },
+        {
+          "canonical_row_sha256": "02c70ab17956f7fe9f5c5520db146fd1e37395a798986ebaa14a13a6beb3f079",
+          "id": "worker0-close-bootstrap/before-declared-operation",
+          "position": 15
+        },
+        {
+          "canonical_row_sha256": "82078be4b509ddf9d2a860224bfe7893783d50015da18a2570b8d5c1b8d5c9b5",
+          "id": "worker0-close-bootstrap/within-declared-operation",
+          "position": 16
+        },
+        {
+          "canonical_row_sha256": "967f12d24131b5fdce65a2d9704d072475dd4f167a4fb2681e651d35df929288",
+          "id": "worker0-close-bootstrap/after-declared-operation",
+          "position": 17
+        },
+        {
+          "canonical_row_sha256": "791630098c9dfa869f8d845f7fbab8fc1eb8134a5de9a5d6d55a8a72e6c809ee",
+          "id": "worker0-readonly-preflight/before-declared-operation",
+          "position": 18
+        },
+        {
+          "canonical_row_sha256": "3514ac9bfce7c93cdd5d6667e0b0e6d97b7bcdb6575138c1524a99f67e61147f",
+          "id": "worker0-readonly-preflight/within-declared-operation",
+          "position": 19
+        },
+        {
+          "canonical_row_sha256": "da49d82d72cde1a0a37d2b847d9092712b798ee7915c1a7367c77da2c5bb2416",
+          "id": "worker0-readonly-preflight/after-declared-operation",
+          "position": 20
+        },
+        {
+          "canonical_row_sha256": "8c9c81c9986a13ca61dcfd881754ecd566c934879dc4d7294f858b353b70ae4a",
+          "id": "worker1-arm-traps/before-declared-operation",
+          "position": 21
+        },
+        {
+          "canonical_row_sha256": "636cc619274de88bcc3ac3933d3fe4e1fae507ba0e64ff3e9b7bc02a296b3d4a",
+          "id": "worker1-arm-traps/within-declared-operation",
+          "position": 22
+        },
+        {
+          "canonical_row_sha256": "038f77065bfa3db8d052bee7f89d6f38f26b94b33b12419eee404381c3038fb3",
+          "id": "worker1-arm-traps/after-declared-operation",
+          "position": 23
+        },
+        {
+          "canonical_row_sha256": "16f9763fd010fa50e9ab37c7bf40461945f6cb8180f5b2276231c898ac842302",
+          "id": "interstage1-2-guard-freshoriginal/before-declared-operation",
+          "position": 24
+        },
+        {
+          "canonical_row_sha256": "773413b89d4b368e2776073f0b877aa4cd8e2ca5c124c18242c20ce3e56d5394",
+          "id": "interstage1-2-guard-freshoriginal/within-declared-operation",
+          "position": 25
+        },
+        {
+          "canonical_row_sha256": "f9db1fab084433d46ca03c326b24e219d096ec1391c364aa073a5a09eacdeaa1",
+          "id": "interstage1-2-guard-freshoriginal/after-declared-operation",
+          "position": 26
+        },
+        {
+          "canonical_row_sha256": "4b3a0479d7912ee87472e3929d34b05bc20cc9bfcae8f956831e4bf23e608a68",
+          "id": "worker2-owned-workspace/before-declared-operation",
+          "position": 27
+        },
+        {
+          "canonical_row_sha256": "f9969e5616f2cc5e90a0c0e611fd3d192570e03d440595b7bd129eb4e953961a",
+          "id": "worker2-owned-workspace/within-declared-operation",
+          "position": 28
+        },
+        {
+          "canonical_row_sha256": "448e6cdad04f71fb636980cf65faa0e6e2ce94dae6683a6ce40172f9b07064f5",
+          "id": "worker2-owned-workspace/after-declared-operation",
+          "position": 29
+        },
+        {
+          "canonical_row_sha256": "38c163aa5ce504748b49fb2a6b53c382041c6b103f52ed6003d9676218cfcd64",
+          "id": "worker3-original-backups/before-declared-operation",
+          "position": 30
+        },
+        {
+          "canonical_row_sha256": "91ac9e3c8d0bc0882cf7cbc64793ab4d1574fb17ea7f58954376801b45ba25a9",
+          "id": "worker3-original-backups/within-declared-operation",
+          "position": 31
+        },
+        {
+          "canonical_row_sha256": "02685c6bc45e997fc2cfc64bc042bce544669ce2a6101c8bb97df9e82a0a666d",
+          "id": "worker3-original-backups/after-declared-operation",
+          "position": 32
+        },
+        {
+          "canonical_row_sha256": "a541cbab2d9787bcb7091b91f3e4c5fffeb5cebdb82c7922c80e6d1f9e416c00",
+          "id": "worker4-exact-predecessor/before-declared-operation",
+          "position": 33
+        },
+        {
+          "canonical_row_sha256": "91f36505f2986f3404ec60918968314661cfd69e049a5c99607c938563e2f9c4",
+          "id": "worker4-exact-predecessor/within-declared-operation",
+          "position": 34
+        },
+        {
+          "canonical_row_sha256": "b091e1fe2acfbd3c90ce2717a707f61126c38163c55cf783d5b253384ffc44ed",
+          "id": "worker4-exact-predecessor/after-declared-operation",
+          "position": 35
+        },
+        {
+          "canonical_row_sha256": "b436c8ddf37c2d004fdf5dc2781a446c75dce571a75c173a2dbc94ea00c6188c",
+          "id": "worker5-local-isolation/before-declared-operation",
+          "position": 36
+        },
+        {
+          "canonical_row_sha256": "12cd42d74e23c8b9b7fb9387137379d0b8e977fc4949c7e5fb8a214c5fd55661",
+          "id": "worker5-local-isolation/within-declared-operation",
+          "position": 37
+        },
+        {
+          "canonical_row_sha256": "757c3026077015ffa34a5e9eae0f86e9fdbff852a20af99de7ca63b26885c6ca",
+          "id": "worker5-local-isolation/after-declared-operation",
+          "position": 38
+        },
+        {
+          "canonical_row_sha256": "a620d17e5ce7c4d81137e272a8b3683f881a5906f072eb920b3de22e35cda57a",
+          "id": "worker6-refresh-pin-once/before-declared-operation",
+          "position": 39
+        },
+        {
+          "canonical_row_sha256": "8ad97dc41b950db251618d1dc8110bd50bb242cefe259d5d5acb62117e0084fe",
+          "id": "worker6-refresh-pin-once/within-declared-operation",
+          "position": 40
+        },
+        {
+          "canonical_row_sha256": "7d5e478bb318d316a07352f1ecf220a772a8f803c6905770781f73ca28fc9022",
+          "id": "worker6-refresh-pin-once/after-declared-operation",
+          "position": 41
+        },
+        {
+          "canonical_row_sha256": "ae527a1810b90bd13858c14909042b1aaba044678345698fcd433fe3aebaf39d",
+          "id": "worker7-validate-pinned-candidate/before-declared-operation",
+          "position": 42
+        },
+        {
+          "canonical_row_sha256": "0b79a695518555d285bf3dc7a4721294fcc45fbd662151fecd18d59177069b79",
+          "id": "worker7-validate-pinned-candidate/within-declared-operation",
+          "position": 43
+        },
+        {
+          "canonical_row_sha256": "2d16c7ff5ff423ff91d4b65dea4a827efd2d2cad690b22011063e4ff68f9a795",
+          "id": "worker7-validate-pinned-candidate/after-declared-operation",
+          "position": 44
+        },
+        {
+          "canonical_row_sha256": "feb0057145af8b20fafb1f97397efbda74f6618c7ec5b68f2963f3defd06571d",
+          "id": "worker7-owned-durable-commit/before-declared-operation",
+          "position": 45
+        },
+        {
+          "canonical_row_sha256": "a6d95edc42c506734592516960cd9296b451613d863d451e0de0fc5e8ca0055c",
+          "id": "worker7-owned-durable-commit/within-declared-operation",
+          "position": 46
+        },
+        {
+          "canonical_row_sha256": "965690757c6f87ec006231ac3d66296a816f0c522eba52e4679683e1cb9406ac",
+          "id": "worker7-owned-durable-commit/after-declared-operation",
+          "position": 47
+        },
+        {
+          "canonical_row_sha256": "c0001b0ecfa0af893854bd4d86e23152c12fa07d5331256f894c85865e0eb37b",
+          "id": "worker8-whole-successor-apply/before-declared-operation",
+          "position": 48
+        },
+        {
+          "canonical_row_sha256": "27f6d8c049081102a6e478ba5645576296b5fd33093711a6ae842a786d589349",
+          "id": "worker8-whole-successor-apply/within-declared-operation",
+          "position": 49
+        },
+        {
+          "canonical_row_sha256": "cbe06b8c6516ed88a47fe5d8a85f8245ef3187449e94fc5ff355667035741345",
+          "id": "worker8-whole-successor-apply/after-declared-operation",
+          "position": 50
+        },
+        {
+          "canonical_row_sha256": "e92df4d948fa1f0a85343db7144ba4055c0dfd0dc18714a12c4e55cf089695d8",
+          "id": "stop-forward-irreversibly/before-declared-operation",
+          "position": 51
+        },
+        {
+          "canonical_row_sha256": "bce5fcc777cc7bed175e02b07112b769ff0b678d3cb4ff3d467ba8a3222c3fbe",
+          "id": "stop-forward-irreversibly/within-declared-operation",
+          "position": 52
+        },
+        {
+          "canonical_row_sha256": "4717ecd17e817cf68970bcfc3924e1daa2a6861a908e030f195e3fd86432ff21",
+          "id": "stop-forward-irreversibly/after-declared-operation",
+          "position": 53
+        },
+        {
+          "canonical_row_sha256": "af2e5640da769e2bba4e1c4c5aed9bd7a3ae3e7459eaf3322c6a9252fe393f83",
+          "id": "drain-known-owned-children/before-declared-operation",
+          "position": 54
+        },
+        {
+          "canonical_row_sha256": "0ceaa4524517c927f18da1e287e882a30abec8c9648de20d360d55e1214b9c6c",
+          "id": "drain-known-owned-children/within-declared-operation",
+          "position": 55
+        },
+        {
+          "canonical_row_sha256": "05ce9679e84bd8ed0c51616c244c1a435662c614197b7a2a19199f4d3cf1aa1c",
+          "id": "drain-known-owned-children/after-declared-operation",
+          "position": 56
+        },
+        {
+          "canonical_row_sha256": "00ee575c9cc8bab582a9d2a83895bc1cb80f91514fdb9096b336c8797941276f",
+          "id": "worker9-original-restoration/before-declared-operation",
+          "position": 57
+        },
+        {
+          "canonical_row_sha256": "d4653e078a1c01a3e9872a2dec47fa671a630d3c1cd61a2ba79f34670d205774",
+          "id": "worker9-original-restoration/within-declared-operation",
+          "position": 58
+        },
+        {
+          "canonical_row_sha256": "f0c8e4cf8510ae5dfbf9b3c06e7b319b7b8bf13fee21d09e066fe8b44afbd21a",
+          "id": "worker9-original-restoration/after-declared-operation",
+          "position": 59
+        },
+        {
+          "canonical_row_sha256": "7eef016a2eb212adec3d8fe4e48c639f551e9d6d635599f3360660d09b46c750",
+          "id": "worker10-original-verification/before-declared-operation",
+          "position": 60
+        },
+        {
+          "canonical_row_sha256": "a3c6b84d2a4394b51efe50d511d9abe9d9ee221c502981bff606994f9632f580",
+          "id": "worker10-original-verification/within-declared-operation",
+          "position": 61
+        },
+        {
+          "canonical_row_sha256": "ad5563908e59b20599837682fbc312bb230862e0dc3c25f175977467d578734f",
+          "id": "worker10-original-verification/after-declared-operation",
+          "position": 62
+        },
+        {
+          "canonical_row_sha256": "9d5c697720a2a31f18e9d3058d75201ac75b47fe4a7d2b4e50b836c2d01d3366",
+          "id": "worker11-close-target-evidence/before-declared-operation",
+          "position": 63
+        },
+        {
+          "canonical_row_sha256": "9e73c646bd582991a26fbe84f7059592cc43aafdec133d801fea620cdb63d1a9",
+          "id": "worker11-close-target-evidence/within-declared-operation",
+          "position": 64
+        },
+        {
+          "canonical_row_sha256": "7c765a68c902a38dfad625de5f5e82a7490472bedbb551209e4b922729c7557e",
+          "id": "worker11-close-target-evidence/after-declared-operation",
+          "position": 65
+        },
+        {
+          "canonical_row_sha256": "0c477b46d50e02f63494b7652198e33c5aed9d4c16d291f127aca0aad475b12a",
+          "id": "release-target-control/before-declared-operation",
+          "position": 66
+        },
+        {
+          "canonical_row_sha256": "767fe5a6125af6b975beb7df38a57c813b306eb01bd3e5276cbceddbda10a437",
+          "id": "release-target-control/within-declared-operation",
+          "position": 67
+        },
+        {
+          "canonical_row_sha256": "538930cf5ad7f8e2c7afba8c0d39046515c3a1fbf56274e050096f2bc106a4f8",
+          "id": "release-target-control/after-declared-operation",
+          "position": 68
+        },
+        {
+          "canonical_row_sha256": "4efa9ef66c5bb2b4d33f931ffa90613e6711feaa7806f9360bfe41ad81347af0",
+          "id": "worker12-publication-controls/before-declared-operation",
+          "position": 69
+        },
+        {
+          "canonical_row_sha256": "30e17e9fbbde608b336248b5d240fdabd163e2059f28e77dea2a37964d489318",
+          "id": "worker12-publication-controls/within-declared-operation",
+          "position": 70
+        },
+        {
+          "canonical_row_sha256": "211d6bb514e6e69fb580093a764a5f1a8fa1706e6cce623a5cc724cac394ae25",
+          "id": "worker12-publication-controls/after-declared-operation",
+          "position": 71
+        },
+        {
+          "canonical_row_sha256": "f44417abcca852254692dfb2134454a86e5f20ce6ba685d5157a7eac8cd6bc32",
+          "id": "worker12-publication-record/before-declared-operation",
+          "position": 72
+        },
+        {
+          "canonical_row_sha256": "5fb3445c363391dbc83a35d4f6af5bd2f5dd86d1c32daa54d31a834782c2fb8c",
+          "id": "worker12-publication-record/within-declared-operation",
+          "position": 73
+        },
+        {
+          "canonical_row_sha256": "c28330b93bc48f9b5f4c002fd0e51a1dc16e44ad258541174f9595e8006347af",
+          "id": "worker12-publication-record/after-declared-operation",
+          "position": 74
+        },
+        {
+          "canonical_row_sha256": "a4c380f3a6a371c215ef6ca67311cf3c22d1e10d93debd0cc89aca7b9fbb3f08",
+          "id": "worker12-last-receipt/before-declared-operation",
+          "position": 75
+        },
+        {
+          "canonical_row_sha256": "de362afb7147add04412f93231f3032a184ac630ad0c849e29c6c0597c13d7ef",
+          "id": "worker12-last-receipt/within-declared-operation",
+          "position": 76
+        },
+        {
+          "canonical_row_sha256": "0cc8306a0095ce75aff0efcfde7fc1dea260b84a5cdca12da98ad84f0229478d",
+          "id": "worker12-last-receipt/after-declared-operation",
+          "position": 77
+        },
+        {
+          "canonical_row_sha256": "da1bc713422535bb6e5aabfd5040496870d706a6b8fd067c433e42ab543f747c",
+          "id": "worker12-durable-handoff/before-declared-operation",
+          "position": 78
+        },
+        {
+          "canonical_row_sha256": "1bf1b133f25e749263e3e93bd59e1bce773eafd50eb0505ab8acca7fa3e9bb9f",
+          "id": "worker12-durable-handoff/within-declared-operation",
+          "position": 79
+        },
+        {
+          "canonical_row_sha256": "bf5cdfdb94fdc220277afee6f81b48c1341b6ae06ad8277b5575a6000e0c4f6d",
+          "id": "worker12-durable-handoff/after-declared-operation",
+          "position": 80
+        }
+      ],
+      "source": "gaps",
+      "source_field": "macro_cut_obligations"
+    },
+    "macro_relations": {
+      "rows": [
+        {
+          "canonical_row_sha256": "fb4c54b43813d4410173485c4b3f2c208be9475101f92f63e1c7efcc7fc50675",
+          "id": "durable-admission-claim->durable-single-launch-slot",
+          "position": 0
+        },
+        {
+          "canonical_row_sha256": "91953ea56713f5ff745125f938ff580b81de686ea58a3f9d59219ce1f032c8b8",
+          "id": "durable-single-launch-slot->offline-bootstrap-context",
+          "position": 1
+        },
+        {
+          "canonical_row_sha256": "204ce2707a3ebdbecfa28d8d38079fadfc590d1a97e99ff784f936b0052bada3",
+          "id": "offline-bootstrap-context->worker-readonly-preflight",
+          "position": 2
+        },
+        {
+          "canonical_row_sha256": "5d79e70159b4e55e616d29f19a0defb57afa27010688a20e8213fbb5151fcc45",
+          "id": "worker-readonly-preflight->worker-traps-and-child-control",
+          "position": 3
+        },
+        {
+          "canonical_row_sha256": "c284d78c22eebd0013367b62eeb90de0b9ea21df9513938192db1405c0b2aca1",
+          "id": "worker-traps-and-child-control->outer-writer-guard-and-original-baseline",
+          "position": 4
+        },
+        {
+          "canonical_row_sha256": "cc09ff7064baec9ac5f9a52607b2483b7ea964bae1ee304c0f1679535105cd7b",
+          "id": "outer-writer-guard-and-original-baseline->owned-runtime-and-original-backups",
+          "position": 5
+        },
+        {
+          "canonical_row_sha256": "778b87572a25819d97d5854b8ceca810f104de62cf9a250337602e13fcbcb250",
+          "id": "owned-runtime-and-original-backups->predecessor-and-local-isolation",
+          "position": 6
+        },
+        {
+          "canonical_row_sha256": "d455393237792c45abc2db9025d0ac269960b7f615d41b4e4da26ed4635f26f5",
+          "id": "predecessor-and-local-isolation->stage7-owned-binding",
+          "position": 7
+        },
+        {
+          "canonical_row_sha256": "4b07034386e31123c7e3c7bbf7f4116899ee90c142e96ce4afa4e800289760d3",
+          "id": "stage7-owned-binding->whole-reference-entry",
+          "position": 8
+        },
+        {
+          "canonical_row_sha256": "59d750fd1e6e33149841f63d3c185c6f28697c1b709d8bea9191da102599a7fe",
+          "id": "whole-reference-entry->reference-lock-runtime-logs",
+          "position": 9
+        },
+        {
+          "canonical_row_sha256": "c69c32a2b0172b0c73bd72d32b468b580d7f19d813f20816e5754c6ca35db728",
+          "id": "whole-reference-entry->reference-snapshots-and-config-scan",
+          "position": 10
+        },
+        {
+          "canonical_row_sha256": "232539d7e05583960119d59515bf4981928fe26b4d15d1710213316d22fad921",
+          "id": "whole-reference-entry->reference-GenInitrd-mutation",
+          "position": 11
+        },
+        {
+          "canonical_row_sha256": "3c4f8326de2ab8d41e72a6db29e1c4fe153bc90726c3460027963bbca131d5d8",
+          "id": "whole-reference-entry->reference-optional-module-mutation",
+          "position": 12
+        },
+        {
+          "canonical_row_sha256": "167c147e500131c1329f7844e12c3ffa29aea03a03c1c87761afe6fc38dc0c33",
+          "id": "whole-reference-entry->reference-boot-mutation",
+          "position": 13
+        },
+        {
+          "canonical_row_sha256": "7e787a5257280478e6b025a84b1d2540a071f51c609e3f4b466130ff1929c5c4",
+          "id": "whole-reference-entry->nested-call-adapter",
+          "position": 14
+        },
+        {
+          "canonical_row_sha256": "12537f601af0cab1445bb4338235751852bd9f552b3d1c4b86bab4f546ec64a3",
+          "id": "nested-call-adapter->real-backend-and-selector",
+          "position": 15
+        },
+        {
+          "canonical_row_sha256": "3881339755df39489ced05a6675a617d6b49c98bbfba38808057224a35af0d11",
+          "id": "real-backend-and-selector->package-tools-and-install-hooks",
+          "position": 16
+        },
+        {
+          "canonical_row_sha256": "e6e1434986821d3ba4aa5814b66185217cbeec5ba34308ed0a60186a541d7752",
+          "id": "package-tools-and-install-hooks->source-and-archive-consumption",
+          "position": 17
+        },
+        {
+          "canonical_row_sha256": "ba5cd921207fd9f3c7923bd5402df679f27bddf13ffdc8b88627bdaffe32a786",
+          "id": "package-tools-and-install-hooks->interpreter-helper-dependency-consumption",
+          "position": 18
+        },
+        {
+          "canonical_row_sha256": "651e041757985d59b95bc4dd6f63de940404bd470a9c032c3a4414e4272f7e50",
+          "id": "whole-reference-entry->owned-child-quiescence",
+          "position": 19
+        },
+        {
+          "canonical_row_sha256": "08ff709be9d50b061d5f8ab5ecced1d68d3c0024be9321905bbd5f73d7a4506b",
+          "id": "owned-child-quiescence->same-attempt-original-restoration",
+          "position": 20
+        },
+        {
+          "canonical_row_sha256": "67435647d6cd2b317f5e25a7958227fb155406f79b0074f606d30cfe18aed749",
+          "id": "same-attempt-original-restoration->target-evidence-closure",
+          "position": 21
+        },
+        {
+          "canonical_row_sha256": "5c902853e9cafef8a4f0781d103fb09cf2c403a2c2a177924fdc8ac004f81fc8",
+          "id": "target-evidence-closure->target-control-release",
+          "position": 22
+        },
+        {
+          "canonical_row_sha256": "b16da24eae70820d3a5ca13773058c4f5d7dfc18cdc74bca0f5ce01ccbd57e29",
+          "id": "target-control-release->publication-controls",
+          "position": 23
+        },
+        {
+          "canonical_row_sha256": "260f9e0d26f26c79f64e03e873f7e6ebe63611cd324468d5d889dd766655c7f4",
+          "id": "publication-controls->publication-record",
+          "position": 24
+        },
+        {
+          "canonical_row_sha256": "47091059b387de92b4b1c610cec02f154953373e6bc2a12dabbf28d5cf3973e6",
+          "id": "publication-record->publication-last-receipt",
+          "position": 25
+        },
+        {
+          "canonical_row_sha256": "54129dc3da366d39100d040aa3cf9b0672775db0367a329ea00330b5803011f2",
+          "id": "issuer-policy-and-key-provisioning->unresolved-dynamic-helpers-and-dependencies",
+          "position": 26
+        },
+        {
+          "canonical_row_sha256": "906f49b5e12704638d8f98d77a803bf7207e1bb8bb2c1097604152443559a5a1",
+          "id": "durable-admission-claim->unresolved-dynamic-helpers-and-dependencies",
+          "position": 27
+        },
+        {
+          "canonical_row_sha256": "41ba5ba5a8e2406e72a15e51a0ddd4309a60fc2a1c7b5ce79dd5ee11a2505e7e",
+          "id": "durable-single-launch-slot->issuer-policy-and-key-provisioning",
+          "position": 28
+        },
+        {
+          "canonical_row_sha256": "09ccc2600746400596972edfe2834a514322d39f30830b4a5f94219d0d421b2a",
+          "id": "durable-single-launch-slot->unresolved-dynamic-helpers-and-dependencies",
+          "position": 29
+        },
+        {
+          "canonical_row_sha256": "421fd4d9cc1502b690c698a528fa5f763dd6deb5c947f8756d6d7e887c9b4097",
+          "id": "offline-bootstrap-context->issuer-policy-and-key-provisioning",
+          "position": 30
+        },
+        {
+          "canonical_row_sha256": "2f074f2d2955b643ee156beb0902fe1643ec88e530fd068818a7a65fd29e1c6c",
+          "id": "offline-bootstrap-context->unresolved-dynamic-helpers-and-dependencies",
+          "position": 31
+        },
+        {
+          "canonical_row_sha256": "07844875a632c577c375c66340c43831c4e678985fcdddd525d140db0cd5f36c",
+          "id": "trusted-time-and-revocation-fence->unresolved-dynamic-helpers-and-dependencies",
+          "position": 32
+        },
+        {
+          "canonical_row_sha256": "69eadd29fb77b4c9e220420a768bd67feec6f6f71c038be909305eeeb08b45f8",
+          "id": "worker-readonly-preflight->issuer-policy-and-key-provisioning",
+          "position": 33
+        },
+        {
+          "canonical_row_sha256": "0cd83bd08ca4a2c668fd970cb523c673c55c32db338537e4ba3f1bb05bfc026b",
+          "id": "worker-readonly-preflight->unresolved-dynamic-helpers-and-dependencies",
+          "position": 34
+        },
+        {
+          "canonical_row_sha256": "ee13332821dc8bfff9b15c66193ad7b02ad539464a8a7095762e9dcebb62e61f",
+          "id": "worker-traps-and-child-control->issuer-policy-and-key-provisioning",
+          "position": 35
+        },
+        {
+          "canonical_row_sha256": "98e213ec6bfdf48d261fd7ffe215b83abb7167de2ff654fca2f02e878c4f1509",
+          "id": "worker-traps-and-child-control->trusted-time-and-revocation-fence",
+          "position": 36
+        },
+        {
+          "canonical_row_sha256": "b3e1c6c8a1c0a1e4693b314794800162530d504ca5f5a04702b8a949d35c6be9",
+          "id": "worker-traps-and-child-control->unresolved-dynamic-helpers-and-dependencies",
+          "position": 37
+        },
+        {
+          "canonical_row_sha256": "5e75d9e806a8c1e489cec22113ac0f1b5bdba12f9fc02833316e0c84ed061147",
+          "id": "outer-writer-guard-and-original-baseline->issuer-policy-and-key-provisioning",
+          "position": 38
+        },
+        {
+          "canonical_row_sha256": "41ee98fbe01a264ef420b21a4246fd064d51cd5cc16fcd332bfb5db80c6f7da1",
+          "id": "outer-writer-guard-and-original-baseline->trusted-time-and-revocation-fence",
+          "position": 39
+        },
+        {
+          "canonical_row_sha256": "f05228e9c9d5f828892236a3e81f76639937ba8a534c93dbdc220548262e877e",
+          "id": "outer-writer-guard-and-original-baseline->unresolved-dynamic-helpers-and-dependencies",
+          "position": 40
+        },
+        {
+          "canonical_row_sha256": "730fcfd25606c572381298499178df5c9ff72f08b119488de0b24657ae7ed6a9",
+          "id": "owned-runtime-and-original-backups->issuer-policy-and-key-provisioning",
+          "position": 41
+        },
+        {
+          "canonical_row_sha256": "80448a08c8b22e0f0e4f3f423edf76a1b95e7d04e1e5b7f93fec2a7470b6b80f",
+          "id": "owned-runtime-and-original-backups->trusted-time-and-revocation-fence",
+          "position": 42
+        },
+        {
+          "canonical_row_sha256": "c3fd25d70db17e83b3d92b895cbb50eba6f7c6932e8d5fba587779ef21edf1b5",
+          "id": "owned-runtime-and-original-backups->unresolved-dynamic-helpers-and-dependencies",
+          "position": 43
+        },
+        {
+          "canonical_row_sha256": "d6d90a34b90899ea10dbf0755d40623bfae24620e7f385f8add4a50859807430",
+          "id": "predecessor-and-local-isolation->issuer-policy-and-key-provisioning",
+          "position": 44
+        },
+        {
+          "canonical_row_sha256": "094f3587ab5880792b3050fdd322c0e8b35273714deeb2c67ef9c50cf43948ca",
+          "id": "predecessor-and-local-isolation->trusted-time-and-revocation-fence",
+          "position": 45
+        },
+        {
+          "canonical_row_sha256": "ac5247b1fe23e927856a0b8cf097769f355c77cf1788b87f06385b0ee5b271c6",
+          "id": "predecessor-and-local-isolation->unresolved-dynamic-helpers-and-dependencies",
+          "position": 46
+        },
+        {
+          "canonical_row_sha256": "d50af806e5fe432fc4b36c6350537f8070817bd7b88e58684335dc616e8c9750",
+          "id": "stage7-owned-binding->issuer-policy-and-key-provisioning",
+          "position": 47
+        },
+        {
+          "canonical_row_sha256": "b42f7338276663ad53e04597f61651a5b52e758df3a3a6790ee8d4aa355fe72d",
+          "id": "stage7-owned-binding->trusted-time-and-revocation-fence",
+          "position": 48
+        },
+        {
+          "canonical_row_sha256": "c48dfc799794a1bf26ac75c8054744e8d977073f459eb6374f394bb25ed934f2",
+          "id": "stage7-owned-binding->unresolved-dynamic-helpers-and-dependencies",
+          "position": 49
+        },
+        {
+          "canonical_row_sha256": "58c8e2e0fa42a237e136561554da4611972e9b9fb2b60032bf89e5c8d8b77c05",
+          "id": "whole-reference-entry->issuer-policy-and-key-provisioning",
+          "position": 50
+        },
+        {
+          "canonical_row_sha256": "03e95fb1557104ebbc2b7c204db69a03445277f2ff2598a410319dbd2f6a3973",
+          "id": "whole-reference-entry->trusted-time-and-revocation-fence",
+          "position": 51
+        },
+        {
+          "canonical_row_sha256": "f578001c275f514a3f35f77e18d851f07e9e2d07eee94834c987a9f6d4679943",
+          "id": "whole-reference-entry->unresolved-dynamic-helpers-and-dependencies",
+          "position": 52
+        },
+        {
+          "canonical_row_sha256": "f3ffdd1bde80f4a234c9a5913c28f8fc85f174a1e1dd99dcfd734c6620efa58b",
+          "id": "reference-lock-runtime-logs->issuer-policy-and-key-provisioning",
+          "position": 53
+        },
+        {
+          "canonical_row_sha256": "bdcd455ab1ab867baab7af9fd75141c6465d169f5e9835bf978abe49c236383b",
+          "id": "reference-lock-runtime-logs->trusted-time-and-revocation-fence",
+          "position": 54
+        },
+        {
+          "canonical_row_sha256": "e6b2509eb35018b2d9f370830d6f98a272e0008cddd879b0ef961dd2176c49ef",
+          "id": "reference-lock-runtime-logs->unresolved-dynamic-helpers-and-dependencies",
+          "position": 55
+        },
+        {
+          "canonical_row_sha256": "45bd48e803ea22d7a9a8779b74e384f1ca051c30292f0033759d6495d4d76659",
+          "id": "reference-snapshots-and-config-scan->issuer-policy-and-key-provisioning",
+          "position": 56
+        },
+        {
+          "canonical_row_sha256": "2b36f221ea2af1522df0364cd68029049222341fb0a1394a1ce1fbf02b140bca",
+          "id": "reference-snapshots-and-config-scan->trusted-time-and-revocation-fence",
+          "position": 57
+        },
+        {
+          "canonical_row_sha256": "debe22e08d3eee171d3708f95e75407973c79df9a32ce2f2889704af1e3ade42",
+          "id": "reference-snapshots-and-config-scan->unresolved-dynamic-helpers-and-dependencies",
+          "position": 58
+        },
+        {
+          "canonical_row_sha256": "2815fde0ce9b1f852ac43e8b949e177220ee2eab5c763b437a169e2e93b5b269",
+          "id": "reference-GenInitrd-mutation->unresolved-dynamic-helpers-and-dependencies",
+          "position": 59
+        },
+        {
+          "canonical_row_sha256": "da89ff061fefc3175c423f99cb73f319ef7ef336bab4af5f39d9f1fb2066e07e",
+          "id": "reference-optional-module-mutation->unresolved-dynamic-helpers-and-dependencies",
+          "position": 60
+        },
+        {
+          "canonical_row_sha256": "49ebbfea647e6b532214bf3adfea888a37c1bda7a3c252519dbb6209736220e1",
+          "id": "reference-boot-mutation->unresolved-dynamic-helpers-and-dependencies",
+          "position": 61
+        },
+        {
+          "canonical_row_sha256": "4d4a9b85abc2a13eb92dc294d8c6e2bedc3ecabec1e01b79b0f4630d167f6b82",
+          "id": "nested-call-adapter->issuer-policy-and-key-provisioning",
+          "position": 62
+        },
+        {
+          "canonical_row_sha256": "d147755fc5ec0aa35470f4e932abed24d6d1e8ed925ab24432c2834b8c358e3f",
+          "id": "nested-call-adapter->trusted-time-and-revocation-fence",
+          "position": 63
+        },
+        {
+          "canonical_row_sha256": "0c6178fc5786ab8149c3548cd27cee67f8cb18fdd38b8ee001d47073c8d20564",
+          "id": "nested-call-adapter->unresolved-dynamic-helpers-and-dependencies",
+          "position": 64
+        },
+        {
+          "canonical_row_sha256": "852ab7655cfcdec423b6d48d7021a6d6338c199bc8c0656a5088e8a75458ff20",
+          "id": "real-backend-and-selector->issuer-policy-and-key-provisioning",
+          "position": 65
+        },
+        {
+          "canonical_row_sha256": "1e1ed3e299f84504f284b1a92e7b92699eab2ae53646f9b9fa26d67032d4c162",
+          "id": "real-backend-and-selector->trusted-time-and-revocation-fence",
+          "position": 66
+        },
+        {
+          "canonical_row_sha256": "6cb6e9c53854a9888d8b00cbc4ac50469e6047ccf531886e704816f89ee05b16",
+          "id": "real-backend-and-selector->unresolved-dynamic-helpers-and-dependencies",
+          "position": 67
+        },
+        {
+          "canonical_row_sha256": "f413b225dcd766e9dbaf31678e73731a98d268599ad0fce173797f9a144c90e8",
+          "id": "package-tools-and-install-hooks->issuer-policy-and-key-provisioning",
+          "position": 68
+        },
+        {
+          "canonical_row_sha256": "36f58642ee0ef33997a940d9078627a73227973c6bd19f6e1762fdf745a0065e",
+          "id": "package-tools-and-install-hooks->trusted-time-and-revocation-fence",
+          "position": 69
+        },
+        {
+          "canonical_row_sha256": "7f0337212e4b0fd9f4e1e659e5a38dd3b8da6fbef1d18985d485bd0a162e9255",
+          "id": "package-tools-and-install-hooks->unresolved-dynamic-helpers-and-dependencies",
+          "position": 70
+        },
+        {
+          "canonical_row_sha256": "64db306e930deb07d6a64506e1370792207b9468354a63f3000e7d7cbec19af5",
+          "id": "source-and-archive-consumption->issuer-policy-and-key-provisioning",
+          "position": 71
+        },
+        {
+          "canonical_row_sha256": "1106d714bd1b5c30df05b5894463c3eb1c6fa7fd039a8cd5383cdd275f3bfc0d",
+          "id": "source-and-archive-consumption->trusted-time-and-revocation-fence",
+          "position": 72
+        },
+        {
+          "canonical_row_sha256": "9dd85e316f0655c23cb52e77b9fb3081d6c63a94e88e4cae83f1e65bb2e703da",
+          "id": "source-and-archive-consumption->unresolved-dynamic-helpers-and-dependencies",
+          "position": 73
+        },
+        {
+          "canonical_row_sha256": "9777cece956f4fbe24fdd8f87b0c03b67022e2f3f50a407e6a22da293f6230d7",
+          "id": "interpreter-helper-dependency-consumption->issuer-policy-and-key-provisioning",
+          "position": 74
+        },
+        {
+          "canonical_row_sha256": "0a006a2128375403596e2948b9d31ac82aa24b5759a6963555d8a31cb6803e5c",
+          "id": "interpreter-helper-dependency-consumption->trusted-time-and-revocation-fence",
+          "position": 75
+        },
+        {
+          "canonical_row_sha256": "47b75b487066624f2854fce75e7f18137ed25a7bfd84634313c7c1069accbbe7",
+          "id": "interpreter-helper-dependency-consumption->unresolved-dynamic-helpers-and-dependencies",
+          "position": 76
+        },
+        {
+          "canonical_row_sha256": "862ef18056e59b2fb8439b2aa7100b9ac980c723b295e8629360133a373a674a",
+          "id": "owned-child-quiescence->issuer-policy-and-key-provisioning",
+          "position": 77
+        },
+        {
+          "canonical_row_sha256": "14a4b04196fb5557e4b8b28ba42f3242d4ac12c309dd27e54c0e5c7ec56c1141",
+          "id": "owned-child-quiescence->trusted-time-and-revocation-fence",
+          "position": 78
+        },
+        {
+          "canonical_row_sha256": "ff880d42e3b6d72a5c660a2b6de873acdc60551a58230f907f515e32da00a3a3",
+          "id": "owned-child-quiescence->unresolved-dynamic-helpers-and-dependencies",
+          "position": 79
+        },
+        {
+          "canonical_row_sha256": "7fd967e38404e2bf54fc753042696974009455d96d98540e9bb540201b7bc436",
+          "id": "same-attempt-original-restoration->issuer-policy-and-key-provisioning",
+          "position": 80
+        },
+        {
+          "canonical_row_sha256": "bb27a95830adfcdec780bbb00eb19bdb9e389ed90ec250ed3b65902be6d635f3",
+          "id": "same-attempt-original-restoration->trusted-time-and-revocation-fence",
+          "position": 81
+        },
+        {
+          "canonical_row_sha256": "2aa197c1a1f2f6d5dc711b7a0de966424b372435e5c22f5624d2584b7ee48a76",
+          "id": "same-attempt-original-restoration->unresolved-dynamic-helpers-and-dependencies",
+          "position": 82
+        },
+        {
+          "canonical_row_sha256": "482f2edc54034cdd03180585c89d1296bd586016babbe0aed9b2133de7e97677",
+          "id": "target-evidence-closure->issuer-policy-and-key-provisioning",
+          "position": 83
+        },
+        {
+          "canonical_row_sha256": "3ad68435e9aa391e6db9137122a967743569adcf54f417f44cac33c7efd9d40a",
+          "id": "target-evidence-closure->trusted-time-and-revocation-fence",
+          "position": 84
+        },
+        {
+          "canonical_row_sha256": "e7b6bda369a214c9dc242862270f063176d895110a3bcf96ec31e222a02fe252",
+          "id": "target-evidence-closure->unresolved-dynamic-helpers-and-dependencies",
+          "position": 85
+        },
+        {
+          "canonical_row_sha256": "1c50191d55fdfdd8825cf63f901e0480acff1e353ea62060e4d711b0afd526b5",
+          "id": "target-control-release->issuer-policy-and-key-provisioning",
+          "position": 86
+        },
+        {
+          "canonical_row_sha256": "990a6f5661fd681c1a7de7bb6dc4e00f132f7f17c81153b282c45da4cc84a835",
+          "id": "target-control-release->trusted-time-and-revocation-fence",
+          "position": 87
+        },
+        {
+          "canonical_row_sha256": "6db70d4e1a750261f34c13cf38b55a307af31117afe4fc2fc2f2754b219bcc35",
+          "id": "target-control-release->unresolved-dynamic-helpers-and-dependencies",
+          "position": 88
+        },
+        {
+          "canonical_row_sha256": "6ab2bec3ee362647c41e72c0a39ad945b4ccdb79e9cb9659f2cffb6d1c634e17",
+          "id": "publication-controls->issuer-policy-and-key-provisioning",
+          "position": 89
+        },
+        {
+          "canonical_row_sha256": "33762cb23bfe347f88f96dd505f5f8a38907540475b02e8b402b18dd9947e3f3",
+          "id": "publication-controls->unresolved-dynamic-helpers-and-dependencies",
+          "position": 90
+        },
+        {
+          "canonical_row_sha256": "f25963dca2e7c4b8573f45bf49124918bfaaaeb5ccbb0db3b59d29b762416ffd",
+          "id": "publication-record->issuer-policy-and-key-provisioning",
+          "position": 91
+        },
+        {
+          "canonical_row_sha256": "339bcde7983574689abf8f341388f9579cf6d508fdf7ba382b3bd35154c4fd8f",
+          "id": "publication-record->unresolved-dynamic-helpers-and-dependencies",
+          "position": 92
+        },
+        {
+          "canonical_row_sha256": "73024fb5c69715fa23a043f659b2cc9f96d6294491b7d48f3e884ef55861f66d",
+          "id": "publication-last-receipt->issuer-policy-and-key-provisioning",
+          "position": 93
+        },
+        {
+          "canonical_row_sha256": "432444242ecfb28c5632ee03df0af3e8e4e5e4718caadda536ac7eeb90ec03c9",
+          "id": "publication-last-receipt->unresolved-dynamic-helpers-and-dependencies",
+          "position": 94
+        }
+      ],
+      "source": "freeze",
+      "source_field": "all95_macro_design_relations"
+    },
+    "native_cases": {
+      "rows": [
+        {
+          "canonical_row_sha256": "57776322eb2ae8840cbce65a472a7362ac1851a13d8db376ebbe02fc4a2fd864",
+          "id": "Slackware-15.0/issuer-authentication",
+          "position": 0
+        },
+        {
+          "canonical_row_sha256": "c36987c70c4ad73e852ebe276c7b69c326aa868e6ce9100e0398db876cf8d3b6",
+          "id": "Slackware-15.0/durable-consumption",
+          "position": 1
+        },
+        {
+          "canonical_row_sha256": "cfa0eb21aa38e017128adb767f49d97d2b036fc83dd91f5688e40aa89be79990",
+          "id": "Slackware-15.0/single-launch-slot",
+          "position": 2
+        },
+        {
+          "canonical_row_sha256": "6cd1bd929619af1e52361d4e299b9421a7f758f1d665d6da953ec53ff41deddc",
+          "id": "Slackware-15.0/bootstrap-bounds",
+          "position": 3
+        },
+        {
+          "canonical_row_sha256": "8acd4abf34e269a4c30a96ec6b41137571f3a15c44020835623c2b2a0c00b16e",
+          "id": "Slackware-15.0/namespace-FDs",
+          "position": 4
+        },
+        {
+          "canonical_row_sha256": "d59818ef71cb49db20095fd879eaef56a1f78b0479deec5c760d0cc2d45e19b0",
+          "id": "Slackware-15.0/time-revocation-fence",
+          "position": 5
+        },
+        {
+          "canonical_row_sha256": "d5d900a204a1b3f8e6a22d0ed85f9922798050650dff86426292fc021b481bbc",
+          "id": "Slackware-15.0/rights-budgets",
+          "position": 6
+        },
+        {
+          "canonical_row_sha256": "c3fc7acc5e14c6f274535172f29f61907ef0ae9b254638050a7eaa18f5d353a0",
+          "id": "Slackware-15.0/guard-writer-inventory",
+          "position": 7
+        },
+        {
+          "canonical_row_sha256": "d7619bea893df6f87f86f9703812dfbd964f9157762922bd38f8062edf408d53",
+          "id": "Slackware-15.0/original-backups",
+          "position": 8
+        },
+        {
+          "canonical_row_sha256": "76368fef4e7f5f504f34165d9c7444574bfd18c94eee32622e53650a52dbe107",
+          "id": "Slackware-15.0/phase-deltas",
+          "position": 9
+        },
+        {
+          "canonical_row_sha256": "d948e770cd9a57806a88352a6f5f8bd300d591b04e3c048137da8e14686e5fbd",
+          "id": "Slackware-15.0/stage7-binding",
+          "position": 10
+        },
+        {
+          "canonical_row_sha256": "3c9cbd2c83b2306b7b5339345762936c4f7beb90325f58302fbb629bf9d10501",
+          "id": "Slackware-15.0/reference-entry",
+          "position": 11
+        },
+        {
+          "canonical_row_sha256": "1503aaeb01dc687ee25c458a906187fb2e487165341d2336aa956a00932b7354",
+          "id": "Slackware-15.0/actual-selector",
+          "position": 12
+        },
+        {
+          "canonical_row_sha256": "7e57d557601418b41ed7014e027fa17f9a4420e9a7c4929a3e0b541d15ddb367",
+          "id": "Slackware-15.0/raw-status-latch",
+          "position": 13
+        },
+        {
+          "canonical_row_sha256": "9603e188ace2afab412339d24782bef0eee23eaf0a47fbbd3d1683cab8df7128",
+          "id": "Slackware-15.0/raw-pkglist-pin",
+          "position": 14
+        },
+        {
+          "canonical_row_sha256": "392c4301c6befe8caca17ff5028f400fe6e7df7c3b771ec6cf1ea3228935a871",
+          "id": "Slackware-15.0/package-hooks-effects",
+          "position": 15
+        },
+        {
+          "canonical_row_sha256": "ee49cc54f8e4da8f268059aeb9c54a897a45f778667dad05d8b46e1e2996a165",
+          "id": "Slackware-15.0/source-archives",
+          "position": 16
+        },
+        {
+          "canonical_row_sha256": "0d2215201b654c8f56f059ad9df34d6ec606d719dd6b35dff5d764b4de8bcce8",
+          "id": "Slackware-15.0/helper-dependencies",
+          "position": 17
+        },
+        {
+          "canonical_row_sha256": "27beda35d2f8aebdcf12db56eeee520cce96cbb7154ad346ef14960baecd6e48",
+          "id": "Slackware-15.0/child-quiescence",
+          "position": 18
+        },
+        {
+          "canonical_row_sha256": "426a28f4abac469f0bf7a75c92bfe6c4bfa8eb4d7bd6d2866c8f41bb6b263694",
+          "id": "Slackware-15.0/retained-restoration",
+          "position": 19
+        },
+        {
+          "canonical_row_sha256": "7c6a8bc0b74ebc3ca253f0729b2736db2a83d19c04840ffcad8b466673e43f9f",
+          "id": "Slackware-15.0/original-verification",
+          "position": 20
+        },
+        {
+          "canonical_row_sha256": "5e8dcd0cb48f951a79dd452a1183172138e8eefeb391a85a79a15571c970cc96",
+          "id": "Slackware-15.0/signal-crash-interleavings",
+          "position": 21
+        },
+        {
+          "canonical_row_sha256": "6ecfca9e6437d3d1b3b0dda923dab9e2690dbf2be42c824f6922c5c0fba4d176",
+          "id": "Slackware-15.0/publication-controls",
+          "position": 22
+        },
+        {
+          "canonical_row_sha256": "0639686bd11d12f0755d7d09fcb6b4b7ea315ca26f6291b94aa96625522f73ec",
+          "id": "Slackware-15.0/record-last-receipt",
+          "position": 23
+        },
+        {
+          "canonical_row_sha256": "4fbfe350bcac88fcfff15b09fcc6d58b9f2df371ecc8a0290661fff204725cc3",
+          "id": "Slackware-15.0/unknown-publication",
+          "position": 24
+        },
+        {
+          "canonical_row_sha256": "c45176756c7d211a2cf5e6c252ef83ffa3b7fceb5c0def23522c594ac51b5b94",
+          "id": "Slackware-15.0/cross-closure-oracle",
+          "position": 25
+        },
+        {
+          "canonical_row_sha256": "b987f67b7b9776af25a8f4ad5fb5e804e9c36344d561bd0a58b2d0d7a6a9b453",
+          "id": "Slackware-current/issuer-authentication",
+          "position": 26
+        },
+        {
+          "canonical_row_sha256": "ba67fe0af937b7edb375218f864c20e3ec32ef2e76c164eb7d10f4125eb7b544",
+          "id": "Slackware-current/durable-consumption",
+          "position": 27
+        },
+        {
+          "canonical_row_sha256": "43e52f6e75e267f7b8b02326fafe98f662d58979367379281ac68122f0699e97",
+          "id": "Slackware-current/single-launch-slot",
+          "position": 28
+        },
+        {
+          "canonical_row_sha256": "2647db24dd5b16c9d42f74902723f60346cc2bd6f041e870ba2197088446cea6",
+          "id": "Slackware-current/bootstrap-bounds",
+          "position": 29
+        },
+        {
+          "canonical_row_sha256": "e8d12f4faad55e93b2920890a59dab5ed464bd781a16d424978311945fdf63f2",
+          "id": "Slackware-current/namespace-FDs",
+          "position": 30
+        },
+        {
+          "canonical_row_sha256": "4255eed642ac4448e88e039e780510e89a593d75204d239eef47cda5ae8925a8",
+          "id": "Slackware-current/time-revocation-fence",
+          "position": 31
+        },
+        {
+          "canonical_row_sha256": "13ce78b908ee1756532c4b35592077a07b8ccda4dbf322c2efeb7bcad45b084a",
+          "id": "Slackware-current/rights-budgets",
+          "position": 32
+        },
+        {
+          "canonical_row_sha256": "5f2d2910170f54187048a84af83b868d3b58ef1b73bcfa0625a5b95abee0d227",
+          "id": "Slackware-current/guard-writer-inventory",
+          "position": 33
+        },
+        {
+          "canonical_row_sha256": "aec073c010eb26914cad3f0e594ae762d783ac72114f8cdfdc9b984db1132756",
+          "id": "Slackware-current/original-backups",
+          "position": 34
+        },
+        {
+          "canonical_row_sha256": "a7f0fcad05bdb5a42f5e62265b005853ee6c18a1e4319f5e7c63afbd016b18bb",
+          "id": "Slackware-current/phase-deltas",
+          "position": 35
+        },
+        {
+          "canonical_row_sha256": "50299f540870f40921edb6d0483797b96c81a7bea16db0232bfe9215f0240799",
+          "id": "Slackware-current/stage7-binding",
+          "position": 36
+        },
+        {
+          "canonical_row_sha256": "94443d05a19291ab3beaf5218beb0391db0d9e288ccfc25f264a72962eb99741",
+          "id": "Slackware-current/reference-entry",
+          "position": 37
+        },
+        {
+          "canonical_row_sha256": "60b7e583f7b5a417183d2d63655e8de7429106c43d4b228e8a90c2f16c421be0",
+          "id": "Slackware-current/actual-selector",
+          "position": 38
+        },
+        {
+          "canonical_row_sha256": "57ae42ddbd9a03ceae36b420be46d9dcefb167170a9038c1bc833fc480d84672",
+          "id": "Slackware-current/raw-status-latch",
+          "position": 39
+        },
+        {
+          "canonical_row_sha256": "167c9da8db8ebdb8c3ddef8f38717b0208505de9dc3756490038176b15e3c76f",
+          "id": "Slackware-current/raw-pkglist-pin",
+          "position": 40
+        },
+        {
+          "canonical_row_sha256": "4f6c8ba3065e89d3dfd871b7679cbd8e7ee84b4389d3ab11bb062efecd6c2feb",
+          "id": "Slackware-current/package-hooks-effects",
+          "position": 41
+        },
+        {
+          "canonical_row_sha256": "ed1951a77b65e267071d5d56aee90da2ddd8bdacceb73562e48187876537f671",
+          "id": "Slackware-current/source-archives",
+          "position": 42
+        },
+        {
+          "canonical_row_sha256": "4c7e8564cebdc21f94c997b77b096fa7d8866f84724aabf495fba0b7f6831a6f",
+          "id": "Slackware-current/helper-dependencies",
+          "position": 43
+        },
+        {
+          "canonical_row_sha256": "a56dabdcfdaa20ab91e5d15979d0a38d93b7b6ae486b9247c36d7f2e5b7e6a3c",
+          "id": "Slackware-current/child-quiescence",
+          "position": 44
+        },
+        {
+          "canonical_row_sha256": "be7eb27f1005083df499c6b9e2c8fc48cc3a8f7c6ab90a9e78ad9eaefe9bae54",
+          "id": "Slackware-current/retained-restoration",
+          "position": 45
+        },
+        {
+          "canonical_row_sha256": "253c5a427b526086ee4522fe105b6f6437cd0ae3c977d831309d79d19cdbedca",
+          "id": "Slackware-current/original-verification",
+          "position": 46
+        },
+        {
+          "canonical_row_sha256": "cacbf04e23d628b078a4f50b503190c2270a01831e3835f6bc4a9031c6f7e1ac",
+          "id": "Slackware-current/signal-crash-interleavings",
+          "position": 47
+        },
+        {
+          "canonical_row_sha256": "3405474d0954c1af6b05c0ec7af87ce8af16ecd98d76549734a06a7f317e3ead",
+          "id": "Slackware-current/publication-controls",
+          "position": 48
+        },
+        {
+          "canonical_row_sha256": "11b1b0ef34e523557c256241fe8ac36eb1fe3a744950d54ebef3d6511eacd6f9",
+          "id": "Slackware-current/record-last-receipt",
+          "position": 49
+        },
+        {
+          "canonical_row_sha256": "bb67c73852b68faaaf407bef4569eaae4f4ac781b5b44754f802c939d3e13a6c",
+          "id": "Slackware-current/unknown-publication",
+          "position": 50
+        },
+        {
+          "canonical_row_sha256": "45d09b7ade53f356b958a5c33129ca78f0b24fdcfc55945956036b61fa91076b",
+          "id": "Slackware-current/cross-closure-oracle",
+          "position": 51
+        }
+      ],
+      "source": "gaps",
+      "source_field": "native_case_templates"
+    },
+    "native_gaps": {
+      "rows": [
+        {
+          "canonical_row_sha256": "44a3c963d1b44b85b96bb088de567b0cf017325d87803529fb28b1ab1c6f9f0e",
+          "id": "actual-successor-entry-and-transitive-graph",
+          "position": 0
+        },
+        {
+          "canonical_row_sha256": "4191db03157612b33c4f8ea6d6eeeef0e46072ade76fb6b2c0bc1bfd3b236092",
+          "id": "issuer-authentication-key-provenance",
+          "position": 1
+        },
+        {
+          "canonical_row_sha256": "d2268783a51d29a833cc6fdd26f3d00c96edea0b23305363bc584c1e432a9655",
+          "id": "linearizable-durable-claim-and-quarantine",
+          "position": 2
+        },
+        {
+          "canonical_row_sha256": "c1a22c2b7550cee228572a16102312bb87a09a4c55bf78684cb44c3040da05e5",
+          "id": "durable-launch-spend-and-supervision",
+          "position": 3
+        },
+        {
+          "canonical_row_sha256": "5e4a96704d7bfc691652076613c18df9b38946f2cee058ac5a93cbbc1a9903bf",
+          "id": "offline-bootstrap-and-FD-namespace-containment",
+          "position": 4
+        },
+        {
+          "canonical_row_sha256": "53e95177e98ee11d74cd460a4478b332503dd86aa4aa162bc6db33cf739cdc08",
+          "id": "native-time-revocation-fence",
+          "position": 5
+        },
+        {
+          "canonical_row_sha256": "2ca4173250570686800b12dabaf4e7b01a8784a302aa6c59dca118feca19f54d",
+          "id": "native-writer-object-alias-and-lifetime-exclusion",
+          "position": 6
+        },
+        {
+          "canonical_row_sha256": "d6d8bc8d6d22694af076d566765fc554a5f73be06d4864301a1b48eabaa54d7f",
+          "id": "fresh-original-baseline-and-approved-deltas",
+          "position": 7
+        },
+        {
+          "canonical_row_sha256": "a5d5fe3acdd0d555e23ab70fcad90aac8de9027678ca65f6d1b6788ac23ad420",
+          "id": "owned-backup-binding-and-child-recovery-primitives",
+          "position": 8
+        },
+        {
+          "canonical_row_sha256": "ee05dad40f10fa738fa4d89222a9fadfc952a8887e5430768f40582bda8adf6b",
+          "id": "versioned-real-backend-and-full-selector",
+          "position": 9
+        },
+        {
+          "canonical_row_sha256": "aa795b333bb465266fc20f93491db17591d9037c9caa92691792aed6ef429322",
+          "id": "package-hooks-source-archive-and-helper-consumption",
+          "position": 10
+        },
+        {
+          "canonical_row_sha256": "69c9901acca5ded1af316dc2770e9563b88d7b04675cb9f7f295f73abed5fb48",
+          "id": "bounded-clock-budget-and-same-attempt-recovery",
+          "position": 11
+        },
+        {
+          "canonical_row_sha256": "1c04b97f9d58d3226c8a552c89c50f4bfaa63134ec9768f4e9374c96477f0037",
+          "id": "target-closure-before-release",
+          "position": 12
+        },
+        {
+          "canonical_row_sha256": "0cf6fa288c1bafb84487c29af21be1b19e164bb50651a36847573ec4f0a38492",
+          "id": "independent-publication-last-receipt-durability-and-origin",
+          "position": 13
+        },
+        {
+          "canonical_row_sha256": "2c2fcb3b1586c7035bbe24cc538c1f3bfd5a7e1c83d045253cd0a219cc91d917",
+          "id": "syscall-crash-concurrency-model-refinement",
+          "position": 14
+        },
+        {
+          "canonical_row_sha256": "c539b68ca4a569e74883d421fdb3cd266dbfaa14aebb80d21bc84d4a1768c7b4",
+          "id": "independent-two-platform-oracle-and-fault-observations",
+          "position": 15
+        }
+      ],
+      "source": "gaps",
+      "source_field": "native_gap_register"
+    },
+    "native_proofs": {
+      "rows": [
+        {
+          "canonical_row_sha256": "68c6491812b4c33c7cc5d4cbb4075c2be92210d4fbea797da28b10a82fb5c690",
+          "id": "320/durable-linearizable-claim",
+          "position": 0
+        },
+        {
+          "canonical_row_sha256": "7fae0a5c87883469b18ea946da93476c5a871c80562050b15a781ab406334658",
+          "id": "320/crash-uncertainty-quarantine",
+          "position": 1
+        },
+        {
+          "canonical_row_sha256": "61ea689b02a6a3504551613898c76f14d478a6bf041a8153a53589ae4d8b9126",
+          "id": "320/one-launch-after-durable-spend",
+          "position": 2
+        },
+        {
+          "canonical_row_sha256": "58232470934a644b113c55b03fe3d6c35a552bd100fa08d61d3d1b0e5812a01c",
+          "id": "320/service-and-worker-effect-boundaries",
+          "position": 3
+        },
+        {
+          "canonical_row_sha256": "3879acde81beee2464c6e3836b13b7173fc762714533056590d82b54dd19169c",
+          "id": "320/authenticated-isolated-handoff",
+          "position": 4
+        },
+        {
+          "canonical_row_sha256": "130f8a6f1edce69b95bd5039ff51d7bdda1475e008a06496f261409e69bcccfe",
+          "id": "320/phase-and-recovery-rights",
+          "position": 5
+        },
+        {
+          "canonical_row_sha256": "0e1b380762af2de1ea7a240c44898e58b7197b7087df193a2a8cad2ef1ddc692",
+          "id": "321/authentic-original-context-and-launch",
+          "position": 6
+        },
+        {
+          "canonical_row_sha256": "4160065146e53fa029420e1d04472d474bc8b6ede687746201a61b750619f714",
+          "id": "321/bounded-pipe-lifetime",
+          "position": 7
+        },
+        {
+          "canonical_row_sha256": "68c62015adeb8b39a6f150f30168dab1b07cbe9f7dc29742affcbeee8e3cc97e",
+          "id": "321/descriptor-object-capability-inventory",
+          "position": 8
+        },
+        {
+          "canonical_row_sha256": "c0f1761252478674d88542b3c23c74bb25ccbabd548b2c993727d20f5c4ed363",
+          "id": "321/whole-namespace-and-process-containment",
+          "position": 9
+        },
+        {
+          "canonical_row_sha256": "b1cb875f227d33c55ba074b9458ca9547477ae0e4bb5ac846b0c0a2ae03e03c2",
+          "id": "321/handoff-loss-no-replay",
+          "position": 10
+        },
+        {
+          "canonical_row_sha256": "01765f556c426b83ea41f749387037c6fbf6458dabff1c527655062d84e48c37",
+          "id": "321/platform-interpreter-and-content-consumption",
+          "position": 11
+        },
+        {
+          "canonical_row_sha256": "facb4e7d43407f8a3df30277e84936a03d89d45b48390312a514d2985d2f8510",
+          "id": "322/successor-stage7-implementation-parity",
+          "position": 12
+        },
+        {
+          "canonical_row_sha256": "1e1bfe85deba35ebe848dade67fd6284af9ecc5e594413b762b10afb84aec29b",
+          "id": "322/guarded-original-phase-binding",
+          "position": 13
+        },
+        {
+          "canonical_row_sha256": "d93fefc1c6c36e92bd4be7a10da147f04ec3e01dfc71f5c8707817e27f7b1d5c",
+          "id": "322/actual-candidate-and-raw-inputs",
+          "position": 14
+        },
+        {
+          "canonical_row_sha256": "e5d45b170008b73d369ec05be6119142cfd4bce7cff2b55c004b9a447b7087b1",
+          "id": "322/owned-path-exclusive-durable-commit",
+          "position": 15
+        },
+        {
+          "canonical_row_sha256": "bcc8ce549e6adff4798dea42d2c25f69ecbecd00ca4bcc3c4e853eb72db87395",
+          "id": "322/partial-binding-and-prior-obligations",
+          "position": 16
+        },
+        {
+          "canonical_row_sha256": "342574ce94efbe590acb0af7dd8f5e4bf9667f467b86891d2e037d69b19d7d73",
+          "id": "322/binding-consumer-and-publication-integrity",
+          "position": 17
+        },
+        {
+          "canonical_row_sha256": "1d0bee2c83e6e7d71c1d0715eab900d49685b450b23a50a2e44e3001a815cbcc",
+          "id": "323/issuer-split-scope-and-clock",
+          "position": 18
+        },
+        {
+          "canonical_row_sha256": "7d3ca6b367b6f34f5e95ebae6109f76f248729a61c841c0fdf7e70128dace3ea",
+          "id": "323/external-live-revocation-fence",
+          "position": 19
+        },
+        {
+          "canonical_row_sha256": "7e8f74a0f0f79e5907220d936ff3eca34c8d93eb07d449044f3eb6b26f24daf5",
+          "id": "323/inflight-effect-and-child-drain",
+          "position": 20
+        },
+        {
+          "canonical_row_sha256": "627a86ea2be7045a98447ec1e87366c63574e9ab7d46827d9c678dcf4e109761",
+          "id": "323/same-attempt-bounded-safe-restoration",
+          "position": 21
+        },
+        {
+          "canonical_row_sha256": "b9918166ae290c1e9ad2afc965fa061d37a2852e7e46b424ab90b0f2a76ea031",
+          "id": "323/durable-recovery-budget-and-idempotence",
+          "position": 22
+        },
+        {
+          "canonical_row_sha256": "b3a14acb77e4a1d0fd4f5ec6bda7323d25662d1d09a419bb728f90e94591d11a",
+          "id": "323/closure-evidence-and-separate-publication",
+          "position": 23
+        },
+        {
+          "canonical_row_sha256": "aa9198d02b89c65096c296f196751453e5c88a194f61ea1fb1ad62a75f04babd",
+          "id": "324/platform-writers-and-guard-identity",
+          "position": 24
+        },
+        {
+          "canonical_row_sha256": "f2b67e83dd1c0ac1524461b98435196f88166bd057d25f059c0f3736a38fc403",
+          "id": "324/interstage-fresh-original-baseline",
+          "position": 25
+        },
+        {
+          "canonical_row_sha256": "458ef87ffb453627a87f4614ef736c2705dc13d5897d4249700f1274f691b309",
+          "id": "324/approved-phase-delta-equivalence",
+          "position": 26
+        },
+        {
+          "canonical_row_sha256": "7e62e944b0f1ea5cb95d2b30b0dcde5c7e8c875d1479729fc87499a1f9e28fe3",
+          "id": "324/raw-pkglist-pin-and-restored-production-role",
+          "position": 27
+        },
+        {
+          "canonical_row_sha256": "3427fc679d870bc58c1eebd0265ade4fe33cd61d2e6f84f48851d7f64584f5cf",
+          "id": "324/owner-child-failure-and-safe-recovery",
+          "position": 28
+        },
+        {
+          "canonical_row_sha256": "de7a776d82e086601b2c5f1dea7ec5086f2d0c56037b8935ce7b903715533594",
+          "id": "324/target-evidence-closure-and-publication-separation",
+          "position": 29
+        },
+        {
+          "canonical_row_sha256": "caecb9211e09c453d5197363bd92fad34f9b37a50e197fbbdf1fcf6cb21c801a",
+          "id": "325/actual-transitive-graph-and-entry",
+          "position": 30
+        },
+        {
+          "canonical_row_sha256": "e7c475f0c344acfd8f97fd45b9887383b8e7e0de70a0559b17cd64a9cf10d280",
+          "id": "325/service-fence-and-worker-capability-separation",
+          "position": 31
+        },
+        {
+          "canonical_row_sha256": "af684ef23242b1a56aa5359a8262d7959ea0db6788ff68fbe3814f73e6ada11f",
+          "id": "325/whole-reference-side-effect-containment",
+          "position": 32
+        },
+        {
+          "canonical_row_sha256": "d10e67a8e91f2dada299f96900e446529c541c4311e7e043c3df1097e96f7e5a",
+          "id": "325/actual-selector-and-raw-status-equivalence",
+          "position": 33
+        },
+        {
+          "canonical_row_sha256": "87a167964051d2f019acf19dc758b2ddd10252a8a3dcbe07a82070308ec4ae7c",
+          "id": "325/checked-byte-archive-package-effect-closure",
+          "position": 34
+        },
+        {
+          "canonical_row_sha256": "15d2eb0659d7b00164ffc429f2cf7f7332375cb78ca7e2126bb9015d0993381d",
+          "id": "325/target-and-publication-last-receipt-closure",
+          "position": 35
+        },
+        {
+          "canonical_row_sha256": "b7b31963682c8dd6282b8e419f2c0d4432d3cdc12aeed138a74aaf3b45526efa",
+          "id": "326/finite-model-refinement",
+          "position": 36
+        },
+        {
+          "canonical_row_sha256": "439f3f4b4ac303ecf19feaa65bdababf4842642e13010f8636f3db85938abf21",
+          "id": "326/independent-service-and-worker-conformance",
+          "position": 37
+        },
+        {
+          "canonical_row_sha256": "81da6541fcab84d13a4419c3f1d3ff44b47e92a724a8bbd28a076302c1bffd46",
+          "id": "326/independent-selector-and-effect-conformance",
+          "position": 38
+        },
+        {
+          "canonical_row_sha256": "1a5fcc913ce5fdf922855ea20062402d5ef2b0d2b3e7b1c30b07da269533609e",
+          "id": "326/independent-recovery-and-restoration-conformance",
+          "position": 39
+        },
+        {
+          "canonical_row_sha256": "dec8b447fdca949e191b06d7daa8f4f846d6908158932d1e04c4c7fa000b84a9",
+          "id": "326/independent-publication-and-receipt-conformance",
+          "position": 40
+        },
+        {
+          "canonical_row_sha256": "2761a8fe8e3eec448ef1c6fff1b43994681a1eb28a69056c2ec43a9424ad1e06",
+          "id": "326/scoped-cross-closure-before-readiness",
+          "position": 41
+        },
+        {
+          "canonical_row_sha256": "2537e3c1a7cffc6f53d64aab0754d4042c70bf98822274871288e530e79ee04a",
+          "id": "327/actual-scoped-effect-obligation-right-closure",
+          "position": 42
+        },
+        {
+          "canonical_row_sha256": "5f7819448bfd22501f65905c2015570a2542244f4a71002fb857964b287d3476",
+          "id": "327/all-inherited-proofs-and-two-platform-conformance",
+          "position": 43
+        },
+        {
+          "canonical_row_sha256": "c09e8561cd0d16f5b14bd9469a498791b927991f411655f04d0a2eea647dd874",
+          "id": "327/actual-owned-child-target-recovery-closure",
+          "position": 44
+        },
+        {
+          "canonical_row_sha256": "d875c2dbbd30996978f197dc74a8fef376590916a90a1c81ca989e34b9f1adcc",
+          "id": "327/actual-publication-and-current-scope-reconciliation",
+          "position": 45
+        }
+      ],
+      "source": "gaps",
+      "source_field": "qualified_proofs"
+    },
+    "nominal_interfaces": {
+      "rows": [
+        {
+          "canonical_row_sha256": "e493e990aea7f487cbad6774c40b58651fd1613c3900e2cd92d8347cfc6e367b",
+          "id": "issuer-policy-and-key-provisioning",
+          "position": 0
+        },
+        {
+          "canonical_row_sha256": "93dd4280e3a3ef0622c86a9d82b265fb0a98c881b91543592e510d46804174f3",
+          "id": "durable-admission-claim",
+          "position": 1
+        },
+        {
+          "canonical_row_sha256": "bb482743aaa00e96ee2dcea703b02f128b8475241364fe57635b6d8706415f30",
+          "id": "durable-single-launch-slot",
+          "position": 2
+        },
+        {
+          "canonical_row_sha256": "6569775f9e9ece004a4e0f3d32c242460443db88a316af10feed74c0310f6ea3",
+          "id": "offline-bootstrap-context",
+          "position": 3
+        },
+        {
+          "canonical_row_sha256": "8021f1e223d333d66cf88e19a547d4c165c7002ea43df48ddddf64c89c59b678",
+          "id": "trusted-time-and-revocation-fence",
+          "position": 4
+        },
+        {
+          "canonical_row_sha256": "4050e660f35af22a23cfdf13b3417dcaea3360aef4c04a1c63c866025125b56c",
+          "id": "worker-readonly-preflight",
+          "position": 5
+        },
+        {
+          "canonical_row_sha256": "cbd6455800883a868c645ce807627928b85f95c29880fcd0dab76f9eff5e8fcd",
+          "id": "worker-traps-and-child-control",
+          "position": 6
+        },
+        {
+          "canonical_row_sha256": "faeb7ac63343af75998e4eb6f8cc24d13a16191d1ce112171ad21ced7ad3cdeb",
+          "id": "outer-writer-guard-and-original-baseline",
+          "position": 7
+        },
+        {
+          "canonical_row_sha256": "04c0bc5eaaba6518be7cf86648a78a06d2d96677ba3542e614e1cac7cde9100d",
+          "id": "owned-runtime-and-original-backups",
+          "position": 8
+        },
+        {
+          "canonical_row_sha256": "e29d74cbe77dc0076f2722f7cf5f2154954c17cbad669211da0c1dc34252995c",
+          "id": "predecessor-and-local-isolation",
+          "position": 9
+        },
+        {
+          "canonical_row_sha256": "a1a60a2bee8df9d08ad1f7782bcc21bc364d17157df3c4cdbe65c5081cacfcc0",
+          "id": "stage7-owned-binding",
+          "position": 10
+        },
+        {
+          "canonical_row_sha256": "008441096c9bd52aad4f16df222b7404be5081ceba47ec98c8dab87ce6dc8fbb",
+          "id": "whole-reference-entry",
+          "position": 11
+        },
+        {
+          "canonical_row_sha256": "15fa462c63713f7c6ce099f8c31a66dfc211f0beb5c0870ac7a1f6926fa646ec",
+          "id": "reference-lock-runtime-logs",
+          "position": 12
+        },
+        {
+          "canonical_row_sha256": "04eb623789ed2122906ec533df399f5a8766cf4cc83384f91843e24c80d85327",
+          "id": "reference-snapshots-and-config-scan",
+          "position": 13
+        },
+        {
+          "canonical_row_sha256": "3ee0c08fb27c33848511b044e2d6274dfafac93e893b433c6601b69ac896a18e",
+          "id": "nested-call-adapter",
+          "position": 14
+        },
+        {
+          "canonical_row_sha256": "521c1e6c94421280842542f4516901f9a08bd3877476c05a92bfbdd186d2a773",
+          "id": "real-backend-and-selector",
+          "position": 15
+        },
+        {
+          "canonical_row_sha256": "9e438187125cf05055325b4cd3124e28aad4e16af94eaa350a1ce5d06a60b511",
+          "id": "package-tools-and-install-hooks",
+          "position": 16
+        },
+        {
+          "canonical_row_sha256": "3c06c1489229ab3dbecf55eebff78238e1517e47b3a6aead82e8457ce89a2c0e",
+          "id": "source-and-archive-consumption",
+          "position": 17
+        },
+        {
+          "canonical_row_sha256": "35e7e1479156a4cebce87d8bf3f3e4061c842589207617e8aa6ccddfeaae79e5",
+          "id": "interpreter-helper-dependency-consumption",
+          "position": 18
+        },
+        {
+          "canonical_row_sha256": "bf6c084d948a600898475dba1c42a709e476b2001215f5956ec7500baf5f696b",
+          "id": "owned-child-quiescence",
+          "position": 19
+        },
+        {
+          "canonical_row_sha256": "324882e29164abb589861d435343128da9cc766ab19bd39884214404865a6dcf",
+          "id": "same-attempt-original-restoration",
+          "position": 20
+        },
+        {
+          "canonical_row_sha256": "08b814c3bf0848f7a01d271709091e402546f507b4c2fb3d3c0c2aab53075987",
+          "id": "target-evidence-closure",
+          "position": 21
+        },
+        {
+          "canonical_row_sha256": "418a83c1c333680bdd569404b4f264513fad8a2644f32e5df4b097e18d647423",
+          "id": "target-control-release",
+          "position": 22
+        },
+        {
+          "canonical_row_sha256": "d2bcc425bebff8a95bb9268621aa09ca7e05e79f2d4580b090c23a6640124e88",
+          "id": "publication-controls",
+          "position": 23
+        },
+        {
+          "canonical_row_sha256": "181e37fee55431f7a32cee854bad72f684d5dc011ae9891cc8aec1f3ff03a4ed",
+          "id": "publication-record",
+          "position": 24
+        },
+        {
+          "canonical_row_sha256": "a3168b55883f8ba984224df8e69b7759b6027d40ed5729ce782d0549203bdeb1",
+          "id": "publication-last-receipt",
+          "position": 25
+        }
+      ],
+      "source": "freeze",
+      "source_field": "all26_nominal_interfaces"
+    },
+    "nominal_types": {
+      "rows": [
+        {
+          "canonical_row_sha256": "c343ec571eaf9c5343be89bff4276c9a6473ed864c549c8a1eb937f051eb4b19",
+          "id": "armed-traps-view",
+          "position": 0
+        },
+        {
+          "canonical_row_sha256": "79d45fef8d3d4b227a2a44efdadc7687a6697d58d81de62e82cbcef683a0830d",
+          "id": "authenticated-policy-view",
+          "position": 1
+        },
+        {
+          "canonical_row_sha256": "86d7c69f3bf02a65d38ce0e764f7a04b30c48d0b641bf335b1da0d0c492e05d3",
+          "id": "candidate-binding-view",
+          "position": 2
+        },
+        {
+          "canonical_row_sha256": "050d9e9f151a1e93fdbffa2adf54beb761fb697f866353d298efba07f30f740d",
+          "id": "closed-bootstrap-view",
+          "position": 3
+        },
+        {
+          "canonical_row_sha256": "ac56670f42564412aba62201b6cc4ea6b96a99a9cb2a5543dbfe96817b972495",
+          "id": "closed-target-evidence-view",
+          "position": 4
+        },
+        {
+          "canonical_row_sha256": "2103a6f5338d4be80108c5c0b65b1722f56260b4033b129effcc1c5ad43f9b5d",
+          "id": "complete-effect-graph-view",
+          "position": 5
+        },
+        {
+          "canonical_row_sha256": "557004d1f2b32e0a003181be98e6ad521336c4a177514c971343cfae3519d342",
+          "id": "consumed-original-context",
+          "position": 6
+        },
+        {
+          "canonical_row_sha256": "3515e78b171b8703522b8322b54fdfde8a0fd20fd94223368241687e61cdf3a4",
+          "id": "contained-runtime-view",
+          "position": 7
+        },
+        {
+          "canonical_row_sha256": "12011f54522a372662fce5ae7549d87c7cbb66e17f251fb005174b86d3548c6b",
+          "id": "contained-snapshot-view",
+          "position": 8
+        },
+        {
+          "canonical_row_sha256": "e2104994591f926158f750011a8f829b161c2d4c852133434e66595606957a2e",
+          "id": "continuous-guard-view",
+          "position": 9
+        },
+        {
+          "canonical_row_sha256": "55d9b832ee9c39d48e82c0372e2fafe255e2bf3acc3f9cf87f05e7bea6f38613",
+          "id": "dependency-closure-view",
+          "position": 10
+        },
+        {
+          "canonical_row_sha256": "da70511ff33b1abc54dba09632c0b97dd5b3ca765ad5dc5c2111276ee931d512",
+          "id": "early-observation-view",
+          "position": 11
+        },
+        {
+          "canonical_row_sha256": "eee506deb44dafd1dcdbd560366290e6716d6bcc2ef951d86903b33d143379f6",
+          "id": "exact-predecessor-view",
+          "position": 12
+        },
+        {
+          "canonical_row_sha256": "8ab4577131430e4630ba743a16461adeb91f893de311603a7634a853cb412131",
+          "id": "full-selector-vector-view",
+          "position": 13
+        },
+        {
+          "canonical_row_sha256": "61cda82ea35b137ade40b0472ef83fabe984f3d8d5c66459d438c80a7c08cca0",
+          "id": "isolated-config-view",
+          "position": 14
+        },
+        {
+          "canonical_row_sha256": "27bed1bd7fcd98e91a02dbdfb2062c794f164f77e3c864d10c559834f7ec46f4",
+          "id": "issuer-policy-view",
+          "position": 15
+        },
+        {
+          "canonical_row_sha256": "2730198c04f071865910fd74d95104006129bf794476e0dff174cd11f708d300",
+          "id": "known-child-set-view",
+          "position": 16
+        },
+        {
+          "canonical_row_sha256": "38d69d1e94adda92257dd0791fc73d7c526f44d5f5855dab0891f167bc4fe3c1",
+          "id": "last-receipt-origin-view",
+          "position": 17
+        },
+        {
+          "canonical_row_sha256": "edbd3222e503065c80b8d2f03a3b0656941400b5f0239207cbbd07d166d42f1b",
+          "id": "live-original-fence-view",
+          "position": 18
+        },
+        {
+          "canonical_row_sha256": "28052947ceec7ff64943fe12c4beb30492d8526bb3dc221f3eb891d14aad79cf",
+          "id": "nested-call-result-view",
+          "position": 19
+        },
+        {
+          "canonical_row_sha256": "812f29223fb9d0465714ba61e868a36cee3272674774de5cc3a5ec072f00da8a",
+          "id": "original-backups-view",
+          "position": 20
+        },
+        {
+          "canonical_row_sha256": "9216c540c601d51f59dd4e1b2e339a67012764e68a61e427e659fc41183a9173",
+          "id": "original-baseline-view",
+          "position": 21
+        },
+        {
+          "canonical_row_sha256": "aa373c777fec8ec7ca4e3016355051107908ad5b2a80853d0722cb408ea8a810",
+          "id": "original-restoration-result-view",
+          "position": 22
+        },
+        {
+          "canonical_row_sha256": "9d687ea087f0a6ce9229be67fce7c35c8b787e80ca8171fef4c93f5a2c5966f5",
+          "id": "original-verification-view",
+          "position": 23
+        },
+        {
+          "canonical_row_sha256": "a69e36250451d940ba79a684154b63fc9ee3669cf4980443a8d433c07a9fd4b5",
+          "id": "owned-path-set-view",
+          "position": 24
+        },
+        {
+          "canonical_row_sha256": "9fe25d269585bfab31ba0faa49b9ec6270021b35c73280572ad1596591999ee3",
+          "id": "package-effect-result-view",
+          "position": 25
+        },
+        {
+          "canonical_row_sha256": "e3176ac3e75cbabab4fd63da0dc729d46ee5f806adb34260a3b96affda78ad22",
+          "id": "publication-control-view",
+          "position": 26
+        },
+        {
+          "canonical_row_sha256": "5ab365eb255dfe41a4ac271d796865bd48cc6c8d1305e056c699a278160052aa",
+          "id": "publication-record-view",
+          "position": 27
+        },
+        {
+          "canonical_row_sha256": "4b03dc78700c4cccc7e99a6ae7dab1411088ff35399cb68c368e5b9511c965a0",
+          "id": "quiescent-child-view",
+          "position": 28
+        },
+        {
+          "canonical_row_sha256": "0ab4c6969497feed3c6cb436e315706583249b669a433bc53fe41b3f4f78ba52",
+          "id": "raw-pkglist-pin-view",
+          "position": 29
+        },
+        {
+          "canonical_row_sha256": "fd1ef121e91edeac031735fb3780e86be96ceee1585e64830a230ee42b9c39e5",
+          "id": "recovery-budget-view",
+          "position": 30
+        },
+        {
+          "canonical_row_sha256": "4738a7557be4a9cbe5df43eb209dfadabbc6dbec7172c92aeb9a7cddc6ad4345",
+          "id": "source-closure-view",
+          "position": 31
+        },
+        {
+          "canonical_row_sha256": "54479b27a89d2d07c78b1cd330b09823d1dc2cb493c1617e4b3bf7c178982012",
+          "id": "spent-launch-view",
+          "position": 32
+        },
+        {
+          "canonical_row_sha256": "ee467e31a013eccad9ccee23d974eb59680a223f2cf7b2d7f1a56150a5dd89ac",
+          "id": "target-release-view",
+          "position": 33
+        },
+        {
+          "canonical_row_sha256": "576666503644bd913c0f6e095b18147e044220daeef5ff32d0a73fb975f14e23",
+          "id": "whole-entry-result-view",
+          "position": 34
+        }
+      ],
+      "source": "freeze",
+      "source_field": "all35_nominal_types"
+    },
+    "owned_microsteps": {
+      "rows": [
+        {
+          "canonical_row_sha256": "dfde4c8f7cfd55b26f12a82d32ec531dfa9a3fb33819ad55006f19231841288e",
+          "id": "validate-exact-inputs",
+          "position": 0
+        },
+        {
+          "canonical_row_sha256": "60ffe7a2a938346024368e48396d4e29a3a69a134d470c596817c85fe474dab3",
+          "id": "register-owned-intent",
+          "position": 1
+        },
+        {
+          "canonical_row_sha256": "ae0557ba89c2c2d23957276b31d0dd959c6dc351ee1aa85b32cfd22b380a8d9d",
+          "id": "create-exclusive-stage",
+          "position": 2
+        },
+        {
+          "canonical_row_sha256": "edd4f3aed191b165e58cf76435cd8cf11d13bfbe7ef3eb32b614eeaa01ab6ad0",
+          "id": "write-complete-bytes",
+          "position": 3
+        },
+        {
+          "canonical_row_sha256": "fd0c10bac5bd6efa277996882e4c8637262ca333f6c7bf6ea5f453de3c987c91",
+          "id": "metadata-and-data-durable",
+          "position": 4
+        },
+        {
+          "canonical_row_sha256": "55e253a72c7a37798defcdc08489202a05a1369cde61d5d1c84411ed0e03fab8",
+          "id": "revalidate-pinned-inputs",
+          "position": 5
+        },
+        {
+          "canonical_row_sha256": "2da3bf9c2a0d3b5857c6f4c406391d04af6c32e1a60f6935e383f2f50c70fac8",
+          "id": "commit-no-replace",
+          "position": 6
+        },
+        {
+          "canonical_row_sha256": "1c918701a6a37b112ef03186425204ab271e4b102b87aa42838b07758acaf020",
+          "id": "directory-durability-confirmed",
+          "position": 7
+        },
+        {
+          "canonical_row_sha256": "4acbab5ea6aabb05971d7582d1ac94c7d1ab859ee18e9193a7b885b17236a08f",
+          "id": "stage-exit-evidence-complete",
+          "position": 8
+        }
+      ],
+      "source": "gaps",
+      "source_field": "owned_stage7_microsteps"
+    },
+    "phases": {
+      "rows": [
+        {
+          "canonical_row_sha256": "2900bb8ed3321e54a443b948b8dd3bac4fb917a49b0ec00b3ed12bdb8b5922ac",
+          "id": "service-barrier-authentication",
+          "position": 0
+        },
+        {
+          "canonical_row_sha256": "54a7b56dd598881216981c8f659be15094ada027feaecf27179885da854c6c41",
+          "id": "service-original-durable-claim",
+          "position": 1
+        },
+        {
+          "canonical_row_sha256": "8f718d6bca53e9454b65c028d4781b9464e34ae34974cb6eccb2a8bf1662ab6a",
+          "id": "service-durable-launch-spend",
+          "position": 2
+        },
+        {
+          "canonical_row_sha256": "43ea5336d313fcdd3ae39a304a519c78658d725d38d21d3c6243f3277a702ae2",
+          "id": "service-single-worker-spawn",
+          "position": 3
+        },
+        {
+          "canonical_row_sha256": "f9ffa52c4882dec0079b92854c384f97584fa664de6bd10307cdff5aee9d4ed4",
+          "id": "worker0-bounded-auth-read",
+          "position": 4
+        },
+        {
+          "canonical_row_sha256": "fc2058ec7a629a5386bd7ec4cf631f620528b901d4d41e63e8c90dab82123080",
+          "id": "worker0-close-bootstrap",
+          "position": 5
+        },
+        {
+          "canonical_row_sha256": "31967b1e85b92033fa9acf5fbc6f2a6aee5a78800f58ca621266089bc52adc21",
+          "id": "worker0-readonly-preflight",
+          "position": 6
+        },
+        {
+          "canonical_row_sha256": "84747fa03513ee9434ca00ebb778a8ce0492234bf315610df57da2250f125d69",
+          "id": "worker1-arm-traps",
+          "position": 7
+        },
+        {
+          "canonical_row_sha256": "b577b2d785d4dc1fd551c6fdf4a1c1cfdda06b554575d5d1c1177aecf3f459a1",
+          "id": "interstage1-2-guard-freshoriginal",
+          "position": 8
+        },
+        {
+          "canonical_row_sha256": "8a82f0e4e2b5a688be3247410180bbed851d32a97e9129d1e7ce1a6b27de3205",
+          "id": "worker2-owned-workspace",
+          "position": 9
+        },
+        {
+          "canonical_row_sha256": "2d3e772c4708bc057d465f54eab9ec70111bc98bb41820cc8f74d5646dfa5fa7",
+          "id": "worker3-original-backups",
+          "position": 10
+        },
+        {
+          "canonical_row_sha256": "1022c4508d2cbfc11abeec243d2db99253652a90034d9381249d2005259bc96d",
+          "id": "worker4-exact-predecessor",
+          "position": 11
+        },
+        {
+          "canonical_row_sha256": "ad1d04544494b032ecfd46529a5c96ce451519bed458a13ead41db883e119a63",
+          "id": "worker5-local-isolation",
+          "position": 12
+        },
+        {
+          "canonical_row_sha256": "4f14d63ef87ce37428a0af1b65ce51d22ed09380fef13ff2b1a40e3b04d2e6bc",
+          "id": "worker6-refresh-pin-once",
+          "position": 13
+        },
+        {
+          "canonical_row_sha256": "5a7d5f893491f2baf6f70e900fd3844035f9b71b2801ccd4ce059183117d4525",
+          "id": "worker7-validate-pinned-candidate",
+          "position": 14
+        },
+        {
+          "canonical_row_sha256": "0d1353c02d5ba3ece4666fcafa791b105c017c11a889f8b7f855a724e5f83071",
+          "id": "worker7-owned-durable-commit",
+          "position": 15
+        },
+        {
+          "canonical_row_sha256": "f9d58f7ac2649185277af2406e15ad8f87425356d6a245d642852bdeecd9c650",
+          "id": "worker8-whole-successor-apply",
+          "position": 16
+        },
+        {
+          "canonical_row_sha256": "e4d1e9fc459290d1174be3be6cb4a3234f6addcfb770e2a9948fdc39cfec3108",
+          "id": "stop-forward-irreversibly",
+          "position": 17
+        },
+        {
+          "canonical_row_sha256": "71d11b434a5597243e4972372d8e65c6d125fa3949ead8e751f6ace494c396f9",
+          "id": "drain-known-owned-children",
+          "position": 18
+        },
+        {
+          "canonical_row_sha256": "8ca52b4a30eced4b4ffdbe4e4361b5db458dd610f64039fcb230913d303282a0",
+          "id": "worker9-original-restoration",
+          "position": 19
+        },
+        {
+          "canonical_row_sha256": "15563dea41b56e77c6e5a17e1ca56131044eb08c99588017489229508a50b243",
+          "id": "worker10-original-verification",
+          "position": 20
+        },
+        {
+          "canonical_row_sha256": "721a57202bc01c9a9cc13aa8e9676e541575d320533221413baef5abb54bec3c",
+          "id": "worker11-close-target-evidence",
+          "position": 21
+        },
+        {
+          "canonical_row_sha256": "70a1c266493e481f4fa832f91b1ed143afc226b42d651f20b52666a96060960d",
+          "id": "release-target-control",
+          "position": 22
+        },
+        {
+          "canonical_row_sha256": "9e208ebe7a2f5931bf7eea186459d441b48d22db796737205e2702baea96c54d",
+          "id": "worker12-publication-controls",
+          "position": 23
+        },
+        {
+          "canonical_row_sha256": "e3bcd2120d76c96bb708655e0c965f476888478ca02d401251a8286304752a29",
+          "id": "worker12-publication-record",
+          "position": 24
+        },
+        {
+          "canonical_row_sha256": "929e7d0c4bd2476df6e02cd7006c1779b822a70debd7577059c3337d6cb61db2",
+          "id": "worker12-last-receipt",
+          "position": 25
+        },
+        {
+          "canonical_row_sha256": "6d8d2f70605b02c56dda7f5b9d2f7f1213a582091fb048e3e2e8a62d60c14eba",
+          "id": "worker12-durable-handoff",
+          "position": 26
+        }
+      ],
+      "source": "freeze",
+      "source_field": "all27_phase_boundaries"
+    },
+    "rights_windows": {
+      "rows": [
+        {
+          "canonical_row_sha256": "51db51114db679681c095ed16b368a7ba3a8bf84320aec56c98990a0731edf82",
+          "id": "policy",
+          "position": 0
+        },
+        {
+          "canonical_row_sha256": "7756bcffce1b26a186fd98382c4f76bf40152015ee5fabfe135f83a72250e2de",
+          "id": "admission",
+          "position": 1
+        },
+        {
+          "canonical_row_sha256": "d32b117d8a794c3a74726877466b0f8757501171cae54203305522c0c5548e80",
+          "id": "launch",
+          "position": 2
+        },
+        {
+          "canonical_row_sha256": "9655e4ab67b252fbe489664866c934d1dba21392aafc2f2ca74dfde596104185",
+          "id": "bootstrap",
+          "position": 3
+        },
+        {
+          "canonical_row_sha256": "dfef664df8330957f49909b3929b4bff9f30229769bf0e0bcdf806cbff333551",
+          "id": "service",
+          "position": 4
+        },
+        {
+          "canonical_row_sha256": "4f7393567467570ac9433b26dc23337d9c0e7470aa2211d5064ef9941d45f656",
+          "id": "forward",
+          "position": 5
+        },
+        {
+          "canonical_row_sha256": "bcf3cd647145a5ba409d3cd03f6624f89ed28686f791a035e34d60248d3a6494",
+          "id": "recovery",
+          "position": 6
+        },
+        {
+          "canonical_row_sha256": "d60f7f571042531b037838669280dbc1773de54d45c1cb18b251cbb75ef8408a",
+          "id": "publication",
+          "position": 7
+        },
+        {
+          "canonical_row_sha256": "fb0bfa4da7da2af1d59f031fdc13d2853a21868788a912dcaf8019e3c3e3cf49",
+          "id": "forbidden",
+          "position": 8
+        }
+      ],
+      "source": "freeze",
+      "source_field": "authority_window_reconciliation"
+    }
+  },
+  "schema": 1,
+  "source_bindings": {
+    "freeze": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-scoped-candidate-artifact-freeze-gap-register-and-safe-pause-review-freeze.json",
+      "sha256": "65f22eb3d22c6ee2f1cdffc50754d780b64f0a61415cfde351b156569e7e58b6"
+    },
+    "gaps": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-scoped-candidate-artifact-freeze-gap-register-and-safe-pause-review-gap-register.json",
+      "sha256": "31f53dc97bd2574cbfe2ab8a00145cb7541374752e83a2a285767c5db2069670"
+    }
+  },
+  "step": 339
+}

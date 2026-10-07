@@ -1,0 +1,148 @@
+{
+  "actual_host_state": "unobserved-not-claimed-absent",
+  "actual_live_bindings": null,
+  "compatibility_claim": "not-tested-natively",
+  "compatibility_targets": [
+    "Slackware-15.0",
+    "Slackware-current"
+  ],
+  "conditional_pause_step": 348,
+  "controller_action_required": false,
+  "core_execution_scope": "pure-in-memory-data-transitions-only",
+  "core_implemented": false,
+  "counts": {
+    "capabilities": 7,
+    "cross_obligations": 10,
+    "domains": 30,
+    "macro_cuts": 81,
+    "macro_relations": 95,
+    "native_cases": 52,
+    "native_gaps": 16,
+    "native_proofs": 46,
+    "nominal_interfaces": 26,
+    "nominal_types": 35,
+    "owned_microsteps": 9,
+    "phases": 27,
+    "rights_windows": 9
+  },
+  "future_native_implementation_selected": false,
+  "historical_bindings_reusable": false,
+  "kernel_package_edge_complete": false,
+  "last_confirmed_strong_safe_pause_step": 338,
+  "later_preparation_requires_complete_predecessor_return": true,
+  "machine_action_required": false,
+  "model_observations_are_native_evidence": false,
+  "native_cases_run": 0,
+  "native_effect_requests_allowed": false,
+  "native_proofs_added": 0,
+  "new_user_request": true,
+  "operational_conformance": false,
+  "operational_readiness": false,
+  "pause_conditions": [
+    "complete-user-overlay-full-tests-exact-commit-successful-push-clean-tree-matching-HEAD-origin-return",
+    "all-in-scope-repository-candidate-effects-and-obligations-reviewed",
+    "candidate-validator-has-no-runtime-dispatch-or-service-channel",
+    "all-unknown-actual-graph-primitives-native-protocols-and-conformance-remain-blockers",
+    "no-batch-runtime-or-partial-operational-publication",
+    "no-required-batch-machine-or-controller-cleanup",
+    "all-future-runtime-and-unused-live-rights-closed",
+    "actual-host-state-unobserved-never-claimed-absent-or-globally-closed",
+    "no-live-binding-reuse-pause-independent-of-later-current-refresh"
+  ],
+  "phase1_matrix_complete": false,
+  "phase2_open": false,
+  "preferred_step_range": [
+    339,
+    348
+  ],
+  "production_entry_closed": true,
+  "route": [
+    {
+      "deliverable": "Plan the offline transition-core batch and bind confirmed338 and every retained native obligation.",
+      "entry_requires_confirmed_step": 338,
+      "runtime_authorized": false,
+      "stage": "resume-plan",
+      "status": "current-preparation",
+      "step": 339
+    },
+    {
+      "deliverable": "Define closed immutable symbolic state/event/outcome schemas and actor/phase mappings; no native handles or execution commands.",
+      "entry_requires_confirmed_step": 339,
+      "runtime_authorized": false,
+      "stage": "state-event-schema",
+      "status": "future-repository-work",
+      "step": 340
+    },
+    {
+      "deliverable": "Implement pure admission/claim/launch transitions with irreversible unknown quarantine, pre-spent launch and no replay; symbolic assertions are not authentication or durability.",
+      "entry_requires_confirmed_step": 340,
+      "runtime_authorized": false,
+      "stage": "admission-launch-reducer",
+      "status": "future-repository-work",
+      "step": 341
+    },
+    {
+      "deliverable": "Implement bounded offline bootstrap/close, trap/guard/fresh-original ordering and rights-loss transitions as data; no real FD, clock, fence or writer exclusion.",
+      "entry_requires_confirmed_step": 341,
+      "runtime_authorized": false,
+      "stage": "bootstrap-guard-reducer",
+      "status": "future-repository-work",
+      "step": 342
+    },
+    {
+      "deliverable": "Implement original worker-stage progression, one raw pin, all nine stage7 microsteps and whole-successor selector/status obligations; do not substitute a few calls for full execution.",
+      "entry_requires_confirmed_step": 342,
+      "runtime_authorized": false,
+      "stage": "worker-owned-stage-reducer",
+      "status": "future-repository-work",
+      "step": 343
+    },
+    {
+      "deliverable": "Implement sticky original failure, irreversible forward stop, finite same-attempt pre-spent recovery, known-child drain and distinct unknown-owned/unknown-target outcomes.",
+      "entry_requires_confirmed_step": 343,
+      "runtime_authorized": false,
+      "stage": "failure-recovery-reducer",
+      "status": "future-repository-work",
+      "step": 344
+    },
+    {
+      "deliverable": "Implement full verification/evidence/release ordering then separately controlled captured-data record, final receipt durability/origin/handoff; no pair atomicity or uncertain republish.",
+      "entry_requires_confirmed_step": 344,
+      "runtime_authorized": false,
+      "stage": "target-publication-reducer",
+      "status": "future-repository-work",
+      "step": 345
+    },
+    {
+      "deliverable": "Test complete and adversarial event sequences using separately authored literal expected states and rejected traces; assertions remain private, not native evidence.",
+      "entry_requires_confirmed_step": 345,
+      "runtime_authorized": false,
+      "stage": "adversarial-sequence-tests",
+      "status": "future-repository-work",
+      "step": 346
+    },
+    {
+      "deliverable": "Map every reducer rule and unresolved event to all frozen phases/interfaces/domains/rights/proofs/cases/macro cuts and native gaps; any conflict blocks freeze.",
+      "entry_requires_confirmed_step": 346,
+      "runtime_authorized": false,
+      "stage": "contract-refinement-reconciliation",
+      "status": "future-repository-work",
+      "step": 347
+    },
+    {
+      "deliverable": "Freeze the tested offline core and explicit native gap register; confirm repository-scoped strong pause externally after complete user receipt, then stop.",
+      "entry_requires_confirmed_step": 347,
+      "runtime_authorized": false,
+      "stage": "offline-core-freeze-and-pause",
+      "status": "future-repository-work",
+      "step": 348
+    }
+  ],
+  "runtime_authority": false,
+  "schema": 1,
+  "scope": "repository-offline-transition-core-workstream339-348-only",
+  "step": 339,
+  "stop_after_complete348_acceptance": true,
+  "strong_safe_pause": false,
+  "user_step339_checkpoint_confirmed": false
+}

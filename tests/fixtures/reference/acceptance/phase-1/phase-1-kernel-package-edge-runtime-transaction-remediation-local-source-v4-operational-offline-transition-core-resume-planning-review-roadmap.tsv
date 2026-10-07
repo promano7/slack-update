@@ -1,0 +1,11 @@
+step	stage	entry_requires_confirmed_step	deliverable	runtime_authorized
+339	resume-plan	338	Plan the offline transition-core batch and bind confirmed338 and every retained native obligation.	no
+340	state-event-schema	339	Define closed immutable symbolic state/event/outcome schemas and actor/phase mappings; no native handles or execution commands.	no
+341	admission-launch-reducer	340	Implement pure admission/claim/launch transitions with irreversible unknown quarantine, pre-spent launch and no replay; symbolic assertions are not authentication or durability.	no
+342	bootstrap-guard-reducer	341	Implement bounded offline bootstrap/close, trap/guard/fresh-original ordering and rights-loss transitions as data; no real FD, clock, fence or writer exclusion.	no
+343	worker-owned-stage-reducer	342	Implement original worker-stage progression, one raw pin, all nine stage7 microsteps and whole-successor selector/status obligations; do not substitute a few calls for full execution.	no
+344	failure-recovery-reducer	343	Implement sticky original failure, irreversible forward stop, finite same-attempt pre-spent recovery, known-child drain and distinct unknown-owned/unknown-target outcomes.	no
+345	target-publication-reducer	344	Implement full verification/evidence/release ordering then separately controlled captured-data record, final receipt durability/origin/handoff; no pair atomicity or uncertain republish.	no
+346	adversarial-sequence-tests	345	Test complete and adversarial event sequences using separately authored literal expected states and rejected traces; assertions remain private, not native evidence.	no
+347	contract-refinement-reconciliation	346	Map every reducer rule and unresolved event to all frozen phases/interfaces/domains/rights/proofs/cases/macro cuts and native gaps; any conflict blocks freeze.	no
+348	offline-core-freeze-and-pause	347	Freeze the tested offline core and explicit native gap register; confirm repository-scoped strong pause externally after complete user receipt, then stop.	no
