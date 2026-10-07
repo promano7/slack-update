@@ -1,0 +1,69 @@
+{
+  "actual_dynamic_graph_complete": false,
+  "actual_native_authority_supplied": false,
+  "actual_successor_entry_selected": false,
+  "candidate_rule": "Independent fixed original eight-field symbolic expected row and archive/target/source/predecessor/selector provenance; no self-defining expected candidate.",
+  "dependencies": {
+    "admission341": {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-admission-launch-reducer.py",
+      "sha256": "1031e9e2099547def50ba1bdfb5fc8ff36fe94ef42540fbeef5c21509db72bed"
+    },
+    "bootstrap342": {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-bootstrap-guard-reducer.py",
+      "sha256": "201636350a88c7562cad5cf04f71d5c582b7ea547c2e98b1f7a3751756b32e89"
+    },
+    "core340": {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-transition-core.py",
+      "sha256": "94c8cc3dfdb0d813a6ec0d2f7c99e11f5866d8cf96b3ba53e852668eb9d03fb5"
+    }
+  },
+  "dependency_aliases": [
+    "slack_update_offline_core340",
+    "slack_update_offline_bootstrap342"
+  ],
+  "domains_and_relations_rule": "Exact original30 domain IDs and95 designed macro pairs retained, never promoted to actual dynamic call/effect completeness. Whole graph and actual whole-entry/effect equivalence remain explicit model assumptions and required-not-proven native obligations.",
+  "microstep_rule": "All nine source322 durable microsteps in exact order; no phase-report shortcut, no retry/overwrite, partial/visible/unknown distinct from complete durable plus stage-exit evidence.",
+  "native_authority": false,
+  "native_cases_pending": 52,
+  "native_cases_run": 0,
+  "native_evidence": false,
+  "native_gaps_pending": 16,
+  "native_proofs_added": 0,
+  "no_native_effects": true,
+  "operational_readiness": false,
+  "original_rule": "All original342 guard/baseline/traps/fence/admission bits unchanged; approved deltas only, no early/current baseline or renewed authority.",
+  "phase_order": [
+    "worker2-owned-workspace",
+    "worker3-original-backups",
+    "worker4-exact-predecessor",
+    "worker5-local-isolation",
+    "worker6-refresh-pin-once",
+    "worker7-validate-pinned-candidate",
+    "worker7-owned-durable-commit",
+    "worker8-whole-successor-apply"
+  ],
+  "pin_rule": "One raw symbolic pin after fresh regular nonempty exit0 refresh with both stream guards; immutable through candidate/microsteps/nested consumers. No row equivalence, rehash or changed-pin rebind.",
+  "required_native_proofs_pending": 46,
+  "schema": 1,
+  "scope": "pure-worker-owned-pin-binding-and-full-successor-report-model",
+  "stage7_microsteps": [
+    "validate-exact-inputs",
+    "register-owned-intent",
+    "create-exclusive-stage",
+    "write-complete-bytes",
+    "metadata-and-data-durable",
+    "revalidate-pinned-inputs",
+    "commit-no-replace",
+    "directory-durability-confirmed",
+    "stage-exit-evidence-complete"
+  ],
+  "step": 343,
+  "strong_safe_pause": false,
+  "whole_private_observations": [
+    "nested-update",
+    "nested-install-new",
+    "nested-upgrade-all",
+    "whole-entry-complete"
+  ],
+  "whole_rule": "Four private observations within original worker8 phase. Three exact nested outcomes preserve raw0/20-empty-install-new/0 rules and stop later forward observations on failure. Whole completion separately requires all sixteen source interface views/full graph/full effect/selector/hook/runtime/snapshot/entry equivalence; three calls are not a whole-reference substitute."
+}

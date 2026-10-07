@@ -1,0 +1,860 @@
+{
+  "admission341_binding": {
+    "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-admission-launch-reducer.py",
+    "sha256": "1031e9e2099547def50ba1bdfb5fc8ff36fe94ef42540fbeef5c21509db72bed"
+  },
+  "bootstrap342_binding": {
+    "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-bootstrap-guard-reducer.py",
+    "sha256": "201636350a88c7562cad5cf04f71d5c582b7ea547c2e98b1f7a3751756b32e89"
+  },
+  "core340_binding": {
+    "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-transition-core.py",
+    "sha256": "94c8cc3dfdb0d813a6ec0d2f7c99e11f5866d8cf96b3ba53e852668eb9d03fb5"
+  },
+  "interfaces332_binding": {
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-typed-primitive-interface-contract-review-interfaces.json",
+    "sha256": "a86782e26e1fa0aeb29e497f49207835223db7bf20866db5885d76a2343f3ce4"
+  },
+  "inventory330_binding": {
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-source-bound-candidate-graph-inventory-review-inventory.json",
+    "sha256": "2e34c85968e85e9be6fe4c0f9e3a140a6d626d94e6b848c84d1e016d71a83f80"
+  },
+  "map340_binding": {
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-state-event-schema-review-phase-map.json",
+    "sha256": "23d306b87e275ed590007da464112e7412a702c904c29e32f46f40bf8a337f03"
+  },
+  "native_authority": false,
+  "native_evidence": false,
+  "original_designed_domains": [
+    "issuer-policy-and-key-provisioning",
+    "durable-admission-claim",
+    "durable-single-launch-slot",
+    "offline-bootstrap-context",
+    "trusted-time-and-revocation-fence",
+    "worker-readonly-preflight",
+    "worker-traps-and-child-control",
+    "outer-writer-guard-and-original-baseline",
+    "owned-runtime-and-original-backups",
+    "predecessor-and-local-isolation",
+    "stage7-owned-binding",
+    "whole-reference-entry",
+    "reference-lock-runtime-logs",
+    "reference-snapshots-and-config-scan",
+    "reference-GenInitrd-mutation",
+    "reference-optional-module-mutation",
+    "reference-boot-mutation",
+    "nested-call-adapter",
+    "real-backend-and-selector",
+    "package-tools-and-install-hooks",
+    "source-and-archive-consumption",
+    "interpreter-helper-dependency-consumption",
+    "owned-child-quiescence",
+    "same-attempt-original-restoration",
+    "target-evidence-closure",
+    "target-control-release",
+    "publication-controls",
+    "publication-record",
+    "publication-last-receipt",
+    "unresolved-dynamic-helpers-and-dependencies"
+  ],
+  "original_macro_relations": [
+    [
+      "durable-admission-claim",
+      "durable-single-launch-slot"
+    ],
+    [
+      "durable-single-launch-slot",
+      "offline-bootstrap-context"
+    ],
+    [
+      "offline-bootstrap-context",
+      "worker-readonly-preflight"
+    ],
+    [
+      "worker-readonly-preflight",
+      "worker-traps-and-child-control"
+    ],
+    [
+      "worker-traps-and-child-control",
+      "outer-writer-guard-and-original-baseline"
+    ],
+    [
+      "outer-writer-guard-and-original-baseline",
+      "owned-runtime-and-original-backups"
+    ],
+    [
+      "owned-runtime-and-original-backups",
+      "predecessor-and-local-isolation"
+    ],
+    [
+      "predecessor-and-local-isolation",
+      "stage7-owned-binding"
+    ],
+    [
+      "stage7-owned-binding",
+      "whole-reference-entry"
+    ],
+    [
+      "whole-reference-entry",
+      "reference-lock-runtime-logs"
+    ],
+    [
+      "whole-reference-entry",
+      "reference-snapshots-and-config-scan"
+    ],
+    [
+      "whole-reference-entry",
+      "reference-GenInitrd-mutation"
+    ],
+    [
+      "whole-reference-entry",
+      "reference-optional-module-mutation"
+    ],
+    [
+      "whole-reference-entry",
+      "reference-boot-mutation"
+    ],
+    [
+      "whole-reference-entry",
+      "nested-call-adapter"
+    ],
+    [
+      "nested-call-adapter",
+      "real-backend-and-selector"
+    ],
+    [
+      "real-backend-and-selector",
+      "package-tools-and-install-hooks"
+    ],
+    [
+      "package-tools-and-install-hooks",
+      "source-and-archive-consumption"
+    ],
+    [
+      "package-tools-and-install-hooks",
+      "interpreter-helper-dependency-consumption"
+    ],
+    [
+      "whole-reference-entry",
+      "owned-child-quiescence"
+    ],
+    [
+      "owned-child-quiescence",
+      "same-attempt-original-restoration"
+    ],
+    [
+      "same-attempt-original-restoration",
+      "target-evidence-closure"
+    ],
+    [
+      "target-evidence-closure",
+      "target-control-release"
+    ],
+    [
+      "target-control-release",
+      "publication-controls"
+    ],
+    [
+      "publication-controls",
+      "publication-record"
+    ],
+    [
+      "publication-record",
+      "publication-last-receipt"
+    ],
+    [
+      "issuer-policy-and-key-provisioning",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "durable-admission-claim",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "durable-single-launch-slot",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "durable-single-launch-slot",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "offline-bootstrap-context",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "offline-bootstrap-context",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "trusted-time-and-revocation-fence",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "worker-readonly-preflight",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "worker-readonly-preflight",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "worker-traps-and-child-control",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "worker-traps-and-child-control",
+      "trusted-time-and-revocation-fence"
+    ],
+    [
+      "worker-traps-and-child-control",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "outer-writer-guard-and-original-baseline",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "outer-writer-guard-and-original-baseline",
+      "trusted-time-and-revocation-fence"
+    ],
+    [
+      "outer-writer-guard-and-original-baseline",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "owned-runtime-and-original-backups",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "owned-runtime-and-original-backups",
+      "trusted-time-and-revocation-fence"
+    ],
+    [
+      "owned-runtime-and-original-backups",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "predecessor-and-local-isolation",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "predecessor-and-local-isolation",
+      "trusted-time-and-revocation-fence"
+    ],
+    [
+      "predecessor-and-local-isolation",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "stage7-owned-binding",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "stage7-owned-binding",
+      "trusted-time-and-revocation-fence"
+    ],
+    [
+      "stage7-owned-binding",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "whole-reference-entry",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "whole-reference-entry",
+      "trusted-time-and-revocation-fence"
+    ],
+    [
+      "whole-reference-entry",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "reference-lock-runtime-logs",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "reference-lock-runtime-logs",
+      "trusted-time-and-revocation-fence"
+    ],
+    [
+      "reference-lock-runtime-logs",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "reference-snapshots-and-config-scan",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "reference-snapshots-and-config-scan",
+      "trusted-time-and-revocation-fence"
+    ],
+    [
+      "reference-snapshots-and-config-scan",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "reference-GenInitrd-mutation",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "reference-optional-module-mutation",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "reference-boot-mutation",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "nested-call-adapter",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "nested-call-adapter",
+      "trusted-time-and-revocation-fence"
+    ],
+    [
+      "nested-call-adapter",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "real-backend-and-selector",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "real-backend-and-selector",
+      "trusted-time-and-revocation-fence"
+    ],
+    [
+      "real-backend-and-selector",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "package-tools-and-install-hooks",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "package-tools-and-install-hooks",
+      "trusted-time-and-revocation-fence"
+    ],
+    [
+      "package-tools-and-install-hooks",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "source-and-archive-consumption",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "source-and-archive-consumption",
+      "trusted-time-and-revocation-fence"
+    ],
+    [
+      "source-and-archive-consumption",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "interpreter-helper-dependency-consumption",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "interpreter-helper-dependency-consumption",
+      "trusted-time-and-revocation-fence"
+    ],
+    [
+      "interpreter-helper-dependency-consumption",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "owned-child-quiescence",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "owned-child-quiescence",
+      "trusted-time-and-revocation-fence"
+    ],
+    [
+      "owned-child-quiescence",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "same-attempt-original-restoration",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "same-attempt-original-restoration",
+      "trusted-time-and-revocation-fence"
+    ],
+    [
+      "same-attempt-original-restoration",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "target-evidence-closure",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "target-evidence-closure",
+      "trusted-time-and-revocation-fence"
+    ],
+    [
+      "target-evidence-closure",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "target-control-release",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "target-control-release",
+      "trusted-time-and-revocation-fence"
+    ],
+    [
+      "target-control-release",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "publication-controls",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "publication-controls",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "publication-record",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "publication-record",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "publication-last-receipt",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "publication-last-receipt",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ]
+  ],
+  "phase_rows": {
+    "worker2-owned-workspace": {
+      "actor": "worker",
+      "position": 9,
+      "window": "forward"
+    },
+    "worker3-original-backups": {
+      "actor": "worker",
+      "position": 10,
+      "window": "forward"
+    },
+    "worker4-exact-predecessor": {
+      "actor": "worker",
+      "position": 11,
+      "window": "forward"
+    },
+    "worker5-local-isolation": {
+      "actor": "worker",
+      "position": 12,
+      "window": "forward"
+    },
+    "worker6-refresh-pin-once": {
+      "actor": "worker",
+      "position": 13,
+      "window": "forward"
+    },
+    "worker7-owned-durable-commit": {
+      "actor": "worker",
+      "position": 15,
+      "window": "forward"
+    },
+    "worker7-validate-pinned-candidate": {
+      "actor": "worker",
+      "position": 14,
+      "window": "forward"
+    },
+    "worker8-whole-successor-apply": {
+      "actor": "worker",
+      "position": 16,
+      "window": "forward"
+    }
+  },
+  "phase_view_types": {
+    "worker2-owned-workspace": [
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "live-original-fence-view",
+      "original-backups-view",
+      "original-baseline-view",
+      "owned-path-set-view",
+      "source-closure-view"
+    ],
+    "worker3-original-backups": [
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "live-original-fence-view",
+      "original-backups-view",
+      "original-baseline-view",
+      "owned-path-set-view",
+      "source-closure-view"
+    ],
+    "worker4-exact-predecessor": [
+      "complete-effect-graph-view",
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "exact-predecessor-view",
+      "isolated-config-view",
+      "live-original-fence-view",
+      "original-backups-view",
+      "package-effect-result-view",
+      "raw-pkglist-pin-view",
+      "source-closure-view"
+    ],
+    "worker5-local-isolation": [
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "exact-predecessor-view",
+      "isolated-config-view",
+      "live-original-fence-view",
+      "original-backups-view",
+      "raw-pkglist-pin-view",
+      "source-closure-view"
+    ],
+    "worker6-refresh-pin-once": [
+      "complete-effect-graph-view",
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "exact-predecessor-view",
+      "full-selector-vector-view",
+      "isolated-config-view",
+      "live-original-fence-view",
+      "original-backups-view",
+      "raw-pkglist-pin-view",
+      "source-closure-view"
+    ],
+    "worker7-owned-durable-commit": [
+      "candidate-binding-view",
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "live-original-fence-view",
+      "raw-pkglist-pin-view",
+      "source-closure-view"
+    ],
+    "worker7-validate-pinned-candidate": [
+      "candidate-binding-view",
+      "consumed-original-context",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "live-original-fence-view",
+      "raw-pkglist-pin-view",
+      "source-closure-view"
+    ],
+    "worker8-whole-successor-apply": [
+      "candidate-binding-view",
+      "complete-effect-graph-view",
+      "consumed-original-context",
+      "contained-runtime-view",
+      "contained-snapshot-view",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "full-selector-vector-view",
+      "live-original-fence-view",
+      "nested-call-result-view",
+      "original-baseline-view",
+      "owned-path-set-view",
+      "package-effect-result-view",
+      "raw-pkglist-pin-view",
+      "source-closure-view",
+      "whole-entry-result-view"
+    ]
+  },
+  "required_positive_views": {
+    "worker2-owned-workspace": [
+      "consumed-original-context",
+      "continuous-guard-view",
+      "live-original-fence-view",
+      "dependency-closure-view",
+      "source-closure-view",
+      "original-baseline-view",
+      "owned-path-set-view"
+    ],
+    "worker3-original-backups": [
+      "consumed-original-context",
+      "continuous-guard-view",
+      "live-original-fence-view",
+      "dependency-closure-view",
+      "source-closure-view",
+      "original-baseline-view",
+      "owned-path-set-view",
+      "original-backups-view"
+    ],
+    "worker4-exact-predecessor": [
+      "consumed-original-context",
+      "continuous-guard-view",
+      "live-original-fence-view",
+      "dependency-closure-view",
+      "source-closure-view",
+      "original-backups-view",
+      "exact-predecessor-view",
+      "complete-effect-graph-view",
+      "package-effect-result-view"
+    ],
+    "worker5-local-isolation": [
+      "consumed-original-context",
+      "continuous-guard-view",
+      "live-original-fence-view",
+      "dependency-closure-view",
+      "source-closure-view",
+      "original-backups-view",
+      "exact-predecessor-view",
+      "isolated-config-view"
+    ],
+    "worker6-refresh-pin-once": [
+      "consumed-original-context",
+      "continuous-guard-view",
+      "live-original-fence-view",
+      "dependency-closure-view",
+      "source-closure-view",
+      "original-backups-view",
+      "exact-predecessor-view",
+      "isolated-config-view",
+      "complete-effect-graph-view",
+      "raw-pkglist-pin-view",
+      "full-selector-vector-view"
+    ],
+    "worker7-owned-durable-commit": [
+      "consumed-original-context",
+      "continuous-guard-view",
+      "live-original-fence-view",
+      "dependency-closure-view",
+      "source-closure-view",
+      "raw-pkglist-pin-view",
+      "candidate-binding-view"
+    ],
+    "worker7-validate-pinned-candidate": [
+      "consumed-original-context",
+      "continuous-guard-view",
+      "live-original-fence-view",
+      "dependency-closure-view",
+      "source-closure-view",
+      "raw-pkglist-pin-view",
+      "candidate-binding-view"
+    ],
+    "worker8-whole-successor-apply": [
+      "candidate-binding-view",
+      "complete-effect-graph-view",
+      "consumed-original-context",
+      "contained-runtime-view",
+      "contained-snapshot-view",
+      "continuous-guard-view",
+      "dependency-closure-view",
+      "full-selector-vector-view",
+      "live-original-fence-view",
+      "nested-call-result-view",
+      "original-baseline-view",
+      "owned-path-set-view",
+      "package-effect-result-view",
+      "raw-pkglist-pin-view",
+      "source-closure-view",
+      "whole-entry-result-view"
+    ]
+  },
+  "schema": 1,
+  "scope": "source-bound-private-eight-worker-phases",
+  "source322_contract": {
+    "commit_contract": {
+      "baseline": "original-guarded-baseline-with-original-approved-stage4/5/6-deltas-not-rebound-to-predecessor-or-drift",
+      "durability": "actual-supported-file-byte-metadata-directory-storage-semantics-proved-before-claiming-complete; visible-leaf-close-or-file-flush-alone-not-proof",
+      "eligibility": "only-complete-known-durable-binding-and-stage-exit-evidence-qualify-stage7; stage8-requires-independent-fresh-guards-authorization-and-real-selector/effect-proof",
+      "failure": "persistent-forward-latch-preserves-original-status-and-owned-partial/final-artifacts; no-repeat-commit-recreate-or-stage8-dispatch; recovery/evidence-rights-must-be-separately-reviewed323",
+      "grant": "same-original-consumed-active-attempt-never-unused-or-new-grant-per-write",
+      "no_replace": "exclusive-staging-and-final-commit-no-overwrite-or-force-rename; every-ancestor-parent-alias-and-content-writer-controlled-through-commit",
+      "payload": "one-canonical-observation-record-from-pinned-original-context-source-archive-predecessor-baseline-and-raw-pkglist; no-secret-trust-key-or-bearer-dispatch-permission",
+      "raw_pkglist": "raw-SHA-bound-once; logical-row-equivalence-cannot-rebind-changed-bytes; later-approved-regular-object-replacement-only-with-identical-bound-raw-SHA",
+      "sequence": [
+        "validate-exact-inputs",
+        "register-owned-intent",
+        "create-exclusive-stage",
+        "write-complete-bytes",
+        "metadata-and-data-durable",
+        "revalidate-pinned-inputs",
+        "commit-no-replace",
+        "directory-durability-confirmed",
+        "stage-exit-evidence-complete"
+      ],
+      "stage7_target_package_effect": "none-by-this-stage; prior-predecessor-and-configuration-effects-still-owned-and-not-yet-restored",
+      "unknown": "unknown-commit-directory-durability-or-evidence-result-remains-null/pending-not-eligible; no-automatic-delete-or-rehash-as-success"
+    },
+    "immutable_stage_facts": {
+      "frozen_binding_role": "evidence/candidate-binding.json",
+      "frozen_implementation_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-implementation-freeze-freeze.json",
+      "frozen_implementation_sha256": "3b1c489d903fabe66e14acd43416eae075feb44923a1314a316e7a2c38997f41",
+      "frozen_stage7": {
+        "effect": "read-only",
+        "evidence": {
+          "early_buffer": false,
+          "exit_record": "evidence/stages/07-bind-exact-candidate.json",
+          "publication_receipt_external": false,
+          "stderr": "evidence/stages/07-bind-exact-candidate.stderr",
+          "stdout": "evidence/stages/07-bind-exact-candidate.stdout"
+        },
+        "failure_boundary": "stop-later-stages-preserve-original-status-run-only-safe-idempotent-restore-and-evidence-no-retry",
+        "function": "bind_exact_candidate",
+        "guard": "one exact eight-field target row; same-transaction source/pkglist/archive hashes before apply",
+        "index": 7,
+        "operation": "Extract immutable accepted candidate oracle by AST in implementation design; validate one exact eight-field target row, zero unrelated candidates, source/archive/pkglist SHA; persist binding owned to same transaction.",
+        "stage": "bind-exact-candidate",
+        "test_seams": [
+          "stage-entry-failure",
+          "stage-mid-effect-failure",
+          "HUP-INT-TERM",
+          "uncatchable-loss",
+          "evidence-write-failure",
+          "cleanup-failure",
+          "double-cleanup"
+        ]
+      },
+      "private_binding_function_sha256": "8a504660cdc54d372f650fe6dc45527136b88e8a7a07cbde7def8a1f0009f3ed",
+      "private_binding_persists_owned_file": true,
+      "private_model_is_operational_implementation": false,
+      "private_model_path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-runtime-executor-failure-coverage-candidate-private.py",
+      "private_model_sha256": "9c6bf6d82a15eef3eb74ae8e3aa7ccfbff46af07ec0c105f6c2db4fa5402d7e4"
+    },
+    "owned_paths": {
+      "actual_final_path": null,
+      "actual_owner": null,
+      "actual_parent": null,
+      "actual_root": null,
+      "actual_staging_path": null,
+      "binding_mode": "0600-successor-owned-binding",
+      "final_relative": "evidence/candidate-binding.json",
+      "intent": "same-attempt-owned-artifact-record-before-first-staging-byte-or-metadata-write",
+      "owner": "same-review-bound-worker-owned-root-numeric-owner-and-namespace-mapping-proof-required",
+      "root_mode": "0700-frozen-owned-root",
+      "stage_evidence": [
+        "evidence/stages/07-bind-exact-candidate.stdout",
+        "evidence/stages/07-bind-exact-candidate.stderr",
+        "evidence/stages/07-bind-exact-candidate.json"
+      ],
+      "staging_relative": "evidence/candidate-binding.<new-grant-attempt-token>.pending"
+    },
+    "selected_effect": "owned-files",
+    "split": {
+      "commit": "owned-intent-staging-byte-metadata-no-replace-durability-and-stage-evidence-writes",
+      "validation": "read-only-candidate-and-original-raw-binding-checks-in-memory"
+    },
+    "successor_stage7": {
+      "effect": "owned-files",
+      "evidence": {
+        "early_buffer": false,
+        "exit_record": "evidence/stages/07-bind-exact-candidate.json",
+        "publication_receipt_external": false,
+        "stderr": "evidence/stages/07-bind-exact-candidate.stderr",
+        "stdout": "evidence/stages/07-bind-exact-candidate.stdout"
+      },
+      "failure_boundary": "stop-later-stages-preserve-original-status-run-only-safe-idempotent-restore-and-evidence-no-retry",
+      "function": "bind_exact_candidate",
+      "guard": "one exact eight-field target row; same-transaction source/pkglist/archive hashes before apply",
+      "index": 7,
+      "operation": "Validate exact same-attempt pinned candidate observations in memory, then record and durably commit one owned binding under reviewed traps, continuous guard and original approved phase deltas; binding alone grants no target dispatch.",
+      "stage": "bind-exact-candidate",
+      "test_seams": [
+        "stage-entry-failure",
+        "stage-mid-effect-failure",
+        "HUP-INT-TERM",
+        "uncatchable-loss",
+        "evidence-write-failure",
+        "cleanup-failure",
+        "double-cleanup"
+      ]
+    }
+  },
+  "source325_contract": {
+    "graph_contract": {
+      "completeness": "all-designed-domains-and-every-static-reference-header-segment-listed; actual-dynamic-transitive-graph-unresolved-and-must-block-admission",
+      "entry": "whole-reference-main-not-authorized; selected-actual-successor-entry-and-equivalence-still-required-before-operational-freeze; no-silent-three-call-replacement",
+      "forbidden": "boot-GenInitrd-or-optional-module-mutation-outside-kernel-edge-scope-never-dispatch; entry-needs-independent-proof-unreachable-or-no-effect-branch",
+      "source": "header-segments-and-lexical-census-are-static-review-not-Bash-AST-callgraph-or-runtime-absence-proof; no-reference-top-level-main-or-oldv2-source/run",
+      "unknown": "missing-or-unclassified-dependency-effect-FD-source-owner-writer-lock-transport-or-native-protocol-closes-dispatch; no-trust-from-package-type-namespace-name-SHA-or-module-off-flag"
+    },
+    "nested_argv_contract": [
+      {
+        "argv": [
+          "-batch=on",
+          "-default_answer=y",
+          "update"
+        ],
+        "failure_handler": "record-status-and-continue-caller",
+        "status_variable": "SLACKPKG_UPDATE_STATUS"
+      },
+      {
+        "argv": [
+          "-batch=on",
+          "-default_answer=y",
+          "-postinst=off",
+          "install-new"
+        ],
+        "failure_handler": "record-status-and-continue-caller",
+        "status_variable": "SLACKPKG_INSTALL_NEW_STATUS"
+      },
+      {
+        "argv": [
+          "-batch=on",
+          "-default_answer=y",
+          "-postinst=off",
+          "upgrade-all"
+        ],
+        "failure_handler": "record-status-and-continue-caller",
+        "status_variable": "SLACKPKG_UPGRADE_ALL_STATUS"
+      }
+    ],
+    "publication_contract": {
+      "actual_durability_backend": null,
+      "actual_paths": null,
+      "actual_receipt_origin": null,
+      "durability": "separate-no-replace-record-then-last-receipt-with-supported-file-meta-directory-storage-proof; no-pair-atomicity-or-self-containing-receipt-hash",
+      "independent": "captured-closed-data-only-with-separate-recipient-ancestry-alias-owner-content-writer-and-authority-controls-through-last-receipt",
+      "target_order": "drain-original-restore-fullverify-target-evidence-under-guard-then-release; no-target-writes-or-refresh-after-release",
+      "unknown": "lost-ack-partial-or-unknown-record-receipt-handoff-retains-artifacts-original-status-pending-controller-obligations-no-replay-republish-or-new-target-grant"
+    },
+    "selected_policy": "default-deny-complete-transitive-effect-contract-with-raw-selector-latch-and-separate-publication",
+    "selector_contract": {
+      "actual_backend_path": null,
+      "actual_backend_version": null,
+      "actual_effect_vectors": null,
+      "actual_selector_path": null,
+      "actual_selector_vectors": null,
+      "inputs": "identical-original-source-raw-pkglist-config-blacklist-priority-repository-architecture-installedDB-filter-identity-with-actual-versioned-selector-provenance",
+      "latch": "any-failure-or-drift-stops-all-later-forward-effects-even-unchanged-reference-caller-continues; status-return-or-errexit-alone-insufficient",
+      "refresh": "nested-update-exit0-both-stream-error-free-fresh-regular-same-bound-rawSHA-no-rebind; package/config/hook-effects-require-separate-exact-scope-proof",
+      "statuses": "keep-raw0/20-install-new-only-if-empty-selector-and-no-effect-proven; raw0-exact-one-target-upgrade-required-raw20-fails; minus1-unattempted-never-success",
+      "vectors": "complete-install-new-empty-and-upgrade-all-exact-one-target-vectors-not-counts-row-or-dryrunJSON"
+    }
+  },
+  "stage7_microsteps": [
+    "validate-exact-inputs",
+    "register-owned-intent",
+    "create-exclusive-stage",
+    "write-complete-bytes",
+    "metadata-and-data-durable",
+    "revalidate-pinned-inputs",
+    "commit-no-replace",
+    "directory-durability-confirmed",
+    "stage-exit-evidence-complete"
+  ],
+  "step": 343,
+  "whole_private_observations": [
+    "nested-update",
+    "nested-install-new",
+    "nested-upgrade-all",
+    "whole-entry-complete"
+  ]
+}
