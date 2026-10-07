@@ -1,0 +1,45 @@
+{
+  "barrier_rule": "Ready service own barrier and authenticated issuer/principal/known-original scope/epoch/finite-rights/dependency/source model reports precede ledger/spawn reports. Policy/service window gates remain separate from worker gates.",
+  "claim_rule": "Authenticated known-original model prefix reaches one claim before any worker preflight or requested binding observation. Failed/unknown attempted claim cannot return known-unused or dispatch.",
+  "closure_rule": "Every positive source phase requires dependency/source views identical to the authenticated prefix; authentication also retains the original issuer-policy view. No closure refresh or substitution.",
+  "copy_rule": "Same immutable prefix can be evaluated twice with equal output. No process is launched; copying/resetting input is outside a linear trace and proves no cross-process/global at-most-once property.",
+  "core340_binding": {
+    "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-transition-core.py",
+    "sha256": "94c8cc3dfdb0d813a6ec0d2f7c99e11f5866d8cf96b3ba53e852668eb9d03fb5"
+  },
+  "dependency_alias": "slack_update_offline_core340",
+  "dependency_loading_rule": "Caller must SHA-pin unchanged340 source and register it under this private alias; reducer performs no file loading or operational dispatch.",
+  "handoff_rule": "Known worker ownership and bounded isolated handoff readiness required before releasing model prefix to worker bootstrap; missing/unknown handoff stops and preserves possible/known child obligations.",
+  "input_state": "AdmissionState wrapping the unchanged340 CoreState plus immutable policy/consumed/spent view identities and three attempted bits plus original issuer/dependency/source view identities",
+  "launch_rule": "One model launch attempt follows consumed context, and reported durable spend plus same-context stored output view precedes one spawn attempt. No transition refunds/resets/retries unknown spend or spawn.",
+  "model_reports": "Closed immutable tri-state reported-valid/reported-invalid/unobserved assumptions plus all nine original rights reports and child-set report; never native evidence.",
+  "native_authority": false,
+  "native_cases_pending": 52,
+  "native_cases_run": 0,
+  "native_evidence": false,
+  "native_gaps_pending": 16,
+  "native_proofs_added": 0,
+  "no_native_effects": true,
+  "no_request_match_or_preflight_gate_before_claim": true,
+  "operational_readiness": false,
+  "phase_order": [
+    "service-barrier-authentication",
+    "service-original-durable-claim",
+    "service-durable-launch-spend",
+    "service-single-worker-spawn"
+  ],
+  "private_decisions": [
+    "model-advanced",
+    "model-quarantined",
+    "model-rejected",
+    "model-unattempted"
+  ],
+  "raw_status_rule": "Append exact unique-call signed/unknown raw statuses; sticky first_failure is set once and never overwritten. Exit zero alone never proves success.",
+  "required_native_proofs_pending": 46,
+  "schema": 1,
+  "scope": "four-phase-in-memory-prefix-not-native-claim-or-spawn",
+  "shape_vs_semantics": "Only341 reachable four-phase wrapper states are admitted. This is prefix semantics over assumed reports, not authenticity, native irreversibility or all-writer/durability/launch proof.",
+  "step": 341,
+  "strong_safe_pause": false,
+  "worker_stage0_authorized": false
+}

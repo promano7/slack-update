@@ -1,0 +1,90 @@
+{
+  "core340_binding": {
+    "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-transition-core.py",
+    "sha256": "94c8cc3dfdb0d813a6ec0d2f7c99e11f5866d8cf96b3ba53e852668eb9d03fb5"
+  },
+  "map340_binding": {
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-state-event-schema-review-phase-map.json",
+    "sha256": "23d306b87e275ed590007da464112e7412a702c904c29e32f46f40bf8a337f03"
+  },
+  "native_authority": false,
+  "native_evidence": false,
+  "phase_rows": {
+    "service-barrier-authentication": {
+      "actor": "service",
+      "position": 0,
+      "window": "policy"
+    },
+    "service-durable-launch-spend": {
+      "actor": "service",
+      "position": 2,
+      "window": "launch"
+    },
+    "service-original-durable-claim": {
+      "actor": "service",
+      "position": 1,
+      "window": "admission"
+    },
+    "service-single-worker-spawn": {
+      "actor": "service",
+      "position": 3,
+      "window": "launch"
+    }
+  },
+  "phase_view_types": {
+    "service-barrier-authentication": [
+      "authenticated-policy-view",
+      "dependency-closure-view",
+      "issuer-policy-view",
+      "source-closure-view"
+    ],
+    "service-durable-launch-spend": [
+      "consumed-original-context",
+      "dependency-closure-view",
+      "source-closure-view",
+      "spent-launch-view"
+    ],
+    "service-original-durable-claim": [
+      "authenticated-policy-view",
+      "consumed-original-context",
+      "dependency-closure-view",
+      "source-closure-view"
+    ],
+    "service-single-worker-spawn": [
+      "consumed-original-context",
+      "dependency-closure-view",
+      "source-closure-view",
+      "spent-launch-view"
+    ]
+  },
+  "required_positive_views": {
+    "service-barrier-authentication": [
+      "authenticated-policy-view",
+      "dependency-closure-view",
+      "source-closure-view",
+      "issuer-policy-view"
+    ],
+    "service-durable-launch-spend": [
+      "consumed-original-context",
+      "spent-launch-view",
+      "dependency-closure-view",
+      "source-closure-view"
+    ],
+    "service-original-durable-claim": [
+      "authenticated-policy-view",
+      "consumed-original-context",
+      "dependency-closure-view",
+      "source-closure-view"
+    ],
+    "service-single-worker-spawn": [
+      "consumed-original-context",
+      "spent-launch-view",
+      "dependency-closure-view",
+      "source-closure-view"
+    ]
+  },
+  "schema": 1,
+  "scope": "source-bound-private-admission-prefix-only",
+  "scope_does_not_select_actual_service_or_storage": true,
+  "step": 341
+}
