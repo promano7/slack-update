@@ -1,3 +1,12 @@
+## Phase 1 step347 — full offline contract and native-gap reconciliation — 2026-10-09
+
+- Recovered from interrupted chat using exact uploaded1701-file accepted346 source, intact delivery ZIP and complete616 ordered PASS user Markdown return. Confirmed reported038c896, successful first push and clean matching HEAD/origin; full object ID unknown. Preserve original Markdown bytes and explicitly declare presentation-only literal label extraction, without label rewriting.338 remains last confirmed strong pause.
+- Add nine repository artifacts and this CHANGELOG prefix; preserve every accepted source byte and unchanged340–346 models/reviewers. Reconcile every original27 phase with typed-family positive views, full35-type/26-interface source contracts and source-index every model definition/conditional guard. Associations are declared design links, never semantic completeness or native refinement proof.
+- Retain full eight320–327 normative views,30 domains/all95 macro relations,46 required-not-proven proofs/52 unrun native cases (26 per platform),16 native gaps/nine rights windows/seven capabilities/ten obligations/81 macro cuts/nine owned microsteps. Reconcile all72 accepted339–346 repository artifacts and original338–346 acceptance chain without rewriting historical pending flags.
+- Preserve unknown/quarantine/close-only/stop/recovery/publication distinctions, fixed original plan/raw/finite budget and derived pending controller obligations. Composition scalar clocks do not establish actual admission/forward trusted time, native authenticity, durable global once, syscall/crash/concurrency refinement or full native graph. All native gaps remain blockers.
+- Rerun unchanged346616 with recursive340–345 tests, and full unchanged338364 historical recursive suite on exact historical source snapshots; complete ordered labels must match accepted returns. No native VM/runtime/target/refresh/restore/publication/service operation or new machine/controller cleanup.
+- Host unobserved, live bindings null; Production/Phase2 closed and Phase1/kernel incomplete.347 acceptance/commit/push/clean return pending; only then prepare348 scoped offline core freeze and conditional strong pause. No new pause or future runtime authorization at347.
+
 ## Phase 1 step346 — pure adversarial whole-sequence composition audit — 2026-10-07
 
 - Confirmed345 at reported8f6b3cd from complete1041 ordered PASS, first push and clean matching HEAD/origin. Full original receipt retained without normalization; full ID unknown.338 remains last confirmed strong pause.
