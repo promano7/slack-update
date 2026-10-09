@@ -1,0 +1,742 @@
+{
+  "accepted_checkpoint_chain338_347": [
+    {
+      "acceptance_result": "PASS (364 passes, 0 failures)",
+      "commit_prefix": "0bdf964",
+      "complete_user_return_accepted": true,
+      "confirmation": {
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-transition-core-resume-planning-review-checkpoint-confirmation.json",
+        "sha256": "43dcdac83271b7bf6c59e3d631bc4b272a4932642b53d103515aed56aec6f92c"
+      },
+      "receipt": {
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-transition-core-resume-planning-review-step338-user-acceptance.json",
+        "sha256": "60229151a82c16173978135a81b3fb9fb09f3e33dda78ae725ad1a1cf4ca5a43"
+      },
+      "step": 338
+    },
+    {
+      "acceptance_result": "PASS (162 passes, 0 failures)",
+      "commit_prefix": "83b8441",
+      "complete_user_return_accepted": true,
+      "confirmation": {
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-state-event-schema-review-checkpoint-confirmation.json",
+        "sha256": "f7856c2e0fcebce5134fe5e3a896f215ba53e8396be5b6a23b15d67602aaf5d0"
+      },
+      "receipt": {
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-state-event-schema-review-step339-user-acceptance.json",
+        "sha256": "674b604eaee229f51c2077d4ebbf9c7140ebd0a4699c23eba5a07853103e94df"
+      },
+      "step": 339
+    },
+    {
+      "acceptance_result": "PASS (624 passes, 0 failures)",
+      "commit_prefix": "1804cc1",
+      "complete_user_return_accepted": true,
+      "confirmation": {
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-admission-launch-reducer-review-checkpoint-confirmation.json",
+        "sha256": "2f6ee6000b9c564953b4c7ee53540a7d6ac64440d704f4871e82699f735cd535"
+      },
+      "receipt": {
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-admission-launch-reducer-review-step340-user-acceptance.json",
+        "sha256": "e769e8b46c541bf61ad90bf07aff4e061e5d45b954413def096c2dbda5a4062a"
+      },
+      "step": 340
+    },
+    {
+      "acceptance_result": "PASS (462 passes, 0 failures)",
+      "commit_prefix": "1e350de",
+      "complete_user_return_accepted": true,
+      "confirmation": {
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-bootstrap-guard-reducer-review-checkpoint-confirmation.json",
+        "sha256": "136c76b93b8fc646d862c37154b286fa1cb5735626e0e9e63baf53c849f73239"
+      },
+      "receipt": {
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-bootstrap-guard-reducer-review-step341-user-acceptance.json",
+        "sha256": "8678e3e2a8a6f7e0669085deaee5df09fd670f7aa5a8f30e3cb80b97dfc0e543"
+      },
+      "step": 341
+    },
+    {
+      "acceptance_result": "PASS (599 passes, 0 failures)",
+      "commit_prefix": "914eb3b",
+      "complete_user_return_accepted": true,
+      "confirmation": {
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-worker-stages-reducer-review-checkpoint-confirmation.json",
+        "sha256": "bce826adfc031ca9f051612dc3ff5e69f83fc08f826446b33c0794d03ac479f8"
+      },
+      "receipt": {
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-worker-stages-reducer-review-step342-user-acceptance.json",
+        "sha256": "d9f610d61e67935eee842d0e19d5c35d541574aa1a820370118409becb704625"
+      },
+      "step": 342
+    },
+    {
+      "acceptance_result": "PASS (1255 passes, 0 failures)",
+      "commit_prefix": "b3a8db8",
+      "complete_user_return_accepted": true,
+      "confirmation": {
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-retained-recovery-reducer-review-checkpoint-confirmation.json",
+        "sha256": "34955a8fa6958fc7344315e1730d377700b76640ec918c2f7db9084c36fbeffa"
+      },
+      "receipt": {
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-retained-recovery-reducer-review-step343-user-acceptance.json",
+        "sha256": "762648cd2882150534a513f5174fd53f8f7f553cf20c9c450a972052b4b3ca6e"
+      },
+      "step": 343
+    },
+    {
+      "acceptance_result": "PASS (881 passes, 0 failures)",
+      "commit_prefix": "ba4ce74",
+      "complete_user_return_accepted": true,
+      "confirmation": {
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-target-publication-reducer-review-checkpoint-confirmation.json",
+        "sha256": "4fbd601b64e06a68a247c669ee890d856a8e65afd7ab9be095265e71a594b9b2"
+      },
+      "receipt": {
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-target-publication-reducer-review-step344-user-acceptance.json",
+        "sha256": "945b8917d763ea0bb94f49a724cb28cac5ecb1e7783966b19b888f9e17041e91"
+      },
+      "step": 344
+    },
+    {
+      "acceptance_result": "PASS (1041 passes, 0 failures)",
+      "commit_prefix": "8f6b3cd",
+      "complete_user_return_accepted": true,
+      "confirmation": {
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-whole-sequence-audit-review-checkpoint-confirmation.json",
+        "sha256": "7421b95a2a2d30a1a284205bb87f506f5d879d94a1fb8cd31e3580d6b07ef836"
+      },
+      "receipt": {
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-whole-sequence-audit-review-step345-user-acceptance.json",
+        "sha256": "69833df9b977a3950ce9e45f6f885e4328f68e854375a1be2c620ab39cdda9d5"
+      },
+      "step": 345
+    },
+    {
+      "acceptance_result": "PASS (616 passes, 0 failures)",
+      "commit_prefix": "038c896",
+      "complete_user_return_accepted": true,
+      "confirmation_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-contract-refinement-reconciliation-review-checkpoint-confirmation.json",
+      "receipt_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-contract-refinement-reconciliation-review-step346-user-acceptance.json",
+      "step": 346
+    },
+    {
+      "acceptance_result": "PASS (185 passes, 0 failures)",
+      "commit_prefix": "fed2808",
+      "complete_user_return_accepted": true,
+      "confirmation_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-core-freeze-gap-register-and-safe-pause-review-checkpoint-confirmation.json",
+      "receipt_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-core-freeze-gap-register-and-safe-pause-review-step347-user-acceptance.json",
+      "step": 347
+    }
+  ],
+  "actual_dynamic_graph_complete": false,
+  "actual_host_state": "unobserved-not-claimed-absent",
+  "actual_independent_oracle_selected": false,
+  "actual_live_bindings": null,
+  "actual_native_refinement_complete": false,
+  "actual_operational_implementation_frozen": false,
+  "controller_action_required": false,
+  "counts": {
+    "capabilities": 7,
+    "cross_obligations": 10,
+    "domains": 30,
+    "macro_cuts": 81,
+    "macro_relations": 95,
+    "native_cases": 52,
+    "native_gaps": 16,
+    "native_proofs": 46,
+    "nominal_interfaces": 26,
+    "nominal_types": 35,
+    "owned_microsteps": 9,
+    "phases": 27,
+    "rights_windows": 9
+  },
+  "current348_closure_artifacts": {
+    "count": 9,
+    "hash_boundary": "exact delivery installer and commit wrapper; no self-hash or current acceptance invented",
+    "paths": [
+      "docs/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-core-freeze-gap-register-and-safe-pause-review.md",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-core-freeze-gap-register-and-safe-pause-review-checkpoint-confirmation.json",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-core-freeze-gap-register-and-safe-pause-review-freeze.json",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-core-freeze-gap-register-and-safe-pause-review-native-gap-register.json",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-core-freeze-gap-register-and-safe-pause-review-pause-conditions.json",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-core-freeze-gap-register-and-safe-pause-review-policy.json",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-core-freeze-gap-register-and-safe-pause-review-step347-user-acceptance.json",
+      "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-core-freeze-gap-register-and-safe-pause-review-harness.sh",
+      "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-core-freeze-gap-register-and-safe-pause-review.py"
+    ],
+    "user_acceptance_pending": true
+  },
+  "current348_user_acceptance_pending": true,
+  "exact347_native_gap_binding": {
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-contract-refinement-reconciliation-review-native-gap-register.json",
+    "sha256": "a33e82f84c5933f297aa29663b2afe172cdad3b4683d2777841bf5e7ed7b6573"
+  },
+  "exact347_reconciliation_binding": {
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-contract-refinement-reconciliation-review-reconciliation.json",
+    "sha256": "6e06742cfabe2da0406a84c628a824efe77c322eb6767ac433b6ab8f51c5e1ef"
+  },
+  "exact347_rule_map_binding": {
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-contract-refinement-reconciliation-review-rule-map.json",
+    "sha256": "2171f0a406de9bb078591afb311f4eb1d97d2cbc550d43ed0a4719742ffc55c1"
+  },
+  "freeze_version": "source-bound-pure-offline-core-artifact-freeze-v1",
+  "frozen_artifact_registry339_347": [
+    {
+      "path": "docs/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-transition-core-resume-planning-review.md",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "8b51cca8dd6e3a2d84d454cccf13620d80924b8e7a02a02cd41cb83560c1548a",
+      "step": 339
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-transition-core-resume-planning-review-checkpoint-confirmation.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "43dcdac83271b7bf6c59e3d631bc4b272a4932642b53d103515aed56aec6f92c",
+      "step": 339
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-transition-core-resume-planning-review-plan.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "30c422ae7a3adf21a4ebb9b8867b6d817120a60a70de6fc161ccf89e4887375b",
+      "step": 339
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-transition-core-resume-planning-review-policy.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "d5609c69cc3c8a36cfc4fdf72dada844551ad8e9dcc06a2e4cbff5a2814d0c97",
+      "step": 339
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-transition-core-resume-planning-review-retained-obligations.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "8be3fb9a1b10103936194fb09d96c3d4987443421b95b22a0946df6e8572be09",
+      "step": 339
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-transition-core-resume-planning-review-roadmap.tsv",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "7b8cb0a85aad121014a74d88cc6443750b3d1b9082f9bce597c5c3051e0ee58f",
+      "step": 339
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-transition-core-resume-planning-review-step338-user-acceptance.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "60229151a82c16173978135a81b3fb9fb09f3e33dda78ae725ad1a1cf4ca5a43",
+      "step": 339
+    },
+    {
+      "path": "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-transition-core-resume-planning-review-harness.sh",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "690e028b613370ec4d0968bf75d7221dcbb1b9724ff6ea4ed3185c1ff062f657",
+      "step": 339
+    },
+    {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-transition-core-resume-planning-review.py",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "3c4b3acab3b0bb1a33863e2abdd927d7ebb2ba8af332e05bb580c96cb3127589",
+      "step": 339
+    },
+    {
+      "path": "docs/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-state-event-schema-review.md",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "472e81bdc553be5efe9c8b027fa4d6dcabb8da1c9c259d63804d18ecd4b7e58c",
+      "step": 340
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-state-event-schema-review-checkpoint-confirmation.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "f7856c2e0fcebce5134fe5e3a896f215ba53e8396be5b6a23b15d67602aaf5d0",
+      "step": 340
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-state-event-schema-review-phase-map.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "23d306b87e275ed590007da464112e7412a702c904c29e32f46f40bf8a337f03",
+      "step": 340
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-state-event-schema-review-policy.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "fbde8612306beeae95cbd57691359bcbe4d176de869fda8afd993e16969153c3",
+      "step": 340
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-state-event-schema-review-schema.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "3c22e90b44c98736c1fbb49b254ebb965d7d81f667ed13bdba6f3f72ff3fc928",
+      "step": 340
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-state-event-schema-review-step339-user-acceptance.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "674b604eaee229f51c2077d4ebbf9c7140ebd0a4699c23eba5a07853103e94df",
+      "step": 340
+    },
+    {
+      "path": "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-state-event-schema-review-harness.sh",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "0ec73552755f052ed14832faa4461d03b471e6531f38863ba682f2c9e68cc22c",
+      "step": 340
+    },
+    {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-state-event-schema-review.py",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "40f2809ad2f73cefa3d57ece5293f456a15c579b408fe28338b4a4e9f2e808c2",
+      "step": 340
+    },
+    {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-transition-core.py",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "94c8cc3dfdb0d813a6ec0d2f7c99e11f5866d8cf96b3ba53e852668eb9d03fb5",
+      "step": 340
+    },
+    {
+      "path": "docs/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-admission-launch-reducer-review.md",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "6054ceaaac9db97395003971073fb9d68cb3295496871681bf12da5374b2d23a",
+      "step": 341
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-admission-launch-reducer-review-checkpoint-confirmation.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "2f6ee6000b9c564953b4c7ee53540a7d6ac64440d704f4871e82699f735cd535",
+      "step": 341
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-admission-launch-reducer-review-contract.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "93bb2da25e58f6b38108fddb18ab56000a06edd349a85b349e68657ef6cc2f82",
+      "step": 341
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-admission-launch-reducer-review-phase-map.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "a8d67032186f2f8df13b065659e7af637c93ddbefb3019307169375d610fdd58",
+      "step": 341
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-admission-launch-reducer-review-policy.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "99d7ba0c7eba8719aa4d4851a47e184237a23779ddb7c030a24f7d93c947ac41",
+      "step": 341
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-admission-launch-reducer-review-step340-user-acceptance.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "e769e8b46c541bf61ad90bf07aff4e061e5d45b954413def096c2dbda5a4062a",
+      "step": 341
+    },
+    {
+      "path": "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-admission-launch-reducer-review-harness.sh",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "3a5a7e6e5c68b943f1181641a317e15c1368ea9f004008c71cc0a03892c68033",
+      "step": 341
+    },
+    {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-admission-launch-reducer-review.py",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "0ba0737b38b9bf10874b8bff16df4f4421576088f072c23d41940a6f5b11079d",
+      "step": 341
+    },
+    {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-admission-launch-reducer.py",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "1031e9e2099547def50ba1bdfb5fc8ff36fe94ef42540fbeef5c21509db72bed",
+      "step": 341
+    },
+    {
+      "path": "docs/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-bootstrap-guard-reducer-review.md",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "dbf8e4f00e3f2aaf4c42bf6dd3adda98aeb9e0f10a73617a717c7acee929c3ad",
+      "step": 342
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-bootstrap-guard-reducer-review-checkpoint-confirmation.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "136c76b93b8fc646d862c37154b286fa1cb5735626e0e9e63baf53c849f73239",
+      "step": 342
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-bootstrap-guard-reducer-review-contract.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "dc50f4e3490ce354392812fc4a1d551b3cf62ee6e8f997447f937023c2255912",
+      "step": 342
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-bootstrap-guard-reducer-review-phase-map.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "06dc9224f6870055108f68e22f458f472de0da7fd771dc369876b4b3cb377487",
+      "step": 342
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-bootstrap-guard-reducer-review-policy.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "4e7598ae812a568105563b71b9e6c6633a137d9fcbdb90d4664db4c331a60509",
+      "step": 342
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-bootstrap-guard-reducer-review-step341-user-acceptance.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "8678e3e2a8a6f7e0669085deaee5df09fd670f7aa5a8f30e3cb80b97dfc0e543",
+      "step": 342
+    },
+    {
+      "path": "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-bootstrap-guard-reducer-review-harness.sh",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "94811dd1d55884afee9d9eb2689c2157a4799e6de9c86236ab3d79e365e0bdbf",
+      "step": 342
+    },
+    {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-bootstrap-guard-reducer-review.py",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "f214617ef98e631aabcbe043e419e8beb43b097e9d7846b8f92fc224dbdb7883",
+      "step": 342
+    },
+    {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-bootstrap-guard-reducer.py",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "201636350a88c7562cad5cf04f71d5c582b7ea547c2e98b1f7a3751756b32e89",
+      "step": 342
+    },
+    {
+      "path": "docs/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-worker-stages-reducer-review.md",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "98c6d774c8be81e480ca517bf365155cfeb9464a72e3e3bde52e859214b4ea6a",
+      "step": 343
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-worker-stages-reducer-review-checkpoint-confirmation.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "bce826adfc031ca9f051612dc3ff5e69f83fc08f826446b33c0794d03ac479f8",
+      "step": 343
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-worker-stages-reducer-review-contract.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "2d124e45a9fd200e1f47099ee9fc48d847c3b7ce24eb98477b7fae24cf736c99",
+      "step": 343
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-worker-stages-reducer-review-phase-map.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "0903fb323dd6e31749135d7fb460de604eff1e694775c160a74ef103145e3e87",
+      "step": 343
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-worker-stages-reducer-review-policy.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "7e1b9f32c99a03d46c63defb199b9bba30cdb3a10a64fde48f2d780d6a4e258b",
+      "step": 343
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-worker-stages-reducer-review-step342-user-acceptance.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "d9f610d61e67935eee842d0e19d5c35d541574aa1a820370118409becb704625",
+      "step": 343
+    },
+    {
+      "path": "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-worker-stages-reducer-review-harness.sh",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "2f0ab92a6a197aaef2c2dbb2e52e412f040d98a167bbe5c8fade6cc0325a8b40",
+      "step": 343
+    },
+    {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-worker-stages-reducer-review.py",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "097c0bd733132ba1925be88e048ed832fa4f9eed397ae00932fab14340b7d072",
+      "step": 343
+    },
+    {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-worker-stages-reducer.py",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "2678499696ddc9293998dbcd5916aab29c028b045569ade416b38752629836a8",
+      "step": 343
+    },
+    {
+      "path": "docs/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-retained-recovery-reducer-review.md",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "21b982ae461346cc07f8802caac0d00c8d259e60685fa9cb1fb48069cccc2ec2",
+      "step": 344
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-retained-recovery-reducer-review-checkpoint-confirmation.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "34955a8fa6958fc7344315e1730d377700b76640ec918c2f7db9084c36fbeffa",
+      "step": 344
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-retained-recovery-reducer-review-contract.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "d942ff25f77dde7d48204a251cb83ccc24a6ac9795d93203d2b78c8bc595266d",
+      "step": 344
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-retained-recovery-reducer-review-phase-map.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "abf9bcbcd8571fb13d2cca8cb35950c63be5a098bf94017fced65a31f9fdd11a",
+      "step": 344
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-retained-recovery-reducer-review-policy.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "db08c1a455aa300fe29d672ffabf6afa5ed351e63b5a3a0224516c5fe63852da",
+      "step": 344
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-retained-recovery-reducer-review-step343-user-acceptance.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "762648cd2882150534a513f5174fd53f8f7f553cf20c9c450a972052b4b3ca6e",
+      "step": 344
+    },
+    {
+      "path": "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-retained-recovery-reducer-review-harness.sh",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "235dc6f275da07ab710bc7e00290f691bf272a08deafe2eeffb20a7af710dcd7",
+      "step": 344
+    },
+    {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-retained-recovery-reducer-review.py",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "1dfed0121e880d483dad79e447e1126bd34610b16c26ecd6b03ef32a757a1b00",
+      "step": 344
+    },
+    {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-retained-recovery-reducer.py",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "8fa9dd38fd7affba5612f093667a118407fb8d8c96531943278b07180904af0a",
+      "step": 344
+    },
+    {
+      "path": "docs/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-target-publication-reducer-review.md",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "91bb44cd5fa69c0e036216ea7ae3f6cacbf84526bb032863f3ac1f51ed1a9d24",
+      "step": 345
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-target-publication-reducer-review-checkpoint-confirmation.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "4fbd601b64e06a68a247c669ee890d856a8e65afd7ab9be095265e71a594b9b2",
+      "step": 345
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-target-publication-reducer-review-contract.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "b0e0d275de57208fe7b4c189158cce90fdb5fdf842f72f6c1e7a4a3123cb5a73",
+      "step": 345
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-target-publication-reducer-review-phase-map.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "5a6b31667e0b0a72a6e7fe0df91bb20e2fe714944c905f53bde0b783325e7f52",
+      "step": 345
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-target-publication-reducer-review-policy.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "a4fec1fe48da0f8ca639d611a62a851cee64a2784713b99632737f329b35edeb",
+      "step": 345
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-target-publication-reducer-review-step344-user-acceptance.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "945b8917d763ea0bb94f49a724cb28cac5ecb1e7783966b19b888f9e17041e91",
+      "step": 345
+    },
+    {
+      "path": "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-target-publication-reducer-review-harness.sh",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "49cb21368d605811f7f09a5bca3b6279eefb86a39be7c7cfd659808ce6f217b4",
+      "step": 345
+    },
+    {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-target-publication-reducer-review.py",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "40760690c3b9c6b548fe1cac9d071d4441d246ee3afaca154bf0b055c6cfb8b4",
+      "step": 345
+    },
+    {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-target-publication-reducer.py",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "22fc51ade0c3a213b004b5b90a79fa7f9c5b2c2125748afbcf61b84aac369954",
+      "step": 345
+    },
+    {
+      "path": "docs/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-whole-sequence-audit-review.md",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "4e3b946d1dc4fe33fa3e1050b63c514f4c587beb80567663193a984cdf900063",
+      "step": 346
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-whole-sequence-audit-review-checkpoint-confirmation.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "7421b95a2a2d30a1a284205bb87f506f5d879d94a1fb8cd31e3580d6b07ef836",
+      "step": 346
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-whole-sequence-audit-review-contract.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "2442c48ba4acea258f4c2586c0614d9918c44b2ec0b43d5f6cf9a09ff0fb171b",
+      "step": 346
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-whole-sequence-audit-review-phase-map.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "e843e1b9b2d3cca58f2a945c58c929f1b528fd157cd38e30bdf80ee075156f1f",
+      "step": 346
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-whole-sequence-audit-review-policy.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "890384483d3aaf691d939ed5720b3e0ac8e652760089bb1699a56736da1a607e",
+      "step": 346
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-whole-sequence-audit-review-step345-user-acceptance.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "69833df9b977a3950ce9e45f6f885e4328f68e854375a1be2c620ab39cdda9d5",
+      "step": 346
+    },
+    {
+      "path": "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-whole-sequence-audit-review-harness.sh",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "3f1bf0cf13b4fa0f72a7753f729f1a0ff2c19a9deedf729775a28500f591ceed",
+      "step": 346
+    },
+    {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-whole-sequence-audit-review.py",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "7debf7fcc684a34bc3722f1c47367a704b663ecae5b5d78b1d8f1e030861ef3e",
+      "step": 346
+    },
+    {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-whole-sequence-auditor.py",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "f22c34c50f622812b4b5793bff33094560797af4c45f9bf87257f352af0bee26",
+      "step": 346
+    },
+    {
+      "path": "docs/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-contract-refinement-reconciliation-review.md",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "cb659b3cc5b9044e695210c1308e17d65e2452507933120b769dfe2afcd295d8",
+      "step": 347
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-contract-refinement-reconciliation-review-checkpoint-confirmation.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "69f6635d2ca4cc9c92841403c6f2f5e521db82fb9bbd5b766cb9fe4a2be9e701",
+      "step": 347
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-contract-refinement-reconciliation-review-native-gap-register.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "a33e82f84c5933f297aa29663b2afe172cdad3b4683d2777841bf5e7ed7b6573",
+      "step": 347
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-contract-refinement-reconciliation-review-policy.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "2ca6585a7a23b969bbe89e7cccefb9100fdc3e4e137bb446e9e2405957bea26f",
+      "step": 347
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-contract-refinement-reconciliation-review-reconciliation.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "6e06742cfabe2da0406a84c628a824efe77c322eb6767ac433b6ab8f51c5e1ef",
+      "step": 347
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-contract-refinement-reconciliation-review-rule-map.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "2171f0a406de9bb078591afb311f4eb1d97d2cbc550d43ed0a4719742ffc55c1",
+      "step": 347
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-contract-refinement-reconciliation-review-step346-user-acceptance.json",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "e86a388582885b249aef0a1ba5fd3b641a72d0979459edbc7657f1f7b0cab3c1",
+      "step": 347
+    },
+    {
+      "path": "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-contract-refinement-reconciliation-review-harness.sh",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "249c00c80c76f5779243fd47d763e01d0425004d4d477766df8baaa66530ca40",
+      "step": 347
+    },
+    {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-contract-refinement-reconciliation-review.py",
+      "scope": "repository-artifact-not-native-implementation",
+      "sha256": "1c0e2d888fc9c7b6b1d83f04d0e243a318f93947d18ff7da7fb4e1900b6a3236",
+      "step": 347
+    }
+  ],
+  "full_normative_rows_rule": "Complete source-bound347 reconciliation and original320\u2013327 rows remain normative; hashes are indexes, never proof waivers.",
+  "future_work_requires_new_user_request": true,
+  "historical_binding_or_authority_reuse_allowed": false,
+  "kernel_package_edge_complete": false,
+  "last_confirmed_strong_safe_pause_step": 338,
+  "later_current_refresh_invalidates_repository_only_pause": false,
+  "machine_action_required": false,
+  "model_modules": {
+    "admission": {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-admission-launch-reducer.py",
+      "sha256": "1031e9e2099547def50ba1bdfb5fc8ff36fe94ef42540fbeef5c21509db72bed"
+    },
+    "bootstrap": {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-bootstrap-guard-reducer.py",
+      "sha256": "201636350a88c7562cad5cf04f71d5c582b7ea547c2e98b1f7a3751756b32e89"
+    },
+    "composition": {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-whole-sequence-auditor.py",
+      "sha256": "f22c34c50f622812b4b5793bff33094560797af4c45f9bf87257f352af0bee26"
+    },
+    "finalization": {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-target-publication-reducer.py",
+      "sha256": "22fc51ade0c3a213b004b5b90a79fa7f9c5b2c2125748afbcf61b84aac369954"
+    },
+    "recovery": {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-retained-recovery-reducer.py",
+      "sha256": "8fa9dd38fd7affba5612f093667a118407fb8d8c96531943278b07180904af0a"
+    },
+    "schema": {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-transition-core.py",
+      "sha256": "94c8cc3dfdb0d813a6ec0d2f7c99e11f5866d8cf96b3ba53e852668eb9d03fb5"
+    },
+    "worker": {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-worker-stages-reducer.py",
+      "sha256": "2678499696ddc9293998dbcd5916aab29c028b045569ade416b38752629836a8"
+    }
+  },
+  "native_cases_run": 0,
+  "native_proofs_added": 0,
+  "new_batch_controller_cleanup_required": false,
+  "new_batch_machine_cleanup_required": false,
+  "new_runtime_work_authorized": false,
+  "next_authorized_stage": null,
+  "offline_repository_artifacts_frozen": true,
+  "operational_conformance": false,
+  "operational_readiness": false,
+  "original_pause_conditions": [
+    "complete-user-overlay-full-tests-exact-commit-successful-push-clean-tree-matching-HEAD-origin-return",
+    "all-in-scope-repository-candidate-effects-and-obligations-reviewed",
+    "candidate-validator-has-no-runtime-dispatch-or-service-channel",
+    "all-unknown-actual-graph-primitives-native-protocols-and-conformance-remain-blockers",
+    "no-batch-runtime-or-partial-operational-publication",
+    "no-required-batch-machine-or-controller-cleanup",
+    "all-future-runtime-and-unused-live-rights-closed",
+    "actual-host-state-unobserved-never-claimed-absent-or-globally-closed",
+    "no-live-binding-reuse-pause-independent-of-later-current-refresh"
+  ],
+  "pause_confirmation_rule": "Externally confirm this repository scope only after complete348 overlay/full ordered tests/exact commit/successful push/clean matching HEAD-origin return; retain prepared pending flags unchanged.",
+  "phase1_matrix_complete": false,
+  "phase2_open": false,
+  "production_entry_closed": true,
+  "runtime_authority": false,
+  "schema": 1,
+  "scope": "repository-offline-transition-core-workstream339-348-only",
+  "scoped_pause_candidate": true,
+  "source_definition_and_guard_count": 637,
+  "step": 348,
+  "stop_after_complete348_acceptance": true,
+  "strong_safe_pause": false,
+  "user_step348_checkpoint_confirmed": false
+}
