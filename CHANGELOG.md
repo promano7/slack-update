@@ -1,3 +1,14 @@
+## Phase 1 step 363 — external dependency register
+
+- Accepted reported aff8592/87 PASS,eight-file23359-insertion commit,successful push
+  and reported clean matching heads;complete provided-message representation bound.
+- Registered literal command-name candidates and twelve source-anchored missing-input
+  families,with separate unbound native slots for Slackware15.0 and Slackware-current.
+- Kept full original native gap rows,source/line byte anchors,printed-plan contexts,
+  dynamic builders,pkgtools/archive/hook and loader/library/config closure pending.
+  No installed helper lookup,source execution,payload decode or native evidence claim.
+- README367,conditional scoped pause368,and all original native blockers retained.
+
 ## Phase 1 step 362 — entrypoint and callsite source review
 
 - Accepted reported633b524/51 PASS, exact nine-file18044-insertion commit, successful
