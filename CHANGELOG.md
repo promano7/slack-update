@@ -1,3 +1,15 @@
+## Phase 1 step 364 — source effects and object lifetime review
+
+- Accepted reported c69533f/119 PASS,eight-file3456-insertion commit,successful push
+  and reported clean matching heads;complete provided-message representation bound.
+- Reviewed source effects,object expressions and lifetime windows for preparation,
+  lock/FD/log/temp outputs,backends/policy/boot,cleanup/recovery and publication.
+  Native writer sets,aliases,continuous fencing,child drain and durable release unbound.
+- Retained full original gaps and frozen source/dependency inputs;source flags,
+  fingerprints,operation names and printed PASS never become native closure proof.
+- No source execution,machine action or runtime authority;README367 and conditional
+  final repository-scoped pause368 retained.
+
 ## Phase 1 step 363 — external dependency register
 
 - Accepted reported aff8592/87 PASS,eight-file23359-insertion commit,successful push
