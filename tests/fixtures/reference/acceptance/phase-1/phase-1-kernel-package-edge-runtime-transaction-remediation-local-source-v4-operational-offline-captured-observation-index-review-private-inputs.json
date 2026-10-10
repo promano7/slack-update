@@ -1,0 +1,30 @@
+{
+  "fixtures": [
+    {
+      "logical_id": "text",
+      "raw_hex": "726177"
+    },
+    {
+      "logical_id": "empty",
+      "raw_hex": ""
+    },
+    {
+      "logical_id": "script",
+      "raw_hex": "23212f62696e2f73680a746f756368204e455645525f455845435554455f5241575f434f4e54454e540a"
+    },
+    {
+      "logical_id": "archive",
+      "raw_hex": "504b03046f70617175652d6e6f742d657870616e646564"
+    },
+    {
+      "logical_id": "selfreport",
+      "raw_hex": "7b226e61746976655f636f6e666f726d616e6365223a747275652c2272756e74696d655f617574686f72697479223a747275657d0a"
+    }
+  ],
+  "native_cases_run": 0,
+  "native_proofs_added": 0,
+  "runtime_authority": false,
+  "schema": 1,
+  "scope": "private-read-only-file-fixtures-only",
+  "step": 352
+}

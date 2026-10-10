@@ -1,0 +1,77 @@
+{
+  "actual_dynamic_graph_complete": false,
+  "actual_expectation_author": null,
+  "actual_expected_vector_artifacts": null,
+  "actual_host_state": "unobserved-not-claimed-absent",
+  "actual_independent_collector": null,
+  "actual_independent_oracle_selected": false,
+  "actual_independent_verifier": null,
+  "actual_live_bindings": null,
+  "actual_native_collector_selected": false,
+  "actual_native_refinement_complete": false,
+  "closed_location_fields": [
+    "logical_id",
+    "state",
+    "absolute_path"
+  ],
+  "codec_static_copy": {
+    "copied_prefix_sha256": "4e6e0db54fc0dfd481c693d6bdc9228c4ecbd670f541f5db39e6a7dc54166954",
+    "copied_prefix_size_bytes": 11030,
+    "full_source_sha256": "b4e3535d5007cfd9145b5aa0d67dc3815049336ac2408859c1ae1793ef943140",
+    "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-evidence-envelope.py",
+    "rule": "Exactly accepted350 closed codec before its command-denial guard, statically copied as shape validator only; no dynamic code loading or model oracle."
+  },
+  "current_comparator_implemented": false,
+  "current_ingestion_implemented": true,
+  "current_observation_index_implemented": true,
+  "current_user_acceptance_pending": true,
+  "envelope_schema_binding": {
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-bounded-evidence-schema-review-schema-contract.json",
+    "sha256": "f010a5d224c9124bda20e8edbe7a77750aaa34861d00c82e31bedc9d09d4ded2"
+  },
+  "historical_bindings_reusable": false,
+  "kernel_package_edge_complete": false,
+  "last_confirmed_strong_safe_pause_step": 348,
+  "limits": {
+    "chunk_bytes": 65536,
+    "max_artifact_bytes": 67108864,
+    "max_artifacts": 128,
+    "max_component_chars": 255,
+    "max_depth": 12,
+    "max_identity_label_chars": 128,
+    "max_logical_id_chars": 64,
+    "max_path_chars": 4096,
+    "max_total_artifact_bytes": 134217728,
+    "max_wire_bytes": 262144
+  },
+  "location_states": [
+    "file",
+    "missing",
+    "unknown"
+  ],
+  "native_cases_run": 0,
+  "native_proofs_added": 0,
+  "next_stage_after_complete352_acceptance": 353,
+  "observation_states": [
+    "missing",
+    "unknown",
+    "captured-unverified",
+    "conflicting"
+  ],
+  "operational_conformance": false,
+  "operational_readiness": false,
+  "path_rule": "Caller supplies all ordered explicit absolute locations. No discovery/default path/network/extraction/code interpretation. No empty/dot/dotdot/backslash/control components, symlink ancestors/leaves, directories/special files or multi-link leaf. Descriptor relative open with O_RDONLY/O_NOFOLLOW/O_DIRECTORY/O_CLOEXEC and nonblocking leaf; never write/create/truncate/exec.",
+  "phase1_matrix_complete": false,
+  "phase2_open": false,
+  "production_entry_closed": true,
+  "raw_rule": "Opaque bytes retained unchanged, including empty text, executable-looking payloads or archive-looking magic. Never parse/execute/extract raw contents here. Structured observation parsing and semantic comparisons remain353-355; archive bytes are never an envelope or implicit expanded observations.",
+  "read_rule": "Size snapshot cannot exceed declared cap before reading; retained bytes at most declared size, one extra detection byte discarded. All declared sums bounded128MiB;64MiB/file. Initial oversized data remains conflicting without read. Chunk65536. Raw complete bytes retain independent byte SHA; partial reads never claim full digest. Byte/memory bounds do not promise wall-clock deadline or native trusted time.",
+  "runtime_authority": false,
+  "schema": 1,
+  "scope": "repository-offline-evidence-comparator-workstream349-358-only",
+  "snapshot_rule": "Record file device/inode/mode/uid/gid/nlink/size/mtime/ctime before/after, compare visible leaf and every bound ancestor identity. Detect observable races, not continuous writer exclusion or authenticated native provenance. File disappearance after binding/read failure keeps conflict and bounded partial data when available.",
+  "state_rule": "Declared conflict or any read contradiction remains conflict even with missing/unknown peers. Declared unknown stays unknown even matching raw hashes; mixed captured/missing is partial unknown. Missing is missing data, never host/effect absence. Captured-unverified means bytes match declarations, never independent/native evidence.",
+  "step": 352,
+  "strong_safe_pause": false,
+  "user_step352_checkpoint_confirmed": false
+}
