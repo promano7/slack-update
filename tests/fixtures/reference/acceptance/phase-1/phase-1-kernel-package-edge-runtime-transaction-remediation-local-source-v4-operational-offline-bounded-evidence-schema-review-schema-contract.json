@@ -1,0 +1,155 @@
+{
+  "actual_dynamic_graph_complete": false,
+  "actual_host_state": "unobserved-not-claimed-absent",
+  "actual_independent_oracle_selected": false,
+  "actual_live_bindings": null,
+  "actual_native_collector_selected": false,
+  "actual_native_refinement_complete": false,
+  "actual_operational_implementation_frozen": false,
+  "capture_stages": [
+    "before",
+    "during",
+    "after",
+    "output",
+    "unspecified"
+  ],
+  "case_ids": [
+    "issuer-authentication",
+    "durable-consumption",
+    "single-launch-slot",
+    "bootstrap-bounds",
+    "namespace-FDs",
+    "time-revocation-fence",
+    "rights-budgets",
+    "guard-writer-inventory",
+    "original-backups",
+    "phase-deltas",
+    "stage7-binding",
+    "reference-entry",
+    "actual-selector",
+    "raw-status-latch",
+    "raw-pkglist-pin",
+    "package-hooks-effects",
+    "source-archives",
+    "helper-dependencies",
+    "child-quiescence",
+    "retained-restoration",
+    "original-verification",
+    "signal-crash-interleavings",
+    "publication-controls",
+    "record-last-receipt",
+    "unknown-publication",
+    "cross-closure-oracle"
+  ],
+  "closed_fields": {
+    "artifact": [
+      "logical_id",
+      "evidence_group",
+      "sha256",
+      "size_bytes",
+      "media_type",
+      "producer_role",
+      "capture_stage"
+    ],
+    "envelope": [
+      "schema_version",
+      "origin",
+      "case_id",
+      "identity",
+      "artifacts",
+      "groups"
+    ],
+    "group": [
+      "group_id",
+      "status",
+      "artifact_ids"
+    ],
+    "identity": [
+      "platform",
+      "platform_version",
+      "boot_id",
+      "source_epoch",
+      "original_attempt",
+      "test_run_id",
+      "subject_source_sha256"
+    ]
+  },
+  "current_comparator_implemented": false,
+  "current_expectation_contract_implemented": false,
+  "current_ingestion_implemented": false,
+  "current_schema_implemented": true,
+  "current_user_acceptance_pending": true,
+  "format": "canonical-ascii-json-with-one-final-LF",
+  "group_ids": [
+    "subject-source-graph",
+    "platform-original-authority",
+    "independent-provenance",
+    "original-identity-timeline",
+    "raw-status-selector-vector",
+    "target-owned-effect-vector",
+    "writer-child-lifetimes",
+    "time-fence-recovery-budget",
+    "original-restoration-verification",
+    "publication-last-receipt",
+    "positive-negative-fault-controls",
+    "scoped-closure-or-pending"
+  ],
+  "group_statuses": [
+    "missing",
+    "unknown",
+    "present-unverified",
+    "conflicting"
+  ],
+  "historical_bindings_reusable": false,
+  "identity_boundary": "One declared platform per envelope. Null identity means unknown; bounded printable labels and digests are declarations, never authenticated current bindings or reusable authority.",
+  "inventory_boundary": "Unique logical IDs are not filesystem paths. Every descriptor has one original evidence group and is referenced once; zero bytes require the SHA of empty bytes but never establish no effects. Sizes/digests are unverified metadata until separate bounded read-only ingestion.",
+  "kernel_package_edge_complete": false,
+  "last_confirmed_strong_safe_pause_step": 348,
+  "limits": {
+    "max_artifact_bytes": 67108864,
+    "max_artifacts": 128,
+    "max_depth": 12,
+    "max_identity_label_chars": 128,
+    "max_logical_id_chars": 64,
+    "max_total_artifact_bytes": 134217728,
+    "max_wire_bytes": 262144
+  },
+  "media_types": [
+    "application/octet-stream",
+    "text/plain",
+    "application/json"
+  ],
+  "missing_boundary": "Missing means missing data only, never host/target/effect absence. Unknown may retain partial raw references. Conflicting remains visible; present-unverified never means verified or complete native evidence.",
+  "native_case_boundary": "Original335/326/327 cases remain required-not-run;52 templates are not52 captures or observations. Native platform conformance still pending.",
+  "native_cases_run": 0,
+  "native_proofs_added": 0,
+  "next_stage_after_complete350_acceptance": 351,
+  "operational_conformance": false,
+  "operational_readiness": false,
+  "origins": [
+    "private-fixture",
+    "captured-data-unverified"
+  ],
+  "phase1_matrix_complete": false,
+  "phase2_open": false,
+  "platforms": [
+    "Slackware-15.0",
+    "Slackware-current"
+  ],
+  "producer_roles": [
+    "subject",
+    "collector",
+    "verifier",
+    "expectation-author",
+    "unattributed"
+  ],
+  "production_entry_closed": true,
+  "runtime_authority": false,
+  "schema": 1,
+  "schema_version": 1,
+  "scope": "repository-offline-evidence-comparator-workstream349-358-only",
+  "security_boundary": "Frozen dataclasses and canonical JSON provide shape consistency only, not tamper resistance, authenticity, durable linearizability or trusted provenance. Copied or repeatedly decoded data grants nothing.",
+  "step": 350,
+  "strong_safe_pause": false,
+  "user_step350_checkpoint_confirmed": false
+}

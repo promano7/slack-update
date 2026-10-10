@@ -1,0 +1,522 @@
+{
+  "cases": [
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "57776322eb2ae8840cbce65a472a7362ac1851a13d8db376ebbe02fc4a2fd864",
+      "case_id": "issuer-authentication",
+      "platform": "Slackware-15.0",
+      "position": 0,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "c36987c70c4ad73e852ebe276c7b69c326aa868e6ce9100e0398db876cf8d3b6",
+      "case_id": "durable-consumption",
+      "platform": "Slackware-15.0",
+      "position": 1,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "cfa0eb21aa38e017128adb767f49d97d2b036fc83dd91f5688e40aa89be79990",
+      "case_id": "single-launch-slot",
+      "platform": "Slackware-15.0",
+      "position": 2,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "6cd1bd929619af1e52361d4e299b9421a7f758f1d665d6da953ec53ff41deddc",
+      "case_id": "bootstrap-bounds",
+      "platform": "Slackware-15.0",
+      "position": 3,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "8acd4abf34e269a4c30a96ec6b41137571f3a15c44020835623c2b2a0c00b16e",
+      "case_id": "namespace-FDs",
+      "platform": "Slackware-15.0",
+      "position": 4,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "d59818ef71cb49db20095fd879eaef56a1f78b0479deec5c760d0cc2d45e19b0",
+      "case_id": "time-revocation-fence",
+      "platform": "Slackware-15.0",
+      "position": 5,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "d5d900a204a1b3f8e6a22d0ed85f9922798050650dff86426292fc021b481bbc",
+      "case_id": "rights-budgets",
+      "platform": "Slackware-15.0",
+      "position": 6,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "c3fc7acc5e14c6f274535172f29f61907ef0ae9b254638050a7eaa18f5d353a0",
+      "case_id": "guard-writer-inventory",
+      "platform": "Slackware-15.0",
+      "position": 7,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "d7619bea893df6f87f86f9703812dfbd964f9157762922bd38f8062edf408d53",
+      "case_id": "original-backups",
+      "platform": "Slackware-15.0",
+      "position": 8,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "76368fef4e7f5f504f34165d9c7444574bfd18c94eee32622e53650a52dbe107",
+      "case_id": "phase-deltas",
+      "platform": "Slackware-15.0",
+      "position": 9,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "d948e770cd9a57806a88352a6f5f8bd300d591b04e3c048137da8e14686e5fbd",
+      "case_id": "stage7-binding",
+      "platform": "Slackware-15.0",
+      "position": 10,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "3c9cbd2c83b2306b7b5339345762936c4f7beb90325f58302fbb629bf9d10501",
+      "case_id": "reference-entry",
+      "platform": "Slackware-15.0",
+      "position": 11,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "1503aaeb01dc687ee25c458a906187fb2e487165341d2336aa956a00932b7354",
+      "case_id": "actual-selector",
+      "platform": "Slackware-15.0",
+      "position": 12,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "7e57d557601418b41ed7014e027fa17f9a4420e9a7c4929a3e0b541d15ddb367",
+      "case_id": "raw-status-latch",
+      "platform": "Slackware-15.0",
+      "position": 13,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "9603e188ace2afab412339d24782bef0eee23eaf0a47fbbd3d1683cab8df7128",
+      "case_id": "raw-pkglist-pin",
+      "platform": "Slackware-15.0",
+      "position": 14,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "392c4301c6befe8caca17ff5028f400fe6e7df7c3b771ec6cf1ea3228935a871",
+      "case_id": "package-hooks-effects",
+      "platform": "Slackware-15.0",
+      "position": 15,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "ee49cc54f8e4da8f268059aeb9c54a897a45f778667dad05d8b46e1e2996a165",
+      "case_id": "source-archives",
+      "platform": "Slackware-15.0",
+      "position": 16,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "0d2215201b654c8f56f059ad9df34d6ec606d719dd6b35dff5d764b4de8bcce8",
+      "case_id": "helper-dependencies",
+      "platform": "Slackware-15.0",
+      "position": 17,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "27beda35d2f8aebdcf12db56eeee520cce96cbb7154ad346ef14960baecd6e48",
+      "case_id": "child-quiescence",
+      "platform": "Slackware-15.0",
+      "position": 18,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "426a28f4abac469f0bf7a75c92bfe6c4bfa8eb4d7bd6d2866c8f41bb6b263694",
+      "case_id": "retained-restoration",
+      "platform": "Slackware-15.0",
+      "position": 19,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "7c6a8bc0b74ebc3ca253f0729b2736db2a83d19c04840ffcad8b466673e43f9f",
+      "case_id": "original-verification",
+      "platform": "Slackware-15.0",
+      "position": 20,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "5e8dcd0cb48f951a79dd452a1183172138e8eefeb391a85a79a15571c970cc96",
+      "case_id": "signal-crash-interleavings",
+      "platform": "Slackware-15.0",
+      "position": 21,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "6ecfca9e6437d3d1b3b0dda923dab9e2690dbf2be42c824f6922c5c0fba4d176",
+      "case_id": "publication-controls",
+      "platform": "Slackware-15.0",
+      "position": 22,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "0639686bd11d12f0755d7d09fcb6b4b7ea315ca26f6291b94aa96625522f73ec",
+      "case_id": "record-last-receipt",
+      "platform": "Slackware-15.0",
+      "position": 23,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "4fbfe350bcac88fcfff15b09fcc6d58b9f2df371ecc8a0290661fff204725cc3",
+      "case_id": "unknown-publication",
+      "platform": "Slackware-15.0",
+      "position": 24,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "c45176756c7d211a2cf5e6c252ef83ffa3b7fceb5c0def23522c594ac51b5b94",
+      "case_id": "cross-closure-oracle",
+      "platform": "Slackware-15.0",
+      "position": 25,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "b987f67b7b9776af25a8f4ad5fb5e804e9c36344d561bd0a58b2d0d7a6a9b453",
+      "case_id": "issuer-authentication",
+      "platform": "Slackware-current",
+      "position": 26,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "ba67fe0af937b7edb375218f864c20e3ec32ef2e76c164eb7d10f4125eb7b544",
+      "case_id": "durable-consumption",
+      "platform": "Slackware-current",
+      "position": 27,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "43e52f6e75e267f7b8b02326fafe98f662d58979367379281ac68122f0699e97",
+      "case_id": "single-launch-slot",
+      "platform": "Slackware-current",
+      "position": 28,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "2647db24dd5b16c9d42f74902723f60346cc2bd6f041e870ba2197088446cea6",
+      "case_id": "bootstrap-bounds",
+      "platform": "Slackware-current",
+      "position": 29,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "e8d12f4faad55e93b2920890a59dab5ed464bd781a16d424978311945fdf63f2",
+      "case_id": "namespace-FDs",
+      "platform": "Slackware-current",
+      "position": 30,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "4255eed642ac4448e88e039e780510e89a593d75204d239eef47cda5ae8925a8",
+      "case_id": "time-revocation-fence",
+      "platform": "Slackware-current",
+      "position": 31,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "13ce78b908ee1756532c4b35592077a07b8ccda4dbf322c2efeb7bcad45b084a",
+      "case_id": "rights-budgets",
+      "platform": "Slackware-current",
+      "position": 32,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "5f2d2910170f54187048a84af83b868d3b58ef1b73bcfa0625a5b95abee0d227",
+      "case_id": "guard-writer-inventory",
+      "platform": "Slackware-current",
+      "position": 33,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "aec073c010eb26914cad3f0e594ae762d783ac72114f8cdfdc9b984db1132756",
+      "case_id": "original-backups",
+      "platform": "Slackware-current",
+      "position": 34,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "a7f0fcad05bdb5a42f5e62265b005853ee6c18a1e4319f5e7c63afbd016b18bb",
+      "case_id": "phase-deltas",
+      "platform": "Slackware-current",
+      "position": 35,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "50299f540870f40921edb6d0483797b96c81a7bea16db0232bfe9215f0240799",
+      "case_id": "stage7-binding",
+      "platform": "Slackware-current",
+      "position": 36,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "94443d05a19291ab3beaf5218beb0391db0d9e288ccfc25f264a72962eb99741",
+      "case_id": "reference-entry",
+      "platform": "Slackware-current",
+      "position": 37,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "60b7e583f7b5a417183d2d63655e8de7429106c43d4b228e8a90c2f16c421be0",
+      "case_id": "actual-selector",
+      "platform": "Slackware-current",
+      "position": 38,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "57ae42ddbd9a03ceae36b420be46d9dcefb167170a9038c1bc833fc480d84672",
+      "case_id": "raw-status-latch",
+      "platform": "Slackware-current",
+      "position": 39,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "167c9da8db8ebdb8c3ddef8f38717b0208505de9dc3756490038176b15e3c76f",
+      "case_id": "raw-pkglist-pin",
+      "platform": "Slackware-current",
+      "position": 40,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "4f6c8ba3065e89d3dfd871b7679cbd8e7ee84b4389d3ab11bb062efecd6c2feb",
+      "case_id": "package-hooks-effects",
+      "platform": "Slackware-current",
+      "position": 41,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "ed1951a77b65e267071d5d56aee90da2ddd8bdacceb73562e48187876537f671",
+      "case_id": "source-archives",
+      "platform": "Slackware-current",
+      "position": 42,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "4c7e8564cebdc21f94c997b77b096fa7d8866f84724aabf495fba0b7f6831a6f",
+      "case_id": "helper-dependencies",
+      "platform": "Slackware-current",
+      "position": 43,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "a56dabdcfdaa20ab91e5d15979d0a38d93b7b6ae486b9247c36d7f2e5b7e6a3c",
+      "case_id": "child-quiescence",
+      "platform": "Slackware-current",
+      "position": 44,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "be7eb27f1005083df499c6b9e2c8fc48cc3a8f7c6ab90a9e78ad9eaefe9bae54",
+      "case_id": "retained-restoration",
+      "platform": "Slackware-current",
+      "position": 45,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "253c5a427b526086ee4522fe105b6f6437cd0ae3c977d831309d79d19cdbedca",
+      "case_id": "original-verification",
+      "platform": "Slackware-current",
+      "position": 46,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "cacbf04e23d628b078a4f50b503190c2270a01831e3835f6bc4a9031c6f7e1ac",
+      "case_id": "signal-crash-interleavings",
+      "platform": "Slackware-current",
+      "position": 47,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "3405474d0954c1af6b05c0ec7af87ce8af16ecd98d76549734a06a7f317e3ead",
+      "case_id": "publication-controls",
+      "platform": "Slackware-current",
+      "position": 48,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "11b1b0ef34e523557c256241fe8ac36eb1fe3a744950d54ebef3d6511eacd6f9",
+      "case_id": "record-last-receipt",
+      "platform": "Slackware-current",
+      "position": 49,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "bb67c73852b68faaaf407bef4569eaae4f4ac781b5b44754f802c939d3e13a6c",
+      "case_id": "unknown-publication",
+      "platform": "Slackware-current",
+      "position": 50,
+      "status": "required-not-run"
+    },
+    {
+      "actual_result": null,
+      "canonical_full_row_sha256": "45d09b7ade53f356b958a5c33129ca78f0b24fdcfc55945956036b61fa91076b",
+      "case_id": "cross-closure-oracle",
+      "platform": "Slackware-current",
+      "position": 51,
+      "status": "required-not-run"
+    }
+  ],
+  "groups": [
+    {
+      "canonical_full_row_sha256": "7e3636f7a1be952c422c63d359b7ae7519703776382f17dc670a4fb6e48e0ef6",
+      "id": "subject-source-graph",
+      "position": 0,
+      "required_native_observation": "Actual selected complete implementation/transitive dependency versions and checked-to-used bytes, not a lexical graph or emulator argv.",
+      "status": "required-native-evidence-not-captured"
+    },
+    {
+      "canonical_full_row_sha256": "833dcca6273a11cc28de7f4658480018c834a077df8eecf1f43fe9cbcb532195",
+      "id": "platform-original-authority",
+      "position": 1,
+      "required_native_observation": "Separate exact platform/version/boot/source/epoch/original attempt/test-run and explicit fresh native test authority; no cross-platform or historical binding inference.",
+      "status": "required-native-evidence-not-captured"
+    },
+    {
+      "canonical_full_row_sha256": "ccaddb04b1e42d20038880e3b56f90012ae5d0effdfe83a50e3da099f83b5d5c",
+      "id": "independent-provenance",
+      "position": 2,
+      "required_native_observation": "Independent collector/verifier and separately reviewed expectation provenance/code; role labels or subject signature/PASS never enough.",
+      "status": "required-native-evidence-not-captured"
+    },
+    {
+      "canonical_full_row_sha256": "d59cbbb5bd67e2af8dcec2b94b8dbf00d3091fe459dbc7e373f08f3d06bd88f6",
+      "id": "original-identity-timeline",
+      "position": 3,
+      "required_native_observation": "Independent before/during/after original identities, approved phase deltas and immutable raw pin; no preflight promotion or rebinding.",
+      "status": "required-native-evidence-not-captured"
+    },
+    {
+      "canonical_full_row_sha256": "9f3f94c62977c390ffcb582a3c8b7c757ebfa80bf6f2c51603113854830e8c03",
+      "id": "raw-status-selector-vector",
+      "position": 4,
+      "required_native_observation": "Complete raw process streams/status vector/full selectors and intended versus no-op/unexpected effects; generic exit0 never enough.",
+      "status": "required-native-evidence-not-captured"
+    },
+    {
+      "canonical_full_row_sha256": "611b9d4f44e71daa93632783f7171a6464ece4d645394192fd3fdee5bfe22c8f",
+      "id": "target-owned-effect-vector",
+      "position": 5,
+      "required_native_observation": "Independent full target and owned effects, original baseline/metadata/presence and native denied/in-flight writer/alias surfaces.",
+      "status": "required-native-evidence-not-captured"
+    },
+    {
+      "canonical_full_row_sha256": "344f8e99ea0dbfd2f79cbaa6a135a5d752b2d365e095274f463cb746211f1f77",
+      "id": "writer-child-lifetimes",
+      "position": 6,
+      "required_native_observation": "All actual known owned child/helper/interpreter/writer/object/alias lifetimes, signal/crash quiescence and continuous guard before release.",
+      "status": "required-native-evidence-not-captured"
+    },
+    {
+      "canonical_full_row_sha256": "42a8be3898985cf4270553f7a19a35d2a6353ed37eba5ac6660df2e65e2892c6",
+      "id": "time-fence-recovery-budget",
+      "position": 7,
+      "required_native_observation": "Trusted clocks/live split revocation fences/finite original deadline/durable pre-spent budget and original recovery rights; no broker channel or offline revocation proof.",
+      "status": "required-native-evidence-not-captured"
+    },
+    {
+      "canonical_full_row_sha256": "5a563a5e320e8c85944485b5de388001d23660ca8c8dc59d09909af1a2b8be6c",
+      "id": "original-restoration-verification",
+      "position": 8,
+      "required_native_observation": "Known original target outcome, exact verified backups or independently unchanged verification without never-created backups; full invariants/evidence before release.",
+      "status": "required-native-evidence-not-captured"
+    },
+    {
+      "canonical_full_row_sha256": "b849830da4b5b326f9badd78b33d1bfd77e8c1cf7e3c8c78997d15436d8ed508",
+      "id": "publication-last-receipt",
+      "position": 9,
+      "required_native_observation": "Captured-data separate publication controls, no-replace record/final receipt file-metadata-directory-storage durability, independent trusted origin/handoff; no selfreceipt/pairatomicity/retry.",
+      "status": "required-native-evidence-not-captured"
+    },
+    {
+      "canonical_full_row_sha256": "7178ac56c4375fdc524bcf972aa9b1b3ceca3c5d7bd1f85c8fb4c1da7d7866e5",
+      "id": "positive-negative-fault-controls",
+      "position": 10,
+      "required_native_observation": "Independent positive and negative fault controls with actual injection effectiveness and raw consequences, not an asserted fault flag.",
+      "status": "required-native-evidence-not-captured"
+    },
+    {
+      "canonical_full_row_sha256": "e9b9df8c1f7738d67cbdf36ee57e3ef26add225b04dad3a7774930133bd68e5f",
+      "id": "scoped-closure-or-pending",
+      "position": 11,
+      "required_native_observation": "Complete source-bound effect/proof/rights/lifetime cross-closure or explicit scoped pending obligations; unknown never absence/global closure.",
+      "status": "required-native-evidence-not-captured"
+    }
+  ],
+  "independence_contract": {
+    "boundary": "Synthetic envelope/type/vector comparison only. No actual raw capture, authenticator, observer, native comparator, source selection, test runner or fault injector.",
+    "expectation_author": "Separately reviewed expectation cannot derive from candidate or be authored as candidate selfreport; verifier may author independent expectations.",
+    "fault_controls": "Independent positive and negative effectiveness/raw consequences required. Missing/unknown/ineffective control blocks private declaration completeness and actual native conformance remains pending.",
+    "forbidden_reuse": "No candidate selector/cleanup/implementation logic reused as sole verifier/oracle, no emitted PASS/signature/row accepted as raw effect proof.",
+    "platforms": "52 separate cases,26 each15.0/current. No transfer of platform token/version/boot/source/authority/result from either platform.",
+    "subject_collector_verifier": "Separate subject, independent collector and verifier sources/provenance required; synthetic distinct role labels do not prove native independence.",
+    "uncertainty": "Missing/unknown observation is null and pending, never empty/no-effect/absent. Declared mismatch remains visible even with other pending groups."
+  },
+  "normative_rule": "Full unchanged335 original oracle/evidence/case fields and349 retained full source contracts remain normative; indexes never replace native observations or establish independent provenance.",
+  "schema": 1,
+  "source_oracle_binding": {
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-independent-oracle-scaffolding-review-scaffold.json",
+    "sha256": "a89ae9237cedbc72d2a4e46edde5a28c1e296569fbe5f928ff3358b1462e5adf"
+  },
+  "step": 350
+}
