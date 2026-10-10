@@ -1,3 +1,16 @@
+## Phase 1 step 362 — entrypoint and callsite source review
+
+- Accepted reported633b524/51 PASS, exact nine-file18044-insertion commit, successful
+  push and reported clean matching heads; complete user-message representation
+  bound, full ID/independent host inspection unknown. Last scoped pause remains358.
+- Reviewed source-bound entry, dispatch, trap, dynamic interpreter, foreign input,
+  printed plan and generator construction sites against complete source bytes.
+  All15106 lexical records and250 definition-like records retained as unresolved.
+- Verified exact raw historical worker-body copy within the generated artifact;
+  no embedded payload decode or execution and no second independent worker claim.
+- Native graph,16 gaps,46 proofs,52 cases and12 raw groups remain open; no machine
+  action/runtime authority. README reconciliation367 and conditional pause368 retained.
+
 ## Phase 1 step 361 - Read-only source inventory (2026-10-10)
 
 - Accept step 360 at reported 9a9cd12: 81 exact ordered PASS, zero failures, exact
