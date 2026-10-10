@@ -1,0 +1,84 @@
+{
+  "actual_global_host_closure": false,
+  "actual_strong_safe_pause_confirmed": false,
+  "conditions": [
+    {
+      "actual_native_evidence": null,
+      "current358_actual_user_confirmation": null,
+      "id": "complete-user-overlay-full-tests-exact-commit-successful-push-clean-tree-matching-HEAD-origin-return",
+      "position": 0,
+      "requirement": "complete-user-overlay-full-tests-exact-commit-successful-push-clean-tree-matching-HEAD-origin-return",
+      "status": "pending-current358-complete-user-return"
+    },
+    {
+      "actual_native_evidence": null,
+      "current358_actual_user_confirmation": null,
+      "id": "all-in-scope-repository-candidate-effects-and-obligations-reviewed",
+      "position": 1,
+      "requirement": "all-in-scope-repository-candidate-effects-and-obligations-reviewed",
+      "status": "repository-scope-checked-with-native-blockers-retained"
+    },
+    {
+      "actual_native_evidence": null,
+      "current358_actual_user_confirmation": null,
+      "id": "candidate-validator-has-no-runtime-dispatch-or-service-channel",
+      "position": 2,
+      "requirement": "candidate-validator-has-no-runtime-dispatch-or-service-channel",
+      "status": "repository-scope-checked-with-native-blockers-retained"
+    },
+    {
+      "actual_native_evidence": null,
+      "current358_actual_user_confirmation": null,
+      "id": "all-unknown-actual-graph-primitives-native-protocols-and-conformance-remain-blockers",
+      "position": 3,
+      "requirement": "all-unknown-actual-graph-primitives-native-protocols-and-conformance-remain-blockers",
+      "status": "repository-scope-checked-with-native-blockers-retained"
+    },
+    {
+      "actual_native_evidence": null,
+      "current358_actual_user_confirmation": null,
+      "id": "no-batch-runtime-or-partial-operational-publication",
+      "position": 4,
+      "requirement": "no-batch-runtime-or-partial-operational-publication",
+      "status": "repository-scope-checked-with-native-blockers-retained"
+    },
+    {
+      "actual_native_evidence": null,
+      "current358_actual_user_confirmation": null,
+      "id": "no-required-batch-machine-or-controller-cleanup",
+      "position": 5,
+      "requirement": "no-required-batch-machine-or-controller-cleanup",
+      "status": "repository-scope-checked-with-native-blockers-retained"
+    },
+    {
+      "actual_native_evidence": null,
+      "current358_actual_user_confirmation": null,
+      "id": "all-future-runtime-and-unused-live-rights-closed",
+      "position": 6,
+      "requirement": "all-future-runtime-and-unused-live-rights-closed",
+      "status": "repository-scope-checked-with-native-blockers-retained"
+    },
+    {
+      "actual_native_evidence": null,
+      "current358_actual_user_confirmation": null,
+      "id": "actual-host-state-unobserved-never-claimed-absent-or-globally-closed",
+      "position": 7,
+      "requirement": "actual-host-state-unobserved-never-claimed-absent-or-globally-closed",
+      "status": "repository-scope-checked-with-native-blockers-retained"
+    },
+    {
+      "actual_native_evidence": null,
+      "current358_actual_user_confirmation": null,
+      "id": "no-live-binding-reuse-pause-independent-of-later-current-refresh",
+      "position": 8,
+      "requirement": "no-live-binding-reuse-pause-independent-of-later-current-refresh",
+      "status": "repository-scope-checked-with-native-blockers-retained"
+    }
+  ],
+  "external_confirmation_rule": "Complete original358 overlay/full checked tests/exact ten-path commit/successful push/empty status/two matching HEAD-origin lines; all nine scoped conditions retained; external confirmation only, never native authority.",
+  "private_eligibility_is_actual_confirmation": false,
+  "runtime_authority": false,
+  "schema": 1,
+  "scope": "repository-offline-evidence-comparator-workstream349-358-only",
+  "step": 358
+}

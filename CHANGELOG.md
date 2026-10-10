@@ -1,3 +1,25 @@
+## Phase 1 step 358 - Offline comparator freeze and conditional safe pause (2026-10-10)
+
+- Accept step357 at reported e5328fb: 931 ordered PASS, zero failures, exact ten-file
+  commit/nine created paths, successful push and clean matching reported HEAD/origin.
+  Preserve the complete original uploaded Markdown bytes/hash/size. Explicit display
+  comparison unescapes Markdown punctuation and collapses whitespace; no original
+  terminal newlines or independent host/GitHub inspection/full commit ID invented.
+- Freeze all81 accepted349-357 repository artifacts and complete348-357 checkpoint
+  chain. Retain whole357 reconciliation/source maps, original320-327 contracts,
+  full347 normative views,348 native gaps,335 evidence groups and earlier core freeze.
+- Keep46 native proofs required-not-proven,52 cases required-not-run on both platforms,
+  16 gaps unwaived and12 evidence groups uncaptured. Repository tests/private eligibility
+  never grant authority, select native oracle, authenticate capture or prove conformance.
+- Preserve all nine original scoped pause conditions. Complete final358 checked tests,
+  exact commit, push, clean tree and matching HEAD-origin receipt still required before
+  external confirmation. Prepared358 is a conditional pause candidate, not confirmation.
+- No batch native action/partial operational publication or machine/controller cleanup
+  required. Actual host unobserved, live bindings null, runtime/production/Phase2 closed;
+  Phase1/kernel incomplete. Pause independent of later-current refresh; historical
+  bindings/authority never reused. Stop after complete358 acceptance; no next stage
+  authorized. Future work requires a new user scope and unresolved native obligations.
+
 ## Phase 1 step357 — offline comparator full contract and gap reconciliation — 2026-10-10
 
 - Confirm356 at reported48b0d13 on complete original54824-byte output:530 exact ordered PASS, ten files6070 insertions/nine exact paths, successful8307f71..48b0d13 push, empty status/matching heads. Full ID and independent host/GitHub unknown;348 last confirmed scoped pause. Historical bytes/flags unchanged.
