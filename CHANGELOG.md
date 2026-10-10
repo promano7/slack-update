@@ -1,3 +1,24 @@
+## Phase 1 step 360 - Bounded source inventory contract (2026-10-10)
+
+- Accept step359 at reported aedcbc3:43 exact ordered PASS,zero failures,exact
+  eight-file commit/seven additions,successful push and reported clean matching
+  heads. Preserve the full pasted-message UTF-8 representation and disclose its
+  final storage newline;do not claim original terminal bytes or a full commit ID.
+- Define explicit review-only source roots,read/encoding/path/FD and resource
+  bounds,exact source/line byte anchors,stable lexical hint ordering,unresolved
+  shell context and missing native dependencies. Future reader implementation
+  and eighteen control families remain due361;360 implements only data validation.
+- Lexical hints never prove calls,complete native graph,installed helper versions,
+  immutable writer exclusion or checked-to-used identity. Generated copies remain
+  distinct historical roles,no payload decode or source execution. Hard bounds
+  fail without a successful partial inventory;snippets alone may be flagged short.
+- Preserve all1816 accepted359 files except additive CHANGELOG;README unchanged
+  until367. All inherited native gaps/proofs/cases/evidence remain unproven/unrun.
+  Host unobserved/live bindings null;runtime,Production and Phase2 closed;
+  Phase1/kernel incomplete. No machine/controller action or historical authority reuse.
+-360 prepared;361 waits for complete acceptance. Last confirmed pause358;
+  README reconciliation367 and conditional scoped pause368 retained.
+
 ## Phase 1 step 359 - Source inventory resume planning (2026-10-10)
 
 - Accept the complete original step358 return at reported64b63ed:292 exact ordered

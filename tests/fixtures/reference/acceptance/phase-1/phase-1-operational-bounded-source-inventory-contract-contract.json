@@ -1,0 +1,137 @@
+{
+  "anchor_fields": [
+    "path",
+    "source_sha256",
+    "line_number",
+    "line_start_byte",
+    "line_length_bytes",
+    "raw_line_sha256",
+    "snippet",
+    "snippet_truncated",
+    "kind",
+    "semantic_status"
+  ],
+  "anchor_rules": [
+    "one-based-physical-line;zero-based-byte-offset;length-includes-original-line-terminator",
+    "raw-line-SHA-and-source-SHA-over-exact-approved-bytes",
+    "UTF8-snippet-prefix-on-codepoint-boundary-at-most512-bytes;explicit-truncated-flag;not-complete-source",
+    "stable-source-input-order-then-line-number-then-declared-hint-kind-order;do-not-merge-duplicate-source-copies",
+    "all-records-labeled-lexical-candidate-context-and-runtime-relation-unresolved"
+  ],
+  "approved_root_selection": "exact-four359-review-roots;expansion-requires-new-reviewed-explicit-bound-sources",
+  "conditional_pause_step": 368,
+  "contract_version": "bounded-lexical-source-inventory-v1",
+  "failure_rules": [
+    "invalid-path-input-encoding-binding-type-or-limit-is-hard-error-not-empty-inventory",
+    "no-valid-successful-prefix-report-after-size-line-total-or-record-budget-exhaustion",
+    "explicit-unresolved-native-relations-retained-even-when-every-textual-hint-is-reviewed",
+    "no-runtime-source-write-or-native-dispatch;future-CLI-may-only-return-report-data-to-caller"
+  ],
+  "hint_kinds": [
+    "function-definition-hint",
+    "source-eval-exec-hint",
+    "command-substitution-hint",
+    "pipeline-redirection-hint",
+    "here-document-hint",
+    "command-name-hint",
+    "generated-payload-marker-hint",
+    "dynamic-command-hint",
+    "trap-process-hint"
+  ],
+  "implementation_due_step": 361,
+  "input_rules": [
+    "explicit-approved-relative-POSIX-ASCII-paths-only;no-auto-discovery-or-recursive-follow",
+    "reject-absolute-empty-dot-dotdot-backslash-control-empty-components-duplicate-paths",
+    "source-role-hash-size-match-the-approved-repository-snapshot-not-host-installation",
+    "walk-root-relative-directory-descriptors-with-O_DIRECTORY-and-O_NOFOLLOW;reject-symlink-ancestors",
+    "open-final-readonly-O_NOFOLLOW-O_NONBLOCK;fstat-regular-only;never-read-FIFO-device-socket-directory",
+    "bound-stat-size-before-read;read-at-most-approved-size-plus-one-with-hard-cap;reject-size-or-SHA-drift",
+    "retain-open-FD-and-before-after-fstat-dev-inode-size-mtime-ns-ctime-ns;drift-rejects-no-success-report",
+    "strict-UTF8-no-NUL;retain-original-bytes-LF-CRLF-no-Unicode-or-whitespace-normalization",
+    "no-source-exec-import-eval-shell-substitution-command-resolution-network-generator-or-decoded-payload-execution"
+  ],
+  "lexical_semantics": [
+    "line-based-textual-hints-only-not-shell-parser-or-call-control-flow-analysis",
+    "comments-quoted-text-here-documents-foreign-language-and-generated-content-may-match;context-remains-unresolved",
+    "function-or-command-name-hint-never-proves-call-target-reachability-version-or-effect",
+    "no-hints-found-never-means-no-dependencies-no-effects-or-complete-source-graph",
+    "generated-artifact-and-worker-body-preserve-distinct-roles;embedded-copies-not-independent-evidence",
+    "no-base64-or-other-payload-decoding-in361;decoded-source-review-needs-separate-explicit-binding",
+    "native-slackpkg-pkgtools-interpreter-libraries-kernel-storage-hooks-and-path-resolution-stay-unobserved"
+  ],
+  "limits": {
+    "max_hint_records_per_source": 20000,
+    "max_line_bytes_including_terminator": 8192,
+    "max_lines_per_source": 50000,
+    "max_path_ascii_bytes": 240,
+    "max_snippet_utf8_bytes": 512,
+    "max_source_bytes": 1048576,
+    "max_sources": 32,
+    "max_total_hint_records": 40000,
+    "max_total_lines": 100000,
+    "max_total_source_bytes": 8388608
+  },
+  "new_live_binding_or_native_component_selected": false,
+  "readme_reconciliation_step": 367,
+  "report_boundaries": {
+    "actual_host_state": "unobserved-not-claimed-absent",
+    "actual_installed_dependency_versions": null,
+    "actual_native_binding": null,
+    "execution_authorized": false,
+    "kernel_package_edge_complete": false,
+    "native_cases_run": 0,
+    "native_graph_complete": false,
+    "native_proofs_added": 0,
+    "operational_conformance": false,
+    "operational_readiness": false,
+    "phase1_matrix_complete": false,
+    "phase2_open": false,
+    "production_entry_closed": true,
+    "runtime_authority": false
+  },
+  "report_required_fields": [
+    "schema",
+    "scope",
+    "review_sources",
+    "hint_records",
+    "unresolved_relations",
+    "coverage",
+    "boundaries"
+  ],
+  "required_controls361": [
+    "dangerous-shell-sentinel-remains-unexecuted",
+    "decoded-payload-remains-uninterpreted",
+    "final-symlink-refused",
+    "ancestor-symlink-refused",
+    "traversal-absolute-control-paths-refused",
+    "FIFO-device-socket-directory-refused-without-blocking",
+    "invalid-UTF8-and-NUL-refused",
+    "one-source-and-total-byte-bounds-hard-fail",
+    "line-length-and-total-line-bounds-hard-fail",
+    "one-source-and-total-record-bounds-hard-fail",
+    "stat-read-SHA-size-drift-refused",
+    "duplicate-unapproved-or-rebound-root-refused",
+    "LF-CRLF-and-nonASCII-anchors-preserve-bytes",
+    "comments-strings-here-doc-foreign-code-remain-lexical-uncertainty",
+    "empty-hints-retain-open-native-relations",
+    "generated-copy-not-independent-worker",
+    "ordered-repeated-hints-remain-distinct",
+    "false-native-authority-or-completeness-refused"
+  ],
+  "required_unresolved_relation_categories": [
+    "shell-context-call-and-control-flow",
+    "external-installed-versioned-graph",
+    "dynamic-writer-object-alias-lifetimes",
+    "native-platform-primitives",
+    "independent-two-platform-conformance"
+  ],
+  "retained_requirements": [
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-comparator-freeze-gap-register-and-safe-pause-review-native-gap-register.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-comparator-freeze-gap-register-and-safe-pause-review-freeze.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-comparator-freeze-gap-register-and-safe-pause-review-pause-conditions.json"
+  ],
+  "schema": 1,
+  "scope": "repository-source-inventory-and-roadmap-workstream359-368-only",
+  "state": "design-only-reader-and-inventory-implementation-pending361",
+  "step": 360
+}
