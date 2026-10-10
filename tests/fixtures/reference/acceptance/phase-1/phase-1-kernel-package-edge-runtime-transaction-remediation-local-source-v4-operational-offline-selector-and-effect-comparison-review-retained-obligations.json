@@ -1,0 +1,617 @@
+{
+  "accepted349_plan_binding": {
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-evidence-comparator-resume-planning-review-plan.json",
+    "sha256": "61b73dfd86b26b53fe5d6a18cd3253bbb6c17e11795c7a905e748ea83ba54a65"
+  },
+  "accepted350_bindings": {
+    "evidence-map": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-bounded-evidence-schema-review-evidence-map.json",
+      "sha256": "65d7a433dd81eeaf9e2ef3825c36d9d5c6a1be5a1ed2d359dd3077a6e6dd35cd"
+    },
+    "retained-obligations": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-bounded-evidence-schema-review-retained-obligations.json",
+      "sha256": "71aa07220e8d91a1710787419274249a17e297a8ec6298201f098b6900b59a83"
+    },
+    "schema-contract": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-bounded-evidence-schema-review-schema-contract.json",
+      "sha256": "f010a5d224c9124bda20e8edbe7a77750aaa34861d00c82e31bedc9d09d4ded2"
+    }
+  },
+  "accepted351_bindings": {
+    "expectation-contract": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-independent-expectation-contract-review-expectation-contract.json",
+      "sha256": "7784d5d3a5d9d0d8188a9c06bb3e142deb6008d210c583394c7335331677994c"
+    },
+    "literal-expectations": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-independent-expectation-contract-review-literal-expectations.json",
+      "sha256": "93164535b2e1a0f667b7c91940a8579b65388d10d9b8f9674e7356b339610ebf"
+    },
+    "retained-obligations": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-independent-expectation-contract-review-retained-obligations.json",
+      "sha256": "0e663562eae7c34c0c275d13bc4b848871dd34a8924305388aec26436ea06d73"
+    }
+  },
+  "accepted352_bindings": {
+    "ingestion-contract": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-captured-observation-index-review-ingestion-contract.json",
+      "sha256": "a4c98386ba83b38362606d2b307c36dff56b60219a6eb8903417e344197b89bf"
+    },
+    "private-inputs": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-captured-observation-index-review-private-inputs.json",
+      "sha256": "63b0ff2ac9985d3ba3ab8cfd269af42fff522b22076064e7c4a19b6a576beb27"
+    },
+    "retained-obligations": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-captured-observation-index-review-retained-obligations.json",
+      "sha256": "9bdc7163c42b9b01fbe4c736ea0e6dd00ce55938fdd40b6d13382df992d9202b"
+    }
+  },
+  "codec_static_copy": {
+    "copied_prefix_sha256": "4e5586194882f95268a50c0e321b8d3e78d2aa66d1317a2ea8935169243f6b9e",
+    "copied_prefix_size_bytes": 13450,
+    "full_source_sha256": "866dcca8c9047d2e76829e6650f76f6a22042efb6ccb1d27bb9918e8683916c9",
+    "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-literal-expectations.py",
+    "scope": "accepted351 declaration shape only; never subject/model oracle"
+  },
+  "counts": {
+    "capabilities": 7,
+    "cross_obligations": 10,
+    "domains": 30,
+    "macro_cuts": 81,
+    "macro_relations": 95,
+    "native_cases": 52,
+    "native_gaps": 16,
+    "native_proofs": 46,
+    "nominal_interfaces": 26,
+    "nominal_types": 35,
+    "owned_microsteps": 9,
+    "phases": 27,
+    "rights_windows": 9
+  },
+  "expectation_module_binding": {
+    "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-literal-expectations.py",
+    "sha256": "866dcca8c9047d2e76829e6650f76f6a22042efb6ccb1d27bb9918e8683916c9"
+  },
+  "model_modules": {
+    "admission": {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-admission-launch-reducer.py",
+      "sha256": "1031e9e2099547def50ba1bdfb5fc8ff36fe94ef42540fbeef5c21509db72bed"
+    },
+    "bootstrap": {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-bootstrap-guard-reducer.py",
+      "sha256": "201636350a88c7562cad5cf04f71d5c582b7ea547c2e98b1f7a3751756b32e89"
+    },
+    "composition": {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-whole-sequence-auditor.py",
+      "sha256": "f22c34c50f622812b4b5793bff33094560797af4c45f9bf87257f352af0bee26"
+    },
+    "finalization": {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-target-publication-reducer.py",
+      "sha256": "22fc51ade0c3a213b004b5b90a79fa7f9c5b2c2125748afbcf61b84aac369954"
+    },
+    "recovery": {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-retained-recovery-reducer.py",
+      "sha256": "8fa9dd38fd7affba5612f093667a118407fb8d8c96531943278b07180904af0a"
+    },
+    "schema": {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-transition-core.py",
+      "sha256": "94c8cc3dfdb0d813a6ec0d2f7c99e11f5866d8cf96b3ba53e852668eb9d03fb5"
+    },
+    "worker": {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-worker-stages-reducer.py",
+      "sha256": "2678499696ddc9293998dbcd5916aab29c028b045569ade416b38752629836a8"
+    }
+  },
+  "native_cases_run": 0,
+  "native_proofs_added": 0,
+  "observation_module_binding": {
+    "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-observation-index.py",
+    "sha256": "cd8b7cd2dd0bde53254e66027f034b22aca75e40ce7a1475501a3ca258612a30"
+  },
+  "original_case_row_sha256": [
+    {
+      "case_id": "issuer-authentication",
+      "platform": "Slackware-15.0",
+      "sha256": "57776322eb2ae8840cbce65a472a7362ac1851a13d8db376ebbe02fc4a2fd864",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "durable-consumption",
+      "platform": "Slackware-15.0",
+      "sha256": "c36987c70c4ad73e852ebe276c7b69c326aa868e6ce9100e0398db876cf8d3b6",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "single-launch-slot",
+      "platform": "Slackware-15.0",
+      "sha256": "cfa0eb21aa38e017128adb767f49d97d2b036fc83dd91f5688e40aa89be79990",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "bootstrap-bounds",
+      "platform": "Slackware-15.0",
+      "sha256": "6cd1bd929619af1e52361d4e299b9421a7f758f1d665d6da953ec53ff41deddc",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "namespace-FDs",
+      "platform": "Slackware-15.0",
+      "sha256": "8acd4abf34e269a4c30a96ec6b41137571f3a15c44020835623c2b2a0c00b16e",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "time-revocation-fence",
+      "platform": "Slackware-15.0",
+      "sha256": "d59818ef71cb49db20095fd879eaef56a1f78b0479deec5c760d0cc2d45e19b0",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "rights-budgets",
+      "platform": "Slackware-15.0",
+      "sha256": "d5d900a204a1b3f8e6a22d0ed85f9922798050650dff86426292fc021b481bbc",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "guard-writer-inventory",
+      "platform": "Slackware-15.0",
+      "sha256": "c3fc7acc5e14c6f274535172f29f61907ef0ae9b254638050a7eaa18f5d353a0",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "original-backups",
+      "platform": "Slackware-15.0",
+      "sha256": "d7619bea893df6f87f86f9703812dfbd964f9157762922bd38f8062edf408d53",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "phase-deltas",
+      "platform": "Slackware-15.0",
+      "sha256": "76368fef4e7f5f504f34165d9c7444574bfd18c94eee32622e53650a52dbe107",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "stage7-binding",
+      "platform": "Slackware-15.0",
+      "sha256": "d948e770cd9a57806a88352a6f5f8bd300d591b04e3c048137da8e14686e5fbd",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "reference-entry",
+      "platform": "Slackware-15.0",
+      "sha256": "3c9cbd2c83b2306b7b5339345762936c4f7beb90325f58302fbb629bf9d10501",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "actual-selector",
+      "platform": "Slackware-15.0",
+      "sha256": "1503aaeb01dc687ee25c458a906187fb2e487165341d2336aa956a00932b7354",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "raw-status-latch",
+      "platform": "Slackware-15.0",
+      "sha256": "7e57d557601418b41ed7014e027fa17f9a4420e9a7c4929a3e0b541d15ddb367",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "raw-pkglist-pin",
+      "platform": "Slackware-15.0",
+      "sha256": "9603e188ace2afab412339d24782bef0eee23eaf0a47fbbd3d1683cab8df7128",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "package-hooks-effects",
+      "platform": "Slackware-15.0",
+      "sha256": "392c4301c6befe8caca17ff5028f400fe6e7df7c3b771ec6cf1ea3228935a871",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "source-archives",
+      "platform": "Slackware-15.0",
+      "sha256": "ee49cc54f8e4da8f268059aeb9c54a897a45f778667dad05d8b46e1e2996a165",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "helper-dependencies",
+      "platform": "Slackware-15.0",
+      "sha256": "0d2215201b654c8f56f059ad9df34d6ec606d719dd6b35dff5d764b4de8bcce8",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "child-quiescence",
+      "platform": "Slackware-15.0",
+      "sha256": "27beda35d2f8aebdcf12db56eeee520cce96cbb7154ad346ef14960baecd6e48",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "retained-restoration",
+      "platform": "Slackware-15.0",
+      "sha256": "426a28f4abac469f0bf7a75c92bfe6c4bfa8eb4d7bd6d2866c8f41bb6b263694",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "original-verification",
+      "platform": "Slackware-15.0",
+      "sha256": "7c6a8bc0b74ebc3ca253f0729b2736db2a83d19c04840ffcad8b466673e43f9f",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "signal-crash-interleavings",
+      "platform": "Slackware-15.0",
+      "sha256": "5e8dcd0cb48f951a79dd452a1183172138e8eefeb391a85a79a15571c970cc96",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "publication-controls",
+      "platform": "Slackware-15.0",
+      "sha256": "6ecfca9e6437d3d1b3b0dda923dab9e2690dbf2be42c824f6922c5c0fba4d176",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "record-last-receipt",
+      "platform": "Slackware-15.0",
+      "sha256": "0639686bd11d12f0755d7d09fcb6b4b7ea315ca26f6291b94aa96625522f73ec",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "unknown-publication",
+      "platform": "Slackware-15.0",
+      "sha256": "4fbfe350bcac88fcfff15b09fcc6d58b9f2df371ecc8a0290661fff204725cc3",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "cross-closure-oracle",
+      "platform": "Slackware-15.0",
+      "sha256": "c45176756c7d211a2cf5e6c252ef83ffa3b7fceb5c0def23522c594ac51b5b94",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "issuer-authentication",
+      "platform": "Slackware-current",
+      "sha256": "b987f67b7b9776af25a8f4ad5fb5e804e9c36344d561bd0a58b2d0d7a6a9b453",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "durable-consumption",
+      "platform": "Slackware-current",
+      "sha256": "ba67fe0af937b7edb375218f864c20e3ec32ef2e76c164eb7d10f4125eb7b544",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "single-launch-slot",
+      "platform": "Slackware-current",
+      "sha256": "43e52f6e75e267f7b8b02326fafe98f662d58979367379281ac68122f0699e97",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "bootstrap-bounds",
+      "platform": "Slackware-current",
+      "sha256": "2647db24dd5b16c9d42f74902723f60346cc2bd6f041e870ba2197088446cea6",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "namespace-FDs",
+      "platform": "Slackware-current",
+      "sha256": "e8d12f4faad55e93b2920890a59dab5ed464bd781a16d424978311945fdf63f2",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "time-revocation-fence",
+      "platform": "Slackware-current",
+      "sha256": "4255eed642ac4448e88e039e780510e89a593d75204d239eef47cda5ae8925a8",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "rights-budgets",
+      "platform": "Slackware-current",
+      "sha256": "13ce78b908ee1756532c4b35592077a07b8ccda4dbf322c2efeb7bcad45b084a",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "guard-writer-inventory",
+      "platform": "Slackware-current",
+      "sha256": "5f2d2910170f54187048a84af83b868d3b58ef1b73bcfa0625a5b95abee0d227",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "original-backups",
+      "platform": "Slackware-current",
+      "sha256": "aec073c010eb26914cad3f0e594ae762d783ac72114f8cdfdc9b984db1132756",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "phase-deltas",
+      "platform": "Slackware-current",
+      "sha256": "a7f0fcad05bdb5a42f5e62265b005853ee6c18a1e4319f5e7c63afbd016b18bb",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "stage7-binding",
+      "platform": "Slackware-current",
+      "sha256": "50299f540870f40921edb6d0483797b96c81a7bea16db0232bfe9215f0240799",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "reference-entry",
+      "platform": "Slackware-current",
+      "sha256": "94443d05a19291ab3beaf5218beb0391db0d9e288ccfc25f264a72962eb99741",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "actual-selector",
+      "platform": "Slackware-current",
+      "sha256": "60b7e583f7b5a417183d2d63655e8de7429106c43d4b228e8a90c2f16c421be0",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "raw-status-latch",
+      "platform": "Slackware-current",
+      "sha256": "57ae42ddbd9a03ceae36b420be46d9dcefb167170a9038c1bc833fc480d84672",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "raw-pkglist-pin",
+      "platform": "Slackware-current",
+      "sha256": "167c9da8db8ebdb8c3ddef8f38717b0208505de9dc3756490038176b15e3c76f",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "package-hooks-effects",
+      "platform": "Slackware-current",
+      "sha256": "4f6c8ba3065e89d3dfd871b7679cbd8e7ee84b4389d3ab11bb062efecd6c2feb",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "source-archives",
+      "platform": "Slackware-current",
+      "sha256": "ed1951a77b65e267071d5d56aee90da2ddd8bdacceb73562e48187876537f671",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "helper-dependencies",
+      "platform": "Slackware-current",
+      "sha256": "4c7e8564cebdc21f94c997b77b096fa7d8866f84724aabf495fba0b7f6831a6f",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "child-quiescence",
+      "platform": "Slackware-current",
+      "sha256": "a56dabdcfdaa20ab91e5d15979d0a38d93b7b6ae486b9247c36d7f2e5b7e6a3c",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "retained-restoration",
+      "platform": "Slackware-current",
+      "sha256": "be7eb27f1005083df499c6b9e2c8fc48cc3a8f7c6ab90a9e78ad9eaefe9bae54",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "original-verification",
+      "platform": "Slackware-current",
+      "sha256": "253c5a427b526086ee4522fe105b6f6437cd0ae3c977d831309d79d19cdbedca",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "signal-crash-interleavings",
+      "platform": "Slackware-current",
+      "sha256": "cacbf04e23d628b078a4f50b503190c2270a01831e3835f6bc4a9031c6f7e1ac",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "publication-controls",
+      "platform": "Slackware-current",
+      "sha256": "3405474d0954c1af6b05c0ec7af87ce8af16ecd98d76549734a06a7f317e3ead",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "record-last-receipt",
+      "platform": "Slackware-current",
+      "sha256": "11b1b0ef34e523557c256241fe8ac36eb1fe3a744950d54ebef3d6511eacd6f9",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "unknown-publication",
+      "platform": "Slackware-current",
+      "sha256": "bb67c73852b68faaaf407bef4569eaae4f4ac781b5b44754f802c939d3e13a6c",
+      "status": "required-not-run"
+    },
+    {
+      "case_id": "cross-closure-oracle",
+      "platform": "Slackware-current",
+      "sha256": "45d09b7ade53f356b958a5c33129ca78f0b24fdcfc55945956036b61fa91076b",
+      "status": "required-not-run"
+    }
+  ],
+  "original_design_bindings": {
+    "320": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-admission-and-durable-consumption-design-review-design.json",
+      "sha256": "206070db792430966f1b1654d29d7fecabaf43288f1d208b1332d5a40432726f"
+    },
+    "321": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-admission-handoff-and-namespace-fd-design-review-design.json",
+      "sha256": "c814396b3d002f3398b1d024ab30d9b74dfa6d84aee0c87df93215f571bd1540"
+    },
+    "322": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-stage7-owned-binding-effect-design-review-design.json",
+      "sha256": "ff7428e2039927559130a6b0f58611a669f30215221aaf3887e3fa360438a494"
+    },
+    "323": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+      "sha256": "40a574a020fcd8a5a6e79d0faebea6e00e62283751a94bcd877a9b47182d8b98"
+    },
+    "324": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-continuous-guarded-original-baseline-and-approved-phase-deltas-design-review-design.json",
+      "sha256": "c26c93bf5f5dd596c8272cd1328a2f08f970053e6582fdccfbe278b904f20474"
+    },
+    "325": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-whole-service-reference-helper-selector-source-backend-publication-effect-graph-design-review-design.json",
+      "sha256": "d8e1db6acd48e7a1076af9d72a9837d9e1cc83742173d0d1ffe67b3026290d0b"
+    },
+    "326": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-complete-finite-failure-model-and-independent-conformance-plan-review-design.json",
+      "sha256": "32c58f6290c7d3f47a033081b1c9458fbaaf35505e1f659a6e4714491413b5fe"
+    },
+    "327": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-scoped-effects-obligations-rights-crossclosure-review-design.json",
+      "sha256": "a6541e3a485ec6032e5d50dc31d8ee43a3c29ab4b97e44e08776152120f6d7a0"
+    }
+  },
+  "original_evidence_group_rows": [
+    {
+      "actual_capture_sha256": null,
+      "actual_collector": null,
+      "actual_expected_vector": null,
+      "actual_raw_capture": null,
+      "actual_verifier": null,
+      "id": "subject-source-graph",
+      "required_native_observation": "Actual selected complete implementation/transitive dependency versions and checked-to-used bytes, not a lexical graph or emulator argv.",
+      "status": "required-native-evidence-not-captured"
+    },
+    {
+      "actual_capture_sha256": null,
+      "actual_collector": null,
+      "actual_expected_vector": null,
+      "actual_raw_capture": null,
+      "actual_verifier": null,
+      "id": "platform-original-authority",
+      "required_native_observation": "Separate exact platform/version/boot/source/epoch/original attempt/test-run and explicit fresh native test authority; no cross-platform or historical binding inference.",
+      "status": "required-native-evidence-not-captured"
+    },
+    {
+      "actual_capture_sha256": null,
+      "actual_collector": null,
+      "actual_expected_vector": null,
+      "actual_raw_capture": null,
+      "actual_verifier": null,
+      "id": "independent-provenance",
+      "required_native_observation": "Independent collector/verifier and separately reviewed expectation provenance/code; role labels or subject signature/PASS never enough.",
+      "status": "required-native-evidence-not-captured"
+    },
+    {
+      "actual_capture_sha256": null,
+      "actual_collector": null,
+      "actual_expected_vector": null,
+      "actual_raw_capture": null,
+      "actual_verifier": null,
+      "id": "original-identity-timeline",
+      "required_native_observation": "Independent before/during/after original identities, approved phase deltas and immutable raw pin; no preflight promotion or rebinding.",
+      "status": "required-native-evidence-not-captured"
+    },
+    {
+      "actual_capture_sha256": null,
+      "actual_collector": null,
+      "actual_expected_vector": null,
+      "actual_raw_capture": null,
+      "actual_verifier": null,
+      "id": "raw-status-selector-vector",
+      "required_native_observation": "Complete raw process streams/status vector/full selectors and intended versus no-op/unexpected effects; generic exit0 never enough.",
+      "status": "required-native-evidence-not-captured"
+    },
+    {
+      "actual_capture_sha256": null,
+      "actual_collector": null,
+      "actual_expected_vector": null,
+      "actual_raw_capture": null,
+      "actual_verifier": null,
+      "id": "target-owned-effect-vector",
+      "required_native_observation": "Independent full target and owned effects, original baseline/metadata/presence and native denied/in-flight writer/alias surfaces.",
+      "status": "required-native-evidence-not-captured"
+    },
+    {
+      "actual_capture_sha256": null,
+      "actual_collector": null,
+      "actual_expected_vector": null,
+      "actual_raw_capture": null,
+      "actual_verifier": null,
+      "id": "writer-child-lifetimes",
+      "required_native_observation": "All actual known owned child/helper/interpreter/writer/object/alias lifetimes, signal/crash quiescence and continuous guard before release.",
+      "status": "required-native-evidence-not-captured"
+    },
+    {
+      "actual_capture_sha256": null,
+      "actual_collector": null,
+      "actual_expected_vector": null,
+      "actual_raw_capture": null,
+      "actual_verifier": null,
+      "id": "time-fence-recovery-budget",
+      "required_native_observation": "Trusted clocks/live split revocation fences/finite original deadline/durable pre-spent budget and original recovery rights; no broker channel or offline revocation proof.",
+      "status": "required-native-evidence-not-captured"
+    },
+    {
+      "actual_capture_sha256": null,
+      "actual_collector": null,
+      "actual_expected_vector": null,
+      "actual_raw_capture": null,
+      "actual_verifier": null,
+      "id": "original-restoration-verification",
+      "required_native_observation": "Known original target outcome, exact verified backups or independently unchanged verification without never-created backups; full invariants/evidence before release.",
+      "status": "required-native-evidence-not-captured"
+    },
+    {
+      "actual_capture_sha256": null,
+      "actual_collector": null,
+      "actual_expected_vector": null,
+      "actual_raw_capture": null,
+      "actual_verifier": null,
+      "id": "publication-last-receipt",
+      "required_native_observation": "Captured-data separate publication controls, no-replace record/final receipt file-metadata-directory-storage durability, independent trusted origin/handoff; no selfreceipt/pairatomicity/retry.",
+      "status": "required-native-evidence-not-captured"
+    },
+    {
+      "actual_capture_sha256": null,
+      "actual_collector": null,
+      "actual_expected_vector": null,
+      "actual_raw_capture": null,
+      "actual_verifier": null,
+      "id": "positive-negative-fault-controls",
+      "required_native_observation": "Independent positive and negative fault controls with actual injection effectiveness and raw consequences, not an asserted fault flag.",
+      "status": "required-native-evidence-not-captured"
+    },
+    {
+      "actual_capture_sha256": null,
+      "actual_collector": null,
+      "actual_expected_vector": null,
+      "actual_raw_capture": null,
+      "actual_verifier": null,
+      "id": "scoped-closure-or-pending",
+      "required_native_observation": "Complete source-bound effect/proof/rights/lifetime cross-closure or explicit scoped pending obligations; unknown never absence/global closure.",
+      "status": "required-native-evidence-not-captured"
+    }
+  ],
+  "original_pause_conditions": [
+    "complete-user-overlay-full-tests-exact-commit-successful-push-clean-tree-matching-HEAD-origin-return",
+    "all-in-scope-repository-candidate-effects-and-obligations-reviewed",
+    "candidate-validator-has-no-runtime-dispatch-or-service-channel",
+    "all-unknown-actual-graph-primitives-native-protocols-and-conformance-remain-blockers",
+    "no-batch-runtime-or-partial-operational-publication",
+    "no-required-batch-machine-or-controller-cleanup",
+    "all-future-runtime-and-unused-live-rights-closed",
+    "actual-host-state-unobserved-never-claimed-absent-or-globally-closed",
+    "no-live-binding-reuse-pause-independent-of-later-current-refresh"
+  ],
+  "runtime_authority": false,
+  "schema": 1,
+  "schema_module_binding": {
+    "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-evidence-envelope.py",
+    "sha256": "b4e3535d5007cfd9145b5aa0d67dc3815049336ac2408859c1ae1793ef943140"
+  },
+  "source_bindings": {
+    "freeze348": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-core-freeze-gap-register-and-safe-pause-review-freeze.json",
+      "sha256": "ef26037256b8574cea72f297b88910f53dc51e6632a0440a8361ea8aa65761d0"
+    },
+    "gaps348": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-core-freeze-gap-register-and-safe-pause-review-native-gap-register.json",
+      "sha256": "578188d6ba5b220569c64bb869bd5a0da5bccfe1fe4fa7d98d7ddcc99fd38091"
+    },
+    "oracle335": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-independent-oracle-scaffolding-review-scaffold.json",
+      "sha256": "a89ae9237cedbc72d2a4e46edde5a28c1e296569fbe5f928ff3358b1462e5adf"
+    },
+    "reconciliation347": {
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-contract-refinement-reconciliation-review-reconciliation.json",
+      "sha256": "6e06742cfabe2da0406a84c628a824efe77c322eb6767ac433b6ab8f51c5e1ef"
+    }
+  },
+  "step": 353,
+  "unchanged_native_obligations": true
+}

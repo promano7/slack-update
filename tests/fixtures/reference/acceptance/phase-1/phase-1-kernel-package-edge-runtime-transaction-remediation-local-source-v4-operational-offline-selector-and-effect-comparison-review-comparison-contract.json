@@ -1,0 +1,145 @@
+{
+  "actual_expectation_author": null,
+  "actual_expected_vector_artifacts": null,
+  "actual_host_state": "unobserved-not-claimed-absent",
+  "actual_independent_collector": null,
+  "actual_independent_verifier": null,
+  "actual_live_bindings": null,
+  "current_user_acceptance_pending": true,
+  "explicit_projection": "two exact frozen CapturedPacket records transcribed from352; caller metadata untrusted, no callbacks/default lookups",
+  "field_order": [
+    "update-raw-status",
+    "update-stdout-sha256",
+    "update-stderr-sha256",
+    "update-streams-error-free",
+    "raw-pkglist-pin-sha256",
+    "install-new-raw-status",
+    "install-new-selector",
+    "install-new-target-effects",
+    "install-new-owned-effects",
+    "upgrade-all-raw-status",
+    "upgrade-all-selector",
+    "upgrade-all-target-effects",
+    "upgrade-all-owned-effects",
+    "unexpected-target-effects",
+    "unexpected-owned-effects",
+    "forward-stage-ids",
+    "full-forward-raw-status-vector",
+    "original-identity-timeline"
+  ],
+  "last_confirmed_strong_safe_pause_step": 348,
+  "max_capture_bytes": 67108864,
+  "max_depth": 12,
+  "max_vector_items": 128,
+  "max_wire_bytes": 262144,
+  "native_cases_run": 0,
+  "native_proofs_added": 0,
+  "next_stage_after_complete353_acceptance": 354,
+  "packet_origin": "captured-vector-unverified",
+  "packet_specs": [
+    {
+      "evidence_group": "raw-status-selector-vector",
+      "field_specs": [
+        [
+          "update-raw-status",
+          "status"
+        ],
+        [
+          "update-stdout-sha256",
+          "digest"
+        ],
+        [
+          "update-stderr-sha256",
+          "digest"
+        ],
+        [
+          "update-streams-error-free",
+          "bool"
+        ],
+        [
+          "raw-pkglist-pin-sha256",
+          "digest"
+        ],
+        [
+          "install-new-raw-status",
+          "status"
+        ],
+        [
+          "install-new-selector",
+          "labels"
+        ],
+        [
+          "upgrade-all-raw-status",
+          "status"
+        ],
+        [
+          "upgrade-all-selector",
+          "labels"
+        ],
+        [
+          "forward-stage-ids",
+          "labels"
+        ],
+        [
+          "full-forward-raw-status-vector",
+          "statuses"
+        ],
+        [
+          "original-identity-timeline",
+          "labels"
+        ]
+      ],
+      "vector_id": "selector-status"
+    },
+    {
+      "evidence_group": "target-owned-effect-vector",
+      "field_specs": [
+        [
+          "install-new-target-effects",
+          "labels"
+        ],
+        [
+          "install-new-owned-effects",
+          "labels"
+        ],
+        [
+          "upgrade-all-target-effects",
+          "labels"
+        ],
+        [
+          "upgrade-all-owned-effects",
+          "labels"
+        ],
+        [
+          "unexpected-target-effects",
+          "labels"
+        ],
+        [
+          "unexpected-owned-effects",
+          "labels"
+        ]
+      ],
+      "vector_id": "target-owned-effects"
+    }
+  ],
+  "rules": [
+    "canonical closed ASCII JSON; all18 nullable ordered slots; null never equals unknown into success",
+    "recompute raw digest; retain descriptor/raw/declared conflicts even with pending peer; malformed bytes yield diagnostics",
+    "exact literal order and multiplicity; raw statuses never normalized; -1 unattempted, not success",
+    "update requires0 and both streams error-free; raw pin/full raw hashes compared to independent literals",
+    "install-new0 or20 only with known empty selector and target/owned effects",
+    "upgrade-all0 mandatory with one literal target and nonempty literal target effects;20/no-op fail",
+    "full ordered forward stages/statuses retained, required names once/order and per-stage raw statuses aligned; extra stages retained for literal comparison",
+    "known forward failure permanently latches subsequent actions to unattempted; no recovery/publication clearing",
+    "known contradictory data remain visible with unknown identities, fields or provenance",
+    "private diagnostic agreement never native conformance/provenance/oracle/authority; all12 original native groups still pending",
+    "recovery/publication38 slots untouched until354/355; actual whole source/effect graph pending"
+  ],
+  "runtime_authority": false,
+  "schema": 1,
+  "scope": "repository-offline-evidence-comparator-workstream349-358-only",
+  "step": 353,
+  "strong_safe_pause": false,
+  "untouched_later_field_count": 38,
+  "user_step353_checkpoint_confirmed": false
+}
