@@ -1,0 +1,112 @@
+{
+  "accepted_predecessor_commit_prefix": "64b63ed",
+  "accepted_predecessor_step": 358,
+  "authorization_basis": "new-user-request-for-8-to-12-step-batch-with-final-README-reconciliation",
+  "boundaries": {
+    "actual_host_state": "unobserved-not-claimed-absent",
+    "actual_live_bindings": null,
+    "controller_action_required": false,
+    "current_step_strong_safe_pause": false,
+    "final_pause_requires_complete_user_receipt": true,
+    "historical_authority_reuse_allowed": false,
+    "kernel_package_edge_complete": false,
+    "last_confirmed_strong_safe_pause_step": 358,
+    "later_current_refresh_invalidates_repository_pause": false,
+    "machine_action_required": false,
+    "native_cases_run": 0,
+    "native_collector_selected": false,
+    "native_proofs_added": 0,
+    "native_successor_selected": false,
+    "native_verifier_selected": false,
+    "operational_conformance": false,
+    "operational_readiness": false,
+    "phase1_matrix_complete": false,
+    "phase2_open": false,
+    "production_entry_closed": true,
+    "runtime_authority": false,
+    "scope": "repository-source-inventory-and-roadmap-workstream359-368-only"
+  },
+  "conditional_pause_step": 368,
+  "next_preparable_step_after_complete359_acceptance": 360,
+  "readme_reconciliation_step": 367,
+  "requirements_retained_by_exact_binding": [
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-comparator-freeze-gap-register-and-safe-pause-review-native-gap-register.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-comparator-freeze-gap-register-and-safe-pause-review-freeze.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-comparator-freeze-gap-register-and-safe-pause-review-pause-conditions.json"
+  ],
+  "roadmap": [
+    {
+      "deliverable": "Bind confirmed pause358 and exact accepted repository; define ten repository-only steps and the README reconciliation obligation.",
+      "entry_requires_confirmed_step": 358,
+      "runtime_authorized": false,
+      "stage": "resume-plan",
+      "step": 359
+    },
+    {
+      "deliverable": "Define explicit source roots, byte/line/record bounds and lexical evidence rules; keep dynamic, generated, external and native dependencies unresolved.",
+      "entry_requires_confirmed_step": 359,
+      "runtime_authorized": false,
+      "stage": "bounded-source-inventory-contract",
+      "step": 360
+    },
+    {
+      "deliverable": "Implement and test a bounded source reader and lexical inventory; inspect data only, never execute, source, import, decode-and-run or invoke target scripts.",
+      "entry_requires_confirmed_step": 360,
+      "runtime_authorized": false,
+      "stage": "read-only-source-inventory",
+      "step": 361
+    },
+    {
+      "deliverable": "Review source-anchored entrypoints, functions and call sites; retain dynamic shell constructs and every uncertain relation as open review items.",
+      "entry_requires_confirmed_step": 361,
+      "runtime_authorized": false,
+      "stage": "entrypoint-and-callsite-review",
+      "step": 362
+    },
+    {
+      "deliverable": "Identify command/helper/interpreter/package-hook inputs and required separate versions on both Slackware targets; missing native bytes remain missing.",
+      "entry_requires_confirmed_step": 362,
+      "runtime_authorized": false,
+      "stage": "external-dependency-register",
+      "step": 363
+    },
+    {
+      "deliverable": "Map reviewed source sites to inherited effect domains, writers, objects and lifetime questions; lexical observations do not establish complete native containment.",
+      "entry_requires_confirmed_step": 363,
+      "runtime_authorized": false,
+      "stage": "effect-and-lifetime-review",
+      "step": 364
+    },
+    {
+      "deliverable": "Turn source findings into explicit implementation and evidence prerequisites with source references and unresolved native choices; issue no live grant or runner.",
+      "entry_requires_confirmed_step": 364,
+      "runtime_authorized": false,
+      "stage": "native-implementation-prerequisites",
+      "step": 365
+    },
+    {
+      "deliverable": "Reconcile findings with all sixteen inherited gaps, full original contracts and both-platform evidence requirements; preserve every unproven obligation.",
+      "entry_requires_confirmed_step": 365,
+      "runtime_authorized": false,
+      "stage": "source-and-native-gap-reconciliation",
+      "step": 366
+    },
+    {
+      "deliverable": "Reconcile current Project status, Phase 1 acceptance and Immediate next steps against accepted closures; preserve history, incomplete gates and distinguish this prepared batch from confirmed checkpoints.",
+      "entry_requires_confirmed_step": 366,
+      "runtime_authorized": false,
+      "stage": "readme-roadmap-reconciliation",
+      "step": 367
+    },
+    {
+      "deliverable": "Freeze reviewed sources, inventories, gaps and reconciled README; confirm only this repository pause after complete final tests, exact commit, push and clean matching heads, then stop.",
+      "entry_requires_confirmed_step": 367,
+      "runtime_authorized": false,
+      "stage": "source-inventory-freeze-and-pause",
+      "step": 368
+    }
+  ],
+  "schema": 1,
+  "state": "prepared-user-overlay-test-commit-push-receipt-pending",
+  "step": 359
+}
