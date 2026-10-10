@@ -1,3 +1,15 @@
+## Phase 1 step 365 — native implementation and evidence prerequisites
+
+- Accepted reported f8db9d6/127 PASS, exact eight-file2515-insertion commit,
+  successful push and reported clean matching heads; uploaded receipt bytes bound.
+- Converted all16 original native gaps into implementation review requirements,
+  source-linked lifetime findings and independent future fault-evidence questions.
+ 32 separate platform readiness slots and supplemental cksum inputs remain unbound.
+- Retained all46 proof rows,52 native case rows,12 raw groups and full frozen
+  contracts/source reviews; no candidate primitive, runner or live authority selected.
+- README367 and conditional final repository-scoped pause368 retained; no machine
+  action, runtime progress, historical authority reuse or automatic next native grant.
+
 ## Phase 1 step 364 — source effects and object lifetime review
 
 - Accepted reported c69533f/119 PASS,eight-file3456-insertion commit,successful push
