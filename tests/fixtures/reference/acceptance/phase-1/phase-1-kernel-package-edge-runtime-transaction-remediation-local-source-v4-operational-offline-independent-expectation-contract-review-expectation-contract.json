@@ -1,0 +1,423 @@
+{
+  "actual_dynamic_graph_complete": false,
+  "actual_expectation_author": null,
+  "actual_expected_vector_artifacts": null,
+  "actual_host_state": "unobserved-not-claimed-absent",
+  "actual_independent_collector": null,
+  "actual_independent_oracle_selected": false,
+  "actual_independent_verifier": null,
+  "actual_live_bindings": null,
+  "actual_native_collector_selected": false,
+  "actual_native_refinement_complete": false,
+  "author_roles": [
+    "expectation-author",
+    "verifier",
+    "unattributed"
+  ],
+  "case_ids": [
+    "issuer-authentication",
+    "durable-consumption",
+    "single-launch-slot",
+    "bootstrap-bounds",
+    "namespace-FDs",
+    "time-revocation-fence",
+    "rights-budgets",
+    "guard-writer-inventory",
+    "original-backups",
+    "phase-deltas",
+    "stage7-binding",
+    "reference-entry",
+    "actual-selector",
+    "raw-status-latch",
+    "raw-pkglist-pin",
+    "package-hooks-effects",
+    "source-archives",
+    "helper-dependencies",
+    "child-quiescence",
+    "retained-restoration",
+    "original-verification",
+    "signal-crash-interleavings",
+    "publication-controls",
+    "record-last-receipt",
+    "unknown-publication",
+    "cross-closure-oracle"
+  ],
+  "closed_fields": {
+    "expectations": [
+      "schema_version",
+      "origin",
+      "case_id",
+      "identity",
+      "provenance",
+      "vectors"
+    ],
+    "field": [
+      "field_id",
+      "value"
+    ],
+    "identity": [
+      "platform",
+      "platform_version",
+      "boot_id",
+      "source_epoch",
+      "original_attempt",
+      "test_run_id",
+      "subject_source_sha256"
+    ],
+    "provenance": [
+      "subject_source_sha256",
+      "collector_source_sha256",
+      "verifier_source_sha256",
+      "author_source_sha256",
+      "review_record_sha256",
+      "author_role",
+      "derivation"
+    ],
+    "vector": [
+      "vector_id",
+      "fields"
+    ]
+  },
+  "current_comparator_implemented": false,
+  "current_expectation_contract_implemented": true,
+  "current_ingestion_implemented": false,
+  "current_user_acceptance_pending": true,
+  "derivations": [
+    "literal-independent-unverified",
+    "unknown"
+  ],
+  "field_specs": [
+    {
+      "fields": [
+        {
+          "field_id": "update-raw-status",
+          "kind": "status"
+        },
+        {
+          "field_id": "update-stdout-sha256",
+          "kind": "digest"
+        },
+        {
+          "field_id": "update-stderr-sha256",
+          "kind": "digest"
+        },
+        {
+          "field_id": "update-streams-error-free",
+          "kind": "bool"
+        },
+        {
+          "field_id": "raw-pkglist-pin-sha256",
+          "kind": "digest"
+        },
+        {
+          "field_id": "install-new-raw-status",
+          "kind": "status"
+        },
+        {
+          "field_id": "install-new-selector",
+          "kind": "labels"
+        },
+        {
+          "field_id": "install-new-target-effects",
+          "kind": "labels"
+        },
+        {
+          "field_id": "install-new-owned-effects",
+          "kind": "labels"
+        },
+        {
+          "field_id": "upgrade-all-raw-status",
+          "kind": "status"
+        },
+        {
+          "field_id": "upgrade-all-selector",
+          "kind": "labels"
+        },
+        {
+          "field_id": "upgrade-all-target-effects",
+          "kind": "labels"
+        },
+        {
+          "field_id": "upgrade-all-owned-effects",
+          "kind": "labels"
+        },
+        {
+          "field_id": "unexpected-target-effects",
+          "kind": "labels"
+        },
+        {
+          "field_id": "unexpected-owned-effects",
+          "kind": "labels"
+        },
+        {
+          "field_id": "forward-stage-ids",
+          "kind": "labels"
+        },
+        {
+          "field_id": "full-forward-raw-status-vector",
+          "kind": "statuses"
+        },
+        {
+          "field_id": "original-identity-timeline",
+          "kind": "labels"
+        }
+      ],
+      "vector_id": "selector-effects"
+    },
+    {
+      "fields": [
+        {
+          "field_id": "original-forward-status",
+          "kind": "status"
+        },
+        {
+          "field_id": "forward-stopped",
+          "kind": "bool"
+        },
+        {
+          "field_id": "owned-child-identities",
+          "kind": "labels"
+        },
+        {
+          "field_id": "owned-children-quiescent",
+          "kind": "bool"
+        },
+        {
+          "field_id": "continuous-original-guard",
+          "kind": "bool"
+        },
+        {
+          "field_id": "recovery-rights-original-attempt",
+          "kind": "bool"
+        },
+        {
+          "field_id": "recovery-fence-valid",
+          "kind": "bool"
+        },
+        {
+          "field_id": "recovery-deadline-ns",
+          "kind": "time-ns"
+        },
+        {
+          "field_id": "recovery-budget-pre-spent",
+          "kind": "bool"
+        },
+        {
+          "field_id": "recovery-budget-remaining",
+          "kind": "budget"
+        },
+        {
+          "field_id": "verified-original-backups",
+          "kind": "labels"
+        },
+        {
+          "field_id": "original-restoration-state",
+          "kind": "label"
+        },
+        {
+          "field_id": "original-full-invariants-verified",
+          "kind": "bool"
+        },
+        {
+          "field_id": "target-evidence-closed",
+          "kind": "bool"
+        },
+        {
+          "field_id": "target-control-released",
+          "kind": "bool"
+        },
+        {
+          "field_id": "pending-target-obligations",
+          "kind": "labels"
+        },
+        {
+          "field_id": "pending-owned-obligations",
+          "kind": "labels"
+        }
+      ],
+      "vector_id": "recovery-obligations"
+    },
+    {
+      "fields": [
+        {
+          "field_id": "record-state",
+          "kind": "label"
+        },
+        {
+          "field_id": "record-sha256",
+          "kind": "digest"
+        },
+        {
+          "field_id": "record-no-replace",
+          "kind": "bool"
+        },
+        {
+          "field_id": "record-file-durable",
+          "kind": "bool"
+        },
+        {
+          "field_id": "record-metadata-durable",
+          "kind": "bool"
+        },
+        {
+          "field_id": "record-directory-durable",
+          "kind": "bool"
+        },
+        {
+          "field_id": "record-storage-durable",
+          "kind": "bool"
+        },
+        {
+          "field_id": "receipt-state",
+          "kind": "label"
+        },
+        {
+          "field_id": "receipt-sha256",
+          "kind": "digest"
+        },
+        {
+          "field_id": "receipt-no-replace",
+          "kind": "bool"
+        },
+        {
+          "field_id": "receipt-file-durable",
+          "kind": "bool"
+        },
+        {
+          "field_id": "receipt-metadata-durable",
+          "kind": "bool"
+        },
+        {
+          "field_id": "receipt-directory-durable",
+          "kind": "bool"
+        },
+        {
+          "field_id": "receipt-storage-durable",
+          "kind": "bool"
+        },
+        {
+          "field_id": "trusted-origin",
+          "kind": "bool"
+        },
+        {
+          "field_id": "handoff-acknowledged",
+          "kind": "bool"
+        },
+        {
+          "field_id": "pending-publication-obligations",
+          "kind": "labels"
+        },
+        {
+          "field_id": "target-effects-after-release",
+          "kind": "labels"
+        },
+        {
+          "field_id": "positive-control-effective",
+          "kind": "bool"
+        },
+        {
+          "field_id": "negative-control-effective",
+          "kind": "bool"
+        },
+        {
+          "field_id": "control-raw-consequence-ids",
+          "kind": "labels"
+        }
+      ],
+      "vector_id": "publication-controls"
+    }
+  ],
+  "historical_bindings_reusable": false,
+  "independence_contract": {
+    "boundary": "Synthetic envelope/type/vector comparison only. No actual raw capture, authenticator, observer, native comparator, source selection, test runner or fault injector.",
+    "expectation_author": "Separately reviewed expectation cannot derive from candidate or be authored as candidate selfreport; verifier may author independent expectations.",
+    "fault_controls": "Independent positive and negative effectiveness/raw consequences required. Missing/unknown/ineffective control blocks private declaration completeness and actual native conformance remains pending.",
+    "forbidden_reuse": "No candidate selector/cleanup/implementation logic reused as sole verifier/oracle, no emitted PASS/signature/row accepted as raw effect proof.",
+    "platforms": "52 separate cases,26 each15.0/current. No transfer of platform token/version/boot/source/authority/result from either platform.",
+    "subject_collector_verifier": "Separate subject, independent collector and verifier sources/provenance required; synthetic distinct role labels do not prove native independence.",
+    "uncertainty": "Missing/unknown observation is null and pending, never empty/no-effect/absent. Declared mismatch remains visible even with other pending groups."
+  },
+  "kernel_package_edge_complete": false,
+  "last_confirmed_strong_safe_pause_step": 348,
+  "limits": {
+    "max_budget": 65535,
+    "max_depth": 12,
+    "max_label_chars": 128,
+    "max_time_ns": 9223372036854775807,
+    "max_vector_items": 128,
+    "max_wire_bytes": 262144
+  },
+  "literal_boundary": "Five separately written private envelopes per platform exercise declaration meaning only; neither native expected vectors nor actual expectation author/collector/verifier selected.",
+  "native_cases_run": 0,
+  "native_proofs_added": 0,
+  "next_stage_after_complete351_acceptance": 352,
+  "nullable_boundary": "Null means unresolved expected value, not an empty selector, zero status, no effects, false or absent. Empty ordered tuple is an explicit expected empty vector; preserve order and multiplicity without sorting/deduplication.",
+  "operational_conformance": false,
+  "operational_readiness": false,
+  "original_publication_contract": {
+    "actual_durability_backend": null,
+    "actual_paths": null,
+    "actual_receipt_origin": null,
+    "durability": "separate-no-replace-record-then-last-receipt-with-supported-file-meta-directory-storage-proof; no-pair-atomicity-or-self-containing-receipt-hash",
+    "independent": "captured-closed-data-only-with-separate-recipient-ancestry-alias-owner-content-writer-and-authority-controls-through-last-receipt",
+    "target_order": "drain-original-restore-fullverify-target-evidence-under-guard-then-release; no-target-writes-or-refresh-after-release",
+    "unknown": "lost-ack-partial-or-unknown-record-receipt-handoff-retains-artifacts-original-status-pending-controller-obligations-no-replay-republish-or-new-target-grant"
+  },
+  "original_recovery_contract": {
+    "boundedness": "finite-issuer-bound-deadline-and-durable-action-budget; spend-before-action; no-renewal-refill-retry-after-unknown-or-new-grant",
+    "expiry_relation": "forward-expiry-or-forward-only-revocation-does-not-itself-revoke-explicitly-retained-recovery; never-blanket-expiry-exemption",
+    "idempotence": "known-already-restored-state-may-return-reviewed-no-op-with-fresh-verification; never-repeat-unknown-package-or-file-action",
+    "order": "stop-forward-then-known-child-quiescence-then-safe-restore-verify-target-evidence-before-release",
+    "owner": "narrow-retained-rights-of-same-original-consumed-attempt-not-another-grant-or-invocation",
+    "preconditions": "traps-guards-owned-canonical-paths-all-writers-excluded-exact-backups-same-safe-identity-original-baseline-and-approved-deltas",
+    "revocation": "recovery/all-revocation-unknown-scope-clock-discontinuity-boot-or-identity-drift-block-recovery-writes-and-preserve-obligations",
+    "status": "keep-original-forward-failure-status-separate-from-recovery-and-publication-status; restoration-cannot-turn-failure-into-success",
+    "validity": "explicit-authenticated-issuer-original-recovery-scope-with-own-finite-deadline-budget-and-live-recovery-fence",
+    "whitelist": [
+      "bounded-owned-child-control-and-drain",
+      "exact-original-backup-restoration",
+      "verify-original-invariants",
+      "capture-owned-target-evidence",
+      "verified-target-control-release"
+    ]
+  },
+  "original_selector_contract": {
+    "actual_backend_path": null,
+    "actual_backend_version": null,
+    "actual_effect_vectors": null,
+    "actual_selector_path": null,
+    "actual_selector_vectors": null,
+    "inputs": "identical-original-source-raw-pkglist-config-blacklist-priority-repository-architecture-installedDB-filter-identity-with-actual-versioned-selector-provenance",
+    "latch": "any-failure-or-drift-stops-all-later-forward-effects-even-unchanged-reference-caller-continues; status-return-or-errexit-alone-insufficient",
+    "refresh": "nested-update-exit0-both-stream-error-free-fresh-regular-same-bound-rawSHA-no-rebind; package/config/hook-effects-require-separate-exact-scope-proof",
+    "statuses": "keep-raw0/20-install-new-only-if-empty-selector-and-no-effect-proven; raw0-exact-one-target-upgrade-required-raw20-fails; minus1-unattempted-never-success",
+    "vectors": "complete-install-new-empty-and-upgrade-all-exact-one-target-vectors-not-counts-row-or-dryrunJSON"
+  },
+  "origins": [
+    "private-literal",
+    "separately-reviewed-unverified"
+  ],
+  "phase1_matrix_complete": false,
+  "phase2_open": false,
+  "platforms": [
+    "Slackware-15.0",
+    "Slackware-current"
+  ],
+  "production_entry_closed": true,
+  "provenance_boundary": "Known subject digest reuse by declared collector/verifier/author and known identity-source conflict reject. Missing provenance remains pending. Distinct hashes do not establish independence; even complete declarations yield no native oracle, authority or proof.",
+  "review_requirements": [
+    "Explicit independently reviewed literal bytes, source graph and review record; never derived from subject output or any frozen model reducer.",
+    "Independent collector and verifier content/ancestry/dependencies and separately reviewed expectation author; verifier may author expectations, subject may not.",
+    "Trusted provenance and before-use review outside these data declarations; distinct names/hashes/roles alone never prove independence.",
+    "Exact case/platform/version/boot/source/epoch/original attempt/run binding; no transfer across platforms or historical authority reuse.",
+    "Full original335 twelve evidence groups, positive/negative fault effectiveness and raw consequences remain required.",
+    "Full original320-327 contracts and native obligations govern; these vector slots never replace the complete native graph or evidence gates."
+  ],
+  "runtime_authority": false,
+  "schema": 1,
+  "scope": "repository-offline-evidence-comparator-workstream349-358-only",
+  "status_boundary": "Literal raw statuses include -1 unattempted. Private expected install-new0/20 empty/no-effect differs from mandatory upgrade raw0/exact-one-target; upgrade20 and recovered forward failure remain failures. Semantic comparison belongs to353-355.",
+  "step": 351,
+  "strong_safe_pause": false,
+  "user_step351_checkpoint_confirmed": false
+}

@@ -1,0 +1,2789 @@
+{
+  "derived_from_model_reducers": false,
+  "derived_from_subject": false,
+  "fixtures": [
+    {
+      "expectation": {
+        "case_id": "actual-selector",
+        "identity": {
+          "boot_id": null,
+          "original_attempt": null,
+          "platform": "Slackware-15.0",
+          "platform_version": null,
+          "source_epoch": null,
+          "subject_source_sha256": null,
+          "test_run_id": null
+        },
+        "origin": "private-literal",
+        "provenance": {
+          "author_role": "expectation-author",
+          "author_source_sha256": null,
+          "collector_source_sha256": null,
+          "derivation": "literal-independent-unverified",
+          "review_record_sha256": null,
+          "subject_source_sha256": null,
+          "verifier_source_sha256": null
+        },
+        "schema_version": 1,
+        "vectors": [
+          {
+            "fields": [
+              {
+                "field_id": "update-raw-status",
+                "value": 0
+              },
+              {
+                "field_id": "update-stdout-sha256",
+                "value": null
+              },
+              {
+                "field_id": "update-stderr-sha256",
+                "value": null
+              },
+              {
+                "field_id": "update-streams-error-free",
+                "value": true
+              },
+              {
+                "field_id": "raw-pkglist-pin-sha256",
+                "value": null
+              },
+              {
+                "field_id": "install-new-raw-status",
+                "value": 0
+              },
+              {
+                "field_id": "install-new-selector",
+                "value": []
+              },
+              {
+                "field_id": "install-new-target-effects",
+                "value": []
+              },
+              {
+                "field_id": "install-new-owned-effects",
+                "value": []
+              },
+              {
+                "field_id": "upgrade-all-raw-status",
+                "value": 0
+              },
+              {
+                "field_id": "upgrade-all-selector",
+                "value": [
+                  "private-target-package"
+                ]
+              },
+              {
+                "field_id": "upgrade-all-target-effects",
+                "value": [
+                  "private-target-package-upgrade"
+                ]
+              },
+              {
+                "field_id": "upgrade-all-owned-effects",
+                "value": [
+                  "private-owned-runtime-log"
+                ]
+              },
+              {
+                "field_id": "unexpected-target-effects",
+                "value": []
+              },
+              {
+                "field_id": "unexpected-owned-effects",
+                "value": []
+              },
+              {
+                "field_id": "forward-stage-ids",
+                "value": [
+                  "update",
+                  "install-new",
+                  "upgrade-all"
+                ]
+              },
+              {
+                "field_id": "full-forward-raw-status-vector",
+                "value": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "field_id": "original-identity-timeline",
+                "value": null
+              }
+            ],
+            "vector_id": "selector-effects"
+          },
+          {
+            "fields": [
+              {
+                "field_id": "original-forward-status",
+                "value": 0
+              },
+              {
+                "field_id": "forward-stopped",
+                "value": null
+              },
+              {
+                "field_id": "owned-child-identities",
+                "value": null
+              },
+              {
+                "field_id": "owned-children-quiescent",
+                "value": null
+              },
+              {
+                "field_id": "continuous-original-guard",
+                "value": null
+              },
+              {
+                "field_id": "recovery-rights-original-attempt",
+                "value": null
+              },
+              {
+                "field_id": "recovery-fence-valid",
+                "value": null
+              },
+              {
+                "field_id": "recovery-deadline-ns",
+                "value": null
+              },
+              {
+                "field_id": "recovery-budget-pre-spent",
+                "value": null
+              },
+              {
+                "field_id": "recovery-budget-remaining",
+                "value": null
+              },
+              {
+                "field_id": "verified-original-backups",
+                "value": null
+              },
+              {
+                "field_id": "original-restoration-state",
+                "value": null
+              },
+              {
+                "field_id": "original-full-invariants-verified",
+                "value": null
+              },
+              {
+                "field_id": "target-evidence-closed",
+                "value": null
+              },
+              {
+                "field_id": "target-control-released",
+                "value": null
+              },
+              {
+                "field_id": "pending-target-obligations",
+                "value": []
+              },
+              {
+                "field_id": "pending-owned-obligations",
+                "value": []
+              }
+            ],
+            "vector_id": "recovery-obligations"
+          },
+          {
+            "fields": [
+              {
+                "field_id": "record-state",
+                "value": null
+              },
+              {
+                "field_id": "record-sha256",
+                "value": null
+              },
+              {
+                "field_id": "record-no-replace",
+                "value": null
+              },
+              {
+                "field_id": "record-file-durable",
+                "value": null
+              },
+              {
+                "field_id": "record-metadata-durable",
+                "value": null
+              },
+              {
+                "field_id": "record-directory-durable",
+                "value": null
+              },
+              {
+                "field_id": "record-storage-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-state",
+                "value": null
+              },
+              {
+                "field_id": "receipt-sha256",
+                "value": null
+              },
+              {
+                "field_id": "receipt-no-replace",
+                "value": null
+              },
+              {
+                "field_id": "receipt-file-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-metadata-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-directory-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-storage-durable",
+                "value": null
+              },
+              {
+                "field_id": "trusted-origin",
+                "value": null
+              },
+              {
+                "field_id": "handoff-acknowledged",
+                "value": null
+              },
+              {
+                "field_id": "pending-publication-obligations",
+                "value": null
+              },
+              {
+                "field_id": "target-effects-after-release",
+                "value": null
+              },
+              {
+                "field_id": "positive-control-effective",
+                "value": null
+              },
+              {
+                "field_id": "negative-control-effective",
+                "value": null
+              },
+              {
+                "field_id": "control-raw-consequence-ids",
+                "value": null
+              }
+            ],
+            "vector_id": "publication-controls"
+          }
+        ]
+      },
+      "native_case_run": false,
+      "platform": "Slackware-15.0",
+      "scenario": "empty-install-zero",
+      "semantic_note": "Private literal declaration only; no captured observation or native selected oracle. Failure/raw status and unknown fields remain explicit."
+    },
+    {
+      "expectation": {
+        "case_id": "actual-selector",
+        "identity": {
+          "boot_id": null,
+          "original_attempt": null,
+          "platform": "Slackware-15.0",
+          "platform_version": null,
+          "source_epoch": null,
+          "subject_source_sha256": null,
+          "test_run_id": null
+        },
+        "origin": "private-literal",
+        "provenance": {
+          "author_role": "expectation-author",
+          "author_source_sha256": null,
+          "collector_source_sha256": null,
+          "derivation": "literal-independent-unverified",
+          "review_record_sha256": null,
+          "subject_source_sha256": null,
+          "verifier_source_sha256": null
+        },
+        "schema_version": 1,
+        "vectors": [
+          {
+            "fields": [
+              {
+                "field_id": "update-raw-status",
+                "value": 0
+              },
+              {
+                "field_id": "update-stdout-sha256",
+                "value": null
+              },
+              {
+                "field_id": "update-stderr-sha256",
+                "value": null
+              },
+              {
+                "field_id": "update-streams-error-free",
+                "value": true
+              },
+              {
+                "field_id": "raw-pkglist-pin-sha256",
+                "value": null
+              },
+              {
+                "field_id": "install-new-raw-status",
+                "value": 20
+              },
+              {
+                "field_id": "install-new-selector",
+                "value": []
+              },
+              {
+                "field_id": "install-new-target-effects",
+                "value": []
+              },
+              {
+                "field_id": "install-new-owned-effects",
+                "value": []
+              },
+              {
+                "field_id": "upgrade-all-raw-status",
+                "value": 0
+              },
+              {
+                "field_id": "upgrade-all-selector",
+                "value": [
+                  "private-target-package"
+                ]
+              },
+              {
+                "field_id": "upgrade-all-target-effects",
+                "value": [
+                  "private-target-package-upgrade"
+                ]
+              },
+              {
+                "field_id": "upgrade-all-owned-effects",
+                "value": [
+                  "private-owned-runtime-log"
+                ]
+              },
+              {
+                "field_id": "unexpected-target-effects",
+                "value": []
+              },
+              {
+                "field_id": "unexpected-owned-effects",
+                "value": []
+              },
+              {
+                "field_id": "forward-stage-ids",
+                "value": [
+                  "update",
+                  "install-new",
+                  "upgrade-all"
+                ]
+              },
+              {
+                "field_id": "full-forward-raw-status-vector",
+                "value": [
+                  0,
+                  20,
+                  0
+                ]
+              },
+              {
+                "field_id": "original-identity-timeline",
+                "value": null
+              }
+            ],
+            "vector_id": "selector-effects"
+          },
+          {
+            "fields": [
+              {
+                "field_id": "original-forward-status",
+                "value": 0
+              },
+              {
+                "field_id": "forward-stopped",
+                "value": null
+              },
+              {
+                "field_id": "owned-child-identities",
+                "value": null
+              },
+              {
+                "field_id": "owned-children-quiescent",
+                "value": null
+              },
+              {
+                "field_id": "continuous-original-guard",
+                "value": null
+              },
+              {
+                "field_id": "recovery-rights-original-attempt",
+                "value": null
+              },
+              {
+                "field_id": "recovery-fence-valid",
+                "value": null
+              },
+              {
+                "field_id": "recovery-deadline-ns",
+                "value": null
+              },
+              {
+                "field_id": "recovery-budget-pre-spent",
+                "value": null
+              },
+              {
+                "field_id": "recovery-budget-remaining",
+                "value": null
+              },
+              {
+                "field_id": "verified-original-backups",
+                "value": null
+              },
+              {
+                "field_id": "original-restoration-state",
+                "value": null
+              },
+              {
+                "field_id": "original-full-invariants-verified",
+                "value": null
+              },
+              {
+                "field_id": "target-evidence-closed",
+                "value": null
+              },
+              {
+                "field_id": "target-control-released",
+                "value": null
+              },
+              {
+                "field_id": "pending-target-obligations",
+                "value": []
+              },
+              {
+                "field_id": "pending-owned-obligations",
+                "value": []
+              }
+            ],
+            "vector_id": "recovery-obligations"
+          },
+          {
+            "fields": [
+              {
+                "field_id": "record-state",
+                "value": null
+              },
+              {
+                "field_id": "record-sha256",
+                "value": null
+              },
+              {
+                "field_id": "record-no-replace",
+                "value": null
+              },
+              {
+                "field_id": "record-file-durable",
+                "value": null
+              },
+              {
+                "field_id": "record-metadata-durable",
+                "value": null
+              },
+              {
+                "field_id": "record-directory-durable",
+                "value": null
+              },
+              {
+                "field_id": "record-storage-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-state",
+                "value": null
+              },
+              {
+                "field_id": "receipt-sha256",
+                "value": null
+              },
+              {
+                "field_id": "receipt-no-replace",
+                "value": null
+              },
+              {
+                "field_id": "receipt-file-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-metadata-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-directory-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-storage-durable",
+                "value": null
+              },
+              {
+                "field_id": "trusted-origin",
+                "value": null
+              },
+              {
+                "field_id": "handoff-acknowledged",
+                "value": null
+              },
+              {
+                "field_id": "pending-publication-obligations",
+                "value": null
+              },
+              {
+                "field_id": "target-effects-after-release",
+                "value": null
+              },
+              {
+                "field_id": "positive-control-effective",
+                "value": null
+              },
+              {
+                "field_id": "negative-control-effective",
+                "value": null
+              },
+              {
+                "field_id": "control-raw-consequence-ids",
+                "value": null
+              }
+            ],
+            "vector_id": "publication-controls"
+          }
+        ]
+      },
+      "native_case_run": false,
+      "platform": "Slackware-15.0",
+      "scenario": "empty-install-twenty",
+      "semantic_note": "Private literal declaration only; no captured observation or native selected oracle. Failure/raw status and unknown fields remain explicit."
+    },
+    {
+      "expectation": {
+        "case_id": "raw-status-latch",
+        "identity": {
+          "boot_id": null,
+          "original_attempt": null,
+          "platform": "Slackware-15.0",
+          "platform_version": null,
+          "source_epoch": null,
+          "subject_source_sha256": null,
+          "test_run_id": null
+        },
+        "origin": "private-literal",
+        "provenance": {
+          "author_role": "expectation-author",
+          "author_source_sha256": null,
+          "collector_source_sha256": null,
+          "derivation": "literal-independent-unverified",
+          "review_record_sha256": null,
+          "subject_source_sha256": null,
+          "verifier_source_sha256": null
+        },
+        "schema_version": 1,
+        "vectors": [
+          {
+            "fields": [
+              {
+                "field_id": "update-raw-status",
+                "value": null
+              },
+              {
+                "field_id": "update-stdout-sha256",
+                "value": null
+              },
+              {
+                "field_id": "update-stderr-sha256",
+                "value": null
+              },
+              {
+                "field_id": "update-streams-error-free",
+                "value": null
+              },
+              {
+                "field_id": "raw-pkglist-pin-sha256",
+                "value": null
+              },
+              {
+                "field_id": "install-new-raw-status",
+                "value": 20
+              },
+              {
+                "field_id": "install-new-selector",
+                "value": []
+              },
+              {
+                "field_id": "install-new-target-effects",
+                "value": []
+              },
+              {
+                "field_id": "install-new-owned-effects",
+                "value": []
+              },
+              {
+                "field_id": "upgrade-all-raw-status",
+                "value": 20
+              },
+              {
+                "field_id": "upgrade-all-selector",
+                "value": []
+              },
+              {
+                "field_id": "upgrade-all-target-effects",
+                "value": []
+              },
+              {
+                "field_id": "upgrade-all-owned-effects",
+                "value": []
+              },
+              {
+                "field_id": "unexpected-target-effects",
+                "value": null
+              },
+              {
+                "field_id": "unexpected-owned-effects",
+                "value": null
+              },
+              {
+                "field_id": "forward-stage-ids",
+                "value": null
+              },
+              {
+                "field_id": "full-forward-raw-status-vector",
+                "value": null
+              },
+              {
+                "field_id": "original-identity-timeline",
+                "value": null
+              }
+            ],
+            "vector_id": "selector-effects"
+          },
+          {
+            "fields": [
+              {
+                "field_id": "original-forward-status",
+                "value": 20
+              },
+              {
+                "field_id": "forward-stopped",
+                "value": true
+              },
+              {
+                "field_id": "owned-child-identities",
+                "value": null
+              },
+              {
+                "field_id": "owned-children-quiescent",
+                "value": true
+              },
+              {
+                "field_id": "continuous-original-guard",
+                "value": true
+              },
+              {
+                "field_id": "recovery-rights-original-attempt",
+                "value": null
+              },
+              {
+                "field_id": "recovery-fence-valid",
+                "value": null
+              },
+              {
+                "field_id": "recovery-deadline-ns",
+                "value": null
+              },
+              {
+                "field_id": "recovery-budget-pre-spent",
+                "value": null
+              },
+              {
+                "field_id": "recovery-budget-remaining",
+                "value": null
+              },
+              {
+                "field_id": "verified-original-backups",
+                "value": null
+              },
+              {
+                "field_id": "original-restoration-state",
+                "value": "unchanged-verified"
+              },
+              {
+                "field_id": "original-full-invariants-verified",
+                "value": true
+              },
+              {
+                "field_id": "target-evidence-closed",
+                "value": null
+              },
+              {
+                "field_id": "target-control-released",
+                "value": null
+              },
+              {
+                "field_id": "pending-target-obligations",
+                "value": [
+                  "pkglist-selector-status"
+                ]
+              },
+              {
+                "field_id": "pending-owned-obligations",
+                "value": []
+              }
+            ],
+            "vector_id": "recovery-obligations"
+          },
+          {
+            "fields": [
+              {
+                "field_id": "record-state",
+                "value": null
+              },
+              {
+                "field_id": "record-sha256",
+                "value": null
+              },
+              {
+                "field_id": "record-no-replace",
+                "value": null
+              },
+              {
+                "field_id": "record-file-durable",
+                "value": null
+              },
+              {
+                "field_id": "record-metadata-durable",
+                "value": null
+              },
+              {
+                "field_id": "record-directory-durable",
+                "value": null
+              },
+              {
+                "field_id": "record-storage-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-state",
+                "value": null
+              },
+              {
+                "field_id": "receipt-sha256",
+                "value": null
+              },
+              {
+                "field_id": "receipt-no-replace",
+                "value": null
+              },
+              {
+                "field_id": "receipt-file-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-metadata-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-directory-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-storage-durable",
+                "value": null
+              },
+              {
+                "field_id": "trusted-origin",
+                "value": null
+              },
+              {
+                "field_id": "handoff-acknowledged",
+                "value": null
+              },
+              {
+                "field_id": "pending-publication-obligations",
+                "value": null
+              },
+              {
+                "field_id": "target-effects-after-release",
+                "value": null
+              },
+              {
+                "field_id": "positive-control-effective",
+                "value": null
+              },
+              {
+                "field_id": "negative-control-effective",
+                "value": null
+              },
+              {
+                "field_id": "control-raw-consequence-ids",
+                "value": null
+              }
+            ],
+            "vector_id": "publication-controls"
+          }
+        ]
+      },
+      "native_case_run": false,
+      "platform": "Slackware-15.0",
+      "scenario": "mandatory-upgrade-twenty",
+      "semantic_note": "Private literal declaration only; no captured observation or native selected oracle. Failure/raw status and unknown fields remain explicit."
+    },
+    {
+      "expectation": {
+        "case_id": "retained-restoration",
+        "identity": {
+          "boot_id": null,
+          "original_attempt": null,
+          "platform": "Slackware-15.0",
+          "platform_version": null,
+          "source_epoch": null,
+          "subject_source_sha256": null,
+          "test_run_id": null
+        },
+        "origin": "private-literal",
+        "provenance": {
+          "author_role": "expectation-author",
+          "author_source_sha256": null,
+          "collector_source_sha256": null,
+          "derivation": "literal-independent-unverified",
+          "review_record_sha256": null,
+          "subject_source_sha256": null,
+          "verifier_source_sha256": null
+        },
+        "schema_version": 1,
+        "vectors": [
+          {
+            "fields": [
+              {
+                "field_id": "update-raw-status",
+                "value": null
+              },
+              {
+                "field_id": "update-stdout-sha256",
+                "value": null
+              },
+              {
+                "field_id": "update-stderr-sha256",
+                "value": null
+              },
+              {
+                "field_id": "update-streams-error-free",
+                "value": null
+              },
+              {
+                "field_id": "raw-pkglist-pin-sha256",
+                "value": null
+              },
+              {
+                "field_id": "install-new-raw-status",
+                "value": null
+              },
+              {
+                "field_id": "install-new-selector",
+                "value": null
+              },
+              {
+                "field_id": "install-new-target-effects",
+                "value": null
+              },
+              {
+                "field_id": "install-new-owned-effects",
+                "value": null
+              },
+              {
+                "field_id": "upgrade-all-raw-status",
+                "value": null
+              },
+              {
+                "field_id": "upgrade-all-selector",
+                "value": null
+              },
+              {
+                "field_id": "upgrade-all-target-effects",
+                "value": null
+              },
+              {
+                "field_id": "upgrade-all-owned-effects",
+                "value": null
+              },
+              {
+                "field_id": "unexpected-target-effects",
+                "value": null
+              },
+              {
+                "field_id": "unexpected-owned-effects",
+                "value": null
+              },
+              {
+                "field_id": "forward-stage-ids",
+                "value": null
+              },
+              {
+                "field_id": "full-forward-raw-status-vector",
+                "value": null
+              },
+              {
+                "field_id": "original-identity-timeline",
+                "value": null
+              }
+            ],
+            "vector_id": "selector-effects"
+          },
+          {
+            "fields": [
+              {
+                "field_id": "original-forward-status",
+                "value": 7
+              },
+              {
+                "field_id": "forward-stopped",
+                "value": true
+              },
+              {
+                "field_id": "owned-child-identities",
+                "value": [
+                  "private-child"
+                ]
+              },
+              {
+                "field_id": "owned-children-quiescent",
+                "value": null
+              },
+              {
+                "field_id": "continuous-original-guard",
+                "value": null
+              },
+              {
+                "field_id": "recovery-rights-original-attempt",
+                "value": null
+              },
+              {
+                "field_id": "recovery-fence-valid",
+                "value": null
+              },
+              {
+                "field_id": "recovery-deadline-ns",
+                "value": null
+              },
+              {
+                "field_id": "recovery-budget-pre-spent",
+                "value": true
+              },
+              {
+                "field_id": "recovery-budget-remaining",
+                "value": 0
+              },
+              {
+                "field_id": "verified-original-backups",
+                "value": null
+              },
+              {
+                "field_id": "original-restoration-state",
+                "value": "unknown"
+              },
+              {
+                "field_id": "original-full-invariants-verified",
+                "value": null
+              },
+              {
+                "field_id": "target-evidence-closed",
+                "value": null
+              },
+              {
+                "field_id": "target-control-released",
+                "value": null
+              },
+              {
+                "field_id": "pending-target-obligations",
+                "value": [
+                  "failure-recovery-rights"
+                ]
+              },
+              {
+                "field_id": "pending-owned-obligations",
+                "value": [
+                  "guarded-baseline"
+                ]
+              }
+            ],
+            "vector_id": "recovery-obligations"
+          },
+          {
+            "fields": [
+              {
+                "field_id": "record-state",
+                "value": null
+              },
+              {
+                "field_id": "record-sha256",
+                "value": null
+              },
+              {
+                "field_id": "record-no-replace",
+                "value": null
+              },
+              {
+                "field_id": "record-file-durable",
+                "value": null
+              },
+              {
+                "field_id": "record-metadata-durable",
+                "value": null
+              },
+              {
+                "field_id": "record-directory-durable",
+                "value": null
+              },
+              {
+                "field_id": "record-storage-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-state",
+                "value": null
+              },
+              {
+                "field_id": "receipt-sha256",
+                "value": null
+              },
+              {
+                "field_id": "receipt-no-replace",
+                "value": null
+              },
+              {
+                "field_id": "receipt-file-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-metadata-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-directory-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-storage-durable",
+                "value": null
+              },
+              {
+                "field_id": "trusted-origin",
+                "value": null
+              },
+              {
+                "field_id": "handoff-acknowledged",
+                "value": null
+              },
+              {
+                "field_id": "pending-publication-obligations",
+                "value": null
+              },
+              {
+                "field_id": "target-effects-after-release",
+                "value": null
+              },
+              {
+                "field_id": "positive-control-effective",
+                "value": null
+              },
+              {
+                "field_id": "negative-control-effective",
+                "value": null
+              },
+              {
+                "field_id": "control-raw-consequence-ids",
+                "value": null
+              }
+            ],
+            "vector_id": "publication-controls"
+          }
+        ]
+      },
+      "native_case_run": false,
+      "platform": "Slackware-15.0",
+      "scenario": "unknown-recovery",
+      "semantic_note": "Private literal declaration only; no captured observation or native selected oracle. Failure/raw status and unknown fields remain explicit."
+    },
+    {
+      "expectation": {
+        "case_id": "unknown-publication",
+        "identity": {
+          "boot_id": null,
+          "original_attempt": null,
+          "platform": "Slackware-15.0",
+          "platform_version": null,
+          "source_epoch": null,
+          "subject_source_sha256": null,
+          "test_run_id": null
+        },
+        "origin": "private-literal",
+        "provenance": {
+          "author_role": "expectation-author",
+          "author_source_sha256": null,
+          "collector_source_sha256": null,
+          "derivation": "literal-independent-unverified",
+          "review_record_sha256": null,
+          "subject_source_sha256": null,
+          "verifier_source_sha256": null
+        },
+        "schema_version": 1,
+        "vectors": [
+          {
+            "fields": [
+              {
+                "field_id": "update-raw-status",
+                "value": null
+              },
+              {
+                "field_id": "update-stdout-sha256",
+                "value": null
+              },
+              {
+                "field_id": "update-stderr-sha256",
+                "value": null
+              },
+              {
+                "field_id": "update-streams-error-free",
+                "value": null
+              },
+              {
+                "field_id": "raw-pkglist-pin-sha256",
+                "value": null
+              },
+              {
+                "field_id": "install-new-raw-status",
+                "value": null
+              },
+              {
+                "field_id": "install-new-selector",
+                "value": null
+              },
+              {
+                "field_id": "install-new-target-effects",
+                "value": null
+              },
+              {
+                "field_id": "install-new-owned-effects",
+                "value": null
+              },
+              {
+                "field_id": "upgrade-all-raw-status",
+                "value": null
+              },
+              {
+                "field_id": "upgrade-all-selector",
+                "value": null
+              },
+              {
+                "field_id": "upgrade-all-target-effects",
+                "value": null
+              },
+              {
+                "field_id": "upgrade-all-owned-effects",
+                "value": null
+              },
+              {
+                "field_id": "unexpected-target-effects",
+                "value": null
+              },
+              {
+                "field_id": "unexpected-owned-effects",
+                "value": null
+              },
+              {
+                "field_id": "forward-stage-ids",
+                "value": null
+              },
+              {
+                "field_id": "full-forward-raw-status-vector",
+                "value": null
+              },
+              {
+                "field_id": "original-identity-timeline",
+                "value": null
+              }
+            ],
+            "vector_id": "selector-effects"
+          },
+          {
+            "fields": [
+              {
+                "field_id": "original-forward-status",
+                "value": 7
+              },
+              {
+                "field_id": "forward-stopped",
+                "value": true
+              },
+              {
+                "field_id": "owned-child-identities",
+                "value": null
+              },
+              {
+                "field_id": "owned-children-quiescent",
+                "value": true
+              },
+              {
+                "field_id": "continuous-original-guard",
+                "value": true
+              },
+              {
+                "field_id": "recovery-rights-original-attempt",
+                "value": null
+              },
+              {
+                "field_id": "recovery-fence-valid",
+                "value": null
+              },
+              {
+                "field_id": "recovery-deadline-ns",
+                "value": null
+              },
+              {
+                "field_id": "recovery-budget-pre-spent",
+                "value": null
+              },
+              {
+                "field_id": "recovery-budget-remaining",
+                "value": null
+              },
+              {
+                "field_id": "verified-original-backups",
+                "value": null
+              },
+              {
+                "field_id": "original-restoration-state",
+                "value": "restored"
+              },
+              {
+                "field_id": "original-full-invariants-verified",
+                "value": true
+              },
+              {
+                "field_id": "target-evidence-closed",
+                "value": true
+              },
+              {
+                "field_id": "target-control-released",
+                "value": true
+              },
+              {
+                "field_id": "pending-target-obligations",
+                "value": []
+              },
+              {
+                "field_id": "pending-owned-obligations",
+                "value": null
+              }
+            ],
+            "vector_id": "recovery-obligations"
+          },
+          {
+            "fields": [
+              {
+                "field_id": "record-state",
+                "value": "present-unverified"
+              },
+              {
+                "field_id": "record-sha256",
+                "value": null
+              },
+              {
+                "field_id": "record-no-replace",
+                "value": null
+              },
+              {
+                "field_id": "record-file-durable",
+                "value": null
+              },
+              {
+                "field_id": "record-metadata-durable",
+                "value": null
+              },
+              {
+                "field_id": "record-directory-durable",
+                "value": null
+              },
+              {
+                "field_id": "record-storage-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-state",
+                "value": "unknown"
+              },
+              {
+                "field_id": "receipt-sha256",
+                "value": null
+              },
+              {
+                "field_id": "receipt-no-replace",
+                "value": null
+              },
+              {
+                "field_id": "receipt-file-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-metadata-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-directory-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-storage-durable",
+                "value": null
+              },
+              {
+                "field_id": "trusted-origin",
+                "value": null
+              },
+              {
+                "field_id": "handoff-acknowledged",
+                "value": null
+              },
+              {
+                "field_id": "pending-publication-obligations",
+                "value": [
+                  "last-receipt-durability"
+                ]
+              },
+              {
+                "field_id": "target-effects-after-release",
+                "value": []
+              },
+              {
+                "field_id": "positive-control-effective",
+                "value": null
+              },
+              {
+                "field_id": "negative-control-effective",
+                "value": null
+              },
+              {
+                "field_id": "control-raw-consequence-ids",
+                "value": null
+              }
+            ],
+            "vector_id": "publication-controls"
+          }
+        ]
+      },
+      "native_case_run": false,
+      "platform": "Slackware-15.0",
+      "scenario": "unknown-last-receipt",
+      "semantic_note": "Private literal declaration only; no captured observation or native selected oracle. Failure/raw status and unknown fields remain explicit."
+    },
+    {
+      "expectation": {
+        "case_id": "actual-selector",
+        "identity": {
+          "boot_id": null,
+          "original_attempt": null,
+          "platform": "Slackware-current",
+          "platform_version": null,
+          "source_epoch": null,
+          "subject_source_sha256": null,
+          "test_run_id": null
+        },
+        "origin": "private-literal",
+        "provenance": {
+          "author_role": "expectation-author",
+          "author_source_sha256": null,
+          "collector_source_sha256": null,
+          "derivation": "literal-independent-unverified",
+          "review_record_sha256": null,
+          "subject_source_sha256": null,
+          "verifier_source_sha256": null
+        },
+        "schema_version": 1,
+        "vectors": [
+          {
+            "fields": [
+              {
+                "field_id": "update-raw-status",
+                "value": 0
+              },
+              {
+                "field_id": "update-stdout-sha256",
+                "value": null
+              },
+              {
+                "field_id": "update-stderr-sha256",
+                "value": null
+              },
+              {
+                "field_id": "update-streams-error-free",
+                "value": true
+              },
+              {
+                "field_id": "raw-pkglist-pin-sha256",
+                "value": null
+              },
+              {
+                "field_id": "install-new-raw-status",
+                "value": 0
+              },
+              {
+                "field_id": "install-new-selector",
+                "value": []
+              },
+              {
+                "field_id": "install-new-target-effects",
+                "value": []
+              },
+              {
+                "field_id": "install-new-owned-effects",
+                "value": []
+              },
+              {
+                "field_id": "upgrade-all-raw-status",
+                "value": 0
+              },
+              {
+                "field_id": "upgrade-all-selector",
+                "value": [
+                  "private-target-package"
+                ]
+              },
+              {
+                "field_id": "upgrade-all-target-effects",
+                "value": [
+                  "private-target-package-upgrade"
+                ]
+              },
+              {
+                "field_id": "upgrade-all-owned-effects",
+                "value": [
+                  "private-owned-runtime-log"
+                ]
+              },
+              {
+                "field_id": "unexpected-target-effects",
+                "value": []
+              },
+              {
+                "field_id": "unexpected-owned-effects",
+                "value": []
+              },
+              {
+                "field_id": "forward-stage-ids",
+                "value": [
+                  "update",
+                  "install-new",
+                  "upgrade-all"
+                ]
+              },
+              {
+                "field_id": "full-forward-raw-status-vector",
+                "value": [
+                  0,
+                  0,
+                  0
+                ]
+              },
+              {
+                "field_id": "original-identity-timeline",
+                "value": null
+              }
+            ],
+            "vector_id": "selector-effects"
+          },
+          {
+            "fields": [
+              {
+                "field_id": "original-forward-status",
+                "value": 0
+              },
+              {
+                "field_id": "forward-stopped",
+                "value": null
+              },
+              {
+                "field_id": "owned-child-identities",
+                "value": null
+              },
+              {
+                "field_id": "owned-children-quiescent",
+                "value": null
+              },
+              {
+                "field_id": "continuous-original-guard",
+                "value": null
+              },
+              {
+                "field_id": "recovery-rights-original-attempt",
+                "value": null
+              },
+              {
+                "field_id": "recovery-fence-valid",
+                "value": null
+              },
+              {
+                "field_id": "recovery-deadline-ns",
+                "value": null
+              },
+              {
+                "field_id": "recovery-budget-pre-spent",
+                "value": null
+              },
+              {
+                "field_id": "recovery-budget-remaining",
+                "value": null
+              },
+              {
+                "field_id": "verified-original-backups",
+                "value": null
+              },
+              {
+                "field_id": "original-restoration-state",
+                "value": null
+              },
+              {
+                "field_id": "original-full-invariants-verified",
+                "value": null
+              },
+              {
+                "field_id": "target-evidence-closed",
+                "value": null
+              },
+              {
+                "field_id": "target-control-released",
+                "value": null
+              },
+              {
+                "field_id": "pending-target-obligations",
+                "value": []
+              },
+              {
+                "field_id": "pending-owned-obligations",
+                "value": []
+              }
+            ],
+            "vector_id": "recovery-obligations"
+          },
+          {
+            "fields": [
+              {
+                "field_id": "record-state",
+                "value": null
+              },
+              {
+                "field_id": "record-sha256",
+                "value": null
+              },
+              {
+                "field_id": "record-no-replace",
+                "value": null
+              },
+              {
+                "field_id": "record-file-durable",
+                "value": null
+              },
+              {
+                "field_id": "record-metadata-durable",
+                "value": null
+              },
+              {
+                "field_id": "record-directory-durable",
+                "value": null
+              },
+              {
+                "field_id": "record-storage-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-state",
+                "value": null
+              },
+              {
+                "field_id": "receipt-sha256",
+                "value": null
+              },
+              {
+                "field_id": "receipt-no-replace",
+                "value": null
+              },
+              {
+                "field_id": "receipt-file-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-metadata-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-directory-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-storage-durable",
+                "value": null
+              },
+              {
+                "field_id": "trusted-origin",
+                "value": null
+              },
+              {
+                "field_id": "handoff-acknowledged",
+                "value": null
+              },
+              {
+                "field_id": "pending-publication-obligations",
+                "value": null
+              },
+              {
+                "field_id": "target-effects-after-release",
+                "value": null
+              },
+              {
+                "field_id": "positive-control-effective",
+                "value": null
+              },
+              {
+                "field_id": "negative-control-effective",
+                "value": null
+              },
+              {
+                "field_id": "control-raw-consequence-ids",
+                "value": null
+              }
+            ],
+            "vector_id": "publication-controls"
+          }
+        ]
+      },
+      "native_case_run": false,
+      "platform": "Slackware-current",
+      "scenario": "empty-install-zero",
+      "semantic_note": "Private literal declaration only; no captured observation or native selected oracle. Failure/raw status and unknown fields remain explicit."
+    },
+    {
+      "expectation": {
+        "case_id": "actual-selector",
+        "identity": {
+          "boot_id": null,
+          "original_attempt": null,
+          "platform": "Slackware-current",
+          "platform_version": null,
+          "source_epoch": null,
+          "subject_source_sha256": null,
+          "test_run_id": null
+        },
+        "origin": "private-literal",
+        "provenance": {
+          "author_role": "expectation-author",
+          "author_source_sha256": null,
+          "collector_source_sha256": null,
+          "derivation": "literal-independent-unverified",
+          "review_record_sha256": null,
+          "subject_source_sha256": null,
+          "verifier_source_sha256": null
+        },
+        "schema_version": 1,
+        "vectors": [
+          {
+            "fields": [
+              {
+                "field_id": "update-raw-status",
+                "value": 0
+              },
+              {
+                "field_id": "update-stdout-sha256",
+                "value": null
+              },
+              {
+                "field_id": "update-stderr-sha256",
+                "value": null
+              },
+              {
+                "field_id": "update-streams-error-free",
+                "value": true
+              },
+              {
+                "field_id": "raw-pkglist-pin-sha256",
+                "value": null
+              },
+              {
+                "field_id": "install-new-raw-status",
+                "value": 20
+              },
+              {
+                "field_id": "install-new-selector",
+                "value": []
+              },
+              {
+                "field_id": "install-new-target-effects",
+                "value": []
+              },
+              {
+                "field_id": "install-new-owned-effects",
+                "value": []
+              },
+              {
+                "field_id": "upgrade-all-raw-status",
+                "value": 0
+              },
+              {
+                "field_id": "upgrade-all-selector",
+                "value": [
+                  "private-target-package"
+                ]
+              },
+              {
+                "field_id": "upgrade-all-target-effects",
+                "value": [
+                  "private-target-package-upgrade"
+                ]
+              },
+              {
+                "field_id": "upgrade-all-owned-effects",
+                "value": [
+                  "private-owned-runtime-log"
+                ]
+              },
+              {
+                "field_id": "unexpected-target-effects",
+                "value": []
+              },
+              {
+                "field_id": "unexpected-owned-effects",
+                "value": []
+              },
+              {
+                "field_id": "forward-stage-ids",
+                "value": [
+                  "update",
+                  "install-new",
+                  "upgrade-all"
+                ]
+              },
+              {
+                "field_id": "full-forward-raw-status-vector",
+                "value": [
+                  0,
+                  20,
+                  0
+                ]
+              },
+              {
+                "field_id": "original-identity-timeline",
+                "value": null
+              }
+            ],
+            "vector_id": "selector-effects"
+          },
+          {
+            "fields": [
+              {
+                "field_id": "original-forward-status",
+                "value": 0
+              },
+              {
+                "field_id": "forward-stopped",
+                "value": null
+              },
+              {
+                "field_id": "owned-child-identities",
+                "value": null
+              },
+              {
+                "field_id": "owned-children-quiescent",
+                "value": null
+              },
+              {
+                "field_id": "continuous-original-guard",
+                "value": null
+              },
+              {
+                "field_id": "recovery-rights-original-attempt",
+                "value": null
+              },
+              {
+                "field_id": "recovery-fence-valid",
+                "value": null
+              },
+              {
+                "field_id": "recovery-deadline-ns",
+                "value": null
+              },
+              {
+                "field_id": "recovery-budget-pre-spent",
+                "value": null
+              },
+              {
+                "field_id": "recovery-budget-remaining",
+                "value": null
+              },
+              {
+                "field_id": "verified-original-backups",
+                "value": null
+              },
+              {
+                "field_id": "original-restoration-state",
+                "value": null
+              },
+              {
+                "field_id": "original-full-invariants-verified",
+                "value": null
+              },
+              {
+                "field_id": "target-evidence-closed",
+                "value": null
+              },
+              {
+                "field_id": "target-control-released",
+                "value": null
+              },
+              {
+                "field_id": "pending-target-obligations",
+                "value": []
+              },
+              {
+                "field_id": "pending-owned-obligations",
+                "value": []
+              }
+            ],
+            "vector_id": "recovery-obligations"
+          },
+          {
+            "fields": [
+              {
+                "field_id": "record-state",
+                "value": null
+              },
+              {
+                "field_id": "record-sha256",
+                "value": null
+              },
+              {
+                "field_id": "record-no-replace",
+                "value": null
+              },
+              {
+                "field_id": "record-file-durable",
+                "value": null
+              },
+              {
+                "field_id": "record-metadata-durable",
+                "value": null
+              },
+              {
+                "field_id": "record-directory-durable",
+                "value": null
+              },
+              {
+                "field_id": "record-storage-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-state",
+                "value": null
+              },
+              {
+                "field_id": "receipt-sha256",
+                "value": null
+              },
+              {
+                "field_id": "receipt-no-replace",
+                "value": null
+              },
+              {
+                "field_id": "receipt-file-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-metadata-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-directory-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-storage-durable",
+                "value": null
+              },
+              {
+                "field_id": "trusted-origin",
+                "value": null
+              },
+              {
+                "field_id": "handoff-acknowledged",
+                "value": null
+              },
+              {
+                "field_id": "pending-publication-obligations",
+                "value": null
+              },
+              {
+                "field_id": "target-effects-after-release",
+                "value": null
+              },
+              {
+                "field_id": "positive-control-effective",
+                "value": null
+              },
+              {
+                "field_id": "negative-control-effective",
+                "value": null
+              },
+              {
+                "field_id": "control-raw-consequence-ids",
+                "value": null
+              }
+            ],
+            "vector_id": "publication-controls"
+          }
+        ]
+      },
+      "native_case_run": false,
+      "platform": "Slackware-current",
+      "scenario": "empty-install-twenty",
+      "semantic_note": "Private literal declaration only; no captured observation or native selected oracle. Failure/raw status and unknown fields remain explicit."
+    },
+    {
+      "expectation": {
+        "case_id": "raw-status-latch",
+        "identity": {
+          "boot_id": null,
+          "original_attempt": null,
+          "platform": "Slackware-current",
+          "platform_version": null,
+          "source_epoch": null,
+          "subject_source_sha256": null,
+          "test_run_id": null
+        },
+        "origin": "private-literal",
+        "provenance": {
+          "author_role": "expectation-author",
+          "author_source_sha256": null,
+          "collector_source_sha256": null,
+          "derivation": "literal-independent-unverified",
+          "review_record_sha256": null,
+          "subject_source_sha256": null,
+          "verifier_source_sha256": null
+        },
+        "schema_version": 1,
+        "vectors": [
+          {
+            "fields": [
+              {
+                "field_id": "update-raw-status",
+                "value": null
+              },
+              {
+                "field_id": "update-stdout-sha256",
+                "value": null
+              },
+              {
+                "field_id": "update-stderr-sha256",
+                "value": null
+              },
+              {
+                "field_id": "update-streams-error-free",
+                "value": null
+              },
+              {
+                "field_id": "raw-pkglist-pin-sha256",
+                "value": null
+              },
+              {
+                "field_id": "install-new-raw-status",
+                "value": 20
+              },
+              {
+                "field_id": "install-new-selector",
+                "value": []
+              },
+              {
+                "field_id": "install-new-target-effects",
+                "value": []
+              },
+              {
+                "field_id": "install-new-owned-effects",
+                "value": []
+              },
+              {
+                "field_id": "upgrade-all-raw-status",
+                "value": 20
+              },
+              {
+                "field_id": "upgrade-all-selector",
+                "value": []
+              },
+              {
+                "field_id": "upgrade-all-target-effects",
+                "value": []
+              },
+              {
+                "field_id": "upgrade-all-owned-effects",
+                "value": []
+              },
+              {
+                "field_id": "unexpected-target-effects",
+                "value": null
+              },
+              {
+                "field_id": "unexpected-owned-effects",
+                "value": null
+              },
+              {
+                "field_id": "forward-stage-ids",
+                "value": null
+              },
+              {
+                "field_id": "full-forward-raw-status-vector",
+                "value": null
+              },
+              {
+                "field_id": "original-identity-timeline",
+                "value": null
+              }
+            ],
+            "vector_id": "selector-effects"
+          },
+          {
+            "fields": [
+              {
+                "field_id": "original-forward-status",
+                "value": 20
+              },
+              {
+                "field_id": "forward-stopped",
+                "value": true
+              },
+              {
+                "field_id": "owned-child-identities",
+                "value": null
+              },
+              {
+                "field_id": "owned-children-quiescent",
+                "value": true
+              },
+              {
+                "field_id": "continuous-original-guard",
+                "value": true
+              },
+              {
+                "field_id": "recovery-rights-original-attempt",
+                "value": null
+              },
+              {
+                "field_id": "recovery-fence-valid",
+                "value": null
+              },
+              {
+                "field_id": "recovery-deadline-ns",
+                "value": null
+              },
+              {
+                "field_id": "recovery-budget-pre-spent",
+                "value": null
+              },
+              {
+                "field_id": "recovery-budget-remaining",
+                "value": null
+              },
+              {
+                "field_id": "verified-original-backups",
+                "value": null
+              },
+              {
+                "field_id": "original-restoration-state",
+                "value": "unchanged-verified"
+              },
+              {
+                "field_id": "original-full-invariants-verified",
+                "value": true
+              },
+              {
+                "field_id": "target-evidence-closed",
+                "value": null
+              },
+              {
+                "field_id": "target-control-released",
+                "value": null
+              },
+              {
+                "field_id": "pending-target-obligations",
+                "value": [
+                  "pkglist-selector-status"
+                ]
+              },
+              {
+                "field_id": "pending-owned-obligations",
+                "value": []
+              }
+            ],
+            "vector_id": "recovery-obligations"
+          },
+          {
+            "fields": [
+              {
+                "field_id": "record-state",
+                "value": null
+              },
+              {
+                "field_id": "record-sha256",
+                "value": null
+              },
+              {
+                "field_id": "record-no-replace",
+                "value": null
+              },
+              {
+                "field_id": "record-file-durable",
+                "value": null
+              },
+              {
+                "field_id": "record-metadata-durable",
+                "value": null
+              },
+              {
+                "field_id": "record-directory-durable",
+                "value": null
+              },
+              {
+                "field_id": "record-storage-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-state",
+                "value": null
+              },
+              {
+                "field_id": "receipt-sha256",
+                "value": null
+              },
+              {
+                "field_id": "receipt-no-replace",
+                "value": null
+              },
+              {
+                "field_id": "receipt-file-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-metadata-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-directory-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-storage-durable",
+                "value": null
+              },
+              {
+                "field_id": "trusted-origin",
+                "value": null
+              },
+              {
+                "field_id": "handoff-acknowledged",
+                "value": null
+              },
+              {
+                "field_id": "pending-publication-obligations",
+                "value": null
+              },
+              {
+                "field_id": "target-effects-after-release",
+                "value": null
+              },
+              {
+                "field_id": "positive-control-effective",
+                "value": null
+              },
+              {
+                "field_id": "negative-control-effective",
+                "value": null
+              },
+              {
+                "field_id": "control-raw-consequence-ids",
+                "value": null
+              }
+            ],
+            "vector_id": "publication-controls"
+          }
+        ]
+      },
+      "native_case_run": false,
+      "platform": "Slackware-current",
+      "scenario": "mandatory-upgrade-twenty",
+      "semantic_note": "Private literal declaration only; no captured observation or native selected oracle. Failure/raw status and unknown fields remain explicit."
+    },
+    {
+      "expectation": {
+        "case_id": "retained-restoration",
+        "identity": {
+          "boot_id": null,
+          "original_attempt": null,
+          "platform": "Slackware-current",
+          "platform_version": null,
+          "source_epoch": null,
+          "subject_source_sha256": null,
+          "test_run_id": null
+        },
+        "origin": "private-literal",
+        "provenance": {
+          "author_role": "expectation-author",
+          "author_source_sha256": null,
+          "collector_source_sha256": null,
+          "derivation": "literal-independent-unverified",
+          "review_record_sha256": null,
+          "subject_source_sha256": null,
+          "verifier_source_sha256": null
+        },
+        "schema_version": 1,
+        "vectors": [
+          {
+            "fields": [
+              {
+                "field_id": "update-raw-status",
+                "value": null
+              },
+              {
+                "field_id": "update-stdout-sha256",
+                "value": null
+              },
+              {
+                "field_id": "update-stderr-sha256",
+                "value": null
+              },
+              {
+                "field_id": "update-streams-error-free",
+                "value": null
+              },
+              {
+                "field_id": "raw-pkglist-pin-sha256",
+                "value": null
+              },
+              {
+                "field_id": "install-new-raw-status",
+                "value": null
+              },
+              {
+                "field_id": "install-new-selector",
+                "value": null
+              },
+              {
+                "field_id": "install-new-target-effects",
+                "value": null
+              },
+              {
+                "field_id": "install-new-owned-effects",
+                "value": null
+              },
+              {
+                "field_id": "upgrade-all-raw-status",
+                "value": null
+              },
+              {
+                "field_id": "upgrade-all-selector",
+                "value": null
+              },
+              {
+                "field_id": "upgrade-all-target-effects",
+                "value": null
+              },
+              {
+                "field_id": "upgrade-all-owned-effects",
+                "value": null
+              },
+              {
+                "field_id": "unexpected-target-effects",
+                "value": null
+              },
+              {
+                "field_id": "unexpected-owned-effects",
+                "value": null
+              },
+              {
+                "field_id": "forward-stage-ids",
+                "value": null
+              },
+              {
+                "field_id": "full-forward-raw-status-vector",
+                "value": null
+              },
+              {
+                "field_id": "original-identity-timeline",
+                "value": null
+              }
+            ],
+            "vector_id": "selector-effects"
+          },
+          {
+            "fields": [
+              {
+                "field_id": "original-forward-status",
+                "value": 7
+              },
+              {
+                "field_id": "forward-stopped",
+                "value": true
+              },
+              {
+                "field_id": "owned-child-identities",
+                "value": [
+                  "private-child"
+                ]
+              },
+              {
+                "field_id": "owned-children-quiescent",
+                "value": null
+              },
+              {
+                "field_id": "continuous-original-guard",
+                "value": null
+              },
+              {
+                "field_id": "recovery-rights-original-attempt",
+                "value": null
+              },
+              {
+                "field_id": "recovery-fence-valid",
+                "value": null
+              },
+              {
+                "field_id": "recovery-deadline-ns",
+                "value": null
+              },
+              {
+                "field_id": "recovery-budget-pre-spent",
+                "value": true
+              },
+              {
+                "field_id": "recovery-budget-remaining",
+                "value": 0
+              },
+              {
+                "field_id": "verified-original-backups",
+                "value": null
+              },
+              {
+                "field_id": "original-restoration-state",
+                "value": "unknown"
+              },
+              {
+                "field_id": "original-full-invariants-verified",
+                "value": null
+              },
+              {
+                "field_id": "target-evidence-closed",
+                "value": null
+              },
+              {
+                "field_id": "target-control-released",
+                "value": null
+              },
+              {
+                "field_id": "pending-target-obligations",
+                "value": [
+                  "failure-recovery-rights"
+                ]
+              },
+              {
+                "field_id": "pending-owned-obligations",
+                "value": [
+                  "guarded-baseline"
+                ]
+              }
+            ],
+            "vector_id": "recovery-obligations"
+          },
+          {
+            "fields": [
+              {
+                "field_id": "record-state",
+                "value": null
+              },
+              {
+                "field_id": "record-sha256",
+                "value": null
+              },
+              {
+                "field_id": "record-no-replace",
+                "value": null
+              },
+              {
+                "field_id": "record-file-durable",
+                "value": null
+              },
+              {
+                "field_id": "record-metadata-durable",
+                "value": null
+              },
+              {
+                "field_id": "record-directory-durable",
+                "value": null
+              },
+              {
+                "field_id": "record-storage-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-state",
+                "value": null
+              },
+              {
+                "field_id": "receipt-sha256",
+                "value": null
+              },
+              {
+                "field_id": "receipt-no-replace",
+                "value": null
+              },
+              {
+                "field_id": "receipt-file-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-metadata-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-directory-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-storage-durable",
+                "value": null
+              },
+              {
+                "field_id": "trusted-origin",
+                "value": null
+              },
+              {
+                "field_id": "handoff-acknowledged",
+                "value": null
+              },
+              {
+                "field_id": "pending-publication-obligations",
+                "value": null
+              },
+              {
+                "field_id": "target-effects-after-release",
+                "value": null
+              },
+              {
+                "field_id": "positive-control-effective",
+                "value": null
+              },
+              {
+                "field_id": "negative-control-effective",
+                "value": null
+              },
+              {
+                "field_id": "control-raw-consequence-ids",
+                "value": null
+              }
+            ],
+            "vector_id": "publication-controls"
+          }
+        ]
+      },
+      "native_case_run": false,
+      "platform": "Slackware-current",
+      "scenario": "unknown-recovery",
+      "semantic_note": "Private literal declaration only; no captured observation or native selected oracle. Failure/raw status and unknown fields remain explicit."
+    },
+    {
+      "expectation": {
+        "case_id": "unknown-publication",
+        "identity": {
+          "boot_id": null,
+          "original_attempt": null,
+          "platform": "Slackware-current",
+          "platform_version": null,
+          "source_epoch": null,
+          "subject_source_sha256": null,
+          "test_run_id": null
+        },
+        "origin": "private-literal",
+        "provenance": {
+          "author_role": "expectation-author",
+          "author_source_sha256": null,
+          "collector_source_sha256": null,
+          "derivation": "literal-independent-unverified",
+          "review_record_sha256": null,
+          "subject_source_sha256": null,
+          "verifier_source_sha256": null
+        },
+        "schema_version": 1,
+        "vectors": [
+          {
+            "fields": [
+              {
+                "field_id": "update-raw-status",
+                "value": null
+              },
+              {
+                "field_id": "update-stdout-sha256",
+                "value": null
+              },
+              {
+                "field_id": "update-stderr-sha256",
+                "value": null
+              },
+              {
+                "field_id": "update-streams-error-free",
+                "value": null
+              },
+              {
+                "field_id": "raw-pkglist-pin-sha256",
+                "value": null
+              },
+              {
+                "field_id": "install-new-raw-status",
+                "value": null
+              },
+              {
+                "field_id": "install-new-selector",
+                "value": null
+              },
+              {
+                "field_id": "install-new-target-effects",
+                "value": null
+              },
+              {
+                "field_id": "install-new-owned-effects",
+                "value": null
+              },
+              {
+                "field_id": "upgrade-all-raw-status",
+                "value": null
+              },
+              {
+                "field_id": "upgrade-all-selector",
+                "value": null
+              },
+              {
+                "field_id": "upgrade-all-target-effects",
+                "value": null
+              },
+              {
+                "field_id": "upgrade-all-owned-effects",
+                "value": null
+              },
+              {
+                "field_id": "unexpected-target-effects",
+                "value": null
+              },
+              {
+                "field_id": "unexpected-owned-effects",
+                "value": null
+              },
+              {
+                "field_id": "forward-stage-ids",
+                "value": null
+              },
+              {
+                "field_id": "full-forward-raw-status-vector",
+                "value": null
+              },
+              {
+                "field_id": "original-identity-timeline",
+                "value": null
+              }
+            ],
+            "vector_id": "selector-effects"
+          },
+          {
+            "fields": [
+              {
+                "field_id": "original-forward-status",
+                "value": 7
+              },
+              {
+                "field_id": "forward-stopped",
+                "value": true
+              },
+              {
+                "field_id": "owned-child-identities",
+                "value": null
+              },
+              {
+                "field_id": "owned-children-quiescent",
+                "value": true
+              },
+              {
+                "field_id": "continuous-original-guard",
+                "value": true
+              },
+              {
+                "field_id": "recovery-rights-original-attempt",
+                "value": null
+              },
+              {
+                "field_id": "recovery-fence-valid",
+                "value": null
+              },
+              {
+                "field_id": "recovery-deadline-ns",
+                "value": null
+              },
+              {
+                "field_id": "recovery-budget-pre-spent",
+                "value": null
+              },
+              {
+                "field_id": "recovery-budget-remaining",
+                "value": null
+              },
+              {
+                "field_id": "verified-original-backups",
+                "value": null
+              },
+              {
+                "field_id": "original-restoration-state",
+                "value": "restored"
+              },
+              {
+                "field_id": "original-full-invariants-verified",
+                "value": true
+              },
+              {
+                "field_id": "target-evidence-closed",
+                "value": true
+              },
+              {
+                "field_id": "target-control-released",
+                "value": true
+              },
+              {
+                "field_id": "pending-target-obligations",
+                "value": []
+              },
+              {
+                "field_id": "pending-owned-obligations",
+                "value": null
+              }
+            ],
+            "vector_id": "recovery-obligations"
+          },
+          {
+            "fields": [
+              {
+                "field_id": "record-state",
+                "value": "present-unverified"
+              },
+              {
+                "field_id": "record-sha256",
+                "value": null
+              },
+              {
+                "field_id": "record-no-replace",
+                "value": null
+              },
+              {
+                "field_id": "record-file-durable",
+                "value": null
+              },
+              {
+                "field_id": "record-metadata-durable",
+                "value": null
+              },
+              {
+                "field_id": "record-directory-durable",
+                "value": null
+              },
+              {
+                "field_id": "record-storage-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-state",
+                "value": "unknown"
+              },
+              {
+                "field_id": "receipt-sha256",
+                "value": null
+              },
+              {
+                "field_id": "receipt-no-replace",
+                "value": null
+              },
+              {
+                "field_id": "receipt-file-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-metadata-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-directory-durable",
+                "value": null
+              },
+              {
+                "field_id": "receipt-storage-durable",
+                "value": null
+              },
+              {
+                "field_id": "trusted-origin",
+                "value": null
+              },
+              {
+                "field_id": "handoff-acknowledged",
+                "value": null
+              },
+              {
+                "field_id": "pending-publication-obligations",
+                "value": [
+                  "last-receipt-durability"
+                ]
+              },
+              {
+                "field_id": "target-effects-after-release",
+                "value": []
+              },
+              {
+                "field_id": "positive-control-effective",
+                "value": null
+              },
+              {
+                "field_id": "negative-control-effective",
+                "value": null
+              },
+              {
+                "field_id": "control-raw-consequence-ids",
+                "value": null
+              }
+            ],
+            "vector_id": "publication-controls"
+          }
+        ]
+      },
+      "native_case_run": false,
+      "platform": "Slackware-current",
+      "scenario": "unknown-last-receipt",
+      "semantic_note": "Private literal declaration only; no captured observation or native selected oracle. Failure/raw status and unknown fields remain explicit."
+    }
+  ],
+  "native_cases_run": 0,
+  "native_expected_vectors_selected": false,
+  "native_proofs_added": 0,
+  "origin": "repository-private-separately-authored-literals",
+  "runtime_authority": false,
+  "schema": 1,
+  "step": 351
+}
