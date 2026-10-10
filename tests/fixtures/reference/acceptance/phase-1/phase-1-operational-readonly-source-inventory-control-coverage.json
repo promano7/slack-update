@@ -1,0 +1,102 @@
+{
+  "controls": [
+    {
+      "id": "dangerous-shell-sentinel-remains-unexecuted",
+      "status": "prepared-repository-control-passed;user-acceptance-pending;not-native-proof",
+      "test_label": "control361 dangerous-shell-sentinel-remains-unexecuted"
+    },
+    {
+      "id": "decoded-payload-remains-uninterpreted",
+      "status": "prepared-repository-control-passed;user-acceptance-pending;not-native-proof",
+      "test_label": "control361 decoded-payload-remains-uninterpreted"
+    },
+    {
+      "id": "final-symlink-refused",
+      "status": "prepared-repository-control-passed;user-acceptance-pending;not-native-proof",
+      "test_label": "control361 final-symlink-refused"
+    },
+    {
+      "id": "ancestor-symlink-refused",
+      "status": "prepared-repository-control-passed;user-acceptance-pending;not-native-proof",
+      "test_label": "control361 ancestor-symlink-refused"
+    },
+    {
+      "id": "traversal-absolute-control-paths-refused",
+      "status": "prepared-repository-control-passed;user-acceptance-pending;not-native-proof",
+      "test_label": "control361 traversal-absolute-control-paths-refused"
+    },
+    {
+      "id": "FIFO-device-socket-directory-refused-without-blocking",
+      "method": "actual-local-FIFO-directory-and-character-device;socket-type-stat-metadata-modeled-after-environment-denied-Unix-socket-creation",
+      "status": "prepared-repository-control-passed;user-acceptance-pending;not-native-proof",
+      "test_label": "control361 FIFO-device-socket-directory-refused-without-blocking"
+    },
+    {
+      "id": "invalid-UTF8-and-NUL-refused",
+      "status": "prepared-repository-control-passed;user-acceptance-pending;not-native-proof",
+      "test_label": "control361 invalid-UTF8-and-NUL-refused"
+    },
+    {
+      "id": "one-source-and-total-byte-bounds-hard-fail",
+      "status": "prepared-repository-control-passed;user-acceptance-pending;not-native-proof",
+      "test_label": "control361 one-source-and-total-byte-bounds-hard-fail"
+    },
+    {
+      "id": "line-length-and-total-line-bounds-hard-fail",
+      "status": "prepared-repository-control-passed;user-acceptance-pending;not-native-proof",
+      "test_label": "control361 line-length-and-total-line-bounds-hard-fail"
+    },
+    {
+      "id": "one-source-and-total-record-bounds-hard-fail",
+      "status": "prepared-repository-control-passed;user-acceptance-pending;not-native-proof",
+      "test_label": "control361 one-source-and-total-record-bounds-hard-fail"
+    },
+    {
+      "id": "stat-read-SHA-size-drift-refused",
+      "method": "temporary-file-metadata-and-growth-changes;injected-read-return-short-and-SHA-substitution;not-native-fault-provenance",
+      "status": "prepared-repository-control-passed;user-acceptance-pending;not-native-proof",
+      "test_label": "control361 stat-read-SHA-size-drift-refused"
+    },
+    {
+      "id": "duplicate-unapproved-or-rebound-root-refused",
+      "status": "prepared-repository-control-passed;user-acceptance-pending;not-native-proof",
+      "test_label": "control361 duplicate-unapproved-or-rebound-root-refused"
+    },
+    {
+      "id": "LF-CRLF-and-nonASCII-anchors-preserve-bytes",
+      "status": "prepared-repository-control-passed;user-acceptance-pending;not-native-proof",
+      "test_label": "control361 LF-CRLF-and-nonASCII-anchors-preserve-bytes"
+    },
+    {
+      "id": "comments-strings-here-doc-foreign-code-remain-lexical-uncertainty",
+      "status": "prepared-repository-control-passed;user-acceptance-pending;not-native-proof",
+      "test_label": "control361 comments-strings-here-doc-foreign-code-remain-lexical-uncertainty"
+    },
+    {
+      "id": "empty-hints-retain-open-native-relations",
+      "status": "prepared-repository-control-passed;user-acceptance-pending;not-native-proof",
+      "test_label": "control361 empty-hints-retain-open-native-relations"
+    },
+    {
+      "id": "generated-copy-not-independent-worker",
+      "status": "prepared-repository-control-passed;user-acceptance-pending;not-native-proof",
+      "test_label": "control361 generated-copy-not-independent-worker"
+    },
+    {
+      "id": "ordered-repeated-hints-remain-distinct",
+      "status": "prepared-repository-control-passed;user-acceptance-pending;not-native-proof",
+      "test_label": "control361 ordered-repeated-hints-remain-distinct"
+    },
+    {
+      "id": "false-native-authority-or-completeness-refused",
+      "status": "prepared-repository-control-passed;user-acceptance-pending;not-native-proof",
+      "test_label": "control361 false-native-authority-or-completeness-refused"
+    }
+  ],
+  "native_cases_run": 0,
+  "native_proof": false,
+  "runtime_authority": false,
+  "schema": 1,
+  "scope": "private-repository-reader-and-lexical-control-tests-only",
+  "step": 361
+}

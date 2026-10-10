@@ -1,3 +1,27 @@
+## Phase 1 step 361 - Read-only source inventory (2026-10-10)
+
+- Accept step 360 at reported 9a9cd12: 81 exact ordered PASS, zero failures, exact
+  eight-file commit and seven additions, successful push and reported clean matching
+  heads. Preserve the complete pasted-message representation and capture limitation.
+- Implement a bounded descriptor-based source reader and lexical inventory under
+  the unchanged 360 contract. Read only four exact approved sources; bind metadata,
+  reject symlinks/nonregular paths/drift/encoding and budget failures, close FDs,
+  never execute/import/eval/decode sources or resolve native helper commands.
+- Retain all 15,106 source/line/byte/hash anchored lexical records, stable order,
+  multiplicity, distinct generated-copy roles and five open native relation groups.
+  Textual matches never prove calls, reachability, complete native graph or effects.
+- Exercise all eighteen private control families. FIFO/directory/device metadata
+  are actual local objects; socket-type refusal uses explicit stat metadata modeling
+  after this environment denied Unix socket creation. Preserve the initial error;
+  no actual socket/native fault evidence or conformance claimed. CLI failures emit
+  no successful prefix report; byte anchors and repeated FD closure are verified.
+- Preserve all 1,823 accepted sources except additive CHANGELOG. Full native
+  contracts/gaps/proofs/cases/raw evidence stay unproven/unrun/uncaptured. Host
+  unobserved and live bindings null; runtime, Production and Phase 2 closed;
+  Phase 1/kernel incomplete. No target-machine/controller action or old-right reuse.
+- 361 prepared; 362 waits for complete user acceptance. Last confirmed pause 358;
+  README reconciliation 367 and conditional scoped final pause 368 unchanged.
+
 ## Phase 1 step 360 - Bounded source inventory contract (2026-10-10)
 
 - Accept step359 at reported aedcbc3:43 exact ordered PASS,zero failures,exact
