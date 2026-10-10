@@ -1,0 +1,168 @@
+{
+  "actual_dynamic_graph_complete": false,
+  "actual_host_state": "unobserved-not-claimed-absent",
+  "actual_independent_oracle_selected": false,
+  "actual_live_bindings": null,
+  "actual_native_collector_selected": false,
+  "actual_native_refinement_complete": false,
+  "actual_operational_implementation_frozen": false,
+  "automatic_native_proof_promotion": false,
+  "comparator_execution_scope": "repository-captured-data-comparison-only",
+  "comparator_implemented": false,
+  "comparison_match_is_native_proof": false,
+  "comparison_result_boundary": "Byte/vector agreement is a diagnostic only. Authenticity, completeness, independent provenance, trusted time, native refinement and scoped closure require separately reviewed original native evidence; no data field grants authority.",
+  "compatibility_claim": "not-tested-natively",
+  "compatibility_targets": [
+    "Slackware-15.0",
+    "Slackware-current"
+  ],
+  "conditional_pause_step": 358,
+  "controller_action_required": false,
+  "counts": {
+    "capabilities": 7,
+    "cross_obligations": 10,
+    "domains": 30,
+    "macro_cuts": 81,
+    "macro_relations": 95,
+    "native_cases": 52,
+    "native_gaps": 16,
+    "native_proofs": 46,
+    "nominal_interfaces": 26,
+    "nominal_types": 35,
+    "owned_microsteps": 9,
+    "phases": 27,
+    "rights_windows": 9
+  },
+  "historical_bindings_reusable": false,
+  "independence_boundary": {
+    "boundary": "Synthetic envelope/type/vector comparison only. No actual raw capture, authenticator, observer, native comparator, source selection, test runner or fault injector.",
+    "expectation_author": "Separately reviewed expectation cannot derive from candidate or be authored as candidate selfreport; verifier may author independent expectations.",
+    "fault_controls": "Independent positive and negative effectiveness/raw consequences required. Missing/unknown/ineffective control blocks private declaration completeness and actual native conformance remains pending.",
+    "forbidden_reuse": "No candidate selector/cleanup/implementation logic reused as sole verifier/oracle, no emitted PASS/signature/row accepted as raw effect proof.",
+    "platforms": "52 separate cases,26 each15.0/current. No transfer of platform token/version/boot/source/authority/result from either platform.",
+    "subject_collector_verifier": "Separate subject, independent collector and verifier sources/provenance required; synthetic distinct role labels do not prove native independence.",
+    "uncertainty": "Missing/unknown observation is null and pending, never empty/no-effect/absent. Declared mismatch remains visible even with other pending groups."
+  },
+  "kernel_package_edge_complete": false,
+  "last_confirmed_strong_safe_pause_step": 348,
+  "later_preparation_requires_complete_predecessor_return": true,
+  "machine_action_required": false,
+  "model_or_fixture_is_native_evidence": false,
+  "native_cases_run": 0,
+  "native_effect_requests_allowed": false,
+  "native_ingestion_boundary": "Future ingestion is read-only and bounded over explicit regular raw files. No archive extraction, filesystem discovery, network, collector, native process, target dispatch, dynamic import, eval, pickle or operational command generation.",
+  "native_proofs_added": 0,
+  "new_user_request": true,
+  "operational_conformance": false,
+  "operational_readiness": false,
+  "pause_conditions": [
+    "complete-user-overlay-full-tests-exact-commit-successful-push-clean-tree-matching-HEAD-origin-return",
+    "all-in-scope-repository-candidate-effects-and-obligations-reviewed",
+    "candidate-validator-has-no-runtime-dispatch-or-service-channel",
+    "all-unknown-actual-graph-primitives-native-protocols-and-conformance-remain-blockers",
+    "no-batch-runtime-or-partial-operational-publication",
+    "no-required-batch-machine-or-controller-cleanup",
+    "all-future-runtime-and-unused-live-rights-closed",
+    "actual-host-state-unobserved-never-claimed-absent-or-globally-closed",
+    "no-live-binding-reuse-pause-independent-of-later-current-refresh"
+  ],
+  "phase1_matrix_complete": false,
+  "phase2_open": false,
+  "preferred_step_range": [
+    349,
+    358
+  ],
+  "production_entry_closed": true,
+  "provenance_labels_establish_independence": false,
+  "route": [
+    {
+      "deliverable": "Bind confirmed348, unchanged offline core and all native obligations; plan a repository-only evidence comparator with no native collector or runner.",
+      "entry_requires_confirmed_step": 348,
+      "runtime_authorized": false,
+      "stage": "resume-plan",
+      "status": "current-preparation",
+      "step": 349
+    },
+    {
+      "deliverable": "Define a closed bounded data envelope and raw-artifact inventory with exact byte sizes, digests and platform/run/original identity fields; reject unsafe paths, archives and unknown fields without executing content.",
+      "entry_requires_confirmed_step": 349,
+      "runtime_authorized": false,
+      "stage": "bounded-evidence-schema",
+      "status": "future-repository-work",
+      "step": 350
+    },
+    {
+      "deliverable": "Define separately reviewed literal expected vectors and provenance requirements; subject output and frozen model reducers cannot generate the sole oracle or attest independence.",
+      "entry_requires_confirmed_step": 350,
+      "runtime_authorized": false,
+      "stage": "independent-expectation-contract",
+      "status": "future-repository-work",
+      "step": 351
+    },
+    {
+      "deliverable": "Implement non-dispatching byte ingestion and immutable observation indexing; distinguish missing, unknown, contradictory and captured data while preserving raw bytes and original identities.",
+      "entry_requires_confirmed_step": 351,
+      "runtime_authorized": false,
+      "stage": "captured-observation-index",
+      "status": "future-repository-work",
+      "step": 352
+    },
+    {
+      "deliverable": "Compare complete independently supplied selector, raw exit/status, original pin and target/owned effect vectors; retain empty install-new versus mandatory one-target upgrade semantics and unexpected effects.",
+      "entry_requires_confirmed_step": 352,
+      "runtime_authorized": false,
+      "stage": "selector-and-effect-comparison",
+      "status": "future-repository-work",
+      "step": 353
+    },
+    {
+      "deliverable": "Compare original failure, child/guard observations, finite pre-spent recovery rights/budget, exact original restoration or unchanged verification and separately pending owned/target obligations.",
+      "entry_requires_confirmed_step": 353,
+      "runtime_authorized": false,
+      "stage": "recovery-and-obligation-comparison",
+      "status": "future-repository-work",
+      "step": 354
+    },
+    {
+      "deliverable": "Compare captured-data-only publication observations, separate record/last receipt durability and trusted origin/handoff, preserving unknown partial artifacts and no replay conclusions.",
+      "entry_requires_confirmed_step": 354,
+      "runtime_authorized": false,
+      "stage": "publication-and-receipt-comparison",
+      "status": "future-repository-work",
+      "step": 355
+    },
+    {
+      "deliverable": "Exercise missing/truncated/forged/cross-platform/cross-run/reordered evidence and contradictory fault controls using separately authored expected diagnostics; private fixtures never satisfy native case templates.",
+      "entry_requires_confirmed_step": 355,
+      "runtime_authorized": false,
+      "stage": "adversarial-comparator-controls",
+      "status": "future-repository-work",
+      "step": 356
+    },
+    {
+      "deliverable": "Reconcile comparator coverage against every original proof, case, phase, interface, domain, window, capability, obligation and cut; retain unselected collector/verifier/native refinement and both-platform gaps.",
+      "entry_requires_confirmed_step": 356,
+      "runtime_authorized": false,
+      "stage": "comparator-contract-gap-reconciliation",
+      "status": "future-repository-work",
+      "step": 357
+    },
+    {
+      "deliverable": "Freeze the tested comparator sources and unresolved native gaps; externally confirm only the repository349-358 pause after complete user acceptance, then stop the batch.",
+      "entry_requires_confirmed_step": 357,
+      "runtime_authorized": false,
+      "stage": "comparator-freeze-and-pause",
+      "status": "future-repository-work",
+      "step": 358
+    }
+  ],
+  "runtime_authority": false,
+  "schema": 1,
+  "scope": "repository-offline-evidence-comparator-workstream349-358-only",
+  "separate_native_source_and_fresh_authority_required": true,
+  "step": 349,
+  "stop_after_complete358_acceptance": true,
+  "strong_safe_pause": false,
+  "unchanged_offline_core_preserved": true,
+  "user_step349_checkpoint_confirmed": false
+}
