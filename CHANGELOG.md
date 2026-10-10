@@ -1,3 +1,14 @@
+## Phase 1 step 366 — source and native gap reconciliation
+
+- Accepted reported bede6fa/140 PASS, exact eight-file2762-insertion commit,
+  successful push and reported clean matching heads; uploaded message bytes bound.
+- Reconciled full source inventory/context/dependencies/lifetimes/prerequisites
+  against all16 original native gaps and full320–327/347/348/335 requirements.
+- Preserved all46 proof rows,52 cases and12 raw groups;1072 ordered proof/case
+  links agree bidirectionally. Source progress discharges no native obligation.
+- Retained supplemental unbound cksum input and anchored nine README367 review
+  targets without editing README. Runtime/Production/Phase2 closed; pause368 conditional.
+
 ## Phase 1 step 365 — native implementation and evidence prerequisites
 
 - Accepted reported f8db9d6/127 PASS, exact eight-file2515-insertion commit,
