@@ -1,0 +1,181 @@
+{
+  "actual_expectation_author": null,
+  "actual_expected_vector_artifacts": null,
+  "actual_host_state": "unobserved-not-claimed-absent",
+  "actual_independent_collector": null,
+  "actual_independent_verifier": null,
+  "actual_live_bindings": null,
+  "current_user_acceptance_pending": true,
+  "field_order": [
+    "original-forward-status",
+    "forward-stopped",
+    "owned-child-identities",
+    "owned-children-quiescent",
+    "continuous-original-guard",
+    "recovery-rights-original-attempt",
+    "recovery-fence-valid",
+    "recovery-deadline-ns",
+    "recovery-budget-pre-spent",
+    "recovery-budget-remaining",
+    "verified-original-backups",
+    "original-restoration-state",
+    "original-full-invariants-verified",
+    "target-evidence-closed",
+    "target-control-released",
+    "pending-target-obligations",
+    "pending-owned-obligations"
+  ],
+  "last_confirmed_strong_safe_pause_step": 348,
+  "max_capture_bytes": 67108864,
+  "max_depth": 12,
+  "max_total_capture_bytes": 134217728,
+  "max_vector_items": 128,
+  "max_wire_bytes": 262144,
+  "native_cases_run": 0,
+  "native_proofs_added": 0,
+  "next_stage_after_complete354_acceptance": 355,
+  "packet_origin": "captured-vector-unverified",
+  "packet_specs": [
+    {
+      "evidence_group": "raw-status-selector-vector",
+      "field_specs": [
+        [
+          "original-forward-status",
+          "status"
+        ],
+        [
+          "forward-stopped",
+          "bool"
+        ]
+      ],
+      "vector_id": "forward-latch"
+    },
+    {
+      "evidence_group": "writer-child-lifetimes",
+      "field_specs": [
+        [
+          "owned-child-identities",
+          "labels"
+        ],
+        [
+          "owned-children-quiescent",
+          "bool"
+        ],
+        [
+          "continuous-original-guard",
+          "bool"
+        ]
+      ],
+      "vector_id": "owned-children-guard"
+    },
+    {
+      "evidence_group": "time-fence-recovery-budget",
+      "field_specs": [
+        [
+          "recovery-rights-original-attempt",
+          "bool"
+        ],
+        [
+          "recovery-fence-valid",
+          "bool"
+        ],
+        [
+          "recovery-deadline-ns",
+          "time-ns"
+        ],
+        [
+          "recovery-budget-pre-spent",
+          "bool"
+        ],
+        [
+          "recovery-budget-remaining",
+          "budget"
+        ]
+      ],
+      "vector_id": "recovery-rights-budget"
+    },
+    {
+      "evidence_group": "original-restoration-verification",
+      "field_specs": [
+        [
+          "verified-original-backups",
+          "labels"
+        ],
+        [
+          "original-restoration-state",
+          "label"
+        ],
+        [
+          "original-full-invariants-verified",
+          "bool"
+        ]
+      ],
+      "vector_id": "restoration-verification"
+    },
+    {
+      "evidence_group": "scoped-closure-or-pending",
+      "field_specs": [
+        [
+          "target-evidence-closed",
+          "bool"
+        ],
+        [
+          "target-control-released",
+          "bool"
+        ],
+        [
+          "pending-target-obligations",
+          "labels"
+        ],
+        [
+          "pending-owned-obligations",
+          "labels"
+        ]
+      ],
+      "vector_id": "target-closure-obligations"
+    }
+  ],
+  "pending_native_recovery_requirements": [
+    "authenticated-original-split-rights-no-renewal-or-new-grant",
+    "same-original-boot-attempt-source-and-controlled-resource-identity",
+    "trusted-clock-deadline-suspend-rollback-and-live-recovery-fence",
+    "durable-pre-spend-finite-budget-and-no-replay-after-unknown",
+    "complete-native-child-writer-inventory-and-known-quiescence",
+    "continuous-original-guard-and-all-writer-exclusion",
+    "exact-original-backup-bytes-metadata-presence-and-approved-deltas",
+    "safe-restoration-fresh-full-original-invariant-verification",
+    "independent-stop-drain-restore-verify-evidence-release-order",
+    "original-failure-retention-and-unknown-obligation-artifact-retention"
+  ],
+  "restoration_declaration_states": [
+    "not-started",
+    "verified-restored",
+    "already-original-verified",
+    "unknown",
+    "partial",
+    "conflicting"
+  ],
+  "rules": [
+    "five exact explicit immutable352 projections; all17 ordered nullable recovery slots; no I/O/callback/native execution",
+    "complete raw hash and declaration/packet/case/identity conflicts retained; pending peers cannot erase known mismatch",
+    "exact full vectors preserve order/multiplicity; null expected or observed stays pending",
+    "original forward status retained verbatim,0/failed/-1 distinct; restoration never rewrites failure or clears353 latch",
+    "forward stopped/known child quiescence/inventory/continuous original guard necessary for claimed restore verify evidence release",
+    "claimed restoration write requires declared same-attempt rights/live fence/finite deadline/pre-spent budget/nonempty original backups; unknown pending",
+    "zero remaining budget after pre-spend not permission for another action; no local clock read or expiry inference from a bare integer deadline",
+    "claimed verified restoration/evidence/release require declared full original invariants; release needs original-restored state, target evidence and empty known obligation inventories",
+    "not-started/partial/unknown/held control retains pending obligations and raw artifacts; no forced release/replay/retry/new grant",
+    "reviewed already-original-verified data no-op does not claim a new restore write or grant; actual fresh verification and narrow rights remain native blockers",
+    "booleans/IDs/hashes do not prove continuous guard, trusted time, budget durability, original bytes/metadata/presence, child native quiescence, event order or independent provenance",
+    "all12 native groups and ten native recovery requirements always pending, even complete private data agreement; all recovery/write/release/retry authority false",
+    "353 source and semantic result unchanged;18 selector and21 publication slots shape-only in354;355 separately compares publication"
+  ],
+  "runtime_authority": false,
+  "schema": 1,
+  "scope": "repository-offline-evidence-comparator-workstream349-358-only",
+  "step": 354,
+  "strong_safe_pause": false,
+  "untouched_publication_field_count": 21,
+  "untouched_selector_field_count": 18,
+  "user_step354_checkpoint_confirmed": false
+}
