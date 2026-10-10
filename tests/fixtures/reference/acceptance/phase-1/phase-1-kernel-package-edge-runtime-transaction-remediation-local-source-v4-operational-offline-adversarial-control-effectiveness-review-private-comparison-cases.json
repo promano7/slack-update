@@ -1,0 +1,2758 @@
+{
+  "cases": [
+    {
+      "engine": "selector",
+      "expected_state": "match",
+      "field_id": null,
+      "id": "selector-positive",
+      "platform": "Slackware-15.0",
+      "required_diagnostic_codes": [],
+      "role": "positive",
+      "value": null
+    },
+    {
+      "engine": "selector",
+      "expected_state": "mismatch",
+      "field_id": "raw-pkglist-pin-sha256",
+      "id": "selector-changed-pin",
+      "platform": "Slackware-15.0",
+      "required_diagnostic_codes": [
+        "literal-field-mismatch"
+      ],
+      "role": "negative",
+      "value": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+    },
+    {
+      "engine": "selector",
+      "expected_state": "mismatch",
+      "field_id": "update-raw-status",
+      "id": "selector-failed-update",
+      "platform": "Slackware-15.0",
+      "required_diagnostic_codes": [
+        "update-requires-zero",
+        "action-after-forward-failure"
+      ],
+      "role": "negative",
+      "value": 7
+    },
+    {
+      "engine": "selector",
+      "expected_state": "mismatch",
+      "field_id": "update-streams-error-free",
+      "id": "selector-stream-error",
+      "platform": "Slackware-15.0",
+      "required_diagnostic_codes": [
+        "update-requires-error-free-streams"
+      ],
+      "role": "negative",
+      "value": false
+    },
+    {
+      "engine": "selector",
+      "expected_state": "mismatch",
+      "field_id": "unexpected-target-effects",
+      "id": "selector-unexpected-target",
+      "platform": "Slackware-15.0",
+      "required_diagnostic_codes": [
+        "unexpected-effects-forbidden"
+      ],
+      "role": "negative",
+      "value": [
+        "injected-private-delta"
+      ]
+    },
+    {
+      "engine": "selector",
+      "expected_state": "mismatch",
+      "field_id": "unexpected-owned-effects",
+      "id": "selector-unexpected-owned",
+      "platform": "Slackware-15.0",
+      "required_diagnostic_codes": [
+        "unexpected-effects-forbidden"
+      ],
+      "role": "negative",
+      "value": [
+        "injected-private-child"
+      ]
+    },
+    {
+      "engine": "selector",
+      "expected_state": "pending",
+      "field_id": "install-new-selector",
+      "id": "selector-unknown-selector",
+      "platform": "Slackware-15.0",
+      "required_diagnostic_codes": [
+        "literal-field-pending",
+        "install-new-requires-proven-empty"
+      ],
+      "role": "negative",
+      "value": null
+    },
+    {
+      "engine": "selector",
+      "expected_state": "mismatch",
+      "field_id": "upgrade-all-target-effects",
+      "id": "selector-no-upgrade-target",
+      "platform": "Slackware-15.0",
+      "required_diagnostic_codes": [
+        "mandatory-upgrade-requires-target-effects"
+      ],
+      "role": "negative",
+      "value": []
+    },
+    {
+      "engine": "selector",
+      "expected_state": "mismatch",
+      "field_id": "forward-stage-ids",
+      "id": "selector-wrong-stage-order",
+      "platform": "Slackware-15.0",
+      "required_diagnostic_codes": [
+        "forward-stage-order-conflict"
+      ],
+      "role": "negative",
+      "value": [
+        "upgrade-all",
+        "install-new",
+        "update"
+      ]
+    },
+    {
+      "engine": "selector",
+      "expected_state": "mismatch",
+      "field_id": "full-forward-raw-status-vector",
+      "id": "selector-wrong-status-vector",
+      "platform": "Slackware-15.0",
+      "required_diagnostic_codes": [
+        "forward-status-conflict"
+      ],
+      "role": "negative",
+      "value": [
+        0,
+        0,
+        20
+      ]
+    },
+    {
+      "engine": "selector",
+      "expected_state": "mismatch",
+      "field_id": "install-new-owned-effects",
+      "id": "selector-install-effect",
+      "platform": "Slackware-15.0",
+      "required_diagnostic_codes": [
+        "install-new-requires-proven-empty"
+      ],
+      "role": "negative",
+      "value": [
+        "injected-private-delta"
+      ]
+    },
+    {
+      "engine": "selector",
+      "expected_state": "match",
+      "field_id": null,
+      "id": "selector-positive",
+      "platform": "Slackware-current",
+      "required_diagnostic_codes": [],
+      "role": "positive",
+      "value": null
+    },
+    {
+      "engine": "selector",
+      "expected_state": "mismatch",
+      "field_id": "raw-pkglist-pin-sha256",
+      "id": "selector-changed-pin",
+      "platform": "Slackware-current",
+      "required_diagnostic_codes": [
+        "literal-field-mismatch"
+      ],
+      "role": "negative",
+      "value": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+    },
+    {
+      "engine": "selector",
+      "expected_state": "mismatch",
+      "field_id": "update-raw-status",
+      "id": "selector-failed-update",
+      "platform": "Slackware-current",
+      "required_diagnostic_codes": [
+        "update-requires-zero",
+        "action-after-forward-failure"
+      ],
+      "role": "negative",
+      "value": 7
+    },
+    {
+      "engine": "selector",
+      "expected_state": "mismatch",
+      "field_id": "update-streams-error-free",
+      "id": "selector-stream-error",
+      "platform": "Slackware-current",
+      "required_diagnostic_codes": [
+        "update-requires-error-free-streams"
+      ],
+      "role": "negative",
+      "value": false
+    },
+    {
+      "engine": "selector",
+      "expected_state": "mismatch",
+      "field_id": "unexpected-target-effects",
+      "id": "selector-unexpected-target",
+      "platform": "Slackware-current",
+      "required_diagnostic_codes": [
+        "unexpected-effects-forbidden"
+      ],
+      "role": "negative",
+      "value": [
+        "injected-private-delta"
+      ]
+    },
+    {
+      "engine": "selector",
+      "expected_state": "mismatch",
+      "field_id": "unexpected-owned-effects",
+      "id": "selector-unexpected-owned",
+      "platform": "Slackware-current",
+      "required_diagnostic_codes": [
+        "unexpected-effects-forbidden"
+      ],
+      "role": "negative",
+      "value": [
+        "injected-private-child"
+      ]
+    },
+    {
+      "engine": "selector",
+      "expected_state": "pending",
+      "field_id": "install-new-selector",
+      "id": "selector-unknown-selector",
+      "platform": "Slackware-current",
+      "required_diagnostic_codes": [
+        "literal-field-pending",
+        "install-new-requires-proven-empty"
+      ],
+      "role": "negative",
+      "value": null
+    },
+    {
+      "engine": "selector",
+      "expected_state": "mismatch",
+      "field_id": "upgrade-all-target-effects",
+      "id": "selector-no-upgrade-target",
+      "platform": "Slackware-current",
+      "required_diagnostic_codes": [
+        "mandatory-upgrade-requires-target-effects"
+      ],
+      "role": "negative",
+      "value": []
+    },
+    {
+      "engine": "selector",
+      "expected_state": "mismatch",
+      "field_id": "forward-stage-ids",
+      "id": "selector-wrong-stage-order",
+      "platform": "Slackware-current",
+      "required_diagnostic_codes": [
+        "forward-stage-order-conflict"
+      ],
+      "role": "negative",
+      "value": [
+        "upgrade-all",
+        "install-new",
+        "update"
+      ]
+    },
+    {
+      "engine": "selector",
+      "expected_state": "mismatch",
+      "field_id": "full-forward-raw-status-vector",
+      "id": "selector-wrong-status-vector",
+      "platform": "Slackware-current",
+      "required_diagnostic_codes": [
+        "forward-status-conflict"
+      ],
+      "role": "negative",
+      "value": [
+        0,
+        0,
+        20
+      ]
+    },
+    {
+      "engine": "selector",
+      "expected_state": "mismatch",
+      "field_id": "install-new-owned-effects",
+      "id": "selector-install-effect",
+      "platform": "Slackware-current",
+      "required_diagnostic_codes": [
+        "install-new-requires-proven-empty"
+      ],
+      "role": "negative",
+      "value": [
+        "injected-private-delta"
+      ]
+    },
+    {
+      "engine": "recovery",
+      "expected_state": "match",
+      "field_id": null,
+      "id": "recovery-positive",
+      "platform": "Slackware-15.0",
+      "required_diagnostic_codes": [],
+      "role": "positive",
+      "value": null
+    },
+    {
+      "engine": "recovery",
+      "expected_state": "mismatch",
+      "field_id": "owned-children-quiescent",
+      "id": "recovery-live-child",
+      "platform": "Slackware-15.0",
+      "required_diagnostic_codes": [
+        "known-child-quiescence-required"
+      ],
+      "role": "negative",
+      "value": false
+    },
+    {
+      "engine": "recovery",
+      "expected_state": "pending",
+      "field_id": "owned-child-identities",
+      "id": "recovery-unknown-child",
+      "platform": "Slackware-15.0",
+      "required_diagnostic_codes": [
+        "complete-child-inventory-pending"
+      ],
+      "role": "negative",
+      "value": null
+    },
+    {
+      "engine": "recovery",
+      "expected_state": "mismatch",
+      "field_id": "continuous-original-guard",
+      "id": "recovery-guard-lost",
+      "platform": "Slackware-15.0",
+      "required_diagnostic_codes": [
+        "continuous-original-guard-required"
+      ],
+      "role": "negative",
+      "value": false
+    },
+    {
+      "engine": "recovery",
+      "expected_state": "mismatch",
+      "field_id": "recovery-rights-original-attempt",
+      "id": "recovery-foreign-rights",
+      "platform": "Slackware-15.0",
+      "required_diagnostic_codes": [
+        "same-attempt-recovery-rights-required"
+      ],
+      "role": "negative",
+      "value": false
+    },
+    {
+      "engine": "recovery",
+      "expected_state": "mismatch",
+      "field_id": "recovery-fence-valid",
+      "id": "recovery-invalid-fence",
+      "platform": "Slackware-15.0",
+      "required_diagnostic_codes": [
+        "valid-recovery-fence-required"
+      ],
+      "role": "negative",
+      "value": false
+    },
+    {
+      "engine": "recovery",
+      "expected_state": "mismatch",
+      "field_id": "recovery-budget-pre-spent",
+      "id": "recovery-unspent-budget",
+      "platform": "Slackware-15.0",
+      "required_diagnostic_codes": [
+        "durable-budget-pre-spend-required"
+      ],
+      "role": "negative",
+      "value": false
+    },
+    {
+      "engine": "recovery",
+      "expected_state": "pending",
+      "field_id": "recovery-deadline-ns",
+      "id": "recovery-unknown-deadline",
+      "platform": "Slackware-15.0",
+      "required_diagnostic_codes": [
+        "finite-recovery-declaration-pending"
+      ],
+      "role": "negative",
+      "value": null
+    },
+    {
+      "engine": "recovery",
+      "expected_state": "mismatch",
+      "field_id": "verified-original-backups",
+      "id": "recovery-missing-backup",
+      "platform": "Slackware-15.0",
+      "required_diagnostic_codes": [
+        "exact-original-backups-required"
+      ],
+      "role": "negative",
+      "value": []
+    },
+    {
+      "engine": "recovery",
+      "expected_state": "mismatch",
+      "field_id": "original-full-invariants-verified",
+      "id": "recovery-unverified-original",
+      "platform": "Slackware-15.0",
+      "required_diagnostic_codes": [
+        "full-original-invariants-required"
+      ],
+      "role": "negative",
+      "value": false
+    },
+    {
+      "engine": "recovery",
+      "expected_state": "mismatch",
+      "field_id": "target-evidence-closed",
+      "id": "recovery-release-before-evidence",
+      "platform": "Slackware-15.0",
+      "required_diagnostic_codes": [
+        "target-evidence-before-release"
+      ],
+      "role": "negative",
+      "value": false
+    },
+    {
+      "engine": "recovery",
+      "expected_state": "match",
+      "field_id": null,
+      "id": "recovery-positive",
+      "platform": "Slackware-current",
+      "required_diagnostic_codes": [],
+      "role": "positive",
+      "value": null
+    },
+    {
+      "engine": "recovery",
+      "expected_state": "mismatch",
+      "field_id": "owned-children-quiescent",
+      "id": "recovery-live-child",
+      "platform": "Slackware-current",
+      "required_diagnostic_codes": [
+        "known-child-quiescence-required"
+      ],
+      "role": "negative",
+      "value": false
+    },
+    {
+      "engine": "recovery",
+      "expected_state": "pending",
+      "field_id": "owned-child-identities",
+      "id": "recovery-unknown-child",
+      "platform": "Slackware-current",
+      "required_diagnostic_codes": [
+        "complete-child-inventory-pending"
+      ],
+      "role": "negative",
+      "value": null
+    },
+    {
+      "engine": "recovery",
+      "expected_state": "mismatch",
+      "field_id": "continuous-original-guard",
+      "id": "recovery-guard-lost",
+      "platform": "Slackware-current",
+      "required_diagnostic_codes": [
+        "continuous-original-guard-required"
+      ],
+      "role": "negative",
+      "value": false
+    },
+    {
+      "engine": "recovery",
+      "expected_state": "mismatch",
+      "field_id": "recovery-rights-original-attempt",
+      "id": "recovery-foreign-rights",
+      "platform": "Slackware-current",
+      "required_diagnostic_codes": [
+        "same-attempt-recovery-rights-required"
+      ],
+      "role": "negative",
+      "value": false
+    },
+    {
+      "engine": "recovery",
+      "expected_state": "mismatch",
+      "field_id": "recovery-fence-valid",
+      "id": "recovery-invalid-fence",
+      "platform": "Slackware-current",
+      "required_diagnostic_codes": [
+        "valid-recovery-fence-required"
+      ],
+      "role": "negative",
+      "value": false
+    },
+    {
+      "engine": "recovery",
+      "expected_state": "mismatch",
+      "field_id": "recovery-budget-pre-spent",
+      "id": "recovery-unspent-budget",
+      "platform": "Slackware-current",
+      "required_diagnostic_codes": [
+        "durable-budget-pre-spend-required"
+      ],
+      "role": "negative",
+      "value": false
+    },
+    {
+      "engine": "recovery",
+      "expected_state": "pending",
+      "field_id": "recovery-deadline-ns",
+      "id": "recovery-unknown-deadline",
+      "platform": "Slackware-current",
+      "required_diagnostic_codes": [
+        "finite-recovery-declaration-pending"
+      ],
+      "role": "negative",
+      "value": null
+    },
+    {
+      "engine": "recovery",
+      "expected_state": "mismatch",
+      "field_id": "verified-original-backups",
+      "id": "recovery-missing-backup",
+      "platform": "Slackware-current",
+      "required_diagnostic_codes": [
+        "exact-original-backups-required"
+      ],
+      "role": "negative",
+      "value": []
+    },
+    {
+      "engine": "recovery",
+      "expected_state": "mismatch",
+      "field_id": "original-full-invariants-verified",
+      "id": "recovery-unverified-original",
+      "platform": "Slackware-current",
+      "required_diagnostic_codes": [
+        "full-original-invariants-required"
+      ],
+      "role": "negative",
+      "value": false
+    },
+    {
+      "engine": "recovery",
+      "expected_state": "mismatch",
+      "field_id": "target-evidence-closed",
+      "id": "recovery-release-before-evidence",
+      "platform": "Slackware-current",
+      "required_diagnostic_codes": [
+        "target-evidence-before-release"
+      ],
+      "role": "negative",
+      "value": false
+    },
+    {
+      "engine": "publication",
+      "expected_state": "match",
+      "field_id": null,
+      "id": "publication-positive",
+      "platform": "Slackware-15.0",
+      "required_diagnostic_codes": [],
+      "role": "positive",
+      "value": null
+    },
+    {
+      "engine": "publication",
+      "expected_state": "mismatch",
+      "field_id": "record-no-replace",
+      "id": "publication-record-replace",
+      "platform": "Slackware-15.0",
+      "required_diagnostic_codes": [
+        "separate-durability-required"
+      ],
+      "role": "negative",
+      "value": false
+    },
+    {
+      "engine": "publication",
+      "expected_state": "mismatch",
+      "field_id": "receipt-storage-durable",
+      "id": "publication-receipt-storage",
+      "platform": "Slackware-15.0",
+      "required_diagnostic_codes": [
+        "separate-durability-required"
+      ],
+      "role": "negative",
+      "value": false
+    },
+    {
+      "engine": "publication",
+      "expected_state": "mismatch",
+      "field_id": "record-state",
+      "id": "publication-receipt-before-record",
+      "platform": "Slackware-15.0",
+      "required_diagnostic_codes": [
+        "durable-record-before-last-receipt"
+      ],
+      "role": "negative",
+      "value": "partial"
+    },
+    {
+      "engine": "publication",
+      "expected_state": "mismatch",
+      "field_id": "receipt-state",
+      "id": "publication-handoff-before-receipt",
+      "platform": "Slackware-15.0",
+      "required_diagnostic_codes": [
+        "last-receipt-before-handoff"
+      ],
+      "role": "negative",
+      "value": "partial"
+    },
+    {
+      "engine": "publication",
+      "expected_state": "mismatch",
+      "field_id": "trusted-origin",
+      "id": "publication-untrusted-origin",
+      "platform": "Slackware-15.0",
+      "required_diagnostic_codes": [
+        "trusted-origin-required"
+      ],
+      "role": "negative",
+      "value": false
+    },
+    {
+      "engine": "publication",
+      "expected_state": "pending",
+      "field_id": "handoff-acknowledged",
+      "id": "publication-lost-ack",
+      "platform": "Slackware-15.0",
+      "required_diagnostic_codes": [
+        "original-handoff-pending"
+      ],
+      "role": "negative",
+      "value": null
+    },
+    {
+      "engine": "publication",
+      "expected_state": "pending",
+      "field_id": "pending-publication-obligations",
+      "id": "publication-unknown-obligations",
+      "platform": "Slackware-15.0",
+      "required_diagnostic_codes": [
+        "retained-publication-obligations-pending"
+      ],
+      "role": "negative",
+      "value": null
+    },
+    {
+      "engine": "publication",
+      "expected_state": "mismatch",
+      "field_id": "target-effects-after-release",
+      "id": "publication-post-release-effect",
+      "platform": "Slackware-15.0",
+      "required_diagnostic_codes": [
+        "target-effects-after-release-forbidden"
+      ],
+      "role": "negative",
+      "value": [
+        "injected-private-delta"
+      ]
+    },
+    {
+      "engine": "publication",
+      "expected_state": "mismatch",
+      "field_id": "positive-control-effective",
+      "id": "publication-ineffective-positive",
+      "platform": "Slackware-15.0",
+      "required_diagnostic_codes": [
+        "independent-effective-control-required"
+      ],
+      "role": "negative",
+      "value": false
+    },
+    {
+      "engine": "publication",
+      "expected_state": "mismatch",
+      "field_id": "control-raw-consequence-ids",
+      "id": "publication-no-raw-controls",
+      "platform": "Slackware-15.0",
+      "required_diagnostic_codes": [
+        "control-raw-consequences-required"
+      ],
+      "role": "negative",
+      "value": []
+    },
+    {
+      "engine": "publication",
+      "expected_state": "match",
+      "field_id": null,
+      "id": "publication-positive",
+      "platform": "Slackware-current",
+      "required_diagnostic_codes": [],
+      "role": "positive",
+      "value": null
+    },
+    {
+      "engine": "publication",
+      "expected_state": "mismatch",
+      "field_id": "record-no-replace",
+      "id": "publication-record-replace",
+      "platform": "Slackware-current",
+      "required_diagnostic_codes": [
+        "separate-durability-required"
+      ],
+      "role": "negative",
+      "value": false
+    },
+    {
+      "engine": "publication",
+      "expected_state": "mismatch",
+      "field_id": "receipt-storage-durable",
+      "id": "publication-receipt-storage",
+      "platform": "Slackware-current",
+      "required_diagnostic_codes": [
+        "separate-durability-required"
+      ],
+      "role": "negative",
+      "value": false
+    },
+    {
+      "engine": "publication",
+      "expected_state": "mismatch",
+      "field_id": "record-state",
+      "id": "publication-receipt-before-record",
+      "platform": "Slackware-current",
+      "required_diagnostic_codes": [
+        "durable-record-before-last-receipt"
+      ],
+      "role": "negative",
+      "value": "partial"
+    },
+    {
+      "engine": "publication",
+      "expected_state": "mismatch",
+      "field_id": "receipt-state",
+      "id": "publication-handoff-before-receipt",
+      "platform": "Slackware-current",
+      "required_diagnostic_codes": [
+        "last-receipt-before-handoff"
+      ],
+      "role": "negative",
+      "value": "partial"
+    },
+    {
+      "engine": "publication",
+      "expected_state": "mismatch",
+      "field_id": "trusted-origin",
+      "id": "publication-untrusted-origin",
+      "platform": "Slackware-current",
+      "required_diagnostic_codes": [
+        "trusted-origin-required"
+      ],
+      "role": "negative",
+      "value": false
+    },
+    {
+      "engine": "publication",
+      "expected_state": "pending",
+      "field_id": "handoff-acknowledged",
+      "id": "publication-lost-ack",
+      "platform": "Slackware-current",
+      "required_diagnostic_codes": [
+        "original-handoff-pending"
+      ],
+      "role": "negative",
+      "value": null
+    },
+    {
+      "engine": "publication",
+      "expected_state": "pending",
+      "field_id": "pending-publication-obligations",
+      "id": "publication-unknown-obligations",
+      "platform": "Slackware-current",
+      "required_diagnostic_codes": [
+        "retained-publication-obligations-pending"
+      ],
+      "role": "negative",
+      "value": null
+    },
+    {
+      "engine": "publication",
+      "expected_state": "mismatch",
+      "field_id": "target-effects-after-release",
+      "id": "publication-post-release-effect",
+      "platform": "Slackware-current",
+      "required_diagnostic_codes": [
+        "target-effects-after-release-forbidden"
+      ],
+      "role": "negative",
+      "value": [
+        "injected-private-delta"
+      ]
+    },
+    {
+      "engine": "publication",
+      "expected_state": "mismatch",
+      "field_id": "positive-control-effective",
+      "id": "publication-ineffective-positive",
+      "platform": "Slackware-current",
+      "required_diagnostic_codes": [
+        "independent-effective-control-required"
+      ],
+      "role": "negative",
+      "value": false
+    },
+    {
+      "engine": "publication",
+      "expected_state": "mismatch",
+      "field_id": "control-raw-consequence-ids",
+      "id": "publication-no-raw-controls",
+      "platform": "Slackware-current",
+      "required_diagnostic_codes": [
+        "control-raw-consequences-required"
+      ],
+      "role": "negative",
+      "value": []
+    }
+  ],
+  "engines": {
+    "publication": {
+      "baseline_profiles": {
+        "Slackware-15.0": {
+          "capture_state": "captured-unverified",
+          "expectations": {
+            "case_id": "record-last-receipt",
+            "identity": {
+              "boot_id": "private-boot",
+              "original_attempt": "private-attempt",
+              "platform": "Slackware-15.0",
+              "platform_version": "private-version",
+              "source_epoch": "private-epoch",
+              "subject_source_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+              "test_run_id": "private-run"
+            },
+            "origin": "private-literal",
+            "provenance": {
+              "author_role": "expectation-author",
+              "author_source_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+              "collector_source_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+              "derivation": "literal-independent-unverified",
+              "review_record_sha256": "5555555555555555555555555555555555555555555555555555555555555555",
+              "subject_source_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+              "verifier_source_sha256": "3333333333333333333333333333333333333333333333333333333333333333"
+            },
+            "schema_version": 1,
+            "vectors": [
+              {
+                "fields": [
+                  {
+                    "field_id": "update-raw-status",
+                    "value": null
+                  },
+                  {
+                    "field_id": "update-stdout-sha256",
+                    "value": null
+                  },
+                  {
+                    "field_id": "update-stderr-sha256",
+                    "value": null
+                  },
+                  {
+                    "field_id": "update-streams-error-free",
+                    "value": null
+                  },
+                  {
+                    "field_id": "raw-pkglist-pin-sha256",
+                    "value": null
+                  },
+                  {
+                    "field_id": "install-new-raw-status",
+                    "value": null
+                  },
+                  {
+                    "field_id": "install-new-selector",
+                    "value": null
+                  },
+                  {
+                    "field_id": "install-new-target-effects",
+                    "value": null
+                  },
+                  {
+                    "field_id": "install-new-owned-effects",
+                    "value": null
+                  },
+                  {
+                    "field_id": "upgrade-all-raw-status",
+                    "value": null
+                  },
+                  {
+                    "field_id": "upgrade-all-selector",
+                    "value": null
+                  },
+                  {
+                    "field_id": "upgrade-all-target-effects",
+                    "value": null
+                  },
+                  {
+                    "field_id": "upgrade-all-owned-effects",
+                    "value": null
+                  },
+                  {
+                    "field_id": "unexpected-target-effects",
+                    "value": null
+                  },
+                  {
+                    "field_id": "unexpected-owned-effects",
+                    "value": null
+                  },
+                  {
+                    "field_id": "forward-stage-ids",
+                    "value": null
+                  },
+                  {
+                    "field_id": "full-forward-raw-status-vector",
+                    "value": null
+                  },
+                  {
+                    "field_id": "original-identity-timeline",
+                    "value": null
+                  }
+                ],
+                "vector_id": "selector-effects"
+              },
+              {
+                "fields": [
+                  {
+                    "field_id": "original-forward-status",
+                    "value": null
+                  },
+                  {
+                    "field_id": "forward-stopped",
+                    "value": null
+                  },
+                  {
+                    "field_id": "owned-child-identities",
+                    "value": null
+                  },
+                  {
+                    "field_id": "owned-children-quiescent",
+                    "value": null
+                  },
+                  {
+                    "field_id": "continuous-original-guard",
+                    "value": null
+                  },
+                  {
+                    "field_id": "recovery-rights-original-attempt",
+                    "value": null
+                  },
+                  {
+                    "field_id": "recovery-fence-valid",
+                    "value": null
+                  },
+                  {
+                    "field_id": "recovery-deadline-ns",
+                    "value": null
+                  },
+                  {
+                    "field_id": "recovery-budget-pre-spent",
+                    "value": null
+                  },
+                  {
+                    "field_id": "recovery-budget-remaining",
+                    "value": null
+                  },
+                  {
+                    "field_id": "verified-original-backups",
+                    "value": null
+                  },
+                  {
+                    "field_id": "original-restoration-state",
+                    "value": null
+                  },
+                  {
+                    "field_id": "original-full-invariants-verified",
+                    "value": null
+                  },
+                  {
+                    "field_id": "target-evidence-closed",
+                    "value": null
+                  },
+                  {
+                    "field_id": "target-control-released",
+                    "value": null
+                  },
+                  {
+                    "field_id": "pending-target-obligations",
+                    "value": null
+                  },
+                  {
+                    "field_id": "pending-owned-obligations",
+                    "value": null
+                  }
+                ],
+                "vector_id": "recovery-obligations"
+              },
+              {
+                "fields": [
+                  {
+                    "field_id": "record-state",
+                    "value": "durable"
+                  },
+                  {
+                    "field_id": "record-sha256",
+                    "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                  },
+                  {
+                    "field_id": "record-no-replace",
+                    "value": true
+                  },
+                  {
+                    "field_id": "record-file-durable",
+                    "value": true
+                  },
+                  {
+                    "field_id": "record-metadata-durable",
+                    "value": true
+                  },
+                  {
+                    "field_id": "record-directory-durable",
+                    "value": true
+                  },
+                  {
+                    "field_id": "record-storage-durable",
+                    "value": true
+                  },
+                  {
+                    "field_id": "receipt-state",
+                    "value": "durable"
+                  },
+                  {
+                    "field_id": "receipt-sha256",
+                    "value": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                  },
+                  {
+                    "field_id": "receipt-no-replace",
+                    "value": true
+                  },
+                  {
+                    "field_id": "receipt-file-durable",
+                    "value": true
+                  },
+                  {
+                    "field_id": "receipt-metadata-durable",
+                    "value": true
+                  },
+                  {
+                    "field_id": "receipt-directory-durable",
+                    "value": true
+                  },
+                  {
+                    "field_id": "receipt-storage-durable",
+                    "value": true
+                  },
+                  {
+                    "field_id": "trusted-origin",
+                    "value": true
+                  },
+                  {
+                    "field_id": "handoff-acknowledged",
+                    "value": true
+                  },
+                  {
+                    "field_id": "pending-publication-obligations",
+                    "value": []
+                  },
+                  {
+                    "field_id": "target-effects-after-release",
+                    "value": []
+                  },
+                  {
+                    "field_id": "positive-control-effective",
+                    "value": true
+                  },
+                  {
+                    "field_id": "negative-control-effective",
+                    "value": true
+                  },
+                  {
+                    "field_id": "control-raw-consequence-ids",
+                    "value": [
+                      "private-positive-raw",
+                      "private-negative-raw"
+                    ]
+                  }
+                ],
+                "vector_id": "publication-controls"
+              }
+            ]
+          },
+          "expected_agreement": "match",
+          "id": "separate-durable-record-receipt-data/Slackware-15.0",
+          "observed_fields": {
+            "control-raw-consequence-ids": [
+              "private-positive-raw",
+              "private-negative-raw"
+            ],
+            "handoff-acknowledged": true,
+            "negative-control-effective": true,
+            "pending-publication-obligations": [],
+            "positive-control-effective": true,
+            "receipt-directory-durable": true,
+            "receipt-file-durable": true,
+            "receipt-metadata-durable": true,
+            "receipt-no-replace": true,
+            "receipt-sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "receipt-state": "durable",
+            "receipt-storage-durable": true,
+            "record-directory-durable": true,
+            "record-file-durable": true,
+            "record-metadata-durable": true,
+            "record-no-replace": true,
+            "record-sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "record-state": "durable",
+            "record-storage-durable": true,
+            "target-effects-after-release": [],
+            "trusted-origin": true
+          },
+          "packet_identity": {
+            "boot_id": "private-boot",
+            "original_attempt": "private-attempt",
+            "platform": "Slackware-15.0",
+            "platform_version": "private-version",
+            "source_epoch": "private-epoch",
+            "subject_source_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+            "test_run_id": "private-run"
+          },
+          "required_diagnostic_codes": []
+        },
+        "Slackware-current": {
+          "capture_state": "captured-unverified",
+          "expectations": {
+            "case_id": "record-last-receipt",
+            "identity": {
+              "boot_id": "private-boot",
+              "original_attempt": "private-attempt",
+              "platform": "Slackware-current",
+              "platform_version": "private-version",
+              "source_epoch": "private-epoch",
+              "subject_source_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+              "test_run_id": "private-run"
+            },
+            "origin": "private-literal",
+            "provenance": {
+              "author_role": "expectation-author",
+              "author_source_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+              "collector_source_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+              "derivation": "literal-independent-unverified",
+              "review_record_sha256": "5555555555555555555555555555555555555555555555555555555555555555",
+              "subject_source_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+              "verifier_source_sha256": "3333333333333333333333333333333333333333333333333333333333333333"
+            },
+            "schema_version": 1,
+            "vectors": [
+              {
+                "fields": [
+                  {
+                    "field_id": "update-raw-status",
+                    "value": null
+                  },
+                  {
+                    "field_id": "update-stdout-sha256",
+                    "value": null
+                  },
+                  {
+                    "field_id": "update-stderr-sha256",
+                    "value": null
+                  },
+                  {
+                    "field_id": "update-streams-error-free",
+                    "value": null
+                  },
+                  {
+                    "field_id": "raw-pkglist-pin-sha256",
+                    "value": null
+                  },
+                  {
+                    "field_id": "install-new-raw-status",
+                    "value": null
+                  },
+                  {
+                    "field_id": "install-new-selector",
+                    "value": null
+                  },
+                  {
+                    "field_id": "install-new-target-effects",
+                    "value": null
+                  },
+                  {
+                    "field_id": "install-new-owned-effects",
+                    "value": null
+                  },
+                  {
+                    "field_id": "upgrade-all-raw-status",
+                    "value": null
+                  },
+                  {
+                    "field_id": "upgrade-all-selector",
+                    "value": null
+                  },
+                  {
+                    "field_id": "upgrade-all-target-effects",
+                    "value": null
+                  },
+                  {
+                    "field_id": "upgrade-all-owned-effects",
+                    "value": null
+                  },
+                  {
+                    "field_id": "unexpected-target-effects",
+                    "value": null
+                  },
+                  {
+                    "field_id": "unexpected-owned-effects",
+                    "value": null
+                  },
+                  {
+                    "field_id": "forward-stage-ids",
+                    "value": null
+                  },
+                  {
+                    "field_id": "full-forward-raw-status-vector",
+                    "value": null
+                  },
+                  {
+                    "field_id": "original-identity-timeline",
+                    "value": null
+                  }
+                ],
+                "vector_id": "selector-effects"
+              },
+              {
+                "fields": [
+                  {
+                    "field_id": "original-forward-status",
+                    "value": null
+                  },
+                  {
+                    "field_id": "forward-stopped",
+                    "value": null
+                  },
+                  {
+                    "field_id": "owned-child-identities",
+                    "value": null
+                  },
+                  {
+                    "field_id": "owned-children-quiescent",
+                    "value": null
+                  },
+                  {
+                    "field_id": "continuous-original-guard",
+                    "value": null
+                  },
+                  {
+                    "field_id": "recovery-rights-original-attempt",
+                    "value": null
+                  },
+                  {
+                    "field_id": "recovery-fence-valid",
+                    "value": null
+                  },
+                  {
+                    "field_id": "recovery-deadline-ns",
+                    "value": null
+                  },
+                  {
+                    "field_id": "recovery-budget-pre-spent",
+                    "value": null
+                  },
+                  {
+                    "field_id": "recovery-budget-remaining",
+                    "value": null
+                  },
+                  {
+                    "field_id": "verified-original-backups",
+                    "value": null
+                  },
+                  {
+                    "field_id": "original-restoration-state",
+                    "value": null
+                  },
+                  {
+                    "field_id": "original-full-invariants-verified",
+                    "value": null
+                  },
+                  {
+                    "field_id": "target-evidence-closed",
+                    "value": null
+                  },
+                  {
+                    "field_id": "target-control-released",
+                    "value": null
+                  },
+                  {
+                    "field_id": "pending-target-obligations",
+                    "value": null
+                  },
+                  {
+                    "field_id": "pending-owned-obligations",
+                    "value": null
+                  }
+                ],
+                "vector_id": "recovery-obligations"
+              },
+              {
+                "fields": [
+                  {
+                    "field_id": "record-state",
+                    "value": "durable"
+                  },
+                  {
+                    "field_id": "record-sha256",
+                    "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                  },
+                  {
+                    "field_id": "record-no-replace",
+                    "value": true
+                  },
+                  {
+                    "field_id": "record-file-durable",
+                    "value": true
+                  },
+                  {
+                    "field_id": "record-metadata-durable",
+                    "value": true
+                  },
+                  {
+                    "field_id": "record-directory-durable",
+                    "value": true
+                  },
+                  {
+                    "field_id": "record-storage-durable",
+                    "value": true
+                  },
+                  {
+                    "field_id": "receipt-state",
+                    "value": "durable"
+                  },
+                  {
+                    "field_id": "receipt-sha256",
+                    "value": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                  },
+                  {
+                    "field_id": "receipt-no-replace",
+                    "value": true
+                  },
+                  {
+                    "field_id": "receipt-file-durable",
+                    "value": true
+                  },
+                  {
+                    "field_id": "receipt-metadata-durable",
+                    "value": true
+                  },
+                  {
+                    "field_id": "receipt-directory-durable",
+                    "value": true
+                  },
+                  {
+                    "field_id": "receipt-storage-durable",
+                    "value": true
+                  },
+                  {
+                    "field_id": "trusted-origin",
+                    "value": true
+                  },
+                  {
+                    "field_id": "handoff-acknowledged",
+                    "value": true
+                  },
+                  {
+                    "field_id": "pending-publication-obligations",
+                    "value": []
+                  },
+                  {
+                    "field_id": "target-effects-after-release",
+                    "value": []
+                  },
+                  {
+                    "field_id": "positive-control-effective",
+                    "value": true
+                  },
+                  {
+                    "field_id": "negative-control-effective",
+                    "value": true
+                  },
+                  {
+                    "field_id": "control-raw-consequence-ids",
+                    "value": [
+                      "private-positive-raw",
+                      "private-negative-raw"
+                    ]
+                  }
+                ],
+                "vector_id": "publication-controls"
+              }
+            ]
+          },
+          "expected_agreement": "match",
+          "id": "separate-durable-record-receipt-data/Slackware-current",
+          "observed_fields": {
+            "control-raw-consequence-ids": [
+              "private-positive-raw",
+              "private-negative-raw"
+            ],
+            "handoff-acknowledged": true,
+            "negative-control-effective": true,
+            "pending-publication-obligations": [],
+            "positive-control-effective": true,
+            "receipt-directory-durable": true,
+            "receipt-file-durable": true,
+            "receipt-metadata-durable": true,
+            "receipt-no-replace": true,
+            "receipt-sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "receipt-state": "durable",
+            "receipt-storage-durable": true,
+            "record-directory-durable": true,
+            "record-file-durable": true,
+            "record-metadata-durable": true,
+            "record-no-replace": true,
+            "record-sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "record-state": "durable",
+            "record-storage-durable": true,
+            "target-effects-after-release": [],
+            "trusted-origin": true
+          },
+          "packet_identity": {
+            "boot_id": "private-boot",
+            "original_attempt": "private-attempt",
+            "platform": "Slackware-current",
+            "platform_version": "private-version",
+            "source_epoch": "private-epoch",
+            "subject_source_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+            "test_run_id": "private-run"
+          },
+          "required_diagnostic_codes": []
+        }
+      },
+      "module_binding": {
+        "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-publication-receipt-comparator.py",
+        "sha256": "e55d5fae7a69414c6e7da8a4364d34ff522a2095807cc42cb5acfe0ad3af3b5d"
+      },
+      "private_fixture_binding": {
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-publication-and-last-receipt-comparison-review-private-comparison-cases.json",
+        "sha256": "c5431ccf15b149333e8fa84116967b937006c19006792b3ad7dc224d2be108eb"
+      }
+    },
+    "recovery": {
+      "baseline_profiles": {
+        "Slackware-15.0": {
+          "capture_state": "captured-unverified",
+          "expectations": {
+            "case_id": "retained-restoration",
+            "identity": {
+              "boot_id": "private-boot",
+              "original_attempt": "private-attempt",
+              "platform": "Slackware-15.0",
+              "platform_version": "private-version",
+              "source_epoch": "private-epoch",
+              "subject_source_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+              "test_run_id": "private-run"
+            },
+            "origin": "private-literal",
+            "provenance": {
+              "author_role": "expectation-author",
+              "author_source_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+              "collector_source_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+              "derivation": "literal-independent-unverified",
+              "review_record_sha256": "5555555555555555555555555555555555555555555555555555555555555555",
+              "subject_source_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+              "verifier_source_sha256": "3333333333333333333333333333333333333333333333333333333333333333"
+            },
+            "schema_version": 1,
+            "vectors": [
+              {
+                "fields": [
+                  {
+                    "field_id": "update-raw-status",
+                    "value": null
+                  },
+                  {
+                    "field_id": "update-stdout-sha256",
+                    "value": null
+                  },
+                  {
+                    "field_id": "update-stderr-sha256",
+                    "value": null
+                  },
+                  {
+                    "field_id": "update-streams-error-free",
+                    "value": null
+                  },
+                  {
+                    "field_id": "raw-pkglist-pin-sha256",
+                    "value": null
+                  },
+                  {
+                    "field_id": "install-new-raw-status",
+                    "value": null
+                  },
+                  {
+                    "field_id": "install-new-selector",
+                    "value": null
+                  },
+                  {
+                    "field_id": "install-new-target-effects",
+                    "value": null
+                  },
+                  {
+                    "field_id": "install-new-owned-effects",
+                    "value": null
+                  },
+                  {
+                    "field_id": "upgrade-all-raw-status",
+                    "value": null
+                  },
+                  {
+                    "field_id": "upgrade-all-selector",
+                    "value": null
+                  },
+                  {
+                    "field_id": "upgrade-all-target-effects",
+                    "value": null
+                  },
+                  {
+                    "field_id": "upgrade-all-owned-effects",
+                    "value": null
+                  },
+                  {
+                    "field_id": "unexpected-target-effects",
+                    "value": null
+                  },
+                  {
+                    "field_id": "unexpected-owned-effects",
+                    "value": null
+                  },
+                  {
+                    "field_id": "forward-stage-ids",
+                    "value": null
+                  },
+                  {
+                    "field_id": "full-forward-raw-status-vector",
+                    "value": null
+                  },
+                  {
+                    "field_id": "original-identity-timeline",
+                    "value": null
+                  }
+                ],
+                "vector_id": "selector-effects"
+              },
+              {
+                "fields": [
+                  {
+                    "field_id": "original-forward-status",
+                    "value": 7
+                  },
+                  {
+                    "field_id": "forward-stopped",
+                    "value": true
+                  },
+                  {
+                    "field_id": "owned-child-identities",
+                    "value": [
+                      "private-child-a",
+                      "private-child-b"
+                    ]
+                  },
+                  {
+                    "field_id": "owned-children-quiescent",
+                    "value": true
+                  },
+                  {
+                    "field_id": "continuous-original-guard",
+                    "value": true
+                  },
+                  {
+                    "field_id": "recovery-rights-original-attempt",
+                    "value": true
+                  },
+                  {
+                    "field_id": "recovery-fence-valid",
+                    "value": true
+                  },
+                  {
+                    "field_id": "recovery-deadline-ns",
+                    "value": 140
+                  },
+                  {
+                    "field_id": "recovery-budget-pre-spent",
+                    "value": true
+                  },
+                  {
+                    "field_id": "recovery-budget-remaining",
+                    "value": 0
+                  },
+                  {
+                    "field_id": "verified-original-backups",
+                    "value": [
+                      "private-backup-content-meta-presence"
+                    ]
+                  },
+                  {
+                    "field_id": "original-restoration-state",
+                    "value": "verified-restored"
+                  },
+                  {
+                    "field_id": "original-full-invariants-verified",
+                    "value": true
+                  },
+                  {
+                    "field_id": "target-evidence-closed",
+                    "value": true
+                  },
+                  {
+                    "field_id": "target-control-released",
+                    "value": true
+                  },
+                  {
+                    "field_id": "pending-target-obligations",
+                    "value": []
+                  },
+                  {
+                    "field_id": "pending-owned-obligations",
+                    "value": []
+                  }
+                ],
+                "vector_id": "recovery-obligations"
+              },
+              {
+                "fields": [
+                  {
+                    "field_id": "record-state",
+                    "value": null
+                  },
+                  {
+                    "field_id": "record-sha256",
+                    "value": null
+                  },
+                  {
+                    "field_id": "record-no-replace",
+                    "value": null
+                  },
+                  {
+                    "field_id": "record-file-durable",
+                    "value": null
+                  },
+                  {
+                    "field_id": "record-metadata-durable",
+                    "value": null
+                  },
+                  {
+                    "field_id": "record-directory-durable",
+                    "value": null
+                  },
+                  {
+                    "field_id": "record-storage-durable",
+                    "value": null
+                  },
+                  {
+                    "field_id": "receipt-state",
+                    "value": null
+                  },
+                  {
+                    "field_id": "receipt-sha256",
+                    "value": null
+                  },
+                  {
+                    "field_id": "receipt-no-replace",
+                    "value": null
+                  },
+                  {
+                    "field_id": "receipt-file-durable",
+                    "value": null
+                  },
+                  {
+                    "field_id": "receipt-metadata-durable",
+                    "value": null
+                  },
+                  {
+                    "field_id": "receipt-directory-durable",
+                    "value": null
+                  },
+                  {
+                    "field_id": "receipt-storage-durable",
+                    "value": null
+                  },
+                  {
+                    "field_id": "trusted-origin",
+                    "value": null
+                  },
+                  {
+                    "field_id": "handoff-acknowledged",
+                    "value": null
+                  },
+                  {
+                    "field_id": "pending-publication-obligations",
+                    "value": null
+                  },
+                  {
+                    "field_id": "target-effects-after-release",
+                    "value": null
+                  },
+                  {
+                    "field_id": "positive-control-effective",
+                    "value": null
+                  },
+                  {
+                    "field_id": "negative-control-effective",
+                    "value": null
+                  },
+                  {
+                    "field_id": "control-raw-consequence-ids",
+                    "value": null
+                  }
+                ],
+                "vector_id": "publication-controls"
+              }
+            ]
+          },
+          "expected_agreement": "match",
+          "id": "verified-restoration-retains-original-seven/Slackware-15.0",
+          "observed_fields": {
+            "continuous-original-guard": true,
+            "forward-stopped": true,
+            "original-forward-status": 7,
+            "original-full-invariants-verified": true,
+            "original-restoration-state": "verified-restored",
+            "owned-child-identities": [
+              "private-child-a",
+              "private-child-b"
+            ],
+            "owned-children-quiescent": true,
+            "pending-owned-obligations": [],
+            "pending-target-obligations": [],
+            "recovery-budget-pre-spent": true,
+            "recovery-budget-remaining": 0,
+            "recovery-deadline-ns": 140,
+            "recovery-fence-valid": true,
+            "recovery-rights-original-attempt": true,
+            "target-control-released": true,
+            "target-evidence-closed": true,
+            "verified-original-backups": [
+              "private-backup-content-meta-presence"
+            ]
+          },
+          "packet_identity": {
+            "boot_id": "private-boot",
+            "original_attempt": "private-attempt",
+            "platform": "Slackware-15.0",
+            "platform_version": "private-version",
+            "source_epoch": "private-epoch",
+            "subject_source_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+            "test_run_id": "private-run"
+          },
+          "required_diagnostic_codes": []
+        },
+        "Slackware-current": {
+          "capture_state": "captured-unverified",
+          "expectations": {
+            "case_id": "retained-restoration",
+            "identity": {
+              "boot_id": "private-boot",
+              "original_attempt": "private-attempt",
+              "platform": "Slackware-current",
+              "platform_version": "private-version",
+              "source_epoch": "private-epoch",
+              "subject_source_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+              "test_run_id": "private-run"
+            },
+            "origin": "private-literal",
+            "provenance": {
+              "author_role": "expectation-author",
+              "author_source_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+              "collector_source_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+              "derivation": "literal-independent-unverified",
+              "review_record_sha256": "5555555555555555555555555555555555555555555555555555555555555555",
+              "subject_source_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+              "verifier_source_sha256": "3333333333333333333333333333333333333333333333333333333333333333"
+            },
+            "schema_version": 1,
+            "vectors": [
+              {
+                "fields": [
+                  {
+                    "field_id": "update-raw-status",
+                    "value": null
+                  },
+                  {
+                    "field_id": "update-stdout-sha256",
+                    "value": null
+                  },
+                  {
+                    "field_id": "update-stderr-sha256",
+                    "value": null
+                  },
+                  {
+                    "field_id": "update-streams-error-free",
+                    "value": null
+                  },
+                  {
+                    "field_id": "raw-pkglist-pin-sha256",
+                    "value": null
+                  },
+                  {
+                    "field_id": "install-new-raw-status",
+                    "value": null
+                  },
+                  {
+                    "field_id": "install-new-selector",
+                    "value": null
+                  },
+                  {
+                    "field_id": "install-new-target-effects",
+                    "value": null
+                  },
+                  {
+                    "field_id": "install-new-owned-effects",
+                    "value": null
+                  },
+                  {
+                    "field_id": "upgrade-all-raw-status",
+                    "value": null
+                  },
+                  {
+                    "field_id": "upgrade-all-selector",
+                    "value": null
+                  },
+                  {
+                    "field_id": "upgrade-all-target-effects",
+                    "value": null
+                  },
+                  {
+                    "field_id": "upgrade-all-owned-effects",
+                    "value": null
+                  },
+                  {
+                    "field_id": "unexpected-target-effects",
+                    "value": null
+                  },
+                  {
+                    "field_id": "unexpected-owned-effects",
+                    "value": null
+                  },
+                  {
+                    "field_id": "forward-stage-ids",
+                    "value": null
+                  },
+                  {
+                    "field_id": "full-forward-raw-status-vector",
+                    "value": null
+                  },
+                  {
+                    "field_id": "original-identity-timeline",
+                    "value": null
+                  }
+                ],
+                "vector_id": "selector-effects"
+              },
+              {
+                "fields": [
+                  {
+                    "field_id": "original-forward-status",
+                    "value": 7
+                  },
+                  {
+                    "field_id": "forward-stopped",
+                    "value": true
+                  },
+                  {
+                    "field_id": "owned-child-identities",
+                    "value": [
+                      "private-child-a",
+                      "private-child-b"
+                    ]
+                  },
+                  {
+                    "field_id": "owned-children-quiescent",
+                    "value": true
+                  },
+                  {
+                    "field_id": "continuous-original-guard",
+                    "value": true
+                  },
+                  {
+                    "field_id": "recovery-rights-original-attempt",
+                    "value": true
+                  },
+                  {
+                    "field_id": "recovery-fence-valid",
+                    "value": true
+                  },
+                  {
+                    "field_id": "recovery-deadline-ns",
+                    "value": 140
+                  },
+                  {
+                    "field_id": "recovery-budget-pre-spent",
+                    "value": true
+                  },
+                  {
+                    "field_id": "recovery-budget-remaining",
+                    "value": 0
+                  },
+                  {
+                    "field_id": "verified-original-backups",
+                    "value": [
+                      "private-backup-content-meta-presence"
+                    ]
+                  },
+                  {
+                    "field_id": "original-restoration-state",
+                    "value": "verified-restored"
+                  },
+                  {
+                    "field_id": "original-full-invariants-verified",
+                    "value": true
+                  },
+                  {
+                    "field_id": "target-evidence-closed",
+                    "value": true
+                  },
+                  {
+                    "field_id": "target-control-released",
+                    "value": true
+                  },
+                  {
+                    "field_id": "pending-target-obligations",
+                    "value": []
+                  },
+                  {
+                    "field_id": "pending-owned-obligations",
+                    "value": []
+                  }
+                ],
+                "vector_id": "recovery-obligations"
+              },
+              {
+                "fields": [
+                  {
+                    "field_id": "record-state",
+                    "value": null
+                  },
+                  {
+                    "field_id": "record-sha256",
+                    "value": null
+                  },
+                  {
+                    "field_id": "record-no-replace",
+                    "value": null
+                  },
+                  {
+                    "field_id": "record-file-durable",
+                    "value": null
+                  },
+                  {
+                    "field_id": "record-metadata-durable",
+                    "value": null
+                  },
+                  {
+                    "field_id": "record-directory-durable",
+                    "value": null
+                  },
+                  {
+                    "field_id": "record-storage-durable",
+                    "value": null
+                  },
+                  {
+                    "field_id": "receipt-state",
+                    "value": null
+                  },
+                  {
+                    "field_id": "receipt-sha256",
+                    "value": null
+                  },
+                  {
+                    "field_id": "receipt-no-replace",
+                    "value": null
+                  },
+                  {
+                    "field_id": "receipt-file-durable",
+                    "value": null
+                  },
+                  {
+                    "field_id": "receipt-metadata-durable",
+                    "value": null
+                  },
+                  {
+                    "field_id": "receipt-directory-durable",
+                    "value": null
+                  },
+                  {
+                    "field_id": "receipt-storage-durable",
+                    "value": null
+                  },
+                  {
+                    "field_id": "trusted-origin",
+                    "value": null
+                  },
+                  {
+                    "field_id": "handoff-acknowledged",
+                    "value": null
+                  },
+                  {
+                    "field_id": "pending-publication-obligations",
+                    "value": null
+                  },
+                  {
+                    "field_id": "target-effects-after-release",
+                    "value": null
+                  },
+                  {
+                    "field_id": "positive-control-effective",
+                    "value": null
+                  },
+                  {
+                    "field_id": "negative-control-effective",
+                    "value": null
+                  },
+                  {
+                    "field_id": "control-raw-consequence-ids",
+                    "value": null
+                  }
+                ],
+                "vector_id": "publication-controls"
+              }
+            ]
+          },
+          "expected_agreement": "match",
+          "id": "verified-restoration-retains-original-seven/Slackware-current",
+          "observed_fields": {
+            "continuous-original-guard": true,
+            "forward-stopped": true,
+            "original-forward-status": 7,
+            "original-full-invariants-verified": true,
+            "original-restoration-state": "verified-restored",
+            "owned-child-identities": [
+              "private-child-a",
+              "private-child-b"
+            ],
+            "owned-children-quiescent": true,
+            "pending-owned-obligations": [],
+            "pending-target-obligations": [],
+            "recovery-budget-pre-spent": true,
+            "recovery-budget-remaining": 0,
+            "recovery-deadline-ns": 140,
+            "recovery-fence-valid": true,
+            "recovery-rights-original-attempt": true,
+            "target-control-released": true,
+            "target-evidence-closed": true,
+            "verified-original-backups": [
+              "private-backup-content-meta-presence"
+            ]
+          },
+          "packet_identity": {
+            "boot_id": "private-boot",
+            "original_attempt": "private-attempt",
+            "platform": "Slackware-current",
+            "platform_version": "private-version",
+            "source_epoch": "private-epoch",
+            "subject_source_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+            "test_run_id": "private-run"
+          },
+          "required_diagnostic_codes": []
+        }
+      },
+      "module_binding": {
+        "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-recovery-obligation-comparator.py",
+        "sha256": "0aea9dbe37f1b3e1ea3f4b03bd3535adf2ed1763ba97b75b6cbf976d0fe1aacb"
+      },
+      "private_fixture_binding": {
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-recovery-and-obligation-comparison-review-private-comparison-cases.json",
+        "sha256": "c30c92a6a93094301976088c8ff806714c8a5f3d865b871142a45a2a961ef197"
+      }
+    },
+    "selector": {
+      "baseline_profiles": {
+        "Slackware-15.0": {
+          "capture_state": "captured-unverified",
+          "expectations": {
+            "case_id": "actual-selector",
+            "identity": {
+              "boot_id": "private-boot",
+              "original_attempt": "private-attempt",
+              "platform": "Slackware-15.0",
+              "platform_version": "private-version",
+              "source_epoch": "private-epoch",
+              "subject_source_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+              "test_run_id": "private-run"
+            },
+            "origin": "private-literal",
+            "provenance": {
+              "author_role": "expectation-author",
+              "author_source_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+              "collector_source_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+              "derivation": "literal-independent-unverified",
+              "review_record_sha256": "5555555555555555555555555555555555555555555555555555555555555555",
+              "subject_source_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+              "verifier_source_sha256": "3333333333333333333333333333333333333333333333333333333333333333"
+            },
+            "schema_version": 1,
+            "vectors": [
+              {
+                "fields": [
+                  {
+                    "field_id": "update-raw-status",
+                    "value": 0
+                  },
+                  {
+                    "field_id": "update-stdout-sha256",
+                    "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                  },
+                  {
+                    "field_id": "update-stderr-sha256",
+                    "value": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                  },
+                  {
+                    "field_id": "update-streams-error-free",
+                    "value": true
+                  },
+                  {
+                    "field_id": "raw-pkglist-pin-sha256",
+                    "value": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+                  },
+                  {
+                    "field_id": "install-new-raw-status",
+                    "value": 0
+                  },
+                  {
+                    "field_id": "install-new-selector",
+                    "value": []
+                  },
+                  {
+                    "field_id": "install-new-target-effects",
+                    "value": []
+                  },
+                  {
+                    "field_id": "install-new-owned-effects",
+                    "value": []
+                  },
+                  {
+                    "field_id": "upgrade-all-raw-status",
+                    "value": 0
+                  },
+                  {
+                    "field_id": "upgrade-all-selector",
+                    "value": [
+                      "kernel-private-target"
+                    ]
+                  },
+                  {
+                    "field_id": "upgrade-all-target-effects",
+                    "value": [
+                      "private-target-delta"
+                    ]
+                  },
+                  {
+                    "field_id": "upgrade-all-owned-effects",
+                    "value": [
+                      "private-owned-delta"
+                    ]
+                  },
+                  {
+                    "field_id": "unexpected-target-effects",
+                    "value": []
+                  },
+                  {
+                    "field_id": "unexpected-owned-effects",
+                    "value": []
+                  },
+                  {
+                    "field_id": "forward-stage-ids",
+                    "value": [
+                      "update",
+                      "install-new",
+                      "upgrade-all"
+                    ]
+                  },
+                  {
+                    "field_id": "full-forward-raw-status-vector",
+                    "value": [
+                      0,
+                      0,
+                      0
+                    ]
+                  },
+                  {
+                    "field_id": "original-identity-timeline",
+                    "value": [
+                      "private-boot/private-attempt/private-run"
+                    ]
+                  }
+                ],
+                "vector_id": "selector-effects"
+              },
+              {
+                "fields": [
+                  {
+                    "field_id": "original-forward-status",
+                    "value": null
+                  },
+                  {
+                    "field_id": "forward-stopped",
+                    "value": null
+                  },
+                  {
+                    "field_id": "owned-child-identities",
+                    "value": null
+                  },
+                  {
+                    "field_id": "owned-children-quiescent",
+                    "value": null
+                  },
+                  {
+                    "field_id": "continuous-original-guard",
+                    "value": null
+                  },
+                  {
+                    "field_id": "recovery-rights-original-attempt",
+                    "value": null
+                  },
+                  {
+                    "field_id": "recovery-fence-valid",
+                    "value": null
+                  },
+                  {
+                    "field_id": "recovery-deadline-ns",
+                    "value": null
+                  },
+                  {
+                    "field_id": "recovery-budget-pre-spent",
+                    "value": null
+                  },
+                  {
+                    "field_id": "recovery-budget-remaining",
+                    "value": null
+                  },
+                  {
+                    "field_id": "verified-original-backups",
+                    "value": null
+                  },
+                  {
+                    "field_id": "original-restoration-state",
+                    "value": null
+                  },
+                  {
+                    "field_id": "original-full-invariants-verified",
+                    "value": null
+                  },
+                  {
+                    "field_id": "target-evidence-closed",
+                    "value": null
+                  },
+                  {
+                    "field_id": "target-control-released",
+                    "value": null
+                  },
+                  {
+                    "field_id": "pending-target-obligations",
+                    "value": null
+                  },
+                  {
+                    "field_id": "pending-owned-obligations",
+                    "value": null
+                  }
+                ],
+                "vector_id": "recovery-obligations"
+              },
+              {
+                "fields": [
+                  {
+                    "field_id": "record-state",
+                    "value": null
+                  },
+                  {
+                    "field_id": "record-sha256",
+                    "value": null
+                  },
+                  {
+                    "field_id": "record-no-replace",
+                    "value": null
+                  },
+                  {
+                    "field_id": "record-file-durable",
+                    "value": null
+                  },
+                  {
+                    "field_id": "record-metadata-durable",
+                    "value": null
+                  },
+                  {
+                    "field_id": "record-directory-durable",
+                    "value": null
+                  },
+                  {
+                    "field_id": "record-storage-durable",
+                    "value": null
+                  },
+                  {
+                    "field_id": "receipt-state",
+                    "value": null
+                  },
+                  {
+                    "field_id": "receipt-sha256",
+                    "value": null
+                  },
+                  {
+                    "field_id": "receipt-no-replace",
+                    "value": null
+                  },
+                  {
+                    "field_id": "receipt-file-durable",
+                    "value": null
+                  },
+                  {
+                    "field_id": "receipt-metadata-durable",
+                    "value": null
+                  },
+                  {
+                    "field_id": "receipt-directory-durable",
+                    "value": null
+                  },
+                  {
+                    "field_id": "receipt-storage-durable",
+                    "value": null
+                  },
+                  {
+                    "field_id": "trusted-origin",
+                    "value": null
+                  },
+                  {
+                    "field_id": "handoff-acknowledged",
+                    "value": null
+                  },
+                  {
+                    "field_id": "pending-publication-obligations",
+                    "value": null
+                  },
+                  {
+                    "field_id": "target-effects-after-release",
+                    "value": null
+                  },
+                  {
+                    "field_id": "positive-control-effective",
+                    "value": null
+                  },
+                  {
+                    "field_id": "negative-control-effective",
+                    "value": null
+                  },
+                  {
+                    "field_id": "control-raw-consequence-ids",
+                    "value": null
+                  }
+                ],
+                "vector_id": "publication-controls"
+              }
+            ]
+          },
+          "expected_agreement": "match",
+          "id": "empty-install-zero/Slackware-15.0",
+          "observed_fields": {
+            "forward-stage-ids": [
+              "update",
+              "install-new",
+              "upgrade-all"
+            ],
+            "full-forward-raw-status-vector": [
+              0,
+              0,
+              0
+            ],
+            "install-new-owned-effects": [],
+            "install-new-raw-status": 0,
+            "install-new-selector": [],
+            "install-new-target-effects": [],
+            "original-identity-timeline": [
+              "private-boot/private-attempt/private-run"
+            ],
+            "raw-pkglist-pin-sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "unexpected-owned-effects": [],
+            "unexpected-target-effects": [],
+            "update-raw-status": 0,
+            "update-stderr-sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "update-stdout-sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "update-streams-error-free": true,
+            "upgrade-all-owned-effects": [
+              "private-owned-delta"
+            ],
+            "upgrade-all-raw-status": 0,
+            "upgrade-all-selector": [
+              "kernel-private-target"
+            ],
+            "upgrade-all-target-effects": [
+              "private-target-delta"
+            ]
+          },
+          "packet_identity": {
+            "boot_id": "private-boot",
+            "original_attempt": "private-attempt",
+            "platform": "Slackware-15.0",
+            "platform_version": "private-version",
+            "source_epoch": "private-epoch",
+            "subject_source_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+            "test_run_id": "private-run"
+          },
+          "required_diagnostic_codes": []
+        },
+        "Slackware-current": {
+          "capture_state": "captured-unverified",
+          "expectations": {
+            "case_id": "actual-selector",
+            "identity": {
+              "boot_id": "private-boot",
+              "original_attempt": "private-attempt",
+              "platform": "Slackware-current",
+              "platform_version": "private-version",
+              "source_epoch": "private-epoch",
+              "subject_source_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+              "test_run_id": "private-run"
+            },
+            "origin": "private-literal",
+            "provenance": {
+              "author_role": "expectation-author",
+              "author_source_sha256": "4444444444444444444444444444444444444444444444444444444444444444",
+              "collector_source_sha256": "2222222222222222222222222222222222222222222222222222222222222222",
+              "derivation": "literal-independent-unverified",
+              "review_record_sha256": "5555555555555555555555555555555555555555555555555555555555555555",
+              "subject_source_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+              "verifier_source_sha256": "3333333333333333333333333333333333333333333333333333333333333333"
+            },
+            "schema_version": 1,
+            "vectors": [
+              {
+                "fields": [
+                  {
+                    "field_id": "update-raw-status",
+                    "value": 0
+                  },
+                  {
+                    "field_id": "update-stdout-sha256",
+                    "value": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+                  },
+                  {
+                    "field_id": "update-stderr-sha256",
+                    "value": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+                  },
+                  {
+                    "field_id": "update-streams-error-free",
+                    "value": true
+                  },
+                  {
+                    "field_id": "raw-pkglist-pin-sha256",
+                    "value": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+                  },
+                  {
+                    "field_id": "install-new-raw-status",
+                    "value": 0
+                  },
+                  {
+                    "field_id": "install-new-selector",
+                    "value": []
+                  },
+                  {
+                    "field_id": "install-new-target-effects",
+                    "value": []
+                  },
+                  {
+                    "field_id": "install-new-owned-effects",
+                    "value": []
+                  },
+                  {
+                    "field_id": "upgrade-all-raw-status",
+                    "value": 0
+                  },
+                  {
+                    "field_id": "upgrade-all-selector",
+                    "value": [
+                      "kernel-private-target"
+                    ]
+                  },
+                  {
+                    "field_id": "upgrade-all-target-effects",
+                    "value": [
+                      "private-target-delta"
+                    ]
+                  },
+                  {
+                    "field_id": "upgrade-all-owned-effects",
+                    "value": [
+                      "private-owned-delta"
+                    ]
+                  },
+                  {
+                    "field_id": "unexpected-target-effects",
+                    "value": []
+                  },
+                  {
+                    "field_id": "unexpected-owned-effects",
+                    "value": []
+                  },
+                  {
+                    "field_id": "forward-stage-ids",
+                    "value": [
+                      "update",
+                      "install-new",
+                      "upgrade-all"
+                    ]
+                  },
+                  {
+                    "field_id": "full-forward-raw-status-vector",
+                    "value": [
+                      0,
+                      0,
+                      0
+                    ]
+                  },
+                  {
+                    "field_id": "original-identity-timeline",
+                    "value": [
+                      "private-boot/private-attempt/private-run"
+                    ]
+                  }
+                ],
+                "vector_id": "selector-effects"
+              },
+              {
+                "fields": [
+                  {
+                    "field_id": "original-forward-status",
+                    "value": null
+                  },
+                  {
+                    "field_id": "forward-stopped",
+                    "value": null
+                  },
+                  {
+                    "field_id": "owned-child-identities",
+                    "value": null
+                  },
+                  {
+                    "field_id": "owned-children-quiescent",
+                    "value": null
+                  },
+                  {
+                    "field_id": "continuous-original-guard",
+                    "value": null
+                  },
+                  {
+                    "field_id": "recovery-rights-original-attempt",
+                    "value": null
+                  },
+                  {
+                    "field_id": "recovery-fence-valid",
+                    "value": null
+                  },
+                  {
+                    "field_id": "recovery-deadline-ns",
+                    "value": null
+                  },
+                  {
+                    "field_id": "recovery-budget-pre-spent",
+                    "value": null
+                  },
+                  {
+                    "field_id": "recovery-budget-remaining",
+                    "value": null
+                  },
+                  {
+                    "field_id": "verified-original-backups",
+                    "value": null
+                  },
+                  {
+                    "field_id": "original-restoration-state",
+                    "value": null
+                  },
+                  {
+                    "field_id": "original-full-invariants-verified",
+                    "value": null
+                  },
+                  {
+                    "field_id": "target-evidence-closed",
+                    "value": null
+                  },
+                  {
+                    "field_id": "target-control-released",
+                    "value": null
+                  },
+                  {
+                    "field_id": "pending-target-obligations",
+                    "value": null
+                  },
+                  {
+                    "field_id": "pending-owned-obligations",
+                    "value": null
+                  }
+                ],
+                "vector_id": "recovery-obligations"
+              },
+              {
+                "fields": [
+                  {
+                    "field_id": "record-state",
+                    "value": null
+                  },
+                  {
+                    "field_id": "record-sha256",
+                    "value": null
+                  },
+                  {
+                    "field_id": "record-no-replace",
+                    "value": null
+                  },
+                  {
+                    "field_id": "record-file-durable",
+                    "value": null
+                  },
+                  {
+                    "field_id": "record-metadata-durable",
+                    "value": null
+                  },
+                  {
+                    "field_id": "record-directory-durable",
+                    "value": null
+                  },
+                  {
+                    "field_id": "record-storage-durable",
+                    "value": null
+                  },
+                  {
+                    "field_id": "receipt-state",
+                    "value": null
+                  },
+                  {
+                    "field_id": "receipt-sha256",
+                    "value": null
+                  },
+                  {
+                    "field_id": "receipt-no-replace",
+                    "value": null
+                  },
+                  {
+                    "field_id": "receipt-file-durable",
+                    "value": null
+                  },
+                  {
+                    "field_id": "receipt-metadata-durable",
+                    "value": null
+                  },
+                  {
+                    "field_id": "receipt-directory-durable",
+                    "value": null
+                  },
+                  {
+                    "field_id": "receipt-storage-durable",
+                    "value": null
+                  },
+                  {
+                    "field_id": "trusted-origin",
+                    "value": null
+                  },
+                  {
+                    "field_id": "handoff-acknowledged",
+                    "value": null
+                  },
+                  {
+                    "field_id": "pending-publication-obligations",
+                    "value": null
+                  },
+                  {
+                    "field_id": "target-effects-after-release",
+                    "value": null
+                  },
+                  {
+                    "field_id": "positive-control-effective",
+                    "value": null
+                  },
+                  {
+                    "field_id": "negative-control-effective",
+                    "value": null
+                  },
+                  {
+                    "field_id": "control-raw-consequence-ids",
+                    "value": null
+                  }
+                ],
+                "vector_id": "publication-controls"
+              }
+            ]
+          },
+          "expected_agreement": "match",
+          "id": "empty-install-zero/Slackware-current",
+          "observed_fields": {
+            "forward-stage-ids": [
+              "update",
+              "install-new",
+              "upgrade-all"
+            ],
+            "full-forward-raw-status-vector": [
+              0,
+              0,
+              0
+            ],
+            "install-new-owned-effects": [],
+            "install-new-raw-status": 0,
+            "install-new-selector": [],
+            "install-new-target-effects": [],
+            "original-identity-timeline": [
+              "private-boot/private-attempt/private-run"
+            ],
+            "raw-pkglist-pin-sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+            "unexpected-owned-effects": [],
+            "unexpected-target-effects": [],
+            "update-raw-status": 0,
+            "update-stderr-sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+            "update-stdout-sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "update-streams-error-free": true,
+            "upgrade-all-owned-effects": [
+              "private-owned-delta"
+            ],
+            "upgrade-all-raw-status": 0,
+            "upgrade-all-selector": [
+              "kernel-private-target"
+            ],
+            "upgrade-all-target-effects": [
+              "private-target-delta"
+            ]
+          },
+          "packet_identity": {
+            "boot_id": "private-boot",
+            "original_attempt": "private-attempt",
+            "platform": "Slackware-current",
+            "platform_version": "private-version",
+            "source_epoch": "private-epoch",
+            "subject_source_sha256": "1111111111111111111111111111111111111111111111111111111111111111",
+            "test_run_id": "private-run"
+          },
+          "required_diagnostic_codes": []
+        }
+      },
+      "module_binding": {
+        "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-selector-effect-comparator.py",
+        "sha256": "65b4f29977d6a8de97fda141e266f34a015d3eb9f71e8df63ba10ee52a3e6372"
+      },
+      "private_fixture_binding": {
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-selector-and-effect-comparison-review-private-comparison-cases.json",
+        "sha256": "17cc747f3c46bae53d5f0d3a759ec435380d0f1bc37e70eef88f6c654a8458a9"
+      }
+    }
+  },
+  "native_cases_run": 0,
+  "native_proofs_added": 0,
+  "runtime_authority": false,
+  "schema": 1,
+  "scope": "independent literal private mutations and raw consequences; no native injection",
+  "step": 356
+}

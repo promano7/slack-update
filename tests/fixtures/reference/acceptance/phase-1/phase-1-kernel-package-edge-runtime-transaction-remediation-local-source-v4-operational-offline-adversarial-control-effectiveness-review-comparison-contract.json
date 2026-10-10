@@ -1,0 +1,33 @@
+{
+  "actual_expectation_author": null,
+  "actual_expected_vector_artifacts": null,
+  "actual_host_state": "unobserved-not-claimed-absent",
+  "actual_independent_collector": null,
+  "actual_independent_verifier": null,
+  "actual_live_bindings": null,
+  "actual_native_fault_injector": null,
+  "current_user_acceptance_pending": true,
+  "last_confirmed_strong_safe_pause_step": 348,
+  "max_diagnostic_codes": 128,
+  "max_packet_bytes": 262144,
+  "max_packets": 16,
+  "native_cases_run": 0,
+  "native_proofs_added": 0,
+  "next_stage_after_complete356_acceptance": 357,
+  "rules": [
+    "positive controls require unchanged complete raw packets and literal match from a match baseline",
+    "negative controls require actual complete raw byte change and independently specified non-match response with nonempty required diagnostics",
+    "each mutation rewrites one private packet file;352 reads before and after; descriptor is explicitly rebound to measured bytes for semantic tests, separate stale descriptor remains a conflict",
+    "same flags, labels, fault names or hashes never prove injection effectiveness; response mismatch, missing diagnostics, unchanged bytes and unknown raw evidence deny private effectiveness",
+    "private effectiveness never establishes independent native injection, provenance, oracle, conformance, case completion or runtime authority",
+    "raw unknown is pending even if both values are null; raw packet slots and diagnostics ordered with multiplicity retained",
+    "all350-355 source bytes and historical flags unchanged; full unchanged355 acceptance required",
+    "actual runtime dispatch publication retry cleanup refresh native graph and collector verifier expected artifact bindings remain absent from candidate API and unselected"
+  ],
+  "runtime_authority": false,
+  "schema": 1,
+  "scope": "repository-offline-evidence-comparator-workstream349-358-only",
+  "step": 356,
+  "strong_safe_pause": false,
+  "user_step356_checkpoint_confirmed": false
+}
