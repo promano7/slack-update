@@ -1,0 +1,198 @@
+{
+  "actual_durability_backend": null,
+  "actual_expectation_author": null,
+  "actual_expected_vector_artifacts": null,
+  "actual_host_state": "unobserved-not-claimed-absent",
+  "actual_independent_collector": null,
+  "actual_independent_verifier": null,
+  "actual_live_bindings": null,
+  "actual_publication_paths": null,
+  "actual_receipt_origin": null,
+  "current_user_acceptance_pending": true,
+  "field_order": [
+    "record-state",
+    "record-sha256",
+    "record-no-replace",
+    "record-file-durable",
+    "record-metadata-durable",
+    "record-directory-durable",
+    "record-storage-durable",
+    "receipt-state",
+    "receipt-sha256",
+    "receipt-no-replace",
+    "receipt-file-durable",
+    "receipt-metadata-durable",
+    "receipt-directory-durable",
+    "receipt-storage-durable",
+    "trusted-origin",
+    "handoff-acknowledged",
+    "pending-publication-obligations",
+    "target-effects-after-release",
+    "positive-control-effective",
+    "negative-control-effective",
+    "control-raw-consequence-ids"
+  ],
+  "last_confirmed_strong_safe_pause_step": 348,
+  "max_capture_bytes": 67108864,
+  "max_depth": 12,
+  "max_total_capture_bytes": 134217728,
+  "max_vector_items": 128,
+  "max_wire_bytes": 262144,
+  "native_cases_run": 0,
+  "native_proofs_added": 0,
+  "next_stage_after_complete355_acceptance": 356,
+  "packet_origin": "captured-vector-unverified",
+  "packet_specs": [
+    {
+      "evidence_group": "publication-last-receipt",
+      "field_specs": [
+        [
+          "record-state",
+          "label"
+        ],
+        [
+          "record-sha256",
+          "digest"
+        ],
+        [
+          "record-no-replace",
+          "bool"
+        ],
+        [
+          "record-file-durable",
+          "bool"
+        ],
+        [
+          "record-metadata-durable",
+          "bool"
+        ],
+        [
+          "record-directory-durable",
+          "bool"
+        ],
+        [
+          "record-storage-durable",
+          "bool"
+        ]
+      ],
+      "vector_id": "publication-record"
+    },
+    {
+      "evidence_group": "publication-last-receipt",
+      "field_specs": [
+        [
+          "receipt-state",
+          "label"
+        ],
+        [
+          "receipt-sha256",
+          "digest"
+        ],
+        [
+          "receipt-no-replace",
+          "bool"
+        ],
+        [
+          "receipt-file-durable",
+          "bool"
+        ],
+        [
+          "receipt-metadata-durable",
+          "bool"
+        ],
+        [
+          "receipt-directory-durable",
+          "bool"
+        ],
+        [
+          "receipt-storage-durable",
+          "bool"
+        ]
+      ],
+      "vector_id": "receipt-last"
+    },
+    {
+      "evidence_group": "independent-provenance",
+      "field_specs": [
+        [
+          "trusted-origin",
+          "bool"
+        ],
+        [
+          "handoff-acknowledged",
+          "bool"
+        ],
+        [
+          "pending-publication-obligations",
+          "labels"
+        ]
+      ],
+      "vector_id": "origin-handoff-obligations"
+    },
+    {
+      "evidence_group": "positive-negative-fault-controls",
+      "field_specs": [
+        [
+          "target-effects-after-release",
+          "labels"
+        ],
+        [
+          "positive-control-effective",
+          "bool"
+        ],
+        [
+          "negative-control-effective",
+          "bool"
+        ],
+        [
+          "control-raw-consequence-ids",
+          "labels"
+        ]
+      ],
+      "vector_id": "publication-controls"
+    }
+  ],
+  "pending_native_publication_requirements": [
+    "closed-captured-target-data-after-original-restoration-and-release",
+    "separate-original-publication-rights-and-writer-recipient-lifetime-controls",
+    "record-object-content-and-exclusive-no-replace-native-file-metadata-directory-storage",
+    "distinct-last-receipt-object-and-native-file-metadata-directory-storage",
+    "independent-record-before-last-receipt-order-without-pair-atomicity",
+    "independent-trusted-origin-record-binding-without-self-containing-receipt-authority",
+    "original-handoff-acknowledgement-and-controller-obligation-retention",
+    "native-positive-negative-injection-effectiveness-and-raw-consequences",
+    "no-target-writes-refresh-republish-replay-or-new-grant-after-unknown"
+  ],
+  "publication_declaration_states": [
+    "not-started",
+    "durable",
+    "partial",
+    "unknown",
+    "missing",
+    "occupied",
+    "conflicting"
+  ],
+  "rules": [
+    "four explicit untrusted immutable352 projections, all21 ordered nullable publication slots, no I/O/callback/execution/publication/receipt issuer",
+    "record and receipt packets share original publication-last-receipt group but distinct explicit logical captures; no distinct native object/path identity inferred",
+    "complete raw projection digests recomputed; packet record/receipt digest fields are unverified declarations compared to independent literals, not self-authenticated raw native records",
+    "preserve nullable full identity/case/vector order/multiplicity/conflicts with pending peers; raw partial bytes not parsed complete",
+    "durable record and receipt each need separate declared no-replace/file/meta/directory/storage controls and content digest",
+    "durable last receipt requires durable record; acknowledged handoff requires durable last receipt and trusted origin; necessary data consistency not native temporal-order proof",
+    "not-started/missing cannot carry known own-content hash or durable file claims; partial/unknown/occupied retain artifacts and pending, no overwrite/delete/retry",
+    "publication attempt or asserted effective controls needs both positive and negative flags and nonempty raw consequence IDs; flags/IDs not actual independent injection proof",
+    "known target effects after release forbidden; unknown effects pending; no target refresh",
+    "handoff acknowledgement never erases known/unknown pending publication/controller obligations; raw artifacts retained even complete data agreement",
+    "all12 original native groups and nine native publication proof categories always pending; hashes never trusted origin, self-containing receipt, pair atomicity, oracle, conformance or authority",
+    "353/354 data and semantics unchanged;18 selector/17 recovery slots validated shape only; publication cannot clear original forward failure or recovery outcome",
+    "no publish/republish/replay/new target grant/delete/authority; actual selected native backend/paths/origin/collector/verifier/expected artifacts null"
+  ],
+  "runtime_authority": false,
+  "schema": 1,
+  "scope": "repository-offline-evidence-comparator-workstream349-358-only",
+  "step": 355,
+  "strong_safe_pause": false,
+  "untouched_recovery_field_count": 17,
+  "untouched_selector_field_count": 18,
+  "user_step355_checkpoint_confirmed": false
+}
