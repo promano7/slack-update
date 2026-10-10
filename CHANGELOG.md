@@ -1,3 +1,15 @@
+## Phase 1 step 367 — README and roadmap reconciliation
+
+- Accepted reported8963dca/129 PASS, exact eight-file3784-insertion commit,
+  successful push and reported clean matching heads; uploaded receipt bytes bound.
+- Reconciled README status, Phase1 matrix and immediate next steps with accepted
+  core, ELILO116, modes161, comments169 and execution-control188 historical scopes.
+  Preserved20 residual scenarios and every native gap/proof/case/raw obligation.
+- Updated current359–368 source-review status and clarified operation local effects;
+  historical instructions/identities remain consumed and no diagnostic is relabelled.
+- README documentation changed only; runtime sources unchanged, reference-v1/C/
+  Phase2/Production blocked, final scoped pause368 conditional on final acceptance.
+
 ## Phase 1 step 366 — source and native gap reconciliation
 
 - Accepted reported bede6fa/140 PASS, exact eight-file2762-insertion commit,

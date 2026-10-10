@@ -14,7 +14,7 @@ Slack-Update is intended to provide a desktop-oriented update experience similar
 - [x] Core concept defined: Slackware update manager with CLI, tray icon, and notifications
 - [x] Modular and configurable design established
 - [x] Reference shell script created
-- [ ] Reference shell script validated on real Slackware 15.0 and Slackware-current installations
+- [ ] Complete reference acceptance matrix validated on Slackware 15.0 and Slackware-current installations
   - [x] Slackware-current reviewed 137-package transaction installed and safe-pause verified with the 6.18.42 generic kernel/initrd pair
   - [x] Slackware-current reboot into 6.18.42 and post-reboot verification accepted
   - [x] Optional on-disk rollback reconstruction for 6.18.40 completed and real boot/return demonstrated
@@ -23,6 +23,85 @@ Slack-Update is intended to provide a desktop-oriented update experience similar
 - [x] License selected: **GNU GPL v3 or later (`GPL-3.0-or-later`)**
 - [x] Supported Slackware targets defined: **Slackware 15.0 and Slackware-current**
 - [ ] First C milestone started
+
+<!-- step-367-readme-roadmap-reconciliation:start -->
+## Current Phase 1 roadmap reconciliation — step 367
+
+This roadmap is reconciled through accepted step **366**, reported commit
+`8963dca`. Step 367 updates documentation; its repository acceptance requires the
+usual tests, exact commit, push and clean matching heads. The previous numbered
+README checkpoint was **120**; the previous substantive reconciliation was **173**.
+
+**Phase 1 is incomplete. `reference-v1`, the C port, Phase 2 and production remain
+blocked.** Historical scenario closures below keep their accepted scope. The
+repository source review in steps 359–366 supplies no native implementation,
+installed dependency binding, fresh test authority or operational conformance.
+
+| Accepted work | Scope and record |
+| --- | --- |
+| Core normal updates, `install-new`, kernel updates and no-change behavior | Historical accepted coverage excluded from replay by [step 175 inventory](docs/reference/phase-1-acceptance-matrix-remainder-inventory.md) |
+| Slackware-current rollback | Closed at step 92; retained recovery evidence and consumed authorization |
+| Slackware 15.0 ELILO cleanup | Closed at step 116 on the accepted 5.15.209 state; retired rollback and recovery targets removed |
+| Configuration and optional-module modes | Workstream closed at [step 161](docs/reference/configuration-module-mode-workstream-closure-checkpoint.md), including runtime validation on both mandatory targets |
+| English reference comments | Remediation closed at [step 169](docs/reference/phase-1-reference-comment-language-remediation-closure-review.md); continuing source changes still require English comments |
+| Execution-control failure paths | Four scenarios closed in the accepted step 188 runtime scope: network failure, simultaneous invocation, signals and cron |
+| Operational source review | [366 reconciliation](docs/reference/phase-1-operational-source-native-gap-reconciliation.md) preserves the full inventory, dependency/effect findings and native prerequisites |
+
+### Remaining real-system acceptance work
+
+The accepted [post-execution-control inventory](tests/fixtures/reference/acceptance/phase-1/phase-1-acceptance-matrix-remainder-after-execution-control-closure.tsv)
+contains **five families and 20 scenarios**. These historical matrix scenarios are
+separate from the 52 native operational case templates; neither count proves the
+other complete.
+
+| Pending family | Scenarios | Required next boundary |
+| --- | ---: | --- |
+| Kernel-package edge | 1 | Finish the kernel-headers-without-image scenario using a separately reviewed native implementation and fresh target/test authority |
+| Boot safety failures | 7 | Scenario-specific fail-closed boot validation; no old kernel or boot grant reused |
+| SBo and ELF optional runtime | 6 | Optional-module-capable targets and separate accepted evidence |
+| Cinnamon optional runtime | 3 | Installed, changed and absent cases with explicit scope |
+| Flatpak optional runtime | 3 | Explicit system, user and absent installation scope |
+
+### Native operational prerequisites
+
+The kernel-package-edge operational work remains **unselected, unrefined and
+unproven** across its 16 gaps. All **46 qualified proofs** are unproven, **52 native
+cases** unrun and **12 independent raw evidence groups** uncaptured. Full original
+contracts and rows are normative; these counts only aid navigation. See the
+[365 prerequisites](docs/reference/phase-1-operational-native-implementation-prerequisites.md)
+and [366 reconciliation](docs/reference/phase-1-operational-source-native-gap-reconciliation.md).
+
+The four inspected sources retain their roles: reference specification,
+historical worker body, historical generator and generated historical copy. The
+copy is not a second independent worker. The lexical inventory is not a resolved
+shell graph. The 51-name dependency register is non-exhaustive; the later `cksum`
+site remains an additional unbound input. Actual host state is unobserved, not
+claimed absent, and live native bindings remain unselected.
+
+Source findings include preparation writes before traps, logs and inherited FDs,
+path-check-to-consumption windows, writer/object aliases, owned backup versus
+target uncertainty, rollback descendants and publication target reads after source
+restoration flags. `--check` and `--dry-run` name operation scopes; local files,
+logs and transport probes remain described effects. Their names do not prove an
+absence of effects. Flags, snapshots, `-postinst=off`, namespaces and self-PASS do
+not discharge native closure or independent evidence requirements.
+
+### Finish the current repository batch
+
+After step 367 is accepted, **368** freezes this ten-step 359–368 batch and reviews
+a conditional strong safe pause under the original repository-scoped conditions.
+Final confirmation requires complete tests, exact commit, successful push and a
+clean tree with matching heads. The last confirmed scoped pause is **358**;
+step 367 does not declare a new pause or global host closure. There is no automatic
+369 and no machine action or new native grant in this batch.
+
+A later Slackware-current refresh does not invalidate this repository work. Later
+native work needs a fresh review of implementation, primitives, issuer, complete
+source/dependency/effect lifetimes and independent two-platform evidence before
+any separately scoped authorization. Historical identities and consumed grants
+cannot be reused. The version 1 result schema and remaining matrix gate must be
+accepted before `reference-v1` or C development can open.
+<!-- step-367-readme-roadmap-reconciliation:end -->
 
 ## Accepted Slackware-current rollback closure
 
@@ -625,15 +704,15 @@ The final layout may change during the architecture prototype, but separation be
 - [x] Rename paths and identifiers from `sbo-auto` to `slack-update` where appropriate.
 - [x] Split the script into clearly named functions.
 - [x] Add command-line argument parsing.
-- [x] Add `--check` for non-destructive update detection.
+- [x] Add `--check` for update detection without package/boot apply; local outputs and transport probes remain in scope.
 - [x] Add `--apply` for approved changes.
-- [x] Add `--dry-run` that produces a complete plan without modifying the system.
+- [x] Add `--dry-run` for planning without package/boot apply; local state/log writes remain source-described effects.
 - [x] Add `--json` for structured final output.
 - [x] Add a machine-readable progress/event mode if practical.
 - [x] Move hard-coded behavior into a configuration file.
 - [x] Add `enabled`, `disabled`, and `auto` modes for optional modules.
 - [x] Add stable exit codes.
-- [ ] Ensure every comment added to the script is written in English.
+- [x] Close the English-comment remediation (step 169); require English comments in future changes.
 
 ### Safety validation
 
@@ -1374,17 +1453,25 @@ They do not replace the scheduled real retention preflight on
 
 ### Real-system acceptance matrix
 
+This checklist records accepted historical scenario coverage and the five-family,
+20-scenario remainder above. Step 188 closed its four execution-control scenarios
+in the recorded Slackware-current VM runtime scope; this does not prove the later
+52 two-platform operational cases or complete the reference gate. The original
+ten-package `.new` record remains diagnostic; core normal-update acceptance is
+carried by later accepted inventory, not by relabeling that record as accepted.
+
+
 - [x] Fully updated system with no available changes.
   - [x] Reproducible scenario, validators, and expected fixtures implemented.
   - [x] Slackware 15.0 evidence accepted on 2026-07-28: check and apply returned stable code `0`, 1,594 package records and observed boot state were unchanged, and the reviewed archive SHA-256 is `5a784cd6d830ac271cc3aad02ed89f2e00c2afd63c88f90aabb74b0a81b0b20b`.
   - [x] Slackware-current evidence accepted on 2026-07-28: check and apply returned stable code `0`, 2,035 package records and observed boot state were unchanged, and the reviewed archive SHA-256 is `ba0c1264d57df5acf6bee843391113327736683ede36ec3d708d58ca174a2976`.
-- [ ] Normal Slackware package update.
+- [x] Normal Slackware package update — accepted historical core coverage (step 175); later operational guarantees remain pending.
   - [x] Non-destructive candidate preflight, physical-host safety gates, evidence packaging, and focused automated tests implemented.
   - [x] Slackware-current preflight evidence reviewed.
   - [x] Slackware-current ten-package transaction reviewed and accepted as package/boot evidence.
-  - [ ] Revalidate the hardened deferred `.new` policy during the next Slackware-current update.
+  - [x] Reconcile the deferred `.new` follow-up with accepted normal-update core coverage (step 175); retain the original diagnostic record.
   - [x] Diagnose and fix the omitted `x86` `kernel-headers` candidate from the 2026-08-03 preflight.
-  - [ ] Repeat the corrected Slackware-current preflight before any apply authorization.
+  - [x] Corrected Slackware-current preflight and later transaction/reboot chain accepted; historical authorization is consumed.
   - [x] Slackware 15.0 preflight and real apply evidence accepted.
   - [x] Revalidate the hardened deferred `.new` policy on Slackware 15.0.
   - [x] Exercise the three deferred Slackware 15.0 boot-kernel packages in the dedicated kernel-update scenario.
@@ -1396,10 +1483,10 @@ They do not replace the scheduled real retention preflight on
   - [x] Execute the gated ELILO transaction, review its evidence, and validate reboot into `5.15.209` with the `oldkernel` fallback retained.
   - [x] Define a seven-day, two-successful-boot retention policy and a non-destructive ELILO oldkernel eligibility preflight.
   - [x] Run and review the retention preflight while cleanup remains unauthorized.
-  - [ ] Repeat the retention preflight no earlier than 2026-08-08 19:51 CEST and review mature eligibility evidence.
+  - [x] Mature ELILO retention evidence accepted on 2026-08-11; cleanup subsequently closed at step 116.
   - [x] Define and validate the boot-loader-neutral cleanup plan contract without authorizing apply.
   - [x] Implement and validate the simulation-only cleanup executor with plan-bound dry-run authorization and no apply mode.
-  - [ ] Implement and explicitly authorize the separate cleanup apply only after mature eligibility evidence is accepted.
+  - [x] Separate ELILO cleanup apply, recovery and final closure accepted through step 116; all destructive authority consumed.
 - [x] `install-new` introduces new packages.
 - [x] Kernel package update.
 - [ ] Kernel headers update without a kernel image update.
@@ -1422,10 +1509,10 @@ They do not replace the scheduled real retention preflight on
 - [ ] Flatpak system installation only.
 - [ ] Flatpak user installation only.
 - [ ] Flatpak not installed.
-- [ ] Network failure before repository synchronization.
-- [ ] Simultaneous execution attempt.
-- [ ] `SIGINT`, `SIGTERM`, and `SIGHUP` during safe test operations.
-- [ ] Execution from cron with no interactive terminal.
+- [x] Network failure before repository synchronization — accepted step 188 runtime scope.
+- [x] Simultaneous execution attempt — accepted step 188 runtime scope.
+- [x] `SIGINT`, `SIGTERM`, and `SIGHUP` during safe test operations — accepted step 188 runtime scope.
+- [x] Execution from cron with no interactive terminal — accepted step 188 runtime scope.
 
 ### Reference freeze
 
@@ -1909,15 +1996,20 @@ Slack-Update 1.0 will be ready when:
 ## Immediate next steps
 
 > [!NOTE]
-> **Current Phase 1 gate:** substantial reference validation has been accepted,
-> but remaining real-system acceptance work is still pending. `reference-v1` remains blocked behind that work, and the C port remains blocked by the Phase 1 gate.
-> Any remaining machine work must start from a fresh scenario-specific review and authorization boundary.
+> **Current Phase 1 gate:** five historical acceptance families / 20 scenarios
+> remain pending. The kernel-package-edge operational path also retains all 16
+> native gaps, 46 unproven proofs, 52 unrun cases and 12 uncaptured raw groups.
+> `reference-v1`, the version 1 schema, C development, Phase 2 and production remain
+> blocked. Repository source review is not native conformance or live authority.
 >
-> The detailed checklist is preserved below as historical execution evidence.
-> Individual unchecked entries may have been superseded by later accepted steps;
-> they are not authorization to replay an earlier operational chain. The complete
-> acceptance matrix must not be claimed complete until the remaining coverage is
-> explicitly accepted.
+> The next step after accepted README reconciliation 367 is the conditional
+> repository freeze/pause review 368. No automatic 369 or machine action is opened.
+> Later runtime work needs a fresh scenario-specific review and authorization.
+>
+> The checklist below is historical execution evidence reconciled where later
+> accepted records exist. Old commands and authorizations cannot be replayed.
+> The numbered history ends at checkpoint 120; later closures are summarized in
+> the current step 367 reconciliation above. Remaining coverage stays explicit.
 
 
 - [x] Commit the completed Phase 0 repository structure.
@@ -1927,7 +2019,7 @@ Slack-Update 1.0 will be ready when:
 - [x] Add basic command-line argument parsing without implementing later operation modes.
 - [x] Implement `--check` for non-destructive Slackware repository update detection.
 - [x] Implement `--apply` as an explicit selector for the existing update workflow.
-- [x] Implement `--dry-run` as a complete non-modifying plan.
+- [x] Implement `--dry-run` planning without package/boot apply; do not infer absence of local effects.
 - [x] Implement `--json` for structured final output.
 - [x] Implement provisional NDJSON progress events through `--events`.
 - [x] Move hard-coded reference behavior into a validated configuration file.
@@ -1983,19 +2075,19 @@ Slack-Update 1.0 will be ready when:
   - [x] Classify and accept the 137-candidate userspace-only refresh.
   - [x] Review and accept the exact identities of the 68 added userspace packages for kernel-evidence rebind.
   - [x] Rebind the seven accepted kernel evidence records to the 137-candidate digest.
-  - [ ] Inspect the exact 68 added userspace package archives without installation.
-  - [ ] Review the captured userspace maintainer scripts and configuration effects.
-  - [ ] Repeat transaction readiness against the rebound candidate digest.
-  - [ ] Grant a separate explicit apply authorization only after accepted readiness evidence.
+  - [x] Review the exact 68 userspace package archives without installation; accepted payload evidence retained.
+  - [x] Review the captured 37 userspace maintainer scripts and subsequent configuration effects; accepted evidence retained.
+  - [x] Repeated transaction readiness accepted for the historical 137-candidate set; no current candidate binding.
+  - [x] Historical apply/reboot chain completed after reviewed readiness; its authority is consumed.
   - [x] Review and accept the ten-package Slackware-current transaction as package and boot evidence.
-  - [ ] Revalidate the hardened deferred `.new` policy on the next Slackware-current update.
+  - [x] Reconcile the deferred `.new` follow-up with accepted normal-update core coverage (step 175); retain the original diagnostic record.
   - [x] Reject the 2026-08-03 Slackware-current diagnostic whose parser omitted the `x86` `kernel-headers` candidate.
   - [x] Repeat the corrected Slackware-current candidate preflight and review the complete 57-package set.
   - [x] Accept the Slackware 15.0 normal-update preflight and 196-package real apply.
   - [x] Revalidate the hardened deferred `.new` policy on Slackware 15.0.
-  - [ ] Validate the deferred Slackware 15.0 boot-kernel packages in the dedicated kernel-update scenario.
+  - [x] Deferred Slackware 15.0 boot-kernel packages accepted in the dedicated ELILO scenario.
     - [x] Add a non-destructive boot-path detection and evidence preflight.
-    - [ ] Review the real loader and mkinitrd evidence before authorizing package changes.
+    - [x] Real loader/mkinitrd evidence reviewed for the accepted historical ELILO transaction.
 - [ ] Freeze `reference-v1`.
 - [ ] Begin the C architecture only after the reference gate is complete.
 
@@ -2688,11 +2780,11 @@ A clean diagnostic always keeps `third_attempt_authorized=false`, `cleanup_autho
 Step 100 confirmed that the failed final rollback-module predicate is caused by exactly three package-unowned VirtualBox Guest Additions objects under the 5.15.19 rollback tree: `vboxguest.ko`, `vboxsf.ko`, and `vboxvideo.ko`. Step 101 is a non-mutating review only. It revalidates the recovered boundary, scans every installed package `FILE LIST:` to prove that none owns those rollback paths, validates rollback `modinfo` identity/vermagic, and requires matching 5.15.209 active counterparts. It fingerprints the exact three rollback objects and their active counterparts into an evidence-local survivor-removal contract. Recursive removal of `/lib/modules/5.15.19`, removal of active counterparts, and any third cleanup attempt remain unauthorized until a separate review accepts that exact scope. A clean step-101 result remains `pause_safe=true`.
 
 
-## Current ELILO oldkernel cleanup continuation — step 102
+## Historical ELILO oldkernel cleanup continuation — step 102
 
 The accepted step-101 archive SHA-256 `90eb0d6a9c08acfc68993c8a6a967be17bdaa435aceef82b267483d5d05fe456` proves that the only package-unowned rollback module survivors are the exact VirtualBox Guest Additions objects `vboxguest.ko`, `vboxsf.ko`, and `vboxvideo.ko` below `/lib/modules/5.15.19/misc/`, with reviewed 5.15.209 active counterparts. Step 102 is a read-only authorization boundary. It may authorize only deletion of those three exact rollback paths by fingerprint during a later revised transaction. It never authorizes recursive module-tree deletion, active-counterpart removal, or a third cleanup attempt. A clean result remains `pause_safe=true`.
 
-## Current ELILO oldkernel cleanup continuation — step 103
+## Historical ELILO oldkernel cleanup continuation — step 103
 
 The accepted step-102 archive SHA-256 `405327481b0c7459aab7ddab5b1a2f325fffb6ac2312ed1b4a18afc36d32fe6a` authorizes only later unlink of the exact three reviewed package-unowned rollback VirtualBox objects. Step 103 is a strictly read-only executor revision review. It verifies that the revised transactional apply code integrates only those three fingerprinted unlinks, preserves the 5.15.209 counterparts, retains full recovery coverage, and performs the unlink after package-state repair but before ELILO mutation/final verification.
 
@@ -2745,6 +2837,10 @@ defaults and bootstrap initializers separately, requires all eight current
 overlaps to remain value-identical, and keeps the five module activation modes
 deferred. The boundary changes no runtime behavior and requires no machine
 action.
+
+The following checkpoint is preserved as historical step 120 evidence. Its
+then-deferred module-mode migration was subsequently closed at step 161; it is
+not a current task or authority to replay that work.
 
 <!-- step-120-configuration-compatibility-checkpoint:start -->
 ### Phase 1 configuration compatibility checkpoint
