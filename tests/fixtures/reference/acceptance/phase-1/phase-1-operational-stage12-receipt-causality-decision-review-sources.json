@@ -1,0 +1,15 @@
+[
+  {
+    "id": "whole-original-project-causal-inputs",
+    "inference_limit": "Conditional event and actor questions derived from those original requirements; neither actual execution graph, native causal refinement, independence, final receipt completion nor universal impossibility is proven.",
+    "kind": "supplied-primary-project-requirements",
+    "paths": [
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-successor-design-freeze-and-safe-pause-review-freeze.json",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-owner-and-publication-path-requirements-review-review.json",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-target-closure-publication-design-review-design.json",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-independent-evidence-oracle-design-review-design.json"
+    ],
+    "retrieval": "whole repository bytes and canonical JSON bound; no external API or platform semantics asserted or probed",
+    "verified_semantics": "Exact supplied original stage12, publication sequence/failure/uncertainty and independent role obligations remain normative."
+  }
+]

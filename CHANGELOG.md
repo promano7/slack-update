@@ -1,3 +1,16 @@
+## Phase 1 step 384 — whole stage12 and external receipt causality
+
+- Accepted383 at reported45f463f:239 exact ordered PASS, nine files4597 insertions,
+  eight creates, successful push and reported clean matching heads; complete bytes retained.
+- Reviewed eight bounded compositions/fourteen conditional paper schedules;
+  six incomplete candidates incompatible as stated, two complete hypotheses unresolved.
+- Preserved whole original316stage12,323/324/325/326/327 clauses,374 target/publication/
+  failure/uncertainty reviews,375 role/raw reviews and377 causal conflict unchanged.
+- Seven actor roles/eight event questions/sixteen platform rows remain unobserved;
+  pure conditional graph checks do not shorten stage12 or select a native protocol.
+- Complete1993-file predecessor/31 whole JSON inputs retained. No native actor,
+  collector, storage protocol, proof, case, grant or new pause.384 pending.
+
 ## Phase 1 step 383 — original baseline, storage uncertainty and finite rights
 
 - Accepted382 at reported6c65757:202 exact ordered PASS, nine files3603 insertions,
