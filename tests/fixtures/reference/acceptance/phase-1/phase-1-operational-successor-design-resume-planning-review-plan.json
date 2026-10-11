@@ -1,0 +1,268 @@
+{
+  "accepted_predecessor_commit_full": null,
+  "accepted_predecessor_commit_prefix": "030acb8",
+  "accepted_predecessor_step": 368,
+  "all_full_original_requirements_normative_at_every_stage": true,
+  "authorization_basis": "new-explicit-user-request-for-8-to-12-steps-toward-a-strong-safe-pause",
+  "boundaries": {
+    "C_port_open": false,
+    "actual_global_host_closure": false,
+    "actual_host_state": "unobserved-not-claimed-absent",
+    "actual_live_bindings": null,
+    "actual_native_refinement_complete": false,
+    "actual_successor_selected": false,
+    "controller_action_required": false,
+    "current_step_strong_safe_pause": false,
+    "design_proposal_is_operational_implementation": false,
+    "execution_authorized": false,
+    "historical_binding_or_authority_reuse_allowed": false,
+    "kernel_package_edge_complete": false,
+    "last_confirmed_strong_safe_pause_step": 368,
+    "later_current_refresh_invalidates_repository_only_pause": false,
+    "machine_action_required": false,
+    "native_cases_run": 0,
+    "native_components_selected": false,
+    "native_graph_complete": false,
+    "native_proofs_added": 0,
+    "operational_conformance": false,
+    "operational_readiness": false,
+    "phase1_matrix_complete": false,
+    "phase2_open": false,
+    "production_entry_closed": true,
+    "reference_v1_frozen": false,
+    "runtime_authority": false,
+    "strong_safe_pause": false,
+    "target_machine_actions_authorized": false,
+    "version1_schema_frozen": false
+  },
+  "conditional_pause_step": 378,
+  "full_requirement_input_paths": {
+    "controls361": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-readonly-source-inventory-control-coverage.json",
+    "freeze": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-source-inventory-freeze-and-safe-pause-review-freeze.json",
+    "native_gap": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-comparator-freeze-gap-register-and-safe-pause-review-native-gap-register.json",
+    "pause": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-source-inventory-freeze-and-safe-pause-review-pause-conditions.json",
+    "prerequisites": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-native-implementation-prerequisites-prerequisites.json"
+  },
+  "future_deliverables365": [
+    {
+      "actual_artifact": null,
+      "grants_authority": false,
+      "id": "successor-source-and-effect-design",
+      "required_review_content": "Full source/config/helper/archive/hook entry graph and proposed exclusions, reviewed without runtime authority.",
+      "state": "pending-review-no-native-authorization"
+    },
+    {
+      "actual_artifact": null,
+      "grants_authority": false,
+      "id": "issuer-admission-and-launch-design",
+      "required_review_content": "Issuer trust, durable claim/quarantine/pre-spend, single spawn and bounded descendant supervision.",
+      "state": "pending-review-no-native-authorization"
+    },
+    {
+      "actual_artifact": null,
+      "grants_authority": false,
+      "id": "native-platform-primitives-design",
+      "required_review_content": "Separate proposed time/revocation/FD/namespace/writer-alias/storage primitives and their failure cuts per platform.",
+      "state": "pending-review-no-native-authorization"
+    },
+    {
+      "actual_artifact": null,
+      "grants_authority": false,
+      "id": "baseline-owned-recovery-design",
+      "required_review_content": "Fresh original capture, immutable raw pin, owned backup/commit microsteps, same-attempt finite recovery and known outcomes.",
+      "state": "pending-review-no-native-authorization"
+    },
+    {
+      "actual_artifact": null,
+      "grants_authority": false,
+      "id": "closure-and-publication-design",
+      "required_review_content": "Original invariant/child/target evidence before known release, then separate captured-data publication and independent durable final receipt.",
+      "state": "pending-review-no-native-authorization"
+    },
+    {
+      "actual_artifact": null,
+      "grants_authority": false,
+      "id": "independent-evidence-and-oracle-design",
+      "required_review_content": "Independent collector/verifier/expected-vector provenance and full raw observation/control requirements.",
+      "state": "pending-review-no-native-authorization"
+    },
+    {
+      "actual_artifact": null,
+      "grants_authority": false,
+      "id": "native-refinement-and-case-design",
+      "required_review_content": "Actual event/crash/concurrency relation to all normative proof/case rows with no declaration-count substitution.",
+      "state": "pending-review-no-native-authorization"
+    },
+    {
+      "actual_artifact": null,
+      "grants_authority": false,
+      "id": "future-explicit-authorization-review",
+      "required_review_content": "A later reviewed scope and fresh authority boundary; prerequisite data and safe repository pause confer no live grant.",
+      "state": "pending-review-no-native-authorization"
+    }
+  ],
+  "gap_assignment_is_exhaustive_native_graph": false,
+  "implementation_policy": {
+    "C_port_gate_retained": true,
+    "actual_successor_backend_issuer_primitives_collector_verifier_selected": false,
+    "historical_workers_generators_or_payloads_executable": false,
+    "missing_primitives_result": "explicit-blocker-not-assumed-feasible",
+    "native_authorization_review": "prerequisites-only-at377-no-grant-in369-378",
+    "native_execution_requires": "later-explicit-scoped-review-and-fresh-independent-platform-test-authority",
+    "platform_property_may_be_claimed_from_generic_name": false,
+    "review_products": "draft-reference-designs-and-data-validators-only",
+    "shell_reference_gate_retained": true
+  },
+  "next_preparable_step_after_complete369_acceptance": 370,
+  "no_automatic379": true,
+  "pause_policy": {
+    "actual_global_host_closure": false,
+    "confirmation_scope": "repository-operational-successor-design-workstream369-378-only",
+    "external_confirmation_only": true,
+    "final_receipt_required": true,
+    "future_batch_requires_new_user_request": true,
+    "next_authorized_stage_after378": null,
+    "original_condition_ids": [
+      "complete-user-overlay-full-tests-exact-commit-successful-push-clean-tree-matching-HEAD-origin-return",
+      "all-in-scope-repository-candidate-effects-and-obligations-reviewed",
+      "candidate-validator-has-no-runtime-dispatch-or-service-channel",
+      "all-unknown-actual-graph-primitives-native-protocols-and-conformance-remain-blockers",
+      "no-batch-runtime-or-partial-operational-publication",
+      "no-required-batch-machine-or-controller-cleanup",
+      "all-future-runtime-and-unused-live-rights-closed",
+      "actual-host-state-unobserved-never-claimed-absent-or-globally-closed",
+      "no-live-binding-reuse-pause-independent-of-later-current-refresh"
+    ],
+    "stop_after_final_acceptance": true
+  },
+  "readme_reconciliation_step": 377,
+  "roadmap": [
+    {
+      "C_development_authorized": false,
+      "deliverable": "Bind accepted368, open this finite design review batch, retain every native blocker.",
+      "entry_requires_confirmed_step": 368,
+      "native_proof_discharge_allowed": false,
+      "primary_gap_ids": [],
+      "runtime_authorized": false,
+      "stage": "resume-plan",
+      "step": 369
+    },
+    {
+      "C_development_authorized": false,
+      "deliverable": "Draft the reference successor responsibilities, complete graph admission rules, dependency consumption and explicit exclusion obligations; retain unresolved edges.",
+      "entry_requires_confirmed_step": 369,
+      "native_proof_discharge_allowed": false,
+      "primary_gap_ids": [
+        "actual-successor-entry-and-transitive-graph",
+        "versioned-real-backend-and-full-selector",
+        "package-hooks-source-archive-and-helper-consumption"
+      ],
+      "runtime_authorized": false,
+      "stage": "successor-source-and-effect-design",
+      "step": 370
+    },
+    {
+      "C_development_authorized": false,
+      "deliverable": "Draft separate issuer trust, authenticated original handoff, durable claim/quarantine and launch pre-spend/supervision; expose unknown-outcome cuts.",
+      "entry_requires_confirmed_step": 370,
+      "native_proof_discharge_allowed": false,
+      "primary_gap_ids": [
+        "issuer-authentication-key-provenance",
+        "linearizable-durable-claim-and-quarantine",
+        "durable-launch-spend-and-supervision"
+      ],
+      "runtime_authorized": false,
+      "stage": "issuer-admission-and-launch-design",
+      "step": 371
+    },
+    {
+      "C_development_authorized": false,
+      "deliverable": "Compare proposed containment, FD, time/revocation, writer/alias and durability primitives separately for both platforms; label all unverified properties.",
+      "entry_requires_confirmed_step": 371,
+      "native_proof_discharge_allowed": false,
+      "primary_gap_ids": [
+        "offline-bootstrap-and-FD-namespace-containment",
+        "native-time-revocation-fence",
+        "native-writer-object-alias-and-lifetime-exclusion"
+      ],
+      "runtime_authorized": false,
+      "stage": "native-platform-primitives-design",
+      "step": 372
+    },
+    {
+      "C_development_authorized": false,
+      "deliverable": "Draft fresh original capture, pinned raw input, approved deltas, owned backup microsteps and finite same-attempt recovery including known unchanged-target paths.",
+      "entry_requires_confirmed_step": 372,
+      "native_proof_discharge_allowed": false,
+      "primary_gap_ids": [
+        "fresh-original-baseline-and-approved-deltas",
+        "owned-backup-binding-and-child-recovery-primitives",
+        "bounded-clock-budget-and-same-attempt-recovery"
+      ],
+      "runtime_authorized": false,
+      "stage": "baseline-owned-recovery-design",
+      "step": 373
+    },
+    {
+      "C_development_authorized": false,
+      "deliverable": "Draft independent invariant/child/target closure before release, captured-data publication and separate no-replace record/final receipt durability.",
+      "entry_requires_confirmed_step": 373,
+      "native_proof_discharge_allowed": false,
+      "primary_gap_ids": [
+        "target-closure-before-release",
+        "independent-publication-last-receipt-durability-and-origin"
+      ],
+      "runtime_authorized": false,
+      "stage": "closure-and-publication-design",
+      "step": 374
+    },
+    {
+      "C_development_authorized": false,
+      "deliverable": "Draft independent collector/verifier/expectation trust and full raw provenance, two-platform identity and positive/negative fault-control requirements.",
+      "entry_requires_confirmed_step": 374,
+      "native_proof_discharge_allowed": false,
+      "primary_gap_ids": [
+        "independent-two-platform-oracle-and-fault-observations"
+      ],
+      "runtime_authorized": false,
+      "stage": "independent-evidence-and-oracle-design",
+      "step": 375
+    },
+    {
+      "C_development_authorized": false,
+      "deliverable": "Draft proposed micro-event/crash/concurrency mappings to every original proof, case and raw group, with explicit unresolved feasibility; no native run.",
+      "entry_requires_confirmed_step": 375,
+      "native_proof_discharge_allowed": false,
+      "primary_gap_ids": [
+        "syscall-crash-concurrency-model-refinement"
+      ],
+      "runtime_authorized": false,
+      "stage": "native-refinement-and-case-design",
+      "step": 376
+    },
+    {
+      "C_development_authorized": false,
+      "deliverable": "Reconcile design findings, conflicts and blockers; review future authorization prerequisites without issuing authority; reconcile README current roadmap individually.",
+      "entry_requires_confirmed_step": 376,
+      "native_proof_discharge_allowed": false,
+      "primary_gap_ids": [],
+      "runtime_authorized": false,
+      "stage": "design-readiness-and-readme-reconciliation",
+      "step": 377
+    },
+    {
+      "C_development_authorized": false,
+      "deliverable": "Freeze complete design inputs and original scoped conditions; require final overlay/tests/exact commit/push/clean matching-head return then stop.",
+      "entry_requires_confirmed_step": 377,
+      "native_proof_discharge_allowed": false,
+      "primary_gap_ids": [],
+      "runtime_authorized": false,
+      "stage": "design-freeze-and-conditional-pause",
+      "step": 378
+    }
+  ],
+  "schema": 1,
+  "scope": "repository-operational-successor-design-workstream369-378-only",
+  "state": "prepared-user-overlay-test-commit-push-receipt-pending",
+  "step": 369
+}
