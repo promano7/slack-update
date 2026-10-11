@@ -1,3 +1,140 @@
+<!-- step-387-readme-roadmap-reconciliation:start -->
+## Current Phase 1 roadmap reconciliation — step 387
+
+This checkpoint supersedes the current-state interpretation of the preserved
+377 and 367 sections below. Their complete historical bytes remain unchanged.
+Step **386 is accepted**, reported commit **`094af08`**, with **516 exact ordered
+PASS, zero failures**, nine changed files, eight creates and 6114 insertions.
+The complete supplied Markdown return reports a successful push and a clean tree
+with matching HEAD/origin. Markdown escaping and flattened line boundaries are
+disclosed in the acceptance record; this is not independent terminal-byte,
+GitHub or native-host inspection. The full commit ID remains unknown.
+Step **387 is prepared; its user acceptance is pending**.
+
+| Step | Repository review | Current disposition |
+| --- | --- | --- |
+| 378 | Successor-design freeze and scoped safe pause | Confirmed `c3a141c`; covers 369–378 only |
+| 379 | Finite architecture feasibility resolution plan | Accepted `b50554c`, including the retained 379-r1 correction |
+| 380 | Live revocation without a worker broker | Accepted `7820d1a`; actual enforcement unresolved |
+| 381 | All writers, privileged aliases and object lifetime | Accepted `0f099fe`; actual exclusion unresolved |
+| 382 | Supervisor loss, original clocks and known drain | Accepted `6c65757`; native composition unresolved |
+| 383 | Original baseline, storage uncertainty and finite rights | Accepted `45f463f`; actual bindings unresolved |
+| 384 | Whole stage 12 and external receipt causality | Accepted `061a0a0`; actual protocol unresolved |
+| 385 | Whole entry/backend graph and independent oracle | Accepted `d457428`; native graph and evidence unresolved |
+| 386 | Integrated bounded feasibility verdict | Accepted `094af08`; native composition remains blocked |
+| 387 | README and roadmap reconciliation | Prepared; complete user return required before 388 |
+| 388 | Whole decision-input freeze and conditional scoped pause | Pending 387 acceptance and complete 388 return satisfying all nine whole original conditions |
+
+The last **confirmed strong repository-scoped safe pause is 378**. No new pause
+is confirmed at 386 or 387. The finite 379–388 batch ends after the separately
+confirmed 388 close: **stop; no automatic 389**. A new batch requires a new user
+request. Repository-only pause is independent of a later Slackware-current
+refresh; it does not establish host absence, live-state safety or global closure.
+
+### Bounded verdict and unresolved obligations
+
+The [accepted 386 integrated review](docs/reference/phase-1-operational-integrated-feasibility-verdict-review.md)
+retains all 45 complete source candidates from 380–385: **34 incompatible as
+stated, 11 unresolved, zero established compatible-unproven**. An incompatible
+stated composition does not prove every use of its primitives impossible.
+Unresolved hypotheses do not supply a complete joint protocol. Even a future
+compatible-unproven finding would grant no implementation, test or runtime rights.
+Counts are navigation, not a completion percentage or a normative scope waiver.
+All eight whole original conflicts and ten feasibility blockers remain unresolved;
+no native component or complete compatible composition has been selected.
+
+| Original conflict | Remaining native obligation |
+| --- | --- |
+| Live revocation without a worker broker | Enforce original live authority at every real and in-flight effect; a lease, poll, macro check or stop request alone is insufficient |
+| All writers, privileged aliases and object lifetime | Establish full writer participation or enforcement, continuous exclusion and original object identity without exempting privileged outsiders |
+| Supervisor loss and surviving descendants | Independently know all descendants, inherited FDs, streams and in-flight effects are drained before scoped release |
+| Whole entry and real backend | Resolve the complete original entry/source/backend/effect graph; a lexical census or three calls is not that graph |
+| Original baseline, owned backups and unknown state | Capture fresh original baseline before owned writes and known exact protected backups before target mutation; unknown backups do not prove unchanged target |
+| Finite time, budget and recovery rights | Preserve original clock, scope, irreversible claim, pre-spent single launch and once-only finite recovery; no refund, retry, rebind, reacquire or renewed grant |
+| Whole stage 12 final receipt causality | Retain the full original streams/status/origin and resolve independent final observation and custody; no self-observed final hash/commit/storage or shortened stage |
+| Independent two-platform native oracle | Capture independent expected vectors, effective faults and exact raw evidence separately on Slackware 15.0 and Slackware-current |
+
+The table is navigation only. The complete original clauses, reasons, candidate
+assumptions, platform unknowns, resolution criteria and source limits in the
+accepted 380–386 dossiers and whole 378 freeze remain normative. No contract is
+amended by this reconciliation. Target, owned-state, controller, publication and
+consumer outcomes remain separate. Original failure stays sticky; known mismatch
+survives another pending result. Unknown claims remain null/quarantined/unavailable,
+never invented consumed or unused. Forward-only expiry/revocation does not
+automatically revoke retained scoped recovery, nor grant blanket recovery exemption.
+Publication uses captured closed data only; no later target/source reread, refresh,
+restore, backend call or reacquisition follows source restoration.
+
+### Complete native scope and separate future test gate
+
+All eight original contracts 320–327, sixteen normative sections 347 and sixteen
+native gaps 348 remain required in full. **46 qualified proofs are unproven,
+52 native cases unrun, twelve independent raw groups uncaptured, and all 1072
+ordered proof/case relations pending.** The 52 cases are 26 cases on each of two
+platforms, not 52 per platform. Historical results and platform results do not
+transfer into this scope. Primary assignments and paper event schedules never
+select native primitives or establish exhaustive fault coverage.
+
+The complete 377 future test-entry and later operational-readiness prerequisites
+remain unchanged and linked through the whole 378 freeze and 386 dossier.
+Before an experiment, independently review a complete original-compatible actual
+composition, safe containment, full source/effect/writer/trust scope, continuous
+guard, fresh original capture, known recovery/storage/custody, original finite
+rights, platform support and effective independent observation. Then obtain a
+**separate fresh explicit bounded native-test grant before any experiment**.
+Complete independent native conformance on both platforms is a later operational
+readiness requirement from separately authorized tests. A passing test cannot
+supply its own permission; repository PASS and accepted documents are no native
+proof or fresh runtime authorization. All historical identities, live bindings
+and consumed authorizations remain unusable.
+
+### Historical Phase 1 acceptance matrix and project gates
+
+The remaining historical matrix has five families and twenty scenarios. It is
+distinct from the 52 pending native operational cases; neither count closes the
+other. Each scenario requires its original separately reviewed evidence and scope.
+
+| Pending historical family | Scenarios |
+| --- | ---: |
+| Kernel package edge | 1 |
+| Boot safety failures | 7 |
+| SBo and ELF | 6 |
+| Cinnamon | 3 |
+| Flatpak | 3 |
+
+Historical core inventory 175, Slackware-current rollback 92, Slackware 15.0
+ELILO 116, configuration/modules 161, English comments 169 and execution-control
+failures 188 keep their accepted original scope. They are not fresh native proofs
+or reusable host grants. **Phase 1 and the kernel package edge remain incomplete.**
+Version 1 result schema and reference-v1 are unfrozen; C development, Phase 2 and
+Production entry remain closed. No native runner, component, collector, injector,
+comparator, service, cryptographic scheme or machine action is selected or
+implemented by this batch. Native runs/proofs added: zero. Machine/controller
+actions and new runtime authority: none. Actual host state is **unobserved, not
+claimed absent**; live bindings remain null and global host closure is false.
+
+### Conditional 388 close
+
+After the complete 387 overlay/tests/exact commit/push/clean matching-head return,
+388 may freeze all complete decision inputs and all **nine whole original scoped
+pause conditions**. Confirmation remains external to immutable prepared metadata
+and needs the actual complete 388 return and all conditions. A schedule, count or
+prepared PASS is not that final receipt. No machine cleanup, native execution,
+service channel, operational publication or historical authority reuse is granted.
+Unknown graph, primitives, protocols and conformance remain blockers after pause.
+
+See the [387 reconciliation review](docs/reference/phase-1-operational-feasibility-readme-roadmap-reconciliation-review.md),
+[379 finite plan](docs/reference/phase-1-operational-feasibility-resolution-resume-planning-review.md),
+[378 whole freeze](docs/reference/phase-1-operational-successor-design-freeze-and-safe-pause-review.md)
+and the accepted integrated review above for the complete binding inputs.
+<!-- step-387-readme-roadmap-reconciliation:end -->
+
+---
+
+The accepted README follows byte-for-byte. Its older current/prepared wording
+records its historical checkpoint; use the 387 reconciliation above for current
+379–388 status, without changing the original normative requirements.
+
 <!-- step-377-readme-roadmap-reconciliation:start -->
 ## Current Phase 1 roadmap reconciliation — step 377
 
