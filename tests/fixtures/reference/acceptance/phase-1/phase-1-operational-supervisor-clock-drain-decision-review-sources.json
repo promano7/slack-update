@@ -1,0 +1,43 @@
+[
+  {
+    "id": "signals",
+    "inference_limit": "An in-process trap cannot be the sole continuity mechanism for uncatchable owner loss.",
+    "retrieval": "focused primary indexed manual excerpts retrieved; no whole-page original byte capture",
+    "title": "Linux man-pages signal(7)",
+    "url": "https://www.man7.org/linux/man-pages/man7/signal.7.html",
+    "verified_semantics": "SIGKILL and SIGSTOP cannot be caught, blocked or ignored."
+  },
+  {
+    "id": "parent-death",
+    "inference_limit": "A parent-death signal alone does not establish complete descendant membership or known effect drain.",
+    "opened_blob": "1084df2c89ef542f5e5a8d91cf530253a8eda3c8",
+    "retrieval": "current upstream source page opened; primary indexed manual excerpts retrieved; rendered manual direct open and initially wrong upstream man2 path failed; corrected man2const path succeeds; no original source-byte capture",
+    "title": "Linux man-pages upstream PR_SET_PDEATHSIG source",
+    "url": "https://kernel.googlesource.com/pub/scm/docs/man-pages/man-pages/+/master/man/man2const/PR_SET_PDEATHSIG.2const",
+    "verified_semantics": "The parent is the creating thread; already terminated parent/all ancestor subreapers need not produce a signal on later registration. The setting is cleared in fork children and certain credential/privileged-exec transitions."
+  },
+  {
+    "id": "pidfd",
+    "inference_limit": "Neither observation covers the complete descendant/effect/storage graph by itself. No pidfd mode or installed API support is selected.",
+    "retrieval": "focused primary indexed manual excerpts retrieved; direct rendered manual/upstream source opens failed; no whole-page original byte capture",
+    "title": "Linux man-pages pidfd_open(2)",
+    "url": "https://www.man7.org/linux/man-pages/man2/pidfd_open.2.html",
+    "verified_semantics": "A pidfd refers to a process or specified thread. Poll readability without PIDFD_THREAD waits for the last thread of that thread group; PIDFD_THREAD has different task-exit semantics."
+  },
+  {
+    "id": "cgroup-v2",
+    "inference_limit": "This review preserves kill semantics; a request or process-state observation alone is not independently established full effect/FD/storage drain or original release authority.",
+    "retrieval": "current primary page opened; cgroup.freeze/cgroup.kill/cgroup.events sections reviewed; no original HTML byte capture",
+    "title": "Linux kernel cgroup-v2 documentation",
+    "url": "https://docs.kernel.org/admin-guide/cgroup-v2.html",
+    "verified_semantics": "Freeze completion is asynchronous. cgroup.kill kills the affected tree via SIGKILL and handles concurrent forks and migrations for that operation. populated indicates live processes in the subtree."
+  },
+  {
+    "id": "timerfd",
+    "inference_limit": "A clock/timer API alone does not authenticate issuer time, boot mapping, VM/epoch trust or external live validity. Alarm delivery is not effect serialization.",
+    "retrieval": "focused primary indexed manual excerpts retrieved; direct rendered manual/upstream source opens failed; no whole-page original byte capture",
+    "title": "Linux man-pages timerfd_create(2)",
+    "url": "https://man7.org/linux/man-pages/man2/timerfd_create.2.html",
+    "verified_semantics": "CLOCK_MONOTONIC excludes suspended time; CLOCK_BOOTTIME includes it. CANCEL_ON_SET detects discontinuous realtime changes for the specified absolute realtime timer configuration."
+  }
+]

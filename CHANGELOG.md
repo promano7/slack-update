@@ -1,3 +1,16 @@
+## Phase 1 step 382 — supervisor loss, clock validity and known drain review
+
+- Accepted381 at reported0f099fe:184 exact ordered PASS, nine files3519 insertions,
+  eight creates, successful push and reported clean matching heads; complete bytes retained.
+- Reviewed eight bounded compositions and fourteen conditional paper schedules;
+  six incomplete candidates incompatible as stated, two complete hypotheses unresolved.
+- Retained whole323 clock/fence/forward/recovery/closure,324 guard,326 model/oracle,
+  both372 supervision/time blockers and both377 conflicts; no false process-only drain.
+- Five primary source entries disclose retrieval limits; sixteen separate platform
+  rows, eight resolution criteria and eight actual enforcement boundaries remain unknown.
+- Full1977-file predecessor/27 whole inputs preserved; no instant cancellation,
+  native component, run, proof, grant, renewed rights or new safe pause.382 pending.
+
 ## Phase 1 step 381 — all-writer exclusion and object lifetime decision review
 
 - Accepted380 at reported 7820d1a: 157 exact ordered PASS, nine files and 3133
