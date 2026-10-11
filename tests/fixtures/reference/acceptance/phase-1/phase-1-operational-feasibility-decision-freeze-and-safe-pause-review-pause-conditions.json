@@ -1,0 +1,449 @@
+{
+  "actual_global_host_closure": false,
+  "actual_host_state": "unobserved-not-claimed-absent",
+  "actual_live_bindings": null,
+  "actual_strong_safe_pause_confirmed": false,
+  "after_final_acceptance": {
+    "actual_global_host_closure": false,
+    "all_nine_whole_original_conditions_required": true,
+    "confirmation_scope": "repository-architecture-feasibility-resolution379-388-only",
+    "external_confirmation_only": true,
+    "final_actual_receipt_required": true,
+    "future_batch_requires_new_user_request": true,
+    "next_authorized_stage_after388": null,
+    "no_automatic389": true,
+    "stop_after_final_acceptance": true
+  },
+  "conditions": [
+    {
+      "actual_global_host_closure": false,
+      "actual_native_evidence": null,
+      "current388_actual_user_confirmation": null,
+      "full_prepared_condition378": {
+        "actual_global_host_closure": false,
+        "actual_native_evidence": null,
+        "current378_actual_user_confirmation": null,
+        "full_original_condition358": {
+          "actual_native_evidence": null,
+          "current358_actual_user_confirmation": null,
+          "id": "complete-user-overlay-full-tests-exact-commit-successful-push-clean-tree-matching-HEAD-origin-return",
+          "position": 0,
+          "requirement": "complete-user-overlay-full-tests-exact-commit-successful-push-clean-tree-matching-HEAD-origin-return",
+          "status": "pending-current358-complete-user-return"
+        },
+        "full_original_condition368": {
+          "actual_native_evidence": null,
+          "current368_actual_user_confirmation": null,
+          "full_original_condition358": {
+            "actual_native_evidence": null,
+            "current358_actual_user_confirmation": null,
+            "id": "complete-user-overlay-full-tests-exact-commit-successful-push-clean-tree-matching-HEAD-origin-return",
+            "position": 0,
+            "requirement": "complete-user-overlay-full-tests-exact-commit-successful-push-clean-tree-matching-HEAD-origin-return",
+            "status": "pending-current358-complete-user-return"
+          },
+          "id": "complete-user-overlay-full-tests-exact-commit-successful-push-clean-tree-matching-HEAD-origin-return",
+          "position": 0,
+          "repository_status": "pending-current368-complete-user-return",
+          "requirement": "complete-user-overlay-full-tests-exact-commit-successful-push-clean-tree-matching-HEAD-origin-return"
+        },
+        "id": "complete-user-overlay-full-tests-exact-commit-successful-push-clean-tree-matching-HEAD-origin-return",
+        "position": 0,
+        "repository_review_basis": "Final378 installer,complete ordered tests,exact scoped commit,successful main push,empty status and matching HEAD/origin remain pending. All eight other original conditions must also be confirmed externally after the complete actual receipt.",
+        "repository_status": "pending-complete-current378-return",
+        "requirement": "complete-user-overlay-full-tests-exact-commit-successful-push-clean-tree-matching-HEAD-origin-return"
+      },
+      "id": "complete-user-overlay-full-tests-exact-commit-successful-push-clean-tree-matching-HEAD-origin-return",
+      "position": 0,
+      "repository_review_basis": "Pending complete actual388 installer, exact ordered harness, exact scoped commit, successful push, empty final status and matching HEAD/origin. Prepared review is not this receipt; all eight other full conditions require external scoped confirmation.",
+      "repository_status": "pending-complete-current388-return",
+      "requirement": "complete-user-overlay-full-tests-exact-commit-successful-push-clean-tree-matching-HEAD-origin-return"
+    },
+    {
+      "actual_global_host_closure": false,
+      "actual_native_evidence": null,
+      "current388_actual_user_confirmation": null,
+      "full_prepared_condition378": {
+        "actual_global_host_closure": false,
+        "actual_native_evidence": null,
+        "current378_actual_user_confirmation": null,
+        "full_original_condition358": {
+          "actual_native_evidence": null,
+          "current358_actual_user_confirmation": null,
+          "id": "all-in-scope-repository-candidate-effects-and-obligations-reviewed",
+          "position": 1,
+          "requirement": "all-in-scope-repository-candidate-effects-and-obligations-reviewed",
+          "status": "repository-scope-checked-with-native-blockers-retained"
+        },
+        "full_original_condition368": {
+          "actual_native_evidence": null,
+          "current368_actual_user_confirmation": null,
+          "full_original_condition358": {
+            "actual_native_evidence": null,
+            "current358_actual_user_confirmation": null,
+            "id": "all-in-scope-repository-candidate-effects-and-obligations-reviewed",
+            "position": 1,
+            "requirement": "all-in-scope-repository-candidate-effects-and-obligations-reviewed",
+            "status": "repository-scope-checked-with-native-blockers-retained"
+          },
+          "id": "all-in-scope-repository-candidate-effects-and-obligations-reviewed",
+          "position": 1,
+          "repository_status": "repository-scope-checked-with-native-blockers-retained",
+          "requirement": "all-in-scope-repository-candidate-effects-and-obligations-reviewed"
+        },
+        "id": "all-in-scope-repository-candidate-effects-and-obligations-reviewed",
+        "position": 1,
+        "repository_review_basis": "Whole repository-only369-378roadmap/design source effects,obligations,interfaces,primitives,baseline/owned/recovery,closure/publication,independent raw evidence/oracle,microevent/full proof-case mapping,readiness and README reconciliation frozen for review; actual native gaps remain unresolved.",
+        "repository_status": "reviewed-candidate-repository-scope-only-with-native-blockers-retained",
+        "requirement": "all-in-scope-repository-candidate-effects-and-obligations-reviewed"
+      },
+      "id": "all-in-scope-repository-candidate-effects-and-obligations-reviewed",
+      "position": 1,
+      "repository_review_basis": "Whole40 normative inputs, complete380 through386 candidate assumptions/decisions and387 roadmap retained; all eight conflicts/ten blockers and full source/effect obligations reviewed as repository questions, no native composition selected.",
+      "repository_status": "repository-reviewed-eligible-pending-external-final388-confirmation",
+      "requirement": "all-in-scope-repository-candidate-effects-and-obligations-reviewed"
+    },
+    {
+      "actual_global_host_closure": false,
+      "actual_native_evidence": null,
+      "current388_actual_user_confirmation": null,
+      "full_prepared_condition378": {
+        "actual_global_host_closure": false,
+        "actual_native_evidence": null,
+        "current378_actual_user_confirmation": null,
+        "full_original_condition358": {
+          "actual_native_evidence": null,
+          "current358_actual_user_confirmation": null,
+          "id": "candidate-validator-has-no-runtime-dispatch-or-service-channel",
+          "position": 2,
+          "requirement": "candidate-validator-has-no-runtime-dispatch-or-service-channel",
+          "status": "repository-scope-checked-with-native-blockers-retained"
+        },
+        "full_original_condition368": {
+          "actual_native_evidence": null,
+          "current368_actual_user_confirmation": null,
+          "full_original_condition358": {
+            "actual_native_evidence": null,
+            "current358_actual_user_confirmation": null,
+            "id": "candidate-validator-has-no-runtime-dispatch-or-service-channel",
+            "position": 2,
+            "requirement": "candidate-validator-has-no-runtime-dispatch-or-service-channel",
+            "status": "repository-scope-checked-with-native-blockers-retained"
+          },
+          "id": "candidate-validator-has-no-runtime-dispatch-or-service-channel",
+          "position": 2,
+          "repository_status": "repository-scope-checked-with-native-blockers-retained",
+          "requirement": "candidate-validator-has-no-runtime-dispatch-or-service-channel"
+        },
+        "id": "candidate-validator-has-no-runtime-dispatch-or-service-channel",
+        "position": 2,
+        "repository_review_basis": "Authored pure validators take supplied data and import only hashlib/json/re; no filesystem/decode/network/clock/crypto/service/spawn/native runner or runtime dispatch. Shell harness and installer perform repository-only verification/application,not historical worker execution or service communication.",
+        "repository_status": "reviewed-candidate-repository-scope-only-with-native-blockers-retained",
+        "requirement": "candidate-validator-has-no-runtime-dispatch-or-service-channel"
+      },
+      "id": "candidate-validator-has-no-runtime-dispatch-or-service-channel",
+      "position": 2,
+      "repository_review_basis": "All nine accepted379 through387 pure supplied-data reviewer roots frozen; current388 reviewer likewise pure hashlib/json/re with no filesystem, clock, network, spawn, service channel or native dispatcher. Local Git harness controls do not execute inert native roots.",
+      "repository_status": "repository-reviewed-eligible-pending-external-final388-confirmation",
+      "requirement": "candidate-validator-has-no-runtime-dispatch-or-service-channel"
+    },
+    {
+      "actual_global_host_closure": false,
+      "actual_native_evidence": null,
+      "current388_actual_user_confirmation": null,
+      "full_prepared_condition378": {
+        "actual_global_host_closure": false,
+        "actual_native_evidence": null,
+        "current378_actual_user_confirmation": null,
+        "full_original_condition358": {
+          "actual_native_evidence": null,
+          "current358_actual_user_confirmation": null,
+          "id": "all-unknown-actual-graph-primitives-native-protocols-and-conformance-remain-blockers",
+          "position": 3,
+          "requirement": "all-unknown-actual-graph-primitives-native-protocols-and-conformance-remain-blockers",
+          "status": "repository-scope-checked-with-native-blockers-retained"
+        },
+        "full_original_condition368": {
+          "actual_native_evidence": null,
+          "current368_actual_user_confirmation": null,
+          "full_original_condition358": {
+            "actual_native_evidence": null,
+            "current358_actual_user_confirmation": null,
+            "id": "all-unknown-actual-graph-primitives-native-protocols-and-conformance-remain-blockers",
+            "position": 3,
+            "requirement": "all-unknown-actual-graph-primitives-native-protocols-and-conformance-remain-blockers",
+            "status": "repository-scope-checked-with-native-blockers-retained"
+          },
+          "id": "all-unknown-actual-graph-primitives-native-protocols-and-conformance-remain-blockers",
+          "position": 3,
+          "repository_status": "repository-scope-checked-with-native-blockers-retained",
+          "requirement": "all-unknown-actual-graph-primitives-native-protocols-and-conformance-remain-blockers"
+        },
+        "id": "all-unknown-actual-graph-primitives-native-protocols-and-conformance-remain-blockers",
+        "position": 3,
+        "repository_review_basis": "All actual native graph/components/primitives/protocols/fences/writers/children/storage/clocks/collectors/verifiers/expected raw evidence and full conformance remain blocked. All original contracts/sections/gaps/proofs/cases/raw groups/relations retained in full; count or review acceptance cannot discharge them.",
+        "repository_status": "reviewed-candidate-repository-scope-only-with-native-blockers-retained",
+        "requirement": "all-unknown-actual-graph-primitives-native-protocols-and-conformance-remain-blockers"
+      },
+      "id": "all-unknown-actual-graph-primitives-native-protocols-and-conformance-remain-blockers",
+      "position": 3,
+      "repository_review_basis": "All original graph, primitive, trust, protocol, oracle and two-platform conformance unknowns remain unresolved native blockers. No candidate count, primary assignment, label or repository PASS closes original obligations.",
+      "repository_status": "repository-reviewed-eligible-pending-external-final388-confirmation",
+      "requirement": "all-unknown-actual-graph-primitives-native-protocols-and-conformance-remain-blockers"
+    },
+    {
+      "actual_global_host_closure": false,
+      "actual_native_evidence": null,
+      "current388_actual_user_confirmation": null,
+      "full_prepared_condition378": {
+        "actual_global_host_closure": false,
+        "actual_native_evidence": null,
+        "current378_actual_user_confirmation": null,
+        "full_original_condition358": {
+          "actual_native_evidence": null,
+          "current358_actual_user_confirmation": null,
+          "id": "no-batch-runtime-or-partial-operational-publication",
+          "position": 4,
+          "requirement": "no-batch-runtime-or-partial-operational-publication",
+          "status": "repository-scope-checked-with-native-blockers-retained"
+        },
+        "full_original_condition368": {
+          "actual_native_evidence": null,
+          "current368_actual_user_confirmation": null,
+          "full_original_condition358": {
+            "actual_native_evidence": null,
+            "current358_actual_user_confirmation": null,
+            "id": "no-batch-runtime-or-partial-operational-publication",
+            "position": 4,
+            "requirement": "no-batch-runtime-or-partial-operational-publication",
+            "status": "repository-scope-checked-with-native-blockers-retained"
+          },
+          "id": "no-batch-runtime-or-partial-operational-publication",
+          "position": 4,
+          "repository_status": "repository-scope-checked-with-native-blockers-retained",
+          "requirement": "no-batch-runtime-or-partial-operational-publication"
+        },
+        "id": "no-batch-runtime-or-partial-operational-publication",
+        "position": 4,
+        "repository_review_basis": "This batch constructs repository review artifacts only; no target runtime,collector/runner/injector,actual operational record/archive/receipt/consumer publication or partial native-success claim. Delivery ZIP/repository documentation is continuity,not native publication.",
+        "repository_status": "reviewed-candidate-repository-scope-only-with-native-blockers-retained",
+        "requirement": "no-batch-runtime-or-partial-operational-publication"
+      },
+      "id": "no-batch-runtime-or-partial-operational-publication",
+      "position": 4,
+      "repository_review_basis": "This finite batch only changes repository review artifacts and local delivery metadata. No native run or partial operational publication is authorized or performed by its pure reviewers.",
+      "repository_status": "repository-reviewed-eligible-pending-external-final388-confirmation",
+      "requirement": "no-batch-runtime-or-partial-operational-publication"
+    },
+    {
+      "actual_global_host_closure": false,
+      "actual_native_evidence": null,
+      "current388_actual_user_confirmation": null,
+      "full_prepared_condition378": {
+        "actual_global_host_closure": false,
+        "actual_native_evidence": null,
+        "current378_actual_user_confirmation": null,
+        "full_original_condition358": {
+          "actual_native_evidence": null,
+          "current358_actual_user_confirmation": null,
+          "id": "no-required-batch-machine-or-controller-cleanup",
+          "position": 5,
+          "requirement": "no-required-batch-machine-or-controller-cleanup",
+          "status": "repository-scope-checked-with-native-blockers-retained"
+        },
+        "full_original_condition368": {
+          "actual_native_evidence": null,
+          "current368_actual_user_confirmation": null,
+          "full_original_condition358": {
+            "actual_native_evidence": null,
+            "current358_actual_user_confirmation": null,
+            "id": "no-required-batch-machine-or-controller-cleanup",
+            "position": 5,
+            "requirement": "no-required-batch-machine-or-controller-cleanup",
+            "status": "repository-scope-checked-with-native-blockers-retained"
+          },
+          "id": "no-required-batch-machine-or-controller-cleanup",
+          "position": 5,
+          "repository_status": "repository-scope-checked-with-native-blockers-retained",
+          "requirement": "no-required-batch-machine-or-controller-cleanup"
+        },
+        "id": "no-required-batch-machine-or-controller-cleanup",
+        "position": 5,
+        "repository_review_basis": "No required machine or controller cleanup action is introduced by this repository-design batch. This is a scoped workflow statement,not proof that artifacts/processes/rights are absent on a host. Historical native artifacts/evidence remain governed by their own immutable boundaries.",
+        "repository_status": "reviewed-candidate-repository-scope-only-with-native-blockers-retained",
+        "requirement": "no-required-batch-machine-or-controller-cleanup"
+      },
+      "id": "no-required-batch-machine-or-controller-cleanup",
+      "position": 5,
+      "repository_review_basis": "No target-machine or controller operation is required to pause this repository batch. This does not assert that an unobserved historical target has no artifacts or needs no unrelated cleanup.",
+      "repository_status": "repository-reviewed-eligible-pending-external-final388-confirmation",
+      "requirement": "no-required-batch-machine-or-controller-cleanup"
+    },
+    {
+      "actual_global_host_closure": false,
+      "actual_native_evidence": null,
+      "current388_actual_user_confirmation": null,
+      "full_prepared_condition378": {
+        "actual_global_host_closure": false,
+        "actual_native_evidence": null,
+        "current378_actual_user_confirmation": null,
+        "full_original_condition358": {
+          "actual_native_evidence": null,
+          "current358_actual_user_confirmation": null,
+          "id": "all-future-runtime-and-unused-live-rights-closed",
+          "position": 6,
+          "requirement": "all-future-runtime-and-unused-live-rights-closed",
+          "status": "repository-scope-checked-with-native-blockers-retained"
+        },
+        "full_original_condition368": {
+          "actual_native_evidence": null,
+          "current368_actual_user_confirmation": null,
+          "full_original_condition358": {
+            "actual_native_evidence": null,
+            "current358_actual_user_confirmation": null,
+            "id": "all-future-runtime-and-unused-live-rights-closed",
+            "position": 6,
+            "requirement": "all-future-runtime-and-unused-live-rights-closed",
+            "status": "repository-scope-checked-with-native-blockers-retained"
+          },
+          "id": "all-future-runtime-and-unused-live-rights-closed",
+          "position": 6,
+          "repository_status": "repository-scope-checked-with-native-blockers-retained",
+          "requirement": "all-future-runtime-and-unused-live-rights-closed"
+        },
+        "id": "all-future-runtime-and-unused-live-rights-closed",
+        "position": 6,
+        "repository_review_basis": "No future runtime/native test/implementation/machine/controller action or unused live-right grant is opened by369-378. Future entry requires a new user request and separately reviewed fresh explicit scope/authority. This does not assert absence of unknown host grants or globally consume an unobserved right.",
+        "repository_status": "reviewed-candidate-repository-scope-only-with-native-blockers-retained",
+        "requirement": "all-future-runtime-and-unused-live-rights-closed"
+      },
+      "id": "all-future-runtime-and-unused-live-rights-closed",
+      "position": 6,
+      "repository_review_basis": "No live runtime grant was created by this repository batch; all future runtime/test/native entry remains closed pending separate fresh explicit authorization. Historical identities/consumed grants never reused; unobserved actual host rights not classified as absent.",
+      "repository_status": "repository-reviewed-eligible-pending-external-final388-confirmation",
+      "requirement": "all-future-runtime-and-unused-live-rights-closed"
+    },
+    {
+      "actual_global_host_closure": false,
+      "actual_native_evidence": null,
+      "current388_actual_user_confirmation": null,
+      "full_prepared_condition378": {
+        "actual_global_host_closure": false,
+        "actual_native_evidence": null,
+        "current378_actual_user_confirmation": null,
+        "full_original_condition358": {
+          "actual_native_evidence": null,
+          "current358_actual_user_confirmation": null,
+          "id": "actual-host-state-unobserved-never-claimed-absent-or-globally-closed",
+          "position": 7,
+          "requirement": "actual-host-state-unobserved-never-claimed-absent-or-globally-closed",
+          "status": "repository-scope-checked-with-native-blockers-retained"
+        },
+        "full_original_condition368": {
+          "actual_native_evidence": null,
+          "current368_actual_user_confirmation": null,
+          "full_original_condition358": {
+            "actual_native_evidence": null,
+            "current358_actual_user_confirmation": null,
+            "id": "actual-host-state-unobserved-never-claimed-absent-or-globally-closed",
+            "position": 7,
+            "requirement": "actual-host-state-unobserved-never-claimed-absent-or-globally-closed",
+            "status": "repository-scope-checked-with-native-blockers-retained"
+          },
+          "id": "actual-host-state-unobserved-never-claimed-absent-or-globally-closed",
+          "position": 7,
+          "repository_status": "repository-scope-checked-with-native-blockers-retained",
+          "requirement": "actual-host-state-unobserved-never-claimed-absent-or-globally-closed"
+        },
+        "id": "actual-host-state-unobserved-never-claimed-absent-or-globally-closed",
+        "position": 7,
+        "repository_review_basis": "Actual host state remains unobserved-not-claimed-absent; actual native/live bindings are null and global host closure is false. Repository safe-pause eligibility never becomes a native safety/host absence/cleanup result.",
+        "repository_status": "reviewed-candidate-repository-scope-only-with-native-blockers-retained",
+        "requirement": "actual-host-state-unobserved-never-claimed-absent-or-globally-closed"
+      },
+      "id": "actual-host-state-unobserved-never-claimed-absent-or-globally-closed",
+      "position": 7,
+      "repository_review_basis": "Actual host remains unobserved-not-claimed-absent, actual live bindings null and actual global host closure false; no repository freeze or final receipt proves native host absence.",
+      "repository_status": "repository-reviewed-eligible-pending-external-final388-confirmation",
+      "requirement": "actual-host-state-unobserved-never-claimed-absent-or-globally-closed"
+    },
+    {
+      "actual_global_host_closure": false,
+      "actual_native_evidence": null,
+      "current388_actual_user_confirmation": null,
+      "full_prepared_condition378": {
+        "actual_global_host_closure": false,
+        "actual_native_evidence": null,
+        "current378_actual_user_confirmation": null,
+        "full_original_condition358": {
+          "actual_native_evidence": null,
+          "current358_actual_user_confirmation": null,
+          "id": "no-live-binding-reuse-pause-independent-of-later-current-refresh",
+          "position": 8,
+          "requirement": "no-live-binding-reuse-pause-independent-of-later-current-refresh",
+          "status": "repository-scope-checked-with-native-blockers-retained"
+        },
+        "full_original_condition368": {
+          "actual_native_evidence": null,
+          "current368_actual_user_confirmation": null,
+          "full_original_condition358": {
+            "actual_native_evidence": null,
+            "current358_actual_user_confirmation": null,
+            "id": "no-live-binding-reuse-pause-independent-of-later-current-refresh",
+            "position": 8,
+            "requirement": "no-live-binding-reuse-pause-independent-of-later-current-refresh",
+            "status": "repository-scope-checked-with-native-blockers-retained"
+          },
+          "id": "no-live-binding-reuse-pause-independent-of-later-current-refresh",
+          "position": 8,
+          "repository_status": "repository-scope-checked-with-native-blockers-retained",
+          "requirement": "no-live-binding-reuse-pause-independent-of-later-current-refresh"
+        },
+        "id": "no-live-binding-reuse-pause-independent-of-later-current-refresh",
+        "position": 8,
+        "repository_review_basis": "No historical binding/boot/source/attempt or consumed authority reuse allowed. Frozen repository-only design/receipt acceptance does not depend on a later Slackware-current refresh; later native work requires fresh separate review and original independent platform evidence.",
+        "repository_status": "reviewed-candidate-repository-scope-only-with-native-blockers-retained",
+        "requirement": "no-live-binding-reuse-pause-independent-of-later-current-refresh"
+      },
+      "id": "no-live-binding-reuse-pause-independent-of-later-current-refresh",
+      "position": 8,
+      "repository_review_basis": "No historical live binding or authority reuse; only repository-scope pause is independent of a later Slackware-current refresh. A new native action requires fresh target/source/authority review, never this historical pause.",
+      "repository_status": "repository-reviewed-eligible-pending-external-final388-confirmation",
+      "requirement": "no-live-binding-reuse-pause-independent-of-later-current-refresh"
+    }
+  ],
+  "current388_user_commit_full": null,
+  "current388_user_commit_prefix": null,
+  "current388_user_head_matches_origin": null,
+  "current388_user_worktree_clean": null,
+  "final_receipt_rule": "Complete actual388 return, exact installer and all ordered harness PASS/zero failures, exact commit scope/message/creates/stats, successful push, empty status and matching heads PLUS external review of every full original condition. Prepared output cannot attest its own final commit or push.",
+  "last_confirmed_strong_safe_pause_step": 378,
+  "private_eligibility_is_actual_confirmation": false,
+  "required_final_commit_message": "Phase 1 step 388: freeze feasibility decisions and conditional repository safe pause",
+  "runtime_authority": false,
+  "schema": 1,
+  "scope": "repository-architecture-feasibility-resolution379-388-only",
+  "step": 388,
+  "whole379_pause_policy": {
+    "actual_global_host_closure": false,
+    "all_nine_original_conditions_required": true,
+    "confirmation_scope": "repository-architecture-feasibility-resolution379-388-only",
+    "external_confirmation_only": true,
+    "final_receipt_required": true,
+    "future_batch_requires_new_user_request": true,
+    "next_authorized_stage_after388": null,
+    "no_automatic389": true,
+    "original_condition_ids": [
+      "complete-user-overlay-full-tests-exact-commit-successful-push-clean-tree-matching-HEAD-origin-return",
+      "all-in-scope-repository-candidate-effects-and-obligations-reviewed",
+      "candidate-validator-has-no-runtime-dispatch-or-service-channel",
+      "all-unknown-actual-graph-primitives-native-protocols-and-conformance-remain-blockers",
+      "no-batch-runtime-or-partial-operational-publication",
+      "no-required-batch-machine-or-controller-cleanup",
+      "all-future-runtime-and-unused-live-rights-closed",
+      "actual-host-state-unobserved-never-claimed-absent-or-globally-closed",
+      "no-live-binding-reuse-pause-independent-of-later-current-refresh"
+    ],
+    "stop_after_final_acceptance": true
+  }
+}
