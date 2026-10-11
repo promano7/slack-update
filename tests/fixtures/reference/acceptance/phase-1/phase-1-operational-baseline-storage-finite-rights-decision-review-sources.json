@@ -1,0 +1,26 @@
+[
+  {
+    "id": "write",
+    "inference_limit": "Full known transfer within a single reviewed action differs from retrying a whole action whose outcome is unknown. No native storage sequence is selected.",
+    "retrieval": "focused primary indexed manual excerpts retrieved; direct rendered manual open failed; no whole-page original byte capture",
+    "title": "Linux man-pages write(2)",
+    "url": "https://man7.org/linux/man-pages/man2/write.2.html",
+    "verified_semantics": "Successful write may transfer fewer than the requested bytes; successful return alone does not guarantee disk commitment."
+  },
+  {
+    "id": "fsync",
+    "inference_limit": "This preserves documented fsync semantics; the project additionally needs actual supported complete ordering, aliases, devices/cache/virtualization and independent loss observations, not a syscall-name proof.",
+    "retrieval": "focused primary indexed manual description retrieved; direct rendered manual open failed; no whole-page original byte capture",
+    "title": "Linux man-pages fsync(2)",
+    "url": "https://man7.org/linux/man-pages/man2/fsync.2.html",
+    "verified_semantics": "fsync flushes file data/metadata and waits for reported device completion. File synchronization does not necessarily synchronize the containing directory entry; explicit directory synchronization is separately required."
+  },
+  {
+    "id": "rename-no-replace",
+    "inference_limit": "Namespace no-overwrite semantics are a separate obligation from durable service CAS/launch spend, storage persistence, exact original bytes or rights. No installed filesystem support is inferred.",
+    "retrieval": "focused primary indexed manual excerpts retrieved; direct rendered manual open failed; no whole-page original byte capture",
+    "title": "Linux man-pages rename(2)",
+    "url": "https://www.man7.org/linux/man-pages/man2/rename.2.html",
+    "verified_semantics": "RENAME_NOREPLACE prevents overwriting an existing destination and requires underlying filesystem support."
+  }
+]
