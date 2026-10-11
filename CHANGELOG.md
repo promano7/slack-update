@@ -1,3 +1,16 @@
+## Phase 1 step 381 — all-writer exclusion and object lifetime decision review
+
+- Accepted380 at reported 7820d1a: 157 exact ordered PASS, nine files and 3133
+  insertions, successful push and reported clean matching heads; complete bytes retained.
+- Reviewed seven bounded compositions and twelve conditional paper schedules.
+  Five incomplete candidates incompatible as stated; two complete hypotheses unresolved.
+- Preserved whole original324 guard/baseline/interstage contracts, seven writer rows,
+  original372 blocker and377 conflict; no privileged writer exclusion by assumption.
+- Four primary source entries disclose retrieval limits and filesystem-specific lock
+  semantics; fourteen independent platform/domain rows and six native questions unknown.
+- Full accepted1969-file scope and all original requirements retained; no native
+  component, run, proof, grant, requirement relaxation or new safe pause.381 pending.
+
 ## Phase 1 step 380 — live revocation enforcement decision review
 
 - Accepted379-r1 at reported b50554c with155exactPASS,9files4018insertions,

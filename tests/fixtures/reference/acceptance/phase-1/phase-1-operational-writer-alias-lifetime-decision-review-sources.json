@@ -1,0 +1,38 @@
+[
+  {
+    "id": "flock-upstream",
+    "inference_limit": "A distinct supervisor handle is only one constituent; no uniform all-filesystem advisory claim or actual installed support is inferred.",
+    "opened_blob": "1b1bbeb385cb404cabf35126dd617b1cd5ee1100",
+    "retrieval": "upstream master source page opened; tag man-pages-6.12 also opened; current man7 indexed excerpts retrieved but rendered manual direct opens failed; no original HTML/source byte capture",
+    "title": "Linux man-pages upstream flock(2) source",
+    "url": "https://kernel.googlesource.com/pub/scm/docs/man-pages/man-pages/+/refs/heads/master/man/man2/flock.2",
+    "verified_semantics": "Native Linux flock is associated with an open file description; dup/fork aliases can unlock it; last close releases it. Advisory I/O requires cooperation. NFS/SMB behavior and interaction with fcntl depend on kernel, protocol, server and mount options."
+  },
+  {
+    "id": "openat2-upstream",
+    "inference_limit": "Lookup restrictions alone provide no content immutability or future-consumer identity proof. Newly documented flags are not selected or asserted absent from actual platforms.",
+    "opened_blob": null,
+    "retrieval": "tagged man-pages-6.12 source page opened; current indexed manual excerpts retrieved; direct rendered manual and master source open failed; no original source byte capture",
+    "title": "Linux man-pages tagged upstream openat2(2) source",
+    "url": "https://kernel.googlesource.com/pub/scm/docs/man-pages/man-pages/+/refs/tags/man-pages-6.12/man/man2/openat2.2",
+    "verified_semantics": "Resolution restrictions govern this pathname lookup. RESOLVE_BENEATH limits traversal beneath dirfd; RESOLVE_NO_XDEV disallows mount crossings including bind mounts."
+  },
+  {
+    "id": "mount-namespace-upstream",
+    "inference_limit": "A private namespace view does not by itself exclude host writers to backing objects shared with that view.",
+    "opened_blob": null,
+    "retrieval": "tagged upstream source page opened; current indexed manual retrieved; direct rendered manual opens failed; no original source byte capture",
+    "title": "Linux man-pages tagged upstream mount_namespaces(7) source",
+    "url": "https://kernel.googlesource.com/pub/scm/docs/man-pages/man-pages/+/refs/tags/man-pages-6.12/man/man7/mount_namespaces.7",
+    "verified_semantics": "Mount namespaces separate mount-list views. A new namespace initially copies the mount list; mount-event propagation is separately configured."
+  },
+  {
+    "id": "shared-subtrees-kernel",
+    "inference_limit": "Private propagation is not a policy denying byte writes through another authorized alias.",
+    "opened_blob": null,
+    "retrieval": "primary kernel documentation page opened; private/shared propagation sections reviewed; no original HTML byte capture",
+    "title": "Linux kernel Shared Subtrees documentation",
+    "url": "https://docs.kernel.org/filesystems/sharedsubtree.html",
+    "verified_semantics": "Private propagation does not propagate mount and unmount events; bind mounts can provide other views of a mounted subtree."
+  }
+]

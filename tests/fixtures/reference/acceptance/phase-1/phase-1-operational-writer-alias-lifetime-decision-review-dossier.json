@@ -1,0 +1,804 @@
+{
+  "adversarial_schedules": [
+    {
+      "actual_observation": null,
+      "candidate_id": "advisory-with-unproven-participation",
+      "conditional_reason": "Assumes an advisory local guard and another writer with write permission; excludes no privileged/manual/scheduled writer by fiat.",
+      "exhaustive_schedule_coverage": false,
+      "id": "nonparticipant-write",
+      "native_execution": false,
+      "ordered_events": [
+        "known-wrapper-acquires-guard",
+        "uncoordinated-writer-ignores-protocol",
+        "overlapping-target-write"
+      ]
+    },
+    {
+      "actual_observation": null,
+      "candidate_id": "advisory-with-unproven-participation",
+      "conditional_reason": "Conditional on the actual native Linux local-filesystem APIs not interacting; NFS/SMB emulation differs and is not assumed equivalent.",
+      "exhaustive_schedule_coverage": false,
+      "id": "incompatible-lock-APIs",
+      "native_execution": false,
+      "ordered_events": [
+        "writer-A-uses-native-flock",
+        "writer-B-uses-noninteracting-fcntl",
+        "both-proceed"
+      ]
+    },
+    {
+      "actual_observation": null,
+      "candidate_id": "supervisor-private-handle-only",
+      "conditional_reason": "A dup/fork alias to the same flock description can unlock it. This conditional violates the candidate private-handle assumption and shows why that assumption itself requires independent evidence.",
+      "exhaustive_schedule_coverage": false,
+      "id": "leaked-guard-alias",
+      "native_execution": false,
+      "ordered_events": [
+        "supervisor-acquires-guard",
+        "guard-open-description-alias-leaks",
+        "alias-holder-unlocks",
+        "child-effect-continues"
+      ]
+    },
+    {
+      "actual_observation": null,
+      "candidate_id": "supervisor-private-handle-only",
+      "conditional_reason": "Conditional on the sole guard description closing and absent independent prevention. Parent death alone is not known child/effect drain; the child is not assumed to inherit the guard.",
+      "exhaustive_schedule_coverage": false,
+      "id": "owner-last-close",
+      "native_execution": false,
+      "ordered_events": [
+        "supervisor-only-guard-reference",
+        "child-without-guard-alias-remains-active",
+        "supervisor-dies-and-last-reference-closes",
+        "child-write"
+      ]
+    },
+    {
+      "actual_observation": null,
+      "candidate_id": "pathname-lock-recreation",
+      "conditional_reason": "Assumes allowed name replacement and compatible access. Neither stale name removal nor another acquisition establishes original continuous exclusion.",
+      "exhaustive_schedule_coverage": false,
+      "id": "split-lock-object",
+      "native_execution": false,
+      "ordered_events": [
+        "guard-object-A-held",
+        "lock-name-unlinked-and-recreated-as-B",
+        "second-writer-locks-B",
+        "both-effect-windows-overlap"
+      ]
+    },
+    {
+      "actual_observation": null,
+      "candidate_id": "private-mount-shared-backing-only",
+      "conditional_reason": "Assumes shared backing storage and an uncontrolled authorized host writer; namespace view/propagation alone prevents neither that writer nor its alias.",
+      "exhaustive_schedule_coverage": false,
+      "id": "shared-host-alias",
+      "native_execution": false,
+      "ordered_events": [
+        "worker-private-mount-view",
+        "host-retains-writable-shared-object-alias",
+        "host-write",
+        "worker-consumes-changed-bytes"
+      ]
+    },
+    {
+      "actual_observation": null,
+      "candidate_id": "pinned-lookup-and-hash-only",
+      "conditional_reason": "Conditional on mutable shared object bytes; a held read descriptor pins a reference but the candidate provides no independent content protection.",
+      "exhaustive_schedule_coverage": false,
+      "id": "held-object-byte-drift",
+      "native_execution": false,
+      "ordered_events": [
+        "restricted-open-and-hash",
+        "other-writable-alias-modifies-same-object",
+        "held-read-FD-consumes-new-bytes"
+      ]
+    },
+    {
+      "actual_observation": null,
+      "candidate_id": "pinned-lookup-and-hash-only",
+      "conditional_reason": "Applies to later path reopening, not a claim that an existing FD is retargeted by rename. Every interpreter/loader/helper/archive consumer needs its actual identity bound.",
+      "exhaustive_schedule_coverage": false,
+      "id": "checked-to-reopened-replacement",
+      "native_execution": false,
+      "ordered_events": [
+        "checked-object-A",
+        "uncontrolled-ancestor-or-name-replacement",
+        "consumer-reopens-name-as-B"
+      ]
+    },
+    {
+      "actual_observation": null,
+      "candidate_id": "complete-cooperative-protocol-hypothesis",
+      "conditional_reason": "Reject early preflight as original capture. Original stage1 traps then guard then fresh revalidation/in-memory original capture precede any stage2 owned writes.",
+      "exhaustive_schedule_coverage": false,
+      "id": "early-baseline-capture",
+      "native_execution": false,
+      "ordered_events": [
+        "stage0-preflight-capture",
+        "overlapping-writer-delta",
+        "outer-guard-acquired",
+        "stale-capture-proposed-as-original"
+      ]
+    },
+    {
+      "actual_observation": null,
+      "candidate_id": "complete-cooperative-protocol-hypothesis",
+      "conditional_reason": "Known child/effect quiescence, exact restoration, full invariants and target evidence are required before known release; no target write after release.",
+      "exhaustive_schedule_coverage": false,
+      "id": "guard-released-before-target-evidence",
+      "native_execution": false,
+      "ordered_events": [
+        "children-or-inflight-state-unknown",
+        "guard-release",
+        "target-evidence-write-proposed"
+      ]
+    },
+    {
+      "actual_observation": null,
+      "candidate_id": "complete-enforced-writer-policy-hypothesis",
+      "conditional_reason": "Conditional on an available uncontrolled privileged/device route. Explicit trust assumptions cannot silently exclude any original writer/alias obligation.",
+      "exhaustive_schedule_coverage": false,
+      "id": "privileged-policy-bypass",
+      "native_execution": false,
+      "ordered_events": [
+        "policy-covers-worker-paths",
+        "unreviewed-privileged-or-device-route",
+        "overlapping-object-effect"
+      ]
+    },
+    {
+      "actual_observation": null,
+      "candidate_id": "complete-enforced-writer-policy-hypothesis",
+      "conditional_reason": "Unknown remains pending; no force unlock/recreate/reacquire/rebind, foreign restoration or new grant. Recovery/publication need separately retained original finite live scopes and known prerequisites.",
+      "exhaustive_schedule_coverage": false,
+      "id": "unknown-recovery-guard",
+      "native_execution": false,
+      "ordered_events": [
+        "owner-loss",
+        "original-guard-validity-unknown",
+        "recovery-or-publication-effect-proposed"
+      ]
+    }
+  ],
+  "boundaries": {
+    "C_port_open": false,
+    "actual_global_host_closure": false,
+    "actual_host_state": "unobserved-not-claimed-absent",
+    "actual_live_bindings": null,
+    "actual_native_refinement_complete": false,
+    "actual_successor_selected": false,
+    "controller_action_required": false,
+    "current_step_strong_safe_pause": false,
+    "execution_authorized": false,
+    "historical_binding_or_authority_reuse_allowed": false,
+    "kernel_package_edge_complete": false,
+    "last_confirmed_strong_safe_pause_step": 378,
+    "later_current_refresh_invalidates_repository_only_pause": false,
+    "machine_action_required": false,
+    "native_cases_run": 0,
+    "native_components_selected": false,
+    "native_graph_complete": false,
+    "native_proofs_added": 0,
+    "operational_conformance": false,
+    "operational_readiness": false,
+    "phase1_matrix_complete": false,
+    "phase2_open": false,
+    "production_entry_closed": true,
+    "reference_v1_frozen": false,
+    "runtime_authority": false,
+    "strong_safe_pause": false,
+    "target_machine_actions_authorized": false,
+    "version1_schema_frozen": false
+  },
+  "candidates": [
+    {
+      "actual_component": null,
+      "actual_native_evidence": null,
+      "alternative_review_without_relaxation": "Require proven original-compatible universal coordination or independently enforced prevention for every overlapping writer; unknown/nonparticipating writer blocks admission.",
+      "candidate_specific_unsatisfied_obligation": "A writer with suitable permission can ignore the advisory protocol. A static inventory does not prove continuing universal participation.",
+      "composition_as_stated": "An advisory guard coordinates known wrappers but leaves manual, scheduled, privileged or unknown writers outside a proven compatible protocol.",
+      "disposition": "incompatible-as-stated",
+      "grants_authority": false,
+      "id": "advisory-with-unproven-participation",
+      "native_blocker_resolved": false,
+      "primary_source_ids": [
+        "flock-upstream"
+      ],
+      "universal_impossibility_proven": false
+    },
+    {
+      "actual_component": null,
+      "actual_native_evidence": null,
+      "alternative_review_without_relaxation": "Review independent owner-loss containment and known effect/child drain without leaking a worker-unlockable guard alias or granting renewed rights.",
+      "candidate_specific_unsatisfied_obligation": "When the sole open description loses its last reference, the guard can release while already admitted children still write. Protecting against child unlock does not settle owner loss.",
+      "composition_as_stated": "A distinct noninherited supervisor guard FD is the only exclusion lifetime mechanism; no independent owner-loss prevention or drain is included.",
+      "disposition": "incompatible-as-stated",
+      "grants_authority": false,
+      "id": "supervisor-private-handle-only",
+      "native_blocker_resolved": false,
+      "primary_source_ids": [
+        "flock-upstream"
+      ],
+      "universal_impossibility_proven": false
+    },
+    {
+      "actual_component": null,
+      "actual_native_evidence": null,
+      "alternative_review_without_relaxation": "Bind actual guard identity, ancestors, mount and open description continuously; any loss/replacement/unknown state latches stop and pending.",
+      "candidate_specific_unsatisfied_obligation": "The old held object and the replacement object can differ; a second name-based acquisition does not restore the original lifetime and explicitly violates original no-reacquire/rebind requirements.",
+      "composition_as_stated": "After contention, owner loss or replacement, a pathname lock is unlinked/recreated/reacquired and its name is treated as continuous exclusion.",
+      "disposition": "incompatible-as-stated",
+      "grants_authority": false,
+      "id": "pathname-lock-recreation",
+      "native_blocker_resolved": false,
+      "primary_source_ids": [
+        "flock-upstream"
+      ],
+      "universal_impossibility_proven": false
+    },
+    {
+      "actual_component": null,
+      "actual_native_evidence": null,
+      "alternative_review_without_relaxation": "Review actual object aliases and privileged writer prevention for the complete backing-storage graph under the whole original contract.",
+      "candidate_specific_unsatisfied_obligation": "Changing mount-list visibility and propagation does not deny writes through host aliases of the same writable backing objects.",
+      "composition_as_stated": "Private mount propagation or a different mount namespace view is treated as all-writer exclusion while shared backing objects and host writers remain uncontrolled.",
+      "disposition": "incompatible-as-stated",
+      "grants_authority": false,
+      "id": "private-mount-shared-backing-only",
+      "native_blocker_resolved": false,
+      "primary_source_ids": [
+        "mount-namespace-upstream",
+        "shared-subtrees-kernel"
+      ],
+      "universal_impossibility_proven": false
+    },
+    {
+      "actual_component": null,
+      "actual_native_evidence": null,
+      "alternative_review_without_relaxation": "Bind every consumer to protected exact original objects and bytes, metadata, ancestors, aliases and absence/presence through the full mutation window.",
+      "candidate_specific_unsatisfied_obligation": "An overlapping writer may change the held object bytes or a later reopened path may resolve to another object. The candidate supplies neither writer exclusion nor checked-to-used identity continuity.",
+      "composition_as_stated": "Restricted lookup, a retained read descriptor and a checked hash are the only protection through later interpreter/backend/archive consumption.",
+      "disposition": "incompatible-as-stated",
+      "grants_authority": false,
+      "id": "pinned-lookup-and-hash-only",
+      "native_blocker_resolved": false,
+      "primary_source_ids": [
+        "openat2-upstream"
+      ],
+      "universal_impossibility_proven": false
+    },
+    {
+      "actual_component": null,
+      "actual_native_evidence": null,
+      "alternative_review_without_relaxation": "Prove universal coverage under independently reviewed assumptions compatible with all original privileged-writer obligations; no assumption may erase a writer class.",
+      "candidate_specific_unsatisfied_obligation": "No complete actual writer inventory, protocol/API/filesystem compatibility, enforcement of cooperation, privileged trust assumptions or independent lifetime evidence is selected.",
+      "composition_as_stated": "Hypothetical common compatible protocol covers every overlapping writer, protected guard object/handles and owner-loss behavior through exact original restoration and target evidence.",
+      "disposition": "unresolved",
+      "grants_authority": false,
+      "id": "complete-cooperative-protocol-hypothesis",
+      "native_blocker_resolved": false,
+      "primary_source_ids": [
+        "flock-upstream"
+      ],
+      "universal_impossibility_proven": false
+    },
+    {
+      "actual_component": null,
+      "actual_native_evidence": null,
+      "alternative_review_without_relaxation": "Review the complete prevention composition and explicit trust boundary against the full original contracts before any separately authorized native selection or testing.",
+      "candidate_specific_unsatisfied_obligation": "No exact policy, enforcement boundary, kernel/administrator/device trust, alias topology, owner-loss behavior or two-platform native evidence is selected.",
+      "composition_as_stated": "Hypothetical independently enforced policy prevents every uncontrolled overlapping effect while preserving approved backend behavior and original live rights.",
+      "disposition": "unresolved",
+      "grants_authority": false,
+      "id": "complete-enforced-writer-policy-hypothesis",
+      "native_blocker_resolved": false,
+      "primary_source_ids": [],
+      "universal_impossibility_proven": false
+    }
+  ],
+  "conditional_pause_step": 388,
+  "contract_relaxation_permitted": false,
+  "enforcement_boundary_questions": {
+    "actual_guard_object_and_open_description": null,
+    "all_writer_admission_and_prevention_boundary": null,
+    "checked_to_used_identity_continuity": null,
+    "known_child_effect_and_target_evidence_release": null,
+    "owner_loss_surviving_exclusion_or_prevention": null,
+    "privileged_alias_trust_boundary": null
+  },
+  "independent_resolution_criteria": [
+    "Full actual direct/manual/scheduled/nested/privileged/owned/foreign writer inventory across all original domains and effect graph; unknown or nonparticipant blocks admission.",
+    "Actual stable guard object, API/ranges/filesystem semantics, open description/FD aliases and ancestors/mount identity; distinct from reference FD9 and no child-unlockable alias.",
+    "Independently established compatible universal protocol or controlled prevention across all original writers, including privileged and backing-object routes; explicit original-compatible trust assumptions, no scope erasure.",
+    "Exclusion before fresh original guarded capture through every actual consumer/effect, recovery, exact restoration, full invariants and target evidence before known release; no writes to target afterward.",
+    "Owner-loss/contention/replacement/loss/unknown latches stop and pending; independent prevention or surviving exclusion plus known children/in-flight drain, no force unlock/reacquire/rebind.",
+    "Exact protected checked-to-used bytes, object and metadata/presence/absence identities through every interpreter/backend/helper/archive consumer; no path/hash/namespace-only shortcut.",
+    "Separate actual Slackware15.0/current source/config/storage/policy support and independent full proof-case/raw observations; repository checks never native evidence.",
+    "Whole original320-327/347/348/365/372/377 and stage12 remain normative; safe containment review and a fresh explicit bounded native-test grant precede any future native experiment."
+  ],
+  "native_cases_run": 0,
+  "native_proofs_added": 0,
+  "next_preparable_step_after_complete381_acceptance": 382,
+  "no_automatic389": true,
+  "original324_baseline_contract": {
+    "actual_backup_bindings": null,
+    "actual_baseline": null,
+    "expected": "original-to-reviewed-predecessor-to-local-isolation-and-fresh-pkglist-to-exact-target-to-original; preserve-original-inputs-through-all-approved-deltas",
+    "identity": "single-original-production-baseline-under-continuous-guard-content-owner-mode-type-presence-absence-and-canonical-alias-objects-not-early-preflight-or-self-rebound-current-state",
+    "owned_artifacts": "only-individually-recorded-whitelisted-transaction-owned-work-backup-binding-evidence-effects-separated; no-broad-subtree-exclusion-to-hide-target-drift",
+    "scope": "exact-target-config-state-boot-GenInitrd-unrelated-package-source-archive-code-dependency-and-identity-invariants"
+  },
+  "original324_guard_contract": {
+    "actual_guard_object": null,
+    "actual_native_protocol": null,
+    "actual_writer_inventory": null,
+    "admission": "reviewed-common-compatible-protocol-or-proven-controlled-entrypoint-prevention; unknown-or-nonparticipating-writer-blocks-admission",
+    "continuity": "before-and-through-every-owned-target-config-package-nested-refresh-helper-consumption-recovery-and-target-evidence-effect",
+    "coverage": "all-seven-requirement-domains-and-every-overlapping-direct-manual-scheduled-helper-privileged-writer-through-entire-mutation-window",
+    "failure": "loss-contention-object-replacement-unverifiable-owner-or-writer-state-latches-stop-and-pending; no-force-unlock-unlink-recreate-reacquire-or-rebind",
+    "handle": "stable-supervisor-owned-distinct-from-reference-FD9-not-child-inherited-unlockable; actual-object-API-range-mount-open-description-lifetime-proof-required",
+    "owner_loss": "parent-exit-not-child-quiescence; exclusion-must-survive-or-independently-prevent-all-surviving-writes-otherwise-unknown-pending",
+    "release": "known-owned-child-quiescence-exact-original-restoration-full-invariants-and-target-evidence-before-release; no-target-writes-afterward"
+  },
+  "original324_interstage_contract": {
+    "authority": "same-original-consumed-active-attempt-and323-live-split-rights; no-unused-grant-per-call",
+    "history": "frozen0/1/2/3-stages-not-rewritten; explicit-successor-integration-barrier-between1-and2",
+    "order": "stage0-readonly-memory-preflight-then-stage1-traps-then-acquire-outer-guard-and-fresh-revalidate-capture-original-in-memory-before-stage2-owned-writes",
+    "stage3": "persist-and-verify-exact-original-backups-from-guarded-capture-content-metadata-and-presence-before-predecessor-config-package-writes"
+  },
+  "original324_resource_domains": [
+    "package-database",
+    "Slackpkg-state",
+    "configuration-and-mirrors",
+    "boot-and-GenInitrd",
+    "source-and-archives",
+    "backend-and-dependencies",
+    "transaction-owned-state"
+  ],
+  "original372_writer_blocker": {
+    "current_authority": false,
+    "family_id": "writer-object-alias-exclusion",
+    "full_original372_candidate_family": {
+      "actual_component_selected": false,
+      "alternative_review_without_contract_relaxation": "Require proven controlled writer entrypoints or independently enforced policy with explicit trusted-administrator assumptions. Any unexcluded privileged writer or owner-loss gap blocks admission; no unlink/recreate/reacquire/force-unlock.",
+      "candidate_composition": "Compare supervisor-owned advisory coordination under proven universal cooperation with controlled-entrypoint prevention or independently enforced writer policy.",
+      "decision": "architecture-blocked-no-complete-privileged-writer-and-owner-loss-coverage",
+      "id": "writer-object-alias-exclusion",
+      "limitation_and_design_inference": "Advisory flock alone is insufficient for manual/scheduled/privileged nonparticipants. A protected supervisor FD avoids child-unlock only if no aliases leak; owner death can release it while children still write. Private mounts do not exclude host writers to shared backing objects.",
+      "native_property_proven": false,
+      "primary_source_ids": [
+        "flock",
+        "namespaces"
+      ],
+      "qualified_obligation_ids": [
+        "324/platform-writers-and-guard-identity",
+        "324/owner-child-failure-and-safe-recovery",
+        "324/interstage-fresh-original-baseline"
+      ],
+      "required_future_native_evidence": "Inventory every writer in all seven original resource domains,ancestors,mount/object aliases and actual lock APIs. Prove common compatible protocol or controlled prevention before fresh capture through all consumers,recovery and known target release; unknown/nonparticipant blocks admission."
+    },
+    "native_gap_closed": false
+  },
+  "original377_writer_conflict": {
+    "actual_resolution": null,
+    "current_authority": false,
+    "id": "all-writer-privileged-alias-lifetime",
+    "native_blocker_resolved": false,
+    "normative_relaxation_allowed": false,
+    "unresolved_requirement": "Every target/source/owned/publication writer, privileged alias, ancestor/mount/object/FD and checked-to-used lifetime needs actual independently established exclusion. Advisory locks, names and static inventories cannot establish all-writer containment."
+  },
+  "original_writer_resource_map_binding": {
+    "domain_count": 7,
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-platform-writer-serialization-requirements-review-writer-resource-map.tsv",
+    "sha256": "9f3b0fe638ca801fec47dd8bcf36c3caf92c016da61e3d1706e06a665765b39c"
+  },
+  "original_writer_resource_rows": [
+    {
+      "domain": "package-database",
+      "evidence": "actual-alias-object-writer-entrypoint-and-protocol-map",
+      "resources": "/var/lib/pkgtools/packages;/var/log/packages",
+      "status": "required-not-live-bound",
+      "writers": "direct-pkgtools;Slackpkg;wrappers;manual-package-writes"
+    },
+    {
+      "domain": "Slackpkg-state",
+      "evidence": "actual-backend-state-and-refresh-writer-exclusion",
+      "resources": "/var/lib/slackpkg;derived-TEMP-WORKDIR",
+      "status": "required-not-live-bound",
+      "writers": "refresh;check-updates;apply;scheduled-wrapper;state-cleanup"
+    },
+    {
+      "domain": "configuration-and-mirrors",
+      "evidence": "complete-mutation-window-and-owner-entrypoint-control",
+      "resources": "/etc/slackpkg/mirrors;/etc/slackpkg/slackpkg.conf;derived-config",
+      "status": "required-not-live-bound",
+      "writers": "package-config-scripts;manual-editor;restore;configuration-manager"
+    },
+    {
+      "domain": "boot-and-GenInitrd",
+      "evidence": "all-reachable-boot-config-writers-and-restore-exclusion",
+      "resources": "/boot;/etc/default/geninitrd",
+      "status": "required-not-live-bound",
+      "writers": "kernel-package-scripts;boot-tools;GenInitrd;manual-config;restore"
+    },
+    {
+      "domain": "source-and-archives",
+      "evidence": "source-and-archive-content-stability-through-consumption",
+      "resources": "fresh-local-source-tree;manifest;target;predecessor;baseline-archives",
+      "status": "required-not-live-bound",
+      "writers": "builder;staging;cleanup;package-source-edit"
+    },
+    {
+      "domain": "backend-and-dependencies",
+      "evidence": "312-complete-content-dependency-writer-exclusion",
+      "resources": "approved-launcher-interpreter-backend-and-all-runtime-dependencies",
+      "status": "required-not-live-bound",
+      "writers": "platform-updater;package-replacement;manual-payload-edit"
+    },
+    {
+      "domain": "transaction-owned-state",
+      "evidence": "only-reviewed-owned-writers-and-exclusive-path-bindings316",
+      "resources": "owned-work-backup-binding-evidence-and-restore-paths",
+      "status": "required-not-live-bound",
+      "writers": "owned-supervisor;owned-adapters;owned-children;foreign-overlap"
+    }
+  ],
+  "plan379_canonical_sha256": "226bf153118c650a3965344dea7f8b7a55a332a41ee378bf4e3c47b4c4bababf",
+  "plan379_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-feasibility-resolution-resume-planning-review-plan.json",
+  "platform_unknowns": [
+    {
+      "actual_guard_API_and_filesystem_semantics": null,
+      "actual_independent_evidence": null,
+      "actual_kernel_version": null,
+      "actual_object_ancestor_mount_alias_topology": null,
+      "actual_owner_child_failure_and_release_protocol": null,
+      "actual_writer_inventory": null,
+      "borrowed_platform_or_historical_results": false,
+      "domain": "package-database",
+      "native_entry_allowed": false,
+      "original_required_row": {
+        "domain": "package-database",
+        "evidence": "actual-alias-object-writer-entrypoint-and-protocol-map",
+        "resources": "/var/lib/pkgtools/packages;/var/log/packages",
+        "status": "required-not-live-bound",
+        "writers": "direct-pkgtools;Slackpkg;wrappers;manual-package-writes"
+      },
+      "platform": "Slackware-15.0",
+      "support_claimed": false
+    },
+    {
+      "actual_guard_API_and_filesystem_semantics": null,
+      "actual_independent_evidence": null,
+      "actual_kernel_version": null,
+      "actual_object_ancestor_mount_alias_topology": null,
+      "actual_owner_child_failure_and_release_protocol": null,
+      "actual_writer_inventory": null,
+      "borrowed_platform_or_historical_results": false,
+      "domain": "package-database",
+      "native_entry_allowed": false,
+      "original_required_row": {
+        "domain": "package-database",
+        "evidence": "actual-alias-object-writer-entrypoint-and-protocol-map",
+        "resources": "/var/lib/pkgtools/packages;/var/log/packages",
+        "status": "required-not-live-bound",
+        "writers": "direct-pkgtools;Slackpkg;wrappers;manual-package-writes"
+      },
+      "platform": "Slackware-current",
+      "support_claimed": false
+    },
+    {
+      "actual_guard_API_and_filesystem_semantics": null,
+      "actual_independent_evidence": null,
+      "actual_kernel_version": null,
+      "actual_object_ancestor_mount_alias_topology": null,
+      "actual_owner_child_failure_and_release_protocol": null,
+      "actual_writer_inventory": null,
+      "borrowed_platform_or_historical_results": false,
+      "domain": "Slackpkg-state",
+      "native_entry_allowed": false,
+      "original_required_row": {
+        "domain": "Slackpkg-state",
+        "evidence": "actual-backend-state-and-refresh-writer-exclusion",
+        "resources": "/var/lib/slackpkg;derived-TEMP-WORKDIR",
+        "status": "required-not-live-bound",
+        "writers": "refresh;check-updates;apply;scheduled-wrapper;state-cleanup"
+      },
+      "platform": "Slackware-15.0",
+      "support_claimed": false
+    },
+    {
+      "actual_guard_API_and_filesystem_semantics": null,
+      "actual_independent_evidence": null,
+      "actual_kernel_version": null,
+      "actual_object_ancestor_mount_alias_topology": null,
+      "actual_owner_child_failure_and_release_protocol": null,
+      "actual_writer_inventory": null,
+      "borrowed_platform_or_historical_results": false,
+      "domain": "Slackpkg-state",
+      "native_entry_allowed": false,
+      "original_required_row": {
+        "domain": "Slackpkg-state",
+        "evidence": "actual-backend-state-and-refresh-writer-exclusion",
+        "resources": "/var/lib/slackpkg;derived-TEMP-WORKDIR",
+        "status": "required-not-live-bound",
+        "writers": "refresh;check-updates;apply;scheduled-wrapper;state-cleanup"
+      },
+      "platform": "Slackware-current",
+      "support_claimed": false
+    },
+    {
+      "actual_guard_API_and_filesystem_semantics": null,
+      "actual_independent_evidence": null,
+      "actual_kernel_version": null,
+      "actual_object_ancestor_mount_alias_topology": null,
+      "actual_owner_child_failure_and_release_protocol": null,
+      "actual_writer_inventory": null,
+      "borrowed_platform_or_historical_results": false,
+      "domain": "configuration-and-mirrors",
+      "native_entry_allowed": false,
+      "original_required_row": {
+        "domain": "configuration-and-mirrors",
+        "evidence": "complete-mutation-window-and-owner-entrypoint-control",
+        "resources": "/etc/slackpkg/mirrors;/etc/slackpkg/slackpkg.conf;derived-config",
+        "status": "required-not-live-bound",
+        "writers": "package-config-scripts;manual-editor;restore;configuration-manager"
+      },
+      "platform": "Slackware-15.0",
+      "support_claimed": false
+    },
+    {
+      "actual_guard_API_and_filesystem_semantics": null,
+      "actual_independent_evidence": null,
+      "actual_kernel_version": null,
+      "actual_object_ancestor_mount_alias_topology": null,
+      "actual_owner_child_failure_and_release_protocol": null,
+      "actual_writer_inventory": null,
+      "borrowed_platform_or_historical_results": false,
+      "domain": "configuration-and-mirrors",
+      "native_entry_allowed": false,
+      "original_required_row": {
+        "domain": "configuration-and-mirrors",
+        "evidence": "complete-mutation-window-and-owner-entrypoint-control",
+        "resources": "/etc/slackpkg/mirrors;/etc/slackpkg/slackpkg.conf;derived-config",
+        "status": "required-not-live-bound",
+        "writers": "package-config-scripts;manual-editor;restore;configuration-manager"
+      },
+      "platform": "Slackware-current",
+      "support_claimed": false
+    },
+    {
+      "actual_guard_API_and_filesystem_semantics": null,
+      "actual_independent_evidence": null,
+      "actual_kernel_version": null,
+      "actual_object_ancestor_mount_alias_topology": null,
+      "actual_owner_child_failure_and_release_protocol": null,
+      "actual_writer_inventory": null,
+      "borrowed_platform_or_historical_results": false,
+      "domain": "boot-and-GenInitrd",
+      "native_entry_allowed": false,
+      "original_required_row": {
+        "domain": "boot-and-GenInitrd",
+        "evidence": "all-reachable-boot-config-writers-and-restore-exclusion",
+        "resources": "/boot;/etc/default/geninitrd",
+        "status": "required-not-live-bound",
+        "writers": "kernel-package-scripts;boot-tools;GenInitrd;manual-config;restore"
+      },
+      "platform": "Slackware-15.0",
+      "support_claimed": false
+    },
+    {
+      "actual_guard_API_and_filesystem_semantics": null,
+      "actual_independent_evidence": null,
+      "actual_kernel_version": null,
+      "actual_object_ancestor_mount_alias_topology": null,
+      "actual_owner_child_failure_and_release_protocol": null,
+      "actual_writer_inventory": null,
+      "borrowed_platform_or_historical_results": false,
+      "domain": "boot-and-GenInitrd",
+      "native_entry_allowed": false,
+      "original_required_row": {
+        "domain": "boot-and-GenInitrd",
+        "evidence": "all-reachable-boot-config-writers-and-restore-exclusion",
+        "resources": "/boot;/etc/default/geninitrd",
+        "status": "required-not-live-bound",
+        "writers": "kernel-package-scripts;boot-tools;GenInitrd;manual-config;restore"
+      },
+      "platform": "Slackware-current",
+      "support_claimed": false
+    },
+    {
+      "actual_guard_API_and_filesystem_semantics": null,
+      "actual_independent_evidence": null,
+      "actual_kernel_version": null,
+      "actual_object_ancestor_mount_alias_topology": null,
+      "actual_owner_child_failure_and_release_protocol": null,
+      "actual_writer_inventory": null,
+      "borrowed_platform_or_historical_results": false,
+      "domain": "source-and-archives",
+      "native_entry_allowed": false,
+      "original_required_row": {
+        "domain": "source-and-archives",
+        "evidence": "source-and-archive-content-stability-through-consumption",
+        "resources": "fresh-local-source-tree;manifest;target;predecessor;baseline-archives",
+        "status": "required-not-live-bound",
+        "writers": "builder;staging;cleanup;package-source-edit"
+      },
+      "platform": "Slackware-15.0",
+      "support_claimed": false
+    },
+    {
+      "actual_guard_API_and_filesystem_semantics": null,
+      "actual_independent_evidence": null,
+      "actual_kernel_version": null,
+      "actual_object_ancestor_mount_alias_topology": null,
+      "actual_owner_child_failure_and_release_protocol": null,
+      "actual_writer_inventory": null,
+      "borrowed_platform_or_historical_results": false,
+      "domain": "source-and-archives",
+      "native_entry_allowed": false,
+      "original_required_row": {
+        "domain": "source-and-archives",
+        "evidence": "source-and-archive-content-stability-through-consumption",
+        "resources": "fresh-local-source-tree;manifest;target;predecessor;baseline-archives",
+        "status": "required-not-live-bound",
+        "writers": "builder;staging;cleanup;package-source-edit"
+      },
+      "platform": "Slackware-current",
+      "support_claimed": false
+    },
+    {
+      "actual_guard_API_and_filesystem_semantics": null,
+      "actual_independent_evidence": null,
+      "actual_kernel_version": null,
+      "actual_object_ancestor_mount_alias_topology": null,
+      "actual_owner_child_failure_and_release_protocol": null,
+      "actual_writer_inventory": null,
+      "borrowed_platform_or_historical_results": false,
+      "domain": "backend-and-dependencies",
+      "native_entry_allowed": false,
+      "original_required_row": {
+        "domain": "backend-and-dependencies",
+        "evidence": "312-complete-content-dependency-writer-exclusion",
+        "resources": "approved-launcher-interpreter-backend-and-all-runtime-dependencies",
+        "status": "required-not-live-bound",
+        "writers": "platform-updater;package-replacement;manual-payload-edit"
+      },
+      "platform": "Slackware-15.0",
+      "support_claimed": false
+    },
+    {
+      "actual_guard_API_and_filesystem_semantics": null,
+      "actual_independent_evidence": null,
+      "actual_kernel_version": null,
+      "actual_object_ancestor_mount_alias_topology": null,
+      "actual_owner_child_failure_and_release_protocol": null,
+      "actual_writer_inventory": null,
+      "borrowed_platform_or_historical_results": false,
+      "domain": "backend-and-dependencies",
+      "native_entry_allowed": false,
+      "original_required_row": {
+        "domain": "backend-and-dependencies",
+        "evidence": "312-complete-content-dependency-writer-exclusion",
+        "resources": "approved-launcher-interpreter-backend-and-all-runtime-dependencies",
+        "status": "required-not-live-bound",
+        "writers": "platform-updater;package-replacement;manual-payload-edit"
+      },
+      "platform": "Slackware-current",
+      "support_claimed": false
+    },
+    {
+      "actual_guard_API_and_filesystem_semantics": null,
+      "actual_independent_evidence": null,
+      "actual_kernel_version": null,
+      "actual_object_ancestor_mount_alias_topology": null,
+      "actual_owner_child_failure_and_release_protocol": null,
+      "actual_writer_inventory": null,
+      "borrowed_platform_or_historical_results": false,
+      "domain": "transaction-owned-state",
+      "native_entry_allowed": false,
+      "original_required_row": {
+        "domain": "transaction-owned-state",
+        "evidence": "only-reviewed-owned-writers-and-exclusive-path-bindings316",
+        "resources": "owned-work-backup-binding-evidence-and-restore-paths",
+        "status": "required-not-live-bound",
+        "writers": "owned-supervisor;owned-adapters;owned-children;foreign-overlap"
+      },
+      "platform": "Slackware-15.0",
+      "support_claimed": false
+    },
+    {
+      "actual_guard_API_and_filesystem_semantics": null,
+      "actual_independent_evidence": null,
+      "actual_kernel_version": null,
+      "actual_object_ancestor_mount_alias_topology": null,
+      "actual_owner_child_failure_and_release_protocol": null,
+      "actual_writer_inventory": null,
+      "borrowed_platform_or_historical_results": false,
+      "domain": "transaction-owned-state",
+      "native_entry_allowed": false,
+      "original_required_row": {
+        "domain": "transaction-owned-state",
+        "evidence": "only-reviewed-owned-writers-and-exclusive-path-bindings316",
+        "resources": "owned-work-backup-binding-evidence-and-restore-paths",
+        "status": "required-not-live-bound",
+        "writers": "owned-supervisor;owned-adapters;owned-children;foreign-overlap"
+      },
+      "platform": "Slackware-current",
+      "support_claimed": false
+    }
+  ],
+  "primary_assignment_limits_normative_scope": false,
+  "primary_source_register": [
+    {
+      "id": "flock-upstream",
+      "inference_limit": "A distinct supervisor handle is only one constituent; no uniform all-filesystem advisory claim or actual installed support is inferred.",
+      "opened_blob": "1b1bbeb385cb404cabf35126dd617b1cd5ee1100",
+      "retrieval": "upstream master source page opened; tag man-pages-6.12 also opened; current man7 indexed excerpts retrieved but rendered manual direct opens failed; no original HTML/source byte capture",
+      "title": "Linux man-pages upstream flock(2) source",
+      "url": "https://kernel.googlesource.com/pub/scm/docs/man-pages/man-pages/+/refs/heads/master/man/man2/flock.2",
+      "verified_semantics": "Native Linux flock is associated with an open file description; dup/fork aliases can unlock it; last close releases it. Advisory I/O requires cooperation. NFS/SMB behavior and interaction with fcntl depend on kernel, protocol, server and mount options."
+    },
+    {
+      "id": "openat2-upstream",
+      "inference_limit": "Lookup restrictions alone provide no content immutability or future-consumer identity proof. Newly documented flags are not selected or asserted absent from actual platforms.",
+      "opened_blob": null,
+      "retrieval": "tagged man-pages-6.12 source page opened; current indexed manual excerpts retrieved; direct rendered manual and master source open failed; no original source byte capture",
+      "title": "Linux man-pages tagged upstream openat2(2) source",
+      "url": "https://kernel.googlesource.com/pub/scm/docs/man-pages/man-pages/+/refs/tags/man-pages-6.12/man/man2/openat2.2",
+      "verified_semantics": "Resolution restrictions govern this pathname lookup. RESOLVE_BENEATH limits traversal beneath dirfd; RESOLVE_NO_XDEV disallows mount crossings including bind mounts."
+    },
+    {
+      "id": "mount-namespace-upstream",
+      "inference_limit": "A private namespace view does not by itself exclude host writers to backing objects shared with that view.",
+      "opened_blob": null,
+      "retrieval": "tagged upstream source page opened; current indexed manual retrieved; direct rendered manual opens failed; no original source byte capture",
+      "title": "Linux man-pages tagged upstream mount_namespaces(7) source",
+      "url": "https://kernel.googlesource.com/pub/scm/docs/man-pages/man-pages/+/refs/tags/man-pages-6.12/man/man7/mount_namespaces.7",
+      "verified_semantics": "Mount namespaces separate mount-list views. A new namespace initially copies the mount list; mount-event propagation is separately configured."
+    },
+    {
+      "id": "shared-subtrees-kernel",
+      "inference_limit": "Private propagation is not a policy denying byte writes through another authorized alias.",
+      "opened_blob": null,
+      "retrieval": "primary kernel documentation page opened; private/shared propagation sections reviewed; no original HTML byte capture",
+      "title": "Linux kernel Shared Subtrees documentation",
+      "url": "https://docs.kernel.org/filesystems/sharedsubtree.html",
+      "verified_semantics": "Private propagation does not propagate mount and unmount events; bind mounts can provide other views of a mounted subtree."
+    }
+  ],
+  "schema": 1,
+  "scope": "repository-all-writer-alias-object-lifetime-decision-review-only",
+  "state": "prepared-user-acceptance-pending",
+  "step": 381,
+  "trust_boundary_review": {
+    "actual_device_storage_virtualization_trust": null,
+    "actual_kernel_enforcer_trust": null,
+    "actual_trusted_administrator_assumptions": null,
+    "coverage": "All original seven domains plus all original source/owned/evidence/publication and ancestor/mount/object/FD routes remain normative; classes are questions, never an exhaustive observed inventory.",
+    "original_contract_compatibility_verdict": null,
+    "privileged_writer_exclusion_by_assumption_permitted": false,
+    "required_writer_classes": [
+      "direct",
+      "manual",
+      "scheduled",
+      "nested-helper",
+      "privileged",
+      "source-and-archive",
+      "dependency-and-interpreter",
+      "owned",
+      "foreign-overlap",
+      "recovery",
+      "target-evidence",
+      "publication"
+    ],
+    "unreviewed_trust_is_pending_not_authorization": true
+  },
+  "universal_infeasibility_proven": false,
+  "verdict": "native-composition-remains-blocked-no-complete-all-writer-alias-owner-loss-enforcement",
+  "whole378_freeze_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-successor-design-freeze-and-safe-pause-review-freeze.json",
+  "whole378_freeze_sha256": "973825341a4ce27878edf82c675c15f384382f8f23fc77a96f0c325989404449",
+  "whole_original_requirements_normative": true,
+  "whole_stage12_obligation": "The whole original final-stage streams/status/origin requirement remains normative. Exact actor/event boundaries must independently reconcile complete stage12 evidence with a last external receipt that cannot observe its own final commit/durability. No shortened stage,renamed evidence scope,self-receipt or successful protocol is inferred; native causal refinement remains pending375/376."
+}
