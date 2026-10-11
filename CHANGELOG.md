@@ -1,3 +1,17 @@
+## Phase 1 step 372 — native platform primitive feasibility design
+
+- Accepted reported e6d341f /151 exact PASS, eight-file4114-insertion commit,
+  successful push and reported clean matching heads; complete uploaded bytes retained.
+- Compared ten candidate families against verified primary upstream documentation,
+  with twenty separate platform assessments and fourteen original writer-domain rows.
+- Preserved full321/323/324 contracts, three whole primary gap rows and all inherited
+  normative scope. Live whole-effect revocation and all-writer/owner-loss coverage
+  remain architecture blockers; other native compositions are unverified.
+- Selected no actual component/version/API, granted no execution/test authority and
+  discharged no native proofs/cases. No contract relaxation or fallback admission.
+- Complete372 return required before373; README377/conditionalpause378 unchanged,
+  last confirmed scoped pause368, no automatic379 or historical authority reuse.
+
 ## Phase 1 step 371 — issuer,admission and launch design
 
 - Accepted reported607d43c/133 PASS,exact8file5173insertion/seven-addition commit,
