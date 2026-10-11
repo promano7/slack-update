@@ -1,3 +1,18 @@
+## Phase 1 step 375 — independent evidence and oracle design
+
+- Accepted reported9bc9668 /289 exact PASS,eight-file14281-insertion/seven-addition
+  commit,successful push and reported clean matching heads; uploaded bytes preserved.
+- Drafted six source/trust role reviews,twelve full raw-group evidence reviews,six
+  fault-control gates and ten comparison requirements without a native comparator.
+- Preserved whole326/335/351 contracts,46fullproofs,52fullnativecases and1072ordered
+  proof-case relations;every case keeps all original evidence groups/proof/source gates.
+- Retained verifier-author allowance,null/empty distinction,ordered full vectors,
+  sticky original status,known mismatch beside pending,and whole stage12causal gap.
+- No collector/verifier/injector selection,native expected value,evidence/run/proof,
+  fresh test grant or native independence claim;all372architecture blockers remain.
+- Complete375 before376;README377/conditionalpause378,lastconfirmedpause368,
+  noautomatic379 or historical binding/consumed authority reuse.
+
 ## Phase 1 step 374 — target closure and separate publication design
 
 - Accepted reported39f33f8 /276 exact PASS,eight-file5728-insertion/seven-addition
