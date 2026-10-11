@@ -1,0 +1,2630 @@
+{
+  "all_full_original_requirements_normative": true,
+  "authored_design_is_actual_component": false,
+  "boundaries": {
+    "C_port_open": false,
+    "actual_global_host_closure": false,
+    "actual_host_state": "unobserved-not-claimed-absent",
+    "actual_live_bindings": null,
+    "actual_native_refinement_complete": false,
+    "actual_successor_selected": false,
+    "controller_action_required": false,
+    "current_step_strong_safe_pause": false,
+    "design_is_actual_native_refinement": false,
+    "design_is_actual_source_implementation": false,
+    "design_is_complete_native_graph": false,
+    "design_proposal_is_operational_implementation": false,
+    "execution_authorized": false,
+    "historical_binding_or_authority_reuse_allowed": false,
+    "kernel_package_edge_complete": false,
+    "last_confirmed_strong_safe_pause_step": 368,
+    "later_current_refresh_invalidates_repository_only_pause": false,
+    "machine_action_required": false,
+    "native_cases_run": 0,
+    "native_components_selected": false,
+    "native_graph_complete": false,
+    "native_proofs_added": 0,
+    "operational_conformance": false,
+    "operational_readiness": false,
+    "phase1_matrix_complete": false,
+    "phase2_open": false,
+    "production_entry_closed": true,
+    "reference_v1_frozen": false,
+    "runtime_authority": false,
+    "strong_safe_pause": false,
+    "target_machine_actions_authorized": false,
+    "version1_schema_frozen": false
+  },
+  "conditional_pause_step": 378,
+  "dependency_family_requirements": [
+    {
+      "design_requirement": "Exact shell/startup/environment/function/alias/PATH/builtin and scripts; no worker dynamic command resolution accepted without full binding.",
+      "full_original_family_canonical_sha256": "caccebc9a02d655d48df5334738d4bc8a0815f7e9c12076d06b9c5e3036087a9",
+      "id": "shell-resolution-and-startup",
+      "platform_inputs": [
+        {
+          "actual_consumption_relation": null,
+          "actual_independent_observation": null,
+          "actual_object_bytes": null,
+          "actual_version": null,
+          "execution_authorized": false,
+          "native_proof": false,
+          "platform": "Slackware-15.0",
+          "status": "required-platform-input-not-bound"
+        },
+        {
+          "actual_consumption_relation": null,
+          "actual_independent_observation": null,
+          "actual_object_bytes": null,
+          "actual_version": null,
+          "execution_authorized": false,
+          "native_proof": false,
+          "platform": "Slackware-current",
+          "status": "required-platform-input-not-bound"
+        }
+      ]
+    },
+    {
+      "design_requirement": "Exact backend version effective config complete selectors and every candidate; full streams/status vector and independently authored target-effect expectations.",
+      "full_original_family_canonical_sha256": "6f18cb683557cc4b431bee957a8497416f81b5b4a94d6f8791a8960ff020129b",
+      "id": "slackpkg-backend-and-full-selector",
+      "platform_inputs": [
+        {
+          "actual_consumption_relation": null,
+          "actual_independent_observation": null,
+          "actual_object_bytes": null,
+          "actual_version": null,
+          "execution_authorized": false,
+          "native_proof": false,
+          "platform": "Slackware-15.0",
+          "status": "required-platform-input-not-bound"
+        },
+        {
+          "actual_consumption_relation": null,
+          "actual_independent_observation": null,
+          "actual_object_bytes": null,
+          "actual_version": null,
+          "execution_authorized": false,
+          "native_proof": false,
+          "platform": "Slackware-current",
+          "status": "required-platform-input-not-bound"
+        }
+      ]
+    },
+    {
+      "design_requirement": "Exact package tools archives install scripts hooks interpreter and nested helper consumption; -postinst=off does not waive scripts or boot exclusions.",
+      "full_original_family_canonical_sha256": "4175bd8c915c1024a8c6e6497d051c0641efa5431891d936c1e9273fb1bbcfb3",
+      "id": "pkgtools-archives-and-install-hooks",
+      "platform_inputs": [
+        {
+          "actual_consumption_relation": null,
+          "actual_independent_observation": null,
+          "actual_object_bytes": null,
+          "actual_version": null,
+          "execution_authorized": false,
+          "native_proof": false,
+          "platform": "Slackware-15.0",
+          "status": "required-platform-input-not-bound"
+        },
+        {
+          "actual_consumption_relation": null,
+          "actual_independent_observation": null,
+          "actual_object_bytes": null,
+          "actual_version": null,
+          "execution_authorized": false,
+          "native_proof": false,
+          "platform": "Slackware-current",
+          "status": "required-platform-input-not-bound"
+        }
+      ]
+    },
+    {
+      "design_requirement": "Every nested parser/compressor/utility and loader input version/source/bytes must resolve; no name list or command -v proves closure.",
+      "full_original_family_canonical_sha256": "c7ca43fd99fbdc479f26e208a84fe34e3f6b263899ddd598b9bcd79155dd2a41",
+      "id": "core-utilities-parsers-and-compression",
+      "platform_inputs": [
+        {
+          "actual_consumption_relation": null,
+          "actual_independent_observation": null,
+          "actual_object_bytes": null,
+          "actual_version": null,
+          "execution_authorized": false,
+          "native_proof": false,
+          "platform": "Slackware-15.0",
+          "status": "required-platform-input-not-bound"
+        },
+        {
+          "actual_consumption_relation": null,
+          "actual_independent_observation": null,
+          "actual_object_bytes": null,
+          "actual_version": null,
+          "execution_authorized": false,
+          "native_proof": false,
+          "platform": "Slackware-current",
+          "status": "required-platform-input-not-bound"
+        }
+      ]
+    },
+    {
+      "design_requirement": "Python code stdlib site/import paths startup and input bytes must resolve if selected later; no foreign here-document string proves trusted execution.",
+      "full_original_family_canonical_sha256": "f8ca19c41a06b53b46f2ae8c0d1c32fb04b043bda62315df665553aea33457c8",
+      "id": "foreign-python-validator-runtime",
+      "platform_inputs": [
+        {
+          "actual_consumption_relation": null,
+          "actual_independent_observation": null,
+          "actual_object_bytes": null,
+          "actual_version": null,
+          "execution_authorized": false,
+          "native_proof": false,
+          "platform": "Slackware-15.0",
+          "status": "required-platform-input-not-bound"
+        },
+        {
+          "actual_consumption_relation": null,
+          "actual_independent_observation": null,
+          "actual_object_bytes": null,
+          "actual_version": null,
+          "execution_authorized": false,
+          "native_proof": false,
+          "platform": "Slackware-current",
+          "status": "required-platform-input-not-bound"
+        }
+      ]
+    },
+    {
+      "design_requirement": "Proposed kernel-edge entry omits optional git/SBo/Flatpak/build paths, but full reachability and dynamic writer exclusion stay unproven.",
+      "full_original_family_canonical_sha256": "1e4877c31e0578ccc76040ca915ee95fd4deb8c3dc3516dca19e31d8ae73e949",
+      "id": "optional-repository-and-build-tools",
+      "platform_inputs": [
+        {
+          "actual_consumption_relation": null,
+          "actual_independent_observation": null,
+          "actual_object_bytes": null,
+          "actual_version": null,
+          "execution_authorized": false,
+          "native_proof": false,
+          "platform": "Slackware-15.0",
+          "status": "required-platform-input-not-bound"
+        },
+        {
+          "actual_consumption_relation": null,
+          "actual_independent_observation": null,
+          "actual_object_bytes": null,
+          "actual_version": null,
+          "execution_authorized": false,
+          "native_proof": false,
+          "platform": "Slackware-current",
+          "status": "required-platform-input-not-bound"
+        }
+      ]
+    },
+    {
+      "design_requirement": "Proposed no boot generator right; independently deny nested generator/hooks and preserve full target boot/policy invariant/recovery obligations.",
+      "full_original_family_canonical_sha256": "8f0a31aba8f3115aa5079af91993e3374d2ed01d1a9ca4526289bce85f6a575e",
+      "id": "boot-generators-and-policy-hooks",
+      "platform_inputs": [
+        {
+          "actual_consumption_relation": null,
+          "actual_independent_observation": null,
+          "actual_object_bytes": null,
+          "actual_version": null,
+          "execution_authorized": false,
+          "native_proof": false,
+          "platform": "Slackware-15.0",
+          "status": "required-platform-input-not-bound"
+        },
+        {
+          "actual_consumption_relation": null,
+          "actual_independent_observation": null,
+          "actual_object_bytes": null,
+          "actual_version": null,
+          "execution_authorized": false,
+          "native_proof": false,
+          "platform": "Slackware-current",
+          "status": "required-platform-input-not-bound"
+        }
+      ]
+    },
+    {
+      "design_requirement": "Bind each executable ELF loader/shared object actual resolution and consumption, including helpers reached by scripts and diagnostics.",
+      "full_original_family_canonical_sha256": "caed3fd1f58a34825e3993fdd3d130ae6e1341464df30d9eccc3f1f4b7fd4ddb",
+      "id": "elf-loader-and-library-inputs",
+      "platform_inputs": [
+        {
+          "actual_consumption_relation": null,
+          "actual_independent_observation": null,
+          "actual_object_bytes": null,
+          "actual_version": null,
+          "execution_authorized": false,
+          "native_proof": false,
+          "platform": "Slackware-15.0",
+          "status": "required-platform-input-not-bound"
+        },
+        {
+          "actual_consumption_relation": null,
+          "actual_independent_observation": null,
+          "actual_object_bytes": null,
+          "actual_version": null,
+          "execution_authorized": false,
+          "native_proof": false,
+          "platform": "Slackware-current",
+          "status": "required-platform-input-not-bound"
+        }
+      ]
+    },
+    {
+      "design_requirement": "Pin exact effective configuration mirror/pkglist/package/source metadata and all aliases; no worker refresh/rebind to repair drift.",
+      "full_original_family_canonical_sha256": "914c9d04a392684e863c51b98dd1181a93e3b9ae4e015c3aca6d042debc6e685",
+      "id": "configuration-mirrors-and-source-metadata",
+      "platform_inputs": [
+        {
+          "actual_consumption_relation": null,
+          "actual_independent_observation": null,
+          "actual_object_bytes": null,
+          "actual_version": null,
+          "execution_authorized": false,
+          "native_proof": false,
+          "platform": "Slackware-15.0",
+          "status": "required-platform-input-not-bound"
+        },
+        {
+          "actual_consumption_relation": null,
+          "actual_independent_observation": null,
+          "actual_object_bytes": null,
+          "actual_version": null,
+          "execution_authorized": false,
+          "native_proof": false,
+          "platform": "Slackware-current",
+          "status": "required-platform-input-not-bound"
+        }
+      ]
+    },
+    {
+      "design_requirement": "Exact platform/process/namespace/FD/syscall/clock/fence behavior and all descendants required; standalone unshare/flock names are not enforcement.",
+      "full_original_family_canonical_sha256": "f5b0578c71c528a3d3d700c8d86458498525079e1f3c4d4d6f9f0fd6cc8c1d99",
+      "id": "process-namespace-FD-and-platform",
+      "platform_inputs": [
+        {
+          "actual_consumption_relation": null,
+          "actual_independent_observation": null,
+          "actual_object_bytes": null,
+          "actual_version": null,
+          "execution_authorized": false,
+          "native_proof": false,
+          "platform": "Slackware-15.0",
+          "status": "required-platform-input-not-bound"
+        },
+        {
+          "actual_consumption_relation": null,
+          "actual_independent_observation": null,
+          "actual_object_bytes": null,
+          "actual_version": null,
+          "execution_authorized": false,
+          "native_proof": false,
+          "platform": "Slackware-current",
+          "status": "required-platform-input-not-bound"
+        }
+      ]
+    },
+    {
+      "design_requirement": "Exact storage engine/filesystem/ownership/durability/no-replace/backup/publication and crash-uncertainty semantics; independent original receipt required.",
+      "full_original_family_canonical_sha256": "9ca58bab44bc101aa0bcf1f70e967e52f5e888c706af5137bccbda471170a9a7",
+      "id": "storage-recovery-and-publication",
+      "platform_inputs": [
+        {
+          "actual_consumption_relation": null,
+          "actual_independent_observation": null,
+          "actual_object_bytes": null,
+          "actual_version": null,
+          "execution_authorized": false,
+          "native_proof": false,
+          "platform": "Slackware-15.0",
+          "status": "required-platform-input-not-bound"
+        },
+        {
+          "actual_consumption_relation": null,
+          "actual_independent_observation": null,
+          "actual_object_bytes": null,
+          "actual_version": null,
+          "execution_authorized": false,
+          "native_proof": false,
+          "platform": "Slackware-current",
+          "status": "required-platform-input-not-bound"
+        }
+      ]
+    },
+    {
+      "design_requirement": "No historical payload decode/worker replay; any future generation/extraction graph must bind the checked object through actual consumption and generated source origin.",
+      "full_original_family_canonical_sha256": "62025416037586b61d5d54526f617c93bb00c2491fef2d6d38a43790a99cd4be",
+      "id": "generated-payload-and-runtime-consumption",
+      "platform_inputs": [
+        {
+          "actual_consumption_relation": null,
+          "actual_independent_observation": null,
+          "actual_object_bytes": null,
+          "actual_version": null,
+          "execution_authorized": false,
+          "native_proof": false,
+          "platform": "Slackware-15.0",
+          "status": "required-platform-input-not-bound"
+        },
+        {
+          "actual_consumption_relation": null,
+          "actual_independent_observation": null,
+          "actual_object_bytes": null,
+          "actual_version": null,
+          "execution_authorized": false,
+          "native_proof": false,
+          "platform": "Slackware-current",
+          "status": "required-platform-input-not-bound"
+        }
+      ]
+    }
+  ],
+  "design_graph_is_actual_shell_call_graph": false,
+  "design_milestones_redefine_original_stages": false,
+  "graph_admission_rules": [
+    {
+      "id": "scope-root",
+      "native_satisfied": false,
+      "requirement": "Fresh original attempt and exact platform/scope/worker entry version; old FQDN boot kernel version and consumed authority never supply current identity."
+    },
+    {
+      "id": "complete-entry-graph",
+      "native_satisfied": false,
+      "requirement": "Enumerate main/preparation/nested calls failure traps signals restart recovery cleanup final capture release and publication, including transitive non-shell effects."
+    },
+    {
+      "id": "dynamic-edge-closure",
+      "native_satisfied": false,
+      "requirement": "Resolve environment/startup/functions/aliases builtins foreign code helper choice hooks extracted/generated content library loading and config before admission; unknown edge blocks."
+    },
+    {
+      "id": "object-and-writer-closure",
+      "native_satisfied": false,
+      "requirement": "Bind full bytes size type owner/mode loader/config/hook provenance and aliases including parents hardlinks mounts rename open FD and every writer through consumption."
+    },
+    {
+      "id": "effect-and-child-closure",
+      "native_satisfied": false,
+      "requirement": "Map all target and owned writes observations temporary/log outputs pipelines descendants and denied/in-flight effects to original rights, budgets phases and independent raw groups."
+    },
+    {
+      "id": "backend-selector",
+      "native_satisfied": false,
+      "requirement": "Require full original exact candidate/selector/raw-vector contract, independently verify intended/no-op/unexpected effects and retain sticky child/failure status."
+    },
+    {
+      "id": "excluded-branch-proof",
+      "native_satisfied": false,
+      "requirement": "A missing entry, flag, operation name or namespace string is not exclusion; omitted optional/transport/boot/service effects need complete native graph and positive/negative independent denial controls."
+    },
+    {
+      "id": "platform-distinction",
+      "native_satisfied": false,
+      "requirement": "Keep Slackware15.0/current exact source/version/primitive/attempt/authority/oracle/capture separately; shared names never share proof or permission."
+    },
+    {
+      "id": "unknown-failure",
+      "native_satisfied": false,
+      "requirement": "Unknown claim spend spawn owned commit target outcome guard loss or publication/handoff cannot reset grant, replay, reacquire, rebind, renew deadline or imply safe closure."
+    },
+    {
+      "id": "no-successful-prefix",
+      "native_satisfied": false,
+      "requirement": "No unresolved graph may be published as a successful partial closure; all complete normative inputs remain required beyond these selected design links."
+    }
+  ],
+  "interfaces": [
+    {
+      "actual_channel_or_descriptor": null,
+      "current_capability_granted": false,
+      "detail_review_step": 371,
+      "from_role": "issuer-ledger",
+      "id": "original-admission",
+      "native_order_or_reachability_proven": false,
+      "proposed_interface": "Authenticated original context and durable claim/quarantine result; no reusable bearer authority.",
+      "status": "draft-interface-not-native-graph-edge",
+      "to_role": "launch-supervisor"
+    },
+    {
+      "actual_channel_or_descriptor": null,
+      "current_capability_granted": false,
+      "detail_review_step": 371,
+      "from_role": "launch-supervisor",
+      "id": "offline-bootstrap",
+      "native_order_or_reachability_proven": false,
+      "proposed_interface": "Original bounded authenticated in-memory one-shot context, canonical input and descriptor closure before effects.",
+      "status": "draft-interface-not-native-graph-edge",
+      "to_role": "worker-reference-entry"
+    },
+    {
+      "actual_channel_or_descriptor": null,
+      "current_capability_granted": false,
+      "detail_review_step": 372,
+      "from_role": "native-guard-boundary",
+      "id": "external-fence-observation",
+      "native_order_or_reachability_proven": false,
+      "proposed_interface": "Independent loss/deadline/revocation observations under original finite fences; no worker service channel.",
+      "status": "draft-interface-not-native-graph-edge",
+      "to_role": "launch-supervisor"
+    },
+    {
+      "actual_channel_or_descriptor": null,
+      "current_capability_granted": false,
+      "detail_review_step": 370,
+      "from_role": "worker-reference-entry",
+      "id": "scoped-child-invocation",
+      "native_order_or_reachability_proven": false,
+      "proposed_interface": "Exact reviewed input/config/helper/selector consumption with original scoped child rights and continuous containment.",
+      "status": "draft-interface-not-native-graph-edge",
+      "to_role": "backend-adapter"
+    },
+    {
+      "actual_channel_or_descriptor": null,
+      "current_capability_granted": false,
+      "detail_review_step": 373,
+      "from_role": "worker-reference-entry",
+      "id": "owned-backup-and-recovery",
+      "native_order_or_reachability_proven": false,
+      "proposed_interface": "Original approved deltas verified backups and finite recovery microsteps; never a fresh admission.",
+      "status": "draft-interface-not-native-graph-edge",
+      "to_role": "owned-recovery-boundary"
+    },
+    {
+      "actual_channel_or_descriptor": null,
+      "current_capability_granted": false,
+      "detail_review_step": 375,
+      "from_role": "backend-adapter",
+      "id": "raw-subject-observation",
+      "native_order_or_reachability_proven": false,
+      "proposed_interface": "All raw streams/status/effect identities via an independently reviewed capture origin; no trust in self-PASS.",
+      "status": "draft-interface-not-native-graph-edge",
+      "to_role": "independent-capture-plane"
+    },
+    {
+      "actual_channel_or_descriptor": null,
+      "current_capability_granted": false,
+      "detail_review_step": 374,
+      "from_role": "independent-capture-plane",
+      "id": "closed-data-handoff",
+      "native_order_or_reachability_proven": false,
+      "proposed_interface": "Immutable original captured bytes after required independent target/child closure and known release.",
+      "status": "draft-interface-not-native-graph-edge",
+      "to_role": "captured-data-publisher"
+    },
+    {
+      "actual_channel_or_descriptor": null,
+      "current_capability_granted": false,
+      "detail_review_step": 375,
+      "from_role": "captured-data-publisher",
+      "id": "durable-final-evidence",
+      "native_order_or_reachability_proven": false,
+      "proposed_interface": "Separate original record/final-receipt origin and durability with known-or-unknown outcome and no retry inference.",
+      "status": "draft-interface-not-native-graph-edge",
+      "to_role": "independent-verifier"
+    }
+  ],
+  "native_cases_run": 0,
+  "native_components_selected": false,
+  "native_graph_complete": false,
+  "native_proofs_added": 0,
+  "next_preparable_step_after_complete370_acceptance": 371,
+  "no_automatic379": true,
+  "operational_implementation_written": false,
+  "primary_gap_ids": [
+    "actual-successor-entry-and-transitive-graph",
+    "versioned-real-backend-and-full-selector",
+    "package-hooks-source-archive-and-helper-consumption"
+  ],
+  "proposed_order_requirements": [
+    {
+      "actual_native_event_relation": null,
+      "id": "original-claim",
+      "requirement": "Trusted issuer authentication and original irreversible durable claim/quarantine precede worker stage0 and request-binding preflight; unknown caller cannot burn victim grant."
+    },
+    {
+      "actual_native_event_relation": null,
+      "id": "original-launch",
+      "requirement": "Original durable single-launch pre-spend precedes exact spawn; outcome uncertainty quarantines without second spawn."
+    },
+    {
+      "actual_native_event_relation": null,
+      "id": "offline-bootstrap",
+      "requirement": "Bounded authenticated original memory input and canonical FD/capability closure before worker effects, without broker/RPC access."
+    },
+    {
+      "actual_native_event_relation": null,
+      "id": "fresh-baseline-before-owned-write",
+      "requirement": "Original traps guards then fresh original memory baseline before owned workspace creation; issuer/supervisor own earlier effects require their separate original contracts."
+    },
+    {
+      "actual_native_event_relation": null,
+      "id": "scoped-backend-and-recovery",
+      "requirement": "Checked-to-used inputs full child supervision and continuous original fences/budgets across admitted effects and same-attempt recovery."
+    },
+    {
+      "actual_native_event_relation": null,
+      "id": "known-target-and-child-closure",
+      "requirement": "Independent original full invariant and known-child evidence before known release; unknown outcome never treated as closed."
+    },
+    {
+      "actual_native_event_relation": null,
+      "id": "captured-data-publication",
+      "requirement": "After original known release, separate original captured-data publication and last independent durable receipt, no target reentry or unknown-outcome retry."
+    }
+  ],
+  "readme_reconciliation_step": 377,
+  "required_future_graph_record_fields": [
+    "exact-platform-and-original-attempt",
+    "entry-role-and-parent",
+    "full-source-config-helper-hook-bytes-and-provenance",
+    "checked-to-consumed-object-and-alias-identity",
+    "all-writers-and-continuous-lifetime",
+    "full-target-owned-effect-and-child-vector",
+    "original-phase-right-deadline-budget-and-revocation",
+    "independent-raw-origin-and-expected-vector",
+    "resolved-or-blocked-edge-status"
+  ],
+  "required_later_reviews": [
+    371,
+    372,
+    373,
+    374,
+    375,
+    376,
+    377,
+    378
+  ],
+  "roles": [
+    {
+      "actual_component": null,
+      "actual_implementation_bytes": null,
+      "actual_native_event_relation": null,
+      "actual_principal_or_trust_root": null,
+      "execution_authorized": false,
+      "id": "issuer-ledger",
+      "next_detail_review_step": 371,
+      "proposed_responsibility": "Trusted issuer and original durable grant owner outside worker capability domains.",
+      "required_constraints": [
+        "authenticate original principal and known grant without letting untrusted identities burn victims",
+        "linearizable irreversible consumption and quarantine of unknown claim or ACK",
+        "never return a consumed grant to unused or grant a worker broker channel"
+      ],
+      "status": "draft-responsibility-not-selected-component"
+    },
+    {
+      "actual_component": null,
+      "actual_implementation_bytes": null,
+      "actual_native_event_relation": null,
+      "actual_principal_or_trust_root": null,
+      "execution_authorized": false,
+      "id": "launch-supervisor",
+      "next_detail_review_step": 371,
+      "proposed_responsibility": "Separate original launch owner and whole descendant supervisor.",
+      "required_constraints": [
+        "durably pre-spend the one original launch before exact spawn",
+        "bound bootstrap and process descendants including logging and recovery launches",
+        "unknown spawn or guard loss never permits retry, reacquisition or renewed deadline"
+      ],
+      "status": "draft-responsibility-not-selected-component"
+    },
+    {
+      "actual_component": null,
+      "actual_implementation_bytes": null,
+      "actual_native_event_relation": null,
+      "actual_principal_or_trust_root": null,
+      "execution_authorized": false,
+      "id": "worker-reference-entry",
+      "next_detail_review_step": 370,
+      "proposed_responsibility": "Prospective narrow shell-reference successor entry for the kernel-headers edge scope.",
+      "required_constraints": [
+        "receive bounded authenticated original memory handoff then close bootstrap and inherited capabilities",
+        "install original failure/trap handling and continuous guards before fresh memory baseline and owned workspace effects",
+        "call only a fully reviewed backend interface; never dispatch historical generic main or generator"
+      ],
+      "status": "draft-responsibility-not-selected-component"
+    },
+    {
+      "actual_component": null,
+      "actual_implementation_bytes": null,
+      "actual_native_event_relation": null,
+      "actual_principal_or_trust_root": null,
+      "execution_authorized": false,
+      "id": "native-guard-boundary",
+      "next_detail_review_step": 372,
+      "proposed_responsibility": "Proposed external enforcement of original writer/alias, time and revocation relations.",
+      "required_constraints": [
+        "cover source/config/archive/target/object aliases and all writers for original required intervals",
+        "separate live forward recovery publication fences while offline worker has no online broker capability",
+        "deny new and account for in-flight effects on loss or uncertainty; do not reacquire"
+      ],
+      "status": "draft-responsibility-not-selected-component"
+    },
+    {
+      "actual_component": null,
+      "actual_implementation_bytes": null,
+      "actual_native_event_relation": null,
+      "actual_principal_or_trust_root": null,
+      "execution_authorized": false,
+      "id": "backend-adapter",
+      "next_detail_review_step": 370,
+      "proposed_responsibility": "Exact future version/config/selector-bound package transaction boundary.",
+      "required_constraints": [
+        "no worker PATH probing or unbounded dynamic helper selection",
+        "include pkgtools archives install scripts interpreter loader libraries and all descendant effects",
+        "complete streams and status vectors; sticky nonzero/unexpected/no-op must not become self PASS"
+      ],
+      "status": "draft-responsibility-not-selected-component"
+    },
+    {
+      "actual_component": null,
+      "actual_implementation_bytes": null,
+      "actual_native_event_relation": null,
+      "actual_principal_or_trust_root": null,
+      "execution_authorized": false,
+      "id": "owned-recovery-boundary",
+      "next_detail_review_step": 373,
+      "proposed_responsibility": "Original owned intent, backup, no-replace commit and finite same-attempt recovery.",
+      "required_constraints": [
+        "distinguish uncertain owned backup identity from uncertain target identity",
+        "preserve original finite pre-spent recovery rights and independently verify unchanged target when no backup exists",
+        "never replay an unknown commit or remove backups before known safe target closure"
+      ],
+      "status": "draft-responsibility-not-selected-component"
+    },
+    {
+      "actual_component": null,
+      "actual_implementation_bytes": null,
+      "actual_native_event_relation": null,
+      "actual_principal_or_trust_root": null,
+      "execution_authorized": false,
+      "id": "independent-capture-plane",
+      "next_detail_review_step": 375,
+      "proposed_responsibility": "Proposed collector with independently reviewed origin and raw observation inputs.",
+      "required_constraints": [
+        "account for its own source objects descriptors writers and observations in the global effect/lifetime review",
+        "do not infer event provenance from worker stdout or worker-controlled files",
+        "retain full independent raw groups and vectors through known target and child closure"
+      ],
+      "status": "draft-responsibility-not-selected-component"
+    },
+    {
+      "actual_component": null,
+      "actual_implementation_bytes": null,
+      "actual_native_event_relation": null,
+      "actual_principal_or_trust_root": null,
+      "execution_authorized": false,
+      "id": "captured-data-publisher",
+      "next_detail_review_step": 374,
+      "proposed_responsibility": "Proposed separate publication responsibility after required known target release.",
+      "required_constraints": [
+        "consume only original closed captured bytes; never reopen target or refresh/rebind",
+        "separate record archive checksum and final receipt no-replace durability and unknown outcomes",
+        "do not treat archive/checksum pairing as atomic or retry uncertain publication"
+      ],
+      "status": "draft-responsibility-not-selected-component"
+    },
+    {
+      "actual_component": null,
+      "actual_implementation_bytes": null,
+      "actual_native_event_relation": null,
+      "actual_principal_or_trust_root": null,
+      "execution_authorized": false,
+      "id": "independent-verifier",
+      "next_detail_review_step": 375,
+      "proposed_responsibility": "Proposed verifier and expectation owner with provenance independent of the subject.",
+      "required_constraints": [
+        "bind original expected vectors full raw origin and fresh per-platform attempt identity",
+        "authorship/receipt trust is independently reviewed and not supplied by a self-signing subject",
+        "durable final handoff loss stays unknown with no new grant or republish"
+      ],
+      "status": "draft-responsibility-not-selected-component"
+    }
+  ],
+  "runtime_authority": false,
+  "schema": 1,
+  "scope": "repository-operational-successor-design-workstream369-378-only",
+  "source_effect_treatments": [
+    {
+      "actual_object_bindings": null,
+      "actual_writer_set": null,
+      "design_requirement": "Startup/environment/function/alias/interpreter dependencies are explicit inputs; privileged mutable environment is never trusted by name.",
+      "execution_authorized": false,
+      "full_original_domain_canonical_sha256": "0f521a31796474bcc60238464d857edbffe4bdb84a435a931583a8e9b7af5ae3",
+      "full_original_source_anchors": [
+        {
+          "anchor": {
+            "full_line_text": "    PATH=$SLACK_UPDATE_SYSTEM_PATH\n",
+            "line_length_bytes": 35,
+            "line_number": 21,
+            "line_start_byte": 767,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "2f029c04aa777b481f0278086d6b7f24b9fc5be2e89fe27271ea1d415c45e2d5",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "PATH="
+        },
+        {
+          "anchor": {
+            "full_line_text": "    HOME=/root\n",
+            "line_length_bytes": 15,
+            "line_number": 22,
+            "line_start_byte": 802,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "9a20d1d5697ac3d507a52116831a888144230499671fe6ec16b767d9492d569f",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "HOME="
+        },
+        {
+          "anchor": {
+            "full_line_text": "    export PATH HOME USER LOGNAME SHELL TMPDIR LANG LC_ALL TERM\n",
+            "line_length_bytes": 64,
+            "line_number": 34,
+            "line_start_byte": 1003,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "2e2e67089017859ce59abf566d468656ae576fffcde0ac5b037f46f5d2e36b3f",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "export"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    umask 077\n",
+            "line_length_bytes": 14,
+            "line_number": 38,
+            "line_start_byte": 1225,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "f2eb1378513350f4836935cd37d65b7176d1d472878d4712fe5b440bec40345a",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "umask"
+        }
+      ],
+      "id": "execution-environment",
+      "native_effects_observed": null,
+      "native_exclusion_proven": false,
+      "proposed_role": "launch-supervisor",
+      "proposed_treatment": "review-before-any-entry",
+      "source_selection_exhaustive": false
+    },
+    {
+      "actual_object_bindings": null,
+      "actual_writer_set": null,
+      "design_requirement": "A cooperative pathname flock is not full writer/alias exclusion; retain the original continuously enforced interval.",
+      "execution_authorized": false,
+      "full_original_domain_canonical_sha256": "6e81b8345978d0734a8f46e307211848c8265cbc073966a4797e331e0c1f2115",
+      "full_original_source_anchors": [
+        {
+          "anchor": {
+            "full_line_text": "    if ! exec 9>\"$LOCKFILE\"; then\n",
+            "line_length_bytes": 34,
+            "line_number": 2127,
+            "line_start_byte": 69107,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "1db77df5fd7c1be5764ff7599ddb293c47eafc15472b54770fdef0e253d92541",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "exec 9>"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    if ! flock -n 9; then\n",
+            "line_length_bytes": 26,
+            "line_number": 2133,
+            "line_start_byte": 69316,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "f41e7b7a56bca4c65ec63a754c3e6e2b1349c15003bf1d71d095b246e44cd9e5",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "flock -n"
+        },
+        {
+          "anchor": {
+            "full_line_text": "        flock -u 9 2>/dev/null || true\n",
+            "line_length_bytes": 39,
+            "line_number": 2144,
+            "line_start_byte": 69582,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "3d1fe3e5c95129023c4650640bb9073ff8f85801e6a4cb0da7ac5e92f0b6c660",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "flock -u"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    exec 9>&-\n",
+            "line_length_bytes": 14,
+            "line_number": 2148,
+            "line_start_byte": 69658,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "4537337c8b603706e3e423490a93ce1c5772fa4c6c18848d6721a20dd133df97",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "exec 9>&-"
+        }
+      ],
+      "id": "instance-lock-descriptor",
+      "native_effects_observed": null,
+      "native_exclusion_proven": false,
+      "proposed_role": "native-guard-boundary",
+      "proposed_treatment": "requires-native-replacement-or-refinement",
+      "source_selection_exhaustive": false
+    },
+    {
+      "actual_object_bindings": null,
+      "actual_writer_set": null,
+      "design_requirement": "Workspace intent and first write require original authenticated/trap/guard/baseline ordering; temporary/log paths are effects.",
+      "execution_authorized": false,
+      "full_original_domain_canonical_sha256": "3480ede67f0599610367bdd95af58fad6eee6fc2dcb8d9fbee7f2e3b42e8307e",
+      "full_original_source_anchors": [
+        {
+          "anchor": {
+            "full_line_text": "    if ! mkdir -p \"$WORKDIR\" \"$LOGDIR\"; then\n",
+            "line_length_bytes": 45,
+            "line_number": 2301,
+            "line_start_byte": 74155,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "425de6199004e22047ef0e9b9b4b84605066ab694dd3db5688ba93c30079fb3a",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "mkdir"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    LOG=\"$LOGDIR/run-$DATE.log\"\n",
+            "line_length_bytes": 32,
+            "line_number": 2310,
+            "line_start_byte": 74429,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "7c259d1c49847fe3d22a5ea11c45faaecd97832d9a7efff70164f7e56c43a270",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "LOG="
+        },
+        {
+          "anchor": {
+            "full_line_text": "    if ! QUEUE_FINAL=$(mktemp); then\n",
+            "line_length_bytes": 37,
+            "line_number": 2323,
+            "line_start_byte": 74932,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "74cab21ed1ed3af024d75baa9badadb393a400f346b710067f3b350b91469eb6",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "mktemp"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    if ! ELF_LIBRARY_CACHE=$(mktemp); then\n",
+            "line_length_bytes": 43,
+            "line_number": 2339,
+            "line_start_byte": 75498,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "e7fac74efc9a739d4e48d122ac2e3df5c2d334017a746e439832732e2a61f225",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "mktemp"
+        }
+      ],
+      "id": "runtime-directories-and-temporaries",
+      "native_effects_observed": null,
+      "native_exclusion_proven": false,
+      "proposed_role": "owned-recovery-boundary",
+      "proposed_treatment": "original-owned-effect-review",
+      "source_selection_exhaustive": false
+    },
+    {
+      "actual_object_bindings": null,
+      "actual_writer_set": null,
+      "design_requirement": "Do not call the historical check/dry-run command as a no-effect preflight; any needed local writes require original owned-effect review.",
+      "execution_authorized": false,
+      "full_original_domain_canonical_sha256": "36d7f1f79e97cdd42c02616c57311d00b05681be66de2ea88930729c7cca3df6",
+      "full_original_source_anchors": [
+        {
+          "anchor": {
+            "full_line_text": "    if ! mkdir -p \"$LOGDIR\"; then\n",
+            "line_length_bytes": 34,
+            "line_number": 2355,
+            "line_start_byte": 75820,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "bfabe1874e3dafd843a060f89d25625276cf2a3fbeb54b14c8a169cd254ba405",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "mkdir"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    if ! RUNTIME_TMPDIR=$(mktemp -d /tmp/slack-update-dry-run.XXXXXX); then\n",
+            "line_length_bytes": 76,
+            "line_number": 2366,
+            "line_start_byte": 76112,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "9de185122a333f70edf7fdccfe8d769a942e6016a9a2c949ba6dc2de22e3d2fa",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "mktemp -d"
+        },
+        {
+          "anchor": {
+            "full_line_text": "        if ! : > \"$runtime_file\"; then\n",
+            "line_length_bytes": 39,
+            "line_number": 2398,
+            "line_start_byte": 77240,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "ac15126c9966643e47c64d217c03496c09ac4c20cdce9be7addb5b53593b102f",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": ": >"
+        },
+        {
+          "anchor": {
+            "full_line_text": "        : > \"$QUEUE_CORE\"\n",
+            "line_length_bytes": 26,
+            "line_number": 3023,
+            "line_start_byte": 100104,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "e4ccdabf831fcadd61df48ce813dc3ea5d8e1e76805e75971ebb794c5901a49d",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": ": >"
+        }
+      ],
+      "id": "dry-run-state-files",
+      "native_effects_observed": null,
+      "native_exclusion_proven": false,
+      "proposed_role": "worker-reference-entry",
+      "proposed_treatment": "no-generic-dry-run-dispatch",
+      "source_selection_exhaustive": false
+    },
+    {
+      "actual_object_bindings": null,
+      "actual_writer_set": null,
+      "design_requirement": "Logging children redirections deletions and retained descriptors belong to the whole descendant and owned-effect graph.",
+      "execution_authorized": false,
+      "full_original_domain_canonical_sha256": "9ba3a7b8618b14e9f402ffeeaaa3b00348e26d1852bb23e74a2b4991ba4cb01c",
+      "full_original_source_anchors": [
+        {
+          "anchor": {
+            "full_line_text": "    find \"$LOGDIR\" -name 'run-*.log' -mtime +\"$LOG_RETENTION_DAYS\" -delete 2>/dev/null || true\n",
+            "line_length_bytes": 95,
+            "line_number": 2475,
+            "line_start_byte": 79932,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "058788e666f7cd65cb97ddf5f2c1e24ed5442eb748efb70908270f53b77a2b5f",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "-delete"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    if ! : >> \"$LOG\"; then\n",
+            "line_length_bytes": 27,
+            "line_number": 2488,
+            "line_start_byte": 80313,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "bf88451c992fc31a8250a784db63f522b77a6b2d8ed3b33d0844694680742f47",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": ": >>"
+        },
+        {
+          "anchor": {
+            "full_line_text": "        if ! exec 3>&1; then\n",
+            "line_length_bytes": 29,
+            "line_number": 2499,
+            "line_start_byte": 80837,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "47be597ae1f92239d5d66a4416cc01d49a732373f549a84649bd6d631411cd55",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "exec 3>&1"
+        },
+        {
+          "anchor": {
+            "full_line_text": "        exec > >(sed 's/\\x1b\\[[0-9;]*[mGKHJ]//g; s/\\r//' | tee -a \"$LOG\" >&2) 2>&1\n",
+            "line_length_bytes": 83,
+            "line_number": 2503,
+            "line_start_byte": 80982,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "1e36665ef7861db885b937d91bbff26bc98fdae31b15d6061968c31c4e967013",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "tee -a"
+        }
+      ],
+      "id": "log-rotation-and-process-pipelines",
+      "native_effects_observed": null,
+      "native_exclusion_proven": false,
+      "proposed_role": "launch-supervisor",
+      "proposed_treatment": "full-child-and-FD-review",
+      "source_selection_exhaustive": false
+    },
+    {
+      "actual_object_bindings": null,
+      "actual_writer_set": null,
+      "design_requirement": "Original baseline is captured to memory before owned workspace; raw identity is pinned through consumers and restoration audit, independent origin remains required.",
+      "execution_authorized": false,
+      "full_original_domain_canonical_sha256": "0404af07c9f1e8f74091e38a2bd190fc7e9475b5e316f8ad3ffaea3e56f2c1f2",
+      "full_original_source_anchors": [
+        {
+          "anchor": {
+            "full_line_text": "    find -H \"$PACKAGE_DATABASE\" -maxdepth 1 -type f -printf '%f\\n'\n",
+            "line_length_bytes": 67,
+            "line_number": 694,
+            "line_start_byte": 22881,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "ee3f0255c1cd26640f31c9aacbfd576b448cbd1550a5bc58e279bc9a3b8e2f55",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "find -H"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    listing=$(mktemp \"$destination_directory/.package-records.XXXXXX\") || {\n",
+            "line_length_bytes": 76,
+            "line_number": 772,
+            "line_start_byte": 25020,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "902e565ad50574862bed71c305415c9d5d94f36f76f8db4d86ce0607cda08c61",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "mktemp"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    if ! enumerate_package_database_records > \"$listing\"; then\n",
+            "line_length_bytes": 63,
+            "line_number": 787,
+            "line_start_byte": 25704,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "1805d157ce0143e3150d690d75fd389f6dcb9b9796a64d0880f883b279b45d49",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "enumerate_package_database_records"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    if ! mv -f -- \"$candidate\" \"$destination\"; then\n",
+            "line_length_bytes": 52,
+            "line_number": 830,
+            "line_start_byte": 27157,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "9b2859ef51eab8da44c0c421144485a11f9346c16d702b49d11843625b2de5e2",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "mv -f"
+        }
+      ],
+      "id": "package-snapshot-files",
+      "native_effects_observed": null,
+      "native_exclusion_proven": false,
+      "proposed_role": "independent-capture-plane",
+      "proposed_treatment": "capture-and-owned-output-review",
+      "source_selection_exhaustive": false
+    },
+    {
+      "actual_object_bindings": null,
+      "actual_writer_set": null,
+      "design_requirement": "Offline worker and nested helpers must not probe network mirrors or broker/RPC channels; actual denial must be independently proved.",
+      "execution_authorized": false,
+      "full_original_domain_canonical_sha256": "915942c4034f43a0ac716ccfed8fe35278fb4726bef41a2b91bdbc737c9bfccb",
+      "full_original_source_anchors": [
+        {
+          "anchor": {
+            "full_line_text": "        active_count=$((active_count + 1))\n",
+            "line_length_bytes": 43,
+            "line_number": 2537,
+            "line_start_byte": 81931,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "780720c5c2e3392a001f07043413603ff744d2fff225f89c950c1160c0bdda3c",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "active_count"
+        },
+        {
+          "anchor": {
+            "full_line_text": "            if ! wget --spider --quiet \\\n",
+            "line_length_bytes": 41,
+            "line_number": 2567,
+            "line_start_byte": 82827,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "7a69e344bff3d22e6a01fa051a2591b9f5449ddf05d4ec0d0d57b006a8686e53",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "wget --spider"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    slackpkg -batch=on -default_answer=n check-updates\n",
+            "line_length_bytes": 55,
+            "line_number": 2612,
+            "line_start_byte": 84291,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "04227d06cf7602505c2bb1fa0e466ea18e86d3017102e7e54afef4cfe15e4a2f",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "slackpkg"
+        }
+      ],
+      "id": "mirror-transport-probe",
+      "native_effects_observed": null,
+      "native_exclusion_proven": false,
+      "proposed_role": "native-guard-boundary",
+      "proposed_treatment": "proposed-denied-worker-transport",
+      "source_selection_exhaustive": false
+    },
+    {
+      "actual_object_bindings": null,
+      "actual_writer_set": null,
+      "design_requirement": "Fresh full selectors and complete candidate sets plus exact backend/config/archive/hook graph; distinguish no-op partial failure and unexpected effects.",
+      "execution_authorized": false,
+      "full_original_domain_canonical_sha256": "6c77ad23ff6d26f604639ccd4d07479cd7605eea1fb64bd6edccd781198608cd",
+      "full_original_source_anchors": [
+        {
+          "anchor": {
+            "full_line_text": "    slackpkg -batch=on -default_answer=y update || SLACKPKG_UPDATE_STATUS=$?\n",
+            "line_length_bytes": 77,
+            "line_number": 3433,
+            "line_start_byte": 115759,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "267886472b2fe29185882c16294adae12dc137e41a2c7e924301092bf68b490e",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "slackpkg"
+        },
+        {
+          "anchor": {
+            "full_line_text": "        slackpkg -batch=on -default_answer=y -postinst=off install-new || SLACKPKG_INSTALL_NEW_STATUS=$?\n",
+            "line_length_bytes": 105,
+            "line_number": 3437,
+            "line_start_byte": 115924,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "ee112c87eb1152007131e0f1271737bbefea5fceeb022089ebabefd122cd0cf9",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "-postinst=off"
+        },
+        {
+          "anchor": {
+            "full_line_text": "        slackpkg -batch=on -default_answer=y -postinst=off upgrade-all || SLACKPKG_UPGRADE_ALL_STATUS=$?\n",
+            "line_length_bytes": 105,
+            "line_number": 3444,
+            "line_start_byte": 116188,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "ef9eaa7fcd15d2fafbc4f45bffdd0176928c804828d61b40a83bf277216078af",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "-postinst=off"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    upgradepkg \"$PREDECESSOR_TRANSPORT\" > \"$RUN_DIR/predecessor-staging.stdout\" 2> \"$RUN_DIR/predecessor-staging.stderr\" || fail 'predecessor header staging failed'\n",
+            "line_length_bytes": 165,
+            "line_number": 709,
+            "line_start_byte": 41389,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-body.sh",
+            "raw_line_sha256": "a1b22be4573fa15c1bfcdcb63cedbed45231cb5800cd404b9c2c99bea992e33c",
+            "source_role": "historical-worker-body-not-a-selected-native-successor",
+            "source_sha256": "c5e8bce4802ecefdc72d975c269ece98fb3d7364c856665e64254b7fc9097a68"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "upgradepkg"
+        }
+      ],
+      "id": "package-backend-effects",
+      "native_effects_observed": null,
+      "native_exclusion_proven": false,
+      "proposed_role": "backend-adapter",
+      "proposed_treatment": "exact-scope-only-after-review",
+      "source_selection_exhaustive": false
+    },
+    {
+      "actual_object_bindings": null,
+      "actual_writer_set": null,
+      "design_requirement": "Any original-approved policy delta requires exact consumption aliases owned backup and recovery; GenInitrd execution is not authorized by policy text or -postinst=off.",
+      "execution_authorized": false,
+      "full_original_domain_canonical_sha256": "59106a598a95e36112fc0414627218803ee79bcb9d7f943e7136b79e6258378f",
+      "full_original_source_anchors": [
+        {
+          "anchor": {
+            "full_line_text": "    GENINITRD_POLICY_ORIGINAL_FINGERPRINT=$(geninitrd_policy_fingerprint \"$path\") || {\n",
+            "line_length_bytes": 87,
+            "line_number": 3237,
+            "line_start_byte": 107350,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "944431eda54f5380fda5628a02699274c3859d0416f170e41210b9e354188a9a",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "fingerprint"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    GENINITRD_POLICY_BACKUP=$(mktemp -- \"$parent/.geninitrd.slack-update.backup.XXXXXX\") || {\n",
+            "line_length_bytes": 94,
+            "line_number": 3242,
+            "line_start_byte": 107598,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "5d6afda2f0c538a9dc7a57247801e70e85351ad12083970ea4f63c5a093c9513",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "mktemp"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    cp --preserve=mode,ownership,timestamps -- \"$path\" \"$GENINITRD_POLICY_BACKUP\" || {\n",
+            "line_length_bytes": 87,
+            "line_number": 3255,
+            "line_start_byte": 108185,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "5540cb88220228e2d383ebffedd50bbe6691912d2245e09f2d397c0ad3d7b6b7",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "cp --preserve"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    mv -fT -- \"$GENINITRD_POLICY_STAGED\" \"$path\" || {\n",
+            "line_length_bytes": 54,
+            "line_number": 3303,
+            "line_start_byte": 110430,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "d29744c59d025d34daf02e54530335a573d2bbd0f96779dbd7f67c08eda3298b",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "mv -fT"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    mv -fT -- \"$GENINITRD_POLICY_BACKUP\" \"$path\" || {\n",
+            "line_length_bytes": 54,
+            "line_number": 3381,
+            "line_start_byte": 113890,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "8d88aa016a205613d2f4c82c80b37506b70ad509733cd31c8c8ae27b1fcd7074",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "mv -fT"
+        }
+      ],
+      "id": "GenInitrd-policy-override-and-restore",
+      "native_effects_observed": null,
+      "native_exclusion_proven": false,
+      "proposed_role": "owned-recovery-boundary",
+      "proposed_treatment": "scope-and-consumption-review",
+      "source_selection_exhaustive": false
+    },
+    {
+      "actual_object_bindings": null,
+      "actual_writer_set": null,
+      "design_requirement": "Kernel-edge prospective entry has no SBo workspace dispatch; native omission/exclusion across aliases and dynamic callers must be proved.",
+      "execution_authorized": false,
+      "full_original_domain_canonical_sha256": "d112d6e2a9853f7dfa5243e574e7aa7263a32eacaa812fb1b3d7fb3d430fa366",
+      "full_original_source_anchors": [
+        {
+          "anchor": {
+            "full_line_text": "    if ! mkdir -m 0700 -- \"$destination_directory\"; then\n",
+            "line_length_bytes": 57,
+            "line_number": 3734,
+            "line_start_byte": 125878,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "323cef9da4ecb47a83a3fd2a26f8bf1858a65ee465f55ac11ff45d5a3a0475ca",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "mkdir"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    SBO_GENERATED_QUEUE_OWNED_PATH=$destination_directory\n",
+            "line_length_bytes": 58,
+            "line_number": 3738,
+            "line_start_byte": 126062,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "b4d0ef596777fa600c77a64751362ab352aaff4fd93c921d2eca1102ccbaef18",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "SBO_GENERATED_QUEUE_OWNED_PATH"
+        },
+        {
+          "anchor": {
+            "full_line_text": "        relative_path=${source_file#\"$source_directory\"/}\n",
+            "line_length_bytes": 58,
+            "line_number": 3764,
+            "line_start_byte": 126970,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "d1128af7f0a0f5bdfa9cf2f393db521fbbb57a821bbe8b03a732879e799ee8ce",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "relative_path"
+        },
+        {
+          "anchor": {
+            "full_line_text": "        if ! mkdir -p -m 0700 -- \"$destination_parent\" \\\n",
+            "line_length_bytes": 57,
+            "line_number": 3774,
+            "line_start_byte": 127450,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "f6e6bb6eeb3947fefdc44df0ce148623f89b770231efa65ab56bc3eb775c3523",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "mkdir"
+        },
+        {
+          "anchor": {
+            "full_line_text": "            || ! cat -- \"$source_file\" > \"$destination_file\"; then\n",
+            "line_length_bytes": 67,
+            "line_number": 3776,
+            "line_start_byte": 127572,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "c58d7052f8e88a2b923b37c6c1eccc3cdceb44a3308f4c38b3187c9b786467ff",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "cat --"
+        }
+      ],
+      "id": "private-SBo-workspace",
+      "native_effects_observed": null,
+      "native_exclusion_proven": false,
+      "proposed_role": "worker-reference-entry",
+      "proposed_treatment": "proposed-unreachable-optional-branch",
+      "source_selection_exhaustive": false
+    },
+    {
+      "actual_object_bindings": null,
+      "actual_writer_set": null,
+      "design_requirement": "No git SBo Flatpak or CSB builder dispatch in this prospective scope; unreachable/excluded nested effects remain unproven.",
+      "execution_authorized": false,
+      "full_original_domain_canonical_sha256": "30b652dda2d54193407b083968bf50c3d185f52bda2144d6761469f348290fd7",
+      "full_original_source_anchors": [
+        {
+          "anchor": {
+            "full_line_text": "        flatpak update -y --noninteractive || FLATPAK_STATUS=$?\n",
+            "line_length_bytes": 64,
+            "line_number": 3506,
+            "line_start_byte": 118279,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "386d251ec8940fb6c473cc08740bffd53e01c5a48563148b5be5ac78d9ecdfe0",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "flatpak update"
+        },
+        {
+          "anchor": {
+            "full_line_text": "            sbopkg -r || SBOPKG_SYNC_STATUS=$?\n",
+            "line_length_bytes": 47,
+            "line_number": 3875,
+            "line_start_byte": 131455,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "15747a55e79c19311af9e4a2cadc18af44bf390bb5076f3caa9cdc5aa40e7fca",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "sbopkg -r"
+        },
+        {
+          "anchor": {
+            "full_line_text": "                    QUEUEDIR=\"$SBO_GENERATED_QUEUE_DIR\" sqg -a; then\n",
+            "line_length_bytes": 69,
+            "line_number": 3899,
+            "line_start_byte": 132731,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "f39f78e19ffbabd9d4de20cae909d31ba7639825d23f97e4eee13c6735148487",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "sqg -a"
+        },
+        {
+          "anchor": {
+            "full_line_text": "        if sbopkg -b -B \"$QUEUE_FINAL\"; then\n",
+            "line_length_bytes": 45,
+            "line_number": 4310,
+            "line_start_byte": 145819,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "36e2e19c00855317bee4d508a7ce0da10771412533b07cf70eb4ef65dbbf68e6",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "sbopkg -b"
+        },
+        {
+          "anchor": {
+            "full_line_text": "                && git -C \"$CSB_DIR\" reset --hard \"origin/$CSB_BRANCH\" 2>&1 \\\n",
+            "line_length_bytes": 78,
+            "line_number": 4341,
+            "line_start_byte": 146713,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "ea6f98ea288f5d6990b393b44ece558d53e2d7f0aabcf80311df76356dd1a504",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "reset --hard"
+        },
+        {
+          "anchor": {
+            "full_line_text": "                \"./$CSB_BUILDER\"\n",
+            "line_length_bytes": 33,
+            "line_number": 4360,
+            "line_start_byte": 147366,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "c8e9a6172a26f54e838e6ca0b94a4932ac82aa8a4e2a1b08690433280dc8b99d",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "$CSB_BUILDER"
+        }
+      ],
+      "id": "optional-repositories-and-builders",
+      "native_effects_observed": null,
+      "native_exclusion_proven": false,
+      "proposed_role": "worker-reference-entry",
+      "proposed_treatment": "proposed-unreachable-optional-branch",
+      "source_selection_exhaustive": false
+    },
+    {
+      "actual_object_bindings": null,
+      "actual_writer_set": null,
+      "design_requirement": "Diagnostics helper/library lookup and execution may add effects; any actual backend loader/library consumption remains fully required.",
+      "execution_authorized": false,
+      "full_original_domain_canonical_sha256": "f15018bae5483a554eec55606ff41d5c09ab423017dff8e67ad41c47e1e7b2bf",
+      "full_original_source_anchors": [
+        {
+          "anchor": {
+            "full_line_text": "    magic=$(LC_ALL=C od -An -tx1 -N4 -- \"$path\" 2>/dev/null | tr -d '[:space:]') || return 1\n",
+            "line_length_bytes": 93,
+            "line_number": 3980,
+            "line_start_byte": 135100,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "cb2d543141058c5756b46328bef2ca93d4a8137f398f6ea9da8f2d2d53b6efa4",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "od -An"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    LC_ALL=C readelf -d -- \"$object\" 2>>\"$BROKEN_ERRORS\" \\\n",
+            "line_length_bytes": 59,
+            "line_number": 3996,
+            "line_start_byte": 135508,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "b283517db2b90f49b4fbb714ae91c54f1843d63d742161ff1b1f32c88017bfa3",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "readelf -d"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    if ! LC_ALL=C /sbin/ldconfig -p 2>>\"$BROKEN_ERRORS\" \\\n",
+            "line_length_bytes": 58,
+            "line_number": 4039,
+            "line_start_byte": 136868,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "836c570888762ccfec10df45a88b59b87c0a8284b2d45956c8a04b55fe4d4c76",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "/sbin/ldconfig"
+        },
+        {
+          "anchor": {
+            "full_line_text": "        | awk '$0 ~ /^[[:space:]]/ && index($0, \"=>\") { print $1 \"\\t\" $NF }' \\\n",
+            "line_length_bytes": 79,
+            "line_number": 4040,
+            "line_start_byte": 136926,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "a1021094aae5e7e35d358ffc91c7c7a1baf2571581a0dec4439b438811b2dae4",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "awk"
+        }
+      ],
+      "id": "static-ELF-observation-and-diagnostics",
+      "native_effects_observed": null,
+      "native_exclusion_proven": false,
+      "proposed_role": "backend-adapter",
+      "proposed_treatment": "no-unreviewed-diagnostic-or-loader-path",
+      "source_selection_exhaustive": false
+    },
+    {
+      "actual_object_bindings": null,
+      "actual_writer_set": null,
+      "design_requirement": "No boot generator or replacement right follows from kernel-header scope; package hooks and aliases must be independently contained, full boot invariants retained.",
+      "execution_authorized": false,
+      "full_original_domain_canonical_sha256": "f21063b23a74b8f657b2d83b087a38db0dc8955457fcb124664696bb76e5846e",
+      "full_original_source_anchors": [
+        {
+          "anchor": {
+            "full_line_text": "        if mkinitrd -F; then\n",
+            "line_length_bytes": 29,
+            "line_number": 4628,
+            "line_start_byte": 155729,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "75c39894c4acf3b756b013d5a68e2d5a34ff62279cecb947bb38bf7869350a3e",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "mkinitrd -F"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    chmod 0600 -- \"$GRUB_TEMP_CONFIG\" || {\n",
+            "line_length_bytes": 43,
+            "line_number": 5042,
+            "line_start_byte": 172285,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "065826376df477214dbd50dcc6cff45c49f7bfdd89d16720bc92794b16496b41",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "chmod 0600"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    grub-script-check \"$GRUB_TEMP_CONFIG\"\n",
+            "line_length_bytes": 42,
+            "line_number": 5096,
+            "line_start_byte": 174352,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "085112d74031a4ba58613d0deb7015bd128b64bd64f2612f1604f299f2eb0942",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "grub-script-check"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    mv -fT -- \"$GRUB_TEMP_CONFIG\" \"$GRUB_CONFIG\"\n",
+            "line_length_bytes": 49,
+            "line_number": 5156,
+            "line_start_byte": 176558,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "97547788cc3e104367b70f36382170426498cb3ace191a30f1bd9797de6a8bda",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "mv -fT"
+        },
+        {
+          "anchor": {
+            "full_line_text": "        if grub-mkconfig -o \"$GRUB_TEMP_CONFIG\"; then\n",
+            "line_length_bytes": 54,
+            "line_number": 5218,
+            "line_start_byte": 178413,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "01d0662f7de2e5d66ff3d784c23139b6f0459086d5cbbcc53ae777c28e80dc0f",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "grub-mkconfig"
+        }
+      ],
+      "id": "boot-output-generation-and-replacement",
+      "native_effects_observed": null,
+      "native_exclusion_proven": false,
+      "proposed_role": "native-guard-boundary",
+      "proposed_treatment": "proposed-denied-boot-generation",
+      "source_selection_exhaustive": false
+    },
+    {
+      "actual_object_bindings": null,
+      "actual_writer_set": null,
+      "design_requirement": "Cleanup deletion is an effect, not automatic authority; keep backups children originals and guard intervals through known required closure.",
+      "execution_authorized": false,
+      "full_original_domain_canonical_sha256": "e1cbb337f3d8b8be1b040c150958071f04d48749e58b725f5c49c2c49f45e049",
+      "full_original_source_anchors": [
+        {
+          "anchor": {
+            "full_line_text": "        restore_geninitrd_grub_policy_override 2>/dev/null || \\\n",
+            "line_length_bytes": 64,
+            "line_number": 2426,
+            "line_start_byte": 78089,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "8b49f3c56b6b1fb1db10bc9b3119e226075982e2529afef2bd9e6e6d0cadecca",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "restore_geninitrd"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    rm -f \"${QUEUE_FINAL:-}\" \"${BROKEN_NEW:-}\" \"${STILL_BROKEN:-}\" \\\n",
+            "line_length_bytes": 69,
+            "line_number": 2438,
+            "line_start_byte": 78746,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "30236789e001c2dc48ca29d3d8f628b4328c6a9a70eaca43c84dad45be637f70",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "rm -f"
+        },
+        {
+          "anchor": {
+            "full_line_text": "        rm -rf -- \"$RUNTIME_TMPDIR\" 2>/dev/null || true\n",
+            "line_length_bytes": 56,
+            "line_number": 2445,
+            "line_start_byte": 79050,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "bd0ea54cb9c575efe62c22faaef5318f771fc0282413be2639d6b43b68a341bd",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "rm -rf"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    release_instance_lock\n",
+            "line_length_bytes": 26,
+            "line_number": 2448,
+            "line_start_byte": 79114,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "cd15e9a30de99bf94c8fa8f00110a22898792cbd43c18bf8fb770aedd324a45f",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "release_instance_lock"
+        }
+      ],
+      "id": "reference-cleanup-and-release",
+      "native_effects_observed": null,
+      "native_exclusion_proven": false,
+      "proposed_role": "owned-recovery-boundary",
+      "proposed_treatment": "full-original-closure-before-release",
+      "source_selection_exhaustive": false
+    },
+    {
+      "actual_object_bindings": null,
+      "actual_writer_set": null,
+      "design_requirement": "Prospective entry must not reproduce historical extraction/config/preflight/backup writes before traps guards and fresh original memory capture.",
+      "execution_authorized": false,
+      "full_original_domain_canonical_sha256": "95cc51c78802edfe6de82b99ecd6f93c964179557d7d54f1f3e5821cfad85c9c",
+      "full_original_source_anchors": [
+        {
+          "anchor": {
+            "full_line_text": "    install -d -m 0700 -o root -g root -- \"$EVIDENCE_ROOT\"\n",
+            "line_length_bytes": 59,
+            "line_number": 664,
+            "line_start_byte": 38678,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-body.sh",
+            "raw_line_sha256": "5bc11fb1a807fc0f166a4daa7db799c23b29ab50ea07edb35aa5eb0382e4d6a0",
+            "source_role": "historical-worker-body-not-a-selected-native-successor",
+            "source_sha256": "c5e8bce4802ecefdc72d975c269ece98fb3d7364c856665e64254b7fc9097a68"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "install -d"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    extract_payload reference \"$REFERENCE_FILE\"\n",
+            "line_length_bytes": 48,
+            "line_number": 670,
+            "line_start_byte": 38962,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-body.sh",
+            "raw_line_sha256": "1b8c12678aa978391aa2f27aa1d362005da2fe5b714a92da866f214323bd276b",
+            "source_role": "historical-worker-body-not-a-selected-native-successor",
+            "source_sha256": "c5e8bce4802ecefdc72d975c269ece98fb3d7364c856665e64254b7fc9097a68"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "extract_payload"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    extract_payload config \"$SOURCE_CONFIG\"\n",
+            "line_length_bytes": 44,
+            "line_number": 671,
+            "line_start_byte": 39010,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-body.sh",
+            "raw_line_sha256": "02110b23484d6c97f3f1733669de92d87cf3ef23cbd578b4e831e73ce60e89bf",
+            "source_role": "historical-worker-body-not-a-selected-native-successor",
+            "source_sha256": "c5e8bce4802ecefdc72d975c269ece98fb3d7364c856665e64254b7fc9097a68"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "extract_payload"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    derive_runtime_config \"$SOURCE_CONFIG\" \"$DERIVED_CONFIG\"\n",
+            "line_length_bytes": 61,
+            "line_number": 676,
+            "line_start_byte": 39421,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-body.sh",
+            "raw_line_sha256": "89730385cf521190671a765b4f74919704a86a78c3314305042b8d38439acf2a",
+            "source_role": "historical-worker-body-not-a-selected-native-successor",
+            "source_sha256": "c5e8bce4802ecefdc72d975c269ece98fb3d7364c856665e64254b7fc9097a68"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "derive_runtime_config"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    : > \"$RUN_DIR/preflight.tsv\"\n",
+            "line_length_bytes": 33,
+            "line_number": 684,
+            "line_start_byte": 39803,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-body.sh",
+            "raw_line_sha256": "9fc7ad647880b64c327f6f39f7365c7c768723c9ca0e5589cceb67788937cd1f",
+            "source_role": "historical-worker-body-not-a-selected-native-successor",
+            "source_sha256": "c5e8bce4802ecefdc72d975c269ece98fb3d7364c856665e64254b7fc9097a68"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": ": >"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    backup_mutable_state\n",
+            "line_length_bytes": 25,
+            "line_number": 702,
+            "line_start_byte": 41197,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-body.sh",
+            "raw_line_sha256": "f0846faaf8b5ece6727c74ce043abf8a592adc07b86a47e20f0417acc545872b",
+            "source_role": "historical-worker-body-not-a-selected-native-successor",
+            "source_sha256": "c5e8bce4802ecefdc72d975c269ece98fb3d7364c856665e64254b7fc9097a68"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "backup_mutable_state"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    trap cleanup_on_exit EXIT\n",
+            "line_length_bytes": 30,
+            "line_number": 703,
+            "line_start_byte": 41222,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-body.sh",
+            "raw_line_sha256": "58d64e0d7875f6cde7dd1747c7e05cc3a69303352f7129fdd5bfa8fa13109f15",
+            "source_role": "historical-worker-body-not-a-selected-native-successor",
+            "source_sha256": "c5e8bce4802ecefdc72d975c269ece98fb3d7364c856665e64254b7fc9097a68"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "trap"
+        }
+      ],
+      "id": "worker-preparation-before-traps",
+      "native_effects_observed": null,
+      "native_exclusion_proven": false,
+      "proposed_role": "worker-reference-entry",
+      "proposed_treatment": "reorder-required-in-future-source",
+      "source_selection_exhaustive": false
+    },
+    {
+      "actual_object_bindings": null,
+      "actual_writer_set": null,
+      "design_requirement": "Owned intent exclusive staging full byte write metadata/data/directory durability no-replace commit and known child outcome require separate cuts.",
+      "execution_authorized": false,
+      "full_original_domain_canonical_sha256": "2559350f2c5dbc1c45457b2110aa7063b9caa85b74e798844a95699f50e68b28",
+      "full_original_source_anchors": [
+        {
+          "anchor": {
+            "full_line_text": "    mkdir -m 0700 -- \"$BACKUP_ROOT\"\n",
+            "line_length_bytes": 36,
+            "line_number": 325,
+            "line_start_byte": 20112,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-body.sh",
+            "raw_line_sha256": "27b79f2cd78e488eed408fa409e0ecfe8d8aa52e1639f3347a62616daeb8ddd6",
+            "source_role": "historical-worker-body-not-a-selected-native-successor",
+            "source_sha256": "c5e8bce4802ecefdc72d975c269ece98fb3d7364c856665e64254b7fc9097a68"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "mkdir"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    cp -a -- \"$SLACKPKG_CONF\" \"$BACKUP_ROOT/slackpkg.conf\"\n",
+            "line_length_bytes": 59,
+            "line_number": 326,
+            "line_start_byte": 20148,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-body.sh",
+            "raw_line_sha256": "5315cc040bcead7beba5f1f2a7888fbe0962f9cb2030c27a6192c1f59d7b68b7",
+            "source_role": "historical-worker-body-not-a-selected-native-successor",
+            "source_sha256": "c5e8bce4802ecefdc72d975c269ece98fb3d7364c856665e64254b7fc9097a68"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "cp -a"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    upgradepkg --install-new \"$STAGED_TARGET\" >> \"$RUN_DIR/cleanup.stdout\" 2>> \"$RUN_DIR/cleanup.stderr\" || return 1\n",
+            "line_length_bytes": 117,
+            "line_number": 346,
+            "line_start_byte": 20975,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-body.sh",
+            "raw_line_sha256": "9b64c48f6f0b8078d20291fccfa9d67b86d5a5801e7269e20bf725de1d9b5bb5",
+            "source_role": "historical-worker-body-not-a-selected-native-successor",
+            "source_sha256": "c5e8bce4802ecefdc72d975c269ece98fb3d7364c856665e64254b7fc9097a68"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "upgradepkg --install-new"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    rm -f -- \"$SLACKPKG_CONF\" \"$SLACKPKG_MIRRORS\"\n",
+            "line_length_bytes": 50,
+            "line_number": 353,
+            "line_start_byte": 21249,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-body.sh",
+            "raw_line_sha256": "5c690857fe75c98484e705002d2d358f1d6fa82b4de144069d6a86480345872d",
+            "source_role": "historical-worker-body-not-a-selected-native-successor",
+            "source_sha256": "c5e8bce4802ecefdc72d975c269ece98fb3d7364c856665e64254b7fc9097a68"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "rm -f"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    rm -rf -- \"$SLACKPKG_STATE\"\n",
+            "line_length_bytes": 32,
+            "line_number": 356,
+            "line_start_byte": 21414,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-body.sh",
+            "raw_line_sha256": "101d40f9790c2bff14f1ca8796fbc7d08b4742645efa6e81f1a1606e9e721903",
+            "source_role": "historical-worker-body-not-a-selected-native-successor",
+            "source_sha256": "c5e8bce4802ecefdc72d975c269ece98fb3d7364c856665e64254b7fc9097a68"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "rm -rf"
+        },
+        {
+          "anchor": {
+            "full_line_text": "            rm -f -- \"$GENINITRD_POLICY\"\n",
+            "line_length_bytes": 41,
+            "line_number": 364,
+            "line_start_byte": 21650,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-body.sh",
+            "raw_line_sha256": "8b0c4e874cb6014d75a827cc51885861091bd6fbd01fe672ecc058e8924f6ba9",
+            "source_role": "historical-worker-body-not-a-selected-native-successor",
+            "source_sha256": "c5e8bce4802ecefdc72d975c269ece98fb3d7364c856665e64254b7fc9097a68"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "rm -f"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    restore_target_header || rc=1\n",
+            "line_length_bytes": 34,
+            "line_number": 377,
+            "line_start_byte": 21966,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-body.sh",
+            "raw_line_sha256": "8e46bf398eff217037711718cce99265864c6f22536e2b00ac520ff0128335e4",
+            "source_role": "historical-worker-body-not-a-selected-native-successor",
+            "source_sha256": "c5e8bce4802ecefdc72d975c269ece98fb3d7364c856665e64254b7fc9097a68"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "restore_target_header"
+        }
+      ],
+      "id": "worker-backup-and-restoration",
+      "native_effects_observed": null,
+      "native_exclusion_proven": false,
+      "proposed_role": "owned-recovery-boundary",
+      "proposed_treatment": "original-microstep-review",
+      "source_selection_exhaustive": false
+    },
+    {
+      "actual_object_bindings": null,
+      "actual_writer_set": null,
+      "design_requirement": "Exact extracted/source/config/mirror/helper/archive bytes stay bound through real consumption; unshare/env/bash text alone proves no containment.",
+      "execution_authorized": false,
+      "full_original_domain_canonical_sha256": "dff8e460015e8a89bcdbdea4f0b8c95f417e4bb3e7d3c86f3b6453e4366d66e8",
+      "full_original_source_anchors": [
+        {
+          "anchor": {
+            "full_line_text": "    cat \"$tmp_conf\" > \"$SLACKPKG_CONF\"\n",
+            "line_length_bytes": 39,
+            "line_number": 423,
+            "line_start_byte": 23813,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-body.sh",
+            "raw_line_sha256": "e3b1aa837d76645b76750f76afc8b0df3bd0b5d3544780a9595923452f328f24",
+            "source_role": "historical-worker-body-not-a-selected-native-successor",
+            "source_sha256": "c5e8bce4802ecefdc72d975c269ece98fb3d7364c856665e64254b7fc9097a68"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "cat"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    printf '%s\\n' \"$LOCAL_SOURCE_URI\" > \"$SLACKPKG_MIRRORS\"\n",
+            "line_length_bytes": 60,
+            "line_number": 424,
+            "line_start_byte": 23852,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-body.sh",
+            "raw_line_sha256": "596249bacf6dead2ef1d35b4721afdad0f87cba3d90c3573b821fe2fe0db0f37",
+            "source_role": "historical-worker-body-not-a-selected-native-successor",
+            "source_sha256": "c5e8bce4802ecefdc72d975c269ece98fb3d7364c856665e64254b7fc9097a68"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "printf"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    unshare -n -- cat /proc/net/dev > \"$RUN_DIR/network-namespace.txt\"\n",
+            "line_length_bytes": 71,
+            "line_number": 463,
+            "line_start_byte": 26094,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-body.sh",
+            "raw_line_sha256": "513a12317bb08f911f6262210a453f71715c70085f33ef0664d9a0b1be424ce0",
+            "source_role": "historical-worker-body-not-a-selected-native-successor",
+            "source_sha256": "c5e8bce4802ecefdc72d975c269ece98fb3d7364c856665e64254b7fc9097a68"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "unshare"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    unshare -n -- slackpkg -batch=on -default_answer=y update \\\n",
+            "line_length_bytes": 64,
+            "line_number": 464,
+            "line_start_byte": 26165,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-body.sh",
+            "raw_line_sha256": "578443a86797469436f067e6138b1c8f277335b7f36f21c0c48a85aaa929f46e",
+            "source_role": "historical-worker-body-not-a-selected-native-successor",
+            "source_sha256": "c5e8bce4802ecefdc72d975c269ece98fb3d7364c856665e64254b7fc9097a68"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "slackpkg"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    unshare -n -- env SLACK_UPDATE_CONFIG=\"$DERIVED_CONFIG\" bash \"$REFERENCE_FILE\" --apply --json \\\n",
+            "line_length_bytes": 100,
+            "line_number": 562,
+            "line_start_byte": 32347,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-body.sh",
+            "raw_line_sha256": "02ee0fa038792dfae2b0e243a2ced5ffa7f80c1306c9d6acfaa75fd4ba1b0508",
+            "source_role": "historical-worker-body-not-a-selected-native-successor",
+            "source_sha256": "c5e8bce4802ecefdc72d975c269ece98fb3d7364c856665e64254b7fc9097a68"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "bash"
+        },
+        {
+          "anchor": {
+            "full_line_text": "        > \"$RUN_DIR/reference-result.json\" 2> \"$RUN_DIR/reference.stderr\" || rc=$?\n",
+            "line_length_bytes": 83,
+            "line_number": 563,
+            "line_start_byte": 32447,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-body.sh",
+            "raw_line_sha256": "78c936a1d5a7adcf93b59029152b6a7fa719903e1cad48800e343feea20504ed",
+            "source_role": "historical-worker-body-not-a-selected-native-successor",
+            "source_sha256": "c5e8bce4802ecefdc72d975c269ece98fb3d7364c856665e64254b7fc9097a68"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "reference-result.json"
+        }
+      ],
+      "id": "worker-config-and-native-child-launch",
+      "native_effects_observed": null,
+      "native_exclusion_proven": false,
+      "proposed_role": "backend-adapter",
+      "proposed_treatment": "checked-through-consumed-identity-review",
+      "source_selection_exhaustive": false
+    },
+    {
+      "actual_object_bindings": null,
+      "actual_writer_set": null,
+      "design_requirement": "Final native full invariants and known child closure precede known target release; flags do not replace independent observations.",
+      "execution_authorized": false,
+      "full_original_domain_canonical_sha256": "302c71babcbbd54d9fe8f878270d895bde2c5c242bcdf69d746767fbd327ac16",
+      "full_original_source_anchors": [
+        {
+          "anchor": {
+            "full_line_text": "    [[ $(package_records kernel-headers) == \"$TARGET_RECORD\" ]] || fail 'reference apply did not restore the target header record'\n",
+            "line_length_bytes": 131,
+            "line_number": 718,
+            "line_start_byte": 41841,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-body.sh",
+            "raw_line_sha256": "1ea5f9b5ded19073de3ae54e48851c7f62f093111de2d4b61e23b98839c77a11",
+            "source_role": "historical-worker-body-not-a-selected-native-successor",
+            "source_sha256": "c5e8bce4802ecefdc72d975c269ece98fb3d7364c856665e64254b7fc9097a68"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "package_records"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    [[ $(tree_fingerprint /boot) == \"$BOOT_FINGERPRINT_BEFORE\" ]] || fail 'reference apply changed boot artifacts'\n",
+            "line_length_bytes": 115,
+            "line_number": 720,
+            "line_start_byte": 42143,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-body.sh",
+            "raw_line_sha256": "039d73015913ec536baca6b44fe4b94ccf2e974e0b32cb5f52eadcccf56734d2",
+            "source_role": "historical-worker-body-not-a-selected-native-successor",
+            "source_sha256": "c5e8bce4802ecefdc72d975c269ece98fb3d7364c856665e64254b7fc9097a68"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "tree_fingerprint"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    restore_transaction_state || fail 'executor cleanup restoration failed'\n",
+            "line_length_bytes": 76,
+            "line_number": 725,
+            "line_start_byte": 42576,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-body.sh",
+            "raw_line_sha256": "766eb5626257c143a52220b96f5047ec50a7b322375c21f60aff73dcdcac6c55",
+            "source_role": "historical-worker-body-not-a-selected-native-successor",
+            "source_sha256": "c5e8bce4802ecefdc72d975c269ece98fb3d7364c856665e64254b7fc9097a68"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "restore_transaction_state"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    verify_final_invariants\n",
+            "line_length_bytes": 28,
+            "line_number": 726,
+            "line_start_byte": 42652,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-body.sh",
+            "raw_line_sha256": "0bce34cc7d9b468fc114b0ce9b725bbd13d38efb42621f4a8bcbe156034368a0",
+            "source_role": "historical-worker-body-not-a-selected-native-successor",
+            "source_sha256": "c5e8bce4802ecefdc72d975c269ece98fb3d7364c856665e64254b7fc9097a68"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "verify_final_invariants"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    RESTORATION_COMPLETE=1\n",
+            "line_length_bytes": 27,
+            "line_number": 727,
+            "line_start_byte": 42680,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-body.sh",
+            "raw_line_sha256": "b04abe8bf20e70be5d7203eedd88ca386d266228cb281482a6d0866ca41540a4",
+            "source_role": "historical-worker-body-not-a-selected-native-successor",
+            "source_sha256": "c5e8bce4802ecefdc72d975c269ece98fb3d7364c856665e64254b7fc9097a68"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "RESTORATION_COMPLETE=1"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    MUTATION_STARTED=0\n",
+            "line_length_bytes": 23,
+            "line_number": 728,
+            "line_start_byte": 42707,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-body.sh",
+            "raw_line_sha256": "969b62003d2854346aa4f048a43f2f5e15ba430d0920aab162884f78540166cd",
+            "source_role": "historical-worker-body-not-a-selected-native-successor",
+            "source_sha256": "c5e8bce4802ecefdc72d975c269ece98fb3d7364c856665e64254b7fc9097a68"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "MUTATION_STARTED=0"
+        }
+      ],
+      "id": "worker-final-snapshots-and-flags",
+      "native_effects_observed": null,
+      "native_exclusion_proven": false,
+      "proposed_role": "independent-capture-plane",
+      "proposed_treatment": "independent-closure-not-memory-flags",
+      "source_selection_exhaustive": false
+    },
+    {
+      "actual_object_bindings": null,
+      "actual_writer_set": null,
+      "design_requirement": "Replace proposed late target reads with original captured data only; keep archive/checksum commits separate and require independent last durable receipt.",
+      "execution_authorized": false,
+      "full_original_domain_canonical_sha256": "febdda01cf979caadd20ba70ec0333c07a7f120b300ae8a5eb80880bb7bff65b",
+      "full_original_source_anchors": [
+        {
+          "anchor": {
+            "full_line_text": "    rm -rf -- \"$BACKUP_ROOT\"\n",
+            "line_length_bytes": 29,
+            "line_number": 590,
+            "line_start_byte": 34548,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-body.sh",
+            "raw_line_sha256": "6e8909c2aecd72d20a37cbc90bfb44b581c8028a21175cc310e7bf6dc4abaa91",
+            "source_role": "historical-worker-body-not-a-selected-native-successor",
+            "source_sha256": "c5e8bce4802ecefdc72d975c269ece98fb3d7364c856665e64254b7fc9097a68"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "rm -rf"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    record_kv \"$RUN_DIR/result.tsv\" package_database_manifest_sha256 \"$(package_database_manifest_hash)\"\n",
+            "line_length_bytes": 105,
+            "line_number": 595,
+            "line_start_byte": 34779,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-body.sh",
+            "raw_line_sha256": "ec7851d2f1733ccb018882abcb9668cdfce557c17607b1c18848cc18661a0dc7",
+            "source_role": "historical-worker-body-not-a-selected-native-successor",
+            "source_sha256": "c5e8bce4802ecefdc72d975c269ece98fb3d7364c856665e64254b7fc9097a68"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "package_database_manifest_hash"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    record_kv \"$RUN_DIR/result.tsv\" boot_id \"$(cat /proc/sys/kernel/random/boot_id)\"\n",
+            "line_length_bytes": 85,
+            "line_number": 596,
+            "line_start_byte": 34884,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-body.sh",
+            "raw_line_sha256": "5e33eac4f13d8a7c0b50e4cf953bdc7181e53a4cfecbb1a062bb0e5c60555b11",
+            "source_role": "historical-worker-body-not-a-selected-native-successor",
+            "source_sha256": "c5e8bce4802ecefdc72d975c269ece98fb3d7364c856665e64254b7fc9097a68"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "boot_id"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    tar -C \"$RUN_DIR\" -czf \"$tmp_archive\" .\n",
+            "line_length_bytes": 44,
+            "line_number": 602,
+            "line_start_byte": 35263,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-body.sh",
+            "raw_line_sha256": "cedb6b0a0d809d437a81f007453ccf2ec30208acf682f382c3b618c4a8f0a633",
+            "source_role": "historical-worker-body-not-a-selected-native-successor",
+            "source_sha256": "c5e8bce4802ecefdc72d975c269ece98fb3d7364c856665e64254b7fc9097a68"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "tar"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    mv -f -- \"$tmp_archive\" \"$PUBLISHED_ARCHIVE\"\n",
+            "line_length_bytes": 49,
+            "line_number": 605,
+            "line_start_byte": 35400,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-body.sh",
+            "raw_line_sha256": "4f05127dda27736c38eec940e919aff782241eed14a05ebf01eb4e29eb6c4276",
+            "source_role": "historical-worker-body-not-a-selected-native-successor",
+            "source_sha256": "c5e8bce4802ecefdc72d975c269ece98fb3d7364c856665e64254b7fc9097a68"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "mv -f"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    printf '%s  %s\\n' \"$archive_sha\" \"${PUBLISHED_ARCHIVE##*/}\" > \"$PUBLISHED_SHA256\"\n",
+            "line_length_bytes": 86,
+            "line_number": 607,
+            "line_start_byte": 35521,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-body.sh",
+            "raw_line_sha256": "c4d53bfbacded48c4acfabec24703400e8aff604a65da0e22d1d5d92090da59c",
+            "source_role": "historical-worker-body-not-a-selected-native-successor",
+            "source_sha256": "c5e8bce4802ecefdc72d975c269ece98fb3d7364c856665e64254b7fc9097a68"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "PUBLISHED_SHA256"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    printf 'runtime_remediation_v2_validation_status\\tPASS\\n'\n",
+            "line_length_bytes": 62,
+            "line_number": 611,
+            "line_start_byte": 35711,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-body.sh",
+            "raw_line_sha256": "f08789bbe1d53ba3081704bb2dddafb1628a189d6cd677852813b368a6ca3798",
+            "source_role": "historical-worker-body-not-a-selected-native-successor",
+            "source_sha256": "c5e8bce4802ecefdc72d975c269ece98fb3d7364c856665e64254b7fc9097a68"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "validation_status"
+        }
+      ],
+      "id": "worker-publication-and-self-receipt",
+      "native_effects_observed": null,
+      "native_exclusion_proven": false,
+      "proposed_role": "captured-data-publisher",
+      "proposed_treatment": "split-target-closure-from-publication",
+      "source_selection_exhaustive": false
+    },
+    {
+      "actual_object_bindings": null,
+      "actual_writer_set": null,
+      "design_requirement": "Future authored source artifacts must bind exact consumed bytes; hash-before-reopen and embedded generated copies prove no native origin or checked-to-used identity.",
+      "execution_authorized": false,
+      "full_original_domain_canonical_sha256": "ccfb41b98ca76ec325b9f540d77b697ee17a04e767d49b3a32a3c6263f500c09",
+      "full_original_source_anchors": [
+        {
+          "anchor": {
+            "full_line_text": "check_sha \"$reference\" \"$EXPECTED_REFERENCE_SHA256\"\n",
+            "line_length_bytes": 52,
+            "line_number": 105,
+            "line_start_byte": 5957,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-build.sh",
+            "raw_line_sha256": "1ab613be35ab5ed48e7309f866c0ea29f98810fde7bdea745dd3c83c084b04a6",
+            "source_role": "historical-generator-source-for-review-only",
+            "source_sha256": "43c858e351d32c4ed2c28c687ccc9a06a1fc78f77032eaf20fb3d40a3ff197da"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "check_sha"
+        },
+        {
+          "anchor": {
+            "full_line_text": "mkdir -p -- \"$output_dir\"\n",
+            "line_length_bytes": 26,
+            "line_number": 110,
+            "line_start_byte": 6133,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-build.sh",
+            "raw_line_sha256": "7dbc8cc9640a0fbcf44be555ac72d20e783a395995e0568219245f88943f9ed9",
+            "source_role": "historical-generator-source-for-review-only",
+            "source_sha256": "43c858e351d32c4ed2c28c687ccc9a06a1fc78f77032eaf20fb3d40a3ff197da"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "mkdir"
+        },
+        {
+          "anchor": {
+            "full_line_text": "tmp=$(mktemp \"$output_dir/.runtime-transaction-remediation-v2-executor.XXXXXX\")\n",
+            "line_length_bytes": 80,
+            "line_number": 112,
+            "line_start_byte": 6265,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-build.sh",
+            "raw_line_sha256": "91962c5e9d43b2cf7faf2d73b422a6ab6244af3a3fceae4be6252a3b2dbcf0ce",
+            "source_role": "historical-generator-source-for-review-only",
+            "source_sha256": "43c858e351d32c4ed2c28c687ccc9a06a1fc78f77032eaf20fb3d40a3ff197da"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "mktemp"
+        },
+        {
+          "anchor": {
+            "full_line_text": "trap 'rm -f -- \"$tmp\"' EXIT\n",
+            "line_length_bytes": 28,
+            "line_number": 113,
+            "line_start_byte": 6345,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-build.sh",
+            "raw_line_sha256": "7e72f369e093e7af6e4694f714b18f744a92d8b92502694db0264058f49bac47",
+            "source_role": "historical-generator-source-for-review-only",
+            "source_sha256": "43c858e351d32c4ed2c28c687ccc9a06a1fc78f77032eaf20fb3d40a3ff197da"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "trap"
+        },
+        {
+          "anchor": {
+            "full_line_text": "cat -- \"$body\" >> \"$tmp\"\n",
+            "line_length_bytes": 25,
+            "line_number": 166,
+            "line_start_byte": 9021,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-build.sh",
+            "raw_line_sha256": "b2a9e5716c16000a630ae34cb0c26034f354e722e5af5652b6827d6518354768",
+            "source_role": "historical-generator-source-for-review-only",
+            "source_sha256": "43c858e351d32c4ed2c28c687ccc9a06a1fc78f77032eaf20fb3d40a3ff197da"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "cat --"
+        },
+        {
+          "anchor": {
+            "full_line_text": "base64 --wrap=76 -- \"$reference\" >> \"$tmp\"\n",
+            "line_length_bytes": 43,
+            "line_number": 167,
+            "line_start_byte": 9046,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-build.sh",
+            "raw_line_sha256": "489595b67e83a9503b7a5502283b62f0f6a134fb74079c19a4dd00c812a8424f",
+            "source_role": "historical-generator-source-for-review-only",
+            "source_sha256": "43c858e351d32c4ed2c28c687ccc9a06a1fc78f77032eaf20fb3d40a3ff197da"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "base64"
+        },
+        {
+          "anchor": {
+            "full_line_text": "base64 --wrap=76 -- \"$config\" >> \"$tmp\"\n",
+            "line_length_bytes": 40,
+            "line_number": 170,
+            "line_start_byte": 9208,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-build.sh",
+            "raw_line_sha256": "da705a3f28b065a45d48905206da7e5e0c9c327749078f428f9a4589f214763c",
+            "source_role": "historical-generator-source-for-review-only",
+            "source_sha256": "43c858e351d32c4ed2c28c687ccc9a06a1fc78f77032eaf20fb3d40a3ff197da"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "base64"
+        },
+        {
+          "anchor": {
+            "full_line_text": "chmod 0755 -- \"$tmp\"\n",
+            "line_length_bytes": 21,
+            "line_number": 172,
+            "line_start_byte": 9305,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-build.sh",
+            "raw_line_sha256": "a3d2d139ac13bba6f6e6dce34070cf1ddf8c0aafaae037a308f4afd98f1daac7",
+            "source_role": "historical-generator-source-for-review-only",
+            "source_sha256": "43c858e351d32c4ed2c28c687ccc9a06a1fc78f77032eaf20fb3d40a3ff197da"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "chmod"
+        },
+        {
+          "anchor": {
+            "full_line_text": "bash -n \"$tmp\"\n",
+            "line_length_bytes": 15,
+            "line_number": 173,
+            "line_start_byte": 9326,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-build.sh",
+            "raw_line_sha256": "e4660e0e79fd19b8c44da9c6151d51d1bcdd916f54e464c7e66bd71f77001f3f",
+            "source_role": "historical-generator-source-for-review-only",
+            "source_sha256": "43c858e351d32c4ed2c28c687ccc9a06a1fc78f77032eaf20fb3d40a3ff197da"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "bash -n"
+        },
+        {
+          "anchor": {
+            "full_line_text": "mv -f -- \"$tmp\" \"$output\"\n",
+            "line_length_bytes": 26,
+            "line_number": 174,
+            "line_start_byte": 9341,
+            "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-build.sh",
+            "raw_line_sha256": "9e9731bd04e3f053f158daf413c926d47e32d32cd62066bfef1f04d0cb05f9a3",
+            "source_role": "historical-generator-source-for-review-only",
+            "source_sha256": "43c858e351d32c4ed2c28c687ccc9a06a1fc78f77032eaf20fb3d40a3ff197da"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "mv -f"
+        }
+      ],
+      "id": "generator-output-lifetime",
+      "native_effects_observed": null,
+      "native_exclusion_proven": false,
+      "proposed_role": "worker-reference-entry",
+      "proposed_treatment": "no-historical-generator-reuse",
+      "source_selection_exhaustive": false
+    },
+    {
+      "actual_object_bindings": null,
+      "actual_writer_set": null,
+      "design_requirement": "Provisional JSON/log/stdout through FD3 is subject output, never authoritative collector origin or a last durable receipt.",
+      "execution_authorized": false,
+      "full_original_domain_canonical_sha256": "f8c7fcdcb7bae6a4739ee28ad1446368e5cdc0363366b9efa23284fcd25db072",
+      "full_original_source_anchors": [
+        {
+          "anchor": {
+            "full_line_text": "    printf '{' >&3\n",
+            "line_length_bytes": 19,
+            "line_number": 5576,
+            "line_start_byte": 189915,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "22d065f2e00f93da8a53ed08781d0cc70ad8b9d4ee72911a38435d51d4c431c2",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "printf"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    printf '\"schema_status\":\"provisional\",' >&3\n",
+            "line_length_bytes": 48,
+            "line_number": 5578,
+            "line_start_byte": 189971,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "79db128c868bed348f005b4a159158cfc3578ddcc9a01a79fa991fef14282904",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "provisional"
+        },
+        {
+          "anchor": {
+            "full_line_text": "    printf '}\\n' >&3\n",
+            "line_length_bytes": 21,
+            "line_number": 5615,
+            "line_start_byte": 190978,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "4a729eb1d69b450a2f20dd53504680e931b1b3d8aadd0ffbdc20fb0ff982f87d",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "printf"
+        },
+        {
+          "anchor": {
+            "full_line_text": "        print_json_result \"$result\" >&3\n",
+            "line_length_bytes": 40,
+            "line_number": 6625,
+            "line_start_byte": 239475,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "c17ee1ac75ff5864532db03e2c3e60f3c11b82ef790bb45c73ae3dcc4e02d6ec",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "print_json_result"
+        },
+        {
+          "anchor": {
+            "full_line_text": "        exec 3>&-\n",
+            "line_length_bytes": 18,
+            "line_number": 6626,
+            "line_start_byte": 239515,
+            "path": "tools/reference/slack-update-reference.sh",
+            "raw_line_sha256": "dc0b4c48036cd05b120af6dad413d0b327211b890cd0f350c3347b84020278de",
+            "source_role": "reference-specification-source-for-review-only",
+            "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+          },
+          "status": "reviewed-source-text-not-native-event",
+          "token": "exec 3>&-"
+        }
+      ],
+      "id": "reference-events-and-FD-output",
+      "native_effects_observed": null,
+      "native_exclusion_proven": false,
+      "proposed_role": "independent-verifier",
+      "proposed_treatment": "independent-origin-required",
+      "source_selection_exhaustive": false
+    }
+  ],
+  "state": "draft-reference-design-prepared-user-acceptance-pending",
+  "step": 370,
+  "supplemental_cksum": {
+    "changes_accepted363_register": false,
+    "full_original_supplemental_inputs": [
+      {
+        "historical_register363_modified": false,
+        "name_candidate": "cksum",
+        "native_resolution_performed": false,
+        "platform_readiness": [
+          {
+            "actual_boot_id": null,
+            "actual_component_bytes": null,
+            "actual_expected_vector": null,
+            "actual_fresh_test_authority": null,
+            "actual_implementation": null,
+            "actual_independent_collector": null,
+            "actual_independent_verifier": null,
+            "actual_native_result": null,
+            "actual_original_attempt": null,
+            "actual_platform_version": null,
+            "actual_primitive": null,
+            "actual_raw_capture": null,
+            "execution_authorized": false,
+            "id": "supplemental-cksum@Slackware-15.0",
+            "native_proof": false,
+            "platform": "Slackware-15.0",
+            "status": "blocked-native-design-binding-and-evidence-required"
+          },
+          {
+            "actual_boot_id": null,
+            "actual_component_bytes": null,
+            "actual_expected_vector": null,
+            "actual_fresh_test_authority": null,
+            "actual_implementation": null,
+            "actual_independent_collector": null,
+            "actual_independent_verifier": null,
+            "actual_native_result": null,
+            "actual_original_attempt": null,
+            "actual_platform_version": null,
+            "actual_primitive": null,
+            "actual_raw_capture": null,
+            "execution_authorized": false,
+            "id": "supplemental-cksum@Slackware-current",
+            "native_proof": false,
+            "platform": "Slackware-current",
+            "status": "blocked-native-design-binding-and-evidence-required"
+          }
+        ],
+        "source_sites364": [
+          {
+            "anchor": {
+              "full_line_text": "    checksum=$(cksum -- \"$path\") || return 1\n",
+              "line_length_bytes": 45,
+              "line_number": 4958,
+              "line_start_byte": 169342,
+              "path": "tools/reference/slack-update-reference.sh",
+              "raw_line_sha256": "76e86f2565c703201e72c8e594e5b444bc973e8cbdf179b0d816d9d15fc49adf",
+              "source_role": "reference-specification-source-for-review-only",
+              "source_sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415"
+            },
+            "status": "reviewed-source-text-not-native-event",
+            "token": "cksum"
+          }
+        ],
+        "status": "additional-external-input-required-not-bound"
+      }
+    ],
+    "id": "supplemental-cksum4958",
+    "native_binding": null,
+    "native_proof": false
+  }
+}
