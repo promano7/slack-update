@@ -1,3 +1,87 @@
+<!-- step-377-readme-roadmap-reconciliation:start -->
+## Current Phase 1 roadmap reconciliation — step 377
+
+This section supersedes the current-roadmap interpretation of the preserved
+step 367 checkpoint below. It leaves every accepted historical byte intact.
+The last accepted successor-design step is **376**, reported commit `24e5dcc`
+with **547 exact ordered PASS**, successful push and clean matching heads in the
+complete user return. Step **377 is prepared; user acceptance is pending**.
+A returned receipt is not independent inspection of GitHub or a native host.
+
+| Step | Repository review | Current disposition |
+| --- | --- | --- |
+| 369 | Bounded successor design plan | Accepted `3a99d10` |
+| 370 | Complete source and effect design | Accepted `607d43c` |
+| 371 | Issuer, admission and single launch design | Accepted `e6d341f` |
+| 372 | Primitive feasibility | Accepted `f8059fc`; native composition blocked |
+| 373 | Original baseline, owned state and finite recovery | Accepted `39f33f8`; native bindings unresolved |
+| 374 | Target closure and captured-data publication | Accepted `9bc9668`; native closure unresolved |
+| 375 | Independent evidence, trust, controls and oracle | Accepted `2218052`; actual evidence uncaptured |
+| 376 | Native microevents and complete proof/case mapping | Accepted `24e5dcc`; actual refinement unproven |
+| 377 | Readiness, future prerequisites and README | Prepared; complete return required |
+| 378 | Freeze and conditional repository-scoped pause | Pending complete 377 acceptance; confirmation requires complete 378 return and all nine original scoped conditions |
+
+The last **confirmed strong repository-scoped safe pause is 368**, covering
+359–368 only. The successor-design batch 369–378 has no new confirmed pause yet.
+Stop after the conditional 378 close; there is **no automatic 379**.
+
+### Complete native obligations remain pending
+
+All eight original contracts 320–327, sixteen normative sections 347 and sixteen
+native gaps 348 remain required in full. All 46 qualified proofs are unproven,
+52 native cases unrun, twelve independent raw groups uncaptured and all 1072
+ordered proof/case relations pending. Counts and primary review assignments only
+help navigation; they never reduce the original normative scope. Ten proposed
+observation families, nine cut dimensions and macro before/within/after questions
+are neither selected native primitives nor exhaustive fault coverage.
+
+Native composition remains blocked: live external revocation at every real and
+in-flight effect without a worker broker channel; every writer/privileged alias
+and object lifetime; supervisor loss and surviving descendants; the complete
+entry/backend/raw-effect graph; fresh original baseline/known backups; finite
+clock/budget/recovery rights; and independent two-platform raw evidence/oracle.
+Whole original stage 12 streams/status/origin remain normative. A final external
+receipt cannot observe its own final hash/commit/durability; actual independent
+actor/event refinement remains unresolved. No guarantee is weakened to claim
+feasibility or close this causal gap.
+
+Future bounded test entry first needs independently reviewed native composition,
+containment, exact fresh original scope, trust, original baseline/recovery,
+platform support and effective fault observation, then a **separate fresh explicit
+test authorization**. Complete native conformance is a later requirement using
+independently observed results of separately authorized tests. Neither review
+acceptance nor this prerequisite list grants tests or operations. Historical
+identities and consumed authorizations remain unusable.
+
+### Project and historical acceptance gates
+
+Phase 1 and the kernel package edge remain incomplete. The remaining historical
+matrix remains five families/twenty scenarios: kernel package edge (1), boot
+safety failures (7), SBo/ELF (6), Cinnamon (3), Flatpak (3). This matrix is distinct
+from the 52 pending native operational cases. Accepted core inventory175,
+Slackware-current rollback92, Slackware15.0 ELILO116, configuration/modules161,
+English comments169 and execution-failure188 closures retain their original
+scope; none is fresh native proof or a reusable host action grant.
+
+The version 1 result schema is unfrozen; reference-v1, C development, Phase 2 and
+Production entry remain closed. No implementation/native component, runner,
+collector, injector, service or cryptography is selected or implemented by this
+review. Native runs/proofs added: zero. Machine/controller actions and new runtime
+authority: none. Actual host state remains unobserved, not claimed absent;
+actual live bindings remain null and global host closure is not established.
+A later Slackware-current refresh does not invalidate this repository-only work.
+
+See the [377 readiness review](docs/reference/phase-1-operational-design-readiness-readme-review.md),
+[376 complete refinement mapping](docs/reference/phase-1-operational-native-refinement-case-design-review.md)
+and the original prerequisites and source reconciliation linked below.
+<!-- step-377-readme-roadmap-reconciliation:end -->
+
+---
+
+The accepted README follows unchanged. Its older checkpoint wording records its
+own historical preparation/acceptance boundary; use the 377 reconciliation above
+for the current successor-design roadmap.
+
 # Slack-Update
 
 A modular and configurable update manager for Slackware, written in C.
