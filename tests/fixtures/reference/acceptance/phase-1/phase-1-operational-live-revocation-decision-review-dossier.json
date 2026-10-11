@@ -1,0 +1,486 @@
+{
+  "adversarial_schedules": [
+    {
+      "actual_observation": null,
+      "candidate_id": "offline-lease-or-poll-only",
+      "conditional_reason": "The candidate has no intervening live effect gate. A later expiry or poll cannot authorize the intervening effect.",
+      "exhaustive_schedule_coverage": false,
+      "id": "lease-gap",
+      "native_execution": false,
+      "ordered_events": [
+        "authority-observed-valid",
+        "external-revocation",
+        "worker-actual-effect"
+      ]
+    },
+    {
+      "actual_observation": null,
+      "candidate_id": "backend-macro-check-only",
+      "conditional_reason": "Macro admission is not continuous admission for subsequent real nested effects.",
+      "exhaustive_schedule_coverage": false,
+      "id": "macro-internal-gap",
+      "native_execution": false,
+      "ordered_events": [
+        "macro-admission-valid",
+        "first-internal-effect",
+        "external-revocation",
+        "second-internal-effect"
+      ]
+    },
+    {
+      "actual_observation": null,
+      "candidate_id": "static-syscall-allowlist-only",
+      "conditional_reason": "The static rule contains no original live-authority serialization; hypothetical additional enforcement is outside this candidate.",
+      "exhaustive_schedule_coverage": false,
+      "id": "static-policy-gap",
+      "native_execution": false,
+      "ordered_events": [
+        "static-filter-allows-write-class",
+        "external-revocation",
+        "permitted-write-attempt"
+      ]
+    },
+    {
+      "actual_observation": null,
+      "candidate_id": "freeze-or-kill-as-live-fence",
+      "conditional_reason": "Request acknowledgement is not completion. Even completion alone is not independently proven full effect/storage drain.",
+      "exhaustive_schedule_coverage": false,
+      "id": "freeze-delay",
+      "native_execution": false,
+      "ordered_events": [
+        "external-revocation",
+        "freeze-request",
+        "task-effect-before-freeze-complete",
+        "freeze-complete"
+      ]
+    },
+    {
+      "actual_observation": null,
+      "candidate_id": "inspect-and-CONTINUE-only",
+      "conditional_reason": "Assumes a mutable shared pointer buffer and no independent argument protection; rejects only this unprotected composition.",
+      "exhaustive_schedule_coverage": false,
+      "id": "continued-pointer-race",
+      "native_execution": false,
+      "ordered_events": [
+        "notifier-inspects-pointer",
+        "notifier-responds-CONTINUE",
+        "peer-rewrites-pointed-bytes",
+        "kernel-consumes-changed-bytes"
+      ]
+    },
+    {
+      "actual_observation": null,
+      "candidate_id": "inspect-and-CONTINUE-only",
+      "conditional_reason": "A notification response is not a proven gate spanning the later actual effect boundary.",
+      "exhaustive_schedule_coverage": false,
+      "id": "continued-authority-gap",
+      "native_execution": false,
+      "ordered_events": [
+        "notifier-observes-authority-valid",
+        "notifier-responds-CONTINUE",
+        "external-revocation",
+        "later-real-effect-boundary"
+      ]
+    },
+    {
+      "actual_observation": null,
+      "candidate_id": "complete-external-effect-gate-hypothesis",
+      "conditional_reason": "Earlier admission is not erased. Identify actual safe stopping boundaries and independently retain/drain obligations; do not assert all previously admitted effects are atomically undone.",
+      "exhaustive_schedule_coverage": false,
+      "id": "admitted-inflight-uncertainty",
+      "native_execution": false,
+      "ordered_events": [
+        "actual-effect-admitted-while-valid",
+        "external-revocation",
+        "inflight-completion-unknown"
+      ]
+    },
+    {
+      "actual_observation": null,
+      "candidate_id": "complete-external-effect-gate-hypothesis",
+      "conditional_reason": "Unknown stays pending with rights consumed; no retry, refund, renewed deadline, rebind or second launch.",
+      "exhaustive_schedule_coverage": false,
+      "id": "unknown-gate-outcome",
+      "native_execution": false,
+      "ordered_events": [
+        "original-budget-spent",
+        "admission-outcome-lost",
+        "effect-occurrence-unknown"
+      ]
+    },
+    {
+      "actual_observation": null,
+      "candidate_id": "complete-external-effect-gate-hypothesis",
+      "conditional_reason": "Forward-only revocation is not proof of retained recovery validity; recovery needs original explicit finite live scope and known prerequisites.",
+      "exhaustive_schedule_coverage": false,
+      "id": "recovery-scope-split",
+      "native_execution": false,
+      "ordered_events": [
+        "forward-only-revocation",
+        "recovery-validity-unknown",
+        "recovery-effect-proposed"
+      ]
+    },
+    {
+      "actual_observation": null,
+      "candidate_id": "complete-external-effect-gate-hypothesis",
+      "conditional_reason": "Collector/injector/evidence/publication own writes require their own original scoped gates; observation roles confer no exemption.",
+      "exhaustive_schedule_coverage": false,
+      "id": "observer-own-effects",
+      "native_execution": false,
+      "ordered_events": [
+        "evidence-writer-observes-validity",
+        "external-all-scope-revocation",
+        "evidence-own-write-proposed"
+      ]
+    }
+  ],
+  "boundaries": {
+    "C_port_open": false,
+    "actual_global_host_closure": false,
+    "actual_host_state": "unobserved-not-claimed-absent",
+    "actual_live_bindings": null,
+    "actual_native_refinement_complete": false,
+    "actual_successor_selected": false,
+    "controller_action_required": false,
+    "current_step_strong_safe_pause": false,
+    "execution_authorized": false,
+    "historical_binding_or_authority_reuse_allowed": false,
+    "kernel_package_edge_complete": false,
+    "last_confirmed_strong_safe_pause_step": 378,
+    "later_current_refresh_invalidates_repository_only_pause": false,
+    "machine_action_required": false,
+    "native_cases_run": 0,
+    "native_components_selected": false,
+    "native_graph_complete": false,
+    "native_proofs_added": 0,
+    "operational_conformance": false,
+    "operational_readiness": false,
+    "phase1_matrix_complete": false,
+    "phase2_open": false,
+    "production_entry_closed": true,
+    "reference_v1_frozen": false,
+    "runtime_authority": false,
+    "strong_safe_pause": false,
+    "target_machine_actions_authorized": false,
+    "version1_schema_frozen": false
+  },
+  "candidates": [
+    {
+      "actual_component": null,
+      "actual_native_evidence": null,
+      "alternative_review_without_relaxation": "Review an external original-attempt gate spanning every actual effect; do not lengthen, renew or create per-action grants.",
+      "candidate_specific_unsatisfied_obligation": "Revocation can occur after the last accepted observation and before the next actual effect. Signature authenticity and expiry limits do not serialize that interval.",
+      "composition_as_stated": "Worker uses a signed launch receipt or periodically checks validity, then mutates without another actual-effect gate.",
+      "disposition": "incompatible-as-stated",
+      "grants_authority": false,
+      "id": "offline-lease-or-poll-only",
+      "native_blocker_resolved": false,
+      "primary_source_ids": [],
+      "universal_impossibility_proven": false
+    },
+    {
+      "actual_component": null,
+      "actual_native_evidence": null,
+      "alternative_review_without_relaxation": "Refine the complete actual backend/helper/selector/hook graph and identify every effect admission and safe in-flight boundary.",
+      "candidate_specific_unsatisfied_obligation": "Revocation between two internal backend effects remains unmediated even when the backend macro admission was valid.",
+      "composition_as_stated": "Controller checks before a backend invocation; nested commands and internal effects execute without continuous gating.",
+      "disposition": "incompatible-as-stated",
+      "grants_authority": false,
+      "id": "backend-macro-check-only",
+      "native_blocker_resolved": false,
+      "primary_source_ids": [],
+      "universal_impossibility_proven": false
+    },
+    {
+      "actual_component": null,
+      "actual_native_evidence": null,
+      "alternative_review_without_relaxation": "Evaluate a complete independently enforced policy composition; static filtering can be a limited constituent, never the live fence itself.",
+      "candidate_specific_unsatisfied_obligation": "Allowed syscall metadata alone does not observe a later change in external original authority, nor cover all target objects, asynchronous work and writers.",
+      "composition_as_stated": "A fixed allowlist permits backend mutation syscalls; no reviewed mechanism connects fresh external revocation to their actual effect lifetimes.",
+      "disposition": "incompatible-as-stated",
+      "grants_authority": false,
+      "id": "static-syscall-allowlist-only",
+      "native_blocker_resolved": false,
+      "primary_source_ids": [
+        "seccomp-filter"
+      ],
+      "universal_impossibility_proven": false
+    },
+    {
+      "actual_component": null,
+      "actual_native_evidence": null,
+      "alternative_review_without_relaxation": "Treat process controls as possible containment constituents with known membership, protected lifetimes and independently observed drain; no claim of instantaneous cancellation.",
+      "candidate_specific_unsatisfied_obligation": "A task may act before freeze completion; already admitted effects and external writers remain obligations. Process-status evidence cannot by itself settle storage and effect uncertainty.",
+      "composition_as_stated": "Controller reacts to revocation by requesting freeze or kill and treats the request or task status as whole-effect closure.",
+      "disposition": "incompatible-as-stated",
+      "grants_authority": false,
+      "id": "freeze-or-kill-as-live-fence",
+      "native_blocker_resolved": false,
+      "primary_source_ids": [
+        "cgroup-v2"
+      ],
+      "universal_impossibility_proven": false
+    },
+    {
+      "actual_component": null,
+      "actual_native_evidence": null,
+      "alternative_review_without_relaxation": "Review protected consumption and actual effect-level authority serialization under a separate policy; no assumption that listener placement satisfies original no-worker-broker compatibility.",
+      "candidate_specific_unsatisfied_obligation": "A peer may change pointer bytes before kernel consumption; authority may change after response and before a later actual effect. A valid notification ID does not authenticate original rights or freeze arguments.",
+      "composition_as_stated": "An external notifier inspects target pointer data and current authority, then sends CONTINUE; no independent argument protection or complete effect gate is included.",
+      "disposition": "incompatible-as-stated",
+      "grants_authority": false,
+      "id": "inspect-and-CONTINUE-only",
+      "native_blocker_resolved": false,
+      "primary_source_ids": [
+        "seccomp-notification",
+        "seccomp-filter"
+      ],
+      "universal_impossibility_proven": false
+    },
+    {
+      "actual_component": null,
+      "actual_native_evidence": null,
+      "alternative_review_without_relaxation": "Identify an actual composition and independently review its whole enforcement/trust/source/lifetime graph before any separately scoped selection or native test grant.",
+      "candidate_specific_unsatisfied_obligation": "No exact native enforcer, source graph, primitive, protocol, platform support, failure behavior or independent conformance is selected. Naming a gate is not its implementation.",
+      "composition_as_stated": "Hypothetical protected external enforcer serializes fresh original authority with every real effect admission and safe in-flight boundary, independent of worker-held service capability.",
+      "disposition": "unresolved",
+      "grants_authority": false,
+      "id": "complete-external-effect-gate-hypothesis",
+      "native_blocker_resolved": false,
+      "primary_source_ids": [],
+      "universal_impossibility_proven": false
+    }
+  ],
+  "conditional_pause_step": 388,
+  "contract_relaxation_permitted": false,
+  "enforcement_boundary_questions": {
+    "actual_all_writer_exclusion": null,
+    "authority_versus_storage_completion_relation": null,
+    "effect_admission_linearization": null,
+    "no_worker_channel_compatibility": null,
+    "revocation_acceptance_linearization": null,
+    "safe_inflight_stopping_boundary": null
+  },
+  "independent_resolution_criteria": [
+    "Exact original-attempt issuer identity, authenticated split finite rights, trusted original boot/time/deadline/budget and no fresh per-action grant.",
+    "Complete actual source/backend/helper/selector/hook/async/storage/evidence graph and every real effect boundary, including object/alias/writer/FD lifetimes.",
+    "Native original authority serialization versus effect admission plus independently identified safe stopping and known drain for admitted in-flight effects.",
+    "Original offline bootstrap and full FD/namespace/no-worker-service/broker capability contract compatibility, including hidden notification or mediation paths.",
+    "Unknown/loss/supervisor-death behavior stops new effects while preserving consumed rights, children, uncertain outcomes and finite original recovery obligations.",
+    "Exact independently supported platform implementation and full expected/raw vectors with effective positive/negative fault observations and original proof-case scope.",
+    "Separate reviewed containment and fresh explicit native test grant before any native effects; successful future tests are not their own permission prerequisite."
+  ],
+  "native_cases_run": 0,
+  "native_proofs_added": 0,
+  "next_preparable_step_after_complete380_acceptance": 381,
+  "no_automatic389": true,
+  "original323_fence_contract": {
+    "actual_enforcer": null,
+    "actual_transport": null,
+    "compatibility": "321-offline-bootstrap-schema-and-FD-closure-unchanged; no-added-worker-RPC-or-inherited-control-channel; future-successor-fence-policy-and-transport-integration-explicitly-required324/325",
+    "rule": "trusted-external-controller-enforces-original-policy-and-absorbing-revocation-at-every-effect-boundary; worker-and-contained-commands-have-no-service-or-broker-capability",
+    "scope": "live-check-is-original-attempt-validity-not-new-grant-per-action; no-claim-of-instant-revocation-from-offline-receipt-or-finite-lease-alone",
+    "uncertainty": "gate-outcome-loss-or-stale-or-unavailable-status-stops-effects; consumed-grant-launch-slot-and-recovery-budget-never-reopen"
+  },
+  "original323_forward_contract": {
+    "in_flight": "started-effects-and-children-remain-obligations; inability-to-prove-stop-at-safe-effect-boundary-keeps-unknown-pending",
+    "owner": "original-consumed-active-attempt-no-new-or-unused-grant-per-nested-call",
+    "terminal": "normal-forward-completion-also-closes-forward-before-restoration-evidence-and-target-control-release",
+    "termination": "expiry-forward-revocation-or-any-failure-latches-forward-stop-irreversibly; no-new-effect-dispatch-or-revival",
+    "validity": "independent-authenticated-scope-trusted-time-and-continuously-enforced-live-fence-before-and-through-every-permitted-effect"
+  },
+  "original377_live_revocation_conflict": {
+    "actual_resolution": null,
+    "current_authority": false,
+    "id": "live-revocation-without-worker-broker",
+    "native_blocker_resolved": false,
+    "normative_relaxation_allowed": false,
+    "unresolved_requirement": "A native composition must enforce fresh external revocation at every actual and in-flight forward/recovery/evidence effect without giving the worker a broker/service/control FD or RPC. An offline launch receipt or macro-boundary check cannot establish this. No feasible composition has been selected."
+  },
+  "plan379_canonical_sha256": "226bf153118c650a3965344dea7f8b7a55a332a41ee378bf4e3c47b4c4bababf",
+  "plan379_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-feasibility-resolution-resume-planning-review-plan.json",
+  "platform_unknowns": [
+    {
+      "actual_config_and_source_graph": null,
+      "actual_independent_evidence": null,
+      "actual_kernel_version": null,
+      "actual_native_composition": null,
+      "actual_original_authority": null,
+      "borrowed_platform_or_historical_results": false,
+      "candidate_id": "offline-lease-or-poll-only",
+      "native_entry_allowed": false,
+      "platform": "Slackware-15.0",
+      "support_claimed": false
+    },
+    {
+      "actual_config_and_source_graph": null,
+      "actual_independent_evidence": null,
+      "actual_kernel_version": null,
+      "actual_native_composition": null,
+      "actual_original_authority": null,
+      "borrowed_platform_or_historical_results": false,
+      "candidate_id": "offline-lease-or-poll-only",
+      "native_entry_allowed": false,
+      "platform": "Slackware-current",
+      "support_claimed": false
+    },
+    {
+      "actual_config_and_source_graph": null,
+      "actual_independent_evidence": null,
+      "actual_kernel_version": null,
+      "actual_native_composition": null,
+      "actual_original_authority": null,
+      "borrowed_platform_or_historical_results": false,
+      "candidate_id": "backend-macro-check-only",
+      "native_entry_allowed": false,
+      "platform": "Slackware-15.0",
+      "support_claimed": false
+    },
+    {
+      "actual_config_and_source_graph": null,
+      "actual_independent_evidence": null,
+      "actual_kernel_version": null,
+      "actual_native_composition": null,
+      "actual_original_authority": null,
+      "borrowed_platform_or_historical_results": false,
+      "candidate_id": "backend-macro-check-only",
+      "native_entry_allowed": false,
+      "platform": "Slackware-current",
+      "support_claimed": false
+    },
+    {
+      "actual_config_and_source_graph": null,
+      "actual_independent_evidence": null,
+      "actual_kernel_version": null,
+      "actual_native_composition": null,
+      "actual_original_authority": null,
+      "borrowed_platform_or_historical_results": false,
+      "candidate_id": "static-syscall-allowlist-only",
+      "native_entry_allowed": false,
+      "platform": "Slackware-15.0",
+      "support_claimed": false
+    },
+    {
+      "actual_config_and_source_graph": null,
+      "actual_independent_evidence": null,
+      "actual_kernel_version": null,
+      "actual_native_composition": null,
+      "actual_original_authority": null,
+      "borrowed_platform_or_historical_results": false,
+      "candidate_id": "static-syscall-allowlist-only",
+      "native_entry_allowed": false,
+      "platform": "Slackware-current",
+      "support_claimed": false
+    },
+    {
+      "actual_config_and_source_graph": null,
+      "actual_independent_evidence": null,
+      "actual_kernel_version": null,
+      "actual_native_composition": null,
+      "actual_original_authority": null,
+      "borrowed_platform_or_historical_results": false,
+      "candidate_id": "freeze-or-kill-as-live-fence",
+      "native_entry_allowed": false,
+      "platform": "Slackware-15.0",
+      "support_claimed": false
+    },
+    {
+      "actual_config_and_source_graph": null,
+      "actual_independent_evidence": null,
+      "actual_kernel_version": null,
+      "actual_native_composition": null,
+      "actual_original_authority": null,
+      "borrowed_platform_or_historical_results": false,
+      "candidate_id": "freeze-or-kill-as-live-fence",
+      "native_entry_allowed": false,
+      "platform": "Slackware-current",
+      "support_claimed": false
+    },
+    {
+      "actual_config_and_source_graph": null,
+      "actual_independent_evidence": null,
+      "actual_kernel_version": null,
+      "actual_native_composition": null,
+      "actual_original_authority": null,
+      "borrowed_platform_or_historical_results": false,
+      "candidate_id": "inspect-and-CONTINUE-only",
+      "native_entry_allowed": false,
+      "platform": "Slackware-15.0",
+      "support_claimed": false
+    },
+    {
+      "actual_config_and_source_graph": null,
+      "actual_independent_evidence": null,
+      "actual_kernel_version": null,
+      "actual_native_composition": null,
+      "actual_original_authority": null,
+      "borrowed_platform_or_historical_results": false,
+      "candidate_id": "inspect-and-CONTINUE-only",
+      "native_entry_allowed": false,
+      "platform": "Slackware-current",
+      "support_claimed": false
+    },
+    {
+      "actual_config_and_source_graph": null,
+      "actual_independent_evidence": null,
+      "actual_kernel_version": null,
+      "actual_native_composition": null,
+      "actual_original_authority": null,
+      "borrowed_platform_or_historical_results": false,
+      "candidate_id": "complete-external-effect-gate-hypothesis",
+      "native_entry_allowed": false,
+      "platform": "Slackware-15.0",
+      "support_claimed": false
+    },
+    {
+      "actual_config_and_source_graph": null,
+      "actual_independent_evidence": null,
+      "actual_kernel_version": null,
+      "actual_native_composition": null,
+      "actual_original_authority": null,
+      "borrowed_platform_or_historical_results": false,
+      "candidate_id": "complete-external-effect-gate-hypothesis",
+      "native_entry_allowed": false,
+      "platform": "Slackware-current",
+      "support_claimed": false
+    }
+  ],
+  "primary_assignment_limits_normative_scope": false,
+  "primary_source_register": [
+    {
+      "id": "seccomp-filter",
+      "inference_limit": "Neither a filter name nor a listener proves original per-effect revocation or full graph containment.",
+      "retrieval": "primary page opened; focused What it isnt and Userspace Notification sections; no original HTML byte capture",
+      "title": "Linux kernel Seccomp BPF documentation",
+      "url": "https://docs.kernel.org/userspace-api/seccomp_filter.html",
+      "verified_semantics": "Filters examine syscall metadata and cannot dereference pointer arguments; filtering alone is not a complete sandbox. A notification listener belongs to a filter and receives notifications from descendants using that filter."
+    },
+    {
+      "id": "seccomp-notification",
+      "inference_limit": "Inspect-and-CONTINUE alone is insufficient for the reviewed security guarantee. Proposed or newly merged fixes are not selected or assessed here.",
+      "retrieval": "primary indexed manual excerpts retrieved; direct full-page opens failed; do not claim whole-page original capture",
+      "title": "Linux man-pages seccomp_unotify(2)",
+      "url": "https://www.man7.org/linux/man-pages/man2/seccomp_unotify.2.html",
+      "verified_semantics": "CONTINUE lets the target syscall execute; pointer contents can change after inspection. Notification ID validation addresses whether the notification remains valid, not byte immutability or original authority."
+    },
+    {
+      "id": "cgroup-v2",
+      "inference_limit": "A freeze request, completed process kill or populated state is not independently proven whole-effect quiescence or original revocation serialization.",
+      "retrieval": "primary page opened; focused cgroup.freeze/cgroup.kill/cgroup.events sections; no original HTML byte capture",
+      "title": "Linux kernel Control Group v2 documentation",
+      "url": "https://docs.kernel.org/admin-guide/cgroup-v2.html",
+      "verified_semantics": "Freeze completion is asynchronous; frozen tasks can migrate and a moved-out task runs. cgroup.kill covers concurrent forks and migrations for the kill operation. populated concerns live tasks, not a complete storage/effect receipt."
+    }
+  ],
+  "schema": 1,
+  "scope": "repository-live-revocation-decision-review-only",
+  "state": "prepared-user-acceptance-pending",
+  "step": 380,
+  "universal_infeasibility_proven": false,
+  "verdict": "native-composition-remains-blocked-candidate-specific-insufficiencies-and-unresolved-full-gate",
+  "whole378_freeze_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-successor-design-freeze-and-safe-pause-review-freeze.json",
+  "whole378_freeze_sha256": "973825341a4ce27878edf82c675c15f384382f8f23fc77a96f0c325989404449",
+  "whole_original_requirements_normative": true,
+  "whole_stage12_obligation": "The whole original final-stage streams/status/origin requirement remains normative. Exact actor/event boundaries must independently reconcile complete stage12 evidence with a last external receipt that cannot observe its own final commit/durability. No shortened stage,renamed evidence scope,self-receipt or successful protocol is inferred; native causal refinement remains pending375/376."
+}

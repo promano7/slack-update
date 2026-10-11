@@ -1,0 +1,26 @@
+[
+  {
+    "id": "seccomp-filter",
+    "inference_limit": "Neither a filter name nor a listener proves original per-effect revocation or full graph containment.",
+    "retrieval": "primary page opened; focused What it isnt and Userspace Notification sections; no original HTML byte capture",
+    "title": "Linux kernel Seccomp BPF documentation",
+    "url": "https://docs.kernel.org/userspace-api/seccomp_filter.html",
+    "verified_semantics": "Filters examine syscall metadata and cannot dereference pointer arguments; filtering alone is not a complete sandbox. A notification listener belongs to a filter and receives notifications from descendants using that filter."
+  },
+  {
+    "id": "seccomp-notification",
+    "inference_limit": "Inspect-and-CONTINUE alone is insufficient for the reviewed security guarantee. Proposed or newly merged fixes are not selected or assessed here.",
+    "retrieval": "primary indexed manual excerpts retrieved; direct full-page opens failed; do not claim whole-page original capture",
+    "title": "Linux man-pages seccomp_unotify(2)",
+    "url": "https://www.man7.org/linux/man-pages/man2/seccomp_unotify.2.html",
+    "verified_semantics": "CONTINUE lets the target syscall execute; pointer contents can change after inspection. Notification ID validation addresses whether the notification remains valid, not byte immutability or original authority."
+  },
+  {
+    "id": "cgroup-v2",
+    "inference_limit": "A freeze request, completed process kill or populated state is not independently proven whole-effect quiescence or original revocation serialization.",
+    "retrieval": "primary page opened; focused cgroup.freeze/cgroup.kill/cgroup.events sections; no original HTML byte capture",
+    "title": "Linux kernel Control Group v2 documentation",
+    "url": "https://docs.kernel.org/admin-guide/cgroup-v2.html",
+    "verified_semantics": "Freeze completion is asynchronous; frozen tasks can migrate and a moved-out task runs. cgroup.kill covers concurrent forks and migrations for the kill operation. populated concerns live tasks, not a complete storage/effect receipt."
+  }
+]
