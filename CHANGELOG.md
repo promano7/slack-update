@@ -1,3 +1,16 @@
+## Phase 1 step 385 — whole source/backend graph and independent oracle
+
+- Accepted384 at reported061a0a0:283 exact ordered PASS, nine files4704 insertions,
+  eight creates, successful push and reported clean matching heads; complete bytes retained.
+- Reviewed eight bounded compositions/fourteen conditional paper schedules;
+  six incomplete candidates incompatible as stated, two full hypotheses unresolved.
+- Whole321/323/324/325/326/327 clauses,166-row static census,30 designed domains,
+  375 roles/raw/comparison/fault/all52 case reviews,376 cuts and both377 conflicts retained.
+- Eight graph surfaces/sixteen platform rows/eight actual native boundaries unknown;
+  lexical counts, flags, hashes and matching declarations remain no native proof.
+- Complete2001-file predecessor/33 whole JSON inputs retained. No graph selection,
+  collector/comparator/injector implementation, native run, grant or new pause.385 pending.
+
 ## Phase 1 step 384 — whole stage12 and external receipt causality
 
 - Accepted383 at reported45f463f:239 exact ordered PASS, nine files4597 insertions,

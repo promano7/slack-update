@@ -1,0 +1,16 @@
+[
+  {
+    "id": "whole-original-project-graph-oracle-inputs",
+    "inference_limit": "Conditional graph/oracle schedules derived from project requirements only; no actual backend/selector version, runtime reachability, forbidden-effect absence, native independent oracle or platform support inferred.",
+    "kind": "supplied-primary-project-requirements",
+    "paths": [
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-successor-design-freeze-and-safe-pause-review-freeze.json",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-external-dependency-register-register.json",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-independent-evidence-oracle-design-review-design.json",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-native-refinement-case-design-review-design.json",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-independent-expectation-contract-review-expectation-contract.json"
+    ],
+    "retrieval": "whole supplied repository bytes/canonical JSON bound; original lexical census retained unchanged, no inert source execution or new dynamic/platform probe",
+    "verified_semantics": "Original complete graph/selector/status, independent expectation/capture/comparison/fault/custody and whole normative scope requirements remain unchanged."
+  }
+]
