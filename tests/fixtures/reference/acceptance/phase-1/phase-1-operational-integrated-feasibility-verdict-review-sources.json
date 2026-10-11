@@ -1,0 +1,19 @@
+[
+  {
+    "id": "whole-accepted380-through385-decision-inputs",
+    "inference_limit": "Integrated repository verdict only; neither every possible architecture impossible nor a native composition compatible, selected, tested or ready is proven.",
+    "kind": "supplied-primary-project-requirements-and-accepted-reviews",
+    "paths": [
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-successor-design-freeze-and-safe-pause-review-freeze.json",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-feasibility-resolution-resume-planning-review-plan.json",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-live-revocation-decision-review-dossier.json",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-writer-alias-lifetime-decision-review-dossier.json",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-supervisor-clock-drain-decision-review-dossier.json",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-baseline-storage-finite-rights-decision-review-dossier.json",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-stage12-receipt-causality-decision-review-dossier.json",
+      "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-source-backend-independent-oracle-decision-review-dossier.json"
+    ],
+    "retrieval": "whole supplied bytes and canonical JSON retained, no external lookup or native probing",
+    "verified_semantics": "Exact source candidate dispositions and reasons retained; all eight original conflicts, ten blockers, whole original requirements and future test/operational prerequisites remain normative."
+  }
+]
