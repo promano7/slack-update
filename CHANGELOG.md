@@ -1,3 +1,17 @@
+## Phase 1 step 374 — target closure and separate publication design
+
+- Accepted reported39f33f8 /276 exact PASS,eight-file5728-insertion/seven-addition
+  commit,successful push and reported clean matching heads; uploaded bytes preserved.
+- Drafted eleven target evidence/release gates,seven independent uncertainty domains,
+  nine captured-data publication rows and sixteen inert failure-cut questions.
+- Retained whole316 requirements,323/324/325/327 contracts,nine authority windows,
+  twelve raw groups and whole373 baseline/recovery/owned reviews with all372 blockers.
+- Kept archive/sidecar/external-last-receipt separate:no atomic pair,self-receipt,
+  replay,live target refresh,new target authority or false global/controller closure.
+- No native capture,storage/publisher/closure implementation,proof/case or runtime grant.
+- Complete374 return before375;README377/conditionalpause378,lastconfirmedpause368,
+  no automatic379 or historical binding/consumed authority reuse.
+
 ## Phase 1 step 373 — original baseline, owned effects and finite recovery design
 
 - Accepted reported f8059fc /215 exact PASS, eight-file4667-insertion commit,
