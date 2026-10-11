@@ -1,3 +1,18 @@
+## Phase 1 step 373 — original baseline, owned effects and finite recovery design
+
+- Accepted reported f8059fc /215 exact PASS, eight-file4667-insertion commit,
+  successful push and reported clean matching heads; complete uploaded bytes retained.
+- Drafted seven original baseline domains and sixteen phase observations; retained
+  full322/323/324 contracts, whole original347 entry trace and nine owned microsteps.
+- Linked nine microsteps to27 inert cut questions and all eight original owned failure
+  events; drafted ten conditional recovery gates and18 non-executable branch reviews.
+- Separated owned uncertainty, target uncertainty and independently unchanged-target
+  verification without backup; original raw audit pin/status/finite rights retained.
+- All ten372primitive blockers remain unresolved; no baseline capture, commit/restore
+  implementation, native proof/case, runtime grant or implicit recovery permission.
+- Complete373 return required before374; README377/conditionalpause378 unchanged,
+  lastconfirmedscopedpause368, noautomatic379 or historical authority reuse.
+
 ## Phase 1 step 372 — native platform primitive feasibility design
 
 - Accepted reported e6d341f /151 exact PASS, eight-file4114-insertion commit,
