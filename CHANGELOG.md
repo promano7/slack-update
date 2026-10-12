@@ -1,3 +1,18 @@
+## Phase 1 step 404 -- original baseline storage and once-only rights draft
+
+- Accepted403 at reported6062f3a:73orderedPASS/zero failures,tenfiles/eightcreates/
+  6251insertions,push/clean matching heads;complete disclosed transcript retained.
+- All18WHOLEoriginal branches/9microsteps/7baseline domains/16phase observations/
+  16successor sequence/8owned failure rows retained with joint candidate requirements.
+- Nine complete statements reconcile freshoriginal capture,knownexactbackups,
+  durableclaim/singlelaunch/actionspend and independent target/owned/controller facts.
+- Twenty-four paperquestions deny unknownbackup restore/ACKrepeat/refund/foreigndrift;
+  facts preserved separately,no newactionselector/permission/nativeproof or closure.
+- Whole85inputs/30roots,400storagehypotheses and401-403changes bound;402recovery/all
+  branch change explicit,originalclauses normative,semantic migration/approval due407.
+- Full404acceptance before405;conditional408allwholeconditions/actualfinalreturn/
+  externalclose thenSTOP/noautomatic409. Hostunobserved/livebindingsnull/globalfalse.
+
 ## Phase 1 step 403 -- guardian loss full drain and fixed original clock draft
 
 - Accepted402 at reported09e9329:71orderedPASS/zero failures,tenfiles/eightcreates/

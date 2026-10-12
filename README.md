@@ -1,3 +1,30 @@
+<!-- step-404-baseline-storage-rights:start -->
+## Current Phase 1 original baseline,storage and finite-rights proposal -- step 404
+
+Accepted403 at reported `6062f3a`:73orderedPASS/zero failures,tenfiles/eightcreates/
+6251insertions,reported push/clean matching heads. Step404prepared,useracceptance
+pending;last confirmedrepositorypause398 covers389-398only.
+
+The [404draft](docs/reference/phase-1-operational-joint-baseline-storage-finite-rights-proposal-review.md)
+retains all18wholeoriginal recoverybranches/9ownedmicrosteps/7baseline domains/
+16phasevectors/8ownedfailures. Freshoriginalmemory capture and knownexactprotected
+backups beforetargetmutation;one irreversibleclaim/pre-spentsinglelaunch/once-only
+actionbudget. Unknownbackup does not proveunchanged;lostrestoreACK never permits
+repeat/refund. Qualified capturedtarget facts and owned/controller unknowns separate,
+current guards/rights/drain/source still required.24papercases give no native/action
+permission,actual storageproof,restoreselector or closure.
+
+JCP400-A/R/D unselected;currentoriginalclauses remain normative.402recovery/all
+post-request continuation remains an explicit inactive changed guarantee,not original
+equivalence. Full independent exactsemantic migration/approval due407;all original
+scope/396impact/jointblockers retained. Nativeproofs/cases0;Phase1/kernel incomplete;
+schema/reference-v1/C/Phase2/Productionclosed. Hostunobserved/livebindingsnull/
+globalfalse,no batchrequired machine/controllercleanup. Separate actualsafejoint
+review/freshboundedtestgrant beforeeffects;nativeconformance laterreadiness. Full404
+acceptance before405;conditional408allwholeconditions/finalactualreturn/external
+close thenSTOP/noautomatic409. Prioraccepted403README suffix byte-exact below.
+<!-- step-404-baseline-storage-rights:end -->
+
 <!-- step-403-loss-drain-clock:start -->
 ## Current Phase 1 loss,drain and original-clock proposal -- step 403
 
