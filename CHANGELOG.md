@@ -1,3 +1,17 @@
+## Phase 1 step 398 -- full contract decision freeze and conditional safe pause
+
+- Accepted397 at reportedf4a642d:430 exact ordered PASS/zero failures,ten files,
+  eight creates/32897 insertions,reported push/clean matching heads;whole receipt.
+- Full389-397actual receipt chain and WHOLE39726option/8decision/325pair/9dimension
+  packet frozen with every source byte/canonical binding and accepted README.
+- Whole39615category/1286member impact coverage bound;semantic migrations unapproved.
+- All nine WHOLE original nested pause conditions retained,applied only to this
+  repository389-398scope;actual final398return/external confirmation still pending.
+- Prepared/private eligibility is not confirmed pause. Last confirmed pause388;
+  after separately confirmed398STOP/noautomatic399/new request required.
+- Original requirements/blockers/native gates remain;no selected composition,
+  new grant,nativeproof/case or hostabsence/globalclosure claimed.
+
 ## Phase 1 step 397 -- integrated unselected decision packet and roadmap
 
 - Accepted396 at reported792525e:506 exact ordered PASS/zero failures,nine files,
