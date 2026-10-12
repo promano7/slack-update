@@ -1,0 +1,46 @@
+{
+  "confirmation": {
+    "acceptance_result": "PASS (43 passes, 0 failures)",
+    "actual_global_host_closure": false,
+    "actual_host_state": "unobserved-not-claimed-absent",
+    "actual_live_bindings": null,
+    "approved_contract_migration": null,
+    "capture_basis": "complete-in-conversation-user-return-UTF8-transcription;final-newline-from-text-file-serialization;not-independent-terminal-byte-capture",
+    "changed_files": 10,
+    "commit_full": null,
+    "commit_prefix": "09d34c4",
+    "creates": 8,
+    "deletions": 0,
+    "exact_commit_message": "Phase 1 step 399: plan joint contract proposal from confirmed safe pause 398",
+    "insertions": 5320,
+    "last_confirmed_strong_safe_pause_step": 398,
+    "native_cases_run": 0,
+    "native_proofs_added": 0,
+    "receipt_sha256": "93138be7a7bc0bb431886224ac8e22783e6bd26101b38c8158073e1ac7d14183",
+    "receipt_size_bytes": 5852,
+    "runtime_authority": false,
+    "schema": 1,
+    "scope": "repository-joint-contract-proposal399-408-only",
+    "selected_options": null,
+    "state": "accepted-repository-checkpoint",
+    "step": 399,
+    "strong_safe_pause": false,
+    "user_application_completed": true,
+    "user_commit_and_push_completed": true,
+    "user_harness_completed": true,
+    "user_head_matches_origin": true,
+    "user_worktree_clean": true
+  },
+  "receipt": {
+    "capture_basis": "complete-in-conversation-user-return-UTF8-transcription;final-newline-from-text-file-serialization;not-independent-terminal-byte-capture",
+    "schema": 1,
+    "sha256": "93138be7a7bc0bb431886224ac8e22783e6bd26101b38c8158073e1ac7d14183",
+    "size_bytes": 5852,
+    "step": 399,
+    "text": "promano@pc-arch ~/Descargas $ (\n  set -euo pipefail\n  cd ~/Descargas\n  unzip -tq slack-update-phase-1-step-399-delivery.zip\n  unzip -oq slack-update-phase-1-step-399-delivery.zip -d slack-update-step399-delivery\n  cd slack-update-step399-delivery/step399-overlay\n\n  bash apply-step399-overlay.sh /home/promano/GitHub/slack-update\n  bash commit-step399.sh /home/promano/GitHub/slack-update --verify-only\n\n  cd /home/promano/GitHub/slack-update\n  STEP=phase-1-operational-joint-contract-proposal-resume-planning-review\n  FIX=tests/fixtures/reference/acceptance/phase-1/$STEP\n  bash \"tests/reference/test-$STEP-harness.sh\"\n\n  git add -- CHANGELOG.md README.md \\\n    \"docs/reference/$STEP.md\" \\\n    \"tools/reference/$STEP.py\" \\\n    \"tests/reference/test-$STEP-harness.sh\" \\\n    \"$FIX-baseline.json\" \"$FIX-entry398.json\" \\\n    \"$FIX-plan.json\" \"$FIX-sources.json\" \"$FIX-policy.json\"\n  git diff --cached --check\n  git commit -m \"Phase 1 step 399: plan joint contract proposal from confirmed safe pause 398\"\n  git push\n  git status --short\n  git log -1 --oneline\n  git log -1 --oneline origin/main\n)\nNo errors detected in compressed data of slack-update-phase-1-step-399-delivery.zip.\nstep399_overlay_application_status\tPASS\nstep399_commit_scope_verification_status\tPASS\nPASS: whole authored399 fixtures independently bound\nPASS: all70 whole original JSON inputs and25 source roots retained\nPASS: complete accepted398 receipt and nine whole external conditions\nPASS: finite joint plan retains whole original scope and closed approvals\nPASS: all2114 accepted398 files unchanged except exact additive prefixes\nPASS: exact eight additions plus README and CHANGELOG scope\nPASS: reject boolean schema by semantic review\nPASS: reject selected options invented by semantic review\nPASS: reject draft already chosen by semantic review\nPASS: reject joint approval invented by semantic review\nPASS: reject contract migration invented by semantic review\nPASS: reject native graph invented by semantic review\nPASS: reject full Git ID invented by semantic review\nPASS: reject native authority opened by semantic review\nPASS: reject native proof invented by semantic review\nPASS: reject unknown host made absent by semantic review\nPASS: reject global closure invented by semantic review\nPASS: reject original contract made inactive by semantic review\nPASS: reject whole decision truncated by semantic review\nPASS: reject joint dimension truncated by semantic review\nPASS: reject original requirement shortened by semantic review\nPASS: reject source input removed by semantic review\nPASS: reject draft choice promoted to user selection by semantic review\nPASS: reject migration impact promoted to approval by semantic review\nPASS: reject migration complete invented by semantic review\nPASS: reject runtime authorized by block request by semantic review\nPASS: reject successor skips acceptance by semantic review\nPASS: reject roadmap shortened by semantic review\nPASS: reject whole entry obligation replaced with three calls by semantic review\nPASS: reject conditional pause asserted now by semantic review\nPASS: reject pause condition removed by semantic review\nPASS: reject automatic409 allowed by semantic review\nPASS: reject old bindings reused by semantic review\nPASS: reject truncated receipt\nPASS: reject whole external condition truncated\nPASS: reject external native evidence invented\nPASS: reject external confirmation missing\nPASS: reject original contract byte drift\nPASS: reject coordinated policy substitution\nPASS: prepared result has no selection native rights or current pause\nPASS: reviewer imports only supplied-data libraries\nPASS: exact delivered artifact docs/reference/phase-1-operational-joint-contract-proposal-resume-planning-review.md\nPASS: exact delivered artifact tests/reference/test-phase-1-operational-joint-contract-proposal-resume-planning-review-harness.sh\nResult: PASS (43 passes, 0 failures)\n[main 09d34c4] Phase 1 step 399: plan joint contract proposal from confirmed safe pause 398\n 10 files changed, 5320 insertions(+)\n create mode 100644 docs/reference/phase-1-operational-joint-contract-proposal-resume-planning-review.md\n create mode 100644 tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-contract-proposal-resume-planning-review-baseline.json\n create mode 100644 tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-contract-proposal-resume-planning-review-entry398.json\n create mode 100644 tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-contract-proposal-resume-planning-review-plan.json\n create mode 100644 tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-contract-proposal-resume-planning-review-policy.json\n create mode 100644 tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-contract-proposal-resume-planning-review-sources.json\n create mode 100644 tests/reference/test-phase-1-operational-joint-contract-proposal-resume-planning-review-harness.sh\n create mode 100644 tools/reference/phase-1-operational-joint-contract-proposal-resume-planning-review.py\nEnter passphrase for key '/home/promano/.ssh/id_ed25519': \nEnumerando objetos: 35, listo.\nContando objetos: 100% (35/35), listo.\nCompresi\u00f3n delta usando hasta 16 hilos\nComprimiendo objetos: 100% (19/19), listo.\nEscribiendo objetos: 100% (22/22), 146.58 KiB | 1.46 MiB/s, listo.\nTotal 22 (delta 9), reused 0 (delta 0), pack-reused 0 (from 0)\nremote: Resolving deltas: 100% (9/9), completed with 8 local objects.\nTo github.com:promano7/slack-update.git\n   cb20576..09d34c4  main -> main\n09d34c4 (HEAD -> main, origin/main, origin/HEAD) Phase 1 step 399: plan joint contract proposal from confirmed safe pause 398\n09d34c4 (HEAD -> main, origin/main, origin/HEAD) Phase 1 step 399: plan joint contract proposal from confirmed safe pause 398\npromano@pc-arch ~/Descargas $ \n"
+  },
+  "whole_prior_entry398_reference": {
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-contract-proposal-resume-planning-review-entry398.json",
+    "sha256": "12367ccc2fe5c86ca219fda927ebc38a2b24494ffb218df10b88fa9db4285987"
+  }
+}

@@ -1,0 +1,896 @@
+{
+  "artifact_sha256": {
+    "docs/reference/phase-1-operational-concrete-joint-contract-candidate-proposal-review.md": "3604e95cfbc64e10e4faaf0209d8fcd102ee3f66cd9d162287ba91ff47a24daa",
+    "tests/reference/test-phase-1-operational-concrete-joint-contract-candidate-proposal-review-harness.sh": "3b8c1cd9a02ef32eeea0365d7f742d0ee9451e8ab22862aae472e8ae97a7299a"
+  },
+  "expected_author_reason": "It makes the declared trust, revocation granularity and receipt terminal-cut changes explicit together, while retaining whole entry, independent two-platform oracle, known drain, exact original baseline and once-only finite rights as requirements. This is a review direction, not a feasibility or user-selection finding.",
+  "expected_candidate_title": "Trusted infrastructure, finite operation admission and external finalization draft",
+  "expected_comparators": {
+    "deferral_comparator": {
+      "candidate_id": "JCP400-D",
+      "disposition": "defer",
+      "native_selection_blocked": true,
+      "option_references": [
+        {
+          "approved_migration": null,
+          "input_key": "writer_brief390",
+          "native_joint_compatibility": null,
+          "option_id": "defer-native-writer-selection",
+          "packet397_whole_row_canonical_sha256": "58b6ca8273216812242de99f5e300610f3726a38d3e5b07a96307e0575c4edd0",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-writer-trust-contract-decision-brief-brief.json",
+          "runtime_authority": false,
+          "selected": false,
+          "source_option_index": 2,
+          "whole_396_impact_review_canonical_sha256": "7c66dede3a5654a9839ee6bd84cb7d04c338a4676fa56b5a1915b328e69a7148",
+          "whole_option_canonical_sha256": "9dddb232b20807c55e362a0fc7154846e988259084da904af6a055fbec44cead"
+        },
+        {
+          "approved_migration": null,
+          "input_key": "revocation_brief391",
+          "native_joint_compatibility": null,
+          "option_id": "defer-native-revocation-selection",
+          "packet397_whole_row_canonical_sha256": "69ee21ebdb939b6e575b6c7457fd205a5ce119cb1940d0d893b11ec824ecbfb8",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-revocation-effect-contract-decision-brief-brief.json",
+          "runtime_authority": false,
+          "selected": false,
+          "source_option_index": 3,
+          "whole_396_impact_review_canonical_sha256": "0429ed96e16b48b41abf18fa30c91282d6cab81c38f1339d4e3cb528dba794e3",
+          "whole_option_canonical_sha256": "30720054bb378c62214d680ae8b4c1ce7b9501e619506c23452f58f7cb83ee9c"
+        },
+        {
+          "approved_migration": null,
+          "input_key": "loss_brief392",
+          "native_joint_compatibility": null,
+          "option_id": "defer-native-lifetime-time-selection",
+          "packet397_whole_row_canonical_sha256": "a10f7c546c2b352979012af60419ab170a1c2012bf3dfef223c22f7fd94eb855",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-loss-drain-clock-contract-decision-brief-brief.json",
+          "runtime_authority": false,
+          "selected": false,
+          "source_option_index": 3,
+          "whole_396_impact_review_canonical_sha256": "2da682fa1ed331337dcdbb08c176fcf00d1a0180dfc96f38e51b5db2f75caf12",
+          "whole_option_canonical_sha256": "9e69411cc07edf629ce588e9f5a0f60162743b9e4276631f495648066c326877"
+        },
+        {
+          "approved_migration": null,
+          "input_key": "storage_brief393",
+          "native_joint_compatibility": null,
+          "option_id": "defer-native-storage-rights-selection",
+          "packet397_whole_row_canonical_sha256": "e7085ca30ac5efa35e94106cc5c633dd62ef48659a7b4da53163e866f04979b8",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-baseline-storage-rights-contract-decision-brief-brief.json",
+          "runtime_authority": false,
+          "selected": false,
+          "source_option_index": 3,
+          "whole_396_impact_review_canonical_sha256": "20edb80634d3cbac71858e751d465f024382e5ded4688ae492c5c5ddb9aa9181",
+          "whole_option_canonical_sha256": "0b47b402b5a7f61d036dc7d7703d7e78d7867e1c3dc916c115008b7f66de7516"
+        },
+        {
+          "approved_migration": null,
+          "input_key": "receipt_brief394",
+          "native_joint_compatibility": null,
+          "option_id": "defer-native-receipt-selection",
+          "packet397_whole_row_canonical_sha256": "bcc2de776ef1c9ec4698fd366e608dca46c5046fff19f3c51f3f010b13ae8e46",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-stage12-terminal-receipt-contract-decision-brief-brief.json",
+          "runtime_authority": false,
+          "selected": false,
+          "source_option_index": 3,
+          "whole_396_impact_review_canonical_sha256": "9e54bec2dd6cd85126da044b347bf45191ee7b0bb0c70134ae0ec41c2983e9a1",
+          "whole_option_canonical_sha256": "3e74ecfa5734d54b0fc286d236291608324a034be2156a146d640598d791ed02"
+        },
+        {
+          "approved_migration": null,
+          "input_key": "entry_brief395",
+          "native_joint_compatibility": null,
+          "option_id": "defer-native-entry-backend-selection",
+          "packet397_whole_row_canonical_sha256": "bfd1a558989ba6a8b8b7a7e7e93c596ea1164c1d80d1884577ffc7438401f84c",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-whole-entry-backend-contract-decision-brief-brief.json",
+          "runtime_authority": false,
+          "selected": false,
+          "source_option_index": 3,
+          "whole_396_impact_review_canonical_sha256": "9f61ab763deb50f977a7dd577e45efa9eea30f9a15551fb0d3aa43715327a4c0",
+          "whole_option_canonical_sha256": "ce7d27f0aba93fe1b94354c8ad9256cc53a9ba0163675a486f773ff2df831ce9"
+        },
+        {
+          "approved_migration": null,
+          "input_key": "oracle_brief396",
+          "native_joint_compatibility": null,
+          "option_id": "defer-native-oracle-selection",
+          "packet397_whole_row_canonical_sha256": "0696b970f0b209de0a3497de9bed3a476b6a914b761421e5de16cd685b780b82",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-independent-oracle-migration-impact-decision-brief-brief.json",
+          "runtime_authority": false,
+          "selected": false,
+          "source_option_index": 2,
+          "whole_396_impact_review_canonical_sha256": "c0296f1ec8b5c3decaf72615874a61afc160cb3c04092295d03386908f2145a0",
+          "whole_option_canonical_sha256": "29cb26593936c1951ae279dcdf103fc75c83e64dec59a775c70462998c9d6bab"
+        }
+      ],
+      "result": "Keeps every original obligation and all native effects closed while the finite repository proposal work can reach a separately confirmed scoped pause; no host/global closure follows.",
+      "runtime_authority": false,
+      "selected": false
+    },
+    "retention_comparator": {
+      "candidate_id": "JCP400-R",
+      "complete_original_compatible_composition_supplied": false,
+      "disposition": "retain-original",
+      "native_compatibility_proven": false,
+      "option_references": [
+        {
+          "approved_migration": null,
+          "input_key": "writer_brief390",
+          "native_joint_compatibility": null,
+          "option_id": "retain-full-original-coverage",
+          "packet397_whole_row_canonical_sha256": "5d4e8df4383d136879f13ce9af05d415dcd93a59ffca02a84212487798e2db66",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-writer-trust-contract-decision-brief-brief.json",
+          "runtime_authority": false,
+          "selected": false,
+          "source_option_index": 0,
+          "whole_396_impact_review_canonical_sha256": "e48ae093f193a2c34eec11b683e3a92dd3ae2cb78949cb79e5f6a3032f143a1b",
+          "whole_option_canonical_sha256": "d56f9008870d5cb265c4489204dbdcfee89f5208d5fc0f6fa10d045952cdd54b"
+        },
+        {
+          "approved_migration": null,
+          "input_key": "revocation_brief391",
+          "native_joint_compatibility": null,
+          "option_id": "retain-every-effect-no-worker-channel",
+          "packet397_whole_row_canonical_sha256": "b4f16a0e542af10e0f9bde65f9ac7b983bce98d43a1efac689f1c566d237d8c6",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-revocation-effect-contract-decision-brief-brief.json",
+          "runtime_authority": false,
+          "selected": false,
+          "source_option_index": 0,
+          "whole_396_impact_review_canonical_sha256": "ef24f9bf51c93609c1bd513721df839d5bb89fcca596cf0d354e302ac9dd5e96",
+          "whole_option_canonical_sha256": "bd3fc0d2b7d263963f75be807e03a72a9203bbb9fa550dc69afcd8bec6195699"
+        },
+        {
+          "approved_migration": null,
+          "input_key": "loss_brief392",
+          "native_joint_compatibility": null,
+          "option_id": "retain-known-drain-and-trusted-time",
+          "packet397_whole_row_canonical_sha256": "9f03f19ef671b5bc78ce6b48146c3bc43f2f6ec502c0a15c585d508ab77fc878",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-loss-drain-clock-contract-decision-brief-brief.json",
+          "runtime_authority": false,
+          "selected": false,
+          "source_option_index": 0,
+          "whole_396_impact_review_canonical_sha256": "5fcc8e16885e730ff383151b97dcbaa9d3754de47fbb12dba4010a6ecf92434e",
+          "whole_option_canonical_sha256": "03f25c6ac54471f45691e220adb91b5effb086184c64e78e1c8962a5dbe14831"
+        },
+        {
+          "approved_migration": null,
+          "input_key": "storage_brief393",
+          "native_joint_compatibility": null,
+          "option_id": "retain-exact-original-capture-storage-rights",
+          "packet397_whole_row_canonical_sha256": "cac6c512dcb59cc11e807474adddd6299f89480693c2430b1e747e0151e803e9",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-baseline-storage-rights-contract-decision-brief-brief.json",
+          "runtime_authority": false,
+          "selected": false,
+          "source_option_index": 0,
+          "whole_396_impact_review_canonical_sha256": "2dd273fcae4faeeae4eb78294cab227b5dec41a37cb6873a8238eabaf84f1ae2",
+          "whole_option_canonical_sha256": "098b05e020bcc6267cbe930414af018c2bcd0bf78df3209ff1d525af4fcd301a"
+        },
+        {
+          "approved_migration": null,
+          "input_key": "receipt_brief394",
+          "native_joint_compatibility": null,
+          "option_id": "retain-whole-original-stage12",
+          "packet397_whole_row_canonical_sha256": "8373362e93d733fd2f42450816bab48ff8c980bd666ff74b6b367f3250ad5d4c",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-stage12-terminal-receipt-contract-decision-brief-brief.json",
+          "runtime_authority": false,
+          "selected": false,
+          "source_option_index": 0,
+          "whole_396_impact_review_canonical_sha256": "5776ee3874e28071de6f1d3e6ee118fccf3e0b369d79f618ce318b812a0b7bb7",
+          "whole_option_canonical_sha256": "bd3d14193388907fa190cecdd330be1513f7008a29012cafccda27491d6d6b4a"
+        },
+        {
+          "approved_migration": null,
+          "input_key": "entry_brief395",
+          "native_joint_compatibility": null,
+          "option_id": "retain-whole-original-entry",
+          "packet397_whole_row_canonical_sha256": "f13298e13f425513373d35a7802fd106e6fc584f62301098d8416249010abdc6",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-whole-entry-backend-contract-decision-brief-brief.json",
+          "runtime_authority": false,
+          "selected": false,
+          "source_option_index": 0,
+          "whole_396_impact_review_canonical_sha256": "0bed74f5f10af089df462bc96a2102003131964aeee125de318e65cef4035832",
+          "whole_option_canonical_sha256": "44f57600a1c0df9ff300373e6ab3d5e5d624c697169eba6fb209af31a7671121"
+        },
+        {
+          "approved_migration": null,
+          "input_key": "oracle_brief396",
+          "native_joint_compatibility": null,
+          "option_id": "retain-full-independent-two-platform-oracle",
+          "packet397_whole_row_canonical_sha256": "0625fd0ae2241f4779e076812df77d0df4dc566f81d58c1714e8f5368b263dc3",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-independent-oracle-migration-impact-decision-brief-brief.json",
+          "runtime_authority": false,
+          "selected": false,
+          "source_option_index": 0,
+          "whole_396_impact_review_canonical_sha256": "38d5598526de9b93bc30ebfbf1d6b2662fe54e3e8dded494798695839d709510",
+          "whole_option_canonical_sha256": "15ba94d7c693d9fcb6e68d92c8084ffb89e8578d20bf38808956d57f9121d1df"
+        }
+      ],
+      "result": "Retains all original guarantees without any draft trust/admission/stage cut; all eight original native conflicts remain unresolved and no complete implementation is supplied.",
+      "runtime_authority": false,
+      "selected": false,
+      "whole_original_requirements_remain_normative": true
+    }
+  },
+  "expected_confirmation399": {
+    "acceptance_result": "PASS (43 passes, 0 failures)",
+    "actual_global_host_closure": false,
+    "actual_host_state": "unobserved-not-claimed-absent",
+    "actual_live_bindings": null,
+    "approved_contract_migration": null,
+    "capture_basis": "complete-in-conversation-user-return-UTF8-transcription;final-newline-from-text-file-serialization;not-independent-terminal-byte-capture",
+    "changed_files": 10,
+    "commit_full": null,
+    "commit_prefix": "09d34c4",
+    "creates": 8,
+    "deletions": 0,
+    "exact_commit_message": "Phase 1 step 399: plan joint contract proposal from confirmed safe pause 398",
+    "insertions": 5320,
+    "last_confirmed_strong_safe_pause_step": 398,
+    "native_cases_run": 0,
+    "native_proofs_added": 0,
+    "receipt_sha256": "93138be7a7bc0bb431886224ac8e22783e6bd26101b38c8158073e1ac7d14183",
+    "receipt_size_bytes": 5852,
+    "runtime_authority": false,
+    "schema": 1,
+    "scope": "repository-joint-contract-proposal399-408-only",
+    "selected_options": null,
+    "state": "accepted-repository-checkpoint",
+    "step": 399,
+    "strong_safe_pause": false,
+    "user_application_completed": true,
+    "user_commit_and_push_completed": true,
+    "user_harness_completed": true,
+    "user_head_matches_origin": true,
+    "user_worktree_clean": true
+  },
+  "expected_deferral_option_ids": [
+    "defer-native-writer-selection",
+    "defer-native-revocation-selection",
+    "defer-native-lifetime-time-selection",
+    "defer-native-storage-rights-selection",
+    "defer-native-receipt-selection",
+    "defer-native-entry-backend-selection",
+    "defer-native-oracle-selection"
+  ],
+  "expected_future_acceptance": "Exact current/proposed semantics and complete joint guarantee/trust/effect/failure plus proof/case/raw/relation/entry/readiness migration must be independently reconciled before any explicit approval. Original conflict remains unresolved.",
+  "expected_incompatibilities": [
+    "Trusted-host and local-time infrastructure exclusions are incompatible with the current unqualified original threat/coverage statements until an explicit complete approved migration.",
+    "Post-revocation admitted-operation effects differ from current every-effect revocation and unchanged forward/recovery validity clauses; scope-specific exact402 reconciliation is required.",
+    "Producer-only stage12 and a declared terminal cut change original whole-stage membership/streams/status/origin and acceptance scope; complete405/407 migration remains pending."
+  ],
+  "expected_joint_questions": [
+    {
+      "actual_joint_resolution": null,
+      "candidate_specific_question": "The draft denies a worker channel but changes operation admission. Who serializes admission with every actual descendant/in-flight effect, and how are unchanged every-effect forward/recovery validity clauses replaced or retained consistently? A controller permission or cut name is insufficient.",
+      "current_authority": false,
+      "id": "offline-bootstrap-vs-live-channel",
+      "native_compatibility_proven": false,
+      "planned_review_step": 402,
+      "state": "unresolved-pending-substantive-joint-review",
+      "whole_original_dimension": {
+        "actual_joint_resolution": null,
+        "affected_option_ids": [
+          "retain-every-effect-no-worker-channel",
+          "declared-operation-admission-cuts",
+          "explicit-worker-control-channel",
+          "defer-native-revocation-selection"
+        ],
+        "current_authority": false,
+        "id": "offline-bootstrap-vs-live-channel",
+        "native_compatibility_proven": false,
+        "required_joint_review": "A live worker channel draft changes original offline/FD/authentication loss boundaries;retention options cannot silently borrow it.",
+        "source_family_input_keys": [
+          "revocation_brief391"
+        ]
+      }
+    },
+    {
+      "actual_joint_resolution": null,
+      "candidate_specific_question": "The same infrastructure trust boundary must enumerate writer/source/time/storage/observer policies and actual objects. Proposed excluded hostile infrastructure actions must not exempt ordinary privileged workload helpers or hide checked-to-used aliases.",
+      "current_authority": false,
+      "id": "writer-trust-vs-source-and-clock",
+      "native_compatibility_proven": false,
+      "planned_review_step": 401,
+      "state": "unresolved-pending-substantive-joint-review",
+      "whole_original_dimension": {
+        "actual_joint_resolution": null,
+        "affected_option_ids": [
+          "retain-full-original-coverage",
+          "explicit-trusted-host-boundary",
+          "defer-native-writer-selection",
+          "retain-known-drain-and-trusted-time",
+          "independent-guardian-retention-hypothesis",
+          "explicit-local-clock-trust-boundary",
+          "defer-native-lifetime-time-selection",
+          "retain-whole-original-entry",
+          "complete-protected-source-consumption-hypothesis",
+          "explicit-separate-backend-product-scope",
+          "defer-native-entry-backend-selection"
+        ],
+        "current_authority": false,
+        "id": "writer-trust-vs-source-and-clock",
+        "native_compatibility_proven": false,
+        "required_joint_review": "Host writer and clock exclusions need one explicit consistent trust/source scope;code/path/hash/namespace do not prove protected consumed objects.",
+        "source_family_input_keys": [
+          "writer_brief390",
+          "loss_brief392",
+          "entry_brief395"
+        ]
+      }
+    },
+    {
+      "actual_joint_resolution": null,
+      "candidate_specific_question": "A guardian can fail or stop after the original finite recovery right expires. Determine each survivor/FD/stream/storage effect and independent drain result without immortal guardian or guaranteed stop assumptions; failure/unknown remains pending.",
+      "current_authority": false,
+      "id": "guardian-drain-vs-forward-failure",
+      "native_compatibility_proven": false,
+      "planned_review_step": 403,
+      "state": "unresolved-pending-substantive-joint-review",
+      "whole_original_dimension": {
+        "actual_joint_resolution": null,
+        "affected_option_ids": [
+          "retain-known-drain-and-trusted-time",
+          "independent-guardian-retention-hypothesis",
+          "explicit-local-clock-trust-boundary",
+          "defer-native-lifetime-time-selection",
+          "retain-every-effect-no-worker-channel",
+          "declared-operation-admission-cuts",
+          "explicit-worker-control-channel",
+          "defer-native-revocation-selection",
+          "retain-whole-original-entry",
+          "complete-protected-source-consumption-hypothesis",
+          "explicit-separate-backend-product-scope",
+          "defer-native-entry-backend-selection"
+        ],
+        "current_authority": false,
+        "id": "guardian-drain-vs-forward-failure",
+        "native_compatibility_proven": false,
+        "required_joint_review": "Guardian survival,known complete descendants/FD/in-flight drain and absorbing failure stop must compose under actual finite rights.",
+        "source_family_input_keys": [
+          "loss_brief392",
+          "revocation_brief391",
+          "entry_brief395"
+        ]
+      }
+    },
+    {
+      "actual_joint_resolution": null,
+      "candidate_specific_question": "The external ledger may durably spend while ACK or local clock/guardian state is unknown. Specify exact original irreversible claim/launch/action ordering and no-repeat quarantine under the same fixed mapped deadlines without replacement authority.",
+      "current_authority": false,
+      "id": "durable-rights-vs-loss-deadlines",
+      "native_compatibility_proven": false,
+      "planned_review_step": 404,
+      "state": "unresolved-pending-substantive-joint-review",
+      "whole_original_dimension": {
+        "actual_joint_resolution": null,
+        "affected_option_ids": [
+          "retain-exact-original-capture-storage-rights",
+          "external-durable-rights-ledger-hypothesis",
+          "separate-owned-target-quarantine-hypothesis",
+          "defer-native-storage-rights-selection",
+          "retain-known-drain-and-trusted-time",
+          "independent-guardian-retention-hypothesis",
+          "explicit-local-clock-trust-boundary",
+          "defer-native-lifetime-time-selection",
+          "retain-every-effect-no-worker-channel",
+          "declared-operation-admission-cuts",
+          "explicit-worker-control-channel",
+          "defer-native-revocation-selection"
+        ],
+        "current_authority": false,
+        "id": "durable-rights-vs-loss-deadlines",
+        "native_compatibility_proven": false,
+        "required_joint_review": "Claim/launch/action spend,unknown ACK,no replay and trusted forward/recovery deadlines must remain jointly exact.",
+        "source_family_input_keys": [
+          "storage_brief393",
+          "loss_brief392",
+          "revocation_brief391"
+        ]
+      }
+    },
+    {
+      "actual_joint_resolution": null,
+      "candidate_specific_question": "Known target/no-write evidence and unknown owned backup/commit state need independent complete original vectors. Whole entry may already have effects; neither a missing backup nor backend raw return proves unchanged target or safe restore.",
+      "current_authority": false,
+      "id": "baseline-unknown-vs-backend-effects",
+      "native_compatibility_proven": false,
+      "planned_review_step": 404,
+      "state": "unresolved-pending-substantive-joint-review",
+      "whole_original_dimension": {
+        "actual_joint_resolution": null,
+        "affected_option_ids": [
+          "retain-exact-original-capture-storage-rights",
+          "external-durable-rights-ledger-hypothesis",
+          "separate-owned-target-quarantine-hypothesis",
+          "defer-native-storage-rights-selection",
+          "retain-whole-original-entry",
+          "complete-protected-source-consumption-hypothesis",
+          "explicit-separate-backend-product-scope",
+          "defer-native-entry-backend-selection"
+        ],
+        "current_authority": false,
+        "id": "baseline-unknown-vs-backend-effects",
+        "native_compatibility_proven": false,
+        "required_joint_review": "Known full target facts cannot be substituted by unknown backups or summarized backend effects;every safe restore/no-write branch retains all original gates.",
+        "source_family_input_keys": [
+          "storage_brief393",
+          "entry_brief395"
+        ]
+      }
+    },
+    {
+      "actual_joint_resolution": null,
+      "candidate_specific_question": "Producer-only stage12 differs from the normative whole stage. Resolve complete stream/status/origin membership and observer own effects/custody at an explicitly amended terminal cut; acyclic paper ordering does not prove native terminal closure.",
+      "current_authority": false,
+      "id": "terminal-cut-vs-whole-stage-oracle",
+      "native_compatibility_proven": false,
+      "planned_review_step": 405,
+      "state": "unresolved-pending-substantive-joint-review",
+      "whole_original_dimension": {
+        "actual_joint_resolution": null,
+        "affected_option_ids": [
+          "retain-whole-original-stage12",
+          "explicit-producer-and-external-finalization-cut",
+          "independent-captured-data-custody-hypothesis",
+          "defer-native-receipt-selection",
+          "retain-full-independent-two-platform-oracle",
+          "protected-independent-raw-oracle-hypothesis",
+          "defer-native-oracle-selection"
+        ],
+        "current_authority": false,
+        "id": "terminal-cut-vs-whole-stage-oracle",
+        "native_compatibility_proven": false,
+        "required_joint_review": "Changed producer/receipt membership requires explicit migration of full stage12 and every observer own effect/oracle/custody obligation;acyclic paper order proves no native closure.",
+        "source_family_input_keys": [
+          "receipt_brief394",
+          "oracle_brief396"
+        ]
+      }
+    },
+    {
+      "actual_joint_resolution": null,
+      "candidate_specific_question": "This draft retains whole entry and declines the separate-backend product alternative. Every preparation/helper/selector/hook/effect edge and original forbidden effect remains required; retain complete original proof/case coverage while reconciling the draft trust/cut changes.",
+      "current_authority": false,
+      "id": "narrow-product-vs-whole-entry-proof",
+      "native_compatibility_proven": false,
+      "planned_review_step": 406,
+      "state": "unresolved-pending-substantive-joint-review",
+      "whole_original_dimension": {
+        "actual_joint_resolution": null,
+        "affected_option_ids": [
+          "retain-whole-original-entry",
+          "complete-protected-source-consumption-hypothesis",
+          "explicit-separate-backend-product-scope",
+          "defer-native-entry-backend-selection",
+          "retain-full-independent-two-platform-oracle",
+          "protected-independent-raw-oracle-hypothesis",
+          "defer-native-oracle-selection"
+        ],
+        "current_authority": false,
+        "id": "narrow-product-vs-whole-entry-proof",
+        "native_compatibility_proven": false,
+        "required_joint_review": "A separate component product cannot satisfy current whole-entry/Phase1 proof/case/entry/readiness scope without full approved migration.",
+        "source_family_input_keys": [
+          "entry_brief395",
+          "oracle_brief396"
+        ]
+      }
+    },
+    {
+      "actual_joint_resolution": null,
+      "candidate_specific_question": "Independent expectation, collector, receipt observer and consumer roles themselves use guarded source, clocks, storage and finite custody rights. Enumerate their own possible ACK/stream/descendant effects and final unknowns without a passive observer exception.",
+      "current_authority": false,
+      "id": "observer-controls-vs-finite-custody",
+      "native_compatibility_proven": false,
+      "planned_review_step": 405,
+      "state": "unresolved-pending-substantive-joint-review",
+      "whole_original_dimension": {
+        "actual_joint_resolution": null,
+        "affected_option_ids": [
+          "retain-full-independent-two-platform-oracle",
+          "protected-independent-raw-oracle-hypothesis",
+          "defer-native-oracle-selection",
+          "retain-whole-original-stage12",
+          "explicit-producer-and-external-finalization-cut",
+          "independent-captured-data-custody-hypothesis",
+          "defer-native-receipt-selection",
+          "retain-exact-original-capture-storage-rights",
+          "external-durable-rights-ledger-hypothesis",
+          "separate-owned-target-quarantine-hypothesis",
+          "defer-native-storage-rights-selection",
+          "retain-known-drain-and-trusted-time",
+          "independent-guardian-retention-hypothesis",
+          "explicit-local-clock-trust-boundary",
+          "defer-native-lifetime-time-selection"
+        ],
+        "current_authority": false,
+        "id": "observer-controls-vs-finite-custody",
+        "native_compatibility_proven": false,
+        "required_joint_review": "No observer/injector/consumer exception;actual origin,writers,finite rights,storage,stream and ACK/custody outcomes remain due.",
+        "source_family_input_keys": [
+          "oracle_brief396",
+          "receipt_brief394",
+          "storage_brief393",
+          "loss_brief392"
+        ]
+      }
+    },
+    {
+      "actual_joint_resolution": null,
+      "candidate_specific_question": "Both actual platforms need independent fresh full support/identity/expectation/fault/raw/custody qualification. Safe actual joint review and a separate explicit bounded test grant still precede effects; the draft and its repository tests cannot satisfy that gate.",
+      "current_authority": false,
+      "id": "two-platform-fresh-test-entry",
+      "native_compatibility_proven": false,
+      "planned_review_step": 406,
+      "state": "unresolved-pending-substantive-joint-review",
+      "whole_original_dimension": {
+        "actual_joint_resolution": null,
+        "affected_option_ids": [
+          "retain-full-original-coverage",
+          "explicit-trusted-host-boundary",
+          "defer-native-writer-selection",
+          "retain-every-effect-no-worker-channel",
+          "declared-operation-admission-cuts",
+          "explicit-worker-control-channel",
+          "defer-native-revocation-selection",
+          "retain-known-drain-and-trusted-time",
+          "independent-guardian-retention-hypothesis",
+          "explicit-local-clock-trust-boundary",
+          "defer-native-lifetime-time-selection",
+          "retain-exact-original-capture-storage-rights",
+          "external-durable-rights-ledger-hypothesis",
+          "separate-owned-target-quarantine-hypothesis",
+          "defer-native-storage-rights-selection",
+          "retain-whole-original-stage12",
+          "explicit-producer-and-external-finalization-cut",
+          "independent-captured-data-custody-hypothesis",
+          "defer-native-receipt-selection",
+          "retain-whole-original-entry",
+          "complete-protected-source-consumption-hypothesis",
+          "explicit-separate-backend-product-scope",
+          "defer-native-entry-backend-selection",
+          "retain-full-independent-two-platform-oracle",
+          "protected-independent-raw-oracle-hypothesis",
+          "defer-native-oracle-selection"
+        ],
+        "current_authority": false,
+        "id": "two-platform-fresh-test-entry",
+        "native_compatibility_proven": false,
+        "required_joint_review": "Whole independently safe actual composition review precedes separate fresh explicit native-test grant;native conformance later operational readiness. No historical/other-platform transfer.",
+        "source_family_input_keys": [
+          "writer_brief390",
+          "revocation_brief391",
+          "loss_brief392",
+          "storage_brief393",
+          "receipt_brief394",
+          "entry_brief395",
+          "oracle_brief396"
+        ]
+      }
+    }
+  ],
+  "expected_joint_wording": [
+    {
+      "id": "shared-infrastructure-trust",
+      "kind": "joint-inactive-amendment",
+      "option_ids": [
+        "explicit-trusted-host-boundary",
+        "explicit-local-clock-trust-boundary"
+      ],
+      "text": "One explicit proposed infrastructure trust boundary applies consistently to source, writer, clock, storage and terminal custody control assumptions. Enumerate kernel/enforcement and time providers, policy administrator, hypervisor if present, storage hardware and physical custodians by exact identity/configuration before any future acceptance. Their deliberate policy/device/time tampering is outside the proposed guarantee and is not promised detectable. Ordinary direct/manual/scheduled/privileged workload, updater, helpers, backend, observers and injectors remain in scope. Conforming-infrastructure assumptions never prove actual isolation, correct storage or independent custody. All actual identities and support remain unknown."
+    },
+    {
+      "id": "operation-admission-and-offline-worker",
+      "kind": "joint-inactive-amendment",
+      "option_ids": [
+        "declared-operation-admission-cuts"
+      ],
+      "text": "Use an externally controlled draft operation-admission boundary with the original worker bootstrap and no inherited worker broker/service/validation channel. Forward revocation irreversibly denies subsequent forward admission. An already admitted operation may continue only its explicitly enumerated finite effects and descendants toward its independently known safe cut within its original scope, fixed deadline and pre-spent budget. Effects after a revocation request are an intentional changed promise. Expiry/failure or reaching the fixed bound creates no permission beyond that bound. Each original recovery/evidence/publication scope needs its separate valid rights and explicit revocation treatment. The original every-effect forward-validity and recovery-validity clauses still need complete exact replacement or retained per-scope enforcement reconciliation at402; no joint enforcement protocol is supplied here."
+    },
+    {
+      "id": "guardian-with-trusted-original-clock",
+      "kind": "same-brief-explicit-joint-draft",
+      "option_ids": [
+        "independent-guardian-retention-hypothesis",
+        "explicit-local-clock-trust-boundary"
+      ],
+      "text": "Combine a hypothetical protected guardian with the proposed enumerated local-time infrastructure assumption. Guardian membership and all descendants, inherited handles, streams and in-flight effects must be established before effects. The issuer original fixed finite bounds are mapped once to the reviewed original boot/clock domain; suspend consumes elapsed bounds or effects are denied before resume. Guardian control requests or survival are not known drain. Guardian/clock loss, uncertainty, restart, observed/suspected discontinuity or unknown stopping blocks dependent effects and preserves scoped pending obligations. No immortal guardian, guaranteed finite drain, clock fallback, deadline renewal, recovery exemption, new grant or replay is introduced. Hidden deliberate time tampering by the enumerated trusted infrastructure is outside the proposed integrity guarantee; detection is not promised. Known drain/restoration/release requirements are retained; compatible actual mechanisms remain unresolved."
+    },
+    {
+      "id": "durable-rights-with-separate-quarantine",
+      "kind": "same-brief-explicit-joint-draft",
+      "option_ids": [
+        "external-durable-rights-ledger-hypothesis",
+        "separate-owned-target-quarantine-hypothesis"
+      ],
+      "text": "Combine a hypothetical external durable original-rights ledger with separate target/owned/controller uncertainty records. Authenticate before the irreversible claim, establish service obligations before its first write, durably pre-spend one launch before one spawn and pre-spend each original once-only finite recovery action. Lost ACK or unknown claim/spawn/spend/action cannot be invented unused or consumed and never grants repeat/refund/replacement rights. Capture fresh original memory facts after traps and under continuous known guard before owned writes; establish exact known protected backups before target mutation. Unknown owned binding/backup state cannot authorize restore. A separately independently known full original target/no-write branch may retain target facts while owned/controller state stays pending; it does not authorize automatic cleanup, publication or pause. Restore only under every original safe identity/backup/drain/finite-right precondition. No storage primitive, atomicity, durability or safe-quarantine implementation is established."
+    },
+    {
+      "id": "producer-receipt-and-finite-custody",
+      "kind": "joint-inactive-amendment",
+      "option_ids": [
+        "explicit-producer-and-external-finalization-cut",
+        "protected-independent-raw-oracle-hypothesis"
+      ],
+      "text": "Propose the complete changed stage12 producer membership from the exact394 draft, with external receipt writer, independent final-object/storage observation and custody/consumer accounting as separately declared finite obligations. All publish from captured closed data; no later target/source action. Receipt payload binds prior producer trace and cannot prove its own later commit/hash/durability. Producer exit cannot establish overall final eligibility. Every observer/injector/consumer own effect, descendants, streams, finite rights, storage and ACK remains explicitly reviewed inside the candidate acceptance boundary; no actor is exempt by label. A finite terminal trust/evidence cut is an explicit proposed change, not original equivalence or a solved native closure. Later unclassified effects or unknown final custody block closure without replay or new rights."
+    },
+    {
+      "id": "whole-entry-protected-independent-oracle",
+      "kind": "joint-retention-hypothesis",
+      "option_ids": [
+        "complete-protected-source-consumption-hypothesis",
+        "protected-independent-raw-oracle-hypothesis"
+      ],
+      "text": "Retain the full original successor entry/preparation/lock/log/trap/snapshot/config/helper/archive/backend/selector/hook/recovery/publication graph, original forbidden boot/GenInitrd/optional effects and full ordered raw status/selector/effect vectors. Protect all actual consumed objects/aliases from validation through use; no three-call or separate backend-product substitution. Bind independently derived original expected vectors and independently effective positive/negative fault controls, protected authentic raw custody and exact two-platform source/version/boot/attempt/run identities. Subject output or shared selector/cleanup logic cannot be the sole oracle. Full46proof/52case/12rawgroup/1072ordered relations remain due; changed trust/admission/stage12 criteria require full explicit semantic migration. Unknown support, missing edges or observation keep entry closed."
+    }
+  ],
+  "expected_migration_coverage": {
+    "affected_acceptance_criteria_independently_accepted": false,
+    "all_original_contract_section_gap_proof_case_raw_relation_entry_readiness_members_retained": true,
+    "approved_migration": null,
+    "draft_full_replacement_reconciliation_complete": false,
+    "due_at_step": 407,
+    "map_coverage_is_semantic_approval": false,
+    "original_categories": 15,
+    "original_members": 1286,
+    "whole_map_reference": {
+      "canonical_sha256": "1a00f9afcde2a6ef72dad05cef26d2ea58874ef2f0daa3a533550ee799283612",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-independent-oracle-migration-impact-decision-brief-brief.json",
+      "sha256": "67c6fed2d3e2d8ae5a7ae9904428841ae9410c905efed6da9ca81acc4e07535c"
+    }
+  },
+  "expected_platforms": [
+    {
+      "actual_composition": null,
+      "entry_authorized": false,
+      "installed_versions": null,
+      "native_evidence": null,
+      "platform": "Slackware 15.0",
+      "support": null
+    },
+    {
+      "actual_composition": null,
+      "entry_authorized": false,
+      "installed_versions": null,
+      "native_evidence": null,
+      "platform": "Slackware-current",
+      "support": null
+    }
+  ],
+  "expected_primary_option_ids": [
+    "explicit-trusted-host-boundary",
+    "declared-operation-admission-cuts",
+    "independent-guardian-retention-hypothesis",
+    "explicit-local-clock-trust-boundary",
+    "external-durable-rights-ledger-hypothesis",
+    "separate-owned-target-quarantine-hypothesis",
+    "explicit-producer-and-external-finalization-cut",
+    "complete-protected-source-consumption-hypothesis",
+    "protected-independent-raw-oracle-hypothesis"
+  ],
+  "expected_retention_option_ids": [
+    "retain-full-original-coverage",
+    "retain-every-effect-no-worker-channel",
+    "retain-known-drain-and-trusted-time",
+    "retain-exact-original-capture-storage-rights",
+    "retain-whole-original-stage12",
+    "retain-whole-original-entry",
+    "retain-full-independent-two-platform-oracle"
+  ],
+  "expected_review_result": {
+    "after_complete400_acceptance_next_preparable_step": 401,
+    "after_confirmed408_next_authorized_stage": null,
+    "approved_contract_migration": null,
+    "candidate_id": "JCP400-A",
+    "conditional_close_step": 408,
+    "joint_native_compatibility_proven": false,
+    "last_confirmed_repository_pause": 398,
+    "runtime_authority": false,
+    "selected_options": null,
+    "state": "prepared-inactive-candidate-user-acceptance-pending",
+    "step": 400,
+    "strong_safe_pause": false
+  },
+  "expected_roles": [
+    {
+      "actual_actor_identity": null,
+      "actual_independence_or_enforcement": null,
+      "actual_placement_or_privilege": null,
+      "actual_source": null,
+      "id": "original-issuer",
+      "implementation_selected": false,
+      "proposed_responsibility": "Authenticate the original principal/scope/fixed finite bounds; no later replacement grant.",
+      "runtime_authority": false
+    },
+    {
+      "actual_actor_identity": null,
+      "actual_independence_or_enforcement": null,
+      "actual_placement_or_privilege": null,
+      "actual_source": null,
+      "id": "external-rights-controller",
+      "implementation_selected": false,
+      "proposed_responsibility": "Own original irreversible claim, pre-spent launch and durable once-only recovery spends; contain unknown ACK without replay.",
+      "runtime_authority": false
+    },
+    {
+      "actual_actor_identity": null,
+      "actual_independence_or_enforcement": null,
+      "actual_placement_or_privilege": null,
+      "actual_source": null,
+      "id": "external-admission-controller",
+      "implementation_selected": false,
+      "proposed_responsibility": "Apply proposed operation admissions and original scoped revocation without giving a worker channel; actual enforcement unresolved.",
+      "runtime_authority": false
+    },
+    {
+      "actual_actor_identity": null,
+      "actual_independence_or_enforcement": null,
+      "actual_placement_or_privilege": null,
+      "actual_source": null,
+      "id": "protected-guardian",
+      "implementation_selected": false,
+      "proposed_responsibility": "Track complete original membership and independently known all-child/FD/stream/in-flight drain through loss; guardian own loss remains reviewed.",
+      "runtime_authority": false
+    },
+    {
+      "actual_actor_identity": null,
+      "actual_independence_or_enforcement": null,
+      "actual_placement_or_privilege": null,
+      "actual_source": null,
+      "id": "worker-adapter",
+      "implementation_selected": false,
+      "proposed_responsibility": "Consume authenticated bounded offline bootstrap only; no service/broker/key/ledger capability or unreviewed escape route.",
+      "runtime_authority": false
+    },
+    {
+      "actual_actor_identity": null,
+      "actual_independence_or_enforcement": null,
+      "actual_placement_or_privilege": null,
+      "actual_source": null,
+      "id": "backend-and-all-helpers",
+      "implementation_selected": false,
+      "proposed_responsibility": "Retain full original real source/selector/hook effects, absorbing failure and forbidden-effect scope; UID0 grants no exemption.",
+      "runtime_authority": false
+    },
+    {
+      "actual_actor_identity": null,
+      "actual_independence_or_enforcement": null,
+      "actual_placement_or_privilege": null,
+      "actual_source": null,
+      "id": "independent-expectation-author",
+      "implementation_selected": false,
+      "proposed_responsibility": "Derive full expected original/proposed vectors independently; no sole candidate-output oracle.",
+      "runtime_authority": false
+    },
+    {
+      "actual_actor_identity": null,
+      "actual_independence_or_enforcement": null,
+      "actual_placement_or_privilege": null,
+      "actual_source": null,
+      "id": "independent-collector-verifier",
+      "implementation_selected": false,
+      "proposed_responsibility": "Observe authentic complete raw vectors and effective controls plus its own finite effects and protected custody.",
+      "runtime_authority": false
+    },
+    {
+      "actual_actor_identity": null,
+      "actual_independence_or_enforcement": null,
+      "actual_placement_or_privilege": null,
+      "actual_source": null,
+      "id": "publication-producer",
+      "implementation_selected": false,
+      "proposed_responsibility": "Prepare proposed stage12 artifacts from captured closed data; producer completion is only its own outcome.",
+      "runtime_authority": false
+    },
+    {
+      "actual_actor_identity": null,
+      "actual_independence_or_enforcement": null,
+      "actual_placement_or_privilege": null,
+      "actual_source": null,
+      "id": "external-receipt-writer-observer",
+      "implementation_selected": false,
+      "proposed_responsibility": "Separate receipt payload/commit from independent final receipt storage/origin observation; own rights/effects remain reviewed.",
+      "runtime_authority": false
+    },
+    {
+      "actual_actor_identity": null,
+      "actual_independence_or_enforcement": null,
+      "actual_placement_or_privilege": null,
+      "actual_source": null,
+      "id": "custody-consumer",
+      "implementation_selected": false,
+      "proposed_responsibility": "Establish final delivery/custody/ACK and explicit terminal boundary with its own failures; no self-final receipt claim.",
+      "runtime_authority": false
+    }
+  ],
+  "fixture_canonical_sha256": {
+    "baseline": "2b85e576c6108e8f884a07f2d19daec46dcbe3d667aa73e614fcf76076866061",
+    "candidate": "5c34230946a48e6e09c1a2aed8a6a4d62e85b24f3db84c3713d1d37fb546d8d2",
+    "entry399": "fff9dea68282d939a805d8608223f7f2ea20d7da587ddb4c93b60567e5d35684",
+    "sources": "ed4f7f665947e734c0761bc327351e53909752f458bd5dd4ae45d3254b3be464"
+  },
+  "new_paths": [
+    "docs/reference/phase-1-operational-concrete-joint-contract-candidate-proposal-review.md",
+    "tools/reference/phase-1-operational-concrete-joint-contract-candidate-proposal-review.py",
+    "tests/reference/test-phase-1-operational-concrete-joint-contract-candidate-proposal-review-harness.sh",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-concrete-joint-contract-candidate-proposal-review-baseline.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-concrete-joint-contract-candidate-proposal-review-entry399.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-concrete-joint-contract-candidate-proposal-review-candidate.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-concrete-joint-contract-candidate-proposal-review-sources.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-concrete-joint-contract-candidate-proposal-review-policy.json"
+  ],
+  "prefixes": {
+    "CHANGELOG.md": "## Phase 1 step 400 -- concrete unselected joint contract candidate\n\n- Accepted399 at reported09d34c4:43 ordered PASS/zero failures,ten files/eight\n  creates/5320insertions,reported push/clean matching heads;full disclosed transcript.\n- Proposed JCP400-A:nine exact option bindings,four inactive amendment wordings,\n  complete source loss lists and six joint clauses including two same-brief merges.\n- Explicit host/time trust,operation-admission and stage12/terminal-cut guarantee\n  changes;whole entry/oracle/original finite rights retained as requirements.\n- Eight whole pending decisions/nine concrete unresolved joint questions,eleven\n  unbound role labels and separate unknown15.0/current support;no native composition.\n- Original-retention JCP400-R and native-deferral JCP400-D remain unselected.\n- Whole73inputs/26roots/396impact retained;semantic acceptance/migration due407,\n  no user option selection,approval or test grant.Conditional408 thenSTOP/noautomatic409.\n\n",
+    "README.md": "<!-- step-400-concrete-joint-candidate:start -->\n## Current Phase 1 joint candidate proposal -- step 400\n\nAccepted399 at reported `09d34c4`:43 ordered PASS/zero failures,tenfiles/eightcreates/\n5320insertions,reported push and clean matching heads. Step400 is prepared,user\nacceptance pending. Last confirmed repository pause398 covers389-398only.\n\nThe [JCP400-A draft](docs/reference/phase-1-operational-concrete-joint-contract-candidate-proposal-review.md)\ncombines explicit host/time trust,finite external operation admission without a\nworker channel,guardian/durable-rights/quarantine hypotheses,producer plus external\nreceipt,and retained whole entry/independent two-platform oracle. Nine exact source\noptions and six joint clauses preserve every source guarantee loss. JCP400-R keeps\noriginal guarantees;JCP400-D defers native selection. All three are unselected.\n\nHost/time protection becomes conditional,admitted effects may follow revocation,\nand stage12/terminal membership would change. These are inactive proposed amendments,\nincompatible with original wording until complete independently reconciled and\nexplicitly approved migration. Nine candidate-specific joint questions remain\nunresolved;role labels and declared operation/receipt cuts supply no native proof.\n\nOriginal clauses and full proof/case/raw/relation/entry/readiness scope remain\nnormative. Semantic migration due407;no user selection/specification approval/native\nimplementation or test grant. Nativeproofs/cases0;Phase1/kernel incomplete;schema/\nreference-v1/C/Phase2/Production closed. Hostunobserved/livebindingsnull/globalclosure\nfalse,no required batch machine/controller action. Full actual safe joint review\nand separate fresh bounded testgrant precede effects;native conformance later\nestablishes readiness. After complete400acceptance prepare401;conditional408 needs\nall whole scoped conditions/final actual return/external confirmation,thenSTOP/\nnoautomatic409. This current prefix supersedes historical current-state readings;\nall accepted399 historical README bytes below are unchanged.\n<!-- step-400-concrete-joint-candidate:end -->\n\n"
+  },
+  "receipt_create_paths": [
+    "docs/reference/phase-1-operational-joint-contract-proposal-resume-planning-review.md",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-contract-proposal-resume-planning-review-baseline.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-contract-proposal-resume-planning-review-entry398.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-contract-proposal-resume-planning-review-plan.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-contract-proposal-resume-planning-review-policy.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-contract-proposal-resume-planning-review-sources.json",
+    "tests/reference/test-phase-1-operational-joint-contract-proposal-resume-planning-review-harness.sh",
+    "tools/reference/phase-1-operational-joint-contract-proposal-resume-planning-review.py"
+  ],
+  "receipt_final_tail": "09d34c4 (HEAD -> main, origin/main, origin/HEAD) Phase 1 step 399: plan joint contract proposal from confirmed safe pause 398\n09d34c4 (HEAD -> main, origin/main, origin/HEAD) Phase 1 step 399: plan joint contract proposal from confirmed safe pause 398\npromano@pc-arch ~/Descargas $ \n",
+  "receipt_pass_labels": [
+    "PASS: whole authored399 fixtures independently bound",
+    "PASS: all70 whole original JSON inputs and25 source roots retained",
+    "PASS: complete accepted398 receipt and nine whole external conditions",
+    "PASS: finite joint plan retains whole original scope and closed approvals",
+    "PASS: all2114 accepted398 files unchanged except exact additive prefixes",
+    "PASS: exact eight additions plus README and CHANGELOG scope",
+    "PASS: reject boolean schema by semantic review",
+    "PASS: reject selected options invented by semantic review",
+    "PASS: reject draft already chosen by semantic review",
+    "PASS: reject joint approval invented by semantic review",
+    "PASS: reject contract migration invented by semantic review",
+    "PASS: reject native graph invented by semantic review",
+    "PASS: reject full Git ID invented by semantic review",
+    "PASS: reject native authority opened by semantic review",
+    "PASS: reject native proof invented by semantic review",
+    "PASS: reject unknown host made absent by semantic review",
+    "PASS: reject global closure invented by semantic review",
+    "PASS: reject original contract made inactive by semantic review",
+    "PASS: reject whole decision truncated by semantic review",
+    "PASS: reject joint dimension truncated by semantic review",
+    "PASS: reject original requirement shortened by semantic review",
+    "PASS: reject source input removed by semantic review",
+    "PASS: reject draft choice promoted to user selection by semantic review",
+    "PASS: reject migration impact promoted to approval by semantic review",
+    "PASS: reject migration complete invented by semantic review",
+    "PASS: reject runtime authorized by block request by semantic review",
+    "PASS: reject successor skips acceptance by semantic review",
+    "PASS: reject roadmap shortened by semantic review",
+    "PASS: reject whole entry obligation replaced with three calls by semantic review",
+    "PASS: reject conditional pause asserted now by semantic review",
+    "PASS: reject pause condition removed by semantic review",
+    "PASS: reject automatic409 allowed by semantic review",
+    "PASS: reject old bindings reused by semantic review",
+    "PASS: reject truncated receipt",
+    "PASS: reject whole external condition truncated",
+    "PASS: reject external native evidence invented",
+    "PASS: reject external confirmation missing",
+    "PASS: reject original contract byte drift",
+    "PASS: reject coordinated policy substitution",
+    "PASS: prepared result has no selection native rights or current pause",
+    "PASS: reviewer imports only supplied-data libraries",
+    "PASS: exact delivered artifact docs/reference/phase-1-operational-joint-contract-proposal-resume-planning-review.md",
+    "PASS: exact delivered artifact tests/reference/test-phase-1-operational-joint-contract-proposal-resume-planning-review-harness.sh"
+  ],
+  "receipt_push_marker": "   cb20576..09d34c4  main -> main\n",
+  "receipt_sha256": "93138be7a7bc0bb431886224ac8e22783e6bd26101b38c8158073e1ac7d14183",
+  "receipt_single_markers": [
+    "step399_overlay_application_status\tPASS",
+    "step399_commit_scope_verification_status\tPASS",
+    "Result: PASS (43 passes, 0 failures)",
+    "[main 09d34c4] Phase 1 step 399: plan joint contract proposal from confirmed safe pause 398",
+    " 10 files changed, 5320 insertions(+)",
+    "   cb20576..09d34c4  main -> main\n"
+  ],
+  "receipt_size_bytes": 5852,
+  "schema": 1,
+  "scope": "repository-joint-contract-proposal399-408-only",
+  "step": 400
+}

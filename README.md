@@ -1,3 +1,35 @@
+<!-- step-400-concrete-joint-candidate:start -->
+## Current Phase 1 joint candidate proposal -- step 400
+
+Accepted399 at reported `09d34c4`:43 ordered PASS/zero failures,tenfiles/eightcreates/
+5320insertions,reported push and clean matching heads. Step400 is prepared,user
+acceptance pending. Last confirmed repository pause398 covers389-398only.
+
+The [JCP400-A draft](docs/reference/phase-1-operational-concrete-joint-contract-candidate-proposal-review.md)
+combines explicit host/time trust,finite external operation admission without a
+worker channel,guardian/durable-rights/quarantine hypotheses,producer plus external
+receipt,and retained whole entry/independent two-platform oracle. Nine exact source
+options and six joint clauses preserve every source guarantee loss. JCP400-R keeps
+original guarantees;JCP400-D defers native selection. All three are unselected.
+
+Host/time protection becomes conditional,admitted effects may follow revocation,
+and stage12/terminal membership would change. These are inactive proposed amendments,
+incompatible with original wording until complete independently reconciled and
+explicitly approved migration. Nine candidate-specific joint questions remain
+unresolved;role labels and declared operation/receipt cuts supply no native proof.
+
+Original clauses and full proof/case/raw/relation/entry/readiness scope remain
+normative. Semantic migration due407;no user selection/specification approval/native
+implementation or test grant. Nativeproofs/cases0;Phase1/kernel incomplete;schema/
+reference-v1/C/Phase2/Production closed. Hostunobserved/livebindingsnull/globalclosure
+false,no required batch machine/controller action. Full actual safe joint review
+and separate fresh bounded testgrant precede effects;native conformance later
+establishes readiness. After complete400acceptance prepare401;conditional408 needs
+all whole scoped conditions/final actual return/external confirmation,thenSTOP/
+noautomatic409. This current prefix supersedes historical current-state readings;
+all accepted399 historical README bytes below are unchanged.
+<!-- step-400-concrete-joint-candidate:end -->
+
 <!-- step-399-joint-proposal-plan:start -->
 ## Current Phase 1 joint contract proposal plan -- step 399
 

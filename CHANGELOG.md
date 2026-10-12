@@ -1,3 +1,17 @@
+## Phase 1 step 400 -- concrete unselected joint contract candidate
+
+- Accepted399 at reported09d34c4:43 ordered PASS/zero failures,ten files/eight
+  creates/5320insertions,reported push/clean matching heads;full disclosed transcript.
+- Proposed JCP400-A:nine exact option bindings,four inactive amendment wordings,
+  complete source loss lists and six joint clauses including two same-brief merges.
+- Explicit host/time trust,operation-admission and stage12/terminal-cut guarantee
+  changes;whole entry/oracle/original finite rights retained as requirements.
+- Eight whole pending decisions/nine concrete unresolved joint questions,eleven
+  unbound role labels and separate unknown15.0/current support;no native composition.
+- Original-retention JCP400-R and native-deferral JCP400-D remain unselected.
+- Whole73inputs/26roots/396impact retained;semantic acceptance/migration due407,
+  no user option selection,approval or test grant.Conditional408 thenSTOP/noautomatic409.
+
 ## Phase 1 step 399 -- joint contract proposal resume planning
 
 - Accepted398 at reported cb20576:288 ordered PASS/zero failures,exact nine-path
