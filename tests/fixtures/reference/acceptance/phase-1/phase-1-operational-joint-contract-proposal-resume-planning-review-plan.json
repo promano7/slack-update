@@ -1,0 +1,1132 @@
+{
+  "actual_joint_native_graph": null,
+  "actual_selected_implementation": null,
+  "approved_contract_migration": null,
+  "approved_joint_specification": null,
+  "authorization_basis": {
+    "component_selection_authorized": false,
+    "contract_amendment_authorized": false,
+    "native_test_or_runtime_authorized": false,
+    "new_repository_block_authorized": true,
+    "user_request_verbatim": "Hola, vamos a hacer 8-12 pasos buscando una pausa fuerte segura."
+  },
+  "boundaries": {
+    "C_port_open": false,
+    "actual_global_host_closure": false,
+    "actual_host_state": "unobserved-not-claimed-absent",
+    "actual_live_bindings": null,
+    "actual_native_refinement_complete": false,
+    "actual_successor_selected": false,
+    "controller_action_required": false,
+    "current_step_strong_safe_pause": false,
+    "execution_authorized": false,
+    "historical_binding_or_authority_reuse_allowed": false,
+    "kernel_package_edge_complete": false,
+    "last_confirmed_strong_safe_pause_step": 398,
+    "later_current_refresh_invalidates_repository_only_pause": false,
+    "machine_action_required": false,
+    "native_cases_run": 0,
+    "native_components_selected": false,
+    "native_graph_complete": false,
+    "native_proofs_added": 0,
+    "operational_conformance": false,
+    "operational_readiness": false,
+    "phase1_matrix_complete": false,
+    "phase2_open": false,
+    "production_entry_closed": true,
+    "reference_v1_frozen": false,
+    "runtime_authority": false,
+    "strong_safe_pause": false,
+    "target_machine_actions_authorized": false,
+    "version1_schema_frozen": false
+  },
+  "current_bounded_verdict_counts": {
+    "compatible-unproven": 0,
+    "incompatible-as-stated": 34,
+    "unresolved": 11
+  },
+  "draft_candidate": null,
+  "entry_commit_prefix": "cb20576",
+  "full_commit_id": null,
+  "independent_impact_review_accepted": false,
+  "joint_draft_rules": {
+    "all_eight_decisions_and_nine_joint_dimensions_required": true,
+    "author_draft_choice_is_user_selection": false,
+    "concrete_user_option_decision_before_normative_migration": true,
+    "draft_cannot_replace_original_until_separate_approval": true,
+    "draft_consistency_is_native_compatibility": false,
+    "exact_replacement_guarantees_trust_effect_failure_and_acceptance_required": true,
+    "migration_table_is_independent_approval": false,
+    "native_component_support_unknown_on_both_platforms": true,
+    "new_technical_claims_require_primary_sources": true,
+    "no_original_deadline_budget_or_right_renewal": true,
+    "retention_and_deferral_comparators_required": true,
+    "same_brief_combinations_require_explicit_joint_wording": true,
+    "unknown_joint_edges_stay_blockers": true,
+    "whole_396_impact_map_required_without_pruning": true
+  },
+  "native_evidence": null,
+  "pause_policy": {
+    "actual_complete_final_user_return_required": true,
+    "actual_host_unobserved_not_claimed_absent": true,
+    "after_confirmed408_next_authorized_stage": null,
+    "all_nine_whole_original_conditions_required": true,
+    "conditional_close_step": 408,
+    "confirmation_external_to_prepared_repository": true,
+    "historical_binding_or_authority_reuse_allowed": false,
+    "historical_confirmed_scope": "repository-contract-decision-proposals389-398-only",
+    "last_confirmed_step": 398,
+    "later_current_refresh_invalidates_repository_only_pause": false,
+    "machine_or_controller_action_required_for_this_block": false,
+    "native_conflicts_can_remain_unresolved_at_repository_pause": true,
+    "new_block_requires_new_user_request": true,
+    "no_automatic409": true,
+    "original_condition_ids": [
+      "complete-user-overlay-full-tests-exact-commit-successful-push-clean-tree-matching-HEAD-origin-return",
+      "all-in-scope-repository-candidate-effects-and-obligations-reviewed",
+      "candidate-validator-has-no-runtime-dispatch-or-service-channel",
+      "all-unknown-actual-graph-primitives-native-protocols-and-conformance-remain-blockers",
+      "no-batch-runtime-or-partial-operational-publication",
+      "no-required-batch-machine-or-controller-cleanup",
+      "all-future-runtime-and-unused-live-rights-closed",
+      "actual-host-state-unobserved-never-claimed-absent-or-globally-closed",
+      "no-live-binding-reuse-pause-independent-of-later-current-refresh"
+    ],
+    "private_pass_is_confirmation": false,
+    "repository_pause_implies_global_host_closure": false,
+    "scope": "repository-joint-contract-proposal399-408-only",
+    "stop_after_confirmed408": true,
+    "whole_original_conditions_reference": {
+      "canonical_sha256": "1ad5a63ffebaf093cf7eca19349d9ab60cfe03dcd20727012e0b100522b765a2",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-contract-decision-packet-freeze-and-safe-pause-review-freeze.json",
+      "sha256": "be4eb803992244b492890965274302f768e377b1784a8ca47bf772dc4a23b1c7"
+    }
+  },
+  "proposal_rules": {
+    "absence_of_proven_candidate_is_universal_impossibility": false,
+    "allowed_dispositions": [
+      "retain-original",
+      "amendment-proposal",
+      "defer"
+    ],
+    "author_recommendation_is_user_selection": false,
+    "current_primary_sources_required_for_new_technical_claims": true,
+    "estimated_step_count_is_completion_percentage": false,
+    "exact_original_clause_text_and_whole_object_reference_required": true,
+    "full_migration_impact_required_before_any_amendment": true,
+    "native_test_entry_and_operational_readiness_remain_separate": true,
+    "new_block_request_selects_any_option": false,
+    "platforms": [
+      "Slackware 15.0",
+      "Slackware-current"
+    ],
+    "proposed_amendment_is_current_contract": false,
+    "required_option_fields": [
+      "id",
+      "disposition",
+      "exact_current_clause_bindings",
+      "proposed_clause_text",
+      "guarantees_retained",
+      "guarantees_lost_or_changed",
+      "trust_assumptions",
+      "effect_and_failure_boundaries",
+      "dependencies_and_incompatibilities",
+      "residual_native_unknowns",
+      "independent_evidence_required",
+      "platform_rows",
+      "migration_impact",
+      "explicit_user_decision_required",
+      "implementation_selected",
+      "runtime_authority"
+    ],
+    "retention_and_deferral_options_required": true,
+    "review_pass_is_contract_compatibility_proof": false,
+    "unchanged_original_clauses_bind_options_until_migration": true,
+    "unknown_platform_support_value": null,
+    "upstream_documentation_is_installed_platform_evidence": false
+  },
+  "roadmap": [
+    {
+      "all_original_conflict_ids": [
+        "live-revocation-without-worker-broker",
+        "all-writer-privileged-alias-lifetime",
+        "supervisor-loss-and-surviving-descendants",
+        "whole-entry-and-real-backend",
+        "original-baseline-owned-backup-unknown",
+        "finite-time-budget-and-recovery-rights",
+        "whole-stage12-final-receipt-causality",
+        "independent-two-platform-native-oracle"
+      ],
+      "complete_predecessor_acceptance_required": 398,
+      "contract_migration_approved": false,
+      "product": "Resume boundary and finite roadmap",
+      "required_result": "Preserve the complete accepted398 receipt and external nine-condition confirmation; bind whole originals and distinguish draft work from user selection.",
+      "runtime_authority": false,
+      "step": 399
+    },
+    {
+      "all_original_conflict_ids": [
+        "live-revocation-without-worker-broker",
+        "all-writer-privileged-alias-lifetime",
+        "supervisor-loss-and-surviving-descendants",
+        "whole-entry-and-real-backend",
+        "original-baseline-owned-backup-unknown",
+        "finite-time-budget-and-recovery-rights",
+        "whole-stage12-final-receipt-causality",
+        "independent-two-platform-native-oracle"
+      ],
+      "complete_predecessor_acceptance_required": 399,
+      "contract_migration_approved": false,
+      "product": "Concrete unselected joint candidate",
+      "required_result": "Author one named draft composition using exact existing option references or explicitly new draft wording; retain original and deferral alternatives, all eight decisions and every declared guarantee loss.",
+      "runtime_authority": false,
+      "step": 400
+    },
+    {
+      "all_original_conflict_ids": [
+        "live-revocation-without-worker-broker",
+        "all-writer-privileged-alias-lifetime",
+        "supervisor-loss-and-surviving-descendants",
+        "whole-entry-and-real-backend",
+        "original-baseline-owned-backup-unknown",
+        "finite-time-budget-and-recovery-rights",
+        "whole-stage12-final-receipt-causality",
+        "independent-two-platform-native-oracle"
+      ],
+      "complete_predecessor_acceptance_required": 400,
+      "contract_migration_approved": false,
+      "product": "Joint writer, source and trust boundary",
+      "required_result": "Reconcile the same actors, privileges, objects, aliases, source consumers and time/storage infrastructure across all candidate clauses; disclose every exclusion and unresolved edge.",
+      "runtime_authority": false,
+      "step": 401
+    },
+    {
+      "all_original_conflict_ids": [
+        "live-revocation-without-worker-broker",
+        "all-writer-privileged-alias-lifetime",
+        "supervisor-loss-and-surviving-descendants",
+        "whole-entry-and-real-backend",
+        "original-baseline-owned-backup-unknown",
+        "finite-time-budget-and-recovery-rights",
+        "whole-stage12-final-receipt-causality",
+        "independent-two-platform-native-oracle"
+      ],
+      "complete_predecessor_acceptance_required": 401,
+      "contract_migration_approved": false,
+      "product": "Joint admission, revocation and effect policy",
+      "required_result": "Specify the complete effect graph and admitted-operation/every-effect semantics, in-flight intervals, FD roles and finite original rights; reject channel permission or admission labels as enforcement evidence.",
+      "runtime_authority": false,
+      "step": 402
+    },
+    {
+      "all_original_conflict_ids": [
+        "live-revocation-without-worker-broker",
+        "all-writer-privileged-alias-lifetime",
+        "supervisor-loss-and-surviving-descendants",
+        "whole-entry-and-real-backend",
+        "original-baseline-owned-backup-unknown",
+        "finite-time-budget-and-recovery-rights",
+        "whole-stage12-final-receipt-causality",
+        "independent-two-platform-native-oracle"
+      ],
+      "complete_predecessor_acceptance_required": 402,
+      "contract_migration_approved": false,
+      "product": "Joint loss, drain and original clock policy",
+      "required_result": "Specify supervisor/guardian loss and independent full descendant/FD/stream/in-flight drain, fixed original clock mapping and expiry; unknown stopping cannot become successful closure.",
+      "runtime_authority": false,
+      "step": 403
+    },
+    {
+      "all_original_conflict_ids": [
+        "live-revocation-without-worker-broker",
+        "all-writer-privileged-alias-lifetime",
+        "supervisor-loss-and-surviving-descendants",
+        "whole-entry-and-real-backend",
+        "original-baseline-owned-backup-unknown",
+        "finite-time-budget-and-recovery-rights",
+        "whole-stage12-final-receipt-causality",
+        "independent-two-platform-native-oracle"
+      ],
+      "complete_predecessor_acceptance_required": 403,
+      "contract_migration_approved": false,
+      "product": "Joint original baseline, storage and recovery policy",
+      "required_result": "Reconcile traps/guard/fresh original capture, exact known backups, all nine owned microsteps, all eighteen original branches, irreversible claim/pre-spent launch and once-only finite recovery; preserve target/owned/controller uncertainty separately.",
+      "runtime_authority": false,
+      "step": 404
+    },
+    {
+      "all_original_conflict_ids": [
+        "live-revocation-without-worker-broker",
+        "all-writer-privileged-alias-lifetime",
+        "supervisor-loss-and-surviving-descendants",
+        "whole-entry-and-real-backend",
+        "original-baseline-owned-backup-unknown",
+        "finite-time-budget-and-recovery-rights",
+        "whole-stage12-final-receipt-causality",
+        "independent-two-platform-native-oracle"
+      ],
+      "complete_predecessor_acceptance_required": 404,
+      "contract_migration_approved": false,
+      "product": "Joint terminal publication and receipt policy",
+      "required_result": "Retain full original stage12 or draft an explicit complete replacement of membership and streams/status/origin; separate producer, receipt, independent final observation and custody outcomes without self-final receipt claims.",
+      "runtime_authority": false,
+      "step": 405
+    },
+    {
+      "all_original_conflict_ids": [
+        "live-revocation-without-worker-broker",
+        "all-writer-privileged-alias-lifetime",
+        "supervisor-loss-and-surviving-descendants",
+        "whole-entry-and-real-backend",
+        "original-baseline-owned-backup-unknown",
+        "finite-time-budget-and-recovery-rights",
+        "whole-stage12-final-receipt-causality",
+        "independent-two-platform-native-oracle"
+      ],
+      "complete_predecessor_acceptance_required": 405,
+      "contract_migration_approved": false,
+      "product": "Whole-entry and independent two-platform acceptance",
+      "required_result": "Retain the whole entry/backend graph and independent oracle, or disclose exact scope changes; specify full independent expectations/effective controls/raw custody and distinct 15.0/current obligations without native dispatch.",
+      "runtime_authority": false,
+      "step": 406
+    },
+    {
+      "all_original_conflict_ids": [
+        "live-revocation-without-worker-broker",
+        "all-writer-privileged-alias-lifetime",
+        "supervisor-loss-and-surviving-descendants",
+        "whole-entry-and-real-backend",
+        "original-baseline-owned-backup-unknown",
+        "finite-time-budget-and-recovery-rights",
+        "whole-stage12-final-receipt-causality",
+        "independent-two-platform-native-oracle"
+      ],
+      "complete_predecessor_acceptance_required": 406,
+      "contract_migration_approved": false,
+      "product": "Integrated semantic migration and decision packet",
+      "required_result": "Reconcile all nine joint dimensions and all fifteen complete396 impact categories/1286 members; exact changed and unchanged clauses, proof/case/raw/relation/entry/readiness acceptance criteria and unresolved incompatibilities remain explicit.",
+      "runtime_authority": false,
+      "step": 407
+    },
+    {
+      "all_original_conflict_ids": [
+        "live-revocation-without-worker-broker",
+        "all-writer-privileged-alias-lifetime",
+        "supervisor-loss-and-surviving-descendants",
+        "whole-entry-and-real-backend",
+        "original-baseline-owned-backup-unknown",
+        "finite-time-budget-and-recovery-rights",
+        "whole-stage12-final-receipt-causality",
+        "independent-two-platform-native-oracle"
+      ],
+      "complete_predecessor_acceptance_required": 407,
+      "contract_migration_approved": false,
+      "product": "Complete proposal freeze and conditional repository pause",
+      "required_result": "Bind the complete accepted399-407 chain, all draft and original inputs; review every whole original pause condition and obtain a complete actual408 receipt plus external confirmation, then STOP.",
+      "runtime_authority": false,
+      "step": 408
+    }
+  ],
+  "schema": 1,
+  "scope": "repository-joint-contract-proposal399-408-only",
+  "selected_options": null,
+  "semantic_migration_complete": false,
+  "state": "prepared-unselected-joint-proposal-plan",
+  "step": 399,
+  "whole_input_references": {
+    "accepted380dossier": {
+      "canonical_sha256": "d72baf61526c9e5620ba7167e252fdd650e568cdb8281307c300086f0ffc35d5",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-live-revocation-decision-review-dossier.json",
+      "sha256": "c9ac7c0bc9bca951f0aff35d641515103df3553b476109b6510b7aa4d55c9e1d"
+    },
+    "accepted380sources": {
+      "canonical_sha256": "f607f3fe5c3d7ba19150f206088e7cac157a0a0a43476d9b0dcec15cd9388c4c",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-live-revocation-decision-review-sources.json",
+      "sha256": "034d761e5206e81d8716cc6221cfa265caa5cae8bf84b507e959d73c59e2ebd7"
+    },
+    "accepted381dossier": {
+      "canonical_sha256": "7f4e3d7ad3877e93adb3bc9709bec727a651ee00312afd3f3b8fa20a0199c502",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-writer-alias-lifetime-decision-review-dossier.json",
+      "sha256": "cafe4b6bc2eaaa42461a1673215241b1fa03cc2b4623e7846a438a5b2b55bd03"
+    },
+    "accepted381sources": {
+      "canonical_sha256": "e2dc2d96d3f3a3ca96bffe4c7cb1beec994150a2b0c9bb451213bb3fd11821de",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-writer-alias-lifetime-decision-review-sources.json",
+      "sha256": "2208fd943312f526f924938629a126e7fe473bc9f8c61eb7ac89b9465f8c3449"
+    },
+    "accepted382dossier": {
+      "canonical_sha256": "c64bec06e5a82cc205dc92ff67ec74b481e6f378ea3259ddab7c954610b7f77c",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-supervisor-clock-drain-decision-review-dossier.json",
+      "sha256": "21d8cf21ef6c9c4f2658fff1abcddfdc9428c6ee71208efafce4fc8e4bdd7333"
+    },
+    "accepted382sources": {
+      "canonical_sha256": "b54e917bfa68376fd20a1bf321574d55030343c28f9baf37d7813538c4e016b0",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-supervisor-clock-drain-decision-review-sources.json",
+      "sha256": "c14cfd91277b3d76fd102ecaf822010042d45edbd24bf2632a116fbd07c5c254"
+    },
+    "accepted383dossier": {
+      "canonical_sha256": "7c3d23df4c5c1fc6879dd70ace34e594a1109b7ac86a316b82d8ee9eac4a22f8",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-baseline-storage-finite-rights-decision-review-dossier.json",
+      "sha256": "8e7af2798830835c76e6ba85d119204bea50b58c1b96bbdb3b99a725fd410e5d"
+    },
+    "accepted383sources": {
+      "canonical_sha256": "147cc6143f5dcce8a887b32ebe37f617ec042432c6888bd0444dd49e4144b5f8",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-baseline-storage-finite-rights-decision-review-sources.json",
+      "sha256": "787a3a3f4a4460cc7c4414eb60b54955485fb0efd02238c8f9c29fa8dfc8d3bc"
+    },
+    "accepted384dossier": {
+      "canonical_sha256": "aa85115485e4f264e98ada1f78c9a3f0a4a6dadd99dac04b6b7961fe438641e5",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-stage12-receipt-causality-decision-review-dossier.json",
+      "sha256": "550c44034b3f6ec8b6464da897394e7f88be67c089424e21e89fd5f118f4b7fe"
+    },
+    "accepted384sources": {
+      "canonical_sha256": "50045d353e86e569a927186d9d82160cba9e342e184875e18d21e60c9e4e489d",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-stage12-receipt-causality-decision-review-sources.json",
+      "sha256": "f36b4099d1470564991580942b54a40031ffbf4d054040d554ec315a075fd4bf"
+    },
+    "accepted385dossier": {
+      "canonical_sha256": "a9c6fa0c8538ac0c8383253125434b9a4233f48f7eec1a239ee8aaff90146049",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-source-backend-independent-oracle-decision-review-dossier.json",
+      "sha256": "24832997c2be79a15e6fa00ce5b2474a663719536d4e46604b6b555347de5110"
+    },
+    "accepted385sources": {
+      "canonical_sha256": "a782fa442bd6f1d65aee425c54bab0dd6dddf6ea909683bf07cadcde6b4547e9",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-source-backend-independent-oracle-decision-review-sources.json",
+      "sha256": "1e0ce99273fdad500dbbad63ea3c64802bd8f5f73df0df076d570e4fe32f460a"
+    },
+    "accepted386dossier": {
+      "canonical_sha256": "7d345b0f5ce9cb1c3c77e8182e60ed89e782510cdc2710dc02f488243f34ab16",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-integrated-feasibility-verdict-review-dossier.json",
+      "sha256": "ecca96c80d70a16d3ac45c3d5c89c7d8e4dc1f431e5d666ebaebda39381d9146"
+    },
+    "accepted386sources": {
+      "canonical_sha256": "ac3de7e6bbdf4006903841da5f39546a90cec55fc02b87fb4a57157e283252bd",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-integrated-feasibility-verdict-review-sources.json",
+      "sha256": "f8e063f3e1dc307cafb7bbabb41ba33571b2126bf904d904e4a59007ad8ef26b"
+    },
+    "accepted387dossier": {
+      "canonical_sha256": "c818f60cb0db45a70410b20c5e13ce2864da4e7f2830b15c266b4dfed14953e3",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-feasibility-readme-roadmap-reconciliation-review-dossier.json",
+      "sha256": "2d30da841560f574a21b0ecc836b4ee100918a5b0a7c3e9d674409adff9e83ae"
+    },
+    "accepted387sources": {
+      "canonical_sha256": "c4e8a678f93adf3d5e4d4aea55c1bcf0f3f814b0f270c372c1073533ff6707da",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-feasibility-readme-roadmap-reconciliation-review-sources.json",
+      "sha256": "f0271ae22b8d45ce224481148cdca459a52d6e359bd4752edabd784283335831"
+    },
+    "accepted_entry389": {
+      "canonical_sha256": "560cec5ef3c3cc39b7a2476e7693267eba0be47cbb4aad51862cf994c36073d1",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-writer-trust-contract-decision-brief-entry389.json",
+      "sha256": "62b31899359d8ae1174c0d5f5ad749447db150c027e5ae2067918424bdabc95c"
+    },
+    "accepted_entry390": {
+      "canonical_sha256": "3d8e1feb936f7db625ae5d3afe77ab8ee0e5ea2d8e5a09b7145f1f38ffedc591",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-revocation-effect-contract-decision-brief-entry390.json",
+      "sha256": "10a2e6817d88d2d1a54bd676f91a284d99038596a2b3b90d6a4b8a958ed1ad4a"
+    },
+    "accepted_entry391": {
+      "canonical_sha256": "a7ea4b6c5a34f1b4f1d8379c89119502c2247f82d6c9d00f397b2401998f2d2b",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-loss-drain-clock-contract-decision-brief-entry391.json",
+      "sha256": "f094609c4801898d3e5ebb89dc03226d85c63be97bbe8e73b31dc56d6aa94d35"
+    },
+    "accepted_entry392": {
+      "canonical_sha256": "25eaf62113d50fa7de386dbef2925747f208fb8234187fb74d3acfaaa4799204",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-baseline-storage-rights-contract-decision-brief-entry392.json",
+      "sha256": "5fe569171e14f6d77124c7d0ff95122b91f52114a57bcf760b9c6eb405e4c4ed"
+    },
+    "accepted_entry393": {
+      "canonical_sha256": "8ce2357a1ad60e160c2d6d8dfbdfd2cf1341ef94e121327f45d8e83c3c6fa518",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-stage12-terminal-receipt-contract-decision-brief-entry393.json",
+      "sha256": "3cc83b0b3c32c7c9d3e06bc0144bd2f3988cbe60caefd35ac16b0a8457fefa8a"
+    },
+    "accepted_entry394": {
+      "canonical_sha256": "b9805f280a150166465c9bec6a1e33b15e4117e78bc59d93c429d5f11024fae3",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-whole-entry-backend-contract-decision-brief-entry394.json",
+      "sha256": "295ed43ce807f83fc2a4361d9bcf9dc79e6123f2c5d1c2912ad8e587d8644f09"
+    },
+    "accepted_entry395": {
+      "canonical_sha256": "3b07dcf3d4fbe18328cf4e5f81de16ca6d787363d5ed77af5e3d66ec60a27715",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-independent-oracle-migration-impact-decision-brief-entry395.json",
+      "sha256": "ae30e634e7244da6ed7c997e5658d493cf9e34ce4519f0b73f9d98b0699c0a9d"
+    },
+    "accepted_entry396": {
+      "canonical_sha256": "d16f58ae4472afff95124d55f3b87e61bbc2eca1d014d8e61cad2653bfc235a7",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-integrated-contract-decision-packet-roadmap-review-entry396.json",
+      "sha256": "d249bf7b0ae174491718a58c436504c71d5cd3aeae0dc07636fee2d921415191"
+    },
+    "context": {
+      "canonical_sha256": "826215551c42d25dd9dfee3ec4a0ee1368b0516e5e771a183d2286ca691eb6bc",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-entrypoint-callsite-review-review.json",
+      "sha256": "465b4742107241fe4baa2bc7b27aaa34087d177431a75e3fc53de73324b646a2"
+    },
+    "controls361": {
+      "canonical_sha256": "4927cb8493f5cc6ae4a850d0758da89b6d93ce5dd7e579c1d8de58b80041be7a",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-readonly-source-inventory-control-coverage.json",
+      "sha256": "b81659ab5b304db345d51547d68815c8e779f4b2e09866c961b07e009c13eaa0"
+    },
+    "dependency": {
+      "canonical_sha256": "5c7f04e951ddad613b80d888637334ca425d1048db3e0f16d8316d3e322f35f2",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-external-dependency-register-register.json",
+      "sha256": "bf9e31c498a2f1038203dadf9500d35c9547fcf091264cc252cb0665d3bada52"
+    },
+    "design370": {
+      "canonical_sha256": "e02d1237325cbfbb3821f9c824830caff78f07a960bb1133b9ea2b5b1babc04a",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-successor-source-effect-design-review-design.json",
+      "sha256": "552c1b133b6d004765d108630df212d1741d81500821248ae846141bffae877a"
+    },
+    "design371": {
+      "canonical_sha256": "304191bcd745d3d5eede16f1944d5e26f8b0297b335b5781172be78e6c9d17df",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-issuer-admission-launch-design-review-design.json",
+      "sha256": "0cd0decb7cd2d3275355766220dbeed6c51ea344088a633bbd758857609a1bbc"
+    },
+    "design372": {
+      "canonical_sha256": "356a079d87b3cb96b6195949a83f9ea1156711fe20aab3d7467a5ea92b54ba40",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-native-platform-primitives-design-review-design.json",
+      "sha256": "7fa9da13664eac84af5bdb2ff0380417424e7bbf2283523ece12fda436a6824b"
+    },
+    "design373": {
+      "canonical_sha256": "d8e6819ff6d5048d18b8e34e274490bc3accf7e866b7bc498ce6390c70c5258e",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-baseline-owned-recovery-design-review-design.json",
+      "sha256": "ea1620292b34598d9c2d33881bf5c931ae33c2b1e4a9aa85b7922e48add1f409"
+    },
+    "design374": {
+      "canonical_sha256": "8bfbf9b76992c2110abafe7c6e7ccf774efd59e15c5cb92c9d3d1fa1a0491b8b",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-target-closure-publication-design-review-design.json",
+      "sha256": "c98bd00e70ef8a00dafd375f0f5e2695bbe52c6f97d9a96b0d11ae1487ab06bd"
+    },
+    "design375": {
+      "canonical_sha256": "95f1b490684639ace6223d3362383e7b3666ed26010c38c23f82d3fc62aebceb",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-independent-evidence-oracle-design-review-design.json",
+      "sha256": "df23e3b2e2aded1815bcb6ec9ab66e0785380ef05c0dca7fc9c6db32f7178653"
+    },
+    "design376": {
+      "canonical_sha256": "1a0c6a69fe251134ca4e424042094ad305f44cff7880220d69dfc17e0b24dcc0",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-native-refinement-case-design-review-design.json",
+      "sha256": "3b86ea5c7f548aedecf80c88d44126d8d85438a84d6af50e5711c0112effcc11"
+    },
+    "design377": {
+      "canonical_sha256": "464aaf7d76bbf23d81386407fff728372293d3d82df60e407f5838b4db0d8a24",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-design-readiness-readme-review-design.json",
+      "sha256": "4509c2ae353dd59e25add2dfb424656eb2241827e86aa4bcd1c08d2dec4eb3c0"
+    },
+    "effects": {
+      "canonical_sha256": "c93f51f5df607e11044f8768e4af2df2e2ea8d49fd16f340d5838f2fb6a1289b",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+      "sha256": "9da0c6e07b0e79ca89ed1ddc7d91bbfb9e744b1bb8125dee1b299c6167da3765"
+    },
+    "entry_brief395": {
+      "canonical_sha256": "e0374c5a01681ae91f4c9c709fd0ee964dd5f3ea25fe2ca6d48c020a771a4f01",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-whole-entry-backend-contract-decision-brief-brief.json",
+      "sha256": "d576c1d2ef28aa6b0c8271af7d283a20c4f0cf2afed0b01f91fc56c3e33bc58f"
+    },
+    "freeze": {
+      "canonical_sha256": "e15107e1361fde9afe8c21ee5dba6f1c8c4176bbc6c442b216026b9ded68a81d",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-source-inventory-freeze-and-safe-pause-review-freeze.json",
+      "sha256": "8bf4f561305a8ceaf0b3948316278e5811a42f3b371f8a528f9fb236482f2bc8"
+    },
+    "freeze378": {
+      "canonical_sha256": "94f014db22b98f34c415933b72823a513d5f4bc4752deae65a7e6cbc22c2de5d",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-successor-design-freeze-and-safe-pause-review-freeze.json",
+      "sha256": "973825341a4ce27878edf82c675c15f384382f8f23fc77a96f0c325989404449"
+    },
+    "freeze388": {
+      "canonical_sha256": "712b1009eb248c384472934d6479a7b978cdf64bf3ab8d16447c99c5ef9364dc",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-feasibility-decision-freeze-and-safe-pause-review-freeze.json",
+      "sha256": "f3039b2cf03eb56334ee149096890fcff870683ab07486b44ddde451910f7b50"
+    },
+    "freeze398": {
+      "canonical_sha256": "1ad5a63ffebaf093cf7eca19349d9ab60cfe03dcd20727012e0b100522b765a2",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-contract-decision-packet-freeze-and-safe-pause-review-freeze.json",
+      "sha256": "be4eb803992244b492890965274302f768e377b1784a8ca47bf772dc4a23b1c7"
+    },
+    "independent_expectation351": {
+      "canonical_sha256": "9f2081ce3af3e7b94fe947213bdfb153f0d7564d1af40960cc3a0d919f99ae3a",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-independent-expectation-contract-review-expectation-contract.json",
+      "sha256": "7784d5d3a5d9d0d8188a9c06bb3e142deb6008d210c583394c7335331677994c"
+    },
+    "independent_scaffold335": {
+      "canonical_sha256": "efdf28844af87c1ee82508cf8f3b337fe7a3d06f47be64bfc011309f1fa1b30d",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-independent-oracle-scaffolding-review-scaffold.json",
+      "sha256": "a89ae9237cedbc72d2a4e46edde5a28c1e296569fbe5f928ff3358b1462e5adf"
+    },
+    "loss_brief392": {
+      "canonical_sha256": "f0d495d0c00ec031f91a5689edc887f327d07d3d382748ad7dcb8f2ed2cf621b",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-loss-drain-clock-contract-decision-brief-brief.json",
+      "sha256": "a33c9de69916feee70452d01faf496c0e00d3c004470085dc599995ae7c8e3cf"
+    },
+    "native_gap": {
+      "canonical_sha256": "fa137d69e96839812beb47c4716c2e51441a3a1ca8f80070badbde28b3480a59",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-comparator-freeze-gap-register-and-safe-pause-review-native-gap-register.json",
+      "sha256": "bc08559d8b3e1af94247753f94012759c5bcf7b875d244fd9bc4328ba2f88305"
+    },
+    "oracle_brief396": {
+      "canonical_sha256": "1a00f9afcde2a6ef72dad05cef26d2ea58874ef2f0daa3a533550ee799283612",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-independent-oracle-migration-impact-decision-brief-brief.json",
+      "sha256": "67c6fed2d3e2d8ae5a7ae9904428841ae9410c905efed6da9ca81acc4e07535c"
+    },
+    "original320": {
+      "canonical_sha256": "b5ff0b851a1dd9ad2daba2155620a7eecc092841c3f122d737516fbb3798eb8e",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-admission-and-durable-consumption-design-review-design.json",
+      "sha256": "206070db792430966f1b1654d29d7fecabaf43288f1d208b1332d5a40432726f"
+    },
+    "original321": {
+      "canonical_sha256": "2552c9b79eea5dca0e695208a4cc2f54b12a8d6fac9104211b1124337a9c851f",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-admission-handoff-and-namespace-fd-design-review-design.json",
+      "sha256": "c814396b3d002f3398b1d024ab30d9b74dfa6d84aee0c87df93215f571bd1540"
+    },
+    "original322": {
+      "canonical_sha256": "33b495c5d236943d6b05e9fbc5649fc248bba00c23cf348070d683901b87d849",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-stage7-owned-binding-effect-design-review-design.json",
+      "sha256": "ff7428e2039927559130a6b0f58611a669f30215221aaf3887e3fa360438a494"
+    },
+    "original323": {
+      "canonical_sha256": "4a4bbba87292e35616b7467977027540bc64b920e492a901c844a32a9d51f66d",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+      "sha256": "40a574a020fcd8a5a6e79d0faebea6e00e62283751a94bcd877a9b47182d8b98"
+    },
+    "original324": {
+      "canonical_sha256": "ac4cf32bf99ca9e462797ff19136e095eb88c41fbb79ee9e4a5647ac0c46e522",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-continuous-guarded-original-baseline-and-approved-phase-deltas-design-review-design.json",
+      "sha256": "c26c93bf5f5dd596c8272cd1328a2f08f970053e6582fdccfbe278b904f20474"
+    },
+    "original325": {
+      "canonical_sha256": "08ce677bc3a7264ed5504685e56772ce85d8cce237a31e3aba037a01663575c7",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-whole-service-reference-helper-selector-source-backend-publication-effect-graph-design-review-design.json",
+      "sha256": "d8e1db6acd48e7a1076af9d72a9837d9e1cc83742173d0d1ffe67b3026290d0b"
+    },
+    "original326": {
+      "canonical_sha256": "cda4034540d37ce33dc577fe92623e6fea97936aff3514229c47b2ef59deee5f",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-complete-finite-failure-model-and-independent-conformance-plan-review-design.json",
+      "sha256": "32c58f6290c7d3f47a033081b1c9458fbaaf35505e1f659a6e4714491413b5fe"
+    },
+    "original327": {
+      "canonical_sha256": "21a31fd0d75476bf552db4c13bb597a3602a46596ae1b94b10d9bb16a195312f",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-scoped-effects-obligations-rights-crossclosure-review-design.json",
+      "sha256": "a6541e3a485ec6032e5d50dc31d8ee43a3c29ab4b97e44e08776152120f6d7a0"
+    },
+    "packet397": {
+      "canonical_sha256": "31b18033c10c263bedf2ad6c9820fdc9ac8ddd15ce08017b4cb979888ccd6156",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-integrated-contract-decision-packet-roadmap-review-packet.json",
+      "sha256": "7e865ba261c05ec3a15d172b5482c062227b60822f77eb9ae8dfdc8c49c24f4e"
+    },
+    "pause": {
+      "canonical_sha256": "fde57ff597ceb2b54e08431e79df789702dedb8f861eed9de96984d64959d024",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-source-inventory-freeze-and-safe-pause-review-pause-conditions.json",
+      "sha256": "efd5ad2394113bbe77751f93b9d1df1fef920cf8c6c2e7b41ba2c9a7185ec3a7"
+    },
+    "pause378": {
+      "canonical_sha256": "d10e8791ec5e63c1bf08fd05c6dba69c248876263d7d46df99f25a8c4b5291af",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-successor-design-freeze-and-safe-pause-review-pause-conditions.json",
+      "sha256": "e8d9010739947ea80a33aa412818641feec8f35d5b0cd87f8fcc35ab63a841ba"
+    },
+    "pause388": {
+      "canonical_sha256": "d75be52b5f74e3781c307f7af2ffd6039c92908d2cc9517f6013d4530af12201",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-feasibility-decision-freeze-and-safe-pause-review-pause-conditions.json",
+      "sha256": "996e86cca1038476ef0e3706f81f6e8c2783fe7183fd248f551cbde3260a8740"
+    },
+    "plan369": {
+      "canonical_sha256": "da710e1fa2fe56bf1314d106670f0ad6e6213ae9b3257eaffb234d3fd9340cbe",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-successor-design-resume-planning-review-plan.json",
+      "sha256": "e416e3823fe2ceeeb102587d9533591277021d125d6493cc6a66d6e6f2e86469"
+    },
+    "plan379": {
+      "canonical_sha256": "226bf153118c650a3965344dea7f8b7a55a332a41ee378bf4e3c47b4c4bababf",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-feasibility-resolution-resume-planning-review-plan.json",
+      "sha256": "538d65d59387854687b8a4fddcd7841768a344cbd7fb65910775227a0d8c7c0b"
+    },
+    "plan389": {
+      "canonical_sha256": "515d377f4055082d2444a05129cf254adecd170f25583baeae3bafae6b6085d0",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-contract-decision-resume-planning-review-plan.json",
+      "sha256": "d1f80ac9f5fb479544763db3c739446305c2509b5a8eb229407b9288cd1a813a"
+    },
+    "policy398": {
+      "canonical_sha256": "e2f3b93af774d099f2ada2ad94002b8645c869b5e62f38d7288c9d4070bb6bed",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-contract-decision-packet-freeze-and-safe-pause-review-policy.json",
+      "sha256": "e53deafb1be630d812512a092570a8be28123530f23cdfcea9957b27d58bbd04"
+    },
+    "prerequisites": {
+      "canonical_sha256": "8204756e325e6eea4a0e52de0d2f7fbce68218d5e11b021d42baafbcafcb2a8c",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-native-implementation-prerequisites-prerequisites.json",
+      "sha256": "9371d059d1ec358685f5251c05a1eb052d6ce27a2a0edaed5f7e14e5c3f50739"
+    },
+    "publication_policy316": {
+      "canonical_sha256": "cc185b66602112e2abb8c24de5d32b48647a644063febe2172219f7888aa6a65",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-owner-and-publication-path-requirements-review-policy.json",
+      "sha256": "b816d61589c59fefa1c35df234269c05f1698eddab6c615a99ae030356729377"
+    },
+    "publication_requirements316": {
+      "canonical_sha256": "a1ab23cf1cdb3f791f5e513b33a4cfd5a9e2c0dc963de7aea586684bf085c5af",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-owner-and-publication-path-requirements-review-review.json",
+      "sha256": "30c9472c9b68fd6073783c678600c9c5f41730a43a6525b132c2a0d725213ecf"
+    },
+    "receipt_brief394": {
+      "canonical_sha256": "e2359d4d91fbf562afd13afa9d930b100df197a1206d7e12111c2d5c7437c282",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-stage12-terminal-receipt-contract-decision-brief-brief.json",
+      "sha256": "60174ae7fafce6848e2997d751b21714399fdf380dddd42438b53a37d3b553af"
+    },
+    "revocation_brief391": {
+      "canonical_sha256": "c5f70b005ec5d22e861b527d90fa24d72b1f10980a39dfa7e05a1b2250985dbb",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-revocation-effect-contract-decision-brief-brief.json",
+      "sha256": "292ece5535af892b16719d8ab83fb373761724949bd63fb49d9b960a6ec832b2"
+    },
+    "sources398": {
+      "canonical_sha256": "0cc8e76db525ae8b6bf0e01012819839a189b7138237f95fc6d104f32c79898a",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-contract-decision-packet-freeze-and-safe-pause-review-sources.json",
+      "sha256": "ebb7b44bd51d396c45e37020dcf2d644d239bd9320f4305e5458714a8d915e7f"
+    },
+    "storage_brief393": {
+      "canonical_sha256": "2651d350cea4a7a7ecc5a3f1e0689be0b6d973be90c5dc0e6a61f0404d06c38e",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-baseline-storage-rights-contract-decision-brief-brief.json",
+      "sha256": "408daa41b3a8754267381199e68fb08d8a97be7dd5d57333a9d2b597e42070eb"
+    },
+    "writer_brief390": {
+      "canonical_sha256": "bc09b042c3ff01b5c341042427b63c07c09f22018d2e07eccd24da5a3f12beaf",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-writer-trust-contract-decision-brief-brief.json",
+      "sha256": "4fa3b2aad8362969526ba5e4e06904cb104149b6ea6502c87910bc2a24fa3599"
+    }
+  },
+  "whole_joint_review_dimensions": [
+    {
+      "actual_joint_resolution": null,
+      "affected_option_ids": [
+        "retain-every-effect-no-worker-channel",
+        "declared-operation-admission-cuts",
+        "explicit-worker-control-channel",
+        "defer-native-revocation-selection"
+      ],
+      "current_authority": false,
+      "id": "offline-bootstrap-vs-live-channel",
+      "native_compatibility_proven": false,
+      "required_joint_review": "A live worker channel draft changes original offline/FD/authentication loss boundaries;retention options cannot silently borrow it.",
+      "source_family_input_keys": [
+        "revocation_brief391"
+      ]
+    },
+    {
+      "actual_joint_resolution": null,
+      "affected_option_ids": [
+        "retain-full-original-coverage",
+        "explicit-trusted-host-boundary",
+        "defer-native-writer-selection",
+        "retain-known-drain-and-trusted-time",
+        "independent-guardian-retention-hypothesis",
+        "explicit-local-clock-trust-boundary",
+        "defer-native-lifetime-time-selection",
+        "retain-whole-original-entry",
+        "complete-protected-source-consumption-hypothesis",
+        "explicit-separate-backend-product-scope",
+        "defer-native-entry-backend-selection"
+      ],
+      "current_authority": false,
+      "id": "writer-trust-vs-source-and-clock",
+      "native_compatibility_proven": false,
+      "required_joint_review": "Host writer and clock exclusions need one explicit consistent trust/source scope;code/path/hash/namespace do not prove protected consumed objects.",
+      "source_family_input_keys": [
+        "writer_brief390",
+        "loss_brief392",
+        "entry_brief395"
+      ]
+    },
+    {
+      "actual_joint_resolution": null,
+      "affected_option_ids": [
+        "retain-known-drain-and-trusted-time",
+        "independent-guardian-retention-hypothesis",
+        "explicit-local-clock-trust-boundary",
+        "defer-native-lifetime-time-selection",
+        "retain-every-effect-no-worker-channel",
+        "declared-operation-admission-cuts",
+        "explicit-worker-control-channel",
+        "defer-native-revocation-selection",
+        "retain-whole-original-entry",
+        "complete-protected-source-consumption-hypothesis",
+        "explicit-separate-backend-product-scope",
+        "defer-native-entry-backend-selection"
+      ],
+      "current_authority": false,
+      "id": "guardian-drain-vs-forward-failure",
+      "native_compatibility_proven": false,
+      "required_joint_review": "Guardian survival,known complete descendants/FD/in-flight drain and absorbing failure stop must compose under actual finite rights.",
+      "source_family_input_keys": [
+        "loss_brief392",
+        "revocation_brief391",
+        "entry_brief395"
+      ]
+    },
+    {
+      "actual_joint_resolution": null,
+      "affected_option_ids": [
+        "retain-exact-original-capture-storage-rights",
+        "external-durable-rights-ledger-hypothesis",
+        "separate-owned-target-quarantine-hypothesis",
+        "defer-native-storage-rights-selection",
+        "retain-known-drain-and-trusted-time",
+        "independent-guardian-retention-hypothesis",
+        "explicit-local-clock-trust-boundary",
+        "defer-native-lifetime-time-selection",
+        "retain-every-effect-no-worker-channel",
+        "declared-operation-admission-cuts",
+        "explicit-worker-control-channel",
+        "defer-native-revocation-selection"
+      ],
+      "current_authority": false,
+      "id": "durable-rights-vs-loss-deadlines",
+      "native_compatibility_proven": false,
+      "required_joint_review": "Claim/launch/action spend,unknown ACK,no replay and trusted forward/recovery deadlines must remain jointly exact.",
+      "source_family_input_keys": [
+        "storage_brief393",
+        "loss_brief392",
+        "revocation_brief391"
+      ]
+    },
+    {
+      "actual_joint_resolution": null,
+      "affected_option_ids": [
+        "retain-exact-original-capture-storage-rights",
+        "external-durable-rights-ledger-hypothesis",
+        "separate-owned-target-quarantine-hypothesis",
+        "defer-native-storage-rights-selection",
+        "retain-whole-original-entry",
+        "complete-protected-source-consumption-hypothesis",
+        "explicit-separate-backend-product-scope",
+        "defer-native-entry-backend-selection"
+      ],
+      "current_authority": false,
+      "id": "baseline-unknown-vs-backend-effects",
+      "native_compatibility_proven": false,
+      "required_joint_review": "Known full target facts cannot be substituted by unknown backups or summarized backend effects;every safe restore/no-write branch retains all original gates.",
+      "source_family_input_keys": [
+        "storage_brief393",
+        "entry_brief395"
+      ]
+    },
+    {
+      "actual_joint_resolution": null,
+      "affected_option_ids": [
+        "retain-whole-original-stage12",
+        "explicit-producer-and-external-finalization-cut",
+        "independent-captured-data-custody-hypothesis",
+        "defer-native-receipt-selection",
+        "retain-full-independent-two-platform-oracle",
+        "protected-independent-raw-oracle-hypothesis",
+        "defer-native-oracle-selection"
+      ],
+      "current_authority": false,
+      "id": "terminal-cut-vs-whole-stage-oracle",
+      "native_compatibility_proven": false,
+      "required_joint_review": "Changed producer/receipt membership requires explicit migration of full stage12 and every observer own effect/oracle/custody obligation;acyclic paper order proves no native closure.",
+      "source_family_input_keys": [
+        "receipt_brief394",
+        "oracle_brief396"
+      ]
+    },
+    {
+      "actual_joint_resolution": null,
+      "affected_option_ids": [
+        "retain-whole-original-entry",
+        "complete-protected-source-consumption-hypothesis",
+        "explicit-separate-backend-product-scope",
+        "defer-native-entry-backend-selection",
+        "retain-full-independent-two-platform-oracle",
+        "protected-independent-raw-oracle-hypothesis",
+        "defer-native-oracle-selection"
+      ],
+      "current_authority": false,
+      "id": "narrow-product-vs-whole-entry-proof",
+      "native_compatibility_proven": false,
+      "required_joint_review": "A separate component product cannot satisfy current whole-entry/Phase1 proof/case/entry/readiness scope without full approved migration.",
+      "source_family_input_keys": [
+        "entry_brief395",
+        "oracle_brief396"
+      ]
+    },
+    {
+      "actual_joint_resolution": null,
+      "affected_option_ids": [
+        "retain-full-independent-two-platform-oracle",
+        "protected-independent-raw-oracle-hypothesis",
+        "defer-native-oracle-selection",
+        "retain-whole-original-stage12",
+        "explicit-producer-and-external-finalization-cut",
+        "independent-captured-data-custody-hypothesis",
+        "defer-native-receipt-selection",
+        "retain-exact-original-capture-storage-rights",
+        "external-durable-rights-ledger-hypothesis",
+        "separate-owned-target-quarantine-hypothesis",
+        "defer-native-storage-rights-selection",
+        "retain-known-drain-and-trusted-time",
+        "independent-guardian-retention-hypothesis",
+        "explicit-local-clock-trust-boundary",
+        "defer-native-lifetime-time-selection"
+      ],
+      "current_authority": false,
+      "id": "observer-controls-vs-finite-custody",
+      "native_compatibility_proven": false,
+      "required_joint_review": "No observer/injector/consumer exception;actual origin,writers,finite rights,storage,stream and ACK/custody outcomes remain due.",
+      "source_family_input_keys": [
+        "oracle_brief396",
+        "receipt_brief394",
+        "storage_brief393",
+        "loss_brief392"
+      ]
+    },
+    {
+      "actual_joint_resolution": null,
+      "affected_option_ids": [
+        "retain-full-original-coverage",
+        "explicit-trusted-host-boundary",
+        "defer-native-writer-selection",
+        "retain-every-effect-no-worker-channel",
+        "declared-operation-admission-cuts",
+        "explicit-worker-control-channel",
+        "defer-native-revocation-selection",
+        "retain-known-drain-and-trusted-time",
+        "independent-guardian-retention-hypothesis",
+        "explicit-local-clock-trust-boundary",
+        "defer-native-lifetime-time-selection",
+        "retain-exact-original-capture-storage-rights",
+        "external-durable-rights-ledger-hypothesis",
+        "separate-owned-target-quarantine-hypothesis",
+        "defer-native-storage-rights-selection",
+        "retain-whole-original-stage12",
+        "explicit-producer-and-external-finalization-cut",
+        "independent-captured-data-custody-hypothesis",
+        "defer-native-receipt-selection",
+        "retain-whole-original-entry",
+        "complete-protected-source-consumption-hypothesis",
+        "explicit-separate-backend-product-scope",
+        "defer-native-entry-backend-selection",
+        "retain-full-independent-two-platform-oracle",
+        "protected-independent-raw-oracle-hypothesis",
+        "defer-native-oracle-selection"
+      ],
+      "current_authority": false,
+      "id": "two-platform-fresh-test-entry",
+      "native_compatibility_proven": false,
+      "required_joint_review": "Whole independently safe actual composition review precedes separate fresh explicit native-test grant;native conformance later operational readiness. No historical/other-platform transfer.",
+      "source_family_input_keys": [
+        "writer_brief390",
+        "revocation_brief391",
+        "loss_brief392",
+        "storage_brief393",
+        "receipt_brief394",
+        "entry_brief395",
+        "oracle_brief396"
+      ]
+    }
+  ],
+  "whole_original_decisions": [
+    {
+      "approved_joint_specification": null,
+      "approved_migration": null,
+      "available_option_ids": [
+        "retain-every-effect-no-worker-channel",
+        "declared-operation-admission-cuts",
+        "explicit-worker-control-channel",
+        "defer-native-revocation-selection"
+      ],
+      "explicit_user_decision_required": true,
+      "id": "live-revocation-without-worker-broker",
+      "native_blocker_resolved": false,
+      "runtime_authority": false,
+      "selected_option_ids": null,
+      "source_family_input_keys": [
+        "revocation_brief391"
+      ],
+      "whole_original_conflict": {
+        "actual_resolution": null,
+        "current_authority": false,
+        "id": "live-revocation-without-worker-broker",
+        "native_blocker_resolved": false,
+        "normative_relaxation_allowed": false,
+        "unresolved_requirement": "A native composition must enforce fresh external revocation at every actual and in-flight forward/recovery/evidence effect without giving the worker a broker/service/control FD or RPC. An offline launch receipt or macro-boundary check cannot establish this. No feasible composition has been selected."
+      }
+    },
+    {
+      "approved_joint_specification": null,
+      "approved_migration": null,
+      "available_option_ids": [
+        "retain-full-original-coverage",
+        "explicit-trusted-host-boundary",
+        "defer-native-writer-selection"
+      ],
+      "explicit_user_decision_required": true,
+      "id": "all-writer-privileged-alias-lifetime",
+      "native_blocker_resolved": false,
+      "runtime_authority": false,
+      "selected_option_ids": null,
+      "source_family_input_keys": [
+        "writer_brief390"
+      ],
+      "whole_original_conflict": {
+        "actual_resolution": null,
+        "current_authority": false,
+        "id": "all-writer-privileged-alias-lifetime",
+        "native_blocker_resolved": false,
+        "normative_relaxation_allowed": false,
+        "unresolved_requirement": "Every target/source/owned/publication writer, privileged alias, ancestor/mount/object/FD and checked-to-used lifetime needs actual independently established exclusion. Advisory locks, names and static inventories cannot establish all-writer containment."
+      }
+    },
+    {
+      "approved_joint_specification": null,
+      "approved_migration": null,
+      "available_option_ids": [
+        "retain-known-drain-and-trusted-time",
+        "independent-guardian-retention-hypothesis",
+        "explicit-local-clock-trust-boundary",
+        "defer-native-lifetime-time-selection"
+      ],
+      "explicit_user_decision_required": true,
+      "id": "supervisor-loss-and-surviving-descendants",
+      "native_blocker_resolved": false,
+      "runtime_authority": false,
+      "selected_option_ids": null,
+      "source_family_input_keys": [
+        "loss_brief392"
+      ],
+      "whole_original_conflict": {
+        "actual_resolution": null,
+        "current_authority": false,
+        "id": "supervisor-loss-and-surviving-descendants",
+        "native_blocker_resolved": false,
+        "normative_relaxation_allowed": false,
+        "unresolved_requirement": "Supervisor death, uncatchable loss and surviving children/in-flight effects require native lifetime containment and independently known drain before restoration, evidence or release. Parent exit or sent signals do not establish quiescence."
+      }
+    },
+    {
+      "approved_joint_specification": null,
+      "approved_migration": null,
+      "available_option_ids": [
+        "retain-whole-original-entry",
+        "complete-protected-source-consumption-hypothesis",
+        "explicit-separate-backend-product-scope",
+        "defer-native-entry-backend-selection"
+      ],
+      "explicit_user_decision_required": true,
+      "id": "whole-entry-and-real-backend",
+      "native_blocker_resolved": false,
+      "runtime_authority": false,
+      "selected_option_ids": null,
+      "source_family_input_keys": [
+        "entry_brief395"
+      ],
+      "whole_original_conflict": {
+        "actual_resolution": null,
+        "current_authority": false,
+        "id": "whole-entry-and-real-backend",
+        "native_blocker_resolved": false,
+        "normative_relaxation_allowed": false,
+        "unresolved_requirement": "The complete dynamic entry/preparation/reference lock/log/snapshot/config/helper/dependency/archive/backend/selector/hook graph remains unresolved. Three backend calls, lexical findings and status/count summaries do not discharge complete raw ordered effects."
+      }
+    },
+    {
+      "approved_joint_specification": null,
+      "approved_migration": null,
+      "available_option_ids": [
+        "retain-exact-original-capture-storage-rights",
+        "external-durable-rights-ledger-hypothesis",
+        "separate-owned-target-quarantine-hypothesis",
+        "defer-native-storage-rights-selection"
+      ],
+      "explicit_user_decision_required": true,
+      "id": "original-baseline-owned-backup-unknown",
+      "native_blocker_resolved": false,
+      "runtime_authority": false,
+      "selected_option_ids": null,
+      "source_family_input_keys": [
+        "storage_brief393"
+      ],
+      "whole_original_conflict": {
+        "actual_resolution": null,
+        "current_authority": false,
+        "id": "original-baseline-owned-backup-unknown",
+        "native_blocker_resolved": false,
+        "normative_relaxation_allowed": false,
+        "unresolved_requirement": "Fresh original memory baseline after traps and continuous guard before owned writes, approved deltas, known durable exact backups and all nine owned microsteps need native support. Missing backups, partial writes and lost ACK cannot be promoted to unchanged, binding authority or replay rights."
+      }
+    },
+    {
+      "approved_joint_specification": null,
+      "approved_migration": null,
+      "available_option_ids": [
+        "retain-known-drain-and-trusted-time",
+        "independent-guardian-retention-hypothesis",
+        "explicit-local-clock-trust-boundary",
+        "defer-native-lifetime-time-selection",
+        "retain-exact-original-capture-storage-rights",
+        "external-durable-rights-ledger-hypothesis",
+        "separate-owned-target-quarantine-hypothesis",
+        "defer-native-storage-rights-selection"
+      ],
+      "explicit_user_decision_required": true,
+      "id": "finite-time-budget-and-recovery-rights",
+      "native_blocker_resolved": false,
+      "runtime_authority": false,
+      "selected_option_ids": null,
+      "source_family_input_keys": [
+        "loss_brief392",
+        "storage_brief393"
+      ],
+      "whole_original_conflict": {
+        "actual_resolution": null,
+        "current_authority": false,
+        "id": "finite-time-budget-and-recovery-rights",
+        "native_blocker_resolved": false,
+        "normative_relaxation_allowed": false,
+        "unresolved_requirement": "Same-boot trusted clock, suspend/discontinuity, scoped revocation, irreversibly stopped forward rights and pre-spent once-only finite retained recovery rights need an actual composition. Unknown spend/action/release permits no refund, retry, reacquisition, renewed deadline or foreign restore."
+      }
+    },
+    {
+      "approved_joint_specification": null,
+      "approved_migration": null,
+      "available_option_ids": [
+        "retain-whole-original-stage12",
+        "explicit-producer-and-external-finalization-cut",
+        "independent-captured-data-custody-hypothesis",
+        "defer-native-receipt-selection"
+      ],
+      "explicit_user_decision_required": true,
+      "id": "whole-stage12-final-receipt-causality",
+      "native_blocker_resolved": false,
+      "runtime_authority": false,
+      "selected_option_ids": null,
+      "source_family_input_keys": [
+        "receipt_brief394"
+      ],
+      "whole_original_conflict": {
+        "actual_resolution": null,
+        "current_authority": false,
+        "id": "whole-stage12-final-receipt-causality",
+        "native_blocker_resolved": false,
+        "normative_relaxation_allowed": false,
+        "unresolved_requirement": "Whole original stage12 streams/status/origin remain normative. The final external receipt cannot observe its own final commit/hash/durability. Actual collector/actor/event boundaries and independently observed final receipt remain unresolved; shortening/renaming stage12 or declaring a resolved protocol is prohibited."
+      }
+    },
+    {
+      "approved_joint_specification": null,
+      "approved_migration": null,
+      "available_option_ids": [
+        "retain-full-independent-two-platform-oracle",
+        "protected-independent-raw-oracle-hypothesis",
+        "defer-native-oracle-selection"
+      ],
+      "explicit_user_decision_required": true,
+      "id": "independent-two-platform-native-oracle",
+      "native_blocker_resolved": false,
+      "runtime_authority": false,
+      "selected_option_ids": null,
+      "source_family_input_keys": [
+        "oracle_brief396"
+      ],
+      "whole_original_conflict": {
+        "actual_resolution": null,
+        "current_authority": false,
+        "id": "independent-two-platform-native-oracle",
+        "native_blocker_resolved": false,
+        "normative_relaxation_allowed": false,
+        "unresolved_requirement": "Independent trust, original expected full vectors, positive/negative fault effectiveness, coverage, raw custody and observer effects/rights must be demonstrated on both actual platforms. Source bindings, hashes, role labels, design mappings and private PASS are not native evidence."
+      }
+    }
+  ],
+  "whole_original_requirements_remain_normative": true
+}
