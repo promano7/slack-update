@@ -1,3 +1,33 @@
+<!-- step-406-whole-entry-independent-oracle:start -->
+## Current Phase 1 whole entry and two-platform independent oracle -- step 406
+
+Accepted405 at reported `0939463`:81 orderedPASS/zero failures,ten files/eight creates/
+7702 insertions,reported main push/clean matching heads.406 prepared,user acceptance
+pending;last confirmed repository pause398 covers389-398 only.
+
+The [406 draft](docs/reference/phase-1-operational-joint-whole-entry-independent-two-platform-oracle-proposal-review.md)
+retains WHOLE entry/preparation/helper/source/backend/selector/hook/async/FD/recovery/
+publication criteria and protected checked-to-consumed source;no silent three-call
+replacement. All46 proof objects/52 cases/12 raw groups/1072 ordered relations and
+full original oracle/refinement reviews retained. Eight source surfaces,six roles/
+six fault controls and52 individually bound case rows have null actual evidence.
+Independent ORIGINAL full ordered raw expectations/capture/custody,effective reached
+positive/negative cuts and separate15.0/current actual source/version/boot/attempt/
+run/authority remain required. Verifier may author independent expectations;subject
+not sole oracle,no artificial distinct-person rule or observer exemption. Null not
+empty,no sort/dedup/sample or raw0/20/-1 shortcut,mismatch retained with pending.
+29 paper witnesses are review questions,not native conformance or test permission.
+
+JCP400-A/R/D unselected;all current original norms binding.401-405 changed guarantee
+criteria require complete407 semantic/impact reconciliation and explicit migration
+approval. Native cases/proofs0;Phase1/kernel incomplete;schema/reference-v1/C/Phase2/
+Production closed. Host unobserved/live bindings null/global closure false. Actual
+safe joint review then separate fresh bounded test grant BEFORE effects;tests never
+self-authorize. Full406 acceptance before407;conditional408 whole conditions/actual
+finalreturn/external confirmation then STOP/noautomatic409/new request. Prior
+accepted405 README suffix byte-exact below.
+<!-- step-406-whole-entry-independent-oracle:end -->
+
 <!-- step-405-stage12-receipt-custody:start -->
 ## Current Phase 1 whole-stage receipt and final custody proposal -- step 405
 

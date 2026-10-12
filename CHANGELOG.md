@@ -1,3 +1,19 @@
+## Phase 1 step 406 -- whole entry and independent two-platform oracle draft
+
+- Accepted405 at reported0939463:81 orderedPASS/zero failures,ten files/eight creates/
+  7702 insertions,push/clean matching heads;complete disclosed return retained.
+- WHOLE321/325/326/335/351/385/375/376 source/entry/oracle criteria retained with
+  46 proofs/52 cases/12 raw groups/1072 ordered relations and original refinement.
+- Nine joint statements/eight whole source surfaces/six roles/six fault controls/
+  52 individually bound case rows preserve consumed-source protection,independent
+  full raw provenance,effective positive/negative cuts and distinct platform runs.
+-29 paper witnesses keep order/multiplicity/types/null-empty/mismatch/failure and
+  raw0/20/-1 distinctions;no native comparator,artifact,authority,proof or closure.
+- Whole91 inputs/32 roots;2170 historical405 bodies unchanged except exact prefixes.
+  Original criteria binding;401-405 changed expectations need complete407 migration.
+- Full406 acceptance before407;conditional408 all whole scoped conditions/actual
+  finalreturn/external confirmation then STOP/noautomatic409. Last pause398 only.
+
 ## Phase 1 step 405 -- whole stage12 receipt and final custody draft
 
 - Accepted404 at reported96dd06c:74 orderedPASS/zero failures,ten files/eight creates/
