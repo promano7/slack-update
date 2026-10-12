@@ -1,3 +1,18 @@
+## Phase 1 step 390 -- writer and trust contract decision brief
+
+- Accepted389 at reported85db946:171 exact ordered PASS/zero failures, nine files,
+  eight creates/4563 insertions, reported successful push/clean matching heads.
+- Preserved complete unchanged uploaded389 receipt and immutable predecessor.
+- Retained whole381 writer review and original324 guard/capture/lifetime clauses.
+- Three inactive options:retain full original coverage, explicitly bounded trusted
+  host amendment proposal, or defer native writer selection. No option selected.
+- Proposed trust exclusion discloses lost hostile-infrastructure protection;
+  UID0/workload helpers are not blanket trusted. Actual actor/policy/support unknown.
+- Primary Linux threat-model/LSM documents support background only; project
+  interpretation separated, no native implementation or installed support inferred.
+- Migration impact is initial and incomplete pending396/397. Original contracts
+  remain normative; no native authority/proof/case or new pause.398 remains conditional.
+
 ## Phase 1 step 389 -- contract decision proposal resume plan
 
 - Accepted388 at reported d31ba23: 223 exact ordered PASS, zero failures,
