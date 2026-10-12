@@ -1,3 +1,19 @@
+## Phase 1 step 395 -- whole entry, source consumption and backend alternatives
+
+- Accepted394 at reported d04de75:409 exact ordered PASS/zero failures,nine files,
+  eight creates/6675 insertions,reported successful push/clean matching heads.
+- Complete unchanged uploaded394 receipt and immutable predecessor preserved.
+- WHOLE385 graph/oracle review plus sixteen original entry/source/selector/census/
+  authentication/FD/model/guard/fence/crossclosure clauses retained unchanged.
+- Four inactive alternatives:retain full entry;protected complete consumed-graph
+  hypothesis;explicit separate-backend-product scope amendment;defer selection.
+- Eight whole graph question rows and nine conditional policy witnesses retain
+  actual bindings null. Three calls/static hashes/counts/flags are not full entry.
+- Changed product promise disclosed;no equivalence/Phase1 completion,test exception,
+  selected backend/entry/native graph,source protection or actual support inferred.
+- Original raw0/20/-1,order/multiplicity,absorbing failure,forbidden effects retained.
+- Full396/397 migration due;nativeproofs/cases0,no authority/new pause.398 conditional.
+
 ## Phase 1 step 394 -- whole stage12 and terminal receipt alternatives
 
 - Accepted393 at reported17db6be:382 exact ordered PASS/zero failures,nine files,
