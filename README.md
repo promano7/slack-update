@@ -1,3 +1,57 @@
+<!-- step-397-contract-decision-packet:start -->
+## Current Phase 1 contract decision packet -- step 397
+
+This current-state section supersedes the preserved 387/377/367 roadmap readings
+below. Their complete historical bytes remain unchanged. Step396 is accepted at
+reported `792525e`:506 exact ordered PASS,zero failures,nine files,eight creates
+and122716 insertions;complete unchanged uploaded return reports push/clean matching
+heads. Full Git ID is unknown;no independent terminal/GitHub/native-host observation.
+Step397 is prepared and awaiting complete actual user acceptance.
+
+Last confirmed strong repository pause is388,covering379-388 only. The user requested
+the new finite389-398 repository proposal block. Steps389-396 are accepted;397 joins
+the decision packet/roadmap;398 will freeze the whole packet and check all nine WHOLE
+scoped pause conditions plus complete actual final return externally,then STOP/no
+automatic399. No new pause is confirmed here. A later-current refresh does not
+invalidate repository-only pause or revive historical bindings/authority.
+
+| Decision | Concrete alternatives | Current state |
+| --- | --- | --- |
+| Live revocation | Retain every-effect/no-channel;operation-cut amendment;worker-channel amendment;defer | All391 options inactive |
+| Writer/alias lifetime | Retain all-writer coverage;explicit trusted-host amendment;defer | All390 options inactive |
+| Owner loss/drain | Retain known drain;guardian retention hypothesis;local-clock amendment;defer | All392 options inactive |
+| Whole entry/backend | Retain full entry;protected consumed-graph hypothesis;separate backend-product amendment;defer | All395 options inactive |
+| Baseline/storage | Retain exact original;durable rights ledger hypothesis;owned/target quarantine hypothesis;defer | All393 options inactive |
+| Finite time/recovery rights | Full joint392/393 clock/loss/spend/backup/recovery review | No protocol or component selected |
+| Whole stage12/receipt | Retain exact stage;producer/external-cut amendment;independent custody hypothesis;defer | All394 options inactive |
+| Independent platform oracle | Retain full oracle;protected raw-oracle hypothesis;defer | All396 options inactive |
+
+The [397 decision packet](docs/reference/phase-1-operational-integrated-contract-decision-packet-roadmap-review.md)
+retains all26 complete options,8whole conflicts,325unordered pair review questions
+and9specific joint review dimensions. Pair coverage is no compatibility proof.
+The [396 impact map](docs/reference/phase-1-operational-independent-oracle-migration-impact-decision-brief.md)
+covers all26 options against15whole categories/1286members,including8contracts,
+16normative sections,16gaps,46proofs,52cases,12rawgroups and1072orderedrelations.
+Coverage complete;semantic replacements,independent impact acceptance,joint approved
+specification and migrations unresolved/unapproved. Original contracts remain
+normative. A draft guarantee loss or scope/trust cut is not a current exception.
+
+Original45candidates remain34incompatible-as-stated/11unresolved/zero established
+compatible-unproven;8conflicts/10blockers remain unresolved. No universal impossibility,
+complete compatible native composition,selected implementation or native evidence.
+Historical5families/20scenarios remain distinct. Nativeproofs/cases0;Phase1/kernel
+incomplete;schema/reference-v1/C/Phase2/Production remain closed. Hostunobserved,
+livebindingsnull,globalclosurefalse;no batch machine/controller action required.
+
+After separately confirmed398:STOP. A new user request and explicit option/scope
+decision would be separate from full independent semantic migration approval,
+implementation selection/review,fresh native-test grant and operational readiness.
+Whole safe actual containment/composition/source/trust/guard/fresh baseline/known
+recovery/storage/finite rights/effective observation review precedes any fresh
+explicit bounded testgrant;complete independent native conformance comes later.
+Repository PASS,README,counts,hashes,role labels and paper graphs authorize none.
+<!-- step-397-contract-decision-packet:end -->
+
 <!-- step-387-readme-roadmap-reconciliation:start -->
 ## Current Phase 1 roadmap reconciliation — step 387
 

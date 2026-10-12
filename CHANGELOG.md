@@ -1,3 +1,17 @@
+## Phase 1 step 397 -- integrated unselected decision packet and roadmap
+
+- Accepted396 at reported792525e:506 exact ordered PASS/zero failures,nine files,
+  eight creates/122716 insertions,reported push/clean matching heads;whole receipt.
+- All26 complete options,8WHOLE original decisions,325pair review questions and9
+  concrete joint source/trust/effect/clock/storage/receipt/oracle/entry dimensions.
+- Whole39615category/1286member impact map remains bound;coverage not approved
+  semantic replacement,migration,joint compatibility,implementation or authority.
+- README gets exact current-state prefix;complete historical396bytes unchanged.
+- Original45candidate verdicts34incompatible/11unresolved/0compatible-unproven,
+  8conflicts/10blockers and whole normative/native scope remain unchanged.
+- No selected options/nativegraph/evidence,grant,new pause orautomatic399.398
+  conditional after complete397return;whole nine conditions/final external close.
+
 ## Phase 1 step 396 -- independent oracle and complete proposal impact coverage
 
 - Accepted395 at reported866e47a:426 exact ordered PASS/zero failures,nine files,
