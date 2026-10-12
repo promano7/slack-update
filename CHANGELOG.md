@@ -1,3 +1,17 @@
+## Phase 1 step 403 -- guardian loss full drain and fixed original clock draft
+
+- Accepted402 at reported09e9329:71orderedPASS/zero failures,tenfiles/eightcreates/
+  7389insertions,push/clean matching heads;complete disclosed transcript retained.
+- Five loss-role questions,seven complete independent drain facets,eight joint
+  statements;parentexit/signal/guardian survival/backendreturn not known full drain.
+- Exact inactive originalclock clause replacement and whole392option/losses retained;
+  same401trust,no clock fallback,suspend omission,snapshot/right revival or renewal.
+- Twenty-two papercases keep captured facts distinct from current finite-right
+  eligibility;known drain never renews expired rights,known failure/mismatch sticky.
+- Whole82inputs/29roots,original platform assessments and native blockers retained.
+  No approvedmigration/grant/nativeproof or newpause;full403acceptance before404.
+- Conditional408allwholeconditions/actualfinalreturn/externalclose thenSTOP/noautomatic409.
+
 ## Phase 1 step 402 -- inactive scoped operation admission and revocation
 
 - Accepted401 at reported1a08924:60orderedPASS/zero failures,tenfiles/eightcreates/

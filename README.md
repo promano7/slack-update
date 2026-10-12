@@ -1,3 +1,30 @@
+<!-- step-403-loss-drain-clock:start -->
+## Current Phase 1 loss,drain and original-clock proposal -- step 403
+
+Accepted402 at reported `09e9329`:71orderedPASS/zero failures,tenfiles/eightcreates/
+7389insertions,reported push and clean matching heads. Step403prepared,useracceptance
+pending;last confirmedrepositorypause398 covers389-398only.
+
+The [403draft](docs/reference/phase-1-operational-joint-loss-drain-clock-proposal-review.md)
+reviews supervisor/guardian/controller/clock/observer loss and seven FULL independent
+drain facts. Requests,exit,survival,timeouts/counts do not prove child/FD/stream/storage
+closure. Known captured drain and current finite actionrights are separate;expiry/
+unknown rights never renew or disappear because drain is known. Original deadlines,
+once-onlybudget and pre-bound control retained. Same401trust and exact392inactive
+clock wording;no provider fallback,rollback right revival or guaranteed hidden
+tamper detection. Twenty-two papercases grant no actual/native permission or closure.
+
+JCP400-A/R/D remain unselected;all original clauses/full proof/case/raw/entry scope
+and396impact retained. All ninejointblockers remain;complete exact independent
+semantic migration/approval due407. Nativeproofs/cases0;Phase1/kernel incomplete;
+schema/reference-v1/C/Phase2/Productionclosed. Hostunobserved/livebindingsnull/
+globalfalse,no required batchmachine/controllercleanup. Separate actualsafejoint
+review and fresh bounded testgrant precede effects;fullnativeconformance later
+readiness. Full403acceptance before404;conditional408allwholeconditions/finalactual
+return/externalclose thenSTOP/noautomatic409. Prior accepted402README suffix remains
+byte-exact;this currentprefix supersedes historical current-state readings.
+<!-- step-403-loss-drain-clock:end -->
+
 <!-- step-402-scoped-admission:start -->
 ## Current Phase 1 scoped operation admission proposal -- step 402
 
