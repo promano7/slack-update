@@ -1,3 +1,21 @@
+## Phase 1 step 389 -- contract decision proposal resume plan
+
+- Accepted388 at reported d31ba23: 223 exact ordered PASS, zero failures,
+  ten files / nine creates / 7214 insertions, reported successful main push,
+  clean tree and matching HEAD/origin. Full Git ID remains unknown.
+- Complete unchanged uploaded receipt and all nine whole externally confirmed
+  repository pause conditions retained; immutable prepared388 history unchanged.
+- New explicit user request opens the finite repository-only389-398 block.
+  Its product is a concrete unselected decision packet for all eight conflicts,
+  with exact clause impacts, guarantees, trust assumptions and independent evidence.
+- Proposals may describe possible contract changes; no amendment, component
+  selection, native test, runtime authority or historical binding reuse is granted.
+- Whole original requirements remain normative. All existing45 candidate verdicts,
+  eight conflicts/ten blockers and native/historical acceptance scopes stay open.
+- Last confirmed repository pause388; this389 entry is prepared, not accepted.
+  Conditional398 close needs complete actual return and all nine whole conditions,
+  then STOP/no automatic399. Production/C/Phase2/reference-v1/schema stay closed.
+
 ## Phase 1 step 388 -- decision freeze and conditional repository safe pause
 
 - Accepted387 at reported086aab2:211 exact ordered PASS, zero failures, ten files,

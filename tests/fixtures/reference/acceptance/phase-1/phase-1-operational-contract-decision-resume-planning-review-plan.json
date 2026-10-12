@@ -1,0 +1,364 @@
+{
+  "actual_decision_packet": null,
+  "approved_contract_migration": null,
+  "authorization_basis": {
+    "component_selection_authorized": false,
+    "contract_amendment_authorized": false,
+    "native_test_or_runtime_authorized": false,
+    "new_repository_block_authorized": true,
+    "user_request": "Hola, vamos a hacer unos 8-12 pasos buscando una pausa fuerte segura."
+  },
+  "boundaries": {
+    "C_port_open": false,
+    "actual_global_host_closure": false,
+    "actual_host_state": "unobserved-not-claimed-absent",
+    "actual_live_bindings": null,
+    "actual_native_refinement_complete": false,
+    "actual_successor_selected": false,
+    "controller_action_required": false,
+    "current_step_strong_safe_pause": false,
+    "execution_authorized": false,
+    "historical_binding_or_authority_reuse_allowed": false,
+    "kernel_package_edge_complete": false,
+    "last_confirmed_strong_safe_pause_step": 388,
+    "later_current_refresh_invalidates_repository_only_pause": false,
+    "machine_action_required": false,
+    "native_cases_run": 0,
+    "native_components_selected": false,
+    "native_graph_complete": false,
+    "native_proofs_added": 0,
+    "operational_conformance": false,
+    "operational_readiness": false,
+    "phase1_matrix_complete": false,
+    "phase2_open": false,
+    "production_entry_closed": true,
+    "reference_v1_frozen": false,
+    "runtime_authority": false,
+    "strong_safe_pause": false,
+    "target_machine_actions_authorized": false,
+    "version1_schema_frozen": false
+  },
+  "current_bounded_verdict_counts": {
+    "compatible-unproven": 0,
+    "incompatible-as-stated": 34,
+    "unresolved": 11
+  },
+  "entry_commit_prefix": "d31ba23",
+  "full_commit_id": null,
+  "native_evidence": null,
+  "pause_policy": {
+    "actual_complete_final_user_return_required": true,
+    "actual_host_unobserved_not_claimed_absent": true,
+    "after_confirmed398_next_authorized_stage": null,
+    "all_nine_whole_original_conditions_required": true,
+    "conditional_close_step": 398,
+    "confirmation_external_to_prepared_repository": true,
+    "last_confirmed_step": 388,
+    "machine_or_controller_action_required_for_this_block": false,
+    "native_conflicts_can_remain_unresolved_at_repository_pause": true,
+    "new_block_requires_new_user_request": true,
+    "no_automatic399": true,
+    "original_condition_ids": [
+      "complete-user-overlay-full-tests-exact-commit-successful-push-clean-tree-matching-HEAD-origin-return",
+      "all-in-scope-repository-candidate-effects-and-obligations-reviewed",
+      "candidate-validator-has-no-runtime-dispatch-or-service-channel",
+      "all-unknown-actual-graph-primitives-native-protocols-and-conformance-remain-blockers",
+      "no-batch-runtime-or-partial-operational-publication",
+      "no-required-batch-machine-or-controller-cleanup",
+      "all-future-runtime-and-unused-live-rights-closed",
+      "actual-host-state-unobserved-never-claimed-absent-or-globally-closed",
+      "no-live-binding-reuse-pause-independent-of-later-current-refresh"
+    ],
+    "private_pass_is_confirmation": false,
+    "repository_pause_implies_global_host_closure": false,
+    "scope": "repository-contract-decision-proposals389-398-only",
+    "whole_external_confirmation_fixture": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-contract-decision-resume-planning-review-entry388.json",
+    "whole_original_prepared_condition_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-feasibility-decision-freeze-and-safe-pause-review-pause-conditions.json"
+  },
+  "proposal_rules": {
+    "absence_of_proven_candidate_is_universal_impossibility": false,
+    "allowed_dispositions": [
+      "retain-original",
+      "amendment-proposal",
+      "defer"
+    ],
+    "author_recommendation_is_user_selection": false,
+    "current_primary_sources_required_for_new_technical_claims": true,
+    "estimated_step_count_is_completion_percentage": false,
+    "exact_original_clause_text_and_whole_object_reference_required": true,
+    "full_migration_impact_required_before_any_amendment": true,
+    "native_test_entry_and_operational_readiness_remain_separate": true,
+    "new_block_request_selects_any_option": false,
+    "platforms": [
+      "Slackware 15.0",
+      "Slackware-current"
+    ],
+    "proposed_amendment_is_current_contract": false,
+    "required_option_fields": [
+      "id",
+      "disposition",
+      "exact_current_clause_bindings",
+      "proposed_clause_text",
+      "guarantees_retained",
+      "guarantees_lost_or_changed",
+      "trust_assumptions",
+      "effect_and_failure_boundaries",
+      "dependencies_and_incompatibilities",
+      "residual_native_unknowns",
+      "independent_evidence_required",
+      "platform_rows",
+      "migration_impact",
+      "explicit_user_decision_required",
+      "implementation_selected",
+      "runtime_authority"
+    ],
+    "retention_and_deferral_options_required": true,
+    "review_pass_is_contract_compatibility_proof": false,
+    "unchanged_original_clauses_bind_options_until_migration": true,
+    "unknown_platform_support_value": null,
+    "upstream_documentation_is_installed_platform_evidence": false
+  },
+  "purpose": "Produce a finite, concrete decision packet for the eight unresolved architecture conflicts. Every proposed change is inactive until a separately explicit user decision and a reviewed normative migration. Retaining the original contract is always available; deferral remains blocked.",
+  "roadmap": [
+    {
+      "acceptance_predecessor_required": 388,
+      "native_authority": false,
+      "primary_conflict_ids": [],
+      "product": "Accepted entry, decision proposal rules and finite ten-step plan",
+      "required_result": "Bind the complete accepted388 receipt, all nine whole externally confirmed conditions and immutable original requirements. Open proposals only.",
+      "step": 389
+    },
+    {
+      "acceptance_predecessor_required": 389,
+      "native_authority": false,
+      "primary_conflict_ids": [
+        "all-writer-privileged-alias-lifetime"
+      ],
+      "product": "Writer coverage and explicit trust decision brief",
+      "required_result": "Describe which actors, privilege levels, aliases and object lifetimes must be controlled. Compare retaining the original guarantee with explicitly proposed trust/scope changes; state lost guarantees and all affected clauses.",
+      "step": 390
+    },
+    {
+      "acceptance_predecessor_required": 390,
+      "native_authority": false,
+      "primary_conflict_ids": [
+        "live-revocation-without-worker-broker"
+      ],
+      "product": "Live revocation and effect boundary decision brief",
+      "required_result": "Define the proposed revocation observation/effect ordering and in-flight treatment for each option. Distinguish a complete original-compatible enforcer hypothesis from any changed revocation granularity or worker-channel permission.",
+      "step": 391
+    },
+    {
+      "acceptance_predecessor_required": 391,
+      "native_authority": false,
+      "primary_conflict_ids": [
+        "supervisor-loss-and-surviving-descendants",
+        "finite-time-budget-and-recovery-rights"
+      ],
+      "product": "Owner loss, drain and clock decision brief",
+      "required_result": "Specify loss/descendant/FD/stream/storage unknown outcomes and trusted time assumptions, including suspend/discontinuity. State residual uncertainty instead of calling a stop request known drain.",
+      "step": 392
+    },
+    {
+      "acceptance_predecessor_required": 392,
+      "native_authority": false,
+      "primary_conflict_ids": [
+        "original-baseline-owned-backup-unknown",
+        "finite-time-budget-and-recovery-rights"
+      ],
+      "product": "Original capture, storage and irreversible recovery decision brief",
+      "required_result": "Specify original capture ordering, protected backup scope, durable claim/spend/launch and same-attempt finite recovery. Compare options without creating replay/refund/reacquisition rights; proposed changes remain inactive.",
+      "step": 393
+    },
+    {
+      "acceptance_predecessor_required": 393,
+      "native_authority": false,
+      "primary_conflict_ids": [
+        "whole-stage12-final-receipt-causality"
+      ],
+      "product": "Whole stage12 and terminal receipt decision brief",
+      "required_result": "Give exact actor/event membership and a finite observation cut for each proposal, preserving complete original stage12 as the current contract. Label any event removal, reassignment or trust change as a proposed amendment, never an equivalence assertion.",
+      "step": 394
+    },
+    {
+      "acceptance_predecessor_required": 394,
+      "native_authority": false,
+      "primary_conflict_ids": [
+        "whole-entry-and-real-backend"
+      ],
+      "product": "Whole entry and real backend decision brief",
+      "required_result": "Specify how the full reference entry, dynamic helpers/selectors/hooks and effects would be bound and observed separately per platform. Any narrower execution product is an explicit scope proposal, not a three-call substitute for existing conformance.",
+      "step": 395
+    },
+    {
+      "acceptance_predecessor_required": 395,
+      "native_authority": false,
+      "primary_conflict_ids": [
+        "independent-two-platform-native-oracle"
+      ],
+      "product": "Independent oracle, platform evidence and migration impact brief",
+      "required_result": "Map every proposal to complete original proofs/cases/raw groups/ordered relations, original clauses and historical matrix. Define independent expected vectors and effective fault evidence per platform; unknown installed support remains null.",
+      "step": 396
+    },
+    {
+      "acceptance_predecessor_required": 396,
+      "native_authority": false,
+      "primary_conflict_ids": [
+        "live-revocation-without-worker-broker",
+        "all-writer-privileged-alias-lifetime",
+        "supervisor-loss-and-surviving-descendants",
+        "whole-entry-and-real-backend",
+        "original-baseline-owned-backup-unknown",
+        "finite-time-budget-and-recovery-rights",
+        "whole-stage12-final-receipt-causality",
+        "independent-two-platform-native-oracle"
+      ],
+      "product": "Integrated unselected decision packet and roadmap reconciliation",
+      "required_result": "Join option dependencies, incompatibilities, trust assumptions, residual risks, complete clause impacts and evidence needs. Present a concrete user-reviewable packet; select nothing and amend no normative contract.",
+      "step": 397
+    },
+    {
+      "acceptance_predecessor_required": 397,
+      "native_authority": false,
+      "primary_conflict_ids": [
+        "live-revocation-without-worker-broker",
+        "all-writer-privileged-alias-lifetime",
+        "supervisor-loss-and-surviving-descendants",
+        "whole-entry-and-real-backend",
+        "original-baseline-owned-backup-unknown",
+        "finite-time-budget-and-recovery-rights",
+        "whole-stage12-final-receipt-causality",
+        "independent-two-platform-native-oracle"
+      ],
+      "product": "Decision packet freeze and conditional repository safe pause",
+      "required_result": "Freeze the complete proposals and unresolved decision set. Check all nine whole original scoped pause conditions and the actual final user return externally; stop after acceptance. No automatic399.",
+      "step": 398
+    }
+  ],
+  "schema": 1,
+  "scope": "repository-contract-decision-proposals389-398-only",
+  "selected_options": null,
+  "state": "prepared-user-acceptance-pending",
+  "step": 389,
+  "unresolved_user_decisions": [
+    "live-revocation-without-worker-broker",
+    "all-writer-privileged-alias-lifetime",
+    "supervisor-loss-and-surviving-descendants",
+    "whole-entry-and-real-backend",
+    "original-baseline-owned-backup-unknown",
+    "finite-time-budget-and-recovery-rights",
+    "whole-stage12-final-receipt-causality",
+    "independent-two-platform-native-oracle"
+  ],
+  "whole_input_references": {
+    "accepted380dossier": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-live-revocation-decision-review-dossier.json",
+    "accepted380sources": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-live-revocation-decision-review-sources.json",
+    "accepted381dossier": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-writer-alias-lifetime-decision-review-dossier.json",
+    "accepted381sources": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-writer-alias-lifetime-decision-review-sources.json",
+    "accepted382dossier": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-supervisor-clock-drain-decision-review-dossier.json",
+    "accepted382sources": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-supervisor-clock-drain-decision-review-sources.json",
+    "accepted383dossier": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-baseline-storage-finite-rights-decision-review-dossier.json",
+    "accepted383sources": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-baseline-storage-finite-rights-decision-review-sources.json",
+    "accepted384dossier": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-stage12-receipt-causality-decision-review-dossier.json",
+    "accepted384sources": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-stage12-receipt-causality-decision-review-sources.json",
+    "accepted385dossier": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-source-backend-independent-oracle-decision-review-dossier.json",
+    "accepted385sources": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-source-backend-independent-oracle-decision-review-sources.json",
+    "accepted386dossier": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-integrated-feasibility-verdict-review-dossier.json",
+    "accepted386sources": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-integrated-feasibility-verdict-review-sources.json",
+    "accepted387dossier": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-feasibility-readme-roadmap-reconciliation-review-dossier.json",
+    "accepted387sources": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-feasibility-readme-roadmap-reconciliation-review-sources.json",
+    "context": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-entrypoint-callsite-review-review.json",
+    "controls361": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-readonly-source-inventory-control-coverage.json",
+    "dependency": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-external-dependency-register-register.json",
+    "design370": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-successor-source-effect-design-review-design.json",
+    "design371": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-issuer-admission-launch-design-review-design.json",
+    "design372": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-native-platform-primitives-design-review-design.json",
+    "design373": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-baseline-owned-recovery-design-review-design.json",
+    "design374": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-target-closure-publication-design-review-design.json",
+    "design375": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-independent-evidence-oracle-design-review-design.json",
+    "design376": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-native-refinement-case-design-review-design.json",
+    "design377": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-design-readiness-readme-review-design.json",
+    "effects": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+    "freeze": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-source-inventory-freeze-and-safe-pause-review-freeze.json",
+    "freeze378": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-successor-design-freeze-and-safe-pause-review-freeze.json",
+    "freeze388": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-feasibility-decision-freeze-and-safe-pause-review-freeze.json",
+    "independent_expectation351": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-independent-expectation-contract-review-expectation-contract.json",
+    "independent_scaffold335": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-independent-oracle-scaffolding-review-scaffold.json",
+    "native_gap": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-comparator-freeze-gap-register-and-safe-pause-review-native-gap-register.json",
+    "pause": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-source-inventory-freeze-and-safe-pause-review-pause-conditions.json",
+    "pause378": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-successor-design-freeze-and-safe-pause-review-pause-conditions.json",
+    "pause388": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-feasibility-decision-freeze-and-safe-pause-review-pause-conditions.json",
+    "plan369": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-successor-design-resume-planning-review-plan.json",
+    "plan379": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-feasibility-resolution-resume-planning-review-plan.json",
+    "prerequisites": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-native-implementation-prerequisites-prerequisites.json",
+    "publication_policy316": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-owner-and-publication-path-requirements-review-policy.json",
+    "publication_requirements316": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-owner-and-publication-path-requirements-review-review.json"
+  },
+  "whole_original_conflicts": [
+    {
+      "actual_resolution": null,
+      "current_authority": false,
+      "id": "live-revocation-without-worker-broker",
+      "native_blocker_resolved": false,
+      "normative_relaxation_allowed": false,
+      "unresolved_requirement": "A native composition must enforce fresh external revocation at every actual and in-flight forward/recovery/evidence effect without giving the worker a broker/service/control FD or RPC. An offline launch receipt or macro-boundary check cannot establish this. No feasible composition has been selected."
+    },
+    {
+      "actual_resolution": null,
+      "current_authority": false,
+      "id": "all-writer-privileged-alias-lifetime",
+      "native_blocker_resolved": false,
+      "normative_relaxation_allowed": false,
+      "unresolved_requirement": "Every target/source/owned/publication writer, privileged alias, ancestor/mount/object/FD and checked-to-used lifetime needs actual independently established exclusion. Advisory locks, names and static inventories cannot establish all-writer containment."
+    },
+    {
+      "actual_resolution": null,
+      "current_authority": false,
+      "id": "supervisor-loss-and-surviving-descendants",
+      "native_blocker_resolved": false,
+      "normative_relaxation_allowed": false,
+      "unresolved_requirement": "Supervisor death, uncatchable loss and surviving children/in-flight effects require native lifetime containment and independently known drain before restoration, evidence or release. Parent exit or sent signals do not establish quiescence."
+    },
+    {
+      "actual_resolution": null,
+      "current_authority": false,
+      "id": "whole-entry-and-real-backend",
+      "native_blocker_resolved": false,
+      "normative_relaxation_allowed": false,
+      "unresolved_requirement": "The complete dynamic entry/preparation/reference lock/log/snapshot/config/helper/dependency/archive/backend/selector/hook graph remains unresolved. Three backend calls, lexical findings and status/count summaries do not discharge complete raw ordered effects."
+    },
+    {
+      "actual_resolution": null,
+      "current_authority": false,
+      "id": "original-baseline-owned-backup-unknown",
+      "native_blocker_resolved": false,
+      "normative_relaxation_allowed": false,
+      "unresolved_requirement": "Fresh original memory baseline after traps and continuous guard before owned writes, approved deltas, known durable exact backups and all nine owned microsteps need native support. Missing backups, partial writes and lost ACK cannot be promoted to unchanged, binding authority or replay rights."
+    },
+    {
+      "actual_resolution": null,
+      "current_authority": false,
+      "id": "finite-time-budget-and-recovery-rights",
+      "native_blocker_resolved": false,
+      "normative_relaxation_allowed": false,
+      "unresolved_requirement": "Same-boot trusted clock, suspend/discontinuity, scoped revocation, irreversibly stopped forward rights and pre-spent once-only finite retained recovery rights need an actual composition. Unknown spend/action/release permits no refund, retry, reacquisition, renewed deadline or foreign restore."
+    },
+    {
+      "actual_resolution": null,
+      "current_authority": false,
+      "id": "whole-stage12-final-receipt-causality",
+      "native_blocker_resolved": false,
+      "normative_relaxation_allowed": false,
+      "unresolved_requirement": "Whole original stage12 streams/status/origin remain normative. The final external receipt cannot observe its own final commit/hash/durability. Actual collector/actor/event boundaries and independently observed final receipt remain unresolved; shortening/renaming stage12 or declaring a resolved protocol is prohibited."
+    },
+    {
+      "actual_resolution": null,
+      "current_authority": false,
+      "id": "independent-two-platform-native-oracle",
+      "native_blocker_resolved": false,
+      "normative_relaxation_allowed": false,
+      "unresolved_requirement": "Independent trust, original expected full vectors, positive/negative fault effectiveness, coverage, raw custody and observer effects/rights must be demonstrated on both actual platforms. Source bindings, hashes, role labels, design mappings and private PASS are not native evidence."
+    }
+  ],
+  "whole_original_requirements_remain_normative": true
+}
