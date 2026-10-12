@@ -1,3 +1,20 @@
+## Phase 1 step 394 -- whole stage12 and terminal receipt alternatives
+
+- Accepted393 at reported17db6be:382 exact ordered PASS/zero failures,nine files,
+  eight creates/6662 insertions,reported successful push/clean matching heads.
+- Complete unchanged uploaded393receipt and immutable predecessor preserved.
+- WHOLE384causal review and actual316stage12/325publication/327crossclosure plus
+  original323/324/326clauses remain normative;prior390-393proposals unselected.
+- Four options:retain originalwhole-stage12;inactive producer/external-finalization
+  cut amendment;independent captured-data custody retention hypothesis;defer.
+- Proposed10event table/two declared dependency graphs/eight paper witnesses
+  separate producer trace,receipt payload/commit,observer and consumer outcomes.
+- Membership/name/function/guard/stream-path and terminal evidence cut changes
+  disclosed as amendment,never renamed-subset equivalence or native graph proof.
+- No own-final receipt completion/atomic pair/infinite selfreceipt solution,
+  observer exemption,replay or late target access. All actual actors/cut/support null.
+- Full396/397migration due;nativeproofs/cases0,no authority or new pause.398conditional.
+
 ## Phase 1 step 393 -- original capture, durable storage and finite rights
 
 - Accepted392 at reported63c8c5c:304 exact ordered PASS/zero failures,nine files,
