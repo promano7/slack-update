@@ -1,0 +1,1923 @@
+{
+  "actual_clock_provider": null,
+  "actual_descendant_graph": null,
+  "actual_effect_drain": null,
+  "actual_guardian": null,
+  "actual_loss_detector": null,
+  "actual_time_mapping": null,
+  "approved_contract_migration": null,
+  "boundaries": {
+    "C_port_open": false,
+    "actual_global_host_closure": false,
+    "actual_host_state": "unobserved-not-claimed-absent",
+    "actual_live_bindings": null,
+    "actual_native_refinement_complete": false,
+    "actual_successor_selected": false,
+    "controller_action_required": false,
+    "current_step_strong_safe_pause": false,
+    "execution_authorized": false,
+    "historical_binding_or_authority_reuse_allowed": false,
+    "kernel_package_edge_complete": false,
+    "last_confirmed_strong_safe_pause_step": 388,
+    "later_current_refresh_invalidates_repository_only_pause": false,
+    "machine_action_required": false,
+    "native_cases_run": 0,
+    "native_components_selected": false,
+    "native_graph_complete": false,
+    "native_proofs_added": 0,
+    "operational_conformance": false,
+    "operational_readiness": false,
+    "phase1_matrix_complete": false,
+    "phase2_open": false,
+    "production_entry_closed": true,
+    "reference_v1_frozen": false,
+    "runtime_authority": false,
+    "strong_safe_pause": false,
+    "target_machine_actions_authorized": false,
+    "version1_schema_frozen": false
+  },
+  "conditional_close_step": 398,
+  "conditional_policy_witnesses": [
+    {
+      "actual_observation": null,
+      "conditional_policy_result": "Parent exit does not establish quiescence; restore/evidence/release stay blocked.",
+      "exhaustive_coverage": false,
+      "id": "parent-exit-surviving-effect",
+      "native_execution": false,
+      "option_id": "retain-known-drain-and-trusted-time",
+      "ordered_events": [
+        "supervisor-exit",
+        "surviving-child-effect"
+      ]
+    },
+    {
+      "actual_observation": null,
+      "conditional_policy_result": "A guardian request alone leaves every unknown effect domain pending.",
+      "exhaustive_coverage": false,
+      "id": "guardian-stop-request-drain-unknown",
+      "native_execution": false,
+      "option_id": "independent-guardian-retention-hypothesis",
+      "ordered_events": [
+        "membership-reviewed-hypothetically",
+        "supervisor-loss",
+        "guardian-stop-request",
+        "drain-unknown"
+      ]
+    },
+    {
+      "actual_observation": null,
+      "conditional_policy_result": "No immortal-guardian assumption or replacement rights; dependent effects remain blocked.",
+      "exhaustive_coverage": false,
+      "id": "guardian-own-loss",
+      "native_execution": false,
+      "option_id": "independent-guardian-retention-hypothesis",
+      "ordered_events": [
+        "supervisor-loss",
+        "guardian-loss",
+        "outstanding-effects-unknown"
+      ]
+    },
+    {
+      "actual_observation": null,
+      "conditional_policy_result": "A task population fact is not complete independent original drain.",
+      "exhaustive_coverage": false,
+      "id": "empty-tasks-storage-unknown",
+      "native_execution": false,
+      "option_id": "independent-guardian-retention-hypothesis",
+      "ordered_events": [
+        "task-tree-empty-observation",
+        "FD-stream-storage-outcomes-unknown"
+      ]
+    },
+    {
+      "actual_observation": null,
+      "conditional_policy_result": "No post-deadline effect permission or renewal follows a missing timer event.",
+      "exhaustive_coverage": false,
+      "id": "suspend-deadline-before-timer",
+      "native_execution": false,
+      "option_id": "explicit-local-clock-trust-boundary",
+      "ordered_events": [
+        "fixed-original-bound",
+        "suspend-elapsed",
+        "deadline-passed",
+        "timer-not-delivered"
+      ]
+    },
+    {
+      "actual_observation": null,
+      "conditional_policy_result": "Disclosed trust assumption may be violated without guaranteed detection; no original rights are reissued.",
+      "exhaustive_coverage": false,
+      "id": "same-boot-hidden-clock-rollback",
+      "native_execution": false,
+      "option_id": "explicit-local-clock-trust-boundary",
+      "ordered_events": [
+        "clock-domain-bound",
+        "hidden-trusted-infrastructure-rollback",
+        "same-apparent-boot-id"
+      ]
+    },
+    {
+      "actual_observation": null,
+      "conditional_policy_result": "Deny effects and keep pending; local wallclock fallback supplies no mapping or authority.",
+      "exhaustive_coverage": false,
+      "id": "clock-mapping-or-provider-unknown",
+      "native_execution": false,
+      "option_id": "explicit-local-clock-trust-boundary",
+      "ordered_events": [
+        "issuer-bound-received",
+        "mapping-or-provider-unavailable",
+        "effect-proposed"
+      ]
+    },
+    {
+      "actual_observation": null,
+      "conditional_policy_result": "Repository acceptance/pause supplies no actual host/global closure.",
+      "exhaustive_coverage": false,
+      "id": "deferral-not-host-closure",
+      "native_execution": false,
+      "option_id": "defer-native-lifetime-time-selection",
+      "ordered_events": [
+        "repository-brief-valid",
+        "native-host-unobserved"
+      ]
+    }
+  ],
+  "current_step_strong_safe_pause": false,
+  "native_authority": false,
+  "new_native_cases": 0,
+  "new_native_proofs": 0,
+  "next_preparable_step_after_complete392_acceptance": 393,
+  "options": [
+    {
+      "dependencies_and_incompatibilities": [
+        "live-revocation-without-worker-broker",
+        "all-writer-privileged-alias-lifetime",
+        "supervisor-loss-and-surviving-descendants",
+        "whole-entry-and-real-backend",
+        "original-baseline-owned-backup-unknown",
+        "finite-time-budget-and-recovery-rights",
+        "whole-stage12-final-receipt-causality",
+        "independent-two-platform-native-oracle"
+      ],
+      "disposition": "retain-original",
+      "effect_and_failure_boundaries": [
+        "Maintain current full known-drain/time contract. Supervisor loss, clock uncertainty, unknown ownership/drain or budget outcomes block dependent effects; no complete native composition supplied."
+      ],
+      "exact_current_clause_bindings": [
+        {
+          "input_key": "original323",
+          "json_pointer": "/clock_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "actual_clock": null,
+            "actual_forward_deadline": null,
+            "actual_recovery_budget": null,
+            "actual_recovery_deadline": null,
+            "fixture": "integer-ticks-forward100-recovery140-budget5-only-synthetic-no-real-seconds-or-host-observation",
+            "rule": "issuer-authenticated-finite-bounds-and-independent-trusted-time-mapping-with-same-boot; no-wallclock-rollback-suspend-epoch-restart-or-unknown-as-valid"
+          }
+        },
+        {
+          "input_key": "original323",
+          "json_pointer": "/fence_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "actual_enforcer": null,
+            "actual_transport": null,
+            "compatibility": "321-offline-bootstrap-schema-and-FD-closure-unchanged; no-added-worker-RPC-or-inherited-control-channel; future-successor-fence-policy-and-transport-integration-explicitly-required324/325",
+            "rule": "trusted-external-controller-enforces-original-policy-and-absorbing-revocation-at-every-effect-boundary; worker-and-contained-commands-have-no-service-or-broker-capability",
+            "scope": "live-check-is-original-attempt-validity-not-new-grant-per-action; no-claim-of-instant-revocation-from-offline-receipt-or-finite-lease-alone",
+            "uncertainty": "gate-outcome-loss-or-stale-or-unavailable-status-stops-effects; consumed-grant-launch-slot-and-recovery-budget-never-reopen"
+          }
+        },
+        {
+          "input_key": "original323",
+          "json_pointer": "/forward_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "in_flight": "started-effects-and-children-remain-obligations; inability-to-prove-stop-at-safe-effect-boundary-keeps-unknown-pending",
+            "owner": "original-consumed-active-attempt-no-new-or-unused-grant-per-nested-call",
+            "terminal": "normal-forward-completion-also-closes-forward-before-restoration-evidence-and-target-control-release",
+            "termination": "expiry-forward-revocation-or-any-failure-latches-forward-stop-irreversibly; no-new-effect-dispatch-or-revival",
+            "validity": "independent-authenticated-scope-trusted-time-and-continuously-enforced-live-fence-before-and-through-every-permitted-effect"
+          }
+        },
+        {
+          "input_key": "original323",
+          "json_pointer": "/recovery_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "boundedness": "finite-issuer-bound-deadline-and-durable-action-budget; spend-before-action; no-renewal-refill-retry-after-unknown-or-new-grant",
+            "expiry_relation": "forward-expiry-or-forward-only-revocation-does-not-itself-revoke-explicitly-retained-recovery; never-blanket-expiry-exemption",
+            "idempotence": "known-already-restored-state-may-return-reviewed-no-op-with-fresh-verification; never-repeat-unknown-package-or-file-action",
+            "order": "stop-forward-then-known-child-quiescence-then-safe-restore-verify-target-evidence-before-release",
+            "owner": "narrow-retained-rights-of-same-original-consumed-attempt-not-another-grant-or-invocation",
+            "preconditions": "traps-guards-owned-canonical-paths-all-writers-excluded-exact-backups-same-safe-identity-original-baseline-and-approved-deltas",
+            "revocation": "recovery/all-revocation-unknown-scope-clock-discontinuity-boot-or-identity-drift-block-recovery-writes-and-preserve-obligations",
+            "status": "keep-original-forward-failure-status-separate-from-recovery-and-publication-status; restoration-cannot-turn-failure-into-success",
+            "validity": "explicit-authenticated-issuer-original-recovery-scope-with-own-finite-deadline-budget-and-live-recovery-fence",
+            "whitelist": [
+              "bounded-owned-child-control-and-drain",
+              "exact-original-backup-restoration",
+              "verify-original-invariants",
+              "capture-owned-target-evidence",
+              "verified-target-control-release"
+            ]
+          }
+        },
+        {
+          "input_key": "original323",
+          "json_pointer": "/closure_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "controller": "unknown-durable-claim-launch-binding-budget-child-or-evidence-state-remains-pending-no-auto-delete-release-or-closed-rights-claim",
+            "machine": "only-known-original-restoration-and-known-owned-child-quiescence-with-complete-target-evidence-under-guard-can-close-scoped-target-obligations",
+            "publication": "after-target-closure-use-captured-closed-data-under-independent-publication-controls-through-last-receipt; no-target-refresh-write-or-renewal"
+          }
+        },
+        {
+          "input_key": "original324",
+          "json_pointer": "/guard_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-continuous-guarded-original-baseline-and-approved-phase-deltas-design-review-design.json",
+          "whole_current_value": {
+            "actual_guard_object": null,
+            "actual_native_protocol": null,
+            "actual_writer_inventory": null,
+            "admission": "reviewed-common-compatible-protocol-or-proven-controlled-entrypoint-prevention; unknown-or-nonparticipating-writer-blocks-admission",
+            "continuity": "before-and-through-every-owned-target-config-package-nested-refresh-helper-consumption-recovery-and-target-evidence-effect",
+            "coverage": "all-seven-requirement-domains-and-every-overlapping-direct-manual-scheduled-helper-privileged-writer-through-entire-mutation-window",
+            "failure": "loss-contention-object-replacement-unverifiable-owner-or-writer-state-latches-stop-and-pending; no-force-unlock-unlink-recreate-reacquire-or-rebind",
+            "handle": "stable-supervisor-owned-distinct-from-reference-FD9-not-child-inherited-unlockable; actual-object-API-range-mount-open-description-lifetime-proof-required",
+            "owner_loss": "parent-exit-not-child-quiescence; exclusion-must-survive-or-independently-prevent-all-surviving-writes-otherwise-unknown-pending",
+            "release": "known-owned-child-quiescence-exact-original-restoration-full-invariants-and-target-evidence-before-release; no-target-writes-afterward"
+          }
+        },
+        {
+          "input_key": "original326",
+          "json_pointer": "/model_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-complete-finite-failure-model-and-independent-conformance-plan-review-design.json",
+          "whole_current_value": {
+            "boundary": "Finite macro-event contract and declared fault-family coverage only; no real resources, Bash source/top-level execution, operational simulation or universal concurrency claim.",
+            "budgets": "Integer0..8 recovery fixture budget pre-spent once per attempted action including failures/unknown; denied actions spend no action; no refund/retry/new grant; real durable deadline/budget proof required.",
+            "ordering": "320 service own barrier/auth/irreversible claim/spent launch;321 bounded memory/close before effects;stage1 traps;324 guard/freshoriginal before ownedstage2;verifiedstage3 backups before target mutations;322 binding/325 completegraph and exact selectors.",
+            "outcomes": "ok requires exact rawstatus; known-failure means independently verified no additional effect; unknown keeps affected domain unknown, never no-effect/absence/closed.",
+            "publication": "Verified drained original and closed target evidence before release; separately checked captured-data record and receipt durability plus handoff; unknown outcome never replay/republish or target refresh.",
+            "quarantine": "Unknown claim/slot/spawn/auth/guard/identity/clock/revocation/child/partial target/native writer outcome cannot authorize replay/relaunch/restore/reacquire or false release; preserve scope-specific pending status.",
+            "recovery": "Any finalization permanently latches forward; finite original retained rights/known guard/child ownership; drain before restore; no-target-change branch verifies fresh original without requiring a never-created backup; unknown owned binding may retain artifacts while separately proven target restoration continues."
+          }
+        },
+        {
+          "input_key": "original326",
+          "json_pointer": "/independent_conformance_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-complete-finite-failure-model-and-independent-conformance-plan-review-design.json",
+          "whole_current_value": {
+            "oracle": "Raw independently captured vectors/effects/control lifetimes and positive/negative fault controls; claimed output/signature/row/harness PASS and same implementation logic never sufficient.",
+            "outcome": "Any missing/unclassified/unknown actual effect, oracle, durability, child, authority or cross obligation blocks actual conformance/readiness and keeps scoped pending record.",
+            "platforms": "52 separate required-not-run entries; no15.0-to-current or current-to15.0 inference; exact versions and native protocols unbound.",
+            "separation": "New implementation selection, explicit fresh test authority, bound versions/platform/boot/source/attempt and independent verifier/oracle before any future test;326 does not supply implementation or authority."
+          }
+        },
+        {
+          "input_key": "accepted382dossier",
+          "json_pointer": "/original377_supervisor_conflict",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-supervisor-clock-drain-decision-review-dossier.json",
+          "whole_current_value": {
+            "actual_resolution": null,
+            "current_authority": false,
+            "id": "supervisor-loss-and-surviving-descendants",
+            "native_blocker_resolved": false,
+            "normative_relaxation_allowed": false,
+            "unresolved_requirement": "Supervisor death, uncatchable loss and surviving children/in-flight effects require native lifetime containment and independently known drain before restoration, evidence or release. Parent exit or sent signals do not establish quiescence."
+          }
+        },
+        {
+          "input_key": "accepted382dossier",
+          "json_pointer": "/original377_finite_time_conflict",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-supervisor-clock-drain-decision-review-dossier.json",
+          "whole_current_value": {
+            "actual_resolution": null,
+            "current_authority": false,
+            "id": "finite-time-budget-and-recovery-rights",
+            "native_blocker_resolved": false,
+            "normative_relaxation_allowed": false,
+            "unresolved_requirement": "Same-boot trusted clock, suspend/discontinuity, scoped revocation, irreversibly stopped forward rights and pre-spent once-only finite retained recovery rights need an actual composition. Unknown spend/action/release permits no refund, retry, reacquisition, renewed deadline or foreign restore."
+          }
+        }
+      ],
+      "explicit_user_decision_required": true,
+      "guarantees_lost_or_changed": [],
+      "guarantees_retained": [
+        "Known descendant/FD/stream/storage/in-flight effect drain before restoration, target evidence and release; task exit or a stop request is insufficient.",
+        "Continuous original guard, exact original capture/backups, once-only same-attempt finite recovery and sticky unknown/failure semantics.",
+        "Original authenticated rights/deadlines/budgets never renewed or refunded; no retry/relaunch/rebind/reacquisition after uncertainty.",
+        "Full original other-conflict, writer, source graph, publication and independent two-platform oracle obligations remain due."
+      ],
+      "id": "retain-known-drain-and-trusted-time",
+      "implementation_selected": false,
+      "independent_evidence_required": [
+        "Complete actual descendant admission/membership/credentials/aliases/async effect graph and loss detector/control lifetime on both platforms.",
+        "Independent stopping, task exit/raw status, inherited FD/stream/observer/storage completion and every in-flight effect outcome before dependent actions.",
+        "Original issuer-authenticated finite bounds and trustworthy exact same-boot/clock-domain mapping, suspend/discontinuity/rollback/loss handling.",
+        "Durable once-only recovery budget and all original live scopes, storage/custody/full-vector/effective fault observations; actual support remains unknown."
+      ],
+      "migration_impact": {
+        "affected_proofs_cases_relations_complete": false,
+        "all_other_original_clauses_remain_binding": true,
+        "approved_migration": null,
+        "categories_requiring_full_mapping": [
+          "contracts320-327",
+          "sections347-and-gaps348",
+          "prerequisites365-and372-377",
+          "46-qualified-proofs",
+          "52-native-cases",
+          "12-independent-raw-groups",
+          "1072-ordered-relations",
+          "historical-five-families-twenty-scenarios",
+          "test-entry-and-operational-readiness"
+        ],
+        "exact_changed_clause_candidates": [],
+        "state": "initial-draft-incomplete-until396-and397",
+        "whole_current_clause_bindings_retained": true
+      },
+      "platform_rows": [
+        {
+          "actual_composition": null,
+          "entry_authorized": false,
+          "installed_versions": null,
+          "native_evidence": null,
+          "platform": "Slackware 15.0",
+          "support": null
+        },
+        {
+          "actual_composition": null,
+          "entry_authorized": false,
+          "installed_versions": null,
+          "native_evidence": null,
+          "platform": "Slackware-current",
+          "support": null
+        }
+      ],
+      "proposed_clause_text": {},
+      "residual_native_unknowns": [
+        "Complete actual descendant admission/membership/credentials/aliases/async effect graph and loss detector/control lifetime on both platforms.",
+        "Independent stopping, task exit/raw status, inherited FD/stream/observer/storage completion and every in-flight effect outcome before dependent actions.",
+        "Original issuer-authenticated finite bounds and trustworthy exact same-boot/clock-domain mapping, suspend/discontinuity/rollback/loss handling.",
+        "Durable once-only recovery budget and all original live scopes, storage/custody/full-vector/effective fault observations; actual support remains unknown."
+      ],
+      "runtime_authority": false,
+      "trust_assumptions": [
+        "No new clock or owner-loss trust exclusion; actual original-compatible provider/enforcer/observer assumptions remain to be independently reviewed."
+      ]
+    },
+    {
+      "dependencies_and_incompatibilities": [
+        "live-revocation-without-worker-broker",
+        "all-writer-privileged-alias-lifetime",
+        "supervisor-loss-and-surviving-descendants",
+        "whole-entry-and-real-backend",
+        "original-baseline-owned-backup-unknown",
+        "finite-time-budget-and-recovery-rights",
+        "whole-stage12-final-receipt-causality",
+        "independent-two-platform-native-oracle"
+      ],
+      "disposition": "retain-original",
+      "effect_and_failure_boundaries": [
+        "Candidate design only: establish protected membership, identities and original finite guardian control rights BEFORE any workload effect. Guardian observes supervisor loss and denies further admission, then independently establishes every original task/FD/stream/storage/in-flight outcome.",
+        "Guardian action requests and reports are not sole evidence. Its own loss, incomplete membership, control/guard uncertainty, delayed stopping or deadline expiry keeps scoped obligations pending. No always-alive or guaranteed finite drain claim.",
+        "Known safe original restoration/target evidence/release still requires full original prerequisites and original finite rights. A guardian cannot mint replacement authority, renew a deadline, reacquire a guard or spend the same action twice.",
+        "This retains the contract rather than amending it. No actual guardian/component selected or compatible-unproven verdict established; original writer/revocation/oracle dependencies still unresolved."
+      ],
+      "exact_current_clause_bindings": [
+        {
+          "input_key": "original323",
+          "json_pointer": "/clock_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "actual_clock": null,
+            "actual_forward_deadline": null,
+            "actual_recovery_budget": null,
+            "actual_recovery_deadline": null,
+            "fixture": "integer-ticks-forward100-recovery140-budget5-only-synthetic-no-real-seconds-or-host-observation",
+            "rule": "issuer-authenticated-finite-bounds-and-independent-trusted-time-mapping-with-same-boot; no-wallclock-rollback-suspend-epoch-restart-or-unknown-as-valid"
+          }
+        },
+        {
+          "input_key": "original323",
+          "json_pointer": "/fence_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "actual_enforcer": null,
+            "actual_transport": null,
+            "compatibility": "321-offline-bootstrap-schema-and-FD-closure-unchanged; no-added-worker-RPC-or-inherited-control-channel; future-successor-fence-policy-and-transport-integration-explicitly-required324/325",
+            "rule": "trusted-external-controller-enforces-original-policy-and-absorbing-revocation-at-every-effect-boundary; worker-and-contained-commands-have-no-service-or-broker-capability",
+            "scope": "live-check-is-original-attempt-validity-not-new-grant-per-action; no-claim-of-instant-revocation-from-offline-receipt-or-finite-lease-alone",
+            "uncertainty": "gate-outcome-loss-or-stale-or-unavailable-status-stops-effects; consumed-grant-launch-slot-and-recovery-budget-never-reopen"
+          }
+        },
+        {
+          "input_key": "original323",
+          "json_pointer": "/forward_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "in_flight": "started-effects-and-children-remain-obligations; inability-to-prove-stop-at-safe-effect-boundary-keeps-unknown-pending",
+            "owner": "original-consumed-active-attempt-no-new-or-unused-grant-per-nested-call",
+            "terminal": "normal-forward-completion-also-closes-forward-before-restoration-evidence-and-target-control-release",
+            "termination": "expiry-forward-revocation-or-any-failure-latches-forward-stop-irreversibly; no-new-effect-dispatch-or-revival",
+            "validity": "independent-authenticated-scope-trusted-time-and-continuously-enforced-live-fence-before-and-through-every-permitted-effect"
+          }
+        },
+        {
+          "input_key": "original323",
+          "json_pointer": "/recovery_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "boundedness": "finite-issuer-bound-deadline-and-durable-action-budget; spend-before-action; no-renewal-refill-retry-after-unknown-or-new-grant",
+            "expiry_relation": "forward-expiry-or-forward-only-revocation-does-not-itself-revoke-explicitly-retained-recovery; never-blanket-expiry-exemption",
+            "idempotence": "known-already-restored-state-may-return-reviewed-no-op-with-fresh-verification; never-repeat-unknown-package-or-file-action",
+            "order": "stop-forward-then-known-child-quiescence-then-safe-restore-verify-target-evidence-before-release",
+            "owner": "narrow-retained-rights-of-same-original-consumed-attempt-not-another-grant-or-invocation",
+            "preconditions": "traps-guards-owned-canonical-paths-all-writers-excluded-exact-backups-same-safe-identity-original-baseline-and-approved-deltas",
+            "revocation": "recovery/all-revocation-unknown-scope-clock-discontinuity-boot-or-identity-drift-block-recovery-writes-and-preserve-obligations",
+            "status": "keep-original-forward-failure-status-separate-from-recovery-and-publication-status; restoration-cannot-turn-failure-into-success",
+            "validity": "explicit-authenticated-issuer-original-recovery-scope-with-own-finite-deadline-budget-and-live-recovery-fence",
+            "whitelist": [
+              "bounded-owned-child-control-and-drain",
+              "exact-original-backup-restoration",
+              "verify-original-invariants",
+              "capture-owned-target-evidence",
+              "verified-target-control-release"
+            ]
+          }
+        },
+        {
+          "input_key": "original323",
+          "json_pointer": "/closure_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "controller": "unknown-durable-claim-launch-binding-budget-child-or-evidence-state-remains-pending-no-auto-delete-release-or-closed-rights-claim",
+            "machine": "only-known-original-restoration-and-known-owned-child-quiescence-with-complete-target-evidence-under-guard-can-close-scoped-target-obligations",
+            "publication": "after-target-closure-use-captured-closed-data-under-independent-publication-controls-through-last-receipt; no-target-refresh-write-or-renewal"
+          }
+        },
+        {
+          "input_key": "original324",
+          "json_pointer": "/guard_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-continuous-guarded-original-baseline-and-approved-phase-deltas-design-review-design.json",
+          "whole_current_value": {
+            "actual_guard_object": null,
+            "actual_native_protocol": null,
+            "actual_writer_inventory": null,
+            "admission": "reviewed-common-compatible-protocol-or-proven-controlled-entrypoint-prevention; unknown-or-nonparticipating-writer-blocks-admission",
+            "continuity": "before-and-through-every-owned-target-config-package-nested-refresh-helper-consumption-recovery-and-target-evidence-effect",
+            "coverage": "all-seven-requirement-domains-and-every-overlapping-direct-manual-scheduled-helper-privileged-writer-through-entire-mutation-window",
+            "failure": "loss-contention-object-replacement-unverifiable-owner-or-writer-state-latches-stop-and-pending; no-force-unlock-unlink-recreate-reacquire-or-rebind",
+            "handle": "stable-supervisor-owned-distinct-from-reference-FD9-not-child-inherited-unlockable; actual-object-API-range-mount-open-description-lifetime-proof-required",
+            "owner_loss": "parent-exit-not-child-quiescence; exclusion-must-survive-or-independently-prevent-all-surviving-writes-otherwise-unknown-pending",
+            "release": "known-owned-child-quiescence-exact-original-restoration-full-invariants-and-target-evidence-before-release; no-target-writes-afterward"
+          }
+        },
+        {
+          "input_key": "original326",
+          "json_pointer": "/model_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-complete-finite-failure-model-and-independent-conformance-plan-review-design.json",
+          "whole_current_value": {
+            "boundary": "Finite macro-event contract and declared fault-family coverage only; no real resources, Bash source/top-level execution, operational simulation or universal concurrency claim.",
+            "budgets": "Integer0..8 recovery fixture budget pre-spent once per attempted action including failures/unknown; denied actions spend no action; no refund/retry/new grant; real durable deadline/budget proof required.",
+            "ordering": "320 service own barrier/auth/irreversible claim/spent launch;321 bounded memory/close before effects;stage1 traps;324 guard/freshoriginal before ownedstage2;verifiedstage3 backups before target mutations;322 binding/325 completegraph and exact selectors.",
+            "outcomes": "ok requires exact rawstatus; known-failure means independently verified no additional effect; unknown keeps affected domain unknown, never no-effect/absence/closed.",
+            "publication": "Verified drained original and closed target evidence before release; separately checked captured-data record and receipt durability plus handoff; unknown outcome never replay/republish or target refresh.",
+            "quarantine": "Unknown claim/slot/spawn/auth/guard/identity/clock/revocation/child/partial target/native writer outcome cannot authorize replay/relaunch/restore/reacquire or false release; preserve scope-specific pending status.",
+            "recovery": "Any finalization permanently latches forward; finite original retained rights/known guard/child ownership; drain before restore; no-target-change branch verifies fresh original without requiring a never-created backup; unknown owned binding may retain artifacts while separately proven target restoration continues."
+          }
+        },
+        {
+          "input_key": "original326",
+          "json_pointer": "/independent_conformance_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-complete-finite-failure-model-and-independent-conformance-plan-review-design.json",
+          "whole_current_value": {
+            "oracle": "Raw independently captured vectors/effects/control lifetimes and positive/negative fault controls; claimed output/signature/row/harness PASS and same implementation logic never sufficient.",
+            "outcome": "Any missing/unclassified/unknown actual effect, oracle, durability, child, authority or cross obligation blocks actual conformance/readiness and keeps scoped pending record.",
+            "platforms": "52 separate required-not-run entries; no15.0-to-current or current-to15.0 inference; exact versions and native protocols unbound.",
+            "separation": "New implementation selection, explicit fresh test authority, bound versions/platform/boot/source/attempt and independent verifier/oracle before any future test;326 does not supply implementation or authority."
+          }
+        },
+        {
+          "input_key": "accepted382dossier",
+          "json_pointer": "/original377_supervisor_conflict",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-supervisor-clock-drain-decision-review-dossier.json",
+          "whole_current_value": {
+            "actual_resolution": null,
+            "current_authority": false,
+            "id": "supervisor-loss-and-surviving-descendants",
+            "native_blocker_resolved": false,
+            "normative_relaxation_allowed": false,
+            "unresolved_requirement": "Supervisor death, uncatchable loss and surviving children/in-flight effects require native lifetime containment and independently known drain before restoration, evidence or release. Parent exit or sent signals do not establish quiescence."
+          }
+        },
+        {
+          "input_key": "accepted382dossier",
+          "json_pointer": "/original377_finite_time_conflict",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-supervisor-clock-drain-decision-review-dossier.json",
+          "whole_current_value": {
+            "actual_resolution": null,
+            "current_authority": false,
+            "id": "finite-time-budget-and-recovery-rights",
+            "native_blocker_resolved": false,
+            "normative_relaxation_allowed": false,
+            "unresolved_requirement": "Same-boot trusted clock, suspend/discontinuity, scoped revocation, irreversibly stopped forward rights and pre-spent once-only finite retained recovery rights need an actual composition. Unknown spend/action/release permits no refund, retry, reacquisition, renewed deadline or foreign restore."
+          }
+        }
+      ],
+      "explicit_user_decision_required": true,
+      "guarantees_lost_or_changed": [],
+      "guarantees_retained": [
+        "Known descendant/FD/stream/storage/in-flight effect drain before restoration, target evidence and release; task exit or a stop request is insufficient.",
+        "Continuous original guard, exact original capture/backups, once-only same-attempt finite recovery and sticky unknown/failure semantics.",
+        "Original authenticated rights/deadlines/budgets never renewed or refunded; no retry/relaunch/rebind/reacquisition after uncertainty.",
+        "Full original other-conflict, writer, source graph, publication and independent two-platform oracle obligations remain due."
+      ],
+      "id": "independent-guardian-retention-hypothesis",
+      "implementation_selected": false,
+      "independent_evidence_required": [
+        "Complete actual descendant admission/membership/credentials/aliases/async effect graph and loss detector/control lifetime on both platforms.",
+        "Independent stopping, task exit/raw status, inherited FD/stream/observer/storage completion and every in-flight effect outcome before dependent actions.",
+        "Original issuer-authenticated finite bounds and trustworthy exact same-boot/clock-domain mapping, suspend/discontinuity/rollback/loss handling.",
+        "Durable once-only recovery budget and all original live scopes, storage/custody/full-vector/effective fault observations; actual support remains unknown."
+      ],
+      "migration_impact": {
+        "affected_proofs_cases_relations_complete": false,
+        "all_other_original_clauses_remain_binding": true,
+        "approved_migration": null,
+        "categories_requiring_full_mapping": [
+          "contracts320-327",
+          "sections347-and-gaps348",
+          "prerequisites365-and372-377",
+          "46-qualified-proofs",
+          "52-native-cases",
+          "12-independent-raw-groups",
+          "1072-ordered-relations",
+          "historical-five-families-twenty-scenarios",
+          "test-entry-and-operational-readiness"
+        ],
+        "exact_changed_clause_candidates": [],
+        "state": "initial-draft-incomplete-until396-and397",
+        "whole_current_clause_bindings_retained": true
+      },
+      "platform_rows": [
+        {
+          "actual_composition": null,
+          "entry_authorized": false,
+          "installed_versions": null,
+          "native_evidence": null,
+          "platform": "Slackware 15.0",
+          "support": null
+        },
+        {
+          "actual_composition": null,
+          "entry_authorized": false,
+          "installed_versions": null,
+          "native_evidence": null,
+          "platform": "Slackware-current",
+          "support": null
+        }
+      ],
+      "proposed_clause_text": {},
+      "residual_native_unknowns": [
+        "Complete actual descendant admission/membership/credentials/aliases/async effect graph and loss detector/control lifetime on both platforms.",
+        "Independent stopping, task exit/raw status, inherited FD/stream/observer/storage completion and every in-flight effect outcome before dependent actions.",
+        "Original issuer-authenticated finite bounds and trustworthy exact same-boot/clock-domain mapping, suspend/discontinuity/rollback/loss handling.",
+        "Durable once-only recovery budget and all original live scopes, storage/custody/full-vector/effective fault observations; actual support remains unknown."
+      ],
+      "runtime_authority": false,
+      "trust_assumptions": [
+        "A proposed independently protected guardian has a different reviewed failure/control lifetime from the transaction supervisor, not an assumed immortal process.",
+        "Its actual protected policy, membership, FD aliases, clock/rights and independent evidence origin remain unknown. Workload tasks cannot mutate or escape its control by an unreviewed route."
+      ]
+    },
+    {
+      "dependencies_and_incompatibilities": [
+        "live-revocation-without-worker-broker",
+        "all-writer-privileged-alias-lifetime",
+        "supervisor-loss-and-surviving-descendants",
+        "whole-entry-and-real-backend",
+        "original-baseline-owned-backup-unknown",
+        "finite-time-budget-and-recovery-rights",
+        "whole-stage12-final-receipt-causality",
+        "independent-two-platform-native-oracle"
+      ],
+      "disposition": "amendment-proposal",
+      "effect_and_failure_boundaries": [
+        "Suspend must consume the original elapsed bound or cause effects denied before resume; a stopped process or undelivered timer is not proof its rights remain valid.",
+        "Deadline expiry, missing mapping/provider/boot identity, suspected discontinuity or unknown action/spend result blocks effects and preserves pending obligations. No independent known-drain requirement is weakened.",
+        "The amendment is inactive and does not grant a local clock value authority. Full actual time/fence/oracle and finite same-attempt rights proof remains pending."
+      ],
+      "exact_current_clause_bindings": [
+        {
+          "input_key": "original323",
+          "json_pointer": "/clock_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "actual_clock": null,
+            "actual_forward_deadline": null,
+            "actual_recovery_budget": null,
+            "actual_recovery_deadline": null,
+            "fixture": "integer-ticks-forward100-recovery140-budget5-only-synthetic-no-real-seconds-or-host-observation",
+            "rule": "issuer-authenticated-finite-bounds-and-independent-trusted-time-mapping-with-same-boot; no-wallclock-rollback-suspend-epoch-restart-or-unknown-as-valid"
+          }
+        },
+        {
+          "input_key": "original323",
+          "json_pointer": "/fence_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "actual_enforcer": null,
+            "actual_transport": null,
+            "compatibility": "321-offline-bootstrap-schema-and-FD-closure-unchanged; no-added-worker-RPC-or-inherited-control-channel; future-successor-fence-policy-and-transport-integration-explicitly-required324/325",
+            "rule": "trusted-external-controller-enforces-original-policy-and-absorbing-revocation-at-every-effect-boundary; worker-and-contained-commands-have-no-service-or-broker-capability",
+            "scope": "live-check-is-original-attempt-validity-not-new-grant-per-action; no-claim-of-instant-revocation-from-offline-receipt-or-finite-lease-alone",
+            "uncertainty": "gate-outcome-loss-or-stale-or-unavailable-status-stops-effects; consumed-grant-launch-slot-and-recovery-budget-never-reopen"
+          }
+        },
+        {
+          "input_key": "original323",
+          "json_pointer": "/forward_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "in_flight": "started-effects-and-children-remain-obligations; inability-to-prove-stop-at-safe-effect-boundary-keeps-unknown-pending",
+            "owner": "original-consumed-active-attempt-no-new-or-unused-grant-per-nested-call",
+            "terminal": "normal-forward-completion-also-closes-forward-before-restoration-evidence-and-target-control-release",
+            "termination": "expiry-forward-revocation-or-any-failure-latches-forward-stop-irreversibly; no-new-effect-dispatch-or-revival",
+            "validity": "independent-authenticated-scope-trusted-time-and-continuously-enforced-live-fence-before-and-through-every-permitted-effect"
+          }
+        },
+        {
+          "input_key": "original323",
+          "json_pointer": "/recovery_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "boundedness": "finite-issuer-bound-deadline-and-durable-action-budget; spend-before-action; no-renewal-refill-retry-after-unknown-or-new-grant",
+            "expiry_relation": "forward-expiry-or-forward-only-revocation-does-not-itself-revoke-explicitly-retained-recovery; never-blanket-expiry-exemption",
+            "idempotence": "known-already-restored-state-may-return-reviewed-no-op-with-fresh-verification; never-repeat-unknown-package-or-file-action",
+            "order": "stop-forward-then-known-child-quiescence-then-safe-restore-verify-target-evidence-before-release",
+            "owner": "narrow-retained-rights-of-same-original-consumed-attempt-not-another-grant-or-invocation",
+            "preconditions": "traps-guards-owned-canonical-paths-all-writers-excluded-exact-backups-same-safe-identity-original-baseline-and-approved-deltas",
+            "revocation": "recovery/all-revocation-unknown-scope-clock-discontinuity-boot-or-identity-drift-block-recovery-writes-and-preserve-obligations",
+            "status": "keep-original-forward-failure-status-separate-from-recovery-and-publication-status; restoration-cannot-turn-failure-into-success",
+            "validity": "explicit-authenticated-issuer-original-recovery-scope-with-own-finite-deadline-budget-and-live-recovery-fence",
+            "whitelist": [
+              "bounded-owned-child-control-and-drain",
+              "exact-original-backup-restoration",
+              "verify-original-invariants",
+              "capture-owned-target-evidence",
+              "verified-target-control-release"
+            ]
+          }
+        },
+        {
+          "input_key": "original323",
+          "json_pointer": "/closure_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "controller": "unknown-durable-claim-launch-binding-budget-child-or-evidence-state-remains-pending-no-auto-delete-release-or-closed-rights-claim",
+            "machine": "only-known-original-restoration-and-known-owned-child-quiescence-with-complete-target-evidence-under-guard-can-close-scoped-target-obligations",
+            "publication": "after-target-closure-use-captured-closed-data-under-independent-publication-controls-through-last-receipt; no-target-refresh-write-or-renewal"
+          }
+        },
+        {
+          "input_key": "original324",
+          "json_pointer": "/guard_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-continuous-guarded-original-baseline-and-approved-phase-deltas-design-review-design.json",
+          "whole_current_value": {
+            "actual_guard_object": null,
+            "actual_native_protocol": null,
+            "actual_writer_inventory": null,
+            "admission": "reviewed-common-compatible-protocol-or-proven-controlled-entrypoint-prevention; unknown-or-nonparticipating-writer-blocks-admission",
+            "continuity": "before-and-through-every-owned-target-config-package-nested-refresh-helper-consumption-recovery-and-target-evidence-effect",
+            "coverage": "all-seven-requirement-domains-and-every-overlapping-direct-manual-scheduled-helper-privileged-writer-through-entire-mutation-window",
+            "failure": "loss-contention-object-replacement-unverifiable-owner-or-writer-state-latches-stop-and-pending; no-force-unlock-unlink-recreate-reacquire-or-rebind",
+            "handle": "stable-supervisor-owned-distinct-from-reference-FD9-not-child-inherited-unlockable; actual-object-API-range-mount-open-description-lifetime-proof-required",
+            "owner_loss": "parent-exit-not-child-quiescence; exclusion-must-survive-or-independently-prevent-all-surviving-writes-otherwise-unknown-pending",
+            "release": "known-owned-child-quiescence-exact-original-restoration-full-invariants-and-target-evidence-before-release; no-target-writes-afterward"
+          }
+        },
+        {
+          "input_key": "original326",
+          "json_pointer": "/model_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-complete-finite-failure-model-and-independent-conformance-plan-review-design.json",
+          "whole_current_value": {
+            "boundary": "Finite macro-event contract and declared fault-family coverage only; no real resources, Bash source/top-level execution, operational simulation or universal concurrency claim.",
+            "budgets": "Integer0..8 recovery fixture budget pre-spent once per attempted action including failures/unknown; denied actions spend no action; no refund/retry/new grant; real durable deadline/budget proof required.",
+            "ordering": "320 service own barrier/auth/irreversible claim/spent launch;321 bounded memory/close before effects;stage1 traps;324 guard/freshoriginal before ownedstage2;verifiedstage3 backups before target mutations;322 binding/325 completegraph and exact selectors.",
+            "outcomes": "ok requires exact rawstatus; known-failure means independently verified no additional effect; unknown keeps affected domain unknown, never no-effect/absence/closed.",
+            "publication": "Verified drained original and closed target evidence before release; separately checked captured-data record and receipt durability plus handoff; unknown outcome never replay/republish or target refresh.",
+            "quarantine": "Unknown claim/slot/spawn/auth/guard/identity/clock/revocation/child/partial target/native writer outcome cannot authorize replay/relaunch/restore/reacquire or false release; preserve scope-specific pending status.",
+            "recovery": "Any finalization permanently latches forward; finite original retained rights/known guard/child ownership; drain before restore; no-target-change branch verifies fresh original without requiring a never-created backup; unknown owned binding may retain artifacts while separately proven target restoration continues."
+          }
+        },
+        {
+          "input_key": "original326",
+          "json_pointer": "/independent_conformance_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-complete-finite-failure-model-and-independent-conformance-plan-review-design.json",
+          "whole_current_value": {
+            "oracle": "Raw independently captured vectors/effects/control lifetimes and positive/negative fault controls; claimed output/signature/row/harness PASS and same implementation logic never sufficient.",
+            "outcome": "Any missing/unclassified/unknown actual effect, oracle, durability, child, authority or cross obligation blocks actual conformance/readiness and keeps scoped pending record.",
+            "platforms": "52 separate required-not-run entries; no15.0-to-current or current-to15.0 inference; exact versions and native protocols unbound.",
+            "separation": "New implementation selection, explicit fresh test authority, bound versions/platform/boot/source/attempt and independent verifier/oracle before any future test;326 does not supply implementation or authority."
+          }
+        },
+        {
+          "input_key": "accepted382dossier",
+          "json_pointer": "/original377_supervisor_conflict",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-supervisor-clock-drain-decision-review-dossier.json",
+          "whole_current_value": {
+            "actual_resolution": null,
+            "current_authority": false,
+            "id": "supervisor-loss-and-surviving-descendants",
+            "native_blocker_resolved": false,
+            "normative_relaxation_allowed": false,
+            "unresolved_requirement": "Supervisor death, uncatchable loss and surviving children/in-flight effects require native lifetime containment and independently known drain before restoration, evidence or release. Parent exit or sent signals do not establish quiescence."
+          }
+        },
+        {
+          "input_key": "accepted382dossier",
+          "json_pointer": "/original377_finite_time_conflict",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-supervisor-clock-drain-decision-review-dossier.json",
+          "whole_current_value": {
+            "actual_resolution": null,
+            "current_authority": false,
+            "id": "finite-time-budget-and-recovery-rights",
+            "native_blocker_resolved": false,
+            "normative_relaxation_allowed": false,
+            "unresolved_requirement": "Same-boot trusted clock, suspend/discontinuity, scoped revocation, irreversibly stopped forward rights and pre-spent once-only finite retained recovery rights need an actual composition. Unknown spend/action/release permits no refund, retry, reacquisition, renewed deadline or foreign restore."
+          }
+        }
+      ],
+      "explicit_user_decision_required": true,
+      "guarantees_lost_or_changed": [
+        "Time-integrity protection would become conditional on explicitly trusted local host/time infrastructure rather than treating every privileged or hidden clock-domain manipulation as an independently enforceable threat.",
+        "No guarantee of detecting deliberate hidden kernel/hypervisor clock manipulation or snapshot rollback by assumed-trusted actors, even when a boot identifier appears unchanged.",
+        "A local read or delivered timer alone supplies neither an absolute response/drain bound nor authenticated issuer/time mapping or durable rights. The proposal changes the clock trust claim, not the original finite deadline or recovery budget."
+      ],
+      "guarantees_retained": [
+        "Known descendant/FD/stream/storage/in-flight effect drain before restoration, target evidence and release; task exit or a stop request is insufficient.",
+        "Continuous original guard, exact original capture/backups, once-only same-attempt finite recovery and sticky unknown/failure semantics.",
+        "Original authenticated rights/deadlines/budgets never renewed or refunded; no retry/relaunch/rebind/reacquisition after uncertainty.",
+        "Full original other-conflict, writer, source graph, publication and independent two-platform oracle obligations remain due."
+      ],
+      "id": "explicit-local-clock-trust-boundary",
+      "implementation_selected": false,
+      "independent_evidence_required": [
+        "Complete actual descendant admission/membership/credentials/aliases/async effect graph and loss detector/control lifetime on both platforms.",
+        "Independent stopping, task exit/raw status, inherited FD/stream/observer/storage completion and every in-flight effect outcome before dependent actions.",
+        "Original issuer-authenticated finite bounds and trustworthy exact same-boot/clock-domain mapping, suspend/discontinuity/rollback/loss handling.",
+        "Durable once-only recovery budget and all original live scopes, storage/custody/full-vector/effective fault observations; actual support remains unknown."
+      ],
+      "migration_impact": {
+        "affected_proofs_cases_relations_complete": false,
+        "all_other_original_clauses_remain_binding": true,
+        "approved_migration": null,
+        "categories_requiring_full_mapping": [
+          "contracts320-327",
+          "sections347-and-gaps348",
+          "prerequisites365-and372-377",
+          "46-qualified-proofs",
+          "52-native-cases",
+          "12-independent-raw-groups",
+          "1072-ordered-relations",
+          "historical-five-families-twenty-scenarios",
+          "test-entry-and-operational-readiness"
+        ],
+        "exact_changed_clause_candidates": [
+          {
+            "input_key": "original323",
+            "json_pointer": "/clock_contract/rule"
+          },
+          {
+            "input_key": "accepted382dossier",
+            "json_pointer": "/original377_finite_time_conflict"
+          },
+          {
+            "input_key": "accepted382dossier",
+            "json_pointer": "/original372_supervision_and_time_blockers"
+          }
+        ],
+        "state": "initial-draft-incomplete-until396-and397",
+        "whole_current_clause_bindings_retained": true
+      },
+      "platform_rows": [
+        {
+          "actual_composition": null,
+          "entry_authorized": false,
+          "installed_versions": null,
+          "native_evidence": null,
+          "platform": "Slackware 15.0",
+          "support": null
+        },
+        {
+          "actual_composition": null,
+          "entry_authorized": false,
+          "installed_versions": null,
+          "native_evidence": null,
+          "platform": "Slackware-current",
+          "support": null
+        }
+      ],
+      "proposed_clause_text": {
+        "/clock_contract/rule": "Authenticate the issuer's original fixed finite bounds and map them once at admission to an independently reviewed local elapsed-time clock domain under an explicitly enumerated conforming host kernel/hardware/hypervisor assumption. Preserve the original boot/clock-domain identity, exact mapping, fixed deadlines and durable budget. Suspend elapsed time must be accounted for or further effects denied before resume; missing/unknown mapping, boot drift, observed or suspected discontinuity, snapshot/restore or provider loss blocks effects. No clock fallback, deadline renewal, budget refill or right revival.",
+        "local_clock_trust_assumption": "Only specifically identified host kernel/time infrastructure, hardware and hypervisor behavior following the reviewed policy/specification are trusted for elapsed-time integrity. Deliberate hidden clock-domain manipulation or snapshot rollback by those assumed-trusted actors is outside this proposed integrity guarantee. It is not guaranteed detectable; observed/suspected violations invalidate admission. Ordinary suspend, restart, scheduler delay and timer loss remain in-scope reviewed failures. No actual provider or clock ID is selected."
+      },
+      "residual_native_unknowns": [
+        "Complete actual descendant admission/membership/credentials/aliases/async effect graph and loss detector/control lifetime on both platforms.",
+        "Independent stopping, task exit/raw status, inherited FD/stream/observer/storage completion and every in-flight effect outcome before dependent actions.",
+        "Original issuer-authenticated finite bounds and trustworthy exact same-boot/clock-domain mapping, suspend/discontinuity/rollback/loss handling.",
+        "Durable once-only recovery budget and all original live scopes, storage/custody/full-vector/effective fault observations; actual support remains unknown."
+      ],
+      "runtime_authority": false,
+      "trust_assumptions": [
+        "Exact trusted infrastructure/configuration/clock-domain identity and issuer mapping remain unknown. This proposal depends on explicit reconciliation with390trust alternatives and391effect/revocation options.",
+        "No current host declared conforming; no clock ID selected. Unknown actual time or assumed trust never authorizes effect dispatch or restoration.",
+        "Snapshot/restore is outside the proposed allowed attempt lifecycle; observed or suspected occurrence invalidates the attempt, never revives old rights. A hidden trust violation is not claimed fully detectable."
+      ]
+    },
+    {
+      "dependencies_and_incompatibilities": [
+        "live-revocation-without-worker-broker",
+        "all-writer-privileged-alias-lifetime",
+        "supervisor-loss-and-surviving-descendants",
+        "whole-entry-and-real-backend",
+        "original-baseline-owned-backup-unknown",
+        "finite-time-budget-and-recovery-rights",
+        "whole-stage12-final-receipt-causality",
+        "independent-two-platform-native-oracle"
+      ],
+      "disposition": "defer",
+      "effect_and_failure_boundaries": [
+        "Native lifetime/time selection remains blocked; a repository pause may be confirmed at398 with unresolved native state, never as actual host closure."
+      ],
+      "exact_current_clause_bindings": [
+        {
+          "input_key": "original323",
+          "json_pointer": "/clock_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "actual_clock": null,
+            "actual_forward_deadline": null,
+            "actual_recovery_budget": null,
+            "actual_recovery_deadline": null,
+            "fixture": "integer-ticks-forward100-recovery140-budget5-only-synthetic-no-real-seconds-or-host-observation",
+            "rule": "issuer-authenticated-finite-bounds-and-independent-trusted-time-mapping-with-same-boot; no-wallclock-rollback-suspend-epoch-restart-or-unknown-as-valid"
+          }
+        },
+        {
+          "input_key": "original323",
+          "json_pointer": "/fence_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "actual_enforcer": null,
+            "actual_transport": null,
+            "compatibility": "321-offline-bootstrap-schema-and-FD-closure-unchanged; no-added-worker-RPC-or-inherited-control-channel; future-successor-fence-policy-and-transport-integration-explicitly-required324/325",
+            "rule": "trusted-external-controller-enforces-original-policy-and-absorbing-revocation-at-every-effect-boundary; worker-and-contained-commands-have-no-service-or-broker-capability",
+            "scope": "live-check-is-original-attempt-validity-not-new-grant-per-action; no-claim-of-instant-revocation-from-offline-receipt-or-finite-lease-alone",
+            "uncertainty": "gate-outcome-loss-or-stale-or-unavailable-status-stops-effects; consumed-grant-launch-slot-and-recovery-budget-never-reopen"
+          }
+        },
+        {
+          "input_key": "original323",
+          "json_pointer": "/forward_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "in_flight": "started-effects-and-children-remain-obligations; inability-to-prove-stop-at-safe-effect-boundary-keeps-unknown-pending",
+            "owner": "original-consumed-active-attempt-no-new-or-unused-grant-per-nested-call",
+            "terminal": "normal-forward-completion-also-closes-forward-before-restoration-evidence-and-target-control-release",
+            "termination": "expiry-forward-revocation-or-any-failure-latches-forward-stop-irreversibly; no-new-effect-dispatch-or-revival",
+            "validity": "independent-authenticated-scope-trusted-time-and-continuously-enforced-live-fence-before-and-through-every-permitted-effect"
+          }
+        },
+        {
+          "input_key": "original323",
+          "json_pointer": "/recovery_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "boundedness": "finite-issuer-bound-deadline-and-durable-action-budget; spend-before-action; no-renewal-refill-retry-after-unknown-or-new-grant",
+            "expiry_relation": "forward-expiry-or-forward-only-revocation-does-not-itself-revoke-explicitly-retained-recovery; never-blanket-expiry-exemption",
+            "idempotence": "known-already-restored-state-may-return-reviewed-no-op-with-fresh-verification; never-repeat-unknown-package-or-file-action",
+            "order": "stop-forward-then-known-child-quiescence-then-safe-restore-verify-target-evidence-before-release",
+            "owner": "narrow-retained-rights-of-same-original-consumed-attempt-not-another-grant-or-invocation",
+            "preconditions": "traps-guards-owned-canonical-paths-all-writers-excluded-exact-backups-same-safe-identity-original-baseline-and-approved-deltas",
+            "revocation": "recovery/all-revocation-unknown-scope-clock-discontinuity-boot-or-identity-drift-block-recovery-writes-and-preserve-obligations",
+            "status": "keep-original-forward-failure-status-separate-from-recovery-and-publication-status; restoration-cannot-turn-failure-into-success",
+            "validity": "explicit-authenticated-issuer-original-recovery-scope-with-own-finite-deadline-budget-and-live-recovery-fence",
+            "whitelist": [
+              "bounded-owned-child-control-and-drain",
+              "exact-original-backup-restoration",
+              "verify-original-invariants",
+              "capture-owned-target-evidence",
+              "verified-target-control-release"
+            ]
+          }
+        },
+        {
+          "input_key": "original323",
+          "json_pointer": "/closure_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "controller": "unknown-durable-claim-launch-binding-budget-child-or-evidence-state-remains-pending-no-auto-delete-release-or-closed-rights-claim",
+            "machine": "only-known-original-restoration-and-known-owned-child-quiescence-with-complete-target-evidence-under-guard-can-close-scoped-target-obligations",
+            "publication": "after-target-closure-use-captured-closed-data-under-independent-publication-controls-through-last-receipt; no-target-refresh-write-or-renewal"
+          }
+        },
+        {
+          "input_key": "original324",
+          "json_pointer": "/guard_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-continuous-guarded-original-baseline-and-approved-phase-deltas-design-review-design.json",
+          "whole_current_value": {
+            "actual_guard_object": null,
+            "actual_native_protocol": null,
+            "actual_writer_inventory": null,
+            "admission": "reviewed-common-compatible-protocol-or-proven-controlled-entrypoint-prevention; unknown-or-nonparticipating-writer-blocks-admission",
+            "continuity": "before-and-through-every-owned-target-config-package-nested-refresh-helper-consumption-recovery-and-target-evidence-effect",
+            "coverage": "all-seven-requirement-domains-and-every-overlapping-direct-manual-scheduled-helper-privileged-writer-through-entire-mutation-window",
+            "failure": "loss-contention-object-replacement-unverifiable-owner-or-writer-state-latches-stop-and-pending; no-force-unlock-unlink-recreate-reacquire-or-rebind",
+            "handle": "stable-supervisor-owned-distinct-from-reference-FD9-not-child-inherited-unlockable; actual-object-API-range-mount-open-description-lifetime-proof-required",
+            "owner_loss": "parent-exit-not-child-quiescence; exclusion-must-survive-or-independently-prevent-all-surviving-writes-otherwise-unknown-pending",
+            "release": "known-owned-child-quiescence-exact-original-restoration-full-invariants-and-target-evidence-before-release; no-target-writes-afterward"
+          }
+        },
+        {
+          "input_key": "original326",
+          "json_pointer": "/model_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-complete-finite-failure-model-and-independent-conformance-plan-review-design.json",
+          "whole_current_value": {
+            "boundary": "Finite macro-event contract and declared fault-family coverage only; no real resources, Bash source/top-level execution, operational simulation or universal concurrency claim.",
+            "budgets": "Integer0..8 recovery fixture budget pre-spent once per attempted action including failures/unknown; denied actions spend no action; no refund/retry/new grant; real durable deadline/budget proof required.",
+            "ordering": "320 service own barrier/auth/irreversible claim/spent launch;321 bounded memory/close before effects;stage1 traps;324 guard/freshoriginal before ownedstage2;verifiedstage3 backups before target mutations;322 binding/325 completegraph and exact selectors.",
+            "outcomes": "ok requires exact rawstatus; known-failure means independently verified no additional effect; unknown keeps affected domain unknown, never no-effect/absence/closed.",
+            "publication": "Verified drained original and closed target evidence before release; separately checked captured-data record and receipt durability plus handoff; unknown outcome never replay/republish or target refresh.",
+            "quarantine": "Unknown claim/slot/spawn/auth/guard/identity/clock/revocation/child/partial target/native writer outcome cannot authorize replay/relaunch/restore/reacquire or false release; preserve scope-specific pending status.",
+            "recovery": "Any finalization permanently latches forward; finite original retained rights/known guard/child ownership; drain before restore; no-target-change branch verifies fresh original without requiring a never-created backup; unknown owned binding may retain artifacts while separately proven target restoration continues."
+          }
+        },
+        {
+          "input_key": "original326",
+          "json_pointer": "/independent_conformance_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-complete-finite-failure-model-and-independent-conformance-plan-review-design.json",
+          "whole_current_value": {
+            "oracle": "Raw independently captured vectors/effects/control lifetimes and positive/negative fault controls; claimed output/signature/row/harness PASS and same implementation logic never sufficient.",
+            "outcome": "Any missing/unclassified/unknown actual effect, oracle, durability, child, authority or cross obligation blocks actual conformance/readiness and keeps scoped pending record.",
+            "platforms": "52 separate required-not-run entries; no15.0-to-current or current-to15.0 inference; exact versions and native protocols unbound.",
+            "separation": "New implementation selection, explicit fresh test authority, bound versions/platform/boot/source/attempt and independent verifier/oracle before any future test;326 does not supply implementation or authority."
+          }
+        },
+        {
+          "input_key": "accepted382dossier",
+          "json_pointer": "/original377_supervisor_conflict",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-supervisor-clock-drain-decision-review-dossier.json",
+          "whole_current_value": {
+            "actual_resolution": null,
+            "current_authority": false,
+            "id": "supervisor-loss-and-surviving-descendants",
+            "native_blocker_resolved": false,
+            "normative_relaxation_allowed": false,
+            "unresolved_requirement": "Supervisor death, uncatchable loss and surviving children/in-flight effects require native lifetime containment and independently known drain before restoration, evidence or release. Parent exit or sent signals do not establish quiescence."
+          }
+        },
+        {
+          "input_key": "accepted382dossier",
+          "json_pointer": "/original377_finite_time_conflict",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-supervisor-clock-drain-decision-review-dossier.json",
+          "whole_current_value": {
+            "actual_resolution": null,
+            "current_authority": false,
+            "id": "finite-time-budget-and-recovery-rights",
+            "native_blocker_resolved": false,
+            "normative_relaxation_allowed": false,
+            "unresolved_requirement": "Same-boot trusted clock, suspend/discontinuity, scoped revocation, irreversibly stopped forward rights and pre-spent once-only finite retained recovery rights need an actual composition. Unknown spend/action/release permits no refund, retry, reacquisition, renewed deadline or foreign restore."
+          }
+        }
+      ],
+      "explicit_user_decision_required": true,
+      "guarantees_lost_or_changed": [],
+      "guarantees_retained": [
+        "Known descendant/FD/stream/storage/in-flight effect drain before restoration, target evidence and release; task exit or a stop request is insufficient.",
+        "Continuous original guard, exact original capture/backups, once-only same-attempt finite recovery and sticky unknown/failure semantics.",
+        "Original authenticated rights/deadlines/budgets never renewed or refunded; no retry/relaunch/rebind/reacquisition after uncertainty.",
+        "Full original other-conflict, writer, source graph, publication and independent two-platform oracle obligations remain due."
+      ],
+      "id": "defer-native-lifetime-time-selection",
+      "implementation_selected": false,
+      "independent_evidence_required": [
+        "Complete actual descendant admission/membership/credentials/aliases/async effect graph and loss detector/control lifetime on both platforms.",
+        "Independent stopping, task exit/raw status, inherited FD/stream/observer/storage completion and every in-flight effect outcome before dependent actions.",
+        "Original issuer-authenticated finite bounds and trustworthy exact same-boot/clock-domain mapping, suspend/discontinuity/rollback/loss handling.",
+        "Durable once-only recovery budget and all original live scopes, storage/custody/full-vector/effective fault observations; actual support remains unknown."
+      ],
+      "migration_impact": {
+        "affected_proofs_cases_relations_complete": false,
+        "all_other_original_clauses_remain_binding": true,
+        "approved_migration": null,
+        "categories_requiring_full_mapping": [
+          "contracts320-327",
+          "sections347-and-gaps348",
+          "prerequisites365-and372-377",
+          "46-qualified-proofs",
+          "52-native-cases",
+          "12-independent-raw-groups",
+          "1072-ordered-relations",
+          "historical-five-families-twenty-scenarios",
+          "test-entry-and-operational-readiness"
+        ],
+        "exact_changed_clause_candidates": [],
+        "state": "initial-draft-incomplete-until396-and397",
+        "whole_current_clause_bindings_retained": true
+      },
+      "platform_rows": [
+        {
+          "actual_composition": null,
+          "entry_authorized": false,
+          "installed_versions": null,
+          "native_evidence": null,
+          "platform": "Slackware 15.0",
+          "support": null
+        },
+        {
+          "actual_composition": null,
+          "entry_authorized": false,
+          "installed_versions": null,
+          "native_evidence": null,
+          "platform": "Slackware-current",
+          "support": null
+        }
+      ],
+      "proposed_clause_text": {},
+      "residual_native_unknowns": [
+        "Complete actual descendant admission/membership/credentials/aliases/async effect graph and loss detector/control lifetime on both platforms.",
+        "Independent stopping, task exit/raw status, inherited FD/stream/observer/storage completion and every in-flight effect outcome before dependent actions.",
+        "Original issuer-authenticated finite bounds and trustworthy exact same-boot/clock-domain mapping, suspend/discontinuity/rollback/loss handling.",
+        "Durable once-only recovery budget and all original live scopes, storage/custody/full-vector/effective fault observations; actual support remains unknown."
+      ],
+      "runtime_authority": false,
+      "trust_assumptions": [
+        "No new assumption, actor, clock policy or shortened lifetime guarantee; retain all current obligations."
+      ]
+    }
+  ],
+  "primary_conflict_ids": [
+    "supervisor-loss-and-surviving-descendants",
+    "finite-time-budget-and-recovery-rights"
+  ],
+  "recommendation": "Evaluate independent guardian lifetime as an unselected retention hypothesis and explicit local-clock trust as a separate amendment. Do not infer one from the other or from prior390/391 options; selection waits for396/397.",
+  "schema": 1,
+  "scope": "repository-contract-decision-proposals389-398-only",
+  "selected_option": null,
+  "source_documentation_is_native_proof": false,
+  "state": "prepared-decision-brief-user-acceptance-pending",
+  "step": 392,
+  "universal_impossibility_proven": false,
+  "whole_original323_reference": {
+    "canonical_sha256": "4a4bbba87292e35616b7467977027540bc64b920e492a901c844a32a9d51f66d",
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+    "sha256": "40a574a020fcd8a5a6e79d0faebea6e00e62283751a94bcd877a9b47182d8b98"
+  },
+  "whole_original324_reference": {
+    "canonical_sha256": "ac4cf32bf99ca9e462797ff19136e095eb88c41fbb79ee9e4a5647ac0c46e522",
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-continuous-guarded-original-baseline-and-approved-phase-deltas-design-review-design.json",
+    "sha256": "c26c93bf5f5dd596c8272cd1328a2f08f970053e6582fdccfbe278b904f20474"
+  },
+  "whole_original326_reference": {
+    "canonical_sha256": "cda4034540d37ce33dc577fe92623e6fea97936aff3514229c47b2ef59deee5f",
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-complete-finite-failure-model-and-independent-conformance-plan-review-design.json",
+    "sha256": "32c58f6290c7d3f47a033081b1c9458fbaaf35505e1f659a6e4714491413b5fe"
+  },
+  "whole_original_loss_review": {
+    "adversarial_schedules": [
+      {
+        "actual_observation": null,
+        "candidate_id": "trap-and-owner-exit-only",
+        "conditional_reason": "Conditional uncatchable owner loss; no trap completion or child quiescence inferred.",
+        "exhaustive_schedule_coverage": false,
+        "id": "uncatchable-owner-loss",
+        "native_execution": false,
+        "ordered_events": [
+          "owner-arms-traps",
+          "child-effect-admitted",
+          "owner-SIGKILL",
+          "child-or-effect-outcome-unknown"
+        ]
+      },
+      {
+        "actual_observation": null,
+        "candidate_id": "one-pidfd-or-child-exit-only",
+        "conditional_reason": "One bound process/thread status is not a recursive ownership/effect inventory.",
+        "exhaustive_schedule_coverage": false,
+        "id": "one-origin-exit-grandchild-survives",
+        "native_execution": false,
+        "ordered_events": [
+          "child-spawns-nested-writer",
+          "bound-child-exit-observed",
+          "nested-writer-effect"
+        ]
+      },
+      {
+        "actual_observation": null,
+        "candidate_id": "parent-death-signal-only",
+        "conditional_reason": "Uses the documented already-dead parent/subreaper condition, not a claim that all registrations miss death.",
+        "exhaustive_schedule_coverage": false,
+        "id": "late-parent-death-registration",
+        "native_execution": false,
+        "ordered_events": [
+          "creating-thread-and-all-ancestor-subreapers-already-exit",
+          "child-registers-PDEATHSIG",
+          "child-without-separate-loss-check-proceeds"
+        ]
+      },
+      {
+        "actual_observation": null,
+        "candidate_id": "parent-death-signal-only",
+        "conditional_reason": "Conditional absence of an independently established setup/containment protocol for each new descendant.",
+        "exhaustive_schedule_coverage": false,
+        "id": "fork-cleared-parent-death-setting",
+        "native_execution": false,
+        "ordered_events": [
+          "child-has-PDEATHSIG",
+          "child-forks-grandchild",
+          "grandchild-setting-cleared",
+          "owner-loss",
+          "unprotected-grandchild-effect"
+        ]
+      },
+      {
+        "actual_observation": null,
+        "candidate_id": "cgroup-request-or-task-state-only",
+        "conditional_reason": "Asynchronous request completion; no native execution or instantaneous safe stopping claim.",
+        "exhaustive_schedule_coverage": false,
+        "id": "freeze-request-before-completion",
+        "native_execution": false,
+        "ordered_events": [
+          "effect-admitted",
+          "freeze-request",
+          "freeze-not-yet-complete",
+          "effect-progress"
+        ]
+      },
+      {
+        "actual_observation": null,
+        "candidate_id": "cgroup-request-or-task-state-only",
+        "conditional_reason": "Conditional outstanding effect/stream outcome; populated tracks tasks and is not the independently captured full effect vector.",
+        "exhaustive_schedule_coverage": false,
+        "id": "task-empty-effects-unknown",
+        "native_execution": false,
+        "ordered_events": [
+          "storage-or-external-effect-admitted",
+          "affected-task-exits",
+          "populated-zero-observed",
+          "effect-or-stream-completion-unknown"
+        ]
+      },
+      {
+        "actual_observation": null,
+        "candidate_id": "complete-protected-descendant-drain-hypothesis",
+        "conditional_reason": "Violates the hypothesis pre-effect membership obligation. A label cannot prove actual race-free membership admission or complete outside-writer prevention.",
+        "exhaustive_schedule_coverage": false,
+        "id": "owner-loss-membership-gap",
+        "native_execution": false,
+        "ordered_events": [
+          "child-effect-before-protected-membership",
+          "owner-loss",
+          "uncontained-effect-unknown"
+        ]
+      },
+      {
+        "actual_observation": null,
+        "candidate_id": "complete-protected-descendant-drain-hypothesis",
+        "conditional_reason": "Stopping new admission does not undo earlier effects. No instantaneous cancellation or atomic rollback of all earlier work is required or asserted.",
+        "exhaustive_schedule_coverage": false,
+        "id": "admission-stopped-inflight-unknown",
+        "native_execution": false,
+        "ordered_events": [
+          "original-valid-effect-admission",
+          "forward-stop-latched",
+          "previously-admitted-safe-boundary-or-drain-unknown"
+        ]
+      },
+      {
+        "actual_observation": null,
+        "candidate_id": "complete-protected-descendant-drain-hypothesis",
+        "conditional_reason": "Original known child/effect prerequisites remain required; elapsed timeout or sent signal does not replace them.",
+        "exhaustive_schedule_coverage": false,
+        "id": "restore-before-known-drain",
+        "native_execution": false,
+        "ordered_events": [
+          "forward-stop",
+          "child-or-inflight-state-unknown",
+          "restore-or-target-evidence-or-release-proposed"
+        ]
+      },
+      {
+        "actual_observation": null,
+        "candidate_id": "local-MONOTONIC-deadline-only",
+        "conditional_reason": "Conditional issuer bound includes suspended time; raw local MONOTONIC alone does not satisfy the original independently trusted mapping.",
+        "exhaustive_schedule_coverage": false,
+        "id": "suspend-omitted-local-deadline",
+        "native_execution": false,
+        "ordered_events": [
+          "local-deadline-set",
+          "system-suspend",
+          "issuer-original-absolute-bound-elapses",
+          "resume-with-local-MONOTONIC-remaining-time"
+        ]
+      },
+      {
+        "actual_observation": null,
+        "candidate_id": "complete-original-clock-scope-hypothesis",
+        "conditional_reason": "Clock readability is not trusted original mapping continuity. Do not infer API detection of every VM rollback; unknown blocks effects.",
+        "exhaustive_schedule_coverage": false,
+        "id": "boot-or-VM-time-mapping-loss",
+        "native_execution": false,
+        "ordered_events": [
+          "original-authenticated-bounds",
+          "boot-epoch-or-VM-mapping-discontinuity",
+          "local-clock-value-readable",
+          "scope-validity-unknown"
+        ]
+      },
+      {
+        "actual_observation": null,
+        "candidate_id": "BOOTTIME-or-timerfd-only",
+        "conditional_reason": "Conditional absent independent effect gate; expiration notification delivery does not itself serialize original validity versus the effect.",
+        "exhaustive_schedule_coverage": false,
+        "id": "timer-delivery-late",
+        "native_execution": false,
+        "ordered_events": [
+          "original-bound-elapses",
+          "notification-reader-delayed",
+          "effect-proposed-before-notification-handled"
+        ]
+      },
+      {
+        "actual_observation": null,
+        "candidate_id": "complete-original-clock-scope-hypothesis",
+        "conditional_reason": "Forward-only expiry/revocation does not itself revoke explicitly retained recovery, but every independent original recovery prerequisite still must be known; no blanket exemption.",
+        "exhaustive_schedule_coverage": false,
+        "id": "split-recovery-not-blanket-exempt",
+        "native_execution": false,
+        "ordered_events": [
+          "forward-only-expiry-or-revocation",
+          "forward-stop-absorbing",
+          "retained-recovery-validity-clock-guard-budget-unknown",
+          "recovery-write-proposed"
+        ]
+      },
+      {
+        "actual_observation": null,
+        "candidate_id": "complete-protected-descendant-drain-hypothesis",
+        "conditional_reason": "Unknown outcome preserves consumed finite rights and pending obligations; no automatic replay/refund/new launch/guard reacquisition or fresh deadline.",
+        "exhaustive_schedule_coverage": false,
+        "id": "restart-after-unknown-drain-action",
+        "native_execution": false,
+        "ordered_events": [
+          "original-recovery-action-pre-spent",
+          "drain-action-outcome-lost",
+          "controller-restart",
+          "same-action-retry-or-rights-renewal-proposed"
+        ]
+      }
+    ],
+    "boundaries": {
+      "C_port_open": false,
+      "actual_global_host_closure": false,
+      "actual_host_state": "unobserved-not-claimed-absent",
+      "actual_live_bindings": null,
+      "actual_native_refinement_complete": false,
+      "actual_successor_selected": false,
+      "controller_action_required": false,
+      "current_step_strong_safe_pause": false,
+      "execution_authorized": false,
+      "historical_binding_or_authority_reuse_allowed": false,
+      "kernel_package_edge_complete": false,
+      "last_confirmed_strong_safe_pause_step": 378,
+      "later_current_refresh_invalidates_repository_only_pause": false,
+      "machine_action_required": false,
+      "native_cases_run": 0,
+      "native_components_selected": false,
+      "native_graph_complete": false,
+      "native_proofs_added": 0,
+      "operational_conformance": false,
+      "operational_readiness": false,
+      "phase1_matrix_complete": false,
+      "phase2_open": false,
+      "production_entry_closed": true,
+      "reference_v1_frozen": false,
+      "runtime_authority": false,
+      "strong_safe_pause": false,
+      "target_machine_actions_authorized": false,
+      "version1_schema_frozen": false
+    },
+    "candidates": [
+      {
+        "actual_component": null,
+        "actual_native_evidence": null,
+        "alternative_review_without_relaxation": "Review independently enforced loss containment and protected lifetimes, known complete ownership and drain before any restoration/evidence/release.",
+        "candidate_specific_unsatisfied_obligation": "Uncatchable owner loss can prevent the trap; an owner exit does not establish descendant/effect quiescence.",
+        "composition_as_stated": "Supervisor traps and its final exit status are the only mechanism covering owner loss and outstanding children/effects.",
+        "disposition": "incompatible-as-stated",
+        "grants_authority": false,
+        "id": "trap-and-owner-exit-only",
+        "native_blocker_resolved": false,
+        "primary_source_ids": [
+          "signals"
+        ],
+        "universal_impossibility_proven": false
+      },
+      {
+        "actual_component": null,
+        "actual_native_evidence": null,
+        "alternative_review_without_relaxation": "Retain precise mode/origin/status semantics while independently covering the whole actual ownership, stream, FD and effect graph.",
+        "candidate_specific_unsatisfied_obligation": "The observation concerns its bound process/thread, not every nested descendant, inherited writer/FD, outstanding storage effect or external writer.",
+        "composition_as_stated": "One origin-bound pidfd or child status is treated as proof that every descendant and in-flight effect has drained.",
+        "disposition": "incompatible-as-stated",
+        "grants_authority": false,
+        "id": "one-pidfd-or-child-exit-only",
+        "native_blocker_resolved": false,
+        "primary_source_ids": [
+          "pidfd"
+        ],
+        "universal_impossibility_proven": false
+      },
+      {
+        "actual_component": null,
+        "actual_native_evidence": null,
+        "alternative_review_without_relaxation": "Review every setup race, thread origin, subreaper/exec/credential transition and independent membership/drain; do not substitute this signal for the whole protocol.",
+        "candidate_specific_unsatisfied_obligation": "Registration after parent loss, fork-cleared state and changed credentials can invalidate the assumed coverage. A delivered fatal signal still is not a full completion receipt.",
+        "composition_as_stated": "PR_SET_PDEATHSIG is the only owner-loss containment protocol; complete descendant setup/registration/credential transitions and independent drain are unreviewed.",
+        "disposition": "incompatible-as-stated",
+        "grants_authority": false,
+        "id": "parent-death-signal-only",
+        "native_blocker_resolved": false,
+        "primary_source_ids": [
+          "parent-death"
+        ],
+        "universal_impossibility_proven": false
+      },
+      {
+        "actual_component": null,
+        "actual_native_evidence": null,
+        "alternative_review_without_relaxation": "Retain documented tree-kill fork/migration protection; review actual protected membership from before effects, supervisor-loss enforcement, safe in-flight boundaries and independently known complete drain.",
+        "candidate_specific_unsatisfied_obligation": "A request differs from observed process completion; even complete task-state evidence alone does not establish all FD/stream/storage/effect outcomes and safe restoration identity.",
+        "composition_as_stated": "A freeze/kill request or populated/frozen state is used as full known drain and authority to restore/release, without a protected complete membership and effect protocol.",
+        "disposition": "incompatible-as-stated",
+        "grants_authority": false,
+        "id": "cgroup-request-or-task-state-only",
+        "native_blocker_resolved": false,
+        "primary_source_ids": [
+          "cgroup-v2"
+        ],
+        "universal_impossibility_proven": false
+      },
+      {
+        "actual_component": null,
+        "actual_native_evidence": null,
+        "alternative_review_without_relaxation": "Review an independently trusted original clock mapping and explicit suspend/discontinuity/loss policy with immutable absolute original bounds.",
+        "candidate_specific_unsatisfied_obligation": "Suspended time is excluded and no original authenticated issuer/boot/time mapping or external revocation serialization is established.",
+        "composition_as_stated": "A local CLOCK_MONOTONIC deadline is the only proof of original trusted finite validity, including suspend and issuer/boot mapping.",
+        "disposition": "incompatible-as-stated",
+        "grants_authority": false,
+        "id": "local-MONOTONIC-deadline-only",
+        "native_blocker_resolved": false,
+        "primary_source_ids": [
+          "timerfd"
+        ],
+        "universal_impossibility_proven": false
+      },
+      {
+        "actual_component": null,
+        "actual_native_evidence": null,
+        "alternative_review_without_relaxation": "Use APIs only as unselected constituents of a full independently trusted time/fence/lifetime composition; unknown time blocks scoped effects and never renews deadlines.",
+        "candidate_specific_unsatisfied_obligation": "Suspend-aware elapsed time or a specified cancellation event does not prove issuer provenance, original boot/epoch/VM mapping, durable finite rights or serialization with actual effects.",
+        "composition_as_stated": "A BOOTTIME reading or timerfd expiration/real-time cancellation is treated as complete original trusted clock, fence and recovery authority.",
+        "disposition": "incompatible-as-stated",
+        "grants_authority": false,
+        "id": "BOOTTIME-or-timerfd-only",
+        "native_blocker_resolved": false,
+        "primary_source_ids": [
+          "timerfd"
+        ],
+        "universal_impossibility_proven": false
+      },
+      {
+        "actual_component": null,
+        "actual_native_evidence": null,
+        "alternative_review_without_relaxation": "Identify a complete original-compatible composition and prove its failure behavior independently without worker broker/control capability, renewed rights or false drain.",
+        "candidate_specific_unsatisfied_obligation": "No actual graph, loss detector/enforcer lifetime, native membership/prevention, stopping boundary or independent platform evidence is selected.",
+        "composition_as_stated": "Hypothetical independent owner-loss containment protects complete membership before any effect and preserves original exclusion until safe in-flight boundaries and known descendant/FD/stream/effect drain.",
+        "disposition": "unresolved",
+        "grants_authority": false,
+        "id": "complete-protected-descendant-drain-hypothesis",
+        "native_blocker_resolved": false,
+        "primary_source_ids": [],
+        "universal_impossibility_proven": false
+      },
+      {
+        "actual_component": null,
+        "actual_native_evidence": null,
+        "alternative_review_without_relaxation": "Review trusted original mapping and scope-specific unknown/loss handling with all original obligations; no local self-authority, forward revival, blanket recovery exemption or per-action new grant.",
+        "candidate_specific_unsatisfied_obligation": "No actual provider, native trust/rollback/discontinuity policy, effect serialization, original durable budget or independent two-platform evidence is selected.",
+        "composition_as_stated": "Hypothetical trusted external mapping preserves original authenticated finite deadlines, same boot/epoch and split live scopes through loss, suspend and drain.",
+        "disposition": "unresolved",
+        "grants_authority": false,
+        "id": "complete-original-clock-scope-hypothesis",
+        "native_blocker_resolved": false,
+        "primary_source_ids": [],
+        "universal_impossibility_proven": false
+      }
+    ],
+    "conditional_pause_step": 388,
+    "contract_relaxation_permitted": false,
+    "enforcement_boundary_questions": {
+      "inflight_safe_stopping_boundary": null,
+      "known_target_evidence_before_release": null,
+      "original_retained_recovery_scope_and_budget_boundary": null,
+      "original_trusted_clock_mapping_and_loss_boundary": null,
+      "owner_loss_admission_stop_linearization": null,
+      "pre_effect_membership_boundary": null,
+      "surviving_guard_or_prevention_lifetime": null,
+      "whole_child_FD_stream_storage_effect_drain_receipt": null
+    },
+    "independent_resolution_criteria": [
+      "Exact origin-bound whole descendant and writer/FD/stream/effect inventory, protected membership before any effect and no migration/control-capability leaks; outside writers still covered under381.",
+      "Independent owner-loss detector/enforcer with original-compatible failure/trust lifetimes; uncatchable loss and restart cannot release exclusion, revive admission or erase started obligations.",
+      "Actual serialization of original live validity and effect admission, independent safe stopping boundaries and complete known drain for already admitted work; no impossible atomic undo requirement.",
+      "Known owned child status/FD/streams/storage/effect outcomes, guard/original identity/backups/invariants/target evidence before safe restoration/release; unknown remains scoped pending.",
+      "Authenticated original finite split scopes and independent same-boot/epoch trusted mapping with suspend/discontinuity/VM rollback/time loss policy; API values and timer delivery are not issuer authority.",
+      "Absorbing forward stop, finite explicitly retained original recovery deadline/pre-spent once-only budget/live scope, no refund/retry/new grant/relaunch/reacquire/rebind/renewed deadline.",
+      "Precise actual native API modes and both platforms version/source/config/support, independent original full proof-case/raw/positive-negative observations without borrowing or self-report.",
+      "Whole original320-327/347/348/365/372/377/stage12 apply; safe containment review then a fresh explicit bounded native-test grant before any future experiment; passing that test is not its own authorization prerequisite."
+    ],
+    "lifetime_review": {
+      "actual_child_FD_stream_effect_completion_protocol": null,
+      "actual_original_compatible_trust_verdict": null,
+      "actual_owner_loss_detection_and_enforcement": null,
+      "actual_pre_effect_membership_protocol": null,
+      "actual_same_boot_clock_and_discontinuity_mapping": null,
+      "actual_surviving_exclusion_or_independent_prevention": null,
+      "automatic_replay_or_rights_renewal_permitted": false,
+      "continuity_obligation": "Full real source/backend/helper/child/writer/FD/stream/storage/effect graph and trusted original clock/split finite rights remain normative through known closure; no private schedule or API label reduces coverage.",
+      "parent_exit_is_full_drain": false,
+      "task_state_is_full_effect_receipt": false,
+      "unknown_is_valid": false
+    },
+    "native_cases_run": 0,
+    "native_proofs_added": 0,
+    "next_preparable_step_after_complete382_acceptance": 383,
+    "no_automatic389": true,
+    "original323_clock_contract": {
+      "actual_clock": null,
+      "actual_forward_deadline": null,
+      "actual_recovery_budget": null,
+      "actual_recovery_deadline": null,
+      "fixture": "integer-ticks-forward100-recovery140-budget5-only-synthetic-no-real-seconds-or-host-observation",
+      "rule": "issuer-authenticated-finite-bounds-and-independent-trusted-time-mapping-with-same-boot; no-wallclock-rollback-suspend-epoch-restart-or-unknown-as-valid"
+    },
+    "original323_closure_contract": {
+      "controller": "unknown-durable-claim-launch-binding-budget-child-or-evidence-state-remains-pending-no-auto-delete-release-or-closed-rights-claim",
+      "machine": "only-known-original-restoration-and-known-owned-child-quiescence-with-complete-target-evidence-under-guard-can-close-scoped-target-obligations",
+      "publication": "after-target-closure-use-captured-closed-data-under-independent-publication-controls-through-last-receipt; no-target-refresh-write-or-renewal"
+    },
+    "original323_fence_contract": {
+      "actual_enforcer": null,
+      "actual_transport": null,
+      "compatibility": "321-offline-bootstrap-schema-and-FD-closure-unchanged; no-added-worker-RPC-or-inherited-control-channel; future-successor-fence-policy-and-transport-integration-explicitly-required324/325",
+      "rule": "trusted-external-controller-enforces-original-policy-and-absorbing-revocation-at-every-effect-boundary; worker-and-contained-commands-have-no-service-or-broker-capability",
+      "scope": "live-check-is-original-attempt-validity-not-new-grant-per-action; no-claim-of-instant-revocation-from-offline-receipt-or-finite-lease-alone",
+      "uncertainty": "gate-outcome-loss-or-stale-or-unavailable-status-stops-effects; consumed-grant-launch-slot-and-recovery-budget-never-reopen"
+    },
+    "original323_forward_contract": {
+      "in_flight": "started-effects-and-children-remain-obligations; inability-to-prove-stop-at-safe-effect-boundary-keeps-unknown-pending",
+      "owner": "original-consumed-active-attempt-no-new-or-unused-grant-per-nested-call",
+      "terminal": "normal-forward-completion-also-closes-forward-before-restoration-evidence-and-target-control-release",
+      "termination": "expiry-forward-revocation-or-any-failure-latches-forward-stop-irreversibly; no-new-effect-dispatch-or-revival",
+      "validity": "independent-authenticated-scope-trusted-time-and-continuously-enforced-live-fence-before-and-through-every-permitted-effect"
+    },
+    "original323_recovery_contract": {
+      "boundedness": "finite-issuer-bound-deadline-and-durable-action-budget; spend-before-action; no-renewal-refill-retry-after-unknown-or-new-grant",
+      "expiry_relation": "forward-expiry-or-forward-only-revocation-does-not-itself-revoke-explicitly-retained-recovery; never-blanket-expiry-exemption",
+      "idempotence": "known-already-restored-state-may-return-reviewed-no-op-with-fresh-verification; never-repeat-unknown-package-or-file-action",
+      "order": "stop-forward-then-known-child-quiescence-then-safe-restore-verify-target-evidence-before-release",
+      "owner": "narrow-retained-rights-of-same-original-consumed-attempt-not-another-grant-or-invocation",
+      "preconditions": "traps-guards-owned-canonical-paths-all-writers-excluded-exact-backups-same-safe-identity-original-baseline-and-approved-deltas",
+      "revocation": "recovery/all-revocation-unknown-scope-clock-discontinuity-boot-or-identity-drift-block-recovery-writes-and-preserve-obligations",
+      "status": "keep-original-forward-failure-status-separate-from-recovery-and-publication-status; restoration-cannot-turn-failure-into-success",
+      "validity": "explicit-authenticated-issuer-original-recovery-scope-with-own-finite-deadline-budget-and-live-recovery-fence",
+      "whitelist": [
+        "bounded-owned-child-control-and-drain",
+        "exact-original-backup-restoration",
+        "verify-original-invariants",
+        "capture-owned-target-evidence",
+        "verified-target-control-release"
+      ]
+    },
+    "original324_guard_contract": {
+      "actual_guard_object": null,
+      "actual_native_protocol": null,
+      "actual_writer_inventory": null,
+      "admission": "reviewed-common-compatible-protocol-or-proven-controlled-entrypoint-prevention; unknown-or-nonparticipating-writer-blocks-admission",
+      "continuity": "before-and-through-every-owned-target-config-package-nested-refresh-helper-consumption-recovery-and-target-evidence-effect",
+      "coverage": "all-seven-requirement-domains-and-every-overlapping-direct-manual-scheduled-helper-privileged-writer-through-entire-mutation-window",
+      "failure": "loss-contention-object-replacement-unverifiable-owner-or-writer-state-latches-stop-and-pending; no-force-unlock-unlink-recreate-reacquire-or-rebind",
+      "handle": "stable-supervisor-owned-distinct-from-reference-FD9-not-child-inherited-unlockable; actual-object-API-range-mount-open-description-lifetime-proof-required",
+      "owner_loss": "parent-exit-not-child-quiescence; exclusion-must-survive-or-independently-prevent-all-surviving-writes-otherwise-unknown-pending",
+      "release": "known-owned-child-quiescence-exact-original-restoration-full-invariants-and-target-evidence-before-release; no-target-writes-afterward"
+    },
+    "original326_independent_conformance_contract": {
+      "oracle": "Raw independently captured vectors/effects/control lifetimes and positive/negative fault controls; claimed output/signature/row/harness PASS and same implementation logic never sufficient.",
+      "outcome": "Any missing/unclassified/unknown actual effect, oracle, durability, child, authority or cross obligation blocks actual conformance/readiness and keeps scoped pending record.",
+      "platforms": "52 separate required-not-run entries; no15.0-to-current or current-to15.0 inference; exact versions and native protocols unbound.",
+      "separation": "New implementation selection, explicit fresh test authority, bound versions/platform/boot/source/attempt and independent verifier/oracle before any future test;326 does not supply implementation or authority."
+    },
+    "original326_model_contract": {
+      "boundary": "Finite macro-event contract and declared fault-family coverage only; no real resources, Bash source/top-level execution, operational simulation or universal concurrency claim.",
+      "budgets": "Integer0..8 recovery fixture budget pre-spent once per attempted action including failures/unknown; denied actions spend no action; no refund/retry/new grant; real durable deadline/budget proof required.",
+      "ordering": "320 service own barrier/auth/irreversible claim/spent launch;321 bounded memory/close before effects;stage1 traps;324 guard/freshoriginal before ownedstage2;verifiedstage3 backups before target mutations;322 binding/325 completegraph and exact selectors.",
+      "outcomes": "ok requires exact rawstatus; known-failure means independently verified no additional effect; unknown keeps affected domain unknown, never no-effect/absence/closed.",
+      "publication": "Verified drained original and closed target evidence before release; separately checked captured-data record and receipt durability plus handoff; unknown outcome never replay/republish or target refresh.",
+      "quarantine": "Unknown claim/slot/spawn/auth/guard/identity/clock/revocation/child/partial target/native writer outcome cannot authorize replay/relaunch/restore/reacquire or false release; preserve scope-specific pending status.",
+      "recovery": "Any finalization permanently latches forward; finite original retained rights/known guard/child ownership; drain before restore; no-target-change branch verifies fresh original without requiring a never-created backup; unknown owned binding may retain artifacts while separately proven target restoration continues."
+    },
+    "original372_supervision_and_time_blockers": [
+      {
+        "current_authority": false,
+        "family_id": "whole-descendant-supervision",
+        "full_original372_candidate_family": {
+          "actual_component_selected": false,
+          "alternative_review_without_contract_relaxation": "Review another complete descendant ownership/drain mechanism when required interfaces are absent; no process-name scan,parent-exit or signal-only substitute.",
+          "candidate_composition": "Supervisor-owned non-worker-mutable cgroup lifecycle plus origin-bound process descriptors/status streams and protected membership.",
+          "decision": "blocked-until-origin-membership-and-known-inflight-drain-proof",
+          "id": "whole-descendant-supervision",
+          "limitation_and_design_inference": "A pidfd tracks one process. Empty/populated/frozen/kill or one exit status alone is not full effect,FD,storage or stream closure; migration,spawn races,supervisor loss and uninterruptible activity need explicit handling.",
+          "native_property_proven": false,
+          "primary_source_ids": [
+            "cgroup",
+            "pidfd"
+          ],
+          "qualified_obligation_ids": [
+            "323/inflight-effect-and-child-drain",
+            "324/owner-child-failure-and-safe-recovery"
+          ],
+          "required_future_native_evidence": "Prove admission into containment before any effect,all nested log/backend/rollback descendants,no migration/control leak,known exit/status/FD drain and in-flight completion on loss within original finite rights."
+        },
+        "native_gap_closed": false
+      },
+      {
+        "current_authority": false,
+        "family_id": "trusted-finite-time",
+        "full_original372_candidate_family": {
+          "actual_component_selected": false,
+          "alternative_review_without_contract_relaxation": "Review an independent trusted time/fence provider with original absolute bounds; if unavailable, no new action is eligible, even if wallclock or a finite lease appears valid.",
+          "candidate_composition": "External trusted clock mapping and absolute original phase deadlines using a separately evaluated suspend-aware clock/timer composition.",
+          "decision": "blocked-until-trusted-clock-mapping-and-loss-policy-proof",
+          "id": "trusted-finite-time",
+          "limitation_and_design_inference": "A local timer or BOOTTIME value supplies no issuer provenance,original boot mapping,VM rollback/clock-namespace trust,revocation serialization or durable recovery budget.",
+          "native_property_proven": false,
+          "primary_source_ids": [
+            "timerfd"
+          ],
+          "qualified_obligation_ids": [
+            "323/issuer-split-scope-and-clock",
+            "323/durable-recovery-budget-and-idempotence"
+          ],
+          "required_future_native_evidence": "Map original finite signed bounds to independently trusted same-boot time; test suspend/resume,rollback,clock discontinuity,restart,delayed scheduling and lost timer delivery. Unknown time stops effects; deadlines never renewed."
+        },
+        "native_gap_closed": false
+      }
+    ],
+    "original377_finite_time_conflict": {
+      "actual_resolution": null,
+      "current_authority": false,
+      "id": "finite-time-budget-and-recovery-rights",
+      "native_blocker_resolved": false,
+      "normative_relaxation_allowed": false,
+      "unresolved_requirement": "Same-boot trusted clock, suspend/discontinuity, scoped revocation, irreversibly stopped forward rights and pre-spent once-only finite retained recovery rights need an actual composition. Unknown spend/action/release permits no refund, retry, reacquisition, renewed deadline or foreign restore."
+    },
+    "original377_supervisor_conflict": {
+      "actual_resolution": null,
+      "current_authority": false,
+      "id": "supervisor-loss-and-surviving-descendants",
+      "native_blocker_resolved": false,
+      "normative_relaxation_allowed": false,
+      "unresolved_requirement": "Supervisor death, uncatchable loss and surviving children/in-flight effects require native lifetime containment and independently known drain before restoration, evidence or release. Parent exit or sent signals do not establish quiescence."
+    },
+    "plan379_canonical_sha256": "226bf153118c650a3965344dea7f8b7a55a332a41ee378bf4e3c47b4c4bababf",
+    "plan379_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-feasibility-resolution-resume-planning-review-plan.json",
+    "platform_unknowns": [
+      {
+        "actual_finite_original_recovery_rights_and_budget": null,
+        "actual_independent_evidence": null,
+        "actual_inflight_safe_stop_and_known_drain": null,
+        "actual_kernel_version": null,
+        "actual_original_trusted_time_boot_epoch_mapping": null,
+        "actual_owner_loss_enforcer_lifetime": null,
+        "actual_protected_descendant_membership": null,
+        "actual_source_config_and_policy": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "trap-and-owner-exit-only",
+        "native_entry_allowed": false,
+        "platform": "Slackware-15.0",
+        "support_claimed": false
+      },
+      {
+        "actual_finite_original_recovery_rights_and_budget": null,
+        "actual_independent_evidence": null,
+        "actual_inflight_safe_stop_and_known_drain": null,
+        "actual_kernel_version": null,
+        "actual_original_trusted_time_boot_epoch_mapping": null,
+        "actual_owner_loss_enforcer_lifetime": null,
+        "actual_protected_descendant_membership": null,
+        "actual_source_config_and_policy": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "trap-and-owner-exit-only",
+        "native_entry_allowed": false,
+        "platform": "Slackware-current",
+        "support_claimed": false
+      },
+      {
+        "actual_finite_original_recovery_rights_and_budget": null,
+        "actual_independent_evidence": null,
+        "actual_inflight_safe_stop_and_known_drain": null,
+        "actual_kernel_version": null,
+        "actual_original_trusted_time_boot_epoch_mapping": null,
+        "actual_owner_loss_enforcer_lifetime": null,
+        "actual_protected_descendant_membership": null,
+        "actual_source_config_and_policy": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "one-pidfd-or-child-exit-only",
+        "native_entry_allowed": false,
+        "platform": "Slackware-15.0",
+        "support_claimed": false
+      },
+      {
+        "actual_finite_original_recovery_rights_and_budget": null,
+        "actual_independent_evidence": null,
+        "actual_inflight_safe_stop_and_known_drain": null,
+        "actual_kernel_version": null,
+        "actual_original_trusted_time_boot_epoch_mapping": null,
+        "actual_owner_loss_enforcer_lifetime": null,
+        "actual_protected_descendant_membership": null,
+        "actual_source_config_and_policy": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "one-pidfd-or-child-exit-only",
+        "native_entry_allowed": false,
+        "platform": "Slackware-current",
+        "support_claimed": false
+      },
+      {
+        "actual_finite_original_recovery_rights_and_budget": null,
+        "actual_independent_evidence": null,
+        "actual_inflight_safe_stop_and_known_drain": null,
+        "actual_kernel_version": null,
+        "actual_original_trusted_time_boot_epoch_mapping": null,
+        "actual_owner_loss_enforcer_lifetime": null,
+        "actual_protected_descendant_membership": null,
+        "actual_source_config_and_policy": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "parent-death-signal-only",
+        "native_entry_allowed": false,
+        "platform": "Slackware-15.0",
+        "support_claimed": false
+      },
+      {
+        "actual_finite_original_recovery_rights_and_budget": null,
+        "actual_independent_evidence": null,
+        "actual_inflight_safe_stop_and_known_drain": null,
+        "actual_kernel_version": null,
+        "actual_original_trusted_time_boot_epoch_mapping": null,
+        "actual_owner_loss_enforcer_lifetime": null,
+        "actual_protected_descendant_membership": null,
+        "actual_source_config_and_policy": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "parent-death-signal-only",
+        "native_entry_allowed": false,
+        "platform": "Slackware-current",
+        "support_claimed": false
+      },
+      {
+        "actual_finite_original_recovery_rights_and_budget": null,
+        "actual_independent_evidence": null,
+        "actual_inflight_safe_stop_and_known_drain": null,
+        "actual_kernel_version": null,
+        "actual_original_trusted_time_boot_epoch_mapping": null,
+        "actual_owner_loss_enforcer_lifetime": null,
+        "actual_protected_descendant_membership": null,
+        "actual_source_config_and_policy": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "cgroup-request-or-task-state-only",
+        "native_entry_allowed": false,
+        "platform": "Slackware-15.0",
+        "support_claimed": false
+      },
+      {
+        "actual_finite_original_recovery_rights_and_budget": null,
+        "actual_independent_evidence": null,
+        "actual_inflight_safe_stop_and_known_drain": null,
+        "actual_kernel_version": null,
+        "actual_original_trusted_time_boot_epoch_mapping": null,
+        "actual_owner_loss_enforcer_lifetime": null,
+        "actual_protected_descendant_membership": null,
+        "actual_source_config_and_policy": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "cgroup-request-or-task-state-only",
+        "native_entry_allowed": false,
+        "platform": "Slackware-current",
+        "support_claimed": false
+      },
+      {
+        "actual_finite_original_recovery_rights_and_budget": null,
+        "actual_independent_evidence": null,
+        "actual_inflight_safe_stop_and_known_drain": null,
+        "actual_kernel_version": null,
+        "actual_original_trusted_time_boot_epoch_mapping": null,
+        "actual_owner_loss_enforcer_lifetime": null,
+        "actual_protected_descendant_membership": null,
+        "actual_source_config_and_policy": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "local-MONOTONIC-deadline-only",
+        "native_entry_allowed": false,
+        "platform": "Slackware-15.0",
+        "support_claimed": false
+      },
+      {
+        "actual_finite_original_recovery_rights_and_budget": null,
+        "actual_independent_evidence": null,
+        "actual_inflight_safe_stop_and_known_drain": null,
+        "actual_kernel_version": null,
+        "actual_original_trusted_time_boot_epoch_mapping": null,
+        "actual_owner_loss_enforcer_lifetime": null,
+        "actual_protected_descendant_membership": null,
+        "actual_source_config_and_policy": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "local-MONOTONIC-deadline-only",
+        "native_entry_allowed": false,
+        "platform": "Slackware-current",
+        "support_claimed": false
+      },
+      {
+        "actual_finite_original_recovery_rights_and_budget": null,
+        "actual_independent_evidence": null,
+        "actual_inflight_safe_stop_and_known_drain": null,
+        "actual_kernel_version": null,
+        "actual_original_trusted_time_boot_epoch_mapping": null,
+        "actual_owner_loss_enforcer_lifetime": null,
+        "actual_protected_descendant_membership": null,
+        "actual_source_config_and_policy": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "BOOTTIME-or-timerfd-only",
+        "native_entry_allowed": false,
+        "platform": "Slackware-15.0",
+        "support_claimed": false
+      },
+      {
+        "actual_finite_original_recovery_rights_and_budget": null,
+        "actual_independent_evidence": null,
+        "actual_inflight_safe_stop_and_known_drain": null,
+        "actual_kernel_version": null,
+        "actual_original_trusted_time_boot_epoch_mapping": null,
+        "actual_owner_loss_enforcer_lifetime": null,
+        "actual_protected_descendant_membership": null,
+        "actual_source_config_and_policy": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "BOOTTIME-or-timerfd-only",
+        "native_entry_allowed": false,
+        "platform": "Slackware-current",
+        "support_claimed": false
+      },
+      {
+        "actual_finite_original_recovery_rights_and_budget": null,
+        "actual_independent_evidence": null,
+        "actual_inflight_safe_stop_and_known_drain": null,
+        "actual_kernel_version": null,
+        "actual_original_trusted_time_boot_epoch_mapping": null,
+        "actual_owner_loss_enforcer_lifetime": null,
+        "actual_protected_descendant_membership": null,
+        "actual_source_config_and_policy": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "complete-protected-descendant-drain-hypothesis",
+        "native_entry_allowed": false,
+        "platform": "Slackware-15.0",
+        "support_claimed": false
+      },
+      {
+        "actual_finite_original_recovery_rights_and_budget": null,
+        "actual_independent_evidence": null,
+        "actual_inflight_safe_stop_and_known_drain": null,
+        "actual_kernel_version": null,
+        "actual_original_trusted_time_boot_epoch_mapping": null,
+        "actual_owner_loss_enforcer_lifetime": null,
+        "actual_protected_descendant_membership": null,
+        "actual_source_config_and_policy": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "complete-protected-descendant-drain-hypothesis",
+        "native_entry_allowed": false,
+        "platform": "Slackware-current",
+        "support_claimed": false
+      },
+      {
+        "actual_finite_original_recovery_rights_and_budget": null,
+        "actual_independent_evidence": null,
+        "actual_inflight_safe_stop_and_known_drain": null,
+        "actual_kernel_version": null,
+        "actual_original_trusted_time_boot_epoch_mapping": null,
+        "actual_owner_loss_enforcer_lifetime": null,
+        "actual_protected_descendant_membership": null,
+        "actual_source_config_and_policy": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "complete-original-clock-scope-hypothesis",
+        "native_entry_allowed": false,
+        "platform": "Slackware-15.0",
+        "support_claimed": false
+      },
+      {
+        "actual_finite_original_recovery_rights_and_budget": null,
+        "actual_independent_evidence": null,
+        "actual_inflight_safe_stop_and_known_drain": null,
+        "actual_kernel_version": null,
+        "actual_original_trusted_time_boot_epoch_mapping": null,
+        "actual_owner_loss_enforcer_lifetime": null,
+        "actual_protected_descendant_membership": null,
+        "actual_source_config_and_policy": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "complete-original-clock-scope-hypothesis",
+        "native_entry_allowed": false,
+        "platform": "Slackware-current",
+        "support_claimed": false
+      }
+    ],
+    "primary_assignment_limits_normative_scope": false,
+    "primary_source_register": [
+      {
+        "id": "signals",
+        "inference_limit": "An in-process trap cannot be the sole continuity mechanism for uncatchable owner loss.",
+        "retrieval": "focused primary indexed manual excerpts retrieved; no whole-page original byte capture",
+        "title": "Linux man-pages signal(7)",
+        "url": "https://www.man7.org/linux/man-pages/man7/signal.7.html",
+        "verified_semantics": "SIGKILL and SIGSTOP cannot be caught, blocked or ignored."
+      },
+      {
+        "id": "parent-death",
+        "inference_limit": "A parent-death signal alone does not establish complete descendant membership or known effect drain.",
+        "opened_blob": "1084df2c89ef542f5e5a8d91cf530253a8eda3c8",
+        "retrieval": "current upstream source page opened; primary indexed manual excerpts retrieved; rendered manual direct open and initially wrong upstream man2 path failed; corrected man2const path succeeds; no original source-byte capture",
+        "title": "Linux man-pages upstream PR_SET_PDEATHSIG source",
+        "url": "https://kernel.googlesource.com/pub/scm/docs/man-pages/man-pages/+/master/man/man2const/PR_SET_PDEATHSIG.2const",
+        "verified_semantics": "The parent is the creating thread; already terminated parent/all ancestor subreapers need not produce a signal on later registration. The setting is cleared in fork children and certain credential/privileged-exec transitions."
+      },
+      {
+        "id": "pidfd",
+        "inference_limit": "Neither observation covers the complete descendant/effect/storage graph by itself. No pidfd mode or installed API support is selected.",
+        "retrieval": "focused primary indexed manual excerpts retrieved; direct rendered manual/upstream source opens failed; no whole-page original byte capture",
+        "title": "Linux man-pages pidfd_open(2)",
+        "url": "https://www.man7.org/linux/man-pages/man2/pidfd_open.2.html",
+        "verified_semantics": "A pidfd refers to a process or specified thread. Poll readability without PIDFD_THREAD waits for the last thread of that thread group; PIDFD_THREAD has different task-exit semantics."
+      },
+      {
+        "id": "cgroup-v2",
+        "inference_limit": "This review preserves kill semantics; a request or process-state observation alone is not independently established full effect/FD/storage drain or original release authority.",
+        "retrieval": "current primary page opened; cgroup.freeze/cgroup.kill/cgroup.events sections reviewed; no original HTML byte capture",
+        "title": "Linux kernel cgroup-v2 documentation",
+        "url": "https://docs.kernel.org/admin-guide/cgroup-v2.html",
+        "verified_semantics": "Freeze completion is asynchronous. cgroup.kill kills the affected tree via SIGKILL and handles concurrent forks and migrations for that operation. populated indicates live processes in the subtree."
+      },
+      {
+        "id": "timerfd",
+        "inference_limit": "A clock/timer API alone does not authenticate issuer time, boot mapping, VM/epoch trust or external live validity. Alarm delivery is not effect serialization.",
+        "retrieval": "focused primary indexed manual excerpts retrieved; direct rendered manual/upstream source opens failed; no whole-page original byte capture",
+        "title": "Linux man-pages timerfd_create(2)",
+        "url": "https://man7.org/linux/man-pages/man2/timerfd_create.2.html",
+        "verified_semantics": "CLOCK_MONOTONIC excludes suspended time; CLOCK_BOOTTIME includes it. CANCEL_ON_SET detects discontinuous realtime changes for the specified absolute realtime timer configuration."
+      }
+    ],
+    "schema": 1,
+    "scope": "repository-supervisor-clock-known-drain-decision-review-only",
+    "state": "prepared-user-acceptance-pending",
+    "step": 382,
+    "universal_infeasibility_proven": false,
+    "verdict": "native-composition-remains-blocked-owner-loss-inflight-drain-and-trusted-clock-unresolved",
+    "whole378_freeze_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-successor-design-freeze-and-safe-pause-review-freeze.json",
+    "whole378_freeze_sha256": "973825341a4ce27878edf82c675c15f384382f8f23fc77a96f0c325989404449",
+    "whole_original_requirements_normative": true,
+    "whole_stage12_obligation": "The whole original final-stage streams/status/origin requirement remains normative. Exact actor/event boundaries must independently reconcile complete stage12 evidence with a last external receipt that cannot observe its own final commit/durability. No shortened stage,renamed evidence scope,self-receipt or successful protocol is inferred; native causal refinement remains pending375/376."
+  },
+  "whole_original_requirements_remain_normative": true,
+  "whole_plan389_reference": {
+    "canonical_sha256": "515d377f4055082d2444a05129cf254adecd170f25583baeae3bafae6b6085d0",
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-contract-decision-resume-planning-review-plan.json",
+    "sha256": "d1f80ac9f5fb479544763db3c739446305c2509b5a8eb229407b9288cd1a813a"
+  },
+  "whole_revocation_brief391_reference": {
+    "canonical_sha256": "c5f70b005ec5d22e861b527d90fa24d72b1f10980a39dfa7e05a1b2250985dbb",
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-revocation-effect-contract-decision-brief-brief.json",
+    "sha256": "292ece5535af892b16719d8ab83fb373761724949bd63fb49d9b960a6ec832b2"
+  },
+  "whole_writer_brief390_reference": {
+    "canonical_sha256": "bc09b042c3ff01b5c341042427b63c07c09f22018d2e07eccd24da5a3f12beaf",
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-writer-trust-contract-decision-brief-brief.json",
+    "sha256": "4fa3b2aad8362969526ba5e4e06904cb104149b6ea6502c87910bc2a24fa3599"
+  }
+}

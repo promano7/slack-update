@@ -1,3 +1,19 @@
+## Phase 1 step 392 -- owner loss, known drain and clock trust alternatives
+
+- Accepted391 at reported7f642f3:300 exact ordered PASS/zero failures,nine files,
+  eight creates/4963 insertions,reported successful push/clean matching heads.
+- Complete unchanged uploaded391receipt and all predecessor bytes preserved.
+- WHOLE382loss/time review and actual323/324/326clauses remain normative;
+  accepted390writer and391revocation proposals remain unselected/inactive.
+- Four options:retain full known-drain/time contract;unselected independent
+  guardian retention hypothesis;explicit local-clock trust amendment;defer selection.
+- Guardian loss/requests/task population never full effect drain. Proposed local
+  trust excludes hidden hostile clock manipulation with disclosed detection loss;
+  ordinary suspend/restart/delay/loss still reviewed;no deadline or right renewal.
+- Eight conditional witnesses,native observationsnull. Actual guardian/time/graph/
+  drain/support unknown. No component,clock ID,authority or compatibility proof.
+- Full migration impact pending396/397. Native proofs/cases0;pause398 conditional.
+
 ## Phase 1 step 391 -- revocation and effect contract alternatives
 
 - Accepted390 at reported72a3740:210 exact ordered PASS/zero failures, nine files,
