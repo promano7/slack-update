@@ -1,3 +1,16 @@
+## Phase 1 step 402 -- inactive scoped operation admission and revocation
+
+- Accepted401 at reported1a08924:60orderedPASS/zero failures,tenfiles/eightcreates/
+  7217insertions,push/clean matching heads;complete disclosed transcript retained.
+- Eight exact inactive323clause replacements reconcile forward and recovery
+  every-effect language;extra recovery/publication guarantee losses explicit.
+- Separate forward/recovery/publication scopes;no evidence newgrant,worker channel,
+  original deadline/budget renewal or hidden policy/admission/launch/bootstrap change.
+- Whole30nodes/95edges/nineauthoritywindows/full crossclosure bound;actual partition/
+  enforcer/safe cut unknown. Twenty-three papercases compare original vs draft policy.
+- Whole79inputs/28roots/native blockers retained;no selection/approved migration/
+  grant/conformance/newpause. Full402acceptance before403;conditional408thenSTOP.
+
 ## Phase 1 step 401 -- joint writer source and infrastructure trust draft
 
 - Accepted400 at reportedd28fa63:59 orderedPASS/zero failures,tenfiles/eightcreates/

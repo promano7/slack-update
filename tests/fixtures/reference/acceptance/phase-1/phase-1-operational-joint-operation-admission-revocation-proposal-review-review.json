@@ -1,0 +1,2579 @@
+{
+  "actual_native_enforcer_or_transport": null,
+  "actual_native_evidence": null,
+  "actual_operation_partition": null,
+  "additional_joint_guarantee_losses": [
+    "Forward internal effects after a scoped request would be permitted inside an already admitted finite envelope;current every-effect validity/no-new-effect revocation is weakened.",
+    "Recovery/internal target-evidence writes after a recovery/all request would also be permitted only inside a known pre-admitted finite original envelope. This is an additional explicit replacement of original323 recovery validity/revocation,not unchanged recovery equivalence.",
+    "Publication has its own independent original controls and revocation policy;proposed pre-admitted continuation would change its instantaneous internal-effect boundary if adopted. Complete405/407 terminal criteria remain due,not assumed equivalent.",
+    "No actual cut latency,stopping deadline,known drain,external no-channel serialization or complete compatible effect graph is established;paper timing does not provide them."
+  ],
+  "after_confirmed408_next_authorized_stage": null,
+  "approved_contract_migration": null,
+  "approved_joint_specification": null,
+  "authored_hypothetical_cases": [
+    {
+      "actual_native_evidence": null,
+      "admission_before_request": true,
+      "admitted": true,
+      "clock_identity_known": true,
+      "complete_envelope_known": true,
+      "deadline_tick": 20,
+      "effect_tick": 10,
+      "expected_original_revocation_disposition": "original-native-preconditions-still-unproved",
+      "expected_proposed_disposition": "paper-bounded-pre-admitted-envelope",
+      "hypothetical_only": true,
+      "id": "forward-no-request",
+      "known_original_mismatch": false,
+      "original_forward_failed": false,
+      "original_spend_known": true,
+      "publication_policy_revoked": false,
+      "revocation_scope": "none",
+      "runtime_authority": false,
+      "scope": "forward",
+      "scope_failed": false,
+      "worker_channel_present": false
+    },
+    {
+      "actual_native_evidence": null,
+      "admission_before_request": true,
+      "admitted": false,
+      "clock_identity_known": true,
+      "complete_envelope_known": true,
+      "deadline_tick": 20,
+      "effect_tick": 10,
+      "expected_original_revocation_disposition": "original-applicable-revocation-denies-effects",
+      "expected_proposed_disposition": "paper-deny-new-scope-admission",
+      "hypothetical_only": true,
+      "id": "forward-request-denies-new",
+      "known_original_mismatch": false,
+      "original_forward_failed": false,
+      "original_spend_known": true,
+      "publication_policy_revoked": false,
+      "revocation_scope": "forward",
+      "runtime_authority": false,
+      "scope": "forward",
+      "scope_failed": false,
+      "worker_channel_present": false
+    },
+    {
+      "actual_native_evidence": null,
+      "admission_before_request": true,
+      "admitted": true,
+      "clock_identity_known": true,
+      "complete_envelope_known": true,
+      "deadline_tick": 20,
+      "effect_tick": 10,
+      "expected_original_revocation_disposition": "original-applicable-revocation-denies-effects",
+      "expected_proposed_disposition": "paper-admitted-continuation-after-request",
+      "hypothetical_only": true,
+      "id": "forward-pre-request-admitted",
+      "known_original_mismatch": false,
+      "original_forward_failed": false,
+      "original_spend_known": true,
+      "publication_policy_revoked": false,
+      "revocation_scope": "forward",
+      "runtime_authority": false,
+      "scope": "forward",
+      "scope_failed": false,
+      "worker_channel_present": false
+    },
+    {
+      "actual_native_evidence": null,
+      "admission_before_request": false,
+      "admitted": true,
+      "clock_identity_known": true,
+      "complete_envelope_known": true,
+      "deadline_tick": 20,
+      "effect_tick": 10,
+      "expected_original_revocation_disposition": "original-applicable-revocation-denies-effects",
+      "expected_proposed_disposition": "paper-deny-invalid-admission-order",
+      "hypothetical_only": true,
+      "id": "request-before-admission",
+      "known_original_mismatch": false,
+      "original_forward_failed": false,
+      "original_spend_known": true,
+      "publication_policy_revoked": false,
+      "revocation_scope": "forward",
+      "runtime_authority": false,
+      "scope": "forward",
+      "scope_failed": false,
+      "worker_channel_present": false
+    },
+    {
+      "actual_native_evidence": null,
+      "admission_before_request": true,
+      "admitted": true,
+      "clock_identity_known": true,
+      "complete_envelope_known": true,
+      "deadline_tick": 20,
+      "effect_tick": 10,
+      "expected_original_revocation_disposition": "original-native-preconditions-still-unproved",
+      "expected_proposed_disposition": "paper-bounded-pre-admitted-envelope",
+      "hypothetical_only": true,
+      "id": "recovery-survives-forward-only",
+      "known_original_mismatch": false,
+      "original_forward_failed": true,
+      "original_spend_known": true,
+      "publication_policy_revoked": false,
+      "revocation_scope": "forward",
+      "runtime_authority": false,
+      "scope": "recovery",
+      "scope_failed": false,
+      "worker_channel_present": false
+    },
+    {
+      "actual_native_evidence": null,
+      "admission_before_request": true,
+      "admitted": true,
+      "clock_identity_known": true,
+      "complete_envelope_known": true,
+      "deadline_tick": 20,
+      "effect_tick": 10,
+      "expected_original_revocation_disposition": "original-applicable-revocation-denies-effects",
+      "expected_proposed_disposition": "paper-admitted-continuation-after-request",
+      "hypothetical_only": true,
+      "id": "recovery-pre-request-admitted",
+      "known_original_mismatch": false,
+      "original_forward_failed": false,
+      "original_spend_known": true,
+      "publication_policy_revoked": false,
+      "revocation_scope": "recovery",
+      "runtime_authority": false,
+      "scope": "recovery",
+      "scope_failed": false,
+      "worker_channel_present": false
+    },
+    {
+      "actual_native_evidence": null,
+      "admission_before_request": true,
+      "admitted": true,
+      "clock_identity_known": true,
+      "complete_envelope_known": true,
+      "deadline_tick": 20,
+      "effect_tick": 10,
+      "expected_original_revocation_disposition": "original-applicable-revocation-denies-effects",
+      "expected_proposed_disposition": "paper-admitted-continuation-after-request",
+      "hypothetical_only": true,
+      "id": "recovery-all-request",
+      "known_original_mismatch": false,
+      "original_forward_failed": false,
+      "original_spend_known": true,
+      "publication_policy_revoked": false,
+      "revocation_scope": "all",
+      "runtime_authority": false,
+      "scope": "recovery",
+      "scope_failed": false,
+      "worker_channel_present": false
+    },
+    {
+      "actual_native_evidence": null,
+      "admission_before_request": true,
+      "admitted": true,
+      "clock_identity_known": true,
+      "complete_envelope_known": true,
+      "deadline_tick": 20,
+      "effect_tick": 10,
+      "expected_original_revocation_disposition": "original-applicable-revocation-denies-effects",
+      "expected_proposed_disposition": "paper-admitted-continuation-after-request",
+      "hypothetical_only": true,
+      "id": "publication-own-request",
+      "known_original_mismatch": false,
+      "original_forward_failed": false,
+      "original_spend_known": true,
+      "publication_policy_revoked": true,
+      "revocation_scope": "none",
+      "runtime_authority": false,
+      "scope": "publication",
+      "scope_failed": false,
+      "worker_channel_present": false
+    },
+    {
+      "actual_native_evidence": null,
+      "admission_before_request": true,
+      "admitted": true,
+      "clock_identity_known": true,
+      "complete_envelope_known": true,
+      "deadline_tick": 20,
+      "effect_tick": 10,
+      "expected_original_revocation_disposition": "original-native-preconditions-still-unproved",
+      "expected_proposed_disposition": "paper-bounded-pre-admitted-envelope",
+      "hypothetical_only": true,
+      "id": "publication-target-request-not-authority",
+      "known_original_mismatch": false,
+      "original_forward_failed": false,
+      "original_spend_known": true,
+      "publication_policy_revoked": false,
+      "revocation_scope": "all",
+      "runtime_authority": false,
+      "scope": "publication",
+      "scope_failed": false,
+      "worker_channel_present": false
+    },
+    {
+      "actual_native_evidence": null,
+      "admission_before_request": true,
+      "admitted": false,
+      "clock_identity_known": true,
+      "complete_envelope_known": true,
+      "deadline_tick": 20,
+      "effect_tick": 10,
+      "expected_original_revocation_disposition": "original-applicable-revocation-denies-effects",
+      "expected_proposed_disposition": "paper-deny-new-scope-admission",
+      "hypothetical_only": true,
+      "id": "recovery-new-admission-denied",
+      "known_original_mismatch": false,
+      "original_forward_failed": false,
+      "original_spend_known": true,
+      "publication_policy_revoked": false,
+      "revocation_scope": "all",
+      "runtime_authority": false,
+      "scope": "recovery",
+      "scope_failed": false,
+      "worker_channel_present": false
+    },
+    {
+      "actual_native_evidence": null,
+      "admission_before_request": true,
+      "admitted": true,
+      "clock_identity_known": true,
+      "complete_envelope_known": true,
+      "deadline_tick": 20,
+      "effect_tick": 20,
+      "expected_original_revocation_disposition": "original-native-preconditions-still-unproved",
+      "expected_proposed_disposition": "paper-deny-expired",
+      "hypothetical_only": true,
+      "id": "deadline-before-safe-cut",
+      "known_original_mismatch": false,
+      "original_forward_failed": false,
+      "original_spend_known": true,
+      "publication_policy_revoked": false,
+      "revocation_scope": "none",
+      "runtime_authority": false,
+      "scope": "forward",
+      "scope_failed": false,
+      "worker_channel_present": false
+    },
+    {
+      "actual_native_evidence": null,
+      "admission_before_request": true,
+      "admitted": true,
+      "clock_identity_known": true,
+      "complete_envelope_known": true,
+      "deadline_tick": 20,
+      "effect_tick": 21,
+      "expected_original_revocation_disposition": "original-native-preconditions-still-unproved",
+      "expected_proposed_disposition": "paper-deny-expired",
+      "hypothetical_only": true,
+      "id": "recovery-expired-forward-failure-sticky",
+      "known_original_mismatch": false,
+      "original_forward_failed": true,
+      "original_spend_known": true,
+      "publication_policy_revoked": false,
+      "revocation_scope": "none",
+      "runtime_authority": false,
+      "scope": "recovery",
+      "scope_failed": false,
+      "worker_channel_present": false
+    },
+    {
+      "actual_native_evidence": null,
+      "admission_before_request": true,
+      "admitted": true,
+      "clock_identity_known": true,
+      "complete_envelope_known": true,
+      "deadline_tick": 20,
+      "effect_tick": 10,
+      "expected_original_revocation_disposition": "original-native-preconditions-still-unproved",
+      "expected_proposed_disposition": "paper-deny-scope-failure",
+      "hypothetical_only": true,
+      "id": "publication-scope-failure",
+      "known_original_mismatch": false,
+      "original_forward_failed": false,
+      "original_spend_known": true,
+      "publication_policy_revoked": false,
+      "revocation_scope": "none",
+      "runtime_authority": false,
+      "scope": "publication",
+      "scope_failed": true,
+      "worker_channel_present": false
+    },
+    {
+      "actual_native_evidence": null,
+      "admission_before_request": true,
+      "admitted": true,
+      "clock_identity_known": true,
+      "complete_envelope_known": true,
+      "deadline_tick": 20,
+      "effect_tick": 10,
+      "expected_original_revocation_disposition": "original-revocation-scope-unknown-pending",
+      "expected_proposed_disposition": "paper-deny-original-forward-failure",
+      "hypothetical_only": true,
+      "id": "unknown-request-known-mismatch",
+      "known_original_mismatch": true,
+      "original_forward_failed": false,
+      "original_spend_known": true,
+      "publication_policy_revoked": false,
+      "revocation_scope": "unknown",
+      "runtime_authority": false,
+      "scope": "forward",
+      "scope_failed": false,
+      "worker_channel_present": false
+    },
+    {
+      "actual_native_evidence": null,
+      "admission_before_request": true,
+      "admitted": true,
+      "clock_identity_known": true,
+      "complete_envelope_known": true,
+      "deadline_tick": 20,
+      "effect_tick": 10,
+      "expected_original_revocation_disposition": "original-native-preconditions-still-unproved",
+      "expected_proposed_disposition": "paper-pending-unknown-input",
+      "hypothetical_only": true,
+      "id": "unknown-original-spend",
+      "known_original_mismatch": false,
+      "original_forward_failed": false,
+      "original_spend_known": null,
+      "publication_policy_revoked": false,
+      "revocation_scope": "none",
+      "runtime_authority": false,
+      "scope": "forward",
+      "scope_failed": false,
+      "worker_channel_present": false
+    },
+    {
+      "actual_native_evidence": null,
+      "admission_before_request": true,
+      "admitted": true,
+      "clock_identity_known": true,
+      "complete_envelope_known": null,
+      "deadline_tick": 20,
+      "effect_tick": 10,
+      "expected_original_revocation_disposition": "original-native-preconditions-still-unproved",
+      "expected_proposed_disposition": "paper-pending-unknown-input",
+      "hypothetical_only": true,
+      "id": "unknown-envelope",
+      "known_original_mismatch": false,
+      "original_forward_failed": false,
+      "original_spend_known": true,
+      "publication_policy_revoked": false,
+      "revocation_scope": "none",
+      "runtime_authority": false,
+      "scope": "forward",
+      "scope_failed": false,
+      "worker_channel_present": false
+    },
+    {
+      "actual_native_evidence": null,
+      "admission_before_request": true,
+      "admitted": true,
+      "clock_identity_known": null,
+      "complete_envelope_known": true,
+      "deadline_tick": 20,
+      "effect_tick": 10,
+      "expected_original_revocation_disposition": "original-native-preconditions-still-unproved",
+      "expected_proposed_disposition": "paper-pending-unknown-input",
+      "hypothetical_only": true,
+      "id": "unknown-clock",
+      "known_original_mismatch": false,
+      "original_forward_failed": false,
+      "original_spend_known": true,
+      "publication_policy_revoked": false,
+      "revocation_scope": "none",
+      "runtime_authority": false,
+      "scope": "forward",
+      "scope_failed": false,
+      "worker_channel_present": false
+    },
+    {
+      "actual_native_evidence": null,
+      "admission_before_request": true,
+      "admitted": true,
+      "clock_identity_known": true,
+      "complete_envelope_known": true,
+      "deadline_tick": 20,
+      "effect_tick": 10,
+      "expected_original_revocation_disposition": "original-native-preconditions-still-unproved",
+      "expected_proposed_disposition": "paper-deny-worker-channel",
+      "hypothetical_only": true,
+      "id": "worker-channel-denied",
+      "known_original_mismatch": false,
+      "original_forward_failed": false,
+      "original_spend_known": true,
+      "publication_policy_revoked": false,
+      "revocation_scope": "none",
+      "runtime_authority": false,
+      "scope": "forward",
+      "scope_failed": false,
+      "worker_channel_present": true
+    },
+    {
+      "actual_native_evidence": null,
+      "admission_before_request": true,
+      "admitted": true,
+      "clock_identity_known": true,
+      "complete_envelope_known": true,
+      "deadline_tick": 20,
+      "effect_tick": 10,
+      "expected_original_revocation_disposition": "original-native-preconditions-still-unproved",
+      "expected_proposed_disposition": "paper-deny-scope-failure",
+      "hypothetical_only": true,
+      "id": "forward-scope-failure",
+      "known_original_mismatch": false,
+      "original_forward_failed": true,
+      "original_spend_known": true,
+      "publication_policy_revoked": false,
+      "revocation_scope": "none",
+      "runtime_authority": false,
+      "scope": "forward",
+      "scope_failed": true,
+      "worker_channel_present": false
+    },
+    {
+      "actual_native_evidence": null,
+      "admission_before_request": true,
+      "admitted": null,
+      "clock_identity_known": true,
+      "complete_envelope_known": true,
+      "deadline_tick": 20,
+      "effect_tick": 10,
+      "expected_original_revocation_disposition": "original-native-preconditions-still-unproved",
+      "expected_proposed_disposition": "paper-pending-unknown-input",
+      "hypothetical_only": true,
+      "id": "unknown-admission",
+      "known_original_mismatch": false,
+      "original_forward_failed": false,
+      "original_spend_known": true,
+      "publication_policy_revoked": false,
+      "revocation_scope": "none",
+      "runtime_authority": false,
+      "scope": "forward",
+      "scope_failed": false,
+      "worker_channel_present": false
+    },
+    {
+      "actual_native_evidence": null,
+      "admission_before_request": true,
+      "admitted": false,
+      "clock_identity_known": true,
+      "complete_envelope_known": true,
+      "deadline_tick": 20,
+      "effect_tick": 10,
+      "expected_original_revocation_disposition": "original-native-preconditions-still-unproved",
+      "expected_proposed_disposition": "paper-new-admission-question-not-effect-permission",
+      "hypothetical_only": true,
+      "id": "unadmitted-no-request-is-question",
+      "known_original_mismatch": false,
+      "original_forward_failed": false,
+      "original_spend_known": true,
+      "publication_policy_revoked": false,
+      "revocation_scope": "none",
+      "runtime_authority": false,
+      "scope": "forward",
+      "scope_failed": false,
+      "worker_channel_present": false
+    },
+    {
+      "actual_native_evidence": null,
+      "admission_before_request": true,
+      "admitted": true,
+      "clock_identity_known": true,
+      "complete_envelope_known": true,
+      "deadline_tick": 20,
+      "effect_tick": 10,
+      "expected_original_revocation_disposition": "original-native-preconditions-still-unproved",
+      "expected_proposed_disposition": "paper-deny-original-forward-failure",
+      "hypothetical_only": true,
+      "id": "known-mismatch-alone-stops-forward",
+      "known_original_mismatch": true,
+      "original_forward_failed": false,
+      "original_spend_known": true,
+      "publication_policy_revoked": false,
+      "revocation_scope": "none",
+      "runtime_authority": false,
+      "scope": "forward",
+      "scope_failed": false,
+      "worker_channel_present": false
+    },
+    {
+      "actual_native_evidence": null,
+      "admission_before_request": true,
+      "admitted": true,
+      "clock_identity_known": true,
+      "complete_envelope_known": true,
+      "deadline_tick": 20,
+      "effect_tick": 10,
+      "expected_original_revocation_disposition": "original-native-preconditions-still-unproved",
+      "expected_proposed_disposition": "paper-deny-original-forward-failure",
+      "hypothetical_only": true,
+      "id": "original-forward-failure-without-scope-flag",
+      "known_original_mismatch": false,
+      "original_forward_failed": true,
+      "original_spend_known": true,
+      "publication_policy_revoked": false,
+      "revocation_scope": "none",
+      "runtime_authority": false,
+      "scope": "forward",
+      "scope_failed": false,
+      "worker_channel_present": false
+    }
+  ],
+  "boundaries": {
+    "C_port_open": false,
+    "actual_global_host_closure": false,
+    "actual_host_state": "unobserved-not-claimed-absent",
+    "actual_live_bindings": null,
+    "actual_native_refinement_complete": false,
+    "actual_successor_selected": false,
+    "controller_action_required": false,
+    "current_step_strong_safe_pause": false,
+    "execution_authorized": false,
+    "historical_binding_or_authority_reuse_allowed": false,
+    "kernel_package_edge_complete": false,
+    "last_confirmed_strong_safe_pause_step": 398,
+    "later_current_refresh_invalidates_repository_only_pause": false,
+    "machine_action_required": false,
+    "native_cases_run": 0,
+    "native_components_selected": false,
+    "native_graph_complete": false,
+    "native_proofs_added": 0,
+    "operational_conformance": false,
+    "operational_readiness": false,
+    "phase1_matrix_complete": false,
+    "phase2_open": false,
+    "production_entry_closed": true,
+    "reference_v1_frozen": false,
+    "runtime_authority": false,
+    "strong_safe_pause": false,
+    "target_machine_actions_authorized": false,
+    "version1_schema_frozen": false
+  },
+  "candidate_id": "JCP400-A",
+  "complete_operation_envelope_requirements": {
+    "actual_native_graph": null,
+    "actual_operation_partition": null,
+    "actual_safe_cut": null,
+    "claim_launch_action_spend_can_repeat": false,
+    "deadline_before_cut_authorizes_completion": false,
+    "known_operation_return_is_full_drain": false,
+    "paper_graph_or_poll_is_enforcement": false,
+    "required_before_any_future_admission": [
+      "exact original issuer/attempt/consumed claim/launch instance",
+      "original authenticated scope and fixed deadline/clock identity",
+      "irreversible pre-spend of original single launch and each finite action budget",
+      "complete actual entry/source/backend/helper/selector/hook/object/writer/FD/descendant/stream/async-storage graph",
+      "all exact internal effects and allowed descendants,not three calls",
+      "known protected original baseline and exact backups before applicable mutation",
+      "known continuous original guards and independently safe containment",
+      "independently supported finite safe-cut/stop/known-drain observation",
+      "scope-specific complete original expected/raw effect and failure vectors",
+      "separate actual source/trust/oracle/control/custody for both platforms"
+    ],
+    "worker_channel_exception": false
+  },
+  "conditional_close_step": 408,
+  "evidence_has_its_own_new_grant": false,
+  "exact_inactive_clause_replacements": [
+    {
+      "current_clause_remains_normative": true,
+      "input_key": "original323",
+      "json_pointer": "/fence_contract/rule",
+      "native_implementation": null,
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+      "proposed_complete_clause_text": "DRAFT: For forward and retained recovery operations, the external controller serializes admission against the original issuer policy and known scoped revocation. A request irreversibly closes new admissions in its affected scope; a previously admitted operation may complete only its predeclared finite effects and descendants up to its independently known safe cut, inside the original fixed deadline, already-spent budget and exact object/effect scope. This explicitly allows internal effects after an applicable forward or recovery/all revocation request. Worker and contained commands retain no service/broker/control channel. Actual admission-to-effect serialization, no-channel enforcement and safe stopping are unresolved.",
+      "replacement_approved": false,
+      "whole_current_clause": "trusted-external-controller-enforces-original-policy-and-absorbing-revocation-at-every-effect-boundary; worker-and-contained-commands-have-no-service-or-broker-capability"
+    },
+    {
+      "current_clause_remains_normative": true,
+      "input_key": "original323",
+      "json_pointer": "/fence_contract/uncertainty",
+      "native_implementation": null,
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+      "proposed_complete_clause_text": "DRAFT: Unknown/lost/stale admission result, unknown revocation scope, clock/identity/containment/envelope or spend closes new admission and denies dependent unproved effects; already in-flight outcomes remain pending until independently known. No uncertain request becomes no-effect or safe drain. Original consumed claim, launch slot and recovery budget never reopen. No retry/replay/refund/relaunch/rebind/reacquisition/renewal/new grant follows.",
+      "replacement_approved": false,
+      "whole_current_clause": "gate-outcome-loss-or-stale-or-unavailable-status-stops-effects; consumed-grant-launch-slot-and-recovery-budget-never-reopen"
+    },
+    {
+      "current_clause_remains_normative": true,
+      "input_key": "original323",
+      "json_pointer": "/forward_contract/validity",
+      "native_implementation": null,
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+      "proposed_complete_clause_text": "DRAFT: Independently authenticate the original consumed attempt, exact forward operation/effect/descendant scope, original fixed trusted boot/time bounds and durable spend before one serialized operation admission. Require reviewed containment of its entire finite envelope through its known safe cut. Forward revocation closes further admissions rather than requiring fresh revocation permission at every internal effect of an already admitted operation. Identity/time/scope/guard/known-control conditions remain continuously required. A poll/reply/lease/operation label is not native serialization or a safe cut.",
+      "replacement_approved": false,
+      "whole_current_clause": "independent-authenticated-scope-trusted-time-and-continuously-enforced-live-fence-before-and-through-every-permitted-effect"
+    },
+    {
+      "current_clause_remains_normative": true,
+      "input_key": "original323",
+      "json_pointer": "/forward_contract/termination",
+      "native_implementation": null,
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+      "proposed_complete_clause_text": "DRAFT: Forward revocation irreversibly closes further forward admission. Already admitted operations may complete only the specifically declared finite envelope under original valid bounds;this is an explicit exception to the current no-new-effect-dispatch reading after revocation,not a deadline/failure exemption. Expiry,scope failure,unknown control or envelope cannot authorize additional unproved effects. Original failure and all in-flight obligations persist. No renewed admission,slot,deadline,budget or right is introduced.",
+      "replacement_approved": false,
+      "whole_current_clause": "expiry-forward-revocation-or-any-failure-latches-forward-stop-irreversibly; no-new-effect-dispatch-or-revival"
+    },
+    {
+      "current_clause_remains_normative": true,
+      "input_key": "original323",
+      "json_pointer": "/forward_contract/in_flight",
+      "native_implementation": null,
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+      "proposed_complete_clause_text": "DRAFT: Before admission enumerate all actual internal effects,objects,writers,FDs,helpers,descendants,streams,async storage and a finite independently supported safe cut. Loss/stop requests,backend return,task counts or a named boundary do not establish completion. If expiry/failure/owner loss arrives before known stopping,deny unproved dependent effects and retain actual in-flight/child obligations pending;never claim guaranteed finite drain or closure.",
+      "replacement_approved": false,
+      "whole_current_clause": "started-effects-and-children-remain-obligations; inability-to-prove-stop-at-safe-effect-boundary-keeps-unknown-pending"
+    },
+    {
+      "current_clause_remains_normative": true,
+      "input_key": "original323",
+      "json_pointer": "/recovery_contract/validity",
+      "native_implementation": null,
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+      "proposed_complete_clause_text": "DRAFT: Use only the explicitly retained original same-attempt recovery scope,fixed finite deadline and durable once-only action budget,with every original trap/guard/identity/known-backup/drain prerequisite. Serialize one pre-spent recovery operation admission against known original recovery/all revocation. Once admitted,only its exact declared finite recovery envelope may finish within original bounds after an applicable revocation request. This changes the current live recovery fence at every internal effect;no blanket expiry exemption or foreign restore is granted.",
+      "replacement_approved": false,
+      "whole_current_clause": "explicit-authenticated-issuer-original-recovery-scope-with-own-finite-deadline-budget-and-live-recovery-fence"
+    },
+    {
+      "current_clause_remains_normative": true,
+      "input_key": "original323",
+      "json_pointer": "/recovery_contract/revocation",
+      "native_implementation": null,
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+      "proposed_complete_clause_text": "DRAFT: A known recovery/all revocation request denies subsequent recovery operation admission irreversibly. A known pre-request admitted recovery operation may complete only its predeclared finite envelope and known safe cut inside its unchanged original deadline/budget/safe identity;post-request internal writes are an explicit weakened guarantee. Unknown scope,boot/clock/identity/control drift or expiry denies unproved effects and preserves pending obligations. Forward-only revocation does not revoke separately retained recovery. No replacement right or replay follows.",
+      "replacement_approved": false,
+      "whole_current_clause": "recovery/all-revocation-unknown-scope-clock-discontinuity-boot-or-identity-drift-block-recovery-writes-and-preserve-obligations"
+    },
+    {
+      "current_clause_remains_normative": true,
+      "input_key": "original323",
+      "json_pointer": "/closure_contract/publication",
+      "native_implementation": null,
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+      "proposed_complete_clause_text": "DRAFT: After independently known target closure,use captured closed data only under separately reviewed original publication controls. Publication operation admission and its own known revocation policy,source/observer/writer/storage/custody/finite bounds must be independently specified;target forward/recovery rights or requests cannot be borrowed as publication authority. Its own applicable revocation may deny new admissions while a specifically pre-admitted finite envelope finishes within its separate original bounds. All terminal receipt/observer/custody guarantees and exact stage membership remain unresolved for405/407;no late target/source action or republish on uncertainty.",
+      "replacement_approved": false,
+      "whole_current_clause": "after-target-closure-use-captured-closed-data-under-independent-publication-controls-through-last-receipt; no-target-refresh-write-or-renewal"
+    }
+  ],
+  "independent_impact_review_accepted": false,
+  "native_cases_run": 0,
+  "native_no_channel_enforcement_resolved": false,
+  "native_proofs_added": 0,
+  "next_preparable_step_after_complete402_acceptance": 403,
+  "no_automatic409": true,
+  "original_forward_failure_survives_recovery_and_publication": true,
+  "policy_admission_launch_bootstrap_service_windows_amended": false,
+  "publication_evidence_uses_separate_original_publication_controls": true,
+  "remaining_joint_reviews": [
+    {
+      "actual_joint_resolution": null,
+      "candidate_specific_question": "The draft denies a worker channel but changes operation admission. Who serializes admission with every actual descendant/in-flight effect, and how are unchanged every-effect forward/recovery validity clauses replaced or retained consistently? A controller permission or cut name is insufficient.",
+      "current_authority": false,
+      "id": "offline-bootstrap-vs-live-channel",
+      "native_compatibility_proven": false,
+      "planned_review_step": 402,
+      "state": "unresolved-pending-substantive-joint-review",
+      "whole_original_dimension": {
+        "actual_joint_resolution": null,
+        "affected_option_ids": [
+          "retain-every-effect-no-worker-channel",
+          "declared-operation-admission-cuts",
+          "explicit-worker-control-channel",
+          "defer-native-revocation-selection"
+        ],
+        "current_authority": false,
+        "id": "offline-bootstrap-vs-live-channel",
+        "native_compatibility_proven": false,
+        "required_joint_review": "A live worker channel draft changes original offline/FD/authentication loss boundaries;retention options cannot silently borrow it.",
+        "source_family_input_keys": [
+          "revocation_brief391"
+        ]
+      }
+    },
+    {
+      "actual_joint_resolution": null,
+      "candidate_specific_question": "The same infrastructure trust boundary must enumerate writer/source/time/storage/observer policies and actual objects. Proposed excluded hostile infrastructure actions must not exempt ordinary privileged workload helpers or hide checked-to-used aliases.",
+      "current_authority": false,
+      "id": "writer-trust-vs-source-and-clock",
+      "native_compatibility_proven": false,
+      "planned_review_step": 401,
+      "state": "unresolved-pending-substantive-joint-review",
+      "whole_original_dimension": {
+        "actual_joint_resolution": null,
+        "affected_option_ids": [
+          "retain-full-original-coverage",
+          "explicit-trusted-host-boundary",
+          "defer-native-writer-selection",
+          "retain-known-drain-and-trusted-time",
+          "independent-guardian-retention-hypothesis",
+          "explicit-local-clock-trust-boundary",
+          "defer-native-lifetime-time-selection",
+          "retain-whole-original-entry",
+          "complete-protected-source-consumption-hypothesis",
+          "explicit-separate-backend-product-scope",
+          "defer-native-entry-backend-selection"
+        ],
+        "current_authority": false,
+        "id": "writer-trust-vs-source-and-clock",
+        "native_compatibility_proven": false,
+        "required_joint_review": "Host writer and clock exclusions need one explicit consistent trust/source scope;code/path/hash/namespace do not prove protected consumed objects.",
+        "source_family_input_keys": [
+          "writer_brief390",
+          "loss_brief392",
+          "entry_brief395"
+        ]
+      }
+    },
+    {
+      "actual_joint_resolution": null,
+      "candidate_specific_question": "A guardian can fail or stop after the original finite recovery right expires. Determine each survivor/FD/stream/storage effect and independent drain result without immortal guardian or guaranteed stop assumptions; failure/unknown remains pending.",
+      "current_authority": false,
+      "id": "guardian-drain-vs-forward-failure",
+      "native_compatibility_proven": false,
+      "planned_review_step": 403,
+      "state": "unresolved-pending-substantive-joint-review",
+      "whole_original_dimension": {
+        "actual_joint_resolution": null,
+        "affected_option_ids": [
+          "retain-known-drain-and-trusted-time",
+          "independent-guardian-retention-hypothesis",
+          "explicit-local-clock-trust-boundary",
+          "defer-native-lifetime-time-selection",
+          "retain-every-effect-no-worker-channel",
+          "declared-operation-admission-cuts",
+          "explicit-worker-control-channel",
+          "defer-native-revocation-selection",
+          "retain-whole-original-entry",
+          "complete-protected-source-consumption-hypothesis",
+          "explicit-separate-backend-product-scope",
+          "defer-native-entry-backend-selection"
+        ],
+        "current_authority": false,
+        "id": "guardian-drain-vs-forward-failure",
+        "native_compatibility_proven": false,
+        "required_joint_review": "Guardian survival,known complete descendants/FD/in-flight drain and absorbing failure stop must compose under actual finite rights.",
+        "source_family_input_keys": [
+          "loss_brief392",
+          "revocation_brief391",
+          "entry_brief395"
+        ]
+      }
+    },
+    {
+      "actual_joint_resolution": null,
+      "candidate_specific_question": "The external ledger may durably spend while ACK or local clock/guardian state is unknown. Specify exact original irreversible claim/launch/action ordering and no-repeat quarantine under the same fixed mapped deadlines without replacement authority.",
+      "current_authority": false,
+      "id": "durable-rights-vs-loss-deadlines",
+      "native_compatibility_proven": false,
+      "planned_review_step": 404,
+      "state": "unresolved-pending-substantive-joint-review",
+      "whole_original_dimension": {
+        "actual_joint_resolution": null,
+        "affected_option_ids": [
+          "retain-exact-original-capture-storage-rights",
+          "external-durable-rights-ledger-hypothesis",
+          "separate-owned-target-quarantine-hypothesis",
+          "defer-native-storage-rights-selection",
+          "retain-known-drain-and-trusted-time",
+          "independent-guardian-retention-hypothesis",
+          "explicit-local-clock-trust-boundary",
+          "defer-native-lifetime-time-selection",
+          "retain-every-effect-no-worker-channel",
+          "declared-operation-admission-cuts",
+          "explicit-worker-control-channel",
+          "defer-native-revocation-selection"
+        ],
+        "current_authority": false,
+        "id": "durable-rights-vs-loss-deadlines",
+        "native_compatibility_proven": false,
+        "required_joint_review": "Claim/launch/action spend,unknown ACK,no replay and trusted forward/recovery deadlines must remain jointly exact.",
+        "source_family_input_keys": [
+          "storage_brief393",
+          "loss_brief392",
+          "revocation_brief391"
+        ]
+      }
+    },
+    {
+      "actual_joint_resolution": null,
+      "candidate_specific_question": "Known target/no-write evidence and unknown owned backup/commit state need independent complete original vectors. Whole entry may already have effects; neither a missing backup nor backend raw return proves unchanged target or safe restore.",
+      "current_authority": false,
+      "id": "baseline-unknown-vs-backend-effects",
+      "native_compatibility_proven": false,
+      "planned_review_step": 404,
+      "state": "unresolved-pending-substantive-joint-review",
+      "whole_original_dimension": {
+        "actual_joint_resolution": null,
+        "affected_option_ids": [
+          "retain-exact-original-capture-storage-rights",
+          "external-durable-rights-ledger-hypothesis",
+          "separate-owned-target-quarantine-hypothesis",
+          "defer-native-storage-rights-selection",
+          "retain-whole-original-entry",
+          "complete-protected-source-consumption-hypothesis",
+          "explicit-separate-backend-product-scope",
+          "defer-native-entry-backend-selection"
+        ],
+        "current_authority": false,
+        "id": "baseline-unknown-vs-backend-effects",
+        "native_compatibility_proven": false,
+        "required_joint_review": "Known full target facts cannot be substituted by unknown backups or summarized backend effects;every safe restore/no-write branch retains all original gates.",
+        "source_family_input_keys": [
+          "storage_brief393",
+          "entry_brief395"
+        ]
+      }
+    },
+    {
+      "actual_joint_resolution": null,
+      "candidate_specific_question": "Producer-only stage12 differs from the normative whole stage. Resolve complete stream/status/origin membership and observer own effects/custody at an explicitly amended terminal cut; acyclic paper ordering does not prove native terminal closure.",
+      "current_authority": false,
+      "id": "terminal-cut-vs-whole-stage-oracle",
+      "native_compatibility_proven": false,
+      "planned_review_step": 405,
+      "state": "unresolved-pending-substantive-joint-review",
+      "whole_original_dimension": {
+        "actual_joint_resolution": null,
+        "affected_option_ids": [
+          "retain-whole-original-stage12",
+          "explicit-producer-and-external-finalization-cut",
+          "independent-captured-data-custody-hypothesis",
+          "defer-native-receipt-selection",
+          "retain-full-independent-two-platform-oracle",
+          "protected-independent-raw-oracle-hypothesis",
+          "defer-native-oracle-selection"
+        ],
+        "current_authority": false,
+        "id": "terminal-cut-vs-whole-stage-oracle",
+        "native_compatibility_proven": false,
+        "required_joint_review": "Changed producer/receipt membership requires explicit migration of full stage12 and every observer own effect/oracle/custody obligation;acyclic paper order proves no native closure.",
+        "source_family_input_keys": [
+          "receipt_brief394",
+          "oracle_brief396"
+        ]
+      }
+    },
+    {
+      "actual_joint_resolution": null,
+      "candidate_specific_question": "This draft retains whole entry and declines the separate-backend product alternative. Every preparation/helper/selector/hook/effect edge and original forbidden effect remains required; retain complete original proof/case coverage while reconciling the draft trust/cut changes.",
+      "current_authority": false,
+      "id": "narrow-product-vs-whole-entry-proof",
+      "native_compatibility_proven": false,
+      "planned_review_step": 406,
+      "state": "unresolved-pending-substantive-joint-review",
+      "whole_original_dimension": {
+        "actual_joint_resolution": null,
+        "affected_option_ids": [
+          "retain-whole-original-entry",
+          "complete-protected-source-consumption-hypothesis",
+          "explicit-separate-backend-product-scope",
+          "defer-native-entry-backend-selection",
+          "retain-full-independent-two-platform-oracle",
+          "protected-independent-raw-oracle-hypothesis",
+          "defer-native-oracle-selection"
+        ],
+        "current_authority": false,
+        "id": "narrow-product-vs-whole-entry-proof",
+        "native_compatibility_proven": false,
+        "required_joint_review": "A separate component product cannot satisfy current whole-entry/Phase1 proof/case/entry/readiness scope without full approved migration.",
+        "source_family_input_keys": [
+          "entry_brief395",
+          "oracle_brief396"
+        ]
+      }
+    },
+    {
+      "actual_joint_resolution": null,
+      "candidate_specific_question": "Independent expectation, collector, receipt observer and consumer roles themselves use guarded source, clocks, storage and finite custody rights. Enumerate their own possible ACK/stream/descendant effects and final unknowns without a passive observer exception.",
+      "current_authority": false,
+      "id": "observer-controls-vs-finite-custody",
+      "native_compatibility_proven": false,
+      "planned_review_step": 405,
+      "state": "unresolved-pending-substantive-joint-review",
+      "whole_original_dimension": {
+        "actual_joint_resolution": null,
+        "affected_option_ids": [
+          "retain-full-independent-two-platform-oracle",
+          "protected-independent-raw-oracle-hypothesis",
+          "defer-native-oracle-selection",
+          "retain-whole-original-stage12",
+          "explicit-producer-and-external-finalization-cut",
+          "independent-captured-data-custody-hypothesis",
+          "defer-native-receipt-selection",
+          "retain-exact-original-capture-storage-rights",
+          "external-durable-rights-ledger-hypothesis",
+          "separate-owned-target-quarantine-hypothesis",
+          "defer-native-storage-rights-selection",
+          "retain-known-drain-and-trusted-time",
+          "independent-guardian-retention-hypothesis",
+          "explicit-local-clock-trust-boundary",
+          "defer-native-lifetime-time-selection"
+        ],
+        "current_authority": false,
+        "id": "observer-controls-vs-finite-custody",
+        "native_compatibility_proven": false,
+        "required_joint_review": "No observer/injector/consumer exception;actual origin,writers,finite rights,storage,stream and ACK/custody outcomes remain due.",
+        "source_family_input_keys": [
+          "oracle_brief396",
+          "receipt_brief394",
+          "storage_brief393",
+          "loss_brief392"
+        ]
+      }
+    },
+    {
+      "actual_joint_resolution": null,
+      "candidate_specific_question": "Both actual platforms need independent fresh full support/identity/expectation/fault/raw/custody qualification. Safe actual joint review and a separate explicit bounded test grant still precede effects; the draft and its repository tests cannot satisfy that gate.",
+      "current_authority": false,
+      "id": "two-platform-fresh-test-entry",
+      "native_compatibility_proven": false,
+      "planned_review_step": 406,
+      "state": "unresolved-pending-substantive-joint-review",
+      "whole_original_dimension": {
+        "actual_joint_resolution": null,
+        "affected_option_ids": [
+          "retain-full-original-coverage",
+          "explicit-trusted-host-boundary",
+          "defer-native-writer-selection",
+          "retain-every-effect-no-worker-channel",
+          "declared-operation-admission-cuts",
+          "explicit-worker-control-channel",
+          "defer-native-revocation-selection",
+          "retain-known-drain-and-trusted-time",
+          "independent-guardian-retention-hypothesis",
+          "explicit-local-clock-trust-boundary",
+          "defer-native-lifetime-time-selection",
+          "retain-exact-original-capture-storage-rights",
+          "external-durable-rights-ledger-hypothesis",
+          "separate-owned-target-quarantine-hypothesis",
+          "defer-native-storage-rights-selection",
+          "retain-whole-original-stage12",
+          "explicit-producer-and-external-finalization-cut",
+          "independent-captured-data-custody-hypothesis",
+          "defer-native-receipt-selection",
+          "retain-whole-original-entry",
+          "complete-protected-source-consumption-hypothesis",
+          "explicit-separate-backend-product-scope",
+          "defer-native-entry-backend-selection",
+          "retain-full-independent-two-platform-oracle",
+          "protected-independent-raw-oracle-hypothesis",
+          "defer-native-oracle-selection"
+        ],
+        "current_authority": false,
+        "id": "two-platform-fresh-test-entry",
+        "native_compatibility_proven": false,
+        "required_joint_review": "Whole independently safe actual composition review precedes separate fresh explicit native-test grant;native conformance later operational readiness. No historical/other-platform transfer.",
+        "source_family_input_keys": [
+          "writer_brief390",
+          "revocation_brief391",
+          "loss_brief392",
+          "storage_brief393",
+          "receipt_brief394",
+          "entry_brief395",
+          "oracle_brief396"
+        ]
+      }
+    }
+  ],
+  "runtime_authority": false,
+  "safe_stop_known_from_request_or_backend_exit": false,
+  "schema": 1,
+  "scope": "repository-joint-contract-proposal399-408-only",
+  "scope_revocation_policy": [
+    {
+      "actual_enforcer": null,
+      "already_admitted_after_request": "inactive-proposed-finite-envelope-only",
+      "applicable_request_values": [
+        "forward",
+        "all"
+      ],
+      "fixed_bounds_may_extend": false,
+      "new_admission_after_request": "denied",
+      "original_credential": "original-consumed-active-attempt-no-new-or-unused-grant-per-nested-call",
+      "original_failure_preserved": true,
+      "scope": "forward"
+    },
+    {
+      "actual_enforcer": null,
+      "already_admitted_after_request": "inactive-proposed-finite-envelope-only",
+      "applicable_request_values": [
+        "recovery",
+        "all"
+      ],
+      "fixed_bounds_may_extend": false,
+      "new_admission_after_request": "denied",
+      "original_credential": "narrow-retained-rights-of-same-original-consumed-attempt-not-another-grant-or-invocation",
+      "original_failure_preserved": true,
+      "scope": "recovery"
+    },
+    {
+      "actual_enforcer": null,
+      "already_admitted_after_request": "inactive-proposed-finite-envelope-only",
+      "applicable_request_values": [
+        "separately-reviewed-publication-policy-only"
+      ],
+      "fixed_bounds_may_extend": false,
+      "new_admission_after_request": "denied",
+      "original_credential": "after-target-closure-use-captured-closed-data-under-independent-publication-controls-through-last-receipt; no-target-refresh-write-or-renewal",
+      "original_failure_preserved": true,
+      "scope": "publication"
+    }
+  ],
+  "selected_options": null,
+  "semantic_migration_complete": false,
+  "state": "inactive-scoped-operation-revocation-proposal",
+  "step": 402,
+  "target_evidence_uses_original_retained_recovery_scope": true,
+  "unchanged400_source_admission_losses": {
+    "guarantees_lost_or_changed": [
+      "Revocation would prevent new declared-operation admission, rather than every internal effect immediately after the external revocation request.",
+      "Internal effects of an admitted operation could occur between the request and its known safe cut; no response latency or cut bound is proven here.",
+      "This changes original fence/forward semantics and associated observers/oracle expectations; it is not compatible with the current every-effect clause as written."
+    ],
+    "option_id": "declared-operation-admission-cuts",
+    "whole_option_reference": {
+      "approved_migration": null,
+      "input_key": "revocation_brief391",
+      "native_joint_compatibility": null,
+      "option_id": "declared-operation-admission-cuts",
+      "packet397_whole_row_canonical_sha256": "81f52278a1383a1608e2106938de31d8bdff925b44302b3358b2335fd4ac11eb",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-revocation-effect-contract-decision-brief-brief.json",
+      "runtime_authority": false,
+      "selected": false,
+      "source_option_index": 1,
+      "whole_396_impact_review_canonical_sha256": "6c343a7a44628a648af4e441ecd79103c85697421858dd54952895762ca51707",
+      "whole_option_canonical_sha256": "77e68e31ee299cec38b0d19a57f6c8e147b515155e8716007fe9635d90c942bf"
+    }
+  },
+  "whole400_operation_wording": {
+    "id": "operation-admission-and-offline-worker",
+    "kind": "joint-inactive-amendment",
+    "option_ids": [
+      "declared-operation-admission-cuts"
+    ],
+    "text": "Use an externally controlled draft operation-admission boundary with the original worker bootstrap and no inherited worker broker/service/validation channel. Forward revocation irreversibly denies subsequent forward admission. An already admitted operation may continue only its explicitly enumerated finite effects and descendants toward its independently known safe cut within its original scope, fixed deadline and pre-spent budget. Effects after a revocation request are an intentional changed promise. Expiry/failure or reaching the fixed bound creates no permission beyond that bound. Each original recovery/evidence/publication scope needs its separate valid rights and explicit revocation treatment. The original every-effect forward-validity and recovery-validity clauses still need complete exact replacement or retained per-scope enforcement reconciliation at402; no joint enforcement protocol is supplied here."
+  },
+  "whole_396_impact_reference": {
+    "canonical_sha256": "1a00f9afcde2a6ef72dad05cef26d2ea58874ef2f0daa3a533550ee799283612",
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-independent-oracle-migration-impact-decision-brief-brief.json",
+    "sha256": "67c6fed2d3e2d8ae5a7ae9904428841ae9410c905efed6da9ca81acc4e07535c"
+  },
+  "whole_accepted401_trust_reference": {
+    "canonical_sha256": "6a580f03e27c6758847d864bd5e620c21cfc52022a68cb2bbf563aa6e1abd371",
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-writer-source-trust-proposal-review-review.json",
+    "sha256": "b1a27dc28bbc0eb6ec56d12aae23de9019ccbc6e4050ad40eb7a006ecb3b9e78"
+  },
+  "whole_candidate400_reference": {
+    "canonical_sha256": "5c34230946a48e6e09c1a2aed8a6a4d62e85b24f3db84c3713d1d37fb546d8d2",
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-concrete-joint-contract-candidate-proposal-review-candidate.json",
+    "sha256": "f25bc295733c1af53329af26785d23273dd3d07aec67d9eb328df27d0030a17f"
+  },
+  "whole_original30_crossclosure_rows_reference": {
+    "canonical_sha256": "21a31fd0d75476bf552db4c13bb597a3602a46596ae1b94b10d9bb16a195312f",
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-scoped-effects-obligations-rights-crossclosure-review-design.json",
+    "sha256": "a6541e3a485ec6032e5d50dc31d8ee43a3c29ab4b97e44e08776152120f6d7a0"
+  },
+  "whole_original30_node_questions": [
+    {
+      "actual_operation_assignment": null,
+      "id": "issuer-policy-and-key-provisioning",
+      "native_partition_complete": false,
+      "required_operation_question": "Bind all effects,consumers,aliases,writers,children and rights of this whole original node before partitioning any operation;unknown edges prohibit native admission. Policy/admission/launch/bootstrap/service windows keep their full original controls;no operation table creates a new grant.",
+      "whole_original_node": {
+        "actual_implementation_path": null,
+        "actual_implementation_sha256": null,
+        "effect": "service-authenticated-policy-and-key-material",
+        "id": "issuer-policy-and-key-provisioning",
+        "proof_status": "required-not-proven",
+        "required_fixture_gates": [
+          "complete_transitive_graph_resolved",
+          "original_context_authenticated",
+          "service_own_failure_barrier",
+          "issuer_policy_control_rights_valid"
+        ],
+        "rights_scope": "policy"
+      }
+    },
+    {
+      "actual_operation_assignment": null,
+      "id": "durable-admission-claim",
+      "native_partition_complete": false,
+      "required_operation_question": "Bind all effects,consumers,aliases,writers,children and rights of this whole original node before partitioning any operation;unknown edges prohibit native admission. Policy/admission/launch/bootstrap/service windows keep their full original controls;no operation table creates a new grant.",
+      "whole_original_node": {
+        "actual_implementation_path": null,
+        "actual_implementation_sha256": null,
+        "effect": "external-service-ledger-CAS-and-quarantine",
+        "id": "durable-admission-claim",
+        "proof_status": "required-not-proven",
+        "required_fixture_gates": [
+          "complete_transitive_graph_resolved",
+          "original_context_authenticated",
+          "service_own_failure_barrier",
+          "known_authenticated_unused_grant"
+        ],
+        "rights_scope": "admission"
+      }
+    },
+    {
+      "actual_operation_assignment": null,
+      "id": "durable-single-launch-slot",
+      "native_partition_complete": false,
+      "required_operation_question": "Bind all effects,consumers,aliases,writers,children and rights of this whole original node before partitioning any operation;unknown edges prohibit native admission. Policy/admission/launch/bootstrap/service windows keep their full original controls;no operation table creates a new grant.",
+      "whole_original_node": {
+        "actual_implementation_path": null,
+        "actual_implementation_sha256": null,
+        "effect": "service-launch-slot-spend-and-one-child-launch",
+        "id": "durable-single-launch-slot",
+        "proof_status": "required-not-proven",
+        "required_fixture_gates": [
+          "complete_transitive_graph_resolved",
+          "original_context_authenticated",
+          "same_consumed_active_attempt",
+          "service_own_failure_barrier",
+          "durable_claim_and_launch_slot_proven"
+        ],
+        "rights_scope": "launch"
+      }
+    },
+    {
+      "actual_operation_assignment": null,
+      "id": "offline-bootstrap-context",
+      "native_partition_complete": false,
+      "required_operation_question": "Bind all effects,consumers,aliases,writers,children and rights of this whole original node before partitioning any operation;unknown edges prohibit native admission. Policy/admission/launch/bootstrap/service windows keep their full original controls;no operation table creates a new grant.",
+      "whole_original_node": {
+        "actual_implementation_path": null,
+        "actual_implementation_sha256": null,
+        "effect": "bounded-memory-read-and-close-FDs",
+        "id": "offline-bootstrap-context",
+        "proof_status": "required-not-proven",
+        "required_fixture_gates": [
+          "complete_transitive_graph_resolved",
+          "original_context_authenticated",
+          "same_consumed_active_attempt",
+          "namespace_FD_no_fallback_and_service_unreachable",
+          "durable_claim_and_launch_slot_proven",
+          "bootstrap_bounds_authentication_and_close"
+        ],
+        "rights_scope": "bootstrap"
+      }
+    },
+    {
+      "actual_operation_assignment": null,
+      "id": "trusted-time-and-revocation-fence",
+      "native_partition_complete": false,
+      "required_operation_question": "Bind all effects,consumers,aliases,writers,children and rights of this whole original node before partitioning any operation;unknown edges prohibit native admission. Policy/admission/launch/bootstrap/service windows keep their full original controls;no operation table creates a new grant.",
+      "whole_original_node": {
+        "actual_implementation_path": null,
+        "actual_implementation_sha256": null,
+        "effect": "external-time-policy-and-live-effect-fence",
+        "id": "trusted-time-and-revocation-fence",
+        "proof_status": "required-not-proven",
+        "required_fixture_gates": [
+          "complete_transitive_graph_resolved",
+          "original_context_authenticated",
+          "same_consumed_active_attempt",
+          "service_own_failure_barrier"
+        ],
+        "rights_scope": "service"
+      }
+    },
+    {
+      "actual_operation_assignment": null,
+      "id": "worker-readonly-preflight",
+      "native_partition_complete": false,
+      "required_operation_question": "Bind all effects,consumers,aliases,writers,children and rights of this whole original node before partitioning any operation;unknown edges prohibit native admission. Policy/admission/launch/bootstrap/service windows keep their full original controls;no operation table creates a new grant.",
+      "whole_original_node": {
+        "actual_implementation_path": null,
+        "actual_implementation_sha256": null,
+        "effect": "bounded-readonly-memory-and-retained-checked-inputs",
+        "id": "worker-readonly-preflight",
+        "proof_status": "required-not-proven",
+        "required_fixture_gates": [
+          "complete_transitive_graph_resolved",
+          "original_context_authenticated",
+          "same_consumed_active_attempt",
+          "namespace_FD_no_fallback_and_service_unreachable",
+          "durable_claim_and_launch_slot_proven",
+          "bootstrap_bounds_authentication_and_close"
+        ],
+        "rights_scope": "bootstrap"
+      }
+    },
+    {
+      "actual_operation_assignment": null,
+      "id": "worker-traps-and-child-control",
+      "native_partition_complete": false,
+      "required_operation_question": "Bind all effects,consumers,aliases,writers,children and rights of this whole original node before partitioning any operation;unknown edges prohibit native admission. Policy/admission/launch/bootstrap/service windows keep their full original controls;no operation table creates a new grant.",
+      "whole_original_node": {
+        "actual_implementation_path": null,
+        "actual_implementation_sha256": null,
+        "effect": "supervised-process-and-owned-child-lifetime",
+        "id": "worker-traps-and-child-control",
+        "proof_status": "required-not-proven",
+        "required_fixture_gates": [
+          "complete_transitive_graph_resolved",
+          "original_context_authenticated",
+          "same_consumed_active_attempt",
+          "namespace_FD_no_fallback_and_service_unreachable",
+          "traps_armed",
+          "continuous_guard_all_writers_and_safe_identity",
+          "fresh_original_baseline_and_approved_deltas",
+          "forward_rights_live",
+          "owned_paths_and_verified_backups",
+          "forbidden_branches_proven_unreachable_or_no_effect"
+        ],
+        "rights_scope": "forward"
+      }
+    },
+    {
+      "actual_operation_assignment": null,
+      "id": "outer-writer-guard-and-original-baseline",
+      "native_partition_complete": false,
+      "required_operation_question": "Bind all effects,consumers,aliases,writers,children and rights of this whole original node before partitioning any operation;unknown edges prohibit native admission. Policy/admission/launch/bootstrap/service windows keep their full original controls;no operation table creates a new grant.",
+      "whole_original_node": {
+        "actual_implementation_path": null,
+        "actual_implementation_sha256": null,
+        "effect": "stable-object-all-writers-fresh-original-capture",
+        "id": "outer-writer-guard-and-original-baseline",
+        "proof_status": "required-not-proven",
+        "required_fixture_gates": [
+          "complete_transitive_graph_resolved",
+          "original_context_authenticated",
+          "same_consumed_active_attempt",
+          "namespace_FD_no_fallback_and_service_unreachable",
+          "traps_armed",
+          "continuous_guard_all_writers_and_safe_identity",
+          "fresh_original_baseline_and_approved_deltas",
+          "forward_rights_live",
+          "owned_paths_and_verified_backups",
+          "forbidden_branches_proven_unreachable_or_no_effect"
+        ],
+        "rights_scope": "forward"
+      }
+    },
+    {
+      "actual_operation_assignment": null,
+      "id": "owned-runtime-and-original-backups",
+      "native_partition_complete": false,
+      "required_operation_question": "Bind all effects,consumers,aliases,writers,children and rights of this whole original node before partitioning any operation;unknown edges prohibit native admission. Policy/admission/launch/bootstrap/service windows keep their full original controls;no operation table creates a new grant.",
+      "whole_original_node": {
+        "actual_implementation_path": null,
+        "actual_implementation_sha256": null,
+        "effect": "canonical-owned-work-evidence-log-backup-writes",
+        "id": "owned-runtime-and-original-backups",
+        "proof_status": "required-not-proven",
+        "required_fixture_gates": [
+          "complete_transitive_graph_resolved",
+          "original_context_authenticated",
+          "same_consumed_active_attempt",
+          "namespace_FD_no_fallback_and_service_unreachable",
+          "traps_armed",
+          "continuous_guard_all_writers_and_safe_identity",
+          "fresh_original_baseline_and_approved_deltas",
+          "forward_rights_live",
+          "owned_paths_and_verified_backups",
+          "forbidden_branches_proven_unreachable_or_no_effect"
+        ],
+        "rights_scope": "forward"
+      }
+    },
+    {
+      "actual_operation_assignment": null,
+      "id": "predecessor-and-local-isolation",
+      "native_partition_complete": false,
+      "required_operation_question": "Bind all effects,consumers,aliases,writers,children and rights of this whole original node before partitioning any operation;unknown edges prohibit native admission. Policy/admission/launch/bootstrap/service windows keep their full original controls;no operation table creates a new grant.",
+      "whole_original_node": {
+        "actual_implementation_path": null,
+        "actual_implementation_sha256": null,
+        "effect": "approved-package-config-state-phase-deltas",
+        "id": "predecessor-and-local-isolation",
+        "proof_status": "required-not-proven",
+        "required_fixture_gates": [
+          "complete_transitive_graph_resolved",
+          "original_context_authenticated",
+          "same_consumed_active_attempt",
+          "namespace_FD_no_fallback_and_service_unreachable",
+          "traps_armed",
+          "continuous_guard_all_writers_and_safe_identity",
+          "fresh_original_baseline_and_approved_deltas",
+          "forward_rights_live",
+          "owned_paths_and_verified_backups",
+          "forbidden_branches_proven_unreachable_or_no_effect"
+        ],
+        "rights_scope": "forward"
+      }
+    },
+    {
+      "actual_operation_assignment": null,
+      "id": "stage7-owned-binding",
+      "native_partition_complete": false,
+      "required_operation_question": "Bind all effects,consumers,aliases,writers,children and rights of this whole original node before partitioning any operation;unknown edges prohibit native admission. Policy/admission/launch/bootstrap/service windows keep their full original controls;no operation table creates a new grant.",
+      "whole_original_node": {
+        "actual_implementation_path": null,
+        "actual_implementation_sha256": null,
+        "effect": "owned-intent-staging-no-replace-metadata-directory-durability",
+        "id": "stage7-owned-binding",
+        "proof_status": "required-not-proven",
+        "required_fixture_gates": [
+          "complete_transitive_graph_resolved",
+          "original_context_authenticated",
+          "same_consumed_active_attempt",
+          "namespace_FD_no_fallback_and_service_unreachable",
+          "traps_armed",
+          "continuous_guard_all_writers_and_safe_identity",
+          "fresh_original_baseline_and_approved_deltas",
+          "forward_rights_live",
+          "owned_paths_and_verified_backups",
+          "forbidden_branches_proven_unreachable_or_no_effect"
+        ],
+        "rights_scope": "forward"
+      }
+    },
+    {
+      "actual_operation_assignment": null,
+      "id": "whole-reference-entry",
+      "native_partition_complete": false,
+      "required_operation_question": "Bind all effects,consumers,aliases,writers,children and rights of this whole original node before partitioning any operation;unknown edges prohibit native admission. Policy/admission/launch/bootstrap/service windows keep their full original controls;no operation table creates a new grant.",
+      "whole_original_node": {
+        "actual_implementation_path": null,
+        "actual_implementation_sha256": null,
+        "effect": "all-top-level-runtime-coordinator-and-cleanup-effects",
+        "id": "whole-reference-entry",
+        "proof_status": "required-not-proven",
+        "required_fixture_gates": [
+          "complete_transitive_graph_resolved",
+          "original_context_authenticated",
+          "same_consumed_active_attempt",
+          "namespace_FD_no_fallback_and_service_unreachable",
+          "traps_armed",
+          "continuous_guard_all_writers_and_safe_identity",
+          "fresh_original_baseline_and_approved_deltas",
+          "forward_rights_live",
+          "owned_paths_and_verified_backups",
+          "forbidden_branches_proven_unreachable_or_no_effect"
+        ],
+        "rights_scope": "forward"
+      }
+    },
+    {
+      "actual_operation_assignment": null,
+      "id": "reference-lock-runtime-logs",
+      "native_partition_complete": false,
+      "required_operation_question": "Bind all effects,consumers,aliases,writers,children and rights of this whole original node before partitioning any operation;unknown edges prohibit native admission. Policy/admission/launch/bootstrap/service windows keep their full original controls;no operation table creates a new grant.",
+      "whole_original_node": {
+        "actual_implementation_path": null,
+        "actual_implementation_sha256": null,
+        "effect": "own-lock-before-own-traps-runtime-directories-logs-stream-FDs",
+        "id": "reference-lock-runtime-logs",
+        "proof_status": "required-not-proven",
+        "required_fixture_gates": [
+          "complete_transitive_graph_resolved",
+          "original_context_authenticated",
+          "same_consumed_active_attempt",
+          "namespace_FD_no_fallback_and_service_unreachable",
+          "traps_armed",
+          "continuous_guard_all_writers_and_safe_identity",
+          "fresh_original_baseline_and_approved_deltas",
+          "forward_rights_live",
+          "owned_paths_and_verified_backups",
+          "forbidden_branches_proven_unreachable_or_no_effect"
+        ],
+        "rights_scope": "forward"
+      }
+    },
+    {
+      "actual_operation_assignment": null,
+      "id": "reference-snapshots-and-config-scan",
+      "native_partition_complete": false,
+      "required_operation_question": "Bind all effects,consumers,aliases,writers,children and rights of this whole original node before partitioning any operation;unknown edges prohibit native admission. Policy/admission/launch/bootstrap/service windows keep their full original controls;no operation table creates a new grant.",
+      "whole_original_node": {
+        "actual_implementation_path": null,
+        "actual_implementation_sha256": null,
+        "effect": "snapshot-delete-rewrite-packageDB-read-and-etc-new-scan",
+        "id": "reference-snapshots-and-config-scan",
+        "proof_status": "required-not-proven",
+        "required_fixture_gates": [
+          "complete_transitive_graph_resolved",
+          "original_context_authenticated",
+          "same_consumed_active_attempt",
+          "namespace_FD_no_fallback_and_service_unreachable",
+          "traps_armed",
+          "continuous_guard_all_writers_and_safe_identity",
+          "fresh_original_baseline_and_approved_deltas",
+          "forward_rights_live",
+          "owned_paths_and_verified_backups",
+          "forbidden_branches_proven_unreachable_or_no_effect"
+        ],
+        "rights_scope": "forward"
+      }
+    },
+    {
+      "actual_operation_assignment": null,
+      "id": "reference-GenInitrd-mutation",
+      "native_partition_complete": false,
+      "required_operation_question": "Bind all effects,consumers,aliases,writers,children and rights of this whole original node before partitioning any operation;unknown edges prohibit native admission. Policy/admission/launch/bootstrap/service windows keep their full original controls;no operation table creates a new grant.",
+      "whole_original_node": {
+        "actual_implementation_path": null,
+        "actual_implementation_sha256": null,
+        "effect": "potential-policy-temp-backup-mode-owner-rename-config-effect",
+        "id": "reference-GenInitrd-mutation",
+        "proof_status": "required-not-proven",
+        "required_fixture_gates": [
+          "complete_transitive_graph_resolved",
+          "original_context_authenticated",
+          "same_consumed_active_attempt",
+          "service_own_failure_barrier",
+          "durable_claim_and_launch_slot_proven",
+          "bootstrap_bounds_authentication_and_close",
+          "namespace_FD_no_fallback_and_service_unreachable",
+          "traps_armed",
+          "continuous_guard_all_writers_and_safe_identity",
+          "fresh_original_baseline_and_approved_deltas",
+          "forward_rights_live",
+          "recovery_rights_live_finite_budget",
+          "owned_paths_and_verified_backups",
+          "known_owned_child_quiescence",
+          "target_restoration_and_evidence_closed",
+          "target_control_released",
+          "captured_closed_data_only",
+          "independent_publication_controls",
+          "no_replace_and_last_receipt_durability",
+          "forbidden_branches_proven_unreachable_or_no_effect",
+          "issuer_policy_control_rights_valid",
+          "known_authenticated_unused_grant"
+        ],
+        "rights_scope": "forbidden"
+      }
+    },
+    {
+      "actual_operation_assignment": null,
+      "id": "reference-optional-module-mutation",
+      "native_partition_complete": false,
+      "required_operation_question": "Bind all effects,consumers,aliases,writers,children and rights of this whole original node before partitioning any operation;unknown edges prohibit native admission. Policy/admission/launch/bootstrap/service windows keep their full original controls;no operation table creates a new grant.",
+      "whole_original_node": {
+        "actual_implementation_path": null,
+        "actual_implementation_sha256": null,
+        "effect": "potential-flatpak-SBo-ELF-Cinnamon-queue-build-network-effects",
+        "id": "reference-optional-module-mutation",
+        "proof_status": "required-not-proven",
+        "required_fixture_gates": [
+          "complete_transitive_graph_resolved",
+          "original_context_authenticated",
+          "same_consumed_active_attempt",
+          "service_own_failure_barrier",
+          "durable_claim_and_launch_slot_proven",
+          "bootstrap_bounds_authentication_and_close",
+          "namespace_FD_no_fallback_and_service_unreachable",
+          "traps_armed",
+          "continuous_guard_all_writers_and_safe_identity",
+          "fresh_original_baseline_and_approved_deltas",
+          "forward_rights_live",
+          "recovery_rights_live_finite_budget",
+          "owned_paths_and_verified_backups",
+          "known_owned_child_quiescence",
+          "target_restoration_and_evidence_closed",
+          "target_control_released",
+          "captured_closed_data_only",
+          "independent_publication_controls",
+          "no_replace_and_last_receipt_durability",
+          "forbidden_branches_proven_unreachable_or_no_effect",
+          "issuer_policy_control_rights_valid",
+          "known_authenticated_unused_grant"
+        ],
+        "rights_scope": "forbidden"
+      }
+    },
+    {
+      "actual_operation_assignment": null,
+      "id": "reference-boot-mutation",
+      "native_partition_complete": false,
+      "required_operation_question": "Bind all effects,consumers,aliases,writers,children and rights of this whole original node before partitioning any operation;unknown edges prohibit native admission. Policy/admission/launch/bootstrap/service windows keep their full original controls;no operation table creates a new grant.",
+      "whole_original_node": {
+        "actual_implementation_path": null,
+        "actual_implementation_sha256": null,
+        "effect": "potential-initrd-GRUB-mkinitrd-boot-config-effects",
+        "id": "reference-boot-mutation",
+        "proof_status": "required-not-proven",
+        "required_fixture_gates": [
+          "complete_transitive_graph_resolved",
+          "original_context_authenticated",
+          "same_consumed_active_attempt",
+          "service_own_failure_barrier",
+          "durable_claim_and_launch_slot_proven",
+          "bootstrap_bounds_authentication_and_close",
+          "namespace_FD_no_fallback_and_service_unreachable",
+          "traps_armed",
+          "continuous_guard_all_writers_and_safe_identity",
+          "fresh_original_baseline_and_approved_deltas",
+          "forward_rights_live",
+          "recovery_rights_live_finite_budget",
+          "owned_paths_and_verified_backups",
+          "known_owned_child_quiescence",
+          "target_restoration_and_evidence_closed",
+          "target_control_released",
+          "captured_closed_data_only",
+          "independent_publication_controls",
+          "no_replace_and_last_receipt_durability",
+          "forbidden_branches_proven_unreachable_or_no_effect",
+          "issuer_policy_control_rights_valid",
+          "known_authenticated_unused_grant"
+        ],
+        "rights_scope": "forbidden"
+      }
+    },
+    {
+      "actual_operation_assignment": null,
+      "id": "nested-call-adapter",
+      "native_partition_complete": false,
+      "required_operation_question": "Bind all effects,consumers,aliases,writers,children and rights of this whole original node before partitioning any operation;unknown edges prohibit native admission. Policy/admission/launch/bootstrap/service windows keep their full original controls;no operation table creates a new grant.",
+      "whole_original_node": {
+        "actual_implementation_path": null,
+        "actual_implementation_sha256": null,
+        "effect": "each-exact-argv-raw-status-stream-selector-guard-and-latch",
+        "id": "nested-call-adapter",
+        "proof_status": "required-not-proven",
+        "required_fixture_gates": [
+          "complete_transitive_graph_resolved",
+          "original_context_authenticated",
+          "same_consumed_active_attempt",
+          "namespace_FD_no_fallback_and_service_unreachable",
+          "traps_armed",
+          "continuous_guard_all_writers_and_safe_identity",
+          "fresh_original_baseline_and_approved_deltas",
+          "forward_rights_live",
+          "owned_paths_and_verified_backups",
+          "forbidden_branches_proven_unreachable_or_no_effect"
+        ],
+        "rights_scope": "forward"
+      }
+    },
+    {
+      "actual_operation_assignment": null,
+      "id": "real-backend-and-selector",
+      "native_partition_complete": false,
+      "required_operation_question": "Bind all effects,consumers,aliases,writers,children and rights of this whole original node before partitioning any operation;unknown edges prohibit native admission. Policy/admission/launch/bootstrap/service windows keep their full original controls;no operation table creates a new grant.",
+      "whole_original_node": {
+        "actual_implementation_path": null,
+        "actual_implementation_sha256": null,
+        "effect": "actual-backend-internal-selector-config-priority-filter-packageDB",
+        "id": "real-backend-and-selector",
+        "proof_status": "required-not-proven",
+        "required_fixture_gates": [
+          "complete_transitive_graph_resolved",
+          "original_context_authenticated",
+          "same_consumed_active_attempt",
+          "namespace_FD_no_fallback_and_service_unreachable",
+          "traps_armed",
+          "continuous_guard_all_writers_and_safe_identity",
+          "fresh_original_baseline_and_approved_deltas",
+          "forward_rights_live",
+          "owned_paths_and_verified_backups",
+          "forbidden_branches_proven_unreachable_or_no_effect"
+        ],
+        "rights_scope": "forward"
+      }
+    },
+    {
+      "actual_operation_assignment": null,
+      "id": "package-tools-and-install-hooks",
+      "native_partition_complete": false,
+      "required_operation_question": "Bind all effects,consumers,aliases,writers,children and rights of this whole original node before partitioning any operation;unknown edges prohibit native admission. Policy/admission/launch/bootstrap/service windows keep their full original controls;no operation table creates a new grant.",
+      "whole_original_node": {
+        "actual_implementation_path": null,
+        "actual_implementation_sha256": null,
+        "effect": "actual-pkgtools-archive-scripts-config-files-and-unrelated-effect-proof",
+        "id": "package-tools-and-install-hooks",
+        "proof_status": "required-not-proven",
+        "required_fixture_gates": [
+          "complete_transitive_graph_resolved",
+          "original_context_authenticated",
+          "same_consumed_active_attempt",
+          "namespace_FD_no_fallback_and_service_unreachable",
+          "traps_armed",
+          "continuous_guard_all_writers_and_safe_identity",
+          "fresh_original_baseline_and_approved_deltas",
+          "forward_rights_live",
+          "owned_paths_and_verified_backups",
+          "forbidden_branches_proven_unreachable_or_no_effect"
+        ],
+        "rights_scope": "forward"
+      }
+    },
+    {
+      "actual_operation_assignment": null,
+      "id": "source-and-archive-consumption",
+      "native_partition_complete": false,
+      "required_operation_question": "Bind all effects,consumers,aliases,writers,children and rights of this whole original node before partitioning any operation;unknown edges prohibit native admission. Policy/admission/launch/bootstrap/service windows keep their full original controls;no operation table creates a new grant.",
+      "whole_original_node": {
+        "actual_implementation_path": null,
+        "actual_implementation_sha256": null,
+        "effect": "checked-source-manifest-and-distinct-target-predecessor-original-roles",
+        "id": "source-and-archive-consumption",
+        "proof_status": "required-not-proven",
+        "required_fixture_gates": [
+          "complete_transitive_graph_resolved",
+          "original_context_authenticated",
+          "same_consumed_active_attempt",
+          "namespace_FD_no_fallback_and_service_unreachable",
+          "traps_armed",
+          "continuous_guard_all_writers_and_safe_identity",
+          "fresh_original_baseline_and_approved_deltas",
+          "forward_rights_live",
+          "owned_paths_and_verified_backups",
+          "forbidden_branches_proven_unreachable_or_no_effect"
+        ],
+        "rights_scope": "forward"
+      }
+    },
+    {
+      "actual_operation_assignment": null,
+      "id": "interpreter-helper-dependency-consumption",
+      "native_partition_complete": false,
+      "required_operation_question": "Bind all effects,consumers,aliases,writers,children and rights of this whole original node before partitioning any operation;unknown edges prohibit native admission. Policy/admission/launch/bootstrap/service windows keep their full original controls;no operation table creates a new grant.",
+      "whole_original_node": {
+        "actual_implementation_path": null,
+        "actual_implementation_sha256": null,
+        "effect": "checked-script-interpreter-library-loader-tool-and-content-writers",
+        "id": "interpreter-helper-dependency-consumption",
+        "proof_status": "required-not-proven",
+        "required_fixture_gates": [
+          "complete_transitive_graph_resolved",
+          "original_context_authenticated",
+          "same_consumed_active_attempt",
+          "namespace_FD_no_fallback_and_service_unreachable",
+          "traps_armed",
+          "continuous_guard_all_writers_and_safe_identity",
+          "fresh_original_baseline_and_approved_deltas",
+          "forward_rights_live",
+          "owned_paths_and_verified_backups",
+          "forbidden_branches_proven_unreachable_or_no_effect"
+        ],
+        "rights_scope": "forward"
+      }
+    },
+    {
+      "actual_operation_assignment": null,
+      "id": "owned-child-quiescence",
+      "native_partition_complete": false,
+      "required_operation_question": "Bind all effects,consumers,aliases,writers,children and rights of this whole original node before partitioning any operation;unknown edges prohibit native admission. Policy/admission/launch/bootstrap/service windows keep their full original controls;no operation table creates a new grant.",
+      "whole_original_node": {
+        "actual_implementation_path": null,
+        "actual_implementation_sha256": null,
+        "effect": "known-bounded-control-drain-all-descendants-before-restore",
+        "id": "owned-child-quiescence",
+        "proof_status": "required-not-proven",
+        "required_fixture_gates": [
+          "complete_transitive_graph_resolved",
+          "original_context_authenticated",
+          "same_consumed_active_attempt",
+          "namespace_FD_no_fallback_and_service_unreachable",
+          "traps_armed",
+          "continuous_guard_all_writers_and_safe_identity",
+          "fresh_original_baseline_and_approved_deltas",
+          "recovery_rights_live_finite_budget",
+          "owned_paths_and_verified_backups",
+          "known_owned_child_quiescence"
+        ],
+        "rights_scope": "recovery"
+      }
+    },
+    {
+      "actual_operation_assignment": null,
+      "id": "same-attempt-original-restoration",
+      "native_partition_complete": false,
+      "required_operation_question": "Bind all effects,consumers,aliases,writers,children and rights of this whole original node before partitioning any operation;unknown edges prohibit native admission. Policy/admission/launch/bootstrap/service windows keep their full original controls;no operation table creates a new grant.",
+      "whole_original_node": {
+        "actual_implementation_path": null,
+        "actual_implementation_sha256": null,
+        "effect": "exact323-retained-rights-guarded324-backups-original-invariants",
+        "id": "same-attempt-original-restoration",
+        "proof_status": "required-not-proven",
+        "required_fixture_gates": [
+          "complete_transitive_graph_resolved",
+          "original_context_authenticated",
+          "same_consumed_active_attempt",
+          "namespace_FD_no_fallback_and_service_unreachable",
+          "traps_armed",
+          "continuous_guard_all_writers_and_safe_identity",
+          "fresh_original_baseline_and_approved_deltas",
+          "recovery_rights_live_finite_budget",
+          "owned_paths_and_verified_backups",
+          "known_owned_child_quiescence"
+        ],
+        "rights_scope": "recovery"
+      }
+    },
+    {
+      "actual_operation_assignment": null,
+      "id": "target-evidence-closure",
+      "native_partition_complete": false,
+      "required_operation_question": "Bind all effects,consumers,aliases,writers,children and rights of this whole original node before partitioning any operation;unknown edges prohibit native admission. Policy/admission/launch/bootstrap/service windows keep their full original controls;no operation table creates a new grant.",
+      "whole_original_node": {
+        "actual_implementation_path": null,
+        "actual_implementation_sha256": null,
+        "effect": "complete-closed-target-data-original-status-and-retained-owned-artifacts",
+        "id": "target-evidence-closure",
+        "proof_status": "required-not-proven",
+        "required_fixture_gates": [
+          "complete_transitive_graph_resolved",
+          "original_context_authenticated",
+          "same_consumed_active_attempt",
+          "namespace_FD_no_fallback_and_service_unreachable",
+          "traps_armed",
+          "continuous_guard_all_writers_and_safe_identity",
+          "fresh_original_baseline_and_approved_deltas",
+          "recovery_rights_live_finite_budget",
+          "owned_paths_and_verified_backups",
+          "known_owned_child_quiescence"
+        ],
+        "rights_scope": "recovery"
+      }
+    },
+    {
+      "actual_operation_assignment": null,
+      "id": "target-control-release",
+      "native_partition_complete": false,
+      "required_operation_question": "Bind all effects,consumers,aliases,writers,children and rights of this whole original node before partitioning any operation;unknown edges prohibit native admission. Policy/admission/launch/bootstrap/service windows keep their full original controls;no operation table creates a new grant.",
+      "whole_original_node": {
+        "actual_implementation_path": null,
+        "actual_implementation_sha256": null,
+        "effect": "known-quiescence-original-verify-target-evidence-before-release",
+        "id": "target-control-release",
+        "proof_status": "required-not-proven",
+        "required_fixture_gates": [
+          "complete_transitive_graph_resolved",
+          "original_context_authenticated",
+          "same_consumed_active_attempt",
+          "namespace_FD_no_fallback_and_service_unreachable",
+          "traps_armed",
+          "continuous_guard_all_writers_and_safe_identity",
+          "fresh_original_baseline_and_approved_deltas",
+          "recovery_rights_live_finite_budget",
+          "owned_paths_and_verified_backups",
+          "known_owned_child_quiescence",
+          "target_restoration_and_evidence_closed"
+        ],
+        "rights_scope": "recovery"
+      }
+    },
+    {
+      "actual_operation_assignment": null,
+      "id": "publication-controls",
+      "native_partition_complete": false,
+      "required_operation_question": "Bind all effects,consumers,aliases,writers,children and rights of this whole original node before partitioning any operation;unknown edges prohibit native admission. Policy/admission/launch/bootstrap/service windows keep their full original controls;no operation table creates a new grant.",
+      "whole_original_node": {
+        "actual_implementation_path": null,
+        "actual_implementation_sha256": null,
+        "effect": "independent-recipient-ancestry-alias-writer-content-authority-window",
+        "id": "publication-controls",
+        "proof_status": "required-not-proven",
+        "required_fixture_gates": [
+          "complete_transitive_graph_resolved",
+          "original_context_authenticated",
+          "known_owned_child_quiescence",
+          "target_restoration_and_evidence_closed",
+          "target_control_released",
+          "captured_closed_data_only",
+          "independent_publication_controls",
+          "no_replace_and_last_receipt_durability"
+        ],
+        "rights_scope": "publication"
+      }
+    },
+    {
+      "actual_operation_assignment": null,
+      "id": "publication-record",
+      "native_partition_complete": false,
+      "required_operation_question": "Bind all effects,consumers,aliases,writers,children and rights of this whole original node before partitioning any operation;unknown edges prohibit native admission. Policy/admission/launch/bootstrap/service windows keep their full original controls;no operation table creates a new grant.",
+      "whole_original_node": {
+        "actual_implementation_path": null,
+        "actual_implementation_sha256": null,
+        "effect": "captured-closed-data-only-owned-no-replace-record-durability",
+        "id": "publication-record",
+        "proof_status": "required-not-proven",
+        "required_fixture_gates": [
+          "complete_transitive_graph_resolved",
+          "original_context_authenticated",
+          "known_owned_child_quiescence",
+          "target_restoration_and_evidence_closed",
+          "target_control_released",
+          "captured_closed_data_only",
+          "independent_publication_controls",
+          "no_replace_and_last_receipt_durability"
+        ],
+        "rights_scope": "publication"
+      }
+    },
+    {
+      "actual_operation_assignment": null,
+      "id": "publication-last-receipt",
+      "native_partition_complete": false,
+      "required_operation_question": "Bind all effects,consumers,aliases,writers,children and rights of this whole original node before partitioning any operation;unknown edges prohibit native admission. Policy/admission/launch/bootstrap/service windows keep their full original controls;no operation table creates a new grant.",
+      "whole_original_node": {
+        "actual_implementation_path": null,
+        "actual_implementation_sha256": null,
+        "effect": "separate-final-origin-receipt-not-self-containing-or-pair-atomic",
+        "id": "publication-last-receipt",
+        "proof_status": "required-not-proven",
+        "required_fixture_gates": [
+          "complete_transitive_graph_resolved",
+          "original_context_authenticated",
+          "known_owned_child_quiescence",
+          "target_restoration_and_evidence_closed",
+          "target_control_released",
+          "captured_closed_data_only",
+          "independent_publication_controls",
+          "no_replace_and_last_receipt_durability"
+        ],
+        "rights_scope": "publication"
+      }
+    },
+    {
+      "actual_operation_assignment": null,
+      "id": "unresolved-dynamic-helpers-and-dependencies",
+      "native_partition_complete": false,
+      "required_operation_question": "Bind all effects,consumers,aliases,writers,children and rights of this whole original node before partitioning any operation;unknown edges prohibit native admission. Policy/admission/launch/bootstrap/service windows keep their full original controls;no operation table creates a new grant.",
+      "whole_original_node": {
+        "actual_implementation_path": null,
+        "actual_implementation_sha256": null,
+        "effect": "unbound-exec-source-substitution-scripts-native-protocol-and-external-payloads",
+        "id": "unresolved-dynamic-helpers-and-dependencies",
+        "proof_status": "required-not-proven",
+        "required_fixture_gates": [
+          "complete_transitive_graph_resolved",
+          "original_context_authenticated",
+          "same_consumed_active_attempt",
+          "service_own_failure_barrier",
+          "durable_claim_and_launch_slot_proven",
+          "bootstrap_bounds_authentication_and_close",
+          "namespace_FD_no_fallback_and_service_unreachable",
+          "traps_armed",
+          "continuous_guard_all_writers_and_safe_identity",
+          "fresh_original_baseline_and_approved_deltas",
+          "forward_rights_live",
+          "recovery_rights_live_finite_budget",
+          "owned_paths_and_verified_backups",
+          "known_owned_child_quiescence",
+          "target_restoration_and_evidence_closed",
+          "target_control_released",
+          "captured_closed_data_only",
+          "independent_publication_controls",
+          "no_replace_and_last_receipt_durability",
+          "forbidden_branches_proven_unreachable_or_no_effect",
+          "issuer_policy_control_rights_valid",
+          "known_authenticated_unused_grant"
+        ],
+        "rights_scope": "forbidden"
+      }
+    }
+  ],
+  "whole_original321_bootstrap_authentication_fd_loss": {
+    "authentication": {
+      "algorithms": "actual-signature-canonicalization-parser-and-key-provisioning-implementation-still-require-separate-selection-and-proof",
+      "covered_fields": [
+        "protocol",
+        "purpose",
+        "issuer",
+        "service_identity",
+        "service_epoch",
+        "grant_id",
+        "attempt_id",
+        "launch_slot",
+        "launch_instance",
+        "grant_state",
+        "launch_state",
+        "boot_binding",
+        "worker_identity",
+        "scope_bindings"
+      ],
+      "independent_one_shot_launch_origin_required": true,
+      "no_admission_socket_or_online_RPC_for_worker": true,
+      "purpose_domain": "slack-update/successor-admission-context-only",
+      "receipt_not_bearer_dispatch_capability": true,
+      "receipt_not_fresh_target_or_storage_proof": true,
+      "signature_scope": "domain-protocol-version-purpose-key-identity-and-complete-original-canonical-context-bytes",
+      "trust_source": "independently-provisioned-reviewed-verifier-and-trust-root-not-receipt-source-tree-path-env-or-self-rehash"
+    },
+    "bootstrap": {
+      "canonical_form": "ASCII-escaped-JSON-sort-keys-compact-separators-no-trailing-bytes-version-bound",
+      "closure": "close-bootstrap-read-end-on-every-success-failure-timeout-or-signal-path-before-child-exec; writer-end-never-inherited-by-worker",
+      "deadline_seconds": 10,
+      "limits_scope": "selected-symbolic-contract-limits-not-proven-real-stream-timer-or-signal-behavior",
+      "maximum_raw_bytes": 65536,
+      "parser_policy": "reject-duplicate-or-extra-fields-invalid-encoding-oversize-incomplete-input-bad-types-and-noncanonical-bytes",
+      "payload_format": "one-canonical-UTF8-JSON-envelope-followed-by-EOF",
+      "process_effect": "read-bounded-buffer-close-read-end-and-clear-authority-env-only-no-worker-filesystem-write",
+      "producer": "independently-authenticated-admission-service-after-durable-consumption-and-slot-spend",
+      "symbolic_read_fd": 3,
+      "trusted_receiver": "reviewed-worker-supervisor-from-the-already-spent320-launch-slot"
+    },
+    "fd_policy": {
+      "all_nested_helpers_and_restore_paths_in_effect_graph": true,
+      "allowlist": "exact-bound-roles-object-kinds-origins-aliases-and-lifetimes-only-not-numeric-FD-shortcut",
+      "backend_cannot_reach_service_via_FD_mount_path_network_cwd_env_or_process_handles": true,
+      "denied": [
+        "bootstrap-input",
+        "bootstrap-writer",
+        "admission-socket",
+        "RPC-channel",
+        "service-ledger-or-trust-key",
+        "host-directory",
+        "pid-handle",
+        "namespace-handle",
+        "unknown-or-aliased-resource"
+      ],
+      "no_close_on_exec_only_inference": true,
+      "required_stream_roles": [
+        "stdin",
+        "stdout",
+        "stderr"
+      ],
+      "retained_code": "only-separately-reviewed-bound-read-only-code-objects-with-reviewed-origin-aliases-interpreter-consumption-and-close-phase",
+      "retained_code_FD_alone_not_identity_or_immutability_proof": true,
+      "standard_FD_numbers_not_safety_proof": true,
+      "streams": "reviewed-bounded-isolated-command-stream-pipes-with-no-service-peer-or-host-escape",
+      "unreviewed_helpers_cannot_inherit_retained_code_or_bootstrap": true
+    },
+    "loss_policy": {
+      "acknowledgement": "optional-bounded-observation-never-authority-to-relaunch-or-readmit",
+      "close_or_child_status_unknown": "do-not-claim-containment-or-machine/controller-closure; no-command-dispatch",
+      "expiry_revocation": "323-policy-pending; authentication-does-not-exempt-expiry-revocation-or-wrong-boot",
+      "lost_or_invalid_receipt": "already-consumed-grant-stays-burned-no-dispatch-replay-or-new-launch; preserve-service-and-worker-evidence",
+      "recovery": "bounded-issuer-reviewed-recovery-not-chosen-or-authorized-here",
+      "service_restart": "320-durable-grant-and-launch-slot-state-is-not-reopened-by-lost-context-or-receipt",
+      "timeout_or_unknown_EOF": "fail-closed-no-owned-worker-write-at-stage0; unknown-reader-child-status-or-service-evidence-remains-pending"
+    }
+  },
+  "whole_original323_contracts": {
+    "clock_contract": {
+      "actual_clock": null,
+      "actual_forward_deadline": null,
+      "actual_recovery_budget": null,
+      "actual_recovery_deadline": null,
+      "fixture": "integer-ticks-forward100-recovery140-budget5-only-synthetic-no-real-seconds-or-host-observation",
+      "rule": "issuer-authenticated-finite-bounds-and-independent-trusted-time-mapping-with-same-boot; no-wallclock-rollback-suspend-epoch-restart-or-unknown-as-valid"
+    },
+    "closure_contract": {
+      "controller": "unknown-durable-claim-launch-binding-budget-child-or-evidence-state-remains-pending-no-auto-delete-release-or-closed-rights-claim",
+      "machine": "only-known-original-restoration-and-known-owned-child-quiescence-with-complete-target-evidence-under-guard-can-close-scoped-target-obligations",
+      "publication": "after-target-closure-use-captured-closed-data-under-independent-publication-controls-through-last-receipt; no-target-refresh-write-or-renewal"
+    },
+    "fence_contract": {
+      "actual_enforcer": null,
+      "actual_transport": null,
+      "compatibility": "321-offline-bootstrap-schema-and-FD-closure-unchanged; no-added-worker-RPC-or-inherited-control-channel; future-successor-fence-policy-and-transport-integration-explicitly-required324/325",
+      "rule": "trusted-external-controller-enforces-original-policy-and-absorbing-revocation-at-every-effect-boundary; worker-and-contained-commands-have-no-service-or-broker-capability",
+      "scope": "live-check-is-original-attempt-validity-not-new-grant-per-action; no-claim-of-instant-revocation-from-offline-receipt-or-finite-lease-alone",
+      "uncertainty": "gate-outcome-loss-or-stale-or-unavailable-status-stops-effects; consumed-grant-launch-slot-and-recovery-budget-never-reopen"
+    },
+    "forward_contract": {
+      "in_flight": "started-effects-and-children-remain-obligations; inability-to-prove-stop-at-safe-effect-boundary-keeps-unknown-pending",
+      "owner": "original-consumed-active-attempt-no-new-or-unused-grant-per-nested-call",
+      "terminal": "normal-forward-completion-also-closes-forward-before-restoration-evidence-and-target-control-release",
+      "termination": "expiry-forward-revocation-or-any-failure-latches-forward-stop-irreversibly; no-new-effect-dispatch-or-revival",
+      "validity": "independent-authenticated-scope-trusted-time-and-continuously-enforced-live-fence-before-and-through-every-permitted-effect"
+    },
+    "recovery_contract": {
+      "boundedness": "finite-issuer-bound-deadline-and-durable-action-budget; spend-before-action; no-renewal-refill-retry-after-unknown-or-new-grant",
+      "expiry_relation": "forward-expiry-or-forward-only-revocation-does-not-itself-revoke-explicitly-retained-recovery; never-blanket-expiry-exemption",
+      "idempotence": "known-already-restored-state-may-return-reviewed-no-op-with-fresh-verification; never-repeat-unknown-package-or-file-action",
+      "order": "stop-forward-then-known-child-quiescence-then-safe-restore-verify-target-evidence-before-release",
+      "owner": "narrow-retained-rights-of-same-original-consumed-attempt-not-another-grant-or-invocation",
+      "preconditions": "traps-guards-owned-canonical-paths-all-writers-excluded-exact-backups-same-safe-identity-original-baseline-and-approved-deltas",
+      "revocation": "recovery/all-revocation-unknown-scope-clock-discontinuity-boot-or-identity-drift-block-recovery-writes-and-preserve-obligations",
+      "status": "keep-original-forward-failure-status-separate-from-recovery-and-publication-status; restoration-cannot-turn-failure-into-success",
+      "validity": "explicit-authenticated-issuer-original-recovery-scope-with-own-finite-deadline-budget-and-live-recovery-fence",
+      "whitelist": [
+        "bounded-owned-child-control-and-drain",
+        "exact-original-backup-restoration",
+        "verify-original-invariants",
+        "capture-owned-target-evidence",
+        "verified-target-control-release"
+      ]
+    }
+  },
+  "whole_original380_independent_resolution_criteria": [
+    "Exact original-attempt issuer identity, authenticated split finite rights, trusted original boot/time/deadline/budget and no fresh per-action grant.",
+    "Complete actual source/backend/helper/selector/hook/async/storage/evidence graph and every real effect boundary, including object/alias/writer/FD lifetimes.",
+    "Native original authority serialization versus effect admission plus independently identified safe stopping and known drain for admitted in-flight effects.",
+    "Original offline bootstrap and full FD/namespace/no-worker-service/broker capability contract compatibility, including hidden notification or mediation paths.",
+    "Unknown/loss/supervisor-death behavior stops new effects while preserving consumed rights, children, uncertain outcomes and finite original recovery obligations.",
+    "Exact independently supported platform implementation and full expected/raw vectors with effective positive/negative fault observations and original proof-case scope.",
+    "Separate reviewed containment and fresh explicit native test grant before any native effects; successful future tests are not their own permission prerequisite."
+  ],
+  "whole_original95_edges": [
+    [
+      "durable-admission-claim",
+      "durable-single-launch-slot"
+    ],
+    [
+      "durable-single-launch-slot",
+      "offline-bootstrap-context"
+    ],
+    [
+      "offline-bootstrap-context",
+      "worker-readonly-preflight"
+    ],
+    [
+      "worker-readonly-preflight",
+      "worker-traps-and-child-control"
+    ],
+    [
+      "worker-traps-and-child-control",
+      "outer-writer-guard-and-original-baseline"
+    ],
+    [
+      "outer-writer-guard-and-original-baseline",
+      "owned-runtime-and-original-backups"
+    ],
+    [
+      "owned-runtime-and-original-backups",
+      "predecessor-and-local-isolation"
+    ],
+    [
+      "predecessor-and-local-isolation",
+      "stage7-owned-binding"
+    ],
+    [
+      "stage7-owned-binding",
+      "whole-reference-entry"
+    ],
+    [
+      "whole-reference-entry",
+      "reference-lock-runtime-logs"
+    ],
+    [
+      "whole-reference-entry",
+      "reference-snapshots-and-config-scan"
+    ],
+    [
+      "whole-reference-entry",
+      "reference-GenInitrd-mutation"
+    ],
+    [
+      "whole-reference-entry",
+      "reference-optional-module-mutation"
+    ],
+    [
+      "whole-reference-entry",
+      "reference-boot-mutation"
+    ],
+    [
+      "whole-reference-entry",
+      "nested-call-adapter"
+    ],
+    [
+      "nested-call-adapter",
+      "real-backend-and-selector"
+    ],
+    [
+      "real-backend-and-selector",
+      "package-tools-and-install-hooks"
+    ],
+    [
+      "package-tools-and-install-hooks",
+      "source-and-archive-consumption"
+    ],
+    [
+      "package-tools-and-install-hooks",
+      "interpreter-helper-dependency-consumption"
+    ],
+    [
+      "whole-reference-entry",
+      "owned-child-quiescence"
+    ],
+    [
+      "owned-child-quiescence",
+      "same-attempt-original-restoration"
+    ],
+    [
+      "same-attempt-original-restoration",
+      "target-evidence-closure"
+    ],
+    [
+      "target-evidence-closure",
+      "target-control-release"
+    ],
+    [
+      "target-control-release",
+      "publication-controls"
+    ],
+    [
+      "publication-controls",
+      "publication-record"
+    ],
+    [
+      "publication-record",
+      "publication-last-receipt"
+    ],
+    [
+      "issuer-policy-and-key-provisioning",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "durable-admission-claim",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "durable-single-launch-slot",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "durable-single-launch-slot",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "offline-bootstrap-context",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "offline-bootstrap-context",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "trusted-time-and-revocation-fence",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "worker-readonly-preflight",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "worker-readonly-preflight",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "worker-traps-and-child-control",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "worker-traps-and-child-control",
+      "trusted-time-and-revocation-fence"
+    ],
+    [
+      "worker-traps-and-child-control",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "outer-writer-guard-and-original-baseline",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "outer-writer-guard-and-original-baseline",
+      "trusted-time-and-revocation-fence"
+    ],
+    [
+      "outer-writer-guard-and-original-baseline",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "owned-runtime-and-original-backups",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "owned-runtime-and-original-backups",
+      "trusted-time-and-revocation-fence"
+    ],
+    [
+      "owned-runtime-and-original-backups",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "predecessor-and-local-isolation",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "predecessor-and-local-isolation",
+      "trusted-time-and-revocation-fence"
+    ],
+    [
+      "predecessor-and-local-isolation",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "stage7-owned-binding",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "stage7-owned-binding",
+      "trusted-time-and-revocation-fence"
+    ],
+    [
+      "stage7-owned-binding",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "whole-reference-entry",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "whole-reference-entry",
+      "trusted-time-and-revocation-fence"
+    ],
+    [
+      "whole-reference-entry",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "reference-lock-runtime-logs",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "reference-lock-runtime-logs",
+      "trusted-time-and-revocation-fence"
+    ],
+    [
+      "reference-lock-runtime-logs",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "reference-snapshots-and-config-scan",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "reference-snapshots-and-config-scan",
+      "trusted-time-and-revocation-fence"
+    ],
+    [
+      "reference-snapshots-and-config-scan",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "reference-GenInitrd-mutation",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "reference-optional-module-mutation",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "reference-boot-mutation",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "nested-call-adapter",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "nested-call-adapter",
+      "trusted-time-and-revocation-fence"
+    ],
+    [
+      "nested-call-adapter",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "real-backend-and-selector",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "real-backend-and-selector",
+      "trusted-time-and-revocation-fence"
+    ],
+    [
+      "real-backend-and-selector",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "package-tools-and-install-hooks",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "package-tools-and-install-hooks",
+      "trusted-time-and-revocation-fence"
+    ],
+    [
+      "package-tools-and-install-hooks",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "source-and-archive-consumption",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "source-and-archive-consumption",
+      "trusted-time-and-revocation-fence"
+    ],
+    [
+      "source-and-archive-consumption",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "interpreter-helper-dependency-consumption",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "interpreter-helper-dependency-consumption",
+      "trusted-time-and-revocation-fence"
+    ],
+    [
+      "interpreter-helper-dependency-consumption",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "owned-child-quiescence",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "owned-child-quiescence",
+      "trusted-time-and-revocation-fence"
+    ],
+    [
+      "owned-child-quiescence",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "same-attempt-original-restoration",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "same-attempt-original-restoration",
+      "trusted-time-and-revocation-fence"
+    ],
+    [
+      "same-attempt-original-restoration",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "target-evidence-closure",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "target-evidence-closure",
+      "trusted-time-and-revocation-fence"
+    ],
+    [
+      "target-evidence-closure",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "target-control-release",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "target-control-release",
+      "trusted-time-and-revocation-fence"
+    ],
+    [
+      "target-control-release",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "publication-controls",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "publication-controls",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "publication-record",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "publication-record",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ],
+    [
+      "publication-last-receipt",
+      "issuer-policy-and-key-provisioning"
+    ],
+    [
+      "publication-last-receipt",
+      "unresolved-dynamic-helpers-and-dependencies"
+    ]
+  ],
+  "whole_original9_authority_windows": [
+    {
+      "actual_authority_valid": false,
+      "actual_budget": null,
+      "actual_deadline": null,
+      "actual_fence": null,
+      "actual_issuer": null,
+      "actual_scope": null,
+      "credential": "issuer-own-provisioning-rights-not-a-worker-target-grant",
+      "fixture_gate_keys": [
+        "complete_graph_resolved_in_fixture",
+        "original_context_authenticated",
+        "actor_owner_writers_and_scope_bound",
+        "issuer_policy_rights_live",
+        "service_own_failure_barrier"
+      ],
+      "operational_disposition": "required-not-proven",
+      "window": "policy"
+    },
+    {
+      "actual_authority_valid": false,
+      "actual_budget": null,
+      "actual_deadline": null,
+      "actual_fence": null,
+      "actual_issuer": null,
+      "actual_scope": null,
+      "credential": "authenticated-original-known-unused-once",
+      "fixture_gate_keys": [
+        "complete_graph_resolved_in_fixture",
+        "original_context_authenticated",
+        "actor_owner_writers_and_scope_bound",
+        "issuer_policy_rights_live",
+        "service_own_failure_barrier",
+        "service_effect_rights_live"
+      ],
+      "operational_disposition": "required-not-proven",
+      "window": "admission"
+    },
+    {
+      "actual_authority_valid": false,
+      "actual_budget": null,
+      "actual_deadline": null,
+      "actual_fence": null,
+      "actual_issuer": null,
+      "actual_scope": null,
+      "credential": "same-consumed-attempt-known-unused-slot-before-durable-spend-known-spent-slot-before-one-spawn-unknown-quarantine",
+      "fixture_gate_keys": [
+        "complete_graph_resolved_in_fixture",
+        "original_context_authenticated",
+        "actor_owner_writers_and_scope_bound",
+        "service_own_failure_barrier",
+        "durable_claim_and_launch_known",
+        "same_attempt_same_boot_phase",
+        "service_effect_rights_live"
+      ],
+      "operational_disposition": "required-not-proven",
+      "window": "launch"
+    },
+    {
+      "actual_authority_valid": false,
+      "actual_budget": null,
+      "actual_deadline": null,
+      "actual_fence": null,
+      "actual_issuer": null,
+      "actual_scope": null,
+      "credential": "same-consumed-launch-instance-read-auth-close-only",
+      "fixture_gate_keys": [
+        "complete_graph_resolved_in_fixture",
+        "original_context_authenticated",
+        "actor_owner_writers_and_scope_bound",
+        "durable_claim_and_launch_known",
+        "bounded_offline_bootstrap_closed",
+        "same_attempt_same_boot_phase",
+        "bootstrap_rights_live"
+      ],
+      "operational_disposition": "required-not-proven",
+      "window": "bootstrap"
+    },
+    {
+      "actual_authority_valid": false,
+      "actual_budget": null,
+      "actual_deadline": null,
+      "actual_fence": null,
+      "actual_issuer": null,
+      "actual_scope": null,
+      "credential": "same-consumed-original-context-and-service-own-effects-controls",
+      "fixture_gate_keys": [
+        "complete_graph_resolved_in_fixture",
+        "original_context_authenticated",
+        "actor_owner_writers_and_scope_bound",
+        "service_own_failure_barrier",
+        "same_attempt_same_boot_phase",
+        "durable_claim_and_launch_known",
+        "service_effect_rights_live"
+      ],
+      "operational_disposition": "required-not-proven",
+      "window": "service"
+    },
+    {
+      "actual_authority_valid": false,
+      "actual_budget": null,
+      "actual_deadline": null,
+      "actual_fence": null,
+      "actual_issuer": null,
+      "actual_scope": null,
+      "credential": "same-consumed-active-attempt-same-boot-approved-phase-live-forward-fence",
+      "fixture_gate_keys": [
+        "complete_graph_resolved_in_fixture",
+        "original_context_authenticated",
+        "actor_owner_writers_and_scope_bound",
+        "durable_claim_and_launch_known",
+        "bounded_offline_bootstrap_closed",
+        "same_attempt_same_boot_phase",
+        "traps_native_guard_fresh_original_and_backups",
+        "forward_rights_live"
+      ],
+      "operational_disposition": "required-not-proven",
+      "window": "forward"
+    },
+    {
+      "actual_authority_valid": false,
+      "actual_budget": null,
+      "actual_deadline": null,
+      "actual_fence": null,
+      "actual_issuer": null,
+      "actual_scope": null,
+      "credential": "same-consumed-original-retained-finite-recovery-rights-no-forward-renewal-or-new-grant",
+      "fixture_gate_keys": [
+        "complete_graph_resolved_in_fixture",
+        "original_context_authenticated",
+        "actor_owner_writers_and_scope_bound",
+        "durable_claim_and_launch_known",
+        "bounded_offline_bootstrap_closed",
+        "same_attempt_same_boot_phase",
+        "traps_native_guard_fresh_original_and_backups",
+        "finite_retained_recovery_rights_live",
+        "known_owned_child_control_and_safe_identity"
+      ],
+      "operational_disposition": "required-not-proven",
+      "window": "recovery"
+    },
+    {
+      "actual_authority_valid": false,
+      "actual_budget": null,
+      "actual_deadline": null,
+      "actual_fence": null,
+      "actual_issuer": null,
+      "actual_scope": null,
+      "credential": "captured-closed-target-data-plus-independent-publication-rights-not-new-target-grant",
+      "fixture_gate_keys": [
+        "complete_graph_resolved_in_fixture",
+        "original_context_authenticated",
+        "actor_owner_writers_and_scope_bound",
+        "captured_closed_target_data",
+        "independent_publication_rights_live",
+        "publication_recipient_content_writers_and_receipt_controls"
+      ],
+      "operational_disposition": "required-not-proven",
+      "window": "publication"
+    },
+    {
+      "actual_authority_valid": false,
+      "actual_budget": null,
+      "actual_deadline": null,
+      "actual_fence": null,
+      "actual_issuer": null,
+      "actual_scope": null,
+      "credential": "no-dispatch-authority-unknown-graph-or-outside-target-boot-optional-effects",
+      "fixture_gate_keys": [
+        "complete_graph_resolved_in_fixture",
+        "original_context_authenticated",
+        "actor_owner_writers_and_scope_bound",
+        "issuer_policy_rights_live",
+        "service_own_failure_barrier",
+        "durable_claim_and_launch_known",
+        "bounded_offline_bootstrap_closed",
+        "same_attempt_same_boot_phase",
+        "traps_native_guard_fresh_original_and_backups",
+        "forward_rights_live",
+        "finite_retained_recovery_rights_live",
+        "known_owned_child_control_and_safe_identity",
+        "captured_closed_target_data",
+        "independent_publication_rights_live",
+        "publication_recipient_content_writers_and_receipt_controls",
+        "service_effect_rights_live",
+        "bootstrap_rights_live"
+      ],
+      "operational_disposition": "required-not-proven",
+      "window": "forbidden"
+    }
+  ],
+  "whole_original_requirements_remain_normative": true
+}

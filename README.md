@@ -1,3 +1,31 @@
+<!-- step-402-scoped-admission:start -->
+## Current Phase 1 scoped operation admission proposal -- step 402
+
+Accepted401 at reported `1a08924`:60orderedPASS/zero failures,tenfiles/eightcreates/
+7217insertions,reported push and clean matching heads. Step402prepared,user acceptance
+pending;last confirmed repository pause398 covers389-398only.
+
+The [402 draft](docs/reference/phase-1-operational-joint-operation-admission-revocation-proposal-review.md)
+proposes revocation denying NEW scope admissions while known pre-request admitted
+finite operations may finish within original fixed bounds. Eight inactive clause
+replacements disclose weakened forward AND recovery/internal target-evidence
+revocation;publication keeps separate original controls and own policy. This is
+not original equivalence or an approved migration. Current every-effect clauses
+remain normative. Worker no-channel bootstrap/FD policy remains unchanged.
+
+Whole30nodes/95edges/nineauthoritywindows and23authored hypothetical cases provide
+no actual partition,enforcer,safe cut,known drain or native permission. Unknowns,
+failure/mismatch,original singlelaunch/once-onlyfinite recovery and fixed bounds
+remain. All original graph/proof/case/raw/relation/entry scope and396impact retained.
+JCP400-A/R/D unselected;all joint blockers unresolved. Nativeproofs/cases0;Phase1/
+kernel incomplete;schema/reference-v1/C/Phase2/Productionclosed. Hostunobserved/
+livebindingsnull/globalfalse,no batch required machine/controller cleanup. Separate
+actual safejointreview and fresh bounded testgrant precede effects;full native
+conformance later readiness. Full402acceptance before403;conditional408allwhole
+conditions/finalactualreturn/externalclose thenSTOP/noautomatic409. Old accepted401
+historical README suffix remains byte-exact below this current prefix.
+<!-- step-402-scoped-admission:end -->
+
 <!-- step-401-joint-trust-review:start -->
 ## Current Phase 1 joint writer/source/trust draft -- step 401
 
