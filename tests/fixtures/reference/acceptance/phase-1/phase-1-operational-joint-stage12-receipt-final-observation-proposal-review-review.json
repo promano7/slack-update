@@ -1,0 +1,3158 @@
+{
+  "DAG_proves_native_protocol": false,
+  "actual_custody_endpoint": null,
+  "actual_final_observer": null,
+  "actual_native_evidence": null,
+  "actual_native_graph": null,
+  "actual_receipt_payload_cut": null,
+  "actual_receipt_writer": null,
+  "actual_role_sharing_or_separation": null,
+  "actual_stage12_event_set": null,
+  "actual_terminal_acceptance_boundary": null,
+  "after_confirmed408_next_authorized_stage": null,
+  "all10_event_joint_reconciliations": [
+    {
+      "actual_actor_source_controls": null,
+      "actual_event_observation": null,
+      "joint_specific_requirement": "Retain original target order: independent full owned child/FD/stream/in-flight storage drain, exact original restoration/full invariants/target evidence under continuous guard, then safe release. Publish only protected captured closed data. Neither receipt writer, observer, collector nor consumer may reread, refresh, restore or acquire new target/source state after release. Captured target facts remain qualified to their capture cut; publication uncertainty neither erases them nor proves current/global closure.",
+      "runtime_authority": false,
+      "whole_original394_event": {
+        "actor_role": "stage12-subject",
+        "actual_actor": null,
+        "actual_observation": null,
+        "current_authority": false,
+        "event_id": "captured-target-closed-data",
+        "meaning": "Prior independently known target closure; input only,no new target access.",
+        "native_boundary_selected": false,
+        "original_actual_membership": null,
+        "proposed_subject_stage12_member": false
+      }
+    },
+    {
+      "actual_actor_source_controls": null,
+      "actual_event_observation": null,
+      "joint_specific_requirement": "Archive and sidecar are separate exclusive no-replace controlled objects. Before each own effect independently review service barriers, authenticated original identity/authority, ancestor/mount/backing/alias/all-writer protection, original fixed clock, once-only pre-spent finite right and storage. Whole original file/metadata/directory/device/ACK durability, descendants/streams/status/origin remain required; no atomic pair, self-containing archive, hash/exit/flush-as-proof, overwrite or commit repeat.",
+      "runtime_authority": false,
+      "whole_original394_event": {
+        "actor_role": "stage12-subject",
+        "actual_actor": null,
+        "actual_observation": null,
+        "current_authority": false,
+        "event_id": "archive-commit-known",
+        "meaning": "Producer separately commits archive under known original controlled storage.",
+        "native_boundary_selected": false,
+        "original_actual_membership": null,
+        "proposed_subject_stage12_member": true
+      }
+    },
+    {
+      "actual_actor_source_controls": null,
+      "actual_event_observation": null,
+      "joint_specific_requirement": "Archive and sidecar are separate exclusive no-replace controlled objects. Before each own effect independently review service barriers, authenticated original identity/authority, ancestor/mount/backing/alias/all-writer protection, original fixed clock, once-only pre-spent finite right and storage. Whole original file/metadata/directory/device/ACK durability, descendants/streams/status/origin remain required; no atomic pair, self-containing archive, hash/exit/flush-as-proof, overwrite or commit repeat.",
+      "runtime_authority": false,
+      "whole_original394_event": {
+        "actor_role": "stage12-subject",
+        "actual_actor": null,
+        "actual_observation": null,
+        "current_authority": false,
+        "event_id": "sidecar-commit-known",
+        "meaning": "Producer separately commits sidecar; never atomic-pair evidence.",
+        "native_boundary_selected": false,
+        "original_actual_membership": null,
+        "proposed_subject_stage12_member": true
+      }
+    },
+    {
+      "actual_actor_source_controls": null,
+      "actual_event_observation": null,
+      "joint_specific_requirement": "All original producer subject descendants/FD aliases/stdout/stderr/raw exit origin and collector custody known before payload construction. EOF/parent exit/task count are not full drain; collector own later effects remain externally accounted.",
+      "runtime_authority": false,
+      "whole_original394_event": {
+        "actor_role": "independent-stream-collector",
+        "actual_actor": null,
+        "actual_observation": null,
+        "current_authority": false,
+        "event_id": "subject-trace-closed",
+        "meaning": "Complete producer subject streams/status/origin and descendants captured; collector own effects still externally accounted.",
+        "native_boundary_selected": false,
+        "original_actual_membership": null,
+        "proposed_subject_stage12_member": true
+      }
+    },
+    {
+      "actual_actor_source_controls": null,
+      "actual_event_observation": null,
+      "joint_specific_requirement": "Only after complete producer subject trace closure may external receipt payload bind exact protected prior subject stdout/stderr/status/origin and artifact facts from captured data. Receipt never includes proof/hash/ACK of its own future commit or later writer/final-observer/consumer completion. Writer completion must be captured separately. Payload signature/path/digest and producer exit are not independent final evidence.",
+      "runtime_authority": false,
+      "whole_original394_event": {
+        "actor_role": "external-last-receipt-writer",
+        "actual_actor": null,
+        "actual_observation": null,
+        "current_authority": false,
+        "event_id": "receipt-payload-bound",
+        "meaning": "Payload includes closed prior evidence,not own future final completion.",
+        "native_boundary_selected": false,
+        "original_actual_membership": null,
+        "proposed_subject_stage12_member": false
+      }
+    },
+    {
+      "actual_actor_source_controls": null,
+      "actual_event_observation": null,
+      "joint_specific_requirement": "Known independently supported original once-only receipt object/storage outcome, not payload self-proof; unknown commit/ACK denies retry and remains separate from known archive/sidecar facts.",
+      "runtime_authority": false,
+      "whole_original394_event": {
+        "actor_role": "external-last-receipt-writer",
+        "actual_actor": null,
+        "actual_observation": null,
+        "current_authority": false,
+        "event_id": "receipt-commit-known",
+        "meaning": "Once-only independently qualified receipt object/file/meta/directory/storage outcome.",
+        "native_boundary_selected": false,
+        "original_actual_membership": null,
+        "proposed_subject_stage12_member": false
+      }
+    },
+    {
+      "actual_actor_source_controls": null,
+      "actual_event_observation": null,
+      "joint_specific_requirement": "Receipt writer commits once as a separate finite publication obligation. Independently protected final observer establishes exact final receipt bytes/metadata/object/ancestry/alias/writers plus file/directory/storage outcome AND full receipt-writer descendants/FD/streams/status/origin. Independence requires actual protected source, provenance and effective faults; a separate process, UID, signature or role label is insufficient. Observer own effect/control/drain/storage is still a reviewed obligation, not passive immunity.",
+      "runtime_authority": false,
+      "whole_original394_event": {
+        "actor_role": "independent-final-receipt-observer",
+        "actual_actor": null,
+        "actual_observation": null,
+        "current_authority": false,
+        "event_id": "final-observation-known",
+        "meaning": "Exact independently observed receipt and writer outcomes; no self-proof.",
+        "native_boundary_selected": false,
+        "original_actual_membership": null,
+        "proposed_subject_stage12_member": false
+      }
+    },
+    {
+      "actual_actor_source_controls": null,
+      "actual_event_observation": null,
+      "joint_specific_requirement": "Protected consumer/verifier independently binds the exact captured receipt and archive/sidecar identity to reviewed transport, custody endpoint, bytes/metadata, original source/trust/clock/finite right and known handoff/ACK. Local final receipt visibility is not remote consumer custody. Custody/ACK uncertainty remains pending independently from known captured object/target facts. No new target grant, repeat handoff or republish on unknown outcome.",
+      "runtime_authority": false,
+      "whole_original394_event": {
+        "actor_role": "evidence-custody-consumer",
+        "actual_actor": null,
+        "actual_observation": null,
+        "current_authority": false,
+        "event_id": "custody-handoff-known",
+        "meaning": "Distinct guarded consumer custody/ACK outcome from captured data only.",
+        "native_boundary_selected": false,
+        "original_actual_membership": null,
+        "proposed_subject_stage12_member": false
+      }
+    },
+    {
+      "actual_actor_source_controls": null,
+      "actual_event_observation": null,
+      "joint_specific_requirement": "EVERY producer, collector, receipt writer, final observer, consumer and verifier own effect remains within401 actor/ACTION workload and source/alias controls; ordinary faults remain failures. Apply402 INACTIVE scoped admission cuts only inside original exact admitted envelope and403 original clock/independent full drain;404 irreversible durable action spend/storage/quarantine. Never borrow worker target rights, add a worker service channel, waive first-effect controls, refill budget, replace guard or renew clock/grant. Actual role sharing/separation is unbound.",
+      "runtime_authority": false,
+      "whole_original394_event": {
+        "actor_role": "independent-verifier-and-expectations",
+        "actual_actor": null,
+        "actual_observation": null,
+        "current_authority": false,
+        "event_id": "external-outcomes-accounted",
+        "meaning": "Every listed collector/observer/consumer effect known; actual complete native graph/cut remains unselected.",
+        "native_boundary_selected": false,
+        "original_actual_membership": null,
+        "proposed_subject_stage12_member": false
+      }
+    },
+    {
+      "actual_actor_source_controls": null,
+      "actual_event_observation": null,
+      "joint_specific_requirement": "INACTIVE terminal evidence/trust amendment: complete finite enumerated subject/receipt/collector/observer/consumer/verifier accounting under reviewed independent custody ends at an explicitly declared cut. Acceptance itself has source/trust/object/storage/clock/finite-right responsibilities. No included further evidence-producing effect occurs after that cut; any real later unclassified effect blocks eligibility and requires review, not an exemption or infinite self-receipt chain. Complete actual native boundary/independence/closure remains unknown.",
+      "runtime_authority": false,
+      "whole_original394_event": {
+        "actor_role": "independent-verifier-and-expectations",
+        "actual_actor": null,
+        "actual_observation": null,
+        "current_authority": false,
+        "event_id": "terminal-acceptance-cut",
+        "meaning": "Proposed finite end boundary; real unclassified later effects block eligibility.",
+        "native_boundary_selected": false,
+        "original_actual_membership": null,
+        "proposed_subject_stage12_member": false
+      }
+    }
+  ],
+  "all6_external_role_obligation_questions": [
+    {
+      "actual_actor": null,
+      "actual_control_or_transport": null,
+      "actual_independent_provenance": null,
+      "actual_sharing_or_separation": null,
+      "actual_source": null,
+      "actual_storage": null,
+      "complete_own_descendant_FD_stream_storage_origin_required": true,
+      "first_effect_barrier_required": true,
+      "is_exempt_observer": false,
+      "joint_control_requirement": "EVERY producer, collector, receipt writer, final observer, consumer and verifier own effect remains within401 actor/ACTION workload and source/alias controls; ordinary faults remain failures. Apply402 INACTIVE scoped admission cuts only inside original exact admitted envelope and403 original clock/independent full drain;404 irreversible durable action spend/storage/quarantine. Never borrow worker target rights, add a worker service channel, waive first-effect controls, refill budget, replace guard or renew clock/grant. Actual role sharing/separation is unbound.",
+      "native_proof": false,
+      "original_separate_publication_rights_required": true,
+      "own_effect_scope": "archive/sidecar exclusive commits and full subject trace",
+      "role_label_proves_independence": false,
+      "role_question": "producer"
+    },
+    {
+      "actual_actor": null,
+      "actual_control_or_transport": null,
+      "actual_independent_provenance": null,
+      "actual_sharing_or_separation": null,
+      "actual_source": null,
+      "actual_storage": null,
+      "complete_own_descendant_FD_stream_storage_origin_required": true,
+      "first_effect_barrier_required": true,
+      "is_exempt_observer": false,
+      "joint_control_requirement": "EVERY producer, collector, receipt writer, final observer, consumer and verifier own effect remains within401 actor/ACTION workload and source/alias controls; ordinary faults remain failures. Apply402 INACTIVE scoped admission cuts only inside original exact admitted envelope and403 original clock/independent full drain;404 irreversible durable action spend/storage/quarantine. Never borrow worker target rights, add a worker service channel, waive first-effect controls, refill budget, replace guard or renew clock/grant. Actual role sharing/separation is unbound.",
+      "native_proof": false,
+      "original_separate_publication_rights_required": true,
+      "own_effect_scope": "complete subject capture plus own buffers/streams/storage",
+      "role_label_proves_independence": false,
+      "role_question": "stream-collector"
+    },
+    {
+      "actual_actor": null,
+      "actual_control_or_transport": null,
+      "actual_independent_provenance": null,
+      "actual_sharing_or_separation": null,
+      "actual_source": null,
+      "actual_storage": null,
+      "complete_own_descendant_FD_stream_storage_origin_required": true,
+      "first_effect_barrier_required": true,
+      "is_exempt_observer": false,
+      "joint_control_requirement": "EVERY producer, collector, receipt writer, final observer, consumer and verifier own effect remains within401 actor/ACTION workload and source/alias controls; ordinary faults remain failures. Apply402 INACTIVE scoped admission cuts only inside original exact admitted envelope and403 original clock/independent full drain;404 irreversible durable action spend/storage/quarantine. Never borrow worker target rights, add a worker service channel, waive first-effect controls, refill budget, replace guard or renew clock/grant. Actual role sharing/separation is unbound.",
+      "native_proof": false,
+      "original_separate_publication_rights_required": true,
+      "own_effect_scope": "closed payload construction, separate final receipt commit and complete writer trace",
+      "role_label_proves_independence": false,
+      "role_question": "external-receipt-writer"
+    },
+    {
+      "actual_actor": null,
+      "actual_control_or_transport": null,
+      "actual_independent_provenance": null,
+      "actual_sharing_or_separation": null,
+      "actual_source": null,
+      "actual_storage": null,
+      "complete_own_descendant_FD_stream_storage_origin_required": true,
+      "first_effect_barrier_required": true,
+      "is_exempt_observer": false,
+      "joint_control_requirement": "EVERY producer, collector, receipt writer, final observer, consumer and verifier own effect remains within401 actor/ACTION workload and source/alias controls; ordinary faults remain failures. Apply402 INACTIVE scoped admission cuts only inside original exact admitted envelope and403 original clock/independent full drain;404 irreversible durable action spend/storage/quarantine. Never borrow worker target rights, add a worker service channel, waive first-effect controls, refill budget, replace guard or renew clock/grant. Actual role sharing/separation is unbound.",
+      "native_proof": false,
+      "original_separate_publication_rights_required": true,
+      "own_effect_scope": "protected final object/storage/writer observation and own observation effects",
+      "role_label_proves_independence": false,
+      "role_question": "independent-final-observer"
+    },
+    {
+      "actual_actor": null,
+      "actual_control_or_transport": null,
+      "actual_independent_provenance": null,
+      "actual_sharing_or_separation": null,
+      "actual_source": null,
+      "actual_storage": null,
+      "complete_own_descendant_FD_stream_storage_origin_required": true,
+      "first_effect_barrier_required": true,
+      "is_exempt_observer": false,
+      "joint_control_requirement": "EVERY producer, collector, receipt writer, final observer, consumer and verifier own effect remains within401 actor/ACTION workload and source/alias controls; ordinary faults remain failures. Apply402 INACTIVE scoped admission cuts only inside original exact admitted envelope and403 original clock/independent full drain;404 irreversible durable action spend/storage/quarantine. Never borrow worker target rights, add a worker service channel, waive first-effect controls, refill budget, replace guard or renew clock/grant. Actual role sharing/separation is unbound.",
+      "native_proof": false,
+      "original_separate_publication_rights_required": true,
+      "own_effect_scope": "exact captured object transport/receive/store/ACK and own children/streams",
+      "role_label_proves_independence": false,
+      "role_question": "custody-consumer"
+    },
+    {
+      "actual_actor": null,
+      "actual_control_or_transport": null,
+      "actual_independent_provenance": null,
+      "actual_sharing_or_separation": null,
+      "actual_source": null,
+      "actual_storage": null,
+      "complete_own_descendant_FD_stream_storage_origin_required": true,
+      "first_effect_barrier_required": true,
+      "is_exempt_observer": false,
+      "joint_control_requirement": "EVERY producer, collector, receipt writer, final observer, consumer and verifier own effect remains within401 actor/ACTION workload and source/alias controls; ordinary faults remain failures. Apply402 INACTIVE scoped admission cuts only inside original exact admitted envelope and403 original clock/independent full drain;404 irreversible durable action spend/storage/quarantine. Never borrow worker target rights, add a worker service channel, waive first-effect controls, refill budget, replace guard or renew clock/grant. Actual role sharing/separation is unbound.",
+      "native_proof": false,
+      "original_separate_publication_rights_required": true,
+      "own_effect_scope": "independent expectations/effective faults and declared terminal acceptance accounting",
+      "role_label_proves_independence": false,
+      "role_question": "independent-verifier"
+    }
+  ],
+  "approved_contract_migration": null,
+  "approved_joint_specification": null,
+  "archive_sidecar_pair_atomic": false,
+  "authored_hypothetical_cases": [
+    {
+      "actual_native_evidence": null,
+      "all_external_effects_accounted": true,
+      "captured_object_qualified": true,
+      "captured_target_qualified": true,
+      "commit_outcome_uncertain": false,
+      "custody_ACK_known": true,
+      "durable_spend_known": true,
+      "expected_question": "paper-declared-finite-cut-review-question",
+      "final_observation_independent": true,
+      "hypothetical_only": true,
+      "id": "all-declared-paper-outcomes",
+      "known_mismatch": false,
+      "new_action_requested": false,
+      "original_budget": 2,
+      "original_clock_known": true,
+      "original_forward_failed": true,
+      "original_publication_rights_known": true,
+      "original_spent": 1,
+      "payload_prior_only": true,
+      "producer_trace_closed": true,
+      "receipt_commit_known": true,
+      "receipt_writer_trace_closed": true,
+      "runtime_authority": false,
+      "source_trust_controls_known": true,
+      "unclassified_later_effect": false
+    },
+    {
+      "actual_native_evidence": null,
+      "all_external_effects_accounted": true,
+      "captured_object_qualified": true,
+      "captured_target_qualified": true,
+      "commit_outcome_uncertain": false,
+      "custody_ACK_known": null,
+      "durable_spend_known": true,
+      "expected_question": "paper-pending-external-outcomes",
+      "final_observation_independent": null,
+      "hypothetical_only": true,
+      "id": "producer-exit-only",
+      "known_mismatch": false,
+      "new_action_requested": false,
+      "original_budget": 2,
+      "original_clock_known": true,
+      "original_forward_failed": true,
+      "original_publication_rights_known": true,
+      "original_spent": 1,
+      "payload_prior_only": true,
+      "producer_trace_closed": true,
+      "receipt_commit_known": null,
+      "receipt_writer_trace_closed": true,
+      "runtime_authority": false,
+      "source_trust_controls_known": true,
+      "unclassified_later_effect": false
+    },
+    {
+      "actual_native_evidence": null,
+      "all_external_effects_accounted": true,
+      "captured_object_qualified": true,
+      "captured_target_qualified": true,
+      "commit_outcome_uncertain": false,
+      "custody_ACK_known": true,
+      "durable_spend_known": true,
+      "expected_question": "paper-deny-payload-before-trace-closure",
+      "final_observation_independent": true,
+      "hypothetical_only": true,
+      "id": "subject-trace-open",
+      "known_mismatch": false,
+      "new_action_requested": false,
+      "original_budget": 2,
+      "original_clock_known": true,
+      "original_forward_failed": true,
+      "original_publication_rights_known": true,
+      "original_spent": 1,
+      "payload_prior_only": true,
+      "producer_trace_closed": false,
+      "receipt_commit_known": true,
+      "receipt_writer_trace_closed": true,
+      "runtime_authority": false,
+      "source_trust_controls_known": true,
+      "unclassified_later_effect": false
+    },
+    {
+      "actual_native_evidence": null,
+      "all_external_effects_accounted": true,
+      "captured_object_qualified": true,
+      "captured_target_qualified": true,
+      "commit_outcome_uncertain": false,
+      "custody_ACK_known": true,
+      "durable_spend_known": true,
+      "expected_question": "paper-deny-self-completion-payload",
+      "final_observation_independent": true,
+      "hypothetical_only": true,
+      "id": "payload-self-completion",
+      "known_mismatch": false,
+      "new_action_requested": false,
+      "original_budget": 2,
+      "original_clock_known": true,
+      "original_forward_failed": true,
+      "original_publication_rights_known": true,
+      "original_spent": 1,
+      "payload_prior_only": false,
+      "producer_trace_closed": true,
+      "receipt_commit_known": true,
+      "receipt_writer_trace_closed": true,
+      "runtime_authority": false,
+      "source_trust_controls_known": true,
+      "unclassified_later_effect": false
+    },
+    {
+      "actual_native_evidence": null,
+      "all_external_effects_accounted": true,
+      "captured_object_qualified": true,
+      "captured_target_qualified": true,
+      "commit_outcome_uncertain": true,
+      "custody_ACK_known": true,
+      "durable_spend_known": true,
+      "expected_question": "paper-quarantine-uncertain-commit-no-replay",
+      "final_observation_independent": true,
+      "hypothetical_only": true,
+      "id": "receipt-ACK-unknown",
+      "known_mismatch": false,
+      "new_action_requested": false,
+      "original_budget": 2,
+      "original_clock_known": true,
+      "original_forward_failed": true,
+      "original_publication_rights_known": true,
+      "original_spent": 1,
+      "payload_prior_only": true,
+      "producer_trace_closed": true,
+      "receipt_commit_known": null,
+      "receipt_writer_trace_closed": true,
+      "runtime_authority": false,
+      "source_trust_controls_known": true,
+      "unclassified_later_effect": false
+    },
+    {
+      "actual_native_evidence": null,
+      "all_external_effects_accounted": true,
+      "captured_object_qualified": true,
+      "captured_target_qualified": true,
+      "commit_outcome_uncertain": true,
+      "custody_ACK_known": true,
+      "durable_spend_known": true,
+      "expected_question": "paper-quarantine-uncertain-commit-no-replay",
+      "final_observation_independent": true,
+      "hypothetical_only": true,
+      "id": "unknown-ACK-republish-request",
+      "known_mismatch": false,
+      "new_action_requested": true,
+      "original_budget": 2,
+      "original_clock_known": true,
+      "original_forward_failed": true,
+      "original_publication_rights_known": true,
+      "original_spent": 1,
+      "payload_prior_only": true,
+      "producer_trace_closed": true,
+      "receipt_commit_known": true,
+      "receipt_writer_trace_closed": true,
+      "runtime_authority": false,
+      "source_trust_controls_known": true,
+      "unclassified_later_effect": false
+    },
+    {
+      "actual_native_evidence": null,
+      "all_external_effects_accounted": true,
+      "captured_object_qualified": true,
+      "captured_target_qualified": true,
+      "commit_outcome_uncertain": false,
+      "custody_ACK_known": true,
+      "durable_spend_known": true,
+      "expected_question": "paper-pending-external-outcomes",
+      "final_observation_independent": true,
+      "hypothetical_only": true,
+      "id": "receipt-writer-child-survives",
+      "known_mismatch": false,
+      "new_action_requested": false,
+      "original_budget": 2,
+      "original_clock_known": true,
+      "original_forward_failed": true,
+      "original_publication_rights_known": true,
+      "original_spent": 1,
+      "payload_prior_only": true,
+      "producer_trace_closed": true,
+      "receipt_commit_known": true,
+      "receipt_writer_trace_closed": null,
+      "runtime_authority": false,
+      "source_trust_controls_known": true,
+      "unclassified_later_effect": false
+    },
+    {
+      "actual_native_evidence": null,
+      "all_external_effects_accounted": true,
+      "captured_object_qualified": true,
+      "captured_target_qualified": true,
+      "commit_outcome_uncertain": false,
+      "custody_ACK_known": true,
+      "durable_spend_known": true,
+      "expected_question": "paper-pending-external-outcomes",
+      "final_observation_independent": false,
+      "hypothetical_only": true,
+      "id": "observer-label-not-independence",
+      "known_mismatch": false,
+      "new_action_requested": false,
+      "original_budget": 2,
+      "original_clock_known": true,
+      "original_forward_failed": true,
+      "original_publication_rights_known": true,
+      "original_spent": 1,
+      "payload_prior_only": true,
+      "producer_trace_closed": true,
+      "receipt_commit_known": true,
+      "receipt_writer_trace_closed": true,
+      "runtime_authority": false,
+      "source_trust_controls_known": true,
+      "unclassified_later_effect": false
+    },
+    {
+      "actual_native_evidence": null,
+      "all_external_effects_accounted": true,
+      "captured_object_qualified": true,
+      "captured_target_qualified": true,
+      "commit_outcome_uncertain": false,
+      "custody_ACK_known": null,
+      "durable_spend_known": true,
+      "expected_question": "paper-pending-external-outcomes",
+      "final_observation_independent": true,
+      "hypothetical_only": true,
+      "id": "consumer-ACK-unknown",
+      "known_mismatch": false,
+      "new_action_requested": false,
+      "original_budget": 2,
+      "original_clock_known": true,
+      "original_forward_failed": true,
+      "original_publication_rights_known": true,
+      "original_spent": 1,
+      "payload_prior_only": true,
+      "producer_trace_closed": true,
+      "receipt_commit_known": true,
+      "receipt_writer_trace_closed": true,
+      "runtime_authority": false,
+      "source_trust_controls_known": true,
+      "unclassified_later_effect": false
+    },
+    {
+      "actual_native_evidence": null,
+      "all_external_effects_accounted": null,
+      "captured_object_qualified": true,
+      "captured_target_qualified": true,
+      "commit_outcome_uncertain": false,
+      "custody_ACK_known": true,
+      "durable_spend_known": true,
+      "expected_question": "paper-pending-external-outcomes",
+      "final_observation_independent": true,
+      "hypothetical_only": true,
+      "id": "observer-own-effect-pending",
+      "known_mismatch": false,
+      "new_action_requested": false,
+      "original_budget": 2,
+      "original_clock_known": true,
+      "original_forward_failed": true,
+      "original_publication_rights_known": true,
+      "original_spent": 1,
+      "payload_prior_only": true,
+      "producer_trace_closed": true,
+      "receipt_commit_known": true,
+      "receipt_writer_trace_closed": true,
+      "runtime_authority": false,
+      "source_trust_controls_known": true,
+      "unclassified_later_effect": false
+    },
+    {
+      "actual_native_evidence": null,
+      "all_external_effects_accounted": true,
+      "captured_object_qualified": true,
+      "captured_target_qualified": true,
+      "commit_outcome_uncertain": false,
+      "custody_ACK_known": true,
+      "durable_spend_known": true,
+      "expected_question": "paper-block-unclassified-later-effect",
+      "final_observation_independent": true,
+      "hypothetical_only": true,
+      "id": "later-unclassified-effect",
+      "known_mismatch": false,
+      "new_action_requested": false,
+      "original_budget": 2,
+      "original_clock_known": true,
+      "original_forward_failed": true,
+      "original_publication_rights_known": true,
+      "original_spent": 1,
+      "payload_prior_only": true,
+      "producer_trace_closed": true,
+      "receipt_commit_known": true,
+      "receipt_writer_trace_closed": true,
+      "runtime_authority": false,
+      "source_trust_controls_known": true,
+      "unclassified_later_effect": true
+    },
+    {
+      "actual_native_evidence": null,
+      "all_external_effects_accounted": true,
+      "captured_object_qualified": true,
+      "captured_target_qualified": true,
+      "commit_outcome_uncertain": false,
+      "custody_ACK_known": true,
+      "durable_spend_known": true,
+      "expected_question": "paper-deny-unknown-original-controls",
+      "final_observation_independent": true,
+      "hypothetical_only": true,
+      "id": "source-identity-unknown",
+      "known_mismatch": false,
+      "new_action_requested": false,
+      "original_budget": 2,
+      "original_clock_known": true,
+      "original_forward_failed": true,
+      "original_publication_rights_known": true,
+      "original_spent": 1,
+      "payload_prior_only": true,
+      "producer_trace_closed": true,
+      "receipt_commit_known": true,
+      "receipt_writer_trace_closed": true,
+      "runtime_authority": false,
+      "source_trust_controls_known": null,
+      "unclassified_later_effect": false
+    },
+    {
+      "actual_native_evidence": null,
+      "all_external_effects_accounted": true,
+      "captured_object_qualified": true,
+      "captured_target_qualified": true,
+      "commit_outcome_uncertain": false,
+      "custody_ACK_known": true,
+      "durable_spend_known": true,
+      "expected_question": "paper-deny-unknown-original-controls",
+      "final_observation_independent": true,
+      "hypothetical_only": true,
+      "id": "worker-target-rights-borrowed",
+      "known_mismatch": false,
+      "new_action_requested": false,
+      "original_budget": 2,
+      "original_clock_known": true,
+      "original_forward_failed": true,
+      "original_publication_rights_known": false,
+      "original_spent": 1,
+      "payload_prior_only": true,
+      "producer_trace_closed": true,
+      "receipt_commit_known": true,
+      "receipt_writer_trace_closed": true,
+      "runtime_authority": false,
+      "source_trust_controls_known": true,
+      "unclassified_later_effect": false
+    },
+    {
+      "actual_native_evidence": null,
+      "all_external_effects_accounted": true,
+      "captured_object_qualified": true,
+      "captured_target_qualified": true,
+      "commit_outcome_uncertain": false,
+      "custody_ACK_known": true,
+      "durable_spend_known": true,
+      "expected_question": "paper-deny-unknown-original-controls",
+      "final_observation_independent": true,
+      "hypothetical_only": true,
+      "id": "clock-provider-lost",
+      "known_mismatch": false,
+      "new_action_requested": false,
+      "original_budget": 2,
+      "original_clock_known": null,
+      "original_forward_failed": true,
+      "original_publication_rights_known": true,
+      "original_spent": 1,
+      "payload_prior_only": true,
+      "producer_trace_closed": true,
+      "receipt_commit_known": true,
+      "receipt_writer_trace_closed": true,
+      "runtime_authority": false,
+      "source_trust_controls_known": true,
+      "unclassified_later_effect": false
+    },
+    {
+      "actual_native_evidence": null,
+      "all_external_effects_accounted": true,
+      "captured_object_qualified": true,
+      "captured_target_qualified": true,
+      "commit_outcome_uncertain": false,
+      "custody_ACK_known": true,
+      "durable_spend_known": null,
+      "expected_question": "paper-deny-unknown-original-controls",
+      "final_observation_independent": true,
+      "hypothetical_only": true,
+      "id": "durable-action-spend-unknown",
+      "known_mismatch": false,
+      "new_action_requested": false,
+      "original_budget": 2,
+      "original_clock_known": true,
+      "original_forward_failed": true,
+      "original_publication_rights_known": true,
+      "original_spent": 1,
+      "payload_prior_only": true,
+      "producer_trace_closed": true,
+      "receipt_commit_known": true,
+      "receipt_writer_trace_closed": true,
+      "runtime_authority": false,
+      "source_trust_controls_known": true,
+      "unclassified_later_effect": false
+    },
+    {
+      "actual_native_evidence": null,
+      "all_external_effects_accounted": true,
+      "captured_object_qualified": true,
+      "captured_target_qualified": true,
+      "commit_outcome_uncertain": false,
+      "custody_ACK_known": true,
+      "durable_spend_known": true,
+      "expected_question": "paper-deny-new-action-budget",
+      "final_observation_independent": true,
+      "hypothetical_only": true,
+      "id": "exhausted-new-action-request",
+      "known_mismatch": false,
+      "new_action_requested": true,
+      "original_budget": 2,
+      "original_clock_known": true,
+      "original_forward_failed": true,
+      "original_publication_rights_known": true,
+      "original_spent": 2,
+      "payload_prior_only": true,
+      "producer_trace_closed": true,
+      "receipt_commit_known": true,
+      "receipt_writer_trace_closed": true,
+      "runtime_authority": false,
+      "source_trust_controls_known": true,
+      "unclassified_later_effect": false
+    },
+    {
+      "actual_native_evidence": null,
+      "all_external_effects_accounted": true,
+      "captured_object_qualified": true,
+      "captured_target_qualified": true,
+      "commit_outcome_uncertain": false,
+      "custody_ACK_known": true,
+      "durable_spend_known": true,
+      "expected_question": "paper-declared-finite-cut-review-question",
+      "final_observation_independent": true,
+      "hypothetical_only": true,
+      "id": "spent-complete-captured-facts",
+      "known_mismatch": false,
+      "new_action_requested": false,
+      "original_budget": 2,
+      "original_clock_known": true,
+      "original_forward_failed": true,
+      "original_publication_rights_known": true,
+      "original_spent": 2,
+      "payload_prior_only": true,
+      "producer_trace_closed": true,
+      "receipt_commit_known": true,
+      "receipt_writer_trace_closed": true,
+      "runtime_authority": false,
+      "source_trust_controls_known": true,
+      "unclassified_later_effect": false
+    },
+    {
+      "actual_native_evidence": null,
+      "all_external_effects_accounted": true,
+      "captured_object_qualified": true,
+      "captured_target_qualified": true,
+      "commit_outcome_uncertain": false,
+      "custody_ACK_known": null,
+      "durable_spend_known": true,
+      "expected_question": "paper-pending-external-outcomes",
+      "final_observation_independent": true,
+      "hypothetical_only": true,
+      "id": "qualified-object-custody-unknown",
+      "known_mismatch": false,
+      "new_action_requested": false,
+      "original_budget": 2,
+      "original_clock_known": true,
+      "original_forward_failed": true,
+      "original_publication_rights_known": true,
+      "original_spent": 1,
+      "payload_prior_only": true,
+      "producer_trace_closed": true,
+      "receipt_commit_known": true,
+      "receipt_writer_trace_closed": true,
+      "runtime_authority": false,
+      "source_trust_controls_known": true,
+      "unclassified_later_effect": false
+    },
+    {
+      "actual_native_evidence": null,
+      "all_external_effects_accounted": true,
+      "captured_object_qualified": true,
+      "captured_target_qualified": true,
+      "commit_outcome_uncertain": false,
+      "custody_ACK_known": null,
+      "durable_spend_known": true,
+      "expected_question": "paper-deny-known-mismatch",
+      "final_observation_independent": true,
+      "hypothetical_only": true,
+      "id": "known-mismatch-pending-custody",
+      "known_mismatch": true,
+      "new_action_requested": false,
+      "original_budget": 2,
+      "original_clock_known": true,
+      "original_forward_failed": true,
+      "original_publication_rights_known": true,
+      "original_spent": 1,
+      "payload_prior_only": true,
+      "producer_trace_closed": true,
+      "receipt_commit_known": true,
+      "receipt_writer_trace_closed": true,
+      "runtime_authority": false,
+      "source_trust_controls_known": true,
+      "unclassified_later_effect": false
+    },
+    {
+      "actual_native_evidence": null,
+      "all_external_effects_accounted": true,
+      "captured_object_qualified": true,
+      "captured_target_qualified": null,
+      "commit_outcome_uncertain": false,
+      "custody_ACK_known": true,
+      "durable_spend_known": true,
+      "expected_question": "paper-pending-unqualified-captured-data",
+      "final_observation_independent": true,
+      "hypothetical_only": true,
+      "id": "unknown-target-capture",
+      "known_mismatch": false,
+      "new_action_requested": false,
+      "original_budget": 2,
+      "original_clock_known": true,
+      "original_forward_failed": true,
+      "original_publication_rights_known": true,
+      "original_spent": 1,
+      "payload_prior_only": true,
+      "producer_trace_closed": true,
+      "receipt_commit_known": true,
+      "receipt_writer_trace_closed": true,
+      "runtime_authority": false,
+      "source_trust_controls_known": true,
+      "unclassified_later_effect": false
+    },
+    {
+      "actual_native_evidence": null,
+      "all_external_effects_accounted": true,
+      "captured_object_qualified": false,
+      "captured_target_qualified": true,
+      "commit_outcome_uncertain": false,
+      "custody_ACK_known": true,
+      "durable_spend_known": true,
+      "expected_question": "paper-pending-unqualified-captured-data",
+      "final_observation_independent": true,
+      "hypothetical_only": true,
+      "id": "hash-only-object-declaration",
+      "known_mismatch": false,
+      "new_action_requested": false,
+      "original_budget": 2,
+      "original_clock_known": true,
+      "original_forward_failed": true,
+      "original_publication_rights_known": true,
+      "original_spent": 1,
+      "payload_prior_only": true,
+      "producer_trace_closed": true,
+      "receipt_commit_known": true,
+      "receipt_writer_trace_closed": true,
+      "runtime_authority": false,
+      "source_trust_controls_known": true,
+      "unclassified_later_effect": false
+    },
+    {
+      "actual_native_evidence": null,
+      "all_external_effects_accounted": true,
+      "captured_object_qualified": true,
+      "captured_target_qualified": true,
+      "commit_outcome_uncertain": false,
+      "custody_ACK_known": true,
+      "durable_spend_known": true,
+      "expected_question": "paper-pending-external-outcomes",
+      "final_observation_independent": true,
+      "hypothetical_only": true,
+      "id": "known-receipt-storage-not-commit",
+      "known_mismatch": false,
+      "new_action_requested": false,
+      "original_budget": 2,
+      "original_clock_known": true,
+      "original_forward_failed": true,
+      "original_publication_rights_known": true,
+      "original_spent": 1,
+      "payload_prior_only": true,
+      "producer_trace_closed": true,
+      "receipt_commit_known": false,
+      "receipt_writer_trace_closed": true,
+      "runtime_authority": false,
+      "source_trust_controls_known": true,
+      "unclassified_later_effect": false
+    },
+    {
+      "actual_native_evidence": null,
+      "all_external_effects_accounted": false,
+      "captured_object_qualified": true,
+      "captured_target_qualified": true,
+      "commit_outcome_uncertain": false,
+      "custody_ACK_known": true,
+      "durable_spend_known": true,
+      "expected_question": "paper-pending-external-outcomes",
+      "final_observation_independent": true,
+      "hypothetical_only": true,
+      "id": "collector-storage-pending",
+      "known_mismatch": false,
+      "new_action_requested": false,
+      "original_budget": 2,
+      "original_clock_known": true,
+      "original_forward_failed": true,
+      "original_publication_rights_known": true,
+      "original_spent": 1,
+      "payload_prior_only": true,
+      "producer_trace_closed": true,
+      "receipt_commit_known": true,
+      "receipt_writer_trace_closed": true,
+      "runtime_authority": false,
+      "source_trust_controls_known": true,
+      "unclassified_later_effect": false
+    },
+    {
+      "actual_native_evidence": null,
+      "all_external_effects_accounted": true,
+      "captured_object_qualified": true,
+      "captured_target_qualified": true,
+      "commit_outcome_uncertain": false,
+      "custody_ACK_known": true,
+      "durable_spend_known": true,
+      "expected_question": "paper-deny-known-mismatch",
+      "final_observation_independent": true,
+      "hypothetical_only": true,
+      "id": "ordinary-storage-failure-known-mismatch",
+      "known_mismatch": true,
+      "new_action_requested": false,
+      "original_budget": 2,
+      "original_clock_known": true,
+      "original_forward_failed": true,
+      "original_publication_rights_known": true,
+      "original_spent": 1,
+      "payload_prior_only": true,
+      "producer_trace_closed": true,
+      "receipt_commit_known": true,
+      "receipt_writer_trace_closed": true,
+      "runtime_authority": false,
+      "source_trust_controls_known": true,
+      "unclassified_later_effect": false
+    }
+  ],
+  "boundaries": {
+    "C_port_open": false,
+    "actual_global_host_closure": false,
+    "actual_host_state": "unobserved-not-claimed-absent",
+    "actual_live_bindings": null,
+    "actual_native_refinement_complete": false,
+    "actual_successor_selected": false,
+    "controller_action_required": false,
+    "current_step_strong_safe_pause": false,
+    "execution_authorized": false,
+    "historical_binding_or_authority_reuse_allowed": false,
+    "kernel_package_edge_complete": false,
+    "last_confirmed_strong_safe_pause_step": 398,
+    "later_current_refresh_invalidates_repository_only_pause": false,
+    "machine_action_required": false,
+    "native_cases_run": 0,
+    "native_components_selected": false,
+    "native_graph_complete": false,
+    "native_proofs_added": 0,
+    "operational_conformance": false,
+    "operational_readiness": false,
+    "phase1_matrix_complete": false,
+    "phase2_open": false,
+    "production_entry_closed": true,
+    "reference_v1_frozen": false,
+    "runtime_authority": false,
+    "strong_safe_pause": false,
+    "target_machine_actions_authorized": false,
+    "version1_schema_frozen": false
+  },
+  "candidate_id": "JCP400-A",
+  "conditional_close_step": 408,
+  "exact_inactive_clause_replacements": [
+    {
+      "approved": false,
+      "change_class": "changes-original-whole-stage12-membership-not-equivalence",
+      "input_key": "publication_requirements316",
+      "json_pointer": "/immutable_design_facts/stages/12",
+      "whole_current_value": {
+        "effect": "owned-files",
+        "evidence": {
+          "early_buffer": false,
+          "exit_record": "evidence/stages/12-publish-reviewed-result.json",
+          "publication_receipt_external": true,
+          "stderr": "evidence/stages/12-publish-reviewed-result.stderr",
+          "stdout": "evidence/stages/12-publish-reviewed-result.stdout"
+        },
+        "failure_boundary": "stop-later-stages-preserve-original-status-run-only-safe-idempotent-restore-and-evidence-no-retry",
+        "function": "publish_evidence_and_receipt",
+        "guard": "success only after all guards/restoration/evidence; failure/none never success",
+        "index": 12,
+        "operation": "Prepare exclusive archive and sidecar without overwrite; external publication receipt records last-stage stdout/stderr/exit and final eligibility; receipt commits last; no self-containing archive or atomic pair claim.",
+        "stage": "publish-reviewed-result",
+        "test_seams": [
+          "stage-entry-failure",
+          "stage-mid-effect-failure",
+          "HUP-INT-TERM",
+          "uncatchable-loss",
+          "evidence-write-failure",
+          "cleanup-failure",
+          "double-cleanup"
+        ]
+      },
+      "whole_proposed_value": {
+        "effect": "owned-files",
+        "evidence": {
+          "early_buffer": false,
+          "exit_record": "evidence/stages/12-prepare-reviewed-publication.json",
+          "publication_receipt_external": true,
+          "stderr": "evidence/stages/12-prepare-reviewed-publication.stderr",
+          "stdout": "evidence/stages/12-prepare-reviewed-publication.stdout"
+        },
+        "failure_boundary": "stop-later-stages-preserve-original-status-run-only-safe-idempotent-restore-and-evidence-no-retry",
+        "function": "prepare_reviewed_archive_and_sidecar",
+        "guard": "Producer completion is only known archive/sidecar preparation and complete subject capture; never final publication eligibility. Overall eligibility needs every separate external-finalization outcome; failure/unknown never success.",
+        "index": 12,
+        "operation": "Use captured closed data to independently prepare/commit exclusive archive and sidecar. Close the producer subject streams/status before an external receipt writer constructs its payload. Receipt commit, independent final observation, custody and terminal accounting are separately declared external-finalization obligations. This changes original stage12 membership and supplies no current original equivalence.",
+        "stage": "prepare-reviewed-publication",
+        "test_seams": [
+          "stage-entry-failure",
+          "stage-mid-effect-failure",
+          "HUP-INT-TERM",
+          "uncatchable-loss",
+          "evidence-write-failure",
+          "cleanup-failure",
+          "double-cleanup"
+        ]
+      }
+    },
+    {
+      "approved": false,
+      "change_class": "external-finalization-and-custody-explicit-draft-replacement",
+      "input_key": "original325",
+      "json_pointer": "/publication_contract",
+      "whole_current_value": {
+        "actual_durability_backend": null,
+        "actual_paths": null,
+        "actual_receipt_origin": null,
+        "durability": "separate-no-replace-record-then-last-receipt-with-supported-file-meta-directory-storage-proof; no-pair-atomicity-or-self-containing-receipt-hash",
+        "independent": "captured-closed-data-only-with-separate-recipient-ancestry-alias-owner-content-writer-and-authority-controls-through-last-receipt",
+        "target_order": "drain-original-restore-fullverify-target-evidence-under-guard-then-release; no-target-writes-or-refresh-after-release",
+        "unknown": "lost-ack-partial-or-unknown-record-receipt-handoff-retains-artifacts-original-status-pending-controller-obligations-no-replay-republish-or-new-target-grant"
+      },
+      "whole_proposed_value": {
+        "actual_durability_backend": null,
+        "actual_paths": null,
+        "actual_receipt_origin": null,
+        "durability": "Archive and sidecar are separate exclusive no-replace controlled objects. Before each own effect independently review service barriers, authenticated original identity/authority, ancestor/mount/backing/alias/all-writer protection, original fixed clock, once-only pre-spent finite right and storage. Whole original file/metadata/directory/device/ACK durability, descendants/streams/status/origin remain required; no atomic pair, self-containing archive, hash/exit/flush-as-proof, overwrite or commit repeat. Receipt writer commits once as a separate finite publication obligation. Independently protected final observer establishes exact final receipt bytes/metadata/object/ancestry/alias/writers plus file/directory/storage outcome AND full receipt-writer descendants/FD/streams/status/origin. Independence requires actual protected source, provenance and effective faults; a separate process, UID, signature or role label is insufficient. Observer own effect/control/drain/storage is still a reviewed obligation, not passive immunity.",
+        "independent": "Only after complete producer subject trace closure may external receipt payload bind exact protected prior subject stdout/stderr/status/origin and artifact facts from captured data. Receipt never includes proof/hash/ACK of its own future commit or later writer/final-observer/consumer completion. Writer completion must be captured separately. Payload signature/path/digest and producer exit are not independent final evidence. Protected consumer/verifier independently binds the exact captured receipt and archive/sidecar identity to reviewed transport, custody endpoint, bytes/metadata, original source/trust/clock/finite right and known handoff/ACK. Local final receipt visibility is not remote consumer custody. Custody/ACK uncertainty remains pending independently from known captured object/target facts. No new target grant, repeat handoff or republish on unknown outcome.",
+        "target_order": "drain-original-restore-fullverify-target-evidence-under-guard-then-release; no-target-writes-or-refresh-after-release",
+        "unknown": "Known original failure/mismatch stays sticky alongside pending trace, object, writer, observer, custody or controller outcomes. Unknown commit, ACK, spend, storage, actor loss or drain is quarantined; never replay, republish, rebind, refund, relaunch or infer no-effect/absent/success. A qualified captured object fact may survive unrelated unknown custody but cannot authorize dependent new effects or erase failed admission."
+      }
+    },
+    {
+      "approved": false,
+      "change_class": "finite-terminal-evidence-trust-cut-explicit-draft-replacement",
+      "input_key": "original327",
+      "json_pointer": "/crossclosure_contract",
+      "whole_current_value": {
+        "closure": "Known children/full original verification/target evidence before release; no later target writes. Record/receipt/handoff separate; any unclassified/unknown actual effect or obligation remains pending.",
+        "design": "All30 designed effect domains/every edge/seven capabilities/ten obligations/42 inherited proofs/nine windows/52 cases indexed. Reviewed disposition never operational proof.",
+        "effects": "Include all service/reference/helper/source/backend/selector/package/config/boot/owned/restore/publication surfaces; actual dynamic graph/entry still unclosed and boot/optional mutations outside scope remain forbidden.",
+        "host": "Current repository/private delivery requires no new machine/controller action. Historical/current actual host bindings unobserved/null; unobserved never absent, closed or globally safe.",
+        "integration": "328 may freeze this repository integration-design workstream after complete327 acceptance. Actual operational implementation freeze/readiness still requires selected graph/primitives/refinement/independent conformance/fresh authority.",
+        "obligations": "Every inherited statement/status/evidence stays byte-bound and required-not-proven, including worker-vs-service claim/traps interpretation and explicit stage7 successor; no frozen rewrite or waived proof.",
+        "rights": "Issuer controls and admission known-unused differ from consumed launch/worker/nested and original finite recovery. Publication uses separate captured-data controls, never a fresh target grant or forward renewal."
+      },
+      "whole_proposed_value": {
+        "closure": "INACTIVE terminal evidence/trust amendment: complete finite enumerated subject/receipt/collector/observer/consumer/verifier accounting under reviewed independent custody ends at an explicitly declared cut. Acceptance itself has source/trust/object/storage/clock/finite-right responsibilities. No included further evidence-producing effect occurs after that cut; any real later unclassified effect blocks eligibility and requires review, not an exemption or infinite self-receipt chain. Complete actual native boundary/independence/closure remains unknown.",
+        "design": "All30 designed effect domains/every edge/seven capabilities/ten obligations/42 inherited proofs/nine windows/52 cases indexed. Reviewed disposition never operational proof.",
+        "effects": "Include all service/reference/helper/source/backend/selector/package/config/boot/owned/restore/publication surfaces; actual dynamic graph/entry still unclosed and boot/optional mutations outside scope remain forbidden.",
+        "host": "Current repository/private delivery requires no new machine/controller action. Historical/current actual host bindings unobserved/null; unobserved never absent, closed or globally safe.",
+        "integration": "328 may freeze this repository integration-design workstream after complete327 acceptance. Actual operational implementation freeze/readiness still requires selected graph/primitives/refinement/independent conformance/fresh authority.",
+        "obligations": "EVERY producer, collector, receipt writer, final observer, consumer and verifier own effect remains within401 actor/ACTION workload and source/alias controls; ordinary faults remain failures. Apply402 INACTIVE scoped admission cuts only inside original exact admitted envelope and403 original clock/independent full drain;404 irreversible durable action spend/storage/quarantine. Never borrow worker target rights, add a worker service channel, waive first-effect controls, refill budget, replace guard or renew clock/grant. Actual role sharing/separation is unbound.",
+        "rights": "Issuer controls and admission known-unused differ from consumed launch/worker/nested and original finite recovery. Publication uses separate captured-data controls, never a fresh target grant or forward renewal."
+      }
+    }
+  ],
+  "independent_impact_review_accepted": false,
+  "joint_proposed_statements": {
+    "approval_and_native_entry": "JCP400-A remains one unselected author recommendation; all original current clauses remain normative. Actual components/roles/source/transport/storage/clock/platforms/native graph and observations are null; zero native cases/proofs. Full407 exact migration/independent impact approval still due. Whole independently safe ACTUAL joint composition/containment/source/trust/guard/baseline/recovery/storage/finite rights/effective observation review THEN separate fresh explicit bounded native-test grant BEFORE effects. Tests and repository acceptance cannot authorize themselves.",
+    "captured_inputs": "Retain original target order: independent full owned child/FD/stream/in-flight storage drain, exact original restoration/full invariants/target evidence under continuous guard, then safe release. Publish only protected captured closed data. Neither receipt writer, observer, collector nor consumer may reread, refresh, restore or acquire new target/source state after release. Captured target facts remain qualified to their capture cut; publication uncertainty neither erases them nor proves current/global closure.",
+    "consumer_custody": "Protected consumer/verifier independently binds the exact captured receipt and archive/sidecar identity to reviewed transport, custody endpoint, bytes/metadata, original source/trust/clock/finite right and known handoff/ACK. Local final receipt visibility is not remote consumer custody. Custody/ACK uncertainty remains pending independently from known captured object/target facts. No new target grant, repeat handoff or republish on unknown outcome.",
+    "final_receipt_observation": "Receipt writer commits once as a separate finite publication obligation. Independently protected final observer establishes exact final receipt bytes/metadata/object/ancestry/alias/writers plus file/directory/storage outcome AND full receipt-writer descendants/FD/streams/status/origin. Independence requires actual protected source, provenance and effective faults; a separate process, UID, signature or role label is insufficient. Observer own effect/control/drain/storage is still a reviewed obligation, not passive immunity.",
+    "finite_terminal_cut": "INACTIVE terminal evidence/trust amendment: complete finite enumerated subject/receipt/collector/observer/consumer/verifier accounting under reviewed independent custody ends at an explicitly declared cut. Acceptance itself has source/trust/object/storage/clock/finite-right responsibilities. No included further evidence-producing effect occurs after that cut; any real later unclassified effect blocks eligibility and requires review, not an exemption or infinite self-receipt chain. Complete actual native boundary/independence/closure remains unknown.",
+    "joint_controls_every_actor": "EVERY producer, collector, receipt writer, final observer, consumer and verifier own effect remains within401 actor/ACTION workload and source/alias controls; ordinary faults remain failures. Apply402 INACTIVE scoped admission cuts only inside original exact admitted envelope and403 original clock/independent full drain;404 irreversible durable action spend/storage/quarantine. Never borrow worker target rights, add a worker service channel, waive first-effect controls, refill budget, replace guard or renew clock/grant. Actual role sharing/separation is unbound.",
+    "payload_causality": "Only after complete producer subject trace closure may external receipt payload bind exact protected prior subject stdout/stderr/status/origin and artifact facts from captured data. Receipt never includes proof/hash/ACK of its own future commit or later writer/final-observer/consumer completion. Writer completion must be captured separately. Payload signature/path/digest and producer exit are not independent final evidence.",
+    "producer_objects": "Archive and sidecar are separate exclusive no-replace controlled objects. Before each own effect independently review service barriers, authenticated original identity/authority, ancestor/mount/backing/alias/all-writer protection, original fixed clock, once-only pre-spent finite right and storage. Whole original file/metadata/directory/device/ACK durability, descendants/streams/status/origin remain required; no atomic pair, self-containing archive, hash/exit/flush-as-proof, overwrite or commit repeat.",
+    "unknown_and_original_failure": "Known original failure/mismatch stays sticky alongside pending trace, object, writer, observer, custody or controller outcomes. Unknown commit, ACK, spend, storage, actor loss or drain is quarantined; never replay, republish, rebind, refund, relaunch or infer no-effect/absent/success. A qualified captured object fact may survive unrelated unknown custody but cannot authorize dependent new effects or erase failed admission.",
+    "whole_stage_membership": "INACTIVE amendment: preserve the WHOLE current316 stage12 object and every384 actor/event/failure/causal question as normative history. Propose exactly394 producer-only stage function/name/operation/guard/evidence paths and membership; producer exit is not overall final eligibility. This changes the original last-stage trace/status/origin and must receive full407 semantic/proof/case/raw/relation/entry/readiness migration and explicit user approval. No renamed subset or DAG is current original conformance."
+  },
+  "native_cases_run": 0,
+  "native_proofs_added": 0,
+  "next_preparable_step_after_complete405_acceptance": 406,
+  "no_automatic409": true,
+  "observer_exempt_from_own_effects": false,
+  "post_release_target_source_read_allowed": false,
+  "producer_exit_proves_final_eligibility": false,
+  "producer_subset_is_original_stage12": false,
+  "receipt_payload_contains_future_completion": false,
+  "remaining_joint_reviews": [
+    {
+      "actual_joint_resolution": null,
+      "candidate_specific_question": "The draft denies a worker channel but changes operation admission. Who serializes admission with every actual descendant/in-flight effect, and how are unchanged every-effect forward/recovery validity clauses replaced or retained consistently? A controller permission or cut name is insufficient.",
+      "current_authority": false,
+      "id": "offline-bootstrap-vs-live-channel",
+      "native_compatibility_proven": false,
+      "planned_review_step": 402,
+      "state": "unresolved-pending-substantive-joint-review",
+      "whole_original_dimension": {
+        "actual_joint_resolution": null,
+        "affected_option_ids": [
+          "retain-every-effect-no-worker-channel",
+          "declared-operation-admission-cuts",
+          "explicit-worker-control-channel",
+          "defer-native-revocation-selection"
+        ],
+        "current_authority": false,
+        "id": "offline-bootstrap-vs-live-channel",
+        "native_compatibility_proven": false,
+        "required_joint_review": "A live worker channel draft changes original offline/FD/authentication loss boundaries;retention options cannot silently borrow it.",
+        "source_family_input_keys": [
+          "revocation_brief391"
+        ]
+      }
+    },
+    {
+      "actual_joint_resolution": null,
+      "candidate_specific_question": "The same infrastructure trust boundary must enumerate writer/source/time/storage/observer policies and actual objects. Proposed excluded hostile infrastructure actions must not exempt ordinary privileged workload helpers or hide checked-to-used aliases.",
+      "current_authority": false,
+      "id": "writer-trust-vs-source-and-clock",
+      "native_compatibility_proven": false,
+      "planned_review_step": 401,
+      "state": "unresolved-pending-substantive-joint-review",
+      "whole_original_dimension": {
+        "actual_joint_resolution": null,
+        "affected_option_ids": [
+          "retain-full-original-coverage",
+          "explicit-trusted-host-boundary",
+          "defer-native-writer-selection",
+          "retain-known-drain-and-trusted-time",
+          "independent-guardian-retention-hypothesis",
+          "explicit-local-clock-trust-boundary",
+          "defer-native-lifetime-time-selection",
+          "retain-whole-original-entry",
+          "complete-protected-source-consumption-hypothesis",
+          "explicit-separate-backend-product-scope",
+          "defer-native-entry-backend-selection"
+        ],
+        "current_authority": false,
+        "id": "writer-trust-vs-source-and-clock",
+        "native_compatibility_proven": false,
+        "required_joint_review": "Host writer and clock exclusions need one explicit consistent trust/source scope;code/path/hash/namespace do not prove protected consumed objects.",
+        "source_family_input_keys": [
+          "writer_brief390",
+          "loss_brief392",
+          "entry_brief395"
+        ]
+      }
+    },
+    {
+      "actual_joint_resolution": null,
+      "candidate_specific_question": "A guardian can fail or stop after the original finite recovery right expires. Determine each survivor/FD/stream/storage effect and independent drain result without immortal guardian or guaranteed stop assumptions; failure/unknown remains pending.",
+      "current_authority": false,
+      "id": "guardian-drain-vs-forward-failure",
+      "native_compatibility_proven": false,
+      "planned_review_step": 403,
+      "state": "unresolved-pending-substantive-joint-review",
+      "whole_original_dimension": {
+        "actual_joint_resolution": null,
+        "affected_option_ids": [
+          "retain-known-drain-and-trusted-time",
+          "independent-guardian-retention-hypothesis",
+          "explicit-local-clock-trust-boundary",
+          "defer-native-lifetime-time-selection",
+          "retain-every-effect-no-worker-channel",
+          "declared-operation-admission-cuts",
+          "explicit-worker-control-channel",
+          "defer-native-revocation-selection",
+          "retain-whole-original-entry",
+          "complete-protected-source-consumption-hypothesis",
+          "explicit-separate-backend-product-scope",
+          "defer-native-entry-backend-selection"
+        ],
+        "current_authority": false,
+        "id": "guardian-drain-vs-forward-failure",
+        "native_compatibility_proven": false,
+        "required_joint_review": "Guardian survival,known complete descendants/FD/in-flight drain and absorbing failure stop must compose under actual finite rights.",
+        "source_family_input_keys": [
+          "loss_brief392",
+          "revocation_brief391",
+          "entry_brief395"
+        ]
+      }
+    },
+    {
+      "actual_joint_resolution": null,
+      "candidate_specific_question": "The external ledger may durably spend while ACK or local clock/guardian state is unknown. Specify exact original irreversible claim/launch/action ordering and no-repeat quarantine under the same fixed mapped deadlines without replacement authority.",
+      "current_authority": false,
+      "id": "durable-rights-vs-loss-deadlines",
+      "native_compatibility_proven": false,
+      "planned_review_step": 404,
+      "state": "unresolved-pending-substantive-joint-review",
+      "whole_original_dimension": {
+        "actual_joint_resolution": null,
+        "affected_option_ids": [
+          "retain-exact-original-capture-storage-rights",
+          "external-durable-rights-ledger-hypothesis",
+          "separate-owned-target-quarantine-hypothesis",
+          "defer-native-storage-rights-selection",
+          "retain-known-drain-and-trusted-time",
+          "independent-guardian-retention-hypothesis",
+          "explicit-local-clock-trust-boundary",
+          "defer-native-lifetime-time-selection",
+          "retain-every-effect-no-worker-channel",
+          "declared-operation-admission-cuts",
+          "explicit-worker-control-channel",
+          "defer-native-revocation-selection"
+        ],
+        "current_authority": false,
+        "id": "durable-rights-vs-loss-deadlines",
+        "native_compatibility_proven": false,
+        "required_joint_review": "Claim/launch/action spend,unknown ACK,no replay and trusted forward/recovery deadlines must remain jointly exact.",
+        "source_family_input_keys": [
+          "storage_brief393",
+          "loss_brief392",
+          "revocation_brief391"
+        ]
+      }
+    },
+    {
+      "actual_joint_resolution": null,
+      "candidate_specific_question": "Known target/no-write evidence and unknown owned backup/commit state need independent complete original vectors. Whole entry may already have effects; neither a missing backup nor backend raw return proves unchanged target or safe restore.",
+      "current_authority": false,
+      "id": "baseline-unknown-vs-backend-effects",
+      "native_compatibility_proven": false,
+      "planned_review_step": 404,
+      "state": "unresolved-pending-substantive-joint-review",
+      "whole_original_dimension": {
+        "actual_joint_resolution": null,
+        "affected_option_ids": [
+          "retain-exact-original-capture-storage-rights",
+          "external-durable-rights-ledger-hypothesis",
+          "separate-owned-target-quarantine-hypothesis",
+          "defer-native-storage-rights-selection",
+          "retain-whole-original-entry",
+          "complete-protected-source-consumption-hypothesis",
+          "explicit-separate-backend-product-scope",
+          "defer-native-entry-backend-selection"
+        ],
+        "current_authority": false,
+        "id": "baseline-unknown-vs-backend-effects",
+        "native_compatibility_proven": false,
+        "required_joint_review": "Known full target facts cannot be substituted by unknown backups or summarized backend effects;every safe restore/no-write branch retains all original gates.",
+        "source_family_input_keys": [
+          "storage_brief393",
+          "entry_brief395"
+        ]
+      }
+    },
+    {
+      "actual_joint_resolution": null,
+      "candidate_specific_question": "Producer-only stage12 differs from the normative whole stage. Resolve complete stream/status/origin membership and observer own effects/custody at an explicitly amended terminal cut; acyclic paper ordering does not prove native terminal closure.",
+      "current_authority": false,
+      "id": "terminal-cut-vs-whole-stage-oracle",
+      "native_compatibility_proven": false,
+      "planned_review_step": 405,
+      "state": "unresolved-pending-substantive-joint-review",
+      "whole_original_dimension": {
+        "actual_joint_resolution": null,
+        "affected_option_ids": [
+          "retain-whole-original-stage12",
+          "explicit-producer-and-external-finalization-cut",
+          "independent-captured-data-custody-hypothesis",
+          "defer-native-receipt-selection",
+          "retain-full-independent-two-platform-oracle",
+          "protected-independent-raw-oracle-hypothesis",
+          "defer-native-oracle-selection"
+        ],
+        "current_authority": false,
+        "id": "terminal-cut-vs-whole-stage-oracle",
+        "native_compatibility_proven": false,
+        "required_joint_review": "Changed producer/receipt membership requires explicit migration of full stage12 and every observer own effect/oracle/custody obligation;acyclic paper order proves no native closure.",
+        "source_family_input_keys": [
+          "receipt_brief394",
+          "oracle_brief396"
+        ]
+      }
+    },
+    {
+      "actual_joint_resolution": null,
+      "candidate_specific_question": "This draft retains whole entry and declines the separate-backend product alternative. Every preparation/helper/selector/hook/effect edge and original forbidden effect remains required; retain complete original proof/case coverage while reconciling the draft trust/cut changes.",
+      "current_authority": false,
+      "id": "narrow-product-vs-whole-entry-proof",
+      "native_compatibility_proven": false,
+      "planned_review_step": 406,
+      "state": "unresolved-pending-substantive-joint-review",
+      "whole_original_dimension": {
+        "actual_joint_resolution": null,
+        "affected_option_ids": [
+          "retain-whole-original-entry",
+          "complete-protected-source-consumption-hypothesis",
+          "explicit-separate-backend-product-scope",
+          "defer-native-entry-backend-selection",
+          "retain-full-independent-two-platform-oracle",
+          "protected-independent-raw-oracle-hypothesis",
+          "defer-native-oracle-selection"
+        ],
+        "current_authority": false,
+        "id": "narrow-product-vs-whole-entry-proof",
+        "native_compatibility_proven": false,
+        "required_joint_review": "A separate component product cannot satisfy current whole-entry/Phase1 proof/case/entry/readiness scope without full approved migration.",
+        "source_family_input_keys": [
+          "entry_brief395",
+          "oracle_brief396"
+        ]
+      }
+    },
+    {
+      "actual_joint_resolution": null,
+      "candidate_specific_question": "Independent expectation, collector, receipt observer and consumer roles themselves use guarded source, clocks, storage and finite custody rights. Enumerate their own possible ACK/stream/descendant effects and final unknowns without a passive observer exception.",
+      "current_authority": false,
+      "id": "observer-controls-vs-finite-custody",
+      "native_compatibility_proven": false,
+      "planned_review_step": 405,
+      "state": "unresolved-pending-substantive-joint-review",
+      "whole_original_dimension": {
+        "actual_joint_resolution": null,
+        "affected_option_ids": [
+          "retain-full-independent-two-platform-oracle",
+          "protected-independent-raw-oracle-hypothesis",
+          "defer-native-oracle-selection",
+          "retain-whole-original-stage12",
+          "explicit-producer-and-external-finalization-cut",
+          "independent-captured-data-custody-hypothesis",
+          "defer-native-receipt-selection",
+          "retain-exact-original-capture-storage-rights",
+          "external-durable-rights-ledger-hypothesis",
+          "separate-owned-target-quarantine-hypothesis",
+          "defer-native-storage-rights-selection",
+          "retain-known-drain-and-trusted-time",
+          "independent-guardian-retention-hypothesis",
+          "explicit-local-clock-trust-boundary",
+          "defer-native-lifetime-time-selection"
+        ],
+        "current_authority": false,
+        "id": "observer-controls-vs-finite-custody",
+        "native_compatibility_proven": false,
+        "required_joint_review": "No observer/injector/consumer exception;actual origin,writers,finite rights,storage,stream and ACK/custody outcomes remain due.",
+        "source_family_input_keys": [
+          "oracle_brief396",
+          "receipt_brief394",
+          "storage_brief393",
+          "loss_brief392"
+        ]
+      }
+    },
+    {
+      "actual_joint_resolution": null,
+      "candidate_specific_question": "Both actual platforms need independent fresh full support/identity/expectation/fault/raw/custody qualification. Safe actual joint review and a separate explicit bounded test grant still precede effects; the draft and its repository tests cannot satisfy that gate.",
+      "current_authority": false,
+      "id": "two-platform-fresh-test-entry",
+      "native_compatibility_proven": false,
+      "planned_review_step": 406,
+      "state": "unresolved-pending-substantive-joint-review",
+      "whole_original_dimension": {
+        "actual_joint_resolution": null,
+        "affected_option_ids": [
+          "retain-full-original-coverage",
+          "explicit-trusted-host-boundary",
+          "defer-native-writer-selection",
+          "retain-every-effect-no-worker-channel",
+          "declared-operation-admission-cuts",
+          "explicit-worker-control-channel",
+          "defer-native-revocation-selection",
+          "retain-known-drain-and-trusted-time",
+          "independent-guardian-retention-hypothesis",
+          "explicit-local-clock-trust-boundary",
+          "defer-native-lifetime-time-selection",
+          "retain-exact-original-capture-storage-rights",
+          "external-durable-rights-ledger-hypothesis",
+          "separate-owned-target-quarantine-hypothesis",
+          "defer-native-storage-rights-selection",
+          "retain-whole-original-stage12",
+          "explicit-producer-and-external-finalization-cut",
+          "independent-captured-data-custody-hypothesis",
+          "defer-native-receipt-selection",
+          "retain-whole-original-entry",
+          "complete-protected-source-consumption-hypothesis",
+          "explicit-separate-backend-product-scope",
+          "defer-native-entry-backend-selection",
+          "retain-full-independent-two-platform-oracle",
+          "protected-independent-raw-oracle-hypothesis",
+          "defer-native-oracle-selection"
+        ],
+        "current_authority": false,
+        "id": "two-platform-fresh-test-entry",
+        "native_compatibility_proven": false,
+        "required_joint_review": "Whole independently safe actual composition review precedes separate fresh explicit native-test grant;native conformance later operational readiness. No historical/other-platform transfer.",
+        "source_family_input_keys": [
+          "writer_brief390",
+          "revocation_brief391",
+          "loss_brief392",
+          "storage_brief393",
+          "receipt_brief394",
+          "entry_brief395",
+          "oracle_brief396"
+        ]
+      }
+    }
+  ],
+  "runtime_authority": false,
+  "schema": 1,
+  "scope": "repository-joint-contract-proposal399-408-only",
+  "selected_options": null,
+  "semantic_migration_complete": false,
+  "state": "inactive-joint-whole-stage12-external-receipt-final-custody-review",
+  "step": 405,
+  "terminal_cut_establishes_actual_closure": false,
+  "unbounded_self_receipt_chain_required": false,
+  "unknown_commit_ACK_permits_republication": false,
+  "whole394_declared_graph_questions": [
+    {
+      "actual_native_graph": null,
+      "current_authority": false,
+      "edges": [
+        [
+          "payload-bound",
+          "same-payload-final-completion"
+        ],
+        [
+          "same-payload-final-completion",
+          "payload-bound"
+        ]
+      ],
+      "expected_cycle": true,
+      "id": "same-final-payload-self-observation",
+      "native_proof": false,
+      "nodes": [
+        "payload-bound",
+        "same-payload-final-completion"
+      ],
+      "original_stage12_reconciled": false
+    },
+    {
+      "actual_native_graph": null,
+      "current_authority": false,
+      "edges": [
+        [
+          "captured-target-closed-data",
+          "archive-commit-known"
+        ],
+        [
+          "archive-commit-known",
+          "sidecar-commit-known"
+        ],
+        [
+          "sidecar-commit-known",
+          "subject-trace-closed"
+        ],
+        [
+          "subject-trace-closed",
+          "receipt-payload-bound"
+        ],
+        [
+          "receipt-payload-bound",
+          "receipt-commit-known"
+        ],
+        [
+          "receipt-commit-known",
+          "final-observation-known"
+        ],
+        [
+          "receipt-commit-known",
+          "custody-handoff-known"
+        ],
+        [
+          "final-observation-known",
+          "external-outcomes-accounted"
+        ],
+        [
+          "custody-handoff-known",
+          "external-outcomes-accounted"
+        ],
+        [
+          "external-outcomes-accounted",
+          "terminal-acceptance-cut"
+        ]
+      ],
+      "expected_cycle": false,
+      "id": "proposed-producer-external-cut-only",
+      "native_proof": false,
+      "nodes": [
+        "captured-target-closed-data",
+        "archive-commit-known",
+        "sidecar-commit-known",
+        "subject-trace-closed",
+        "receipt-payload-bound",
+        "receipt-commit-known",
+        "final-observation-known",
+        "custody-handoff-known",
+        "external-outcomes-accounted",
+        "terminal-acceptance-cut"
+      ],
+      "original_stage12_reconciled": false
+    }
+  ],
+  "whole394_proposed_terminal_cut": {
+    "actual_terminal_boundary": null,
+    "all_original_observer_effects_require_review": true,
+    "atomic_pair_claimed": false,
+    "changes_original_stage_membership": true,
+    "current_original_stage12_equivalent": false,
+    "event_rows": [
+      {
+        "actor_role": "stage12-subject",
+        "actual_actor": null,
+        "actual_observation": null,
+        "current_authority": false,
+        "event_id": "captured-target-closed-data",
+        "meaning": "Prior independently known target closure; input only,no new target access.",
+        "native_boundary_selected": false,
+        "original_actual_membership": null,
+        "proposed_subject_stage12_member": false
+      },
+      {
+        "actor_role": "stage12-subject",
+        "actual_actor": null,
+        "actual_observation": null,
+        "current_authority": false,
+        "event_id": "archive-commit-known",
+        "meaning": "Producer separately commits archive under known original controlled storage.",
+        "native_boundary_selected": false,
+        "original_actual_membership": null,
+        "proposed_subject_stage12_member": true
+      },
+      {
+        "actor_role": "stage12-subject",
+        "actual_actor": null,
+        "actual_observation": null,
+        "current_authority": false,
+        "event_id": "sidecar-commit-known",
+        "meaning": "Producer separately commits sidecar; never atomic-pair evidence.",
+        "native_boundary_selected": false,
+        "original_actual_membership": null,
+        "proposed_subject_stage12_member": true
+      },
+      {
+        "actor_role": "independent-stream-collector",
+        "actual_actor": null,
+        "actual_observation": null,
+        "current_authority": false,
+        "event_id": "subject-trace-closed",
+        "meaning": "Complete producer subject streams/status/origin and descendants captured; collector own effects still externally accounted.",
+        "native_boundary_selected": false,
+        "original_actual_membership": null,
+        "proposed_subject_stage12_member": true
+      },
+      {
+        "actor_role": "external-last-receipt-writer",
+        "actual_actor": null,
+        "actual_observation": null,
+        "current_authority": false,
+        "event_id": "receipt-payload-bound",
+        "meaning": "Payload includes closed prior evidence,not own future final completion.",
+        "native_boundary_selected": false,
+        "original_actual_membership": null,
+        "proposed_subject_stage12_member": false
+      },
+      {
+        "actor_role": "external-last-receipt-writer",
+        "actual_actor": null,
+        "actual_observation": null,
+        "current_authority": false,
+        "event_id": "receipt-commit-known",
+        "meaning": "Once-only independently qualified receipt object/file/meta/directory/storage outcome.",
+        "native_boundary_selected": false,
+        "original_actual_membership": null,
+        "proposed_subject_stage12_member": false
+      },
+      {
+        "actor_role": "independent-final-receipt-observer",
+        "actual_actor": null,
+        "actual_observation": null,
+        "current_authority": false,
+        "event_id": "final-observation-known",
+        "meaning": "Exact independently observed receipt and writer outcomes; no self-proof.",
+        "native_boundary_selected": false,
+        "original_actual_membership": null,
+        "proposed_subject_stage12_member": false
+      },
+      {
+        "actor_role": "evidence-custody-consumer",
+        "actual_actor": null,
+        "actual_observation": null,
+        "current_authority": false,
+        "event_id": "custody-handoff-known",
+        "meaning": "Distinct guarded consumer custody/ACK outcome from captured data only.",
+        "native_boundary_selected": false,
+        "original_actual_membership": null,
+        "proposed_subject_stage12_member": false
+      },
+      {
+        "actor_role": "independent-verifier-and-expectations",
+        "actual_actor": null,
+        "actual_observation": null,
+        "current_authority": false,
+        "event_id": "external-outcomes-accounted",
+        "meaning": "Every listed collector/observer/consumer effect known; actual complete native graph/cut remains unselected.",
+        "native_boundary_selected": false,
+        "original_actual_membership": null,
+        "proposed_subject_stage12_member": false
+      },
+      {
+        "actor_role": "independent-verifier-and-expectations",
+        "actual_actor": null,
+        "actual_observation": null,
+        "current_authority": false,
+        "event_id": "terminal-acceptance-cut",
+        "meaning": "Proposed finite end boundary; real unclassified later effects block eligibility.",
+        "native_boundary_selected": false,
+        "original_actual_membership": null,
+        "proposed_subject_stage12_member": false
+      }
+    ],
+    "graph_id": "proposed-producer-external-cut-only",
+    "native_complete_accounting_proven": false,
+    "normative_migration_applied": false,
+    "observer_controls_waived": false,
+    "option_id": "explicit-producer-and-external-finalization-cut",
+    "receipt_payload_self_completion_claimed": false,
+    "unbounded_self_receipt_chain_required": false
+  },
+  "whole394_selected_for_drafting_option": {
+    "dependencies_and_incompatibilities": [
+      "live-revocation-without-worker-broker",
+      "all-writer-privileged-alias-lifetime",
+      "supervisor-loss-and-surviving-descendants",
+      "whole-entry-and-real-backend",
+      "original-baseline-owned-backup-unknown",
+      "finite-time-budget-and-recovery-rights",
+      "whole-stage12-final-receipt-causality",
+      "independent-two-platform-native-oracle"
+    ],
+    "disposition": "amendment-proposal",
+    "effect_and_failure_boundaries": [
+      "The event table assigns producer and external membership exactly for this proposal only. Original stage12 remains unchanged/normative until explicit decision and reviewed full migration.",
+      "Receipt payload is bound after producer trace closure and before its own final commit; it cannot contain its own later final completion or exact final self-hash observation.",
+      "Independent final observation and consumer custody are separate outcomes. Any unknown commit/ACK/stream/observer state remains pending, preserving original failure and artifacts. No retry, republish, target reread or new rights.",
+      "The finite terminal cut is authored, not an actual compatible native protocol or proven observer closure. Every original observer control still needs full review; original cases/relations must be remapped before any amendment."
+    ],
+    "exact_current_clause_bindings": [
+      {
+        "input_key": "publication_requirements316",
+        "json_pointer": "/immutable_design_facts/stages/12",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-owner-and-publication-path-requirements-review-review.json",
+        "whole_current_value": {
+          "effect": "owned-files",
+          "evidence": {
+            "early_buffer": false,
+            "exit_record": "evidence/stages/12-publish-reviewed-result.json",
+            "publication_receipt_external": true,
+            "stderr": "evidence/stages/12-publish-reviewed-result.stderr",
+            "stdout": "evidence/stages/12-publish-reviewed-result.stdout"
+          },
+          "failure_boundary": "stop-later-stages-preserve-original-status-run-only-safe-idempotent-restore-and-evidence-no-retry",
+          "function": "publish_evidence_and_receipt",
+          "guard": "success only after all guards/restoration/evidence; failure/none never success",
+          "index": 12,
+          "operation": "Prepare exclusive archive and sidecar without overwrite; external publication receipt records last-stage stdout/stderr/exit and final eligibility; receipt commits last; no self-containing archive or atomic pair claim.",
+          "stage": "publish-reviewed-result",
+          "test_seams": [
+            "stage-entry-failure",
+            "stage-mid-effect-failure",
+            "HUP-INT-TERM",
+            "uncatchable-loss",
+            "evidence-write-failure",
+            "cleanup-failure",
+            "double-cleanup"
+          ]
+        }
+      },
+      {
+        "input_key": "original325",
+        "json_pointer": "/publication_contract",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-whole-service-reference-helper-selector-source-backend-publication-effect-graph-design-review-design.json",
+        "whole_current_value": {
+          "actual_durability_backend": null,
+          "actual_paths": null,
+          "actual_receipt_origin": null,
+          "durability": "separate-no-replace-record-then-last-receipt-with-supported-file-meta-directory-storage-proof; no-pair-atomicity-or-self-containing-receipt-hash",
+          "independent": "captured-closed-data-only-with-separate-recipient-ancestry-alias-owner-content-writer-and-authority-controls-through-last-receipt",
+          "target_order": "drain-original-restore-fullverify-target-evidence-under-guard-then-release; no-target-writes-or-refresh-after-release",
+          "unknown": "lost-ack-partial-or-unknown-record-receipt-handoff-retains-artifacts-original-status-pending-controller-obligations-no-replay-republish-or-new-target-grant"
+        }
+      },
+      {
+        "input_key": "original327",
+        "json_pointer": "/crossclosure_contract",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-scoped-effects-obligations-rights-crossclosure-review-design.json",
+        "whole_current_value": {
+          "closure": "Known children/full original verification/target evidence before release; no later target writes. Record/receipt/handoff separate; any unclassified/unknown actual effect or obligation remains pending.",
+          "design": "All30 designed effect domains/every edge/seven capabilities/ten obligations/42 inherited proofs/nine windows/52 cases indexed. Reviewed disposition never operational proof.",
+          "effects": "Include all service/reference/helper/source/backend/selector/package/config/boot/owned/restore/publication surfaces; actual dynamic graph/entry still unclosed and boot/optional mutations outside scope remain forbidden.",
+          "host": "Current repository/private delivery requires no new machine/controller action. Historical/current actual host bindings unobserved/null; unobserved never absent, closed or globally safe.",
+          "integration": "328 may freeze this repository integration-design workstream after complete327 acceptance. Actual operational implementation freeze/readiness still requires selected graph/primitives/refinement/independent conformance/fresh authority.",
+          "obligations": "Every inherited statement/status/evidence stays byte-bound and required-not-proven, including worker-vs-service claim/traps interpretation and explicit stage7 successor; no frozen rewrite or waived proof.",
+          "rights": "Issuer controls and admission known-unused differ from consumed launch/worker/nested and original finite recovery. Publication uses separate captured-data controls, never a fresh target grant or forward renewal."
+        }
+      },
+      {
+        "input_key": "original323",
+        "json_pointer": "/closure_contract",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+        "whole_current_value": {
+          "controller": "unknown-durable-claim-launch-binding-budget-child-or-evidence-state-remains-pending-no-auto-delete-release-or-closed-rights-claim",
+          "machine": "only-known-original-restoration-and-known-owned-child-quiescence-with-complete-target-evidence-under-guard-can-close-scoped-target-obligations",
+          "publication": "after-target-closure-use-captured-closed-data-under-independent-publication-controls-through-last-receipt; no-target-refresh-write-or-renewal"
+        }
+      },
+      {
+        "input_key": "original323",
+        "json_pointer": "/fence_contract",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+        "whole_current_value": {
+          "actual_enforcer": null,
+          "actual_transport": null,
+          "compatibility": "321-offline-bootstrap-schema-and-FD-closure-unchanged; no-added-worker-RPC-or-inherited-control-channel; future-successor-fence-policy-and-transport-integration-explicitly-required324/325",
+          "rule": "trusted-external-controller-enforces-original-policy-and-absorbing-revocation-at-every-effect-boundary; worker-and-contained-commands-have-no-service-or-broker-capability",
+          "scope": "live-check-is-original-attempt-validity-not-new-grant-per-action; no-claim-of-instant-revocation-from-offline-receipt-or-finite-lease-alone",
+          "uncertainty": "gate-outcome-loss-or-stale-or-unavailable-status-stops-effects; consumed-grant-launch-slot-and-recovery-budget-never-reopen"
+        }
+      },
+      {
+        "input_key": "original323",
+        "json_pointer": "/clock_contract",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+        "whole_current_value": {
+          "actual_clock": null,
+          "actual_forward_deadline": null,
+          "actual_recovery_budget": null,
+          "actual_recovery_deadline": null,
+          "fixture": "integer-ticks-forward100-recovery140-budget5-only-synthetic-no-real-seconds-or-host-observation",
+          "rule": "issuer-authenticated-finite-bounds-and-independent-trusted-time-mapping-with-same-boot; no-wallclock-rollback-suspend-epoch-restart-or-unknown-as-valid"
+        }
+      },
+      {
+        "input_key": "original324",
+        "json_pointer": "/guard_contract",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-continuous-guarded-original-baseline-and-approved-phase-deltas-design-review-design.json",
+        "whole_current_value": {
+          "actual_guard_object": null,
+          "actual_native_protocol": null,
+          "actual_writer_inventory": null,
+          "admission": "reviewed-common-compatible-protocol-or-proven-controlled-entrypoint-prevention; unknown-or-nonparticipating-writer-blocks-admission",
+          "continuity": "before-and-through-every-owned-target-config-package-nested-refresh-helper-consumption-recovery-and-target-evidence-effect",
+          "coverage": "all-seven-requirement-domains-and-every-overlapping-direct-manual-scheduled-helper-privileged-writer-through-entire-mutation-window",
+          "failure": "loss-contention-object-replacement-unverifiable-owner-or-writer-state-latches-stop-and-pending; no-force-unlock-unlink-recreate-reacquire-or-rebind",
+          "handle": "stable-supervisor-owned-distinct-from-reference-FD9-not-child-inherited-unlockable; actual-object-API-range-mount-open-description-lifetime-proof-required",
+          "owner_loss": "parent-exit-not-child-quiescence; exclusion-must-survive-or-independently-prevent-all-surviving-writes-otherwise-unknown-pending",
+          "release": "known-owned-child-quiescence-exact-original-restoration-full-invariants-and-target-evidence-before-release; no-target-writes-afterward"
+        }
+      },
+      {
+        "input_key": "original326",
+        "json_pointer": "/model_contract",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-complete-finite-failure-model-and-independent-conformance-plan-review-design.json",
+        "whole_current_value": {
+          "boundary": "Finite macro-event contract and declared fault-family coverage only; no real resources, Bash source/top-level execution, operational simulation or universal concurrency claim.",
+          "budgets": "Integer0..8 recovery fixture budget pre-spent once per attempted action including failures/unknown; denied actions spend no action; no refund/retry/new grant; real durable deadline/budget proof required.",
+          "ordering": "320 service own barrier/auth/irreversible claim/spent launch;321 bounded memory/close before effects;stage1 traps;324 guard/freshoriginal before ownedstage2;verifiedstage3 backups before target mutations;322 binding/325 completegraph and exact selectors.",
+          "outcomes": "ok requires exact rawstatus; known-failure means independently verified no additional effect; unknown keeps affected domain unknown, never no-effect/absence/closed.",
+          "publication": "Verified drained original and closed target evidence before release; separately checked captured-data record and receipt durability plus handoff; unknown outcome never replay/republish or target refresh.",
+          "quarantine": "Unknown claim/slot/spawn/auth/guard/identity/clock/revocation/child/partial target/native writer outcome cannot authorize replay/relaunch/restore/reacquire or false release; preserve scope-specific pending status.",
+          "recovery": "Any finalization permanently latches forward; finite original retained rights/known guard/child ownership; drain before restore; no-target-change branch verifies fresh original without requiring a never-created backup; unknown owned binding may retain artifacts while separately proven target restoration continues."
+        }
+      },
+      {
+        "input_key": "original326",
+        "json_pointer": "/independent_conformance_contract",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-complete-finite-failure-model-and-independent-conformance-plan-review-design.json",
+        "whole_current_value": {
+          "oracle": "Raw independently captured vectors/effects/control lifetimes and positive/negative fault controls; claimed output/signature/row/harness PASS and same implementation logic never sufficient.",
+          "outcome": "Any missing/unclassified/unknown actual effect, oracle, durability, child, authority or cross obligation blocks actual conformance/readiness and keeps scoped pending record.",
+          "platforms": "52 separate required-not-run entries; no15.0-to-current or current-to15.0 inference; exact versions and native protocols unbound.",
+          "separation": "New implementation selection, explicit fresh test authority, bound versions/platform/boot/source/attempt and independent verifier/oracle before any future test;326 does not supply implementation or authority."
+        }
+      },
+      {
+        "input_key": "accepted384dossier",
+        "json_pointer": "/original377_whole_stage12_conflict",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-stage12-receipt-causality-decision-review-dossier.json",
+        "whole_current_value": {
+          "actual_resolution": null,
+          "current_authority": false,
+          "id": "whole-stage12-final-receipt-causality",
+          "native_blocker_resolved": false,
+          "normative_relaxation_allowed": false,
+          "unresolved_requirement": "Whole original stage12 streams/status/origin remain normative. The final external receipt cannot observe its own final commit/hash/durability. Actual collector/actor/event boundaries and independently observed final receipt remain unresolved; shortening/renaming stage12 or declaring a resolved protocol is prohibited."
+        }
+      }
+    ],
+    "explicit_user_decision_required": true,
+    "guarantees_lost_or_changed": [
+      "The original stage12 function/name/operation/guard/stream paths and event membership would change to a producer-only stage with separate external finalization; this is not original whole-stage12 conformance.",
+      "Producer exit alone would no longer be the original full last-stage status/eligibility; separate receipt/observer/custody results become explicit requirements.",
+      "A finite declared terminal acceptance/evidence boundary introduces a scope/trust cut requiring a full migration. Complete native accounting of that boundary is unproved; later unclassified effects cannot be ignored."
+    ],
+    "guarantees_retained": [
+      "Original captured closed data only after independently known restoration/full invariant/target evidence under guard and known release; no later target/source reread or action.",
+      "Archive/sidecar/receipt independently controlled no-replace objects; no atomic pair or self-containing archive claim; original failure/mismatch stays sticky.",
+      "Every publisher/collector/observer/consumer effect, source, alias, finite right, clock, storage, unknown outcome and custody remains independently reviewed; no observer exemption.",
+      "No retry/republish/new target grant/rebind/reacquire/renewal after unknown ACK or storage outcome; original current contracts remain normative until approved full migration."
+    ],
+    "id": "explicit-producer-and-external-finalization-cut",
+    "implementation_selected": false,
+    "independent_evidence_required": [
+      "Actual complete original stage12 membership/start/end/streams/status/origin and every nested/async publisher/collector/observer/consumer effect graph.",
+      "Protected independent producer/collector/receipt writer/final observer/verifier/custody roles, source provenance, object identities, all writers and finite scopes.",
+      "Exact actual payload cut and independently observed receipt bytes/metadata/commit/directory/storage, stream/descendant completion, handoff/ACK with effective fault controls.",
+      "Complete actual joint clock/fence/rights/storage/guard/custody and distinct two-platform full raw vectors; no self-receipt cycle or renamed subset as conformance."
+    ],
+    "migration_impact": {
+      "affected_proofs_cases_relations_complete": false,
+      "all_other_original_clauses_remain_binding": true,
+      "approved_migration": null,
+      "categories_requiring_full_mapping": [
+        "contracts320-327",
+        "sections347-and-gaps348",
+        "prerequisites365-and372-377",
+        "46-qualified-proofs",
+        "52-native-cases",
+        "12-independent-raw-groups",
+        "1072-ordered-relations",
+        "historical-five-families-twenty-scenarios",
+        "test-entry-and-operational-readiness"
+      ],
+      "exact_changed_clause_candidates": [
+        {
+          "input_key": "publication_requirements316",
+          "json_pointer": "/immutable_design_facts/stages/12"
+        },
+        {
+          "input_key": "original325",
+          "json_pointer": "/publication_contract"
+        },
+        {
+          "input_key": "original327",
+          "json_pointer": "/crossclosure_contract"
+        },
+        {
+          "input_key": "accepted384dossier",
+          "json_pointer": "/original377_whole_stage12_conflict"
+        },
+        {
+          "input_key": "accepted384dossier",
+          "json_pointer": "/causal_review"
+        }
+      ],
+      "state": "initial-draft-incomplete-until396-and397",
+      "whole_current_clause_bindings_retained": true
+    },
+    "platform_rows": [
+      {
+        "actual_composition": null,
+        "entry_authorized": false,
+        "installed_versions": null,
+        "native_evidence": null,
+        "platform": "Slackware 15.0",
+        "support": null
+      },
+      {
+        "actual_composition": null,
+        "entry_authorized": false,
+        "installed_versions": null,
+        "native_evidence": null,
+        "platform": "Slackware-current",
+        "support": null
+      }
+    ],
+    "proposed_clause_text": {
+      "/immutable_design_facts/stages/12": "{\n  \"effect\": \"owned-files\",\n  \"evidence\": {\n    \"early_buffer\": false,\n    \"exit_record\": \"evidence/stages/12-prepare-reviewed-publication.json\",\n    \"publication_receipt_external\": true,\n    \"stderr\": \"evidence/stages/12-prepare-reviewed-publication.stderr\",\n    \"stdout\": \"evidence/stages/12-prepare-reviewed-publication.stdout\"\n  },\n  \"failure_boundary\": \"stop-later-stages-preserve-original-status-run-only-safe-idempotent-restore-and-evidence-no-retry\",\n  \"function\": \"prepare_reviewed_archive_and_sidecar\",\n  \"guard\": \"Producer completion is only known archive/sidecar preparation and complete subject capture; never final publication eligibility. Overall eligibility needs every separate external-finalization outcome; failure/unknown never success.\",\n  \"index\": 12,\n  \"operation\": \"Use captured closed data to independently prepare/commit exclusive archive and sidecar. Close the producer subject streams/status before an external receipt writer constructs its payload. Receipt commit, independent final observation, custody and terminal accounting are separately declared external-finalization obligations. This changes original stage12 membership and supplies no current original equivalence.\",\n  \"stage\": \"prepare-reviewed-publication\",\n  \"test_seams\": [\n    \"stage-entry-failure\",\n    \"stage-mid-effect-failure\",\n    \"HUP-INT-TERM\",\n    \"uncatchable-loss\",\n    \"evidence-write-failure\",\n    \"cleanup-failure\",\n    \"double-cleanup\"\n  ]\n}",
+      "external_finalization_obligation": "After complete producer subject trace closure, bind a non-secret receipt payload from captured closed data only. Receipt records prior subject streams/status/origin and artifact identity/evidence, never its own future completion. Commit the separate receipt once under original finite publication rights; independently observe exact final object/storage and all receipt-writer outcomes. Consumer custody/ACK and every collector/observer effect require separate known independent accounting before overall eligibility. No same-payload proof of own final completion, no atomic archive/sidecar pair and no replay on uncertainty.",
+      "terminal_acceptance_cut": "The proposed finite evidence boundary ends only after every enumerated subject/receipt/collector/observer/consumer outcome is independently known under reviewed finite controls. No further evidence-producing effect is included after that declared cut; any real later effect is an unclassified obligation and blocks closure. No infinite self-receipt chain is required or claimed solved. A designated external custody/acceptance boundary has explicit source/trust/storage/clock/rights responsibilities; its complete native closure and trust are unknown, not exempt or assumed established."
+    },
+    "residual_native_unknowns": [
+      "Actual complete original stage12 membership/start/end/streams/status/origin and every nested/async publisher/collector/observer/consumer effect graph.",
+      "Protected independent producer/collector/receipt writer/final observer/verifier/custody roles, source provenance, object identities, all writers and finite scopes.",
+      "Exact actual payload cut and independently observed receipt bytes/metadata/commit/directory/storage, stream/descendant completion, handoff/ACK with effective fault controls.",
+      "Complete actual joint clock/fence/rights/storage/guard/custody and distinct two-platform full raw vectors; no self-receipt cycle or renamed subset as conformance."
+    ],
+    "runtime_authority": false,
+    "trust_assumptions": [
+      "Actual producer/collector/writer/observer/consumer source, privilege, independence, transports, storage and finite rights remain null.",
+      "Terminal custody/acceptance has an explicitly reviewed trust boundary, not immunity from effect, failure or storage obligations. A diagram or actor label supplies no native independence or complete closure."
+    ]
+  },
+  "whole400_producer_receipt_custody_wording": {
+    "id": "producer-receipt-and-finite-custody",
+    "kind": "joint-inactive-amendment",
+    "option_ids": [
+      "explicit-producer-and-external-finalization-cut",
+      "protected-independent-raw-oracle-hypothesis"
+    ],
+    "text": "Propose the complete changed stage12 producer membership from the exact394 draft, with external receipt writer, independent final-object/storage observation and custody/consumer accounting as separately declared finite obligations. All publish from captured closed data; no later target/source action. Receipt payload binds prior producer trace and cannot prove its own later commit/hash/durability. Producer exit cannot establish overall final eligibility. Every observer/injector/consumer own effect, descendants, streams, finite rights, storage and ACK remains explicitly reviewed inside the candidate acceptance boundary; no actor is exempt by label. A finite terminal trust/evidence cut is an explicit proposed change, not original equivalence or a solved native closure. Later unclassified effects or unknown final custody block closure without replay or new rights."
+  },
+  "whole_396_impact_reference": {
+    "canonical_sha256": "1a00f9afcde2a6ef72dad05cef26d2ea58874ef2f0daa3a533550ee799283612",
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-independent-oracle-migration-impact-decision-brief-brief.json",
+    "sha256": "67c6fed2d3e2d8ae5a7ae9904428841ae9410c905efed6da9ca81acc4e07535c"
+  },
+  "whole_accepted401_trust_reference": {
+    "canonical_sha256": "6a580f03e27c6758847d864bd5e620c21cfc52022a68cb2bbf563aa6e1abd371",
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-writer-source-trust-proposal-review-review.json",
+    "sha256": "b1a27dc28bbc0eb6ec56d12aae23de9019ccbc6e4050ad40eb7a006ecb3b9e78"
+  },
+  "whole_accepted402_operation_reference": {
+    "canonical_sha256": "535f3e3854385278362e9bdc70d8446e72250da703f06d9f61dff6850adb68fc",
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-operation-admission-revocation-proposal-review-review.json",
+    "sha256": "0a6f20dd064ebbb4da81322ff4cf39207d84f1610e6ea17ff079b8a84b154530"
+  },
+  "whole_accepted403_loss_reference": {
+    "canonical_sha256": "590d931acd8b67da88348ea887f83ff8810d713f65acc029066ba76f0994e1ed",
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-loss-drain-clock-proposal-review-review.json",
+    "sha256": "ce23308a474e2c703201689635c3e990af9ad5b5f56cc7ec5cd67725b45121b9"
+  },
+  "whole_accepted404_storage_reference": {
+    "canonical_sha256": "cac6f11f8853ceae3e138a97864e97464e8f2ec0d157b72b26b37f395f85c674",
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-baseline-storage-finite-rights-proposal-review-review.json",
+    "sha256": "4bad8eb06ba2efcf17df420a3c20f398ac10d862e7f8d1aee6b61c68ce84d277"
+  },
+  "whole_candidate400_reference": {
+    "canonical_sha256": "5c34230946a48e6e09c1a2aed8a6a4d62e85b24f3db84c3713d1d37fb546d8d2",
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-concrete-joint-contract-candidate-proposal-review-candidate.json",
+    "sha256": "f25bc295733c1af53329af26785d23273dd3d07aec67d9eb328df27d0030a17f"
+  },
+  "whole_original316_stage12": {
+    "effect": "owned-files",
+    "evidence": {
+      "early_buffer": false,
+      "exit_record": "evidence/stages/12-publish-reviewed-result.json",
+      "publication_receipt_external": true,
+      "stderr": "evidence/stages/12-publish-reviewed-result.stderr",
+      "stdout": "evidence/stages/12-publish-reviewed-result.stdout"
+    },
+    "failure_boundary": "stop-later-stages-preserve-original-status-run-only-safe-idempotent-restore-and-evidence-no-retry",
+    "function": "publish_evidence_and_receipt",
+    "guard": "success only after all guards/restoration/evidence; failure/none never success",
+    "index": 12,
+    "operation": "Prepare exclusive archive and sidecar without overwrite; external publication receipt records last-stage stdout/stderr/exit and final eligibility; receipt commits last; no self-containing archive or atomic pair claim.",
+    "stage": "publish-reviewed-result",
+    "test_seams": [
+      "stage-entry-failure",
+      "stage-mid-effect-failure",
+      "HUP-INT-TERM",
+      "uncatchable-loss",
+      "evidence-write-failure",
+      "cleanup-failure",
+      "double-cleanup"
+    ]
+  },
+  "whole_original323_publication_closure_and_clock": {
+    "clock_contract": {
+      "actual_clock": null,
+      "actual_forward_deadline": null,
+      "actual_recovery_budget": null,
+      "actual_recovery_deadline": null,
+      "fixture": "integer-ticks-forward100-recovery140-budget5-only-synthetic-no-real-seconds-or-host-observation",
+      "rule": "issuer-authenticated-finite-bounds-and-independent-trusted-time-mapping-with-same-boot; no-wallclock-rollback-suspend-epoch-restart-or-unknown-as-valid"
+    },
+    "closure_contract": {
+      "controller": "unknown-durable-claim-launch-binding-budget-child-or-evidence-state-remains-pending-no-auto-delete-release-or-closed-rights-claim",
+      "machine": "only-known-original-restoration-and-known-owned-child-quiescence-with-complete-target-evidence-under-guard-can-close-scoped-target-obligations",
+      "publication": "after-target-closure-use-captured-closed-data-under-independent-publication-controls-through-last-receipt; no-target-refresh-write-or-renewal"
+    },
+    "fence_contract": {
+      "actual_enforcer": null,
+      "actual_transport": null,
+      "compatibility": "321-offline-bootstrap-schema-and-FD-closure-unchanged; no-added-worker-RPC-or-inherited-control-channel; future-successor-fence-policy-and-transport-integration-explicitly-required324/325",
+      "rule": "trusted-external-controller-enforces-original-policy-and-absorbing-revocation-at-every-effect-boundary; worker-and-contained-commands-have-no-service-or-broker-capability",
+      "scope": "live-check-is-original-attempt-validity-not-new-grant-per-action; no-claim-of-instant-revocation-from-offline-receipt-or-finite-lease-alone",
+      "uncertainty": "gate-outcome-loss-or-stale-or-unavailable-status-stops-effects; consumed-grant-launch-slot-and-recovery-budget-never-reopen"
+    }
+  },
+  "whole_original324_publication_and_guard": {
+    "guard_contract": {
+      "actual_guard_object": null,
+      "actual_native_protocol": null,
+      "actual_writer_inventory": null,
+      "admission": "reviewed-common-compatible-protocol-or-proven-controlled-entrypoint-prevention; unknown-or-nonparticipating-writer-blocks-admission",
+      "continuity": "before-and-through-every-owned-target-config-package-nested-refresh-helper-consumption-recovery-and-target-evidence-effect",
+      "coverage": "all-seven-requirement-domains-and-every-overlapping-direct-manual-scheduled-helper-privileged-writer-through-entire-mutation-window",
+      "failure": "loss-contention-object-replacement-unverifiable-owner-or-writer-state-latches-stop-and-pending; no-force-unlock-unlink-recreate-reacquire-or-rebind",
+      "handle": "stable-supervisor-owned-distinct-from-reference-FD9-not-child-inherited-unlockable; actual-object-API-range-mount-open-description-lifetime-proof-required",
+      "owner_loss": "parent-exit-not-child-quiescence; exclusion-must-survive-or-independently-prevent-all-surviving-writes-otherwise-unknown-pending",
+      "release": "known-owned-child-quiescence-exact-original-restoration-full-invariants-and-target-evidence-before-release; no-target-writes-afterward"
+    },
+    "publication_contract": "target-guard-closure-does-not-prove-recipient-content-writer-exclusion; separate316/325-controls-through-last-receipt-use-captured-closed-data-only"
+  },
+  "whole_original384_causal_and_event_review": {
+    "actor_event_review": [
+      {
+        "actual_FD_transport_writer_lifetime": null,
+        "actual_actor_identity_namespace_privilege": null,
+        "actual_original_finite_scope_rights": null,
+        "actual_raw_origin_storage_observation": null,
+        "actual_source_dependency_graph": null,
+        "current_authority": false,
+        "different_role_name_proves_independence": false,
+        "distinct_person_required": false,
+        "id": "stage12-subject",
+        "native_independence_proven": false,
+        "required_future_observation": "Complete original publish_evidence_and_receipt entry/end/effects, every raw stdout/stderr/status and sticky original failure; exact stage membership unresolved, never shortened."
+      },
+      {
+        "actual_FD_transport_writer_lifetime": null,
+        "actual_actor_identity_namespace_privilege": null,
+        "actual_original_finite_scope_rights": null,
+        "actual_raw_origin_storage_observation": null,
+        "actual_source_dependency_graph": null,
+        "current_authority": false,
+        "different_role_name_proves_independence": false,
+        "distinct_person_required": false,
+        "id": "independent-stream-collector",
+        "native_independence_proven": false,
+        "required_future_observation": "Complete original stage12 stream/status/origin capture including descendants, partial/lost evidence and collector own writes; protected source/FD/transport/writer independence required."
+      },
+      {
+        "actual_FD_transport_writer_lifetime": null,
+        "actual_actor_identity_namespace_privilege": null,
+        "actual_original_finite_scope_rights": null,
+        "actual_raw_origin_storage_observation": null,
+        "actual_source_dependency_graph": null,
+        "current_authority": false,
+        "different_role_name_proves_independence": false,
+        "distinct_person_required": false,
+        "id": "external-last-receipt-writer",
+        "native_independence_proven": false,
+        "required_future_observation": "Separate original captured-data receipt payload, exact artifact identities/hashes, stage12 evidence and origin; final own commit/hash/durability never self-observed payload fields."
+      },
+      {
+        "actual_FD_transport_writer_lifetime": null,
+        "actual_actor_identity_namespace_privilege": null,
+        "actual_original_finite_scope_rights": null,
+        "actual_raw_origin_storage_observation": null,
+        "actual_source_dependency_graph": null,
+        "current_authority": false,
+        "different_role_name_proves_independence": false,
+        "distinct_person_required": false,
+        "id": "independent-final-receipt-observer",
+        "native_independence_proven": false,
+        "required_future_observation": "Independently bind exact final receipt object/bytes/metadata/commit/directory/storage outcome after relevant completion, own finite rights/evidence effects and trusted origin; no native cutoff selected."
+      },
+      {
+        "actual_FD_transport_writer_lifetime": null,
+        "actual_actor_identity_namespace_privilege": null,
+        "actual_original_finite_scope_rights": null,
+        "actual_raw_origin_storage_observation": null,
+        "actual_source_dependency_graph": null,
+        "current_authority": false,
+        "different_role_name_proves_independence": false,
+        "distinct_person_required": false,
+        "id": "evidence-custody-consumer",
+        "native_independence_proven": false,
+        "required_future_observation": "Exact controlled revalidation of archive/sidecar/receipt and original attempt/status/origin through durable handoff, ACK and continued writer/alias controls; recipient ownership alone not immutability."
+      },
+      {
+        "actual_FD_transport_writer_lifetime": null,
+        "actual_actor_identity_namespace_privilege": null,
+        "actual_original_finite_scope_rights": null,
+        "actual_raw_origin_storage_observation": null,
+        "actual_source_dependency_graph": null,
+        "current_authority": false,
+        "different_role_name_proves_independence": false,
+        "distinct_person_required": false,
+        "id": "independent-verifier-and-expectations",
+        "native_independence_proven": false,
+        "required_future_observation": "Independently expected original full raw vectors before comparison, protected comparison source and authentic raw data; verifier may author expectations, subject cannot self-author its sole oracle."
+      },
+      {
+        "actual_FD_transport_writer_lifetime": null,
+        "actual_actor_identity_namespace_privilege": null,
+        "actual_original_finite_scope_rights": null,
+        "actual_raw_origin_storage_observation": null,
+        "actual_source_dependency_graph": null,
+        "current_authority": false,
+        "different_role_name_proves_independence": false,
+        "distinct_person_required": false,
+        "id": "independent-fault-controls",
+        "native_independence_proven": false,
+        "required_future_observation": "Fresh separately authorized bounded effective native fault controls with independent positive and negative observations; own injector effects not exempt, no test currently authorized."
+      }
+    ],
+    "adversarial_schedules": [
+      {
+        "actual_observation": null,
+        "candidate_id": "self-observed-final-receipt",
+        "conditional_reason": "Conditional dependency contradiction of the proposed own-observation claim, not a mathematical impossibility theorem for all hashes or all protocols.",
+        "exhaustive_schedule_coverage": false,
+        "id": "self-completion-dependency",
+        "native_execution": false,
+        "ordered_events": [
+          "receipt-payload-prepared",
+          "same-payload-final-commit-storage-required",
+          "prior-payload-claims-later-own-observation"
+        ]
+      },
+      {
+        "actual_observation": null,
+        "candidate_id": "archive-contains-own-final-receipt",
+        "conditional_reason": "Keep exact original external receipt and distinct archive role; no self-containing completed archive claim.",
+        "exhaustive_schedule_coverage": false,
+        "id": "self-archive-dependency",
+        "native_execution": false,
+        "ordered_events": [
+          "archive-payload-prepared",
+          "same-archive-final-hash-required",
+          "last-receipt-in-same-archive-proposed"
+        ]
+      },
+      {
+        "actual_observation": null,
+        "candidate_id": "renamed-or-shortened-stage12",
+        "conditional_reason": "No label or cutoff amendment can discharge whole original stage12.",
+        "exhaustive_schedule_coverage": false,
+        "id": "stage-boundary-shrink",
+        "native_execution": false,
+        "ordered_events": [
+          "original-whole-stage12-obligation",
+          "receipt-events-omitted-or-renamed",
+          "subset-declared-complete"
+        ]
+      },
+      {
+        "actual_observation": null,
+        "candidate_id": "whole-stage12-external-boundary-hypothesis",
+        "conditional_reason": "Independently retain every complete raw stream/status and original attempt/provenance; EOF of one stream is not complete evidence.",
+        "exhaustive_schedule_coverage": false,
+        "id": "stream-EOF-status-gap",
+        "native_execution": false,
+        "ordered_events": [
+          "one-stream-EOF",
+          "other-stream-descendant-or-raw-status-unknown",
+          "whole-stage-completion-proposed"
+        ]
+      },
+      {
+        "actual_observation": null,
+        "candidate_id": "publisher-summary-or-hash-as-oracle",
+        "conditional_reason": "Subject summary/hash/role name never supplies independent complete native proof.",
+        "exhaustive_schedule_coverage": false,
+        "id": "self-summary-origin-gap",
+        "native_execution": false,
+        "ordered_events": [
+          "publisher-emits-PASS-hash",
+          "independent-origin-and-effect-capture-unknown",
+          "oracle-success-proposed"
+        ]
+      },
+      {
+        "actual_observation": null,
+        "candidate_id": "visible-pair-or-ACK-as-completion",
+        "conditional_reason": "Preserve distinct outcomes; no atomic pair inference or replay.",
+        "exhaustive_schedule_coverage": false,
+        "id": "record-archive-sidecar-split",
+        "native_execution": false,
+        "ordered_events": [
+          "record-known",
+          "archive-known",
+          "sidecar-commit-or-storage-unknown",
+          "atomic-pair-proposed"
+        ]
+      },
+      {
+        "actual_observation": null,
+        "candidate_id": "visible-pair-or-ACK-as-completion",
+        "conditional_reason": "Exact actual receipt outcome null/scoped pending; preserve artifacts and no reuse, without inventing definitely absent or completed.",
+        "exhaustive_schedule_coverage": false,
+        "id": "last-receipt-ACK-loss",
+        "native_execution": false,
+        "ordered_events": [
+          "receipt-may-have-committed",
+          "ACK-lost",
+          "republish-or-unused-right-proposed"
+        ]
+      },
+      {
+        "actual_observation": null,
+        "candidate_id": "whole-stage12-external-boundary-hypothesis",
+        "conditional_reason": "Separate final object/commit/storage proof under independently reviewed observer controls; a paper boundary is not the native protocol.",
+        "exhaustive_schedule_coverage": false,
+        "id": "receipt-storage-cut",
+        "native_execution": false,
+        "ordered_events": [
+          "receipt-visible",
+          "receipt-directory-or-storage-outcome-unknown",
+          "external-observation-required"
+        ]
+      },
+      {
+        "actual_observation": null,
+        "candidate_id": "uncontrolled-external-observer",
+        "conditional_reason": "Collector own effects/rights and surviving children remain scoped pending; no exempt observer or infinite self-receipt chain claimed as a solution.",
+        "exhaustive_schedule_coverage": false,
+        "id": "observer-evidence-loss",
+        "native_execution": false,
+        "ordered_events": [
+          "collector-captures-subject",
+          "collector-evidence-write-or-ACK-unknown",
+          "collector-closure-proposed"
+        ]
+      },
+      {
+        "actual_observation": null,
+        "candidate_id": "complete-independent-custody-hypothesis",
+        "conditional_reason": "Exact checked-to-consumed object/bytes/origin and writer lifetime controls required through reviewed handoff.",
+        "exhaustive_schedule_coverage": false,
+        "id": "recipient-alias-drift",
+        "native_execution": false,
+        "ordered_events": [
+          "artifact-hash-checked",
+          "recipient-ancestor-content-writer-drift",
+          "consumer-reopen-proposed"
+        ]
+      },
+      {
+        "actual_observation": null,
+        "candidate_id": "complete-independent-custody-hypothesis",
+        "conditional_reason": "No received/closed inference, republish or new target grant; consumer own effect outcome separate.",
+        "exhaustive_schedule_coverage": false,
+        "id": "handoff-ACK-loss",
+        "native_execution": false,
+        "ordered_events": [
+          "consumer-may-have-read-exact-artifacts",
+          "durable-handoff-ACK-unknown",
+          "received-or-global-closure-proposed"
+        ]
+      },
+      {
+        "actual_observation": null,
+        "candidate_id": "uncontrolled-external-observer",
+        "conditional_reason": "Captured closed data only; publication cannot reacquire target or repair target obligations.",
+        "exhaustive_schedule_coverage": false,
+        "id": "post-release-live-reread",
+        "native_execution": false,
+        "ordered_events": [
+          "target-evidence-captured-under-guard",
+          "target-release-known",
+          "publisher-live-target-refresh-proposed"
+        ]
+      },
+      {
+        "actual_observation": null,
+        "candidate_id": "complete-independent-custody-hypothesis",
+        "conditional_reason": "Complete contained-failure evidence differs from original transaction success; no pause/right grant or erased mismatch.",
+        "exhaustive_schedule_coverage": false,
+        "id": "contained-failure-relabel",
+        "native_execution": false,
+        "ordered_events": [
+          "original-forward-failure",
+          "independently-known-containment",
+          "complete-failure-publication-hypothetically-known",
+          "original-result-relabelled-success"
+        ]
+      },
+      {
+        "actual_observation": null,
+        "candidate_id": "whole-stage12-external-boundary-hypothesis",
+        "conditional_reason": "Known full descendant/effect drain and original finite gates required; loss never proves absence/closure.",
+        "exhaustive_schedule_coverage": false,
+        "id": "observer-owner-loss",
+        "native_execution": false,
+        "ordered_events": [
+          "publisher-or-collector-owner-loss",
+          "possible-descendant-FD-stream-or-storage-survivor",
+          "full-completion-proposed"
+        ]
+      }
+    ],
+    "causal_review": {
+      "actual_collector_own_evidence_closure": null,
+      "actual_complete_original_stage12_event_set": null,
+      "actual_consumer_handoff_outcome": null,
+      "actual_independent_final_observation_boundary": null,
+      "actual_original_stage12_start_end": null,
+      "actual_receipt_payload_cut": null,
+      "different_role_name_proves_independence": false,
+      "finite_external_protocol_proven": false,
+      "native_stage12_causal_refinement_proven": false,
+      "no_infinite_receipt_regress_claim_is_native_proof": false,
+      "observer_effect_exemption_permitted": false,
+      "paper_order_is_actual_happens_before_proof": false,
+      "post_release_live_target_access_permitted": false,
+      "publication_pair_atomicity_claimed": false,
+      "publication_success_rewrites_original_failure": false,
+      "receipt_in_own_archive_permitted": false,
+      "receipt_payload_own_final_hash_commit_durability_observation_permitted": false,
+      "rule": "Whole original stage12 and all original observer effects remain normative. Exact final receipt completion must be independently observed externally; payload cannot assert its own later final completion. Event membership/cut/trust/storage/finite-rights protocol unresolved, no renamed subset or native success inferred.",
+      "status": "conditional-questions-not-selected-native-protocol",
+      "unknown_ACK_replay_permitted": false,
+      "whole_stage12_shortening_or_renaming_permitted": false
+    },
+    "conditional_dependency_questions": [
+      {
+        "actual_native_graph": null,
+        "disposition": "incompatible-as-stated-own-final-observation",
+        "edges": [
+          [
+            "payload-bound",
+            "same-payload-final-completion"
+          ],
+          [
+            "same-payload-final-completion",
+            "payload-bound"
+          ]
+        ],
+        "expected_cycle": true,
+        "id": "same-final-payload-self-observation",
+        "original_stage12_reconciled": false
+      },
+      {
+        "actual_native_graph": null,
+        "disposition": "unresolved-whole-stage-membership-and-observer-obligations",
+        "edges": [
+          [
+            "payload-bound",
+            "final-receipt-completion"
+          ],
+          [
+            "final-receipt-completion",
+            "external-observation"
+          ],
+          [
+            "external-observation",
+            "separate-observer-accounting"
+          ]
+        ],
+        "expected_cycle": false,
+        "id": "external-observation-question",
+        "original_stage12_reconciled": false
+      }
+    ],
+    "enforcement_boundary_questions": {
+      "actual_complete_raw_stream_status_origin_capture": null,
+      "actual_consumer_durable_handoff_ACK_boundary": null,
+      "actual_final_object_commit_storage_observation": null,
+      "actual_finite_scoped_rights_accounting": null,
+      "actual_independent_observer_evidence_effect_boundary": null,
+      "actual_last_payload_binding_before_commit": null,
+      "actual_numeric_custody_actor_writer_control": null,
+      "actual_original_stage12_entry_end_membership": null
+    },
+    "event_boundary_questions": [
+      {
+        "actual_actor": null,
+        "actual_commit_storage_outcome": null,
+        "actual_finite_rights": null,
+        "actual_native_boundary": null,
+        "actual_original_stage_membership": null,
+        "actual_raw_bytes_status_origin": null,
+        "current_authority": false,
+        "id": "original-stage12-entry",
+        "native_boundary_selected": false
+      },
+      {
+        "actual_actor": null,
+        "actual_commit_storage_outcome": null,
+        "actual_finite_rights": null,
+        "actual_native_boundary": null,
+        "actual_original_stage_membership": null,
+        "actual_raw_bytes_status_origin": null,
+        "current_authority": false,
+        "id": "original-stage12-complete-streams-status-origin",
+        "native_boundary_selected": false
+      },
+      {
+        "actual_actor": null,
+        "actual_commit_storage_outcome": null,
+        "actual_finite_rights": null,
+        "actual_native_boundary": null,
+        "actual_original_stage_membership": null,
+        "actual_raw_bytes_status_origin": null,
+        "current_authority": false,
+        "id": "last-receipt-payload-bound",
+        "native_boundary_selected": false
+      },
+      {
+        "actual_actor": null,
+        "actual_commit_storage_outcome": null,
+        "actual_finite_rights": null,
+        "actual_native_boundary": null,
+        "actual_original_stage_membership": null,
+        "actual_raw_bytes_status_origin": null,
+        "current_authority": false,
+        "id": "last-receipt-final-commit",
+        "native_boundary_selected": false
+      },
+      {
+        "actual_actor": null,
+        "actual_commit_storage_outcome": null,
+        "actual_finite_rights": null,
+        "actual_native_boundary": null,
+        "actual_original_stage_membership": null,
+        "actual_raw_bytes_status_origin": null,
+        "current_authority": false,
+        "id": "last-receipt-directory-storage-complete",
+        "native_boundary_selected": false
+      },
+      {
+        "actual_actor": null,
+        "actual_commit_storage_outcome": null,
+        "actual_finite_rights": null,
+        "actual_native_boundary": null,
+        "actual_original_stage_membership": null,
+        "actual_raw_bytes_status_origin": null,
+        "current_authority": false,
+        "id": "external-final-receipt-observation",
+        "native_boundary_selected": false
+      },
+      {
+        "actual_actor": null,
+        "actual_commit_storage_outcome": null,
+        "actual_finite_rights": null,
+        "actual_native_boundary": null,
+        "actual_original_stage_membership": null,
+        "actual_raw_bytes_status_origin": null,
+        "current_authority": false,
+        "id": "collector-own-evidence-outcome",
+        "native_boundary_selected": false
+      },
+      {
+        "actual_actor": null,
+        "actual_commit_storage_outcome": null,
+        "actual_finite_rights": null,
+        "actual_native_boundary": null,
+        "actual_original_stage_membership": null,
+        "actual_raw_bytes_status_origin": null,
+        "current_authority": false,
+        "id": "consumer-durable-handoff-outcome",
+        "native_boundary_selected": false
+      }
+    ],
+    "independent_resolution_criteria": [
+      "Reconcile every original stage12 entry/end/event/stream/raw status/origin and publication effect without shortening or renaming; complete source and descendant graph first, membership never guessed from a paper DAG.",
+      "Separately reviewed authenticated numeric actor/source/dependency/namespace/privilege/FD/transport/writer lifetimes for subject, collectors, receipt writer, final observer and consumer; roles alone not independence, verifier may author expectations.",
+      "Original target evidence under continuous all-writer guard and known full children/streams/effects, safe original restoration or independently known no-write equivalence, sealed captured data and known scoped release before publication; no later target access.",
+      "Record/archive/sidecar/external-last-receipt exact captured bytes/type/owner/mode/origin/exclusive no-replace and separately supported file/metadata/directory/storage outcomes, no atomic pair or self-containing archive.",
+      "External independent observation of exact final receipt hash/commit/storage after relevant completion; whole original stage12 evidence and every observer own effect reconcile without self-payload evidence or an asserted infinite receipt chain solution.",
+      "All original finite authenticated publication/collector/consumer/injector scopes, clock/live fence/writer controls and once-only spend/unknown quarantine, separate controller obligations; no broker to worker or target grant/refund/replay/rebind.",
+      "Independent exact consumer byte/origin revalidation and durable handoff/ACK/custody with writer/alias protection; unknown remains scoped pending and complete contained failure preserves original raw failure/mismatch.",
+      "Separate actual15.0/current complete native raw expected/capture/comparison/fault effectiveness under whole320-327/347/348/365/372/377 requirements; safe containment plus fresh bounded grant before future tests, not a test granting its own permission."
+    ],
+    "original374_independent_uncertainty_domains": [
+      {
+        "actual_evidence": null,
+        "actual_state": null,
+        "domain": "target",
+        "is_current_closure_claim": false,
+        "non_inference": "Target known closed does not imply controller/owned/publication/global closure.",
+        "required_independent_accounting": "Complete independent original invariants and known descendants/guard/evidence/release; changed,unknown or unsafe target remains pending."
+      },
+      {
+        "actual_evidence": null,
+        "actual_state": null,
+        "domain": "owned-artifacts",
+        "is_current_closure_claim": false,
+        "non_inference": "Unknown owned binding is not proof target absent/changed/unchanged; no blind deletion.",
+        "required_independent_accounting": "Individually recorded same-attempt staging/backup/binding/log/stream/evidence objects and aliases; partial/unknown artifacts preserved."
+      },
+      {
+        "actual_evidence": null,
+        "actual_state": null,
+        "domain": "controller-claim-launch-budget",
+        "is_current_closure_claim": false,
+        "non_inference": "Target restoration never resets consumed claim/launch or refunds uncertain spend; unknown controller obligations remain pending.",
+        "required_independent_accounting": "Original durable claim/launch/once-only budget and child/evidence obligations require independent known accounting."
+      },
+      {
+        "actual_evidence": null,
+        "actual_state": null,
+        "domain": "publication-record",
+        "is_current_closure_claim": false,
+        "non_inference": "Record visibility/hash cannot prove archive,sidecar,last receipt or handoff complete.",
+        "required_independent_accounting": "Original captured-data preparation/publication record independently exclusive and durable with complete raw result/status/evidence."
+      },
+      {
+        "actual_evidence": null,
+        "actual_state": null,
+        "domain": "archive-and-sidecar",
+        "is_current_closure_claim": false,
+        "non_inference": "One existing/durable leaf is not atomic pair completion; unknown leaf/ACK remains pending.",
+        "required_independent_accounting": "Two separately exclusive no-replace artifacts with exact captured inputs and independently supported file/meta/directory/storage proof."
+      },
+      {
+        "actual_evidence": null,
+        "actual_state": null,
+        "domain": "external-last-receipt",
+        "is_current_closure_claim": false,
+        "non_inference": "No self-containing archive completion,self-hash or SHA-as-authenticity; receipt commit/durability may remain unknown.",
+        "required_independent_accounting": "Separate external receipt binds exact both artifact hashes,original attempt,result,statuses,complete stage12 evidence and independently trusted origin."
+      },
+      {
+        "actual_evidence": null,
+        "actual_state": null,
+        "domain": "consumer-handoff",
+        "is_current_closure_claim": false,
+        "non_inference": "Lost handoff ACK never implies received/closed; no republish/retry/new target grant.",
+        "required_independent_accounting": "Independent authenticated consumer exact-byte revalidation and reviewed durable handoff under separate publication writer controls."
+      }
+    ],
+    "original374_publication_failure_cut_review": [
+      {
+        "actual_condition": null,
+        "actual_fault_effectiveness": null,
+        "actual_observation": null,
+        "current_authority": false,
+        "declared_condition": "Any child/FD/stream/in-flight effect unresolved",
+        "id": "target-children-unknown",
+        "is_executable_action_selector": false,
+        "is_new_original_native_case": false,
+        "native_case_run": false,
+        "required_future_disposition": "Block restoration/release/publication success; keep original scoped target and controller obligations pending."
+      },
+      {
+        "actual_condition": null,
+        "actual_fault_effectiveness": null,
+        "actual_observation": null,
+        "current_authority": false,
+        "declared_condition": "Original full invariants or original safe inputs not independently known",
+        "id": "target-equivalence-unknown",
+        "is_executable_action_selector": false,
+        "is_new_original_native_case": false,
+        "native_case_run": false,
+        "required_future_disposition": "No restored/unchanged claim,unsafe backup use or foreign restore; keep continuous guard only as permitted by original finite rights and pending obligations."
+      },
+      {
+        "actual_condition": null,
+        "actual_fault_effectiveness": null,
+        "actual_observation": null,
+        "current_authority": false,
+        "declared_condition": "Missing streams/status/original evidence or uncertain evidence write",
+        "id": "target-evidence-partial",
+        "is_executable_action_selector": false,
+        "is_new_original_native_case": false,
+        "native_case_run": false,
+        "required_future_disposition": "No release on partial evidence; retain original status/artifacts and separate actual outcomes."
+      },
+      {
+        "actual_condition": null,
+        "actual_fault_effectiveness": null,
+        "actual_observation": null,
+        "current_authority": false,
+        "declared_condition": "Exact target release outcome or owner/writer lifetime unknown",
+        "id": "target-release-ACK-unknown",
+        "is_executable_action_selector": false,
+        "is_new_original_native_case": false,
+        "native_case_run": false,
+        "required_future_disposition": "Do not repeat release,force unlock,reacquire or infer released/held/absence. No publication path may repair a target obligation or acquire target rights."
+      },
+      {
+        "actual_condition": null,
+        "actual_fault_effectiveness": null,
+        "actual_observation": null,
+        "current_authority": false,
+        "declared_condition": "Existing/dangling/foreign/alias-overlap output or ancestor",
+        "id": "publication-destination-occupied",
+        "is_executable_action_selector": false,
+        "is_new_original_native_case": false,
+        "native_case_run": false,
+        "required_future_disposition": "Reject without overwrite/remove/recreate/rebind; no named token or0600 owner proves absent/exclusive safe path."
+      },
+      {
+        "actual_condition": null,
+        "actual_fault_effectiveness": null,
+        "actual_observation": null,
+        "current_authority": false,
+        "declared_condition": "Record/intent/evidence write or ACK incomplete/unknown",
+        "id": "preparation-record-partial-or-unknown",
+        "is_executable_action_selector": false,
+        "is_new_original_native_case": false,
+        "native_case_run": false,
+        "required_future_disposition": "Preserve partial artifacts and controller obligations; no record replay/delete/rehash-to-success."
+      },
+      {
+        "actual_condition": null,
+        "actual_fault_effectiveness": null,
+        "actual_observation": null,
+        "current_authority": false,
+        "declared_condition": "Archive bytes/source consumption/commit ACK unknown",
+        "id": "archive-content-or-commit-unknown",
+        "is_executable_action_selector": false,
+        "is_new_original_native_case": false,
+        "native_case_run": false,
+        "required_future_disposition": "Do not rearchive,rename again,delete possible result or claim complete pair; preserve captured inputs and original result."
+      },
+      {
+        "actual_condition": null,
+        "actual_fault_effectiveness": null,
+        "actual_observation": null,
+        "current_authority": false,
+        "declared_condition": "Archive directory/metadata/storage persistence uncertain",
+        "id": "archive-directory-storage-unknown",
+        "is_executable_action_selector": false,
+        "is_new_original_native_case": false,
+        "native_case_run": false,
+        "required_future_disposition": "Do not infer durability from visible name/hash/file close; sidecar/receipt completion cannot repair it."
+      },
+      {
+        "actual_condition": null,
+        "actual_fault_effectiveness": null,
+        "actual_observation": null,
+        "current_authority": false,
+        "declared_condition": "Sidecar bytes/commit/ACK/storage unresolved after archive",
+        "id": "sidecar-partial-or-unknown",
+        "is_executable_action_selector": false,
+        "is_new_original_native_case": false,
+        "native_case_run": false,
+        "required_future_disposition": "Archive stays its independently known state; no atomic pair/complete success claim,no repeat/rebuild/delete."
+      },
+      {
+        "actual_condition": null,
+        "actual_fault_effectiveness": null,
+        "actual_observation": null,
+        "current_authority": false,
+        "declared_condition": "Recipient/ancestor/object/mount alias or content writer changes at any cut",
+        "id": "recipient-content-writer-drift",
+        "is_executable_action_selector": false,
+        "is_new_original_native_case": false,
+        "native_case_run": false,
+        "required_future_disposition": "Block eligibility/known handoff; exact digest alone cannot prove stable trusted origin or repair foreign mutation."
+      },
+      {
+        "actual_condition": null,
+        "actual_fault_effectiveness": null,
+        "actual_observation": null,
+        "current_authority": false,
+        "declared_condition": "Incomplete raw stage12 evidence or untrusted origin",
+        "id": "stage12-stream-status-origin-unknown",
+        "is_executable_action_selector": false,
+        "is_new_original_native_case": false,
+        "native_case_run": false,
+        "required_future_disposition": "No receipt payload may fabricate exit0,streams or successful publication; original unknown/null/failure remains explicit."
+      },
+      {
+        "actual_condition": null,
+        "actual_fault_effectiveness": null,
+        "actual_observation": null,
+        "current_authority": false,
+        "declared_condition": "Receipt may have committed but ACK/identity unknown",
+        "id": "last-receipt-commit-unknown",
+        "is_executable_action_selector": false,
+        "is_new_original_native_case": false,
+        "native_case_run": false,
+        "required_future_disposition": "No republish/retry/no-replace repeat/selfreceipt. Preserve artifacts and pending controller publication obligations."
+      },
+      {
+        "actual_condition": null,
+        "actual_fault_effectiveness": null,
+        "actual_observation": null,
+        "current_authority": false,
+        "declared_condition": "Receipt visible but directory/storage persistence unproven",
+        "id": "last-receipt-directory-storage-unknown",
+        "is_executable_action_selector": false,
+        "is_new_original_native_case": false,
+        "native_case_run": false,
+        "required_future_disposition": "Do not infer known durable receipt or issue another self-containing receipt; independent external resolution remains required."
+      },
+      {
+        "actual_condition": null,
+        "actual_fault_effectiveness": null,
+        "actual_observation": null,
+        "current_authority": false,
+        "declared_condition": "Exact consumer validation/durable receipt or ACK unknown",
+        "id": "consumer-handoff-ACK-unknown",
+        "is_executable_action_selector": false,
+        "is_new_original_native_case": false,
+        "native_case_run": false,
+        "required_future_disposition": "No received/complete/right-closure claim,no republish/replay or target action; retain original result and pending controller/handoff obligations."
+      },
+      {
+        "actual_condition": null,
+        "actual_fault_effectiveness": null,
+        "actual_observation": null,
+        "current_authority": false,
+        "declared_condition": "Original forward failure and independently known containment plus separately complete reviewed failure publication",
+        "id": "contained-original-failure-complete",
+        "is_executable_action_selector": false,
+        "is_new_original_native_case": false,
+        "native_case_run": false,
+        "required_future_disposition": "May distinguish complete contained-failure evidence from partial result only when every required gate known; never label original failure PASS or grant recovery/target/pause."
+      },
+      {
+        "actual_condition": null,
+        "actual_fault_effectiveness": null,
+        "actual_observation": null,
+        "current_authority": false,
+        "declared_condition": "Publisher/controller/collector loss with possible surviving writer/child or unknown storage",
+        "id": "uncatchable-loss-at-any-cut",
+        "is_executable_action_selector": false,
+        "is_new_original_native_case": false,
+        "native_case_run": false,
+        "required_future_disposition": "Traps may not run; do not infer absence/cleanup/closed rights. Preserve all independent domain unknowns and original status."
+      }
+    ],
+    "original374_publication_sequence_review": [
+      {
+        "actual_actor_rights_binding": null,
+        "actual_bytes_or_metadata": null,
+        "actual_commit_outcome": null,
+        "actual_directory_storage_outcome": null,
+        "actual_origin_or_handoff": null,
+        "actual_path_owner_alias_writer_binding": null,
+        "actual_primitive_version_filesystem_storage": null,
+        "current_authority": false,
+        "id": "independent-publication-admission",
+        "native_satisfied": false,
+        "position": 0,
+        "required_future_observation": "Independently bind original captured-data publication scope/actor/rights,recipient numeric UID/GID/namespace,all canonical ancestor/parent/mount/ACL/object/alias and content/directory writers. Check disjoint roles and absent exclusive destinations,not precheck-then-overwrite. Target guard closure grants none of these controls.",
+        "required_input_role": "captured-closed-data-only",
+        "target_access_allowed": false
+      },
+      {
+        "actual_actor_rights_binding": null,
+        "actual_bytes_or_metadata": null,
+        "actual_commit_outcome": null,
+        "actual_directory_storage_outcome": null,
+        "actual_origin_or_handoff": null,
+        "actual_path_owner_alias_writer_binding": null,
+        "actual_primitive_version_filesystem_storage": null,
+        "current_authority": false,
+        "id": "captured-data-preparation-record",
+        "native_satisfied": false,
+        "position": 1,
+        "required_future_observation": "Prepare complete original stages0-11,cleanup/preparation/status/provenance from captured closed data only; preserve null unknown exit/streams and sticky original failure. Own intent/temporary/record/evidence writes need their own review rights and complete no-replace/storage outcome; never reopen live target/source.",
+        "required_input_role": "captured-closed-data-only",
+        "target_access_allowed": false
+      },
+      {
+        "actual_actor_rights_binding": null,
+        "actual_bytes_or_metadata": null,
+        "actual_commit_outcome": null,
+        "actual_directory_storage_outcome": null,
+        "actual_origin_or_handoff": null,
+        "actual_path_owner_alias_writer_binding": null,
+        "actual_primitive_version_filesystem_storage": null,
+        "current_authority": false,
+        "id": "archive-exclusive-staging-and-commit",
+        "native_satisfied": false,
+        "position": 2,
+        "required_future_observation": "Review complete actual archiver/code/dependency/argv/input/output effect graph. Archive only captured closed stages0-11/cleanup/preparation,excluding its own final stage12 receipt. Exclusive controlled staging,complete bytes/owner0600 mapping,known no-replace commit and supported file/meta/directory/storage semantics must be separately refined; no implementation selected.",
+        "required_input_role": "captured-closed-data-only",
+        "target_access_allowed": false
+      },
+      {
+        "actual_actor_rights_binding": null,
+        "actual_bytes_or_metadata": null,
+        "actual_commit_outcome": null,
+        "actual_directory_storage_outcome": null,
+        "actual_origin_or_handoff": null,
+        "actual_path_owner_alias_writer_binding": null,
+        "actual_primitive_version_filesystem_storage": null,
+        "current_authority": false,
+        "id": "sidecar-exclusive-staging-and-commit",
+        "native_satisfied": false,
+        "position": 3,
+        "required_future_observation": "Bind exact known archive bytes/hash under continued content/recipient/ancestry writer exclusion; separately create/commit/durably retain checksum sidecar. Same original captured bindings,no archive replacement/rebuild or pair-atomicity claim.",
+        "required_input_role": "captured-closed-data-only",
+        "target_access_allowed": false
+      },
+      {
+        "actual_actor_rights_binding": null,
+        "actual_bytes_or_metadata": null,
+        "actual_commit_outcome": null,
+        "actual_directory_storage_outcome": null,
+        "actual_origin_or_handoff": null,
+        "actual_path_owner_alias_writer_binding": null,
+        "actual_primitive_version_filesystem_storage": null,
+        "current_authority": false,
+        "id": "complete-stage12-external-evidence",
+        "native_satisfied": false,
+        "position": 4,
+        "required_future_observation": "Independently retain complete publication stage12 stdout/stderr/raw exit/null states,artifact identities/hash/metadata/storage outcome,original attempt/result/failure/cleanup and provenance from outside archive. Publisher self-report/hash alone never establishes independent origin or success.",
+        "required_input_role": "captured-closed-data-only",
+        "target_access_allowed": false
+      },
+      {
+        "actual_actor_rights_binding": null,
+        "actual_bytes_or_metadata": null,
+        "actual_commit_outcome": null,
+        "actual_directory_storage_outcome": null,
+        "actual_origin_or_handoff": null,
+        "actual_path_owner_alias_writer_binding": null,
+        "actual_primitive_version_filesystem_storage": null,
+        "current_authority": false,
+        "id": "external-last-receipt-no-replace",
+        "native_satisfied": false,
+        "position": 5,
+        "required_future_observation": "Only after required record/archive/sidecar/stage12 outcomes are independently known,review separate exclusive external-last-receipt payload and no-replace commit. Bind both exact artifact hashes,attempt,result,complete stage12 evidence,origin and metadata. Receipt cannot contain its own final commit/durability observation or own hash; any observation of receipt completion must be external.",
+        "required_input_role": "captured-closed-data-only",
+        "target_access_allowed": false
+      },
+      {
+        "actual_actor_rights_binding": null,
+        "actual_bytes_or_metadata": null,
+        "actual_commit_outcome": null,
+        "actual_directory_storage_outcome": null,
+        "actual_origin_or_handoff": null,
+        "actual_path_owner_alias_writer_binding": null,
+        "actual_primitive_version_filesystem_storage": null,
+        "current_authority": false,
+        "id": "last-receipt-directory-storage-proof",
+        "native_satisfied": false,
+        "position": 6,
+        "required_future_observation": "Separately prove actual last receipt full bytes/owner/mode,type,controlled final object and required directory/ancestor/storage persistence; close/rename/file flush/exit0 not sufficient. Independent external collector observes final receipt commit/durability with own reviewed evidence/rights; no infinite receipt/self-evidence loop or chosen backend.",
+        "required_input_role": "captured-closed-data-only",
+        "target_access_allowed": false
+      },
+      {
+        "actual_actor_rights_binding": null,
+        "actual_bytes_or_metadata": null,
+        "actual_commit_outcome": null,
+        "actual_directory_storage_outcome": null,
+        "actual_origin_or_handoff": null,
+        "actual_path_owner_alias_writer_binding": null,
+        "actual_primitive_version_filesystem_storage": null,
+        "current_authority": false,
+        "id": "durable-consumer-handoff",
+        "native_satisfied": false,
+        "position": 7,
+        "required_future_observation": "Keep separate publication directory/content/recipient/alias controls through last receipt and reviewed handoff boundary. Independent consumer revalidates exact archive/sidecar/receipt bytes,original attempt/result and trusted receipt/collector origin under controlled read. Record handoff and own ACK/durability separately; lost ACK remains pending,not automatic retry.",
+        "required_input_role": "captured-closed-data-only",
+        "target_access_allowed": false
+      },
+      {
+        "actual_actor_rights_binding": null,
+        "actual_bytes_or_metadata": null,
+        "actual_commit_outcome": null,
+        "actual_directory_storage_outcome": null,
+        "actual_origin_or_handoff": null,
+        "actual_path_owner_alias_writer_binding": null,
+        "actual_primitive_version_filesystem_storage": null,
+        "current_authority": false,
+        "id": "separate-publication-rights-accounting",
+        "native_satisfied": false,
+        "position": 8,
+        "required_future_observation": "Account original nonreusable publication/consumer rights and all owned/controller evidence obligations independently at the known handoff boundary. Later recipient ownership does not imply immutability. No new target grant,forward renewal,global closure or pause.",
+        "required_input_role": "captured-closed-data-only",
+        "target_access_allowed": false
+      }
+    ],
+    "original374_target_closure_review": [
+      {
+        "actual_evidence": null,
+        "actual_outcome": null,
+        "current_authority": false,
+        "id": "irreversible-forward-stop",
+        "native_satisfied": false,
+        "position": 0,
+        "required_future_observation": "Retain original raw/nonzero/missing status and irreversible forward stop. Completed restoration or contained failure evidence does not turn the original result into success."
+      },
+      {
+        "actual_evidence": null,
+        "actual_outcome": null,
+        "current_authority": false,
+        "id": "same-original-scope-and-finite-rights",
+        "native_satisfied": false,
+        "position": 1,
+        "required_future_observation": "Authenticated consumed same-attempt identity/boot/original context and explicitly retained finite verification/control/recovery rights when applicable; no unused reset,new grant,clock/budget renewal or audit-pin rebinding."
+      },
+      {
+        "actual_evidence": null,
+        "actual_outcome": null,
+        "current_authority": false,
+        "id": "continuous-all-writer-exclusion",
+        "native_satisfied": false,
+        "position": 2,
+        "required_future_observation": "Continuous stable original supervisor-owned target/ancestor/mount/object/alias/content-writer exclusion,including privileged writer lifetimes and supervisor loss/surviving children. Reference FD9/advisory lock labels or reacquisition cannot substitute."
+      },
+      {
+        "actual_evidence": null,
+        "actual_outcome": null,
+        "current_authority": false,
+        "id": "complete-known-child-drain",
+        "native_satisfied": false,
+        "position": 3,
+        "required_future_observation": "Independently know every original descendant,FD,stream,raw status and in-flight effect has quiesced before restoration/verification/release. Parent exit,signal delivery or empty names are insufficient."
+      },
+      {
+        "actual_evidence": null,
+        "actual_outcome": null,
+        "current_authority": false,
+        "id": "safe-original-equivalence-path",
+        "native_satisfied": false,
+        "position": 4,
+        "required_future_observation": "Only known exact original restoration from verified safe backups and explicit finite rights,or independently proven complete unchanged-target no-restoration verification. Missing/unknown backup does not prove target unchanged; unknown action never replayed."
+      },
+      {
+        "actual_evidence": null,
+        "actual_outcome": null,
+        "current_authority": false,
+        "id": "whole-original-invariants",
+        "native_satisfied": false,
+        "position": 5,
+        "required_future_observation": "Independently bind expected original full seven-domain vectors and unrelated invariants before comparison,retain approved original phase deltas and verify final original equivalence. No observed-current redefinition,broad owned exclusion or foreign drift restore."
+      },
+      {
+        "actual_evidence": null,
+        "actual_outcome": null,
+        "current_authority": false,
+        "id": "complete-target-evidence-under-guard",
+        "native_satisfied": false,
+        "position": 6,
+        "required_future_observation": "Capture complete original context,guard continuity,children,original backups/approved deltas,statuses,effects and independent full invariant verification while target exclusion is still known continuous; every evidence write is itself a controlled effect."
+      },
+      {
+        "actual_evidence": null,
+        "actual_outcome": null,
+        "current_authority": false,
+        "id": "sealed-captured-data-boundary",
+        "native_satisfied": false,
+        "position": 7,
+        "required_future_observation": "Freeze complete authenticated captured closed data and its exact bytes/role/status/provenance bindings before release; retain known/unknown distinctions. Seal is a future design requirement,not an implemented storage/trust primitive."
+      },
+      {
+        "actual_evidence": null,
+        "actual_outcome": null,
+        "current_authority": false,
+        "id": "explicit-scoped-obligation-accounting",
+        "native_satisfied": false,
+        "position": 8,
+        "required_future_observation": "Independently account target obligations separately from owned/controller durable claim,launch,budget,record,evidence and publication obligations. Target closure never proves all obligations/global host closure or new pause."
+      },
+      {
+        "actual_evidence": null,
+        "actual_outcome": null,
+        "current_authority": false,
+        "id": "known-release-after-evidence",
+        "native_satisfied": false,
+        "position": 9,
+        "required_future_observation": "Only after every required original scoped gate is independently known may exact target control release be reviewed under explicit original rights. Release ACK/identity/lifetime uncertainty remains unknown; no forced unlock,reacquire or repeat release."
+      },
+      {
+        "actual_evidence": null,
+        "actual_outcome": null,
+        "current_authority": false,
+        "id": "no-target-effects-after-release",
+        "native_satisfied": false,
+        "position": 10,
+        "required_future_observation": "Publication consumes captured closed data only. No target refresh,live reread,restore,backend/package call or target write after release; a publication failure creates no target authority."
+      }
+    ],
+    "original377_whole_stage12_conflict": {
+      "actual_resolution": null,
+      "current_authority": false,
+      "id": "whole-stage12-final-receipt-causality",
+      "native_blocker_resolved": false,
+      "normative_relaxation_allowed": false,
+      "unresolved_requirement": "Whole original stage12 streams/status/origin remain normative. The final external receipt cannot observe its own final commit/hash/durability. Actual collector/actor/event boundaries and independently observed final receipt remain unresolved; shortening/renaming stage12 or declaring a resolved protocol is prohibited."
+    },
+    "platform_unknowns": [
+      {
+        "actual_collector_origin_and_full_stream_status": null,
+        "actual_custody_writer_alias_rights_graph": null,
+        "actual_final_receipt_observation_storage_chain": null,
+        "actual_independent_evidence": null,
+        "actual_whole_stage12_actor_event_boundaries": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "self-observed-final-receipt",
+        "native_entry_allowed": false,
+        "platform": "Slackware-15.0",
+        "support_claimed": false
+      },
+      {
+        "actual_collector_origin_and_full_stream_status": null,
+        "actual_custody_writer_alias_rights_graph": null,
+        "actual_final_receipt_observation_storage_chain": null,
+        "actual_independent_evidence": null,
+        "actual_whole_stage12_actor_event_boundaries": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "self-observed-final-receipt",
+        "native_entry_allowed": false,
+        "platform": "Slackware-current",
+        "support_claimed": false
+      },
+      {
+        "actual_collector_origin_and_full_stream_status": null,
+        "actual_custody_writer_alias_rights_graph": null,
+        "actual_final_receipt_observation_storage_chain": null,
+        "actual_independent_evidence": null,
+        "actual_whole_stage12_actor_event_boundaries": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "archive-contains-own-final-receipt",
+        "native_entry_allowed": false,
+        "platform": "Slackware-15.0",
+        "support_claimed": false
+      },
+      {
+        "actual_collector_origin_and_full_stream_status": null,
+        "actual_custody_writer_alias_rights_graph": null,
+        "actual_final_receipt_observation_storage_chain": null,
+        "actual_independent_evidence": null,
+        "actual_whole_stage12_actor_event_boundaries": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "archive-contains-own-final-receipt",
+        "native_entry_allowed": false,
+        "platform": "Slackware-current",
+        "support_claimed": false
+      },
+      {
+        "actual_collector_origin_and_full_stream_status": null,
+        "actual_custody_writer_alias_rights_graph": null,
+        "actual_final_receipt_observation_storage_chain": null,
+        "actual_independent_evidence": null,
+        "actual_whole_stage12_actor_event_boundaries": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "renamed-or-shortened-stage12",
+        "native_entry_allowed": false,
+        "platform": "Slackware-15.0",
+        "support_claimed": false
+      },
+      {
+        "actual_collector_origin_and_full_stream_status": null,
+        "actual_custody_writer_alias_rights_graph": null,
+        "actual_final_receipt_observation_storage_chain": null,
+        "actual_independent_evidence": null,
+        "actual_whole_stage12_actor_event_boundaries": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "renamed-or-shortened-stage12",
+        "native_entry_allowed": false,
+        "platform": "Slackware-current",
+        "support_claimed": false
+      },
+      {
+        "actual_collector_origin_and_full_stream_status": null,
+        "actual_custody_writer_alias_rights_graph": null,
+        "actual_final_receipt_observation_storage_chain": null,
+        "actual_independent_evidence": null,
+        "actual_whole_stage12_actor_event_boundaries": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "publisher-summary-or-hash-as-oracle",
+        "native_entry_allowed": false,
+        "platform": "Slackware-15.0",
+        "support_claimed": false
+      },
+      {
+        "actual_collector_origin_and_full_stream_status": null,
+        "actual_custody_writer_alias_rights_graph": null,
+        "actual_final_receipt_observation_storage_chain": null,
+        "actual_independent_evidence": null,
+        "actual_whole_stage12_actor_event_boundaries": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "publisher-summary-or-hash-as-oracle",
+        "native_entry_allowed": false,
+        "platform": "Slackware-current",
+        "support_claimed": false
+      },
+      {
+        "actual_collector_origin_and_full_stream_status": null,
+        "actual_custody_writer_alias_rights_graph": null,
+        "actual_final_receipt_observation_storage_chain": null,
+        "actual_independent_evidence": null,
+        "actual_whole_stage12_actor_event_boundaries": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "visible-pair-or-ACK-as-completion",
+        "native_entry_allowed": false,
+        "platform": "Slackware-15.0",
+        "support_claimed": false
+      },
+      {
+        "actual_collector_origin_and_full_stream_status": null,
+        "actual_custody_writer_alias_rights_graph": null,
+        "actual_final_receipt_observation_storage_chain": null,
+        "actual_independent_evidence": null,
+        "actual_whole_stage12_actor_event_boundaries": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "visible-pair-or-ACK-as-completion",
+        "native_entry_allowed": false,
+        "platform": "Slackware-current",
+        "support_claimed": false
+      },
+      {
+        "actual_collector_origin_and_full_stream_status": null,
+        "actual_custody_writer_alias_rights_graph": null,
+        "actual_final_receipt_observation_storage_chain": null,
+        "actual_independent_evidence": null,
+        "actual_whole_stage12_actor_event_boundaries": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "uncontrolled-external-observer",
+        "native_entry_allowed": false,
+        "platform": "Slackware-15.0",
+        "support_claimed": false
+      },
+      {
+        "actual_collector_origin_and_full_stream_status": null,
+        "actual_custody_writer_alias_rights_graph": null,
+        "actual_final_receipt_observation_storage_chain": null,
+        "actual_independent_evidence": null,
+        "actual_whole_stage12_actor_event_boundaries": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "uncontrolled-external-observer",
+        "native_entry_allowed": false,
+        "platform": "Slackware-current",
+        "support_claimed": false
+      },
+      {
+        "actual_collector_origin_and_full_stream_status": null,
+        "actual_custody_writer_alias_rights_graph": null,
+        "actual_final_receipt_observation_storage_chain": null,
+        "actual_independent_evidence": null,
+        "actual_whole_stage12_actor_event_boundaries": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "whole-stage12-external-boundary-hypothesis",
+        "native_entry_allowed": false,
+        "platform": "Slackware-15.0",
+        "support_claimed": false
+      },
+      {
+        "actual_collector_origin_and_full_stream_status": null,
+        "actual_custody_writer_alias_rights_graph": null,
+        "actual_final_receipt_observation_storage_chain": null,
+        "actual_independent_evidence": null,
+        "actual_whole_stage12_actor_event_boundaries": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "whole-stage12-external-boundary-hypothesis",
+        "native_entry_allowed": false,
+        "platform": "Slackware-current",
+        "support_claimed": false
+      },
+      {
+        "actual_collector_origin_and_full_stream_status": null,
+        "actual_custody_writer_alias_rights_graph": null,
+        "actual_final_receipt_observation_storage_chain": null,
+        "actual_independent_evidence": null,
+        "actual_whole_stage12_actor_event_boundaries": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "complete-independent-custody-hypothesis",
+        "native_entry_allowed": false,
+        "platform": "Slackware-15.0",
+        "support_claimed": false
+      },
+      {
+        "actual_collector_origin_and_full_stream_status": null,
+        "actual_custody_writer_alias_rights_graph": null,
+        "actual_final_receipt_observation_storage_chain": null,
+        "actual_independent_evidence": null,
+        "actual_whole_stage12_actor_event_boundaries": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "complete-independent-custody-hypothesis",
+        "native_entry_allowed": false,
+        "platform": "Slackware-current",
+        "support_claimed": false
+      }
+    ],
+    "whole_stage12_obligation": "The whole original final-stage streams/status/origin requirement remains normative. Exact actor/event boundaries must independently reconcile complete stage12 evidence with a last external receipt that cannot observe its own final commit/durability. No shortened stage,renamed evidence scope,self-receipt or successful protocol is inferred; native causal refinement remains pending375/376."
+  },
+  "whole_original_requirements_remain_normative": true
+}
