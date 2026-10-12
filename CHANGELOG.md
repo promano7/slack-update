@@ -1,3 +1,20 @@
+## Phase 1 step 396 -- independent oracle and complete proposal impact coverage
+
+- Accepted395 at reported866e47a:426 exact ordered PASS/zero failures,nine files,
+  eight creates/22378 insertions,reported successful push/clean matching heads.
+- Complete unchanged uploaded395 receipt and immutable predecessor preserved.
+- WHOLE385 oracle review plus nine whole independent contracts/control clauses.
+- Three inactive oracle alternatives:retain;protected independent raw hypothesis;
+  defer. Separate actual15.0/current fields null;no native observer/source selected.
+- All26 options covered across15 WHOLE original categories,including8contracts,
+  16sections/16gaps/46proofs/52cases/12rawgroups/1072orderedrelations and full entry/
+  readiness prerequisites,historical5families20scenarios,blockers/cuts/conflicts.
+- Exact changed clauses and guarantee losses preserved;all downstream members
+  conservatively require review. Coverage is not resolved/approved migration.
+- Full native expected/capture/fault/custody provenance pending;no borrowed platform
+  evidence,self-oracle,observer exemption,unknown-empty or mismatch erasure.
+- Joint397 integration/separate decision due;nativeproofs/cases0,no grant/pause.
+
 ## Phase 1 step 395 -- whole entry, source consumption and backend alternatives
 
 - Accepted394 at reported d04de75:409 exact ordered PASS/zero failures,nine files,
