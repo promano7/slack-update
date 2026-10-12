@@ -1,0 +1,1781 @@
+{
+  "actual_effect_graph": null,
+  "actual_live_gate": null,
+  "actual_operation_cuts": null,
+  "actual_worker_channel": null,
+  "approved_contract_migration": null,
+  "boundaries": {
+    "C_port_open": false,
+    "actual_global_host_closure": false,
+    "actual_host_state": "unobserved-not-claimed-absent",
+    "actual_live_bindings": null,
+    "actual_native_refinement_complete": false,
+    "actual_successor_selected": false,
+    "controller_action_required": false,
+    "current_step_strong_safe_pause": false,
+    "execution_authorized": false,
+    "historical_binding_or_authority_reuse_allowed": false,
+    "kernel_package_edge_complete": false,
+    "last_confirmed_strong_safe_pause_step": 388,
+    "later_current_refresh_invalidates_repository_only_pause": false,
+    "machine_action_required": false,
+    "native_cases_run": 0,
+    "native_components_selected": false,
+    "native_graph_complete": false,
+    "native_proofs_added": 0,
+    "operational_conformance": false,
+    "operational_readiness": false,
+    "phase1_matrix_complete": false,
+    "phase2_open": false,
+    "production_entry_closed": true,
+    "reference_v1_frozen": false,
+    "runtime_authority": false,
+    "strong_safe_pause": false,
+    "target_machine_actions_authorized": false,
+    "version1_schema_frozen": false
+  },
+  "conditional_close_step": 398,
+  "conditional_policy_witnesses": [
+    {
+      "actual_observation": null,
+      "conditional_policy_result": "Original every-effect policy requires B blocked; no actual enforcer or observation supplied.",
+      "exhaustive_coverage": false,
+      "id": "retain-revocation-between-effects",
+      "native_execution": false,
+      "option_id": "retain-every-effect-no-worker-channel",
+      "ordered_events": [
+        "original-authority-valid",
+        "internal-effect-A",
+        "external-forward-revocation",
+        "internal-effect-B-proposed"
+      ]
+    },
+    {
+      "actual_observation": null,
+      "conditional_policy_result": "Proposed policy could permit the internal effect; this is the disclosed loss of the original every-effect guarantee.",
+      "exhaustive_coverage": false,
+      "id": "admission-revocation-before-internal-effect",
+      "native_execution": false,
+      "option_id": "declared-operation-admission-cuts",
+      "ordered_events": [
+        "operation-admitted",
+        "external-forward-revocation",
+        "internal-effect-within-original-deadline",
+        "known-safe-cut"
+      ]
+    },
+    {
+      "actual_observation": null,
+      "conditional_policy_result": "No subsequent operation admission or renewed right permitted.",
+      "exhaustive_coverage": false,
+      "id": "next-operation-after-revocation",
+      "native_execution": false,
+      "option_id": "declared-operation-admission-cuts",
+      "ordered_events": [
+        "operation-admitted",
+        "external-forward-revocation",
+        "safe-cut",
+        "next-operation-request"
+      ]
+    },
+    {
+      "actual_observation": null,
+      "conditional_policy_result": "No post-deadline effect is authorized; inability to establish stopping stays pending.",
+      "exhaustive_coverage": false,
+      "id": "deadline-before-safe-cut",
+      "native_execution": false,
+      "option_id": "declared-operation-admission-cuts",
+      "ordered_events": [
+        "operation-admitted",
+        "fixed-original-deadline",
+        "safe-cut-unknown"
+      ]
+    },
+    {
+      "actual_observation": null,
+      "conditional_policy_result": "The channel alone cannot justify the later effect; serialization still needs independent proof.",
+      "exhaustive_coverage": false,
+      "id": "channel-reply-to-effect-race",
+      "native_execution": false,
+      "option_id": "explicit-worker-control-channel",
+      "ordered_events": [
+        "current-status-reply",
+        "external-revocation",
+        "actual-effect-proposed"
+      ]
+    },
+    {
+      "actual_observation": null,
+      "conditional_policy_result": "The channel exception is not inherited permission for backend/helpers; unknown aliases block entry.",
+      "exhaustive_coverage": false,
+      "id": "unreviewed-helper-channel-alias",
+      "native_execution": false,
+      "option_id": "explicit-worker-control-channel",
+      "ordered_events": [
+        "adapter-role-reviewed",
+        "unreviewed-helper-alias-proposed"
+      ]
+    },
+    {
+      "actual_observation": null,
+      "conditional_policy_result": "Recovery still requires its own original finite scope/guard/drain/backups; no blanket exemption or automatic revocation inference.",
+      "exhaustive_coverage": false,
+      "id": "forward-only-scope-separation",
+      "native_execution": false,
+      "option_id": "declared-operation-admission-cuts",
+      "ordered_events": [
+        "original-recovery-scope-valid",
+        "forward-only-revocation",
+        "recovery-request"
+      ]
+    },
+    {
+      "actual_observation": null,
+      "conditional_policy_result": "Repository validity supplies no native permission.",
+      "exhaustive_coverage": false,
+      "id": "deferral-no-native-proof",
+      "native_execution": false,
+      "option_id": "defer-native-revocation-selection",
+      "ordered_events": [
+        "repository-brief-valid",
+        "native-effect-proposed"
+      ]
+    }
+  ],
+  "current_step_strong_safe_pause": false,
+  "native_authority": false,
+  "new_native_cases": 0,
+  "new_native_proofs": 0,
+  "next_preparable_step_after_complete391_acceptance": 392,
+  "options": [
+    {
+      "dependencies_and_incompatibilities": [
+        "live-revocation-without-worker-broker",
+        "all-writer-privileged-alias-lifetime",
+        "supervisor-loss-and-surviving-descendants",
+        "whole-entry-and-real-backend",
+        "original-baseline-owned-backup-unknown",
+        "finite-time-budget-and-recovery-rights",
+        "whole-stage12-final-receipt-causality",
+        "independent-two-platform-native-oracle"
+      ],
+      "disposition": "retain-original",
+      "effect_and_failure_boundaries": [
+        "Require fresh original authority at every actual/in-flight effect with no worker service capability. No complete enforcer is supplied; retention remains unresolved."
+      ],
+      "exact_current_clause_bindings": [
+        {
+          "input_key": "original323",
+          "json_pointer": "/fence_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "actual_enforcer": null,
+            "actual_transport": null,
+            "compatibility": "321-offline-bootstrap-schema-and-FD-closure-unchanged; no-added-worker-RPC-or-inherited-control-channel; future-successor-fence-policy-and-transport-integration-explicitly-required324/325",
+            "rule": "trusted-external-controller-enforces-original-policy-and-absorbing-revocation-at-every-effect-boundary; worker-and-contained-commands-have-no-service-or-broker-capability",
+            "scope": "live-check-is-original-attempt-validity-not-new-grant-per-action; no-claim-of-instant-revocation-from-offline-receipt-or-finite-lease-alone",
+            "uncertainty": "gate-outcome-loss-or-stale-or-unavailable-status-stops-effects; consumed-grant-launch-slot-and-recovery-budget-never-reopen"
+          }
+        },
+        {
+          "input_key": "original323",
+          "json_pointer": "/forward_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "in_flight": "started-effects-and-children-remain-obligations; inability-to-prove-stop-at-safe-effect-boundary-keeps-unknown-pending",
+            "owner": "original-consumed-active-attempt-no-new-or-unused-grant-per-nested-call",
+            "terminal": "normal-forward-completion-also-closes-forward-before-restoration-evidence-and-target-control-release",
+            "termination": "expiry-forward-revocation-or-any-failure-latches-forward-stop-irreversibly; no-new-effect-dispatch-or-revival",
+            "validity": "independent-authenticated-scope-trusted-time-and-continuously-enforced-live-fence-before-and-through-every-permitted-effect"
+          }
+        },
+        {
+          "input_key": "original323",
+          "json_pointer": "/recovery_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "boundedness": "finite-issuer-bound-deadline-and-durable-action-budget; spend-before-action; no-renewal-refill-retry-after-unknown-or-new-grant",
+            "expiry_relation": "forward-expiry-or-forward-only-revocation-does-not-itself-revoke-explicitly-retained-recovery; never-blanket-expiry-exemption",
+            "idempotence": "known-already-restored-state-may-return-reviewed-no-op-with-fresh-verification; never-repeat-unknown-package-or-file-action",
+            "order": "stop-forward-then-known-child-quiescence-then-safe-restore-verify-target-evidence-before-release",
+            "owner": "narrow-retained-rights-of-same-original-consumed-attempt-not-another-grant-or-invocation",
+            "preconditions": "traps-guards-owned-canonical-paths-all-writers-excluded-exact-backups-same-safe-identity-original-baseline-and-approved-deltas",
+            "revocation": "recovery/all-revocation-unknown-scope-clock-discontinuity-boot-or-identity-drift-block-recovery-writes-and-preserve-obligations",
+            "status": "keep-original-forward-failure-status-separate-from-recovery-and-publication-status; restoration-cannot-turn-failure-into-success",
+            "validity": "explicit-authenticated-issuer-original-recovery-scope-with-own-finite-deadline-budget-and-live-recovery-fence",
+            "whitelist": [
+              "bounded-owned-child-control-and-drain",
+              "exact-original-backup-restoration",
+              "verify-original-invariants",
+              "capture-owned-target-evidence",
+              "verified-target-control-release"
+            ]
+          }
+        },
+        {
+          "input_key": "original323",
+          "json_pointer": "/clock_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "actual_clock": null,
+            "actual_forward_deadline": null,
+            "actual_recovery_budget": null,
+            "actual_recovery_deadline": null,
+            "fixture": "integer-ticks-forward100-recovery140-budget5-only-synthetic-no-real-seconds-or-host-observation",
+            "rule": "issuer-authenticated-finite-bounds-and-independent-trusted-time-mapping-with-same-boot; no-wallclock-rollback-suspend-epoch-restart-or-unknown-as-valid"
+          }
+        },
+        {
+          "input_key": "original323",
+          "json_pointer": "/closure_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "controller": "unknown-durable-claim-launch-binding-budget-child-or-evidence-state-remains-pending-no-auto-delete-release-or-closed-rights-claim",
+            "machine": "only-known-original-restoration-and-known-owned-child-quiescence-with-complete-target-evidence-under-guard-can-close-scoped-target-obligations",
+            "publication": "after-target-closure-use-captured-closed-data-under-independent-publication-controls-through-last-receipt; no-target-refresh-write-or-renewal"
+          }
+        },
+        {
+          "input_key": "original321",
+          "json_pointer": "/fd_policy",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-admission-handoff-and-namespace-fd-design-review-design.json",
+          "whole_current_value": {
+            "all_nested_helpers_and_restore_paths_in_effect_graph": true,
+            "allowlist": "exact-bound-roles-object-kinds-origins-aliases-and-lifetimes-only-not-numeric-FD-shortcut",
+            "backend_cannot_reach_service_via_FD_mount_path_network_cwd_env_or_process_handles": true,
+            "denied": [
+              "bootstrap-input",
+              "bootstrap-writer",
+              "admission-socket",
+              "RPC-channel",
+              "service-ledger-or-trust-key",
+              "host-directory",
+              "pid-handle",
+              "namespace-handle",
+              "unknown-or-aliased-resource"
+            ],
+            "no_close_on_exec_only_inference": true,
+            "required_stream_roles": [
+              "stdin",
+              "stdout",
+              "stderr"
+            ],
+            "retained_code": "only-separately-reviewed-bound-read-only-code-objects-with-reviewed-origin-aliases-interpreter-consumption-and-close-phase",
+            "retained_code_FD_alone_not_identity_or_immutability_proof": true,
+            "standard_FD_numbers_not_safety_proof": true,
+            "streams": "reviewed-bounded-isolated-command-stream-pipes-with-no-service-peer-or-host-escape",
+            "unreviewed_helpers_cannot_inherit_retained_code_or_bootstrap": true
+          }
+        },
+        {
+          "input_key": "original321",
+          "json_pointer": "/bootstrap",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-admission-handoff-and-namespace-fd-design-review-design.json",
+          "whole_current_value": {
+            "canonical_form": "ASCII-escaped-JSON-sort-keys-compact-separators-no-trailing-bytes-version-bound",
+            "closure": "close-bootstrap-read-end-on-every-success-failure-timeout-or-signal-path-before-child-exec; writer-end-never-inherited-by-worker",
+            "deadline_seconds": 10,
+            "limits_scope": "selected-symbolic-contract-limits-not-proven-real-stream-timer-or-signal-behavior",
+            "maximum_raw_bytes": 65536,
+            "parser_policy": "reject-duplicate-or-extra-fields-invalid-encoding-oversize-incomplete-input-bad-types-and-noncanonical-bytes",
+            "payload_format": "one-canonical-UTF8-JSON-envelope-followed-by-EOF",
+            "process_effect": "read-bounded-buffer-close-read-end-and-clear-authority-env-only-no-worker-filesystem-write",
+            "producer": "independently-authenticated-admission-service-after-durable-consumption-and-slot-spend",
+            "symbolic_read_fd": 3,
+            "trusted_receiver": "reviewed-worker-supervisor-from-the-already-spent320-launch-slot"
+          }
+        },
+        {
+          "input_key": "original321",
+          "json_pointer": "/authentication",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-admission-handoff-and-namespace-fd-design-review-design.json",
+          "whole_current_value": {
+            "algorithms": "actual-signature-canonicalization-parser-and-key-provisioning-implementation-still-require-separate-selection-and-proof",
+            "covered_fields": [
+              "protocol",
+              "purpose",
+              "issuer",
+              "service_identity",
+              "service_epoch",
+              "grant_id",
+              "attempt_id",
+              "launch_slot",
+              "launch_instance",
+              "grant_state",
+              "launch_state",
+              "boot_binding",
+              "worker_identity",
+              "scope_bindings"
+            ],
+            "independent_one_shot_launch_origin_required": true,
+            "no_admission_socket_or_online_RPC_for_worker": true,
+            "purpose_domain": "slack-update/successor-admission-context-only",
+            "receipt_not_bearer_dispatch_capability": true,
+            "receipt_not_fresh_target_or_storage_proof": true,
+            "signature_scope": "domain-protocol-version-purpose-key-identity-and-complete-original-canonical-context-bytes",
+            "trust_source": "independently-provisioned-reviewed-verifier-and-trust-root-not-receipt-source-tree-path-env-or-self-rehash"
+          }
+        },
+        {
+          "input_key": "original321",
+          "json_pointer": "/loss_policy",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-admission-handoff-and-namespace-fd-design-review-design.json",
+          "whole_current_value": {
+            "acknowledgement": "optional-bounded-observation-never-authority-to-relaunch-or-readmit",
+            "close_or_child_status_unknown": "do-not-claim-containment-or-machine/controller-closure; no-command-dispatch",
+            "expiry_revocation": "323-policy-pending; authentication-does-not-exempt-expiry-revocation-or-wrong-boot",
+            "lost_or_invalid_receipt": "already-consumed-grant-stays-burned-no-dispatch-replay-or-new-launch; preserve-service-and-worker-evidence",
+            "recovery": "bounded-issuer-reviewed-recovery-not-chosen-or-authorized-here",
+            "service_restart": "320-durable-grant-and-launch-slot-state-is-not-reopened-by-lost-context-or-receipt",
+            "timeout_or_unknown_EOF": "fail-closed-no-owned-worker-write-at-stage0; unknown-reader-child-status-or-service-evidence-remains-pending"
+          }
+        },
+        {
+          "input_key": "accepted380dossier",
+          "json_pointer": "/original377_live_revocation_conflict",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-live-revocation-decision-review-dossier.json",
+          "whole_current_value": {
+            "actual_resolution": null,
+            "current_authority": false,
+            "id": "live-revocation-without-worker-broker",
+            "native_blocker_resolved": false,
+            "normative_relaxation_allowed": false,
+            "unresolved_requirement": "A native composition must enforce fresh external revocation at every actual and in-flight forward/recovery/evidence effect without giving the worker a broker/service/control FD or RPC. An offline launch receipt or macro-boundary check cannot establish this. No feasible composition has been selected."
+          }
+        }
+      ],
+      "explicit_user_decision_required": true,
+      "guarantees_lost_or_changed": [],
+      "guarantees_retained": [
+        "Original consumed attempt, irreversible claim/pre-spent single launch, fixed finite deadlines/budgets and no reuse/refund/retry/reacquisition.",
+        "Every current writer/guard/capture/storage/known-drain/recovery/publication/oracle obligation remains binding until an approved full migration.",
+        "Separate forward/recovery/evidence/publication scopes; forward-only revocation never creates blanket recovery rights or silently revokes retained recovery.",
+        "Known failure/mismatch stays sticky; unknown authority, gate, action or drain is pending, never invented no-effect or success."
+      ],
+      "id": "retain-every-effect-no-worker-channel",
+      "implementation_selected": false,
+      "independent_evidence_required": [
+        "Actual complete backend/helper/selector/async/observer effect graph, protected original object identities and writer prevention on each platform.",
+        "Authenticated original controller state, trustworthy finite clocks, durable rights and declared decision/effect ordering at every proposed cut.",
+        "Independent effective revocation fault observations before/during/after effects, full raw vectors/status/origin, descendants/FD/stream/storage drain and custody.",
+        "Full original clause/proof/case/raw-group/relation and test-entry/readiness migration impact; independent actual two-platform conformance remains unproved."
+      ],
+      "migration_impact": {
+        "affected_proofs_cases_relations_complete": false,
+        "all_other_original_clauses_remain_binding": true,
+        "approved_migration": null,
+        "categories_requiring_full_mapping": [
+          "contracts320-327",
+          "sections347-and-gaps348",
+          "prerequisites365-and372-377",
+          "46-qualified-proofs",
+          "52-native-cases",
+          "12-independent-raw-groups",
+          "1072-ordered-relations",
+          "historical-five-families-twenty-scenarios",
+          "test-entry-and-operational-readiness"
+        ],
+        "exact_changed_clause_candidates": [],
+        "state": "initial-draft-incomplete-until396-and397",
+        "whole_current_clause_bindings_retained": true
+      },
+      "platform_rows": [
+        {
+          "actual_composition": null,
+          "entry_authorized": false,
+          "installed_versions": null,
+          "native_evidence": null,
+          "platform": "Slackware 15.0",
+          "support": null
+        },
+        {
+          "actual_composition": null,
+          "entry_authorized": false,
+          "installed_versions": null,
+          "native_evidence": null,
+          "platform": "Slackware-current",
+          "support": null
+        }
+      ],
+      "proposed_clause_text": {},
+      "residual_native_unknowns": [
+        "Actual complete backend/helper/selector/async/observer effect graph, protected original object identities and writer prevention on each platform.",
+        "Authenticated original controller state, trustworthy finite clocks, durable rights and declared decision/effect ordering at every proposed cut.",
+        "Independent effective revocation fault observations before/during/after effects, full raw vectors/status/origin, descendants/FD/stream/storage drain and custody.",
+        "Full original clause/proof/case/raw-group/relation and test-entry/readiness migration impact; independent actual two-platform conformance remains unproved."
+      ],
+      "runtime_authority": false,
+      "trust_assumptions": [
+        "No new trust exclusion or worker channel; require independently original-compatible actual assumptions."
+      ]
+    },
+    {
+      "dependencies_and_incompatibilities": [
+        "live-revocation-without-worker-broker",
+        "all-writer-privileged-alias-lifetime",
+        "supervisor-loss-and-surviving-descendants",
+        "whole-entry-and-real-backend",
+        "original-baseline-owned-backup-unknown",
+        "finite-time-budget-and-recovery-rights",
+        "whole-stage12-final-receipt-causality",
+        "independent-two-platform-native-oracle"
+      ],
+      "disposition": "amendment-proposal",
+      "effect_and_failure_boundaries": [
+        "Admission cuts include every declared backend/helper/owned/recovery/evidence/publication operation under its separately valid original scope; the whole effect graph must be mapped, never reduced to three calls.",
+        "The grant budget/deadline cannot be extended to make a cut reachable. Deadline-before-cut supplies no post-deadline permission; inability to establish safe stopping remains pending.",
+        "Revocation occurring after admission and before an internal effect is an explicitly permitted interval under this proposal only. It remains forbidden/unproved under the current original contract."
+      ],
+      "exact_current_clause_bindings": [
+        {
+          "input_key": "original323",
+          "json_pointer": "/fence_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "actual_enforcer": null,
+            "actual_transport": null,
+            "compatibility": "321-offline-bootstrap-schema-and-FD-closure-unchanged; no-added-worker-RPC-or-inherited-control-channel; future-successor-fence-policy-and-transport-integration-explicitly-required324/325",
+            "rule": "trusted-external-controller-enforces-original-policy-and-absorbing-revocation-at-every-effect-boundary; worker-and-contained-commands-have-no-service-or-broker-capability",
+            "scope": "live-check-is-original-attempt-validity-not-new-grant-per-action; no-claim-of-instant-revocation-from-offline-receipt-or-finite-lease-alone",
+            "uncertainty": "gate-outcome-loss-or-stale-or-unavailable-status-stops-effects; consumed-grant-launch-slot-and-recovery-budget-never-reopen"
+          }
+        },
+        {
+          "input_key": "original323",
+          "json_pointer": "/forward_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "in_flight": "started-effects-and-children-remain-obligations; inability-to-prove-stop-at-safe-effect-boundary-keeps-unknown-pending",
+            "owner": "original-consumed-active-attempt-no-new-or-unused-grant-per-nested-call",
+            "terminal": "normal-forward-completion-also-closes-forward-before-restoration-evidence-and-target-control-release",
+            "termination": "expiry-forward-revocation-or-any-failure-latches-forward-stop-irreversibly; no-new-effect-dispatch-or-revival",
+            "validity": "independent-authenticated-scope-trusted-time-and-continuously-enforced-live-fence-before-and-through-every-permitted-effect"
+          }
+        },
+        {
+          "input_key": "original323",
+          "json_pointer": "/recovery_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "boundedness": "finite-issuer-bound-deadline-and-durable-action-budget; spend-before-action; no-renewal-refill-retry-after-unknown-or-new-grant",
+            "expiry_relation": "forward-expiry-or-forward-only-revocation-does-not-itself-revoke-explicitly-retained-recovery; never-blanket-expiry-exemption",
+            "idempotence": "known-already-restored-state-may-return-reviewed-no-op-with-fresh-verification; never-repeat-unknown-package-or-file-action",
+            "order": "stop-forward-then-known-child-quiescence-then-safe-restore-verify-target-evidence-before-release",
+            "owner": "narrow-retained-rights-of-same-original-consumed-attempt-not-another-grant-or-invocation",
+            "preconditions": "traps-guards-owned-canonical-paths-all-writers-excluded-exact-backups-same-safe-identity-original-baseline-and-approved-deltas",
+            "revocation": "recovery/all-revocation-unknown-scope-clock-discontinuity-boot-or-identity-drift-block-recovery-writes-and-preserve-obligations",
+            "status": "keep-original-forward-failure-status-separate-from-recovery-and-publication-status; restoration-cannot-turn-failure-into-success",
+            "validity": "explicit-authenticated-issuer-original-recovery-scope-with-own-finite-deadline-budget-and-live-recovery-fence",
+            "whitelist": [
+              "bounded-owned-child-control-and-drain",
+              "exact-original-backup-restoration",
+              "verify-original-invariants",
+              "capture-owned-target-evidence",
+              "verified-target-control-release"
+            ]
+          }
+        },
+        {
+          "input_key": "original323",
+          "json_pointer": "/clock_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "actual_clock": null,
+            "actual_forward_deadline": null,
+            "actual_recovery_budget": null,
+            "actual_recovery_deadline": null,
+            "fixture": "integer-ticks-forward100-recovery140-budget5-only-synthetic-no-real-seconds-or-host-observation",
+            "rule": "issuer-authenticated-finite-bounds-and-independent-trusted-time-mapping-with-same-boot; no-wallclock-rollback-suspend-epoch-restart-or-unknown-as-valid"
+          }
+        },
+        {
+          "input_key": "original323",
+          "json_pointer": "/closure_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "controller": "unknown-durable-claim-launch-binding-budget-child-or-evidence-state-remains-pending-no-auto-delete-release-or-closed-rights-claim",
+            "machine": "only-known-original-restoration-and-known-owned-child-quiescence-with-complete-target-evidence-under-guard-can-close-scoped-target-obligations",
+            "publication": "after-target-closure-use-captured-closed-data-under-independent-publication-controls-through-last-receipt; no-target-refresh-write-or-renewal"
+          }
+        },
+        {
+          "input_key": "original321",
+          "json_pointer": "/fd_policy",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-admission-handoff-and-namespace-fd-design-review-design.json",
+          "whole_current_value": {
+            "all_nested_helpers_and_restore_paths_in_effect_graph": true,
+            "allowlist": "exact-bound-roles-object-kinds-origins-aliases-and-lifetimes-only-not-numeric-FD-shortcut",
+            "backend_cannot_reach_service_via_FD_mount_path_network_cwd_env_or_process_handles": true,
+            "denied": [
+              "bootstrap-input",
+              "bootstrap-writer",
+              "admission-socket",
+              "RPC-channel",
+              "service-ledger-or-trust-key",
+              "host-directory",
+              "pid-handle",
+              "namespace-handle",
+              "unknown-or-aliased-resource"
+            ],
+            "no_close_on_exec_only_inference": true,
+            "required_stream_roles": [
+              "stdin",
+              "stdout",
+              "stderr"
+            ],
+            "retained_code": "only-separately-reviewed-bound-read-only-code-objects-with-reviewed-origin-aliases-interpreter-consumption-and-close-phase",
+            "retained_code_FD_alone_not_identity_or_immutability_proof": true,
+            "standard_FD_numbers_not_safety_proof": true,
+            "streams": "reviewed-bounded-isolated-command-stream-pipes-with-no-service-peer-or-host-escape",
+            "unreviewed_helpers_cannot_inherit_retained_code_or_bootstrap": true
+          }
+        },
+        {
+          "input_key": "original321",
+          "json_pointer": "/bootstrap",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-admission-handoff-and-namespace-fd-design-review-design.json",
+          "whole_current_value": {
+            "canonical_form": "ASCII-escaped-JSON-sort-keys-compact-separators-no-trailing-bytes-version-bound",
+            "closure": "close-bootstrap-read-end-on-every-success-failure-timeout-or-signal-path-before-child-exec; writer-end-never-inherited-by-worker",
+            "deadline_seconds": 10,
+            "limits_scope": "selected-symbolic-contract-limits-not-proven-real-stream-timer-or-signal-behavior",
+            "maximum_raw_bytes": 65536,
+            "parser_policy": "reject-duplicate-or-extra-fields-invalid-encoding-oversize-incomplete-input-bad-types-and-noncanonical-bytes",
+            "payload_format": "one-canonical-UTF8-JSON-envelope-followed-by-EOF",
+            "process_effect": "read-bounded-buffer-close-read-end-and-clear-authority-env-only-no-worker-filesystem-write",
+            "producer": "independently-authenticated-admission-service-after-durable-consumption-and-slot-spend",
+            "symbolic_read_fd": 3,
+            "trusted_receiver": "reviewed-worker-supervisor-from-the-already-spent320-launch-slot"
+          }
+        },
+        {
+          "input_key": "original321",
+          "json_pointer": "/authentication",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-admission-handoff-and-namespace-fd-design-review-design.json",
+          "whole_current_value": {
+            "algorithms": "actual-signature-canonicalization-parser-and-key-provisioning-implementation-still-require-separate-selection-and-proof",
+            "covered_fields": [
+              "protocol",
+              "purpose",
+              "issuer",
+              "service_identity",
+              "service_epoch",
+              "grant_id",
+              "attempt_id",
+              "launch_slot",
+              "launch_instance",
+              "grant_state",
+              "launch_state",
+              "boot_binding",
+              "worker_identity",
+              "scope_bindings"
+            ],
+            "independent_one_shot_launch_origin_required": true,
+            "no_admission_socket_or_online_RPC_for_worker": true,
+            "purpose_domain": "slack-update/successor-admission-context-only",
+            "receipt_not_bearer_dispatch_capability": true,
+            "receipt_not_fresh_target_or_storage_proof": true,
+            "signature_scope": "domain-protocol-version-purpose-key-identity-and-complete-original-canonical-context-bytes",
+            "trust_source": "independently-provisioned-reviewed-verifier-and-trust-root-not-receipt-source-tree-path-env-or-self-rehash"
+          }
+        },
+        {
+          "input_key": "original321",
+          "json_pointer": "/loss_policy",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-admission-handoff-and-namespace-fd-design-review-design.json",
+          "whole_current_value": {
+            "acknowledgement": "optional-bounded-observation-never-authority-to-relaunch-or-readmit",
+            "close_or_child_status_unknown": "do-not-claim-containment-or-machine/controller-closure; no-command-dispatch",
+            "expiry_revocation": "323-policy-pending; authentication-does-not-exempt-expiry-revocation-or-wrong-boot",
+            "lost_or_invalid_receipt": "already-consumed-grant-stays-burned-no-dispatch-replay-or-new-launch; preserve-service-and-worker-evidence",
+            "recovery": "bounded-issuer-reviewed-recovery-not-chosen-or-authorized-here",
+            "service_restart": "320-durable-grant-and-launch-slot-state-is-not-reopened-by-lost-context-or-receipt",
+            "timeout_or_unknown_EOF": "fail-closed-no-owned-worker-write-at-stage0; unknown-reader-child-status-or-service-evidence-remains-pending"
+          }
+        },
+        {
+          "input_key": "accepted380dossier",
+          "json_pointer": "/original377_live_revocation_conflict",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-live-revocation-decision-review-dossier.json",
+          "whole_current_value": {
+            "actual_resolution": null,
+            "current_authority": false,
+            "id": "live-revocation-without-worker-broker",
+            "native_blocker_resolved": false,
+            "normative_relaxation_allowed": false,
+            "unresolved_requirement": "A native composition must enforce fresh external revocation at every actual and in-flight forward/recovery/evidence effect without giving the worker a broker/service/control FD or RPC. An offline launch receipt or macro-boundary check cannot establish this. No feasible composition has been selected."
+          }
+        }
+      ],
+      "explicit_user_decision_required": true,
+      "guarantees_lost_or_changed": [
+        "Revocation would prevent new declared-operation admission, rather than every internal effect immediately after the external revocation request.",
+        "Internal effects of an admitted operation could occur between the request and its known safe cut; no response latency or cut bound is proven here.",
+        "This changes original fence/forward semantics and associated observers/oracle expectations; it is not compatible with the current every-effect clause as written."
+      ],
+      "guarantees_retained": [
+        "Original consumed attempt, irreversible claim/pre-spent single launch, fixed finite deadlines/budgets and no reuse/refund/retry/reacquisition.",
+        "Every current writer/guard/capture/storage/known-drain/recovery/publication/oracle obligation remains binding until an approved full migration.",
+        "Separate forward/recovery/evidence/publication scopes; forward-only revocation never creates blanket recovery rights or silently revokes retained recovery.",
+        "Known failure/mismatch stays sticky; unknown authority, gate, action or drain is pending, never invented no-effect or success."
+      ],
+      "id": "declared-operation-admission-cuts",
+      "implementation_selected": false,
+      "independent_evidence_required": [
+        "Actual complete backend/helper/selector/async/observer effect graph, protected original object identities and writer prevention on each platform.",
+        "Authenticated original controller state, trustworthy finite clocks, durable rights and declared decision/effect ordering at every proposed cut.",
+        "Independent effective revocation fault observations before/during/after effects, full raw vectors/status/origin, descendants/FD/stream/storage drain and custody.",
+        "Full original clause/proof/case/raw-group/relation and test-entry/readiness migration impact; independent actual two-platform conformance remains unproved."
+      ],
+      "migration_impact": {
+        "affected_proofs_cases_relations_complete": false,
+        "all_other_original_clauses_remain_binding": true,
+        "approved_migration": null,
+        "categories_requiring_full_mapping": [
+          "contracts320-327",
+          "sections347-and-gaps348",
+          "prerequisites365-and372-377",
+          "46-qualified-proofs",
+          "52-native-cases",
+          "12-independent-raw-groups",
+          "1072-ordered-relations",
+          "historical-five-families-twenty-scenarios",
+          "test-entry-and-operational-readiness"
+        ],
+        "exact_changed_clause_candidates": [
+          {
+            "input_key": "original323",
+            "json_pointer": "/fence_contract/rule"
+          },
+          {
+            "input_key": "original323",
+            "json_pointer": "/forward_contract/termination"
+          },
+          {
+            "input_key": "original323",
+            "json_pointer": "/forward_contract/in_flight"
+          },
+          {
+            "input_key": "accepted380dossier",
+            "json_pointer": "/original377_live_revocation_conflict"
+          }
+        ],
+        "state": "initial-draft-incomplete-until396-and397",
+        "whole_current_clause_bindings_retained": true
+      },
+      "platform_rows": [
+        {
+          "actual_composition": null,
+          "entry_authorized": false,
+          "installed_versions": null,
+          "native_evidence": null,
+          "platform": "Slackware 15.0",
+          "support": null
+        },
+        {
+          "actual_composition": null,
+          "entry_authorized": false,
+          "installed_versions": null,
+          "native_evidence": null,
+          "platform": "Slackware-current",
+          "support": null
+        }
+      ],
+      "proposed_clause_text": {
+        "/fence_contract/rule": "The external controller serializes original-attempt admission at each enumerated operation cut. Revocation denies every subsequent admission. An operation already admitted may finish only its declared finite effects and descendants before its declared safe cut, inside the original scope, fixed deadline and pre-spent budget. This permits effects after a forward-revocation request but never new operation admission, a renewed deadline or unbounded completion.",
+        "/forward_contract/in_flight": "Each admitted operation requires independently reviewed exact graph/effects/identities/descendants, finite limits, valid original rights and known safe cut. Missing or unknown cut prevents admission; a cut label, backend return or stop request is not known drain. Scoped recovery/evidence/publication keeps its own original rights and is not blanket exempt.",
+        "/forward_contract/termination": "Forward revocation closes new admission irreversibly and requires original admitted operations to reach a declared safe cut. Expiry, original deadline or any failure retains absorbing stop; no effect beyond the original permitted finite scope/deadline is authorized. Unknown stopping or completion remains pending. No new operation, launch, grant, retry, refund or reacquisition follows."
+      },
+      "residual_native_unknowns": [
+        "Actual complete backend/helper/selector/async/observer effect graph, protected original object identities and writer prevention on each platform.",
+        "Authenticated original controller state, trustworthy finite clocks, durable rights and declared decision/effect ordering at every proposed cut.",
+        "Independent effective revocation fault observations before/during/after effects, full raw vectors/status/origin, descendants/FD/stream/storage drain and custody.",
+        "Full original clause/proof/case/raw-group/relation and test-entry/readiness migration impact; independent actual two-platform conformance remains unproved."
+      ],
+      "runtime_authority": false,
+      "trust_assumptions": [
+        "Complete admitted-operation membership, trusted controller/cut observation and fixed original time/budget are unknown and require actual independent evidence.",
+        "No worker service/broker channel is added by this option; the actual external admission transport remains unresolved."
+      ]
+    },
+    {
+      "dependencies_and_incompatibilities": [
+        "live-revocation-without-worker-broker",
+        "all-writer-privileged-alias-lifetime",
+        "supervisor-loss-and-surviving-descendants",
+        "whole-entry-and-real-backend",
+        "original-baseline-owned-backup-unknown",
+        "finite-time-budget-and-recovery-rights",
+        "whole-stage12-final-receipt-causality",
+        "independent-two-platform-native-oracle"
+      ],
+      "disposition": "amendment-proposal",
+      "effect_and_failure_boundaries": [
+        "Only an explicitly reviewed validation role could be added after approved migration; no native endpoint is created now.",
+        "Stale/lost/unavailable/unknown replies deny effects; no replay/new grant/recovery-budget reset. A valid reply is no proof of valid authority at the later actual effect.",
+        "Separate safe containment and native test grant still precede any experiment; review PASS cannot open the proposed channel."
+      ],
+      "exact_current_clause_bindings": [
+        {
+          "input_key": "original323",
+          "json_pointer": "/fence_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "actual_enforcer": null,
+            "actual_transport": null,
+            "compatibility": "321-offline-bootstrap-schema-and-FD-closure-unchanged; no-added-worker-RPC-or-inherited-control-channel; future-successor-fence-policy-and-transport-integration-explicitly-required324/325",
+            "rule": "trusted-external-controller-enforces-original-policy-and-absorbing-revocation-at-every-effect-boundary; worker-and-contained-commands-have-no-service-or-broker-capability",
+            "scope": "live-check-is-original-attempt-validity-not-new-grant-per-action; no-claim-of-instant-revocation-from-offline-receipt-or-finite-lease-alone",
+            "uncertainty": "gate-outcome-loss-or-stale-or-unavailable-status-stops-effects; consumed-grant-launch-slot-and-recovery-budget-never-reopen"
+          }
+        },
+        {
+          "input_key": "original323",
+          "json_pointer": "/forward_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "in_flight": "started-effects-and-children-remain-obligations; inability-to-prove-stop-at-safe-effect-boundary-keeps-unknown-pending",
+            "owner": "original-consumed-active-attempt-no-new-or-unused-grant-per-nested-call",
+            "terminal": "normal-forward-completion-also-closes-forward-before-restoration-evidence-and-target-control-release",
+            "termination": "expiry-forward-revocation-or-any-failure-latches-forward-stop-irreversibly; no-new-effect-dispatch-or-revival",
+            "validity": "independent-authenticated-scope-trusted-time-and-continuously-enforced-live-fence-before-and-through-every-permitted-effect"
+          }
+        },
+        {
+          "input_key": "original323",
+          "json_pointer": "/recovery_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "boundedness": "finite-issuer-bound-deadline-and-durable-action-budget; spend-before-action; no-renewal-refill-retry-after-unknown-or-new-grant",
+            "expiry_relation": "forward-expiry-or-forward-only-revocation-does-not-itself-revoke-explicitly-retained-recovery; never-blanket-expiry-exemption",
+            "idempotence": "known-already-restored-state-may-return-reviewed-no-op-with-fresh-verification; never-repeat-unknown-package-or-file-action",
+            "order": "stop-forward-then-known-child-quiescence-then-safe-restore-verify-target-evidence-before-release",
+            "owner": "narrow-retained-rights-of-same-original-consumed-attempt-not-another-grant-or-invocation",
+            "preconditions": "traps-guards-owned-canonical-paths-all-writers-excluded-exact-backups-same-safe-identity-original-baseline-and-approved-deltas",
+            "revocation": "recovery/all-revocation-unknown-scope-clock-discontinuity-boot-or-identity-drift-block-recovery-writes-and-preserve-obligations",
+            "status": "keep-original-forward-failure-status-separate-from-recovery-and-publication-status; restoration-cannot-turn-failure-into-success",
+            "validity": "explicit-authenticated-issuer-original-recovery-scope-with-own-finite-deadline-budget-and-live-recovery-fence",
+            "whitelist": [
+              "bounded-owned-child-control-and-drain",
+              "exact-original-backup-restoration",
+              "verify-original-invariants",
+              "capture-owned-target-evidence",
+              "verified-target-control-release"
+            ]
+          }
+        },
+        {
+          "input_key": "original323",
+          "json_pointer": "/clock_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "actual_clock": null,
+            "actual_forward_deadline": null,
+            "actual_recovery_budget": null,
+            "actual_recovery_deadline": null,
+            "fixture": "integer-ticks-forward100-recovery140-budget5-only-synthetic-no-real-seconds-or-host-observation",
+            "rule": "issuer-authenticated-finite-bounds-and-independent-trusted-time-mapping-with-same-boot; no-wallclock-rollback-suspend-epoch-restart-or-unknown-as-valid"
+          }
+        },
+        {
+          "input_key": "original323",
+          "json_pointer": "/closure_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "controller": "unknown-durable-claim-launch-binding-budget-child-or-evidence-state-remains-pending-no-auto-delete-release-or-closed-rights-claim",
+            "machine": "only-known-original-restoration-and-known-owned-child-quiescence-with-complete-target-evidence-under-guard-can-close-scoped-target-obligations",
+            "publication": "after-target-closure-use-captured-closed-data-under-independent-publication-controls-through-last-receipt; no-target-refresh-write-or-renewal"
+          }
+        },
+        {
+          "input_key": "original321",
+          "json_pointer": "/fd_policy",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-admission-handoff-and-namespace-fd-design-review-design.json",
+          "whole_current_value": {
+            "all_nested_helpers_and_restore_paths_in_effect_graph": true,
+            "allowlist": "exact-bound-roles-object-kinds-origins-aliases-and-lifetimes-only-not-numeric-FD-shortcut",
+            "backend_cannot_reach_service_via_FD_mount_path_network_cwd_env_or_process_handles": true,
+            "denied": [
+              "bootstrap-input",
+              "bootstrap-writer",
+              "admission-socket",
+              "RPC-channel",
+              "service-ledger-or-trust-key",
+              "host-directory",
+              "pid-handle",
+              "namespace-handle",
+              "unknown-or-aliased-resource"
+            ],
+            "no_close_on_exec_only_inference": true,
+            "required_stream_roles": [
+              "stdin",
+              "stdout",
+              "stderr"
+            ],
+            "retained_code": "only-separately-reviewed-bound-read-only-code-objects-with-reviewed-origin-aliases-interpreter-consumption-and-close-phase",
+            "retained_code_FD_alone_not_identity_or_immutability_proof": true,
+            "standard_FD_numbers_not_safety_proof": true,
+            "streams": "reviewed-bounded-isolated-command-stream-pipes-with-no-service-peer-or-host-escape",
+            "unreviewed_helpers_cannot_inherit_retained_code_or_bootstrap": true
+          }
+        },
+        {
+          "input_key": "original321",
+          "json_pointer": "/bootstrap",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-admission-handoff-and-namespace-fd-design-review-design.json",
+          "whole_current_value": {
+            "canonical_form": "ASCII-escaped-JSON-sort-keys-compact-separators-no-trailing-bytes-version-bound",
+            "closure": "close-bootstrap-read-end-on-every-success-failure-timeout-or-signal-path-before-child-exec; writer-end-never-inherited-by-worker",
+            "deadline_seconds": 10,
+            "limits_scope": "selected-symbolic-contract-limits-not-proven-real-stream-timer-or-signal-behavior",
+            "maximum_raw_bytes": 65536,
+            "parser_policy": "reject-duplicate-or-extra-fields-invalid-encoding-oversize-incomplete-input-bad-types-and-noncanonical-bytes",
+            "payload_format": "one-canonical-UTF8-JSON-envelope-followed-by-EOF",
+            "process_effect": "read-bounded-buffer-close-read-end-and-clear-authority-env-only-no-worker-filesystem-write",
+            "producer": "independently-authenticated-admission-service-after-durable-consumption-and-slot-spend",
+            "symbolic_read_fd": 3,
+            "trusted_receiver": "reviewed-worker-supervisor-from-the-already-spent320-launch-slot"
+          }
+        },
+        {
+          "input_key": "original321",
+          "json_pointer": "/authentication",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-admission-handoff-and-namespace-fd-design-review-design.json",
+          "whole_current_value": {
+            "algorithms": "actual-signature-canonicalization-parser-and-key-provisioning-implementation-still-require-separate-selection-and-proof",
+            "covered_fields": [
+              "protocol",
+              "purpose",
+              "issuer",
+              "service_identity",
+              "service_epoch",
+              "grant_id",
+              "attempt_id",
+              "launch_slot",
+              "launch_instance",
+              "grant_state",
+              "launch_state",
+              "boot_binding",
+              "worker_identity",
+              "scope_bindings"
+            ],
+            "independent_one_shot_launch_origin_required": true,
+            "no_admission_socket_or_online_RPC_for_worker": true,
+            "purpose_domain": "slack-update/successor-admission-context-only",
+            "receipt_not_bearer_dispatch_capability": true,
+            "receipt_not_fresh_target_or_storage_proof": true,
+            "signature_scope": "domain-protocol-version-purpose-key-identity-and-complete-original-canonical-context-bytes",
+            "trust_source": "independently-provisioned-reviewed-verifier-and-trust-root-not-receipt-source-tree-path-env-or-self-rehash"
+          }
+        },
+        {
+          "input_key": "original321",
+          "json_pointer": "/loss_policy",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-admission-handoff-and-namespace-fd-design-review-design.json",
+          "whole_current_value": {
+            "acknowledgement": "optional-bounded-observation-never-authority-to-relaunch-or-readmit",
+            "close_or_child_status_unknown": "do-not-claim-containment-or-machine/controller-closure; no-command-dispatch",
+            "expiry_revocation": "323-policy-pending; authentication-does-not-exempt-expiry-revocation-or-wrong-boot",
+            "lost_or_invalid_receipt": "already-consumed-grant-stays-burned-no-dispatch-replay-or-new-launch; preserve-service-and-worker-evidence",
+            "recovery": "bounded-issuer-reviewed-recovery-not-chosen-or-authorized-here",
+            "service_restart": "320-durable-grant-and-launch-slot-state-is-not-reopened-by-lost-context-or-receipt",
+            "timeout_or_unknown_EOF": "fail-closed-no-owned-worker-write-at-stage0; unknown-reader-child-status-or-service-evidence-remains-pending"
+          }
+        },
+        {
+          "input_key": "accepted380dossier",
+          "json_pointer": "/original377_live_revocation_conflict",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-live-revocation-decision-review-dossier.json",
+          "whole_current_value": {
+            "actual_resolution": null,
+            "current_authority": false,
+            "id": "live-revocation-without-worker-broker",
+            "native_blocker_resolved": false,
+            "normative_relaxation_allowed": false,
+            "unresolved_requirement": "A native composition must enforce fresh external revocation at every actual and in-flight forward/recovery/evidence effect without giving the worker a broker/service/control FD or RPC. An offline launch receipt or macro-boundary check cannot establish this. No feasible composition has been selected."
+          }
+        }
+      ],
+      "explicit_user_decision_required": true,
+      "guarantees_lost_or_changed": [
+        "The exact reviewed worker adapter would gain a control/service peer that the current offline bootstrap and FD closure prohibit.",
+        "That peer introduces information-flow, authentication, liveness, authority and handle-inheritance attack surfaces requiring complete new review.",
+        "Channel permission does not solve the original reply-to-effect race, asynchronous effects, surviving writers or owner-loss drain. Every-effect semantics remain due."
+      ],
+      "guarantees_retained": [
+        "Original consumed attempt, irreversible claim/pre-spent single launch, fixed finite deadlines/budgets and no reuse/refund/retry/reacquisition.",
+        "Every current writer/guard/capture/storage/known-drain/recovery/publication/oracle obligation remains binding until an approved full migration.",
+        "Separate forward/recovery/evidence/publication scopes; forward-only revocation never creates blanket recovery rights or silently revokes retained recovery.",
+        "Known failure/mismatch stays sticky; unknown authority, gate, action or drain is pending, never invented no-effect or success."
+      ],
+      "id": "explicit-worker-control-channel",
+      "implementation_selected": false,
+      "independent_evidence_required": [
+        "Actual complete backend/helper/selector/async/observer effect graph, protected original object identities and writer prevention on each platform.",
+        "Authenticated original controller state, trustworthy finite clocks, durable rights and declared decision/effect ordering at every proposed cut.",
+        "Independent effective revocation fault observations before/during/after effects, full raw vectors/status/origin, descendants/FD/stream/storage drain and custody.",
+        "Full original clause/proof/case/raw-group/relation and test-entry/readiness migration impact; independent actual two-platform conformance remains unproved."
+      ],
+      "migration_impact": {
+        "affected_proofs_cases_relations_complete": false,
+        "all_other_original_clauses_remain_binding": true,
+        "approved_migration": null,
+        "categories_requiring_full_mapping": [
+          "contracts320-327",
+          "sections347-and-gaps348",
+          "prerequisites365-and372-377",
+          "46-qualified-proofs",
+          "52-native-cases",
+          "12-independent-raw-groups",
+          "1072-ordered-relations",
+          "historical-five-families-twenty-scenarios",
+          "test-entry-and-operational-readiness"
+        ],
+        "exact_changed_clause_candidates": [
+          {
+            "input_key": "original323",
+            "json_pointer": "/fence_contract/compatibility"
+          },
+          {
+            "input_key": "original323",
+            "json_pointer": "/fence_contract/rule"
+          },
+          {
+            "input_key": "original321",
+            "json_pointer": "/fd_policy/denied"
+          },
+          {
+            "input_key": "original321",
+            "json_pointer": "/fd_policy/backend_cannot_reach_service_via_FD_mount_path_network_cwd_env_or_process_handles"
+          },
+          {
+            "input_key": "original321",
+            "json_pointer": "/bootstrap"
+          },
+          {
+            "input_key": "original321",
+            "json_pointer": "/authentication"
+          },
+          {
+            "input_key": "original321",
+            "json_pointer": "/loss_policy"
+          }
+        ],
+        "state": "initial-draft-incomplete-until396-and397",
+        "whole_current_clause_bindings_retained": true
+      },
+      "platform_rows": [
+        {
+          "actual_composition": null,
+          "entry_authorized": false,
+          "installed_versions": null,
+          "native_evidence": null,
+          "platform": "Slackware 15.0",
+          "support": null
+        },
+        {
+          "actual_composition": null,
+          "entry_authorized": false,
+          "installed_versions": null,
+          "native_evidence": null,
+          "platform": "Slackware-current",
+          "support": null
+        }
+      ],
+      "proposed_clause_text": {
+        "/fd_policy/backend_cannot_reach_service_via_FD_mount_path_network_cwd_env_or_process_handles": "The reviewed adapter is the only proposed exception for the specifically enumerated validation role. Backend and unreviewed helpers retain the original no-service-reachability obligation through every route. Exact bootstrap authentication/loss and full FD closure require a new reviewed role before any effect.",
+        "/fd_policy/denied": "Replace the blanket denial only for one separately reviewed original-attempt-validation role. All other service/ledger/key/host escape/unknown capabilities remain denied. Exact endpoint numbers alone are insufficient; the backend and unreviewed descendants receive no channel unless a separate complete role/migration explicitly covers them.",
+        "/fence_contract/compatibility": "A separately enumerated original-attempt validation channel may be retained by the exact reviewed worker adapter. Every endpoint, object identity, origin, peer, operation, alias, inheritance rule, effect, finite lifetime and closure must be independently bound. This is validation of already-consumed rights, never a new-grant or ledger/key capability.",
+        "/fence_contract/rule": "The reviewed worker adapter may request original-attempt status through that exact channel. The composition must still independently enforce every actual/in-flight effect against fresh original authority and all original scopes. A request/reply alone is not serialization with the effect; no complete gate is supplied by this permission change."
+      },
+      "residual_native_unknowns": [
+        "Actual complete backend/helper/selector/async/observer effect graph, protected original object identities and writer prevention on each platform.",
+        "Authenticated original controller state, trustworthy finite clocks, durable rights and declared decision/effect ordering at every proposed cut.",
+        "Independent effective revocation fault observations before/during/after effects, full raw vectors/status/origin, descendants/FD/stream/storage drain and custody.",
+        "Full original clause/proof/case/raw-group/relation and test-entry/readiness migration impact; independent actual two-platform conformance remains unproved."
+      ],
+      "runtime_authority": false,
+      "trust_assumptions": [
+        "Actual peer/adapter/transport/trust root/protocol, all aliases and failure lifetimes remain unknown.",
+        "No general worker RPC, secret key, ledger, namespace or host-directory access is proposed. No backend/helper exception is inferred."
+      ]
+    },
+    {
+      "dependencies_and_incompatibilities": [
+        "live-revocation-without-worker-broker",
+        "all-writer-privileged-alias-lifetime",
+        "supervisor-loss-and-surviving-descendants",
+        "whole-entry-and-real-backend",
+        "original-baseline-owned-backup-unknown",
+        "finite-time-budget-and-recovery-rights",
+        "whole-stage12-final-receipt-causality",
+        "independent-two-platform-native-oracle"
+      ],
+      "disposition": "defer",
+      "effect_and_failure_boundaries": [
+        "Keep native revocation selection and effects blocked; deferral can support the conditional repository-only398 close but supplies no actual authority or conformance."
+      ],
+      "exact_current_clause_bindings": [
+        {
+          "input_key": "original323",
+          "json_pointer": "/fence_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "actual_enforcer": null,
+            "actual_transport": null,
+            "compatibility": "321-offline-bootstrap-schema-and-FD-closure-unchanged; no-added-worker-RPC-or-inherited-control-channel; future-successor-fence-policy-and-transport-integration-explicitly-required324/325",
+            "rule": "trusted-external-controller-enforces-original-policy-and-absorbing-revocation-at-every-effect-boundary; worker-and-contained-commands-have-no-service-or-broker-capability",
+            "scope": "live-check-is-original-attempt-validity-not-new-grant-per-action; no-claim-of-instant-revocation-from-offline-receipt-or-finite-lease-alone",
+            "uncertainty": "gate-outcome-loss-or-stale-or-unavailable-status-stops-effects; consumed-grant-launch-slot-and-recovery-budget-never-reopen"
+          }
+        },
+        {
+          "input_key": "original323",
+          "json_pointer": "/forward_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "in_flight": "started-effects-and-children-remain-obligations; inability-to-prove-stop-at-safe-effect-boundary-keeps-unknown-pending",
+            "owner": "original-consumed-active-attempt-no-new-or-unused-grant-per-nested-call",
+            "terminal": "normal-forward-completion-also-closes-forward-before-restoration-evidence-and-target-control-release",
+            "termination": "expiry-forward-revocation-or-any-failure-latches-forward-stop-irreversibly; no-new-effect-dispatch-or-revival",
+            "validity": "independent-authenticated-scope-trusted-time-and-continuously-enforced-live-fence-before-and-through-every-permitted-effect"
+          }
+        },
+        {
+          "input_key": "original323",
+          "json_pointer": "/recovery_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "boundedness": "finite-issuer-bound-deadline-and-durable-action-budget; spend-before-action; no-renewal-refill-retry-after-unknown-or-new-grant",
+            "expiry_relation": "forward-expiry-or-forward-only-revocation-does-not-itself-revoke-explicitly-retained-recovery; never-blanket-expiry-exemption",
+            "idempotence": "known-already-restored-state-may-return-reviewed-no-op-with-fresh-verification; never-repeat-unknown-package-or-file-action",
+            "order": "stop-forward-then-known-child-quiescence-then-safe-restore-verify-target-evidence-before-release",
+            "owner": "narrow-retained-rights-of-same-original-consumed-attempt-not-another-grant-or-invocation",
+            "preconditions": "traps-guards-owned-canonical-paths-all-writers-excluded-exact-backups-same-safe-identity-original-baseline-and-approved-deltas",
+            "revocation": "recovery/all-revocation-unknown-scope-clock-discontinuity-boot-or-identity-drift-block-recovery-writes-and-preserve-obligations",
+            "status": "keep-original-forward-failure-status-separate-from-recovery-and-publication-status; restoration-cannot-turn-failure-into-success",
+            "validity": "explicit-authenticated-issuer-original-recovery-scope-with-own-finite-deadline-budget-and-live-recovery-fence",
+            "whitelist": [
+              "bounded-owned-child-control-and-drain",
+              "exact-original-backup-restoration",
+              "verify-original-invariants",
+              "capture-owned-target-evidence",
+              "verified-target-control-release"
+            ]
+          }
+        },
+        {
+          "input_key": "original323",
+          "json_pointer": "/clock_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "actual_clock": null,
+            "actual_forward_deadline": null,
+            "actual_recovery_budget": null,
+            "actual_recovery_deadline": null,
+            "fixture": "integer-ticks-forward100-recovery140-budget5-only-synthetic-no-real-seconds-or-host-observation",
+            "rule": "issuer-authenticated-finite-bounds-and-independent-trusted-time-mapping-with-same-boot; no-wallclock-rollback-suspend-epoch-restart-or-unknown-as-valid"
+          }
+        },
+        {
+          "input_key": "original323",
+          "json_pointer": "/closure_contract",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+          "whole_current_value": {
+            "controller": "unknown-durable-claim-launch-binding-budget-child-or-evidence-state-remains-pending-no-auto-delete-release-or-closed-rights-claim",
+            "machine": "only-known-original-restoration-and-known-owned-child-quiescence-with-complete-target-evidence-under-guard-can-close-scoped-target-obligations",
+            "publication": "after-target-closure-use-captured-closed-data-under-independent-publication-controls-through-last-receipt; no-target-refresh-write-or-renewal"
+          }
+        },
+        {
+          "input_key": "original321",
+          "json_pointer": "/fd_policy",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-admission-handoff-and-namespace-fd-design-review-design.json",
+          "whole_current_value": {
+            "all_nested_helpers_and_restore_paths_in_effect_graph": true,
+            "allowlist": "exact-bound-roles-object-kinds-origins-aliases-and-lifetimes-only-not-numeric-FD-shortcut",
+            "backend_cannot_reach_service_via_FD_mount_path_network_cwd_env_or_process_handles": true,
+            "denied": [
+              "bootstrap-input",
+              "bootstrap-writer",
+              "admission-socket",
+              "RPC-channel",
+              "service-ledger-or-trust-key",
+              "host-directory",
+              "pid-handle",
+              "namespace-handle",
+              "unknown-or-aliased-resource"
+            ],
+            "no_close_on_exec_only_inference": true,
+            "required_stream_roles": [
+              "stdin",
+              "stdout",
+              "stderr"
+            ],
+            "retained_code": "only-separately-reviewed-bound-read-only-code-objects-with-reviewed-origin-aliases-interpreter-consumption-and-close-phase",
+            "retained_code_FD_alone_not_identity_or_immutability_proof": true,
+            "standard_FD_numbers_not_safety_proof": true,
+            "streams": "reviewed-bounded-isolated-command-stream-pipes-with-no-service-peer-or-host-escape",
+            "unreviewed_helpers_cannot_inherit_retained_code_or_bootstrap": true
+          }
+        },
+        {
+          "input_key": "original321",
+          "json_pointer": "/bootstrap",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-admission-handoff-and-namespace-fd-design-review-design.json",
+          "whole_current_value": {
+            "canonical_form": "ASCII-escaped-JSON-sort-keys-compact-separators-no-trailing-bytes-version-bound",
+            "closure": "close-bootstrap-read-end-on-every-success-failure-timeout-or-signal-path-before-child-exec; writer-end-never-inherited-by-worker",
+            "deadline_seconds": 10,
+            "limits_scope": "selected-symbolic-contract-limits-not-proven-real-stream-timer-or-signal-behavior",
+            "maximum_raw_bytes": 65536,
+            "parser_policy": "reject-duplicate-or-extra-fields-invalid-encoding-oversize-incomplete-input-bad-types-and-noncanonical-bytes",
+            "payload_format": "one-canonical-UTF8-JSON-envelope-followed-by-EOF",
+            "process_effect": "read-bounded-buffer-close-read-end-and-clear-authority-env-only-no-worker-filesystem-write",
+            "producer": "independently-authenticated-admission-service-after-durable-consumption-and-slot-spend",
+            "symbolic_read_fd": 3,
+            "trusted_receiver": "reviewed-worker-supervisor-from-the-already-spent320-launch-slot"
+          }
+        },
+        {
+          "input_key": "original321",
+          "json_pointer": "/authentication",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-admission-handoff-and-namespace-fd-design-review-design.json",
+          "whole_current_value": {
+            "algorithms": "actual-signature-canonicalization-parser-and-key-provisioning-implementation-still-require-separate-selection-and-proof",
+            "covered_fields": [
+              "protocol",
+              "purpose",
+              "issuer",
+              "service_identity",
+              "service_epoch",
+              "grant_id",
+              "attempt_id",
+              "launch_slot",
+              "launch_instance",
+              "grant_state",
+              "launch_state",
+              "boot_binding",
+              "worker_identity",
+              "scope_bindings"
+            ],
+            "independent_one_shot_launch_origin_required": true,
+            "no_admission_socket_or_online_RPC_for_worker": true,
+            "purpose_domain": "slack-update/successor-admission-context-only",
+            "receipt_not_bearer_dispatch_capability": true,
+            "receipt_not_fresh_target_or_storage_proof": true,
+            "signature_scope": "domain-protocol-version-purpose-key-identity-and-complete-original-canonical-context-bytes",
+            "trust_source": "independently-provisioned-reviewed-verifier-and-trust-root-not-receipt-source-tree-path-env-or-self-rehash"
+          }
+        },
+        {
+          "input_key": "original321",
+          "json_pointer": "/loss_policy",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-admission-handoff-and-namespace-fd-design-review-design.json",
+          "whole_current_value": {
+            "acknowledgement": "optional-bounded-observation-never-authority-to-relaunch-or-readmit",
+            "close_or_child_status_unknown": "do-not-claim-containment-or-machine/controller-closure; no-command-dispatch",
+            "expiry_revocation": "323-policy-pending; authentication-does-not-exempt-expiry-revocation-or-wrong-boot",
+            "lost_or_invalid_receipt": "already-consumed-grant-stays-burned-no-dispatch-replay-or-new-launch; preserve-service-and-worker-evidence",
+            "recovery": "bounded-issuer-reviewed-recovery-not-chosen-or-authorized-here",
+            "service_restart": "320-durable-grant-and-launch-slot-state-is-not-reopened-by-lost-context-or-receipt",
+            "timeout_or_unknown_EOF": "fail-closed-no-owned-worker-write-at-stage0; unknown-reader-child-status-or-service-evidence-remains-pending"
+          }
+        },
+        {
+          "input_key": "accepted380dossier",
+          "json_pointer": "/original377_live_revocation_conflict",
+          "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-live-revocation-decision-review-dossier.json",
+          "whole_current_value": {
+            "actual_resolution": null,
+            "current_authority": false,
+            "id": "live-revocation-without-worker-broker",
+            "native_blocker_resolved": false,
+            "normative_relaxation_allowed": false,
+            "unresolved_requirement": "A native composition must enforce fresh external revocation at every actual and in-flight forward/recovery/evidence effect without giving the worker a broker/service/control FD or RPC. An offline launch receipt or macro-boundary check cannot establish this. No feasible composition has been selected."
+          }
+        }
+      ],
+      "explicit_user_decision_required": true,
+      "guarantees_lost_or_changed": [],
+      "guarantees_retained": [
+        "Original consumed attempt, irreversible claim/pre-spent single launch, fixed finite deadlines/budgets and no reuse/refund/retry/reacquisition.",
+        "Every current writer/guard/capture/storage/known-drain/recovery/publication/oracle obligation remains binding until an approved full migration.",
+        "Separate forward/recovery/evidence/publication scopes; forward-only revocation never creates blanket recovery rights or silently revokes retained recovery.",
+        "Known failure/mismatch stays sticky; unknown authority, gate, action or drain is pending, never invented no-effect or success."
+      ],
+      "id": "defer-native-revocation-selection",
+      "implementation_selected": false,
+      "independent_evidence_required": [
+        "Actual complete backend/helper/selector/async/observer effect graph, protected original object identities and writer prevention on each platform.",
+        "Authenticated original controller state, trustworthy finite clocks, durable rights and declared decision/effect ordering at every proposed cut.",
+        "Independent effective revocation fault observations before/during/after effects, full raw vectors/status/origin, descendants/FD/stream/storage drain and custody.",
+        "Full original clause/proof/case/raw-group/relation and test-entry/readiness migration impact; independent actual two-platform conformance remains unproved."
+      ],
+      "migration_impact": {
+        "affected_proofs_cases_relations_complete": false,
+        "all_other_original_clauses_remain_binding": true,
+        "approved_migration": null,
+        "categories_requiring_full_mapping": [
+          "contracts320-327",
+          "sections347-and-gaps348",
+          "prerequisites365-and372-377",
+          "46-qualified-proofs",
+          "52-native-cases",
+          "12-independent-raw-groups",
+          "1072-ordered-relations",
+          "historical-five-families-twenty-scenarios",
+          "test-entry-and-operational-readiness"
+        ],
+        "exact_changed_clause_candidates": [],
+        "state": "initial-draft-incomplete-until396-and397",
+        "whole_current_clause_bindings_retained": true
+      },
+      "platform_rows": [
+        {
+          "actual_composition": null,
+          "entry_authorized": false,
+          "installed_versions": null,
+          "native_evidence": null,
+          "platform": "Slackware 15.0",
+          "support": null
+        },
+        {
+          "actual_composition": null,
+          "entry_authorized": false,
+          "installed_versions": null,
+          "native_evidence": null,
+          "platform": "Slackware-current",
+          "support": null
+        }
+      ],
+      "proposed_clause_text": {},
+      "residual_native_unknowns": [
+        "Actual complete backend/helper/selector/async/observer effect graph, protected original object identities and writer prevention on each platform.",
+        "Authenticated original controller state, trustworthy finite clocks, durable rights and declared decision/effect ordering at every proposed cut.",
+        "Independent effective revocation fault observations before/during/after effects, full raw vectors/status/origin, descendants/FD/stream/storage drain and custody.",
+        "Full original clause/proof/case/raw-group/relation and test-entry/readiness migration impact; independent actual two-platform conformance remains unproved."
+      ],
+      "runtime_authority": false,
+      "trust_assumptions": [
+        "No new trust assumption, channel or admission semantics; all original requirements remain normative."
+      ]
+    }
+  ],
+  "primary_conflict_id": "live-revocation-without-worker-broker",
+  "recommendation": "Keep admission-cut semantics and channel permission as distinct amendment proposals; do not combine them by implication. Selection waits for the full396 impact and integrated397 dependency packet.",
+  "schema": 1,
+  "scope": "repository-contract-decision-proposals389-398-only",
+  "selected_option": null,
+  "source_documentation_is_native_proof": false,
+  "state": "prepared-decision-brief-user-acceptance-pending",
+  "step": 391,
+  "universal_impossibility_proven": false,
+  "whole_accepted390_writer_brief_reference": {
+    "canonical_sha256": "bc09b042c3ff01b5c341042427b63c07c09f22018d2e07eccd24da5a3f12beaf",
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-writer-trust-contract-decision-brief-brief.json",
+    "sha256": "4fa3b2aad8362969526ba5e4e06904cb104149b6ea6502c87910bc2a24fa3599"
+  },
+  "whole_original321_reference": {
+    "canonical_sha256": "2552c9b79eea5dca0e695208a4cc2f54b12a8d6fac9104211b1124337a9c851f",
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-admission-handoff-and-namespace-fd-design-review-design.json",
+    "sha256": "c814396b3d002f3398b1d024ab30d9b74dfa6d84aee0c87df93215f571bd1540"
+  },
+  "whole_original323_reference": {
+    "canonical_sha256": "4a4bbba87292e35616b7467977027540bc64b920e492a901c844a32a9d51f66d",
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+    "sha256": "40a574a020fcd8a5a6e79d0faebea6e00e62283751a94bcd877a9b47182d8b98"
+  },
+  "whole_original_live_review": {
+    "adversarial_schedules": [
+      {
+        "actual_observation": null,
+        "candidate_id": "offline-lease-or-poll-only",
+        "conditional_reason": "The candidate has no intervening live effect gate. A later expiry or poll cannot authorize the intervening effect.",
+        "exhaustive_schedule_coverage": false,
+        "id": "lease-gap",
+        "native_execution": false,
+        "ordered_events": [
+          "authority-observed-valid",
+          "external-revocation",
+          "worker-actual-effect"
+        ]
+      },
+      {
+        "actual_observation": null,
+        "candidate_id": "backend-macro-check-only",
+        "conditional_reason": "Macro admission is not continuous admission for subsequent real nested effects.",
+        "exhaustive_schedule_coverage": false,
+        "id": "macro-internal-gap",
+        "native_execution": false,
+        "ordered_events": [
+          "macro-admission-valid",
+          "first-internal-effect",
+          "external-revocation",
+          "second-internal-effect"
+        ]
+      },
+      {
+        "actual_observation": null,
+        "candidate_id": "static-syscall-allowlist-only",
+        "conditional_reason": "The static rule contains no original live-authority serialization; hypothetical additional enforcement is outside this candidate.",
+        "exhaustive_schedule_coverage": false,
+        "id": "static-policy-gap",
+        "native_execution": false,
+        "ordered_events": [
+          "static-filter-allows-write-class",
+          "external-revocation",
+          "permitted-write-attempt"
+        ]
+      },
+      {
+        "actual_observation": null,
+        "candidate_id": "freeze-or-kill-as-live-fence",
+        "conditional_reason": "Request acknowledgement is not completion. Even completion alone is not independently proven full effect/storage drain.",
+        "exhaustive_schedule_coverage": false,
+        "id": "freeze-delay",
+        "native_execution": false,
+        "ordered_events": [
+          "external-revocation",
+          "freeze-request",
+          "task-effect-before-freeze-complete",
+          "freeze-complete"
+        ]
+      },
+      {
+        "actual_observation": null,
+        "candidate_id": "inspect-and-CONTINUE-only",
+        "conditional_reason": "Assumes a mutable shared pointer buffer and no independent argument protection; rejects only this unprotected composition.",
+        "exhaustive_schedule_coverage": false,
+        "id": "continued-pointer-race",
+        "native_execution": false,
+        "ordered_events": [
+          "notifier-inspects-pointer",
+          "notifier-responds-CONTINUE",
+          "peer-rewrites-pointed-bytes",
+          "kernel-consumes-changed-bytes"
+        ]
+      },
+      {
+        "actual_observation": null,
+        "candidate_id": "inspect-and-CONTINUE-only",
+        "conditional_reason": "A notification response is not a proven gate spanning the later actual effect boundary.",
+        "exhaustive_schedule_coverage": false,
+        "id": "continued-authority-gap",
+        "native_execution": false,
+        "ordered_events": [
+          "notifier-observes-authority-valid",
+          "notifier-responds-CONTINUE",
+          "external-revocation",
+          "later-real-effect-boundary"
+        ]
+      },
+      {
+        "actual_observation": null,
+        "candidate_id": "complete-external-effect-gate-hypothesis",
+        "conditional_reason": "Earlier admission is not erased. Identify actual safe stopping boundaries and independently retain/drain obligations; do not assert all previously admitted effects are atomically undone.",
+        "exhaustive_schedule_coverage": false,
+        "id": "admitted-inflight-uncertainty",
+        "native_execution": false,
+        "ordered_events": [
+          "actual-effect-admitted-while-valid",
+          "external-revocation",
+          "inflight-completion-unknown"
+        ]
+      },
+      {
+        "actual_observation": null,
+        "candidate_id": "complete-external-effect-gate-hypothesis",
+        "conditional_reason": "Unknown stays pending with rights consumed; no retry, refund, renewed deadline, rebind or second launch.",
+        "exhaustive_schedule_coverage": false,
+        "id": "unknown-gate-outcome",
+        "native_execution": false,
+        "ordered_events": [
+          "original-budget-spent",
+          "admission-outcome-lost",
+          "effect-occurrence-unknown"
+        ]
+      },
+      {
+        "actual_observation": null,
+        "candidate_id": "complete-external-effect-gate-hypothesis",
+        "conditional_reason": "Forward-only revocation is not proof of retained recovery validity; recovery needs original explicit finite live scope and known prerequisites.",
+        "exhaustive_schedule_coverage": false,
+        "id": "recovery-scope-split",
+        "native_execution": false,
+        "ordered_events": [
+          "forward-only-revocation",
+          "recovery-validity-unknown",
+          "recovery-effect-proposed"
+        ]
+      },
+      {
+        "actual_observation": null,
+        "candidate_id": "complete-external-effect-gate-hypothesis",
+        "conditional_reason": "Collector/injector/evidence/publication own writes require their own original scoped gates; observation roles confer no exemption.",
+        "exhaustive_schedule_coverage": false,
+        "id": "observer-own-effects",
+        "native_execution": false,
+        "ordered_events": [
+          "evidence-writer-observes-validity",
+          "external-all-scope-revocation",
+          "evidence-own-write-proposed"
+        ]
+      }
+    ],
+    "boundaries": {
+      "C_port_open": false,
+      "actual_global_host_closure": false,
+      "actual_host_state": "unobserved-not-claimed-absent",
+      "actual_live_bindings": null,
+      "actual_native_refinement_complete": false,
+      "actual_successor_selected": false,
+      "controller_action_required": false,
+      "current_step_strong_safe_pause": false,
+      "execution_authorized": false,
+      "historical_binding_or_authority_reuse_allowed": false,
+      "kernel_package_edge_complete": false,
+      "last_confirmed_strong_safe_pause_step": 378,
+      "later_current_refresh_invalidates_repository_only_pause": false,
+      "machine_action_required": false,
+      "native_cases_run": 0,
+      "native_components_selected": false,
+      "native_graph_complete": false,
+      "native_proofs_added": 0,
+      "operational_conformance": false,
+      "operational_readiness": false,
+      "phase1_matrix_complete": false,
+      "phase2_open": false,
+      "production_entry_closed": true,
+      "reference_v1_frozen": false,
+      "runtime_authority": false,
+      "strong_safe_pause": false,
+      "target_machine_actions_authorized": false,
+      "version1_schema_frozen": false
+    },
+    "candidates": [
+      {
+        "actual_component": null,
+        "actual_native_evidence": null,
+        "alternative_review_without_relaxation": "Review an external original-attempt gate spanning every actual effect; do not lengthen, renew or create per-action grants.",
+        "candidate_specific_unsatisfied_obligation": "Revocation can occur after the last accepted observation and before the next actual effect. Signature authenticity and expiry limits do not serialize that interval.",
+        "composition_as_stated": "Worker uses a signed launch receipt or periodically checks validity, then mutates without another actual-effect gate.",
+        "disposition": "incompatible-as-stated",
+        "grants_authority": false,
+        "id": "offline-lease-or-poll-only",
+        "native_blocker_resolved": false,
+        "primary_source_ids": [],
+        "universal_impossibility_proven": false
+      },
+      {
+        "actual_component": null,
+        "actual_native_evidence": null,
+        "alternative_review_without_relaxation": "Refine the complete actual backend/helper/selector/hook graph and identify every effect admission and safe in-flight boundary.",
+        "candidate_specific_unsatisfied_obligation": "Revocation between two internal backend effects remains unmediated even when the backend macro admission was valid.",
+        "composition_as_stated": "Controller checks before a backend invocation; nested commands and internal effects execute without continuous gating.",
+        "disposition": "incompatible-as-stated",
+        "grants_authority": false,
+        "id": "backend-macro-check-only",
+        "native_blocker_resolved": false,
+        "primary_source_ids": [],
+        "universal_impossibility_proven": false
+      },
+      {
+        "actual_component": null,
+        "actual_native_evidence": null,
+        "alternative_review_without_relaxation": "Evaluate a complete independently enforced policy composition; static filtering can be a limited constituent, never the live fence itself.",
+        "candidate_specific_unsatisfied_obligation": "Allowed syscall metadata alone does not observe a later change in external original authority, nor cover all target objects, asynchronous work and writers.",
+        "composition_as_stated": "A fixed allowlist permits backend mutation syscalls; no reviewed mechanism connects fresh external revocation to their actual effect lifetimes.",
+        "disposition": "incompatible-as-stated",
+        "grants_authority": false,
+        "id": "static-syscall-allowlist-only",
+        "native_blocker_resolved": false,
+        "primary_source_ids": [
+          "seccomp-filter"
+        ],
+        "universal_impossibility_proven": false
+      },
+      {
+        "actual_component": null,
+        "actual_native_evidence": null,
+        "alternative_review_without_relaxation": "Treat process controls as possible containment constituents with known membership, protected lifetimes and independently observed drain; no claim of instantaneous cancellation.",
+        "candidate_specific_unsatisfied_obligation": "A task may act before freeze completion; already admitted effects and external writers remain obligations. Process-status evidence cannot by itself settle storage and effect uncertainty.",
+        "composition_as_stated": "Controller reacts to revocation by requesting freeze or kill and treats the request or task status as whole-effect closure.",
+        "disposition": "incompatible-as-stated",
+        "grants_authority": false,
+        "id": "freeze-or-kill-as-live-fence",
+        "native_blocker_resolved": false,
+        "primary_source_ids": [
+          "cgroup-v2"
+        ],
+        "universal_impossibility_proven": false
+      },
+      {
+        "actual_component": null,
+        "actual_native_evidence": null,
+        "alternative_review_without_relaxation": "Review protected consumption and actual effect-level authority serialization under a separate policy; no assumption that listener placement satisfies original no-worker-broker compatibility.",
+        "candidate_specific_unsatisfied_obligation": "A peer may change pointer bytes before kernel consumption; authority may change after response and before a later actual effect. A valid notification ID does not authenticate original rights or freeze arguments.",
+        "composition_as_stated": "An external notifier inspects target pointer data and current authority, then sends CONTINUE; no independent argument protection or complete effect gate is included.",
+        "disposition": "incompatible-as-stated",
+        "grants_authority": false,
+        "id": "inspect-and-CONTINUE-only",
+        "native_blocker_resolved": false,
+        "primary_source_ids": [
+          "seccomp-notification",
+          "seccomp-filter"
+        ],
+        "universal_impossibility_proven": false
+      },
+      {
+        "actual_component": null,
+        "actual_native_evidence": null,
+        "alternative_review_without_relaxation": "Identify an actual composition and independently review its whole enforcement/trust/source/lifetime graph before any separately scoped selection or native test grant.",
+        "candidate_specific_unsatisfied_obligation": "No exact native enforcer, source graph, primitive, protocol, platform support, failure behavior or independent conformance is selected. Naming a gate is not its implementation.",
+        "composition_as_stated": "Hypothetical protected external enforcer serializes fresh original authority with every real effect admission and safe in-flight boundary, independent of worker-held service capability.",
+        "disposition": "unresolved",
+        "grants_authority": false,
+        "id": "complete-external-effect-gate-hypothesis",
+        "native_blocker_resolved": false,
+        "primary_source_ids": [],
+        "universal_impossibility_proven": false
+      }
+    ],
+    "conditional_pause_step": 388,
+    "contract_relaxation_permitted": false,
+    "enforcement_boundary_questions": {
+      "actual_all_writer_exclusion": null,
+      "authority_versus_storage_completion_relation": null,
+      "effect_admission_linearization": null,
+      "no_worker_channel_compatibility": null,
+      "revocation_acceptance_linearization": null,
+      "safe_inflight_stopping_boundary": null
+    },
+    "independent_resolution_criteria": [
+      "Exact original-attempt issuer identity, authenticated split finite rights, trusted original boot/time/deadline/budget and no fresh per-action grant.",
+      "Complete actual source/backend/helper/selector/hook/async/storage/evidence graph and every real effect boundary, including object/alias/writer/FD lifetimes.",
+      "Native original authority serialization versus effect admission plus independently identified safe stopping and known drain for admitted in-flight effects.",
+      "Original offline bootstrap and full FD/namespace/no-worker-service/broker capability contract compatibility, including hidden notification or mediation paths.",
+      "Unknown/loss/supervisor-death behavior stops new effects while preserving consumed rights, children, uncertain outcomes and finite original recovery obligations.",
+      "Exact independently supported platform implementation and full expected/raw vectors with effective positive/negative fault observations and original proof-case scope.",
+      "Separate reviewed containment and fresh explicit native test grant before any native effects; successful future tests are not their own permission prerequisite."
+    ],
+    "native_cases_run": 0,
+    "native_proofs_added": 0,
+    "next_preparable_step_after_complete380_acceptance": 381,
+    "no_automatic389": true,
+    "original323_fence_contract": {
+      "actual_enforcer": null,
+      "actual_transport": null,
+      "compatibility": "321-offline-bootstrap-schema-and-FD-closure-unchanged; no-added-worker-RPC-or-inherited-control-channel; future-successor-fence-policy-and-transport-integration-explicitly-required324/325",
+      "rule": "trusted-external-controller-enforces-original-policy-and-absorbing-revocation-at-every-effect-boundary; worker-and-contained-commands-have-no-service-or-broker-capability",
+      "scope": "live-check-is-original-attempt-validity-not-new-grant-per-action; no-claim-of-instant-revocation-from-offline-receipt-or-finite-lease-alone",
+      "uncertainty": "gate-outcome-loss-or-stale-or-unavailable-status-stops-effects; consumed-grant-launch-slot-and-recovery-budget-never-reopen"
+    },
+    "original323_forward_contract": {
+      "in_flight": "started-effects-and-children-remain-obligations; inability-to-prove-stop-at-safe-effect-boundary-keeps-unknown-pending",
+      "owner": "original-consumed-active-attempt-no-new-or-unused-grant-per-nested-call",
+      "terminal": "normal-forward-completion-also-closes-forward-before-restoration-evidence-and-target-control-release",
+      "termination": "expiry-forward-revocation-or-any-failure-latches-forward-stop-irreversibly; no-new-effect-dispatch-or-revival",
+      "validity": "independent-authenticated-scope-trusted-time-and-continuously-enforced-live-fence-before-and-through-every-permitted-effect"
+    },
+    "original377_live_revocation_conflict": {
+      "actual_resolution": null,
+      "current_authority": false,
+      "id": "live-revocation-without-worker-broker",
+      "native_blocker_resolved": false,
+      "normative_relaxation_allowed": false,
+      "unresolved_requirement": "A native composition must enforce fresh external revocation at every actual and in-flight forward/recovery/evidence effect without giving the worker a broker/service/control FD or RPC. An offline launch receipt or macro-boundary check cannot establish this. No feasible composition has been selected."
+    },
+    "plan379_canonical_sha256": "226bf153118c650a3965344dea7f8b7a55a332a41ee378bf4e3c47b4c4bababf",
+    "plan379_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-feasibility-resolution-resume-planning-review-plan.json",
+    "platform_unknowns": [
+      {
+        "actual_config_and_source_graph": null,
+        "actual_independent_evidence": null,
+        "actual_kernel_version": null,
+        "actual_native_composition": null,
+        "actual_original_authority": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "offline-lease-or-poll-only",
+        "native_entry_allowed": false,
+        "platform": "Slackware-15.0",
+        "support_claimed": false
+      },
+      {
+        "actual_config_and_source_graph": null,
+        "actual_independent_evidence": null,
+        "actual_kernel_version": null,
+        "actual_native_composition": null,
+        "actual_original_authority": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "offline-lease-or-poll-only",
+        "native_entry_allowed": false,
+        "platform": "Slackware-current",
+        "support_claimed": false
+      },
+      {
+        "actual_config_and_source_graph": null,
+        "actual_independent_evidence": null,
+        "actual_kernel_version": null,
+        "actual_native_composition": null,
+        "actual_original_authority": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "backend-macro-check-only",
+        "native_entry_allowed": false,
+        "platform": "Slackware-15.0",
+        "support_claimed": false
+      },
+      {
+        "actual_config_and_source_graph": null,
+        "actual_independent_evidence": null,
+        "actual_kernel_version": null,
+        "actual_native_composition": null,
+        "actual_original_authority": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "backend-macro-check-only",
+        "native_entry_allowed": false,
+        "platform": "Slackware-current",
+        "support_claimed": false
+      },
+      {
+        "actual_config_and_source_graph": null,
+        "actual_independent_evidence": null,
+        "actual_kernel_version": null,
+        "actual_native_composition": null,
+        "actual_original_authority": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "static-syscall-allowlist-only",
+        "native_entry_allowed": false,
+        "platform": "Slackware-15.0",
+        "support_claimed": false
+      },
+      {
+        "actual_config_and_source_graph": null,
+        "actual_independent_evidence": null,
+        "actual_kernel_version": null,
+        "actual_native_composition": null,
+        "actual_original_authority": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "static-syscall-allowlist-only",
+        "native_entry_allowed": false,
+        "platform": "Slackware-current",
+        "support_claimed": false
+      },
+      {
+        "actual_config_and_source_graph": null,
+        "actual_independent_evidence": null,
+        "actual_kernel_version": null,
+        "actual_native_composition": null,
+        "actual_original_authority": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "freeze-or-kill-as-live-fence",
+        "native_entry_allowed": false,
+        "platform": "Slackware-15.0",
+        "support_claimed": false
+      },
+      {
+        "actual_config_and_source_graph": null,
+        "actual_independent_evidence": null,
+        "actual_kernel_version": null,
+        "actual_native_composition": null,
+        "actual_original_authority": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "freeze-or-kill-as-live-fence",
+        "native_entry_allowed": false,
+        "platform": "Slackware-current",
+        "support_claimed": false
+      },
+      {
+        "actual_config_and_source_graph": null,
+        "actual_independent_evidence": null,
+        "actual_kernel_version": null,
+        "actual_native_composition": null,
+        "actual_original_authority": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "inspect-and-CONTINUE-only",
+        "native_entry_allowed": false,
+        "platform": "Slackware-15.0",
+        "support_claimed": false
+      },
+      {
+        "actual_config_and_source_graph": null,
+        "actual_independent_evidence": null,
+        "actual_kernel_version": null,
+        "actual_native_composition": null,
+        "actual_original_authority": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "inspect-and-CONTINUE-only",
+        "native_entry_allowed": false,
+        "platform": "Slackware-current",
+        "support_claimed": false
+      },
+      {
+        "actual_config_and_source_graph": null,
+        "actual_independent_evidence": null,
+        "actual_kernel_version": null,
+        "actual_native_composition": null,
+        "actual_original_authority": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "complete-external-effect-gate-hypothesis",
+        "native_entry_allowed": false,
+        "platform": "Slackware-15.0",
+        "support_claimed": false
+      },
+      {
+        "actual_config_and_source_graph": null,
+        "actual_independent_evidence": null,
+        "actual_kernel_version": null,
+        "actual_native_composition": null,
+        "actual_original_authority": null,
+        "borrowed_platform_or_historical_results": false,
+        "candidate_id": "complete-external-effect-gate-hypothesis",
+        "native_entry_allowed": false,
+        "platform": "Slackware-current",
+        "support_claimed": false
+      }
+    ],
+    "primary_assignment_limits_normative_scope": false,
+    "primary_source_register": [
+      {
+        "id": "seccomp-filter",
+        "inference_limit": "Neither a filter name nor a listener proves original per-effect revocation or full graph containment.",
+        "retrieval": "primary page opened; focused What it isnt and Userspace Notification sections; no original HTML byte capture",
+        "title": "Linux kernel Seccomp BPF documentation",
+        "url": "https://docs.kernel.org/userspace-api/seccomp_filter.html",
+        "verified_semantics": "Filters examine syscall metadata and cannot dereference pointer arguments; filtering alone is not a complete sandbox. A notification listener belongs to a filter and receives notifications from descendants using that filter."
+      },
+      {
+        "id": "seccomp-notification",
+        "inference_limit": "Inspect-and-CONTINUE alone is insufficient for the reviewed security guarantee. Proposed or newly merged fixes are not selected or assessed here.",
+        "retrieval": "primary indexed manual excerpts retrieved; direct full-page opens failed; do not claim whole-page original capture",
+        "title": "Linux man-pages seccomp_unotify(2)",
+        "url": "https://www.man7.org/linux/man-pages/man2/seccomp_unotify.2.html",
+        "verified_semantics": "CONTINUE lets the target syscall execute; pointer contents can change after inspection. Notification ID validation addresses whether the notification remains valid, not byte immutability or original authority."
+      },
+      {
+        "id": "cgroup-v2",
+        "inference_limit": "A freeze request, completed process kill or populated state is not independently proven whole-effect quiescence or original revocation serialization.",
+        "retrieval": "primary page opened; focused cgroup.freeze/cgroup.kill/cgroup.events sections; no original HTML byte capture",
+        "title": "Linux kernel Control Group v2 documentation",
+        "url": "https://docs.kernel.org/admin-guide/cgroup-v2.html",
+        "verified_semantics": "Freeze completion is asynchronous; frozen tasks can migrate and a moved-out task runs. cgroup.kill covers concurrent forks and migrations for the kill operation. populated concerns live tasks, not a complete storage/effect receipt."
+      }
+    ],
+    "schema": 1,
+    "scope": "repository-live-revocation-decision-review-only",
+    "state": "prepared-user-acceptance-pending",
+    "step": 380,
+    "universal_infeasibility_proven": false,
+    "verdict": "native-composition-remains-blocked-candidate-specific-insufficiencies-and-unresolved-full-gate",
+    "whole378_freeze_path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-successor-design-freeze-and-safe-pause-review-freeze.json",
+    "whole378_freeze_sha256": "973825341a4ce27878edf82c675c15f384382f8f23fc77a96f0c325989404449",
+    "whole_original_requirements_normative": true,
+    "whole_stage12_obligation": "The whole original final-stage streams/status/origin requirement remains normative. Exact actor/event boundaries must independently reconcile complete stage12 evidence with a last external receipt that cannot observe its own final commit/durability. No shortened stage,renamed evidence scope,self-receipt or successful protocol is inferred; native causal refinement remains pending375/376."
+  },
+  "whole_original_requirements_remain_normative": true,
+  "whole_plan389_reference": {
+    "canonical_sha256": "515d377f4055082d2444a05129cf254adecd170f25583baeae3bafae6b6085d0",
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-contract-decision-resume-planning-review-plan.json",
+    "sha256": "d1f80ac9f5fb479544763db3c739446305c2509b5a8eb229407b9288cd1a813a"
+  }
+}

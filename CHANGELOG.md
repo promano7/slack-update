@@ -1,3 +1,20 @@
+## Phase 1 step 391 -- revocation and effect contract alternatives
+
+- Accepted390 at reported72a3740:210 exact ordered PASS/zero failures, nine files,
+  eight creates/4485 insertions, reported successful push/clean matching heads.
+- Preserved complete unchanged uploaded390 receipt and immutable predecessor.
+- Whole380revocation review and actual original323rights/fence/recovery/clock and
+  original321bootstrap/authentication/FD/loss clauses remain normative.
+- Four inactive options:retain every-effect/no-channel policy;propose declared
+  operation admission cuts;propose one explicitly reviewed worker validation role;
+  defer native selection. Admission granularity and channel permission stay distinct.
+- Eight conditional policy witnesses disclose effects after revocation and channel
+  reply races; none are native observations or conformance proof.
+- No deadline extension/new grant/retry/refund/reacquisition or blanket recovery
+  exception. Actual cuts/channel/gate/graph/support unknown; no option selected.
+- Migration impact initial pending396/397. Native proofs/cases0; no authority or
+  new pause.398 conditional on full actual receipt and all nine WHOLE conditions.
+
 ## Phase 1 step 390 -- writer and trust contract decision brief
 
 - Accepted389 at reported85db946:171 exact ordered PASS/zero failures, nine files,
