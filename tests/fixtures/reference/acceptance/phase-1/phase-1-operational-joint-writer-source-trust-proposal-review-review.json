@@ -1,0 +1,2248 @@
+{
+  "actual_enforcement_policy": null,
+  "actual_owner_loss_and_drained_writers": null,
+  "actual_source_objects": null,
+  "actual_trust_boundary_members": null,
+  "actual_two_platform_support": null,
+  "after_confirmed408_next_authorized_stage": null,
+  "all_domain_writer_class_questions": [
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "package-database",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "direct"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "package-database",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "manual"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "package-database",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "scheduled"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "package-database",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "nested-helper"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "package-database",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "privileged"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "package-database",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "source-and-archive"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "package-database",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "dependency-and-interpreter"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "package-database",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "owned"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "package-database",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "foreign-overlap"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "package-database",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "recovery"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "package-database",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "target-evidence"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "package-database",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "publication"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "Slackpkg-state",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "direct"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "Slackpkg-state",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "manual"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "Slackpkg-state",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "scheduled"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "Slackpkg-state",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "nested-helper"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "Slackpkg-state",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "privileged"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "Slackpkg-state",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "source-and-archive"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "Slackpkg-state",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "dependency-and-interpreter"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "Slackpkg-state",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "owned"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "Slackpkg-state",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "foreign-overlap"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "Slackpkg-state",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "recovery"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "Slackpkg-state",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "target-evidence"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "Slackpkg-state",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "publication"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "configuration-and-mirrors",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "direct"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "configuration-and-mirrors",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "manual"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "configuration-and-mirrors",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "scheduled"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "configuration-and-mirrors",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "nested-helper"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "configuration-and-mirrors",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "privileged"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "configuration-and-mirrors",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "source-and-archive"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "configuration-and-mirrors",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "dependency-and-interpreter"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "configuration-and-mirrors",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "owned"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "configuration-and-mirrors",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "foreign-overlap"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "configuration-and-mirrors",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "recovery"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "configuration-and-mirrors",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "target-evidence"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "configuration-and-mirrors",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "publication"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "boot-and-GenInitrd",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "direct"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "boot-and-GenInitrd",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "manual"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "boot-and-GenInitrd",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "scheduled"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "boot-and-GenInitrd",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "nested-helper"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "boot-and-GenInitrd",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "privileged"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "boot-and-GenInitrd",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "source-and-archive"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "boot-and-GenInitrd",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "dependency-and-interpreter"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "boot-and-GenInitrd",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "owned"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "boot-and-GenInitrd",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "foreign-overlap"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "boot-and-GenInitrd",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "recovery"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "boot-and-GenInitrd",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "target-evidence"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "boot-and-GenInitrd",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "publication"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "source-and-archives",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "direct"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "source-and-archives",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "manual"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "source-and-archives",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "scheduled"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "source-and-archives",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "nested-helper"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "source-and-archives",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "privileged"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "source-and-archives",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "source-and-archive"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "source-and-archives",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "dependency-and-interpreter"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "source-and-archives",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "owned"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "source-and-archives",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "foreign-overlap"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "source-and-archives",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "recovery"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "source-and-archives",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "target-evidence"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "source-and-archives",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "publication"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "backend-and-dependencies",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "direct"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "backend-and-dependencies",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "manual"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "backend-and-dependencies",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "scheduled"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "backend-and-dependencies",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "nested-helper"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "backend-and-dependencies",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "privileged"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "backend-and-dependencies",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "source-and-archive"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "backend-and-dependencies",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "dependency-and-interpreter"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "backend-and-dependencies",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "owned"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "backend-and-dependencies",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "foreign-overlap"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "backend-and-dependencies",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "recovery"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "backend-and-dependencies",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "target-evidence"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "backend-and-dependencies",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "publication"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "transaction-owned-state",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "direct"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "transaction-owned-state",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "manual"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "transaction-owned-state",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "scheduled"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "transaction-owned-state",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "nested-helper"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "transaction-owned-state",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "privileged"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "transaction-owned-state",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "source-and-archive"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "transaction-owned-state",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "dependency-and-interpreter"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "transaction-owned-state",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "owned"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "transaction-owned-state",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "foreign-overlap"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "transaction-owned-state",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "recovery"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "transaction-owned-state",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "target-evidence"
+    },
+    {
+      "actual_actor_object_control_binding": null,
+      "domain": "transaction-owned-state",
+      "required_question": "Establish exact actor/action membership, every protected object/alias and first-effect-through-known-release control for this domain/class. Unknown or uncontrolled overlap prevents entry; privileged identity alone gives no exemption.",
+      "runtime_authority": false,
+      "status": "authored-control-question-not-actual-inventory",
+      "writer_class": "publication"
+    }
+  ],
+  "approved_contract_migration": null,
+  "approved_joint_specification": null,
+  "authored_hypothetical_classification_cases": [
+    {
+      "action_class": "ordinary-workload-write",
+      "actor_class": "manual-workload",
+      "actual_native_observation": null,
+      "enumerated_for_assumption": true,
+      "evidence_known_in_hypothesis": true,
+      "expected_hypothetical_trust_condition_status": "not-an-infrastructure-assumption",
+      "expected_inactive_proposal_disposition": "hypothetical-workload-control-required",
+      "hypothetical_only": true,
+      "id": "root-manual-package-write",
+      "runtime_authority": false
+    },
+    {
+      "action_class": "ordinary-workload-write",
+      "actor_class": "policy-administrator",
+      "actual_native_observation": null,
+      "enumerated_for_assumption": true,
+      "evidence_known_in_hypothesis": true,
+      "expected_hypothetical_trust_condition_status": "not-an-infrastructure-assumption",
+      "expected_inactive_proposal_disposition": "hypothetical-workload-control-required",
+      "hypothetical_only": true,
+      "id": "administrator-updater-write",
+      "runtime_authority": false
+    },
+    {
+      "action_class": "ordinary-workload-write",
+      "actor_class": "nested-helper",
+      "actual_native_observation": null,
+      "enumerated_for_assumption": true,
+      "evidence_known_in_hypothesis": true,
+      "expected_hypothetical_trust_condition_status": "not-an-infrastructure-assumption",
+      "expected_inactive_proposal_disposition": "hypothetical-workload-control-required",
+      "hypothetical_only": true,
+      "id": "privileged-backend-helper",
+      "runtime_authority": false
+    },
+    {
+      "action_class": "ordinary-workload-write",
+      "actor_class": "observer",
+      "actual_native_observation": null,
+      "enumerated_for_assumption": false,
+      "evidence_known_in_hypothesis": true,
+      "expected_hypothetical_trust_condition_status": "not-an-infrastructure-assumption",
+      "expected_inactive_proposal_disposition": "hypothetical-workload-control-required",
+      "hypothetical_only": true,
+      "id": "observer-custody-write",
+      "runtime_authority": false
+    },
+    {
+      "action_class": "ordinary-workload-write",
+      "actor_class": "injector",
+      "actual_native_observation": null,
+      "enumerated_for_assumption": false,
+      "evidence_known_in_hypothesis": true,
+      "expected_hypothetical_trust_condition_status": "not-an-infrastructure-assumption",
+      "expected_inactive_proposal_disposition": "hypothetical-workload-control-required",
+      "hypothetical_only": true,
+      "id": "injector-fault-write",
+      "runtime_authority": false
+    },
+    {
+      "action_class": "deliberate-infrastructure-tampering",
+      "actor_class": "policy-administrator",
+      "actual_native_observation": null,
+      "enumerated_for_assumption": true,
+      "evidence_known_in_hypothesis": true,
+      "expected_hypothetical_trust_condition_status": "failed",
+      "expected_inactive_proposal_disposition": "outside-inactive-proposed-guarantee-not-authorized",
+      "hypothetical_only": true,
+      "id": "enumerated-administrator-tamper",
+      "runtime_authority": false
+    },
+    {
+      "action_class": "deliberate-infrastructure-tampering",
+      "actor_class": "manual-workload",
+      "actual_native_observation": null,
+      "enumerated_for_assumption": true,
+      "evidence_known_in_hypothesis": true,
+      "expected_hypothetical_trust_condition_status": "not-an-infrastructure-assumption",
+      "expected_inactive_proposal_disposition": "hypothetical-workload-control-required",
+      "hypothetical_only": true,
+      "id": "unlisted-root-tamper",
+      "runtime_authority": false
+    },
+    {
+      "action_class": "deliberate-infrastructure-tampering",
+      "actor_class": "policy-administrator",
+      "actual_native_observation": null,
+      "enumerated_for_assumption": null,
+      "evidence_known_in_hypothesis": true,
+      "expected_hypothetical_trust_condition_status": "unknown",
+      "expected_inactive_proposal_disposition": "hypothetical-pending-membership-or-evidence",
+      "hypothetical_only": true,
+      "id": "unknown-admin-membership",
+      "runtime_authority": false
+    },
+    {
+      "action_class": "conforming-infrastructure-action",
+      "actor_class": "host-kernel-enforcement",
+      "actual_native_observation": null,
+      "enumerated_for_assumption": true,
+      "evidence_known_in_hypothesis": false,
+      "expected_hypothetical_trust_condition_status": "unknown",
+      "expected_inactive_proposal_disposition": "hypothetical-pending-membership-or-evidence",
+      "hypothetical_only": true,
+      "id": "unknown-source-identity",
+      "runtime_authority": false
+    },
+    {
+      "action_class": "conforming-infrastructure-action",
+      "actor_class": "host-kernel-enforcement",
+      "actual_native_observation": null,
+      "enumerated_for_assumption": true,
+      "evidence_known_in_hypothesis": true,
+      "expected_hypothetical_trust_condition_status": "assumed-only-in-hypothesis",
+      "expected_inactive_proposal_disposition": "hypothetical-assumption-does-not-prove-control",
+      "hypothetical_only": true,
+      "id": "conforming-kernel",
+      "runtime_authority": false
+    },
+    {
+      "action_class": "ordinary-infrastructure-failure",
+      "actor_class": "storage-controller-device",
+      "actual_native_observation": null,
+      "enumerated_for_assumption": true,
+      "evidence_known_in_hypothesis": true,
+      "expected_hypothetical_trust_condition_status": "failed",
+      "expected_inactive_proposal_disposition": "hypothetical-trust-condition-failed-preserve-original-status",
+      "hypothetical_only": true,
+      "id": "ordinary-storage-failure",
+      "runtime_authority": false
+    },
+    {
+      "action_class": "ordinary-infrastructure-failure",
+      "actor_class": "host-time-provider",
+      "actual_native_observation": null,
+      "enumerated_for_assumption": true,
+      "evidence_known_in_hypothesis": true,
+      "expected_hypothetical_trust_condition_status": "failed",
+      "expected_inactive_proposal_disposition": "hypothetical-trust-condition-failed-preserve-original-status",
+      "hypothetical_only": true,
+      "id": "ordinary-suspend-loss",
+      "runtime_authority": false
+    }
+  ],
+  "boundaries": {
+    "C_port_open": false,
+    "actual_global_host_closure": false,
+    "actual_host_state": "unobserved-not-claimed-absent",
+    "actual_live_bindings": null,
+    "actual_native_refinement_complete": false,
+    "actual_successor_selected": false,
+    "controller_action_required": false,
+    "current_step_strong_safe_pause": false,
+    "execution_authorized": false,
+    "historical_binding_or_authority_reuse_allowed": false,
+    "kernel_package_edge_complete": false,
+    "last_confirmed_strong_safe_pause_step": 398,
+    "later_current_refresh_invalidates_repository_only_pause": false,
+    "machine_action_required": false,
+    "native_cases_run": 0,
+    "native_components_selected": false,
+    "native_graph_complete": false,
+    "native_proofs_added": 0,
+    "operational_conformance": false,
+    "operational_readiness": false,
+    "phase1_matrix_complete": false,
+    "phase2_open": false,
+    "production_entry_closed": true,
+    "reference_v1_frozen": false,
+    "runtime_authority": false,
+    "strong_safe_pause": false,
+    "target_machine_actions_authorized": false,
+    "version1_schema_frozen": false
+  },
+  "candidate_id": "JCP400-A",
+  "complete400_writer_clock_guarantee_losses": [
+    {
+      "guarantees_lost_or_changed": [
+        "The unqualified current privileged/all-writer protection claim would become conditional on an explicitly bounded trusted infrastructure.",
+        "No promised prevention of deliberate trusted-administrator, kernel/hypervisor or raw device/physical tampering; observation of every such breach is also not guaranteed.",
+        "Missing trusted-infrastructure conformance can invalidate the proposed protection claim even if workload checks pass."
+      ],
+      "option_id": "explicit-trusted-host-boundary",
+      "whole_option_reference": {
+        "approved_migration": null,
+        "input_key": "writer_brief390",
+        "native_joint_compatibility": null,
+        "option_id": "explicit-trusted-host-boundary",
+        "packet397_whole_row_canonical_sha256": "f2e03a26aeff055f0ad9e6e62510dd32a2cc91c5563e7bb62c6d2fafe4626550",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-writer-trust-contract-decision-brief-brief.json",
+        "runtime_authority": false,
+        "selected": false,
+        "source_option_index": 1,
+        "whole_396_impact_review_canonical_sha256": "1b06d41b731690410fca1e658e476b5e4fd114d03be70f16029578bc1be56065",
+        "whole_option_canonical_sha256": "fe0e874162f11f87de6474339c63fb3d6b8070578461d05d1df972ef90c21b30"
+      }
+    },
+    {
+      "guarantees_lost_or_changed": [
+        "Time-integrity protection would become conditional on explicitly trusted local host/time infrastructure rather than treating every privileged or hidden clock-domain manipulation as an independently enforceable threat.",
+        "No guarantee of detecting deliberate hidden kernel/hypervisor clock manipulation or snapshot rollback by assumed-trusted actors, even when a boot identifier appears unchanged.",
+        "A local read or delivered timer alone supplies neither an absolute response/drain bound nor authenticated issuer/time mapping or durable rights. The proposal changes the clock trust claim, not the original finite deadline or recovery budget."
+      ],
+      "option_id": "explicit-local-clock-trust-boundary",
+      "whole_option_reference": {
+        "approved_migration": null,
+        "input_key": "loss_brief392",
+        "native_joint_compatibility": null,
+        "option_id": "explicit-local-clock-trust-boundary",
+        "packet397_whole_row_canonical_sha256": "2f70400ef86fc29b2b30901579d861462bdb1a5da2b4935463ec3fb26fea487c",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-loss-drain-clock-contract-decision-brief-brief.json",
+        "runtime_authority": false,
+        "selected": false,
+        "source_option_index": 2,
+        "whole_396_impact_review_canonical_sha256": "97a97d6f16ac97f93a724b5a766e65efebd8384285c10757fe924da65f213e27",
+        "whole_option_canonical_sha256": "6a553200d7dc31b32454bc3609f9fca161ff2229518d0504edfef8278e8d718c"
+      }
+    }
+  ],
+  "conditional_close_step": 408,
+  "deliberate_trusted_infrastructure_exclusion_is_active": false,
+  "exact_semantic_migration_complete": false,
+  "guard_reacquisition_or_deadline_renewal_allowed": false,
+  "hidden_infrastructure_tampering_detection_proven": false,
+  "independent_impact_review_accepted": false,
+  "infrastructure_role_name_or_uid_proves_trust": false,
+  "joint_proposed_statements": {
+    "actor_and_action_scope": "DRAFT: Only specifically enumerated infrastructure actors in their precisely identified infrastructure action roles may be part of the proposed conformance assumption. Classify ordinary package/config/source/backend/helper/recovery/evidence/publication/observer/injector work inside the workload boundary even when the same administrator or UID0 performs it. Unknown actor membership, action role or applicability blocks any future entry; actor names/UID/path/hash/ownership alone supply no membership or conformance proof.",
+    "failure_and_acceptance": "DRAFT: Known infrastructure trust/control failure preserves original failure and separately known mismatches;unknown membership/object/source/guard/drain/storage/time state remains pending and denies dependent effects. No restore from unknown backups,cleanup from an unproven owned flag or publication from producer exit. Both original and proposed guarantees still need exact complete independent semantic proof/case/raw/relation/entry/readiness reconciliation at407 and separate user approval before normative migration. No actual composition, component, test grant, deadline/budget renewal or operational policy is issued.",
+    "guard_lifetime": "DRAFT joint retention requirement: establish service/ledger controls before their own first effects;worker traps before worker effects;stable distinct target guard and fresh original in-memory capture before transaction-owned writes;known exact backups before target mutation. Keep each relevant exclusion continuously through owned/target/config/package/source/recovery/target evidence and all descendants/FD/stream/in-flight effects until independently known scoped closure. Guard owner loss/replacement/contention/unknown never authorizes force unlock, unlink/recreate, reacquire, rebind, renewed rights or presumed child drain. Separate publication/custody controls persist through the proposed terminal boundary;target closure does not close them.",
+    "source_consumption": "DRAFT joint retention requirement: bind and continuously protect all actual launcher/interpreter/loader/library/config/helper/archive/backend/selector/hook/observer/collector/injector/consumer code and input objects from check through every real consumption, including parent/mount/backing/FD aliases. No digest/path/package/namespace label or logical row equality replaces exact original bytes, metadata/presence/absence identity and all relevant writers. Unclassified dynamic consumers keep full entry blocked.",
+    "trust_assumption": "DRAFT: The enumerated infrastructure follows its reviewed implementation, configuration, policy and device/time specification throughout every relevant object lifetime. Deliberate out-of-policy tampering by those enumerated infrastructure roles is outside the proposed guarantee and is not promised detectable. Ordinary faults, partial writes, lost ACK, provider/control loss, suspend/restart/delay and observed/suspected discontinuities remain reviewed failures; they are not permitted workload behavior or successful control.",
+    "writer_coverage": "DRAFT replacement of unqualified original324 guard coverage: retain all seven original resource domains and every source/owned/recovery/evidence/publication object and ancestor/mount/backing/open-handle route. Independently establish reviewed compatible coordination or enforced prevention for every in-boundary direct/manual/scheduled/nested/privileged/source/dependency/owned/foreign/recovery/evidence/publication writer throughout its entire relevant mutation and consumption window. Unknown/nonparticipant writers block entry. The proposed deliberate infrastructure exclusion is a changed protection claim, not prevention evidence."
+  },
+  "native_cases_run": 0,
+  "native_evidence": null,
+  "native_proofs_added": 0,
+  "next_preparable_step_after_complete401_acceptance": 402,
+  "no_automatic409": true,
+  "observer_or_injector_exempt": false,
+  "ordinary_privileged_workload_exempt": false,
+  "original_source_lifetime_review_is_exhaustive_native_inventory": false,
+  "proposed_trusted_infrastructure_roles": [
+    {
+      "actual_conformance_evidence": null,
+      "actual_identity_and_configuration": null,
+      "exclusion_is_current_contract": false,
+      "id": "host-kernel-enforcement",
+      "proposed_excluded_deliberate_action": "Deliberate hidden enforcement modification or out-of-policy protected-object effects.",
+      "proposed_hidden_breach_detection_guaranteed": false,
+      "proposed_identity_requirement": "Exact kernel/enforcement implementation, configuration and policy source that enforce the proposed workload boundary.",
+      "selected_as_trusted": false
+    },
+    {
+      "actual_conformance_evidence": null,
+      "actual_identity_and_configuration": null,
+      "exclusion_is_current_contract": false,
+      "id": "policy-administrator",
+      "proposed_excluded_deliberate_action": "Deliberate infrastructure policy override in that specifically enumerated role; no blanket UID0 or administrator exemption.",
+      "proposed_hidden_breach_detection_guaranteed": false,
+      "proposed_identity_requirement": "Exact administrator acting in an enumerated infrastructure-policy maintenance role, distinct from ordinary manual/update workload actions.",
+      "selected_as_trusted": false
+    },
+    {
+      "actual_conformance_evidence": null,
+      "actual_identity_and_configuration": null,
+      "exclusion_is_current_contract": false,
+      "id": "hypervisor-if-present",
+      "proposed_excluded_deliberate_action": "Deliberate hidden memory/device/time/snapshot manipulation by that enumerated infrastructure role.",
+      "proposed_hidden_breach_detection_guaranteed": false,
+      "proposed_identity_requirement": "Exact virtualization implementation and configuration if one exists; applicability must be known separately per platform.",
+      "selected_as_trusted": false
+    },
+    {
+      "actual_conformance_evidence": null,
+      "actual_identity_and_configuration": null,
+      "exclusion_is_current_contract": false,
+      "id": "host-time-provider",
+      "proposed_excluded_deliberate_action": "Deliberate hidden clock-domain tampering; ordinary suspend/restart/delay/loss remain reviewed failure conditions.",
+      "proposed_hidden_breach_detection_guaranteed": false,
+      "proposed_identity_requirement": "Exact kernel/hardware time provider and original clock domain/issuer mapping shared with the proposed host trust boundary.",
+      "selected_as_trusted": false
+    },
+    {
+      "actual_conformance_evidence": null,
+      "actual_identity_and_configuration": null,
+      "exclusion_is_current_contract": false,
+      "id": "storage-controller-device",
+      "proposed_excluded_deliberate_action": "Deliberate out-of-specification backing-object tampering; ordinary partial writes/lost ACK/durability faults remain reviewed failures.",
+      "proposed_hidden_breach_detection_guaranteed": false,
+      "proposed_identity_requirement": "Exact controller/device, backing topology and specification covering all target/source/owned/ledger/publication objects.",
+      "selected_as_trusted": false
+    },
+    {
+      "actual_conformance_evidence": null,
+      "actual_identity_and_configuration": null,
+      "exclusion_is_current_contract": false,
+      "id": "physical-access-custodian",
+      "proposed_excluded_deliberate_action": "Deliberate physical out-of-policy device or memory tampering; no assumed prevention or complete detection.",
+      "proposed_hidden_breach_detection_guaranteed": false,
+      "proposed_identity_requirement": "Exact physical access custodian and scope throughout the reviewed attempt and custody lifetime.",
+      "selected_as_trusted": false
+    }
+  ],
+  "remaining_joint_reviews": [
+    {
+      "actual_joint_resolution": null,
+      "candidate_specific_question": "The draft denies a worker channel but changes operation admission. Who serializes admission with every actual descendant/in-flight effect, and how are unchanged every-effect forward/recovery validity clauses replaced or retained consistently? A controller permission or cut name is insufficient.",
+      "current_authority": false,
+      "id": "offline-bootstrap-vs-live-channel",
+      "native_compatibility_proven": false,
+      "planned_review_step": 402,
+      "state": "unresolved-pending-substantive-joint-review",
+      "whole_original_dimension": {
+        "actual_joint_resolution": null,
+        "affected_option_ids": [
+          "retain-every-effect-no-worker-channel",
+          "declared-operation-admission-cuts",
+          "explicit-worker-control-channel",
+          "defer-native-revocation-selection"
+        ],
+        "current_authority": false,
+        "id": "offline-bootstrap-vs-live-channel",
+        "native_compatibility_proven": false,
+        "required_joint_review": "A live worker channel draft changes original offline/FD/authentication loss boundaries;retention options cannot silently borrow it.",
+        "source_family_input_keys": [
+          "revocation_brief391"
+        ]
+      }
+    },
+    {
+      "actual_joint_resolution": null,
+      "candidate_specific_question": "The same infrastructure trust boundary must enumerate writer/source/time/storage/observer policies and actual objects. Proposed excluded hostile infrastructure actions must not exempt ordinary privileged workload helpers or hide checked-to-used aliases.",
+      "current_authority": false,
+      "id": "writer-trust-vs-source-and-clock",
+      "native_compatibility_proven": false,
+      "planned_review_step": 401,
+      "state": "unresolved-pending-substantive-joint-review",
+      "whole_original_dimension": {
+        "actual_joint_resolution": null,
+        "affected_option_ids": [
+          "retain-full-original-coverage",
+          "explicit-trusted-host-boundary",
+          "defer-native-writer-selection",
+          "retain-known-drain-and-trusted-time",
+          "independent-guardian-retention-hypothesis",
+          "explicit-local-clock-trust-boundary",
+          "defer-native-lifetime-time-selection",
+          "retain-whole-original-entry",
+          "complete-protected-source-consumption-hypothesis",
+          "explicit-separate-backend-product-scope",
+          "defer-native-entry-backend-selection"
+        ],
+        "current_authority": false,
+        "id": "writer-trust-vs-source-and-clock",
+        "native_compatibility_proven": false,
+        "required_joint_review": "Host writer and clock exclusions need one explicit consistent trust/source scope;code/path/hash/namespace do not prove protected consumed objects.",
+        "source_family_input_keys": [
+          "writer_brief390",
+          "loss_brief392",
+          "entry_brief395"
+        ]
+      }
+    },
+    {
+      "actual_joint_resolution": null,
+      "candidate_specific_question": "A guardian can fail or stop after the original finite recovery right expires. Determine each survivor/FD/stream/storage effect and independent drain result without immortal guardian or guaranteed stop assumptions; failure/unknown remains pending.",
+      "current_authority": false,
+      "id": "guardian-drain-vs-forward-failure",
+      "native_compatibility_proven": false,
+      "planned_review_step": 403,
+      "state": "unresolved-pending-substantive-joint-review",
+      "whole_original_dimension": {
+        "actual_joint_resolution": null,
+        "affected_option_ids": [
+          "retain-known-drain-and-trusted-time",
+          "independent-guardian-retention-hypothesis",
+          "explicit-local-clock-trust-boundary",
+          "defer-native-lifetime-time-selection",
+          "retain-every-effect-no-worker-channel",
+          "declared-operation-admission-cuts",
+          "explicit-worker-control-channel",
+          "defer-native-revocation-selection",
+          "retain-whole-original-entry",
+          "complete-protected-source-consumption-hypothesis",
+          "explicit-separate-backend-product-scope",
+          "defer-native-entry-backend-selection"
+        ],
+        "current_authority": false,
+        "id": "guardian-drain-vs-forward-failure",
+        "native_compatibility_proven": false,
+        "required_joint_review": "Guardian survival,known complete descendants/FD/in-flight drain and absorbing failure stop must compose under actual finite rights.",
+        "source_family_input_keys": [
+          "loss_brief392",
+          "revocation_brief391",
+          "entry_brief395"
+        ]
+      }
+    },
+    {
+      "actual_joint_resolution": null,
+      "candidate_specific_question": "The external ledger may durably spend while ACK or local clock/guardian state is unknown. Specify exact original irreversible claim/launch/action ordering and no-repeat quarantine under the same fixed mapped deadlines without replacement authority.",
+      "current_authority": false,
+      "id": "durable-rights-vs-loss-deadlines",
+      "native_compatibility_proven": false,
+      "planned_review_step": 404,
+      "state": "unresolved-pending-substantive-joint-review",
+      "whole_original_dimension": {
+        "actual_joint_resolution": null,
+        "affected_option_ids": [
+          "retain-exact-original-capture-storage-rights",
+          "external-durable-rights-ledger-hypothesis",
+          "separate-owned-target-quarantine-hypothesis",
+          "defer-native-storage-rights-selection",
+          "retain-known-drain-and-trusted-time",
+          "independent-guardian-retention-hypothesis",
+          "explicit-local-clock-trust-boundary",
+          "defer-native-lifetime-time-selection",
+          "retain-every-effect-no-worker-channel",
+          "declared-operation-admission-cuts",
+          "explicit-worker-control-channel",
+          "defer-native-revocation-selection"
+        ],
+        "current_authority": false,
+        "id": "durable-rights-vs-loss-deadlines",
+        "native_compatibility_proven": false,
+        "required_joint_review": "Claim/launch/action spend,unknown ACK,no replay and trusted forward/recovery deadlines must remain jointly exact.",
+        "source_family_input_keys": [
+          "storage_brief393",
+          "loss_brief392",
+          "revocation_brief391"
+        ]
+      }
+    },
+    {
+      "actual_joint_resolution": null,
+      "candidate_specific_question": "Known target/no-write evidence and unknown owned backup/commit state need independent complete original vectors. Whole entry may already have effects; neither a missing backup nor backend raw return proves unchanged target or safe restore.",
+      "current_authority": false,
+      "id": "baseline-unknown-vs-backend-effects",
+      "native_compatibility_proven": false,
+      "planned_review_step": 404,
+      "state": "unresolved-pending-substantive-joint-review",
+      "whole_original_dimension": {
+        "actual_joint_resolution": null,
+        "affected_option_ids": [
+          "retain-exact-original-capture-storage-rights",
+          "external-durable-rights-ledger-hypothesis",
+          "separate-owned-target-quarantine-hypothesis",
+          "defer-native-storage-rights-selection",
+          "retain-whole-original-entry",
+          "complete-protected-source-consumption-hypothesis",
+          "explicit-separate-backend-product-scope",
+          "defer-native-entry-backend-selection"
+        ],
+        "current_authority": false,
+        "id": "baseline-unknown-vs-backend-effects",
+        "native_compatibility_proven": false,
+        "required_joint_review": "Known full target facts cannot be substituted by unknown backups or summarized backend effects;every safe restore/no-write branch retains all original gates.",
+        "source_family_input_keys": [
+          "storage_brief393",
+          "entry_brief395"
+        ]
+      }
+    },
+    {
+      "actual_joint_resolution": null,
+      "candidate_specific_question": "Producer-only stage12 differs from the normative whole stage. Resolve complete stream/status/origin membership and observer own effects/custody at an explicitly amended terminal cut; acyclic paper ordering does not prove native terminal closure.",
+      "current_authority": false,
+      "id": "terminal-cut-vs-whole-stage-oracle",
+      "native_compatibility_proven": false,
+      "planned_review_step": 405,
+      "state": "unresolved-pending-substantive-joint-review",
+      "whole_original_dimension": {
+        "actual_joint_resolution": null,
+        "affected_option_ids": [
+          "retain-whole-original-stage12",
+          "explicit-producer-and-external-finalization-cut",
+          "independent-captured-data-custody-hypothesis",
+          "defer-native-receipt-selection",
+          "retain-full-independent-two-platform-oracle",
+          "protected-independent-raw-oracle-hypothesis",
+          "defer-native-oracle-selection"
+        ],
+        "current_authority": false,
+        "id": "terminal-cut-vs-whole-stage-oracle",
+        "native_compatibility_proven": false,
+        "required_joint_review": "Changed producer/receipt membership requires explicit migration of full stage12 and every observer own effect/oracle/custody obligation;acyclic paper order proves no native closure.",
+        "source_family_input_keys": [
+          "receipt_brief394",
+          "oracle_brief396"
+        ]
+      }
+    },
+    {
+      "actual_joint_resolution": null,
+      "candidate_specific_question": "This draft retains whole entry and declines the separate-backend product alternative. Every preparation/helper/selector/hook/effect edge and original forbidden effect remains required; retain complete original proof/case coverage while reconciling the draft trust/cut changes.",
+      "current_authority": false,
+      "id": "narrow-product-vs-whole-entry-proof",
+      "native_compatibility_proven": false,
+      "planned_review_step": 406,
+      "state": "unresolved-pending-substantive-joint-review",
+      "whole_original_dimension": {
+        "actual_joint_resolution": null,
+        "affected_option_ids": [
+          "retain-whole-original-entry",
+          "complete-protected-source-consumption-hypothesis",
+          "explicit-separate-backend-product-scope",
+          "defer-native-entry-backend-selection",
+          "retain-full-independent-two-platform-oracle",
+          "protected-independent-raw-oracle-hypothesis",
+          "defer-native-oracle-selection"
+        ],
+        "current_authority": false,
+        "id": "narrow-product-vs-whole-entry-proof",
+        "native_compatibility_proven": false,
+        "required_joint_review": "A separate component product cannot satisfy current whole-entry/Phase1 proof/case/entry/readiness scope without full approved migration.",
+        "source_family_input_keys": [
+          "entry_brief395",
+          "oracle_brief396"
+        ]
+      }
+    },
+    {
+      "actual_joint_resolution": null,
+      "candidate_specific_question": "Independent expectation, collector, receipt observer and consumer roles themselves use guarded source, clocks, storage and finite custody rights. Enumerate their own possible ACK/stream/descendant effects and final unknowns without a passive observer exception.",
+      "current_authority": false,
+      "id": "observer-controls-vs-finite-custody",
+      "native_compatibility_proven": false,
+      "planned_review_step": 405,
+      "state": "unresolved-pending-substantive-joint-review",
+      "whole_original_dimension": {
+        "actual_joint_resolution": null,
+        "affected_option_ids": [
+          "retain-full-independent-two-platform-oracle",
+          "protected-independent-raw-oracle-hypothesis",
+          "defer-native-oracle-selection",
+          "retain-whole-original-stage12",
+          "explicit-producer-and-external-finalization-cut",
+          "independent-captured-data-custody-hypothesis",
+          "defer-native-receipt-selection",
+          "retain-exact-original-capture-storage-rights",
+          "external-durable-rights-ledger-hypothesis",
+          "separate-owned-target-quarantine-hypothesis",
+          "defer-native-storage-rights-selection",
+          "retain-known-drain-and-trusted-time",
+          "independent-guardian-retention-hypothesis",
+          "explicit-local-clock-trust-boundary",
+          "defer-native-lifetime-time-selection"
+        ],
+        "current_authority": false,
+        "id": "observer-controls-vs-finite-custody",
+        "native_compatibility_proven": false,
+        "required_joint_review": "No observer/injector/consumer exception;actual origin,writers,finite rights,storage,stream and ACK/custody outcomes remain due.",
+        "source_family_input_keys": [
+          "oracle_brief396",
+          "receipt_brief394",
+          "storage_brief393",
+          "loss_brief392"
+        ]
+      }
+    },
+    {
+      "actual_joint_resolution": null,
+      "candidate_specific_question": "Both actual platforms need independent fresh full support/identity/expectation/fault/raw/custody qualification. Safe actual joint review and a separate explicit bounded test grant still precede effects; the draft and its repository tests cannot satisfy that gate.",
+      "current_authority": false,
+      "id": "two-platform-fresh-test-entry",
+      "native_compatibility_proven": false,
+      "planned_review_step": 406,
+      "state": "unresolved-pending-substantive-joint-review",
+      "whole_original_dimension": {
+        "actual_joint_resolution": null,
+        "affected_option_ids": [
+          "retain-full-original-coverage",
+          "explicit-trusted-host-boundary",
+          "defer-native-writer-selection",
+          "retain-every-effect-no-worker-channel",
+          "declared-operation-admission-cuts",
+          "explicit-worker-control-channel",
+          "defer-native-revocation-selection",
+          "retain-known-drain-and-trusted-time",
+          "independent-guardian-retention-hypothesis",
+          "explicit-local-clock-trust-boundary",
+          "defer-native-lifetime-time-selection",
+          "retain-exact-original-capture-storage-rights",
+          "external-durable-rights-ledger-hypothesis",
+          "separate-owned-target-quarantine-hypothesis",
+          "defer-native-storage-rights-selection",
+          "retain-whole-original-stage12",
+          "explicit-producer-and-external-finalization-cut",
+          "independent-captured-data-custody-hypothesis",
+          "defer-native-receipt-selection",
+          "retain-whole-original-entry",
+          "complete-protected-source-consumption-hypothesis",
+          "explicit-separate-backend-product-scope",
+          "defer-native-entry-backend-selection",
+          "retain-full-independent-two-platform-oracle",
+          "protected-independent-raw-oracle-hypothesis",
+          "defer-native-oracle-selection"
+        ],
+        "current_authority": false,
+        "id": "two-platform-fresh-test-entry",
+        "native_compatibility_proven": false,
+        "required_joint_review": "Whole independently safe actual composition review precedes separate fresh explicit native-test grant;native conformance later operational readiness. No historical/other-platform transfer.",
+        "source_family_input_keys": [
+          "writer_brief390",
+          "revocation_brief391",
+          "loss_brief392",
+          "storage_brief393",
+          "receipt_brief394",
+          "entry_brief395",
+          "oracle_brief396"
+        ]
+      }
+    }
+  ],
+  "runtime_authority": false,
+  "schema": 1,
+  "scope": "repository-joint-contract-proposal399-408-only",
+  "selected_options": null,
+  "seven_original_domain_reviews": [
+    {
+      "actual_control_protocol": null,
+      "actual_object_alias_map": null,
+      "actual_writer_inventory": null,
+      "candidate_control_statement": "DRAFT replacement of unqualified original324 guard coverage: retain all seven original resource domains and every source/owned/recovery/evidence/publication object and ancestor/mount/backing/open-handle route. Independently establish reviewed compatible coordination or enforced prevention for every in-boundary direct/manual/scheduled/nested/privileged/source/dependency/owned/foreign/recovery/evidence/publication writer throughout its entire relevant mutation and consumption window. Unknown/nonparticipant writers block entry. The proposed deliberate infrastructure exclusion is a changed protection claim, not prevention evidence.",
+      "continuous_exclusion_proven": false,
+      "domain": "package-database",
+      "native_gap_resolved": false,
+      "proposed_required_writer_classes": [
+        "direct",
+        "manual",
+        "scheduled",
+        "nested-helper",
+        "privileged",
+        "source-and-archive",
+        "dependency-and-interpreter",
+        "owned",
+        "foreign-overlap",
+        "recovery",
+        "target-evidence",
+        "publication"
+      ],
+      "whole_original_writer_resource_row": {
+        "domain": "package-database",
+        "evidence": "actual-alias-object-writer-entrypoint-and-protocol-map",
+        "resources": "/var/lib/pkgtools/packages;/var/log/packages",
+        "status": "required-not-live-bound",
+        "writers": "direct-pkgtools;Slackpkg;wrappers;manual-package-writes"
+      }
+    },
+    {
+      "actual_control_protocol": null,
+      "actual_object_alias_map": null,
+      "actual_writer_inventory": null,
+      "candidate_control_statement": "DRAFT replacement of unqualified original324 guard coverage: retain all seven original resource domains and every source/owned/recovery/evidence/publication object and ancestor/mount/backing/open-handle route. Independently establish reviewed compatible coordination or enforced prevention for every in-boundary direct/manual/scheduled/nested/privileged/source/dependency/owned/foreign/recovery/evidence/publication writer throughout its entire relevant mutation and consumption window. Unknown/nonparticipant writers block entry. The proposed deliberate infrastructure exclusion is a changed protection claim, not prevention evidence.",
+      "continuous_exclusion_proven": false,
+      "domain": "Slackpkg-state",
+      "native_gap_resolved": false,
+      "proposed_required_writer_classes": [
+        "direct",
+        "manual",
+        "scheduled",
+        "nested-helper",
+        "privileged",
+        "source-and-archive",
+        "dependency-and-interpreter",
+        "owned",
+        "foreign-overlap",
+        "recovery",
+        "target-evidence",
+        "publication"
+      ],
+      "whole_original_writer_resource_row": {
+        "domain": "Slackpkg-state",
+        "evidence": "actual-backend-state-and-refresh-writer-exclusion",
+        "resources": "/var/lib/slackpkg;derived-TEMP-WORKDIR",
+        "status": "required-not-live-bound",
+        "writers": "refresh;check-updates;apply;scheduled-wrapper;state-cleanup"
+      }
+    },
+    {
+      "actual_control_protocol": null,
+      "actual_object_alias_map": null,
+      "actual_writer_inventory": null,
+      "candidate_control_statement": "DRAFT replacement of unqualified original324 guard coverage: retain all seven original resource domains and every source/owned/recovery/evidence/publication object and ancestor/mount/backing/open-handle route. Independently establish reviewed compatible coordination or enforced prevention for every in-boundary direct/manual/scheduled/nested/privileged/source/dependency/owned/foreign/recovery/evidence/publication writer throughout its entire relevant mutation and consumption window. Unknown/nonparticipant writers block entry. The proposed deliberate infrastructure exclusion is a changed protection claim, not prevention evidence.",
+      "continuous_exclusion_proven": false,
+      "domain": "configuration-and-mirrors",
+      "native_gap_resolved": false,
+      "proposed_required_writer_classes": [
+        "direct",
+        "manual",
+        "scheduled",
+        "nested-helper",
+        "privileged",
+        "source-and-archive",
+        "dependency-and-interpreter",
+        "owned",
+        "foreign-overlap",
+        "recovery",
+        "target-evidence",
+        "publication"
+      ],
+      "whole_original_writer_resource_row": {
+        "domain": "configuration-and-mirrors",
+        "evidence": "complete-mutation-window-and-owner-entrypoint-control",
+        "resources": "/etc/slackpkg/mirrors;/etc/slackpkg/slackpkg.conf;derived-config",
+        "status": "required-not-live-bound",
+        "writers": "package-config-scripts;manual-editor;restore;configuration-manager"
+      }
+    },
+    {
+      "actual_control_protocol": null,
+      "actual_object_alias_map": null,
+      "actual_writer_inventory": null,
+      "candidate_control_statement": "DRAFT replacement of unqualified original324 guard coverage: retain all seven original resource domains and every source/owned/recovery/evidence/publication object and ancestor/mount/backing/open-handle route. Independently establish reviewed compatible coordination or enforced prevention for every in-boundary direct/manual/scheduled/nested/privileged/source/dependency/owned/foreign/recovery/evidence/publication writer throughout its entire relevant mutation and consumption window. Unknown/nonparticipant writers block entry. The proposed deliberate infrastructure exclusion is a changed protection claim, not prevention evidence.",
+      "continuous_exclusion_proven": false,
+      "domain": "boot-and-GenInitrd",
+      "native_gap_resolved": false,
+      "proposed_required_writer_classes": [
+        "direct",
+        "manual",
+        "scheduled",
+        "nested-helper",
+        "privileged",
+        "source-and-archive",
+        "dependency-and-interpreter",
+        "owned",
+        "foreign-overlap",
+        "recovery",
+        "target-evidence",
+        "publication"
+      ],
+      "whole_original_writer_resource_row": {
+        "domain": "boot-and-GenInitrd",
+        "evidence": "all-reachable-boot-config-writers-and-restore-exclusion",
+        "resources": "/boot;/etc/default/geninitrd",
+        "status": "required-not-live-bound",
+        "writers": "kernel-package-scripts;boot-tools;GenInitrd;manual-config;restore"
+      }
+    },
+    {
+      "actual_control_protocol": null,
+      "actual_object_alias_map": null,
+      "actual_writer_inventory": null,
+      "candidate_control_statement": "DRAFT replacement of unqualified original324 guard coverage: retain all seven original resource domains and every source/owned/recovery/evidence/publication object and ancestor/mount/backing/open-handle route. Independently establish reviewed compatible coordination or enforced prevention for every in-boundary direct/manual/scheduled/nested/privileged/source/dependency/owned/foreign/recovery/evidence/publication writer throughout its entire relevant mutation and consumption window. Unknown/nonparticipant writers block entry. The proposed deliberate infrastructure exclusion is a changed protection claim, not prevention evidence.",
+      "continuous_exclusion_proven": false,
+      "domain": "source-and-archives",
+      "native_gap_resolved": false,
+      "proposed_required_writer_classes": [
+        "direct",
+        "manual",
+        "scheduled",
+        "nested-helper",
+        "privileged",
+        "source-and-archive",
+        "dependency-and-interpreter",
+        "owned",
+        "foreign-overlap",
+        "recovery",
+        "target-evidence",
+        "publication"
+      ],
+      "whole_original_writer_resource_row": {
+        "domain": "source-and-archives",
+        "evidence": "source-and-archive-content-stability-through-consumption",
+        "resources": "fresh-local-source-tree;manifest;target;predecessor;baseline-archives",
+        "status": "required-not-live-bound",
+        "writers": "builder;staging;cleanup;package-source-edit"
+      }
+    },
+    {
+      "actual_control_protocol": null,
+      "actual_object_alias_map": null,
+      "actual_writer_inventory": null,
+      "candidate_control_statement": "DRAFT replacement of unqualified original324 guard coverage: retain all seven original resource domains and every source/owned/recovery/evidence/publication object and ancestor/mount/backing/open-handle route. Independently establish reviewed compatible coordination or enforced prevention for every in-boundary direct/manual/scheduled/nested/privileged/source/dependency/owned/foreign/recovery/evidence/publication writer throughout its entire relevant mutation and consumption window. Unknown/nonparticipant writers block entry. The proposed deliberate infrastructure exclusion is a changed protection claim, not prevention evidence.",
+      "continuous_exclusion_proven": false,
+      "domain": "backend-and-dependencies",
+      "native_gap_resolved": false,
+      "proposed_required_writer_classes": [
+        "direct",
+        "manual",
+        "scheduled",
+        "nested-helper",
+        "privileged",
+        "source-and-archive",
+        "dependency-and-interpreter",
+        "owned",
+        "foreign-overlap",
+        "recovery",
+        "target-evidence",
+        "publication"
+      ],
+      "whole_original_writer_resource_row": {
+        "domain": "backend-and-dependencies",
+        "evidence": "312-complete-content-dependency-writer-exclusion",
+        "resources": "approved-launcher-interpreter-backend-and-all-runtime-dependencies",
+        "status": "required-not-live-bound",
+        "writers": "platform-updater;package-replacement;manual-payload-edit"
+      }
+    },
+    {
+      "actual_control_protocol": null,
+      "actual_object_alias_map": null,
+      "actual_writer_inventory": null,
+      "candidate_control_statement": "DRAFT replacement of unqualified original324 guard coverage: retain all seven original resource domains and every source/owned/recovery/evidence/publication object and ancestor/mount/backing/open-handle route. Independently establish reviewed compatible coordination or enforced prevention for every in-boundary direct/manual/scheduled/nested/privileged/source/dependency/owned/foreign/recovery/evidence/publication writer throughout its entire relevant mutation and consumption window. Unknown/nonparticipant writers block entry. The proposed deliberate infrastructure exclusion is a changed protection claim, not prevention evidence.",
+      "continuous_exclusion_proven": false,
+      "domain": "transaction-owned-state",
+      "native_gap_resolved": false,
+      "proposed_required_writer_classes": [
+        "direct",
+        "manual",
+        "scheduled",
+        "nested-helper",
+        "privileged",
+        "source-and-archive",
+        "dependency-and-interpreter",
+        "owned",
+        "foreign-overlap",
+        "recovery",
+        "target-evidence",
+        "publication"
+      ],
+      "whole_original_writer_resource_row": {
+        "domain": "transaction-owned-state",
+        "evidence": "only-reviewed-owned-writers-and-exclusive-path-bindings316",
+        "resources": "owned-work-backup-binding-evidence-and-restore-paths",
+        "status": "required-not-live-bound",
+        "writers": "owned-supervisor;owned-adapters;owned-children;foreign-overlap"
+      }
+    }
+  ],
+  "state": "inactive-joint-writer-source-trust-review",
+  "step": 401,
+  "whole400_shared_trust_wording": {
+    "id": "shared-infrastructure-trust",
+    "kind": "joint-inactive-amendment",
+    "option_ids": [
+      "explicit-trusted-host-boundary",
+      "explicit-local-clock-trust-boundary"
+    ],
+    "text": "One explicit proposed infrastructure trust boundary applies consistently to source, writer, clock, storage and terminal custody control assumptions. Enumerate kernel/enforcement and time providers, policy administrator, hypervisor if present, storage hardware and physical custodians by exact identity/configuration before any future acceptance. Their deliberate policy/device/time tampering is outside the proposed guarantee and is not promised detectable. Ordinary direct/manual/scheduled/privileged workload, updater, helpers, backend, observers and injectors remain in scope. Conforming-infrastructure assumptions never prove actual isolation, correct storage or independent custody. All actual identities and support remain unknown."
+  },
+  "whole_396_impact_reference": {
+    "canonical_sha256": "1a00f9afcde2a6ef72dad05cef26d2ea58874ef2f0daa3a533550ee799283612",
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-independent-oracle-migration-impact-decision-brief-brief.json",
+    "sha256": "67c6fed2d3e2d8ae5a7ae9904428841ae9410c905efed6da9ca81acc4e07535c"
+  },
+  "whole_candidate400_reference": {
+    "canonical_sha256": "5c34230946a48e6e09c1a2aed8a6a4d62e85b24f3db84c3713d1d37fb546d8d2",
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-concrete-joint-contract-candidate-proposal-review-candidate.json",
+    "sha256": "f25bc295733c1af53329af26785d23273dd3d07aec67d9eb328df27d0030a17f"
+  },
+  "whole_effect_domain_reviews": [
+    {
+      "actual_consumed_object_graph": null,
+      "actual_writer_control": null,
+      "id": "execution-environment",
+      "native_graph_complete": false,
+      "required_consumer_and_writer_question": "Classify every complete actual object/byte/metadata/ancestor/mount/backing/FD/actor/child/stream/control/clock/storage route through each real use and effect;source anchors are navigation only,not complete native graph or no-effect proof.",
+      "whole_original_reference": {
+        "input_key": "effects",
+        "json_pointer": "/effect_domains/0",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+        "whole_value_canonical_sha256": "0f521a31796474bcc60238464d857edbffe4bdb84a435a931583a8e9b7af5ae3"
+      }
+    },
+    {
+      "actual_consumed_object_graph": null,
+      "actual_writer_control": null,
+      "id": "instance-lock-descriptor",
+      "native_graph_complete": false,
+      "required_consumer_and_writer_question": "Classify every complete actual object/byte/metadata/ancestor/mount/backing/FD/actor/child/stream/control/clock/storage route through each real use and effect;source anchors are navigation only,not complete native graph or no-effect proof.",
+      "whole_original_reference": {
+        "input_key": "effects",
+        "json_pointer": "/effect_domains/1",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+        "whole_value_canonical_sha256": "6e81b8345978d0734a8f46e307211848c8265cbc073966a4797e331e0c1f2115"
+      }
+    },
+    {
+      "actual_consumed_object_graph": null,
+      "actual_writer_control": null,
+      "id": "runtime-directories-and-temporaries",
+      "native_graph_complete": false,
+      "required_consumer_and_writer_question": "Classify every complete actual object/byte/metadata/ancestor/mount/backing/FD/actor/child/stream/control/clock/storage route through each real use and effect;source anchors are navigation only,not complete native graph or no-effect proof.",
+      "whole_original_reference": {
+        "input_key": "effects",
+        "json_pointer": "/effect_domains/2",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+        "whole_value_canonical_sha256": "3480ede67f0599610367bdd95af58fad6eee6fc2dcb8d9fbee7f2e3b42e8307e"
+      }
+    },
+    {
+      "actual_consumed_object_graph": null,
+      "actual_writer_control": null,
+      "id": "dry-run-state-files",
+      "native_graph_complete": false,
+      "required_consumer_and_writer_question": "Classify every complete actual object/byte/metadata/ancestor/mount/backing/FD/actor/child/stream/control/clock/storage route through each real use and effect;source anchors are navigation only,not complete native graph or no-effect proof.",
+      "whole_original_reference": {
+        "input_key": "effects",
+        "json_pointer": "/effect_domains/3",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+        "whole_value_canonical_sha256": "36d7f1f79e97cdd42c02616c57311d00b05681be66de2ea88930729c7cca3df6"
+      }
+    },
+    {
+      "actual_consumed_object_graph": null,
+      "actual_writer_control": null,
+      "id": "log-rotation-and-process-pipelines",
+      "native_graph_complete": false,
+      "required_consumer_and_writer_question": "Classify every complete actual object/byte/metadata/ancestor/mount/backing/FD/actor/child/stream/control/clock/storage route through each real use and effect;source anchors are navigation only,not complete native graph or no-effect proof.",
+      "whole_original_reference": {
+        "input_key": "effects",
+        "json_pointer": "/effect_domains/4",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+        "whole_value_canonical_sha256": "9ba3a7b8618b14e9f402ffeeaaa3b00348e26d1852bb23e74a2b4991ba4cb01c"
+      }
+    },
+    {
+      "actual_consumed_object_graph": null,
+      "actual_writer_control": null,
+      "id": "package-snapshot-files",
+      "native_graph_complete": false,
+      "required_consumer_and_writer_question": "Classify every complete actual object/byte/metadata/ancestor/mount/backing/FD/actor/child/stream/control/clock/storage route through each real use and effect;source anchors are navigation only,not complete native graph or no-effect proof.",
+      "whole_original_reference": {
+        "input_key": "effects",
+        "json_pointer": "/effect_domains/5",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+        "whole_value_canonical_sha256": "0404af07c9f1e8f74091e38a2bd190fc7e9475b5e316f8ad3ffaea3e56f2c1f2"
+      }
+    },
+    {
+      "actual_consumed_object_graph": null,
+      "actual_writer_control": null,
+      "id": "mirror-transport-probe",
+      "native_graph_complete": false,
+      "required_consumer_and_writer_question": "Classify every complete actual object/byte/metadata/ancestor/mount/backing/FD/actor/child/stream/control/clock/storage route through each real use and effect;source anchors are navigation only,not complete native graph or no-effect proof.",
+      "whole_original_reference": {
+        "input_key": "effects",
+        "json_pointer": "/effect_domains/6",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+        "whole_value_canonical_sha256": "915942c4034f43a0ac716ccfed8fe35278fb4726bef41a2b91bdbc737c9bfccb"
+      }
+    },
+    {
+      "actual_consumed_object_graph": null,
+      "actual_writer_control": null,
+      "id": "package-backend-effects",
+      "native_graph_complete": false,
+      "required_consumer_and_writer_question": "Classify every complete actual object/byte/metadata/ancestor/mount/backing/FD/actor/child/stream/control/clock/storage route through each real use and effect;source anchors are navigation only,not complete native graph or no-effect proof.",
+      "whole_original_reference": {
+        "input_key": "effects",
+        "json_pointer": "/effect_domains/7",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+        "whole_value_canonical_sha256": "6c77ad23ff6d26f604639ccd4d07479cd7605eea1fb64bd6edccd781198608cd"
+      }
+    },
+    {
+      "actual_consumed_object_graph": null,
+      "actual_writer_control": null,
+      "id": "GenInitrd-policy-override-and-restore",
+      "native_graph_complete": false,
+      "required_consumer_and_writer_question": "Classify every complete actual object/byte/metadata/ancestor/mount/backing/FD/actor/child/stream/control/clock/storage route through each real use and effect;source anchors are navigation only,not complete native graph or no-effect proof.",
+      "whole_original_reference": {
+        "input_key": "effects",
+        "json_pointer": "/effect_domains/8",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+        "whole_value_canonical_sha256": "59106a598a95e36112fc0414627218803ee79bcb9d7f943e7136b79e6258378f"
+      }
+    },
+    {
+      "actual_consumed_object_graph": null,
+      "actual_writer_control": null,
+      "id": "private-SBo-workspace",
+      "native_graph_complete": false,
+      "required_consumer_and_writer_question": "Classify every complete actual object/byte/metadata/ancestor/mount/backing/FD/actor/child/stream/control/clock/storage route through each real use and effect;source anchors are navigation only,not complete native graph or no-effect proof.",
+      "whole_original_reference": {
+        "input_key": "effects",
+        "json_pointer": "/effect_domains/9",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+        "whole_value_canonical_sha256": "d112d6e2a9853f7dfa5243e574e7aa7263a32eacaa812fb1b3d7fb3d430fa366"
+      }
+    },
+    {
+      "actual_consumed_object_graph": null,
+      "actual_writer_control": null,
+      "id": "optional-repositories-and-builders",
+      "native_graph_complete": false,
+      "required_consumer_and_writer_question": "Classify every complete actual object/byte/metadata/ancestor/mount/backing/FD/actor/child/stream/control/clock/storage route through each real use and effect;source anchors are navigation only,not complete native graph or no-effect proof.",
+      "whole_original_reference": {
+        "input_key": "effects",
+        "json_pointer": "/effect_domains/10",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+        "whole_value_canonical_sha256": "30b652dda2d54193407b083968bf50c3d185f52bda2144d6761469f348290fd7"
+      }
+    },
+    {
+      "actual_consumed_object_graph": null,
+      "actual_writer_control": null,
+      "id": "static-ELF-observation-and-diagnostics",
+      "native_graph_complete": false,
+      "required_consumer_and_writer_question": "Classify every complete actual object/byte/metadata/ancestor/mount/backing/FD/actor/child/stream/control/clock/storage route through each real use and effect;source anchors are navigation only,not complete native graph or no-effect proof.",
+      "whole_original_reference": {
+        "input_key": "effects",
+        "json_pointer": "/effect_domains/11",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+        "whole_value_canonical_sha256": "f15018bae5483a554eec55606ff41d5c09ab423017dff8e67ad41c47e1e7b2bf"
+      }
+    },
+    {
+      "actual_consumed_object_graph": null,
+      "actual_writer_control": null,
+      "id": "boot-output-generation-and-replacement",
+      "native_graph_complete": false,
+      "required_consumer_and_writer_question": "Classify every complete actual object/byte/metadata/ancestor/mount/backing/FD/actor/child/stream/control/clock/storage route through each real use and effect;source anchors are navigation only,not complete native graph or no-effect proof.",
+      "whole_original_reference": {
+        "input_key": "effects",
+        "json_pointer": "/effect_domains/12",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+        "whole_value_canonical_sha256": "f21063b23a74b8f657b2d83b087a38db0dc8955457fcb124664696bb76e5846e"
+      }
+    },
+    {
+      "actual_consumed_object_graph": null,
+      "actual_writer_control": null,
+      "id": "reference-cleanup-and-release",
+      "native_graph_complete": false,
+      "required_consumer_and_writer_question": "Classify every complete actual object/byte/metadata/ancestor/mount/backing/FD/actor/child/stream/control/clock/storage route through each real use and effect;source anchors are navigation only,not complete native graph or no-effect proof.",
+      "whole_original_reference": {
+        "input_key": "effects",
+        "json_pointer": "/effect_domains/13",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+        "whole_value_canonical_sha256": "e1cbb337f3d8b8be1b040c150958071f04d48749e58b725f5c49c2c49f45e049"
+      }
+    },
+    {
+      "actual_consumed_object_graph": null,
+      "actual_writer_control": null,
+      "id": "worker-preparation-before-traps",
+      "native_graph_complete": false,
+      "required_consumer_and_writer_question": "Classify every complete actual object/byte/metadata/ancestor/mount/backing/FD/actor/child/stream/control/clock/storage route through each real use and effect;source anchors are navigation only,not complete native graph or no-effect proof.",
+      "whole_original_reference": {
+        "input_key": "effects",
+        "json_pointer": "/effect_domains/14",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+        "whole_value_canonical_sha256": "95cc51c78802edfe6de82b99ecd6f93c964179557d7d54f1f3e5821cfad85c9c"
+      }
+    },
+    {
+      "actual_consumed_object_graph": null,
+      "actual_writer_control": null,
+      "id": "worker-backup-and-restoration",
+      "native_graph_complete": false,
+      "required_consumer_and_writer_question": "Classify every complete actual object/byte/metadata/ancestor/mount/backing/FD/actor/child/stream/control/clock/storage route through each real use and effect;source anchors are navigation only,not complete native graph or no-effect proof.",
+      "whole_original_reference": {
+        "input_key": "effects",
+        "json_pointer": "/effect_domains/15",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+        "whole_value_canonical_sha256": "2559350f2c5dbc1c45457b2110aa7063b9caa85b74e798844a95699f50e68b28"
+      }
+    },
+    {
+      "actual_consumed_object_graph": null,
+      "actual_writer_control": null,
+      "id": "worker-config-and-native-child-launch",
+      "native_graph_complete": false,
+      "required_consumer_and_writer_question": "Classify every complete actual object/byte/metadata/ancestor/mount/backing/FD/actor/child/stream/control/clock/storage route through each real use and effect;source anchors are navigation only,not complete native graph or no-effect proof.",
+      "whole_original_reference": {
+        "input_key": "effects",
+        "json_pointer": "/effect_domains/16",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+        "whole_value_canonical_sha256": "dff8e460015e8a89bcdbdea4f0b8c95f417e4bb3e7d3c86f3b6453e4366d66e8"
+      }
+    },
+    {
+      "actual_consumed_object_graph": null,
+      "actual_writer_control": null,
+      "id": "worker-final-snapshots-and-flags",
+      "native_graph_complete": false,
+      "required_consumer_and_writer_question": "Classify every complete actual object/byte/metadata/ancestor/mount/backing/FD/actor/child/stream/control/clock/storage route through each real use and effect;source anchors are navigation only,not complete native graph or no-effect proof.",
+      "whole_original_reference": {
+        "input_key": "effects",
+        "json_pointer": "/effect_domains/17",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+        "whole_value_canonical_sha256": "302c71babcbbd54d9fe8f878270d895bde2c5c242bcdf69d746767fbd327ac16"
+      }
+    },
+    {
+      "actual_consumed_object_graph": null,
+      "actual_writer_control": null,
+      "id": "worker-publication-and-self-receipt",
+      "native_graph_complete": false,
+      "required_consumer_and_writer_question": "Classify every complete actual object/byte/metadata/ancestor/mount/backing/FD/actor/child/stream/control/clock/storage route through each real use and effect;source anchors are navigation only,not complete native graph or no-effect proof.",
+      "whole_original_reference": {
+        "input_key": "effects",
+        "json_pointer": "/effect_domains/18",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+        "whole_value_canonical_sha256": "febdda01cf979caadd20ba70ec0333c07a7f120b300ae8a5eb80880bb7bff65b"
+      }
+    },
+    {
+      "actual_consumed_object_graph": null,
+      "actual_writer_control": null,
+      "id": "generator-output-lifetime",
+      "native_graph_complete": false,
+      "required_consumer_and_writer_question": "Classify every complete actual object/byte/metadata/ancestor/mount/backing/FD/actor/child/stream/control/clock/storage route through each real use and effect;source anchors are navigation only,not complete native graph or no-effect proof.",
+      "whole_original_reference": {
+        "input_key": "effects",
+        "json_pointer": "/effect_domains/19",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+        "whole_value_canonical_sha256": "ccfb41b98ca76ec325b9f540d77b697ee17a04e767d49b3a32a3c6263f500c09"
+      }
+    },
+    {
+      "actual_consumed_object_graph": null,
+      "actual_writer_control": null,
+      "id": "reference-events-and-FD-output",
+      "native_graph_complete": false,
+      "required_consumer_and_writer_question": "Classify every complete actual object/byte/metadata/ancestor/mount/backing/FD/actor/child/stream/control/clock/storage route through each real use and effect;source anchors are navigation only,not complete native graph or no-effect proof.",
+      "whole_original_reference": {
+        "input_key": "effects",
+        "json_pointer": "/effect_domains/20",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+        "whole_value_canonical_sha256": "f8c7fcdcb7bae6a4739ee28ad1446368e5cdc0363366b9efa23284fcd25db072"
+      }
+    }
+  ],
+  "whole_lifetime_hazard_reviews": [
+    {
+      "actual_control_and_identity": null,
+      "candidate_required_control": "Bind the actual stable target guard/open description and all lock object/ancestor/mount/FD aliases;keep it distinct from reference FD9 and not child-unlockable. Source open/acquire order alone is not continuous exclusion or known release.",
+      "id": "lock-path-object-and-release",
+      "native_gap_resolved": false,
+      "paper_row_is_native_event_or_exhaustive_schedule": false,
+      "whole_original_reference": {
+        "input_key": "effects",
+        "json_pointer": "/lifetime_hazards/0",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+        "whole_value_canonical_sha256": "cb0ed1a398765db11a3f0183845106539aa3845fe2aab3d4f7d3728503c7ac26"
+      }
+    },
+    {
+      "actual_control_and_identity": null,
+      "candidate_required_control": "Enumerate original inherited FDs,process substitutions,pipelines,all descendants/streams and in-flight writers across their complete lifetime. Requests to stop or parent exit do not prove drained effects.",
+      "id": "inherited-FD-and-pipeline-descendants",
+      "native_gap_resolved": false,
+      "paper_row_is_native_event_or_exhaustive_schedule": false,
+      "whole_original_reference": {
+        "input_key": "effects",
+        "json_pointer": "/lifetime_hazards/1",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+        "whole_value_canonical_sha256": "a4e8eacc7572d9b2907c93a21340d7d859c835e629a38db70038d6b0b254783b"
+      }
+    },
+    {
+      "actual_control_and_identity": null,
+      "candidate_required_control": "Independently bind both original canonical and compatibility package-database routes,all directory entries/objects and aliases through capture,backend use,restoration and target evidence. A filename listing is no exclusion interval.",
+      "id": "package-database-canonical-and-compatibility-aliases",
+      "native_gap_resolved": false,
+      "paper_row_is_native_event_or_exhaustive_schedule": false,
+      "whole_original_reference": {
+        "input_key": "effects",
+        "json_pointer": "/lifetime_hazards/2",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+        "whole_value_canonical_sha256": "069de41b8d0104e3247f75c30584f1d852cb2f9fa57a9e2588354b3c9b4a3077"
+      }
+    },
+    {
+      "actual_control_and_identity": null,
+      "candidate_required_control": "Protect exact actual source/archive/interpreter/dependency bytes and all checked-to-used object/alias routes through every consumption. Separate path/hash opens are not an independently proven continuous native fence.",
+      "id": "checked-source-archive-interpreter-consumption",
+      "native_gap_resolved": false,
+      "paper_row_is_native_event_or_exhaustive_schedule": false,
+      "whole_original_reference": {
+        "input_key": "effects",
+        "json_pointer": "/lifetime_hazards/3",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+        "whole_value_canonical_sha256": "2326870a7eef6e9aaad9e105836d0c585e3c14d7a7520b0fdc0b6c504d72a79e"
+      }
+    },
+    {
+      "actual_control_and_identity": null,
+      "candidate_required_control": "Treat generator input check,later reopen/read/encoding,temporary creation,syntax check and final output as one complete protected-consumption review. Inert historical generator remains unexecuted;generated syntax proves no rights or lifetime.",
+      "id": "generator-check-to-reopen-window",
+      "native_gap_resolved": false,
+      "paper_row_is_native_event_or_exhaustive_schedule": false,
+      "whole_original_reference": {
+        "input_key": "effects",
+        "json_pointer": "/lifetime_hazards/4",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+        "whole_value_canonical_sha256": "b3b2a3af34ce607cd9c2e5237b03d6214147420537534444c977d51d2c9850ae"
+      }
+    },
+    {
+      "actual_control_and_identity": null,
+      "candidate_required_control": "Bind every individually owned intent/name/parent/rename/hardlink/mount/open-handle alias;do not use broad subtree exclusions or path flags to assume cleanup rights. Foreign or uncertain ownership blocks dependent cleanup.",
+      "id": "temporary-name-and-owned-cleanup-aliases",
+      "native_gap_resolved": false,
+      "paper_row_is_native_event_or_exhaustive_schedule": false,
+      "whole_original_reference": {
+        "input_key": "effects",
+        "json_pointer": "/lifetime_hazards/5",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+        "whole_value_canonical_sha256": "17fbd8dc2af650159cf1ba5de06d14690cdf961407fc1f7a2a96abf04f5daed1"
+      }
+    },
+    {
+      "actual_control_and_identity": null,
+      "candidate_required_control": "Retain dry-run/check output/log/transport/child effects as in-scope questions. Operation name or module flag cannot establish no effects or privilege/trust exemption.",
+      "id": "dry-run-and-check-effect-scope",
+      "native_gap_resolved": false,
+      "paper_row_is_native_event_or_exhaustive_schedule": false,
+      "whole_original_reference": {
+        "input_key": "effects",
+        "json_pointer": "/lifetime_hazards/6",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+        "whole_value_canonical_sha256": "e6a28a48ef6e960e18583f8407a745c8b5a688c466789f4e0f40ab47d36ec254"
+      }
+    },
+    {
+      "actual_control_and_identity": null,
+      "candidate_required_control": "Retain original forbidden GenInitrd-policy effects;independently establish no reachable outside-scope mutation. Fingerprint/copy/replace/restore path checks and owned flags prove no exact object continuity or durable recovery.",
+      "id": "policy-fingerprint-copy-replace-restore-window",
+      "native_gap_resolved": false,
+      "paper_row_is_native_event_or_exhaustive_schedule": false,
+      "whole_original_reference": {
+        "input_key": "effects",
+        "json_pointer": "/lifetime_hazards/7",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+        "whole_value_canonical_sha256": "497721fd370ca65e0f555f102cc8ed6ff8b6969dc470fac33030848f0c2aea6a"
+      }
+    },
+    {
+      "actual_control_and_identity": null,
+      "candidate_required_control": "Retain original forbidden boot/GRUB output mutations. Full actual ancestors/temp/destination/rename/backing routes require independent classification;stat/checksum/source rename sites are not continuous identity or no-replace durability proof.",
+      "id": "GRUB-fingerprint-and-replacement-window",
+      "native_gap_resolved": false,
+      "paper_row_is_native_event_or_exhaustive_schedule": false,
+      "whole_original_reference": {
+        "input_key": "effects",
+        "json_pointer": "/lifetime_hazards/8",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+        "whole_value_canonical_sha256": "cb0e22e87d9374fcc8fbffd6d6853bf1981d989b46959b6f599974991490f50b"
+      }
+    },
+    {
+      "actual_control_and_identity": null,
+      "candidate_required_control": "Keep original memory baseline,known exact protected backup,owned binding and target state separate. Unknown owned backup/commit cannot prove unchanged target or authorize restore;finite known recovery preconditions remain.",
+      "id": "backup-owned-binding-and-target-binding-distinct",
+      "native_gap_resolved": false,
+      "paper_row_is_native_event_or_exhaustive_schedule": false,
+      "whole_original_reference": {
+        "input_key": "effects",
+        "json_pointer": "/lifetime_hazards/9",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+        "whole_value_canonical_sha256": "7c2c0232c2f8b141c1efd1cd3e995639236b000564b80fd64dc92bf0d90b808f"
+      }
+    },
+    {
+      "actual_control_and_identity": null,
+      "candidate_required_control": "Review service own first writes and every worker first effect before trap/guard/capture barriers. Preserve traps-first and guard/freshoriginal-before-owned-write order;historical preparations before traps cannot be reused as compatible entry.",
+      "id": "worker-first-write-before-trap-registration",
+      "native_gap_resolved": false,
+      "paper_row_is_native_event_or_exhaustive_schedule": false,
+      "whole_original_reference": {
+        "input_key": "effects",
+        "json_pointer": "/lifetime_hazards/10",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+        "whole_value_canonical_sha256": "31ac6ff923ff2e5f5916b1a1658a66b6cbb8941c14318fdd7b5d0cce859c6e94"
+      }
+    },
+    {
+      "actual_control_and_identity": null,
+      "candidate_required_control": "Signal/trap delivery,reentrancy,ignored cleanup errors,full children and original sticky status remain separately reviewed. Cleanup outcome never converts original failure to success or grants repeat rights.",
+      "id": "signal-cleanup-and-sticky-failure",
+      "native_gap_resolved": false,
+      "paper_row_is_native_event_or_exhaustive_schedule": false,
+      "whole_original_reference": {
+        "input_key": "effects",
+        "json_pointer": "/lifetime_hazards/11",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+        "whole_value_canonical_sha256": "10b4ecd2f4cb8607b0613f69c4e80a74871662df2d650378d8d8499e0be1da3e"
+      }
+    },
+    {
+      "actual_control_and_identity": null,
+      "candidate_required_control": "Keep every backend hook/helper/rollback descendant and inherited writer route inside full effect/scope review. Namespace/postinst flags do not prove complete control;restore is its own once-only finite authorized action,not repeat backend dispatch.",
+      "id": "backend-hooks-and-rollback-descendants",
+      "native_gap_resolved": false,
+      "paper_row_is_native_event_or_exhaustive_schedule": false,
+      "whole_original_reference": {
+        "input_key": "effects",
+        "json_pointer": "/lifetime_hazards/12",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+        "whole_value_canonical_sha256": "8c3f393253d067ca89a3b065a659e4a35a57cbf66e0c19eac697c104871b99ec"
+      }
+    },
+    {
+      "actual_control_and_identity": null,
+      "candidate_required_control": "Only independently known full original restoration/invariants/target evidence and all-child/FD/stream/in-flight drain permit target release. Snapshot/flag/status counts are not closure;guard loss never permits reacquisition or new grant.",
+      "id": "final-snapshots-flags-and-known-release",
+      "native_gap_resolved": false,
+      "paper_row_is_native_event_or_exhaustive_schedule": false,
+      "whole_original_reference": {
+        "input_key": "effects",
+        "json_pointer": "/lifetime_hazards/13",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+        "whole_value_canonical_sha256": "10292baddc05e01e7f2b35f38b3e43c7de875f7a14cf03edf1f564399d9ddf3b"
+      }
+    },
+    {
+      "actual_control_and_identity": null,
+      "candidate_required_control": "Publish captured closed data only,under separate publication controls. No late target/source reads,automatic unknown-backup deletion or borrowed target rights after release. Preserve owned/controller/publication pending outcomes.",
+      "id": "publication-later-target-reads-and-backup-deletion",
+      "native_gap_resolved": false,
+      "paper_row_is_native_event_or_exhaustive_schedule": false,
+      "whole_original_reference": {
+        "input_key": "effects",
+        "json_pointer": "/lifetime_hazards/14",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+        "whole_value_canonical_sha256": "217c22f4c0bfc2d83757cd31a2c229eeda915646fa3bcdae7fdecd7753334eef"
+      }
+    },
+    {
+      "actual_control_and_identity": null,
+      "candidate_required_control": "Archive,sidecar,receipt commit,independent final observation and custody have separate writer/source/rights/storage outcomes. No atomic pair,self-final receipt or passive observer exemption;whole current stage12 remains normative pending405/407 migration.",
+      "id": "archive-checksum-pair-and-self-receipt",
+      "native_gap_resolved": false,
+      "paper_row_is_native_event_or_exhaustive_schedule": false,
+      "whole_original_reference": {
+        "input_key": "effects",
+        "json_pointer": "/lifetime_hazards/15",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+        "whole_value_canonical_sha256": "3c7676fa1b395c799f42aa3ec1260940f55bab63a750abf88452f31342999c5c"
+      }
+    }
+  ],
+  "whole_original_baseline_contract": {
+    "actual_backup_bindings": null,
+    "actual_baseline": null,
+    "expected": "original-to-reviewed-predecessor-to-local-isolation-and-fresh-pkglist-to-exact-target-to-original; preserve-original-inputs-through-all-approved-deltas",
+    "identity": "single-original-production-baseline-under-continuous-guard-content-owner-mode-type-presence-absence-and-canonical-alias-objects-not-early-preflight-or-self-rebound-current-state",
+    "owned_artifacts": "only-individually-recorded-whitelisted-transaction-owned-work-backup-binding-evidence-effects-separated; no-broad-subtree-exclusion-to-hide-target-drift",
+    "scope": "exact-target-config-state-boot-GenInitrd-unrelated-package-source-archive-code-dependency-and-identity-invariants"
+  },
+  "whole_original_guard_contract": {
+    "actual_guard_object": null,
+    "actual_native_protocol": null,
+    "actual_writer_inventory": null,
+    "admission": "reviewed-common-compatible-protocol-or-proven-controlled-entrypoint-prevention; unknown-or-nonparticipating-writer-blocks-admission",
+    "continuity": "before-and-through-every-owned-target-config-package-nested-refresh-helper-consumption-recovery-and-target-evidence-effect",
+    "coverage": "all-seven-requirement-domains-and-every-overlapping-direct-manual-scheduled-helper-privileged-writer-through-entire-mutation-window",
+    "failure": "loss-contention-object-replacement-unverifiable-owner-or-writer-state-latches-stop-and-pending; no-force-unlock-unlink-recreate-reacquire-or-rebind",
+    "handle": "stable-supervisor-owned-distinct-from-reference-FD9-not-child-inherited-unlockable; actual-object-API-range-mount-open-description-lifetime-proof-required",
+    "owner_loss": "parent-exit-not-child-quiescence; exclusion-must-survive-or-independently-prevent-all-surviving-writes-otherwise-unknown-pending",
+    "release": "known-owned-child-quiescence-exact-original-restoration-full-invariants-and-target-evidence-before-release; no-target-writes-afterward"
+  },
+  "whole_original_independent_resolution_criteria": [
+    "Full actual direct/manual/scheduled/nested/privileged/owned/foreign writer inventory across all original domains and effect graph; unknown or nonparticipant blocks admission.",
+    "Actual stable guard object, API/ranges/filesystem semantics, open description/FD aliases and ancestors/mount identity; distinct from reference FD9 and no child-unlockable alias.",
+    "Independently established compatible universal protocol or controlled prevention across all original writers, including privileged and backing-object routes; explicit original-compatible trust assumptions, no scope erasure.",
+    "Exclusion before fresh original guarded capture through every actual consumer/effect, recovery, exact restoration, full invariants and target evidence before known release; no writes to target afterward.",
+    "Owner-loss/contention/replacement/loss/unknown latches stop and pending; independent prevention or surviving exclusion plus known children/in-flight drain, no force unlock/reacquire/rebind.",
+    "Exact protected checked-to-used bytes, object and metadata/presence/absence identities through every interpreter/backend/helper/archive consumer; no path/hash/namespace-only shortcut.",
+    "Separate actual Slackware15.0/current source/config/storage/policy support and independent full proof-case/raw observations; repository checks never native evidence.",
+    "Whole original320-327/347/348/365/372/377 and stage12 remain normative; safe containment review and a fresh explicit bounded native-test grant precede any future native experiment."
+  ],
+  "whole_original_interstage_contract": {
+    "authority": "same-original-consumed-active-attempt-and323-live-split-rights; no-unused-grant-per-call",
+    "history": "frozen0/1/2/3-stages-not-rewritten; explicit-successor-integration-barrier-between1-and2",
+    "order": "stage0-readonly-memory-preflight-then-stage1-traps-then-acquire-outer-guard-and-fresh-revalidate-capture-original-in-memory-before-stage2-owned-writes",
+    "stage3": "persist-and-verify-exact-original-backups-from-guarded-capture-content-metadata-and-presence-before-predecessor-config-package-writes"
+  },
+  "whole_original_platform_writer_domains": [
+    {
+      "actual_alias_and_object_map": null,
+      "actual_compatible_protocol_or_prevention": null,
+      "actual_complete_writer_inventory": null,
+      "actual_owner_loss_surviving_writer_control": null,
+      "continuously_excluded": false,
+      "domain": "package-database",
+      "full_original_guard_contract324_sha256": "badf685f29ac2db24522b417c7279984bae3f94bd17457a72cb6c098ce9f6ec8",
+      "platform": "Slackware-15.0",
+      "unknown_or_nonparticipant_blocks_admission": true
+    },
+    {
+      "actual_alias_and_object_map": null,
+      "actual_compatible_protocol_or_prevention": null,
+      "actual_complete_writer_inventory": null,
+      "actual_owner_loss_surviving_writer_control": null,
+      "continuously_excluded": false,
+      "domain": "Slackpkg-state",
+      "full_original_guard_contract324_sha256": "badf685f29ac2db24522b417c7279984bae3f94bd17457a72cb6c098ce9f6ec8",
+      "platform": "Slackware-15.0",
+      "unknown_or_nonparticipant_blocks_admission": true
+    },
+    {
+      "actual_alias_and_object_map": null,
+      "actual_compatible_protocol_or_prevention": null,
+      "actual_complete_writer_inventory": null,
+      "actual_owner_loss_surviving_writer_control": null,
+      "continuously_excluded": false,
+      "domain": "configuration-and-mirrors",
+      "full_original_guard_contract324_sha256": "badf685f29ac2db24522b417c7279984bae3f94bd17457a72cb6c098ce9f6ec8",
+      "platform": "Slackware-15.0",
+      "unknown_or_nonparticipant_blocks_admission": true
+    },
+    {
+      "actual_alias_and_object_map": null,
+      "actual_compatible_protocol_or_prevention": null,
+      "actual_complete_writer_inventory": null,
+      "actual_owner_loss_surviving_writer_control": null,
+      "continuously_excluded": false,
+      "domain": "boot-and-GenInitrd",
+      "full_original_guard_contract324_sha256": "badf685f29ac2db24522b417c7279984bae3f94bd17457a72cb6c098ce9f6ec8",
+      "platform": "Slackware-15.0",
+      "unknown_or_nonparticipant_blocks_admission": true
+    },
+    {
+      "actual_alias_and_object_map": null,
+      "actual_compatible_protocol_or_prevention": null,
+      "actual_complete_writer_inventory": null,
+      "actual_owner_loss_surviving_writer_control": null,
+      "continuously_excluded": false,
+      "domain": "source-and-archives",
+      "full_original_guard_contract324_sha256": "badf685f29ac2db24522b417c7279984bae3f94bd17457a72cb6c098ce9f6ec8",
+      "platform": "Slackware-15.0",
+      "unknown_or_nonparticipant_blocks_admission": true
+    },
+    {
+      "actual_alias_and_object_map": null,
+      "actual_compatible_protocol_or_prevention": null,
+      "actual_complete_writer_inventory": null,
+      "actual_owner_loss_surviving_writer_control": null,
+      "continuously_excluded": false,
+      "domain": "backend-and-dependencies",
+      "full_original_guard_contract324_sha256": "badf685f29ac2db24522b417c7279984bae3f94bd17457a72cb6c098ce9f6ec8",
+      "platform": "Slackware-15.0",
+      "unknown_or_nonparticipant_blocks_admission": true
+    },
+    {
+      "actual_alias_and_object_map": null,
+      "actual_compatible_protocol_or_prevention": null,
+      "actual_complete_writer_inventory": null,
+      "actual_owner_loss_surviving_writer_control": null,
+      "continuously_excluded": false,
+      "domain": "transaction-owned-state",
+      "full_original_guard_contract324_sha256": "badf685f29ac2db24522b417c7279984bae3f94bd17457a72cb6c098ce9f6ec8",
+      "platform": "Slackware-15.0",
+      "unknown_or_nonparticipant_blocks_admission": true
+    },
+    {
+      "actual_alias_and_object_map": null,
+      "actual_compatible_protocol_or_prevention": null,
+      "actual_complete_writer_inventory": null,
+      "actual_owner_loss_surviving_writer_control": null,
+      "continuously_excluded": false,
+      "domain": "package-database",
+      "full_original_guard_contract324_sha256": "badf685f29ac2db24522b417c7279984bae3f94bd17457a72cb6c098ce9f6ec8",
+      "platform": "Slackware-current",
+      "unknown_or_nonparticipant_blocks_admission": true
+    },
+    {
+      "actual_alias_and_object_map": null,
+      "actual_compatible_protocol_or_prevention": null,
+      "actual_complete_writer_inventory": null,
+      "actual_owner_loss_surviving_writer_control": null,
+      "continuously_excluded": false,
+      "domain": "Slackpkg-state",
+      "full_original_guard_contract324_sha256": "badf685f29ac2db24522b417c7279984bae3f94bd17457a72cb6c098ce9f6ec8",
+      "platform": "Slackware-current",
+      "unknown_or_nonparticipant_blocks_admission": true
+    },
+    {
+      "actual_alias_and_object_map": null,
+      "actual_compatible_protocol_or_prevention": null,
+      "actual_complete_writer_inventory": null,
+      "actual_owner_loss_surviving_writer_control": null,
+      "continuously_excluded": false,
+      "domain": "configuration-and-mirrors",
+      "full_original_guard_contract324_sha256": "badf685f29ac2db24522b417c7279984bae3f94bd17457a72cb6c098ce9f6ec8",
+      "platform": "Slackware-current",
+      "unknown_or_nonparticipant_blocks_admission": true
+    },
+    {
+      "actual_alias_and_object_map": null,
+      "actual_compatible_protocol_or_prevention": null,
+      "actual_complete_writer_inventory": null,
+      "actual_owner_loss_surviving_writer_control": null,
+      "continuously_excluded": false,
+      "domain": "boot-and-GenInitrd",
+      "full_original_guard_contract324_sha256": "badf685f29ac2db24522b417c7279984bae3f94bd17457a72cb6c098ce9f6ec8",
+      "platform": "Slackware-current",
+      "unknown_or_nonparticipant_blocks_admission": true
+    },
+    {
+      "actual_alias_and_object_map": null,
+      "actual_compatible_protocol_or_prevention": null,
+      "actual_complete_writer_inventory": null,
+      "actual_owner_loss_surviving_writer_control": null,
+      "continuously_excluded": false,
+      "domain": "source-and-archives",
+      "full_original_guard_contract324_sha256": "badf685f29ac2db24522b417c7279984bae3f94bd17457a72cb6c098ce9f6ec8",
+      "platform": "Slackware-current",
+      "unknown_or_nonparticipant_blocks_admission": true
+    },
+    {
+      "actual_alias_and_object_map": null,
+      "actual_compatible_protocol_or_prevention": null,
+      "actual_complete_writer_inventory": null,
+      "actual_owner_loss_surviving_writer_control": null,
+      "continuously_excluded": false,
+      "domain": "backend-and-dependencies",
+      "full_original_guard_contract324_sha256": "badf685f29ac2db24522b417c7279984bae3f94bd17457a72cb6c098ce9f6ec8",
+      "platform": "Slackware-current",
+      "unknown_or_nonparticipant_blocks_admission": true
+    },
+    {
+      "actual_alias_and_object_map": null,
+      "actual_compatible_protocol_or_prevention": null,
+      "actual_complete_writer_inventory": null,
+      "actual_owner_loss_surviving_writer_control": null,
+      "continuously_excluded": false,
+      "domain": "transaction-owned-state",
+      "full_original_guard_contract324_sha256": "badf685f29ac2db24522b417c7279984bae3f94bd17457a72cb6c098ce9f6ec8",
+      "platform": "Slackware-current",
+      "unknown_or_nonparticipant_blocks_admission": true
+    }
+  ],
+  "whole_original_requirements_remain_normative": true,
+  "whole_original_resource_domains": [
+    "package-database",
+    "Slackpkg-state",
+    "configuration-and-mirrors",
+    "boot-and-GenInitrd",
+    "source-and-archives",
+    "backend-and-dependencies",
+    "transaction-owned-state"
+  ],
+  "whole_original_writer_trust_review": {
+    "actual_device_storage_virtualization_trust": null,
+    "actual_kernel_enforcer_trust": null,
+    "actual_trusted_administrator_assumptions": null,
+    "coverage": "All original seven domains plus all original source/owned/evidence/publication and ancestor/mount/object/FD routes remain normative; classes are questions, never an exhaustive observed inventory.",
+    "original_contract_compatibility_verdict": null,
+    "privileged_writer_exclusion_by_assumption_permitted": false,
+    "required_writer_classes": [
+      "direct",
+      "manual",
+      "scheduled",
+      "nested-helper",
+      "privileged",
+      "source-and-archive",
+      "dependency-and-interpreter",
+      "owned",
+      "foreign-overlap",
+      "recovery",
+      "target-evidence",
+      "publication"
+    ],
+    "unreviewed_trust_is_pending_not_authorization": true
+  }
+}

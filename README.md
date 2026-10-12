@@ -1,3 +1,31 @@
+<!-- step-401-joint-trust-review:start -->
+## Current Phase 1 joint writer/source/trust draft -- step 401
+
+Accepted400 at reported `d28fa63`:59 orderedPASS/zero failures,tenfiles/eightcreates/
+5533insertions,reported mainpush and clean matching heads. Step401 prepared,user
+acceptance pending;last confirmed repository pause398 covers389-398only.
+
+The [401 draft](docs/reference/phase-1-operational-joint-writer-source-trust-proposal-review.md)
+specifies six infrastructure role questions and actor/ACTION-specific trust.
+Ordinary privileged administrator/updater/helper/manual/source/observer/injector
+effects remain in-boundary. Deliberate enumerated infrastructure tampering would
+be outside an INACTIVE proposed guarantee;hidden detection is not promised.
+All seven original resource domains/twelve writer classes,21effectdomains/16whole
+lifetimehazards and separate platform unknowns remain. Static coverage and twelve
+hypothetical classifications do not prove native control,complete graph or safety.
+
+JCP400-A/R/D remain unselected;original clauses remain normative. Full independent
+semantic migration/approval due407;whole-entry/known drain/freshbaseline/knownbackups/
+once-onlyfinite rights/oracle/whole stage12 remain required. Nativeproofs/cases0,
+Phase1/kernel incomplete;schema/reference-v1/C/Phase2/Productionclosed. Actualhost
+unobserved/livebindingsnull/globalclosurefalse,no required batch machine/controller
+action. Separate actual safe joint review and fresh explicit testgrant precede
+effects;full native conformance later establishes readiness. After full401acceptance
+prepare402;conditional408 requires all whole scoped conditions and actual final
+return/external confirmation,thenSTOP/noautomatic409. This prefix supersedes old
+current-state readings;all accepted400 historical README bytes remain unchanged.
+<!-- step-401-joint-trust-review:end -->
+
 <!-- step-400-concrete-joint-candidate:start -->
 ## Current Phase 1 joint candidate proposal -- step 400
 

@@ -1,3 +1,18 @@
+## Phase 1 step 401 -- joint writer source and infrastructure trust draft
+
+- Accepted400 at reportedd28fa63:59 orderedPASS/zero failures,tenfiles/eightcreates/
+  5533insertions,push/clean matching heads;complete disclosed transcript retained.
+- Six proposed actor/action-specific infrastructure roles and six complete joint
+  statements;ordinary privileged workload and observer/injector writers not exempt.
+- Seven whole original domains,twelve writer classes/84 authored questions,all21
+  effect-domain/16 lifetime-hazard whole bindings and specific control requirements.
+- Twelve hypothetical policy witnesses classify inactive guarantees only;no actor
+  trust/native control/absence or runtime permission inferred from names/UID/hash.
+- Whole76inputs/27roots,two original platform inventories and400losses retained;
+  all original contracts and joint blockers remain. No approved migration/grant.
+- Complete401acceptance required before402;conditional408 wholeconditions/final
+  externalclose thenSTOP/noautomatic409. Hostunobserved/livebindingsnull/globalfalse.
+
 ## Phase 1 step 400 -- concrete unselected joint contract candidate
 
 - Accepted399 at reported09d34c4:43 ordered PASS/zero failures,ten files/eight
