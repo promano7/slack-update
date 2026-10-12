@@ -1,0 +1,1892 @@
+{
+  "artifact_sha256": {
+    "docs/reference/phase-1-operational-integrated-joint-contract-semantic-migration-decision-packet-review.md": "5a832605eea4eda086f643079af0842cee40109bc6ebaddae474d5442719fd88",
+    "tests/reference/test-phase-1-operational-integrated-joint-contract-semantic-migration-decision-packet-review-harness.sh": "4aa0fb050a77ed04c048605dfc1b98280febf30f8f0529b2d831c8aa7cd0dbe1"
+  },
+  "dimension_answers": {
+    "baseline-unknown-vs-backend-effects": "404 all18 WHOLE branches and9microsteps/whole originalvectors retained. Unknown backup not unchanged,target qualification not owned/controller commit or future invariant after guardloss.406 WHOLE backend/source/selector effects required. Recovery/all branch explicitly changes only known pre-admitted envelope,not safe-input/guard/expiry predicates.",
+    "durable-rights-vs-loss-deadlines": "404 original irreversible claim/single launch/once-only action spends,durable storage and ACK remain separate from fixed403 deadlines/clock. Ledger/quarantine unselected hypotheses,no refund/replay/renewal after loss. Pre-request continuation cannot exceed original time/budget or mint verification right.",
+    "guardian-drain-vs-forward-failure": "403 guardian can die;only originally prebound independently surviving control retains original recovery. Full membership/children/FD/streams/storage/guard/raw origin independently known or pending. Forward failure stays sticky,known captured drain not renewed rights;402 request/envelope knowledge cannot substitute drain.",
+    "narrow-product-vs-whole-entry-proof": "400-A retains WHOLE successor entry/preparation/helper/backend/selector/source/hook/async/FD/config/recovery/publication and forbidden boot/GenInitrd/optional no-effect proof.395 separate backend-product alternative stays unselected;three argv calls/hash/count never discharge original whole entry or effect vectors.",
+    "observer-controls-vs-finite-custody": "EVERY expectation/collector/verifier/injector/receipt/observer/consumer own action has401 writers/source trust,402 independent scope/envelope,403 clock/drain,404once-only storage/spend and405custody/terminal requirements. No passive exemption,forced different people,self-final proof or infinite chain;finite terminal trust/evidence cut explicit yet actual native accounting/independence unknown.",
+    "offline-bootstrap-vs-live-channel": "Original321 bounded memory offline bootstrap/FD/authentication/loss constraints stay.402 external admission/request serialization must act without worker service/broker/control channel. Exact finite PRE-request envelopes replace every-effect request denial in DRAFT,not a hidden channel or an actual enforcer selection.",
+    "terminal-cut-vs-whole-stage-oracle": "405 exact producer membership/function/name/operation/guard/stream paths replace current whole316 stage12 only in DRAFT.406 oracle compares complete proposed producer trace plus separate receipt/writer/final observer/custody/terminal accounting,never old trace equivalence or payload own future completion. Known later unclassified effects block candidate closure.",
+    "two-platform-fresh-test-entry": "All46proof/52case/12raw/1072relation criteria remain OWN actual15.0/current source/version/config/boot/attempt/run/authority/full raw evidence.406 source/provenance/effective faults independent. BEFORE effects whole independently safe ACTUAL joint review THEN separate fresh explicit bounded test grant;full native conformance later readiness. Draft/choice/migration approval/PASS not permission.",
+    "writer-trust-vs-source-and-clock": "401 actor/ACTION excludes only specifically enumerated conforming infrastructure deliberate tampering,never root/admin/helper/observer workloads.403 time trust uses SAME enumerated host/time assumption with fixed original mapping. ALL actual source/aliases/objects/consumers need continuous in-boundary protection;ordinary faults/suspected breach remain failed/pending. Hidden infrastructure detection not promised."
+  },
+  "expected_confirmation406": {
+    "acceptance_result": "PASS (102 passes, 0 failures)",
+    "actual_global_host_closure": false,
+    "actual_host_state": "unobserved-not-claimed-absent",
+    "actual_live_bindings": null,
+    "approved_contract_migration": null,
+    "capture_basis": "complete-user-uploaded-file-bytes-from-scratch-attachment;unchanged-UTF8-and-final-newline;not-independent-terminal-GitHub-or-native-observation",
+    "changed_files": 10,
+    "commit_full": null,
+    "commit_prefix": "2d2db9b",
+    "creates": 8,
+    "deletions": 0,
+    "exact_commit_message": "Phase 1 step 406: reconcile whole entry consumed source and independent two-platform oracle draft",
+    "insertions": 84650,
+    "last_confirmed_strong_safe_pause_step": 398,
+    "native_cases_run": 0,
+    "native_proofs_added": 0,
+    "receipt_sha256": "37ac44fd3667ad171ec6dccb48e70f3b1476ef66fd142a648ed7cd4fe0403042",
+    "receipt_size_bytes": 10198,
+    "runtime_authority": false,
+    "schema": 1,
+    "scope": "repository-joint-contract-proposal399-408-only",
+    "selected_options": null,
+    "state": "accepted-repository-checkpoint",
+    "step": 406,
+    "strong_safe_pause": false,
+    "user_application_completed": true,
+    "user_commit_and_push_completed": true,
+    "user_harness_completed": true,
+    "user_head_matches_origin": true,
+    "user_worktree_clean": true
+  },
+  "expected_joint_pairs": [
+    {
+      "actual_joint_compatibility": null,
+      "candidate_specific_joint_requirement": "All nine GLOBAL proposed semantic boundary rules and complete corresponding member criteria apply to BOTH option responsibilities through every own source/effect/rights/clock/storage/observer/custody dependency. EVERY expectation/collector/verifier/injector/receipt/observer/consumer own action has401 writers/source trust,402 independent scope/envelope,403 clock/drain,404once-only storage/spend and405custody/terminal requirements. No passive exemption,forced different people,self-final proof or infinite chain;finite terminal trust/evidence cut explicit yet actual native accounting/independence unknown.",
+      "joint_specification_approved": false,
+      "native_compatibility_proven": false,
+      "whole_original397_pair_question": {
+        "actual_joint_compatibility": null,
+        "joint_specification_approved": false,
+        "option_ids": [
+          "explicit-trusted-host-boundary",
+          "declared-operation-admission-cuts"
+        ],
+        "review_disposition": "joint-semantic-migration-and-trust-scope-reconciliation-required",
+        "runtime_authority": false,
+        "selected": false,
+        "whole_conflict_dependencies": [
+          "live-revocation-without-worker-broker",
+          "all-writer-privileged-alias-lifetime",
+          "supervisor-loss-and-surviving-descendants",
+          "whole-entry-and-real-backend",
+          "original-baseline-owned-backup-unknown",
+          "finite-time-budget-and-recovery-rights",
+          "whole-stage12-final-receipt-causality",
+          "independent-two-platform-native-oracle"
+        ],
+        "whole_option_canonical_sha256": [
+          "fe0e874162f11f87de6474339c63fb3d6b8070578461d05d1df972ef90c21b30",
+          "77e68e31ee299cec38b0d19a57f6c8e147b515155e8716007fe9635d90c942bf"
+        ]
+      }
+    },
+    {
+      "actual_joint_compatibility": null,
+      "candidate_specific_joint_requirement": "All nine GLOBAL proposed semantic boundary rules and complete corresponding member criteria apply to BOTH option responsibilities through every own source/effect/rights/clock/storage/observer/custody dependency. EVERY expectation/collector/verifier/injector/receipt/observer/consumer own action has401 writers/source trust,402 independent scope/envelope,403 clock/drain,404once-only storage/spend and405custody/terminal requirements. No passive exemption,forced different people,self-final proof or infinite chain;finite terminal trust/evidence cut explicit yet actual native accounting/independence unknown.",
+      "joint_specification_approved": false,
+      "native_compatibility_proven": false,
+      "whole_original397_pair_question": {
+        "actual_joint_compatibility": null,
+        "joint_specification_approved": false,
+        "option_ids": [
+          "explicit-trusted-host-boundary",
+          "independent-guardian-retention-hypothesis"
+        ],
+        "review_disposition": "joint-semantic-migration-and-trust-scope-reconciliation-required",
+        "runtime_authority": false,
+        "selected": false,
+        "whole_conflict_dependencies": [
+          "live-revocation-without-worker-broker",
+          "all-writer-privileged-alias-lifetime",
+          "supervisor-loss-and-surviving-descendants",
+          "whole-entry-and-real-backend",
+          "original-baseline-owned-backup-unknown",
+          "finite-time-budget-and-recovery-rights",
+          "whole-stage12-final-receipt-causality",
+          "independent-two-platform-native-oracle"
+        ],
+        "whole_option_canonical_sha256": [
+          "fe0e874162f11f87de6474339c63fb3d6b8070578461d05d1df972ef90c21b30",
+          "9c2937fe5e2ad87761b4696cce8524592834dcb79ba9ea1ac283ac281941915b"
+        ]
+      }
+    },
+    {
+      "actual_joint_compatibility": null,
+      "candidate_specific_joint_requirement": "All nine GLOBAL proposed semantic boundary rules and complete corresponding member criteria apply to BOTH option responsibilities through every own source/effect/rights/clock/storage/observer/custody dependency. EVERY expectation/collector/verifier/injector/receipt/observer/consumer own action has401 writers/source trust,402 independent scope/envelope,403 clock/drain,404once-only storage/spend and405custody/terminal requirements. No passive exemption,forced different people,self-final proof or infinite chain;finite terminal trust/evidence cut explicit yet actual native accounting/independence unknown.",
+      "joint_specification_approved": false,
+      "native_compatibility_proven": false,
+      "whole_original397_pair_question": {
+        "actual_joint_compatibility": null,
+        "joint_specification_approved": false,
+        "option_ids": [
+          "explicit-trusted-host-boundary",
+          "explicit-local-clock-trust-boundary"
+        ],
+        "review_disposition": "joint-semantic-migration-and-trust-scope-reconciliation-required",
+        "runtime_authority": false,
+        "selected": false,
+        "whole_conflict_dependencies": [
+          "live-revocation-without-worker-broker",
+          "all-writer-privileged-alias-lifetime",
+          "supervisor-loss-and-surviving-descendants",
+          "whole-entry-and-real-backend",
+          "original-baseline-owned-backup-unknown",
+          "finite-time-budget-and-recovery-rights",
+          "whole-stage12-final-receipt-causality",
+          "independent-two-platform-native-oracle"
+        ],
+        "whole_option_canonical_sha256": [
+          "fe0e874162f11f87de6474339c63fb3d6b8070578461d05d1df972ef90c21b30",
+          "6a553200d7dc31b32454bc3609f9fca161ff2229518d0504edfef8278e8d718c"
+        ]
+      }
+    },
+    {
+      "actual_joint_compatibility": null,
+      "candidate_specific_joint_requirement": "All nine GLOBAL proposed semantic boundary rules and complete corresponding member criteria apply to BOTH option responsibilities through every own source/effect/rights/clock/storage/observer/custody dependency. EVERY expectation/collector/verifier/injector/receipt/observer/consumer own action has401 writers/source trust,402 independent scope/envelope,403 clock/drain,404once-only storage/spend and405custody/terminal requirements. No passive exemption,forced different people,self-final proof or infinite chain;finite terminal trust/evidence cut explicit yet actual native accounting/independence unknown.",
+      "joint_specification_approved": false,
+      "native_compatibility_proven": false,
+      "whole_original397_pair_question": {
+        "actual_joint_compatibility": null,
+        "joint_specification_approved": false,
+        "option_ids": [
+          "explicit-trusted-host-boundary",
+          "external-durable-rights-ledger-hypothesis"
+        ],
+        "review_disposition": "joint-semantic-migration-and-trust-scope-reconciliation-required",
+        "runtime_authority": false,
+        "selected": false,
+        "whole_conflict_dependencies": [
+          "live-revocation-without-worker-broker",
+          "all-writer-privileged-alias-lifetime",
+          "supervisor-loss-and-surviving-descendants",
+          "whole-entry-and-real-backend",
+          "original-baseline-owned-backup-unknown",
+          "finite-time-budget-and-recovery-rights",
+          "whole-stage12-final-receipt-causality",
+          "independent-two-platform-native-oracle"
+        ],
+        "whole_option_canonical_sha256": [
+          "fe0e874162f11f87de6474339c63fb3d6b8070578461d05d1df972ef90c21b30",
+          "803043a3ff320080137d414be28e2b3dbe23bdba2b52e0a4f4d90d0c83907750"
+        ]
+      }
+    },
+    {
+      "actual_joint_compatibility": null,
+      "candidate_specific_joint_requirement": "All nine GLOBAL proposed semantic boundary rules and complete corresponding member criteria apply to BOTH option responsibilities through every own source/effect/rights/clock/storage/observer/custody dependency. EVERY expectation/collector/verifier/injector/receipt/observer/consumer own action has401 writers/source trust,402 independent scope/envelope,403 clock/drain,404once-only storage/spend and405custody/terminal requirements. No passive exemption,forced different people,self-final proof or infinite chain;finite terminal trust/evidence cut explicit yet actual native accounting/independence unknown.",
+      "joint_specification_approved": false,
+      "native_compatibility_proven": false,
+      "whole_original397_pair_question": {
+        "actual_joint_compatibility": null,
+        "joint_specification_approved": false,
+        "option_ids": [
+          "explicit-trusted-host-boundary",
+          "separate-owned-target-quarantine-hypothesis"
+        ],
+        "review_disposition": "joint-semantic-migration-and-trust-scope-reconciliation-required",
+        "runtime_authority": false,
+        "selected": false,
+        "whole_conflict_dependencies": [
+          "live-revocation-without-worker-broker",
+          "all-writer-privileged-alias-lifetime",
+          "supervisor-loss-and-surviving-descendants",
+          "whole-entry-and-real-backend",
+          "original-baseline-owned-backup-unknown",
+          "finite-time-budget-and-recovery-rights",
+          "whole-stage12-final-receipt-causality",
+          "independent-two-platform-native-oracle"
+        ],
+        "whole_option_canonical_sha256": [
+          "fe0e874162f11f87de6474339c63fb3d6b8070578461d05d1df972ef90c21b30",
+          "be61727f80d2ae47c8a93529ac21640002fbc5987b11ef2e35edb8744be50c9f"
+        ]
+      }
+    },
+    {
+      "actual_joint_compatibility": null,
+      "candidate_specific_joint_requirement": "All nine GLOBAL proposed semantic boundary rules and complete corresponding member criteria apply to BOTH option responsibilities through every own source/effect/rights/clock/storage/observer/custody dependency. EVERY expectation/collector/verifier/injector/receipt/observer/consumer own action has401 writers/source trust,402 independent scope/envelope,403 clock/drain,404once-only storage/spend and405custody/terminal requirements. No passive exemption,forced different people,self-final proof or infinite chain;finite terminal trust/evidence cut explicit yet actual native accounting/independence unknown.",
+      "joint_specification_approved": false,
+      "native_compatibility_proven": false,
+      "whole_original397_pair_question": {
+        "actual_joint_compatibility": null,
+        "joint_specification_approved": false,
+        "option_ids": [
+          "explicit-trusted-host-boundary",
+          "explicit-producer-and-external-finalization-cut"
+        ],
+        "review_disposition": "joint-semantic-migration-and-trust-scope-reconciliation-required",
+        "runtime_authority": false,
+        "selected": false,
+        "whole_conflict_dependencies": [
+          "live-revocation-without-worker-broker",
+          "all-writer-privileged-alias-lifetime",
+          "supervisor-loss-and-surviving-descendants",
+          "whole-entry-and-real-backend",
+          "original-baseline-owned-backup-unknown",
+          "finite-time-budget-and-recovery-rights",
+          "whole-stage12-final-receipt-causality",
+          "independent-two-platform-native-oracle"
+        ],
+        "whole_option_canonical_sha256": [
+          "fe0e874162f11f87de6474339c63fb3d6b8070578461d05d1df972ef90c21b30",
+          "a6f4e3df96bc635193454c72b697210fd6bbdd753d2ec2fa448838ea0616f2df"
+        ]
+      }
+    },
+    {
+      "actual_joint_compatibility": null,
+      "candidate_specific_joint_requirement": "All nine GLOBAL proposed semantic boundary rules and complete corresponding member criteria apply to BOTH option responsibilities through every own source/effect/rights/clock/storage/observer/custody dependency. EVERY expectation/collector/verifier/injector/receipt/observer/consumer own action has401 writers/source trust,402 independent scope/envelope,403 clock/drain,404once-only storage/spend and405custody/terminal requirements. No passive exemption,forced different people,self-final proof or infinite chain;finite terminal trust/evidence cut explicit yet actual native accounting/independence unknown.",
+      "joint_specification_approved": false,
+      "native_compatibility_proven": false,
+      "whole_original397_pair_question": {
+        "actual_joint_compatibility": null,
+        "joint_specification_approved": false,
+        "option_ids": [
+          "explicit-trusted-host-boundary",
+          "complete-protected-source-consumption-hypothesis"
+        ],
+        "review_disposition": "joint-semantic-migration-and-trust-scope-reconciliation-required",
+        "runtime_authority": false,
+        "selected": false,
+        "whole_conflict_dependencies": [
+          "live-revocation-without-worker-broker",
+          "all-writer-privileged-alias-lifetime",
+          "supervisor-loss-and-surviving-descendants",
+          "whole-entry-and-real-backend",
+          "original-baseline-owned-backup-unknown",
+          "finite-time-budget-and-recovery-rights",
+          "whole-stage12-final-receipt-causality",
+          "independent-two-platform-native-oracle"
+        ],
+        "whole_option_canonical_sha256": [
+          "fe0e874162f11f87de6474339c63fb3d6b8070578461d05d1df972ef90c21b30",
+          "791461e5dc65f93911a0233dfa8182ce07fa58a122cbd7237548d7b6e550f281"
+        ]
+      }
+    },
+    {
+      "actual_joint_compatibility": null,
+      "candidate_specific_joint_requirement": "All nine GLOBAL proposed semantic boundary rules and complete corresponding member criteria apply to BOTH option responsibilities through every own source/effect/rights/clock/storage/observer/custody dependency. EVERY expectation/collector/verifier/injector/receipt/observer/consumer own action has401 writers/source trust,402 independent scope/envelope,403 clock/drain,404once-only storage/spend and405custody/terminal requirements. No passive exemption,forced different people,self-final proof or infinite chain;finite terminal trust/evidence cut explicit yet actual native accounting/independence unknown.",
+      "joint_specification_approved": false,
+      "native_compatibility_proven": false,
+      "whole_original397_pair_question": {
+        "actual_joint_compatibility": null,
+        "joint_specification_approved": false,
+        "option_ids": [
+          "explicit-trusted-host-boundary",
+          "protected-independent-raw-oracle-hypothesis"
+        ],
+        "review_disposition": "joint-semantic-migration-and-trust-scope-reconciliation-required",
+        "runtime_authority": false,
+        "selected": false,
+        "whole_conflict_dependencies": [
+          "live-revocation-without-worker-broker",
+          "all-writer-privileged-alias-lifetime",
+          "supervisor-loss-and-surviving-descendants",
+          "whole-entry-and-real-backend",
+          "original-baseline-owned-backup-unknown",
+          "finite-time-budget-and-recovery-rights",
+          "whole-stage12-final-receipt-causality",
+          "independent-two-platform-native-oracle"
+        ],
+        "whole_option_canonical_sha256": [
+          "fe0e874162f11f87de6474339c63fb3d6b8070578461d05d1df972ef90c21b30",
+          "faa26f20b7ddbc67eed94cc993ef9b72fc7e57d4b18ec3c22e99cc0d5cdb118e"
+        ]
+      }
+    },
+    {
+      "actual_joint_compatibility": null,
+      "candidate_specific_joint_requirement": "All nine GLOBAL proposed semantic boundary rules and complete corresponding member criteria apply to BOTH option responsibilities through every own source/effect/rights/clock/storage/observer/custody dependency. EVERY expectation/collector/verifier/injector/receipt/observer/consumer own action has401 writers/source trust,402 independent scope/envelope,403 clock/drain,404once-only storage/spend and405custody/terminal requirements. No passive exemption,forced different people,self-final proof or infinite chain;finite terminal trust/evidence cut explicit yet actual native accounting/independence unknown.",
+      "joint_specification_approved": false,
+      "native_compatibility_proven": false,
+      "whole_original397_pair_question": {
+        "actual_joint_compatibility": null,
+        "joint_specification_approved": false,
+        "option_ids": [
+          "declared-operation-admission-cuts",
+          "independent-guardian-retention-hypothesis"
+        ],
+        "review_disposition": "joint-semantic-migration-and-trust-scope-reconciliation-required",
+        "runtime_authority": false,
+        "selected": false,
+        "whole_conflict_dependencies": [
+          "live-revocation-without-worker-broker",
+          "all-writer-privileged-alias-lifetime",
+          "supervisor-loss-and-surviving-descendants",
+          "whole-entry-and-real-backend",
+          "original-baseline-owned-backup-unknown",
+          "finite-time-budget-and-recovery-rights",
+          "whole-stage12-final-receipt-causality",
+          "independent-two-platform-native-oracle"
+        ],
+        "whole_option_canonical_sha256": [
+          "77e68e31ee299cec38b0d19a57f6c8e147b515155e8716007fe9635d90c942bf",
+          "9c2937fe5e2ad87761b4696cce8524592834dcb79ba9ea1ac283ac281941915b"
+        ]
+      }
+    },
+    {
+      "actual_joint_compatibility": null,
+      "candidate_specific_joint_requirement": "All nine GLOBAL proposed semantic boundary rules and complete corresponding member criteria apply to BOTH option responsibilities through every own source/effect/rights/clock/storage/observer/custody dependency. EVERY expectation/collector/verifier/injector/receipt/observer/consumer own action has401 writers/source trust,402 independent scope/envelope,403 clock/drain,404once-only storage/spend and405custody/terminal requirements. No passive exemption,forced different people,self-final proof or infinite chain;finite terminal trust/evidence cut explicit yet actual native accounting/independence unknown.",
+      "joint_specification_approved": false,
+      "native_compatibility_proven": false,
+      "whole_original397_pair_question": {
+        "actual_joint_compatibility": null,
+        "joint_specification_approved": false,
+        "option_ids": [
+          "declared-operation-admission-cuts",
+          "explicit-local-clock-trust-boundary"
+        ],
+        "review_disposition": "joint-semantic-migration-and-trust-scope-reconciliation-required",
+        "runtime_authority": false,
+        "selected": false,
+        "whole_conflict_dependencies": [
+          "live-revocation-without-worker-broker",
+          "all-writer-privileged-alias-lifetime",
+          "supervisor-loss-and-surviving-descendants",
+          "whole-entry-and-real-backend",
+          "original-baseline-owned-backup-unknown",
+          "finite-time-budget-and-recovery-rights",
+          "whole-stage12-final-receipt-causality",
+          "independent-two-platform-native-oracle"
+        ],
+        "whole_option_canonical_sha256": [
+          "77e68e31ee299cec38b0d19a57f6c8e147b515155e8716007fe9635d90c942bf",
+          "6a553200d7dc31b32454bc3609f9fca161ff2229518d0504edfef8278e8d718c"
+        ]
+      }
+    },
+    {
+      "actual_joint_compatibility": null,
+      "candidate_specific_joint_requirement": "All nine GLOBAL proposed semantic boundary rules and complete corresponding member criteria apply to BOTH option responsibilities through every own source/effect/rights/clock/storage/observer/custody dependency. EVERY expectation/collector/verifier/injector/receipt/observer/consumer own action has401 writers/source trust,402 independent scope/envelope,403 clock/drain,404once-only storage/spend and405custody/terminal requirements. No passive exemption,forced different people,self-final proof or infinite chain;finite terminal trust/evidence cut explicit yet actual native accounting/independence unknown.",
+      "joint_specification_approved": false,
+      "native_compatibility_proven": false,
+      "whole_original397_pair_question": {
+        "actual_joint_compatibility": null,
+        "joint_specification_approved": false,
+        "option_ids": [
+          "declared-operation-admission-cuts",
+          "external-durable-rights-ledger-hypothesis"
+        ],
+        "review_disposition": "joint-semantic-migration-and-trust-scope-reconciliation-required",
+        "runtime_authority": false,
+        "selected": false,
+        "whole_conflict_dependencies": [
+          "live-revocation-without-worker-broker",
+          "all-writer-privileged-alias-lifetime",
+          "supervisor-loss-and-surviving-descendants",
+          "whole-entry-and-real-backend",
+          "original-baseline-owned-backup-unknown",
+          "finite-time-budget-and-recovery-rights",
+          "whole-stage12-final-receipt-causality",
+          "independent-two-platform-native-oracle"
+        ],
+        "whole_option_canonical_sha256": [
+          "77e68e31ee299cec38b0d19a57f6c8e147b515155e8716007fe9635d90c942bf",
+          "803043a3ff320080137d414be28e2b3dbe23bdba2b52e0a4f4d90d0c83907750"
+        ]
+      }
+    },
+    {
+      "actual_joint_compatibility": null,
+      "candidate_specific_joint_requirement": "All nine GLOBAL proposed semantic boundary rules and complete corresponding member criteria apply to BOTH option responsibilities through every own source/effect/rights/clock/storage/observer/custody dependency. EVERY expectation/collector/verifier/injector/receipt/observer/consumer own action has401 writers/source trust,402 independent scope/envelope,403 clock/drain,404once-only storage/spend and405custody/terminal requirements. No passive exemption,forced different people,self-final proof or infinite chain;finite terminal trust/evidence cut explicit yet actual native accounting/independence unknown.",
+      "joint_specification_approved": false,
+      "native_compatibility_proven": false,
+      "whole_original397_pair_question": {
+        "actual_joint_compatibility": null,
+        "joint_specification_approved": false,
+        "option_ids": [
+          "declared-operation-admission-cuts",
+          "separate-owned-target-quarantine-hypothesis"
+        ],
+        "review_disposition": "joint-semantic-migration-and-trust-scope-reconciliation-required",
+        "runtime_authority": false,
+        "selected": false,
+        "whole_conflict_dependencies": [
+          "live-revocation-without-worker-broker",
+          "all-writer-privileged-alias-lifetime",
+          "supervisor-loss-and-surviving-descendants",
+          "whole-entry-and-real-backend",
+          "original-baseline-owned-backup-unknown",
+          "finite-time-budget-and-recovery-rights",
+          "whole-stage12-final-receipt-causality",
+          "independent-two-platform-native-oracle"
+        ],
+        "whole_option_canonical_sha256": [
+          "77e68e31ee299cec38b0d19a57f6c8e147b515155e8716007fe9635d90c942bf",
+          "be61727f80d2ae47c8a93529ac21640002fbc5987b11ef2e35edb8744be50c9f"
+        ]
+      }
+    },
+    {
+      "actual_joint_compatibility": null,
+      "candidate_specific_joint_requirement": "All nine GLOBAL proposed semantic boundary rules and complete corresponding member criteria apply to BOTH option responsibilities through every own source/effect/rights/clock/storage/observer/custody dependency. EVERY expectation/collector/verifier/injector/receipt/observer/consumer own action has401 writers/source trust,402 independent scope/envelope,403 clock/drain,404once-only storage/spend and405custody/terminal requirements. No passive exemption,forced different people,self-final proof or infinite chain;finite terminal trust/evidence cut explicit yet actual native accounting/independence unknown.",
+      "joint_specification_approved": false,
+      "native_compatibility_proven": false,
+      "whole_original397_pair_question": {
+        "actual_joint_compatibility": null,
+        "joint_specification_approved": false,
+        "option_ids": [
+          "declared-operation-admission-cuts",
+          "explicit-producer-and-external-finalization-cut"
+        ],
+        "review_disposition": "joint-semantic-migration-and-trust-scope-reconciliation-required",
+        "runtime_authority": false,
+        "selected": false,
+        "whole_conflict_dependencies": [
+          "live-revocation-without-worker-broker",
+          "all-writer-privileged-alias-lifetime",
+          "supervisor-loss-and-surviving-descendants",
+          "whole-entry-and-real-backend",
+          "original-baseline-owned-backup-unknown",
+          "finite-time-budget-and-recovery-rights",
+          "whole-stage12-final-receipt-causality",
+          "independent-two-platform-native-oracle"
+        ],
+        "whole_option_canonical_sha256": [
+          "77e68e31ee299cec38b0d19a57f6c8e147b515155e8716007fe9635d90c942bf",
+          "a6f4e3df96bc635193454c72b697210fd6bbdd753d2ec2fa448838ea0616f2df"
+        ]
+      }
+    },
+    {
+      "actual_joint_compatibility": null,
+      "candidate_specific_joint_requirement": "All nine GLOBAL proposed semantic boundary rules and complete corresponding member criteria apply to BOTH option responsibilities through every own source/effect/rights/clock/storage/observer/custody dependency. EVERY expectation/collector/verifier/injector/receipt/observer/consumer own action has401 writers/source trust,402 independent scope/envelope,403 clock/drain,404once-only storage/spend and405custody/terminal requirements. No passive exemption,forced different people,self-final proof or infinite chain;finite terminal trust/evidence cut explicit yet actual native accounting/independence unknown.",
+      "joint_specification_approved": false,
+      "native_compatibility_proven": false,
+      "whole_original397_pair_question": {
+        "actual_joint_compatibility": null,
+        "joint_specification_approved": false,
+        "option_ids": [
+          "declared-operation-admission-cuts",
+          "complete-protected-source-consumption-hypothesis"
+        ],
+        "review_disposition": "joint-semantic-migration-and-trust-scope-reconciliation-required",
+        "runtime_authority": false,
+        "selected": false,
+        "whole_conflict_dependencies": [
+          "live-revocation-without-worker-broker",
+          "all-writer-privileged-alias-lifetime",
+          "supervisor-loss-and-surviving-descendants",
+          "whole-entry-and-real-backend",
+          "original-baseline-owned-backup-unknown",
+          "finite-time-budget-and-recovery-rights",
+          "whole-stage12-final-receipt-causality",
+          "independent-two-platform-native-oracle"
+        ],
+        "whole_option_canonical_sha256": [
+          "77e68e31ee299cec38b0d19a57f6c8e147b515155e8716007fe9635d90c942bf",
+          "791461e5dc65f93911a0233dfa8182ce07fa58a122cbd7237548d7b6e550f281"
+        ]
+      }
+    },
+    {
+      "actual_joint_compatibility": null,
+      "candidate_specific_joint_requirement": "All nine GLOBAL proposed semantic boundary rules and complete corresponding member criteria apply to BOTH option responsibilities through every own source/effect/rights/clock/storage/observer/custody dependency. EVERY expectation/collector/verifier/injector/receipt/observer/consumer own action has401 writers/source trust,402 independent scope/envelope,403 clock/drain,404once-only storage/spend and405custody/terminal requirements. No passive exemption,forced different people,self-final proof or infinite chain;finite terminal trust/evidence cut explicit yet actual native accounting/independence unknown.",
+      "joint_specification_approved": false,
+      "native_compatibility_proven": false,
+      "whole_original397_pair_question": {
+        "actual_joint_compatibility": null,
+        "joint_specification_approved": false,
+        "option_ids": [
+          "declared-operation-admission-cuts",
+          "protected-independent-raw-oracle-hypothesis"
+        ],
+        "review_disposition": "joint-semantic-migration-and-trust-scope-reconciliation-required",
+        "runtime_authority": false,
+        "selected": false,
+        "whole_conflict_dependencies": [
+          "live-revocation-without-worker-broker",
+          "all-writer-privileged-alias-lifetime",
+          "supervisor-loss-and-surviving-descendants",
+          "whole-entry-and-real-backend",
+          "original-baseline-owned-backup-unknown",
+          "finite-time-budget-and-recovery-rights",
+          "whole-stage12-final-receipt-causality",
+          "independent-two-platform-native-oracle"
+        ],
+        "whole_option_canonical_sha256": [
+          "77e68e31ee299cec38b0d19a57f6c8e147b515155e8716007fe9635d90c942bf",
+          "faa26f20b7ddbc67eed94cc993ef9b72fc7e57d4b18ec3c22e99cc0d5cdb118e"
+        ]
+      }
+    },
+    {
+      "actual_joint_compatibility": null,
+      "candidate_specific_joint_requirement": "All nine GLOBAL proposed semantic boundary rules and complete corresponding member criteria apply to BOTH option responsibilities through every own source/effect/rights/clock/storage/observer/custody dependency. EVERY expectation/collector/verifier/injector/receipt/observer/consumer own action has401 writers/source trust,402 independent scope/envelope,403 clock/drain,404once-only storage/spend and405custody/terminal requirements. No passive exemption,forced different people,self-final proof or infinite chain;finite terminal trust/evidence cut explicit yet actual native accounting/independence unknown.",
+      "joint_specification_approved": false,
+      "native_compatibility_proven": false,
+      "whole_original397_pair_question": {
+        "actual_joint_compatibility": null,
+        "joint_specification_approved": false,
+        "option_ids": [
+          "independent-guardian-retention-hypothesis",
+          "explicit-local-clock-trust-boundary"
+        ],
+        "review_disposition": "same-brief-alternatives-no-current-joint-selection",
+        "runtime_authority": false,
+        "selected": false,
+        "whole_conflict_dependencies": [
+          "live-revocation-without-worker-broker",
+          "all-writer-privileged-alias-lifetime",
+          "supervisor-loss-and-surviving-descendants",
+          "whole-entry-and-real-backend",
+          "original-baseline-owned-backup-unknown",
+          "finite-time-budget-and-recovery-rights",
+          "whole-stage12-final-receipt-causality",
+          "independent-two-platform-native-oracle"
+        ],
+        "whole_option_canonical_sha256": [
+          "9c2937fe5e2ad87761b4696cce8524592834dcb79ba9ea1ac283ac281941915b",
+          "6a553200d7dc31b32454bc3609f9fca161ff2229518d0504edfef8278e8d718c"
+        ]
+      }
+    },
+    {
+      "actual_joint_compatibility": null,
+      "candidate_specific_joint_requirement": "All nine GLOBAL proposed semantic boundary rules and complete corresponding member criteria apply to BOTH option responsibilities through every own source/effect/rights/clock/storage/observer/custody dependency. EVERY expectation/collector/verifier/injector/receipt/observer/consumer own action has401 writers/source trust,402 independent scope/envelope,403 clock/drain,404once-only storage/spend and405custody/terminal requirements. No passive exemption,forced different people,self-final proof or infinite chain;finite terminal trust/evidence cut explicit yet actual native accounting/independence unknown.",
+      "joint_specification_approved": false,
+      "native_compatibility_proven": false,
+      "whole_original397_pair_question": {
+        "actual_joint_compatibility": null,
+        "joint_specification_approved": false,
+        "option_ids": [
+          "independent-guardian-retention-hypothesis",
+          "external-durable-rights-ledger-hypothesis"
+        ],
+        "review_disposition": "retained-original-guarantees-joint-native-compatibility-unproven",
+        "runtime_authority": false,
+        "selected": false,
+        "whole_conflict_dependencies": [
+          "live-revocation-without-worker-broker",
+          "all-writer-privileged-alias-lifetime",
+          "supervisor-loss-and-surviving-descendants",
+          "whole-entry-and-real-backend",
+          "original-baseline-owned-backup-unknown",
+          "finite-time-budget-and-recovery-rights",
+          "whole-stage12-final-receipt-causality",
+          "independent-two-platform-native-oracle"
+        ],
+        "whole_option_canonical_sha256": [
+          "9c2937fe5e2ad87761b4696cce8524592834dcb79ba9ea1ac283ac281941915b",
+          "803043a3ff320080137d414be28e2b3dbe23bdba2b52e0a4f4d90d0c83907750"
+        ]
+      }
+    },
+    {
+      "actual_joint_compatibility": null,
+      "candidate_specific_joint_requirement": "All nine GLOBAL proposed semantic boundary rules and complete corresponding member criteria apply to BOTH option responsibilities through every own source/effect/rights/clock/storage/observer/custody dependency. EVERY expectation/collector/verifier/injector/receipt/observer/consumer own action has401 writers/source trust,402 independent scope/envelope,403 clock/drain,404once-only storage/spend and405custody/terminal requirements. No passive exemption,forced different people,self-final proof or infinite chain;finite terminal trust/evidence cut explicit yet actual native accounting/independence unknown.",
+      "joint_specification_approved": false,
+      "native_compatibility_proven": false,
+      "whole_original397_pair_question": {
+        "actual_joint_compatibility": null,
+        "joint_specification_approved": false,
+        "option_ids": [
+          "independent-guardian-retention-hypothesis",
+          "separate-owned-target-quarantine-hypothesis"
+        ],
+        "review_disposition": "retained-original-guarantees-joint-native-compatibility-unproven",
+        "runtime_authority": false,
+        "selected": false,
+        "whole_conflict_dependencies": [
+          "live-revocation-without-worker-broker",
+          "all-writer-privileged-alias-lifetime",
+          "supervisor-loss-and-surviving-descendants",
+          "whole-entry-and-real-backend",
+          "original-baseline-owned-backup-unknown",
+          "finite-time-budget-and-recovery-rights",
+          "whole-stage12-final-receipt-causality",
+          "independent-two-platform-native-oracle"
+        ],
+        "whole_option_canonical_sha256": [
+          "9c2937fe5e2ad87761b4696cce8524592834dcb79ba9ea1ac283ac281941915b",
+          "be61727f80d2ae47c8a93529ac21640002fbc5987b11ef2e35edb8744be50c9f"
+        ]
+      }
+    },
+    {
+      "actual_joint_compatibility": null,
+      "candidate_specific_joint_requirement": "All nine GLOBAL proposed semantic boundary rules and complete corresponding member criteria apply to BOTH option responsibilities through every own source/effect/rights/clock/storage/observer/custody dependency. EVERY expectation/collector/verifier/injector/receipt/observer/consumer own action has401 writers/source trust,402 independent scope/envelope,403 clock/drain,404once-only storage/spend and405custody/terminal requirements. No passive exemption,forced different people,self-final proof or infinite chain;finite terminal trust/evidence cut explicit yet actual native accounting/independence unknown.",
+      "joint_specification_approved": false,
+      "native_compatibility_proven": false,
+      "whole_original397_pair_question": {
+        "actual_joint_compatibility": null,
+        "joint_specification_approved": false,
+        "option_ids": [
+          "independent-guardian-retention-hypothesis",
+          "explicit-producer-and-external-finalization-cut"
+        ],
+        "review_disposition": "joint-semantic-migration-and-trust-scope-reconciliation-required",
+        "runtime_authority": false,
+        "selected": false,
+        "whole_conflict_dependencies": [
+          "live-revocation-without-worker-broker",
+          "all-writer-privileged-alias-lifetime",
+          "supervisor-loss-and-surviving-descendants",
+          "whole-entry-and-real-backend",
+          "original-baseline-owned-backup-unknown",
+          "finite-time-budget-and-recovery-rights",
+          "whole-stage12-final-receipt-causality",
+          "independent-two-platform-native-oracle"
+        ],
+        "whole_option_canonical_sha256": [
+          "9c2937fe5e2ad87761b4696cce8524592834dcb79ba9ea1ac283ac281941915b",
+          "a6f4e3df96bc635193454c72b697210fd6bbdd753d2ec2fa448838ea0616f2df"
+        ]
+      }
+    },
+    {
+      "actual_joint_compatibility": null,
+      "candidate_specific_joint_requirement": "All nine GLOBAL proposed semantic boundary rules and complete corresponding member criteria apply to BOTH option responsibilities through every own source/effect/rights/clock/storage/observer/custody dependency. EVERY expectation/collector/verifier/injector/receipt/observer/consumer own action has401 writers/source trust,402 independent scope/envelope,403 clock/drain,404once-only storage/spend and405custody/terminal requirements. No passive exemption,forced different people,self-final proof or infinite chain;finite terminal trust/evidence cut explicit yet actual native accounting/independence unknown.",
+      "joint_specification_approved": false,
+      "native_compatibility_proven": false,
+      "whole_original397_pair_question": {
+        "actual_joint_compatibility": null,
+        "joint_specification_approved": false,
+        "option_ids": [
+          "independent-guardian-retention-hypothesis",
+          "complete-protected-source-consumption-hypothesis"
+        ],
+        "review_disposition": "retained-original-guarantees-joint-native-compatibility-unproven",
+        "runtime_authority": false,
+        "selected": false,
+        "whole_conflict_dependencies": [
+          "live-revocation-without-worker-broker",
+          "all-writer-privileged-alias-lifetime",
+          "supervisor-loss-and-surviving-descendants",
+          "whole-entry-and-real-backend",
+          "original-baseline-owned-backup-unknown",
+          "finite-time-budget-and-recovery-rights",
+          "whole-stage12-final-receipt-causality",
+          "independent-two-platform-native-oracle"
+        ],
+        "whole_option_canonical_sha256": [
+          "9c2937fe5e2ad87761b4696cce8524592834dcb79ba9ea1ac283ac281941915b",
+          "791461e5dc65f93911a0233dfa8182ce07fa58a122cbd7237548d7b6e550f281"
+        ]
+      }
+    },
+    {
+      "actual_joint_compatibility": null,
+      "candidate_specific_joint_requirement": "All nine GLOBAL proposed semantic boundary rules and complete corresponding member criteria apply to BOTH option responsibilities through every own source/effect/rights/clock/storage/observer/custody dependency. EVERY expectation/collector/verifier/injector/receipt/observer/consumer own action has401 writers/source trust,402 independent scope/envelope,403 clock/drain,404once-only storage/spend and405custody/terminal requirements. No passive exemption,forced different people,self-final proof or infinite chain;finite terminal trust/evidence cut explicit yet actual native accounting/independence unknown.",
+      "joint_specification_approved": false,
+      "native_compatibility_proven": false,
+      "whole_original397_pair_question": {
+        "actual_joint_compatibility": null,
+        "joint_specification_approved": false,
+        "option_ids": [
+          "independent-guardian-retention-hypothesis",
+          "protected-independent-raw-oracle-hypothesis"
+        ],
+        "review_disposition": "retained-original-guarantees-joint-native-compatibility-unproven",
+        "runtime_authority": false,
+        "selected": false,
+        "whole_conflict_dependencies": [
+          "live-revocation-without-worker-broker",
+          "all-writer-privileged-alias-lifetime",
+          "supervisor-loss-and-surviving-descendants",
+          "whole-entry-and-real-backend",
+          "original-baseline-owned-backup-unknown",
+          "finite-time-budget-and-recovery-rights",
+          "whole-stage12-final-receipt-causality",
+          "independent-two-platform-native-oracle"
+        ],
+        "whole_option_canonical_sha256": [
+          "9c2937fe5e2ad87761b4696cce8524592834dcb79ba9ea1ac283ac281941915b",
+          "faa26f20b7ddbc67eed94cc993ef9b72fc7e57d4b18ec3c22e99cc0d5cdb118e"
+        ]
+      }
+    },
+    {
+      "actual_joint_compatibility": null,
+      "candidate_specific_joint_requirement": "All nine GLOBAL proposed semantic boundary rules and complete corresponding member criteria apply to BOTH option responsibilities through every own source/effect/rights/clock/storage/observer/custody dependency. EVERY expectation/collector/verifier/injector/receipt/observer/consumer own action has401 writers/source trust,402 independent scope/envelope,403 clock/drain,404once-only storage/spend and405custody/terminal requirements. No passive exemption,forced different people,self-final proof or infinite chain;finite terminal trust/evidence cut explicit yet actual native accounting/independence unknown.",
+      "joint_specification_approved": false,
+      "native_compatibility_proven": false,
+      "whole_original397_pair_question": {
+        "actual_joint_compatibility": null,
+        "joint_specification_approved": false,
+        "option_ids": [
+          "explicit-local-clock-trust-boundary",
+          "external-durable-rights-ledger-hypothesis"
+        ],
+        "review_disposition": "joint-semantic-migration-and-trust-scope-reconciliation-required",
+        "runtime_authority": false,
+        "selected": false,
+        "whole_conflict_dependencies": [
+          "live-revocation-without-worker-broker",
+          "all-writer-privileged-alias-lifetime",
+          "supervisor-loss-and-surviving-descendants",
+          "whole-entry-and-real-backend",
+          "original-baseline-owned-backup-unknown",
+          "finite-time-budget-and-recovery-rights",
+          "whole-stage12-final-receipt-causality",
+          "independent-two-platform-native-oracle"
+        ],
+        "whole_option_canonical_sha256": [
+          "6a553200d7dc31b32454bc3609f9fca161ff2229518d0504edfef8278e8d718c",
+          "803043a3ff320080137d414be28e2b3dbe23bdba2b52e0a4f4d90d0c83907750"
+        ]
+      }
+    },
+    {
+      "actual_joint_compatibility": null,
+      "candidate_specific_joint_requirement": "All nine GLOBAL proposed semantic boundary rules and complete corresponding member criteria apply to BOTH option responsibilities through every own source/effect/rights/clock/storage/observer/custody dependency. EVERY expectation/collector/verifier/injector/receipt/observer/consumer own action has401 writers/source trust,402 independent scope/envelope,403 clock/drain,404once-only storage/spend and405custody/terminal requirements. No passive exemption,forced different people,self-final proof or infinite chain;finite terminal trust/evidence cut explicit yet actual native accounting/independence unknown.",
+      "joint_specification_approved": false,
+      "native_compatibility_proven": false,
+      "whole_original397_pair_question": {
+        "actual_joint_compatibility": null,
+        "joint_specification_approved": false,
+        "option_ids": [
+          "explicit-local-clock-trust-boundary",
+          "separate-owned-target-quarantine-hypothesis"
+        ],
+        "review_disposition": "joint-semantic-migration-and-trust-scope-reconciliation-required",
+        "runtime_authority": false,
+        "selected": false,
+        "whole_conflict_dependencies": [
+          "live-revocation-without-worker-broker",
+          "all-writer-privileged-alias-lifetime",
+          "supervisor-loss-and-surviving-descendants",
+          "whole-entry-and-real-backend",
+          "original-baseline-owned-backup-unknown",
+          "finite-time-budget-and-recovery-rights",
+          "whole-stage12-final-receipt-causality",
+          "independent-two-platform-native-oracle"
+        ],
+        "whole_option_canonical_sha256": [
+          "6a553200d7dc31b32454bc3609f9fca161ff2229518d0504edfef8278e8d718c",
+          "be61727f80d2ae47c8a93529ac21640002fbc5987b11ef2e35edb8744be50c9f"
+        ]
+      }
+    },
+    {
+      "actual_joint_compatibility": null,
+      "candidate_specific_joint_requirement": "All nine GLOBAL proposed semantic boundary rules and complete corresponding member criteria apply to BOTH option responsibilities through every own source/effect/rights/clock/storage/observer/custody dependency. EVERY expectation/collector/verifier/injector/receipt/observer/consumer own action has401 writers/source trust,402 independent scope/envelope,403 clock/drain,404once-only storage/spend and405custody/terminal requirements. No passive exemption,forced different people,self-final proof or infinite chain;finite terminal trust/evidence cut explicit yet actual native accounting/independence unknown.",
+      "joint_specification_approved": false,
+      "native_compatibility_proven": false,
+      "whole_original397_pair_question": {
+        "actual_joint_compatibility": null,
+        "joint_specification_approved": false,
+        "option_ids": [
+          "explicit-local-clock-trust-boundary",
+          "explicit-producer-and-external-finalization-cut"
+        ],
+        "review_disposition": "joint-semantic-migration-and-trust-scope-reconciliation-required",
+        "runtime_authority": false,
+        "selected": false,
+        "whole_conflict_dependencies": [
+          "live-revocation-without-worker-broker",
+          "all-writer-privileged-alias-lifetime",
+          "supervisor-loss-and-surviving-descendants",
+          "whole-entry-and-real-backend",
+          "original-baseline-owned-backup-unknown",
+          "finite-time-budget-and-recovery-rights",
+          "whole-stage12-final-receipt-causality",
+          "independent-two-platform-native-oracle"
+        ],
+        "whole_option_canonical_sha256": [
+          "6a553200d7dc31b32454bc3609f9fca161ff2229518d0504edfef8278e8d718c",
+          "a6f4e3df96bc635193454c72b697210fd6bbdd753d2ec2fa448838ea0616f2df"
+        ]
+      }
+    },
+    {
+      "actual_joint_compatibility": null,
+      "candidate_specific_joint_requirement": "All nine GLOBAL proposed semantic boundary rules and complete corresponding member criteria apply to BOTH option responsibilities through every own source/effect/rights/clock/storage/observer/custody dependency. EVERY expectation/collector/verifier/injector/receipt/observer/consumer own action has401 writers/source trust,402 independent scope/envelope,403 clock/drain,404once-only storage/spend and405custody/terminal requirements. No passive exemption,forced different people,self-final proof or infinite chain;finite terminal trust/evidence cut explicit yet actual native accounting/independence unknown.",
+      "joint_specification_approved": false,
+      "native_compatibility_proven": false,
+      "whole_original397_pair_question": {
+        "actual_joint_compatibility": null,
+        "joint_specification_approved": false,
+        "option_ids": [
+          "explicit-local-clock-trust-boundary",
+          "complete-protected-source-consumption-hypothesis"
+        ],
+        "review_disposition": "joint-semantic-migration-and-trust-scope-reconciliation-required",
+        "runtime_authority": false,
+        "selected": false,
+        "whole_conflict_dependencies": [
+          "live-revocation-without-worker-broker",
+          "all-writer-privileged-alias-lifetime",
+          "supervisor-loss-and-surviving-descendants",
+          "whole-entry-and-real-backend",
+          "original-baseline-owned-backup-unknown",
+          "finite-time-budget-and-recovery-rights",
+          "whole-stage12-final-receipt-causality",
+          "independent-two-platform-native-oracle"
+        ],
+        "whole_option_canonical_sha256": [
+          "6a553200d7dc31b32454bc3609f9fca161ff2229518d0504edfef8278e8d718c",
+          "791461e5dc65f93911a0233dfa8182ce07fa58a122cbd7237548d7b6e550f281"
+        ]
+      }
+    },
+    {
+      "actual_joint_compatibility": null,
+      "candidate_specific_joint_requirement": "All nine GLOBAL proposed semantic boundary rules and complete corresponding member criteria apply to BOTH option responsibilities through every own source/effect/rights/clock/storage/observer/custody dependency. EVERY expectation/collector/verifier/injector/receipt/observer/consumer own action has401 writers/source trust,402 independent scope/envelope,403 clock/drain,404once-only storage/spend and405custody/terminal requirements. No passive exemption,forced different people,self-final proof or infinite chain;finite terminal trust/evidence cut explicit yet actual native accounting/independence unknown.",
+      "joint_specification_approved": false,
+      "native_compatibility_proven": false,
+      "whole_original397_pair_question": {
+        "actual_joint_compatibility": null,
+        "joint_specification_approved": false,
+        "option_ids": [
+          "explicit-local-clock-trust-boundary",
+          "protected-independent-raw-oracle-hypothesis"
+        ],
+        "review_disposition": "joint-semantic-migration-and-trust-scope-reconciliation-required",
+        "runtime_authority": false,
+        "selected": false,
+        "whole_conflict_dependencies": [
+          "live-revocation-without-worker-broker",
+          "all-writer-privileged-alias-lifetime",
+          "supervisor-loss-and-surviving-descendants",
+          "whole-entry-and-real-backend",
+          "original-baseline-owned-backup-unknown",
+          "finite-time-budget-and-recovery-rights",
+          "whole-stage12-final-receipt-causality",
+          "independent-two-platform-native-oracle"
+        ],
+        "whole_option_canonical_sha256": [
+          "6a553200d7dc31b32454bc3609f9fca161ff2229518d0504edfef8278e8d718c",
+          "faa26f20b7ddbc67eed94cc993ef9b72fc7e57d4b18ec3c22e99cc0d5cdb118e"
+        ]
+      }
+    },
+    {
+      "actual_joint_compatibility": null,
+      "candidate_specific_joint_requirement": "All nine GLOBAL proposed semantic boundary rules and complete corresponding member criteria apply to BOTH option responsibilities through every own source/effect/rights/clock/storage/observer/custody dependency. EVERY expectation/collector/verifier/injector/receipt/observer/consumer own action has401 writers/source trust,402 independent scope/envelope,403 clock/drain,404once-only storage/spend and405custody/terminal requirements. No passive exemption,forced different people,self-final proof or infinite chain;finite terminal trust/evidence cut explicit yet actual native accounting/independence unknown.",
+      "joint_specification_approved": false,
+      "native_compatibility_proven": false,
+      "whole_original397_pair_question": {
+        "actual_joint_compatibility": null,
+        "joint_specification_approved": false,
+        "option_ids": [
+          "external-durable-rights-ledger-hypothesis",
+          "separate-owned-target-quarantine-hypothesis"
+        ],
+        "review_disposition": "same-brief-alternatives-no-current-joint-selection",
+        "runtime_authority": false,
+        "selected": false,
+        "whole_conflict_dependencies": [
+          "live-revocation-without-worker-broker",
+          "all-writer-privileged-alias-lifetime",
+          "supervisor-loss-and-surviving-descendants",
+          "whole-entry-and-real-backend",
+          "original-baseline-owned-backup-unknown",
+          "finite-time-budget-and-recovery-rights",
+          "whole-stage12-final-receipt-causality",
+          "independent-two-platform-native-oracle"
+        ],
+        "whole_option_canonical_sha256": [
+          "803043a3ff320080137d414be28e2b3dbe23bdba2b52e0a4f4d90d0c83907750",
+          "be61727f80d2ae47c8a93529ac21640002fbc5987b11ef2e35edb8744be50c9f"
+        ]
+      }
+    },
+    {
+      "actual_joint_compatibility": null,
+      "candidate_specific_joint_requirement": "All nine GLOBAL proposed semantic boundary rules and complete corresponding member criteria apply to BOTH option responsibilities through every own source/effect/rights/clock/storage/observer/custody dependency. EVERY expectation/collector/verifier/injector/receipt/observer/consumer own action has401 writers/source trust,402 independent scope/envelope,403 clock/drain,404once-only storage/spend and405custody/terminal requirements. No passive exemption,forced different people,self-final proof or infinite chain;finite terminal trust/evidence cut explicit yet actual native accounting/independence unknown.",
+      "joint_specification_approved": false,
+      "native_compatibility_proven": false,
+      "whole_original397_pair_question": {
+        "actual_joint_compatibility": null,
+        "joint_specification_approved": false,
+        "option_ids": [
+          "external-durable-rights-ledger-hypothesis",
+          "explicit-producer-and-external-finalization-cut"
+        ],
+        "review_disposition": "joint-semantic-migration-and-trust-scope-reconciliation-required",
+        "runtime_authority": false,
+        "selected": false,
+        "whole_conflict_dependencies": [
+          "live-revocation-without-worker-broker",
+          "all-writer-privileged-alias-lifetime",
+          "supervisor-loss-and-surviving-descendants",
+          "whole-entry-and-real-backend",
+          "original-baseline-owned-backup-unknown",
+          "finite-time-budget-and-recovery-rights",
+          "whole-stage12-final-receipt-causality",
+          "independent-two-platform-native-oracle"
+        ],
+        "whole_option_canonical_sha256": [
+          "803043a3ff320080137d414be28e2b3dbe23bdba2b52e0a4f4d90d0c83907750",
+          "a6f4e3df96bc635193454c72b697210fd6bbdd753d2ec2fa448838ea0616f2df"
+        ]
+      }
+    },
+    {
+      "actual_joint_compatibility": null,
+      "candidate_specific_joint_requirement": "All nine GLOBAL proposed semantic boundary rules and complete corresponding member criteria apply to BOTH option responsibilities through every own source/effect/rights/clock/storage/observer/custody dependency. EVERY expectation/collector/verifier/injector/receipt/observer/consumer own action has401 writers/source trust,402 independent scope/envelope,403 clock/drain,404once-only storage/spend and405custody/terminal requirements. No passive exemption,forced different people,self-final proof or infinite chain;finite terminal trust/evidence cut explicit yet actual native accounting/independence unknown.",
+      "joint_specification_approved": false,
+      "native_compatibility_proven": false,
+      "whole_original397_pair_question": {
+        "actual_joint_compatibility": null,
+        "joint_specification_approved": false,
+        "option_ids": [
+          "external-durable-rights-ledger-hypothesis",
+          "complete-protected-source-consumption-hypothesis"
+        ],
+        "review_disposition": "retained-original-guarantees-joint-native-compatibility-unproven",
+        "runtime_authority": false,
+        "selected": false,
+        "whole_conflict_dependencies": [
+          "live-revocation-without-worker-broker",
+          "all-writer-privileged-alias-lifetime",
+          "supervisor-loss-and-surviving-descendants",
+          "whole-entry-and-real-backend",
+          "original-baseline-owned-backup-unknown",
+          "finite-time-budget-and-recovery-rights",
+          "whole-stage12-final-receipt-causality",
+          "independent-two-platform-native-oracle"
+        ],
+        "whole_option_canonical_sha256": [
+          "803043a3ff320080137d414be28e2b3dbe23bdba2b52e0a4f4d90d0c83907750",
+          "791461e5dc65f93911a0233dfa8182ce07fa58a122cbd7237548d7b6e550f281"
+        ]
+      }
+    },
+    {
+      "actual_joint_compatibility": null,
+      "candidate_specific_joint_requirement": "All nine GLOBAL proposed semantic boundary rules and complete corresponding member criteria apply to BOTH option responsibilities through every own source/effect/rights/clock/storage/observer/custody dependency. EVERY expectation/collector/verifier/injector/receipt/observer/consumer own action has401 writers/source trust,402 independent scope/envelope,403 clock/drain,404once-only storage/spend and405custody/terminal requirements. No passive exemption,forced different people,self-final proof or infinite chain;finite terminal trust/evidence cut explicit yet actual native accounting/independence unknown.",
+      "joint_specification_approved": false,
+      "native_compatibility_proven": false,
+      "whole_original397_pair_question": {
+        "actual_joint_compatibility": null,
+        "joint_specification_approved": false,
+        "option_ids": [
+          "external-durable-rights-ledger-hypothesis",
+          "protected-independent-raw-oracle-hypothesis"
+        ],
+        "review_disposition": "retained-original-guarantees-joint-native-compatibility-unproven",
+        "runtime_authority": false,
+        "selected": false,
+        "whole_conflict_dependencies": [
+          "live-revocation-without-worker-broker",
+          "all-writer-privileged-alias-lifetime",
+          "supervisor-loss-and-surviving-descendants",
+          "whole-entry-and-real-backend",
+          "original-baseline-owned-backup-unknown",
+          "finite-time-budget-and-recovery-rights",
+          "whole-stage12-final-receipt-causality",
+          "independent-two-platform-native-oracle"
+        ],
+        "whole_option_canonical_sha256": [
+          "803043a3ff320080137d414be28e2b3dbe23bdba2b52e0a4f4d90d0c83907750",
+          "faa26f20b7ddbc67eed94cc993ef9b72fc7e57d4b18ec3c22e99cc0d5cdb118e"
+        ]
+      }
+    },
+    {
+      "actual_joint_compatibility": null,
+      "candidate_specific_joint_requirement": "All nine GLOBAL proposed semantic boundary rules and complete corresponding member criteria apply to BOTH option responsibilities through every own source/effect/rights/clock/storage/observer/custody dependency. EVERY expectation/collector/verifier/injector/receipt/observer/consumer own action has401 writers/source trust,402 independent scope/envelope,403 clock/drain,404once-only storage/spend and405custody/terminal requirements. No passive exemption,forced different people,self-final proof or infinite chain;finite terminal trust/evidence cut explicit yet actual native accounting/independence unknown.",
+      "joint_specification_approved": false,
+      "native_compatibility_proven": false,
+      "whole_original397_pair_question": {
+        "actual_joint_compatibility": null,
+        "joint_specification_approved": false,
+        "option_ids": [
+          "separate-owned-target-quarantine-hypothesis",
+          "explicit-producer-and-external-finalization-cut"
+        ],
+        "review_disposition": "joint-semantic-migration-and-trust-scope-reconciliation-required",
+        "runtime_authority": false,
+        "selected": false,
+        "whole_conflict_dependencies": [
+          "live-revocation-without-worker-broker",
+          "all-writer-privileged-alias-lifetime",
+          "supervisor-loss-and-surviving-descendants",
+          "whole-entry-and-real-backend",
+          "original-baseline-owned-backup-unknown",
+          "finite-time-budget-and-recovery-rights",
+          "whole-stage12-final-receipt-causality",
+          "independent-two-platform-native-oracle"
+        ],
+        "whole_option_canonical_sha256": [
+          "be61727f80d2ae47c8a93529ac21640002fbc5987b11ef2e35edb8744be50c9f",
+          "a6f4e3df96bc635193454c72b697210fd6bbdd753d2ec2fa448838ea0616f2df"
+        ]
+      }
+    },
+    {
+      "actual_joint_compatibility": null,
+      "candidate_specific_joint_requirement": "All nine GLOBAL proposed semantic boundary rules and complete corresponding member criteria apply to BOTH option responsibilities through every own source/effect/rights/clock/storage/observer/custody dependency. EVERY expectation/collector/verifier/injector/receipt/observer/consumer own action has401 writers/source trust,402 independent scope/envelope,403 clock/drain,404once-only storage/spend and405custody/terminal requirements. No passive exemption,forced different people,self-final proof or infinite chain;finite terminal trust/evidence cut explicit yet actual native accounting/independence unknown.",
+      "joint_specification_approved": false,
+      "native_compatibility_proven": false,
+      "whole_original397_pair_question": {
+        "actual_joint_compatibility": null,
+        "joint_specification_approved": false,
+        "option_ids": [
+          "separate-owned-target-quarantine-hypothesis",
+          "complete-protected-source-consumption-hypothesis"
+        ],
+        "review_disposition": "retained-original-guarantees-joint-native-compatibility-unproven",
+        "runtime_authority": false,
+        "selected": false,
+        "whole_conflict_dependencies": [
+          "live-revocation-without-worker-broker",
+          "all-writer-privileged-alias-lifetime",
+          "supervisor-loss-and-surviving-descendants",
+          "whole-entry-and-real-backend",
+          "original-baseline-owned-backup-unknown",
+          "finite-time-budget-and-recovery-rights",
+          "whole-stage12-final-receipt-causality",
+          "independent-two-platform-native-oracle"
+        ],
+        "whole_option_canonical_sha256": [
+          "be61727f80d2ae47c8a93529ac21640002fbc5987b11ef2e35edb8744be50c9f",
+          "791461e5dc65f93911a0233dfa8182ce07fa58a122cbd7237548d7b6e550f281"
+        ]
+      }
+    },
+    {
+      "actual_joint_compatibility": null,
+      "candidate_specific_joint_requirement": "All nine GLOBAL proposed semantic boundary rules and complete corresponding member criteria apply to BOTH option responsibilities through every own source/effect/rights/clock/storage/observer/custody dependency. EVERY expectation/collector/verifier/injector/receipt/observer/consumer own action has401 writers/source trust,402 independent scope/envelope,403 clock/drain,404once-only storage/spend and405custody/terminal requirements. No passive exemption,forced different people,self-final proof or infinite chain;finite terminal trust/evidence cut explicit yet actual native accounting/independence unknown.",
+      "joint_specification_approved": false,
+      "native_compatibility_proven": false,
+      "whole_original397_pair_question": {
+        "actual_joint_compatibility": null,
+        "joint_specification_approved": false,
+        "option_ids": [
+          "separate-owned-target-quarantine-hypothesis",
+          "protected-independent-raw-oracle-hypothesis"
+        ],
+        "review_disposition": "retained-original-guarantees-joint-native-compatibility-unproven",
+        "runtime_authority": false,
+        "selected": false,
+        "whole_conflict_dependencies": [
+          "live-revocation-without-worker-broker",
+          "all-writer-privileged-alias-lifetime",
+          "supervisor-loss-and-surviving-descendants",
+          "whole-entry-and-real-backend",
+          "original-baseline-owned-backup-unknown",
+          "finite-time-budget-and-recovery-rights",
+          "whole-stage12-final-receipt-causality",
+          "independent-two-platform-native-oracle"
+        ],
+        "whole_option_canonical_sha256": [
+          "be61727f80d2ae47c8a93529ac21640002fbc5987b11ef2e35edb8744be50c9f",
+          "faa26f20b7ddbc67eed94cc993ef9b72fc7e57d4b18ec3c22e99cc0d5cdb118e"
+        ]
+      }
+    },
+    {
+      "actual_joint_compatibility": null,
+      "candidate_specific_joint_requirement": "All nine GLOBAL proposed semantic boundary rules and complete corresponding member criteria apply to BOTH option responsibilities through every own source/effect/rights/clock/storage/observer/custody dependency. EVERY expectation/collector/verifier/injector/receipt/observer/consumer own action has401 writers/source trust,402 independent scope/envelope,403 clock/drain,404once-only storage/spend and405custody/terminal requirements. No passive exemption,forced different people,self-final proof or infinite chain;finite terminal trust/evidence cut explicit yet actual native accounting/independence unknown.",
+      "joint_specification_approved": false,
+      "native_compatibility_proven": false,
+      "whole_original397_pair_question": {
+        "actual_joint_compatibility": null,
+        "joint_specification_approved": false,
+        "option_ids": [
+          "explicit-producer-and-external-finalization-cut",
+          "complete-protected-source-consumption-hypothesis"
+        ],
+        "review_disposition": "joint-semantic-migration-and-trust-scope-reconciliation-required",
+        "runtime_authority": false,
+        "selected": false,
+        "whole_conflict_dependencies": [
+          "live-revocation-without-worker-broker",
+          "all-writer-privileged-alias-lifetime",
+          "supervisor-loss-and-surviving-descendants",
+          "whole-entry-and-real-backend",
+          "original-baseline-owned-backup-unknown",
+          "finite-time-budget-and-recovery-rights",
+          "whole-stage12-final-receipt-causality",
+          "independent-two-platform-native-oracle"
+        ],
+        "whole_option_canonical_sha256": [
+          "a6f4e3df96bc635193454c72b697210fd6bbdd753d2ec2fa448838ea0616f2df",
+          "791461e5dc65f93911a0233dfa8182ce07fa58a122cbd7237548d7b6e550f281"
+        ]
+      }
+    },
+    {
+      "actual_joint_compatibility": null,
+      "candidate_specific_joint_requirement": "All nine GLOBAL proposed semantic boundary rules and complete corresponding member criteria apply to BOTH option responsibilities through every own source/effect/rights/clock/storage/observer/custody dependency. EVERY expectation/collector/verifier/injector/receipt/observer/consumer own action has401 writers/source trust,402 independent scope/envelope,403 clock/drain,404once-only storage/spend and405custody/terminal requirements. No passive exemption,forced different people,self-final proof or infinite chain;finite terminal trust/evidence cut explicit yet actual native accounting/independence unknown.",
+      "joint_specification_approved": false,
+      "native_compatibility_proven": false,
+      "whole_original397_pair_question": {
+        "actual_joint_compatibility": null,
+        "joint_specification_approved": false,
+        "option_ids": [
+          "explicit-producer-and-external-finalization-cut",
+          "protected-independent-raw-oracle-hypothesis"
+        ],
+        "review_disposition": "joint-semantic-migration-and-trust-scope-reconciliation-required",
+        "runtime_authority": false,
+        "selected": false,
+        "whole_conflict_dependencies": [
+          "live-revocation-without-worker-broker",
+          "all-writer-privileged-alias-lifetime",
+          "supervisor-loss-and-surviving-descendants",
+          "whole-entry-and-real-backend",
+          "original-baseline-owned-backup-unknown",
+          "finite-time-budget-and-recovery-rights",
+          "whole-stage12-final-receipt-causality",
+          "independent-two-platform-native-oracle"
+        ],
+        "whole_option_canonical_sha256": [
+          "a6f4e3df96bc635193454c72b697210fd6bbdd753d2ec2fa448838ea0616f2df",
+          "faa26f20b7ddbc67eed94cc993ef9b72fc7e57d4b18ec3c22e99cc0d5cdb118e"
+        ]
+      }
+    },
+    {
+      "actual_joint_compatibility": null,
+      "candidate_specific_joint_requirement": "All nine GLOBAL proposed semantic boundary rules and complete corresponding member criteria apply to BOTH option responsibilities through every own source/effect/rights/clock/storage/observer/custody dependency. EVERY expectation/collector/verifier/injector/receipt/observer/consumer own action has401 writers/source trust,402 independent scope/envelope,403 clock/drain,404once-only storage/spend and405custody/terminal requirements. No passive exemption,forced different people,self-final proof or infinite chain;finite terminal trust/evidence cut explicit yet actual native accounting/independence unknown.",
+      "joint_specification_approved": false,
+      "native_compatibility_proven": false,
+      "whole_original397_pair_question": {
+        "actual_joint_compatibility": null,
+        "joint_specification_approved": false,
+        "option_ids": [
+          "complete-protected-source-consumption-hypothesis",
+          "protected-independent-raw-oracle-hypothesis"
+        ],
+        "review_disposition": "retained-original-guarantees-joint-native-compatibility-unproven",
+        "runtime_authority": false,
+        "selected": false,
+        "whole_conflict_dependencies": [
+          "live-revocation-without-worker-broker",
+          "all-writer-privileged-alias-lifetime",
+          "supervisor-loss-and-surviving-descendants",
+          "whole-entry-and-real-backend",
+          "original-baseline-owned-backup-unknown",
+          "finite-time-budget-and-recovery-rights",
+          "whole-stage12-final-receipt-causality",
+          "independent-two-platform-native-oracle"
+        ],
+        "whole_option_canonical_sha256": [
+          "791461e5dc65f93911a0233dfa8182ce07fa58a122cbd7237548d7b6e550f281",
+          "faa26f20b7ddbc67eed94cc993ef9b72fc7e57d4b18ec3c22e99cc0d5cdb118e"
+        ]
+      }
+    }
+  ],
+  "expected_review_result": {
+    "after_complete407_acceptance_next_preparable_step": 408,
+    "after_confirmed408_next_authorized_stage": null,
+    "approved_contract_migration": null,
+    "conditional_close_step": 408,
+    "independent_impact_review_accepted": false,
+    "last_confirmed_repository_pause": 398,
+    "runtime_authority": false,
+    "selected_options": null,
+    "semantic_migration_complete": false,
+    "state": "prepared-inactive-integrated-semantic-decision-packet-user-acceptance-pending",
+    "step": 407,
+    "strong_safe_pause": false
+  },
+  "false_fields": [
+    "local_focus_rule_list_waives_other_global_rules",
+    "counts_or_hashes_replace_whole_statements",
+    "original_current_normative_guarantees_activated_as_draft",
+    "inactive_patch_view_is_complete_native_protocol",
+    "changed_forward_recovery_effect_guarantees_hidden",
+    "old_stage12_claimed_equivalent_to_producer_subset",
+    "unknown_native_component_or_support_promoted",
+    "approval_inferred_from_commit_PASS_or_author_recommendation",
+    "independent_impact_review_accepted",
+    "semantic_migration_complete",
+    "actual_global_host_closure",
+    "runtime_authority",
+    "current_strong_safe_pause"
+  ],
+  "fixture_canonical_sha256": {
+    "baseline": "97d5257ad5b407d2841a0c7ed06454bc11ea5e9d6794a1ee02b52bbeb62ad162",
+    "entry406": "bdf98442bb7248e55f5e2d08a3e67f36b7ac5d2642d9a49bd093d947a62c3ad5",
+    "review": "1ab88f0626f87d8574aa1f1c49f978dfdf2cce0a2274f8529101ba50b6a647c4",
+    "sources": "953e916f9842b7f4a0ae60209f0968a086eede966319127ca5789e13e5a399c0"
+  },
+  "new_paths": [
+    "docs/reference/phase-1-operational-integrated-joint-contract-semantic-migration-decision-packet-review.md",
+    "tools/reference/phase-1-operational-integrated-joint-contract-semantic-migration-decision-packet-review.py",
+    "tests/reference/test-phase-1-operational-integrated-joint-contract-semantic-migration-decision-packet-review-harness.sh",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-integrated-joint-contract-semantic-migration-decision-packet-review-baseline.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-integrated-joint-contract-semantic-migration-decision-packet-review-entry406.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-integrated-joint-contract-semantic-migration-decision-packet-review-review.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-integrated-joint-contract-semantic-migration-decision-packet-review-sources.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-integrated-joint-contract-semantic-migration-decision-packet-review-policy.json"
+  ],
+  "null_fields": [
+    "selected_options",
+    "approved_joint_specification",
+    "approved_contract_migration",
+    "actual_selected_implementation",
+    "actual_joint_native_graph",
+    "actual_native_evidence",
+    "actual_two_platform_run_bindings",
+    "actual_live_bindings",
+    "after_confirmed408_next_authorized_stage"
+  ],
+  "prefixes": {
+    "CHANGELOG.md": "## Phase 1 step 407 -- complete inactive joint semantic migration decision packet\n\n- Accepted406 at reported2d2db9b:102 orderedPASS/zero failures,ten files/eight creates/\n  84650 insertions,push/clean matching heads;uploaded whole receipt bytes retained.\n- ALL15 original categories/1286 ordered WHOLE members have source/pointer/byte/\n  canonical bindings and specific candidate guarantee/positive/negative criteria.\n-14 exact inactive clause replacements/four companion trust-terminal assumptions,\n  full8current/patch contract views,complete9source and additional recovery losses.\n-46 proof-specific/26case-type criteria bind all52 platform rows/1072 ordered\n  proof-case relations;whole entry/raw/cut/gap/history/entry/readiness scope retained.\n- Eight whole decision proposals/nine joint answers/all325 oldpair/36candidate\n  pairquestions retain unselected options/retention/deferral and unknown native graph.\n- User decision/independent specification/impact/migration approval/implementation/\n  fresh native-test grant separate,pending. Original norms binding,no native approval.\n- Whole94inputs/33roots,2178historical406bodies retained except exact prefixes.\n  Full407 acceptance before conditional408 allWHOLEconditions/actualfinalreturn/\n  external confirmation then STOP/noautomatic409. Last pause398 only.\n\n",
+    "README.md": "<!-- step-407-integrated-semantic-decision:start -->\n## Current Phase 1 integrated joint semantic decision packet -- step 407\n\nAccepted406 at reported `2d2db9b`:102 orderedPASS/zero failures,ten files/eight creates/\n84650 insertions,reported main push/clean matching heads.407 prepared,user acceptance\npending;last confirmed repository pause398 covers389-398 only.\n\nThe [407 packet](docs/reference/phase-1-operational-integrated-joint-contract-semantic-migration-decision-packet-review.md)\nis a complete reviewable INACTIVE400-A semantic proposal:14exact clause changes,\nfour trust/terminal assumptions,full8current/patch contract views and ALL15category/\n1286WHOLE member acceptance criteria.46proof-specific/26case-type paragraphs bind\nall52platform rows/1072 ordered relations;whole raw/entry/gap/history/readiness\nretained. All9 global trust/admission/clock/stage/storage/drain/source-oracle rules\napply to complete own dependencies;local focus never waives them. Extra FORWARD AND\nRECOVERY post-request finite continuation losses and changed stage12/terminal scope\nexplicit,never old original equivalence. Eight WHOLE decisions/nine jointanswers/\nall325oldpairs/36candidate pairs and unselected retention/deferral alternatives.\n\nUser option decision,independent specification/impact acceptance,explicit migration\napproval,actual implementation selection and fresh native-test grant separately\npending. Draft/recommendation/commit/PASS is none of them;current original norms\nbinding. Native source/mechanisms/platform evidence still unknown,cases/proofs0,\nPhase1/kernel incomplete;schema/reference-v1/C/Phase2/Production closed. Host\nunobserved/livebindingsnull/globalclosurefalse. ACTUAL safe jointreview THEN separate\nfresh bounded native-testgrant BEFORE effects;tests cannot self-authorize. Full407\nacceptance before408;conditional408 allWHOLE scopedconditions/actualfinalreturn/\nexternal confirmation then STOP/noautomatic409/newrequest. Prior accepted406 README\nsuffix byte-exact below.\n<!-- step-407-integrated-semantic-decision:end -->\n\n"
+  },
+  "receipt_create_paths": [
+    "docs/reference/phase-1-operational-joint-whole-entry-independent-two-platform-oracle-proposal-review.md",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-whole-entry-independent-two-platform-oracle-proposal-review-baseline.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-whole-entry-independent-two-platform-oracle-proposal-review-entry405.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-whole-entry-independent-two-platform-oracle-proposal-review-policy.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-whole-entry-independent-two-platform-oracle-proposal-review-review.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-whole-entry-independent-two-platform-oracle-proposal-review-sources.json",
+    "tests/reference/test-phase-1-operational-joint-whole-entry-independent-two-platform-oracle-proposal-review-harness.sh",
+    "tools/reference/phase-1-operational-joint-whole-entry-independent-two-platform-oracle-proposal-review.py"
+  ],
+  "receipt_final_tail": "2d2db9b (HEAD -> main, origin/main, origin/HEAD) Phase 1 step 406: reconcile whole entry consumed source and independent two-platform oracle draft\n2d2db9b (HEAD -> main, origin/main, origin/HEAD) Phase 1 step 406: reconcile whole entry consumed source and independent two-platform oracle draft\npromano@pc-arch ~/Descargas $ \n",
+  "receipt_pass_labels": [
+    "PASS: whole authored406 entry baseline review sources independently bound",
+    "PASS: complete actual405 supplied receipt81PASS exact commit push clean heads",
+    "PASS: all91 whole inputs and32 roots retained;inert roots never executed",
+    "PASS: whole original entry source and independent full two-platform oracle requirements retained",
+    "PASS: all2170 accepted405 historical paths unchanged except exact prefixes",
+    "PASS: exact eight additions plus README and CHANGELOG scope",
+    "PASS: reject boolean schema by semantic review",
+    "PASS: reject selection invented by semantic review",
+    "PASS: reject approved migration invented by semantic review",
+    "PASS: reject runtime opened by semantic review",
+    "PASS: reject native case invented by semantic review",
+    "PASS: reject normative original waived by semantic review",
+    "PASS: reject original whole entry clause shortened by semantic review",
+    "PASS: reject one source surface omitted by semantic review",
+    "PASS: reject source consumed protection removed by semantic review",
+    "PASS: reject nested argv scope shortened by semantic review",
+    "PASS: reject raw status distinction shortened by semantic review",
+    "PASS: reject one qualified proof omitted by semantic review",
+    "PASS: reject one proof statement shortened by semantic review",
+    "PASS: reject one full native case omitted by semantic review",
+    "PASS: reject one raw group omitted by semantic review",
+    "PASS: reject one ordered relation omitted by semantic review",
+    "PASS: reject one native case joint row omitted by semantic review",
+    "PASS: reject case source pointer rebound by semantic review",
+    "PASS: reject case platform borrowed by semantic review",
+    "PASS: reject case original evidence group omitted by semantic review",
+    "PASS: reject one comparison requirement omitted by semantic review",
+    "PASS: reject one native cut dimension omitted by semantic review",
+    "PASS: reject one observation family omitted by semantic review",
+    "PASS: reject whole expectation contract truncated by semantic review",
+    "PASS: reject one oracle role omitted by semantic review",
+    "PASS: reject one effective fault control omitted by semantic review",
+    "PASS: reject verifier forbidden to author expectations by semantic review",
+    "PASS: reject whole entry replaced by three calls by semantic review",
+    "PASS: reject lexical census or hash proves consumed graph by semantic review",
+    "PASS: reject subject self expectation allowed by semantic review",
+    "PASS: reject shared selector cleanup logic is sole oracle by semantic review",
+    "PASS: reject four distinct people required by semantic review",
+    "PASS: reject role or hash proves independence by semantic review",
+    "PASS: reject requested fault is effective cut by semantic review",
+    "PASS: reject macro cuts are actual native sites by semantic review",
+    "PASS: reject macro schedules are exhaustive by semantic review",
+    "PASS: reject nominal types are actual ABI by semantic review",
+    "PASS: reject unknown means empty or no effect by semantic review",
+    "PASS: reject pending erases known mismatch by semantic review",
+    "PASS: reject sort dedup or sample vectors allowed by semantic review",
+    "PASS: reject cross platform evidence transfer allowed by semantic review",
+    "PASS: reject observer injector effects exempt by semantic review",
+    "PASS: reject private351 literals are native expectations by semantic review",
+    "PASS: reject matching paper vectors are native conformance by semantic review",
+    "PASS: reject actual backend invented by semantic review",
+    "PASS: reject actual full native expectations invented by semantic review",
+    "PASS: reject paper native observation invented by semantic review",
+    "PASS: reject joint question omitted by semantic review",
+    "PASS: reject semantic migration complete by semantic review",
+    "PASS: reject new pause claimed by semantic review",
+    "PASS: reject automatic409 opened by semantic review",
+    "PASS: reject truncated actual405 transcript",
+    "PASS: reject original source byte drift",
+    "PASS: reject coordinated authored policy substitution",
+    "PASS: review output retains inactive draft and closed native rights",
+    "PASS: pure reviewer imports only hashlib json re",
+    "PASS: exact delivered artifact docs/reference/phase-1-operational-joint-whole-entry-independent-two-platform-oracle-proposal-review.md",
+    "PASS: exact delivered artifact tests/reference/test-phase-1-operational-joint-whole-entry-independent-two-platform-oracle-proposal-review-harness.sh",
+    "PASS: paper whole raw oracle witness complete-matching-paper-vectors",
+    "PASS: paper whole raw oracle witness unknown-not-explicit-empty",
+    "PASS: paper whole raw oracle witness explicit-empty-known",
+    "PASS: paper whole raw oracle witness ordered-input-reordered",
+    "PASS: paper whole raw oracle witness multiplicity-deduplicated",
+    "PASS: paper whole raw oracle witness mismatch-with-unknown-effect",
+    "PASS: paper whole raw oracle witness subject-authored-expectation",
+    "PASS: paper whole raw oracle witness same-selector-as-oracle",
+    "PASS: paper whole raw oracle witness source-checked-but-not-protected-through-use",
+    "PASS: paper whole raw oracle witness dynamic-helper-unclassified",
+    "PASS: paper whole raw oracle witness old-original-run-borrowed",
+    "PASS: paper whole raw oracle witness current-evidence-borrowed-for15",
+    "PASS: paper whole raw oracle witness requested-negative-cut-not-reached",
+    "PASS: paper whole raw oracle witness reached-negative-cut-not-effective",
+    "PASS: paper whole raw oracle witness positive-reference-missing",
+    "PASS: paper whole raw oracle witness observer-own-rights-unknown",
+    "PASS: paper whole raw oracle witness raw-capture-not-independent",
+    "PASS: paper whole raw oracle witness custody-ACK-unknown",
+    "PASS: paper whole raw oracle witness unattempted-never-success",
+    "PASS: paper whole raw oracle witness install20-nonempty",
+    "PASS: paper whole raw oracle witness upgrade20-even-if-declared-expected",
+    "PASS: paper whole raw oracle witness upgrade0-two-targets",
+    "PASS: paper whole raw oracle witness known-mismatch-with-capture-pending",
+    "PASS: paper whole raw oracle witness contained-original-failure",
+    "PASS: paper whole raw oracle witness raw-byte-stream-mismatch",
+    "PASS: paper whole raw oracle witness unknown-expected-field-not-observed-fallback",
+    "PASS: paper whole raw oracle witness original-failure-state-unknown",
+    "PASS: paper whole raw oracle witness prior-mismatch-state-unknown",
+    "PASS: paper whole raw oracle witness install20-effect-not-empty",
+    "PASS: known raw mismatch retained with separate unknown effect vector",
+    "PASS: previous qualified mismatch survives later capture unknown",
+    "PASS: contained original failure remains failure and not native success",
+    "PASS: reject boolean raw status masquerading as integer",
+    "PASS: reject truncated synthetic raw byte stream",
+    "PASS: reject paper comparator promoted to native conformance",
+    "PASS: unqualified declaration disagreement not independent mismatch",
+    "PASS: unknown original failure stays null and pending not false success",
+    "PASS: unknown prior mismatch stays null and pending"
+  ],
+  "receipt_push_marker": "   0939463..2d2db9b  main -> main\n",
+  "receipt_sha256": "37ac44fd3667ad171ec6dccb48e70f3b1476ef66fd142a648ed7cd4fe0403042",
+  "receipt_single_markers": [
+    "step406_overlay_application_status\tPASS",
+    "step406_commit_scope_verification_status\tPASS",
+    "Result: PASS (102 passes, 0 failures)",
+    "[main 2d2db9b] Phase 1 step 406: reconcile whole entry consumed source and independent two-platform oracle draft",
+    " 10 files changed, 84650 insertions(+)",
+    "   0939463..2d2db9b  main -> main\n"
+  ],
+  "receipt_size_bytes": 10198,
+  "reference_fields": {
+    "whole_396_impact_reference": "oracle_brief396",
+    "whole_accepted401_trust_reference": "trust401",
+    "whole_accepted402_operation_reference": "operation402",
+    "whole_accepted403_loss_reference": "loss403",
+    "whole_accepted404_storage_reference": "storage404",
+    "whole_accepted405_publication_reference": "publication405",
+    "whole_accepted406_entry_oracle_reference": "entry_oracle406",
+    "whole_candidate400_reference": "candidate400",
+    "whole_original397_packet_reference": "packet397",
+    "whole_original45_candidate_verdicts_reference": "accepted386dossier"
+  },
+  "schema": 1,
+  "semantic_definition_sha256": "fff79be424627bcbff7dc78a7c5fbbb8d60416f95147126b23ca2da37323fa38",
+  "semantic_definitions": {
+    "all": "T401 F402 R402 P402 C403 E405 D404 G403 S406",
+    "blockers": {
+      "bounded-offline-bootstrap": "C403 G403 S406",
+      "canonical-resolution-and-consumption": "T401 S406",
+      "checked-code-and-backend-graph": "T401 F402 R402 S406",
+      "descriptor-capability-closure": "T401 G403 S406",
+      "external-live-revocation": "F402 R402 P402 C403 S406",
+      "namespace-and-syscall-containment": "T401 F402 R402 S406",
+      "owned-storage-and-no-replace": "T401 D404 F402 R402 S406",
+      "trusted-finite-time": "C403 D404 G403 S406",
+      "whole-descendant-supervision": "G403 F402 R402 C403 S406",
+      "writer-object-alias-exclusion": "T401 G403 S406"
+    },
+    "cases": {
+      "actual-selector": [
+        "T401 D404 S406",
+        "Independent ORIGINAL complete ordered raw install-new/upgrade selector/input/effect vectors;install20 only empty+noeffect,upgrade20 failure,upgrade0 exactone target;effective count/order/multiplicity mismatch remains failure."
+      ],
+      "bootstrap-bounds": [
+        "C403 G403 S406",
+        "Positive complete bounded authenticated offline memory envelope/close;effective oversize/partial EOF/deadline/producer loss/encoding cuts deny before owned effects without added service channel."
+      ],
+      "child-quiescence": [
+        "G403 T401 F402 R402 C403 S406",
+        "Original full membership/descendants/FD streams/inflight storage/source guard raw origin,positive known drain and effective surviving-child/alias/EOF/controller loss cuts;signal/parentexit/count never closure."
+      ],
+      "cross-closure-oracle": [
+        "T401 F402 R402 P402 C403 E405 D404 G403 S406",
+        "Whole actual source/effects/rights/lifetimes/target/owned/controller/publication/oracle obligations and full expected/observed raw groups;known mismatch with missing fields stays mismatch+pending,no declarations/counts/nativeclosure or other-platform borrowing."
+      ],
+      "durable-consumption": [
+        "T401 D404 C403 S406",
+        "Positive unique durable original claim and effective competing-claim/partial-storage/lostACK/crash cuts;record original consumed/unknown quarantine,never refunded or presumed unused."
+      ],
+      "guard-writer-inventory": [
+        "T401 G403 S406",
+        "Positive continuous actual all-in-boundary writers/objects/aliases and effective root/admin/helper/manual/observer writes prevented/coordinated;explicit enumerated deliberate trusted-infrastructure tamper challenge is excluded+trustfailure,not proven prevented."
+      ],
+      "helper-dependencies": [
+        "T401 G403 S406",
+        "Full dynamic interpreter/loader/library/helper/environment/async dependency/FD graph and own side effects;effective unclassified helper/alias/writer challenges stop,no lexical graph or package version as proof."
+      ],
+      "issuer-authentication": [
+        "T401 D404 S406",
+        "Challenge exact principal/key/epoch/scope/canonical handoff mismatches with original independent raw context;unknown/unauthenticated actor cannot burn victim grant or self-author trusted expectation."
+      ],
+      "namespace-FDs": [
+        "T401 G403 S406",
+        "Capture all inherited open objects/FD aliases/reader-writer capability/namespace/privilege boundaries;effective forbidden channel/alias/descendant challenges remain workload-denied,not FD-number census proof."
+      ],
+      "original-backups": [
+        "T401 D404 R402 S406",
+        "Known exact protected ORIGINAL durable backups before target mutation and effective wrong binding/partial backup/missing backup cuts;absence does not establish unchanged or permit restore."
+      ],
+      "original-verification": [
+        "T401 R402 D404 G403 S406",
+        "Full independently qualified original target vectors/invariants/evidence under guard,including no-backup independently unchanged branch;foreign mismatch and pending owned/controller stay separate,no automatic release."
+      ],
+      "package-hooks-effects": [
+        "T401 F402 R402 G403 S406",
+        "Capture every actual package/helper/config/hook/async/descendant effect and source;effective unexpected hook/foreign writer/forbidden boot optional challenges denied,no postinst-off exemption."
+      ],
+      "phase-deltas": [
+        "T401 F402 R402 D404 S406",
+        "Compare full original phase/metadata/presence/approved package-config vectors and unrelated invariants;effective foreign drift/dependency alias challenges stop rather than rebind baseline or approve extra delta."
+      ],
+      "publication-controls": [
+        "P402 E405 T401 C403 D404 S406",
+        "Every producer/collector/receipt/observer/consumer own original first-effect source/writer/ancestor/alias/clock/spend/storage controls;target request not own publication permission,no late target/source read."
+      ],
+      "raw-pkglist-pin": [
+        "T401 D404 S406",
+        "Same original raw bytes/regular-object/writer identity across update/validation/consumer,full ordered selector vectors;effective equivalent-rows-but-byte-change challenge rejects,no repin."
+      ],
+      "raw-status-latch": [
+        "F402 R402 D404 S406",
+        "Independent raw0/20/-1/streams and original absorbing forward failure even caller continues;effective error/partial/late-forward challenge proves later admission closed,not cleanup success overwriting original status."
+      ],
+      "record-last-receipt": [
+        "P402 E405 D404 G403 S406",
+        "Positive complete exact changed producer trace followed by past-only payload,separate receipt commit/writer raw outcome/final observer/custody. Effective future-self-field/producer-only eligibility/atomicpair challenges reject;not old whole-stage equivalence."
+      ],
+      "reference-entry": [
+        "T401 F402 R402 D404 S406",
+        "WHOLE actual successor preparation/lock/log/trap/snapshot/config/helper/backend effects and effective forbidden boot/GenInitrd/optional cuts;three argv calls/counts/flags never equivalent entry proof."
+      ],
+      "retained-restoration": [
+        "R402 C403 D404 G403 T401 S406",
+        "Exact retained original recovery/backups/source/guard/full drain/pre-spend;effective recovery/all request before admission denies,known PRE-request finite envelope may continue ONLY draft originalbounds,no lostACK repeat."
+      ],
+      "rights-budgets": [
+        "F402 R402 P402 C403 D404 S406",
+        "Exact original split scopes/fixed deadlines/durable once-only spends;effective unknown/expired/exhausted/recovery-request/new-slot challenge denies NEW action,qualified captured facts need no renewed right merely to remain facts."
+      ],
+      "signal-crash-interleavings": [
+        "T401 F402 R402 P402 C403 D404 G403 E405 S406",
+        "Actual independently reached/effective signal/crash/restart/partial-storage/concurrent-writer/request/source/observer cuts with fullraw consequences and original pending extent;macro schedules not exhaustive native interleavings."
+      ],
+      "single-launch-slot": [
+        "D404 G403 S406",
+        "Positive one durable pre-spend before single spawn;effective lost spawn ACK/duplicate launch/control loss cuts prove no second launch and retain exact original child ownership unknowns."
+      ],
+      "source-archives": [
+        "T401 D404 S406",
+        "Actual checked interpreter/source/archive bytes/metadata/ancestor/mount/writer identity protected through every consumer;effective check-use substitution/hash-only graph challenge closes entry,no late source action."
+      ],
+      "stage7-binding": [
+        "T401 D404 F402 R402 C403 S406",
+        "All nine owned no-replace microsteps,before/within/after partial/ACK/storage cuts and complete stage-exit raw evidence;unknown commit prevents overwrite/recreate/stage8,prior effects still due."
+      ],
+      "time-revocation-fence": [
+        "F402 R402 P402 C403 G403 S406",
+        "Capture separate request-before/admission-before orders for forward,recovery/all and own publication;permitted finite pre-request effects explicitly differ from old every-effect denial,deadline expiry always closes completion. Known/suspected clock breaches stop;hidden assumed-trusted tampering outside draft guarantee not detected/PASS."
+      ],
+      "unknown-publication": [
+        "P402 E405 D404 G403 S406",
+        "Effective record/receipt/storage/writer drain/final-observer/custody ACK loss keeps pending without replay/republish/refund/newgrant;qualified captured object/target facts and original failure remain."
+      ]
+    },
+    "conflicts": {
+      "all-writer-privileged-alias-lifetime": "T401 G403 S406",
+      "finite-time-budget-and-recovery-rights": "C403 D404 R402 F402 P402 G403 S406",
+      "independent-two-platform-native-oracle": "T401 F402 R402 P402 C403 E405 D404 G403 S406",
+      "live-revocation-without-worker-broker": "F402 R402 P402 C403 S406",
+      "original-baseline-owned-backup-unknown": "T401 D404 R402 G403 S406",
+      "supervisor-loss-and-surviving-descendants": "G403 C403 R402 D404 S406",
+      "whole-entry-and-real-backend": "T401 F402 R402 S406",
+      "whole-stage12-final-receipt-causality": "P402 E405 D404 G403 S406"
+    },
+    "contracts": {
+      "320": "T401 D404 G403 C403 S406",
+      "321": "T401 G403 C403 S406",
+      "322": "T401 D404 F402 R402 P402 E405 S406",
+      "323": "F402 R402 P402 C403 D404 G403 S406",
+      "324": "T401 D404 G403 F402 R402 P402 E405 S406",
+      "325": "T401 F402 R402 P402 E405 D404 G403 S406",
+      "326": "T401 F402 R402 P402 C403 E405 D404 G403 S406",
+      "327": "T401 F402 R402 P402 C403 E405 D404 G403 S406"
+    },
+    "cuts": {
+      "clock-revocation-and-inflight-effect": "F402 R402 P402 C403 G403 S406",
+      "concurrent-writers-aliases-and-descendants": "T401 F402 R402 P402 G403 S406",
+      "file-metadata-directory-storage": "T401 D404 E405 S406",
+      "independent-control-coverage-and-observer-effects": "T401 F402 R402 P402 C403 E405 D404 G403 S406",
+      "linearization-versus-ACK": "F402 R402 P402 D404 G403 S406",
+      "partial-operation-and-interruption": "T401 F402 R402 P402 D404 G403 S406",
+      "pre-call-identity-rights": "T401 F402 R402 P402 C403 D404 S406",
+      "restart-crash-and-original-quarantine": "C403 D404 G403 S406",
+      "scoped-evidence-before-known-release": "R402 P402 E405 D404 G403 S406"
+    },
+    "entry": {
+      "actual-platform-version-and-support": [
+        "C403 D404 S406",
+        "Independently bind actual source/versions/configuration/platform/boot/attempt/run/support on OWN15.0/current;no other-platform/historical receipt transfer or source documentation as native support."
+      ],
+      "complete-reviewed-native-composition": [
+        "T401 F402 R402 P402 C403 E405 D404 G403 S406",
+        "BEFORE ANY test effect independently review complete ACTUAL compatible composition/source/effect/containment and every mapped obligation under explicitly approved exact candidate guarantee scope;not old unqualified-no-relaxation equivalence. Actual selection/review remains unknown."
+      ],
+      "effective-fault-observation-plan": [
+        "T401 F402 R402 P402 C403 E405 D404 G403 S406",
+        "Independently review actual reachable/effective positive-negative cut sites/full original raw expectations/coverage and own actor controls BEFORE experiments;do not run to learn safety first,macro schedule/request not native plan."
+      ],
+      "future-fresh-explicit-test-grant": [
+        "T401 F402 R402 P402 C403 E405 D404 G403 S406",
+        "AFTER independently safe actual joint review,obtain separate fresh explicit bounded case-platform-run native-test grant BEFORE effects. Draft choice/migration approval/commit/PASS is not this grant."
+      ],
+      "independent-actors-and-trust-before-use": [
+        "T401 P402 E405 S406",
+        "Review actual protected expectation/collector/verifier/injector/consumer source/capability/independence/custody and all own finite effects BEFORE use;verifier may author expectations,no observer immunity/different-person proof."
+      ],
+      "no-consumed-or-historical-authority-reuse": [
+        "D404 C403 F402 R402 P402 S406",
+        "Consumed original claim/launch/action or historical boot/source/attempt/run cannot be revived/reused/refunded/renewed to authorize new experiment or replay."
+      ],
+      "original-baseline-and-recovery-review": [
+        "T401 R402 C403 D404 G403 S406",
+        "BEFORE effects review continuous actual guard,fresh ORIGINAL vectors/known exact backups,original once-only action spends/safe recovery/full children/storage;explicit R402 scope change does not waive source/guard/backup/expiry constraints."
+      ],
+      "safe-containment-before-test-effects": [
+        "T401 F402 R402 G403 S406",
+        "Independently establish ACTUAL prevention/coordination/all workload writers/aliases/descendants and reviewed infrastructure trust before any injector/observer/test own effect;labels/hash are not containment."
+      ],
+      "specific-safe-test-scope": [
+        "T401 F402 R402 P402 C403 E405 D404 G403 S406",
+        "Separately bind exact original case/platform/source/version/boot/attempt/run/objects/allowed effects/finite rights and pending closure plan;repository draft/PASS is not a test scope or grant."
+      ],
+      "unresolved-means-no-entry": [
+        "T401 F402 R402 P402 C403 E405 D404 G403 S406",
+        "Any missing/unknown actual composition/source/trust/guard/baseline/backup/storage/clock/finite-right/effective observation/authority prerequisite closes entry,pending never absent/safe/native PASS."
+      ]
+    },
+    "entry_before_effects": "Before ANY native effect: explicit user option decision and independently reviewed exact joint specification/guarantee-loss/semantic impact plus explicit migration approval if changing current norms;independently safe ACTUAL whole composition/containment/source/trust/guard/fresh original baseline/known recovery/storage/fixed clock/finite rights/effective independent observation review;THEN separate fresh explicit bounded case-platform-run native-test grant BEFORE effects. Full independent native conformance is later operational readiness. No draft/PASS/commit/test can authorize itself.",
+    "gaps": {
+      "actual-successor-entry-and-transitive-graph": "T401 F402 R402 P402 S406",
+      "bounded-clock-budget-and-same-attempt-recovery": "R402 C403 D404 G403 S406",
+      "durable-launch-spend-and-supervision": "D404 G403 S406",
+      "fresh-original-baseline-and-approved-deltas": "T401 D404 F402 R402 S406",
+      "independent-publication-last-receipt-durability-and-origin": "P402 E405 D404 G403 S406",
+      "independent-two-platform-oracle-and-fault-observations": "T401 F402 R402 P402 C403 E405 D404 G403 S406",
+      "issuer-authentication-key-provenance": "T401 D404 S406",
+      "linearizable-durable-claim-and-quarantine": "T401 D404 C403 S406",
+      "native-time-revocation-fence": "F402 R402 P402 C403 G403 S406",
+      "native-writer-object-alias-and-lifetime-exclusion": "T401 G403 C403 S406",
+      "offline-bootstrap-and-FD-namespace-containment": "T401 C403 G403 S406",
+      "owned-backup-binding-and-child-recovery-primitives": "D404 R402 G403 C403 S406",
+      "package-hooks-source-archive-and-helper-consumption": "T401 F402 R402 G403 S406",
+      "syscall-crash-concurrency-model-refinement": "T401 F402 R402 P402 C403 D404 G403 E405 S406",
+      "target-closure-before-release": "T401 R402 G403 D404 S406",
+      "versioned-real-backend-and-full-selector": "T401 D404 S406"
+    },
+    "proofs": {
+      "320/authenticated-isolated-handoff": [
+        "T401 S406",
+        "Authenticate exact issuer/principal/epoch/scope/canonical bytes and isolated bounded offline handoff;failed binding cannot refund consumed original rights or expose service control capability."
+      ],
+      "320/crash-uncertainty-quarantine": [
+        "D404 C403 G403 S406",
+        "Unknown claim/slot/spawn/ACK after crash remains unavailable/quarantined;recover exact original persisted identity/state without declaring unused/consumed by inference,refund or replay."
+      ],
+      "320/durable-linearizable-claim": [
+        "D404 T401 S406",
+        "One original authenticated grant crosses irreversible durable unique claim exactly once before worker/preflight;actual storage CAS uniqueness/ACK/crash quarantine and service first-write barrier need independent original raw evidence."
+      ],
+      "320/one-launch-after-durable-spend": [
+        "D404 G403 S406",
+        "Single original durable launch spend precedes ONE spawn and binds exact worker/source/children;unknown spawn/ACK does not create a second launch or replacement worker."
+      ],
+      "320/phase-and-recovery-rights": [
+        "F402 R402 P402 C403 D404 S406",
+        "Map each full phase to original policy/admission/launch/bootstrap/forward/recovery/publication windows;only specific post-request pre-admitted envelope expectations change,never original deadline/spend or new authority."
+      ],
+      "320/service-and-worker-effect-boundaries": [
+        "T401 D404 F402 R402 P402 S406",
+        "Service own controls before first ledger/log write and worker traps/guard/freshoriginal before owned writes stay distinct;apply amended request scope only to declared admitted effects,not pre-barrier first effects."
+      ],
+      "321/authentic-original-context-and-launch": [
+        "T401 D404 S406",
+        "Whole original context/issuer authenticity,pre-spent launch and protected consumed bytes/identity must agree with each actual worker;no source/path/hash label or observed-current rebinding."
+      ],
+      "321/bounded-pipe-lifetime": [
+        "G403 C403 S406",
+        "Original bounded memory-only65536-byte/EOF/encoding/deadline producer-reader alias lifetime and close before owned effects remain;no pipe capacity,short read or writer exit as complete authentication/drain."
+      ],
+      "321/descriptor-object-capability-inventory": [
+        "T401 G403 S406",
+        "Independent whole inherited descriptor/open-object/reader/writer/alias/namespace inventory proves no worker service/broker/control channel or unauthorized writer,not FD numbers alone."
+      ],
+      "321/handoff-loss-no-replay": [
+        "D404 G403 C403 S406",
+        "Original bootstrap loss/EOF/receiver/producer/control uncertainty closes effects without repeat handoff,spawn,grant or replacement binding;keep exact pending affected ownership."
+      ],
+      "321/platform-interpreter-and-content-consumption": [
+        "T401 S406",
+        "Each actual platform interpreter/loader/helper/library/environment/source checked-to-consumed object and all writer aliases independently protected through use;no version/hash support inference."
+      ],
+      "321/whole-namespace-and-process-containment": [
+        "T401 F402 R402 G403 S406",
+        "Actual whole worker/helper/interpreter/descendant namespace/effect prevention inside amended workload boundary;trusted infrastructure exclusion disclosed,ordinary privileged workload not exempt."
+      ],
+      "322/actual-candidate-and-raw-inputs": [
+        "T401 D404 S406",
+        "Known exact approved package/candidate/raw pkglist/source inputs and metadata identities persist across real consumer;logical selector equivalence cannot rebind raw bytes."
+      ],
+      "322/binding-consumer-and-publication-integrity": [
+        "T401 D404 P402 E405 S406",
+        "Protect exact stage7 bound original inputs through each complete consumer;after target closure only captured data reaches separately controlled producer/receipt/observer/custody,no late reconsume."
+      ],
+      "322/guarded-original-phase-binding": [
+        "T401 C403 D404 S406",
+        "Traps then continuous actual workload writer/alias guard and fresh original memory vector precede owned writes;all original phase deltas remain source-bound,no baseline drift substitution."
+      ],
+      "322/owned-path-exclusive-durable-commit": [
+        "T401 D404 C403 F402 R402 S406",
+        "Each owned object/ancestor/stage has pre-effect intent/exclusivity/no-replace and independently known whole durability/ACK/raw outcome under finite admitted scope;never hash/flush/visible path as full commit proof."
+      ],
+      "322/partial-binding-and-prior-obligations": [
+        "D404 G403 R402 S406",
+        "Partial/unknown owned binding and previous target/config/controller effects stay separate;stage7 no package effect does not erase earlier effects or authorize blind deletion/recommit/stage8."
+      ],
+      "322/successor-stage7-implementation-parity": [
+        "D404 T401 S406",
+        "Actual successor stage7 satisfies ALL nine original owned validation/intent/exclusive staging/complete bytes/meta/data/revalidation/no-replace/directory/exit microsteps and exact source paths/cuts;not historical reference execution."
+      ],
+      "323/closure-evidence-and-separate-publication": [
+        "R402 P402 E405 G403 D404 S406",
+        "Known target restoration/full invariant/evidence/drain precedes safe release;separate publication envelope/producer/receipt/writer/final observer/custody complete terminal accounting,not overall success from target closure."
+      ],
+      "323/durable-recovery-budget-and-idempotence": [
+        "D404 R402 C403 S406",
+        "Actual durable original action identity/pre-spend/deadline bounds and known restore outcome;idempotence never permits duplicate after lost ACK or a spent action as new verification right."
+      ],
+      "323/external-live-revocation-fence": [
+        "F402 R402 P402 C403 G403 S406",
+        "REPLACE every-effect request enforcement acceptance with exact serialized request/admission order and finite PRE-request envelope completion for each affected scope;worker no-channel retained,actual enforcer still unselected."
+      ],
+      "323/inflight-effect-and-child-drain": [
+        "F402 R402 P402 G403 C403 T401 S406",
+        "Every admitted descendant/FD/stream/storage effect reaches independently known original safe cut before bounds expire;request/parent/backend return not actual drain,unknown completion cannot authorize new operation."
+      ],
+      "323/issuer-split-scope-and-clock": [
+        "F402 R402 P402 C403 D404 S406",
+        "Issuer original split finite scopes/deadlines/budgets and once-mapped boot/clock domain bind all admission/completion events;explicit separate forward/recovery/publication request expectations,no hidden time-integrity promise."
+      ],
+      "323/same-attempt-bounded-safe-restoration": [
+        "R402 C403 D404 G403 T401 S406",
+        "Only original retained once-only recovery with known exact backups/guard/source/full drain may restore;explicit recovery/all PRE-request continuation changes current branch expectation,no new admission or unsafe unknown restore."
+      ],
+      "324/approved-phase-delta-equivalence": [
+        "T401 D404 F402 R402 C403 S406",
+        "Full original phase vectors/approved package/config deltas and unrelated invariants independently compare ordered raw effects inside exact admitted scope;extra changed-scope permissions not unapproved target drift."
+      ],
+      "324/interstage-fresh-original-baseline": [
+        "T401 D404 G403 S406",
+        "Stable continuous actual guard/fresh original memory full content/owner/mode/type/presence/absence vector captured before first owned write,not later predecessor/drift;baseline qualification preserved."
+      ],
+      "324/owner-child-failure-and-safe-recovery": [
+        "G403 R402 C403 D404 T401 S406",
+        "Supervisor/guardian/controller/clock/observer loss retains original failure and full membership/FD/stream/storage drain pending;only original independently surviving prebound control,never immortal guardian or new rights."
+      ],
+      "324/platform-writers-and-guard-identity": [
+        "T401 G403 C403 S406",
+        "Actual ordinary privileged/admin/manual/scheduled/helper/source/observer writers and aliases in workload boundary coordinated/prevented through object lifetime;enumerated infrastructure exclusions never claimed prevention."
+      ],
+      "324/raw-pkglist-pin-and-restored-production-role": [
+        "T401 D404 S406",
+        "Original raw pkglist SHA/identity pinned once through nested consumer;restore source role separately after target outcome,never freshpin/logical-row fallback or later target/source read after release."
+      ],
+      "324/target-evidence-closure-and-publication-separation": [
+        "G403 R402 P402 E405 D404 S406",
+        "Original target full evidence underguard before safe release,then captured-data-only independently controlled producer/receipt/final observer/consumer outcomes;pending publication does not erase qualified target fact or assert global closure."
+      ],
+      "325/actual-selector-and-raw-status-equivalence": [
+        "T401 D404 S406",
+        "Actual versioned backend/selector uses identical ORIGINAL full source/raw pkglist/config/DB/filter inputs,ordered selectors/effects and raw0/20/-1 distinctions;failure absorbs later effects despite caller continuation."
+      ],
+      "325/actual-transitive-graph-and-entry": [
+        "T401 F402 R402 P402 S406",
+        "Whole actual entry/preparation/lock/log/trap/snapshot/config/helper/source/backend/selector/hook/async/recovery/publication graph with protected dynamic consumption;all30 domains/95 original edges retained,not three-call substitute."
+      ],
+      "325/checked-byte-archive-package-effect-closure": [
+        "T401 F402 R402 D404 S406",
+        "All checked interpreter/helper/library/archive/backend/hook bytes/metadata/aliases/writers protected through each real package/config consumer and descendant;checksum alone not dynamic graph or allowed effect closure."
+      ],
+      "325/service-fence-and-worker-capability-separation": [
+        "F402 R402 P402 T401 S406",
+        "Actual external admission/request ordering must enforce amended finite scope WITHOUT worker service/broker/control FD/RPC;offline receipt/macro check does not prove no-channel serialization."
+      ],
+      "325/target-and-publication-last-receipt-closure": [
+        "R402 P402 E405 G403 D404 S406",
+        "Explicitly REPLACE old whole-last-stage trace expectation with full proposed producer trace plus separate past-data payload/once-only receipt/writer drain/final object observation/custody/terminal scope;old trace not equivalent."
+      ],
+      "325/whole-reference-side-effect-containment": [
+        "T401 F402 R402 D404 S406",
+        "Whole preparation/reference/config/snapshot/log/lock/package/hook/helper effects and forbidden boot/GenInitrd/optional no-effect reachability independently contained under exact original admitted scope,not flags/argv/count."
+      ],
+      "326/finite-model-refinement": [
+        "T401 F402 R402 P402 C403 E405 D404 G403 S406",
+        "Independently refine EVERY original phase/interface/type/owned microstep/cut/model relation to actual sources/sites under exact changed trust/admission/stage criteria;macro model not exhaustive concurrency,ABI or native protocol."
+      ],
+      "326/independent-publication-and-receipt-conformance": [
+        "P402 E405 C403 D404 G403 T401 S406",
+        "Independent original captured-data publication full amended producer/receipt/writer/final-observer/consumer raw vectors and effective faults with every own control/storage/custody outcome;never self-final proof or paper-DAG conformance."
+      ],
+      "326/independent-recovery-and-restoration-conformance": [
+        "R402 C403 D404 G403 T401 S406",
+        "Independent original target/backup/claim/action/control facts for all18 recovery branches;explicit R402 altered recovery/all branch,once-only pre-spends/lostACK/no-repeat and qualified target versus pending owned/controller kept separate."
+      ],
+      "326/independent-selector-and-effect-conformance": [
+        "T401 F402 R402 D404 S406",
+        "Independently derived ORIGINAL ordered raw input/status/selector/effect vectors and actual reached/effective faults;no subject selector/cleanup reducer,sort/dedup/sample or observed-current fallback."
+      ],
+      "326/independent-service-and-worker-conformance": [
+        "T401 F402 R402 C403 D404 G403 S406",
+        "Protected independent full original service/worker expectation/raw capture/positive-effective-negative controls on each actual platform/run,including own observer/injector rights,effects and no self-oracle."
+      ],
+      "326/scoped-cross-closure-before-readiness": [
+        "T401 F402 R402 P402 C403 E405 D404 G403 S406",
+        "Every required proof/case/raw/relation/effect/right/lifetime/obligation has independent complete candidate-scope evidence or explicit pending;all original platform/run tuples remain,no repository pause as operational readiness."
+      ],
+      "327/actual-owned-child-target-recovery-closure": [
+        "T401 R402 C403 D404 G403 S406",
+        "Independently known full owned children/FD/streams/inflight/guard/original target recovery/evidence and fixed finite rights,or exact pending;original mismatch/failure sticky,qualified captured facts do not renew rights."
+      ],
+      "327/actual-publication-and-current-scope-reconciliation": [
+        "P402 E405 T401 C403 D404 G403 S406",
+        "Full separate producer/receipt/final observation/custody and actual finite terminal scope reconciliation including own actors and later unclassified effects;historical/current host unknown remains unknown,no new target grant."
+      ],
+      "327/actual-scoped-effect-obligation-right-closure": [
+        "T401 F402 R402 P402 C403 E405 D404 G403 S406",
+        "Complete actual own service/worker/target/owned/recovery/publication/oracle effect/obligation/rights graph under exact amended finite scopes,source/failure/custody;unknown/unclassified never absent/globalclosed."
+      ],
+      "327/all-inherited-proofs-and-two-platform-conformance": [
+        "T401 F402 R402 P402 C403 E405 D404 G403 S406",
+        "ALL46 proof criteria/52 separate actual platform cases/12 raw groups/1072 ordered relations independently compared under explicit mapped changed expectations,not navigation counts/representative subset or cross-platform transfer."
+      ]
+    },
+    "purposes": {
+      "contracts320-327": "Evaluate the COMPLETE current document as retained baseline and the exact patched inactive contract view PLUS every global and member-specific proposed semantic replacement;embedded original statements are comparison history where exact changed scope conflicts,never silently claimed equivalent.",
+      "feasibility-blockers372": "Preserve WHOLE original candidate family/limitations/alternative requirement and unresolved blocker;evaluate changed scope ONLY as explicit proposed semantic alternative,not a proven feasible primitive or silently unqualified retained guarantee.",
+      "gaps348": "Independently resolve the WHOLE original gap and actual source/object/protocol/refinement/evidence question under explicit changed candidate scope;gap remains unresolved until actual review,not closed by migration wording.",
+      "historical-five-families": "Retain this distinct WHOLE historical pending family/scenario count as project backlog,not native coverage/current implementation evidence or reopening old grants. Kernel-edge migration cannot discharge boot/SBo-ELF/Cinnamon/Flatpak scenarios.",
+      "native-cases347": "Require the WHOLE original case/platform/evidence gates and dependency graph under the specific independently effective positive-negative expectation below;exact original tuple retained,actual result remains required-not-run.",
+      "native-cut-dimensions376": "Refine WHOLE original applicability/source/object/actor/cut/effectiveness question to actual source sites and candidate changed semantics;partial/native cuts/missed fault outcomes remain unknown until independent raw evidence.",
+      "normative-sections347": "Refine EVERY nested original interface/phase/type/edge/window/effect/capability/obligation/proof/case/cut/microstep member in this WHOLE section to actual sources under explicit global trust/admission/clock/stage semantics;nominal shapes remain non-native,not implementation ABI or completeness proof.",
+      "ordered-proof-case-relations": "This exact ordered original proof-case-platform relation requires BOTH complete original proof and case scopes and their independently bound specific candidate acceptance criteria below;one side/PASS cannot discharge the other,all own dependencies/global proposed rules still apply.",
+      "prerequisites365": "Independently resolve the WHOLE original prerequisite including original gap/source findings/native questions and separate platform readiness under this draft semantic scope;technical documentation is not actual selected component/evidence.",
+      "qualified-proofs347": "Require the complete original qualified proof/source/case/dependency scope under the following explicit INACTIVE candidate evidence criterion;unqualified guarantees contradicted by listed amendments are replaced only in this draft,never current active proof.",
+      "raw-groups335": "Capture the WHOLE original raw group and all original provenance/identity/before-during-after/custody obligations under exact revised expectation;full bytes/vectors not declaration/hash/sample. Unknown captures remain unknown.",
+      "supplemental-input365": "Retain WHOLE supplemental cksum input/questions and two actual-platform pending rows;no checksum command execution/primitive choice/durable source/custody proof or historical register rewrite from this packet.",
+      "whole-conflicts389": "Keep WHOLE original conflict unaltered/current unresolved;the following exact changed or retention acceptance proposal is a decision alternative needing explicit user selection and independent native resolution,not actual resolution or original equivalence."
+    },
+    "raw": {
+      "independent-provenance": "T401 P402 E405 S406",
+      "original-identity-timeline": "T401 D404 F402 R402 S406",
+      "original-restoration-verification": "T401 R402 D404 G403 S406",
+      "platform-original-authority": "C403 D404 S406",
+      "positive-negative-fault-controls": "T401 F402 R402 P402 C403 E405 D404 G403 S406",
+      "publication-last-receipt": "P402 E405 D404 G403 S406",
+      "raw-status-selector-vector": "F402 R402 D404 S406",
+      "scoped-closure-or-pending": "T401 F402 R402 P402 C403 E405 D404 G403 S406",
+      "subject-source-graph": "T401 F402 R402 P402 S406",
+      "target-owned-effect-vector": "T401 F402 R402 D404 S406",
+      "time-fence-recovery-budget": "F402 R402 P402 C403 D404 S406",
+      "writer-child-lifetimes": "T401 F402 R402 P402 G403 C403 S406"
+    },
+    "readiness": {
+      "complete-actual-effect-and-storage-proof": [
+        "T401 F402 R402 P402 C403 E405 D404 G403 S406",
+        "Independently known actual own subject/service/worker/target/owned/recovery/publication/oracle source/effects/children/clock/finite-right/storage/custody lifetime outcomes or scoped pending;no invented absence/atomicity/durability."
+      ],
+      "independent-complete-native-conformance": [
+        "T401 F402 R402 P402 C403 E405 D404 G403 S406",
+        "AFTER separately authorized fresh bounded tests require independent ALL mapped46proof/52case/12rawgroup/1072relation WHOLE candidate-scope criteria on separate actual platforms;original current norms remain until approved migration. No draft/PASS/navigation counters as conformance."
+      ],
+      "independent-final-receipt-and-handoff": [
+        "P402 E405 C403 D404 G403 S406",
+        "Full changed producer trace,past-only payload,separate receipt/writer/final observation/custody ACK and finite terminal accounting with all own controls;unknown/later unclassified effects block closure,no original self-final eligibility claim."
+      ],
+      "original-equivalence-and-scoped-closure": [
+        "T401 F402 R402 C403 D404 G403 S406",
+        "Exact retained original target/input/phase/selector invariants remain;changed trust/admission/stage guarantees MUST be evaluated under explicit candidate replacement and disclosed loss,not claimed original whole-contract equivalence."
+      ],
+      "separate-operational-and-project-gates": [
+        "T401 F402 R402 P402 C403 E405 D404 G403 S406",
+        "Native conformance does not itself open operational entry,Phase1/kernel completion,schema/reference-v1/C/Phase2/Production;require separate actual operational/project review and authority. Repository-only pause distinct."
+      ]
+    },
+    "rules": {
+      "C403": {
+        "guarantee": "Authenticate original fixed issuer bounds and map ONCE to specifically reviewed same-boot elapsed-time domain under enumerated conforming kernel/hardware/hypervisor/time assumptions. Deliberate hidden assumed-trusted clock manipulation/snapshot rollback is outside the draft integrity guarantee,not guaranteed detected. Ordinary suspend/restart/delay/provider loss/discontinuity remain in-scope failures or pending.",
+        "kind": "inactive-clock-trust-amendment",
+        "negative": "Unknown mapping/boot/clock/spend,observed or suspected discontinuity/rollback/provider loss closes admission. No fallback/re-map/deadline extension/budget refill/right revival. Captured qualified facts may remain facts but cannot renew expired rights.",
+        "positive": "Independently bind original boot/clock identity,exact mapping,forward/recovery split fixed deadlines,durable original pre-spends and suspend elapsed accounting before dependent effects."
+      },
+      "D404": {
+        "guarantee": "Retain irreversible durable original claim,pre-spent single launch and once-only original action budget;all9 owned microsteps/all18 original recovery branches except explicit R402 amendment. Original baseline/known exact backups/full target vectors and separate target/owned/controller/action outcomes remain. External ledger/quarantine are unselected retention hypotheses,not native primitives.",
+        "kind": "whole-original-storage-rights-retention-hypothesis",
+        "negative": "Missing/unknown backup does not prove unchanged target or permit restore;lost restore/commit ACK NEVER retry/refund/repeat. Known spent action not a new no-write verification slot. Qualified captured target fact survives unrelated owned/controller unknown but not future invariance after guard loss;restore does not erase original mismatch/failure.",
+        "positive": "Independently demonstrate exact original identity/claim/launch/spend/object/source/no-replace/file-meta-directory-device durability and complete raw ACK/stage outcome before dependent continuation."
+      },
+      "E405": {
+        "guarantee": "Replace WHOLE current316 stage12 function/name/operation/guard/evidence paths/membership with exact394 producer-only proposal. Producer exit is NOT overall final eligibility/current whole-stage conformance. Payload after full subject trace closure binds PAST streams/status/origin/artifacts,never its own future commit/hash/durability. Separate receipt commit/writer drain,independent final object/storage observation,consumer custody/ACK and every external own effect precede explicit finite terminal trust/evidence cut.",
+        "kind": "inactive-whole-stage-terminal-amendment",
+        "negative": "No atomic pair,self-final receipt,observer immunity,infinite self-receipt proof or DAG-as-native-closure. Unknown commit/drain/ACK/custody stays pending,never replay/new grant. Later unclassified effect blocks closure;qualified captured facts/original failure remain separate. Old last-stage trace expectation is explicitly replaced,not silently retained equivalent.",
+        "positive": "Independently establish exact changed producer membership/complete trace;separate once-only no-replace archive/sidecar/receipt object and file/meta/directory/storage outcomes;protected independent writer/observer/consumer source/provenance/custody/finite controls and complete terminal accounting."
+      },
+      "F402": {
+        "guarantee": "Forward-scoped request irreversibly denies NEW operation admission. ONLY independently known pre-request admitted finite exact object/effect/descendant envelope may finish to original known safe cut inside unchanged fixed original deadline and already-spent budget. Internal post-request effects within that envelope are explicitly permitted in the DRAFT;instantaneous every-effect revocation guarantee is lost.",
+        "kind": "inactive-forward-admission-amendment",
+        "negative": "Request-before-admission,unknown order/envelope/cut/spend,expiry,budget exhaustion or known failure denies dependent new effects. Parent/backend exit/request alone is not drain. No renewal/retry/relaunch/grant/rebind;forward failure remains sticky.",
+        "positive": "Independently capture actual serialized admission/request order,original envelope/identity/source/effects/children/deadline/pre-spend and exact safe-cut completion without worker service/broker/control channel."
+      },
+      "G403": {
+        "guarantee": "Guardian is not immortal. Only originally prebound independently qualified surviving control may consider original retained recovery. Full original membership,all descendants/FD aliases/streams/in-flight storage,continuous guard and authentic raw origin/custody required.",
+        "kind": "whole-original-loss-drain-retention-hypothesis",
+        "negative": "Signals,parent exit,EOF,task count,backend return,guardian survival or request never prove complete drain. Incomplete membership/provenance keeps pending;no new guardian/controller bind,guard reacquisition,deadline renewal or global host closure.",
+        "positive": "Independently capture every original loss role and full drain facet across supervisor/guardian/controller/clock/observer loss;known facts retain qualified capture cut separately from current finite rights."
+      },
+      "P402": {
+        "guarantee": "Publication uses separately reviewed ORIGINAL captured-data controls and its OWN request policy/envelopes/finite rights. Target-scope request supplies neither publication authority nor automatic revocation of separately valid publication. If an applicable publication request occurs,NEW admission stops and only exact original pre-admitted finite continuation may reach its safe cut inside original bounds;this changes instantaneous publication internal-effect semantics.",
+        "kind": "inactive-publication-admission-amendment",
+        "negative": "No worker/target-right borrowing,new evidence grant,post-release target/source read,request-as-drain,republish after unknown ACK,renewal/refund or unclassified publication effect ignored.",
+        "positive": "Independently bind each producer/collector/receipt/observer/consumer own effect and admission to separate original publication scope,clock/spend/source/storage/custody policy."
+      },
+      "R402": {
+        "guarantee": "Recovery/all request denies NEW recovery/target-evidence admission. An exact independently known PRE-request admitted finite ORIGINAL recovery envelope may continue its internal writes only to declared safe cut under unchanged original deadline/pre-spend/guard/known exact backup/source/children/storage constraints. This explicitly weakens original recovery validity/revocation,not unchanged recovery equivalence. Forward-only request does not itself revoke a separately retained original recovery right.",
+        "kind": "inactive-recovery-admission-amendment",
+        "negative": "No new recovery after applicable request,no unknown ACK repeat,expiry exception,missing-backup restore,borrowed forward scope,renewed recovery right or erased original failure. Unknown action/spend remains quarantined even with qualified captured target facts.",
+        "positive": "Capture separate original recovery authorization,request scope/admission order,budget already spent,exact guard/object/source/backups/full independent drain and once-only original action outcome;map current404 recovery-or-all branch to this changed expected trace."
+      },
+      "S406": {
+        "guarantee": "WHOLE entry/preparation/lock/log/trap/snapshot/config/helper/archive/backend/selector/hook/async/FD/recovery/publication source graph and forbidden boot/GenInitrd/optional effects remain. Protect every checked-to-used object/writer through actual consumption;full ORIGINAL ordered raw input/status/selector/effect expectations and multiplicity remain. Independently derived expectations/capture/custody/effective positive-negative native cuts on each OWN15.0/current source/version/boot/attempt/run/authority.",
+        "kind": "whole-original-entry-oracle-retention-hypothesis",
+        "negative": "No three-call/product subset,census/hash as runtime proof,subject/shared selector/cleanup as sole oracle,private351 literals as native expectations,sort/dedup/count/sample/null-as-empty,requested fault as effective cut,other-platform/history borrowing,observer exemption or matching declaration as native conformance.",
+        "positive": "Independently review actual subject/expectation/collector/verifier/injector/consumer source/capability/trust graph and complete raw comparisons. Verifier may author independent expectations;no artificial different-person rule. Preserve raw0/20/-1 conditions,known mismatch with pending and original failure."
+      },
+      "T401": {
+        "guarantee": "Protection applies to EVERY reviewed workload actor/ACTION and all seven domains/source/owned/recovery/evidence/publication objects/aliases/ancestors through use. Root/admin/updater/helper/manual/scheduled/observer/injector workloads are not exempt. Deliberate out-of-policy effects by specifically identified conforming kernel/enforcement/policy-admin/hypervisor/storage/physical infrastructure are outside the proposed protection guarantee,not proven prevented.",
+        "kind": "inactive-trust-amendment",
+        "negative": "Known trusted-infrastructure policy breach latches failure/stop;unknown membership or suspected/unclassifiable breach keeps dependent admission closed/pending. Hidden deliberate assumed-trusted tampering is not promised detectable;do not mark an excluded challenge prevented/native PASS. No automatic restore/refund/rebind/reacquisition.",
+        "positive": "Independently enumerate actual actor/action membership and protected writers/objects before admission; demonstrate ordinary privileged workload coordination/prevention and continuous source/object exclusion under explicitly reviewed infrastructure assumptions. Ordinary faults remain in scope."
+      }
+    },
+    "sections": {
+      "all26_nominal_interfaces": "T401 F402 R402 P402 C403 E405 D404 G403 S406",
+      "all27_phase_boundaries": "T401 F402 R402 P402 C403 E405 D404 G403 S406",
+      "all35_nominal_types": "T401 F402 R402 P402 C403 E405 D404 G403 S406",
+      "all95_macro_design_relations": "T401 F402 R402 P402 C403 E405 D404 G403 S406",
+      "authority_window_reconciliation": "T401 F402 R402 P402 C403 E405 D404 G403 S406",
+      "effect_domain_reconciliation": "T401 F402 R402 P402 C403 E405 D404 G403 S406",
+      "exact_contract_bindings": "T401 F402 R402 P402 C403 E405 D404 G403 S406",
+      "exact_contract_views": "T401 F402 R402 P402 C403 E405 D404 G403 S406",
+      "macro_cut_obligations": "T401 F402 R402 P402 C403 E405 D404 G403 S406",
+      "native_case_templates": "T401 F402 R402 P402 C403 E405 D404 G403 S406",
+      "native_gap_register": "T401 F402 R402 P402 C403 E405 D404 G403 S406",
+      "original_phase_and_bootstrap_contract": "T401 F402 R402 P402 C403 E405 D404 G403 S406",
+      "owned_stage7_microsteps": "T401 F402 R402 P402 C403 E405 D404 G403 S406",
+      "qualified_proof_reconciliation": "T401 F402 R402 P402 C403 E405 D404 G403 S406",
+      "seven_capability_reconciliation": "T401 F402 R402 P402 C403 E405 D404 G403 S406",
+      "ten_cross_obligation_reconciliation": "T401 F402 R402 P402 C403 E405 D404 G403 S406"
+    }
+  },
+  "step": 407
+}

@@ -1,3 +1,33 @@
+<!-- step-407-integrated-semantic-decision:start -->
+## Current Phase 1 integrated joint semantic decision packet -- step 407
+
+Accepted406 at reported `2d2db9b`:102 orderedPASS/zero failures,ten files/eight creates/
+84650 insertions,reported main push/clean matching heads.407 prepared,user acceptance
+pending;last confirmed repository pause398 covers389-398 only.
+
+The [407 packet](docs/reference/phase-1-operational-integrated-joint-contract-semantic-migration-decision-packet-review.md)
+is a complete reviewable INACTIVE400-A semantic proposal:14exact clause changes,
+four trust/terminal assumptions,full8current/patch contract views and ALL15category/
+1286WHOLE member acceptance criteria.46proof-specific/26case-type paragraphs bind
+all52platform rows/1072 ordered relations;whole raw/entry/gap/history/readiness
+retained. All9 global trust/admission/clock/stage/storage/drain/source-oracle rules
+apply to complete own dependencies;local focus never waives them. Extra FORWARD AND
+RECOVERY post-request finite continuation losses and changed stage12/terminal scope
+explicit,never old original equivalence. Eight WHOLE decisions/nine jointanswers/
+all325oldpairs/36candidate pairs and unselected retention/deferral alternatives.
+
+User option decision,independent specification/impact acceptance,explicit migration
+approval,actual implementation selection and fresh native-test grant separately
+pending. Draft/recommendation/commit/PASS is none of them;current original norms
+binding. Native source/mechanisms/platform evidence still unknown,cases/proofs0,
+Phase1/kernel incomplete;schema/reference-v1/C/Phase2/Production closed. Host
+unobserved/livebindingsnull/globalclosurefalse. ACTUAL safe jointreview THEN separate
+fresh bounded native-testgrant BEFORE effects;tests cannot self-authorize. Full407
+acceptance before408;conditional408 allWHOLE scopedconditions/actualfinalreturn/
+external confirmation then STOP/noautomatic409/newrequest. Prior accepted406 README
+suffix byte-exact below.
+<!-- step-407-integrated-semantic-decision:end -->
+
 <!-- step-406-whole-entry-independent-oracle:start -->
 ## Current Phase 1 whole entry and two-platform independent oracle -- step 406
 
