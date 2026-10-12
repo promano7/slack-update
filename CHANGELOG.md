@@ -1,3 +1,20 @@
+## Phase 1 step 393 -- original capture, durable storage and finite rights
+
+- Accepted392 at reported63c8c5c:304 exact ordered PASS/zero failures,nine files,
+  eight creates/5233 insertions,reported successful push/clean matching heads.
+- Complete unchanged uploaded392receipt and immutable predecessor preserved.
+- WHOLE383storage review and actual320/322/323/324clauses remain normative;
+  all prior390-392proposals unselected. No contract amendment introduced here.
+- Four options:retain full capture/storage/rights;external durable ledger retention
+  hypothesis;separate owned/target quarantine retention hypothesis;defer selection.
+- Eight paper witnesses and seven full original branch questions retain all18
+  branches/nine microsteps/whole scopes;not an executable recovery selector.
+- Unknown claim/spawn/spend/ACK/storage/backups never refund/retry/relaunch/rebind/
+  reacquire/renewal/unchanged-target. Known no-write target and owned uncertainty
+  stay separate;no unsafe restore or implicit cleanup/publication authority.
+- Native baseline/ledger/storage/outcomes/support unknown. Full396/397impact due;
+  proofs/cases0,no new authority or pause.398 remains conditional.
+
 ## Phase 1 step 392 -- owner loss, known drain and clock trust alternatives
 
 - Accepted391 at reported7f642f3:300 exact ordered PASS/zero failures,nine files,
