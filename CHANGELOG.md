@@ -1,3 +1,19 @@
+## Phase 1 step 413 -- original baseline storage and once-only rights audit
+
+- Accepted412 at reported12bd22a,69orderedPASS/zero failures,exact10paths/8creates/
+  19034insertions/message,push/clean matching heads;complete disclosed return retained.
+- All18WHOLE recovery branches/all9ownedmicrosteps receive specific paper reviews,
+  including27before/within/after questions. WHOLE404 baseline/phases/failures/platform
+  scope retained;18statuscases keep target/backup/claim/launch/restore/owned/controller/
+  spend/verification/failure/mismatch separate,no native action or recovery selector.
+- LostrestoreACKnevercompletefromtargetmatch;no no-op/newslot/refund/relaunch;separate
+  original production bytes/fresh audit raw pin/restoration,no logical rebind.
+- One open originalactionidentity/accounting refinement question with WHOLE current
+  statements/inactivewording,all11priorfindings/2inactiveclarifications unchanged.
+- Whole125inputs/39roots,4nativerootsINERT;all2226oldbodies unchanged except exact
+  prefixes,eightadds. Fullactual413before414,lastconfirmedpause408only;conditional
+  418actualfinal/externalALL9 thenSTOP/noautomatic419/newrequest. Nativeclosed.
+
 ## Phase 1 step 412 -- shared trust clock guardian and full-drain audit
 
 - Accepted411 at reportedd9e7416,64 ordered PASS/zero failures,exact10paths/8creates/

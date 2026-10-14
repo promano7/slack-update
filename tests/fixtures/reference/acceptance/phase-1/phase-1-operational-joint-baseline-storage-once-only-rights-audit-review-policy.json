@@ -1,0 +1,2860 @@
+{
+  "artifact_sha256": {
+    "docs/reference/phase-1-operational-joint-baseline-storage-once-only-rights-audit-review.md": "96953e2d77a016ccde8d6bc19eaabfea127ca458ecb11b330f63ffb726b919d6",
+    "tests/reference/test-phase-1-operational-joint-baseline-storage-once-only-rights-audit-review-harness.sh": "1ed37371b858f597da548d02419f384601cfa6759cc2f39d86d70b51e597eefd"
+  },
+  "expected_boundaries": {
+    "C_port_open": false,
+    "actual_global_host_closure": false,
+    "actual_host_state": "unobserved-not-claimed-absent",
+    "actual_live_bindings": null,
+    "actual_native_refinement_complete": false,
+    "actual_successor_selected": false,
+    "controller_action_required": false,
+    "current_step_strong_safe_pause": false,
+    "execution_authorized": false,
+    "historical_binding_or_authority_reuse_allowed": false,
+    "kernel_package_edge_complete": false,
+    "last_confirmed_strong_safe_pause_step": 408,
+    "later_current_refresh_invalidates_repository_only_pause": false,
+    "machine_action_required": false,
+    "native_cases_run": 0,
+    "native_components_selected": false,
+    "native_graph_complete": false,
+    "native_proofs_added": 0,
+    "operational_conformance": false,
+    "operational_readiness": false,
+    "phase1_matrix_complete": false,
+    "phase2_open": false,
+    "production_entry_closed": true,
+    "reference_v1_frozen": false,
+    "runtime_authority": false,
+    "strong_safe_pause": false,
+    "target_machine_actions_authorized": false,
+    "version1_schema_frozen": false
+  },
+  "expected_branch_reviews": [
+    {
+      "actual_native_evidence": null,
+      "all_nine_global_rules_apply": true,
+      "current_recovery_authority": false,
+      "id": "ordinary-forward-failure-known-backups",
+      "independently_accepted": false,
+      "is_executable_action_selector": false,
+      "ordered_paper_challenge": [
+        "Independent known original identity,continuous guards,known children,exact verified backups and explicit valid original recovery rights/deadline/pre-spent budget.",
+        "Original failure occurs; compare known exact backup with one unknown original guard/drain/right. No paper restoration permission follows.",
+        "Compare WHOLE current original disposition against the explicitly inactive candidate interpretation;all original safe-input/control/finite-right conditions remain."
+      ],
+      "specific_assessment": "Known exact backup is only one prerequisite; full original safe identity,source/guard,independent drain and original finite recovery rights remain before any restore question.",
+      "whole_storage404_reconciliation": {
+        "actual_action_outcome": null,
+        "actual_native_condition": null,
+        "candidate_specific_reconciliation": "Retain the WHOLE original condition and disposition under complete401writer/source trust,403independent full drain/fixed clock and original once-only finite rights.402inactive scope changes may never erase guard/backup/identity/unknown/storage preconditions;exact acceptance mapping still due407.",
+        "current_recovery_authority": false,
+        "id": "ordinary-forward-failure-known-backups",
+        "is_executable_action_selector": false,
+        "whole_original_branch": {
+          "actual_action_or_noop_outcome": null,
+          "actual_condition_observed": null,
+          "all_original_recovery_gates_required_when_applicable": true,
+          "current_recovery_authority": false,
+          "id": "ordinary-forward-failure-known-backups",
+          "is_executable_action_selector": false,
+          "is_new_original_native_case": false,
+          "native_case_run": false,
+          "proposed_future_disposition": "Future bounded original-whitelist restore then whole invariant verification/target evidence before release may be reviewed; keep original failure status. No current authority.",
+          "required_independent_condition": "Independent known original identity,continuous guards,known children,exact verified backups and explicit valid original recovery rights/deadline/pre-spent budget."
+        }
+      }
+    },
+    {
+      "actual_native_evidence": null,
+      "all_nine_global_rules_apply": true,
+      "current_recovery_authority": false,
+      "id": "forward-expired-recovery-separately-valid",
+      "independently_accepted": false,
+      "is_executable_action_selector": false,
+      "ordered_paper_challenge": [
+        "Forward deadline expired; independent original recovery scope/deadline/live fence still explicitly valid and every other gate known.",
+        "Forward deadline expires while original recovery deadline is separately known; then compare recovery expiry. Neither creates new rights.",
+        "Compare WHOLE current original disposition against the explicitly inactive candidate interpretation;all original safe-input/control/finite-right conditions remain."
+      ],
+      "specific_assessment": "Forward expiry remains absorbing. Separate original recovery deadline/scope/budget must independently remain valid,not a blanket expiry exception.",
+      "whole_storage404_reconciliation": {
+        "actual_action_outcome": null,
+        "actual_native_condition": null,
+        "candidate_specific_reconciliation": "Retain the WHOLE original condition and disposition under complete401writer/source trust,403independent full drain/fixed clock and original once-only finite rights.402inactive scope changes may never erase guard/backup/identity/unknown/storage preconditions;exact acceptance mapping still due407.",
+        "current_recovery_authority": false,
+        "id": "forward-expired-recovery-separately-valid",
+        "is_executable_action_selector": false,
+        "whole_original_branch": {
+          "actual_action_or_noop_outcome": null,
+          "actual_condition_observed": null,
+          "all_original_recovery_gates_required_when_applicable": true,
+          "current_recovery_authority": false,
+          "id": "forward-expired-recovery-separately-valid",
+          "is_executable_action_selector": false,
+          "is_new_original_native_case": false,
+          "native_case_run": false,
+          "proposed_future_disposition": "Forward remains stopped; only separately retained original finite recovery actions potentially eligible,not blanket expiry exemption or new grant.",
+          "required_independent_condition": "Forward deadline expired; independent original recovery scope/deadline/live fence still explicitly valid and every other gate known."
+        }
+      }
+    },
+    {
+      "actual_native_evidence": null,
+      "all_nine_global_rules_apply": true,
+      "current_recovery_authority": false,
+      "id": "forward-only-revocation",
+      "independently_accepted": false,
+      "is_executable_action_selector": false,
+      "ordered_paper_challenge": [
+        "Independent authenticated revocation scope is forward-only; original separate recovery rights still known valid plus every gate.",
+        "Known forward-only request followed by unknown original recovery binding cannot be treated as a safe restore authorization.",
+        "Compare WHOLE current original disposition against the explicitly inactive candidate interpretation;all original safe-input/control/finite-right conditions remain."
+      ],
+      "specific_assessment": "Forward-only request is not a recovery grant; apply separate original recovery conditions and all actor/control prerequisites.",
+      "whole_storage404_reconciliation": {
+        "actual_action_outcome": null,
+        "actual_native_condition": null,
+        "candidate_specific_reconciliation": "Retain the WHOLE original condition and disposition under complete401writer/source trust,403independent full drain/fixed clock and original once-only finite rights.402inactive scope changes may never erase guard/backup/identity/unknown/storage preconditions;exact acceptance mapping still due407.",
+        "current_recovery_authority": false,
+        "id": "forward-only-revocation",
+        "is_executable_action_selector": false,
+        "whole_original_branch": {
+          "actual_action_or_noop_outcome": null,
+          "actual_condition_observed": null,
+          "all_original_recovery_gates_required_when_applicable": true,
+          "current_recovery_authority": false,
+          "id": "forward-only-revocation",
+          "is_executable_action_selector": false,
+          "is_new_original_native_case": false,
+          "native_case_run": false,
+          "proposed_future_disposition": "Forward cannot revive; evaluate original recovery validity separately. Never infer retained permission merely from the forward-only label.",
+          "required_independent_condition": "Independent authenticated revocation scope is forward-only; original separate recovery rights still known valid plus every gate."
+        }
+      }
+    },
+    {
+      "actual_native_evidence": null,
+      "all_nine_global_rules_apply": true,
+      "current_recovery_authority": false,
+      "id": "recovery-or-all-revocation",
+      "independently_accepted": false,
+      "is_executable_action_selector": false,
+      "ordered_paper_challenge": [
+        "Recovery/all revocation,unknown revocation scope or unavailable external gate.",
+        "Compare request-before-admission,known admission-before-request,and unknown order. Explicitly retain the changed recovery guarantee and original backup/guard/spend duties.",
+        "Compare WHOLE current original disposition against the explicitly inactive candidate interpretation;all original safe-input/control/finite-right conditions remain."
+      ],
+      "specific_assessment": "CURRENT recovery writes stay blocked. INACTIVE402 permits only known PRE-request exact admitted recovery envelope within original bounds; unknown scope/order/ACK still blocks dependent unproved effects.",
+      "whole_storage404_reconciliation": {
+        "actual_action_outcome": null,
+        "actual_native_condition": null,
+        "candidate_specific_reconciliation": "CURRENT original blocks recovery writes.402draft would permit only exact already pre-request admitted finite continuation inside unchanged original bounds;no NEW admission,unknown scope/ACK or retry. This branch needs explicit changed expectation/proof/case mapping407,not retained equivalence.",
+        "current_recovery_authority": false,
+        "id": "recovery-or-all-revocation",
+        "is_executable_action_selector": false,
+        "whole_original_branch": {
+          "actual_action_or_noop_outcome": null,
+          "actual_condition_observed": null,
+          "all_original_recovery_gates_required_when_applicable": true,
+          "current_recovery_authority": false,
+          "id": "recovery-or-all-revocation",
+          "is_executable_action_selector": false,
+          "is_new_original_native_case": false,
+          "native_case_run": false,
+          "proposed_future_disposition": "Block recovery writes; retain original status,backups,children/target/controller obligations as applicable. No restoration or release inferred.",
+          "required_independent_condition": "Recovery/all revocation,unknown revocation scope or unavailable external gate."
+        }
+      }
+    },
+    {
+      "actual_native_evidence": null,
+      "all_nine_global_rules_apply": true,
+      "current_recovery_authority": false,
+      "id": "clock-boot-or-original-identity-unknown",
+      "independently_accepted": false,
+      "is_executable_action_selector": false,
+      "ordered_paper_challenge": [
+        "Time discontinuity/VM rollback/wrong boot/original identity drift or unknown trusted time.",
+        "A backup is known but original clock identity drifts; preserve the backup fact and pending effects without restoration/rebind.",
+        "Compare WHOLE current original disposition against the explicitly inactive candidate interpretation;all original safe-input/control/finite-right conditions remain."
+      ],
+      "specific_assessment": "Unknown clock/boot/original identity prevents dependent recovery,not a replacement mapping/boot grant.",
+      "whole_storage404_reconciliation": {
+        "actual_action_outcome": null,
+        "actual_native_condition": null,
+        "candidate_specific_reconciliation": "Retain the WHOLE original condition and disposition under complete401writer/source trust,403independent full drain/fixed clock and original once-only finite rights.402inactive scope changes may never erase guard/backup/identity/unknown/storage preconditions;exact acceptance mapping still due407.",
+        "current_recovery_authority": false,
+        "id": "clock-boot-or-original-identity-unknown",
+        "is_executable_action_selector": false,
+        "whole_original_branch": {
+          "actual_action_or_noop_outcome": null,
+          "actual_condition_observed": null,
+          "all_original_recovery_gates_required_when_applicable": true,
+          "current_recovery_authority": false,
+          "id": "clock-boot-or-original-identity-unknown",
+          "is_executable_action_selector": false,
+          "is_new_original_native_case": false,
+          "native_case_run": false,
+          "proposed_future_disposition": "Block new recovery effects; never renew/rebind/restore on another boot/identity. Keep all unclosed obligations.",
+          "required_independent_condition": "Time discontinuity/VM rollback/wrong boot/original identity drift or unknown trusted time."
+        }
+      }
+    },
+    {
+      "actual_native_evidence": null,
+      "all_nine_global_rules_apply": true,
+      "current_recovery_authority": false,
+      "id": "guard-lost-or-owner-survivor-unknown",
+      "independently_accepted": false,
+      "is_executable_action_selector": false,
+      "ordered_paper_challenge": [
+        "Guard loss/replacement/owner loss with possible surviving unexcluded writers.",
+        "A parent/guard owner dies while a writer may survive; old backup and target facts cannot prove current exclusion.",
+        "Compare WHOLE current original disposition against the explicitly inactive candidate interpretation;all original safe-input/control/finite-right conditions remain."
+      ],
+      "specific_assessment": "No new restoration/release/reacquisition follows guard loss or uncertain original surviving writer control.",
+      "whole_storage404_reconciliation": {
+        "actual_action_outcome": null,
+        "actual_native_condition": null,
+        "candidate_specific_reconciliation": "Retain the WHOLE original condition and disposition under complete401writer/source trust,403independent full drain/fixed clock and original once-only finite rights.402inactive scope changes may never erase guard/backup/identity/unknown/storage preconditions;exact acceptance mapping still due407.",
+        "current_recovery_authority": false,
+        "id": "guard-lost-or-owner-survivor-unknown",
+        "is_executable_action_selector": false,
+        "whole_original_branch": {
+          "actual_action_or_noop_outcome": null,
+          "actual_condition_observed": null,
+          "all_original_recovery_gates_required_when_applicable": true,
+          "current_recovery_authority": false,
+          "id": "guard-lost-or-owner-survivor-unknown",
+          "is_executable_action_selector": false,
+          "is_new_original_native_case": false,
+          "native_case_run": false,
+          "proposed_future_disposition": "No restore/release/reacquire/force unlock. Original baseline unchanged; possible effects and children stay pending.",
+          "required_independent_condition": "Guard loss/replacement/owner loss with possible surviving unexcluded writers."
+        }
+      }
+    },
+    {
+      "actual_native_evidence": null,
+      "all_nine_global_rules_apply": true,
+      "current_recovery_authority": false,
+      "id": "owned-binding-unknown-target-not-established",
+      "independently_accepted": false,
+      "is_executable_action_selector": false,
+      "ordered_paper_challenge": [
+        "Owned staging/commit/backup extent or identity unknown; actual target is not independently established.",
+        "Owned commit ACK is lost and target is unobserved; keep both outcomes unknown rather than infer unchanged or absent.",
+        "Compare WHOLE current original disposition against the explicitly inactive candidate interpretation;all original safe-input/control/finite-right conditions remain."
+      ],
+      "specific_assessment": "Owned uncertainty is neither target absence nor target changedness. Require independently known original vectors before either target conclusion.",
+      "whole_storage404_reconciliation": {
+        "actual_action_outcome": null,
+        "actual_native_condition": null,
+        "candidate_specific_reconciliation": "Retain the WHOLE original condition and disposition under complete401writer/source trust,403independent full drain/fixed clock and original once-only finite rights.402inactive scope changes may never erase guard/backup/identity/unknown/storage preconditions;exact acceptance mapping still due407.",
+        "current_recovery_authority": false,
+        "id": "owned-binding-unknown-target-not-established",
+        "is_executable_action_selector": false,
+        "whole_original_branch": {
+          "actual_action_or_noop_outcome": null,
+          "actual_condition_observed": null,
+          "all_original_recovery_gates_required_when_applicable": true,
+          "current_recovery_authority": false,
+          "id": "owned-binding-unknown-target-not-established",
+          "is_executable_action_selector": false,
+          "is_new_original_native_case": false,
+          "native_case_run": false,
+          "proposed_future_disposition": "Do not conflate owned uncertainty with target absence/changedness. Preserve artifacts; block target restoration/closure until required original safe state/input evidence is known.",
+          "required_independent_condition": "Owned staging/commit/backup extent or identity unknown; actual target is not independently established."
+        }
+      }
+    },
+    {
+      "actual_native_evidence": null,
+      "all_nine_global_rules_apply": true,
+      "current_recovery_authority": false,
+      "id": "no-backup-independently-unchanged-target",
+      "independently_accepted": false,
+      "is_executable_action_selector": false,
+      "ordered_paper_challenge": [
+        "No known valid backup exists,but independent full original target/config/state/boot/source/backend vectors show no target change and complete known children/guard/identity/rights allow required verification/evidence closure.",
+        "Compare missing backup plus independent full original captured target match against missing backup plus unknown target. Neither permits restore.",
+        "Compare WHOLE current original disposition against the explicitly inactive candidate interpretation;all original safe-input/control/finite-right conditions remain."
+      ],
+      "specific_assessment": "A no-backup branch requires independent full ORIGINAL equivalence and every original verification/evidence right. Missing backup itself proves nothing.",
+      "whole_storage404_reconciliation": {
+        "actual_action_outcome": null,
+        "actual_native_condition": null,
+        "candidate_specific_reconciliation": "Require independently qualified full ORIGINAL vectors,guard/identity/all-childFDstreamstorage drain and finite verification/evidence rights before even a no-target-write question. Absence of a backup is not that independent proof.",
+        "current_recovery_authority": false,
+        "id": "no-backup-independently-unchanged-target",
+        "is_executable_action_selector": false,
+        "whole_original_branch": {
+          "actual_action_or_noop_outcome": null,
+          "actual_condition_observed": null,
+          "all_original_recovery_gates_required_when_applicable": true,
+          "current_recovery_authority": false,
+          "id": "no-backup-independently-unchanged-target",
+          "is_executable_action_selector": false,
+          "is_new_original_native_case": false,
+          "native_case_run": false,
+          "proposed_future_disposition": "Do not invent/restore a backup or perform package/file write. A separately proven unchanged-target verification/evidence path may be reviewed; no automatic cleanup,pause or publication success.",
+          "required_independent_condition": "No known valid backup exists,but independent full original target/config/state/boot/source/backend vectors show no target change and complete known children/guard/identity/rights allow required verification/evidence closure."
+        }
+      }
+    },
+    {
+      "actual_native_evidence": null,
+      "all_nine_global_rules_apply": true,
+      "current_recovery_authority": false,
+      "id": "no-backup-changed-or-unknown-target",
+      "independently_accepted": false,
+      "is_executable_action_selector": false,
+      "ordered_paper_challenge": [
+        "No known valid original backup and target differs or its state is unknown.",
+        "Target differs or is unknown with no exact original backup. A hypothetical cleanup must not manufacture a recovery path.",
+        "Compare WHOLE current original disposition against the explicitly inactive candidate interpretation;all original safe-input/control/finite-right conditions remain."
+      ],
+      "specific_assessment": "No missing/foreign backup restore and no unchanged-target claim; preserve mismatch/failure/pending.",
+      "whole_storage404_reconciliation": {
+        "actual_action_outcome": null,
+        "actual_native_condition": null,
+        "candidate_specific_reconciliation": "Retain the WHOLE original condition and disposition under complete401writer/source trust,403independent full drain/fixed clock and original once-only finite rights.402inactive scope changes may never erase guard/backup/identity/unknown/storage preconditions;exact acceptance mapping still due407.",
+        "current_recovery_authority": false,
+        "id": "no-backup-changed-or-unknown-target",
+        "is_executable_action_selector": false,
+        "whole_original_branch": {
+          "actual_action_or_noop_outcome": null,
+          "actual_condition_observed": null,
+          "all_original_recovery_gates_required_when_applicable": true,
+          "current_recovery_authority": false,
+          "id": "no-backup-changed-or-unknown-target",
+          "is_executable_action_selector": false,
+          "is_new_original_native_case": false,
+          "native_case_run": false,
+          "proposed_future_disposition": "No unsafe restoration from missing/foreign data and no unchanged-target claim. Preserve original failure,artifacts and target/controller obligations.",
+          "required_independent_condition": "No known valid original backup and target differs or its state is unknown."
+        }
+      }
+    },
+    {
+      "actual_native_evidence": null,
+      "all_nine_global_rules_apply": true,
+      "current_recovery_authority": false,
+      "id": "unknown-backup-binding-independent-target-unchanged",
+      "independently_accepted": false,
+      "is_executable_action_selector": false,
+      "ordered_paper_challenge": [
+        "Backup/owned binding remains unknown while independent full target equivalence and child/guard/rights proof is known.",
+        "Independently captured original target equivalence coexists with unknown backup commit. Preserve both without treating backup as known.",
+        "Compare WHOLE current original disposition against the explicitly inactive candidate interpretation;all original safe-input/control/finite-right conditions remain."
+      ],
+      "specific_assessment": "Keep a qualified captured target match separate from unknown backup/owned/controller state; no blind restore/deletion/closure.",
+      "whole_storage404_reconciliation": {
+        "actual_action_outcome": null,
+        "actual_native_condition": null,
+        "candidate_specific_reconciliation": "Preserve exact independently qualified captured target fact separately from unknown owned backup/commit;no restore from unknown input,blind deletion,current closure or new rights.",
+        "current_recovery_authority": false,
+        "id": "unknown-backup-binding-independent-target-unchanged",
+        "is_executable_action_selector": false,
+        "whole_original_branch": {
+          "actual_action_or_noop_outcome": null,
+          "actual_condition_observed": null,
+          "all_original_recovery_gates_required_when_applicable": true,
+          "current_recovery_authority": false,
+          "id": "unknown-backup-binding-independent-target-unchanged",
+          "is_executable_action_selector": false,
+          "is_new_original_native_case": false,
+          "native_case_run": false,
+          "proposed_future_disposition": "Known target equivalence does not establish owned backup success. Avoid restore from unknown input; evaluate bounded target verification/evidence separately,retain owned uncertainty and forbid blind deletion.",
+          "required_independent_condition": "Backup/owned binding remains unknown while independent full target equivalence and child/guard/rights proof is known."
+        }
+      }
+    },
+    {
+      "actual_native_evidence": null,
+      "all_nine_global_rules_apply": true,
+      "current_recovery_authority": false,
+      "id": "known-already-restored-no-op",
+      "independently_accepted": false,
+      "is_executable_action_selector": false,
+      "ordered_paper_challenge": [
+        "Independent fresh full original equivalence under all original verification/control gates; no uncertain earlier action used as success.",
+        "A no-op label is proposed after restoration. Compare known versus unknown restore outcome and original verification right; never add a slot or erase failure.",
+        "Compare WHOLE current original disposition against the explicitly inactive candidate interpretation;all original safe-input/control/finite-right conditions remain."
+      ],
+      "specific_assessment": "Known full original equivalence is a captured fact. A fresh no-write verification/evidence effect still needs its own reviewed original action identity,finite rights and spend; it cannot replace an unknown earlier restore ACK.",
+      "whole_storage404_reconciliation": {
+        "actual_action_outcome": null,
+        "actual_native_condition": null,
+        "candidate_specific_reconciliation": "Retain the WHOLE original condition and disposition under complete401writer/source trust,403independent full drain/fixed clock and original once-only finite rights.402inactive scope changes may never erase guard/backup/identity/unknown/storage preconditions;exact acceptance mapping still due407.",
+        "current_recovery_authority": false,
+        "id": "known-already-restored-no-op",
+        "is_executable_action_selector": false,
+        "whole_original_branch": {
+          "actual_action_or_noop_outcome": null,
+          "actual_condition_observed": null,
+          "all_original_recovery_gates_required_when_applicable": true,
+          "current_recovery_authority": false,
+          "id": "known-already-restored-no-op",
+          "is_executable_action_selector": false,
+          "is_new_original_native_case": false,
+          "native_case_run": false,
+          "proposed_future_disposition": "Only reviewed no-write verification/no-op may be recognized; never replay unknown restore or turn original forward failure into PASS. Finite original verification/evidence rights still required.",
+          "required_independent_condition": "Independent fresh full original equivalence under all original verification/control gates; no uncertain earlier action used as success."
+        }
+      }
+    },
+    {
+      "actual_native_evidence": null,
+      "all_nine_global_rules_apply": true,
+      "current_recovery_authority": false,
+      "id": "restore-action-or-ACK-unknown",
+      "independently_accepted": false,
+      "is_executable_action_selector": false,
+      "ordered_paper_challenge": [
+        "Original restoration may have applied or ACK/storage/child effect outcome is unknown.",
+        "Restore may have applied; ACK is lost; a later qualified target match is captured. The restore outcome remains unknown and no repeated action is authorized.",
+        "Compare WHOLE current original disposition against the explicitly inactive candidate interpretation;all original safe-input/control/finite-right conditions remain."
+      ],
+      "specific_assessment": "No repeat/refund or new verification slot repairs unknown restore/action ACK. Captured independent target facts may survive while action/controller/owned outcomes stay pending.",
+      "whole_storage404_reconciliation": {
+        "actual_action_outcome": null,
+        "actual_native_condition": null,
+        "candidate_specific_reconciliation": "Never repeat potentially applied restore,spend another slot to retry or infer no effect. Independently captured qualified target facts may remain known;unknown action/controller/owned outcomes remain separate and no automatic release follows.",
+        "current_recovery_authority": false,
+        "id": "restore-action-or-ACK-unknown",
+        "is_executable_action_selector": false,
+        "whole_original_branch": {
+          "actual_action_or_noop_outcome": null,
+          "actual_condition_observed": null,
+          "all_original_recovery_gates_required_when_applicable": true,
+          "current_recovery_authority": false,
+          "id": "restore-action-or-ACK-unknown",
+          "is_executable_action_selector": false,
+          "is_new_original_native_case": false,
+          "native_case_run": false,
+          "proposed_future_disposition": "Never repeat potentially applied package/file action,spend another slot to retry or infer unchanged target. Stop and preserve pending action/target/artifacts/status.",
+          "required_independent_condition": "Original restoration may have applied or ACK/storage/child effect outcome is unknown."
+        }
+      }
+    },
+    {
+      "actual_native_evidence": null,
+      "all_nine_global_rules_apply": true,
+      "current_recovery_authority": false,
+      "id": "child-or-stream-drain-unknown",
+      "independently_accepted": false,
+      "is_executable_action_selector": false,
+      "ordered_paper_challenge": [
+        "Any original descendant,alias FD,stream,status or in-flight effect completion unknown.",
+        "Backend returns while descendant or stream outcome is unknown. Original finite control rights are not implied by failure.",
+        "Compare WHOLE current original disposition against the explicitly inactive candidate interpretation;all original safe-input/control/finite-right conditions remain."
+      ],
+      "specific_assessment": "Any unknown child/FD/stream/storage/origin facet prevents claiming full drain,restoration eligibility or release.",
+      "whole_storage404_reconciliation": {
+        "actual_action_outcome": null,
+        "actual_native_condition": null,
+        "candidate_specific_reconciliation": "Retain the WHOLE original condition and disposition under complete401writer/source trust,403independent full drain/fixed clock and original once-only finite rights.402inactive scope changes may never erase guard/backup/identity/unknown/storage preconditions;exact acceptance mapping still due407.",
+        "current_recovery_authority": false,
+        "id": "child-or-stream-drain-unknown",
+        "is_executable_action_selector": false,
+        "whole_original_branch": {
+          "actual_action_or_noop_outcome": null,
+          "actual_condition_observed": null,
+          "all_original_recovery_gates_required_when_applicable": true,
+          "current_recovery_authority": false,
+          "id": "child-or-stream-drain-unknown",
+          "is_executable_action_selector": false,
+          "is_new_original_native_case": false,
+          "native_case_run": false,
+          "proposed_future_disposition": "No target restore or known release. Original bounded control/drain rights themselves must be explicit valid,not implicit from failure.",
+          "required_independent_condition": "Any original descendant,alias FD,stream,status or in-flight effect completion unknown."
+        }
+      }
+    },
+    {
+      "actual_native_evidence": null,
+      "all_nine_global_rules_apply": true,
+      "current_recovery_authority": false,
+      "id": "budget-exhausted-or-deadline-expired",
+      "independently_accepted": false,
+      "is_executable_action_selector": false,
+      "ordered_paper_challenge": [
+        "Recovery budget exhausted or original recovery deadline expired.",
+        "All backup/drain premises are known but original budget is spent or deadline passed. Preserve facts without further effect permission.",
+        "Compare WHOLE current original disposition against the explicitly inactive candidate interpretation;all original safe-input/control/finite-right conditions remain."
+      ],
+      "specific_assessment": "Known exact backups/full drain do not refill original finite budget or extend deadline;401-403 assumptions do not waive this boundary.",
+      "whole_storage404_reconciliation": {
+        "actual_action_outcome": null,
+        "actual_native_condition": null,
+        "candidate_specific_reconciliation": "403original finite bounds deny dependent new actions even if full drain/backups are known.402revocation proposal supplies no expiry/budget exemption or renewed action right.",
+        "current_recovery_authority": false,
+        "id": "budget-exhausted-or-deadline-expired",
+        "is_executable_action_selector": false,
+        "whole_original_branch": {
+          "actual_action_or_noop_outcome": null,
+          "actual_condition_observed": null,
+          "all_original_recovery_gates_required_when_applicable": true,
+          "current_recovery_authority": false,
+          "id": "budget-exhausted-or-deadline-expired",
+          "is_executable_action_selector": false,
+          "is_new_original_native_case": false,
+          "native_case_run": false,
+          "proposed_future_disposition": "Block further recovery actions; no refill,renewal/new grant or exemption. Retain pending obligations and evidence without unauthorized cleanup.",
+          "required_independent_condition": "Recovery budget exhausted or original recovery deadline expired."
+        }
+      }
+    },
+    {
+      "actual_native_evidence": null,
+      "all_nine_global_rules_apply": true,
+      "current_recovery_authority": false,
+      "id": "budget-spend-uncertain",
+      "independently_accepted": false,
+      "is_executable_action_selector": false,
+      "ordered_paper_challenge": [
+        "Durable action-budget spend/once-only identity outcome uncertain.",
+        "Original action spend ACK is lost before outcome is known. Even apparent target no-change supplies no refund or relaunch.",
+        "Compare WHOLE current original disposition against the explicitly inactive candidate interpretation;all original safe-input/control/finite-right conditions remain."
+      ],
+      "specific_assessment": "Unknown durable spend is not unused or refundable. Preserve original once-only action identity and no replay.",
+      "whole_storage404_reconciliation": {
+        "actual_action_outcome": null,
+        "actual_native_condition": null,
+        "candidate_specific_reconciliation": "Retain the WHOLE original condition and disposition under complete401writer/source trust,403independent full drain/fixed clock and original once-only finite rights.402inactive scope changes may never erase guard/backup/identity/unknown/storage preconditions;exact acceptance mapping still due407.",
+        "current_recovery_authority": false,
+        "id": "budget-spend-uncertain",
+        "is_executable_action_selector": false,
+        "whole_original_branch": {
+          "actual_action_or_noop_outcome": null,
+          "actual_condition_observed": null,
+          "all_original_recovery_gates_required_when_applicable": true,
+          "current_recovery_authority": false,
+          "id": "budget-spend-uncertain",
+          "is_executable_action_selector": false,
+          "is_new_original_native_case": false,
+          "native_case_run": false,
+          "proposed_future_disposition": "Do not execute or repeat the action and do not refund uncertain spend. Preserve original finite state and pending obligations.",
+          "required_independent_condition": "Durable action-budget spend/once-only identity outcome uncertain."
+        }
+      }
+    },
+    {
+      "actual_native_evidence": null,
+      "all_nine_global_rules_apply": true,
+      "current_recovery_authority": false,
+      "id": "unapproved-or-foreign-target-drift",
+      "independently_accepted": false,
+      "is_executable_action_selector": false,
+      "ordered_paper_challenge": [
+        "Target/config/package/source/alias differs beyond original approved deltas or safely bound original identity.",
+        "A target/source/config alias differs beyond approved deltas; keep original mismatch and stop unsafe writes instead of redefining baseline.",
+        "Compare WHOLE current original disposition against the explicitly inactive candidate interpretation;all original safe-input/control/finite-right conditions remain."
+      ],
+      "specific_assessment": "Original approved deltas cannot be rebound to foreign/current drift; a valid backup is no right to overwrite unrelated state.",
+      "whole_storage404_reconciliation": {
+        "actual_action_outcome": null,
+        "actual_native_condition": null,
+        "candidate_specific_reconciliation": "Known foreign/unapproved drift never becomes approved original delta,backup authority or self-rebound baseline. Stop unsafe target writes;retain original mismatch/failure and all applicable pending outcomes.",
+        "current_recovery_authority": false,
+        "id": "unapproved-or-foreign-target-drift",
+        "is_executable_action_selector": false,
+        "whole_original_branch": {
+          "actual_action_or_noop_outcome": null,
+          "actual_condition_observed": null,
+          "all_original_recovery_gates_required_when_applicable": true,
+          "current_recovery_authority": false,
+          "id": "unapproved-or-foreign-target-drift",
+          "is_executable_action_selector": false,
+          "is_new_original_native_case": false,
+          "native_case_run": false,
+          "proposed_future_disposition": "Never restore foreign drift or rebind expectations to changed state. Block unsafe writes,retain artifacts and original pending closure.",
+          "required_independent_condition": "Target/config/package/source/alias differs beyond original approved deltas or safely bound original identity."
+        }
+      }
+    },
+    {
+      "actual_native_evidence": null,
+      "all_nine_global_rules_apply": true,
+      "current_recovery_authority": false,
+      "id": "partial-package-config-effect",
+      "independently_accepted": false,
+      "is_executable_action_selector": false,
+      "ordered_paper_challenge": [
+        "Original package/config effect partial and native bounded restoration/idempotence/effect equivalence not established.",
+        "Package/config effects are partial and native restore equivalence is unknown. Do not retry or select a speculative restore branch.",
+        "Compare WHOLE current original disposition against the explicitly inactive candidate interpretation;all original safe-input/control/finite-right conditions remain."
+      ],
+      "specific_assessment": "Exact backups do not establish safe partial native package rollback or idempotent real backend effects. Full original graph and independent effect equivalence remain unproved.",
+      "whole_storage404_reconciliation": {
+        "actual_action_outcome": null,
+        "actual_native_condition": null,
+        "candidate_specific_reconciliation": "Retain the WHOLE original condition and disposition under complete401writer/source trust,403independent full drain/fixed clock and original once-only finite rights.402inactive scope changes may never erase guard/backup/identity/unknown/storage preconditions;exact acceptance mapping still due407.",
+        "current_recovery_authority": false,
+        "id": "partial-package-config-effect",
+        "is_executable_action_selector": false,
+        "whole_original_branch": {
+          "actual_action_or_noop_outcome": null,
+          "actual_condition_observed": null,
+          "all_original_recovery_gates_required_when_applicable": true,
+          "current_recovery_authority": false,
+          "id": "partial-package-config-effect",
+          "is_executable_action_selector": false,
+          "is_new_original_native_case": false,
+          "native_case_run": false,
+          "proposed_future_disposition": "Backups alone do not prove safe package rollback; block speculative retry/restore until full original backend and finite recovery composition is independently refined.",
+          "required_independent_condition": "Original package/config effect partial and native bounded restoration/idempotence/effect equivalence not established."
+        }
+      }
+    },
+    {
+      "actual_native_evidence": null,
+      "all_nine_global_rules_apply": true,
+      "current_recovery_authority": false,
+      "id": "known-restoration-target-evidence-pending",
+      "independently_accepted": false,
+      "is_executable_action_selector": false,
+      "ordered_paper_challenge": [
+        "Known verified original restoration and complete known children,but full original target evidence/known release or separate publication unresolved.",
+        "Original target restoration is known while target evidence/release/publication is pending. No automatic release,overall PASS or host pause follows.",
+        "Compare WHOLE current original disposition against the explicitly inactive candidate interpretation;all original safe-input/control/finite-right conditions remain."
+      ],
+      "specific_assessment": "Known restoration/full drain do not establish complete target evidence,safe release or separate publication/consumer custody.",
+      "whole_storage404_reconciliation": {
+        "actual_action_outcome": null,
+        "actual_native_condition": null,
+        "candidate_specific_reconciliation": "Known restore/full children alone do not supply original target evidence or safe release.405must retain captured-data publication/observer/custody outcomes separately;no automatic target/global pause.",
+        "current_recovery_authority": false,
+        "id": "known-restoration-target-evidence-pending",
+        "is_executable_action_selector": false,
+        "whole_original_branch": {
+          "actual_action_or_noop_outcome": null,
+          "actual_condition_observed": null,
+          "all_original_recovery_gates_required_when_applicable": true,
+          "current_recovery_authority": false,
+          "id": "known-restoration-target-evidence-pending",
+          "is_executable_action_selector": false,
+          "is_new_original_native_case": false,
+          "native_case_run": false,
+          "proposed_future_disposition": "Retain guard and pending closure as required by original finite rights; no release/PASS/pause inferred.374 reviews target closure and captured-data publication separately.",
+          "required_independent_condition": "Known verified original restoration and complete known children,but full original target evidence/known release or separate publication unresolved."
+        }
+      }
+    }
+  ],
+  "expected_cases": [
+    {
+      "case": {
+        "backup_binding": "known-absent",
+        "claim_outcome": "known-consumed",
+        "controller_outcome": "unknown",
+        "hypothetical_only": true,
+        "id": "S01-no-backup-unknown-target",
+        "launch_outcome": "known-spent",
+        "native_evidence": null,
+        "ordered_paper_challenge": [
+          "Only hypothetical original bindings and observations are supplied.",
+          "No backup and target unknown do not imply unchanged target.",
+          "Retain each status separately;no native restore/commit/action selection,refund,retry or current closure."
+        ],
+        "original_action_spend": "unknown",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "original_verification_right": "unknown",
+        "owned_commit_outcome": "unknown",
+        "qualified_captured_target_fact": null,
+        "restore_outcome": "unknown",
+        "runtime_authority": false
+      },
+      "native_evidence": null,
+      "runtime_authority": false,
+      "status_projection": {
+        "actual_global_host_closure": false,
+        "claim_or_launch_may_reopen": false,
+        "commit_selected": false,
+        "native_evidence": null,
+        "pending_component_names": [
+          "qualified_captured_target_fact",
+          "restore_outcome",
+          "owned_commit_outcome",
+          "controller_outcome",
+          "original_action_spend",
+          "original_verification_right"
+        ],
+        "qualified_fact_proves_current_invariance": false,
+        "restore_selected": false,
+        "runtime_authority": false,
+        "separate_original_status_components": {
+          "backup_binding": "known-absent",
+          "claim_outcome": "known-consumed",
+          "controller_outcome": "unknown",
+          "launch_outcome": "known-spent",
+          "original_action_spend": "unknown",
+          "original_forward_failed": true,
+          "original_mismatch": false,
+          "original_verification_right": "unknown",
+          "owned_commit_outcome": "unknown",
+          "qualified_captured_target_fact": null,
+          "restore_outcome": "unknown"
+        },
+        "spend_may_refund": false,
+        "target_fact_completes_unknown_ACK": false,
+        "unknown_action_may_repeat": false,
+        "verification_selected": false
+      }
+    },
+    {
+      "case": {
+        "backup_binding": "known-absent",
+        "claim_outcome": "known-consumed",
+        "controller_outcome": "unknown",
+        "hypothetical_only": true,
+        "id": "S02-no-backup-qualified-target-match",
+        "launch_outcome": "known-spent",
+        "native_evidence": null,
+        "ordered_paper_challenge": [
+          "Only hypothetical original bindings and observations are supplied.",
+          "Separate independent captured match from absent backup; any verification right remains independently reviewed,not new.",
+          "Retain each status separately;no native restore/commit/action selection,refund,retry or current closure."
+        ],
+        "original_action_spend": "unknown",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "original_verification_right": "known-original-valid",
+        "owned_commit_outcome": "unknown",
+        "qualified_captured_target_fact": "qualified-original-match-at-capture-cut",
+        "restore_outcome": "unknown",
+        "runtime_authority": false
+      },
+      "native_evidence": null,
+      "runtime_authority": false,
+      "status_projection": {
+        "actual_global_host_closure": false,
+        "claim_or_launch_may_reopen": false,
+        "commit_selected": false,
+        "native_evidence": null,
+        "pending_component_names": [
+          "restore_outcome",
+          "owned_commit_outcome",
+          "controller_outcome",
+          "original_action_spend"
+        ],
+        "qualified_fact_proves_current_invariance": false,
+        "restore_selected": false,
+        "runtime_authority": false,
+        "separate_original_status_components": {
+          "backup_binding": "known-absent",
+          "claim_outcome": "known-consumed",
+          "controller_outcome": "unknown",
+          "launch_outcome": "known-spent",
+          "original_action_spend": "unknown",
+          "original_forward_failed": true,
+          "original_mismatch": false,
+          "original_verification_right": "known-original-valid",
+          "owned_commit_outcome": "unknown",
+          "qualified_captured_target_fact": "qualified-original-match-at-capture-cut",
+          "restore_outcome": "unknown"
+        },
+        "spend_may_refund": false,
+        "target_fact_completes_unknown_ACK": false,
+        "unknown_action_may_repeat": false,
+        "verification_selected": false
+      }
+    },
+    {
+      "case": {
+        "backup_binding": "unknown",
+        "claim_outcome": "known-consumed",
+        "controller_outcome": "unknown",
+        "hypothetical_only": true,
+        "id": "S03-unknown-backup-qualified-match",
+        "launch_outcome": "known-spent",
+        "native_evidence": null,
+        "ordered_paper_challenge": [
+          "Only hypothetical original bindings and observations are supplied.",
+          "Known captured target match coexists with unknown owned backup/controller outcomes.",
+          "Retain each status separately;no native restore/commit/action selection,refund,retry or current closure."
+        ],
+        "original_action_spend": "unknown",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "original_verification_right": "unknown",
+        "owned_commit_outcome": "unknown",
+        "qualified_captured_target_fact": "qualified-original-match-at-capture-cut",
+        "restore_outcome": "unknown",
+        "runtime_authority": false
+      },
+      "native_evidence": null,
+      "runtime_authority": false,
+      "status_projection": {
+        "actual_global_host_closure": false,
+        "claim_or_launch_may_reopen": false,
+        "commit_selected": false,
+        "native_evidence": null,
+        "pending_component_names": [
+          "backup_binding",
+          "restore_outcome",
+          "owned_commit_outcome",
+          "controller_outcome",
+          "original_action_spend",
+          "original_verification_right"
+        ],
+        "qualified_fact_proves_current_invariance": false,
+        "restore_selected": false,
+        "runtime_authority": false,
+        "separate_original_status_components": {
+          "backup_binding": "unknown",
+          "claim_outcome": "known-consumed",
+          "controller_outcome": "unknown",
+          "launch_outcome": "known-spent",
+          "original_action_spend": "unknown",
+          "original_forward_failed": true,
+          "original_mismatch": false,
+          "original_verification_right": "unknown",
+          "owned_commit_outcome": "unknown",
+          "qualified_captured_target_fact": "qualified-original-match-at-capture-cut",
+          "restore_outcome": "unknown"
+        },
+        "spend_may_refund": false,
+        "target_fact_completes_unknown_ACK": false,
+        "unknown_action_may_repeat": false,
+        "verification_selected": false
+      }
+    },
+    {
+      "case": {
+        "backup_binding": "known-exact",
+        "claim_outcome": "known-consumed",
+        "controller_outcome": "unknown",
+        "hypothetical_only": true,
+        "id": "S04-lost-restore-ACK-qualified-match",
+        "launch_outcome": "known-spent",
+        "native_evidence": null,
+        "ordered_paper_challenge": [
+          "Only hypothetical original bindings and observations are supplied.",
+          "A target match cannot complete a lost restore ACK or allow repeat.",
+          "Retain each status separately;no native restore/commit/action selection,refund,retry or current closure."
+        ],
+        "original_action_spend": "known-spent",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "original_verification_right": "unknown",
+        "owned_commit_outcome": "unknown",
+        "qualified_captured_target_fact": "qualified-original-match-at-capture-cut",
+        "restore_outcome": "unknown",
+        "runtime_authority": false
+      },
+      "native_evidence": null,
+      "runtime_authority": false,
+      "status_projection": {
+        "actual_global_host_closure": false,
+        "claim_or_launch_may_reopen": false,
+        "commit_selected": false,
+        "native_evidence": null,
+        "pending_component_names": [
+          "restore_outcome",
+          "owned_commit_outcome",
+          "controller_outcome",
+          "original_verification_right"
+        ],
+        "qualified_fact_proves_current_invariance": false,
+        "restore_selected": false,
+        "runtime_authority": false,
+        "separate_original_status_components": {
+          "backup_binding": "known-exact",
+          "claim_outcome": "known-consumed",
+          "controller_outcome": "unknown",
+          "launch_outcome": "known-spent",
+          "original_action_spend": "known-spent",
+          "original_forward_failed": true,
+          "original_mismatch": false,
+          "original_verification_right": "unknown",
+          "owned_commit_outcome": "unknown",
+          "qualified_captured_target_fact": "qualified-original-match-at-capture-cut",
+          "restore_outcome": "unknown"
+        },
+        "spend_may_refund": false,
+        "target_fact_completes_unknown_ACK": false,
+        "unknown_action_may_repeat": false,
+        "verification_selected": false
+      }
+    },
+    {
+      "case": {
+        "backup_binding": "known-exact",
+        "claim_outcome": "known-consumed",
+        "controller_outcome": "unknown",
+        "hypothetical_only": true,
+        "id": "S05-lost-restore-ACK-mismatch",
+        "launch_outcome": "known-spent",
+        "native_evidence": null,
+        "ordered_paper_challenge": [
+          "Only hypothetical original bindings and observations are supplied.",
+          "Known target mismatch and unknown restore/controller remain separate.",
+          "Retain each status separately;no native restore/commit/action selection,refund,retry or current closure."
+        ],
+        "original_action_spend": "known-spent",
+        "original_forward_failed": true,
+        "original_mismatch": true,
+        "original_verification_right": "unknown",
+        "owned_commit_outcome": "unknown",
+        "qualified_captured_target_fact": "qualified-original-mismatch-at-capture-cut",
+        "restore_outcome": "unknown",
+        "runtime_authority": false
+      },
+      "native_evidence": null,
+      "runtime_authority": false,
+      "status_projection": {
+        "actual_global_host_closure": false,
+        "claim_or_launch_may_reopen": false,
+        "commit_selected": false,
+        "native_evidence": null,
+        "pending_component_names": [
+          "restore_outcome",
+          "owned_commit_outcome",
+          "controller_outcome",
+          "original_verification_right"
+        ],
+        "qualified_fact_proves_current_invariance": false,
+        "restore_selected": false,
+        "runtime_authority": false,
+        "separate_original_status_components": {
+          "backup_binding": "known-exact",
+          "claim_outcome": "known-consumed",
+          "controller_outcome": "unknown",
+          "launch_outcome": "known-spent",
+          "original_action_spend": "known-spent",
+          "original_forward_failed": true,
+          "original_mismatch": true,
+          "original_verification_right": "unknown",
+          "owned_commit_outcome": "unknown",
+          "qualified_captured_target_fact": "qualified-original-mismatch-at-capture-cut",
+          "restore_outcome": "unknown"
+        },
+        "spend_may_refund": false,
+        "target_fact_completes_unknown_ACK": false,
+        "unknown_action_may_repeat": false,
+        "verification_selected": false
+      }
+    },
+    {
+      "case": {
+        "backup_binding": "known-exact",
+        "claim_outcome": "known-consumed",
+        "controller_outcome": "unknown",
+        "hypothetical_only": true,
+        "id": "S06-known-restore-evidence-pending",
+        "launch_outcome": "known-spent",
+        "native_evidence": null,
+        "ordered_paper_challenge": [
+          "Only hypothetical original bindings and observations are supplied.",
+          "Known restore is not full evidence/release/custody closure.",
+          "Retain each status separately;no native restore/commit/action selection,refund,retry or current closure."
+        ],
+        "original_action_spend": "known-spent",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "original_verification_right": "unknown",
+        "owned_commit_outcome": "unknown",
+        "qualified_captured_target_fact": "qualified-original-match-at-capture-cut",
+        "restore_outcome": "known-applied",
+        "runtime_authority": false
+      },
+      "native_evidence": null,
+      "runtime_authority": false,
+      "status_projection": {
+        "actual_global_host_closure": false,
+        "claim_or_launch_may_reopen": false,
+        "commit_selected": false,
+        "native_evidence": null,
+        "pending_component_names": [
+          "owned_commit_outcome",
+          "controller_outcome",
+          "original_verification_right"
+        ],
+        "qualified_fact_proves_current_invariance": false,
+        "restore_selected": false,
+        "runtime_authority": false,
+        "separate_original_status_components": {
+          "backup_binding": "known-exact",
+          "claim_outcome": "known-consumed",
+          "controller_outcome": "unknown",
+          "launch_outcome": "known-spent",
+          "original_action_spend": "known-spent",
+          "original_forward_failed": true,
+          "original_mismatch": false,
+          "original_verification_right": "unknown",
+          "owned_commit_outcome": "unknown",
+          "qualified_captured_target_fact": "qualified-original-match-at-capture-cut",
+          "restore_outcome": "known-applied"
+        },
+        "spend_may_refund": false,
+        "target_fact_completes_unknown_ACK": false,
+        "unknown_action_may_repeat": false,
+        "verification_selected": false
+      }
+    },
+    {
+      "case": {
+        "backup_binding": "unknown",
+        "claim_outcome": "known-consumed",
+        "controller_outcome": "unknown",
+        "hypothetical_only": true,
+        "id": "S07-known-no-op-right-unknown",
+        "launch_outcome": "known-spent",
+        "native_evidence": null,
+        "ordered_paper_challenge": [
+          "Only hypothetical original bindings and observations are supplied.",
+          "No-op name does not supply original verification/evidence rights.",
+          "Retain each status separately;no native restore/commit/action selection,refund,retry or current closure."
+        ],
+        "original_action_spend": "known-spent",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "original_verification_right": "unknown",
+        "owned_commit_outcome": "unknown",
+        "qualified_captured_target_fact": "qualified-original-match-at-capture-cut",
+        "restore_outcome": "known-applied",
+        "runtime_authority": false
+      },
+      "native_evidence": null,
+      "runtime_authority": false,
+      "status_projection": {
+        "actual_global_host_closure": false,
+        "claim_or_launch_may_reopen": false,
+        "commit_selected": false,
+        "native_evidence": null,
+        "pending_component_names": [
+          "backup_binding",
+          "owned_commit_outcome",
+          "controller_outcome",
+          "original_verification_right"
+        ],
+        "qualified_fact_proves_current_invariance": false,
+        "restore_selected": false,
+        "runtime_authority": false,
+        "separate_original_status_components": {
+          "backup_binding": "unknown",
+          "claim_outcome": "known-consumed",
+          "controller_outcome": "unknown",
+          "launch_outcome": "known-spent",
+          "original_action_spend": "known-spent",
+          "original_forward_failed": true,
+          "original_mismatch": false,
+          "original_verification_right": "unknown",
+          "owned_commit_outcome": "unknown",
+          "qualified_captured_target_fact": "qualified-original-match-at-capture-cut",
+          "restore_outcome": "known-applied"
+        },
+        "spend_may_refund": false,
+        "target_fact_completes_unknown_ACK": false,
+        "unknown_action_may_repeat": false,
+        "verification_selected": false
+      }
+    },
+    {
+      "case": {
+        "backup_binding": "known-exact",
+        "claim_outcome": "known-consumed",
+        "controller_outcome": "unknown",
+        "hypothetical_only": true,
+        "id": "S08-spent-right-no-new-verification",
+        "launch_outcome": "known-spent",
+        "native_evidence": null,
+        "ordered_paper_challenge": [
+          "Only hypothetical original bindings and observations are supplied.",
+          "Known restored target does not provide another verification slot.",
+          "Retain each status separately;no native restore/commit/action selection,refund,retry or current closure."
+        ],
+        "original_action_spend": "known-spent",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "original_verification_right": "known-exhausted",
+        "owned_commit_outcome": "unknown",
+        "qualified_captured_target_fact": "qualified-original-match-at-capture-cut",
+        "restore_outcome": "known-applied",
+        "runtime_authority": false
+      },
+      "native_evidence": null,
+      "runtime_authority": false,
+      "status_projection": {
+        "actual_global_host_closure": false,
+        "claim_or_launch_may_reopen": false,
+        "commit_selected": false,
+        "native_evidence": null,
+        "pending_component_names": [
+          "owned_commit_outcome",
+          "controller_outcome"
+        ],
+        "qualified_fact_proves_current_invariance": false,
+        "restore_selected": false,
+        "runtime_authority": false,
+        "separate_original_status_components": {
+          "backup_binding": "known-exact",
+          "claim_outcome": "known-consumed",
+          "controller_outcome": "unknown",
+          "launch_outcome": "known-spent",
+          "original_action_spend": "known-spent",
+          "original_forward_failed": true,
+          "original_mismatch": false,
+          "original_verification_right": "known-exhausted",
+          "owned_commit_outcome": "unknown",
+          "qualified_captured_target_fact": "qualified-original-match-at-capture-cut",
+          "restore_outcome": "known-applied"
+        },
+        "spend_may_refund": false,
+        "target_fact_completes_unknown_ACK": false,
+        "unknown_action_may_repeat": false,
+        "verification_selected": false
+      }
+    },
+    {
+      "case": {
+        "backup_binding": "unknown",
+        "claim_outcome": "known-consumed",
+        "controller_outcome": "unknown",
+        "hypothetical_only": true,
+        "id": "S09-unknown-spend-not-unused",
+        "launch_outcome": "known-spent",
+        "native_evidence": null,
+        "ordered_paper_challenge": [
+          "Only hypothetical original bindings and observations are supplied.",
+          "Unknown spend stays unknown even with known target match.",
+          "Retain each status separately;no native restore/commit/action selection,refund,retry or current closure."
+        ],
+        "original_action_spend": "unknown",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "original_verification_right": "unknown",
+        "owned_commit_outcome": "unknown",
+        "qualified_captured_target_fact": "qualified-original-match-at-capture-cut",
+        "restore_outcome": "unknown",
+        "runtime_authority": false
+      },
+      "native_evidence": null,
+      "runtime_authority": false,
+      "status_projection": {
+        "actual_global_host_closure": false,
+        "claim_or_launch_may_reopen": false,
+        "commit_selected": false,
+        "native_evidence": null,
+        "pending_component_names": [
+          "backup_binding",
+          "restore_outcome",
+          "owned_commit_outcome",
+          "controller_outcome",
+          "original_action_spend",
+          "original_verification_right"
+        ],
+        "qualified_fact_proves_current_invariance": false,
+        "restore_selected": false,
+        "runtime_authority": false,
+        "separate_original_status_components": {
+          "backup_binding": "unknown",
+          "claim_outcome": "known-consumed",
+          "controller_outcome": "unknown",
+          "launch_outcome": "known-spent",
+          "original_action_spend": "unknown",
+          "original_forward_failed": true,
+          "original_mismatch": false,
+          "original_verification_right": "unknown",
+          "owned_commit_outcome": "unknown",
+          "qualified_captured_target_fact": "qualified-original-match-at-capture-cut",
+          "restore_outcome": "unknown"
+        },
+        "spend_may_refund": false,
+        "target_fact_completes_unknown_ACK": false,
+        "unknown_action_may_repeat": false,
+        "verification_selected": false
+      }
+    },
+    {
+      "case": {
+        "backup_binding": "unknown",
+        "claim_outcome": "known-consumed",
+        "controller_outcome": "unknown",
+        "hypothetical_only": true,
+        "id": "S10-unknown-launch-no-relaunch",
+        "launch_outcome": "unknown",
+        "native_evidence": null,
+        "ordered_paper_challenge": [
+          "Only hypothetical original bindings and observations are supplied.",
+          "Target match/no-change supplies no new launch or refund.",
+          "Retain each status separately;no native restore/commit/action selection,refund,retry or current closure."
+        ],
+        "original_action_spend": "unknown",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "original_verification_right": "unknown",
+        "owned_commit_outcome": "unknown",
+        "qualified_captured_target_fact": "qualified-original-match-at-capture-cut",
+        "restore_outcome": "unknown",
+        "runtime_authority": false
+      },
+      "native_evidence": null,
+      "runtime_authority": false,
+      "status_projection": {
+        "actual_global_host_closure": false,
+        "claim_or_launch_may_reopen": false,
+        "commit_selected": false,
+        "native_evidence": null,
+        "pending_component_names": [
+          "backup_binding",
+          "launch_outcome",
+          "restore_outcome",
+          "owned_commit_outcome",
+          "controller_outcome",
+          "original_action_spend",
+          "original_verification_right"
+        ],
+        "qualified_fact_proves_current_invariance": false,
+        "restore_selected": false,
+        "runtime_authority": false,
+        "separate_original_status_components": {
+          "backup_binding": "unknown",
+          "claim_outcome": "known-consumed",
+          "controller_outcome": "unknown",
+          "launch_outcome": "unknown",
+          "original_action_spend": "unknown",
+          "original_forward_failed": true,
+          "original_mismatch": false,
+          "original_verification_right": "unknown",
+          "owned_commit_outcome": "unknown",
+          "qualified_captured_target_fact": "qualified-original-match-at-capture-cut",
+          "restore_outcome": "unknown"
+        },
+        "spend_may_refund": false,
+        "target_fact_completes_unknown_ACK": false,
+        "unknown_action_may_repeat": false,
+        "verification_selected": false
+      }
+    },
+    {
+      "case": {
+        "backup_binding": "unknown",
+        "claim_outcome": "unknown",
+        "controller_outcome": "unknown",
+        "hypothetical_only": true,
+        "id": "S11-unknown-claim-no-unused",
+        "launch_outcome": "known-spent",
+        "native_evidence": null,
+        "ordered_paper_challenge": [
+          "Only hypothetical original bindings and observations are supplied.",
+          "Unknown durable claim never returns unused.",
+          "Retain each status separately;no native restore/commit/action selection,refund,retry or current closure."
+        ],
+        "original_action_spend": "unknown",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "original_verification_right": "unknown",
+        "owned_commit_outcome": "unknown",
+        "qualified_captured_target_fact": null,
+        "restore_outcome": "unknown",
+        "runtime_authority": false
+      },
+      "native_evidence": null,
+      "runtime_authority": false,
+      "status_projection": {
+        "actual_global_host_closure": false,
+        "claim_or_launch_may_reopen": false,
+        "commit_selected": false,
+        "native_evidence": null,
+        "pending_component_names": [
+          "qualified_captured_target_fact",
+          "backup_binding",
+          "claim_outcome",
+          "restore_outcome",
+          "owned_commit_outcome",
+          "controller_outcome",
+          "original_action_spend",
+          "original_verification_right"
+        ],
+        "qualified_fact_proves_current_invariance": false,
+        "restore_selected": false,
+        "runtime_authority": false,
+        "separate_original_status_components": {
+          "backup_binding": "unknown",
+          "claim_outcome": "unknown",
+          "controller_outcome": "unknown",
+          "launch_outcome": "known-spent",
+          "original_action_spend": "unknown",
+          "original_forward_failed": true,
+          "original_mismatch": false,
+          "original_verification_right": "unknown",
+          "owned_commit_outcome": "unknown",
+          "qualified_captured_target_fact": null,
+          "restore_outcome": "unknown"
+        },
+        "spend_may_refund": false,
+        "target_fact_completes_unknown_ACK": false,
+        "unknown_action_may_repeat": false,
+        "verification_selected": false
+      }
+    },
+    {
+      "case": {
+        "backup_binding": "unknown",
+        "claim_outcome": "known-consumed",
+        "controller_outcome": "unknown",
+        "hypothetical_only": true,
+        "id": "S12-owned-visible-not-durable",
+        "launch_outcome": "known-spent",
+        "native_evidence": null,
+        "ordered_paper_challenge": [
+          "Only hypothetical original bindings and observations are supplied.",
+          "Visible/partial owned object cannot become complete durable stage7.",
+          "Retain each status separately;no native restore/commit/action selection,refund,retry or current closure."
+        ],
+        "original_action_spend": "unknown",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "original_verification_right": "unknown",
+        "owned_commit_outcome": "known-partial",
+        "qualified_captured_target_fact": null,
+        "restore_outcome": "unknown",
+        "runtime_authority": false
+      },
+      "native_evidence": null,
+      "runtime_authority": false,
+      "status_projection": {
+        "actual_global_host_closure": false,
+        "claim_or_launch_may_reopen": false,
+        "commit_selected": false,
+        "native_evidence": null,
+        "pending_component_names": [
+          "qualified_captured_target_fact",
+          "backup_binding",
+          "restore_outcome",
+          "controller_outcome",
+          "original_action_spend",
+          "original_verification_right"
+        ],
+        "qualified_fact_proves_current_invariance": false,
+        "restore_selected": false,
+        "runtime_authority": false,
+        "separate_original_status_components": {
+          "backup_binding": "unknown",
+          "claim_outcome": "known-consumed",
+          "controller_outcome": "unknown",
+          "launch_outcome": "known-spent",
+          "original_action_spend": "unknown",
+          "original_forward_failed": true,
+          "original_mismatch": false,
+          "original_verification_right": "unknown",
+          "owned_commit_outcome": "known-partial",
+          "qualified_captured_target_fact": null,
+          "restore_outcome": "unknown"
+        },
+        "spend_may_refund": false,
+        "target_fact_completes_unknown_ACK": false,
+        "unknown_action_may_repeat": false,
+        "verification_selected": false
+      }
+    },
+    {
+      "case": {
+        "backup_binding": "unknown",
+        "claim_outcome": "known-consumed",
+        "controller_outcome": "unknown",
+        "hypothetical_only": true,
+        "id": "S13-owned-durable-target-unknown",
+        "launch_outcome": "known-spent",
+        "native_evidence": null,
+        "ordered_paper_challenge": [
+          "Only hypothetical original bindings and observations are supplied.",
+          "Known owned durable object does not establish target state.",
+          "Retain each status separately;no native restore/commit/action selection,refund,retry or current closure."
+        ],
+        "original_action_spend": "unknown",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "original_verification_right": "unknown",
+        "owned_commit_outcome": "known-durable",
+        "qualified_captured_target_fact": null,
+        "restore_outcome": "unknown",
+        "runtime_authority": false
+      },
+      "native_evidence": null,
+      "runtime_authority": false,
+      "status_projection": {
+        "actual_global_host_closure": false,
+        "claim_or_launch_may_reopen": false,
+        "commit_selected": false,
+        "native_evidence": null,
+        "pending_component_names": [
+          "qualified_captured_target_fact",
+          "backup_binding",
+          "restore_outcome",
+          "controller_outcome",
+          "original_action_spend",
+          "original_verification_right"
+        ],
+        "qualified_fact_proves_current_invariance": false,
+        "restore_selected": false,
+        "runtime_authority": false,
+        "separate_original_status_components": {
+          "backup_binding": "unknown",
+          "claim_outcome": "known-consumed",
+          "controller_outcome": "unknown",
+          "launch_outcome": "known-spent",
+          "original_action_spend": "unknown",
+          "original_forward_failed": true,
+          "original_mismatch": false,
+          "original_verification_right": "unknown",
+          "owned_commit_outcome": "known-durable",
+          "qualified_captured_target_fact": null,
+          "restore_outcome": "unknown"
+        },
+        "spend_may_refund": false,
+        "target_fact_completes_unknown_ACK": false,
+        "unknown_action_may_repeat": false,
+        "verification_selected": false
+      }
+    },
+    {
+      "case": {
+        "backup_binding": "unknown",
+        "claim_outcome": "known-consumed",
+        "controller_outcome": "unknown",
+        "hypothetical_only": true,
+        "id": "S14-owned-unknown-target-match",
+        "launch_outcome": "known-spent",
+        "native_evidence": null,
+        "ordered_paper_challenge": [
+          "Only hypothetical original bindings and observations are supplied.",
+          "Known captured target fact survives unrelated owned uncertainty.",
+          "Retain each status separately;no native restore/commit/action selection,refund,retry or current closure."
+        ],
+        "original_action_spend": "unknown",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "original_verification_right": "unknown",
+        "owned_commit_outcome": "unknown",
+        "qualified_captured_target_fact": "qualified-original-match-at-capture-cut",
+        "restore_outcome": "unknown",
+        "runtime_authority": false
+      },
+      "native_evidence": null,
+      "runtime_authority": false,
+      "status_projection": {
+        "actual_global_host_closure": false,
+        "claim_or_launch_may_reopen": false,
+        "commit_selected": false,
+        "native_evidence": null,
+        "pending_component_names": [
+          "backup_binding",
+          "restore_outcome",
+          "owned_commit_outcome",
+          "controller_outcome",
+          "original_action_spend",
+          "original_verification_right"
+        ],
+        "qualified_fact_proves_current_invariance": false,
+        "restore_selected": false,
+        "runtime_authority": false,
+        "separate_original_status_components": {
+          "backup_binding": "unknown",
+          "claim_outcome": "known-consumed",
+          "controller_outcome": "unknown",
+          "launch_outcome": "known-spent",
+          "original_action_spend": "unknown",
+          "original_forward_failed": true,
+          "original_mismatch": false,
+          "original_verification_right": "unknown",
+          "owned_commit_outcome": "unknown",
+          "qualified_captured_target_fact": "qualified-original-match-at-capture-cut",
+          "restore_outcome": "unknown"
+        },
+        "spend_may_refund": false,
+        "target_fact_completes_unknown_ACK": false,
+        "unknown_action_may_repeat": false,
+        "verification_selected": false
+      }
+    },
+    {
+      "case": {
+        "backup_binding": "unknown",
+        "claim_outcome": "known-consumed",
+        "controller_outcome": "unknown",
+        "hypothetical_only": true,
+        "id": "S15-owned-durable-target-mismatch",
+        "launch_outcome": "known-spent",
+        "native_evidence": null,
+        "ordered_paper_challenge": [
+          "Only hypothetical original bindings and observations are supplied.",
+          "Durable owned commit cannot erase original target mismatch.",
+          "Retain each status separately;no native restore/commit/action selection,refund,retry or current closure."
+        ],
+        "original_action_spend": "unknown",
+        "original_forward_failed": true,
+        "original_mismatch": true,
+        "original_verification_right": "unknown",
+        "owned_commit_outcome": "known-durable",
+        "qualified_captured_target_fact": "qualified-original-mismatch-at-capture-cut",
+        "restore_outcome": "unknown",
+        "runtime_authority": false
+      },
+      "native_evidence": null,
+      "runtime_authority": false,
+      "status_projection": {
+        "actual_global_host_closure": false,
+        "claim_or_launch_may_reopen": false,
+        "commit_selected": false,
+        "native_evidence": null,
+        "pending_component_names": [
+          "backup_binding",
+          "restore_outcome",
+          "controller_outcome",
+          "original_action_spend",
+          "original_verification_right"
+        ],
+        "qualified_fact_proves_current_invariance": false,
+        "restore_selected": false,
+        "runtime_authority": false,
+        "separate_original_status_components": {
+          "backup_binding": "unknown",
+          "claim_outcome": "known-consumed",
+          "controller_outcome": "unknown",
+          "launch_outcome": "known-spent",
+          "original_action_spend": "unknown",
+          "original_forward_failed": true,
+          "original_mismatch": true,
+          "original_verification_right": "unknown",
+          "owned_commit_outcome": "known-durable",
+          "qualified_captured_target_fact": "qualified-original-mismatch-at-capture-cut",
+          "restore_outcome": "unknown"
+        },
+        "spend_may_refund": false,
+        "target_fact_completes_unknown_ACK": false,
+        "unknown_action_may_repeat": false,
+        "verification_selected": false
+      }
+    },
+    {
+      "case": {
+        "backup_binding": "unknown",
+        "claim_outcome": "known-consumed",
+        "controller_outcome": "unknown",
+        "hypothetical_only": true,
+        "id": "S16-known-unused-paper-only",
+        "launch_outcome": "known-spent",
+        "native_evidence": null,
+        "ordered_paper_challenge": [
+          "Only hypothetical original bindings and observations are supplied.",
+          "Even a hypothetical known unused original slot is not current permission or a selected action.",
+          "Retain each status separately;no native restore/commit/action selection,refund,retry or current closure."
+        ],
+        "original_action_spend": "known-unused",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "original_verification_right": "known-original-valid",
+        "owned_commit_outcome": "unknown",
+        "qualified_captured_target_fact": null,
+        "restore_outcome": "unknown",
+        "runtime_authority": false
+      },
+      "native_evidence": null,
+      "runtime_authority": false,
+      "status_projection": {
+        "actual_global_host_closure": false,
+        "claim_or_launch_may_reopen": false,
+        "commit_selected": false,
+        "native_evidence": null,
+        "pending_component_names": [
+          "qualified_captured_target_fact",
+          "backup_binding",
+          "restore_outcome",
+          "owned_commit_outcome",
+          "controller_outcome"
+        ],
+        "qualified_fact_proves_current_invariance": false,
+        "restore_selected": false,
+        "runtime_authority": false,
+        "separate_original_status_components": {
+          "backup_binding": "unknown",
+          "claim_outcome": "known-consumed",
+          "controller_outcome": "unknown",
+          "launch_outcome": "known-spent",
+          "original_action_spend": "known-unused",
+          "original_forward_failed": true,
+          "original_mismatch": false,
+          "original_verification_right": "known-original-valid",
+          "owned_commit_outcome": "unknown",
+          "qualified_captured_target_fact": null,
+          "restore_outcome": "unknown"
+        },
+        "spend_may_refund": false,
+        "target_fact_completes_unknown_ACK": false,
+        "unknown_action_may_repeat": false,
+        "verification_selected": false
+      }
+    },
+    {
+      "case": {
+        "backup_binding": "unknown",
+        "claim_outcome": "known-consumed",
+        "controller_outcome": "unknown",
+        "hypothetical_only": true,
+        "id": "S17-original-failure-pending",
+        "launch_outcome": "known-spent",
+        "native_evidence": null,
+        "ordered_paper_challenge": [
+          "Only hypothetical original bindings and observations are supplied.",
+          "Original failure persists with qualified match and pending owned/controller/action.",
+          "Retain each status separately;no native restore/commit/action selection,refund,retry or current closure."
+        ],
+        "original_action_spend": "unknown",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "original_verification_right": "unknown",
+        "owned_commit_outcome": "unknown",
+        "qualified_captured_target_fact": "qualified-original-match-at-capture-cut",
+        "restore_outcome": "unknown",
+        "runtime_authority": false
+      },
+      "native_evidence": null,
+      "runtime_authority": false,
+      "status_projection": {
+        "actual_global_host_closure": false,
+        "claim_or_launch_may_reopen": false,
+        "commit_selected": false,
+        "native_evidence": null,
+        "pending_component_names": [
+          "backup_binding",
+          "restore_outcome",
+          "owned_commit_outcome",
+          "controller_outcome",
+          "original_action_spend",
+          "original_verification_right"
+        ],
+        "qualified_fact_proves_current_invariance": false,
+        "restore_selected": false,
+        "runtime_authority": false,
+        "separate_original_status_components": {
+          "backup_binding": "unknown",
+          "claim_outcome": "known-consumed",
+          "controller_outcome": "unknown",
+          "launch_outcome": "known-spent",
+          "original_action_spend": "unknown",
+          "original_forward_failed": true,
+          "original_mismatch": false,
+          "original_verification_right": "unknown",
+          "owned_commit_outcome": "unknown",
+          "qualified_captured_target_fact": "qualified-original-match-at-capture-cut",
+          "restore_outcome": "unknown"
+        },
+        "spend_may_refund": false,
+        "target_fact_completes_unknown_ACK": false,
+        "unknown_action_may_repeat": false,
+        "verification_selected": false
+      }
+    },
+    {
+      "case": {
+        "backup_binding": "unknown",
+        "claim_outcome": "known-consumed",
+        "controller_outcome": "unknown",
+        "hypothetical_only": true,
+        "id": "S18-original-status-unknown",
+        "launch_outcome": "known-spent",
+        "native_evidence": null,
+        "ordered_paper_challenge": [
+          "Only hypothetical original bindings and observations are supplied.",
+          "Unknown original status cannot be converted to success or known no-failure.",
+          "Retain each status separately;no native restore/commit/action selection,refund,retry or current closure."
+        ],
+        "original_action_spend": "unknown",
+        "original_forward_failed": null,
+        "original_mismatch": null,
+        "original_verification_right": "unknown",
+        "owned_commit_outcome": "unknown",
+        "qualified_captured_target_fact": null,
+        "restore_outcome": "unknown",
+        "runtime_authority": false
+      },
+      "native_evidence": null,
+      "runtime_authority": false,
+      "status_projection": {
+        "actual_global_host_closure": false,
+        "claim_or_launch_may_reopen": false,
+        "commit_selected": false,
+        "native_evidence": null,
+        "pending_component_names": [
+          "qualified_captured_target_fact",
+          "backup_binding",
+          "restore_outcome",
+          "owned_commit_outcome",
+          "controller_outcome",
+          "original_action_spend",
+          "original_verification_right",
+          "original_forward_failed",
+          "original_mismatch"
+        ],
+        "qualified_fact_proves_current_invariance": false,
+        "restore_selected": false,
+        "runtime_authority": false,
+        "separate_original_status_components": {
+          "backup_binding": "unknown",
+          "claim_outcome": "known-consumed",
+          "controller_outcome": "unknown",
+          "launch_outcome": "known-spent",
+          "original_action_spend": "unknown",
+          "original_forward_failed": null,
+          "original_mismatch": null,
+          "original_verification_right": "unknown",
+          "owned_commit_outcome": "unknown",
+          "qualified_captured_target_fact": null,
+          "restore_outcome": "unknown"
+        },
+        "spend_may_refund": false,
+        "target_fact_completes_unknown_ACK": false,
+        "unknown_action_may_repeat": false,
+        "verification_selected": false
+      }
+    }
+  ],
+  "expected_interpretation_limit": {
+    "actual_original_action_partition_selected": false,
+    "actual_storage_backend_or_ledger_selected": false,
+    "all1286_member_semantics_independently_accepted": false,
+    "all_own_actor_global_controls_still_required": true,
+    "historical_due407_wording_means_authored407_missing": false,
+    "known_noop_supplies_new_original_right": false,
+    "known_target_fact_completes_unknown_restore_ACK": false,
+    "paper_cuts_are_effective_native_faults": false,
+    "paper_status_cases_exhaust_native_outcomes": false,
+    "raw_logical_equivalence_is_byte_binding": false,
+    "reader_is_executable_recovery_selector": false
+  },
+  "expected_microstep_reviews": [
+    {
+      "actual_native_evidence": null,
+      "complete_paper_cut_reviews": [
+        {
+          "actual_effective_native_fault": null,
+          "complete_question": "Before validate-exact-inputs: establish exact original intent/source/object/ancestor/alias/writer/finite-right prerequisites; Check original pinned source/archive/predecessor/raw/baseline under uninterrupted guards; validation is not binding or permission.",
+          "location": "before",
+          "native_case_run": false,
+          "question_is_exhaustive_native_schedule": false,
+          "runtime_authority": false
+        },
+        {
+          "actual_effective_native_fault": null,
+          "complete_question": "Within validate-exact-inputs: independently capture partial/failed/lost ACK and descendant/FD/stream/storage effects; Independently authenticate original context; check pinned source/archive/predecessor/baseline/approved phase deltas/full candidate and raw pkglist in memory under live forward fence and guard.",
+          "location": "within",
+          "native_case_run": false,
+          "question_is_exhaustive_native_schedule": false,
+          "runtime_authority": false
+        },
+        {
+          "actual_effective_native_fault": null,
+          "complete_question": "After validate-exact-inputs: distinguish qualified complete outcome from pending state without repeat/overwrite or next-stage authority; Validation alone is no-write candidate review and no binding/target permission; drift stops forward,prior effects still pending.",
+          "location": "after",
+          "native_case_run": false,
+          "question_is_exhaustive_native_schedule": false,
+          "runtime_authority": false
+        }
+      ],
+      "position": 0,
+      "runtime_authority": false,
+      "source_step": "validate-exact-inputs",
+      "specific_assessment": "Check original pinned source/archive/predecessor/raw/baseline under uninterrupted guards; validation is not binding or permission.",
+      "whole_storage404_microstep": {
+        "actual_storage_or_fault_binding": null,
+        "candidate_joint_requirement": "DRAFT retention: Refine ALL nine original owned microsteps and every before/within/after cut to actual source/object/ancestor/alias/writer/byte/metadata/no-replace/storage and full stage stream/status/origin outcomes. Preserve exclusive intent before writes,exact validation,pinned raw pkglist,known file/metadata/directory/device durability and complete stage-exit evidence. Visible leaf,exit,hash/ACK/file flush alone does not prove durable complete binding. Unknown partial/final objects remain quarantined,no recreate/overwrite/repeat commit or next-stage dispatch.",
+        "native_case_run": false,
+        "position": 0,
+        "source_step": "validate-exact-inputs",
+        "whole_original_microstep_review": {
+          "actual_owned_commit_outcome": null,
+          "actual_syscall_storage_sequence": null,
+          "actual_target_outcome": null,
+          "current_authority": false,
+          "declared_review_cut_questions": [
+            {
+              "actual_fault_effectiveness": null,
+              "actual_observation": null,
+              "location": "before",
+              "native_case_run": false,
+              "scope": "authored-question-not-native-injection-or-exhaustive-schedule"
+            },
+            {
+              "actual_fault_effectiveness": null,
+              "actual_observation": null,
+              "location": "within",
+              "native_case_run": false,
+              "scope": "authored-question-not-native-injection-or-exhaustive-schedule"
+            },
+            {
+              "actual_fault_effectiveness": null,
+              "actual_observation": null,
+              "location": "after",
+              "native_case_run": false,
+              "scope": "authored-question-not-native-injection-or-exhaustive-schedule"
+            }
+          ],
+          "full_original_microstep347": {
+            "actual_durability_evidence": null,
+            "actual_instruction_or_syscall": null,
+            "no_unknown_replay": true,
+            "position": 0,
+            "source_step": "validate-exact-inputs",
+            "status": "required-not-native-refined"
+          },
+          "native_proof": false,
+          "position": 0,
+          "required_future_native_observation": "Independently authenticate original context; check pinned source/archive/predecessor/baseline/approved phase deltas/full candidate and raw pkglist in memory under live forward fence and guard.",
+          "source_step": "validate-exact-inputs",
+          "uncertainty_disposition": "Validation alone is no-write candidate review and no binding/target permission; drift stops forward,prior effects still pending."
+        }
+      }
+    },
+    {
+      "actual_native_evidence": null,
+      "complete_paper_cut_reviews": [
+        {
+          "actual_effective_native_fault": null,
+          "complete_question": "Before register-owned-intent: establish exact original intent/source/object/ancestor/alias/writer/finite-right prerequisites; Intent/registry/evidence effects themselves require original identities,finite control and durability; unknown intent cannot be retried as uncreated.",
+          "location": "before",
+          "native_case_run": false,
+          "question_is_exhaustive_native_schedule": false,
+          "runtime_authority": false
+        },
+        {
+          "actual_effective_native_fault": null,
+          "complete_question": "Within register-owned-intent: independently capture partial/failed/lost ACK and descendant/FD/stream/storage effects; Record exact same-attempt canonical owned root,ancestors,numeric owner,staging/final roles,intent and all registry/evidence effects before staging bytes/metadata.",
+          "location": "within",
+          "native_case_run": false,
+          "question_is_exhaustive_native_schedule": false,
+          "runtime_authority": false
+        },
+        {
+          "actual_effective_native_fault": null,
+          "complete_question": "After register-owned-intent: distinguish qualified complete outcome from pending state without repeat/overwrite or next-stage authority; Unknown intent record/storage outcome preserves pending effects; do not claim uncreated artifact or repeat a potentially applied write.",
+          "location": "after",
+          "native_case_run": false,
+          "question_is_exhaustive_native_schedule": false,
+          "runtime_authority": false
+        }
+      ],
+      "position": 1,
+      "runtime_authority": false,
+      "source_step": "register-owned-intent",
+      "specific_assessment": "Intent/registry/evidence effects themselves require original identities,finite control and durability; unknown intent cannot be retried as uncreated.",
+      "whole_storage404_microstep": {
+        "actual_storage_or_fault_binding": null,
+        "candidate_joint_requirement": "DRAFT retention: Refine ALL nine original owned microsteps and every before/within/after cut to actual source/object/ancestor/alias/writer/byte/metadata/no-replace/storage and full stage stream/status/origin outcomes. Preserve exclusive intent before writes,exact validation,pinned raw pkglist,known file/metadata/directory/device durability and complete stage-exit evidence. Visible leaf,exit,hash/ACK/file flush alone does not prove durable complete binding. Unknown partial/final objects remain quarantined,no recreate/overwrite/repeat commit or next-stage dispatch.",
+        "native_case_run": false,
+        "position": 1,
+        "source_step": "register-owned-intent",
+        "whole_original_microstep_review": {
+          "actual_owned_commit_outcome": null,
+          "actual_syscall_storage_sequence": null,
+          "actual_target_outcome": null,
+          "current_authority": false,
+          "declared_review_cut_questions": [
+            {
+              "actual_fault_effectiveness": null,
+              "actual_observation": null,
+              "location": "before",
+              "native_case_run": false,
+              "scope": "authored-question-not-native-injection-or-exhaustive-schedule"
+            },
+            {
+              "actual_fault_effectiveness": null,
+              "actual_observation": null,
+              "location": "within",
+              "native_case_run": false,
+              "scope": "authored-question-not-native-injection-or-exhaustive-schedule"
+            },
+            {
+              "actual_fault_effectiveness": null,
+              "actual_observation": null,
+              "location": "after",
+              "native_case_run": false,
+              "scope": "authored-question-not-native-injection-or-exhaustive-schedule"
+            }
+          ],
+          "full_original_microstep347": {
+            "actual_durability_evidence": null,
+            "actual_instruction_or_syscall": null,
+            "no_unknown_replay": true,
+            "position": 1,
+            "source_step": "register-owned-intent",
+            "status": "required-not-native-refined"
+          },
+          "native_proof": false,
+          "position": 1,
+          "required_future_native_observation": "Record exact same-attempt canonical owned root,ancestors,numeric owner,staging/final roles,intent and all registry/evidence effects before staging bytes/metadata.",
+          "source_step": "register-owned-intent",
+          "uncertainty_disposition": "Unknown intent record/storage outcome preserves pending effects; do not claim uncreated artifact or repeat a potentially applied write."
+        }
+      }
+    },
+    {
+      "actual_native_evidence": null,
+      "complete_paper_cut_reviews": [
+        {
+          "actual_effective_native_fault": null,
+          "complete_question": "Before create-exclusive-stage: establish exact original intent/source/object/ancestor/alias/writer/finite-right prerequisites; One exact exclusive staging object with controlled ancestors/alias/owner/mode/type; occupied or uncertain creation is not safe to recreate.",
+          "location": "before",
+          "native_case_run": false,
+          "question_is_exhaustive_native_schedule": false,
+          "runtime_authority": false
+        },
+        {
+          "actual_effective_native_fault": null,
+          "complete_question": "Within create-exclusive-stage: independently capture partial/failed/lost ACK and descendant/FD/stream/storage effects; One exclusive original staging object with exact numeric owner/mode/type/alias/parent under guards; check every concurrent writer.",
+          "location": "within",
+          "native_case_run": false,
+          "question_is_exhaustive_native_schedule": false,
+          "runtime_authority": false
+        },
+        {
+          "actual_effective_native_fault": null,
+          "complete_question": "After create-exclusive-stage: distinguish qualified complete outcome from pending state without repeat/overwrite or next-stage authority; Occupied/unknown staging or failed creation blocks later commit; preserve possibly created artifact,no overwrite/recreate.",
+          "location": "after",
+          "native_case_run": false,
+          "question_is_exhaustive_native_schedule": false,
+          "runtime_authority": false
+        }
+      ],
+      "position": 2,
+      "runtime_authority": false,
+      "source_step": "create-exclusive-stage",
+      "specific_assessment": "One exact exclusive staging object with controlled ancestors/alias/owner/mode/type; occupied or uncertain creation is not safe to recreate.",
+      "whole_storage404_microstep": {
+        "actual_storage_or_fault_binding": null,
+        "candidate_joint_requirement": "DRAFT retention: Refine ALL nine original owned microsteps and every before/within/after cut to actual source/object/ancestor/alias/writer/byte/metadata/no-replace/storage and full stage stream/status/origin outcomes. Preserve exclusive intent before writes,exact validation,pinned raw pkglist,known file/metadata/directory/device durability and complete stage-exit evidence. Visible leaf,exit,hash/ACK/file flush alone does not prove durable complete binding. Unknown partial/final objects remain quarantined,no recreate/overwrite/repeat commit or next-stage dispatch.",
+        "native_case_run": false,
+        "position": 2,
+        "source_step": "create-exclusive-stage",
+        "whole_original_microstep_review": {
+          "actual_owned_commit_outcome": null,
+          "actual_syscall_storage_sequence": null,
+          "actual_target_outcome": null,
+          "current_authority": false,
+          "declared_review_cut_questions": [
+            {
+              "actual_fault_effectiveness": null,
+              "actual_observation": null,
+              "location": "before",
+              "native_case_run": false,
+              "scope": "authored-question-not-native-injection-or-exhaustive-schedule"
+            },
+            {
+              "actual_fault_effectiveness": null,
+              "actual_observation": null,
+              "location": "within",
+              "native_case_run": false,
+              "scope": "authored-question-not-native-injection-or-exhaustive-schedule"
+            },
+            {
+              "actual_fault_effectiveness": null,
+              "actual_observation": null,
+              "location": "after",
+              "native_case_run": false,
+              "scope": "authored-question-not-native-injection-or-exhaustive-schedule"
+            }
+          ],
+          "full_original_microstep347": {
+            "actual_durability_evidence": null,
+            "actual_instruction_or_syscall": null,
+            "no_unknown_replay": true,
+            "position": 2,
+            "source_step": "create-exclusive-stage",
+            "status": "required-not-native-refined"
+          },
+          "native_proof": false,
+          "position": 2,
+          "required_future_native_observation": "One exclusive original staging object with exact numeric owner/mode/type/alias/parent under guards; check every concurrent writer.",
+          "source_step": "create-exclusive-stage",
+          "uncertainty_disposition": "Occupied/unknown staging or failed creation blocks later commit; preserve possibly created artifact,no overwrite/recreate."
+        }
+      }
+    },
+    {
+      "actual_native_evidence": null,
+      "complete_paper_cut_reviews": [
+        {
+          "actual_effective_native_fault": null,
+          "complete_question": "Before write-complete-bytes: establish exact original intent/source/object/ancestor/alias/writer/finite-right prerequisites; Complete canonical bytes and full raw streams require independent partial-IO/error evidence; hash or declaration cannot turn partial data complete.",
+          "location": "before",
+          "native_case_run": false,
+          "question_is_exhaustive_native_schedule": false,
+          "runtime_authority": false
+        },
+        {
+          "actual_effective_native_fault": null,
+          "complete_question": "Within write-complete-bytes: independently capture partial/failed/lost ACK and descendant/FD/stream/storage effects; Write complete canonical non-secret observation bytes plus exact stage streams under reviewed partial-IO/error rules and original identities.",
+          "location": "within",
+          "native_case_run": false,
+          "question_is_exhaustive_native_schedule": false,
+          "runtime_authority": false
+        },
+        {
+          "actual_effective_native_fault": null,
+          "complete_question": "After write-complete-bytes: distinguish qualified complete outcome from pending state without repeat/overwrite or next-stage authority; Partial/failed/unknown content remains partial or unknown,not validated complete; keep artifacts and original forward failure.",
+          "location": "after",
+          "native_case_run": false,
+          "question_is_exhaustive_native_schedule": false,
+          "runtime_authority": false
+        }
+      ],
+      "position": 3,
+      "runtime_authority": false,
+      "source_step": "write-complete-bytes",
+      "specific_assessment": "Complete canonical bytes and full raw streams require independent partial-IO/error evidence; hash or declaration cannot turn partial data complete.",
+      "whole_storage404_microstep": {
+        "actual_storage_or_fault_binding": null,
+        "candidate_joint_requirement": "DRAFT retention: Refine ALL nine original owned microsteps and every before/within/after cut to actual source/object/ancestor/alias/writer/byte/metadata/no-replace/storage and full stage stream/status/origin outcomes. Preserve exclusive intent before writes,exact validation,pinned raw pkglist,known file/metadata/directory/device durability and complete stage-exit evidence. Visible leaf,exit,hash/ACK/file flush alone does not prove durable complete binding. Unknown partial/final objects remain quarantined,no recreate/overwrite/repeat commit or next-stage dispatch.",
+        "native_case_run": false,
+        "position": 3,
+        "source_step": "write-complete-bytes",
+        "whole_original_microstep_review": {
+          "actual_owned_commit_outcome": null,
+          "actual_syscall_storage_sequence": null,
+          "actual_target_outcome": null,
+          "current_authority": false,
+          "declared_review_cut_questions": [
+            {
+              "actual_fault_effectiveness": null,
+              "actual_observation": null,
+              "location": "before",
+              "native_case_run": false,
+              "scope": "authored-question-not-native-injection-or-exhaustive-schedule"
+            },
+            {
+              "actual_fault_effectiveness": null,
+              "actual_observation": null,
+              "location": "within",
+              "native_case_run": false,
+              "scope": "authored-question-not-native-injection-or-exhaustive-schedule"
+            },
+            {
+              "actual_fault_effectiveness": null,
+              "actual_observation": null,
+              "location": "after",
+              "native_case_run": false,
+              "scope": "authored-question-not-native-injection-or-exhaustive-schedule"
+            }
+          ],
+          "full_original_microstep347": {
+            "actual_durability_evidence": null,
+            "actual_instruction_or_syscall": null,
+            "no_unknown_replay": true,
+            "position": 3,
+            "source_step": "write-complete-bytes",
+            "status": "required-not-native-refined"
+          },
+          "native_proof": false,
+          "position": 3,
+          "required_future_native_observation": "Write complete canonical non-secret observation bytes plus exact stage streams under reviewed partial-IO/error rules and original identities.",
+          "source_step": "write-complete-bytes",
+          "uncertainty_disposition": "Partial/failed/unknown content remains partial or unknown,not validated complete; keep artifacts and original forward failure."
+        }
+      }
+    },
+    {
+      "actual_native_evidence": null,
+      "complete_paper_cut_reviews": [
+        {
+          "actual_effective_native_fault": null,
+          "complete_question": "Before metadata-and-data-durable: establish exact original intent/source/object/ancestor/alias/writer/finite-right prerequisites; File content AND metadata durability need actual supported storage evidence; flush/close/exit/ACK alone not complete proof.",
+          "location": "before",
+          "native_case_run": false,
+          "question_is_exhaustive_native_schedule": false,
+          "runtime_authority": false
+        },
+        {
+          "actual_effective_native_fault": null,
+          "complete_question": "Within metadata-and-data-durable: independently capture partial/failed/lost ACK and descendant/FD/stream/storage effects; Independently prove original intended owner/mode/type and complete bytes persisted with actual supported storage semantics; every metadata/data cut separately due.",
+          "location": "within",
+          "native_case_run": false,
+          "question_is_exhaustive_native_schedule": false,
+          "runtime_authority": false
+        },
+        {
+          "actual_effective_native_fault": null,
+          "complete_question": "After metadata-and-data-durable: distinguish qualified complete outcome from pending state without repeat/overwrite or next-stage authority; Unknown durability blocks eligibility without delete/rewrite/rehash-as-success.",
+          "location": "after",
+          "native_case_run": false,
+          "question_is_exhaustive_native_schedule": false,
+          "runtime_authority": false
+        }
+      ],
+      "position": 4,
+      "runtime_authority": false,
+      "source_step": "metadata-and-data-durable",
+      "specific_assessment": "File content AND metadata durability need actual supported storage evidence; flush/close/exit/ACK alone not complete proof.",
+      "whole_storage404_microstep": {
+        "actual_storage_or_fault_binding": null,
+        "candidate_joint_requirement": "DRAFT retention: Refine ALL nine original owned microsteps and every before/within/after cut to actual source/object/ancestor/alias/writer/byte/metadata/no-replace/storage and full stage stream/status/origin outcomes. Preserve exclusive intent before writes,exact validation,pinned raw pkglist,known file/metadata/directory/device durability and complete stage-exit evidence. Visible leaf,exit,hash/ACK/file flush alone does not prove durable complete binding. Unknown partial/final objects remain quarantined,no recreate/overwrite/repeat commit or next-stage dispatch.",
+        "native_case_run": false,
+        "position": 4,
+        "source_step": "metadata-and-data-durable",
+        "whole_original_microstep_review": {
+          "actual_owned_commit_outcome": null,
+          "actual_syscall_storage_sequence": null,
+          "actual_target_outcome": null,
+          "current_authority": false,
+          "declared_review_cut_questions": [
+            {
+              "actual_fault_effectiveness": null,
+              "actual_observation": null,
+              "location": "before",
+              "native_case_run": false,
+              "scope": "authored-question-not-native-injection-or-exhaustive-schedule"
+            },
+            {
+              "actual_fault_effectiveness": null,
+              "actual_observation": null,
+              "location": "within",
+              "native_case_run": false,
+              "scope": "authored-question-not-native-injection-or-exhaustive-schedule"
+            },
+            {
+              "actual_fault_effectiveness": null,
+              "actual_observation": null,
+              "location": "after",
+              "native_case_run": false,
+              "scope": "authored-question-not-native-injection-or-exhaustive-schedule"
+            }
+          ],
+          "full_original_microstep347": {
+            "actual_durability_evidence": null,
+            "actual_instruction_or_syscall": null,
+            "no_unknown_replay": true,
+            "position": 4,
+            "source_step": "metadata-and-data-durable",
+            "status": "required-not-native-refined"
+          },
+          "native_proof": false,
+          "position": 4,
+          "required_future_native_observation": "Independently prove original intended owner/mode/type and complete bytes persisted with actual supported storage semantics; every metadata/data cut separately due.",
+          "source_step": "metadata-and-data-durable",
+          "uncertainty_disposition": "Unknown durability blocks eligibility without delete/rewrite/rehash-as-success."
+        }
+      }
+    },
+    {
+      "actual_native_evidence": null,
+      "complete_paper_cut_reviews": [
+        {
+          "actual_effective_native_fault": null,
+          "complete_question": "Before revalidate-pinned-inputs: establish exact original intent/source/object/ancestor/alias/writer/finite-right prerequisites; Revalidate exact ORIGINAL pins/approved deltas through consumption; logical pkglist row equivalence cannot rebind changed raw bytes.",
+          "location": "before",
+          "native_case_run": false,
+          "question_is_exhaustive_native_schedule": false,
+          "runtime_authority": false
+        },
+        {
+          "actual_effective_native_fault": null,
+          "complete_question": "Within revalidate-pinned-inputs: independently capture partial/failed/lost ACK and descendant/FD/stream/storage effects; Under uninterrupted guard revalidate original bound context/source/archive/predecessor/baseline approved deltas/raw SHA through actual consumption,no new pin or clock renewal.",
+          "location": "within",
+          "native_case_run": false,
+          "question_is_exhaustive_native_schedule": false,
+          "runtime_authority": false
+        },
+        {
+          "actual_effective_native_fault": null,
+          "complete_question": "After revalidate-pinned-inputs: distinguish qualified complete outcome from pending state without repeat/overwrite or next-stage authority; Drift/guardloss stops; do not bind to replacement or erase earlier predecessor/config/owned obligations.",
+          "location": "after",
+          "native_case_run": false,
+          "question_is_exhaustive_native_schedule": false,
+          "runtime_authority": false
+        }
+      ],
+      "position": 5,
+      "runtime_authority": false,
+      "source_step": "revalidate-pinned-inputs",
+      "specific_assessment": "Revalidate exact ORIGINAL pins/approved deltas through consumption; logical pkglist row equivalence cannot rebind changed raw bytes.",
+      "whole_storage404_microstep": {
+        "actual_storage_or_fault_binding": null,
+        "candidate_joint_requirement": "DRAFT retention: Refine ALL nine original owned microsteps and every before/within/after cut to actual source/object/ancestor/alias/writer/byte/metadata/no-replace/storage and full stage stream/status/origin outcomes. Preserve exclusive intent before writes,exact validation,pinned raw pkglist,known file/metadata/directory/device durability and complete stage-exit evidence. Visible leaf,exit,hash/ACK/file flush alone does not prove durable complete binding. Unknown partial/final objects remain quarantined,no recreate/overwrite/repeat commit or next-stage dispatch.",
+        "native_case_run": false,
+        "position": 5,
+        "source_step": "revalidate-pinned-inputs",
+        "whole_original_microstep_review": {
+          "actual_owned_commit_outcome": null,
+          "actual_syscall_storage_sequence": null,
+          "actual_target_outcome": null,
+          "current_authority": false,
+          "declared_review_cut_questions": [
+            {
+              "actual_fault_effectiveness": null,
+              "actual_observation": null,
+              "location": "before",
+              "native_case_run": false,
+              "scope": "authored-question-not-native-injection-or-exhaustive-schedule"
+            },
+            {
+              "actual_fault_effectiveness": null,
+              "actual_observation": null,
+              "location": "within",
+              "native_case_run": false,
+              "scope": "authored-question-not-native-injection-or-exhaustive-schedule"
+            },
+            {
+              "actual_fault_effectiveness": null,
+              "actual_observation": null,
+              "location": "after",
+              "native_case_run": false,
+              "scope": "authored-question-not-native-injection-or-exhaustive-schedule"
+            }
+          ],
+          "full_original_microstep347": {
+            "actual_durability_evidence": null,
+            "actual_instruction_or_syscall": null,
+            "no_unknown_replay": true,
+            "position": 5,
+            "source_step": "revalidate-pinned-inputs",
+            "status": "required-not-native-refined"
+          },
+          "native_proof": false,
+          "position": 5,
+          "required_future_native_observation": "Under uninterrupted guard revalidate original bound context/source/archive/predecessor/baseline approved deltas/raw SHA through actual consumption,no new pin or clock renewal.",
+          "source_step": "revalidate-pinned-inputs",
+          "uncertainty_disposition": "Drift/guardloss stops; do not bind to replacement or erase earlier predecessor/config/owned obligations."
+        }
+      }
+    },
+    {
+      "actual_native_evidence": null,
+      "complete_paper_cut_reviews": [
+        {
+          "actual_effective_native_fault": null,
+          "complete_question": "Before commit-no-replace: establish exact original intent/source/object/ancestor/alias/writer/finite-right prerequisites; Only original once-only no-replace commit; unknown ACK preserves possible staging/final objects,no force rename,repeat or overwrite.",
+          "location": "before",
+          "native_case_run": false,
+          "question_is_exhaustive_native_schedule": false,
+          "runtime_authority": false
+        },
+        {
+          "actual_effective_native_fault": null,
+          "complete_question": "Within commit-no-replace: independently capture partial/failed/lost ACK and descendant/FD/stream/storage effects; One original no-replace commit with controlled ancestors/object/mount aliases and complete known staging identity.",
+          "location": "within",
+          "native_case_run": false,
+          "question_is_exhaustive_native_schedule": false,
+          "runtime_authority": false
+        },
+        {
+          "actual_effective_native_fault": null,
+          "complete_question": "After commit-no-replace: distinguish qualified complete outcome from pending state without repeat/overwrite or next-stage authority; Occupied destination or unknown commit never overwrite/force rename/repeat commit or qualify stage8; preserve both possible paths.",
+          "location": "after",
+          "native_case_run": false,
+          "question_is_exhaustive_native_schedule": false,
+          "runtime_authority": false
+        }
+      ],
+      "position": 6,
+      "runtime_authority": false,
+      "source_step": "commit-no-replace",
+      "specific_assessment": "Only original once-only no-replace commit; unknown ACK preserves possible staging/final objects,no force rename,repeat or overwrite.",
+      "whole_storage404_microstep": {
+        "actual_storage_or_fault_binding": null,
+        "candidate_joint_requirement": "DRAFT retention: Refine ALL nine original owned microsteps and every before/within/after cut to actual source/object/ancestor/alias/writer/byte/metadata/no-replace/storage and full stage stream/status/origin outcomes. Preserve exclusive intent before writes,exact validation,pinned raw pkglist,known file/metadata/directory/device durability and complete stage-exit evidence. Visible leaf,exit,hash/ACK/file flush alone does not prove durable complete binding. Unknown partial/final objects remain quarantined,no recreate/overwrite/repeat commit or next-stage dispatch.",
+        "native_case_run": false,
+        "position": 6,
+        "source_step": "commit-no-replace",
+        "whole_original_microstep_review": {
+          "actual_owned_commit_outcome": null,
+          "actual_syscall_storage_sequence": null,
+          "actual_target_outcome": null,
+          "current_authority": false,
+          "declared_review_cut_questions": [
+            {
+              "actual_fault_effectiveness": null,
+              "actual_observation": null,
+              "location": "before",
+              "native_case_run": false,
+              "scope": "authored-question-not-native-injection-or-exhaustive-schedule"
+            },
+            {
+              "actual_fault_effectiveness": null,
+              "actual_observation": null,
+              "location": "within",
+              "native_case_run": false,
+              "scope": "authored-question-not-native-injection-or-exhaustive-schedule"
+            },
+            {
+              "actual_fault_effectiveness": null,
+              "actual_observation": null,
+              "location": "after",
+              "native_case_run": false,
+              "scope": "authored-question-not-native-injection-or-exhaustive-schedule"
+            }
+          ],
+          "full_original_microstep347": {
+            "actual_durability_evidence": null,
+            "actual_instruction_or_syscall": null,
+            "no_unknown_replay": true,
+            "position": 6,
+            "source_step": "commit-no-replace",
+            "status": "required-not-native-refined"
+          },
+          "native_proof": false,
+          "position": 6,
+          "required_future_native_observation": "One original no-replace commit with controlled ancestors/object/mount aliases and complete known staging identity.",
+          "source_step": "commit-no-replace",
+          "uncertainty_disposition": "Occupied destination or unknown commit never overwrite/force rename/repeat commit or qualify stage8; preserve both possible paths."
+        }
+      }
+    },
+    {
+      "actual_native_evidence": null,
+      "complete_paper_cut_reviews": [
+        {
+          "actual_effective_native_fault": null,
+          "complete_question": "Before directory-durability-confirmed: establish exact original intent/source/object/ancestor/alias/writer/finite-right prerequisites; Directory/ancestor/device persistence and complete identities are separate from visible leaf/file flush; unknown stays pending.",
+          "location": "before",
+          "native_case_run": false,
+          "question_is_exhaustive_native_schedule": false,
+          "runtime_authority": false
+        },
+        {
+          "actual_effective_native_fault": null,
+          "complete_question": "Within directory-durability-confirmed: independently capture partial/failed/lost ACK and descendant/FD/stream/storage effects; Separately establish required ancestor/directory/storage persistence of the committed object and identities; visible final pathname not sufficient.",
+          "location": "within",
+          "native_case_run": false,
+          "question_is_exhaustive_native_schedule": false,
+          "runtime_authority": false
+        },
+        {
+          "actual_effective_native_fault": null,
+          "complete_question": "After directory-durability-confirmed: distinguish qualified complete outcome from pending state without repeat/overwrite or next-stage authority; Unknown directory/storage outcome remains pending; file-flush/close/exit0 do not repair uncertain commit.",
+          "location": "after",
+          "native_case_run": false,
+          "question_is_exhaustive_native_schedule": false,
+          "runtime_authority": false
+        }
+      ],
+      "position": 7,
+      "runtime_authority": false,
+      "source_step": "directory-durability-confirmed",
+      "specific_assessment": "Directory/ancestor/device persistence and complete identities are separate from visible leaf/file flush; unknown stays pending.",
+      "whole_storage404_microstep": {
+        "actual_storage_or_fault_binding": null,
+        "candidate_joint_requirement": "DRAFT retention: Refine ALL nine original owned microsteps and every before/within/after cut to actual source/object/ancestor/alias/writer/byte/metadata/no-replace/storage and full stage stream/status/origin outcomes. Preserve exclusive intent before writes,exact validation,pinned raw pkglist,known file/metadata/directory/device durability and complete stage-exit evidence. Visible leaf,exit,hash/ACK/file flush alone does not prove durable complete binding. Unknown partial/final objects remain quarantined,no recreate/overwrite/repeat commit or next-stage dispatch.",
+        "native_case_run": false,
+        "position": 7,
+        "source_step": "directory-durability-confirmed",
+        "whole_original_microstep_review": {
+          "actual_owned_commit_outcome": null,
+          "actual_syscall_storage_sequence": null,
+          "actual_target_outcome": null,
+          "current_authority": false,
+          "declared_review_cut_questions": [
+            {
+              "actual_fault_effectiveness": null,
+              "actual_observation": null,
+              "location": "before",
+              "native_case_run": false,
+              "scope": "authored-question-not-native-injection-or-exhaustive-schedule"
+            },
+            {
+              "actual_fault_effectiveness": null,
+              "actual_observation": null,
+              "location": "within",
+              "native_case_run": false,
+              "scope": "authored-question-not-native-injection-or-exhaustive-schedule"
+            },
+            {
+              "actual_fault_effectiveness": null,
+              "actual_observation": null,
+              "location": "after",
+              "native_case_run": false,
+              "scope": "authored-question-not-native-injection-or-exhaustive-schedule"
+            }
+          ],
+          "full_original_microstep347": {
+            "actual_durability_evidence": null,
+            "actual_instruction_or_syscall": null,
+            "no_unknown_replay": true,
+            "position": 7,
+            "source_step": "directory-durability-confirmed",
+            "status": "required-not-native-refined"
+          },
+          "native_proof": false,
+          "position": 7,
+          "required_future_native_observation": "Separately establish required ancestor/directory/storage persistence of the committed object and identities; visible final pathname not sufficient.",
+          "source_step": "directory-durability-confirmed",
+          "uncertainty_disposition": "Unknown directory/storage outcome remains pending; file-flush/close/exit0 do not repair uncertain commit."
+        }
+      }
+    },
+    {
+      "actual_native_evidence": null,
+      "complete_paper_cut_reviews": [
+        {
+          "actual_effective_native_fault": null,
+          "complete_question": "Before stage-exit-evidence-complete: establish exact original intent/source/object/ancestor/alias/writer/finite-right prerequisites; Complete known stage7 binding plus full stage streams/status/origin is still not stage8 selector/effect permission or final publication proof.",
+          "location": "before",
+          "native_case_run": false,
+          "question_is_exhaustive_native_schedule": false,
+          "runtime_authority": false
+        },
+        {
+          "actual_effective_native_fault": null,
+          "complete_question": "Within stage-exit-evidence-complete: independently capture partial/failed/lost ACK and descendant/FD/stream/storage effects; Retain full original stdout/stderr/exit status and exact durable owned binding evidence; complete-known-durable stage7 only,stage8 still independently gated.",
+          "location": "within",
+          "native_case_run": false,
+          "question_is_exhaustive_native_schedule": false,
+          "runtime_authority": false
+        },
+        {
+          "actual_effective_native_fault": null,
+          "complete_question": "After stage-exit-evidence-complete: distinguish qualified complete outcome from pending state without repeat/overwrite or next-stage authority; Failed/unknown exit evidence blocks eligibility and keeps original status/artifacts/earlier target/config effects pending; no selfreceipt success.",
+          "location": "after",
+          "native_case_run": false,
+          "question_is_exhaustive_native_schedule": false,
+          "runtime_authority": false
+        }
+      ],
+      "position": 8,
+      "runtime_authority": false,
+      "source_step": "stage-exit-evidence-complete",
+      "specific_assessment": "Complete known stage7 binding plus full stage streams/status/origin is still not stage8 selector/effect permission or final publication proof.",
+      "whole_storage404_microstep": {
+        "actual_storage_or_fault_binding": null,
+        "candidate_joint_requirement": "DRAFT retention: Refine ALL nine original owned microsteps and every before/within/after cut to actual source/object/ancestor/alias/writer/byte/metadata/no-replace/storage and full stage stream/status/origin outcomes. Preserve exclusive intent before writes,exact validation,pinned raw pkglist,known file/metadata/directory/device durability and complete stage-exit evidence. Visible leaf,exit,hash/ACK/file flush alone does not prove durable complete binding. Unknown partial/final objects remain quarantined,no recreate/overwrite/repeat commit or next-stage dispatch.",
+        "native_case_run": false,
+        "position": 8,
+        "source_step": "stage-exit-evidence-complete",
+        "whole_original_microstep_review": {
+          "actual_owned_commit_outcome": null,
+          "actual_syscall_storage_sequence": null,
+          "actual_target_outcome": null,
+          "current_authority": false,
+          "declared_review_cut_questions": [
+            {
+              "actual_fault_effectiveness": null,
+              "actual_observation": null,
+              "location": "before",
+              "native_case_run": false,
+              "scope": "authored-question-not-native-injection-or-exhaustive-schedule"
+            },
+            {
+              "actual_fault_effectiveness": null,
+              "actual_observation": null,
+              "location": "within",
+              "native_case_run": false,
+              "scope": "authored-question-not-native-injection-or-exhaustive-schedule"
+            },
+            {
+              "actual_fault_effectiveness": null,
+              "actual_observation": null,
+              "location": "after",
+              "native_case_run": false,
+              "scope": "authored-question-not-native-injection-or-exhaustive-schedule"
+            }
+          ],
+          "full_original_microstep347": {
+            "actual_durability_evidence": null,
+            "actual_instruction_or_syscall": null,
+            "no_unknown_replay": true,
+            "position": 8,
+            "source_step": "stage-exit-evidence-complete",
+            "status": "required-not-native-refined"
+          },
+          "native_proof": false,
+          "position": 8,
+          "required_future_native_observation": "Retain full original stdout/stderr/exit status and exact durable owned binding evidence; complete-known-durable stage7 only,stage8 still independently gated.",
+          "source_step": "stage-exit-evidence-complete",
+          "uncertainty_disposition": "Failed/unknown exit evidence blocks eligibility and keeps original status/artifacts/earlier target/config effects pending; no selfreceipt success."
+        }
+      }
+    }
+  ],
+  "expected_new_findings": [
+    {
+      "actual_native_evidence": null,
+      "classification": "unproved-native-hypothesis",
+      "disposition": "Open original action graph/rights/storage refinement question,not a new exemption. Retain all original branch predicates and finite controls. Compare whole stage/evidence/source effects again414-416. No native selector,ledger,storage backend or action partition chosen.",
+      "id": "A413-01",
+      "inactive_wording_proposal": "DRAFT ONLY: Preserve known original target equivalence as a qualified captured fact separately from any unknown restore/action/owned/controller ACK. A verification,no-op or evidence effect requires its own already reviewed exact ORIGINAL action identity,finite bounds and pre-spend/control prerequisites. Do not use another slot as a retry,claim an unknown restore succeeded,refund/reopen consumed or unknown spend,or erase original failure. This supplies no new right or current action authority.",
+      "independent_impact_acceptance": false,
+      "issue": "Actual original action identity/accounting for restore,known-already-restored no-op,fresh verification and evidence remains unbound across consumed/unknown spend and lost restore ACK. A no-write name or qualified target fact cannot supply a new action slot or complete an unknown restore.",
+      "native_proof": false,
+      "normative_activation": false,
+      "paper_case_ids": [
+        "S04-lost-restore-ACK-qualified-match",
+        "S07-known-no-op-right-unknown",
+        "S08-spent-right-no-new-verification",
+        "S09-unknown-spend-not-unused"
+      ],
+      "runtime_authority": false,
+      "status": "open-authored-original-action-partition-question",
+      "whole_source_storage_wording": {
+        "whole_inactive_R402_replacements": [
+          {
+            "complete_proposed_value": "DRAFT: Use only the explicitly retained original same-attempt recovery scope,fixed finite deadline and durable once-only action budget,with every original trap/guard/identity/known-backup/drain prerequisite. Serialize one pre-spent recovery operation admission against known original recovery/all revocation. Once admitted,only its exact declared finite recovery envelope may finish within original bounds after an applicable revocation request. This changes the current live recovery fence at every internal effect;no blanket expiry exemption or foreign restore is granted.",
+            "id": "R402/recovery_contract/validity",
+            "input_key": "original323",
+            "json_pointer": "/recovery_contract/validity",
+            "replacement_approved": false,
+            "source_input": "operation402",
+            "source_pointer": "/exact_inactive_clause_replacements/5",
+            "whole_current_value": "explicit-authenticated-issuer-original-recovery-scope-with-own-finite-deadline-budget-and-live-recovery-fence"
+          },
+          {
+            "complete_proposed_value": "DRAFT: A known recovery/all revocation request denies subsequent recovery operation admission irreversibly. A known pre-request admitted recovery operation may complete only its predeclared finite envelope and known safe cut inside its unchanged original deadline/budget/safe identity;post-request internal writes are an explicit weakened guarantee. Unknown scope,boot/clock/identity/control drift or expiry denies unproved effects and preserves pending obligations. Forward-only revocation does not revoke separately retained recovery. No replacement right or replay follows.",
+            "id": "R402/recovery_contract/revocation",
+            "input_key": "original323",
+            "json_pointer": "/recovery_contract/revocation",
+            "replacement_approved": false,
+            "source_input": "operation402",
+            "source_pointer": "/exact_inactive_clause_replacements/6",
+            "whole_current_value": "recovery/all-revocation-unknown-scope-clock-discontinuity-boot-or-identity-drift-block-recovery-writes-and-preserve-obligations"
+          }
+        ],
+        "whole_original320_claim_launch_unknown": {
+          "claim_contract": "one-linearizable-irreversible-durable-CAS-unused-to-consumed-active; requested-mismatch-or-preflight-failure-cannot-return-unused",
+          "launch_contract": "durably-spend-single-launch-slot-before-one-spawn-syscall; no-replay-no-relaunch-on-loss-or-unknown-outcome",
+          "unknown_rule": "Unknown durable commit or spawn means no forward action, no replay or renewal, preserve pending service/controller and possible machine obligations; actual no-reuse enforcement still must be proved."
+        },
+        "whole_original322_commit_contract": {
+          "baseline": "original-guarded-baseline-with-original-approved-stage4/5/6-deltas-not-rebound-to-predecessor-or-drift",
+          "durability": "actual-supported-file-byte-metadata-directory-storage-semantics-proved-before-claiming-complete; visible-leaf-close-or-file-flush-alone-not-proof",
+          "eligibility": "only-complete-known-durable-binding-and-stage-exit-evidence-qualify-stage7; stage8-requires-independent-fresh-guards-authorization-and-real-selector/effect-proof",
+          "failure": "persistent-forward-latch-preserves-original-status-and-owned-partial/final-artifacts; no-repeat-commit-recreate-or-stage8-dispatch; recovery/evidence-rights-must-be-separately-reviewed323",
+          "grant": "same-original-consumed-active-attempt-never-unused-or-new-grant-per-write",
+          "no_replace": "exclusive-staging-and-final-commit-no-overwrite-or-force-rename; every-ancestor-parent-alias-and-content-writer-controlled-through-commit",
+          "payload": "one-canonical-observation-record-from-pinned-original-context-source-archive-predecessor-baseline-and-raw-pkglist; no-secret-trust-key-or-bearer-dispatch-permission",
+          "raw_pkglist": "raw-SHA-bound-once; logical-row-equivalence-cannot-rebind-changed-bytes; later-approved-regular-object-replacement-only-with-identical-bound-raw-SHA",
+          "sequence": [
+            "validate-exact-inputs",
+            "register-owned-intent",
+            "create-exclusive-stage",
+            "write-complete-bytes",
+            "metadata-and-data-durable",
+            "revalidate-pinned-inputs",
+            "commit-no-replace",
+            "directory-durability-confirmed",
+            "stage-exit-evidence-complete"
+          ],
+          "stage7_target_package_effect": "none-by-this-stage; prior-predecessor-and-configuration-effects-still-owned-and-not-yet-restored",
+          "unknown": "unknown-commit-directory-durability-or-evidence-result-remains-null/pending-not-eligible; no-automatic-delete-or-rehash-as-success"
+        },
+        "whole_original323_recovery_contract": {
+          "boundedness": "finite-issuer-bound-deadline-and-durable-action-budget; spend-before-action; no-renewal-refill-retry-after-unknown-or-new-grant",
+          "expiry_relation": "forward-expiry-or-forward-only-revocation-does-not-itself-revoke-explicitly-retained-recovery; never-blanket-expiry-exemption",
+          "idempotence": "known-already-restored-state-may-return-reviewed-no-op-with-fresh-verification; never-repeat-unknown-package-or-file-action",
+          "order": "stop-forward-then-known-child-quiescence-then-safe-restore-verify-target-evidence-before-release",
+          "owner": "narrow-retained-rights-of-same-original-consumed-attempt-not-another-grant-or-invocation",
+          "preconditions": "traps-guards-owned-canonical-paths-all-writers-excluded-exact-backups-same-safe-identity-original-baseline-and-approved-deltas",
+          "revocation": "recovery/all-revocation-unknown-scope-clock-discontinuity-boot-or-identity-drift-block-recovery-writes-and-preserve-obligations",
+          "status": "keep-original-forward-failure-status-separate-from-recovery-and-publication-status; restoration-cannot-turn-failure-into-success",
+          "validity": "explicit-authenticated-issuer-original-recovery-scope-with-own-finite-deadline-budget-and-live-recovery-fence",
+          "whitelist": [
+            "bounded-owned-child-control-and-drain",
+            "exact-original-backup-restoration",
+            "verify-original-invariants",
+            "capture-owned-target-evidence",
+            "verified-target-control-release"
+          ]
+        },
+        "whole_original324_baseline_pkglist_recovery": {
+          "baseline_contract": {
+            "actual_backup_bindings": null,
+            "actual_baseline": null,
+            "expected": "original-to-reviewed-predecessor-to-local-isolation-and-fresh-pkglist-to-exact-target-to-original; preserve-original-inputs-through-all-approved-deltas",
+            "identity": "single-original-production-baseline-under-continuous-guard-content-owner-mode-type-presence-absence-and-canonical-alias-objects-not-early-preflight-or-self-rebound-current-state",
+            "owned_artifacts": "only-individually-recorded-whitelisted-transaction-owned-work-backup-binding-evidence-effects-separated; no-broad-subtree-exclusion-to-hide-target-drift",
+            "scope": "exact-target-config-state-boot-GenInitrd-unrelated-package-source-archive-code-dependency-and-identity-invariants"
+          },
+          "pkglist_contract": {
+            "actual_raw_pin": null,
+            "binding": "fresh-regular-nonempty-refresh-exit0-both-stream-guards-then-bind-raw-SHA-once-for-stage7-and-all-nested-consumers",
+            "replacement": "logical-row-equivalence-not-same-raw-bytes; only-explicitly-reviewed-regular-object-replacement-with-identical-bound-raw-SHA-and-independent-identity-writer-proof",
+            "restoration": "restore-original-production-state-and-pkglist-under-original-backups-without-changing-owned-audit-pin; no-further-package-consumer-after-restore"
+          },
+          "recovery_contract": {
+            "order": "persistent-forward-stop-known-owned-child-drain-verified-original-backup-restore-full-invariants-target-evidence-then-release",
+            "policy": "exact323-retained-finite-same-attempt-rights-fence-deadline-budget-and-safe-identity-not-blanket-exemption",
+            "unknown": "partial-package-config-binding-guard-or-child-outcome-never-auto-close-retry-rehash-rebind-or-restore-foreign-drift; retain-original-status-backups-and-pending-obligations"
+          }
+        }
+      },
+      "whole_storage404_reference": {
+        "canonical_sha256": "cac6f11f8853ceae3e138a97864e97464e8f2ec0d157b72b26b37f395f85c674",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-baseline-storage-finite-rights-proposal-review-review.json",
+        "sha256": "4bad8eb06ba2efcf17df420a3c20f398ac10d862e7f8d1aee6b61c68ce84d277"
+      }
+    }
+  ],
+  "expected_prior_entry_reference": {
+    "canonical_sha256": "9dd34abebfbe6bddc6acfa7df27de96e14a5e0ed0dbe6e28c275bb350ee2e611",
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-trust-clock-guardian-drain-audit-review-entry411.json",
+    "sha256": "73d55eb8ba94a92b67b46a5fb64315d11603c05e2db9a9248f90abefa60f522e"
+  },
+  "expected_raw_binding_review": {
+    "audit_pin_rebound_to_restored_production": false,
+    "comparison": "Original production pkglist bytes,state and fresh raw owned audit pin have separate roles. Restoring original production does not rewrite the audit pin;only explicitly reviewed regular-object replacement with identical pinned raw SHA and independent identity/writer proof fits original replacement semantics. No actual bytes/binding/evidence or replacement operation selected.",
+    "further_package_consumer_after_original_restoration_allowed": false,
+    "logical_rows_rebind_raw_bytes": false,
+    "original_production_state_rebound_to_audit_pin": false,
+    "publication_uses_captured_closed_data_only": true,
+    "whole_original_owned_raw_pkglist322": "raw-SHA-bound-once; logical-row-equivalence-cannot-rebind-changed-bytes; later-approved-regular-object-replacement-only-with-identical-bound-raw-SHA",
+    "whole_original_pkglist_contract324": {
+      "actual_raw_pin": null,
+      "binding": "fresh-regular-nonempty-refresh-exit0-both-stream-guards-then-bind-raw-SHA-once-for-stage7-and-all-nested-consumers",
+      "replacement": "logical-row-equivalence-not-same-raw-bytes; only-explicitly-reviewed-regular-object-replacement-with-identical-bound-raw-SHA-and-independent-identity-writer-proof",
+      "restoration": "restore-original-production-state-and-pkglist-under-original-backups-without-changing-owned-audit-pin; no-further-package-consumer-after-restore"
+    }
+  },
+  "expected_review_result": {
+    "actual_global_host_closure": false,
+    "actual_host_state": "unobserved-not-claimed-absent",
+    "actual_live_bindings": null,
+    "approved_contract_migration": null,
+    "branches": 18,
+    "current_strong_safe_pause": false,
+    "independent_impact_review_accepted": false,
+    "last_confirmed_strong_safe_pause_step": 408,
+    "native_cases_run": 0,
+    "native_proofs_added": 0,
+    "new_open_questions": 1,
+    "next_preparable_step_after_complete_acceptance": 414,
+    "owned_microsteps": 9,
+    "paper_cut_questions": 27,
+    "paper_status_cases": 18,
+    "retained_open_findings": 11,
+    "runtime_authority": false,
+    "selected_options": null,
+    "state": "prepared-baseline-storage-rights-audit-awaiting-user-acceptance",
+    "step": 413
+  },
+  "expected_source_storage_wording": {
+    "whole_inactive_R402_replacements": [
+      {
+        "complete_proposed_value": "DRAFT: Use only the explicitly retained original same-attempt recovery scope,fixed finite deadline and durable once-only action budget,with every original trap/guard/identity/known-backup/drain prerequisite. Serialize one pre-spent recovery operation admission against known original recovery/all revocation. Once admitted,only its exact declared finite recovery envelope may finish within original bounds after an applicable revocation request. This changes the current live recovery fence at every internal effect;no blanket expiry exemption or foreign restore is granted.",
+        "id": "R402/recovery_contract/validity",
+        "input_key": "original323",
+        "json_pointer": "/recovery_contract/validity",
+        "replacement_approved": false,
+        "source_input": "operation402",
+        "source_pointer": "/exact_inactive_clause_replacements/5",
+        "whole_current_value": "explicit-authenticated-issuer-original-recovery-scope-with-own-finite-deadline-budget-and-live-recovery-fence"
+      },
+      {
+        "complete_proposed_value": "DRAFT: A known recovery/all revocation request denies subsequent recovery operation admission irreversibly. A known pre-request admitted recovery operation may complete only its predeclared finite envelope and known safe cut inside its unchanged original deadline/budget/safe identity;post-request internal writes are an explicit weakened guarantee. Unknown scope,boot/clock/identity/control drift or expiry denies unproved effects and preserves pending obligations. Forward-only revocation does not revoke separately retained recovery. No replacement right or replay follows.",
+        "id": "R402/recovery_contract/revocation",
+        "input_key": "original323",
+        "json_pointer": "/recovery_contract/revocation",
+        "replacement_approved": false,
+        "source_input": "operation402",
+        "source_pointer": "/exact_inactive_clause_replacements/6",
+        "whole_current_value": "recovery/all-revocation-unknown-scope-clock-discontinuity-boot-or-identity-drift-block-recovery-writes-and-preserve-obligations"
+      }
+    ],
+    "whole_original320_claim_launch_unknown": {
+      "claim_contract": "one-linearizable-irreversible-durable-CAS-unused-to-consumed-active; requested-mismatch-or-preflight-failure-cannot-return-unused",
+      "launch_contract": "durably-spend-single-launch-slot-before-one-spawn-syscall; no-replay-no-relaunch-on-loss-or-unknown-outcome",
+      "unknown_rule": "Unknown durable commit or spawn means no forward action, no replay or renewal, preserve pending service/controller and possible machine obligations; actual no-reuse enforcement still must be proved."
+    },
+    "whole_original322_commit_contract": {
+      "baseline": "original-guarded-baseline-with-original-approved-stage4/5/6-deltas-not-rebound-to-predecessor-or-drift",
+      "durability": "actual-supported-file-byte-metadata-directory-storage-semantics-proved-before-claiming-complete; visible-leaf-close-or-file-flush-alone-not-proof",
+      "eligibility": "only-complete-known-durable-binding-and-stage-exit-evidence-qualify-stage7; stage8-requires-independent-fresh-guards-authorization-and-real-selector/effect-proof",
+      "failure": "persistent-forward-latch-preserves-original-status-and-owned-partial/final-artifacts; no-repeat-commit-recreate-or-stage8-dispatch; recovery/evidence-rights-must-be-separately-reviewed323",
+      "grant": "same-original-consumed-active-attempt-never-unused-or-new-grant-per-write",
+      "no_replace": "exclusive-staging-and-final-commit-no-overwrite-or-force-rename; every-ancestor-parent-alias-and-content-writer-controlled-through-commit",
+      "payload": "one-canonical-observation-record-from-pinned-original-context-source-archive-predecessor-baseline-and-raw-pkglist; no-secret-trust-key-or-bearer-dispatch-permission",
+      "raw_pkglist": "raw-SHA-bound-once; logical-row-equivalence-cannot-rebind-changed-bytes; later-approved-regular-object-replacement-only-with-identical-bound-raw-SHA",
+      "sequence": [
+        "validate-exact-inputs",
+        "register-owned-intent",
+        "create-exclusive-stage",
+        "write-complete-bytes",
+        "metadata-and-data-durable",
+        "revalidate-pinned-inputs",
+        "commit-no-replace",
+        "directory-durability-confirmed",
+        "stage-exit-evidence-complete"
+      ],
+      "stage7_target_package_effect": "none-by-this-stage; prior-predecessor-and-configuration-effects-still-owned-and-not-yet-restored",
+      "unknown": "unknown-commit-directory-durability-or-evidence-result-remains-null/pending-not-eligible; no-automatic-delete-or-rehash-as-success"
+    },
+    "whole_original323_recovery_contract": {
+      "boundedness": "finite-issuer-bound-deadline-and-durable-action-budget; spend-before-action; no-renewal-refill-retry-after-unknown-or-new-grant",
+      "expiry_relation": "forward-expiry-or-forward-only-revocation-does-not-itself-revoke-explicitly-retained-recovery; never-blanket-expiry-exemption",
+      "idempotence": "known-already-restored-state-may-return-reviewed-no-op-with-fresh-verification; never-repeat-unknown-package-or-file-action",
+      "order": "stop-forward-then-known-child-quiescence-then-safe-restore-verify-target-evidence-before-release",
+      "owner": "narrow-retained-rights-of-same-original-consumed-attempt-not-another-grant-or-invocation",
+      "preconditions": "traps-guards-owned-canonical-paths-all-writers-excluded-exact-backups-same-safe-identity-original-baseline-and-approved-deltas",
+      "revocation": "recovery/all-revocation-unknown-scope-clock-discontinuity-boot-or-identity-drift-block-recovery-writes-and-preserve-obligations",
+      "status": "keep-original-forward-failure-status-separate-from-recovery-and-publication-status; restoration-cannot-turn-failure-into-success",
+      "validity": "explicit-authenticated-issuer-original-recovery-scope-with-own-finite-deadline-budget-and-live-recovery-fence",
+      "whitelist": [
+        "bounded-owned-child-control-and-drain",
+        "exact-original-backup-restoration",
+        "verify-original-invariants",
+        "capture-owned-target-evidence",
+        "verified-target-control-release"
+      ]
+    },
+    "whole_original324_baseline_pkglist_recovery": {
+      "baseline_contract": {
+        "actual_backup_bindings": null,
+        "actual_baseline": null,
+        "expected": "original-to-reviewed-predecessor-to-local-isolation-and-fresh-pkglist-to-exact-target-to-original; preserve-original-inputs-through-all-approved-deltas",
+        "identity": "single-original-production-baseline-under-continuous-guard-content-owner-mode-type-presence-absence-and-canonical-alias-objects-not-early-preflight-or-self-rebound-current-state",
+        "owned_artifacts": "only-individually-recorded-whitelisted-transaction-owned-work-backup-binding-evidence-effects-separated; no-broad-subtree-exclusion-to-hide-target-drift",
+        "scope": "exact-target-config-state-boot-GenInitrd-unrelated-package-source-archive-code-dependency-and-identity-invariants"
+      },
+      "pkglist_contract": {
+        "actual_raw_pin": null,
+        "binding": "fresh-regular-nonempty-refresh-exit0-both-stream-guards-then-bind-raw-SHA-once-for-stage7-and-all-nested-consumers",
+        "replacement": "logical-row-equivalence-not-same-raw-bytes; only-explicitly-reviewed-regular-object-replacement-with-identical-bound-raw-SHA-and-independent-identity-writer-proof",
+        "restoration": "restore-original-production-state-and-pkglist-under-original-backups-without-changing-owned-audit-pin; no-further-package-consumer-after-restore"
+      },
+      "recovery_contract": {
+        "order": "persistent-forward-stop-known-owned-child-drain-verified-original-backup-restore-full-invariants-target-evidence-then-release",
+        "policy": "exact323-retained-finite-same-attempt-rights-fence-deadline-budget-and-safe-identity-not-blanket-exemption",
+        "unknown": "partial-package-config-binding-guard-or-child-outcome-never-auto-close-retry-rehash-rebind-or-restore-foreign-drift; retain-original-status-backups-and-pending-obligations"
+      }
+    }
+  },
+  "false_fields": [
+    "independent_impact_review_accepted",
+    "semantic_migration_complete",
+    "current_strong_safe_pause",
+    "all_semantic_findings_resolved",
+    "runtime_authority"
+  ],
+  "fixture_canonical_sha256": {
+    "audit": "17e62c3ace10d7c6c14f457f9f559eee5071fd7323aad39824c596e61e6a8ecc",
+    "baseline": "8eba2a3cb48b24dafbcf41f8b1c8eb7ee3acad111fe28327fe0560c2723f0dd1",
+    "entry412": "9e5e03b3888c2a2a28a17176a64259698f74b190e1e80bfe3a103fad523d6b4f",
+    "sources": "7dd0aa57c7d55598b9d600880dd0a9fbf30c140ca634209aeb515b572c53a13d"
+  },
+  "new_paths": [
+    "docs/reference/phase-1-operational-joint-baseline-storage-once-only-rights-audit-review.md",
+    "tools/reference/phase-1-operational-joint-baseline-storage-once-only-rights-audit-review.py",
+    "tests/reference/test-phase-1-operational-joint-baseline-storage-once-only-rights-audit-review-harness.sh",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-baseline-storage-once-only-rights-audit-review-baseline.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-baseline-storage-once-only-rights-audit-review-entry412.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-baseline-storage-once-only-rights-audit-review-audit.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-baseline-storage-once-only-rights-audit-review-sources.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-baseline-storage-once-only-rights-audit-review-policy.json"
+  ],
+  "new_source_keys": [
+    "audit412",
+    "policy412",
+    "sources412",
+    "actual411_entry"
+  ],
+  "null_fields": [
+    "selected_options",
+    "approved_joint_specification",
+    "approved_contract_migration",
+    "actual_selected_implementation",
+    "actual_joint_native_graph",
+    "actual_native_evidence",
+    "actual_two_platform_run_bindings"
+  ],
+  "prefixes": {
+    "CHANGELOG.md": "## Phase 1 step 413 -- original baseline storage and once-only rights audit\n\n- Accepted412 at reported12bd22a,69orderedPASS/zero failures,exact10paths/8creates/\n  19034insertions/message,push/clean matching heads;complete disclosed return retained.\n- All18WHOLE recovery branches/all9ownedmicrosteps receive specific paper reviews,\n  including27before/within/after questions. WHOLE404 baseline/phases/failures/platform\n  scope retained;18statuscases keep target/backup/claim/launch/restore/owned/controller/\n  spend/verification/failure/mismatch separate,no native action or recovery selector.\n- LostrestoreACKnevercompletefromtargetmatch;no no-op/newslot/refund/relaunch;separate\n  original production bytes/fresh audit raw pin/restoration,no logical rebind.\n- One open originalactionidentity/accounting refinement question with WHOLE current\n  statements/inactivewording,all11priorfindings/2inactiveclarifications unchanged.\n- Whole125inputs/39roots,4nativerootsINERT;all2226oldbodies unchanged except exact\n  prefixes,eightadds. Fullactual413before414,lastconfirmedpause408only;conditional\n  418actualfinal/externalALL9 thenSTOP/noautomatic419/newrequest. Nativeclosed.\n\n",
+    "README.md": "<!-- step-413-baseline-storage-rights-audit:start -->\n## Current Phase 1 original baseline storage and once-only rights audit -- step 413\n\nAccepted412 at reported `12bd22a`:69 ordered PASS,zero failures,ten files/eight\ncreates/19034 insertions,reported main push/clean matching heads. Complete disclosed\nreturn retained; intermediate checkpoint only,last confirmed repository pause408.\n\nThe [413 audit](docs/reference/phase-1-operational-joint-baseline-storage-once-only-rights-audit-review.md)\ncompares all18 WHOLE original recovery branches and all9 owned microsteps with27\nspecific before/within/after paper questions. Eighteen independent-status cases\nretain target/backup/claim/launch/restore/owned/controller/spend/verification and\noriginal failure/mismatch separately. No target match completes lost restore ACK,\nno no-op supplies a new slot,no logical pkglist equivalence rebinds original raw\naudit bytes. One open native action-identity/accounting question keeps whole source.\nAll11 prior findings/questions and2 inactive410 clarifications unchanged. WHOLE404\ncontext and all nine global rules retained;no recovery/commit/action selector.\n\nAll125 whole inputs/39 roots,four native roots inert;whole1286-member scope remains.\nOriginal norms binding,A/R/D unselected,approvals/native graph/support/gates pending,\nnative cases/proofs0,Phase1 incomplete,schema/reference-v1/C/Phase2/Production closed.\nHost unobserved/livebindingsNULL/globalFALSE.413 prepared;full actual413 before414.\nConditional418 actualfinal/externalALL9 then STOP/noautomatic419/newrequest,no old\nbinding/grant revival. Prior README byte-exact below.\n<!-- step-413-baseline-storage-rights-audit:end -->\n\n"
+  },
+  "receipt_create_paths": [
+    "docs/reference/phase-1-operational-joint-trust-clock-guardian-drain-audit-review.md",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-trust-clock-guardian-drain-audit-review-audit.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-trust-clock-guardian-drain-audit-review-baseline.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-trust-clock-guardian-drain-audit-review-entry411.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-trust-clock-guardian-drain-audit-review-policy.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-trust-clock-guardian-drain-audit-review-sources.json",
+    "tests/reference/test-phase-1-operational-joint-trust-clock-guardian-drain-audit-review-harness.sh",
+    "tools/reference/phase-1-operational-joint-trust-clock-guardian-drain-audit-review.py"
+  ],
+  "receipt_final_tail": "12bd22a (HEAD -> main, origin/main, origin/HEAD) Phase 1 step 412: audit shared trust clock guardian loss and full drain\n12bd22a (HEAD -> main, origin/main, origin/HEAD) Phase 1 step 412: audit shared trust clock guardian loss and full drain\npromano@pc-arch ~/Descargas $ \n",
+  "receipt_pass_labels": [
+    "PASS: whole authored412 fixtures bound",
+    "PASS: complete actual411 return64PASS exact commit push clean matching heads",
+    "PASS: all121 whole inputs and38 roots; native roots inert",
+    "PASS: whole trust clock guardian drain context34 paper challenges and open questions",
+    "PASS: all2218 historical411 bodies unchanged except exact additive prefixes",
+    "PASS: exact eight additions plus README and CHANGELOG",
+    "PASS: reject boolean schema",
+    "PASS: reject option selected",
+    "PASS: reject migration approved",
+    "PASS: reject same-author audit made independent acceptance",
+    "PASS: reject native authority opened",
+    "PASS: reject current pause self-confirmed",
+    "PASS: reject unknown host made absent",
+    "PASS: reject global closure invented",
+    "PASS: reject native case invented",
+    "PASS: reject whole source reference removed",
+    "PASS: reject whole trust writer question removed",
+    "PASS: reject whole source lifetime row removed",
+    "PASS: reject one full drain facet omitted",
+    "PASS: reject one loss role omitted",
+    "PASS: reject old410 finding omitted",
+    "PASS: reject old411 question omitted",
+    "PASS: reject clock clarification activated",
+    "PASS: reject one global rule waived",
+    "PASS: reject one paper challenge omitted",
+    "PASS: reject past fact made current invariance",
+    "PASS: reject known drain renews expired rights",
+    "PASS: reject role survival made full drain",
+    "PASS: reject role label made independence",
+    "PASS: reject original failure erased",
+    "PASS: reject pending obligations erased",
+    "PASS: reject new question omitted",
+    "PASS: reject paper premises made native proof",
+    "PASS: reject fresh explicit grant gate removed",
+    "PASS: reject next step skips actual acceptance",
+    "PASS: reject automatic419 permitted",
+    "PASS: every original drain facet remains required protected-original-membership",
+    "PASS: every original drain facet remains required all-descendants-complete",
+    "PASS: every original drain facet remains required all-FD-aliases-closed",
+    "PASS: every original drain facet remains required all-streams-drained",
+    "PASS: every original drain facet remains required all-inflight-storage-effects-drained",
+    "PASS: every original drain facet remains required continuous-original-guard",
+    "PASS: every original drain facet remains required qualified-independent-origin",
+    "PASS: failed original right cannot be supplied by known drain original-surviving-control-prebound",
+    "PASS: failed original right cannot be supplied by known drain no-replacement-or-reacquisition",
+    "PASS: failed original right cannot be supplied by known drain original-fixed-mapping",
+    "PASS: failed original right cannot be supplied by known drain same-boot-clock-identity",
+    "PASS: failed original right cannot be supplied by known drain time-provider-available",
+    "PASS: failed original right cannot be supplied by known drain clock-and-suspend-elapsed-accounting-known",
+    "PASS: failed original right cannot be supplied by known drain within-original-deadline",
+    "PASS: failed original right cannot be supplied by known drain original-budget-not-refilled",
+    "PASS: failed original right cannot be supplied by known drain original-once-only-action-spend-known",
+    "PASS: failed original right cannot be supplied by known drain complete-source-writer-guard-controls",
+    "PASS: loss role does not mint replacement control transaction-supervisor",
+    "PASS: loss role does not mint replacement control protected-guardian",
+    "PASS: loss role does not mint replacement control external-admission-rights-controller",
+    "PASS: loss role does not mint replacement control clock-provider",
+    "PASS: loss role does not mint replacement control independent-observer-custodian",
+    "PASS: original failure mismatch past fact and pending preserved together",
+    "PASS: known past drain survives expiry without renewed rights",
+    "PASS: resume gate leaves async storage and elapsed accounting unknown",
+    "PASS: reject integer as boolean membership premise",
+    "PASS: reject truncated actual411 receipt",
+    "PASS: reject whole trust source byte drift",
+    "PASS: reject coordinated authored policy substitution",
+    "PASS: prepared result has34 paper challenges no native rights or current pause",
+    "PASS: pure reader imports only hashlib json re without native dispatch",
+    "PASS: exact authored artifact docs/reference/phase-1-operational-joint-trust-clock-guardian-drain-audit-review.md",
+    "PASS: exact authored artifact tests/reference/test-phase-1-operational-joint-trust-clock-guardian-drain-audit-review-harness.sh"
+  ],
+  "receipt_push_marker": "   d9e7416..12bd22a  main -> main\n",
+  "receipt_single_markers": [
+    "step412_overlay_application_status\tPASS",
+    "step412_commit_scope_verification_status\tPASS",
+    "Result: PASS (69 passes, 0 failures)",
+    "[main 12bd22a] Phase 1 step 412: audit shared trust clock guardian loss and full drain",
+    " 10 files changed, 19034 insertions(+)",
+    "To github.com:promano7/slack-update.git",
+    "   d9e7416..12bd22a  main -> main\n"
+  ],
+  "schema": 1,
+  "step": 413
+}

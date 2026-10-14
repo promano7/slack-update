@@ -1,3 +1,28 @@
+<!-- step-413-baseline-storage-rights-audit:start -->
+## Current Phase 1 original baseline storage and once-only rights audit -- step 413
+
+Accepted412 at reported `12bd22a`:69 ordered PASS,zero failures,ten files/eight
+creates/19034 insertions,reported main push/clean matching heads. Complete disclosed
+return retained; intermediate checkpoint only,last confirmed repository pause408.
+
+The [413 audit](docs/reference/phase-1-operational-joint-baseline-storage-once-only-rights-audit-review.md)
+compares all18 WHOLE original recovery branches and all9 owned microsteps with27
+specific before/within/after paper questions. Eighteen independent-status cases
+retain target/backup/claim/launch/restore/owned/controller/spend/verification and
+original failure/mismatch separately. No target match completes lost restore ACK,
+no no-op supplies a new slot,no logical pkglist equivalence rebinds original raw
+audit bytes. One open native action-identity/accounting question keeps whole source.
+All11 prior findings/questions and2 inactive410 clarifications unchanged. WHOLE404
+context and all nine global rules retained;no recovery/commit/action selector.
+
+All125 whole inputs/39 roots,four native roots inert;whole1286-member scope remains.
+Original norms binding,A/R/D unselected,approvals/native graph/support/gates pending,
+native cases/proofs0,Phase1 incomplete,schema/reference-v1/C/Phase2/Production closed.
+Host unobserved/livebindingsNULL/globalFALSE.413 prepared;full actual413 before414.
+Conditional418 actualfinal/externalALL9 then STOP/noautomatic419/newrequest,no old
+binding/grant revival. Prior README byte-exact below.
+<!-- step-413-baseline-storage-rights-audit:end -->
+
 <!-- step-412-trust-clock-guardian-drain-audit:start -->
 ## Current Phase 1 trust clock guardian and full-drain audit -- step 412
 
