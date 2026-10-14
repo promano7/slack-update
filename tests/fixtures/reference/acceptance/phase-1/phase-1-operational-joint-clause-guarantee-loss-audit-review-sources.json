@@ -1,0 +1,760 @@
+{
+  "historical_readme_binding": {
+    "current_prefix_is_native_proof": false,
+    "historical_accepted396_sha256": "d7eeff39da162f83b4a668f84f4742fd15ed1a985dd19e53ec04ea196355badc",
+    "historical_bytes_preserved": true,
+    "path": "README.md",
+    "sha256": "18fe88cf38b3c46a8fbc92754731716743f8514a530ccd7ca3e96b72ab7e5825"
+  },
+  "inert_roots": [
+    {
+      "actual_native_binding": null,
+      "execution_authorized": false,
+      "path": "tools/reference/slack-update-reference.sh",
+      "review_selection_only": true,
+      "role": "reference-specification-source-for-review-only",
+      "sha256": "1014658196f384b29756827b9074fb0393aeaaf82dad857ff4da91762d9ca415",
+      "size_bytes": 239718
+    },
+    {
+      "actual_native_binding": null,
+      "execution_authorized": false,
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-body.sh",
+      "review_selection_only": true,
+      "role": "historical-worker-body-not-a-selected-native-successor",
+      "sha256": "c5e8bce4802ecefdc72d975c269ece98fb3d7364c856665e64254b7fc9097a68",
+      "size_bytes": 42856
+    },
+    {
+      "actual_native_binding": null,
+      "execution_authorized": false,
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor-build.sh",
+      "review_selection_only": true,
+      "role": "historical-generator-source-for-review-only",
+      "sha256": "43c858e351d32c4ed2c28c687ccc9a06a1fc78f77032eaf20fb3d40a3ff197da",
+      "size_bytes": 9487
+    },
+    {
+      "actual_native_binding": null,
+      "execution_authorized": false,
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-v2-executor.sh",
+      "review_selection_only": true,
+      "role": "historical-generated-artifact-not-a-second-independent-worker",
+      "sha256": "deb2d96c1590c176ae93f75cbf66161fe5a26f00401d9179f1082e3a1399f07d",
+      "size_bytes": 373181
+    }
+  ],
+  "inputs": {
+    "accepted380dossier": {
+      "canonical_sha256": "d72baf61526c9e5620ba7167e252fdd650e568cdb8281307c300086f0ffc35d5",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-live-revocation-decision-review-dossier.json",
+      "sha256": "c9ac7c0bc9bca951f0aff35d641515103df3553b476109b6510b7aa4d55c9e1d"
+    },
+    "accepted380sources": {
+      "canonical_sha256": "f607f3fe5c3d7ba19150f206088e7cac157a0a0a43476d9b0dcec15cd9388c4c",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-live-revocation-decision-review-sources.json",
+      "sha256": "034d761e5206e81d8716cc6221cfa265caa5cae8bf84b507e959d73c59e2ebd7"
+    },
+    "accepted381dossier": {
+      "canonical_sha256": "7f4e3d7ad3877e93adb3bc9709bec727a651ee00312afd3f3b8fa20a0199c502",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-writer-alias-lifetime-decision-review-dossier.json",
+      "sha256": "cafe4b6bc2eaaa42461a1673215241b1fa03cc2b4623e7846a438a5b2b55bd03"
+    },
+    "accepted381sources": {
+      "canonical_sha256": "e2dc2d96d3f3a3ca96bffe4c7cb1beec994150a2b0c9bb451213bb3fd11821de",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-writer-alias-lifetime-decision-review-sources.json",
+      "sha256": "2208fd943312f526f924938629a126e7fe473bc9f8c61eb7ac89b9465f8c3449"
+    },
+    "accepted382dossier": {
+      "canonical_sha256": "c64bec06e5a82cc205dc92ff67ec74b481e6f378ea3259ddab7c954610b7f77c",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-supervisor-clock-drain-decision-review-dossier.json",
+      "sha256": "21d8cf21ef6c9c4f2658fff1abcddfdc9428c6ee71208efafce4fc8e4bdd7333"
+    },
+    "accepted382sources": {
+      "canonical_sha256": "b54e917bfa68376fd20a1bf321574d55030343c28f9baf37d7813538c4e016b0",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-supervisor-clock-drain-decision-review-sources.json",
+      "sha256": "c14cfd91277b3d76fd102ecaf822010042d45edbd24bf2632a116fbd07c5c254"
+    },
+    "accepted383dossier": {
+      "canonical_sha256": "7c3d23df4c5c1fc6879dd70ace34e594a1109b7ac86a316b82d8ee9eac4a22f8",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-baseline-storage-finite-rights-decision-review-dossier.json",
+      "sha256": "8e7af2798830835c76e6ba85d119204bea50b58c1b96bbdb3b99a725fd410e5d"
+    },
+    "accepted383sources": {
+      "canonical_sha256": "147cc6143f5dcce8a887b32ebe37f617ec042432c6888bd0444dd49e4144b5f8",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-baseline-storage-finite-rights-decision-review-sources.json",
+      "sha256": "787a3a3f4a4460cc7c4414eb60b54955485fb0efd02238c8f9c29fa8dfc8d3bc"
+    },
+    "accepted384dossier": {
+      "canonical_sha256": "aa85115485e4f264e98ada1f78c9a3f0a4a6dadd99dac04b6b7961fe438641e5",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-stage12-receipt-causality-decision-review-dossier.json",
+      "sha256": "550c44034b3f6ec8b6464da897394e7f88be67c089424e21e89fd5f118f4b7fe"
+    },
+    "accepted384sources": {
+      "canonical_sha256": "50045d353e86e569a927186d9d82160cba9e342e184875e18d21e60c9e4e489d",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-stage12-receipt-causality-decision-review-sources.json",
+      "sha256": "f36b4099d1470564991580942b54a40031ffbf4d054040d554ec315a075fd4bf"
+    },
+    "accepted385dossier": {
+      "canonical_sha256": "a9c6fa0c8538ac0c8383253125434b9a4233f48f7eec1a239ee8aaff90146049",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-source-backend-independent-oracle-decision-review-dossier.json",
+      "sha256": "24832997c2be79a15e6fa00ce5b2474a663719536d4e46604b6b555347de5110"
+    },
+    "accepted385sources": {
+      "canonical_sha256": "a782fa442bd6f1d65aee425c54bab0dd6dddf6ea909683bf07cadcde6b4547e9",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-source-backend-independent-oracle-decision-review-sources.json",
+      "sha256": "1e0ce99273fdad500dbbad63ea3c64802bd8f5f73df0df076d570e4fe32f460a"
+    },
+    "accepted386dossier": {
+      "canonical_sha256": "7d345b0f5ce9cb1c3c77e8182e60ed89e782510cdc2710dc02f488243f34ab16",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-integrated-feasibility-verdict-review-dossier.json",
+      "sha256": "ecca96c80d70a16d3ac45c3d5c89c7d8e4dc1f431e5d666ebaebda39381d9146"
+    },
+    "accepted386sources": {
+      "canonical_sha256": "ac3de7e6bbdf4006903841da5f39546a90cec55fc02b87fb4a57157e283252bd",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-integrated-feasibility-verdict-review-sources.json",
+      "sha256": "f8e063f3e1dc307cafb7bbabb41ba33571b2126bf904d904e4a59007ad8ef26b"
+    },
+    "accepted387dossier": {
+      "canonical_sha256": "c818f60cb0db45a70410b20c5e13ce2864da4e7f2830b15c266b4dfed14953e3",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-feasibility-readme-roadmap-reconciliation-review-dossier.json",
+      "sha256": "2d30da841560f574a21b0ecc836b4ee100918a5b0a7c3e9d674409adff9e83ae"
+    },
+    "accepted387sources": {
+      "canonical_sha256": "c4e8a678f93adf3d5e4d4aea55c1bcf0f3f814b0f270c372c1073533ff6707da",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-feasibility-readme-roadmap-reconciliation-review-sources.json",
+      "sha256": "f0271ae22b8d45ce224481148cdca459a52d6e359bd4752edabd784283335831"
+    },
+    "accepted_entry389": {
+      "canonical_sha256": "560cec5ef3c3cc39b7a2476e7693267eba0be47cbb4aad51862cf994c36073d1",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-writer-trust-contract-decision-brief-entry389.json",
+      "sha256": "62b31899359d8ae1174c0d5f5ad749447db150c027e5ae2067918424bdabc95c"
+    },
+    "accepted_entry390": {
+      "canonical_sha256": "3d8e1feb936f7db625ae5d3afe77ab8ee0e5ea2d8e5a09b7145f1f38ffedc591",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-revocation-effect-contract-decision-brief-entry390.json",
+      "sha256": "10a2e6817d88d2d1a54bd676f91a284d99038596a2b3b90d6a4b8a958ed1ad4a"
+    },
+    "accepted_entry391": {
+      "canonical_sha256": "a7ea4b6c5a34f1b4f1d8379c89119502c2247f82d6c9d00f397b2401998f2d2b",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-loss-drain-clock-contract-decision-brief-entry391.json",
+      "sha256": "f094609c4801898d3e5ebb89dc03226d85c63be97bbe8e73b31dc56d6aa94d35"
+    },
+    "accepted_entry392": {
+      "canonical_sha256": "25eaf62113d50fa7de386dbef2925747f208fb8234187fb74d3acfaaa4799204",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-baseline-storage-rights-contract-decision-brief-entry392.json",
+      "sha256": "5fe569171e14f6d77124c7d0ff95122b91f52114a57bcf760b9c6eb405e4c4ed"
+    },
+    "accepted_entry393": {
+      "canonical_sha256": "8ce2357a1ad60e160c2d6d8dfbdfd2cf1341ef94e121327f45d8e83c3c6fa518",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-stage12-terminal-receipt-contract-decision-brief-entry393.json",
+      "sha256": "3cc83b0b3c32c7c9d3e06bc0144bd2f3988cbe60caefd35ac16b0a8457fefa8a"
+    },
+    "accepted_entry394": {
+      "canonical_sha256": "b9805f280a150166465c9bec6a1e33b15e4117e78bc59d93c429d5f11024fae3",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-whole-entry-backend-contract-decision-brief-entry394.json",
+      "sha256": "295ed43ce807f83fc2a4361d9bcf9dc79e6123f2c5d1c2912ad8e587d8644f09"
+    },
+    "accepted_entry395": {
+      "canonical_sha256": "3b07dcf3d4fbe18328cf4e5f81de16ca6d787363d5ed77af5e3d66ec60a27715",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-independent-oracle-migration-impact-decision-brief-entry395.json",
+      "sha256": "ae30e634e7244da6ed7c997e5658d493cf9e34ce4519f0b73f9d98b0699c0a9d"
+    },
+    "accepted_entry396": {
+      "canonical_sha256": "d16f58ae4472afff95124d55f3b87e61bbc2eca1d014d8e61cad2653bfc235a7",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-integrated-contract-decision-packet-roadmap-review-entry396.json",
+      "sha256": "d249bf7b0ae174491718a58c436504c71d5cd3aeae0dc07636fee2d921415191"
+    },
+    "actual399_entry": {
+      "canonical_sha256": "fff9dea68282d939a805d8608223f7f2ea20d7da587ddb4c93b60567e5d35684",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-concrete-joint-contract-candidate-proposal-review-entry399.json",
+      "sha256": "e785607f1f96880ac84ae859c0cfc10984ded93829d6dc8bb9765c180a0fe258"
+    },
+    "actual400_entry": {
+      "canonical_sha256": "27356ba40c285af98c60b6dae8260707934fcd14405ecb0de85fb99949b4cd99",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-writer-source-trust-proposal-review-entry400.json",
+      "sha256": "f65585f7051f70c48c7808a9a0115b9a92708ff12498092eed7c4accf2b59807"
+    },
+    "actual401_entry": {
+      "canonical_sha256": "1f93ab64d15b8eb0d16285e62e09226f0c5bfe067277d204944f89a7eb72dc5b",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-operation-admission-revocation-proposal-review-entry401.json",
+      "sha256": "0cc66f4f532f76d92fb0f96c549a759a2704dd24959c01aded503bc86d4b6cea"
+    },
+    "actual402_entry": {
+      "canonical_sha256": "c353a9f3508beaae92bf5d3d61d892f3dd458fd426143bc0aef4fd2ce9280c58",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-loss-drain-clock-proposal-review-entry402.json",
+      "sha256": "87f84c7e846a919bdd0eaa5ccdc0de864b929b1a9ca284aff537af85d61133fd"
+    },
+    "actual403_entry": {
+      "canonical_sha256": "03fdab1595620aaf9056b9e5c3e3235a67776daf283b63d0acb9154e9e1aa976",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-baseline-storage-finite-rights-proposal-review-entry403.json",
+      "sha256": "9f527b66be9332de29a2069d004f3e0ee321e27fc35802565cbfe7920ee58175"
+    },
+    "actual404_entry": {
+      "canonical_sha256": "19913d741c6497cf207bccf26773f4235551a5546f9e9f9f0dce90e13a943709",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-stage12-receipt-final-observation-proposal-review-entry404.json",
+      "sha256": "e7ab3092d5597292db161f6ccd0b5161558ef10e1a997c677c9d250d5587e350"
+    },
+    "actual405_entry": {
+      "canonical_sha256": "cbe7001eaed44c55376a08a916f1ddde0cc1a02d58f355aa2d3b989428899774",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-whole-entry-independent-two-platform-oracle-proposal-review-entry405.json",
+      "sha256": "49b6c297ad4b3e1869c7df969e5cc7478089b8d309e6b01c21ad2b646461ad2b"
+    },
+    "actual406_entry": {
+      "canonical_sha256": "bdf98442bb7248e55f5e2d08a3e67f36b7ac5d2642d9a49bd093d947a62c3ad5",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-integrated-joint-contract-semantic-migration-decision-packet-review-entry406.json",
+      "sha256": "e6d8fe4c6bde9353f2e9e3732f268db92dbe486135a7cf12112272eb52a0ca10"
+    },
+    "actual408_entry": {
+      "canonical_sha256": "3ed3effde3ca28ffde31d935b55e19987e400f15d02957382a5b782c2daa9aab",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-manuscript-audit-resume-planning-review-entry408.json",
+      "sha256": "6f31fc3b06b9d96851f420ca4f728589eb4442d14e9c72bc1d1957ece20f7d12"
+    },
+    "candidate400": {
+      "canonical_sha256": "5c34230946a48e6e09c1a2aed8a6a4d62e85b24f3db84c3713d1d37fb546d8d2",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-concrete-joint-contract-candidate-proposal-review-candidate.json",
+      "sha256": "f25bc295733c1af53329af26785d23273dd3d07aec67d9eb328df27d0030a17f"
+    },
+    "context": {
+      "canonical_sha256": "826215551c42d25dd9dfee3ec4a0ee1368b0516e5e771a183d2286ca691eb6bc",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-entrypoint-callsite-review-review.json",
+      "sha256": "465b4742107241fe4baa2bc7b27aaa34087d177431a75e3fc53de73324b646a2"
+    },
+    "controls361": {
+      "canonical_sha256": "4927cb8493f5cc6ae4a850d0758da89b6d93ce5dd7e579c1d8de58b80041be7a",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-readonly-source-inventory-control-coverage.json",
+      "sha256": "b81659ab5b304db345d51547d68815c8e779f4b2e09866c961b07e009c13eaa0"
+    },
+    "dependency": {
+      "canonical_sha256": "5c7f04e951ddad613b80d888637334ca425d1048db3e0f16d8316d3e322f35f2",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-external-dependency-register-register.json",
+      "sha256": "bf9e31c498a2f1038203dadf9500d35c9547fcf091264cc252cb0665d3bada52"
+    },
+    "design370": {
+      "canonical_sha256": "e02d1237325cbfbb3821f9c824830caff78f07a960bb1133b9ea2b5b1babc04a",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-successor-source-effect-design-review-design.json",
+      "sha256": "552c1b133b6d004765d108630df212d1741d81500821248ae846141bffae877a"
+    },
+    "design371": {
+      "canonical_sha256": "304191bcd745d3d5eede16f1944d5e26f8b0297b335b5781172be78e6c9d17df",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-issuer-admission-launch-design-review-design.json",
+      "sha256": "0cd0decb7cd2d3275355766220dbeed6c51ea344088a633bbd758857609a1bbc"
+    },
+    "design372": {
+      "canonical_sha256": "356a079d87b3cb96b6195949a83f9ea1156711fe20aab3d7467a5ea92b54ba40",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-native-platform-primitives-design-review-design.json",
+      "sha256": "7fa9da13664eac84af5bdb2ff0380417424e7bbf2283523ece12fda436a6824b"
+    },
+    "design373": {
+      "canonical_sha256": "d8e6819ff6d5048d18b8e34e274490bc3accf7e866b7bc498ce6390c70c5258e",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-baseline-owned-recovery-design-review-design.json",
+      "sha256": "ea1620292b34598d9c2d33881bf5c931ae33c2b1e4a9aa85b7922e48add1f409"
+    },
+    "design374": {
+      "canonical_sha256": "8bfbf9b76992c2110abafe7c6e7ccf774efd59e15c5cb92c9d3d1fa1a0491b8b",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-target-closure-publication-design-review-design.json",
+      "sha256": "c98bd00e70ef8a00dafd375f0f5e2695bbe52c6f97d9a96b0d11ae1487ab06bd"
+    },
+    "design375": {
+      "canonical_sha256": "95f1b490684639ace6223d3362383e7b3666ed26010c38c23f82d3fc62aebceb",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-independent-evidence-oracle-design-review-design.json",
+      "sha256": "df23e3b2e2aded1815bcb6ec9ab66e0785380ef05c0dca7fc9c6db32f7178653"
+    },
+    "design376": {
+      "canonical_sha256": "1a0c6a69fe251134ca4e424042094ad305f44cff7880220d69dfc17e0b24dcc0",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-native-refinement-case-design-review-design.json",
+      "sha256": "3b86ea5c7f548aedecf80c88d44126d8d85438a84d6af50e5711c0112effcc11"
+    },
+    "design377": {
+      "canonical_sha256": "464aaf7d76bbf23d81386407fff728372293d3d82df60e407f5838b4db0d8a24",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-design-readiness-readme-review-design.json",
+      "sha256": "4509c2ae353dd59e25add2dfb424656eb2241827e86aa4bcd1c08d2dec4eb3c0"
+    },
+    "effects": {
+      "canonical_sha256": "c93f51f5df607e11044f8768e4af2df2e2ea8d49fd16f340d5838f2fb6a1289b",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-effect-lifetime-review-review.json",
+      "sha256": "9da0c6e07b0e79ca89ed1ddc7d91bbfb9e744b1bb8125dee1b299c6167da3765"
+    },
+    "entry_brief395": {
+      "canonical_sha256": "e0374c5a01681ae91f4c9c709fd0ee964dd5f3ea25fe2ca6d48c020a771a4f01",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-whole-entry-backend-contract-decision-brief-brief.json",
+      "sha256": "d576c1d2ef28aa6b0c8271af7d283a20c4f0cf2afed0b01f91fc56c3e33bc58f"
+    },
+    "entry_oracle406": {
+      "canonical_sha256": "f3fbae5fdd8c83e7037c2b9d3fb34e05231a4e12c17883bb33a9b4c8cc80ad72",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-whole-entry-independent-two-platform-oracle-proposal-review-review.json",
+      "sha256": "124614cc0c2a48eafe2cf271ad7f943764072d82fa4e142559cff5c08bd1a0f7"
+    },
+    "freeze": {
+      "canonical_sha256": "e15107e1361fde9afe8c21ee5dba6f1c8c4176bbc6c442b216026b9ded68a81d",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-source-inventory-freeze-and-safe-pause-review-freeze.json",
+      "sha256": "8bf4f561305a8ceaf0b3948316278e5811a42f3b371f8a528f9fb236482f2bc8"
+    },
+    "freeze378": {
+      "canonical_sha256": "94f014db22b98f34c415933b72823a513d5f4bc4752deae65a7e6cbc22c2de5d",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-successor-design-freeze-and-safe-pause-review-freeze.json",
+      "sha256": "973825341a4ce27878edf82c675c15f384382f8f23fc77a96f0c325989404449"
+    },
+    "freeze388": {
+      "canonical_sha256": "712b1009eb248c384472934d6479a7b978cdf64bf3ab8d16447c99c5ef9364dc",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-feasibility-decision-freeze-and-safe-pause-review-freeze.json",
+      "sha256": "f3039b2cf03eb56334ee149096890fcff870683ab07486b44ddde451910f7b50"
+    },
+    "freeze398": {
+      "canonical_sha256": "1ad5a63ffebaf093cf7eca19349d9ab60cfe03dcd20727012e0b100522b765a2",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-contract-decision-packet-freeze-and-safe-pause-review-freeze.json",
+      "sha256": "be4eb803992244b492890965274302f768e377b1784a8ca47bf772dc4a23b1c7"
+    },
+    "freeze408": {
+      "canonical_sha256": "33d0ce5a7c082e19ba59ee15d27de2cc52eb4409e96df9bcfb46149c43b955dc",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-contract-proposal-freeze-and-safe-pause-review-freeze.json",
+      "sha256": "be9ec26a68843e6f4ccb64498a8b6f046ba3524dedc2b95d099fc4fb8bb8216d"
+    },
+    "historical_actual398_entry": {
+      "canonical_sha256": "413ddd8e804149e4e900dc948211a8982e56a2e1057521b51e13f332e52a40bf",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-contract-proposal-resume-planning-review-entry398.json",
+      "sha256": "12367ccc2fe5c86ca219fda927ebc38a2b24494ffb218df10b88fa9db4285987"
+    },
+    "independent_expectation351": {
+      "canonical_sha256": "9f2081ce3af3e7b94fe947213bdfb153f0d7564d1af40960cc3a0d919f99ae3a",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-independent-expectation-contract-review-expectation-contract.json",
+      "sha256": "7784d5d3a5d9d0d8188a9c06bb3e142deb6008d210c583394c7335331677994c"
+    },
+    "independent_scaffold335": {
+      "canonical_sha256": "efdf28844af87c1ee82508cf8f3b337fe7a3d06f47be64bfc011309f1fa1b30d",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-independent-oracle-scaffolding-review-scaffold.json",
+      "sha256": "a89ae9237cedbc72d2a4e46edde5a28c1e296569fbe5f928ff3358b1462e5adf"
+    },
+    "loss403": {
+      "canonical_sha256": "590d931acd8b67da88348ea887f83ff8810d713f65acc029066ba76f0994e1ed",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-loss-drain-clock-proposal-review-review.json",
+      "sha256": "ce23308a474e2c703201689635c3e990af9ad5b5f56cc7ec5cd67725b45121b9"
+    },
+    "loss_brief392": {
+      "canonical_sha256": "f0d495d0c00ec031f91a5689edc887f327d07d3d382748ad7dcb8f2ed2cf621b",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-loss-drain-clock-contract-decision-brief-brief.json",
+      "sha256": "a33c9de69916feee70452d01faf496c0e00d3c004470085dc599995ae7c8e3cf"
+    },
+    "native_gap": {
+      "canonical_sha256": "fa137d69e96839812beb47c4716c2e51441a3a1ca8f80070badbde28b3480a59",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-comparator-freeze-gap-register-and-safe-pause-review-native-gap-register.json",
+      "sha256": "bc08559d8b3e1af94247753f94012759c5bcf7b875d244fd9bc4328ba2f88305"
+    },
+    "operation402": {
+      "canonical_sha256": "535f3e3854385278362e9bdc70d8446e72250da703f06d9f61dff6850adb68fc",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-operation-admission-revocation-proposal-review-review.json",
+      "sha256": "0a6f20dd064ebbb4da81322ff4cf39207d84f1610e6ea17ff079b8a84b154530"
+    },
+    "oracle_brief396": {
+      "canonical_sha256": "1a00f9afcde2a6ef72dad05cef26d2ea58874ef2f0daa3a533550ee799283612",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-independent-oracle-migration-impact-decision-brief-brief.json",
+      "sha256": "67c6fed2d3e2d8ae5a7ae9904428841ae9410c905efed6da9ca81acc4e07535c"
+    },
+    "original320": {
+      "canonical_sha256": "b5ff0b851a1dd9ad2daba2155620a7eecc092841c3f122d737516fbb3798eb8e",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-admission-and-durable-consumption-design-review-design.json",
+      "sha256": "206070db792430966f1b1654d29d7fecabaf43288f1d208b1332d5a40432726f"
+    },
+    "original321": {
+      "canonical_sha256": "2552c9b79eea5dca0e695208a4cc2f54b12a8d6fac9104211b1124337a9c851f",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-admission-handoff-and-namespace-fd-design-review-design.json",
+      "sha256": "c814396b3d002f3398b1d024ab30d9b74dfa6d84aee0c87df93215f571bd1540"
+    },
+    "original322": {
+      "canonical_sha256": "33b495c5d236943d6b05e9fbc5649fc248bba00c23cf348070d683901b87d849",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-stage7-owned-binding-effect-design-review-design.json",
+      "sha256": "ff7428e2039927559130a6b0f58611a669f30215221aaf3887e3fa360438a494"
+    },
+    "original323": {
+      "canonical_sha256": "4a4bbba87292e35616b7467977027540bc64b920e492a901c844a32a9d51f66d",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-expiry-revocation-and-bounded-recovery-design-review-design.json",
+      "sha256": "40a574a020fcd8a5a6e79d0faebea6e00e62283751a94bcd877a9b47182d8b98"
+    },
+    "original324": {
+      "canonical_sha256": "ac4cf32bf99ca9e462797ff19136e095eb88c41fbb79ee9e4a5647ac0c46e522",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-continuous-guarded-original-baseline-and-approved-phase-deltas-design-review-design.json",
+      "sha256": "c26c93bf5f5dd596c8272cd1328a2f08f970053e6582fdccfbe278b904f20474"
+    },
+    "original325": {
+      "canonical_sha256": "08ce677bc3a7264ed5504685e56772ce85d8cce237a31e3aba037a01663575c7",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-whole-service-reference-helper-selector-source-backend-publication-effect-graph-design-review-design.json",
+      "sha256": "d8e1db6acd48e7a1076af9d72a9837d9e1cc83742173d0d1ffe67b3026290d0b"
+    },
+    "original326": {
+      "canonical_sha256": "cda4034540d37ce33dc577fe92623e6fea97936aff3514229c47b2ef59deee5f",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-complete-finite-failure-model-and-independent-conformance-plan-review-design.json",
+      "sha256": "32c58f6290c7d3f47a033081b1c9458fbaaf35505e1f659a6e4714491413b5fe"
+    },
+    "original327": {
+      "canonical_sha256": "21a31fd0d75476bf552db4c13bb597a3602a46596ae1b94b10d9bb16a195312f",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-scoped-effects-obligations-rights-crossclosure-review-design.json",
+      "sha256": "a6541e3a485ec6032e5d50dc31d8ee43a3c29ab4b97e44e08776152120f6d7a0"
+    },
+    "packet397": {
+      "canonical_sha256": "31b18033c10c263bedf2ad6c9820fdc9ac8ddd15ce08017b4cb979888ccd6156",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-integrated-contract-decision-packet-roadmap-review-packet.json",
+      "sha256": "7e865ba261c05ec3a15d172b5482c062227b60822f77eb9ae8dfdc8c49c24f4e"
+    },
+    "packet407": {
+      "canonical_sha256": "1ab88f0626f87d8574aa1f1c49f978dfdf2cce0a2274f8529101ba50b6a647c4",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-integrated-joint-contract-semantic-migration-decision-packet-review-review.json",
+      "sha256": "c4e3943617eb86a6acd981ddc8da1fd7311c3cc09df358d40fff1db3dfa2ec88"
+    },
+    "pause": {
+      "canonical_sha256": "fde57ff597ceb2b54e08431e79df789702dedb8f861eed9de96984d64959d024",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-source-inventory-freeze-and-safe-pause-review-pause-conditions.json",
+      "sha256": "efd5ad2394113bbe77751f93b9d1df1fef920cf8c6c2e7b41ba2c9a7185ec3a7"
+    },
+    "pause378": {
+      "canonical_sha256": "d10e8791ec5e63c1bf08fd05c6dba69c248876263d7d46df99f25a8c4b5291af",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-successor-design-freeze-and-safe-pause-review-pause-conditions.json",
+      "sha256": "e8d9010739947ea80a33aa412818641feec8f35d5b0cd87f8fcc35ab63a841ba"
+    },
+    "pause388": {
+      "canonical_sha256": "d75be52b5f74e3781c307f7af2ffd6039c92908d2cc9517f6013d4530af12201",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-feasibility-decision-freeze-and-safe-pause-review-pause-conditions.json",
+      "sha256": "996e86cca1038476ef0e3706f81f6e8c2783fe7183fd248f551cbde3260a8740"
+    },
+    "plan369": {
+      "canonical_sha256": "da710e1fa2fe56bf1314d106670f0ad6e6213ae9b3257eaffb234d3fd9340cbe",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-successor-design-resume-planning-review-plan.json",
+      "sha256": "e416e3823fe2ceeeb102587d9533591277021d125d6493cc6a66d6e6f2e86469"
+    },
+    "plan379": {
+      "canonical_sha256": "226bf153118c650a3965344dea7f8b7a55a332a41ee378bf4e3c47b4c4bababf",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-feasibility-resolution-resume-planning-review-plan.json",
+      "sha256": "538d65d59387854687b8a4fddcd7841768a344cbd7fb65910775227a0d8c7c0b"
+    },
+    "plan389": {
+      "canonical_sha256": "515d377f4055082d2444a05129cf254adecd170f25583baeae3bafae6b6085d0",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-contract-decision-resume-planning-review-plan.json",
+      "sha256": "d1f80ac9f5fb479544763db3c739446305c2509b5a8eb229407b9288cd1a813a"
+    },
+    "plan399": {
+      "canonical_sha256": "2567d2484957429007ed6a89c98cb104569c861f549ace51c4baf9afac262477",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-contract-proposal-resume-planning-review-plan.json",
+      "sha256": "6504357a1a3c6bb3b3e09db98ddf0dd289ba1568b7c1afe1a2134701e0fd17da"
+    },
+    "plan409": {
+      "canonical_sha256": "67ce647c1250684f216042b16f3ef0a46f437a1823cc04a4fb45b38f416979ff",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-manuscript-audit-resume-planning-review-plan.json",
+      "sha256": "f2ed625f1b472eca0223b75b4561eac0afe6e964ee63f761c6ba230aef24374a"
+    },
+    "policy398": {
+      "canonical_sha256": "e2f3b93af774d099f2ada2ad94002b8645c869b5e62f38d7288c9d4070bb6bed",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-contract-decision-packet-freeze-and-safe-pause-review-policy.json",
+      "sha256": "e53deafb1be630d812512a092570a8be28123530f23cdfcea9957b27d58bbd04"
+    },
+    "policy399": {
+      "canonical_sha256": "d395de193f389e4f91c01cb4ff787c910cbc05dd84fc11c3605125941da88b82",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-contract-proposal-resume-planning-review-policy.json",
+      "sha256": "8c747eb966f31723354fc564cf77e599a32bec6951e20655a905ae30a6ceea4a"
+    },
+    "policy400": {
+      "canonical_sha256": "bc9876ef3d8415d4e0787dc828573f593cfb6ea35c85e792b9d88b47a2030763",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-concrete-joint-contract-candidate-proposal-review-policy.json",
+      "sha256": "5355db64a8adfd0955df5e9089dc850dded0d8584f1d026aa883ed4e4318352c"
+    },
+    "policy401": {
+      "canonical_sha256": "f28308266cfded1bf710b5842054e004673eae3bf6cd2f929e65333608ba79eb",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-writer-source-trust-proposal-review-policy.json",
+      "sha256": "1c1c826a428287cede3b8cc60aa241f737f8cf93e478953a877bee2edf95a2b7"
+    },
+    "policy402": {
+      "canonical_sha256": "6c5d23e81a5d3d8e72cb35773c228b95bdab6e2736c483f151561a2751e37982",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-operation-admission-revocation-proposal-review-policy.json",
+      "sha256": "aebdbafa7120c02289c5c4353f8af2300bf9681a79ff174799a04c875a96e229"
+    },
+    "policy403": {
+      "canonical_sha256": "d72ea888c058bef13fc30f98b88378c5da0514df3dd859c71febe2ebf0ac6669",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-loss-drain-clock-proposal-review-policy.json",
+      "sha256": "f277e68a24231e71303277777e2992bc947dc7b8c5976efafd88119d05338d12"
+    },
+    "policy404": {
+      "canonical_sha256": "add02e1e7333b42c5df7fea30d59e02d93f98b29b5a8c76cd3c846cc98c6a1db",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-baseline-storage-finite-rights-proposal-review-policy.json",
+      "sha256": "da786e958b250e609f1564f32c27a8c09c375541a9704ab8a7442e58fb971516"
+    },
+    "policy405": {
+      "canonical_sha256": "9df8377099adbf85d710a9ea84066b817a30a4004c0c08abbfaf5106c8ca3213",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-stage12-receipt-final-observation-proposal-review-policy.json",
+      "sha256": "339111fdcce7dd9f7f5784e927f5a4f79371fc1f9e89883f32e80e24058bdce3"
+    },
+    "policy406": {
+      "canonical_sha256": "e40cb52595527afe88c33ef80760aa2de1ef27c24c89062b6659efda3a15f3e5",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-whole-entry-independent-two-platform-oracle-proposal-review-policy.json",
+      "sha256": "b3bf6c740ff349de346905aa7558fe8f4754a477c877006f699bd6c28a21a96d"
+    },
+    "policy407": {
+      "canonical_sha256": "a77594830cf483ed26c422243e55b22c0ebe88ce2e212068bde1b4c48f5d14fb",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-integrated-joint-contract-semantic-migration-decision-packet-review-policy.json",
+      "sha256": "29d411882bc8725c74673d006efed77a7301560e9c86040a9135205bdf74ce9e"
+    },
+    "policy408": {
+      "canonical_sha256": "3112e031ac7a91cc42932a635d6d14efcda3d9c4439c2b045de036d16d4faf18",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-contract-proposal-freeze-and-safe-pause-review-policy.json",
+      "sha256": "ec03e88079970d8dfca0017d454fb8af67f3b327912a1213d24b096c9f262dc9"
+    },
+    "policy409": {
+      "canonical_sha256": "43e774f576c028708bcf2e60ec880f026867547557fe452ce2ed483140e97941",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-manuscript-audit-resume-planning-review-policy.json",
+      "sha256": "07fa89ef38bb413622f46a58e6b8a958c689fe976998e83b51e053de943cb6d7"
+    },
+    "prerequisites": {
+      "canonical_sha256": "8204756e325e6eea4a0e52de0d2f7fbce68218d5e11b021d42baafbcafcb2a8c",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-native-implementation-prerequisites-prerequisites.json",
+      "sha256": "9371d059d1ec358685f5251c05a1eb052d6ce27a2a0edaed5f7e14e5c3f50739"
+    },
+    "publication405": {
+      "canonical_sha256": "819860cc4e5af6059ecdb8b6d1657c7af114456512cb2f8a080dbe20f5ca1bc8",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-stage12-receipt-final-observation-proposal-review-review.json",
+      "sha256": "3cb46dc37e844eae786daaab200c5c8e15329e68e1d1f7dfb50d01863b5b7a80"
+    },
+    "publication_policy316": {
+      "canonical_sha256": "cc185b66602112e2abb8c24de5d32b48647a644063febe2172219f7888aa6a65",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-owner-and-publication-path-requirements-review-policy.json",
+      "sha256": "b816d61589c59fefa1c35df234269c05f1698eddab6c615a99ae030356729377"
+    },
+    "publication_requirements316": {
+      "canonical_sha256": "a1ab23cf1cdb3f791f5e513b33a4cfd5a9e2c0dc963de7aea586684bf085c5af",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-owner-and-publication-path-requirements-review-review.json",
+      "sha256": "30c9472c9b68fd6073783c678600c9c5f41730a43a6525b132c2a0d725213ecf"
+    },
+    "receipt_brief394": {
+      "canonical_sha256": "e2359d4d91fbf562afd13afa9d930b100df197a1206d7e12111c2d5c7437c282",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-stage12-terminal-receipt-contract-decision-brief-brief.json",
+      "sha256": "60174ae7fafce6848e2997d751b21714399fdf380dddd42438b53a37d3b553af"
+    },
+    "revocation_brief391": {
+      "canonical_sha256": "c5f70b005ec5d22e861b527d90fa24d72b1f10980a39dfa7e05a1b2250985dbb",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-revocation-effect-contract-decision-brief-brief.json",
+      "sha256": "292ece5535af892b16719d8ab83fb373761724949bd63fb49d9b960a6ec832b2"
+    },
+    "sources398": {
+      "canonical_sha256": "0cc8e76db525ae8b6bf0e01012819839a189b7138237f95fc6d104f32c79898a",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-contract-decision-packet-freeze-and-safe-pause-review-sources.json",
+      "sha256": "ebb7b44bd51d396c45e37020dcf2d644d239bd9320f4305e5458714a8d915e7f"
+    },
+    "sources399": {
+      "canonical_sha256": "0008e209980dd1314a37705dbb6a1620c8ba42486475d497cd40bd98a3887303",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-contract-proposal-resume-planning-review-sources.json",
+      "sha256": "00c2ffa08e2adad75b6ee076db0e5c7fb20ba661952f11d3797716356cb9a611"
+    },
+    "sources400": {
+      "canonical_sha256": "ed4f7f665947e734c0761bc327351e53909752f458bd5dd4ae45d3254b3be464",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-concrete-joint-contract-candidate-proposal-review-sources.json",
+      "sha256": "1ff75b31774033dce3a636a0bd5f14dc763eefd99766b5224b29af4cfbeeb5f9"
+    },
+    "sources401": {
+      "canonical_sha256": "b42b62862ad38c47ee1fa554c90584dc04d9bdbf1583880e00bc83c726277dc3",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-writer-source-trust-proposal-review-sources.json",
+      "sha256": "bc0947d4655c4b03657b5db6706c74fc4a76aff41d032a9a37ee952716bfbe5d"
+    },
+    "sources402": {
+      "canonical_sha256": "27f09d5d2e86ece61b6ad368cacb89537d27c1927142583826a6f4377ca6832a",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-operation-admission-revocation-proposal-review-sources.json",
+      "sha256": "d2179727d7dba4f26f352ebdff27b77856b921d5e9ea1106befa4a13ef62579e"
+    },
+    "sources403": {
+      "canonical_sha256": "7235b36025831f36f79f82b3c783ca16028bc980e2cc9df41af9275d22627aac",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-loss-drain-clock-proposal-review-sources.json",
+      "sha256": "bf949babef6664539fd54e8a028575fe0c627437f6998e1ac0852dee83dd1dee"
+    },
+    "sources404": {
+      "canonical_sha256": "eac3fdcd82d10f174930bb6f44f3d91c0802cb8d8b7273ae23a5bf4fea7d4c76",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-baseline-storage-finite-rights-proposal-review-sources.json",
+      "sha256": "ac12fadd9d9cc422c2e05faba0ca4875731d10610a04e498f3f9e457e2cc83fc"
+    },
+    "sources405": {
+      "canonical_sha256": "7b1533da646eea02c5020ec7f118cd714daabd8716642fa98ac16bc8d7b2d7fa",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-stage12-receipt-final-observation-proposal-review-sources.json",
+      "sha256": "456a649aa6393adcbe03e9f8f57a75b5c518c6f127691ff54b55a0a1d3a30afa"
+    },
+    "sources406": {
+      "canonical_sha256": "3ab215b7aa5e71683edc511fb196346a6ec93930235d6c8ebf0239d74aa2d140",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-whole-entry-independent-two-platform-oracle-proposal-review-sources.json",
+      "sha256": "b863bea6ae3873f6e9518c6524214abc4b6cfd393d16d6d26d08e132b26923a5"
+    },
+    "sources407": {
+      "canonical_sha256": "953e916f9842b7f4a0ae60209f0968a086eede966319127ca5789e13e5a399c0",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-integrated-joint-contract-semantic-migration-decision-packet-review-sources.json",
+      "sha256": "f431d45f2bc1fa93e08ea747eaf17d4fca4fb4fd61f0e9aa8fe9ffeed0964d74"
+    },
+    "sources408": {
+      "canonical_sha256": "38e1b790ef975d85901d359e8d8395ca2a7990a10048b013a2942fb6116ced49",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-contract-proposal-freeze-and-safe-pause-review-sources.json",
+      "sha256": "9e9b08aa2f7eb6f5b007d0bf90def129e5a76c358e490093c776a96e25e9198f"
+    },
+    "sources409": {
+      "canonical_sha256": "07fbb1b13729d2aaab44e975774818f34be45ead6190af29b65d1560896ed321",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-manuscript-audit-resume-planning-review-sources.json",
+      "sha256": "7c70d11fe60b5707ed8cd809acc0c7a59dcd12f8bbce5eb5331893ad9d64b8df"
+    },
+    "storage404": {
+      "canonical_sha256": "cac6f11f8853ceae3e138a97864e97464e8f2ec0d157b72b26b37f395f85c674",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-baseline-storage-finite-rights-proposal-review-review.json",
+      "sha256": "4bad8eb06ba2efcf17df420a3c20f398ac10d862e7f8d1aee6b61c68ce84d277"
+    },
+    "storage_brief393": {
+      "canonical_sha256": "2651d350cea4a7a7ecc5a3f1e0689be0b6d973be90c5dc0e6a61f0404d06c38e",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-baseline-storage-rights-contract-decision-brief-brief.json",
+      "sha256": "408daa41b3a8754267381199e68fb08d8a97be7dd5d57333a9d2b597e42070eb"
+    },
+    "trust401": {
+      "canonical_sha256": "6a580f03e27c6758847d864bd5e620c21cfc52022a68cb2bbf563aa6e1abd371",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-writer-source-trust-proposal-review-review.json",
+      "sha256": "b1a27dc28bbc0eb6ec56d12aae23de9019ccbc6e4050ad40eb7a006ecb3b9e78"
+    },
+    "writer_brief390": {
+      "canonical_sha256": "bc09b042c3ff01b5c341042427b63c07c09f22018d2e07eccd24da5a3f12beaf",
+      "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-writer-trust-contract-decision-brief-brief.json",
+      "sha256": "4fa3b2aad8362969526ba5e4e06904cb104149b6ea6502c87910bc2a24fa3599"
+    }
+  },
+  "previous_readme_binding": {
+    "path": "README.md",
+    "sha256": "8dd1b2c77f88631f23472d6ed5c4a475dcf2282416d858ba035dbaddcbc28f48"
+  },
+  "primary_documentation": [],
+  "readme": {
+    "path": "README.md",
+    "sha256": "303a4d4681f0944b301f2425571b6d82761d9a137884f3aeae5af6e73e1be939"
+  },
+  "reviewer_roots": [
+    {
+      "path": "tools/reference/phase-1-operational-feasibility-resolution-resume-planning-review.py",
+      "role": "repository-supplied-data-reviewer-no-native-dispatch",
+      "sha256": "c6d22701d1a715213d0fcc6c019ab7b1ed99525cbdbb7d0f63463d11df098c8b"
+    },
+    {
+      "path": "tools/reference/phase-1-operational-live-revocation-decision-review.py",
+      "role": "repository-supplied-data-reviewer-no-native-dispatch",
+      "sha256": "0cfba73b2d369be5b5f20366d7497b11dfcec2489eb9957f94241fca067f2d37"
+    },
+    {
+      "path": "tools/reference/phase-1-operational-writer-alias-lifetime-decision-review.py",
+      "role": "repository-supplied-data-reviewer-no-native-dispatch",
+      "sha256": "2f0249e6239fcdac1b60a5a344eed8d3c813dadfdcd32bc664d01c0304104e98"
+    },
+    {
+      "path": "tools/reference/phase-1-operational-supervisor-clock-drain-decision-review.py",
+      "role": "repository-supplied-data-reviewer-no-native-dispatch",
+      "sha256": "324b057dfabc115ba86a9807241eb16db62b4f4cc1d850687392eb7f61a1237e"
+    },
+    {
+      "path": "tools/reference/phase-1-operational-baseline-storage-finite-rights-decision-review.py",
+      "role": "repository-supplied-data-reviewer-no-native-dispatch",
+      "sha256": "34b6cbfdf8df6ef75ca584e952be0866a701332336c1ee5ac6aaf9078d4a1cc7"
+    },
+    {
+      "path": "tools/reference/phase-1-operational-stage12-receipt-causality-decision-review.py",
+      "role": "repository-supplied-data-reviewer-no-native-dispatch",
+      "sha256": "7a56a80d4ba12b8fc8b82e4e71ad233a4976b8221d852fb30701b4187e53e7ea"
+    },
+    {
+      "path": "tools/reference/phase-1-operational-source-backend-independent-oracle-decision-review.py",
+      "role": "repository-supplied-data-reviewer-no-native-dispatch",
+      "sha256": "514c3beca9dcd3f0f02ada6e5816e0c5059380ab69ad0b6125e28ecbd61d3aed"
+    },
+    {
+      "path": "tools/reference/phase-1-operational-integrated-feasibility-verdict-review.py",
+      "role": "repository-supplied-data-reviewer-no-native-dispatch",
+      "sha256": "1f108042308e481e52cb5fc98b0721c8aa469397240c7455390d46aa06cbdaa9"
+    },
+    {
+      "path": "tools/reference/phase-1-operational-feasibility-readme-roadmap-reconciliation-review.py",
+      "role": "repository-supplied-data-reviewer-no-native-dispatch",
+      "sha256": "a1ae18030c05d2baf08a819bcef3302065a88ae39e4bb40aab95470247a7f759"
+    },
+    {
+      "path": "tools/reference/phase-1-operational-feasibility-decision-freeze-and-safe-pause-review.py",
+      "sha256": "525a7199669ecd1afe174aff349c816aa8dcffc776f2ae9b718e900d8e3d6200"
+    },
+    {
+      "path": "tools/reference/phase-1-operational-contract-decision-resume-planning-review.py",
+      "sha256": "c8ee969dd294529a55364cfb9f0f71035678256a39d379f3db41c2c5c8fbeec3"
+    },
+    {
+      "path": "tools/reference/phase-1-operational-writer-trust-contract-decision-brief.py",
+      "sha256": "46e07aa9ed4a8ce880b3289372f7a48f5b39cbc8c8c6a164f0dead1f7520dd2b"
+    },
+    {
+      "path": "tools/reference/phase-1-operational-revocation-effect-contract-decision-brief.py",
+      "sha256": "5727620bdefa53b0917fcbc0e044f47afc8e6c3432fdea1eba71f569390de65d"
+    },
+    {
+      "path": "tools/reference/phase-1-operational-loss-drain-clock-contract-decision-brief.py",
+      "sha256": "0fe4585944e49c3da1304121d33042ac02a66a718997bfe15c8a6b5477cfe238"
+    },
+    {
+      "path": "tools/reference/phase-1-operational-baseline-storage-rights-contract-decision-brief.py",
+      "sha256": "9e633a707255a403e166037938c4a5fcdb4d4f8c84e7a312544865a72ba004fa"
+    },
+    {
+      "path": "tools/reference/phase-1-operational-stage12-terminal-receipt-contract-decision-brief.py",
+      "sha256": "12289af4494a63b814a1671a1a5ebcb47fa8a4bbcb7598b5bbafba8fa2575d28"
+    },
+    {
+      "path": "tools/reference/phase-1-operational-whole-entry-backend-contract-decision-brief.py",
+      "sha256": "93ba5d58a725236ab62c73f9ae2d0b73feb46682dc5975f6f5bd4269cda8d3eb"
+    },
+    {
+      "path": "tools/reference/phase-1-operational-independent-oracle-migration-impact-decision-brief.py",
+      "sha256": "4c38f4c474700280f42de1eb91743dc44b9a9fb1a1614d4c8d40f0ae3fb21a50"
+    },
+    {
+      "path": "tools/reference/phase-1-operational-integrated-contract-decision-packet-roadmap-review.py",
+      "sha256": "ea66bc29d56eceef82355abd0827619185153ea992015f978e03ae459799e90a"
+    },
+    {
+      "path": "tools/reference/phase-1-operational-contract-decision-packet-freeze-and-safe-pause-review.py",
+      "sha256": "2232cf85b6720e8f221ba6acdef75688b6fc4169318b8fb257a23ed8dd2c11d3"
+    },
+    {
+      "path": "tools/reference/phase-1-operational-joint-contract-proposal-resume-planning-review.py",
+      "sha256": "1bba4dac745bd6110b436d55aae828790012bba735a0b4708104e3c7fe3b8d68"
+    },
+    {
+      "path": "tools/reference/phase-1-operational-concrete-joint-contract-candidate-proposal-review.py",
+      "sha256": "17e7d8f45bc62845d5c6b00106ad3d25f88847b68fbac430fb6318856b405698"
+    },
+    {
+      "path": "tools/reference/phase-1-operational-joint-writer-source-trust-proposal-review.py",
+      "sha256": "450df2118ea92786a7b5ad3fdee3e65ac0cc79a5df2d26102a9f92fad6458187"
+    },
+    {
+      "path": "tools/reference/phase-1-operational-joint-operation-admission-revocation-proposal-review.py",
+      "sha256": "a3e171307cf2bc00acece3d41dc06c76b8d7c86930d69f0c8db05535b0900143"
+    },
+    {
+      "path": "tools/reference/phase-1-operational-joint-loss-drain-clock-proposal-review.py",
+      "sha256": "5cc9cee11998bee0e06917fba3aeafb9c4f9d3ebd6f0ef0ecf619cc290a88b0b"
+    },
+    {
+      "path": "tools/reference/phase-1-operational-joint-baseline-storage-finite-rights-proposal-review.py",
+      "sha256": "6a807020841706aa66e3a5faae3df5ae37914bf5eff2d91788834b6c415503da"
+    },
+    {
+      "path": "tools/reference/phase-1-operational-joint-stage12-receipt-final-observation-proposal-review.py",
+      "sha256": "8826d7368557b7556a16cd7e1ef716b3d5ee42c48cc4f9472065cc393e42aa52"
+    },
+    {
+      "path": "tools/reference/phase-1-operational-joint-whole-entry-independent-two-platform-oracle-proposal-review.py",
+      "sha256": "15880c37d782098d4a0eac3e50b3bc9ad487724a05cd88a23b0408943bf26436"
+    },
+    {
+      "path": "tools/reference/phase-1-operational-integrated-joint-contract-semantic-migration-decision-packet-review.py",
+      "sha256": "eba1b3a4f6f0d97cfc65e61ae2319241eb411ce9e21a99e7c9107d79f357d34c"
+    },
+    {
+      "path": "tools/reference/phase-1-operational-joint-contract-proposal-freeze-and-safe-pause-review.py",
+      "sha256": "696e90d05ba248586c267bb4831fc6861c462c385d6095ad41e74115d8511d59"
+    },
+    {
+      "path": "tools/reference/phase-1-operational-joint-manuscript-audit-resume-planning-review.py",
+      "sha256": "c37aec40b632828b8c951f797dc57db97c085a350806d270540fc9d672125457"
+    }
+  ],
+  "schema": 1,
+  "source_limit": "WHOLE original supplied inputs/manuscript and source roots retained. Actual409 supplied return is an intermediate repository checkpoint, not a new pause. This authored clause audit and two inactive clarification proposals provide no independent semantic acceptance, actual native proof/platform support or authority. Native roots inert."
+}

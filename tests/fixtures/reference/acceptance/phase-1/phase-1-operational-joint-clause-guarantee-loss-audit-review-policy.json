@@ -1,0 +1,1443 @@
+{
+  "artifact_sha256": {
+    "docs/reference/phase-1-operational-joint-clause-guarantee-loss-audit-review.md": "2277f82a9573899edadb04212fc65e363573095514fef2c8956e513c7f46a43c",
+    "tests/reference/test-phase-1-operational-joint-clause-guarantee-loss-audit-review-harness.sh": "939a99327e013121405266f51df246b3279af7c76596c7c2f8b3271cf951b497"
+  },
+  "expected_annotations": [
+    {
+      "affected_joint_dimension_ids": [
+        "writer-trust-vs-source-and-clock"
+      ],
+      "assessment": "Admission remains closed for unknown workload membership/guard. The infrastructure assumption narrows the old unqualified writer promise; independent review is still needed and hidden assumed-trusted tamper is not claimed detected.",
+      "candidate_reading": "The updater still blocks admission. Hidden assumed-trusted out-of-policy tamper is excluded from the proposed guarantee; known breach stops and suspected/unclassified breach stays pending.",
+      "classifications": [
+        "explicit-guarantee-change"
+      ],
+      "current_reading": "Current unqualified actor coverage cannot be discharged by an assumed-trusted exemption.",
+      "not_an_exhaustive_native_schedule": true,
+      "paper_order": [
+        "A reviewed ordinary privileged updater is observed as an uncontrolled writer.",
+        "Independently, a specifically enumerated assumed-trusted policy actor deliberately tampers out of policy."
+      ],
+      "whole_member_semantic_dispositions_due_step": 415
+    },
+    {
+      "affected_joint_dimension_ids": [
+        "writer-trust-vs-source-and-clock",
+        "narrow-product-vs-whole-entry-proof",
+        "observer-controls-vs-finite-custody"
+      ],
+      "assessment": "All original domains plus complete source/owned/recovery/publication objects remain; only enumerated infrastructure deliberate tamper is excluded. UID0 alone never exempts a workload.",
+      "candidate_reading": "The helper action remains in workload scope and admission is blocked until proven controlled. The declared infrastructure exclusion must not be extended by role label.",
+      "classifications": [
+        "explicit-guarantee-change"
+      ],
+      "current_reading": "Every overlapping privileged/direct/manual/scheduled/helper writer requires original coordination or prevention.",
+      "not_an_exhaustive_native_schedule": true,
+      "paper_order": [
+        "A root helper writes through a backing-object alias during protected use.",
+        "The helper is mislabeled infrastructure without an explicit actor/ACTION review."
+      ],
+      "whole_member_semantic_dispositions_due_step": 415
+    },
+    {
+      "affected_joint_dimension_ids": [
+        "offline-bootstrap-vs-live-channel",
+        "guardian-drain-vs-forward-failure",
+        "durable-rights-vs-loss-deadlines",
+        "two-platform-fresh-test-entry"
+      ],
+      "assessment": "The rule moves request denial from every internal effect to serialized operation admission. Forward AND retained recovery envelopes can have post-request effects; no-channel serialization and safe stopping are not provided by this sentence.",
+      "candidate_reading": "The inactive admission rule permits only known pre-request envelope continuation within unchanged bounds and every other prerequisite; no new admission or worker control channel follows.",
+      "classifications": [
+        "explicit-guarantee-change",
+        "unproved-native-hypothesis"
+      ],
+      "current_reading": "The original live effect boundary denies a newly dispatched affected effect after revocation.",
+      "not_an_exhaustive_native_schedule": true,
+      "paper_order": [
+        "Known original pre-spend and exact finite envelope precede serialized admission.",
+        "An applicable request occurs after that admission but before one declared internal effect."
+      ],
+      "whole_member_semantic_dispositions_due_step": 415
+    },
+    {
+      "affected_joint_dimension_ids": [
+        "offline-bootstrap-vs-live-channel",
+        "durable-rights-vs-loss-deadlines"
+      ],
+      "assessment": "The uncertainty clause preserves an absorbing denial of dependent unproved effects and pending in-flight outcomes. It does not grant an uncertain envelope permission or prove no-effect.",
+      "candidate_reading": "Dependent unproved effects remain denied and actual in-flight outcome pending. This stated comparison finds no revival conflict; actual containment and outcome evidence remain unproved.",
+      "classifications": [
+        "no-contradiction-found-in-stated-comparison"
+      ],
+      "current_reading": "Stale/unavailable gate stops dependent effects; consumed slots do not reopen.",
+      "not_an_exhaustive_native_schedule": true,
+      "paper_order": [
+        "The admission result is lost after possible action.",
+        "A dependent internal effect is requested; original spend is also unknown."
+      ],
+      "whole_member_semantic_dispositions_due_step": 415
+    },
+    {
+      "affected_joint_dimension_ids": [
+        "offline-bootstrap-vs-live-channel",
+        "writer-trust-vs-source-and-clock",
+        "durable-rights-vs-loss-deadlines"
+      ],
+      "assessment": "Only the request check moves to admission; identity/time/scope/guard/known-control remain continuous. A known infrastructure breach or expiry still cannot be overridden by pre-admission.",
+      "candidate_reading": "Pre-request admission removes only the internal request recheck in the draft. Expiry or unknown guard denies dependent unproved effects and preserves in-flight obligations.",
+      "classifications": [
+        "explicit-guarantee-change"
+      ],
+      "current_reading": "Both applicable live revocation and failed continuous prerequisites deny effect dispatch.",
+      "not_an_exhaustive_native_schedule": true,
+      "paper_order": [
+        "One exact forward operation is admitted before a forward request.",
+        "Before a later internal effect, the original deadline expires or guard becomes unverifiable."
+      ],
+      "whole_member_semantic_dispositions_due_step": 415
+    },
+    {
+      "affected_joint_dimension_ids": [
+        "offline-bootstrap-vs-live-channel",
+        "guardian-drain-vs-forward-failure",
+        "durable-rights-vs-loss-deadlines"
+      ],
+      "assessment": "The no-new-effect guarantee is explicitly weakened for a known admitted finite envelope. Original failure/expiry and already-spent bounds remain; interpretation with the global rules must not allow new effects after failed prerequisites.",
+      "candidate_reading": "The outside-envelope effect is denied even in the draft. Only known original finite continuation under all remaining valid prerequisites is considered.",
+      "classifications": [
+        "explicit-guarantee-change"
+      ],
+      "current_reading": "No newly dispatched affected effect is allowed after original revocation.",
+      "not_an_exhaustive_native_schedule": true,
+      "paper_order": [
+        "An admitted finite operation is followed by its applicable request.",
+        "A helper attempts an effect outside the original object/descendant envelope."
+      ],
+      "whole_member_semantic_dispositions_due_step": 415
+    },
+    {
+      "affected_joint_dimension_ids": [
+        "guardian-drain-vs-forward-failure",
+        "observer-controls-vs-finite-custody"
+      ],
+      "assessment": "Predeclaring a safe cut cannot demonstrate it is independently enforceable. Full actual writers/descendants/FD/streams/in-flight storage must be known; inability to prove drain remains pending.",
+      "candidate_reading": "No drain or closure follows from backend/parent exit. Complete native membership, control, provenance and original finite rights remain required, not demonstrated.",
+      "classifications": [
+        "unproved-native-hypothesis"
+      ],
+      "current_reading": "Started effects and children remain obligations until independently known stopped at safe boundaries.",
+      "not_an_exhaustive_native_schedule": true,
+      "paper_order": [
+        "The backend returns and the parent exits.",
+        "A descendant still holds a writing FD or storage completion is unknown."
+      ],
+      "whole_member_semantic_dispositions_due_step": 415
+    },
+    {
+      "affected_joint_dimension_ids": [
+        "durable-rights-vs-loss-deadlines",
+        "baseline-unknown-vs-backend-effects"
+      ],
+      "assessment": "Recovery validity also changes from a live recovery fence at each effect to once-only pre-spent admission. All original trap/guard/identity/known-backup/drain/deadline conditions remain; no repeat on lost ACK.",
+      "candidate_reading": "The inactive exception permits only that known pre-request admitted original finite envelope if every other prerequisite stays valid. The guarantee loss is explicit, not recovery equivalence.",
+      "classifications": [
+        "explicit-guarantee-change"
+      ],
+      "current_reading": "The original live recovery fence denies the affected recovery write after the request.",
+      "not_an_exhaustive_native_schedule": true,
+      "paper_order": [
+        "Known exact backup, independent drain and original recovery spend precede admission.",
+        "A recovery/all request precedes one declared internal restore write."
+      ],
+      "whole_member_semantic_dispositions_due_step": 415
+    },
+    {
+      "affected_joint_dimension_ids": [
+        "offline-bootstrap-vs-live-channel",
+        "durable-rights-vs-loss-deadlines",
+        "baseline-unknown-vs-backend-effects"
+      ],
+      "assessment": "Forward-only and recovery/all requests retain different scopes. The draft denies new recovery admissions after recovery/all but permits qualifying pre-request internal continuation; no uncertain-scope permission.",
+      "candidate_reading": "Forward-only request alone does not revoke already separately valid recovery. Unknown recovery/all order denies dependent unproved effects; no new admission, replacement right or replay.",
+      "classifications": [
+        "explicit-guarantee-change"
+      ],
+      "current_reading": "Original scope/clock/identity uncertainty blocks recovery writes; forward-only revocation does not supply or renew recovery rights.",
+      "not_an_exhaustive_native_schedule": true,
+      "paper_order": [
+        "An original forward-only request occurs while separate recovery rights are retained.",
+        "Separately, a recovery/all request has an unknown ordering relative to recovery admission."
+      ],
+      "whole_member_semantic_dispositions_due_step": 415
+    },
+    {
+      "affected_joint_dimension_ids": [
+        "terminal-cut-vs-whole-stage-oracle",
+        "observer-controls-vs-finite-custody",
+        "two-platform-fresh-test-entry"
+      ],
+      "assessment": "Publication uses its own original controls and request scope, not borrowed target rights. Its old wording says terminal criteria are unresolved for405/407 although those authored criteria are now present; actual native closure remains unresolved. Clarify the distinction rather than invent absence or acceptance.",
+      "candidate_reading": "Only publication-own known pre-request finite envelope may continue under original valid publication bounds. Apply whole authored405/407 criteria, whose native realization is unknown; target request neither grants nor automatically revokes separate publication.",
+      "classifications": [
+        "explicit-guarantee-change",
+        "underspecified-condition"
+      ],
+      "current_reading": "Captured-data publication still needs its original continuous own controls; no target refresh or renewed grant.",
+      "not_an_exhaustive_native_schedule": true,
+      "paper_order": [
+        "Target closure is independently captured and the guard released.",
+        "One separately controlled publication operation is admitted; its own request occurs before an internal effect."
+      ],
+      "whole_member_semantic_dispositions_due_step": 415
+    },
+    {
+      "affected_joint_dimension_ids": [
+        "writer-trust-vs-source-and-clock",
+        "durable-rights-vs-loss-deadlines"
+      ],
+      "assessment": "The companion clock assumption excludes hidden deliberate assumed-trusted rollback from promised detection. The literal clause says snapshot/restore blocks effects without an observation qualifier; qualify observed/suspected rollback explicitly, preserving all ordinary failure handling and the disclosed trust loss.",
+      "candidate_reading": "Observed/suspected/unknown clock state blocks dependent effects. Hidden excluded tamper is neither promised detected nor marked prevented. One mapping, suspend accounting and no renewal remain; no provider is selected.",
+      "classifications": [
+        "explicit-guarantee-change",
+        "underspecified-condition"
+      ],
+      "current_reading": "Original trusted-time protection cannot be satisfied by asserting an unobservable discontinuity was detected.",
+      "not_an_exhaustive_native_schedule": true,
+      "paper_order": [
+        "An original same-boot mapping and fixed deadlines are known at admission.",
+        "Compare observed/suspected rollback with a deliberately hidden assumed-trusted rollback producing no usable observation."
+      ],
+      "whole_member_semantic_dispositions_due_step": 415
+    },
+    {
+      "affected_joint_dimension_ids": [
+        "terminal-cut-vs-whole-stage-oracle",
+        "observer-controls-vs-finite-custody"
+      ],
+      "assessment": "Whole stage12 function/name/operation/guard/evidence paths and event membership change. Preserved index/effect/failure seams do not preserve original full-stage trace or eligibility.",
+      "candidate_reading": "Producer completion alone is not overall eligibility or original conformance. Separate writer/object/storage/observer/custody/terminal accounting remains before candidate eligibility.",
+      "classifications": [
+        "explicit-guarantee-change"
+      ],
+      "current_reading": "Original whole stage12 publish function and complete last-stage eligibility expectations remain normative.",
+      "not_an_exhaustive_native_schedule": true,
+      "paper_order": [
+        "The proposed producer closes archive/sidecar preparation and its subject streams/status.",
+        "The separate receipt writer has not completed."
+      ],
+      "whole_member_semantic_dispositions_due_step": 415
+    },
+    {
+      "affected_joint_dimension_ids": [
+        "terminal-cut-vs-whole-stage-oracle",
+        "observer-controls-vs-finite-custody"
+      ],
+      "assessment": "Past-only payload, exact final object and all writer/observer/consumer outcomes are separate. Their native control/custody/ACK cannot be replaced by local visibility, signatures, hashes or role names.",
+      "candidate_reading": "Only qualified captured object facts may be known; independent writer/storage/custody outcomes remain pending. No self-future proof, atomic pair, replay or borrowed/new target authority.",
+      "classifications": [
+        "explicit-guarantee-change",
+        "unproved-native-hypothesis"
+      ],
+      "current_reading": "Whole original publication/last-receipt source/alias/authority and durability/custody remain required.",
+      "not_an_exhaustive_native_schedule": true,
+      "paper_order": [
+        "A receipt payload binds the closed producer trace and commits once.",
+        "The receipt is visible locally but writer descendant/storage or remote consumer ACK is unknown."
+      ],
+      "whole_member_semantic_dispositions_due_step": 415
+    },
+    {
+      "affected_joint_dimension_ids": [
+        "terminal-cut-vs-whole-stage-oracle",
+        "narrow-product-vs-whole-entry-proof",
+        "observer-controls-vs-finite-custody",
+        "two-platform-fresh-test-entry"
+      ],
+      "assessment": "A finite terminal evidence/trust cut changes acceptance scope but is not a native composition proof. Every acceptance/observer own effect remains controlled and accounted; a later real unclassified effect blocks closure.",
+      "candidate_reading": "The later effect prevents eligibility until reviewed. Do not exempt an observer or promise infinite self-proof; actual finite accounting, custody and trust remain unknown.",
+      "classifications": [
+        "explicit-guarantee-change",
+        "unproved-native-hypothesis"
+      ],
+      "current_reading": "Original whole effects/obligations and actual native refinement remain due.",
+      "not_an_exhaustive_native_schedule": true,
+      "paper_order": [
+        "A finite paper subject/receipt/observer/custody boundary is declared.",
+        "A verifier later creates evidence or a writer obligation outside that declared cut is discovered."
+      ],
+      "whole_member_semantic_dispositions_due_step": 415
+    }
+  ],
+  "expected_assumption_annotations": {
+    "external_finalization_obligation": {
+      "assessment": "All payload data are from prior closed subject trace. Writer completion, final object/storage and consumer custody are later independent obligations with their own controls.",
+      "candidate_reading": "Known prior trace/object does not establish final writer/custody eligibility; no repeat or self-future receipt.",
+      "independently_accepted": false,
+      "native_observation": null,
+      "paper_order": [
+        "Producer trace closes.",
+        "Payload commits; receipt-writer/consumer ACK remains unknown."
+      ]
+    },
+    "local_clock_trust_assumption": {
+      "assessment": "Trust aligns with401 actor/ACTION assumptions. Ordinary suspend/restart/delay/loss remain in scope; observed/suspected rollback blocks. CL410-CLOCK only proposes clearer wording of this qualification.",
+      "candidate_reading": "No fallback/mapping renewal; observed/unknown state blocks, excluded hidden manipulation not claimed detected.",
+      "independently_accepted": false,
+      "native_observation": null,
+      "paper_order": [
+        "An ordinary suspend/provider loss occurs.",
+        "A hidden assumed-trusted same-boot rollback is contrasted without a usable observation."
+      ]
+    },
+    "terminal_acceptance_cut": {
+      "assessment": "The declared boundary includes every own finite control obligation; explicit trust scope is unproved, not an observer exception or universal finite closure theorem.",
+      "candidate_reading": "Later unclassified effect blocks eligibility; qualify facts at captured cut, do not infer global host closure.",
+      "independently_accepted": false,
+      "native_observation": null,
+      "paper_order": [
+        "A terminal cut is declared.",
+        "A later real evidence-producing effect is discovered."
+      ]
+    },
+    "trusted_host_assumption": {
+      "assessment": "Deliberate out-of-policy effects of explicitly identified infrastructure are excluded assumptions; ordinary root/manual/scheduled/backend/helper/observer workloads remain controlled. Hidden exclusion is not prevention evidence.",
+      "candidate_reading": "Block uncontrolled workload; disclosed hidden trust exclusion supplies no native PASS or detection promise.",
+      "independently_accepted": false,
+      "native_observation": null,
+      "paper_order": [
+        "An ordinary root helper is observed writing.",
+        "An assumed-trusted policy administrator deliberately tampers without an observable breach."
+      ]
+    }
+  },
+  "expected_boundaries": {
+    "C_port_open": false,
+    "actual_global_host_closure": false,
+    "actual_host_state": "unobserved-not-claimed-absent",
+    "actual_live_bindings": null,
+    "actual_native_refinement_complete": false,
+    "actual_successor_selected": false,
+    "controller_action_required": false,
+    "current_step_strong_safe_pause": false,
+    "execution_authorized": false,
+    "historical_binding_or_authority_reuse_allowed": false,
+    "kernel_package_edge_complete": false,
+    "last_confirmed_strong_safe_pause_step": 408,
+    "later_current_refresh_invalidates_repository_only_pause": false,
+    "machine_action_required": false,
+    "native_cases_run": 0,
+    "native_components_selected": false,
+    "native_graph_complete": false,
+    "native_proofs_added": 0,
+    "operational_conformance": false,
+    "operational_readiness": false,
+    "phase1_matrix_complete": false,
+    "phase2_open": false,
+    "production_entry_closed": true,
+    "reference_v1_frozen": false,
+    "runtime_authority": false,
+    "strong_safe_pause": false,
+    "target_machine_actions_authorized": false,
+    "version1_schema_frozen": false
+  },
+  "expected_clarifications": [
+    {
+      "actual_native_evidence": null,
+      "audit_clause_pointer": "/clause_reviews/10",
+      "complete_new_proposed_value": "Authenticate the issuer's original fixed finite bounds and map them once at admission to an independently reviewed local elapsed-time clock domain under an explicitly enumerated conforming host kernel/hardware/hypervisor assumption. Preserve the original boot/clock-domain identity, exact mapping, fixed deadlines and durable budget. Suspend elapsed time must be accounted for or further effects denied before resume; missing/unknown mapping, boot drift, observed or suspected discontinuity, observed or suspected snapshot/restore or provider loss blocks effects. No clock fallback, deadline renewal, budget refill or right revival. Deliberate hidden clock-domain manipulation or snapshot rollback by explicitly enumerated assumed-trusted infrastructure is outside this proposed integrity guarantee and is not promised detectable; this exclusion is not native prevention or detection evidence.",
+      "finding_id": "A410-04",
+      "id": "CL410-CLOCK",
+      "independent_meaning_accepted": false,
+      "intended_effect": "Make observed/suspected knowledge qualification explicit consistently with complete companion/global rule; hidden excluded infrastructure tamper is not promised detected. Independent semantic review remains due.",
+      "native_authority": false,
+      "normative_activation": false,
+      "substitution_authorized": false,
+      "whole_original_frozen_replacement": {
+        "complete_proposed_value": "Authenticate the issuer's original fixed finite bounds and map them once at admission to an independently reviewed local elapsed-time clock domain under an explicitly enumerated conforming host kernel/hardware/hypervisor assumption. Preserve the original boot/clock-domain identity, exact mapping, fixed deadlines and durable budget. Suspend elapsed time must be accounted for or further effects denied before resume; missing/unknown mapping, boot drift, observed or suspected discontinuity, snapshot/restore or provider loss blocks effects. No clock fallback, deadline renewal, budget refill or right revival.",
+        "id": "C403/clock_contract/rule",
+        "input_key": "original323",
+        "json_pointer": "/clock_contract/rule",
+        "replacement_approved": false,
+        "source_input": "loss403",
+        "source_pointer": "/exact_clock_clause_proposal",
+        "whole_current_value": "issuer-authenticated-finite-bounds-and-independent-trusted-time-mapping-with-same-boot; no-wallclock-rollback-suspend-epoch-restart-or-unknown-as-valid"
+      }
+    },
+    {
+      "actual_native_evidence": null,
+      "audit_clause_pointer": "/clause_reviews/9",
+      "complete_new_proposed_value": "DRAFT: After independently known target closure,use captured closed data only under separately reviewed original publication controls. Publication operation admission and its own known revocation policy,source/observer/writer/storage/custody/finite bounds must be independently specified;target forward/recovery rights or requests cannot be borrowed as publication authority. Its own applicable revocation may deny new admissions while a specifically pre-admitted finite envelope finishes within its separate original bounds. The WHOLE authored405/407 producer/receipt/writer/final-observer/consumer-custody/stage-membership and terminal criteria must be applied together; actual independently reviewed native realization remains unresolved. No late target/source action or republish on uncertainty.",
+      "finding_id": "A410-05",
+      "id": "CL410-PUBLICATION",
+      "independent_meaning_accepted": false,
+      "intended_effect": "Distinguish complete authored405/407 criteria from still-unresolved actual independent native realization; retain whole controls and no new rights. Independent semantic review remains due.",
+      "native_authority": false,
+      "normative_activation": false,
+      "substitution_authorized": false,
+      "whole_original_frozen_replacement": {
+        "complete_proposed_value": "DRAFT: After independently known target closure,use captured closed data only under separately reviewed original publication controls. Publication operation admission and its own known revocation policy,source/observer/writer/storage/custody/finite bounds must be independently specified;target forward/recovery rights or requests cannot be borrowed as publication authority. Its own applicable revocation may deny new admissions while a specifically pre-admitted finite envelope finishes within its separate original bounds. All terminal receipt/observer/custody guarantees and exact stage membership remain unresolved for405/407;no late target/source action or republish on uncertainty.",
+        "id": "P402/closure_contract/publication",
+        "input_key": "original323",
+        "json_pointer": "/closure_contract/publication",
+        "replacement_approved": false,
+        "source_input": "operation402",
+        "source_pointer": "/exact_inactive_clause_replacements/7",
+        "whole_current_value": "after-target-closure-use-captured-closed-data-under-independent-publication-controls-through-last-receipt; no-target-refresh-write-or-renewal"
+      }
+    }
+  ],
+  "expected_comparison_limit": {
+    "all1286_member_semantics_independently_accepted": false,
+    "complete_native_mechanism_selected": false,
+    "completed_authored_comparison": "all14 whole clause replacements/four assumptions/five complete loss-register families/eight current-patch views and WHOLE316 stage12; original whole member matrix retained for detailed415 review",
+    "finding_classifications_distinct_from_native_failures": true,
+    "no_contradiction_found_in_one_comparison_proves_whole_feasibility": false,
+    "original34_incompatible11_unresolved_verdicts_changed": false,
+    "paper_challenges_are_native_fault_observations": false,
+    "universal_impossibility_claimed": false
+  },
+  "expected_findings": [
+    {
+      "actual_native_evidence": null,
+      "affected_joint_dimension_ids": [
+        "writer-trust-vs-source-and-clock",
+        "durable-rights-vs-loss-deadlines"
+      ],
+      "audit_clause_pointers": [
+        "/clause_reviews/0",
+        "/clause_reviews/1",
+        "/clause_reviews/10"
+      ],
+      "classification": "explicit-guarantee-change",
+      "complete_ordered_paper_challenges": [
+        {
+          "affected_joint_dimension_ids": [
+            "writer-trust-vs-source-and-clock"
+          ],
+          "assessment": "Admission remains closed for unknown workload membership/guard. The infrastructure assumption narrows the old unqualified writer promise; independent review is still needed and hidden assumed-trusted tamper is not claimed detected.",
+          "candidate_reading": "The updater still blocks admission. Hidden assumed-trusted out-of-policy tamper is excluded from the proposed guarantee; known breach stops and suspected/unclassified breach stays pending.",
+          "classifications": [
+            "explicit-guarantee-change"
+          ],
+          "current_reading": "Current unqualified actor coverage cannot be discharged by an assumed-trusted exemption.",
+          "not_an_exhaustive_native_schedule": true,
+          "paper_order": [
+            "A reviewed ordinary privileged updater is observed as an uncontrolled writer.",
+            "Independently, a specifically enumerated assumed-trusted policy actor deliberately tampers out of policy."
+          ],
+          "whole_member_semantic_dispositions_due_step": 415
+        },
+        {
+          "affected_joint_dimension_ids": [
+            "writer-trust-vs-source-and-clock",
+            "narrow-product-vs-whole-entry-proof",
+            "observer-controls-vs-finite-custody"
+          ],
+          "assessment": "All original domains plus complete source/owned/recovery/publication objects remain; only enumerated infrastructure deliberate tamper is excluded. UID0 alone never exempts a workload.",
+          "candidate_reading": "The helper action remains in workload scope and admission is blocked until proven controlled. The declared infrastructure exclusion must not be extended by role label.",
+          "classifications": [
+            "explicit-guarantee-change"
+          ],
+          "current_reading": "Every overlapping privileged/direct/manual/scheduled/helper writer requires original coordination or prevention.",
+          "not_an_exhaustive_native_schedule": true,
+          "paper_order": [
+            "A root helper writes through a backing-object alias during protected use.",
+            "The helper is mislabeled infrastructure without an explicit actor/ACTION review."
+          ],
+          "whole_member_semantic_dispositions_due_step": 415
+        },
+        {
+          "affected_joint_dimension_ids": [
+            "writer-trust-vs-source-and-clock",
+            "durable-rights-vs-loss-deadlines"
+          ],
+          "assessment": "The companion clock assumption excludes hidden deliberate assumed-trusted rollback from promised detection. The literal clause says snapshot/restore blocks effects without an observation qualifier; qualify observed/suspected rollback explicitly, preserving all ordinary failure handling and the disclosed trust loss.",
+          "candidate_reading": "Observed/suspected/unknown clock state blocks dependent effects. Hidden excluded tamper is neither promised detected nor marked prevented. One mapping, suspend accounting and no renewal remain; no provider is selected.",
+          "classifications": [
+            "explicit-guarantee-change",
+            "underspecified-condition"
+          ],
+          "current_reading": "Original trusted-time protection cannot be satisfied by asserting an unobservable discontinuity was detected.",
+          "not_an_exhaustive_native_schedule": true,
+          "paper_order": [
+            "An original same-boot mapping and fixed deadlines are known at admission.",
+            "Compare observed/suspected rollback with a deliberately hidden assumed-trusted rollback producing no usable observation."
+          ],
+          "whole_member_semantic_dispositions_due_step": 415
+        }
+      ],
+      "disposition": "Open explicit user guarantee-loss choice and independent joint specification/impact review. No prevention or clock-integrity native proof exists.",
+      "id": "A410-01",
+      "independent_impact_acceptance": false,
+      "issue": "Writer and clock guarantees become conditional on enumerated infrastructure assumptions; ordinary privileged workloads stay in scope and hidden excluded tamper is not promised detected.",
+      "native_proof": false,
+      "normative_migration_approved": false,
+      "runtime_authority": false,
+      "status": "open-authored-finding-not-independent-acceptance",
+      "user_selection": null,
+      "whole_clause_source_bindings": [
+        {
+          "complete_proposed_value": "Before native entry, independently establish complete in-boundary writer membership, protected object and alias identities, continuous exclusion and approved infrastructure assumptions. Unknown actor membership, uncontrolled in-boundary writer, foreign overlap or unverifiable guard blocks entry. A known infrastructure trust failure latches stop/failure; suspected or unclassifiable breach remains pending. No automatic restoration, relaunch, refund, rebind or reacquisition follows.",
+          "id": "T401/guard_contract/admission",
+          "input_key": "original324",
+          "json_pointer": "/guard_contract/admission",
+          "replacement_approved": false,
+          "source_input": "candidate400",
+          "source_pointer": "/exact_adopted_inactive_option_wording/0/proposed_clause_text/~1guard_contract~1admission",
+          "whole_current_value": "reviewed-common-compatible-protocol-or-proven-controlled-entrypoint-prevention; unknown-or-nonparticipating-writer-blocks-admission"
+        },
+        {
+          "complete_proposed_value": "Cover all seven original domains plus source, owned, recovery, evidence and publication objects, ancestors, mounts, backing routes, handles and complete consumers. Require proven coordination or prevention for every actor inside the reviewed workload threat boundary, including direct, manual, scheduled, helper and privileged workload writers. Exclude deliberate tampering by the explicitly enumerated trusted host infrastructure only as a disclosed assumption, never as prevention evidence.",
+          "id": "T401/guard_contract/coverage",
+          "input_key": "original324",
+          "json_pointer": "/guard_contract/coverage",
+          "replacement_approved": false,
+          "source_input": "candidate400",
+          "source_pointer": "/exact_adopted_inactive_option_wording/0/proposed_clause_text/~1guard_contract~1coverage",
+          "whole_current_value": "all-seven-requirement-domains-and-every-overlapping-direct-manual-scheduled-helper-privileged-writer-through-entire-mutation-window"
+        },
+        {
+          "complete_proposed_value": "Authenticate the issuer's original fixed finite bounds and map them once at admission to an independently reviewed local elapsed-time clock domain under an explicitly enumerated conforming host kernel/hardware/hypervisor assumption. Preserve the original boot/clock-domain identity, exact mapping, fixed deadlines and durable budget. Suspend elapsed time must be accounted for or further effects denied before resume; missing/unknown mapping, boot drift, observed or suspected discontinuity, snapshot/restore or provider loss blocks effects. No clock fallback, deadline renewal, budget refill or right revival.",
+          "id": "C403/clock_contract/rule",
+          "input_key": "original323",
+          "json_pointer": "/clock_contract/rule",
+          "replacement_approved": false,
+          "source_input": "loss403",
+          "source_pointer": "/exact_clock_clause_proposal",
+          "whole_current_value": "issuer-authenticated-finite-bounds-and-independent-trusted-time-mapping-with-same-boot; no-wallclock-rollback-suspend-epoch-restart-or-unknown-as-valid"
+        }
+      ],
+      "whole_member_semantic_dispositions_due_step": 415
+    },
+    {
+      "actual_native_evidence": null,
+      "affected_joint_dimension_ids": [
+        "offline-bootstrap-vs-live-channel",
+        "durable-rights-vs-loss-deadlines",
+        "baseline-unknown-vs-backend-effects",
+        "terminal-cut-vs-whole-stage-oracle",
+        "two-platform-fresh-test-entry"
+      ],
+      "audit_clause_pointers": [
+        "/clause_reviews/2",
+        "/clause_reviews/4",
+        "/clause_reviews/5",
+        "/clause_reviews/7",
+        "/clause_reviews/8",
+        "/clause_reviews/9"
+      ],
+      "classification": "explicit-guarantee-change",
+      "complete_ordered_paper_challenges": [
+        {
+          "affected_joint_dimension_ids": [
+            "offline-bootstrap-vs-live-channel",
+            "guardian-drain-vs-forward-failure",
+            "durable-rights-vs-loss-deadlines",
+            "two-platform-fresh-test-entry"
+          ],
+          "assessment": "The rule moves request denial from every internal effect to serialized operation admission. Forward AND retained recovery envelopes can have post-request effects; no-channel serialization and safe stopping are not provided by this sentence.",
+          "candidate_reading": "The inactive admission rule permits only known pre-request envelope continuation within unchanged bounds and every other prerequisite; no new admission or worker control channel follows.",
+          "classifications": [
+            "explicit-guarantee-change",
+            "unproved-native-hypothesis"
+          ],
+          "current_reading": "The original live effect boundary denies a newly dispatched affected effect after revocation.",
+          "not_an_exhaustive_native_schedule": true,
+          "paper_order": [
+            "Known original pre-spend and exact finite envelope precede serialized admission.",
+            "An applicable request occurs after that admission but before one declared internal effect."
+          ],
+          "whole_member_semantic_dispositions_due_step": 415
+        },
+        {
+          "affected_joint_dimension_ids": [
+            "offline-bootstrap-vs-live-channel",
+            "writer-trust-vs-source-and-clock",
+            "durable-rights-vs-loss-deadlines"
+          ],
+          "assessment": "Only the request check moves to admission; identity/time/scope/guard/known-control remain continuous. A known infrastructure breach or expiry still cannot be overridden by pre-admission.",
+          "candidate_reading": "Pre-request admission removes only the internal request recheck in the draft. Expiry or unknown guard denies dependent unproved effects and preserves in-flight obligations.",
+          "classifications": [
+            "explicit-guarantee-change"
+          ],
+          "current_reading": "Both applicable live revocation and failed continuous prerequisites deny effect dispatch.",
+          "not_an_exhaustive_native_schedule": true,
+          "paper_order": [
+            "One exact forward operation is admitted before a forward request.",
+            "Before a later internal effect, the original deadline expires or guard becomes unverifiable."
+          ],
+          "whole_member_semantic_dispositions_due_step": 415
+        },
+        {
+          "affected_joint_dimension_ids": [
+            "offline-bootstrap-vs-live-channel",
+            "guardian-drain-vs-forward-failure",
+            "durable-rights-vs-loss-deadlines"
+          ],
+          "assessment": "The no-new-effect guarantee is explicitly weakened for a known admitted finite envelope. Original failure/expiry and already-spent bounds remain; interpretation with the global rules must not allow new effects after failed prerequisites.",
+          "candidate_reading": "The outside-envelope effect is denied even in the draft. Only known original finite continuation under all remaining valid prerequisites is considered.",
+          "classifications": [
+            "explicit-guarantee-change"
+          ],
+          "current_reading": "No newly dispatched affected effect is allowed after original revocation.",
+          "not_an_exhaustive_native_schedule": true,
+          "paper_order": [
+            "An admitted finite operation is followed by its applicable request.",
+            "A helper attempts an effect outside the original object/descendant envelope."
+          ],
+          "whole_member_semantic_dispositions_due_step": 415
+        },
+        {
+          "affected_joint_dimension_ids": [
+            "durable-rights-vs-loss-deadlines",
+            "baseline-unknown-vs-backend-effects"
+          ],
+          "assessment": "Recovery validity also changes from a live recovery fence at each effect to once-only pre-spent admission. All original trap/guard/identity/known-backup/drain/deadline conditions remain; no repeat on lost ACK.",
+          "candidate_reading": "The inactive exception permits only that known pre-request admitted original finite envelope if every other prerequisite stays valid. The guarantee loss is explicit, not recovery equivalence.",
+          "classifications": [
+            "explicit-guarantee-change"
+          ],
+          "current_reading": "The original live recovery fence denies the affected recovery write after the request.",
+          "not_an_exhaustive_native_schedule": true,
+          "paper_order": [
+            "Known exact backup, independent drain and original recovery spend precede admission.",
+            "A recovery/all request precedes one declared internal restore write."
+          ],
+          "whole_member_semantic_dispositions_due_step": 415
+        },
+        {
+          "affected_joint_dimension_ids": [
+            "offline-bootstrap-vs-live-channel",
+            "durable-rights-vs-loss-deadlines",
+            "baseline-unknown-vs-backend-effects"
+          ],
+          "assessment": "Forward-only and recovery/all requests retain different scopes. The draft denies new recovery admissions after recovery/all but permits qualifying pre-request internal continuation; no uncertain-scope permission.",
+          "candidate_reading": "Forward-only request alone does not revoke already separately valid recovery. Unknown recovery/all order denies dependent unproved effects; no new admission, replacement right or replay.",
+          "classifications": [
+            "explicit-guarantee-change"
+          ],
+          "current_reading": "Original scope/clock/identity uncertainty blocks recovery writes; forward-only revocation does not supply or renew recovery rights.",
+          "not_an_exhaustive_native_schedule": true,
+          "paper_order": [
+            "An original forward-only request occurs while separate recovery rights are retained.",
+            "Separately, a recovery/all request has an unknown ordering relative to recovery admission."
+          ],
+          "whole_member_semantic_dispositions_due_step": 415
+        },
+        {
+          "affected_joint_dimension_ids": [
+            "terminal-cut-vs-whole-stage-oracle",
+            "observer-controls-vs-finite-custody",
+            "two-platform-fresh-test-entry"
+          ],
+          "assessment": "Publication uses its own original controls and request scope, not borrowed target rights. Its old wording says terminal criteria are unresolved for405/407 although those authored criteria are now present; actual native closure remains unresolved. Clarify the distinction rather than invent absence or acceptance.",
+          "candidate_reading": "Only publication-own known pre-request finite envelope may continue under original valid publication bounds. Apply whole authored405/407 criteria, whose native realization is unknown; target request neither grants nor automatically revokes separate publication.",
+          "classifications": [
+            "explicit-guarantee-change",
+            "underspecified-condition"
+          ],
+          "current_reading": "Captured-data publication still needs its original continuous own controls; no target refresh or renewed grant.",
+          "not_an_exhaustive_native_schedule": true,
+          "paper_order": [
+            "Target closure is independently captured and the guard released.",
+            "One separately controlled publication operation is admitted; its own request occurs before an internal effect."
+          ],
+          "whole_member_semantic_dispositions_due_step": 415
+        }
+      ],
+      "disposition": "Open explicit migration/guarantee-loss choice; detailed scoped order/expiry/uncertainty challenges due411. All other original prerequisites remain.",
+      "id": "A410-02",
+      "independent_impact_acceptance": false,
+      "issue": "Forward, recovery/all and publication pre-request finite-envelope continuation permits some internal post-request effects. Current every-effect guarantees are not retained equivalent.",
+      "native_proof": false,
+      "normative_migration_approved": false,
+      "runtime_authority": false,
+      "status": "open-authored-finding-not-independent-acceptance",
+      "user_selection": null,
+      "whole_clause_source_bindings": [
+        {
+          "complete_proposed_value": "DRAFT: For forward and retained recovery operations, the external controller serializes admission against the original issuer policy and known scoped revocation. A request irreversibly closes new admissions in its affected scope; a previously admitted operation may complete only its predeclared finite effects and descendants up to its independently known safe cut, inside the original fixed deadline, already-spent budget and exact object/effect scope. This explicitly allows internal effects after an applicable forward or recovery/all revocation request. Worker and contained commands retain no service/broker/control channel. Actual admission-to-effect serialization, no-channel enforcement and safe stopping are unresolved.",
+          "id": "F402/fence_contract/rule",
+          "input_key": "original323",
+          "json_pointer": "/fence_contract/rule",
+          "replacement_approved": false,
+          "source_input": "operation402",
+          "source_pointer": "/exact_inactive_clause_replacements/0",
+          "whole_current_value": "trusted-external-controller-enforces-original-policy-and-absorbing-revocation-at-every-effect-boundary; worker-and-contained-commands-have-no-service-or-broker-capability"
+        },
+        {
+          "complete_proposed_value": "DRAFT: Independently authenticate the original consumed attempt, exact forward operation/effect/descendant scope, original fixed trusted boot/time bounds and durable spend before one serialized operation admission. Require reviewed containment of its entire finite envelope through its known safe cut. Forward revocation closes further admissions rather than requiring fresh revocation permission at every internal effect of an already admitted operation. Identity/time/scope/guard/known-control conditions remain continuously required. A poll/reply/lease/operation label is not native serialization or a safe cut.",
+          "id": "F402/forward_contract/validity",
+          "input_key": "original323",
+          "json_pointer": "/forward_contract/validity",
+          "replacement_approved": false,
+          "source_input": "operation402",
+          "source_pointer": "/exact_inactive_clause_replacements/2",
+          "whole_current_value": "independent-authenticated-scope-trusted-time-and-continuously-enforced-live-fence-before-and-through-every-permitted-effect"
+        },
+        {
+          "complete_proposed_value": "DRAFT: Forward revocation irreversibly closes further forward admission. Already admitted operations may complete only the specifically declared finite envelope under original valid bounds;this is an explicit exception to the current no-new-effect-dispatch reading after revocation,not a deadline/failure exemption. Expiry,scope failure,unknown control or envelope cannot authorize additional unproved effects. Original failure and all in-flight obligations persist. No renewed admission,slot,deadline,budget or right is introduced.",
+          "id": "F402/forward_contract/termination",
+          "input_key": "original323",
+          "json_pointer": "/forward_contract/termination",
+          "replacement_approved": false,
+          "source_input": "operation402",
+          "source_pointer": "/exact_inactive_clause_replacements/3",
+          "whole_current_value": "expiry-forward-revocation-or-any-failure-latches-forward-stop-irreversibly; no-new-effect-dispatch-or-revival"
+        },
+        {
+          "complete_proposed_value": "DRAFT: Use only the explicitly retained original same-attempt recovery scope,fixed finite deadline and durable once-only action budget,with every original trap/guard/identity/known-backup/drain prerequisite. Serialize one pre-spent recovery operation admission against known original recovery/all revocation. Once admitted,only its exact declared finite recovery envelope may finish within original bounds after an applicable revocation request. This changes the current live recovery fence at every internal effect;no blanket expiry exemption or foreign restore is granted.",
+          "id": "R402/recovery_contract/validity",
+          "input_key": "original323",
+          "json_pointer": "/recovery_contract/validity",
+          "replacement_approved": false,
+          "source_input": "operation402",
+          "source_pointer": "/exact_inactive_clause_replacements/5",
+          "whole_current_value": "explicit-authenticated-issuer-original-recovery-scope-with-own-finite-deadline-budget-and-live-recovery-fence"
+        },
+        {
+          "complete_proposed_value": "DRAFT: A known recovery/all revocation request denies subsequent recovery operation admission irreversibly. A known pre-request admitted recovery operation may complete only its predeclared finite envelope and known safe cut inside its unchanged original deadline/budget/safe identity;post-request internal writes are an explicit weakened guarantee. Unknown scope,boot/clock/identity/control drift or expiry denies unproved effects and preserves pending obligations. Forward-only revocation does not revoke separately retained recovery. No replacement right or replay follows.",
+          "id": "R402/recovery_contract/revocation",
+          "input_key": "original323",
+          "json_pointer": "/recovery_contract/revocation",
+          "replacement_approved": false,
+          "source_input": "operation402",
+          "source_pointer": "/exact_inactive_clause_replacements/6",
+          "whole_current_value": "recovery/all-revocation-unknown-scope-clock-discontinuity-boot-or-identity-drift-block-recovery-writes-and-preserve-obligations"
+        },
+        {
+          "complete_proposed_value": "DRAFT: After independently known target closure,use captured closed data only under separately reviewed original publication controls. Publication operation admission and its own known revocation policy,source/observer/writer/storage/custody/finite bounds must be independently specified;target forward/recovery rights or requests cannot be borrowed as publication authority. Its own applicable revocation may deny new admissions while a specifically pre-admitted finite envelope finishes within its separate original bounds. All terminal receipt/observer/custody guarantees and exact stage membership remain unresolved for405/407;no late target/source action or republish on uncertainty.",
+          "id": "P402/closure_contract/publication",
+          "input_key": "original323",
+          "json_pointer": "/closure_contract/publication",
+          "replacement_approved": false,
+          "source_input": "operation402",
+          "source_pointer": "/exact_inactive_clause_replacements/7",
+          "whole_current_value": "after-target-closure-use-captured-closed-data-under-independent-publication-controls-through-last-receipt; no-target-refresh-write-or-renewal"
+        }
+      ],
+      "whole_member_semantic_dispositions_due_step": 415
+    },
+    {
+      "actual_native_evidence": null,
+      "affected_joint_dimension_ids": [
+        "terminal-cut-vs-whole-stage-oracle",
+        "observer-controls-vs-finite-custody"
+      ],
+      "audit_clause_pointers": [
+        "/clause_reviews/11",
+        "/clause_reviews/12",
+        "/clause_reviews/13"
+      ],
+      "classification": "explicit-guarantee-change",
+      "complete_ordered_paper_challenges": [
+        {
+          "affected_joint_dimension_ids": [
+            "terminal-cut-vs-whole-stage-oracle",
+            "observer-controls-vs-finite-custody"
+          ],
+          "assessment": "Whole stage12 function/name/operation/guard/evidence paths and event membership change. Preserved index/effect/failure seams do not preserve original full-stage trace or eligibility.",
+          "candidate_reading": "Producer completion alone is not overall eligibility or original conformance. Separate writer/object/storage/observer/custody/terminal accounting remains before candidate eligibility.",
+          "classifications": [
+            "explicit-guarantee-change"
+          ],
+          "current_reading": "Original whole stage12 publish function and complete last-stage eligibility expectations remain normative.",
+          "not_an_exhaustive_native_schedule": true,
+          "paper_order": [
+            "The proposed producer closes archive/sidecar preparation and its subject streams/status.",
+            "The separate receipt writer has not completed."
+          ],
+          "whole_member_semantic_dispositions_due_step": 415
+        },
+        {
+          "affected_joint_dimension_ids": [
+            "terminal-cut-vs-whole-stage-oracle",
+            "observer-controls-vs-finite-custody"
+          ],
+          "assessment": "Past-only payload, exact final object and all writer/observer/consumer outcomes are separate. Their native control/custody/ACK cannot be replaced by local visibility, signatures, hashes or role names.",
+          "candidate_reading": "Only qualified captured object facts may be known; independent writer/storage/custody outcomes remain pending. No self-future proof, atomic pair, replay or borrowed/new target authority.",
+          "classifications": [
+            "explicit-guarantee-change",
+            "unproved-native-hypothesis"
+          ],
+          "current_reading": "Whole original publication/last-receipt source/alias/authority and durability/custody remain required.",
+          "not_an_exhaustive_native_schedule": true,
+          "paper_order": [
+            "A receipt payload binds the closed producer trace and commits once.",
+            "The receipt is visible locally but writer descendant/storage or remote consumer ACK is unknown."
+          ],
+          "whole_member_semantic_dispositions_due_step": 415
+        },
+        {
+          "affected_joint_dimension_ids": [
+            "terminal-cut-vs-whole-stage-oracle",
+            "narrow-product-vs-whole-entry-proof",
+            "observer-controls-vs-finite-custody",
+            "two-platform-fresh-test-entry"
+          ],
+          "assessment": "A finite terminal evidence/trust cut changes acceptance scope but is not a native composition proof. Every acceptance/observer own effect remains controlled and accounted; a later real unclassified effect blocks closure.",
+          "candidate_reading": "The later effect prevents eligibility until reviewed. Do not exempt an observer or promise infinite self-proof; actual finite accounting, custody and trust remain unknown.",
+          "classifications": [
+            "explicit-guarantee-change",
+            "unproved-native-hypothesis"
+          ],
+          "current_reading": "Original whole effects/obligations and actual native refinement remain due.",
+          "not_an_exhaustive_native_schedule": true,
+          "paper_order": [
+            "A finite paper subject/receipt/observer/custody boundary is declared.",
+            "A verifier later creates evidence or a writer obligation outside that declared cut is discovered."
+          ],
+          "whole_member_semantic_dispositions_due_step": 415
+        }
+      ],
+      "disposition": "Open explicit migration and whole semantic impact; complete external-effect/custody/terminal review due414 and every affected member due415.",
+      "id": "A410-03",
+      "independent_impact_acceptance": false,
+      "issue": "Producer-only stage12 and a finite external terminal acceptance cut change function/name/paths/trace/eligibility and membership. Original whole-stage conformance cannot be inferred.",
+      "native_proof": false,
+      "normative_migration_approved": false,
+      "runtime_authority": false,
+      "status": "open-authored-finding-not-independent-acceptance",
+      "user_selection": null,
+      "whole_clause_source_bindings": [
+        {
+          "complete_proposed_value": {
+            "effect": "owned-files",
+            "evidence": {
+              "early_buffer": false,
+              "exit_record": "evidence/stages/12-prepare-reviewed-publication.json",
+              "publication_receipt_external": true,
+              "stderr": "evidence/stages/12-prepare-reviewed-publication.stderr",
+              "stdout": "evidence/stages/12-prepare-reviewed-publication.stdout"
+            },
+            "failure_boundary": "stop-later-stages-preserve-original-status-run-only-safe-idempotent-restore-and-evidence-no-retry",
+            "function": "prepare_reviewed_archive_and_sidecar",
+            "guard": "Producer completion is only known archive/sidecar preparation and complete subject capture; never final publication eligibility. Overall eligibility needs every separate external-finalization outcome; failure/unknown never success.",
+            "index": 12,
+            "operation": "Use captured closed data to independently prepare/commit exclusive archive and sidecar. Close the producer subject streams/status before an external receipt writer constructs its payload. Receipt commit, independent final observation, custody and terminal accounting are separately declared external-finalization obligations. This changes original stage12 membership and supplies no current original equivalence.",
+            "stage": "prepare-reviewed-publication",
+            "test_seams": [
+              "stage-entry-failure",
+              "stage-mid-effect-failure",
+              "HUP-INT-TERM",
+              "uncatchable-loss",
+              "evidence-write-failure",
+              "cleanup-failure",
+              "double-cleanup"
+            ]
+          },
+          "id": "E405/immutable_design_facts/stages/12",
+          "input_key": "publication_requirements316",
+          "json_pointer": "/immutable_design_facts/stages/12",
+          "replacement_approved": false,
+          "source_input": "publication405",
+          "source_pointer": "/exact_inactive_clause_replacements/0",
+          "whole_current_value": {
+            "effect": "owned-files",
+            "evidence": {
+              "early_buffer": false,
+              "exit_record": "evidence/stages/12-publish-reviewed-result.json",
+              "publication_receipt_external": true,
+              "stderr": "evidence/stages/12-publish-reviewed-result.stderr",
+              "stdout": "evidence/stages/12-publish-reviewed-result.stdout"
+            },
+            "failure_boundary": "stop-later-stages-preserve-original-status-run-only-safe-idempotent-restore-and-evidence-no-retry",
+            "function": "publish_evidence_and_receipt",
+            "guard": "success only after all guards/restoration/evidence; failure/none never success",
+            "index": 12,
+            "operation": "Prepare exclusive archive and sidecar without overwrite; external publication receipt records last-stage stdout/stderr/exit and final eligibility; receipt commits last; no self-containing archive or atomic pair claim.",
+            "stage": "publish-reviewed-result",
+            "test_seams": [
+              "stage-entry-failure",
+              "stage-mid-effect-failure",
+              "HUP-INT-TERM",
+              "uncatchable-loss",
+              "evidence-write-failure",
+              "cleanup-failure",
+              "double-cleanup"
+            ]
+          }
+        },
+        {
+          "complete_proposed_value": {
+            "actual_durability_backend": null,
+            "actual_paths": null,
+            "actual_receipt_origin": null,
+            "durability": "Archive and sidecar are separate exclusive no-replace controlled objects. Before each own effect independently review service barriers, authenticated original identity/authority, ancestor/mount/backing/alias/all-writer protection, original fixed clock, once-only pre-spent finite right and storage. Whole original file/metadata/directory/device/ACK durability, descendants/streams/status/origin remain required; no atomic pair, self-containing archive, hash/exit/flush-as-proof, overwrite or commit repeat. Receipt writer commits once as a separate finite publication obligation. Independently protected final observer establishes exact final receipt bytes/metadata/object/ancestry/alias/writers plus file/directory/storage outcome AND full receipt-writer descendants/FD/streams/status/origin. Independence requires actual protected source, provenance and effective faults; a separate process, UID, signature or role label is insufficient. Observer own effect/control/drain/storage is still a reviewed obligation, not passive immunity.",
+            "independent": "Only after complete producer subject trace closure may external receipt payload bind exact protected prior subject stdout/stderr/status/origin and artifact facts from captured data. Receipt never includes proof/hash/ACK of its own future commit or later writer/final-observer/consumer completion. Writer completion must be captured separately. Payload signature/path/digest and producer exit are not independent final evidence. Protected consumer/verifier independently binds the exact captured receipt and archive/sidecar identity to reviewed transport, custody endpoint, bytes/metadata, original source/trust/clock/finite right and known handoff/ACK. Local final receipt visibility is not remote consumer custody. Custody/ACK uncertainty remains pending independently from known captured object/target facts. No new target grant, repeat handoff or republish on unknown outcome.",
+            "target_order": "drain-original-restore-fullverify-target-evidence-under-guard-then-release; no-target-writes-or-refresh-after-release",
+            "unknown": "Known original failure/mismatch stays sticky alongside pending trace, object, writer, observer, custody or controller outcomes. Unknown commit, ACK, spend, storage, actor loss or drain is quarantined; never replay, republish, rebind, refund, relaunch or infer no-effect/absent/success. A qualified captured object fact may survive unrelated unknown custody but cannot authorize dependent new effects or erase failed admission."
+          },
+          "id": "E405/publication_contract",
+          "input_key": "original325",
+          "json_pointer": "/publication_contract",
+          "replacement_approved": false,
+          "source_input": "publication405",
+          "source_pointer": "/exact_inactive_clause_replacements/1",
+          "whole_current_value": {
+            "actual_durability_backend": null,
+            "actual_paths": null,
+            "actual_receipt_origin": null,
+            "durability": "separate-no-replace-record-then-last-receipt-with-supported-file-meta-directory-storage-proof; no-pair-atomicity-or-self-containing-receipt-hash",
+            "independent": "captured-closed-data-only-with-separate-recipient-ancestry-alias-owner-content-writer-and-authority-controls-through-last-receipt",
+            "target_order": "drain-original-restore-fullverify-target-evidence-under-guard-then-release; no-target-writes-or-refresh-after-release",
+            "unknown": "lost-ack-partial-or-unknown-record-receipt-handoff-retains-artifacts-original-status-pending-controller-obligations-no-replay-republish-or-new-target-grant"
+          }
+        },
+        {
+          "complete_proposed_value": {
+            "closure": "INACTIVE terminal evidence/trust amendment: complete finite enumerated subject/receipt/collector/observer/consumer/verifier accounting under reviewed independent custody ends at an explicitly declared cut. Acceptance itself has source/trust/object/storage/clock/finite-right responsibilities. No included further evidence-producing effect occurs after that cut; any real later unclassified effect blocks eligibility and requires review, not an exemption or infinite self-receipt chain. Complete actual native boundary/independence/closure remains unknown.",
+            "design": "All30 designed effect domains/every edge/seven capabilities/ten obligations/42 inherited proofs/nine windows/52 cases indexed. Reviewed disposition never operational proof.",
+            "effects": "Include all service/reference/helper/source/backend/selector/package/config/boot/owned/restore/publication surfaces; actual dynamic graph/entry still unclosed and boot/optional mutations outside scope remain forbidden.",
+            "host": "Current repository/private delivery requires no new machine/controller action. Historical/current actual host bindings unobserved/null; unobserved never absent, closed or globally safe.",
+            "integration": "328 may freeze this repository integration-design workstream after complete327 acceptance. Actual operational implementation freeze/readiness still requires selected graph/primitives/refinement/independent conformance/fresh authority.",
+            "obligations": "EVERY producer, collector, receipt writer, final observer, consumer and verifier own effect remains within401 actor/ACTION workload and source/alias controls; ordinary faults remain failures. Apply402 INACTIVE scoped admission cuts only inside original exact admitted envelope and403 original clock/independent full drain;404 irreversible durable action spend/storage/quarantine. Never borrow worker target rights, add a worker service channel, waive first-effect controls, refill budget, replace guard or renew clock/grant. Actual role sharing/separation is unbound.",
+            "rights": "Issuer controls and admission known-unused differ from consumed launch/worker/nested and original finite recovery. Publication uses separate captured-data controls, never a fresh target grant or forward renewal."
+          },
+          "id": "E405/crossclosure_contract",
+          "input_key": "original327",
+          "json_pointer": "/crossclosure_contract",
+          "replacement_approved": false,
+          "source_input": "publication405",
+          "source_pointer": "/exact_inactive_clause_replacements/2",
+          "whole_current_value": {
+            "closure": "Known children/full original verification/target evidence before release; no later target writes. Record/receipt/handoff separate; any unclassified/unknown actual effect or obligation remains pending.",
+            "design": "All30 designed effect domains/every edge/seven capabilities/ten obligations/42 inherited proofs/nine windows/52 cases indexed. Reviewed disposition never operational proof.",
+            "effects": "Include all service/reference/helper/source/backend/selector/package/config/boot/owned/restore/publication surfaces; actual dynamic graph/entry still unclosed and boot/optional mutations outside scope remain forbidden.",
+            "host": "Current repository/private delivery requires no new machine/controller action. Historical/current actual host bindings unobserved/null; unobserved never absent, closed or globally safe.",
+            "integration": "328 may freeze this repository integration-design workstream after complete327 acceptance. Actual operational implementation freeze/readiness still requires selected graph/primitives/refinement/independent conformance/fresh authority.",
+            "obligations": "Every inherited statement/status/evidence stays byte-bound and required-not-proven, including worker-vs-service claim/traps interpretation and explicit stage7 successor; no frozen rewrite or waived proof.",
+            "rights": "Issuer controls and admission known-unused differ from consumed launch/worker/nested and original finite recovery. Publication uses separate captured-data controls, never a fresh target grant or forward renewal."
+          }
+        }
+      ],
+      "whole_member_semantic_dispositions_due_step": 415
+    },
+    {
+      "actual_native_evidence": null,
+      "affected_joint_dimension_ids": [
+        "writer-trust-vs-source-and-clock",
+        "durable-rights-vs-loss-deadlines"
+      ],
+      "audit_clause_pointers": [
+        "/clause_reviews/10"
+      ],
+      "classification": "underspecified-condition",
+      "complete_ordered_paper_challenges": [
+        {
+          "affected_joint_dimension_ids": [
+            "writer-trust-vs-source-and-clock",
+            "durable-rights-vs-loss-deadlines"
+          ],
+          "assessment": "The companion clock assumption excludes hidden deliberate assumed-trusted rollback from promised detection. The literal clause says snapshot/restore blocks effects without an observation qualifier; qualify observed/suspected rollback explicitly, preserving all ordinary failure handling and the disclosed trust loss.",
+          "candidate_reading": "Observed/suspected/unknown clock state blocks dependent effects. Hidden excluded tamper is neither promised detected nor marked prevented. One mapping, suspend accounting and no renewal remain; no provider is selected.",
+          "classifications": [
+            "explicit-guarantee-change",
+            "underspecified-condition"
+          ],
+          "current_reading": "Original trusted-time protection cannot be satisfied by asserting an unobservable discontinuity was detected.",
+          "not_an_exhaustive_native_schedule": true,
+          "paper_order": [
+            "An original same-boot mapping and fixed deadlines are known at admission.",
+            "Compare observed/suspected rollback with a deliberately hidden assumed-trusted rollback producing no usable observation."
+          ],
+          "whole_member_semantic_dispositions_due_step": 415
+        }
+      ],
+      "disposition": "Draft clarification CL410-CLOCK makes observation/knowledge qualification explicit; original candidate unchanged and independent meaning review pending. Shared trust/fault review due412.",
+      "id": "A410-04",
+      "independent_impact_acceptance": false,
+      "issue": "Unqualified snapshot/restore in the clause can be read as detection of hidden assumed-trusted rollback, unlike the companion assumption and global C403 rule.",
+      "native_proof": false,
+      "normative_migration_approved": false,
+      "runtime_authority": false,
+      "status": "open-authored-finding-not-independent-acceptance",
+      "user_selection": null,
+      "whole_clause_source_bindings": [
+        {
+          "complete_proposed_value": "Authenticate the issuer's original fixed finite bounds and map them once at admission to an independently reviewed local elapsed-time clock domain under an explicitly enumerated conforming host kernel/hardware/hypervisor assumption. Preserve the original boot/clock-domain identity, exact mapping, fixed deadlines and durable budget. Suspend elapsed time must be accounted for or further effects denied before resume; missing/unknown mapping, boot drift, observed or suspected discontinuity, snapshot/restore or provider loss blocks effects. No clock fallback, deadline renewal, budget refill or right revival.",
+          "id": "C403/clock_contract/rule",
+          "input_key": "original323",
+          "json_pointer": "/clock_contract/rule",
+          "replacement_approved": false,
+          "source_input": "loss403",
+          "source_pointer": "/exact_clock_clause_proposal",
+          "whole_current_value": "issuer-authenticated-finite-bounds-and-independent-trusted-time-mapping-with-same-boot; no-wallclock-rollback-suspend-epoch-restart-or-unknown-as-valid"
+        }
+      ],
+      "whole_member_semantic_dispositions_due_step": 415
+    },
+    {
+      "actual_native_evidence": null,
+      "affected_joint_dimension_ids": [
+        "terminal-cut-vs-whole-stage-oracle",
+        "observer-controls-vs-finite-custody"
+      ],
+      "audit_clause_pointers": [
+        "/clause_reviews/9"
+      ],
+      "classification": "underspecified-condition",
+      "complete_ordered_paper_challenges": [
+        {
+          "affected_joint_dimension_ids": [
+            "terminal-cut-vs-whole-stage-oracle",
+            "observer-controls-vs-finite-custody",
+            "two-platform-fresh-test-entry"
+          ],
+          "assessment": "Publication uses its own original controls and request scope, not borrowed target rights. Its old wording says terminal criteria are unresolved for405/407 although those authored criteria are now present; actual native closure remains unresolved. Clarify the distinction rather than invent absence or acceptance.",
+          "candidate_reading": "Only publication-own known pre-request finite envelope may continue under original valid publication bounds. Apply whole authored405/407 criteria, whose native realization is unknown; target request neither grants nor automatically revokes separate publication.",
+          "classifications": [
+            "explicit-guarantee-change",
+            "underspecified-condition"
+          ],
+          "current_reading": "Captured-data publication still needs its original continuous own controls; no target refresh or renewed grant.",
+          "not_an_exhaustive_native_schedule": true,
+          "paper_order": [
+            "Target closure is independently captured and the guard released.",
+            "One separately controlled publication operation is admitted; its own request occurs before an internal effect."
+          ],
+          "whole_member_semantic_dispositions_due_step": 415
+        }
+      ],
+      "disposition": "Draft clarification CL410-PUBLICATION explicitly requires whole authored405/407 criteria while retaining unknown actual native realization. No new authority or criteria activation; review due414.",
+      "id": "A410-05",
+      "independent_impact_acceptance": false,
+      "issue": "The publication sentence still says terminal criteria are unresolved for405/407; authored criteria exist but actual native realization is unresolved. The wording does not distinguish those statuses.",
+      "native_proof": false,
+      "normative_migration_approved": false,
+      "runtime_authority": false,
+      "status": "open-authored-finding-not-independent-acceptance",
+      "user_selection": null,
+      "whole_clause_source_bindings": [
+        {
+          "complete_proposed_value": "DRAFT: After independently known target closure,use captured closed data only under separately reviewed original publication controls. Publication operation admission and its own known revocation policy,source/observer/writer/storage/custody/finite bounds must be independently specified;target forward/recovery rights or requests cannot be borrowed as publication authority. Its own applicable revocation may deny new admissions while a specifically pre-admitted finite envelope finishes within its separate original bounds. All terminal receipt/observer/custody guarantees and exact stage membership remain unresolved for405/407;no late target/source action or republish on uncertainty.",
+          "id": "P402/closure_contract/publication",
+          "input_key": "original323",
+          "json_pointer": "/closure_contract/publication",
+          "replacement_approved": false,
+          "source_input": "operation402",
+          "source_pointer": "/exact_inactive_clause_replacements/7",
+          "whole_current_value": "after-target-closure-use-captured-closed-data-under-independent-publication-controls-through-last-receipt; no-target-refresh-write-or-renewal"
+        }
+      ],
+      "whole_member_semantic_dispositions_due_step": 415
+    },
+    {
+      "actual_native_evidence": null,
+      "affected_joint_dimension_ids": [
+        "offline-bootstrap-vs-live-channel",
+        "guardian-drain-vs-forward-failure",
+        "durable-rights-vs-loss-deadlines"
+      ],
+      "audit_clause_pointers": [
+        "/clause_reviews/2",
+        "/clause_reviews/4",
+        "/clause_reviews/6",
+        "/clause_reviews/7"
+      ],
+      "classification": "unproved-native-hypothesis",
+      "complete_ordered_paper_challenges": [
+        {
+          "affected_joint_dimension_ids": [
+            "offline-bootstrap-vs-live-channel",
+            "guardian-drain-vs-forward-failure",
+            "durable-rights-vs-loss-deadlines",
+            "two-platform-fresh-test-entry"
+          ],
+          "assessment": "The rule moves request denial from every internal effect to serialized operation admission. Forward AND retained recovery envelopes can have post-request effects; no-channel serialization and safe stopping are not provided by this sentence.",
+          "candidate_reading": "The inactive admission rule permits only known pre-request envelope continuation within unchanged bounds and every other prerequisite; no new admission or worker control channel follows.",
+          "classifications": [
+            "explicit-guarantee-change",
+            "unproved-native-hypothesis"
+          ],
+          "current_reading": "The original live effect boundary denies a newly dispatched affected effect after revocation.",
+          "not_an_exhaustive_native_schedule": true,
+          "paper_order": [
+            "Known original pre-spend and exact finite envelope precede serialized admission.",
+            "An applicable request occurs after that admission but before one declared internal effect."
+          ],
+          "whole_member_semantic_dispositions_due_step": 415
+        },
+        {
+          "affected_joint_dimension_ids": [
+            "offline-bootstrap-vs-live-channel",
+            "writer-trust-vs-source-and-clock",
+            "durable-rights-vs-loss-deadlines"
+          ],
+          "assessment": "Only the request check moves to admission; identity/time/scope/guard/known-control remain continuous. A known infrastructure breach or expiry still cannot be overridden by pre-admission.",
+          "candidate_reading": "Pre-request admission removes only the internal request recheck in the draft. Expiry or unknown guard denies dependent unproved effects and preserves in-flight obligations.",
+          "classifications": [
+            "explicit-guarantee-change"
+          ],
+          "current_reading": "Both applicable live revocation and failed continuous prerequisites deny effect dispatch.",
+          "not_an_exhaustive_native_schedule": true,
+          "paper_order": [
+            "One exact forward operation is admitted before a forward request.",
+            "Before a later internal effect, the original deadline expires or guard becomes unverifiable."
+          ],
+          "whole_member_semantic_dispositions_due_step": 415
+        },
+        {
+          "affected_joint_dimension_ids": [
+            "guardian-drain-vs-forward-failure",
+            "observer-controls-vs-finite-custody"
+          ],
+          "assessment": "Predeclaring a safe cut cannot demonstrate it is independently enforceable. Full actual writers/descendants/FD/streams/in-flight storage must be known; inability to prove drain remains pending.",
+          "candidate_reading": "No drain or closure follows from backend/parent exit. Complete native membership, control, provenance and original finite rights remain required, not demonstrated.",
+          "classifications": [
+            "unproved-native-hypothesis"
+          ],
+          "current_reading": "Started effects and children remain obligations until independently known stopped at safe boundaries.",
+          "not_an_exhaustive_native_schedule": true,
+          "paper_order": [
+            "The backend returns and the parent exits.",
+            "A descendant still holds a writing FD or storage completion is unknown."
+          ],
+          "whole_member_semantic_dispositions_due_step": 415
+        },
+        {
+          "affected_joint_dimension_ids": [
+            "durable-rights-vs-loss-deadlines",
+            "baseline-unknown-vs-backend-effects"
+          ],
+          "assessment": "Recovery validity also changes from a live recovery fence at each effect to once-only pre-spent admission. All original trap/guard/identity/known-backup/drain/deadline conditions remain; no repeat on lost ACK.",
+          "candidate_reading": "The inactive exception permits only that known pre-request admitted original finite envelope if every other prerequisite stays valid. The guarantee loss is explicit, not recovery equivalence.",
+          "classifications": [
+            "explicit-guarantee-change"
+          ],
+          "current_reading": "The original live recovery fence denies the affected recovery write after the request.",
+          "not_an_exhaustive_native_schedule": true,
+          "paper_order": [
+            "Known exact backup, independent drain and original recovery spend precede admission.",
+            "A recovery/all request precedes one declared internal restore write."
+          ],
+          "whole_member_semantic_dispositions_due_step": 415
+        }
+      ],
+      "disposition": "Open native mechanism question, with paper admission/loss challenges due411-412. No backend/parent/EOF/count/role evidence substitutes. No native test grant.",
+      "id": "A410-06",
+      "independent_impact_acceptance": false,
+      "issue": "A declared finite envelope or safe cut does not supply actual no-worker-channel admission/request serialization, prevention, stopping or independently known complete drain.",
+      "native_proof": false,
+      "normative_migration_approved": false,
+      "runtime_authority": false,
+      "status": "open-authored-finding-not-independent-acceptance",
+      "user_selection": null,
+      "whole_clause_source_bindings": [
+        {
+          "complete_proposed_value": "DRAFT: For forward and retained recovery operations, the external controller serializes admission against the original issuer policy and known scoped revocation. A request irreversibly closes new admissions in its affected scope; a previously admitted operation may complete only its predeclared finite effects and descendants up to its independently known safe cut, inside the original fixed deadline, already-spent budget and exact object/effect scope. This explicitly allows internal effects after an applicable forward or recovery/all revocation request. Worker and contained commands retain no service/broker/control channel. Actual admission-to-effect serialization, no-channel enforcement and safe stopping are unresolved.",
+          "id": "F402/fence_contract/rule",
+          "input_key": "original323",
+          "json_pointer": "/fence_contract/rule",
+          "replacement_approved": false,
+          "source_input": "operation402",
+          "source_pointer": "/exact_inactive_clause_replacements/0",
+          "whole_current_value": "trusted-external-controller-enforces-original-policy-and-absorbing-revocation-at-every-effect-boundary; worker-and-contained-commands-have-no-service-or-broker-capability"
+        },
+        {
+          "complete_proposed_value": "DRAFT: Independently authenticate the original consumed attempt, exact forward operation/effect/descendant scope, original fixed trusted boot/time bounds and durable spend before one serialized operation admission. Require reviewed containment of its entire finite envelope through its known safe cut. Forward revocation closes further admissions rather than requiring fresh revocation permission at every internal effect of an already admitted operation. Identity/time/scope/guard/known-control conditions remain continuously required. A poll/reply/lease/operation label is not native serialization or a safe cut.",
+          "id": "F402/forward_contract/validity",
+          "input_key": "original323",
+          "json_pointer": "/forward_contract/validity",
+          "replacement_approved": false,
+          "source_input": "operation402",
+          "source_pointer": "/exact_inactive_clause_replacements/2",
+          "whole_current_value": "independent-authenticated-scope-trusted-time-and-continuously-enforced-live-fence-before-and-through-every-permitted-effect"
+        },
+        {
+          "complete_proposed_value": "DRAFT: Before admission enumerate all actual internal effects,objects,writers,FDs,helpers,descendants,streams,async storage and a finite independently supported safe cut. Loss/stop requests,backend return,task counts or a named boundary do not establish completion. If expiry/failure/owner loss arrives before known stopping,deny unproved dependent effects and retain actual in-flight/child obligations pending;never claim guaranteed finite drain or closure.",
+          "id": "F402/forward_contract/in_flight",
+          "input_key": "original323",
+          "json_pointer": "/forward_contract/in_flight",
+          "replacement_approved": false,
+          "source_input": "operation402",
+          "source_pointer": "/exact_inactive_clause_replacements/4",
+          "whole_current_value": "started-effects-and-children-remain-obligations; inability-to-prove-stop-at-safe-effect-boundary-keeps-unknown-pending"
+        },
+        {
+          "complete_proposed_value": "DRAFT: Use only the explicitly retained original same-attempt recovery scope,fixed finite deadline and durable once-only action budget,with every original trap/guard/identity/known-backup/drain prerequisite. Serialize one pre-spent recovery operation admission against known original recovery/all revocation. Once admitted,only its exact declared finite recovery envelope may finish within original bounds after an applicable revocation request. This changes the current live recovery fence at every internal effect;no blanket expiry exemption or foreign restore is granted.",
+          "id": "R402/recovery_contract/validity",
+          "input_key": "original323",
+          "json_pointer": "/recovery_contract/validity",
+          "replacement_approved": false,
+          "source_input": "operation402",
+          "source_pointer": "/exact_inactive_clause_replacements/5",
+          "whole_current_value": "explicit-authenticated-issuer-original-recovery-scope-with-own-finite-deadline-budget-and-live-recovery-fence"
+        }
+      ],
+      "whole_member_semantic_dispositions_due_step": 415
+    },
+    {
+      "actual_native_evidence": null,
+      "affected_joint_dimension_ids": [
+        "terminal-cut-vs-whole-stage-oracle",
+        "observer-controls-vs-finite-custody",
+        "two-platform-fresh-test-entry"
+      ],
+      "audit_clause_pointers": [
+        "/clause_reviews/12",
+        "/clause_reviews/13"
+      ],
+      "classification": "unproved-native-hypothesis",
+      "complete_ordered_paper_challenges": [
+        {
+          "affected_joint_dimension_ids": [
+            "terminal-cut-vs-whole-stage-oracle",
+            "observer-controls-vs-finite-custody"
+          ],
+          "assessment": "Past-only payload, exact final object and all writer/observer/consumer outcomes are separate. Their native control/custody/ACK cannot be replaced by local visibility, signatures, hashes or role names.",
+          "candidate_reading": "Only qualified captured object facts may be known; independent writer/storage/custody outcomes remain pending. No self-future proof, atomic pair, replay or borrowed/new target authority.",
+          "classifications": [
+            "explicit-guarantee-change",
+            "unproved-native-hypothesis"
+          ],
+          "current_reading": "Whole original publication/last-receipt source/alias/authority and durability/custody remain required.",
+          "not_an_exhaustive_native_schedule": true,
+          "paper_order": [
+            "A receipt payload binds the closed producer trace and commits once.",
+            "The receipt is visible locally but writer descendant/storage or remote consumer ACK is unknown."
+          ],
+          "whole_member_semantic_dispositions_due_step": 415
+        },
+        {
+          "affected_joint_dimension_ids": [
+            "terminal-cut-vs-whole-stage-oracle",
+            "narrow-product-vs-whole-entry-proof",
+            "observer-controls-vs-finite-custody",
+            "two-platform-fresh-test-entry"
+          ],
+          "assessment": "A finite terminal evidence/trust cut changes acceptance scope but is not a native composition proof. Every acceptance/observer own effect remains controlled and accounted; a later real unclassified effect blocks closure.",
+          "candidate_reading": "The later effect prevents eligibility until reviewed. Do not exempt an observer or promise infinite self-proof; actual finite accounting, custody and trust remain unknown.",
+          "classifications": [
+            "explicit-guarantee-change",
+            "unproved-native-hypothesis"
+          ],
+          "current_reading": "Original whole effects/obligations and actual native refinement remain due.",
+          "not_an_exhaustive_native_schedule": true,
+          "paper_order": [
+            "A finite paper subject/receipt/observer/custody boundary is declared.",
+            "A verifier later creates evidence or a writer obligation outside that declared cut is discovered."
+          ],
+          "whole_member_semantic_dispositions_due_step": 415
+        }
+      ],
+      "disposition": "Open actual source/control/storage/drain/custody question; every own actor remains in scope. Detailed paper terminal challenges due414; actual independent review and fresh test authority later.",
+      "id": "A410-07",
+      "independent_impact_acceptance": false,
+      "issue": "Finite receipt/observer/consumer accounting and original storage/clock/rights at terminal acceptance remain unbound; a paper cut or acyclic graph cannot prove actual finite custody closure.",
+      "native_proof": false,
+      "normative_migration_approved": false,
+      "runtime_authority": false,
+      "status": "open-authored-finding-not-independent-acceptance",
+      "user_selection": null,
+      "whole_clause_source_bindings": [
+        {
+          "complete_proposed_value": {
+            "actual_durability_backend": null,
+            "actual_paths": null,
+            "actual_receipt_origin": null,
+            "durability": "Archive and sidecar are separate exclusive no-replace controlled objects. Before each own effect independently review service barriers, authenticated original identity/authority, ancestor/mount/backing/alias/all-writer protection, original fixed clock, once-only pre-spent finite right and storage. Whole original file/metadata/directory/device/ACK durability, descendants/streams/status/origin remain required; no atomic pair, self-containing archive, hash/exit/flush-as-proof, overwrite or commit repeat. Receipt writer commits once as a separate finite publication obligation. Independently protected final observer establishes exact final receipt bytes/metadata/object/ancestry/alias/writers plus file/directory/storage outcome AND full receipt-writer descendants/FD/streams/status/origin. Independence requires actual protected source, provenance and effective faults; a separate process, UID, signature or role label is insufficient. Observer own effect/control/drain/storage is still a reviewed obligation, not passive immunity.",
+            "independent": "Only after complete producer subject trace closure may external receipt payload bind exact protected prior subject stdout/stderr/status/origin and artifact facts from captured data. Receipt never includes proof/hash/ACK of its own future commit or later writer/final-observer/consumer completion. Writer completion must be captured separately. Payload signature/path/digest and producer exit are not independent final evidence. Protected consumer/verifier independently binds the exact captured receipt and archive/sidecar identity to reviewed transport, custody endpoint, bytes/metadata, original source/trust/clock/finite right and known handoff/ACK. Local final receipt visibility is not remote consumer custody. Custody/ACK uncertainty remains pending independently from known captured object/target facts. No new target grant, repeat handoff or republish on unknown outcome.",
+            "target_order": "drain-original-restore-fullverify-target-evidence-under-guard-then-release; no-target-writes-or-refresh-after-release",
+            "unknown": "Known original failure/mismatch stays sticky alongside pending trace, object, writer, observer, custody or controller outcomes. Unknown commit, ACK, spend, storage, actor loss or drain is quarantined; never replay, republish, rebind, refund, relaunch or infer no-effect/absent/success. A qualified captured object fact may survive unrelated unknown custody but cannot authorize dependent new effects or erase failed admission."
+          },
+          "id": "E405/publication_contract",
+          "input_key": "original325",
+          "json_pointer": "/publication_contract",
+          "replacement_approved": false,
+          "source_input": "publication405",
+          "source_pointer": "/exact_inactive_clause_replacements/1",
+          "whole_current_value": {
+            "actual_durability_backend": null,
+            "actual_paths": null,
+            "actual_receipt_origin": null,
+            "durability": "separate-no-replace-record-then-last-receipt-with-supported-file-meta-directory-storage-proof; no-pair-atomicity-or-self-containing-receipt-hash",
+            "independent": "captured-closed-data-only-with-separate-recipient-ancestry-alias-owner-content-writer-and-authority-controls-through-last-receipt",
+            "target_order": "drain-original-restore-fullverify-target-evidence-under-guard-then-release; no-target-writes-or-refresh-after-release",
+            "unknown": "lost-ack-partial-or-unknown-record-receipt-handoff-retains-artifacts-original-status-pending-controller-obligations-no-replay-republish-or-new-target-grant"
+          }
+        },
+        {
+          "complete_proposed_value": {
+            "closure": "INACTIVE terminal evidence/trust amendment: complete finite enumerated subject/receipt/collector/observer/consumer/verifier accounting under reviewed independent custody ends at an explicitly declared cut. Acceptance itself has source/trust/object/storage/clock/finite-right responsibilities. No included further evidence-producing effect occurs after that cut; any real later unclassified effect blocks eligibility and requires review, not an exemption or infinite self-receipt chain. Complete actual native boundary/independence/closure remains unknown.",
+            "design": "All30 designed effect domains/every edge/seven capabilities/ten obligations/42 inherited proofs/nine windows/52 cases indexed. Reviewed disposition never operational proof.",
+            "effects": "Include all service/reference/helper/source/backend/selector/package/config/boot/owned/restore/publication surfaces; actual dynamic graph/entry still unclosed and boot/optional mutations outside scope remain forbidden.",
+            "host": "Current repository/private delivery requires no new machine/controller action. Historical/current actual host bindings unobserved/null; unobserved never absent, closed or globally safe.",
+            "integration": "328 may freeze this repository integration-design workstream after complete327 acceptance. Actual operational implementation freeze/readiness still requires selected graph/primitives/refinement/independent conformance/fresh authority.",
+            "obligations": "EVERY producer, collector, receipt writer, final observer, consumer and verifier own effect remains within401 actor/ACTION workload and source/alias controls; ordinary faults remain failures. Apply402 INACTIVE scoped admission cuts only inside original exact admitted envelope and403 original clock/independent full drain;404 irreversible durable action spend/storage/quarantine. Never borrow worker target rights, add a worker service channel, waive first-effect controls, refill budget, replace guard or renew clock/grant. Actual role sharing/separation is unbound.",
+            "rights": "Issuer controls and admission known-unused differ from consumed launch/worker/nested and original finite recovery. Publication uses separate captured-data controls, never a fresh target grant or forward renewal."
+          },
+          "id": "E405/crossclosure_contract",
+          "input_key": "original327",
+          "json_pointer": "/crossclosure_contract",
+          "replacement_approved": false,
+          "source_input": "publication405",
+          "source_pointer": "/exact_inactive_clause_replacements/2",
+          "whole_current_value": {
+            "closure": "Known children/full original verification/target evidence before release; no later target writes. Record/receipt/handoff separate; any unclassified/unknown actual effect or obligation remains pending.",
+            "design": "All30 designed effect domains/every edge/seven capabilities/ten obligations/42 inherited proofs/nine windows/52 cases indexed. Reviewed disposition never operational proof.",
+            "effects": "Include all service/reference/helper/source/backend/selector/package/config/boot/owned/restore/publication surfaces; actual dynamic graph/entry still unclosed and boot/optional mutations outside scope remain forbidden.",
+            "host": "Current repository/private delivery requires no new machine/controller action. Historical/current actual host bindings unobserved/null; unobserved never absent, closed or globally safe.",
+            "integration": "328 may freeze this repository integration-design workstream after complete327 acceptance. Actual operational implementation freeze/readiness still requires selected graph/primitives/refinement/independent conformance/fresh authority.",
+            "obligations": "Every inherited statement/status/evidence stays byte-bound and required-not-proven, including worker-vs-service claim/traps interpretation and explicit stage7 successor; no frozen rewrite or waived proof.",
+            "rights": "Issuer controls and admission known-unused differ from consumed launch/worker/nested and original finite recovery. Publication uses separate captured-data controls, never a fresh target grant or forward renewal."
+          }
+        }
+      ],
+      "whole_member_semantic_dispositions_due_step": 415
+    }
+  ],
+  "expected_prior_entry_reference": {
+    "canonical_sha256": "3ed3effde3ca28ffde31d935b55e19987e400f15d02957382a5b782c2daa9aab",
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-manuscript-audit-resume-planning-review-entry408.json",
+    "sha256": "6f31fc3b06b9d96851f420ca4f728589eb4442d14e9c72bc1d1957ece20f7d12"
+  },
+  "expected_review_result": {
+    "actual_global_host_closure": false,
+    "actual_host_state": "unobserved-not-claimed-absent",
+    "actual_live_bindings": null,
+    "approved_contract_migration": null,
+    "authored_findings": 7,
+    "current_strong_safe_pause": false,
+    "draft_clarifications": 2,
+    "independent_impact_review_accepted": false,
+    "last_confirmed_strong_safe_pause_step": 408,
+    "native_cases_run": 0,
+    "native_proofs_added": 0,
+    "next_preparable_step_after_complete_acceptance": 411,
+    "runtime_authority": false,
+    "selected_options": null,
+    "state": "prepared-internal-clause-audit-awaiting-user-acceptance",
+    "step": 410
+  },
+  "false_fields": [
+    "independent_impact_review_accepted",
+    "semantic_migration_complete",
+    "current_strong_safe_pause",
+    "all_semantic_findings_resolved",
+    "runtime_authority"
+  ],
+  "fixture_canonical_sha256": {
+    "audit": "e523438d159da05385cc9b9349d8b3944c9fadebfd4285ea221a45b6b8f56427",
+    "baseline": "1a77564b95f23ff2799fbf69fd607d93fa62e94b26b368c3c186f561204a7306",
+    "entry409": "3bf913a1f0f700e00727352697f8fcc3de275088ef2733994b27e7256c05c5b3",
+    "sources": "b75b5d1a1e4259707d4e7482befe4a6e94d3ac6a201f4fa5c90cf1299b381d93"
+  },
+  "new_paths": [
+    "docs/reference/phase-1-operational-joint-clause-guarantee-loss-audit-review.md",
+    "tools/reference/phase-1-operational-joint-clause-guarantee-loss-audit-review.py",
+    "tests/reference/test-phase-1-operational-joint-clause-guarantee-loss-audit-review-harness.sh",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-clause-guarantee-loss-audit-review-baseline.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-clause-guarantee-loss-audit-review-entry409.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-clause-guarantee-loss-audit-review-audit.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-clause-guarantee-loss-audit-review-sources.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-clause-guarantee-loss-audit-review-policy.json"
+  ],
+  "new_source_keys": [
+    "plan409",
+    "policy409",
+    "sources409",
+    "actual408_entry"
+  ],
+  "null_fields": [
+    "selected_options",
+    "approved_joint_specification",
+    "approved_contract_migration",
+    "actual_selected_implementation",
+    "actual_joint_native_graph",
+    "actual_native_evidence",
+    "actual_two_platform_run_bindings"
+  ],
+  "prefixes": {
+    "CHANGELOG.md": "## Phase 1 step 410 -- exact clause and guarantee-loss internal audit\n\n- Accepted409 at reported90f9f6c,61 ordered PASS/zero failures,exact ten paths/eight\n  creates/6206insertions/message,push/clean matching heads;full supplied return retained.\n- Audit14 WHOLE current/candidate clauses,four full assumptions,all five complete\n  loss-register families,eight whole current/patch views and separate whole316stage12.\n- Seven authored findings preserve three guarantee changes,two wording ambiguities\n  and two unproved native hypotheses; specific ordered paper comparisons,not native\n  observations or independent semantic acceptance. All nine global rules apply.\n- Two complete inactive clarification proposals retain original clause wording:\n  observed/suspected clock rollback qualification and authored405/407-versus-unknown\n  native publication status. No previous manuscript substitution or activation.\n- Whole113 inputs/36 roots,four native roots inert;all2202 old historical bodies\n  unchanged except exact additive prefixes,eight additions. Detailed1286-member\n  semantics due415; original norms binding,choices/approval/native gates pending.\n- Full actual410 acceptance before411. Last confirmed pause408only;conditional418\n  finalreturn/external all-nine review then STOP/noautomatic419/newrequest.\n\n",
+    "README.md": "<!-- step-410-clause-guarantee-audit:start -->\n## Current Phase 1 exact clause and guarantee-loss audit -- step 410\n\nAccepted409 at reported `90f9f6c`:61 ordered PASS,zero failures,ten files/eight\ncreates/6206 insertions,reported main push/clean matching heads. Complete disclosed\nreturn retained; intermediate checkpoint only,last confirmed repository pause408.\n\nThe [410 audit](docs/reference/phase-1-operational-joint-clause-guarantee-loss-audit-review.md)\ncompares WHOLE14 current/proposed clauses,four assumptions,all five full loss\nfamilies,eight full current/patch views and separate whole316 stage12. Seven\nauthored findings:three explicit guarantee changes,two wording ambiguities,two\nunproved native hypotheses. Clock snapshot/restore knowledge qualification and\nstale publication405/407 status get two complete INACTIVE clarification proposals.\nOld manuscript unchanged; no substitution/activation/independent acceptance/native\nproof. Every local comparison retains all nine whole global rules and dependencies.\n\nAll113 whole inputs/36 roots,four native roots inert,whole1286-member matrix still\navailable; detailed member semantic review due415. Current original norms binding,\nA/R/D unselected,approvals/migration/actual native graph/support/gates pending.\nNative proofs/cases0;Phase1 incomplete,schema/reference-v1/C/Phase2/Production closed;\nhost unobserved/live bindings NULL/global FALSE.410 prepared,user acceptance pending.\nComplete410 return before411; conditional418 actual final/external all-nine review\nthen STOP/noautomatic419/newrequest,no old binding/grant reuse. Prior README intact.\n<!-- step-410-clause-guarantee-audit:end -->\n\n"
+  },
+  "receipt_create_paths": [
+    "docs/reference/phase-1-operational-joint-manuscript-audit-resume-planning-review.md",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-manuscript-audit-resume-planning-review-baseline.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-manuscript-audit-resume-planning-review-entry408.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-manuscript-audit-resume-planning-review-plan.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-manuscript-audit-resume-planning-review-policy.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-manuscript-audit-resume-planning-review-sources.json",
+    "tests/reference/test-phase-1-operational-joint-manuscript-audit-resume-planning-review-harness.sh",
+    "tools/reference/phase-1-operational-joint-manuscript-audit-resume-planning-review.py"
+  ],
+  "receipt_final_tail": "90f9f6c (HEAD -> main, origin/main, origin/HEAD) Phase 1 step 409: plan bounded internal audit of frozen joint contract manuscript\n90f9f6c (HEAD -> main, origin/main, origin/HEAD) Phase 1 step 409: plan bounded internal audit of frozen joint contract manuscript\npromano@pc-arch ~/Descargas $ \n",
+  "receipt_pass_labels": [
+    "PASS: whole authored409 fixtures bound",
+    "PASS: complete actual408 receipt and all nine WHOLE external conditions",
+    "PASS: all109 whole JSON inputs and35 pure or inert source roots",
+    "PASS: frozen manuscript direct original14 clauses and1286 member bindings",
+    "PASS: finite409-418 internal audit plan and separate approval boundaries",
+    "PASS: all2194 historical408 paths unchanged except exact additive prefixes",
+    "PASS: exact eight additions plus README and CHANGELOG",
+    "PASS: reject boolean schema",
+    "PASS: reject wrong step",
+    "PASS: reject audit already completed",
+    "PASS: reject historical user full Git ID invented",
+    "PASS: reject block request chooses option",
+    "PASS: reject joint specification approved",
+    "PASS: reject contract migration approved",
+    "PASS: reject implementation selected",
+    "PASS: reject native graph invented",
+    "PASS: reject native evidence invented",
+    "PASS: reject author audit made independent impact acceptance",
+    "PASS: reject normative migration complete",
+    "PASS: reject original norms waived",
+    "PASS: reject current409 pause self-confirmed",
+    "PASS: reject block request opens native tests",
+    "PASS: reject source binding removed",
+    "PASS: reject inert native root removed",
+    "PASS: reject whole joint dimension shortened",
+    "PASS: reject amendment omitted",
+    "PASS: reject member category omitted",
+    "PASS: reject roadmap shortened",
+    "PASS: reject successor skips actual predecessor acceptance",
+    "PASS: reject roadmap silently authorizes native effects",
+    "PASS: reject no independent review falsely promoted",
+    "PASS: reject revocation review omits recovery scope",
+    "PASS: reject terminal receipt review replaced by producer exit",
+    "PASS: reject findings may be erased",
+    "PASS: reject paper counterexample made native observation",
+    "PASS: reject author repair activates current contract",
+    "PASS: reject user approval gate omitted",
+    "PASS: reject native grant before actual safety review",
+    "PASS: reject last confirmed pause moved to current block",
+    "PASS: reject unknown host declared absent",
+    "PASS: reject global host closure invented",
+    "PASS: reject native proof invented",
+    "PASS: reject batch cleanup demanded",
+    "PASS: reject pause condition omitted",
+    "PASS: reject whole nested pause reference rebound",
+    "PASS: reject external final confirmation omitted",
+    "PASS: reject old binding revived",
+    "PASS: reject automatic419 permitted",
+    "PASS: reject future repository batch not stopped",
+    "PASS: reject complete408 receipt truncated",
+    "PASS: reject external whole condition truncated",
+    "PASS: reject external historical scope expanded",
+    "PASS: reject unknown native evidence fabricated",
+    "PASS: reject external condition missing",
+    "PASS: reject original contract byte drift",
+    "PASS: reject inert native source drift without running it",
+    "PASS: reject coordinated authored policy substitution",
+    "PASS: prepared result grants no native rights or independent acceptance",
+    "PASS: pure reviewer has only supplied-data imports and no dynamic dispatch",
+    "PASS: exact authored artifact docs/reference/phase-1-operational-joint-manuscript-audit-resume-planning-review.md",
+    "PASS: exact authored artifact tests/reference/test-phase-1-operational-joint-manuscript-audit-resume-planning-review-harness.sh"
+  ],
+  "receipt_push_marker": "   a81a741..90f9f6c  main -> main\n",
+  "receipt_single_markers": [
+    "step409_overlay_application_status\tPASS",
+    "step409_commit_scope_verification_status\tPASS",
+    "Result: PASS (61 passes, 0 failures)",
+    "[main 90f9f6c] Phase 1 step 409: plan bounded internal audit of frozen joint contract manuscript",
+    " 10 files changed, 6206 insertions(+)",
+    "To github.com:promano7/slack-update.git",
+    "   a81a741..90f9f6c  main -> main\n"
+  ],
+  "schema": 1,
+  "step": 410
+}
