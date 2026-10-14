@@ -1,3 +1,18 @@
+## Phase 1 step 414 -- whole stage12 receipt custody and terminal audit
+
+- Accepted413 at reported5079219,79orderedPASS/zero failures,exact10paths/8creates/
+  14206insertions/message,push/clean matching heads;complete disclosed return retained.
+- All10wholeevents/6ownroles/current316stage12/3inactive stage-publication-terminal
+  replacements compared;whole405/384causal/event/failure context retained.
+-28papercases preserve separate producer/payload/receipt/writer/object/custody/own
+  outcomes. Declaredgraph checker retains exact partialorder/missing/duplicateevent
+  positions;no observer-custody extraedge,no nativeclosure or grant frompaperDAG.
+- One open subject-fact/collector-own-effect membership question retainswhole source,
+  all12priorfindings/questions/twoinactive410clarifications unchanged. No activation.
+- Whole129inputs/40roots,4nativerootsINERT;all2234oldbodies unchanged except exact
+  prefixes,8adds. Fullactual414before415,lastconfirmedpause408only;conditional418
+  actualfinal/externalALL9 thenSTOP/noautomatic419/newrequest. Nativeclosed.
+
 ## Phase 1 step 413 -- original baseline storage and once-only rights audit
 
 - Accepted412 at reported12bd22a,69orderedPASS/zero failures,exact10paths/8creates/
