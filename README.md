@@ -1,3 +1,29 @@
+<!-- step-411-scoped-revocation-paper-audit:start -->
+## Current Phase 1 scoped revocation paper audit -- step 411
+
+Accepted410 at reported `a23fabb`:69 ordered PASS,zero failures,ten files/eight
+creates/30031 insertions,reported main push/clean matching heads. Complete supplied
+return retained; intermediate checkpoint only,last confirmed repository pause408.
+
+The [411 audit](docs/reference/phase-1-operational-joint-scoped-revocation-paper-audit-review.md)
+retains36 complete paper cases for forward,recovery,target-evidence and separate
+publication request/admission/order/expiry/envelope/control/spend/ACK uncertainty.
+Known failure,mismatch,qualified hypothetical captured facts and pending outcomes
+remain separate. Positive paper projections never grant effects. Original live
+target fences differ from inactive pre-request continuation;publication-own original
+policy is not inferred from target request fields. Two new OPEN specification
+questions retain whole source:request authority namespaces and full publication-own
+policy. Seven old410 findings/two inactive clarifications preserved unchanged.
+
+All117 whole inputs/37 roots,four native roots inert;WHOLE402 context/all nine
+global rules/whole original1286-member scope retained. Reader supplied-data only,
+not native gate,implementation/ABI choice or independent acceptance. Original norms
+binding,A/R/D unselected,approvals/native gates pending,proofs/cases0,Phase1 incomplete.
+Host unobserved/livebindingsNULL/globalFALSE,schema/reference-v1/C/Phase2/Production
+closed.411 prepared;full actual411 before412. Conditional418 actualfinal/external
+ALL9 then STOP/noautomatic419/newrequest,no oldbindings revived. Prior README intact.
+<!-- step-411-scoped-revocation-paper-audit:end -->
+
 <!-- step-410-clause-guarantee-audit:start -->
 ## Current Phase 1 exact clause and guarantee-loss audit -- step 410
 

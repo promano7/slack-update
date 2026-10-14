@@ -1,3 +1,20 @@
+## Phase 1 step 411 -- scoped revocation paper audit
+
+- Accepted410 at reporteda23fabb,69 ordered PASS/zero failures,exact10paths/8creates/
+  30031insertions/message,push/clean matching heads;complete disclosed return retained.
+- Thirty-six complete paper cases retain scoped request/admission order,original
+  finite envelopes,expiry/control/source/spend/no-channel uncertainty,recovery and
+  target-evidence/publication separation. Reader has no actual effect permission.
+- Known original failure/mismatch,qualified captured facts and pending obligations
+  survive separately;no request/backend exit as drain,unknown as no-effect or ACKretry.
+- Two new open specification questions retain whole source:authority namespace of
+  all requests,and publication-own original policy not inferred from target fields.
+  All7 prior410 findings/2 inactiveclarifications unchanged;no selection/activation.
+- Whole117 inputs/37 roots,4 native roots inert;all2210 old bodies unchanged except
+  exact prefixes,8 additions. Same-author paper audit not independent/native proof.
+- Full actual411 before412,lastconfirmedpause408only;conditional418 actualfinal/
+  externalALL9 then STOP/noautomatic419/newrequest. Nativeclosed,Phase1 incomplete.
+
 ## Phase 1 step 410 -- exact clause and guarantee-loss internal audit
 
 - Accepted409 at reported90f9f6c,61 ordered PASS/zero failures,exact ten paths/eight

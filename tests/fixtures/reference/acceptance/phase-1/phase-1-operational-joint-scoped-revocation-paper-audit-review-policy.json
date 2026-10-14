@@ -1,0 +1,2626 @@
+{
+  "artifact_sha256": {
+    "docs/reference/phase-1-operational-joint-scoped-revocation-paper-audit-review.md": "30309704e28075bbaa33b7187bfea5444d3886c9ef66e9b6a0bc55f1cdd0fbb6",
+    "tests/reference/test-phase-1-operational-joint-scoped-revocation-paper-audit-review-harness.sh": "c3321a6c8946c36f514bbd8606f256722a14d5625b39e0475664634ac293502d"
+  },
+  "expected_boundaries": {
+    "C_port_open": false,
+    "actual_global_host_closure": false,
+    "actual_host_state": "unobserved-not-claimed-absent",
+    "actual_live_bindings": null,
+    "actual_native_refinement_complete": false,
+    "actual_successor_selected": false,
+    "controller_action_required": false,
+    "current_step_strong_safe_pause": false,
+    "execution_authorized": false,
+    "historical_binding_or_authority_reuse_allowed": false,
+    "kernel_package_edge_complete": false,
+    "last_confirmed_strong_safe_pause_step": 408,
+    "later_current_refresh_invalidates_repository_only_pause": false,
+    "machine_action_required": false,
+    "native_cases_run": 0,
+    "native_components_selected": false,
+    "native_graph_complete": false,
+    "native_proofs_added": 0,
+    "operational_conformance": false,
+    "operational_readiness": false,
+    "phase1_matrix_complete": false,
+    "phase2_open": false,
+    "production_entry_closed": true,
+    "reference_v1_frozen": false,
+    "runtime_authority": false,
+    "strong_safe_pause": false,
+    "target_machine_actions_authorized": false,
+    "version1_schema_frozen": false
+  },
+  "expected_cases": [
+    {
+      "case": {
+        "facts": {
+          "action_is_original_once_only": true,
+          "admission_state_known": true,
+          "clock_mapping_known": true,
+          "complete_original_prerequisites_known": true,
+          "envelope_membership_known": true,
+          "guard_known": true,
+          "no_worker_control_channel_known": true,
+          "original_authority_known": true,
+          "pre_spend_known": true,
+          "safe_cut_supported_known": true,
+          "same_identity_known": true,
+          "source_protection_known": true,
+          "within_original_deadline": true,
+          "within_original_spent_budget": true
+        },
+        "hypothetical_only": true,
+        "id": "F01-new-admission-no-request",
+        "mode": "new-admission",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "paper_order": [
+          "Known original identity, fixed bounds, whole envelope, pre-spend and required controls are hypothetical premises, not actual evidence.",
+          "Compare declared admission/request order and each required prerequisite at the proposed dependent effect.",
+          "Keep original failure, qualified captured facts and pending outcomes separate; derive no actual permission or drain."
+        ],
+        "qualified_captured_fact": null,
+        "request": {
+          "namespace": "target",
+          "order": "none",
+          "scope": "none"
+        },
+        "scope": "forward"
+      },
+      "native_evidence": null,
+      "reading": {
+        "actual_global_host_closure": false,
+        "candidate_clause_projection": "paper-new-admission-question-only",
+        "current_original_requirements_remain_normative": true,
+        "known_denials": [],
+        "native_observation": null,
+        "new_grant_or_right_issued": false,
+        "original_clause_comparison": "original-whole-prerequisites-still-due-no-paper-permission",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "pending_obligations_retained": false,
+        "qualified_captured_fact": null,
+        "request_applies_in_paper_namespace": false,
+        "request_or_return_proves_full_drain": false,
+        "runtime_authority": false,
+        "unknown_means_no_effect": false,
+        "unknown_required_facts": []
+      },
+      "runtime_authority": false
+    },
+    {
+      "case": {
+        "facts": {
+          "action_is_original_once_only": true,
+          "admission_state_known": true,
+          "clock_mapping_known": true,
+          "complete_original_prerequisites_known": true,
+          "envelope_membership_known": true,
+          "guard_known": true,
+          "no_worker_control_channel_known": true,
+          "original_authority_known": true,
+          "pre_spend_known": true,
+          "safe_cut_supported_known": true,
+          "same_identity_known": true,
+          "source_protection_known": true,
+          "within_original_deadline": true,
+          "within_original_spent_budget": true
+        },
+        "hypothetical_only": true,
+        "id": "F02-request-denies-new",
+        "mode": "new-admission",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "paper_order": [
+          "Known original identity, fixed bounds, whole envelope, pre-spend and required controls are hypothetical premises, not actual evidence.",
+          "Compare declared admission/request order and each required prerequisite at the proposed dependent effect.",
+          "Keep original failure, qualified captured facts and pending outcomes separate; derive no actual permission or drain."
+        ],
+        "qualified_captured_fact": null,
+        "request": {
+          "namespace": "target",
+          "order": "before-admission",
+          "scope": "forward"
+        },
+        "scope": "forward"
+      },
+      "native_evidence": null,
+      "reading": {
+        "actual_global_host_closure": false,
+        "candidate_clause_projection": "paper-denied-dependent-effect-or-admission",
+        "current_original_requirements_remain_normative": true,
+        "known_denials": [
+          "applicable-request-closes-new-admission"
+        ],
+        "native_observation": null,
+        "new_grant_or_right_issued": false,
+        "original_clause_comparison": "original-whole-prerequisites-still-due-no-paper-permission",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "pending_obligations_retained": false,
+        "qualified_captured_fact": null,
+        "request_applies_in_paper_namespace": true,
+        "request_or_return_proves_full_drain": false,
+        "runtime_authority": false,
+        "unknown_means_no_effect": false,
+        "unknown_required_facts": []
+      },
+      "runtime_authority": false
+    },
+    {
+      "case": {
+        "facts": {
+          "action_is_original_once_only": true,
+          "admission_state_known": true,
+          "clock_mapping_known": true,
+          "complete_original_prerequisites_known": true,
+          "envelope_membership_known": true,
+          "guard_known": true,
+          "no_worker_control_channel_known": true,
+          "original_authority_known": true,
+          "pre_spend_known": true,
+          "safe_cut_supported_known": true,
+          "same_identity_known": true,
+          "source_protection_known": true,
+          "within_original_deadline": true,
+          "within_original_spent_budget": true
+        },
+        "hypothetical_only": true,
+        "id": "F03-known-pre-request-envelope",
+        "mode": "internal-effect",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "paper_order": [
+          "Known original identity, fixed bounds, whole envelope, pre-spend and required controls are hypothetical premises, not actual evidence.",
+          "Compare declared admission/request order and each required prerequisite at the proposed dependent effect.",
+          "Keep original failure, qualified captured facts and pending outcomes separate; derive no actual permission or drain."
+        ],
+        "qualified_captured_fact": null,
+        "request": {
+          "namespace": "target",
+          "order": "after-admission",
+          "scope": "forward"
+        },
+        "scope": "forward"
+      },
+      "native_evidence": null,
+      "reading": {
+        "actual_global_host_closure": false,
+        "candidate_clause_projection": "paper-consider-known-pre-request-finite-envelope-only",
+        "current_original_requirements_remain_normative": true,
+        "known_denials": [],
+        "native_observation": null,
+        "new_grant_or_right_issued": false,
+        "original_clause_comparison": "original-live-fence-denies-post-request-target-effect",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "pending_obligations_retained": false,
+        "qualified_captured_fact": null,
+        "request_applies_in_paper_namespace": true,
+        "request_or_return_proves_full_drain": false,
+        "runtime_authority": false,
+        "unknown_means_no_effect": false,
+        "unknown_required_facts": []
+      },
+      "runtime_authority": false
+    },
+    {
+      "case": {
+        "facts": {
+          "action_is_original_once_only": true,
+          "admission_state_known": true,
+          "clock_mapping_known": true,
+          "complete_original_prerequisites_known": true,
+          "envelope_membership_known": true,
+          "guard_known": true,
+          "no_worker_control_channel_known": true,
+          "original_authority_known": true,
+          "pre_spend_known": true,
+          "safe_cut_supported_known": true,
+          "same_identity_known": true,
+          "source_protection_known": true,
+          "within_original_deadline": true,
+          "within_original_spent_budget": true
+        },
+        "hypothetical_only": true,
+        "id": "F04-unknown-request-order",
+        "mode": "internal-effect",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "paper_order": [
+          "Known original identity, fixed bounds, whole envelope, pre-spend and required controls are hypothetical premises, not actual evidence.",
+          "Compare declared admission/request order and each required prerequisite at the proposed dependent effect.",
+          "Keep original failure, qualified captured facts and pending outcomes separate; derive no actual permission or drain."
+        ],
+        "qualified_captured_fact": null,
+        "request": {
+          "namespace": "target",
+          "order": "unknown",
+          "scope": "forward"
+        },
+        "scope": "forward"
+      },
+      "native_evidence": null,
+      "reading": {
+        "actual_global_host_closure": false,
+        "candidate_clause_projection": "paper-pending-unproved-dependent-effect",
+        "current_original_requirements_remain_normative": true,
+        "known_denials": [],
+        "native_observation": null,
+        "new_grant_or_right_issued": false,
+        "original_clause_comparison": "original-whole-prerequisites-still-due-no-paper-permission",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "pending_obligations_retained": true,
+        "qualified_captured_fact": null,
+        "request_applies_in_paper_namespace": true,
+        "request_or_return_proves_full_drain": false,
+        "runtime_authority": false,
+        "unknown_means_no_effect": false,
+        "unknown_required_facts": [
+          "independent-admission-request-order"
+        ]
+      },
+      "runtime_authority": false
+    },
+    {
+      "case": {
+        "facts": {
+          "action_is_original_once_only": true,
+          "admission_state_known": true,
+          "clock_mapping_known": true,
+          "complete_original_prerequisites_known": true,
+          "envelope_membership_known": true,
+          "guard_known": true,
+          "no_worker_control_channel_known": true,
+          "original_authority_known": true,
+          "pre_spend_known": true,
+          "safe_cut_supported_known": true,
+          "same_identity_known": true,
+          "source_protection_known": true,
+          "within_original_deadline": false,
+          "within_original_spent_budget": true
+        },
+        "hypothetical_only": true,
+        "id": "F05-expired-pre-request-envelope",
+        "mode": "internal-effect",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "paper_order": [
+          "Known original identity, fixed bounds, whole envelope, pre-spend and required controls are hypothetical premises, not actual evidence.",
+          "Compare declared admission/request order and each required prerequisite at the proposed dependent effect.",
+          "Keep original failure, qualified captured facts and pending outcomes separate; derive no actual permission or drain."
+        ],
+        "qualified_captured_fact": null,
+        "request": {
+          "namespace": "target",
+          "order": "after-admission",
+          "scope": "forward"
+        },
+        "scope": "forward"
+      },
+      "native_evidence": null,
+      "reading": {
+        "actual_global_host_closure": false,
+        "candidate_clause_projection": "paper-denied-dependent-effect-or-admission",
+        "current_original_requirements_remain_normative": true,
+        "known_denials": [
+          "within_original_deadline"
+        ],
+        "native_observation": null,
+        "new_grant_or_right_issued": false,
+        "original_clause_comparison": "original-live-fence-denies-post-request-target-effect",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "pending_obligations_retained": false,
+        "qualified_captured_fact": null,
+        "request_applies_in_paper_namespace": true,
+        "request_or_return_proves_full_drain": false,
+        "runtime_authority": false,
+        "unknown_means_no_effect": false,
+        "unknown_required_facts": []
+      },
+      "runtime_authority": false
+    },
+    {
+      "case": {
+        "facts": {
+          "action_is_original_once_only": true,
+          "admission_state_known": true,
+          "clock_mapping_known": true,
+          "complete_original_prerequisites_known": true,
+          "envelope_membership_known": true,
+          "guard_known": false,
+          "no_worker_control_channel_known": true,
+          "original_authority_known": true,
+          "pre_spend_known": true,
+          "safe_cut_supported_known": true,
+          "same_identity_known": true,
+          "source_protection_known": true,
+          "within_original_deadline": true,
+          "within_original_spent_budget": true
+        },
+        "hypothetical_only": true,
+        "id": "F06-known-lost-guard",
+        "mode": "internal-effect",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "unknown",
+        "paper_order": [
+          "Known original identity, fixed bounds, whole envelope, pre-spend and required controls are hypothetical premises, not actual evidence.",
+          "Compare declared admission/request order and each required prerequisite at the proposed dependent effect.",
+          "Keep original failure, qualified captured facts and pending outcomes separate; derive no actual permission or drain."
+        ],
+        "qualified_captured_fact": null,
+        "request": {
+          "namespace": "target",
+          "order": "after-admission",
+          "scope": "forward"
+        },
+        "scope": "forward"
+      },
+      "native_evidence": null,
+      "reading": {
+        "actual_global_host_closure": false,
+        "candidate_clause_projection": "paper-denied-dependent-effect-or-admission",
+        "current_original_requirements_remain_normative": true,
+        "known_denials": [
+          "guard_known"
+        ],
+        "native_observation": null,
+        "new_grant_or_right_issued": false,
+        "original_clause_comparison": "original-live-fence-denies-post-request-target-effect",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "unknown",
+        "pending_obligations_retained": true,
+        "qualified_captured_fact": null,
+        "request_applies_in_paper_namespace": true,
+        "request_or_return_proves_full_drain": false,
+        "runtime_authority": false,
+        "unknown_means_no_effect": false,
+        "unknown_required_facts": []
+      },
+      "runtime_authority": false
+    },
+    {
+      "case": {
+        "facts": {
+          "action_is_original_once_only": true,
+          "admission_state_known": true,
+          "clock_mapping_known": true,
+          "complete_original_prerequisites_known": true,
+          "envelope_membership_known": true,
+          "guard_known": true,
+          "no_worker_control_channel_known": false,
+          "original_authority_known": true,
+          "pre_spend_known": true,
+          "safe_cut_supported_known": true,
+          "same_identity_known": true,
+          "source_protection_known": true,
+          "within_original_deadline": true,
+          "within_original_spent_budget": true
+        },
+        "hypothetical_only": true,
+        "id": "F07-worker-control-channel-present",
+        "mode": "internal-effect",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "paper_order": [
+          "Known original identity, fixed bounds, whole envelope, pre-spend and required controls are hypothetical premises, not actual evidence.",
+          "Compare declared admission/request order and each required prerequisite at the proposed dependent effect.",
+          "Keep original failure, qualified captured facts and pending outcomes separate; derive no actual permission or drain."
+        ],
+        "qualified_captured_fact": null,
+        "request": {
+          "namespace": "target",
+          "order": "none",
+          "scope": "none"
+        },
+        "scope": "forward"
+      },
+      "native_evidence": null,
+      "reading": {
+        "actual_global_host_closure": false,
+        "candidate_clause_projection": "paper-denied-dependent-effect-or-admission",
+        "current_original_requirements_remain_normative": true,
+        "known_denials": [
+          "no_worker_control_channel_known"
+        ],
+        "native_observation": null,
+        "new_grant_or_right_issued": false,
+        "original_clause_comparison": "original-whole-prerequisites-still-due-no-paper-permission",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "pending_obligations_retained": false,
+        "qualified_captured_fact": null,
+        "request_applies_in_paper_namespace": false,
+        "request_or_return_proves_full_drain": false,
+        "runtime_authority": false,
+        "unknown_means_no_effect": false,
+        "unknown_required_facts": []
+      },
+      "runtime_authority": false
+    },
+    {
+      "case": {
+        "facts": {
+          "action_is_original_once_only": true,
+          "admission_state_known": true,
+          "clock_mapping_known": true,
+          "complete_original_prerequisites_known": true,
+          "envelope_membership_known": true,
+          "guard_known": true,
+          "no_worker_control_channel_known": null,
+          "original_authority_known": true,
+          "pre_spend_known": true,
+          "safe_cut_supported_known": true,
+          "same_identity_known": true,
+          "source_protection_known": true,
+          "within_original_deadline": true,
+          "within_original_spent_budget": true
+        },
+        "hypothetical_only": true,
+        "id": "F08-control-channel-unknown",
+        "mode": "internal-effect",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "paper_order": [
+          "Known original identity, fixed bounds, whole envelope, pre-spend and required controls are hypothetical premises, not actual evidence.",
+          "Compare declared admission/request order and each required prerequisite at the proposed dependent effect.",
+          "Keep original failure, qualified captured facts and pending outcomes separate; derive no actual permission or drain."
+        ],
+        "qualified_captured_fact": null,
+        "request": {
+          "namespace": "target",
+          "order": "none",
+          "scope": "none"
+        },
+        "scope": "forward"
+      },
+      "native_evidence": null,
+      "reading": {
+        "actual_global_host_closure": false,
+        "candidate_clause_projection": "paper-pending-unproved-dependent-effect",
+        "current_original_requirements_remain_normative": true,
+        "known_denials": [],
+        "native_observation": null,
+        "new_grant_or_right_issued": false,
+        "original_clause_comparison": "original-whole-prerequisites-still-due-no-paper-permission",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "pending_obligations_retained": true,
+        "qualified_captured_fact": null,
+        "request_applies_in_paper_namespace": false,
+        "request_or_return_proves_full_drain": false,
+        "runtime_authority": false,
+        "unknown_means_no_effect": false,
+        "unknown_required_facts": [
+          "no_worker_control_channel_known"
+        ]
+      },
+      "runtime_authority": false
+    },
+    {
+      "case": {
+        "facts": {
+          "action_is_original_once_only": true,
+          "admission_state_known": true,
+          "clock_mapping_known": true,
+          "complete_original_prerequisites_known": true,
+          "envelope_membership_known": false,
+          "guard_known": true,
+          "no_worker_control_channel_known": true,
+          "original_authority_known": true,
+          "pre_spend_known": true,
+          "safe_cut_supported_known": true,
+          "same_identity_known": true,
+          "source_protection_known": true,
+          "within_original_deadline": true,
+          "within_original_spent_budget": true
+        },
+        "hypothetical_only": true,
+        "id": "F09-outside-original-envelope",
+        "mode": "internal-effect",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "paper_order": [
+          "Known original identity, fixed bounds, whole envelope, pre-spend and required controls are hypothetical premises, not actual evidence.",
+          "Compare declared admission/request order and each required prerequisite at the proposed dependent effect.",
+          "Keep original failure, qualified captured facts and pending outcomes separate; derive no actual permission or drain."
+        ],
+        "qualified_captured_fact": null,
+        "request": {
+          "namespace": "target",
+          "order": "after-admission",
+          "scope": "forward"
+        },
+        "scope": "forward"
+      },
+      "native_evidence": null,
+      "reading": {
+        "actual_global_host_closure": false,
+        "candidate_clause_projection": "paper-denied-dependent-effect-or-admission",
+        "current_original_requirements_remain_normative": true,
+        "known_denials": [
+          "envelope_membership_known"
+        ],
+        "native_observation": null,
+        "new_grant_or_right_issued": false,
+        "original_clause_comparison": "original-live-fence-denies-post-request-target-effect",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "pending_obligations_retained": false,
+        "qualified_captured_fact": null,
+        "request_applies_in_paper_namespace": true,
+        "request_or_return_proves_full_drain": false,
+        "runtime_authority": false,
+        "unknown_means_no_effect": false,
+        "unknown_required_facts": []
+      },
+      "runtime_authority": false
+    },
+    {
+      "case": {
+        "facts": {
+          "action_is_original_once_only": true,
+          "admission_state_known": true,
+          "clock_mapping_known": true,
+          "complete_original_prerequisites_known": true,
+          "envelope_membership_known": null,
+          "guard_known": true,
+          "no_worker_control_channel_known": true,
+          "original_authority_known": true,
+          "pre_spend_known": true,
+          "safe_cut_supported_known": true,
+          "same_identity_known": true,
+          "source_protection_known": true,
+          "within_original_deadline": true,
+          "within_original_spent_budget": true
+        },
+        "hypothetical_only": true,
+        "id": "F10-unknown-helper-descendant-envelope",
+        "mode": "internal-effect",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "known-open",
+        "paper_order": [
+          "Known original identity, fixed bounds, whole envelope, pre-spend and required controls are hypothetical premises, not actual evidence.",
+          "Compare declared admission/request order and each required prerequisite at the proposed dependent effect.",
+          "Keep original failure, qualified captured facts and pending outcomes separate; derive no actual permission or drain."
+        ],
+        "qualified_captured_fact": null,
+        "request": {
+          "namespace": "target",
+          "order": "none",
+          "scope": "none"
+        },
+        "scope": "forward"
+      },
+      "native_evidence": null,
+      "reading": {
+        "actual_global_host_closure": false,
+        "candidate_clause_projection": "paper-pending-unproved-dependent-effect",
+        "current_original_requirements_remain_normative": true,
+        "known_denials": [],
+        "native_observation": null,
+        "new_grant_or_right_issued": false,
+        "original_clause_comparison": "original-whole-prerequisites-still-due-no-paper-permission",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "known-open",
+        "pending_obligations_retained": true,
+        "qualified_captured_fact": null,
+        "request_applies_in_paper_namespace": false,
+        "request_or_return_proves_full_drain": false,
+        "runtime_authority": false,
+        "unknown_means_no_effect": false,
+        "unknown_required_facts": [
+          "envelope_membership_known"
+        ]
+      },
+      "runtime_authority": false
+    },
+    {
+      "case": {
+        "facts": {
+          "action_is_original_once_only": true,
+          "admission_state_known": null,
+          "clock_mapping_known": true,
+          "complete_original_prerequisites_known": true,
+          "envelope_membership_known": true,
+          "guard_known": true,
+          "no_worker_control_channel_known": true,
+          "original_authority_known": true,
+          "pre_spend_known": true,
+          "safe_cut_supported_known": true,
+          "same_identity_known": true,
+          "source_protection_known": true,
+          "within_original_deadline": true,
+          "within_original_spent_budget": true
+        },
+        "hypothetical_only": true,
+        "id": "F11-lost-admission-result",
+        "mode": "internal-effect",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "unknown",
+        "paper_order": [
+          "Known original identity, fixed bounds, whole envelope, pre-spend and required controls are hypothetical premises, not actual evidence.",
+          "Compare declared admission/request order and each required prerequisite at the proposed dependent effect.",
+          "Keep original failure, qualified captured facts and pending outcomes separate; derive no actual permission or drain."
+        ],
+        "qualified_captured_fact": null,
+        "request": {
+          "namespace": "target",
+          "order": "after-admission",
+          "scope": "forward"
+        },
+        "scope": "forward"
+      },
+      "native_evidence": null,
+      "reading": {
+        "actual_global_host_closure": false,
+        "candidate_clause_projection": "paper-pending-unproved-dependent-effect",
+        "current_original_requirements_remain_normative": true,
+        "known_denials": [],
+        "native_observation": null,
+        "new_grant_or_right_issued": false,
+        "original_clause_comparison": "original-live-fence-denies-post-request-target-effect",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "unknown",
+        "pending_obligations_retained": true,
+        "qualified_captured_fact": null,
+        "request_applies_in_paper_namespace": true,
+        "request_or_return_proves_full_drain": false,
+        "runtime_authority": false,
+        "unknown_means_no_effect": false,
+        "unknown_required_facts": [
+          "admission_state_known"
+        ]
+      },
+      "runtime_authority": false
+    },
+    {
+      "case": {
+        "facts": {
+          "action_is_original_once_only": true,
+          "admission_state_known": true,
+          "clock_mapping_known": true,
+          "complete_original_prerequisites_known": true,
+          "envelope_membership_known": true,
+          "guard_known": true,
+          "no_worker_control_channel_known": true,
+          "original_authority_known": true,
+          "pre_spend_known": null,
+          "safe_cut_supported_known": true,
+          "same_identity_known": true,
+          "source_protection_known": true,
+          "within_original_deadline": true,
+          "within_original_spent_budget": true
+        },
+        "hypothetical_only": true,
+        "id": "F12-unknown-original-spend",
+        "mode": "internal-effect",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "unknown",
+        "paper_order": [
+          "Known original identity, fixed bounds, whole envelope, pre-spend and required controls are hypothetical premises, not actual evidence.",
+          "Compare declared admission/request order and each required prerequisite at the proposed dependent effect.",
+          "Keep original failure, qualified captured facts and pending outcomes separate; derive no actual permission or drain."
+        ],
+        "qualified_captured_fact": null,
+        "request": {
+          "namespace": "target",
+          "order": "none",
+          "scope": "none"
+        },
+        "scope": "forward"
+      },
+      "native_evidence": null,
+      "reading": {
+        "actual_global_host_closure": false,
+        "candidate_clause_projection": "paper-pending-unproved-dependent-effect",
+        "current_original_requirements_remain_normative": true,
+        "known_denials": [],
+        "native_observation": null,
+        "new_grant_or_right_issued": false,
+        "original_clause_comparison": "original-whole-prerequisites-still-due-no-paper-permission",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "unknown",
+        "pending_obligations_retained": true,
+        "qualified_captured_fact": null,
+        "request_applies_in_paper_namespace": false,
+        "request_or_return_proves_full_drain": false,
+        "runtime_authority": false,
+        "unknown_means_no_effect": false,
+        "unknown_required_facts": [
+          "pre_spend_known"
+        ]
+      },
+      "runtime_authority": false
+    },
+    {
+      "case": {
+        "facts": {
+          "action_is_original_once_only": true,
+          "admission_state_known": true,
+          "clock_mapping_known": true,
+          "complete_original_prerequisites_known": true,
+          "envelope_membership_known": true,
+          "guard_known": true,
+          "no_worker_control_channel_known": true,
+          "original_authority_known": true,
+          "pre_spend_known": true,
+          "safe_cut_supported_known": true,
+          "same_identity_known": true,
+          "source_protection_known": true,
+          "within_original_deadline": true,
+          "within_original_spent_budget": true
+        },
+        "hypothetical_only": true,
+        "id": "F13-known-failure-plus-unknown-request",
+        "mode": "internal-effect",
+        "original_forward_failed": true,
+        "original_mismatch": true,
+        "outcome": "unknown",
+        "paper_order": [
+          "Known original identity, fixed bounds, whole envelope, pre-spend and required controls are hypothetical premises, not actual evidence.",
+          "Compare declared admission/request order and each required prerequisite at the proposed dependent effect.",
+          "Keep original failure, qualified captured facts and pending outcomes separate; derive no actual permission or drain."
+        ],
+        "qualified_captured_fact": "hypothetically-qualified-original-mismatch",
+        "request": {
+          "namespace": "unknown",
+          "order": "unknown",
+          "scope": "unknown"
+        },
+        "scope": "forward"
+      },
+      "native_evidence": null,
+      "reading": {
+        "actual_global_host_closure": false,
+        "candidate_clause_projection": "paper-denied-dependent-effect-or-admission",
+        "current_original_requirements_remain_normative": true,
+        "known_denials": [
+          "absorbing-original-forward-failure"
+        ],
+        "native_observation": null,
+        "new_grant_or_right_issued": false,
+        "original_clause_comparison": "original-whole-prerequisites-still-due-no-paper-permission",
+        "original_forward_failed": true,
+        "original_mismatch": true,
+        "outcome": "unknown",
+        "pending_obligations_retained": true,
+        "qualified_captured_fact": "hypothetically-qualified-original-mismatch",
+        "request_applies_in_paper_namespace": null,
+        "request_or_return_proves_full_drain": false,
+        "runtime_authority": false,
+        "unknown_means_no_effect": false,
+        "unknown_required_facts": [
+          "request-namespace-or-scope"
+        ]
+      },
+      "runtime_authority": false
+    },
+    {
+      "case": {
+        "facts": {
+          "action_is_original_once_only": true,
+          "admission_state_known": true,
+          "clock_mapping_known": true,
+          "complete_original_prerequisites_known": true,
+          "envelope_membership_known": true,
+          "guard_known": true,
+          "no_worker_control_channel_known": true,
+          "original_authority_known": true,
+          "pre_spend_known": true,
+          "safe_cut_supported_known": true,
+          "same_identity_known": true,
+          "source_protection_known": true,
+          "within_original_deadline": true,
+          "within_original_spent_budget": true
+        },
+        "hypothetical_only": true,
+        "id": "F14-known-original-mismatch",
+        "mode": "internal-effect",
+        "original_forward_failed": false,
+        "original_mismatch": true,
+        "outcome": "known-closed",
+        "paper_order": [
+          "Known original identity, fixed bounds, whole envelope, pre-spend and required controls are hypothetical premises, not actual evidence.",
+          "Compare declared admission/request order and each required prerequisite at the proposed dependent effect.",
+          "Keep original failure, qualified captured facts and pending outcomes separate; derive no actual permission or drain."
+        ],
+        "qualified_captured_fact": "hypothetically-qualified-original-mismatch",
+        "request": {
+          "namespace": "target",
+          "order": "none",
+          "scope": "none"
+        },
+        "scope": "forward"
+      },
+      "native_evidence": null,
+      "reading": {
+        "actual_global_host_closure": false,
+        "candidate_clause_projection": "paper-denied-dependent-effect-or-admission",
+        "current_original_requirements_remain_normative": true,
+        "known_denials": [
+          "absorbing-original-forward-failure"
+        ],
+        "native_observation": null,
+        "new_grant_or_right_issued": false,
+        "original_clause_comparison": "original-whole-prerequisites-still-due-no-paper-permission",
+        "original_forward_failed": false,
+        "original_mismatch": true,
+        "outcome": "known-closed",
+        "pending_obligations_retained": false,
+        "qualified_captured_fact": "hypothetically-qualified-original-mismatch",
+        "request_applies_in_paper_namespace": false,
+        "request_or_return_proves_full_drain": false,
+        "runtime_authority": false,
+        "unknown_means_no_effect": false,
+        "unknown_required_facts": []
+      },
+      "runtime_authority": false
+    },
+    {
+      "case": {
+        "facts": {
+          "action_is_original_once_only": true,
+          "admission_state_known": true,
+          "clock_mapping_known": null,
+          "complete_original_prerequisites_known": true,
+          "envelope_membership_known": true,
+          "guard_known": true,
+          "no_worker_control_channel_known": true,
+          "original_authority_known": true,
+          "pre_spend_known": true,
+          "safe_cut_supported_known": true,
+          "same_identity_known": true,
+          "source_protection_known": true,
+          "within_original_deadline": true,
+          "within_original_spent_budget": true
+        },
+        "hypothetical_only": true,
+        "id": "F15-unknown-clock-with-failure",
+        "mode": "internal-effect",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "outcome": "unknown",
+        "paper_order": [
+          "Known original identity, fixed bounds, whole envelope, pre-spend and required controls are hypothetical premises, not actual evidence.",
+          "Compare declared admission/request order and each required prerequisite at the proposed dependent effect.",
+          "Keep original failure, qualified captured facts and pending outcomes separate; derive no actual permission or drain."
+        ],
+        "qualified_captured_fact": null,
+        "request": {
+          "namespace": "target",
+          "order": "none",
+          "scope": "none"
+        },
+        "scope": "forward"
+      },
+      "native_evidence": null,
+      "reading": {
+        "actual_global_host_closure": false,
+        "candidate_clause_projection": "paper-denied-dependent-effect-or-admission",
+        "current_original_requirements_remain_normative": true,
+        "known_denials": [
+          "absorbing-original-forward-failure"
+        ],
+        "native_observation": null,
+        "new_grant_or_right_issued": false,
+        "original_clause_comparison": "original-whole-prerequisites-still-due-no-paper-permission",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "outcome": "unknown",
+        "pending_obligations_retained": true,
+        "qualified_captured_fact": null,
+        "request_applies_in_paper_namespace": false,
+        "request_or_return_proves_full_drain": false,
+        "runtime_authority": false,
+        "unknown_means_no_effect": false,
+        "unknown_required_facts": [
+          "clock_mapping_known"
+        ]
+      },
+      "runtime_authority": false
+    },
+    {
+      "case": {
+        "facts": {
+          "action_is_original_once_only": true,
+          "admission_state_known": true,
+          "clock_mapping_known": true,
+          "complete_original_prerequisites_known": true,
+          "dependent_prior_drain_known": true,
+          "envelope_membership_known": true,
+          "guard_known": true,
+          "known_exact_backup": true,
+          "no_worker_control_channel_known": true,
+          "original_authority_known": true,
+          "pre_spend_known": true,
+          "retained_original_recovery_known": true,
+          "safe_cut_supported_known": true,
+          "same_identity_known": true,
+          "source_protection_known": true,
+          "within_original_deadline": true,
+          "within_original_spent_budget": true
+        },
+        "hypothetical_only": true,
+        "id": "R01-forward-only-not-recovery-request",
+        "mode": "internal-effect",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "paper_order": [
+          "Known original identity, fixed bounds, whole envelope, pre-spend and required controls are hypothetical premises, not actual evidence.",
+          "Compare declared admission/request order and each required prerequisite at the proposed dependent effect.",
+          "Keep original failure, qualified captured facts and pending outcomes separate; derive no actual permission or drain."
+        ],
+        "qualified_captured_fact": null,
+        "request": {
+          "namespace": "target",
+          "order": "after-admission",
+          "scope": "forward"
+        },
+        "scope": "recovery"
+      },
+      "native_evidence": null,
+      "reading": {
+        "actual_global_host_closure": false,
+        "candidate_clause_projection": "paper-consider-original-envelope-without-applicable-request",
+        "current_original_requirements_remain_normative": true,
+        "known_denials": [],
+        "native_observation": null,
+        "new_grant_or_right_issued": false,
+        "original_clause_comparison": "original-whole-prerequisites-still-due-no-paper-permission",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "pending_obligations_retained": false,
+        "qualified_captured_fact": null,
+        "request_applies_in_paper_namespace": false,
+        "request_or_return_proves_full_drain": false,
+        "runtime_authority": false,
+        "unknown_means_no_effect": false,
+        "unknown_required_facts": []
+      },
+      "runtime_authority": false
+    },
+    {
+      "case": {
+        "facts": {
+          "action_is_original_once_only": true,
+          "admission_state_known": true,
+          "clock_mapping_known": true,
+          "complete_original_prerequisites_known": true,
+          "dependent_prior_drain_known": true,
+          "envelope_membership_known": true,
+          "guard_known": true,
+          "known_exact_backup": true,
+          "no_worker_control_channel_known": true,
+          "original_authority_known": true,
+          "pre_spend_known": true,
+          "retained_original_recovery_known": true,
+          "safe_cut_supported_known": true,
+          "same_identity_known": true,
+          "source_protection_known": true,
+          "within_original_deadline": true,
+          "within_original_spent_budget": true
+        },
+        "hypothetical_only": true,
+        "id": "R02-recovery-all-pre-request-envelope",
+        "mode": "internal-effect",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "paper_order": [
+          "Known original identity, fixed bounds, whole envelope, pre-spend and required controls are hypothetical premises, not actual evidence.",
+          "Compare declared admission/request order and each required prerequisite at the proposed dependent effect.",
+          "Keep original failure, qualified captured facts and pending outcomes separate; derive no actual permission or drain."
+        ],
+        "qualified_captured_fact": null,
+        "request": {
+          "namespace": "target",
+          "order": "after-admission",
+          "scope": "all"
+        },
+        "scope": "recovery"
+      },
+      "native_evidence": null,
+      "reading": {
+        "actual_global_host_closure": false,
+        "candidate_clause_projection": "paper-consider-known-pre-request-finite-envelope-only",
+        "current_original_requirements_remain_normative": true,
+        "known_denials": [],
+        "native_observation": null,
+        "new_grant_or_right_issued": false,
+        "original_clause_comparison": "original-live-fence-denies-post-request-target-effect",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "pending_obligations_retained": false,
+        "qualified_captured_fact": null,
+        "request_applies_in_paper_namespace": true,
+        "request_or_return_proves_full_drain": false,
+        "runtime_authority": false,
+        "unknown_means_no_effect": false,
+        "unknown_required_facts": []
+      },
+      "runtime_authority": false
+    },
+    {
+      "case": {
+        "facts": {
+          "action_is_original_once_only": true,
+          "admission_state_known": true,
+          "clock_mapping_known": true,
+          "complete_original_prerequisites_known": true,
+          "dependent_prior_drain_known": true,
+          "envelope_membership_known": true,
+          "guard_known": true,
+          "known_exact_backup": true,
+          "no_worker_control_channel_known": true,
+          "original_authority_known": true,
+          "pre_spend_known": true,
+          "retained_original_recovery_known": true,
+          "safe_cut_supported_known": true,
+          "same_identity_known": true,
+          "source_protection_known": true,
+          "within_original_deadline": true,
+          "within_original_spent_budget": true
+        },
+        "hypothetical_only": true,
+        "id": "R03-request-before-recovery-admission",
+        "mode": "new-admission",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "paper_order": [
+          "Known original identity, fixed bounds, whole envelope, pre-spend and required controls are hypothetical premises, not actual evidence.",
+          "Compare declared admission/request order and each required prerequisite at the proposed dependent effect.",
+          "Keep original failure, qualified captured facts and pending outcomes separate; derive no actual permission or drain."
+        ],
+        "qualified_captured_fact": null,
+        "request": {
+          "namespace": "target",
+          "order": "before-admission",
+          "scope": "recovery"
+        },
+        "scope": "recovery"
+      },
+      "native_evidence": null,
+      "reading": {
+        "actual_global_host_closure": false,
+        "candidate_clause_projection": "paper-denied-dependent-effect-or-admission",
+        "current_original_requirements_remain_normative": true,
+        "known_denials": [
+          "applicable-request-closes-new-admission"
+        ],
+        "native_observation": null,
+        "new_grant_or_right_issued": false,
+        "original_clause_comparison": "original-whole-prerequisites-still-due-no-paper-permission",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "pending_obligations_retained": false,
+        "qualified_captured_fact": null,
+        "request_applies_in_paper_namespace": true,
+        "request_or_return_proves_full_drain": false,
+        "runtime_authority": false,
+        "unknown_means_no_effect": false,
+        "unknown_required_facts": []
+      },
+      "runtime_authority": false
+    },
+    {
+      "case": {
+        "facts": {
+          "action_is_original_once_only": true,
+          "admission_state_known": true,
+          "clock_mapping_known": true,
+          "complete_original_prerequisites_known": true,
+          "dependent_prior_drain_known": true,
+          "envelope_membership_known": true,
+          "guard_known": true,
+          "known_exact_backup": true,
+          "no_worker_control_channel_known": true,
+          "original_authority_known": true,
+          "pre_spend_known": true,
+          "retained_original_recovery_known": true,
+          "safe_cut_supported_known": true,
+          "same_identity_known": true,
+          "source_protection_known": true,
+          "within_original_deadline": true,
+          "within_original_spent_budget": true
+        },
+        "hypothetical_only": true,
+        "id": "R04-unknown-recovery-request-order",
+        "mode": "internal-effect",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "outcome": "unknown",
+        "paper_order": [
+          "Known original identity, fixed bounds, whole envelope, pre-spend and required controls are hypothetical premises, not actual evidence.",
+          "Compare declared admission/request order and each required prerequisite at the proposed dependent effect.",
+          "Keep original failure, qualified captured facts and pending outcomes separate; derive no actual permission or drain."
+        ],
+        "qualified_captured_fact": null,
+        "request": {
+          "namespace": "target",
+          "order": "unknown",
+          "scope": "all"
+        },
+        "scope": "recovery"
+      },
+      "native_evidence": null,
+      "reading": {
+        "actual_global_host_closure": false,
+        "candidate_clause_projection": "paper-pending-unproved-dependent-effect",
+        "current_original_requirements_remain_normative": true,
+        "known_denials": [],
+        "native_observation": null,
+        "new_grant_or_right_issued": false,
+        "original_clause_comparison": "original-whole-prerequisites-still-due-no-paper-permission",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "outcome": "unknown",
+        "pending_obligations_retained": true,
+        "qualified_captured_fact": null,
+        "request_applies_in_paper_namespace": true,
+        "request_or_return_proves_full_drain": false,
+        "runtime_authority": false,
+        "unknown_means_no_effect": false,
+        "unknown_required_facts": [
+          "independent-admission-request-order"
+        ]
+      },
+      "runtime_authority": false
+    },
+    {
+      "case": {
+        "facts": {
+          "action_is_original_once_only": true,
+          "admission_state_known": true,
+          "clock_mapping_known": true,
+          "complete_original_prerequisites_known": true,
+          "dependent_prior_drain_known": true,
+          "envelope_membership_known": true,
+          "guard_known": true,
+          "known_exact_backup": null,
+          "no_worker_control_channel_known": true,
+          "original_authority_known": true,
+          "pre_spend_known": true,
+          "retained_original_recovery_known": true,
+          "safe_cut_supported_known": true,
+          "same_identity_known": true,
+          "source_protection_known": true,
+          "within_original_deadline": true,
+          "within_original_spent_budget": true
+        },
+        "hypothetical_only": true,
+        "id": "R05-backup-unknown",
+        "mode": "internal-effect",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "outcome": "unknown",
+        "paper_order": [
+          "Known original identity, fixed bounds, whole envelope, pre-spend and required controls are hypothetical premises, not actual evidence.",
+          "Compare declared admission/request order and each required prerequisite at the proposed dependent effect.",
+          "Keep original failure, qualified captured facts and pending outcomes separate; derive no actual permission or drain."
+        ],
+        "qualified_captured_fact": null,
+        "request": {
+          "namespace": "target",
+          "order": "none",
+          "scope": "none"
+        },
+        "scope": "recovery"
+      },
+      "native_evidence": null,
+      "reading": {
+        "actual_global_host_closure": false,
+        "candidate_clause_projection": "paper-pending-unproved-dependent-effect",
+        "current_original_requirements_remain_normative": true,
+        "known_denials": [],
+        "native_observation": null,
+        "new_grant_or_right_issued": false,
+        "original_clause_comparison": "original-whole-prerequisites-still-due-no-paper-permission",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "outcome": "unknown",
+        "pending_obligations_retained": true,
+        "qualified_captured_fact": null,
+        "request_applies_in_paper_namespace": false,
+        "request_or_return_proves_full_drain": false,
+        "runtime_authority": false,
+        "unknown_means_no_effect": false,
+        "unknown_required_facts": [
+          "known_exact_backup"
+        ]
+      },
+      "runtime_authority": false
+    },
+    {
+      "case": {
+        "facts": {
+          "action_is_original_once_only": false,
+          "admission_state_known": true,
+          "clock_mapping_known": true,
+          "complete_original_prerequisites_known": true,
+          "dependent_prior_drain_known": true,
+          "envelope_membership_known": true,
+          "guard_known": true,
+          "known_exact_backup": true,
+          "no_worker_control_channel_known": true,
+          "original_authority_known": true,
+          "pre_spend_known": true,
+          "retained_original_recovery_known": true,
+          "safe_cut_supported_known": true,
+          "same_identity_known": true,
+          "source_protection_known": true,
+          "within_original_deadline": true,
+          "within_original_spent_budget": true
+        },
+        "hypothetical_only": true,
+        "id": "R06-lost-restore-ACK-never-repeat",
+        "mode": "internal-effect",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "outcome": "unknown",
+        "paper_order": [
+          "Known original identity, fixed bounds, whole envelope, pre-spend and required controls are hypothetical premises, not actual evidence.",
+          "Compare declared admission/request order and each required prerequisite at the proposed dependent effect.",
+          "Keep original failure, qualified captured facts and pending outcomes separate; derive no actual permission or drain."
+        ],
+        "qualified_captured_fact": "hypothetically-qualified-original-target-match",
+        "request": {
+          "namespace": "target",
+          "order": "none",
+          "scope": "none"
+        },
+        "scope": "recovery"
+      },
+      "native_evidence": null,
+      "reading": {
+        "actual_global_host_closure": false,
+        "candidate_clause_projection": "paper-denied-dependent-effect-or-admission",
+        "current_original_requirements_remain_normative": true,
+        "known_denials": [
+          "action_is_original_once_only"
+        ],
+        "native_observation": null,
+        "new_grant_or_right_issued": false,
+        "original_clause_comparison": "original-whole-prerequisites-still-due-no-paper-permission",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "outcome": "unknown",
+        "pending_obligations_retained": true,
+        "qualified_captured_fact": "hypothetically-qualified-original-target-match",
+        "request_applies_in_paper_namespace": false,
+        "request_or_return_proves_full_drain": false,
+        "runtime_authority": false,
+        "unknown_means_no_effect": false,
+        "unknown_required_facts": []
+      },
+      "runtime_authority": false
+    },
+    {
+      "case": {
+        "facts": {
+          "action_is_original_once_only": true,
+          "admission_state_known": true,
+          "clock_mapping_known": true,
+          "complete_original_prerequisites_known": true,
+          "dependent_prior_drain_known": true,
+          "envelope_membership_known": true,
+          "guard_known": true,
+          "known_exact_backup": true,
+          "no_worker_control_channel_known": true,
+          "original_authority_known": true,
+          "pre_spend_known": true,
+          "retained_original_recovery_known": true,
+          "safe_cut_supported_known": true,
+          "same_identity_known": true,
+          "source_protection_known": true,
+          "within_original_deadline": false,
+          "within_original_spent_budget": true
+        },
+        "hypothetical_only": true,
+        "id": "R07-recovery-deadline-expired",
+        "mode": "internal-effect",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "paper_order": [
+          "Known original identity, fixed bounds, whole envelope, pre-spend and required controls are hypothetical premises, not actual evidence.",
+          "Compare declared admission/request order and each required prerequisite at the proposed dependent effect.",
+          "Keep original failure, qualified captured facts and pending outcomes separate; derive no actual permission or drain."
+        ],
+        "qualified_captured_fact": null,
+        "request": {
+          "namespace": "target",
+          "order": "none",
+          "scope": "none"
+        },
+        "scope": "recovery"
+      },
+      "native_evidence": null,
+      "reading": {
+        "actual_global_host_closure": false,
+        "candidate_clause_projection": "paper-denied-dependent-effect-or-admission",
+        "current_original_requirements_remain_normative": true,
+        "known_denials": [
+          "within_original_deadline"
+        ],
+        "native_observation": null,
+        "new_grant_or_right_issued": false,
+        "original_clause_comparison": "original-whole-prerequisites-still-due-no-paper-permission",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "pending_obligations_retained": false,
+        "qualified_captured_fact": null,
+        "request_applies_in_paper_namespace": false,
+        "request_or_return_proves_full_drain": false,
+        "runtime_authority": false,
+        "unknown_means_no_effect": false,
+        "unknown_required_facts": []
+      },
+      "runtime_authority": false
+    },
+    {
+      "case": {
+        "facts": {
+          "action_is_original_once_only": true,
+          "admission_state_known": true,
+          "clock_mapping_known": true,
+          "complete_original_prerequisites_known": true,
+          "dependent_prior_drain_known": null,
+          "envelope_membership_known": true,
+          "guard_known": true,
+          "known_exact_backup": true,
+          "no_worker_control_channel_known": true,
+          "original_authority_known": true,
+          "pre_spend_known": true,
+          "retained_original_recovery_known": true,
+          "safe_cut_supported_known": true,
+          "same_identity_known": true,
+          "source_protection_known": true,
+          "within_original_deadline": true,
+          "within_original_spent_budget": true
+        },
+        "hypothetical_only": true,
+        "id": "R08-drain-not-known",
+        "mode": "internal-effect",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "outcome": "known-open",
+        "paper_order": [
+          "Known original identity, fixed bounds, whole envelope, pre-spend and required controls are hypothetical premises, not actual evidence.",
+          "Compare declared admission/request order and each required prerequisite at the proposed dependent effect.",
+          "Keep original failure, qualified captured facts and pending outcomes separate; derive no actual permission or drain."
+        ],
+        "qualified_captured_fact": null,
+        "request": {
+          "namespace": "target",
+          "order": "none",
+          "scope": "none"
+        },
+        "scope": "recovery"
+      },
+      "native_evidence": null,
+      "reading": {
+        "actual_global_host_closure": false,
+        "candidate_clause_projection": "paper-pending-unproved-dependent-effect",
+        "current_original_requirements_remain_normative": true,
+        "known_denials": [],
+        "native_observation": null,
+        "new_grant_or_right_issued": false,
+        "original_clause_comparison": "original-whole-prerequisites-still-due-no-paper-permission",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "outcome": "known-open",
+        "pending_obligations_retained": true,
+        "qualified_captured_fact": null,
+        "request_applies_in_paper_namespace": false,
+        "request_or_return_proves_full_drain": false,
+        "runtime_authority": false,
+        "unknown_means_no_effect": false,
+        "unknown_required_facts": [
+          "dependent_prior_drain_known"
+        ]
+      },
+      "runtime_authority": false
+    },
+    {
+      "case": {
+        "facts": {
+          "action_is_original_once_only": true,
+          "admission_state_known": true,
+          "clock_mapping_known": true,
+          "complete_original_prerequisites_known": true,
+          "dependent_prior_drain_known": true,
+          "envelope_membership_known": true,
+          "guard_known": true,
+          "known_exact_backup": true,
+          "no_worker_control_channel_known": true,
+          "original_authority_known": true,
+          "pre_spend_known": true,
+          "retained_original_recovery_known": true,
+          "safe_cut_supported_known": true,
+          "same_identity_known": true,
+          "source_protection_known": true,
+          "within_original_deadline": true,
+          "within_original_spent_budget": false
+        },
+        "hypothetical_only": true,
+        "id": "R09-original-budget-exhausted",
+        "mode": "internal-effect",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "paper_order": [
+          "Known original identity, fixed bounds, whole envelope, pre-spend and required controls are hypothetical premises, not actual evidence.",
+          "Compare declared admission/request order and each required prerequisite at the proposed dependent effect.",
+          "Keep original failure, qualified captured facts and pending outcomes separate; derive no actual permission or drain."
+        ],
+        "qualified_captured_fact": null,
+        "request": {
+          "namespace": "target",
+          "order": "none",
+          "scope": "none"
+        },
+        "scope": "recovery"
+      },
+      "native_evidence": null,
+      "reading": {
+        "actual_global_host_closure": false,
+        "candidate_clause_projection": "paper-denied-dependent-effect-or-admission",
+        "current_original_requirements_remain_normative": true,
+        "known_denials": [
+          "within_original_spent_budget"
+        ],
+        "native_observation": null,
+        "new_grant_or_right_issued": false,
+        "original_clause_comparison": "original-whole-prerequisites-still-due-no-paper-permission",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "pending_obligations_retained": false,
+        "qualified_captured_fact": null,
+        "request_applies_in_paper_namespace": false,
+        "request_or_return_proves_full_drain": false,
+        "runtime_authority": false,
+        "unknown_means_no_effect": false,
+        "unknown_required_facts": []
+      },
+      "runtime_authority": false
+    },
+    {
+      "case": {
+        "facts": {
+          "action_is_original_once_only": true,
+          "admission_state_known": true,
+          "clock_mapping_known": true,
+          "complete_original_prerequisites_known": true,
+          "dependent_prior_drain_known": true,
+          "envelope_membership_known": true,
+          "guard_known": true,
+          "known_exact_backup": true,
+          "no_worker_control_channel_known": true,
+          "original_authority_known": true,
+          "pre_spend_known": true,
+          "retained_original_recovery_known": true,
+          "safe_cut_supported_known": true,
+          "same_identity_known": true,
+          "source_protection_known": true,
+          "within_original_deadline": true,
+          "within_original_spent_budget": true
+        },
+        "hypothetical_only": true,
+        "id": "E01-target-evidence-is-recovery-scope",
+        "mode": "internal-effect",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "paper_order": [
+          "Known original identity, fixed bounds, whole envelope, pre-spend and required controls are hypothetical premises, not actual evidence.",
+          "Compare declared admission/request order and each required prerequisite at the proposed dependent effect.",
+          "Keep original failure, qualified captured facts and pending outcomes separate; derive no actual permission or drain."
+        ],
+        "qualified_captured_fact": null,
+        "request": {
+          "namespace": "target",
+          "order": "after-admission",
+          "scope": "all"
+        },
+        "scope": "target-evidence"
+      },
+      "native_evidence": null,
+      "reading": {
+        "actual_global_host_closure": false,
+        "candidate_clause_projection": "paper-consider-known-pre-request-finite-envelope-only",
+        "current_original_requirements_remain_normative": true,
+        "known_denials": [],
+        "native_observation": null,
+        "new_grant_or_right_issued": false,
+        "original_clause_comparison": "original-live-fence-denies-post-request-target-effect",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "pending_obligations_retained": false,
+        "qualified_captured_fact": null,
+        "request_applies_in_paper_namespace": true,
+        "request_or_return_proves_full_drain": false,
+        "runtime_authority": false,
+        "unknown_means_no_effect": false,
+        "unknown_required_facts": []
+      },
+      "runtime_authority": false
+    },
+    {
+      "case": {
+        "facts": {
+          "action_is_original_once_only": true,
+          "admission_state_known": true,
+          "clock_mapping_known": true,
+          "complete_original_prerequisites_known": true,
+          "dependent_prior_drain_known": true,
+          "envelope_membership_known": true,
+          "guard_known": true,
+          "known_exact_backup": true,
+          "no_worker_control_channel_known": true,
+          "original_authority_known": true,
+          "pre_spend_known": true,
+          "retained_original_recovery_known": false,
+          "safe_cut_supported_known": true,
+          "same_identity_known": true,
+          "source_protection_known": true,
+          "within_original_deadline": true,
+          "within_original_spent_budget": true
+        },
+        "hypothetical_only": true,
+        "id": "E02-publication-controls-not-recovery-right",
+        "mode": "internal-effect",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "paper_order": [
+          "Known original identity, fixed bounds, whole envelope, pre-spend and required controls are hypothetical premises, not actual evidence.",
+          "Compare declared admission/request order and each required prerequisite at the proposed dependent effect.",
+          "Keep original failure, qualified captured facts and pending outcomes separate; derive no actual permission or drain."
+        ],
+        "qualified_captured_fact": null,
+        "request": {
+          "namespace": "target",
+          "order": "none",
+          "scope": "none"
+        },
+        "scope": "target-evidence"
+      },
+      "native_evidence": null,
+      "reading": {
+        "actual_global_host_closure": false,
+        "candidate_clause_projection": "paper-denied-dependent-effect-or-admission",
+        "current_original_requirements_remain_normative": true,
+        "known_denials": [
+          "retained_original_recovery_known"
+        ],
+        "native_observation": null,
+        "new_grant_or_right_issued": false,
+        "original_clause_comparison": "original-whole-prerequisites-still-due-no-paper-permission",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "pending_obligations_retained": false,
+        "qualified_captured_fact": null,
+        "request_applies_in_paper_namespace": false,
+        "request_or_return_proves_full_drain": false,
+        "runtime_authority": false,
+        "unknown_means_no_effect": false,
+        "unknown_required_facts": []
+      },
+      "runtime_authority": false
+    },
+    {
+      "case": {
+        "facts": {
+          "action_is_original_once_only": true,
+          "admission_state_known": true,
+          "captured_closed_data_only": true,
+          "clock_mapping_known": true,
+          "complete_original_prerequisites_known": true,
+          "envelope_membership_known": true,
+          "guard_known": true,
+          "no_worker_control_channel_known": true,
+          "original_authority_known": true,
+          "pre_spend_known": true,
+          "safe_cut_supported_known": true,
+          "same_identity_known": true,
+          "separate_original_publication_controls_known": true,
+          "source_protection_known": true,
+          "within_original_deadline": true,
+          "within_original_spent_budget": true
+        },
+        "hypothetical_only": true,
+        "id": "P01-target-all-not-publication-authority",
+        "mode": "internal-effect",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "paper_order": [
+          "Known original identity, fixed bounds, whole envelope, pre-spend and required controls are hypothetical premises, not actual evidence.",
+          "Compare declared admission/request order and each required prerequisite at the proposed dependent effect.",
+          "Keep original failure, qualified captured facts and pending outcomes separate; derive no actual permission or drain."
+        ],
+        "qualified_captured_fact": null,
+        "request": {
+          "namespace": "target",
+          "order": "after-admission",
+          "scope": "all"
+        },
+        "scope": "publication"
+      },
+      "native_evidence": null,
+      "reading": {
+        "actual_global_host_closure": false,
+        "candidate_clause_projection": "paper-consider-original-envelope-without-applicable-request",
+        "current_original_requirements_remain_normative": true,
+        "known_denials": [],
+        "native_observation": null,
+        "new_grant_or_right_issued": false,
+        "original_clause_comparison": "original-publication-own-policy-still-due",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "pending_obligations_retained": false,
+        "qualified_captured_fact": null,
+        "request_applies_in_paper_namespace": false,
+        "request_or_return_proves_full_drain": false,
+        "runtime_authority": false,
+        "unknown_means_no_effect": false,
+        "unknown_required_facts": []
+      },
+      "runtime_authority": false
+    },
+    {
+      "case": {
+        "facts": {
+          "action_is_original_once_only": true,
+          "admission_state_known": true,
+          "captured_closed_data_only": true,
+          "clock_mapping_known": true,
+          "complete_original_prerequisites_known": true,
+          "envelope_membership_known": true,
+          "guard_known": true,
+          "no_worker_control_channel_known": true,
+          "original_authority_known": true,
+          "pre_spend_known": true,
+          "safe_cut_supported_known": true,
+          "same_identity_known": true,
+          "separate_original_publication_controls_known": true,
+          "source_protection_known": true,
+          "within_original_deadline": true,
+          "within_original_spent_budget": true
+        },
+        "hypothetical_only": true,
+        "id": "P02-own-publication-request-pre-admitted",
+        "mode": "internal-effect",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "paper_order": [
+          "Known original identity, fixed bounds, whole envelope, pre-spend and required controls are hypothetical premises, not actual evidence.",
+          "Compare declared admission/request order and each required prerequisite at the proposed dependent effect.",
+          "Keep original failure, qualified captured facts and pending outcomes separate; derive no actual permission or drain."
+        ],
+        "qualified_captured_fact": null,
+        "request": {
+          "namespace": "publication",
+          "order": "after-admission",
+          "scope": "publication"
+        },
+        "scope": "publication"
+      },
+      "native_evidence": null,
+      "reading": {
+        "actual_global_host_closure": false,
+        "candidate_clause_projection": "paper-consider-known-pre-request-finite-envelope-only",
+        "current_original_requirements_remain_normative": true,
+        "known_denials": [],
+        "native_observation": null,
+        "new_grant_or_right_issued": false,
+        "original_clause_comparison": "original-publication-own-policy-still-due",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "pending_obligations_retained": false,
+        "qualified_captured_fact": null,
+        "request_applies_in_paper_namespace": true,
+        "request_or_return_proves_full_drain": false,
+        "runtime_authority": false,
+        "unknown_means_no_effect": false,
+        "unknown_required_facts": []
+      },
+      "runtime_authority": false
+    },
+    {
+      "case": {
+        "facts": {
+          "action_is_original_once_only": true,
+          "admission_state_known": true,
+          "captured_closed_data_only": true,
+          "clock_mapping_known": true,
+          "complete_original_prerequisites_known": true,
+          "envelope_membership_known": true,
+          "guard_known": true,
+          "no_worker_control_channel_known": true,
+          "original_authority_known": true,
+          "pre_spend_known": true,
+          "safe_cut_supported_known": true,
+          "same_identity_known": true,
+          "separate_original_publication_controls_known": true,
+          "source_protection_known": true,
+          "within_original_deadline": true,
+          "within_original_spent_budget": true
+        },
+        "hypothetical_only": true,
+        "id": "P03-own-publication-request-denies-new",
+        "mode": "new-admission",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "paper_order": [
+          "Known original identity, fixed bounds, whole envelope, pre-spend and required controls are hypothetical premises, not actual evidence.",
+          "Compare declared admission/request order and each required prerequisite at the proposed dependent effect.",
+          "Keep original failure, qualified captured facts and pending outcomes separate; derive no actual permission or drain."
+        ],
+        "qualified_captured_fact": null,
+        "request": {
+          "namespace": "publication",
+          "order": "before-admission",
+          "scope": "all"
+        },
+        "scope": "publication"
+      },
+      "native_evidence": null,
+      "reading": {
+        "actual_global_host_closure": false,
+        "candidate_clause_projection": "paper-denied-dependent-effect-or-admission",
+        "current_original_requirements_remain_normative": true,
+        "known_denials": [
+          "applicable-request-closes-new-admission"
+        ],
+        "native_observation": null,
+        "new_grant_or_right_issued": false,
+        "original_clause_comparison": "original-publication-own-policy-still-due",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "pending_obligations_retained": false,
+        "qualified_captured_fact": null,
+        "request_applies_in_paper_namespace": true,
+        "request_or_return_proves_full_drain": false,
+        "runtime_authority": false,
+        "unknown_means_no_effect": false,
+        "unknown_required_facts": []
+      },
+      "runtime_authority": false
+    },
+    {
+      "case": {
+        "facts": {
+          "action_is_original_once_only": true,
+          "admission_state_known": true,
+          "captured_closed_data_only": true,
+          "clock_mapping_known": true,
+          "complete_original_prerequisites_known": true,
+          "envelope_membership_known": true,
+          "guard_known": true,
+          "no_worker_control_channel_known": true,
+          "original_authority_known": true,
+          "pre_spend_known": true,
+          "safe_cut_supported_known": true,
+          "same_identity_known": true,
+          "separate_original_publication_controls_known": null,
+          "source_protection_known": true,
+          "within_original_deadline": true,
+          "within_original_spent_budget": true
+        },
+        "hypothetical_only": true,
+        "id": "P04-own-publication-controls-unknown",
+        "mode": "internal-effect",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "paper_order": [
+          "Known original identity, fixed bounds, whole envelope, pre-spend and required controls are hypothetical premises, not actual evidence.",
+          "Compare declared admission/request order and each required prerequisite at the proposed dependent effect.",
+          "Keep original failure, qualified captured facts and pending outcomes separate; derive no actual permission or drain."
+        ],
+        "qualified_captured_fact": null,
+        "request": {
+          "namespace": "target",
+          "order": "after-admission",
+          "scope": "all"
+        },
+        "scope": "publication"
+      },
+      "native_evidence": null,
+      "reading": {
+        "actual_global_host_closure": false,
+        "candidate_clause_projection": "paper-pending-unproved-dependent-effect",
+        "current_original_requirements_remain_normative": true,
+        "known_denials": [],
+        "native_observation": null,
+        "new_grant_or_right_issued": false,
+        "original_clause_comparison": "original-publication-own-policy-still-due",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "pending_obligations_retained": true,
+        "qualified_captured_fact": null,
+        "request_applies_in_paper_namespace": false,
+        "request_or_return_proves_full_drain": false,
+        "runtime_authority": false,
+        "unknown_means_no_effect": false,
+        "unknown_required_facts": [
+          "separate_original_publication_controls_known"
+        ]
+      },
+      "runtime_authority": false
+    },
+    {
+      "case": {
+        "facts": {
+          "action_is_original_once_only": true,
+          "admission_state_known": true,
+          "captured_closed_data_only": true,
+          "clock_mapping_known": true,
+          "complete_original_prerequisites_known": true,
+          "envelope_membership_known": true,
+          "guard_known": true,
+          "no_worker_control_channel_known": true,
+          "original_authority_known": true,
+          "pre_spend_known": true,
+          "safe_cut_supported_known": true,
+          "same_identity_known": true,
+          "separate_original_publication_controls_known": false,
+          "source_protection_known": true,
+          "within_original_deadline": true,
+          "within_original_spent_budget": true
+        },
+        "hypothetical_only": true,
+        "id": "P05-no-borrowed-target-right",
+        "mode": "internal-effect",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "paper_order": [
+          "Known original identity, fixed bounds, whole envelope, pre-spend and required controls are hypothetical premises, not actual evidence.",
+          "Compare declared admission/request order and each required prerequisite at the proposed dependent effect.",
+          "Keep original failure, qualified captured facts and pending outcomes separate; derive no actual permission or drain."
+        ],
+        "qualified_captured_fact": null,
+        "request": {
+          "namespace": "target",
+          "order": "none",
+          "scope": "none"
+        },
+        "scope": "publication"
+      },
+      "native_evidence": null,
+      "reading": {
+        "actual_global_host_closure": false,
+        "candidate_clause_projection": "paper-denied-dependent-effect-or-admission",
+        "current_original_requirements_remain_normative": true,
+        "known_denials": [
+          "separate_original_publication_controls_known"
+        ],
+        "native_observation": null,
+        "new_grant_or_right_issued": false,
+        "original_clause_comparison": "original-publication-own-policy-still-due",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "pending_obligations_retained": false,
+        "qualified_captured_fact": null,
+        "request_applies_in_paper_namespace": false,
+        "request_or_return_proves_full_drain": false,
+        "runtime_authority": false,
+        "unknown_means_no_effect": false,
+        "unknown_required_facts": []
+      },
+      "runtime_authority": false
+    },
+    {
+      "case": {
+        "facts": {
+          "action_is_original_once_only": true,
+          "admission_state_known": true,
+          "captured_closed_data_only": false,
+          "clock_mapping_known": true,
+          "complete_original_prerequisites_known": true,
+          "envelope_membership_known": true,
+          "guard_known": true,
+          "no_worker_control_channel_known": true,
+          "original_authority_known": true,
+          "pre_spend_known": true,
+          "safe_cut_supported_known": true,
+          "same_identity_known": true,
+          "separate_original_publication_controls_known": true,
+          "source_protection_known": true,
+          "within_original_deadline": true,
+          "within_original_spent_budget": true
+        },
+        "hypothetical_only": true,
+        "id": "P06-forbidden-post-release-target-read",
+        "mode": "internal-effect",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "paper_order": [
+          "Known original identity, fixed bounds, whole envelope, pre-spend and required controls are hypothetical premises, not actual evidence.",
+          "Compare declared admission/request order and each required prerequisite at the proposed dependent effect.",
+          "Keep original failure, qualified captured facts and pending outcomes separate; derive no actual permission or drain."
+        ],
+        "qualified_captured_fact": null,
+        "request": {
+          "namespace": "target",
+          "order": "none",
+          "scope": "none"
+        },
+        "scope": "publication"
+      },
+      "native_evidence": null,
+      "reading": {
+        "actual_global_host_closure": false,
+        "candidate_clause_projection": "paper-denied-dependent-effect-or-admission",
+        "current_original_requirements_remain_normative": true,
+        "known_denials": [
+          "captured_closed_data_only"
+        ],
+        "native_observation": null,
+        "new_grant_or_right_issued": false,
+        "original_clause_comparison": "original-publication-own-policy-still-due",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "pending_obligations_retained": false,
+        "qualified_captured_fact": null,
+        "request_applies_in_paper_namespace": false,
+        "request_or_return_proves_full_drain": false,
+        "runtime_authority": false,
+        "unknown_means_no_effect": false,
+        "unknown_required_facts": []
+      },
+      "runtime_authority": false
+    },
+    {
+      "case": {
+        "facts": {
+          "action_is_original_once_only": true,
+          "admission_state_known": true,
+          "captured_closed_data_only": true,
+          "clock_mapping_known": true,
+          "complete_original_prerequisites_known": true,
+          "envelope_membership_known": true,
+          "guard_known": true,
+          "no_worker_control_channel_known": true,
+          "original_authority_known": true,
+          "pre_spend_known": true,
+          "safe_cut_supported_known": true,
+          "same_identity_known": true,
+          "separate_original_publication_controls_known": true,
+          "source_protection_known": true,
+          "within_original_deadline": true,
+          "within_original_spent_budget": true
+        },
+        "hypothetical_only": true,
+        "id": "P07-custody-unknown-retains-target-fact",
+        "mode": "internal-effect",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "outcome": "unknown",
+        "paper_order": [
+          "Known original identity, fixed bounds, whole envelope, pre-spend and required controls are hypothetical premises, not actual evidence.",
+          "Compare declared admission/request order and each required prerequisite at the proposed dependent effect.",
+          "Keep original failure, qualified captured facts and pending outcomes separate; derive no actual permission or drain."
+        ],
+        "qualified_captured_fact": "hypothetically-qualified-original-target-match",
+        "request": {
+          "namespace": "target",
+          "order": "none",
+          "scope": "none"
+        },
+        "scope": "publication"
+      },
+      "native_evidence": null,
+      "reading": {
+        "actual_global_host_closure": false,
+        "candidate_clause_projection": "paper-consider-original-envelope-without-applicable-request",
+        "current_original_requirements_remain_normative": true,
+        "known_denials": [],
+        "native_observation": null,
+        "new_grant_or_right_issued": false,
+        "original_clause_comparison": "original-publication-own-policy-still-due",
+        "original_forward_failed": true,
+        "original_mismatch": false,
+        "outcome": "unknown",
+        "pending_obligations_retained": true,
+        "qualified_captured_fact": "hypothetically-qualified-original-target-match",
+        "request_applies_in_paper_namespace": false,
+        "request_or_return_proves_full_drain": false,
+        "runtime_authority": false,
+        "unknown_means_no_effect": false,
+        "unknown_required_facts": []
+      },
+      "runtime_authority": false
+    },
+    {
+      "case": {
+        "facts": {
+          "action_is_original_once_only": true,
+          "admission_state_known": true,
+          "captured_closed_data_only": true,
+          "clock_mapping_known": true,
+          "complete_original_prerequisites_known": true,
+          "envelope_membership_known": true,
+          "guard_known": true,
+          "no_worker_control_channel_known": true,
+          "original_authority_known": true,
+          "pre_spend_known": true,
+          "safe_cut_supported_known": true,
+          "same_identity_known": true,
+          "separate_original_publication_controls_known": true,
+          "source_protection_known": true,
+          "within_original_deadline": true,
+          "within_original_spent_budget": true
+        },
+        "hypothetical_only": true,
+        "id": "P08-unknown-request-namespace",
+        "mode": "internal-effect",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "unknown",
+        "paper_order": [
+          "Known original identity, fixed bounds, whole envelope, pre-spend and required controls are hypothetical premises, not actual evidence.",
+          "Compare declared admission/request order and each required prerequisite at the proposed dependent effect.",
+          "Keep original failure, qualified captured facts and pending outcomes separate; derive no actual permission or drain."
+        ],
+        "qualified_captured_fact": null,
+        "request": {
+          "namespace": "unknown",
+          "order": "unknown",
+          "scope": "all"
+        },
+        "scope": "publication"
+      },
+      "native_evidence": null,
+      "reading": {
+        "actual_global_host_closure": false,
+        "candidate_clause_projection": "paper-pending-unproved-dependent-effect",
+        "current_original_requirements_remain_normative": true,
+        "known_denials": [],
+        "native_observation": null,
+        "new_grant_or_right_issued": false,
+        "original_clause_comparison": "original-publication-own-policy-still-due",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "unknown",
+        "pending_obligations_retained": true,
+        "qualified_captured_fact": null,
+        "request_applies_in_paper_namespace": null,
+        "request_or_return_proves_full_drain": false,
+        "runtime_authority": false,
+        "unknown_means_no_effect": false,
+        "unknown_required_facts": [
+          "request-namespace-or-scope"
+        ]
+      },
+      "runtime_authority": false
+    },
+    {
+      "case": {
+        "facts": {
+          "action_is_original_once_only": true,
+          "admission_state_known": true,
+          "captured_closed_data_only": true,
+          "clock_mapping_known": true,
+          "complete_original_prerequisites_known": true,
+          "envelope_membership_known": true,
+          "guard_known": true,
+          "no_worker_control_channel_known": true,
+          "original_authority_known": true,
+          "pre_spend_known": true,
+          "safe_cut_supported_known": true,
+          "same_identity_known": true,
+          "separate_original_publication_controls_known": true,
+          "source_protection_known": true,
+          "within_original_deadline": true,
+          "within_original_spent_budget": true
+        },
+        "hypothetical_only": true,
+        "id": "P09-own-publication-order-unknown",
+        "mode": "internal-effect",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "unknown",
+        "paper_order": [
+          "Known original identity, fixed bounds, whole envelope, pre-spend and required controls are hypothetical premises, not actual evidence.",
+          "Compare declared admission/request order and each required prerequisite at the proposed dependent effect.",
+          "Keep original failure, qualified captured facts and pending outcomes separate; derive no actual permission or drain."
+        ],
+        "qualified_captured_fact": null,
+        "request": {
+          "namespace": "publication",
+          "order": "unknown",
+          "scope": "publication"
+        },
+        "scope": "publication"
+      },
+      "native_evidence": null,
+      "reading": {
+        "actual_global_host_closure": false,
+        "candidate_clause_projection": "paper-pending-unproved-dependent-effect",
+        "current_original_requirements_remain_normative": true,
+        "known_denials": [],
+        "native_observation": null,
+        "new_grant_or_right_issued": false,
+        "original_clause_comparison": "original-publication-own-policy-still-due",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "unknown",
+        "pending_obligations_retained": true,
+        "qualified_captured_fact": null,
+        "request_applies_in_paper_namespace": true,
+        "request_or_return_proves_full_drain": false,
+        "runtime_authority": false,
+        "unknown_means_no_effect": false,
+        "unknown_required_facts": [
+          "independent-admission-request-order"
+        ]
+      },
+      "runtime_authority": false
+    },
+    {
+      "case": {
+        "facts": {
+          "action_is_original_once_only": true,
+          "admission_state_known": true,
+          "clock_mapping_known": true,
+          "complete_original_prerequisites_known": true,
+          "envelope_membership_known": true,
+          "guard_known": true,
+          "no_worker_control_channel_known": true,
+          "original_authority_known": false,
+          "pre_spend_known": true,
+          "safe_cut_supported_known": true,
+          "same_identity_known": true,
+          "source_protection_known": true,
+          "within_original_deadline": true,
+          "within_original_spent_budget": true
+        },
+        "hypothetical_only": true,
+        "id": "F16-recovery-request-not-forward-authority",
+        "mode": "internal-effect",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "paper_order": [
+          "Known original identity, fixed bounds, whole envelope, pre-spend and required controls are hypothetical premises, not actual evidence.",
+          "Compare declared admission/request order and each required prerequisite at the proposed dependent effect.",
+          "Keep original failure, qualified captured facts and pending outcomes separate; derive no actual permission or drain."
+        ],
+        "qualified_captured_fact": null,
+        "request": {
+          "namespace": "target",
+          "order": "after-admission",
+          "scope": "recovery"
+        },
+        "scope": "forward"
+      },
+      "native_evidence": null,
+      "reading": {
+        "actual_global_host_closure": false,
+        "candidate_clause_projection": "paper-denied-dependent-effect-or-admission",
+        "current_original_requirements_remain_normative": true,
+        "known_denials": [
+          "original_authority_known"
+        ],
+        "native_observation": null,
+        "new_grant_or_right_issued": false,
+        "original_clause_comparison": "original-whole-prerequisites-still-due-no-paper-permission",
+        "original_forward_failed": false,
+        "original_mismatch": false,
+        "outcome": "known-closed",
+        "pending_obligations_retained": false,
+        "qualified_captured_fact": null,
+        "request_applies_in_paper_namespace": false,
+        "request_or_return_proves_full_drain": false,
+        "runtime_authority": false,
+        "unknown_means_no_effect": false,
+        "unknown_required_facts": []
+      },
+      "runtime_authority": false
+    }
+  ],
+  "expected_interpretation_limit": {
+    "actual_namespace_or_ABI_selected": false,
+    "actual_original_publication_policy_selected": false,
+    "all1286_member_semantics_independently_accepted": false,
+    "all_own_actor_global_controls_still_required": true,
+    "current_original_norms_activated_as_candidate": false,
+    "known_failure_and_pending_and_captured_facts_kept_separate": true,
+    "native_no_channel_serialization_or_full_drain_established": false,
+    "paper_cases_exhaust_native_schedules": false,
+    "positive_projection_is_effect_permission": false,
+    "reader_is_native_admission_gate": false
+  },
+  "expected_new_findings": [
+    {
+      "actual_native_evidence": null,
+      "classification": "underspecified-condition",
+      "disposition": "Open explicit joint specification question: bind issuer/attempt/credential/request namespace/scope and admission serialization before actual effects. This audit uses target/publication labels as paper disambiguation only, not a selected native format or new guarantee. Full terminal/impact reconciliation due414-416.",
+      "id": "A411-01",
+      "inactive_wording_proposal": "DRAFT ONLY: Interpret each request against an explicitly reviewed original authority namespace and affected operation scope. A target-scope all request supplies no publication authority and is not presumed to revoke or spare publication without its separately reviewed original policy. Unknown namespace, scope or admission/request order denies dependent unproved effects and preserves in-flight obligations. This supplies no actual issuer format, transport, new right or native grant.",
+      "independent_impact_acceptance": false,
+      "issue": "The scalar word all must not conceal the request authority namespace. The402 paper table treats target all separately from independently controlled publication, but an actual issuer/request format and full dispatch ordering are unbound. Unknown namespace cannot be treated as an unrelated harmless request.",
+      "native_proof": false,
+      "normative_activation": false,
+      "paper_case_ids": [
+        "R02-recovery-all-pre-request-envelope",
+        "P01-target-all-not-publication-authority",
+        "P08-unknown-request-namespace"
+      ],
+      "runtime_authority": false,
+      "status": "open-authored-specification-question",
+      "whole_operation402_reference": {
+        "canonical_sha256": "535f3e3854385278362e9bdc70d8446e72250da703f06d9f61dff6850adb68fc",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-operation-admission-revocation-proposal-review-review.json",
+        "sha256": "0a6f20dd064ebbb4da81322ff4cf39207d84f1610e6ea17ff079b8a84b154530"
+      },
+      "whole_source_context": {
+        "paper_scope_interpretation": {
+          "actual_issuer_format_selected": false,
+          "known_pre_request_envelope_extends_deadline_budget_or_scope": false,
+          "paper_names_are_native_ABI": false,
+          "publication_namespace": "own separately reviewed original publication policy; actual issuer/format/request rule unbound",
+          "requests_or_backend_returns_prove_drain": false,
+          "target_all_automatically_defines_original_publication_policy": false,
+          "target_evidence_uses_original_recovery_scope": true,
+          "target_namespace": [
+            "forward",
+            "recovery",
+            "all"
+          ],
+          "target_request_grants_publication": false,
+          "unknown_namespace_or_scope_is_harmless": false
+        },
+        "whole_current323_fence_forward_recovery_closure": {
+          "closure_contract": {
+            "controller": "unknown-durable-claim-launch-binding-budget-child-or-evidence-state-remains-pending-no-auto-delete-release-or-closed-rights-claim",
+            "machine": "only-known-original-restoration-and-known-owned-child-quiescence-with-complete-target-evidence-under-guard-can-close-scoped-target-obligations",
+            "publication": "after-target-closure-use-captured-closed-data-under-independent-publication-controls-through-last-receipt; no-target-refresh-write-or-renewal"
+          },
+          "fence_contract": {
+            "actual_enforcer": null,
+            "actual_transport": null,
+            "compatibility": "321-offline-bootstrap-schema-and-FD-closure-unchanged; no-added-worker-RPC-or-inherited-control-channel; future-successor-fence-policy-and-transport-integration-explicitly-required324/325",
+            "rule": "trusted-external-controller-enforces-original-policy-and-absorbing-revocation-at-every-effect-boundary; worker-and-contained-commands-have-no-service-or-broker-capability",
+            "scope": "live-check-is-original-attempt-validity-not-new-grant-per-action; no-claim-of-instant-revocation-from-offline-receipt-or-finite-lease-alone",
+            "uncertainty": "gate-outcome-loss-or-stale-or-unavailable-status-stops-effects; consumed-grant-launch-slot-and-recovery-budget-never-reopen"
+          },
+          "forward_contract": {
+            "in_flight": "started-effects-and-children-remain-obligations; inability-to-prove-stop-at-safe-effect-boundary-keeps-unknown-pending",
+            "owner": "original-consumed-active-attempt-no-new-or-unused-grant-per-nested-call",
+            "terminal": "normal-forward-completion-also-closes-forward-before-restoration-evidence-and-target-control-release",
+            "termination": "expiry-forward-revocation-or-any-failure-latches-forward-stop-irreversibly; no-new-effect-dispatch-or-revival",
+            "validity": "independent-authenticated-scope-trusted-time-and-continuously-enforced-live-fence-before-and-through-every-permitted-effect"
+          },
+          "recovery_contract": {
+            "boundedness": "finite-issuer-bound-deadline-and-durable-action-budget; spend-before-action; no-renewal-refill-retry-after-unknown-or-new-grant",
+            "expiry_relation": "forward-expiry-or-forward-only-revocation-does-not-itself-revoke-explicitly-retained-recovery; never-blanket-expiry-exemption",
+            "idempotence": "known-already-restored-state-may-return-reviewed-no-op-with-fresh-verification; never-repeat-unknown-package-or-file-action",
+            "order": "stop-forward-then-known-child-quiescence-then-safe-restore-verify-target-evidence-before-release",
+            "owner": "narrow-retained-rights-of-same-original-consumed-attempt-not-another-grant-or-invocation",
+            "preconditions": "traps-guards-owned-canonical-paths-all-writers-excluded-exact-backups-same-safe-identity-original-baseline-and-approved-deltas",
+            "revocation": "recovery/all-revocation-unknown-scope-clock-discontinuity-boot-or-identity-drift-block-recovery-writes-and-preserve-obligations",
+            "status": "keep-original-forward-failure-status-separate-from-recovery-and-publication-status; restoration-cannot-turn-failure-into-success",
+            "validity": "explicit-authenticated-issuer-original-recovery-scope-with-own-finite-deadline-budget-and-live-recovery-fence",
+            "whitelist": [
+              "bounded-owned-child-control-and-drain",
+              "exact-original-backup-restoration",
+              "verify-original-invariants",
+              "capture-owned-target-evidence",
+              "verified-target-control-release"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "actual_native_evidence": null,
+      "classification": "underspecified-condition",
+      "disposition": "Open publication-own original policy/whole-stage semantic reconciliation due414-415. Retain A410-02 declared candidate guarantee loss, A410-05 authored-versus-actual clarification and all full source; do not infer an original instantaneous publication behavior from target request fields alone.",
+      "id": "A411-02",
+      "inactive_wording_proposal": null,
+      "independent_impact_acceptance": false,
+      "issue": "Publication target-request independence does not specify the entire original publication-own request policy. A candidate post-request paper envelope must not be reported as current original instantaneous-publication equivalence or as an actual current policy selection.",
+      "native_proof": false,
+      "normative_activation": false,
+      "paper_case_ids": [
+        "P01-target-all-not-publication-authority",
+        "P02-own-publication-request-pre-admitted",
+        "P03-own-publication-request-denies-new",
+        "P09-own-publication-order-unknown"
+      ],
+      "runtime_authority": false,
+      "status": "open-authored-specification-question",
+      "whole_operation402_reference": {
+        "canonical_sha256": "535f3e3854385278362e9bdc70d8446e72250da703f06d9f61dff6850adb68fc",
+        "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-operation-admission-revocation-proposal-review-review.json",
+        "sha256": "0a6f20dd064ebbb4da81322ff4cf39207d84f1610e6ea17ff079b8a84b154530"
+      },
+      "whole_source_context": {
+        "paper_scope_interpretation": {
+          "actual_issuer_format_selected": false,
+          "known_pre_request_envelope_extends_deadline_budget_or_scope": false,
+          "paper_names_are_native_ABI": false,
+          "publication_namespace": "own separately reviewed original publication policy; actual issuer/format/request rule unbound",
+          "requests_or_backend_returns_prove_drain": false,
+          "target_all_automatically_defines_original_publication_policy": false,
+          "target_evidence_uses_original_recovery_scope": true,
+          "target_namespace": [
+            "forward",
+            "recovery",
+            "all"
+          ],
+          "target_request_grants_publication": false,
+          "unknown_namespace_or_scope_is_harmless": false
+        },
+        "whole_current323_fence_forward_recovery_closure": {
+          "closure_contract": {
+            "controller": "unknown-durable-claim-launch-binding-budget-child-or-evidence-state-remains-pending-no-auto-delete-release-or-closed-rights-claim",
+            "machine": "only-known-original-restoration-and-known-owned-child-quiescence-with-complete-target-evidence-under-guard-can-close-scoped-target-obligations",
+            "publication": "after-target-closure-use-captured-closed-data-under-independent-publication-controls-through-last-receipt; no-target-refresh-write-or-renewal"
+          },
+          "fence_contract": {
+            "actual_enforcer": null,
+            "actual_transport": null,
+            "compatibility": "321-offline-bootstrap-schema-and-FD-closure-unchanged; no-added-worker-RPC-or-inherited-control-channel; future-successor-fence-policy-and-transport-integration-explicitly-required324/325",
+            "rule": "trusted-external-controller-enforces-original-policy-and-absorbing-revocation-at-every-effect-boundary; worker-and-contained-commands-have-no-service-or-broker-capability",
+            "scope": "live-check-is-original-attempt-validity-not-new-grant-per-action; no-claim-of-instant-revocation-from-offline-receipt-or-finite-lease-alone",
+            "uncertainty": "gate-outcome-loss-or-stale-or-unavailable-status-stops-effects; consumed-grant-launch-slot-and-recovery-budget-never-reopen"
+          },
+          "forward_contract": {
+            "in_flight": "started-effects-and-children-remain-obligations; inability-to-prove-stop-at-safe-effect-boundary-keeps-unknown-pending",
+            "owner": "original-consumed-active-attempt-no-new-or-unused-grant-per-nested-call",
+            "terminal": "normal-forward-completion-also-closes-forward-before-restoration-evidence-and-target-control-release",
+            "termination": "expiry-forward-revocation-or-any-failure-latches-forward-stop-irreversibly; no-new-effect-dispatch-or-revival",
+            "validity": "independent-authenticated-scope-trusted-time-and-continuously-enforced-live-fence-before-and-through-every-permitted-effect"
+          },
+          "recovery_contract": {
+            "boundedness": "finite-issuer-bound-deadline-and-durable-action-budget; spend-before-action; no-renewal-refill-retry-after-unknown-or-new-grant",
+            "expiry_relation": "forward-expiry-or-forward-only-revocation-does-not-itself-revoke-explicitly-retained-recovery; never-blanket-expiry-exemption",
+            "idempotence": "known-already-restored-state-may-return-reviewed-no-op-with-fresh-verification; never-repeat-unknown-package-or-file-action",
+            "order": "stop-forward-then-known-child-quiescence-then-safe-restore-verify-target-evidence-before-release",
+            "owner": "narrow-retained-rights-of-same-original-consumed-attempt-not-another-grant-or-invocation",
+            "preconditions": "traps-guards-owned-canonical-paths-all-writers-excluded-exact-backups-same-safe-identity-original-baseline-and-approved-deltas",
+            "revocation": "recovery/all-revocation-unknown-scope-clock-discontinuity-boot-or-identity-drift-block-recovery-writes-and-preserve-obligations",
+            "status": "keep-original-forward-failure-status-separate-from-recovery-and-publication-status; restoration-cannot-turn-failure-into-success",
+            "validity": "explicit-authenticated-issuer-original-recovery-scope-with-own-finite-deadline-budget-and-live-recovery-fence",
+            "whitelist": [
+              "bounded-owned-child-control-and-drain",
+              "exact-original-backup-restoration",
+              "verify-original-invariants",
+              "capture-owned-target-evidence",
+              "verified-target-control-release"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "expected_prior_entry_reference": {
+    "canonical_sha256": "3bf913a1f0f700e00727352697f8fcc3de275088ef2733994b27e7256c05c5b3",
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-clause-guarantee-loss-audit-review-entry409.json",
+    "sha256": "bc3cd989b53a8638e99ab533d5fe76b078af49a9a1423cc4bdc65cf0bace6825"
+  },
+  "expected_review_result": {
+    "actual_global_host_closure": false,
+    "actual_host_state": "unobserved-not-claimed-absent",
+    "actual_live_bindings": null,
+    "approved_contract_migration": null,
+    "current_strong_safe_pause": false,
+    "independent_impact_review_accepted": false,
+    "last_confirmed_strong_safe_pause_step": 408,
+    "native_cases_run": 0,
+    "native_proofs_added": 0,
+    "new_open_questions": 2,
+    "next_preparable_step_after_complete_acceptance": 412,
+    "paper_cases": 36,
+    "retained_open_findings": 7,
+    "runtime_authority": false,
+    "selected_options": null,
+    "state": "prepared-scoped-revocation-paper-audit-awaiting-user-acceptance",
+    "step": 411
+  },
+  "expected_scope_interpretation": {
+    "actual_issuer_format_selected": false,
+    "known_pre_request_envelope_extends_deadline_budget_or_scope": false,
+    "paper_names_are_native_ABI": false,
+    "publication_namespace": "own separately reviewed original publication policy; actual issuer/format/request rule unbound",
+    "requests_or_backend_returns_prove_drain": false,
+    "target_all_automatically_defines_original_publication_policy": false,
+    "target_evidence_uses_original_recovery_scope": true,
+    "target_namespace": [
+      "forward",
+      "recovery",
+      "all"
+    ],
+    "target_request_grants_publication": false,
+    "unknown_namespace_or_scope_is_harmless": false
+  },
+  "false_fields": [
+    "independent_impact_review_accepted",
+    "semantic_migration_complete",
+    "current_strong_safe_pause",
+    "all_semantic_findings_resolved",
+    "runtime_authority"
+  ],
+  "fixture_canonical_sha256": {
+    "audit": "0ff584164118a23451dc3e0ced8a47bea1409a7e06989ff22032f7b10bc9975f",
+    "baseline": "964eb2671626957527fe8d23b13d86ccab7969eb38f3aeca288c897fba09d863",
+    "entry410": "8c4a1b56417150b0dd836ea1c9954344834ce54aa83df24da047b25e5fd9a11e",
+    "sources": "c8f4559aa4bd85872ec2a939d3cf331268fd6def08e5d28dffd3add4dc3aeb33"
+  },
+  "new_paths": [
+    "docs/reference/phase-1-operational-joint-scoped-revocation-paper-audit-review.md",
+    "tools/reference/phase-1-operational-joint-scoped-revocation-paper-audit-review.py",
+    "tests/reference/test-phase-1-operational-joint-scoped-revocation-paper-audit-review-harness.sh",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-scoped-revocation-paper-audit-review-baseline.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-scoped-revocation-paper-audit-review-entry410.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-scoped-revocation-paper-audit-review-audit.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-scoped-revocation-paper-audit-review-sources.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-scoped-revocation-paper-audit-review-policy.json"
+  ],
+  "new_source_keys": [
+    "audit410",
+    "policy410",
+    "sources410",
+    "actual409_entry"
+  ],
+  "null_fields": [
+    "selected_options",
+    "approved_joint_specification",
+    "approved_contract_migration",
+    "actual_selected_implementation",
+    "actual_joint_native_graph",
+    "actual_native_evidence",
+    "actual_two_platform_run_bindings"
+  ],
+  "prefixes": {
+    "CHANGELOG.md": "## Phase 1 step 411 -- scoped revocation paper audit\n\n- Accepted410 at reporteda23fabb,69 ordered PASS/zero failures,exact10paths/8creates/\n  30031insertions/message,push/clean matching heads;complete disclosed return retained.\n- Thirty-six complete paper cases retain scoped request/admission order,original\n  finite envelopes,expiry/control/source/spend/no-channel uncertainty,recovery and\n  target-evidence/publication separation. Reader has no actual effect permission.\n- Known original failure/mismatch,qualified captured facts and pending obligations\n  survive separately;no request/backend exit as drain,unknown as no-effect or ACKretry.\n- Two new open specification questions retain whole source:authority namespace of\n  all requests,and publication-own original policy not inferred from target fields.\n  All7 prior410 findings/2 inactiveclarifications unchanged;no selection/activation.\n- Whole117 inputs/37 roots,4 native roots inert;all2210 old bodies unchanged except\n  exact prefixes,8 additions. Same-author paper audit not independent/native proof.\n- Full actual411 before412,lastconfirmedpause408only;conditional418 actualfinal/\n  externalALL9 then STOP/noautomatic419/newrequest. Nativeclosed,Phase1 incomplete.\n\n",
+    "README.md": "<!-- step-411-scoped-revocation-paper-audit:start -->\n## Current Phase 1 scoped revocation paper audit -- step 411\n\nAccepted410 at reported `a23fabb`:69 ordered PASS,zero failures,ten files/eight\ncreates/30031 insertions,reported main push/clean matching heads. Complete supplied\nreturn retained; intermediate checkpoint only,last confirmed repository pause408.\n\nThe [411 audit](docs/reference/phase-1-operational-joint-scoped-revocation-paper-audit-review.md)\nretains36 complete paper cases for forward,recovery,target-evidence and separate\npublication request/admission/order/expiry/envelope/control/spend/ACK uncertainty.\nKnown failure,mismatch,qualified hypothetical captured facts and pending outcomes\nremain separate. Positive paper projections never grant effects. Original live\ntarget fences differ from inactive pre-request continuation;publication-own original\npolicy is not inferred from target request fields. Two new OPEN specification\nquestions retain whole source:request authority namespaces and full publication-own\npolicy. Seven old410 findings/two inactive clarifications preserved unchanged.\n\nAll117 whole inputs/37 roots,four native roots inert;WHOLE402 context/all nine\nglobal rules/whole original1286-member scope retained. Reader supplied-data only,\nnot native gate,implementation/ABI choice or independent acceptance. Original norms\nbinding,A/R/D unselected,approvals/native gates pending,proofs/cases0,Phase1 incomplete.\nHost unobserved/livebindingsNULL/globalFALSE,schema/reference-v1/C/Phase2/Production\nclosed.411 prepared;full actual411 before412. Conditional418 actualfinal/external\nALL9 then STOP/noautomatic419/newrequest,no oldbindings revived. Prior README intact.\n<!-- step-411-scoped-revocation-paper-audit:end -->\n\n"
+  },
+  "receipt_create_paths": [
+    "docs/reference/phase-1-operational-joint-clause-guarantee-loss-audit-review.md",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-clause-guarantee-loss-audit-review-audit.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-clause-guarantee-loss-audit-review-baseline.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-clause-guarantee-loss-audit-review-entry409.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-clause-guarantee-loss-audit-review-policy.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-clause-guarantee-loss-audit-review-sources.json",
+    "tests/reference/test-phase-1-operational-joint-clause-guarantee-loss-audit-review-harness.sh",
+    "tools/reference/phase-1-operational-joint-clause-guarantee-loss-audit-review.py"
+  ],
+  "receipt_final_tail": "a23fabb (HEAD -> main, origin/main, origin/HEAD) Phase 1 step 410: audit exact joint clauses and guarantee losses\na23fabb (HEAD -> main, origin/main, origin/HEAD) Phase 1 step 410: audit exact joint clauses and guarantee losses\npromano@pc-arch ~/Descargas $ \n",
+  "receipt_pass_labels": [
+    "PASS: whole authored410 fixtures bound",
+    "PASS: complete actual409 return61PASS exact commit push clean matching heads",
+    "PASS: all113 whole inputs and36 roots retained; native roots inert",
+    "PASS: all14 whole clauses four assumptions complete losses eight views and seven findings",
+    "PASS: eight whole patch views derived from exact declared replacements only",
+    "PASS: all2202 historical409 paths unchanged except exact additive prefixes",
+    "PASS: exact eight additions plus README and CHANGELOG",
+    "PASS: reject boolean schema",
+    "PASS: reject step411 substituted",
+    "PASS: reject option selected by audit",
+    "PASS: reject joint specification approved",
+    "PASS: reject migration approved",
+    "PASS: reject native graph invented",
+    "PASS: reject actual evidence invented",
+    "PASS: reject same-author audit made independent acceptance",
+    "PASS: reject whole migration completed",
+    "PASS: reject native case invented",
+    "PASS: reject unknown host made absent",
+    "PASS: reject global closure invented",
+    "PASS: reject original norms waived",
+    "PASS: reject whole current clause shortened",
+    "PASS: reject candidate clause weakened",
+    "PASS: reject one exact amendment omitted",
+    "PASS: reject local review waives other global rules",
+    "PASS: reject paper challenge made native observation",
+    "PASS: reject recovery loss hidden in annotation",
+    "PASS: reject ordinary root workload exempted",
+    "PASS: reject uncertain admission treated no-effect",
+    "PASS: reject safe cut label made proven drain",
+    "PASS: reject one companion assumption omitted",
+    "PASS: reject hidden clock tamper detection promised",
+    "PASS: reject additional recovery loss omitted",
+    "PASS: reject stage membership loss omitted",
+    "PASS: reject one global rule omitted",
+    "PASS: reject whole stage12 shortened",
+    "PASS: reject current contract view omitted",
+    "PASS: reject unamended current proof text altered",
+    "PASS: reject patch view declared native protocol",
+    "PASS: reject one authored finding removed",
+    "PASS: reject finding current wording shortened",
+    "PASS: reject finding status silently resolved",
+    "PASS: reject native proof invented from paper finding",
+    "PASS: reject clock clarification silently substituted",
+    "PASS: reject publication clarification made native grant",
+    "PASS: reject clarification hides original wording",
+    "PASS: reject all findings resolved invented",
+    "PASS: reject full1286 semantic acceptance inferred",
+    "PASS: reject native effect before fresh explicit grant",
+    "PASS: reject next step skips acceptance",
+    "PASS: reject current pause self-confirmed",
+    "PASS: reject automatic419 permitted",
+    "PASS: reject undeclared patch in original320",
+    "PASS: reject undeclared patch in original321",
+    "PASS: reject undeclared patch in original322",
+    "PASS: reject undeclared patch in original323",
+    "PASS: reject undeclared patch in original324",
+    "PASS: reject undeclared patch in original325",
+    "PASS: reject undeclared patch in original326",
+    "PASS: reject undeclared patch in original327",
+    "PASS: reject truncated actual409 receipt",
+    "PASS: reject full user Git ID invented",
+    "PASS: reject intermediate409 made strong pause",
+    "PASS: reject historical whole408 entry rebound",
+    "PASS: reject original source byte drift",
+    "PASS: reject coordinated authored policy substitution",
+    "PASS: review output preserves seven findings two inactive drafts and closed authority",
+    "PASS: reviewer imports only supplied-data libraries with no dynamic dispatch",
+    "PASS: exact authored artifact docs/reference/phase-1-operational-joint-clause-guarantee-loss-audit-review.md",
+    "PASS: exact authored artifact tests/reference/test-phase-1-operational-joint-clause-guarantee-loss-audit-review-harness.sh"
+  ],
+  "receipt_push_marker": "   90f9f6c..a23fabb  main -> main\n",
+  "receipt_single_markers": [
+    "step410_overlay_application_status\tPASS",
+    "step410_commit_scope_verification_status\tPASS",
+    "Result: PASS (69 passes, 0 failures)",
+    "[main a23fabb] Phase 1 step 410: audit exact joint clauses and guarantee losses",
+    " 10 files changed, 30031 insertions(+)",
+    "To github.com:promano7/slack-update.git",
+    "   90f9f6c..a23fabb  main -> main\n"
+  ],
+  "schema": 1,
+  "step": 411
+}
