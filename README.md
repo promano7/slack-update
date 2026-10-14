@@ -1,3 +1,31 @@
+<!-- step-409-manuscript-audit-resume:start -->
+## Current Phase 1 internal manuscript audit plan -- step 409
+
+Accepted408 at reported `a81a741`:95 ordered PASS,zero failures,ten files/eight
+creates/208501 insertions,reported main push/clean matching heads. Complete actual
+return and external all-nine WHOLE nested-condition confirmation retained in409
+entry. Last confirmed repository pause408 covers399-408 only; historic prepared408
+pending fields below remain byte-exact history, superseded by that external entry.
+
+New user request opens finite repository-only409-418 internal audit. The
+[409 plan](docs/reference/phase-1-operational-joint-manuscript-audit-resume-planning-review.md)
+sets exact clause/loss, scoped revocation, trust/drain/clock, baseline/once-only
+rights, stage12/custody, whole-entry/oracle and integrated finding reviews, followed
+by a concrete A/R/D decision brief and conditional418 pause. Same-author audit,
+source binding, private PASS and repository commits are not independent acceptance.
+Open findings remain visible; no further equivalent candidate or native proof is
+implied.409 prepared,actual acceptance pending; complete predecessor return gates
+every successor. All109 inputs/35 roots and whole14-clause/1286-member source scope
+retained; four native roots inert. Original norms binding, A/R/D unselected,
+specification/impact/migration/implementation/native grants still pending.
+
+Native cases/proofs0; Phase1/kernel incomplete; schema/reference-v1/C/Phase2 and
+Production closed. Host unobserved/live bindings NULL/global closure FALSE.
+At418 require full actual final return and external ALL-nine whole-condition
+confirmation,then STOP/noautomatic419/newrequest. No old binding/grant reuse;
+later-current refresh independent of repository pause. Prior README unchanged below.
+<!-- step-409-manuscript-audit-resume:end -->
+
 <!-- step-408-joint-proposal-freeze-pause:start -->
 ## Current Phase 1 joint proposal freeze and conditional safe pause -- step 408
 
