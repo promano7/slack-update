@@ -1,3 +1,18 @@
+## Phase 1 step 417 -- unselected A/R/D decision reference
+
+- Accepted416 at reported58c9d1b,84orderedPASS/zero failures,exact10paths/8creates/
+  118563insertions/message,push/clean matching heads;complete disclosed return retained.
+- Concise A/R/D consequences,losses and blockers without selection or premature
+  approval. A explicit amendments/R original-retention still unproved/D native
+  deferral with no waiver;native entry closed is not an implicit choice of D.
+- Seven separate choice/spec-impact/migration/actual composition/safety/grant/later
+  conformance boundaries and six non-authorizing event examples. All13 whole open
+  findings/4 inactive repairs/full losses/dimensions/pairs/member dependencies attached.
+- Whole141inputs/43roots,4native roots INERT;2258 old bodies unchanged except exact
+  prefixes,8adds. Completeactual417before418;lastconfirmedpause408only. Conditional418
+  ALL9 WHOLEconditions/currentbases/actualfinal/externalALL9 thenSTOP/noautomatic419/
+  newrequest. Nativeclosed,originalnormsbinding,allchoicesandapprovalspending.
+
 ## Phase 1 step 416 -- integrated findings and interaction dispositions
 
 - Accepted415 at reported51036ab,89orderedPASS/zero failures,exact10paths/8creates/

@@ -1,0 +1,350 @@
+{
+  "artifact_sha256": {
+    "docs/reference/phase-1-operational-joint-unselected-a-r-d-decision-brief-review.md": "d670896a113d7c6852a8a45b41663a3befbc7ac799d50b6e6d1791744ff8af68",
+    "tests/reference/test-phase-1-operational-joint-unselected-a-r-d-decision-brief-review-harness.sh": "0501e931b12dc38372e2d22fc2ae17a29ac33340c1f7f2de5a01a2bfb844e227"
+  },
+  "expected_attachment_specs": [
+    [
+      "audit416",
+      "/integrated_finding_reviews"
+    ],
+    [
+      "audit416",
+      "/all9_joint_dimension_reviews"
+    ],
+    [
+      "audit416",
+      "/all26_whole_option_reviews"
+    ],
+    [
+      "audit416",
+      "/all325_original_pair_reviews"
+    ],
+    [
+      "audit416",
+      "/all36_inactive_candidate_pair_reviews"
+    ],
+    [
+      "audit416",
+      "/all8_whole_decision_reviews"
+    ],
+    [
+      "audit416",
+      "/all1286_member_dependency_dispositions"
+    ],
+    [
+      "audit416",
+      "/inactive_repair_dependency_reviews"
+    ],
+    [
+      "audit415",
+      "/all15_category1286_member_impact_reviews"
+    ],
+    [
+      "packet407",
+      "/exact14_inactive_clause_replacements"
+    ],
+    [
+      "packet407",
+      "/complete4_additional_trust_and_terminal_assumptions"
+    ],
+    [
+      "packet407",
+      "/whole8_current_and_inactive_patch_contract_views"
+    ],
+    [
+      "packet407",
+      "/complete_guarantee_loss_and_incompatibility_register"
+    ],
+    [
+      "packet407",
+      "/semantic_register"
+    ],
+    [
+      "freeze408",
+      "/conditions"
+    ],
+    [
+      "plan409",
+      "/pause_policy"
+    ]
+  ],
+  "expected_boundaries": {
+    "C_port_open": false,
+    "actual_global_host_closure": false,
+    "actual_host_state": "unobserved-not-claimed-absent",
+    "actual_live_bindings": null,
+    "actual_native_refinement_complete": false,
+    "actual_successor_selected": false,
+    "controller_action_required": false,
+    "current_step_strong_safe_pause": false,
+    "execution_authorized": false,
+    "historical_binding_or_authority_reuse_allowed": false,
+    "kernel_package_edge_complete": false,
+    "last_confirmed_strong_safe_pause_step": 408,
+    "later_current_refresh_invalidates_repository_only_pause": false,
+    "machine_action_required": false,
+    "native_cases_run": 0,
+    "native_components_selected": false,
+    "native_graph_complete": false,
+    "native_proofs_added": 0,
+    "operational_conformance": false,
+    "operational_readiness": false,
+    "phase1_matrix_complete": false,
+    "phase2_open": false,
+    "production_entry_closed": true,
+    "reference_v1_frozen": false,
+    "runtime_authority": false,
+    "strong_safe_pause": false,
+    "target_machine_actions_authorized": false,
+    "version1_schema_frozen": false
+  },
+  "expected_interpretation_limit": {
+    "candidate_A_is_original_equivalence": false,
+    "deferral_waives_original_requirements": false,
+    "historical_author_recommendation_is_user_choice": false,
+    "migration_approval_is_native_test_grant": false,
+    "option_choice_is_independent_impact_acceptance": false,
+    "option_choice_is_migration_approval": false,
+    "platform_evidence_can_be_borrowed": false,
+    "private417_validation_is_actual_user_acceptance": false,
+    "repository_continue_PASS_commit_push_is_option_choice": false,
+    "retention_proves_feasible_original_composition": false,
+    "same_author_brief_is_independent_acceptance": false,
+    "summary_replaces_whole_findings_losses_or_dependencies": false,
+    "tests_may_authorize_themselves": false,
+    "unselected_native_entry_closed_is_implicit_choice_D": false
+  },
+  "expected_prior_entry_reference": {
+    "canonical_sha256": "fcbf423f4962aa9a0732aad1b8a12cca0e4c79f8ea7044911775f6a4a1574b3c",
+    "path": "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-integrated-findings-interaction-disposition-review-entry415.json",
+    "sha256": "985a876f4e37ec39284ed493f46edbe8b70ffbd705c1784caa3b1428073a84e4"
+  },
+  "expected_review_result": {
+    "actual_global_host_closure": false,
+    "actual_host_state": "unobserved-not-claimed-absent",
+    "actual_live_bindings": null,
+    "alternatives": 3,
+    "approval_requested_by_this_brief": false,
+    "approved_contract_migration": null,
+    "classification_counts": {
+      "explicit-guarantee-change": 3,
+      "underspecified-condition": 6,
+      "unproved-native-hypothesis": 4
+    },
+    "current_strong_safe_pause": false,
+    "decision_requested_now": false,
+    "independent_impact_review_accepted": false,
+    "last_confirmed_strong_safe_pause_step": 408,
+    "native_cases_run": 0,
+    "native_proofs_added": 0,
+    "next_preparable_step_after_complete_acceptance": 418,
+    "non_authorizing_examples": 6,
+    "retained_open_findings": 13,
+    "runtime_authority": false,
+    "selected_candidate": null,
+    "selected_options": null,
+    "separate_boundaries": 7,
+    "state": "prepared-unselected-decision-reference-awaiting-user-acceptance",
+    "step": 417,
+    "whole_attachments": 16
+  },
+  "expected_review_row_sha256": {
+    "non_authorizing_event_examples": [
+      "1438e0a07245d4c5742b08a8ff14fa00971503fba8ae5785b2e89a980a888e34",
+      "c04c8a05d2b14b216fcff16346b305c3291bc8323e0d702907a14717a392833c",
+      "32bfd98882a72f4049a810a92d03743c3863cad0d0dd76339546708ef30e5873",
+      "3acca3fec70925ae70ffadcebb5e3100a441490227ddcae665047ebd977e703f",
+      "ce0cfa21ed4a6ece50410caa0b81724ac73a0daffbbfc82e96d5f88cc00108f1",
+      "63d0cd7bda0324b036c238fd78b293bbcb03dfe48bdcfab122f192c034103ded"
+    ],
+    "seven_separate_decision_and_evidence_boundaries": [
+      "5e892177869ba509d171d08ac53460f8b8206db0db573b45ae672d0ab78994d8",
+      "76ee9a34b3928af92084ca02d99d645199d0d6c31328f7a98c9a3d3eeb31f040",
+      "554fa5c7b89295f1c72bda575122fb4dca35fb6bf4a97a2b77b5f5a1860c393f",
+      "ccea6d9b59ec76019d7f515e382b08f3afb25a01d13aa5446cd150dbfe92d169",
+      "9aa7e90d31d787c685a2800143891cd55207cb1e12da657b492c466c8c8e0b2e",
+      "285ce85d166610abcd98485b0b06bab56b8ad90db0ba5c5e80b539e87752efc9",
+      "a92652a6650f125f95982216fc226dbf3abe93553bb25911359140256fd972cf"
+    ],
+    "unselected_alternatives": [
+      "23896b7b91a92bdf4f1824c060909347f6fdbaa147c40dcb794c2352a4cd63ad",
+      "f0a41618b2907dd5a8e2240b9f66f4dc4fa2136bf0a9d61630455808cc25ed48",
+      "b4de93cdaf689d314fb277c2bd358a2006306e9c9a461623e8d28afbedb20e1a"
+    ],
+    "whole_source_attachments": [
+      "273ebb03fe295681a993b103303c30277bb7361e999544db48f26cb3a107ec58",
+      "f503b7aee2cc46116e576421d4b52ef3da9a22e26a91fd653cbfbcb2b920736e",
+      "a1c93153655499f5fabd4bf234069be614c7735d8108dce3923e56c654d8ad4a",
+      "b0327ec47f86da5ff1ba731eb81fb8b40442ab84e9fe87c51d43e49b983649d5",
+      "9db1b8adc5f328c0dc69193693479662209fbcd007880a915b7add2aac6b870e",
+      "cdffdfb19fce394d1f1cd5e4fe78337048c5b3d2fb04dcce5abbd24afdbe560e",
+      "8d1c4ebe514c19b814216c391dfeae00cfe0115a1f57123898ca59e9b31da750",
+      "c5b737ed05b002b1571a8e79ace1d2028e4d351204617c89865435f4317b54c0",
+      "103da875d2b630129b000b926cf163c33308f1b67df4dcb06a915e8bf01ce9e5",
+      "d59322103a6b5a807b97dd86422a5c65f52de73441336e74b36c921e0321e798",
+      "16c007da3ca613a13cb076c73b2b03937dab1c620ff9b98a289a241675bc3ee7",
+      "5a1b4e61c91aa7e706a4052b0804d10b29b1410c385bf4b2381c9e13636edf98",
+      "742dbd97aefc8aa9c164135652315cf21a5ad898b367300041d32b65bde08a35",
+      "820ea9ac0c4a6a1f93a2074f0c1a213022ab332b4393d635ebbb6e74f2d68212",
+      "4da657283a23e136252496ae87a829f121dc6deeebb30e6892afb87a2308e608",
+      "857f12ccdba74cd86e2a3e9d881cdec901ce131c47cca4f2cf239464f93455d9"
+    ]
+  },
+  "false_fields": [
+    "decision_requested_now",
+    "approval_requested_by_this_brief",
+    "independent_impact_review_accepted",
+    "semantic_migration_complete",
+    "current_strong_safe_pause",
+    "all_semantic_findings_resolved",
+    "runtime_authority"
+  ],
+  "fixture_canonical_sha256": {
+    "baseline": "77c47f281d08c6a475a6258aa396ff34941bae9b254789bfd6d1037ee2db318b",
+    "brief": "7a8c2eab40e12159bc8f3fd59e591d1e652a8f487171fe4912c07c418e5e9da9",
+    "entry416": "0b54f3a7e267873b7ddcdd9a250557e9711867f80e87c920f9dc84a0b5651d02",
+    "sources": "1076a624afc3b4f16a7fa37113bb7ba9f229254251b0aa335b4aab40a75e69c1"
+  },
+  "new_paths": [
+    "docs/reference/phase-1-operational-joint-unselected-a-r-d-decision-brief-review.md",
+    "tools/reference/phase-1-operational-joint-unselected-a-r-d-decision-brief-review.py",
+    "tests/reference/test-phase-1-operational-joint-unselected-a-r-d-decision-brief-review-harness.sh",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-unselected-a-r-d-decision-brief-review-baseline.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-unselected-a-r-d-decision-brief-review-entry416.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-unselected-a-r-d-decision-brief-review-brief.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-unselected-a-r-d-decision-brief-review-sources.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-unselected-a-r-d-decision-brief-review-policy.json"
+  ],
+  "new_source_keys": [
+    "audit416",
+    "policy416",
+    "sources416",
+    "actual415_entry"
+  ],
+  "null_fields": [
+    "selected_options",
+    "selected_candidate",
+    "approved_joint_specification",
+    "approved_contract_migration",
+    "actual_selected_implementation",
+    "actual_joint_native_graph",
+    "actual_native_evidence",
+    "actual_two_platform_run_bindings",
+    "fresh_native_test_grant",
+    "recommended_option_for_user"
+  ],
+  "prefixes": {
+    "CHANGELOG.md": "## Phase 1 step 417 -- unselected A/R/D decision reference\n\n- Accepted416 at reported58c9d1b,84orderedPASS/zero failures,exact10paths/8creates/\n  118563insertions/message,push/clean matching heads;complete disclosed return retained.\n- Concise A/R/D consequences,losses and blockers without selection or premature\n  approval. A explicit amendments/R original-retention still unproved/D native\n  deferral with no waiver;native entry closed is not an implicit choice of D.\n- Seven separate choice/spec-impact/migration/actual composition/safety/grant/later\n  conformance boundaries and six non-authorizing event examples. All13 whole open\n  findings/4 inactive repairs/full losses/dimensions/pairs/member dependencies attached.\n- Whole141inputs/43roots,4native roots INERT;2258 old bodies unchanged except exact\n  prefixes,8adds. Completeactual417before418;lastconfirmedpause408only. Conditional418\n  ALL9 WHOLEconditions/currentbases/actualfinal/externalALL9 thenSTOP/noautomatic419/\n  newrequest. Nativeclosed,originalnormsbinding,allchoicesandapprovalspending.\n\n",
+    "README.md": "<!-- step-417-unselected-a-r-d-decision-brief:start -->\n## Current Phase 1 unselected A/R/D decision reference -- step 417\n\nAccepted416 at reported `58c9d1b`:84 ordered PASS/zero failures,ten files/eight\ncreates/118563 insertions,reported main push/clean matching heads. Complete disclosed\nreturn retained;intermediate repository checkpoint,last confirmed strong pause408.\n\nThe [417 decision reference](docs/reference/phase-1-operational-joint-unselected-a-r-d-decision-brief-review.md)\ncompares A explicit amendments,R whole-original retention,D native deferral without\nrequesting or selecting any option. A exposes infrastructure trust,post-request\nfinite continuation and producer/terminal scope losses. R supplies no complete\noriginal-compatible composition. D resolves/waives no requirements;closed native\nentry is NOT an implicit D choice. All13 whole findings and four inactive repair\nreviews remain open;full losses/9 dimensions/26 options/325 original+36 candidate\npairs/8 decisions/1286 complete member criteria and dependencies remain attached.\n\nSeven separate boundaries distinguish choice,independent joint spec-impact,\nconditional explicit migration,actual composition,safe actual review,fresh bounded\nnative grant and later independent conformance/readiness. Continue/PASS/commit/push/\nauthor recommendation supplies none. No premature approval requested at417.\n\n141 whole inputs/43 roots,four native roots INERT. Original norms binding,A/R/D\nunselected,native cases/proofs0,Phase1 incomplete. Host unobserved/livebindingsNULL/\nglobalFALSE.417 prepared;complete actual417 before conditional418. ALL9 WHOLE nested\nconditions/current409-418 bases/actualfinal/externalALL9 thenSTOP/noautomatic419/new\nrequest. Prior README byte-exact;schema/reference-v1/C/Phase2/Production CLOSED.\n<!-- step-417-unselected-a-r-d-decision-brief:end -->\n\n"
+  },
+  "receipt_create_paths": [
+    "docs/reference/phase-1-operational-joint-integrated-findings-interaction-disposition-review.md",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-integrated-findings-interaction-disposition-review-audit.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-integrated-findings-interaction-disposition-review-baseline.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-integrated-findings-interaction-disposition-review-entry415.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-integrated-findings-interaction-disposition-review-policy.json",
+    "tests/fixtures/reference/acceptance/phase-1/phase-1-operational-joint-integrated-findings-interaction-disposition-review-sources.json",
+    "tests/reference/test-phase-1-operational-joint-integrated-findings-interaction-disposition-review-harness.sh",
+    "tools/reference/phase-1-operational-joint-integrated-findings-interaction-disposition-review.py"
+  ],
+  "receipt_final_tail": "58c9d1b (HEAD -> main, origin/main, origin/HEAD) Phase 1 step 416: integrate open findings and all joint interaction dispositions\n58c9d1b (HEAD -> main, origin/main, origin/HEAD) Phase 1 step 416: integrate open findings and all joint interaction dispositions\npromano@pc-arch ~/Descargas $ \n",
+  "receipt_pass_labels": [
+    "PASS: whole authored416 fixtures bound",
+    "PASS: complete actual415 return89PASS exact commit push clean matching heads",
+    "PASS: all137 whole inputs and42 roots; native roots inert",
+    "PASS: all13 findings9 dimensions325 original36 candidate pairs1286 dependencies",
+    "PASS: all2250 historical415 bodies unchanged except exact additive prefixes",
+    "PASS: exact eight additions plus README and CHANGELOG",
+    "PASS: reject boolean schema",
+    "PASS: reject option selected",
+    "PASS: reject migration approved",
+    "PASS: reject same-author integration made independent acceptance",
+    "PASS: reject native authority opened",
+    "PASS: reject current pause self-confirmed",
+    "PASS: reject unknown host made absent",
+    "PASS: reject global closure invented",
+    "PASS: reject native case invented",
+    "PASS: reject one global rule waived",
+    "PASS: reject whole prior414 membership question omitted",
+    "PASS: reject inactive410 clarification substituted",
+    "PASS: reject local positive declarations prove joint compatibility",
+    "PASS: reject pair coverage counts made compatibility proof",
+    "PASS: reject empty counterexample sample made proof",
+    "PASS: reject same-brief historical label made universal exclusion",
+    "PASS: reject repair erases original finding",
+    "PASS: reject fresh explicit native grant gate omitted",
+    "PASS: reject next step skips actual acceptance",
+    "PASS: reject automatic419 permitted",
+    "PASS: reject guarantee changes reclassified as retained",
+    "PASS: reject whole original finding shortened",
+    "PASS: reject finding status silently resolved",
+    "PASS: reject one joint dimension omitted",
+    "PASS: reject whole original option omitted",
+    "PASS: reject original pair sampled away",
+    "PASS: reject candidate pair sampled away",
+    "PASS: reject whole conflict decision omitted",
+    "PASS: reject repair original history erased",
+    "PASS: reject member dependency omitted",
+    "PASS: whole joint dimension offline-bootstrap-vs-live-channel",
+    "PASS: whole joint dimension writer-trust-vs-source-and-clock",
+    "PASS: whole joint dimension guardian-drain-vs-forward-failure",
+    "PASS: whole joint dimension durable-rights-vs-loss-deadlines",
+    "PASS: whole joint dimension baseline-unknown-vs-backend-effects",
+    "PASS: whole joint dimension terminal-cut-vs-whole-stage-oracle",
+    "PASS: whole joint dimension narrow-product-vs-whole-entry-proof",
+    "PASS: whole joint dimension observer-controls-vs-finite-custody",
+    "PASS: whole joint dimension two-platform-fresh-test-entry",
+    "PASS: all13 whole findings retain3 changes6 conditions4 hypotheses",
+    "PASS: all325 original pair positions and36 inactive candidate positions retained",
+    "PASS: reject all325_original_pair_reviews one full option assessment omitted",
+    "PASS: reject all325_original_pair_reviews pair whole option pointer rebound",
+    "PASS: reject all325_original_pair_reviews joint compatibility invented",
+    "PASS: reject all325_original_pair_reviews same-brief label promoted to exclusion proof",
+    "PASS: reject all325_original_pair_reviews pair local focus waives global dependencies",
+    "PASS: reject all36_inactive_candidate_pair_reviews one full option assessment omitted",
+    "PASS: reject all36_inactive_candidate_pair_reviews pair whole option pointer rebound",
+    "PASS: reject all36_inactive_candidate_pair_reviews joint compatibility invented",
+    "PASS: reject all36_inactive_candidate_pair_reviews same-brief label promoted to exclusion proof",
+    "PASS: reject all36_inactive_candidate_pair_reviews pair local focus waives global dependencies",
+    "PASS: whole inactive repair and cross-impact CL410-CLOCK",
+    "PASS: whole inactive repair and cross-impact CL410-PUBLICATION",
+    "PASS: whole inactive repair and cross-impact A411-01-INACTIVE",
+    "PASS: whole inactive repair and cross-impact A414-01-INACTIVE",
+    "PASS: reject dependency member source pointer rebound",
+    "PASS: reject dependency repair impacts omitted",
+    "PASS: reject dependency original finding history erased",
+    "PASS: reject dependency independent migration invented",
+    "PASS: local target admission cannot cover own publication expiry or custody pending",
+    "PASS: clock clarification retains async impacts and all original finding history",
+    "PASS: publication clarification retains collector own membership and custody unknown",
+    "PASS: qualified target original failure and unknown action coexist",
+    "PASS: namespace repair leaves original publication policy and applicability pending",
+    "PASS: all local paper positives still no native compatibility independent acceptance or grant",
+    "PASS: reject paper repair erases old finding",
+    "PASS: reject paper repair activates wording",
+    "PASS: reject integer as local boolean status",
+    "PASS: reject integer as original failure boolean",
+    "PASS: reject paper local dimension omitted",
+    "PASS: reject truncated actual415 receipt",
+    "PASS: reject invented full user Git ID",
+    "PASS: reject whole accepted member source byte drift",
+    "PASS: reject coordinated authored policy substitution",
+    "PASS: prepared integrated result retains all dependencies without native rights or pause",
+    "PASS: pure reader imports only hashlib json re without native dispatch",
+    "PASS: exact authored artifact docs/reference/phase-1-operational-joint-integrated-findings-interaction-disposition-review.md",
+    "PASS: exact authored artifact tests/reference/test-phase-1-operational-joint-integrated-findings-interaction-disposition-review-harness.sh"
+  ],
+  "receipt_push_marker": "   51036ab..58c9d1b  main -> main\n",
+  "receipt_single_markers": [
+    "step416_overlay_application_status\tPASS",
+    "step416_commit_scope_verification_status\tPASS",
+    "Result: PASS (84 passes, 0 failures)",
+    "[main 58c9d1b] Phase 1 step 416: integrate open findings and all joint interaction dispositions",
+    " 10 files changed, 118563 insertions(+)",
+    "To github.com:promano7/slack-update.git",
+    "   51036ab..58c9d1b  main -> main\n"
+  ],
+  "schema": 1,
+  "step": 417
+}

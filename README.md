@@ -1,3 +1,31 @@
+<!-- step-417-unselected-a-r-d-decision-brief:start -->
+## Current Phase 1 unselected A/R/D decision reference -- step 417
+
+Accepted416 at reported `58c9d1b`:84 ordered PASS/zero failures,ten files/eight
+creates/118563 insertions,reported main push/clean matching heads. Complete disclosed
+return retained;intermediate repository checkpoint,last confirmed strong pause408.
+
+The [417 decision reference](docs/reference/phase-1-operational-joint-unselected-a-r-d-decision-brief-review.md)
+compares A explicit amendments,R whole-original retention,D native deferral without
+requesting or selecting any option. A exposes infrastructure trust,post-request
+finite continuation and producer/terminal scope losses. R supplies no complete
+original-compatible composition. D resolves/waives no requirements;closed native
+entry is NOT an implicit D choice. All13 whole findings and four inactive repair
+reviews remain open;full losses/9 dimensions/26 options/325 original+36 candidate
+pairs/8 decisions/1286 complete member criteria and dependencies remain attached.
+
+Seven separate boundaries distinguish choice,independent joint spec-impact,
+conditional explicit migration,actual composition,safe actual review,fresh bounded
+native grant and later independent conformance/readiness. Continue/PASS/commit/push/
+author recommendation supplies none. No premature approval requested at417.
+
+141 whole inputs/43 roots,four native roots INERT. Original norms binding,A/R/D
+unselected,native cases/proofs0,Phase1 incomplete. Host unobserved/livebindingsNULL/
+globalFALSE.417 prepared;complete actual417 before conditional418. ALL9 WHOLE nested
+conditions/current409-418 bases/actualfinal/externalALL9 thenSTOP/noautomatic419/new
+request. Prior README byte-exact;schema/reference-v1/C/Phase2/Production CLOSED.
+<!-- step-417-unselected-a-r-d-decision-brief:end -->
+
 <!-- step-416-integrated-findings-interaction-dispositions:start -->
 ## Current Phase 1 integrated findings and interactions -- step 416
 
