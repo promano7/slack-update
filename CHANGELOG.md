@@ -1,3 +1,21 @@
+## Phase 1 step 432 -- validate supplied NDJSON event sequences
+
+- Accept the complete step 431 return at reported `031ca26`: 24 scenarios/eight
+  negative controls passed; five paths/three creates/503 insertions, reported
+  successful push, empty final status and matching heads, no mode changes.
+- Add fourteen supplied-event scenarios for wrappers, all stable final codes,
+  raw/final status separation, warning/error ordering and escaped text, nullable
+  fields, nonzero sequence continuation and descriptor routing.
+- Verify disabled output with a closed descriptor and prohibited clock call,
+  preserving unset or existing sequence state. Add eight negative controls for
+  record ordering, types, state, membership and NDJSON framing.
+- Local result: fourteen scenarios/eight controls/zero failures. Document that
+  direct emitter lifecycles do not assert actual main/startup traces, native
+  clock/custody/once-only properties or whole operational conformance.
+- Preserve reference behavior/source/mode, README, existing tests and contracts.
+  Prepared delivery awaits its actual application/test/commit/push return; the
+  bounded repository block and all original native/phase gates remain unchanged.
+
 ## Phase 1 step 431 -- validate complete provisional apply JSON results
 
 - Accept the complete step 430 return at reported `8ae5235`: check ten and
