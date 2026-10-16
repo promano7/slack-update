@@ -1,3 +1,23 @@
+## Phase 1 step 430 -- validate complete provisional dry-run JSON results
+
+- Accept the complete step 429 return at reported `b5b6022`: ten scenarios/eight
+  negative controls passed; four paths/two creates/247 insertions, reported
+  successful push, empty final status and matching heads, no mode changes.
+- Add fourteen supplied-state dry-run scenarios for all current root and six
+  module objects: package action flags/order, raw/final statuses, optional module
+  availability, diagnostics, queue/option/ELF records, and missing input files.
+- Add eight negative controls for nested types, command/queue order, missing
+  fields and mandatory warning output. Explain that serialized safety-related
+  booleans do not establish the corresponding runtime mechanisms.
+- Share strict decoding/comparison support with the check-result regression;
+  disable imported bytecode generation so tests leave the checkout clean.
+  Local results: check ten scenarios/eight controls and dry-run fourteen
+  scenarios/eight controls, all with zero failures.
+- Preserve reference behavior/source/mode, README and frozen historical records.
+  Schema 0 stays provisional; no native acceptance or phase gate is completed.
+- Prepared delivery awaits the actual application/test/commit/push return before
+  the next dependent step. The bounded repository block continues.
+
 ## Phase 1 step 429 -- validate complete provisional check JSON results
 
 - Accept the complete supplied step 428 return at reported `a369069`: two
