@@ -17,6 +17,7 @@ acceptance material. For the current phase and unfinished work, use the
 | Supported reference operations, output and results | [Usage guide](reference-usage.md) and [shell source](../tools/reference/slack-update-reference.sh) |
 | Contribution, language and documentation rules | [Contributing](../CONTRIBUTING.md) |
 | Detailed contracts, audits and evidence | [Reference documentation](reference/README.md) |
+| Select applicable checks and historical snapshots | [Testing guide](testing.md) |
 | Real Slackware acceptance scenarios | [Acceptance guide](../tests/acceptance/reference/README.md) |
 | Changes by step or version | [CHANGELOG](../CHANGELOG.md) |
 | Earlier README checkpoints and original design text | [Historical README through step 418](reference/readme-through-step418.md) |

@@ -1,3 +1,15 @@
+## Phase 1 step 425 -- explain applicable verification scopes
+
+- Add `docs/testing.md` for documentation checks, focused regressions,
+  matching historical snapshots, real acceptance and scoped result reporting.
+- Explain why a frozen whole-checkpoint harness needs its original tree;
+  require investigating the failing assertion rather than dismissing regressions.
+- Link the guide from CONTRIBUTING and the documentation index. Preserve all
+  existing harnesses, fixtures, contracts and README bytes.
+- Accept the complete step 424 return at reported `64e13d3`: four files/one
+  create, successful push and clean matching heads. Final block review remains
+  due at step 426; no new pause or native permission is declared here.
+
 ## Phase 1 step 424 -- connect roadmap tasks to acceptance evidence
 
 - Add `docs/reference/acceptance-evidence-guide.md` with the 20 original residual

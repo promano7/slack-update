@@ -102,6 +102,13 @@ Commit subjects must:
 
 Use the commit body to explain non-obvious decisions, compatibility changes, or safety implications.
 
+## Choosing verification scope
+
+The [testing guide](docs/testing.md) distinguishes documentation checks,
+focused regressions, historical checkpoint snapshots and real acceptance.
+The mappings below still govern reference-script changes; frozen historical
+baselines retain their original scope.
+
 ## Reference-script changes
 
 Before submitting a change to the reference script:
