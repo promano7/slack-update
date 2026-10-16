@@ -1,3 +1,23 @@
+## Phase 1 step 431 -- validate complete provisional apply JSON results
+
+- Accept the complete step 430 return at reported `8ae5235`: check ten and
+  dry-run fourteen scenarios, each with eight negative controls and zero failures;
+  six paths/three creates/361 insertions/36 deletions, reported successful push,
+  empty status and matching heads. Preserve the duplicated command text in its
+  supplied receipt without inferring a second actual execution from it.
+- Add an authored full apply-result fixture and twenty-four supplied-state
+  scenarios for all root/six-module fields, final code precedence, package and
+  module failures, reboot states, nullable statuses, counters and boot metadata.
+- Add eight negative controls for types/codes, validity and missing fields.
+  Local result: 24 scenarios/eight controls/zero failures. Use only the state
+  initializer with a fixed date stub and result helpers, never runtime creation
+  or an apply workflow; read only private supplied input files.
+- Document current reference raw-20 reporting separately from the unchanged
+  original operational/native raw-20 requirements. Serialized safety fields
+  and supplied metadata are not native mechanism or host-safety evidence.
+- Reference behavior/source/mode, README and historical records are unchanged.
+  Prepared delivery awaits its actual return; phase/native gates stay closed.
+
 ## Phase 1 step 430 -- validate complete provisional dry-run JSON results
 
 - Accept the complete step 429 return at reported `b5b6022`: ten scenarios/eight
