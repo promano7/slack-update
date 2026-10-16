@@ -5456,6 +5456,7 @@ print_summary() {
 
 json_escape() {
     local value=${1-}
+    local control octal character escaped
 
     value=${value//\\/\\\\}
     value=${value//\"/\\\"}
@@ -5464,6 +5465,17 @@ json_escape() {
     value=${value//$'\n'/\\n}
     value=${value//$'\r'/\\r}
     value=${value//$'\t'/\\t}
+
+    # JSON requires every U+0000..U+001F character to be escaped. Bash strings
+    # cannot contain NUL; preserve the short escapes above and encode the rest.
+    if [[ $value == *[$'\001'-$'\037']* ]]; then
+        for ((control = 1; control < 32; control++)); do
+            printf -v octal '%03o' "$control"
+            printf -v character '%b' "\\$octal"
+            printf -v escaped '\\u%04x' "$control"
+            value=${value//"$character"/"$escaped"}
+        done
+    fi
 
     printf '%s' "$value"
 }

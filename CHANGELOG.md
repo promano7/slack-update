@@ -1,3 +1,21 @@
+## Phase 1 step 427 -- escape all representable JSON control characters
+
+- Start a newly requested bounded 8-12 step repository block from confirmed
+  step 426, reported `44d5198`. Initial work covers provisional machine-readable
+  output correctness with isolated supplied-data checks; aim for a repository
+  pause between steps 434 and 438, adapting to actual findings.
+- Fix shared JSON escaping for the 26 remaining representable C0 characters.
+  Preserve existing short escapes and valid UTF-8 text; add no external command
+  or runtime dependency. Keep schema 0 provisional and stable exit codes intact.
+- Add a strict-decoder regression for strings, arrays, synthetic final results
+  and NDJSON records: original426 source 113 checks/81 failures, patched source
+  113 checks/zero failures. Existing exit-code regression: 137 checks/zero failures.
+- Document expected output/status and supplied-data limits, and link the new
+  check from the contribution guide. README and frozen historical records stay
+  unchanged. Native acceptance, all 13 findings and A/R/D decisions remain due.
+- This delivery is prepared, not an actual user commit/push receipt. Await its
+  complete application/test/commit/push return before preparing the next overlay.
+
 ## Phase 1 step 426 -- finish documentation review and prepare repository pause
 
 - Complete the eight-step 419-426 documentation review. The README is 105 lines
