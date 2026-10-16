@@ -1,3 +1,15 @@
+## Phase 1 step 421 -- add documentation and reference navigation
+
+- Add `docs/README.md` with reading routes for the current reference, future
+  design, roadmap, configuration, contribution rules and acceptance material.
+- Add `docs/reference/README.md` with selected contract/audit entry points,
+  evidence locations and guidance for interpreting historical checkpoint status.
+- Point the README documentation link and roadmap reference link to these
+  indexes. Keep the README at 105 lines with no per-step history added.
+- Accept the complete step 420 return at reported `c6310bf`: three files/one
+  create, successful push and clean matching heads. Contracts, evidence,
+  source tools, test fixtures and all incomplete phase gates remain unchanged.
+
 ## Phase 1 step 420 -- extract the planned C application design
 
 - Add `docs/design.md` as a focused reference for the existing product goals,

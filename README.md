@@ -93,7 +93,7 @@ carry raw command statuses; the final process/result status uses this table.
 - [Configuration example](data/config/slack-update.conf)
 - [Contribution and documentation policy](CONTRIBUTING.md)
 - [Change history](CHANGELOG.md)
-- [Historical design and README material through step 418](docs/reference/readme-through-step418.md)
+- [Documentation index](docs/README.md)
 
 Detailed audits, contracts and evidence reviews live in `docs/reference/`.
 The historical README archive preserves earlier designs and checkpoint text;

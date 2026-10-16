@@ -2,7 +2,7 @@
 
 This document holds the project roadmap previously embedded in the README.
 The README gives a short project overview; [CHANGELOG.md](../CHANGELOG.md)
-records changes, and [reference documentation](reference/readme-through-step418.md)
+records changes, and [reference documentation](reference/README.md)
 preserves historical checkpoint and design material. Moving documentation does
 not amend the original contracts or mark an acceptance scenario complete.
 
