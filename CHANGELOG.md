@@ -1,3 +1,22 @@
+## Phase 1 step 429 -- validate complete provisional check JSON results
+
+- Accept the complete supplied step 428 return at reported `a369069`: two
+  files/18 insertions, reference mode restored to `100755`, successful reported
+  push, empty status and matching heads. The step 427 mode regression is repaired.
+- Add supplied-state final check-result coverage: ten scenarios compare all
+  current top-level/module fields and exact JSON types with independent expected
+  values. Keep raw check status 100 separate from final success code 0.
+- Cover failure diagnostics, unknown update availability, stale result-state
+  clearing and aggregate/module status distinctions. Label synthetic precedence
+  combinations as supplied states rather than actual workflow observations.
+- Add eight validator negative controls and document expected output/status,
+  execution boundaries and remaining coverage. Local result: ten scenarios,
+  eight negative controls, zero failures. Link the check from CONTRIBUTING.
+- Reference behavior/source bytes, executable mode, README and frozen records
+  are unchanged. Schema 0 remains provisional; no native scenario is closed.
+- Prepared delivery awaits its complete actual application/test/commit/push
+  return. The repository block and existing phase/native gates remain open.
+
 ## Phase 1 step 428 -- restore reference executable mode and preserve overlay modes
 
 - Accept the complete supplied step 427 return at reported `3f617d3`: 113 JSON

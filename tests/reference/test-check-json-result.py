@@ -1,0 +1,172 @@
+#!/usr/bin/env python3
+"""Validate provisional check JSON from supplied states without a workflow."""
+
+import copy
+import json
+import os
+from pathlib import Path
+import subprocess
+import sys
+
+
+REFERENCE = Path(__file__).resolve().parents[2] / "tools/reference/slack-update-reference.sh"
+START = "2000-01-01T00:00:00Z"
+FINISH = "2000-01-01T00:00:01Z"
+LOG_PATH = '/supplied/log "quoted"\\name'
+CONFIG_PATH = "/supplied/Espa\u00f1a/config"
+
+# Only source declarations, calculate supplied result state and serialize it.
+# No main(), runtime initialization, configuration load or update check is run.
+DRIVER = r'''
+source "$1"
+OPERATION=check
+CHECK_STATUS=$2 CHECK_ERROR=$4
+STARTED_AT=$5 FINISHED_AT=$6 LOG=$7 CONFIG_FILE=$8
+# Seed stale apply-like values to verify check-specific initialization.
+RESULT_SUCCESS=0 RESULT_PARTIAL=1 RESULT_BOOT_SAFE=0 RESULT_REBOOT=unsafe
+RESULT_WARNINGS=('stale warning') RESULT_ERRORS=('stale error')
+determine_stable_exit_code "$3"
+print_json_result "$STABLE_EXIT_CODE"
+'''
+
+# Expected values are authored independently of the reference's mapping helpers.
+# The last three cases test supplied-state precedence, not workflow reachability.
+CASES = [
+    ("no updates", 0, 0, "", 0, True, "success", False, []),
+    ("updates available", 100, 0, "", 0, True, "success", True, []),
+    ("raw 20 is a check failure", 20, 1, "", 1, False, "failed", None,
+     ["slackpkg check-updates failed with exit code 20"]),
+    ("raw 42 failure", 42, 1, "", 1, False, "failed", None,
+     ["slackpkg check-updates failed with exit code 42"]),
+    ("missing slackpkg diagnostic", 127, 1, "slackpkg is not available", 1, False, "failed", None,
+     ["slackpkg is not available"]),
+    ("mirror diagnostic text", 69, 1, 'mirror\t"failed"\n\x1b\\detail', 1, False, "failed", None,
+     ['mirror\t"failed"\n\x1b\\detail']),
+    ("raw 255 failure", 255, 1, "", 1, False, "failed", None,
+     ["slackpkg check-updates failed with exit code 255"]),
+    ("workflow failure with raw success", 0, 1, "", 1, False, "success", False, []),
+    ("explicit diagnostic with raw success", 0, 0, "supplied error", 1, False, "success", False,
+     ["supplied error"]),
+    ("raw failure with successful workflow flag", 42, 0, "", 1, False, "failed", None,
+     ["slackpkg check-updates failed with exit code 42"]),
+]
+
+
+def expected(case):
+    _, raw, _, _, stable, success, state, available, errors = case
+    return {
+        "schema_version": 0, "schema_status": "provisional", "operation": "check",
+        "success": success, "partial": False, "reboot": "none", "boot_safe": True,
+        "exit_code": stable,
+        "exit_code_meaning": "success; no reboot required" if stable == 0 else "general failure",
+        "exit_code_stable": True, "started_at": START, "finished_at": FINISH,
+        "log_path": LOG_PATH, "config_path": CONFIG_PATH,
+        "modules": {"slackware": {"state": state, "check_exit_code": raw,
+                                   "updates_available": available}},
+        "warnings": [], "errors": errors,
+    }
+
+
+def unique_object(pairs):
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError(f"duplicate JSON key: {key}")
+        result[key] = value
+    return result
+
+
+def reject_constant(value):
+    raise ValueError(f"non-JSON constant: {value}")
+
+
+def decode(raw):
+    return json.loads(raw.decode("utf-8"), object_pairs_hook=unique_object,
+                      parse_constant=reject_constant)
+
+
+def compare(actual, wanted, path="result"):
+    # bool is a subclass of int in Python; plain equality would miss true/1.
+    if type(actual) is not type(wanted):
+        raise AssertionError(f"{path}: expected {type(wanted).__name__}, got {type(actual).__name__}")
+    if isinstance(wanted, dict):
+        if actual.keys() != wanted.keys():
+            raise AssertionError(f"{path}: unexpected field set")
+        for key, value in wanted.items():
+            compare(actual[key], value, f"{path}.{key}")
+    elif isinstance(wanted, list):
+        if len(actual) != len(wanted):
+            raise AssertionError(f"{path}: unexpected list length")
+        for index, value in enumerate(wanted):
+            compare(actual[index], value, f"{path}[{index}]")
+    elif actual != wanted:
+        raise AssertionError(f"{path}: expected {wanted!r}, got {actual!r}")
+
+
+def run_case(case):
+    _, raw, workflow, diagnostic, *_ = case
+    environment = os.environ.copy()
+    environment.pop("BASH_ENV", None)
+    environment.pop("ENV", None)
+    environment["LC_ALL"] = "C"
+    result = subprocess.run(
+        ["bash", "--noprofile", "--norc", "-c", DRIVER, "check-json-test",
+         str(REFERENCE), str(raw), str(workflow), diagnostic, START, FINISH, LOG_PATH, CONFIG_PATH],
+        env=environment, capture_output=True, timeout=15, check=False,
+    )
+    # This child serializes data; its process status is not the final JSON code.
+    if result.returncode != 0 or result.stderr:
+        raise AssertionError(f"serializer status={result.returncode}; stderr={result.stderr!r}")
+    compare(decode(result.stdout), expected(case))
+
+
+def negative_controls():
+    wanted = expected(CASES[1])
+    mutations = []
+    for key, value in [("success", 1), ("exit_code", False), ("schema_version", 1)]:
+        item = copy.deepcopy(wanted)
+        item[key] = value
+        mutations.append(json.dumps(item).encode())
+    item = copy.deepcopy(wanted)
+    item["modules"]["slackware"]["updates_available"] = 1
+    mutations.append(json.dumps(item).encode())
+    item = copy.deepcopy(wanted)
+    item["modules"]["slackware"]["check_exit_code"] = 0
+    mutations.append(json.dumps(item).encode())
+    for index, raw in enumerate(mutations):
+        try:
+            compare(decode(raw), wanted)
+        except (AssertionError, ValueError):
+            continue
+        raise AssertionError(f"negative control {index} was accepted")
+    encoded = json.dumps(wanted).encode()
+    parse_controls = [b'{"schema_version":0,' + encoded[1:], b'{"value":NaN}', encoded + b'\n{}']
+    for index, raw in enumerate(parse_controls):
+        try:
+            decode(raw)
+        except ValueError:
+            continue
+        raise AssertionError(f"decoder negative control {index} was accepted")
+    return len(mutations) + len(parse_controls)
+
+
+def main():
+    failures = 0
+    for case in CASES:
+        try:
+            run_case(case)
+        except (AssertionError, ValueError, OSError, subprocess.SubprocessError) as error:
+            failures += 1
+            print(f"FAIL: {case[0]}: {error}", file=sys.stderr)
+    controls = 0
+    try:
+        controls = negative_controls()
+    except (AssertionError, ValueError) as error:
+        failures += 1
+        print(f"FAIL: validator negative controls: {error}", file=sys.stderr)
+    print(f"Check JSON result tests: {len(CASES)} scenarios, {controls} negative controls, {failures} failures")
+    return 1 if failures else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
