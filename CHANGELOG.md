@@ -1,3 +1,14 @@
+## Phase 1 step 424 -- connect roadmap tasks to acceptance evidence
+
+- Add `docs/reference/acceptance-evidence-guide.md` with the 20 original residual
+  scenario labels, inventory progression and links to accepted historical records.
+- Link each pending roadmap family to its guide section and expose the guide
+  from the reference index. Keep the distinct native proof/case obligations visible.
+- Preserve all original inventories, fixtures, contracts and evidence bytes;
+  update navigation without reclassifying a scenario or reopening a runtime chain.
+- Accept the complete step 423 return at reported `0e4fa59`: four files/two
+  creates, successful push and clean matching heads. README remains unchanged.
+
 ## Phase 1 step 423 -- document current reference usage and configuration
 
 - Add `docs/reference-usage.md` for explicit operations, output modes, startup

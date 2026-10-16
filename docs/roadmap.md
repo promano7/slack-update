@@ -23,14 +23,16 @@ acceptance does not describe the present state of a machine.
 
 | Acceptance family | Remaining scenarios |
 | --- | ---: |
-| Kernel headers update without a kernel image update | 1 |
-| Boot safety failures | 7 |
-| SBo and ELF optional runtime | 6 |
-| Cinnamon optional runtime | 3 |
-| Flatpak optional runtime | 3 |
+| [Kernel headers update without a kernel image update](reference/acceptance-evidence-guide.md#kernel-package-edge) | 1 |
+| [Boot safety failures](reference/acceptance-evidence-guide.md#boot-safety-failures) | 7 |
+| [SBo and ELF optional runtime](reference/acceptance-evidence-guide.md#sbo-and-elf-optional-runtime) | 6 |
+| [Cinnamon optional runtime](reference/acceptance-evidence-guide.md#cinnamon-optional-runtime) | 3 |
+| [Flatpak optional runtime](reference/acceptance-evidence-guide.md#flatpak-optional-runtime) | 3 |
 
 The complete rows and their original criteria remain in the
 [post-execution-control inventory](../tests/fixtures/reference/acceptance/phase-1/phase-1-acceptance-matrix-remainder-after-execution-control-closure.tsv).
+The [evidence guide](reference/acceptance-evidence-guide.md) connects these
+labels to their original rows and accepted historical evidence.
 The [step 175 inventory](reference/phase-1-acceptance-matrix-remainder-inventory.md)
 explains historical accepted coverage. These five families/20 scenarios are
 separate from the operational work's 46 qualified proofs, 52 native case

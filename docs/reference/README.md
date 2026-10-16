@@ -6,6 +6,9 @@ for general guides and the [roadmap](../roadmap.md#current-phase-and-release-gat
 for the current project gate. The entries below are selected starting points,
 not an exhaustive inventory or a declaration that a workstream is complete.
 
+For scenario labels, inventory progression and accepted historical records,
+use the [acceptance and evidence guide](acceptance-evidence-guide.md).
+
 ## Find the relevant contract or review
 
 | Review question | Starting record |
