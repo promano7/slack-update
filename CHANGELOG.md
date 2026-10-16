@@ -1,3 +1,25 @@
+## Phase 1 step 434 -- review the JSON regression block before repository pause
+
+- Accept the complete step 433 return at reported `e797f09`: option JSON 14/8,
+  dry-run 14/8, apply 24/8, 57 SBo checks and 137 exit-code checks all pass;
+  five paths/two creates/212 insertions/one deletion, no mode changes, reported
+  successful push, empty final status and matching heads.
+- Review the eight-step 427-434 block: shared C0 escaping, executable-mode
+  repair, complete check/dry-run/apply JSON, supplied NDJSON events and final
+  unterminated SBo option-row preservation. Retain the observed step-427 mode
+  regression and its step-428 repair in the record.
+- Document all six current Python checks, the five shared-support consumers,
+  option-test fixture dependencies, focused shell regressions and actual mock
+  boundaries. Correct the outdated instruction to run only two shared tests.
+- Run the integrated current-source suite and syntax/whitespace/scope checks.
+  Preserve README, reference source/mode, existing tests and original contracts.
+- Prepare a conditional repository pause only. The complete actual step-434
+  application/test/commit/push return and a separate review of all nine whole
+  pause conditions are still required; this prepared entry confirms neither.
+- Keep provisional schema 0 and all original native obligations and phase gates.
+  Phase 1 remains incomplete; no native workload, option selection or grant is
+  established. Stop after final confirmation, with no automatic step 435.
+
 ## Phase 1 step 433 -- preserve final unterminated SBo option JSON records
 
 - Accept the complete step 432 return at reported `f0ae766`: fourteen scenarios/

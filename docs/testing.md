@@ -53,6 +53,50 @@ not prove installed command semantics, native containment or complete acceptance
 on Slackware 15.0 and Slackware-current. Record the actual check and its scope;
 a PASS count alone does not identify what was demonstrated.
 
+## Current JSON and NDJSON checks
+
+Run these checks with Python 3 from the repository root. All six invoke Bash; the two existing shell regressions below also use standard
+command-line tools such as `mktemp`, `sed` and `grep`.
+Each Python test prints its own scenario or check count and fails on a mismatch.
+
+| Test under `tests/reference/` | Supplied-data coverage |
+| --- | --- |
+| [test-json-control-escaping.py](../tests/reference/test-json-control-escaping.py) | Shared escaping of all C0 characters Bash can represent; Bash strings cannot contain NUL |
+| [test-check-json-result.py](../tests/reference/test-check-json-result.py) | Complete current check-result fields, types, statuses and diagnostic precedence |
+| [test-dry-run-json-result.py](../tests/reference/test-dry-run-json-result.py) | Complete current dry-run result, planned commands and module arrays/statuses |
+| [test-apply-json-result.py](../tests/reference/test-apply-json-result.py) | Complete current apply result using authored supplied state and fixed-date initialization |
+| [test-event-ndjson.py](../tests/reference/test-event-ndjson.py) | Complete supplied event records, sequence state, wrappers and descriptor routing |
+| [test-sbo-option-json.py](../tests/reference/test-sbo-option-json.py) | Supplied option-file rows, including final EOF rows, and whole dry-run/apply projections |
+
+The check, dry-run, apply, event and option tests share the strict decoder and
+type-aware comparator in `json_result_test_support.py`. Run all five when that
+support changes. The option test imports authored scenario helpers from the
+dry-run and apply tests; run it when either helper changes. The escaping test
+has its own driver. A change to shared shell escaping can affect all six.
+
+For SBo option handling, also run
+[`bash tests/reference/test-sbo-options.sh`](../tests/reference/test-sbo-options.sh).
+For shared result/status behavior, also run
+[`bash tests/reference/test-error-exit-codes.sh`](../tests/reference/test-error-exit-codes.sh).
+The SBo harness calls the queue builder with a stubbed `sbopkg`; the exit-code
+harness calls `main` with replaced configuration, root, locking, runtime,
+workflow and output boundaries. They use private fixture files; some existing
+checks read the actual clock. Review each harness before expanding its scope.
+
+The new Python checks exercise selected functions with supplied data, not a
+normal update workflow. Apply-result projection uses `initialize_runtime_state`
+with a fixed date, not the file-creating `initialize_runtime`. Expected objects
+are authored test data; negative controls reject deliberate output mutations.
+The EOF regression does not establish ordinary update data loss: the current
+normalized-map producer already emits newline-terminated rows.
+
+These tests cover provisional schema 0. They do not freeze schema 1, establish
+native reachability or prove clock, custody, once-only, absence-of-effects or
+host-safety properties. The shell reference's raw-20 reporting is not acceptance
+of the distinct original native requirements: install-new 20 requires empty
+output AND no effect; upgrade-all 20 is a failure. Original native obligations,
+findings, decisions and separate execution grants remain unchanged.
+
 ## Historical checkpoint harnesses
 
 Some checkpoint tests bind exact README bytes, fixture hashes, permitted
