@@ -5555,7 +5555,7 @@ json_sbo_option_records_from_file() {
 
     printf '['
     if [ -f "$path" ]; then
-        while IFS=$'	' read -r target options; do
+        while IFS=$'	' read -r target options || [ -n "$target" ]; do
             [ -n "$target" ] || continue
             if [ "$first" -eq 0 ]; then
                 printf ', '

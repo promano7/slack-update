@@ -1,3 +1,24 @@
+## Phase 1 step 433 -- preserve final unterminated SBo option JSON records
+
+- Accept the complete step 432 return at reported `f0ae766`: fourteen scenarios/
+  eight negative controls passed; four paths/two creates/271 insertions, reported
+  successful push, empty status and matching heads, no mode changes.
+- Fix the JSON option-row loop to process a nonempty target at EOF instead of
+  silently omitting its row. Keep normalized-map production, option grammar,
+  queue handling and package submission unchanged; the producer already writes
+  newline-terminated rows. No ordinary update loss is claimed from this probe.
+- Add fourteen supplied-file/full-result scenarios and eight negative controls:
+  before fix eight failures, after fix zero. Preserve the last row's exact text
+  and ordering in direct projection and whole dry-run/apply results.
+- Focused regressions pass: dry-run 14/8, apply 24/8, 57 SBo option checks,
+  137 exit-code checks and Bash syntax. Record actual mock boundaries: the SBo
+  harness calls its queue builder with stubbed sbopkg; the exit-code harness
+  invokes main with test implementations of system/workflow boundaries.
+- Preserve executable mode, README, stable codes and provisional schema 0.
+  Native evidence, original norms, findings and phase gates remain unchanged.
+- Prepared delivery awaits its actual return before the planned whole-block
+  review and conditional repository-pause preparation at step 434.
+
 ## Phase 1 step 432 -- validate supplied NDJSON event sequences
 
 - Accept the complete step 431 return at reported `031ca26`: 24 scenarios/eight
