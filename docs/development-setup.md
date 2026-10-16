@@ -92,7 +92,9 @@ dependency or native-readiness checklist; consult the source and scenario guide.
 
 ## Continue with the appropriate guide
 
-- [Project overview and reference options](../README.md#reference-usage)
+- [Reference operations, output and results](reference-usage.md)
+- [Current configuration format and modes](configuration.md)
+- [Testing scope and historical snapshots](testing.md)
 - [Contribution and focused verification rules](../CONTRIBUTING.md)
 - [Real Slackware acceptance scenarios](../tests/acceptance/reference/README.md)
 - [Contracts, audits and evidence navigation](reference/README.md)

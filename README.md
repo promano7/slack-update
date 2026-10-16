@@ -21,7 +21,7 @@ All 13 manuscript audit findings remain open; alternatives A/R/D are unselected
 and the original requirements remain binding.
 
 See the [development roadmap](docs/roadmap.md),
-[remaining acceptance inventory](docs/reference/phase-1-acceptance-matrix-remainder-inventory.md)
+[remaining acceptance inventory](tests/fixtures/reference/acceptance/phase-1/phase-1-acceptance-matrix-remainder-after-execution-control-closure.tsv)
 and [unselected contract alternatives](docs/reference/phase-1-operational-joint-unselected-a-r-d-decision-brief-review.md).
 Repository reviews and historical test results do not establish native
 conformance or authorize another system operation.

@@ -59,6 +59,8 @@ push or final user return. Keep those distinct from later acceptance and externa
 pause confirmation. Historical checkpoint harnesses that bind exact README bytes
 or whole-repository inventories require their matching complete snapshot; do not
 rewrite their baselines to accommodate a later documentation layout.
+See the [testing guide](../testing.md#historical-checkpoint-harnesses) when
+selecting a historical check.
 
 ## Search beyond these starting points
 
