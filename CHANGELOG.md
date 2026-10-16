@@ -1,3 +1,15 @@
+## Phase 1 step 420 -- extract the planned C application design
+
+- Add `docs/design.md` as a focused reference for the existing product goals,
+  components, architecture, module lifecycle, security and version 1 release plan.
+- Distinguish the available shell reference, schema-1 reference configuration,
+  provisional schema-0 outputs and stable exit codes from future C interfaces.
+  Label the original proposed configuration/result examples as non-current.
+- Link the design from the roadmap. Keep README and the historical archive unchanged.
+- Accept the complete step 419 return at reported `5307037`: five paths/two creates,
+  successful push and clean matching heads. Phase 1, native gates and contracts
+  remain unchanged; this documentation extraction selects no native composition.
+
 ## Phase 1 step 419 -- separate the README from checkpoint history
 
 - Replace the 3,690-line README with a short project overview, one current

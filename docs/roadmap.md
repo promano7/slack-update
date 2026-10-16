@@ -60,6 +60,9 @@ The full original checklists and detailed contracts are preserved in the
 
 ## Later phases
 
+The [planned C application design](design.md) describes the components, modules,
+privilege boundary and proposed interfaces for these future phases.
+
 The following existing Phase 2–15 plan is retained from the previous README.
 It describes future work and opens no implementation phase. Its requirements
 remain subject to the Phase 1 completion gate above.
