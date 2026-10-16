@@ -1,3 +1,15 @@
+## Phase 1 step 422 -- document reference development setup
+
+- Add `docs/development-setup.md` for source checkout, syntax/help inspection,
+  task-specific tools, configuration lookup and the manual reference file layout.
+- Distinguish the current shell root/runtime behavior from future C frontends;
+  keep production installation and native acceptance behind their existing gates.
+- Link the guide from the documentation index; keep README and runtime source
+  unchanged. No installer, dependency bootstrap or system operation is added.
+- Accept the complete step 421 return at reported `b45e1d4`: five files/two
+  creates, successful push and clean matching heads. Contracts and phase gates
+  remain unchanged.
+
 ## Phase 1 step 421 -- add documentation and reference navigation
 
 - Add `docs/README.md` with reading routes for the current reference, future

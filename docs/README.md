@@ -10,6 +10,7 @@ acceptance material. For the current phase and unfinished work, use the
 | What you need | Read |
 | --- | --- |
 | Project purpose, source-tree entry point and basic usage | [README](../README.md) |
+| Prepare a checkout and understand reference installation | [Development setup](development-setup.md) |
 | Development phases and completion gates | [Roadmap](roadmap.md) |
 | Planned C components, modules, security and interfaces | [Planned application design](design.md) |
 | Current reference configuration and default values | [Configuration file](../data/config/slack-update.conf) |
