@@ -1,3 +1,19 @@
+## Phase 1 step 419 -- separate the README from checkpoint history
+
+- Replace the 3,690-line README with a short project overview, one current
+  status, source-tree entry point, reference usage, exit codes and documentation links.
+- Move the previous README body to `docs/reference/readme-through-step418.md`,
+  explicitly historical, with relative Markdown links rebased and code blocks unchanged.
+- Move the active development roadmap to `docs/roadmap.md`, preserving the
+  existing later-phase plan and all incomplete Phase 1 gates.
+- Add the documentation policy to `CONTRIBUTING.md`: per-step history belongs
+  here; detailed audits/contracts/evidence belong in reference documentation;
+  edit the README only for information useful to understand or use the project.
+- Continue from the supplied, confirmed step 418 repository pause at reported
+  `d98a857` under the new bounded user request. This is documentation-only work;
+  original norms, unselected A/R/D alternatives, 13 open findings and native gates
+  are unchanged. No target/VM action or native test is required or authorized.
+
 ## Phase 1 step 418 -- internal manuscript audit freeze and conditional safe pause
 
 - Accepted417 at reported0a6aad0,79orderedPASS/zero failures,exact10paths/8creates/

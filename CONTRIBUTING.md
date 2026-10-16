@@ -4,13 +4,37 @@ Thank you for your interest in Slack-Update. The project is currently preserving
 
 ## Development phase gate
 
-The roadmap in `README.md` is authoritative.
+The [development roadmap](docs/roadmap.md) defines the phase gates. Detailed
+reference contracts remain authoritative for their own scope; historical
+README archives and per-step summaries do not supersede them.
 
 - Do not add C implementation code until the Phase 1 reference acceptance gate is complete.
 - Keep the reference script under `tools/reference/slack-update-reference.sh` as the executable specification.
 - During Phase 0, changes to the reference script are not allowed.
 - During Phase 1, behavioral changes must be covered by an acceptance scenario, expected output, and expected exit code.
 - Do not mix work from later roadmap phases into an earlier phase.
+
+## Documentation policy
+
+- `README.md` contains the project introduction, one concise current status,
+  installation/development entry points, basic usage and links.
+- `CHANGELOG.md` records changes by step or version. Put per-step test results,
+  commit/acceptance history and delivery notes there when they are useful.
+- `docs/roadmap.md` holds the development plan and phase completion gates.
+- `docs/reference/` holds detailed audits, contracts and evidence reviews.
+  Keep historical records explicitly historical and retain their original scope.
+- Change the README only when information useful for understanding or using
+  the project changes. A new step, test run, commit, push or audit checkpoint
+  alone is not a reason to edit it.
+- Update the existing current-status summary when it changes; do not prepend
+  another "Current" section. Link to detailed records instead of duplicating them.
+- Label planned interfaces and components as planned. Describe installation
+  and usage that the repository actually supports.
+- Documentation moves do not amend contracts, reopen consumed authorizations,
+  establish native conformance or complete an implementation phase.
+- Historical checkpoint harnesses that bind exact README bytes or whole-repository
+  inventories require their matching historical source snapshot. Do not weaken
+  frozen baselines or rewrite old fixtures to make them pass on a later checkout.
 
 ## Compatibility policy
 

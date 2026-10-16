@@ -1,0 +1,3708 @@
+# Historical README through step 418
+
+This is archived documentation, not the current project overview or roadmap.
+Its former "Current" headings, prepared states, next steps and commands belong
+to their original checkpoints. They provide no current system authority.
+The step 418 continuation records separately confirmed the repository pause;
+the original prepared source below is retained as history.
+
+The previous README body is preserved below, with relative Markdown links
+rebased for this location. Existing source, contracts and evidence records are
+unchanged. Use the [current README](../../README.md),
+[current roadmap](../roadmap.md) and [change history](../../CHANGELOG.md).
+Code blocks and literal source paths below keep their original repository-root
+context. Historical checkpoint harnesses must use their matching full snapshot;
+this archive alone does not recreate a historical repository.
+
+---
+
+<!-- step-418-manuscript-audit-freeze-safe-pause:start -->
+## Current Phase 1 internal manuscript audit freeze -- PREPARED step 418
+
+Accepted417 at reported `0a6aad0`:79 ordered PASS/zero failures,ten files/eight
+creates/27155 insertions,reported main push/clean matching heads. Complete disclosed
+return retained. ALL409-417 actual receipts bound;last confirmed strong pause408only.
+
+The [418 freeze](phase-1-operational-joint-manuscript-audit-freeze-and-safe-pause-review.md)
+retains WHOLE417 unselected A/R/D brief/WHOLE416 integrated findings and dispositions/
+WHOLE415 original member criteria/frozen407 manuscript/whole prior source and evidence.
+All13 findings open(3changes/6conditions/4hypotheses),nine dimensions/26 options/325
+original36 candidate pairs/eight decisions/1286 member criteria-dependencies retained.
+All14 inactive replacements/four assumptions/complete losses/four inactive repair
+impacts/seven separate decision boundaries unchanged. Original norms binding.
+
+ALL9 WHOLE externally confirmed408 conditions retained with exact nested history and
+CURRENT409-418 review bases. PREPARED eligibility only:complete actual418 installer/
+verifier/ALL exact tests/scoped commit/push/empty status/matching heads AND separate
+external ALL9 current-scope confirmation REQUIRED. Private/source tests cannot attest
+their own final user return or self-confirm pause. Historical408scope399-408unexpanded.
+
+145 whole inputs/44 roots and current pure reviewer,four native roots INERT. No new
+native workload/operational publication/required batch machine-controller cleanup,
+no future/unused live rights opened FROM THIS BLOCK;host unobserved/livebindingsNULL/
+globalFALSE. Native cases/proofs0,Phase1 incomplete,schema/reference-v1/C/Phase2/
+Production CLOSED. Repository pause independent of later-current refresh,never old
+binding/grant reuse. AFTER actualfinal/externalALL9:STOP/noautomatic419/nextNULL/NEW
+request. 418 NOT yet confirmed. Prior README byte-exact below.
+<!-- step-418-manuscript-audit-freeze-safe-pause:end -->
+
+<!-- step-417-unselected-a-r-d-decision-brief:start -->
+## Current Phase 1 unselected A/R/D decision reference -- step 417
+
+Accepted416 at reported `58c9d1b`:84 ordered PASS/zero failures,ten files/eight
+creates/118563 insertions,reported main push/clean matching heads. Complete disclosed
+return retained;intermediate repository checkpoint,last confirmed strong pause408.
+
+The [417 decision reference](phase-1-operational-joint-unselected-a-r-d-decision-brief-review.md)
+compares A explicit amendments,R whole-original retention,D native deferral without
+requesting or selecting any option. A exposes infrastructure trust,post-request
+finite continuation and producer/terminal scope losses. R supplies no complete
+original-compatible composition. D resolves/waives no requirements;closed native
+entry is NOT an implicit D choice. All13 whole findings and four inactive repair
+reviews remain open;full losses/9 dimensions/26 options/325 original+36 candidate
+pairs/8 decisions/1286 complete member criteria and dependencies remain attached.
+
+Seven separate boundaries distinguish choice,independent joint spec-impact,
+conditional explicit migration,actual composition,safe actual review,fresh bounded
+native grant and later independent conformance/readiness. Continue/PASS/commit/push/
+author recommendation supplies none. No premature approval requested at417.
+
+141 whole inputs/43 roots,four native roots INERT. Original norms binding,A/R/D
+unselected,native cases/proofs0,Phase1 incomplete. Host unobserved/livebindingsNULL/
+globalFALSE.417 prepared;complete actual417 before conditional418. ALL9 WHOLE nested
+conditions/current409-418 bases/actualfinal/externalALL9 thenSTOP/noautomatic419/new
+request. Prior README byte-exact;schema/reference-v1/C/Phase2/Production CLOSED.
+<!-- step-417-unselected-a-r-d-decision-brief:end -->
+
+<!-- step-416-integrated-findings-interaction-dispositions:start -->
+## Current Phase 1 integrated findings and interactions -- step 416
+
+Accepted415 at reported `51036ab`:89 ordered PASS/zero failures,ten files/eight
+creates/337625 insertions,reported main push/clean matching heads. Complete disclosed
+return retained;intermediate repository checkpoint,last confirmed strong pause408.
+
+The [416 audit](phase-1-operational-joint-integrated-findings-interaction-disposition-review.md)
+integrates ALL13 whole findings:3 explicit guarantee changes,6 underspecified
+conditions,4 unproved native hypotheses. ALL9 dimensions/26 WHOLE options/325 original
+pairs/36 inactive candidate pairs/8 whole decisions receive dependency dispositions.
+Full original labels and both option scopes remain;historical same-brief label is
+neither proven exclusion nor compatibility. No selection or conflict resolution.
+
+All1286 full415 member reviews remain directly bound with original criteria and
+specific finding/repair dependencies. Four full INACTIVE clarification proposals
+receive cross-impact review;no substitution or erased history. Six paper cases keep
+local positives separate from whole independent acceptance,including target-admission
+versus custody expiry and clause repair versus changed trace expectations.
+
+137 whole inputs/42 roots,four native roots INERT. Original norms binding,A/R/D
+unselected,independent approvals/actual graph/native gates pending,cases/proofs0,
+Phase1 incomplete. Host unobserved/livebindingsNULL/globalFALSE.416 prepared;complete
+actual416 before417. Conditional418 actualfinal/externalALL9 thenSTOP/noautomatic419/
+newrequest. Prior README byte-exact;schema/reference-v1/C/Phase2/Production CLOSED.
+<!-- step-416-integrated-findings-interaction-dispositions:end -->
+
+<!-- step-415-whole-entry-two-platform-member-impact-audit:start -->
+## Current Phase 1 whole-entry and two-platform member impact audit -- step 415
+
+Accepted414 at reported `42408bc`:74 ordered PASS/zero failures,ten files/eight
+creates/15743 insertions,reported main push/clean matching heads. Full disclosed
+return retained;intermediate checkpoint only,last confirmed repository pause408.
+
+The [415 audit](phase-1-operational-joint-whole-entry-two-platform-member-impact-audit-review.md)
+reviews ALL15 categories/1286 full original407 members with specific criteria,
+source dereferences and unresolved impact dispositions. ALL46 proof criteria/52
+own-platform cases/12 original raw groups/1072 ordered proof-AND-case conjunctions
+remain complete. Each relation keeps BOTH specific criteria and its own platform;
+all actual source/version/config/boot/attempt/run/authority/raw/custody bindings NULL.
+WHOLE406 entry,8 surfaces/6 oracle roles/6 fault controls/52 cases receive authored
+comparisons;not three calls,shared subject oracle or borrowed platform evidence.
+
+All13 open findings and two inactive410 clarifications retained unchanged. Mapping
+is authored internal review,NOT independent semantic acceptance/native conformance.
+18 paper typed-vector examples preserve order/multiplicity/raw0-20-minus1/null,
+known mismatch plus pending and original failure;NOT original native raw artifacts.
+All133 whole inputs/41 roots,four native roots INERT. Original norms binding,A/R/D
+unselected,approvals/native gates pending,cases/proofs0,Phase1 incomplete. Host
+unobserved/livebindingsNULL/globalFALSE.415 prepared;complete actual415 before416.
+Conditional418 actualfinal/externalALL9 thenSTOP/noautomatic419/newrequest. Prior
+README byte-exact below;schema/reference-v1/C/Phase2/Production CLOSED.
+<!-- step-415-whole-entry-two-platform-member-impact-audit:end -->
+
+<!-- step-414-stage12-receipt-custody-terminal-audit:start -->
+## Current Phase 1 whole stage12 receipt custody and terminal audit -- step 414
+
+Accepted413 at reported `5079219`:79 ordered PASS,zero failures,ten files/eight
+creates/14206 insertions,reported main push/clean matching heads. Complete disclosed
+return retained; intermediate checkpoint only,last confirmed repository pause408.
+
+The [414 audit](phase-1-operational-joint-stage12-receipt-custody-terminal-audit-review.md)
+compares WHOLE10events/6ownroles/current316stage12/3inactive terminal replacements.
+28papercases keep producer/payload/receipt/writer/object/custody/owncontrol outcomes
+separate. Declared partial order preserves observer/custody independence,missing
+nodes/edges/duplicate positions/unclassified events;DAG or allpaperpremises never
+nativeclosure or permission. One open subject-fact/collector-own-effect membership
+question retains exactwhole event/role/source;all12preceding findings/questions and
+twoinactive410clarifications unchanged. WHOLE405/384contexts/global9rules retained.
+
+All129 whole inputs/40 roots,four native roots inert;whole1286-member scope remains.
+Original norms binding,A/R/D unselected,approvals/native graph/support/gates pending,
+native cases/proofs0,Phase1 incomplete,schema/reference-v1/C/Phase2/Production closed.
+Host unobserved/livebindingsNULL/globalFALSE.414 prepared;full actual414 before415.
+Conditional418 actualfinal/externalALL9 then STOP/noautomatic419/newrequest,no old
+binding/grant revival. Prior README byte-exact below.
+<!-- step-414-stage12-receipt-custody-terminal-audit:end -->
+
+<!-- step-413-baseline-storage-rights-audit:start -->
+## Current Phase 1 original baseline storage and once-only rights audit -- step 413
+
+Accepted412 at reported `12bd22a`:69 ordered PASS,zero failures,ten files/eight
+creates/19034 insertions,reported main push/clean matching heads. Complete disclosed
+return retained; intermediate checkpoint only,last confirmed repository pause408.
+
+The [413 audit](phase-1-operational-joint-baseline-storage-once-only-rights-audit-review.md)
+compares all18 WHOLE original recovery branches and all9 owned microsteps with27
+specific before/within/after paper questions. Eighteen independent-status cases
+retain target/backup/claim/launch/restore/owned/controller/spend/verification and
+original failure/mismatch separately. No target match completes lost restore ACK,
+no no-op supplies a new slot,no logical pkglist equivalence rebinds original raw
+audit bytes. One open native action-identity/accounting question keeps whole source.
+All11 prior findings/questions and2 inactive410 clarifications unchanged. WHOLE404
+context and all nine global rules retained;no recovery/commit/action selector.
+
+All125 whole inputs/39 roots,four native roots inert;whole1286-member scope remains.
+Original norms binding,A/R/D unselected,approvals/native graph/support/gates pending,
+native cases/proofs0,Phase1 incomplete,schema/reference-v1/C/Phase2/Production closed.
+Host unobserved/livebindingsNULL/globalFALSE.413 prepared;full actual413 before414.
+Conditional418 actualfinal/externalALL9 then STOP/noautomatic419/newrequest,no old
+binding/grant revival. Prior README byte-exact below.
+<!-- step-413-baseline-storage-rights-audit:end -->
+
+<!-- step-412-trust-clock-guardian-drain-audit:start -->
+## Current Phase 1 trust clock guardian and full-drain audit -- step 412
+
+Accepted411 at reported `d9e7416`:64 ordered PASS,zero failures,ten files/eight
+creates/12949 insertions,reported main push/clean matching heads. Complete disclosed
+return retained; intermediate checkpoint only,last confirmed repository pause408.
+
+The [412 audit](phase-1-operational-joint-trust-clock-guardian-drain-audit-review.md)
+retains34 concrete paper challenges and WHOLE401/403 writer/source/clock/loss/drain
+contexts. Seven full drain facets,current original right constraints,role-survival
+reports,qualified past facts and failure/mismatch/pending remain separate. Supplied
+premise conjunction is not actual drain,time integrity,independence or permission.
+Two open questions:suspend resume gates with async effects,and common-loss-domain
+independence of guardian/clock/observer. Prior seven410 findings/two clarifications/
+two411 questions remain whole and unchanged. Every own actor retains all global rules.
+
+All121 whole inputs/38 roots,four native roots inert;whole1286-member scope remains.
+Original norms binding,A/R/D unselected,approvals/native graph/support/gates pending,
+native cases/proofs0,Phase1 incomplete,schema/reference-v1/C/Phase2/Production closed.
+Host unobserved/livebindingsNULL/globalFALSE.412 prepared;full actual412 before413.
+Conditional418 actualfinal/externalALL9 then STOP/noautomatic419/newrequest,no old
+binding/grant revival. Prior README byte-exact below.
+<!-- step-412-trust-clock-guardian-drain-audit:end -->
+
+<!-- step-411-scoped-revocation-paper-audit:start -->
+## Current Phase 1 scoped revocation paper audit -- step 411
+
+Accepted410 at reported `a23fabb`:69 ordered PASS,zero failures,ten files/eight
+creates/30031 insertions,reported main push/clean matching heads. Complete supplied
+return retained; intermediate checkpoint only,last confirmed repository pause408.
+
+The [411 audit](phase-1-operational-joint-scoped-revocation-paper-audit-review.md)
+retains36 complete paper cases for forward,recovery,target-evidence and separate
+publication request/admission/order/expiry/envelope/control/spend/ACK uncertainty.
+Known failure,mismatch,qualified hypothetical captured facts and pending outcomes
+remain separate. Positive paper projections never grant effects. Original live
+target fences differ from inactive pre-request continuation;publication-own original
+policy is not inferred from target request fields. Two new OPEN specification
+questions retain whole source:request authority namespaces and full publication-own
+policy. Seven old410 findings/two inactive clarifications preserved unchanged.
+
+All117 whole inputs/37 roots,four native roots inert;WHOLE402 context/all nine
+global rules/whole original1286-member scope retained. Reader supplied-data only,
+not native gate,implementation/ABI choice or independent acceptance. Original norms
+binding,A/R/D unselected,approvals/native gates pending,proofs/cases0,Phase1 incomplete.
+Host unobserved/livebindingsNULL/globalFALSE,schema/reference-v1/C/Phase2/Production
+closed.411 prepared;full actual411 before412. Conditional418 actualfinal/external
+ALL9 then STOP/noautomatic419/newrequest,no oldbindings revived. Prior README intact.
+<!-- step-411-scoped-revocation-paper-audit:end -->
+
+<!-- step-410-clause-guarantee-audit:start -->
+## Current Phase 1 exact clause and guarantee-loss audit -- step 410
+
+Accepted409 at reported `90f9f6c`:61 ordered PASS,zero failures,ten files/eight
+creates/6206 insertions,reported main push/clean matching heads. Complete disclosed
+return retained; intermediate checkpoint only,last confirmed repository pause408.
+
+The [410 audit](phase-1-operational-joint-clause-guarantee-loss-audit-review.md)
+compares WHOLE14 current/proposed clauses,four assumptions,all five full loss
+families,eight full current/patch views and separate whole316 stage12. Seven
+authored findings:three explicit guarantee changes,two wording ambiguities,two
+unproved native hypotheses. Clock snapshot/restore knowledge qualification and
+stale publication405/407 status get two complete INACTIVE clarification proposals.
+Old manuscript unchanged; no substitution/activation/independent acceptance/native
+proof. Every local comparison retains all nine whole global rules and dependencies.
+
+All113 whole inputs/36 roots,four native roots inert,whole1286-member matrix still
+available; detailed member semantic review due415. Current original norms binding,
+A/R/D unselected,approvals/migration/actual native graph/support/gates pending.
+Native proofs/cases0;Phase1 incomplete,schema/reference-v1/C/Phase2/Production closed;
+host unobserved/live bindings NULL/global FALSE.410 prepared,user acceptance pending.
+Complete410 return before411; conditional418 actual final/external all-nine review
+then STOP/noautomatic419/newrequest,no old binding/grant reuse. Prior README intact.
+<!-- step-410-clause-guarantee-audit:end -->
+
+<!-- step-409-manuscript-audit-resume:start -->
+## Current Phase 1 internal manuscript audit plan -- step 409
+
+Accepted408 at reported `a81a741`:95 ordered PASS,zero failures,ten files/eight
+creates/208501 insertions,reported main push/clean matching heads. Complete actual
+return and external all-nine WHOLE nested-condition confirmation retained in409
+entry. Last confirmed repository pause408 covers399-408 only; historic prepared408
+pending fields below remain byte-exact history, superseded by that external entry.
+
+New user request opens finite repository-only409-418 internal audit. The
+[409 plan](phase-1-operational-joint-manuscript-audit-resume-planning-review.md)
+sets exact clause/loss, scoped revocation, trust/drain/clock, baseline/once-only
+rights, stage12/custody, whole-entry/oracle and integrated finding reviews, followed
+by a concrete A/R/D decision brief and conditional418 pause. Same-author audit,
+source binding, private PASS and repository commits are not independent acceptance.
+Open findings remain visible; no further equivalent candidate or native proof is
+implied.409 prepared,actual acceptance pending; complete predecessor return gates
+every successor. All109 inputs/35 roots and whole14-clause/1286-member source scope
+retained; four native roots inert. Original norms binding, A/R/D unselected,
+specification/impact/migration/implementation/native grants still pending.
+
+Native cases/proofs0; Phase1/kernel incomplete; schema/reference-v1/C/Phase2 and
+Production closed. Host unobserved/live bindings NULL/global closure FALSE.
+At418 require full actual final return and external ALL-nine whole-condition
+confirmation,then STOP/noautomatic419/newrequest. No old binding/grant reuse;
+later-current refresh independent of repository pause. Prior README unchanged below.
+<!-- step-409-manuscript-audit-resume:end -->
+
+<!-- step-408-joint-proposal-freeze-pause:start -->
+## Current Phase 1 joint proposal freeze and conditional safe pause -- step 408
+
+Accepted407 at reported `2698c39`:88 orderedPASS/zero failures,ten files/eight creates/
+206881 insertions,reported main push/clean matching heads.408 PREPARED,final user
+acceptance/pause confirmation pending;last confirmed repository pause398 only.
+
+The [408 freeze](phase-1-operational-joint-contract-proposal-freeze-and-safe-pause-review.md)
+retains WHOLE407 inactive manuscript,all14 exact proposed amendments/1286wholemember
+criteria/1072orderedrelations/eightdecisions/ninejointanswers/complete guarantee losses
+and unselected retention/deferral options.106wholeinputs/34roots,nine actual399-407
+receipts and whole historical398 external entry bound. All nine WHOLE original
+prepared398/nested pauseconditions retained in current399-408wrappers. Inert native
+roots neverrun,reviewers pure data. Current408finalreceipt/commit/cleanheads/external
+confirmation NULL,actualconfirmedpauseFALSE. Conditional repository eligibility
+cannot confirm itself;complete ACTUAL408return plus external review of ALL nine
+WHOLE conditions required. Historical398pause remains389-398only,not expanded.
+
+JCP400-A/R/D unselected,originalcurrentnorms binding,independent specification/impact/
+migration approval/implementation/native grant pending. Native mechanisms/support/
+graph/evidence unknown,proofs/cases0,Phase1/kernel incomplete;schema/reference-v1/C/
+Phase2/Production closed. Host unobserved/livebindingsNULL/globalclosureFALSE,
+no required batchcleanup is not actualabsence or historiccleanup proof. Safe ACTUAL
+jointreview THEN separate fresh bounded native-testgrant BEFOREeffects,tests never
+self-authorize. After confirmed408 STOP/noautomatic409/nextstageNULL/newrequest;
+repositorypause independent of later-currentrefresh,no oldbinding/grant reuse.
+Prior accepted407 README suffix byte-exact below.
+<!-- step-408-joint-proposal-freeze-pause:end -->
+
+<!-- step-407-integrated-semantic-decision:start -->
+## Current Phase 1 integrated joint semantic decision packet -- step 407
+
+Accepted406 at reported `2d2db9b`:102 orderedPASS/zero failures,ten files/eight creates/
+84650 insertions,reported main push/clean matching heads.407 prepared,user acceptance
+pending;last confirmed repository pause398 covers389-398 only.
+
+The [407 packet](phase-1-operational-integrated-joint-contract-semantic-migration-decision-packet-review.md)
+is a complete reviewable INACTIVE400-A semantic proposal:14exact clause changes,
+four trust/terminal assumptions,full8current/patch contract views and ALL15category/
+1286WHOLE member acceptance criteria.46proof-specific/26case-type paragraphs bind
+all52platform rows/1072 ordered relations;whole raw/entry/gap/history/readiness
+retained. All9 global trust/admission/clock/stage/storage/drain/source-oracle rules
+apply to complete own dependencies;local focus never waives them. Extra FORWARD AND
+RECOVERY post-request finite continuation losses and changed stage12/terminal scope
+explicit,never old original equivalence. Eight WHOLE decisions/nine jointanswers/
+all325oldpairs/36candidate pairs and unselected retention/deferral alternatives.
+
+User option decision,independent specification/impact acceptance,explicit migration
+approval,actual implementation selection and fresh native-test grant separately
+pending. Draft/recommendation/commit/PASS is none of them;current original norms
+binding. Native source/mechanisms/platform evidence still unknown,cases/proofs0,
+Phase1/kernel incomplete;schema/reference-v1/C/Phase2/Production closed. Host
+unobserved/livebindingsnull/globalclosurefalse. ACTUAL safe jointreview THEN separate
+fresh bounded native-testgrant BEFORE effects;tests cannot self-authorize. Full407
+acceptance before408;conditional408 allWHOLE scopedconditions/actualfinalreturn/
+external confirmation then STOP/noautomatic409/newrequest. Prior accepted406 README
+suffix byte-exact below.
+<!-- step-407-integrated-semantic-decision:end -->
+
+<!-- step-406-whole-entry-independent-oracle:start -->
+## Current Phase 1 whole entry and two-platform independent oracle -- step 406
+
+Accepted405 at reported `0939463`:81 orderedPASS/zero failures,ten files/eight creates/
+7702 insertions,reported main push/clean matching heads.406 prepared,user acceptance
+pending;last confirmed repository pause398 covers389-398 only.
+
+The [406 draft](phase-1-operational-joint-whole-entry-independent-two-platform-oracle-proposal-review.md)
+retains WHOLE entry/preparation/helper/source/backend/selector/hook/async/FD/recovery/
+publication criteria and protected checked-to-consumed source;no silent three-call
+replacement. All46 proof objects/52 cases/12 raw groups/1072 ordered relations and
+full original oracle/refinement reviews retained. Eight source surfaces,six roles/
+six fault controls and52 individually bound case rows have null actual evidence.
+Independent ORIGINAL full ordered raw expectations/capture/custody,effective reached
+positive/negative cuts and separate15.0/current actual source/version/boot/attempt/
+run/authority remain required. Verifier may author independent expectations;subject
+not sole oracle,no artificial distinct-person rule or observer exemption. Null not
+empty,no sort/dedup/sample or raw0/20/-1 shortcut,mismatch retained with pending.
+29 paper witnesses are review questions,not native conformance or test permission.
+
+JCP400-A/R/D unselected;all current original norms binding.401-405 changed guarantee
+criteria require complete407 semantic/impact reconciliation and explicit migration
+approval. Native cases/proofs0;Phase1/kernel incomplete;schema/reference-v1/C/Phase2/
+Production closed. Host unobserved/live bindings null/global closure false. Actual
+safe joint review then separate fresh bounded test grant BEFORE effects;tests never
+self-authorize. Full406 acceptance before407;conditional408 whole conditions/actual
+finalreturn/external confirmation then STOP/noautomatic409/new request. Prior
+accepted405 README suffix byte-exact below.
+<!-- step-406-whole-entry-independent-oracle:end -->
+
+<!-- step-405-stage12-receipt-custody:start -->
+## Current Phase 1 whole-stage receipt and final custody proposal -- step 405
+
+Accepted404 at reported `96dd06c`:74 orderedPASS/zero failures,ten files/eight creates/
+7969 insertions,reported main push/clean matching heads.405 prepared,user acceptance
+pending;last confirmed repository pause398 covers389-398 only.
+
+The [405 draft](phase-1-operational-joint-stage12-receipt-final-observation-proposal-review.md)
+retains WHOLE316 stage12 and384 causal/event/failure requirements. Three explicit
+INACTIVE replacements show full current/proposed stage12,publication and terminal
+closure objects. Producer-only stage changes original function/name/operation/
+guard/streams/membership;producer exit is not final eligibility or whole-stage
+conformance. Receipt payload binds prior closed trace,never own future completion.
+Ten whole394 event rows,six external role questions and separate final object/
+writer observation,custody/ACK/accounting remain;no observer exemption,self-proof,
+atomic pair or graph-as-native-proof. Unknown commit/ACK never permits replay.
+24 paper cases supply no action/permission/native proof/closure. Captured data only
+post-release;401-404 trust/source/finite rights/drain/clock/storage controls apply
+to every external own effect. Actual native roles/graph/transport/custody unbound.
+
+JCP400-A/R/D unselected,original current norms binding,full407 semantic/impact
+review and explicit migration approval pending. Native cases/proofs0;Phase1/kernel
+incomplete;schema/reference-v1/C/Phase2/Production closed. Host unobserved/live
+bindings null/global closure false. Actual safe joint review then separate fresh
+bounded test grant before effects;tests never self-authorize. Full405 acceptance
+before406 whole entry/two-platform oracle;conditional408 whole conditions/actual
+finalreturn/external confirmation then STOP/noautomatic409/new request. Prior
+accepted404 README suffix byte-exact below.
+<!-- step-405-stage12-receipt-custody:end -->
+
+<!-- step-404-baseline-storage-rights:start -->
+## Current Phase 1 original baseline,storage and finite-rights proposal -- step 404
+
+Accepted403 at reported `6062f3a`:73orderedPASS/zero failures,tenfiles/eightcreates/
+6251insertions,reported push/clean matching heads. Step404prepared,useracceptance
+pending;last confirmedrepositorypause398 covers389-398only.
+
+The [404draft](phase-1-operational-joint-baseline-storage-finite-rights-proposal-review.md)
+retains all18wholeoriginal recoverybranches/9ownedmicrosteps/7baseline domains/
+16phasevectors/8ownedfailures. Freshoriginalmemory capture and knownexactprotected
+backups beforetargetmutation;one irreversibleclaim/pre-spentsinglelaunch/once-only
+actionbudget. Unknownbackup does not proveunchanged;lostrestoreACK never permits
+repeat/refund. Qualified capturedtarget facts and owned/controller unknowns separate,
+current guards/rights/drain/source still required.24papercases give no native/action
+permission,actual storageproof,restoreselector or closure.
+
+JCP400-A/R/D unselected;currentoriginalclauses remain normative.402recovery/all
+post-request continuation remains an explicit inactive changed guarantee,not original
+equivalence. Full independent exactsemantic migration/approval due407;all original
+scope/396impact/jointblockers retained. Nativeproofs/cases0;Phase1/kernel incomplete;
+schema/reference-v1/C/Phase2/Productionclosed. Hostunobserved/livebindingsnull/
+globalfalse,no batchrequired machine/controllercleanup. Separate actualsafejoint
+review/freshboundedtestgrant beforeeffects;nativeconformance laterreadiness. Full404
+acceptance before405;conditional408allwholeconditions/finalactualreturn/external
+close thenSTOP/noautomatic409. Prioraccepted403README suffix byte-exact below.
+<!-- step-404-baseline-storage-rights:end -->
+
+<!-- step-403-loss-drain-clock:start -->
+## Current Phase 1 loss,drain and original-clock proposal -- step 403
+
+Accepted402 at reported `09e9329`:71orderedPASS/zero failures,tenfiles/eightcreates/
+7389insertions,reported push and clean matching heads. Step403prepared,useracceptance
+pending;last confirmedrepositorypause398 covers389-398only.
+
+The [403draft](phase-1-operational-joint-loss-drain-clock-proposal-review.md)
+reviews supervisor/guardian/controller/clock/observer loss and seven FULL independent
+drain facts. Requests,exit,survival,timeouts/counts do not prove child/FD/stream/storage
+closure. Known captured drain and current finite actionrights are separate;expiry/
+unknown rights never renew or disappear because drain is known. Original deadlines,
+once-onlybudget and pre-bound control retained. Same401trust and exact392inactive
+clock wording;no provider fallback,rollback right revival or guaranteed hidden
+tamper detection. Twenty-two papercases grant no actual/native permission or closure.
+
+JCP400-A/R/D remain unselected;all original clauses/full proof/case/raw/entry scope
+and396impact retained. All ninejointblockers remain;complete exact independent
+semantic migration/approval due407. Nativeproofs/cases0;Phase1/kernel incomplete;
+schema/reference-v1/C/Phase2/Productionclosed. Hostunobserved/livebindingsnull/
+globalfalse,no required batchmachine/controllercleanup. Separate actualsafejoint
+review and fresh bounded testgrant precede effects;fullnativeconformance later
+readiness. Full403acceptance before404;conditional408allwholeconditions/finalactual
+return/externalclose thenSTOP/noautomatic409. Prior accepted402README suffix remains
+byte-exact;this currentprefix supersedes historical current-state readings.
+<!-- step-403-loss-drain-clock:end -->
+
+<!-- step-402-scoped-admission:start -->
+## Current Phase 1 scoped operation admission proposal -- step 402
+
+Accepted401 at reported `1a08924`:60orderedPASS/zero failures,tenfiles/eightcreates/
+7217insertions,reported push and clean matching heads. Step402prepared,user acceptance
+pending;last confirmed repository pause398 covers389-398only.
+
+The [402 draft](phase-1-operational-joint-operation-admission-revocation-proposal-review.md)
+proposes revocation denying NEW scope admissions while known pre-request admitted
+finite operations may finish within original fixed bounds. Eight inactive clause
+replacements disclose weakened forward AND recovery/internal target-evidence
+revocation;publication keeps separate original controls and own policy. This is
+not original equivalence or an approved migration. Current every-effect clauses
+remain normative. Worker no-channel bootstrap/FD policy remains unchanged.
+
+Whole30nodes/95edges/nineauthoritywindows and23authored hypothetical cases provide
+no actual partition,enforcer,safe cut,known drain or native permission. Unknowns,
+failure/mismatch,original singlelaunch/once-onlyfinite recovery and fixed bounds
+remain. All original graph/proof/case/raw/relation/entry scope and396impact retained.
+JCP400-A/R/D unselected;all joint blockers unresolved. Nativeproofs/cases0;Phase1/
+kernel incomplete;schema/reference-v1/C/Phase2/Productionclosed. Hostunobserved/
+livebindingsnull/globalfalse,no batch required machine/controller cleanup. Separate
+actual safejointreview and fresh bounded testgrant precede effects;full native
+conformance later readiness. Full402acceptance before403;conditional408allwhole
+conditions/finalactualreturn/externalclose thenSTOP/noautomatic409. Old accepted401
+historical README suffix remains byte-exact below this current prefix.
+<!-- step-402-scoped-admission:end -->
+
+<!-- step-401-joint-trust-review:start -->
+## Current Phase 1 joint writer/source/trust draft -- step 401
+
+Accepted400 at reported `d28fa63`:59 orderedPASS/zero failures,tenfiles/eightcreates/
+5533insertions,reported mainpush and clean matching heads. Step401 prepared,user
+acceptance pending;last confirmed repository pause398 covers389-398only.
+
+The [401 draft](phase-1-operational-joint-writer-source-trust-proposal-review.md)
+specifies six infrastructure role questions and actor/ACTION-specific trust.
+Ordinary privileged administrator/updater/helper/manual/source/observer/injector
+effects remain in-boundary. Deliberate enumerated infrastructure tampering would
+be outside an INACTIVE proposed guarantee;hidden detection is not promised.
+All seven original resource domains/twelve writer classes,21effectdomains/16whole
+lifetimehazards and separate platform unknowns remain. Static coverage and twelve
+hypothetical classifications do not prove native control,complete graph or safety.
+
+JCP400-A/R/D remain unselected;original clauses remain normative. Full independent
+semantic migration/approval due407;whole-entry/known drain/freshbaseline/knownbackups/
+once-onlyfinite rights/oracle/whole stage12 remain required. Nativeproofs/cases0,
+Phase1/kernel incomplete;schema/reference-v1/C/Phase2/Productionclosed. Actualhost
+unobserved/livebindingsnull/globalclosurefalse,no required batch machine/controller
+action. Separate actual safe joint review and fresh explicit testgrant precede
+effects;full native conformance later establishes readiness. After full401acceptance
+prepare402;conditional408 requires all whole scoped conditions and actual final
+return/external confirmation,thenSTOP/noautomatic409. This prefix supersedes old
+current-state readings;all accepted400 historical README bytes remain unchanged.
+<!-- step-401-joint-trust-review:end -->
+
+<!-- step-400-concrete-joint-candidate:start -->
+## Current Phase 1 joint candidate proposal -- step 400
+
+Accepted399 at reported `09d34c4`:43 ordered PASS/zero failures,tenfiles/eightcreates/
+5320insertions,reported push and clean matching heads. Step400 is prepared,user
+acceptance pending. Last confirmed repository pause398 covers389-398only.
+
+The [JCP400-A draft](phase-1-operational-concrete-joint-contract-candidate-proposal-review.md)
+combines explicit host/time trust,finite external operation admission without a
+worker channel,guardian/durable-rights/quarantine hypotheses,producer plus external
+receipt,and retained whole entry/independent two-platform oracle. Nine exact source
+options and six joint clauses preserve every source guarantee loss. JCP400-R keeps
+original guarantees;JCP400-D defers native selection. All three are unselected.
+
+Host/time protection becomes conditional,admitted effects may follow revocation,
+and stage12/terminal membership would change. These are inactive proposed amendments,
+incompatible with original wording until complete independently reconciled and
+explicitly approved migration. Nine candidate-specific joint questions remain
+unresolved;role labels and declared operation/receipt cuts supply no native proof.
+
+Original clauses and full proof/case/raw/relation/entry/readiness scope remain
+normative. Semantic migration due407;no user selection/specification approval/native
+implementation or test grant. Nativeproofs/cases0;Phase1/kernel incomplete;schema/
+reference-v1/C/Phase2/Production closed. Hostunobserved/livebindingsnull/globalclosure
+false,no required batch machine/controller action. Full actual safe joint review
+and separate fresh bounded testgrant precede effects;native conformance later
+establishes readiness. After complete400acceptance prepare401;conditional408 needs
+all whole scoped conditions/final actual return/external confirmation,thenSTOP/
+noautomatic409. This current prefix supersedes historical current-state readings;
+all accepted399 historical README bytes below are unchanged.
+<!-- step-400-concrete-joint-candidate:end -->
+
+<!-- step-399-joint-proposal-plan:start -->
+## Current Phase 1 joint contract proposal plan -- step 399
+
+Step398 is accepted at reported `cb20576`,288 ordered PASS/zero failures,successful
+reported push and clean matching heads. Its externally confirmed strong repository
+pause covers389-398only. Complete supplied UTF8 receipt and all nine whole external
+conditions are preserved;full Git ID and actual host state remain unknown.
+
+The new request opens ten repository steps399-408:one concrete unselected joint
+draft;writer/source/trust;revocation/effects;loss/drain/clock;baseline/storage/rights;
+whole-stage receipt;whole entry/two-platform oracle;integrated semantic acceptance
+and migration proposal;conditional freeze/pause. Step399 is prepared,not accepted.
+See the [finite plan](phase-1-operational-joint-contract-proposal-resume-planning-review.md).
+
+All26 original options/eight decisions/nine joint dimensions and the full396
+impact remain bound. Author draft choice is not user selection or approval.
+Original requirements remain normative;native compatibility and complete semantic
+migration remain unproved/unapproved. Prepare a successor only after full actual
+predecessor acceptance. Conditional408 requires all whole pause conditions plus
+complete final return and external confirmation;then STOP/noautomatic409.
+
+Original45 verdicts34incompatible/11unresolved/0established compatible-unproven,
+eight conflicts/ten blockers and full46proof/52case/12rawgroup/1072relation scope
+remain pending. Native proofs/cases0;Phase1/kernel incomplete;schema/reference-v1/
+C/Phase2/Production closed. Hostunobserved/livebindingsnull/globalclosurefalse;
+no batch machine/controller action. Later-current refresh does not invalidate a
+repository pause or permit old binding/authority reuse. Separate actual safe joint
+review and fresh explicit bounded test grant precede effects;native conformance
+later establishes readiness. This prefix supersedes historical current-state
+readings below;their complete accepted398 bytes remain unchanged.
+<!-- step-399-joint-proposal-plan:end -->
+
+<!-- step-397-contract-decision-packet:start -->
+## Current Phase 1 contract decision packet -- step 397
+
+This current-state section supersedes the preserved 387/377/367 roadmap readings
+below. Their complete historical bytes remain unchanged. Step396 is accepted at
+reported `792525e`:506 exact ordered PASS,zero failures,nine files,eight creates
+and122716 insertions;complete unchanged uploaded return reports push/clean matching
+heads. Full Git ID is unknown;no independent terminal/GitHub/native-host observation.
+Step397 is prepared and awaiting complete actual user acceptance.
+
+Last confirmed strong repository pause is388,covering379-388 only. The user requested
+the new finite389-398 repository proposal block. Steps389-396 are accepted;397 joins
+the decision packet/roadmap;398 will freeze the whole packet and check all nine WHOLE
+scoped pause conditions plus complete actual final return externally,then STOP/no
+automatic399. No new pause is confirmed here. A later-current refresh does not
+invalidate repository-only pause or revive historical bindings/authority.
+
+| Decision | Concrete alternatives | Current state |
+| --- | --- | --- |
+| Live revocation | Retain every-effect/no-channel;operation-cut amendment;worker-channel amendment;defer | All391 options inactive |
+| Writer/alias lifetime | Retain all-writer coverage;explicit trusted-host amendment;defer | All390 options inactive |
+| Owner loss/drain | Retain known drain;guardian retention hypothesis;local-clock amendment;defer | All392 options inactive |
+| Whole entry/backend | Retain full entry;protected consumed-graph hypothesis;separate backend-product amendment;defer | All395 options inactive |
+| Baseline/storage | Retain exact original;durable rights ledger hypothesis;owned/target quarantine hypothesis;defer | All393 options inactive |
+| Finite time/recovery rights | Full joint392/393 clock/loss/spend/backup/recovery review | No protocol or component selected |
+| Whole stage12/receipt | Retain exact stage;producer/external-cut amendment;independent custody hypothesis;defer | All394 options inactive |
+| Independent platform oracle | Retain full oracle;protected raw-oracle hypothesis;defer | All396 options inactive |
+
+The [397 decision packet](phase-1-operational-integrated-contract-decision-packet-roadmap-review.md)
+retains all26 complete options,8whole conflicts,325unordered pair review questions
+and9specific joint review dimensions. Pair coverage is no compatibility proof.
+The [396 impact map](phase-1-operational-independent-oracle-migration-impact-decision-brief.md)
+covers all26 options against15whole categories/1286members,including8contracts,
+16normative sections,16gaps,46proofs,52cases,12rawgroups and1072orderedrelations.
+Coverage complete;semantic replacements,independent impact acceptance,joint approved
+specification and migrations unresolved/unapproved. Original contracts remain
+normative. A draft guarantee loss or scope/trust cut is not a current exception.
+
+Original45candidates remain34incompatible-as-stated/11unresolved/zero established
+compatible-unproven;8conflicts/10blockers remain unresolved. No universal impossibility,
+complete compatible native composition,selected implementation or native evidence.
+Historical5families/20scenarios remain distinct. Nativeproofs/cases0;Phase1/kernel
+incomplete;schema/reference-v1/C/Phase2/Production remain closed. Hostunobserved,
+livebindingsnull,globalclosurefalse;no batch machine/controller action required.
+
+After separately confirmed398:STOP. A new user request and explicit option/scope
+decision would be separate from full independent semantic migration approval,
+implementation selection/review,fresh native-test grant and operational readiness.
+Whole safe actual containment/composition/source/trust/guard/fresh baseline/known
+recovery/storage/finite rights/effective observation review precedes any fresh
+explicit bounded testgrant;complete independent native conformance comes later.
+Repository PASS,README,counts,hashes,role labels and paper graphs authorize none.
+<!-- step-397-contract-decision-packet:end -->
+
+<!-- step-387-readme-roadmap-reconciliation:start -->
+## Current Phase 1 roadmap reconciliation — step 387
+
+This checkpoint supersedes the current-state interpretation of the preserved
+377 and 367 sections below. Their complete historical bytes remain unchanged.
+Step **386 is accepted**, reported commit **`094af08`**, with **516 exact ordered
+PASS, zero failures**, nine changed files, eight creates and 6114 insertions.
+The complete supplied Markdown return reports a successful push and a clean tree
+with matching HEAD/origin. Markdown escaping and flattened line boundaries are
+disclosed in the acceptance record; this is not independent terminal-byte,
+GitHub or native-host inspection. The full commit ID remains unknown.
+Step **387 is prepared; its user acceptance is pending**.
+
+| Step | Repository review | Current disposition |
+| --- | --- | --- |
+| 378 | Successor-design freeze and scoped safe pause | Confirmed `c3a141c`; covers 369–378 only |
+| 379 | Finite architecture feasibility resolution plan | Accepted `b50554c`, including the retained 379-r1 correction |
+| 380 | Live revocation without a worker broker | Accepted `7820d1a`; actual enforcement unresolved |
+| 381 | All writers, privileged aliases and object lifetime | Accepted `0f099fe`; actual exclusion unresolved |
+| 382 | Supervisor loss, original clocks and known drain | Accepted `6c65757`; native composition unresolved |
+| 383 | Original baseline, storage uncertainty and finite rights | Accepted `45f463f`; actual bindings unresolved |
+| 384 | Whole stage 12 and external receipt causality | Accepted `061a0a0`; actual protocol unresolved |
+| 385 | Whole entry/backend graph and independent oracle | Accepted `d457428`; native graph and evidence unresolved |
+| 386 | Integrated bounded feasibility verdict | Accepted `094af08`; native composition remains blocked |
+| 387 | README and roadmap reconciliation | Prepared; complete user return required before 388 |
+| 388 | Whole decision-input freeze and conditional scoped pause | Pending 387 acceptance and complete 388 return satisfying all nine whole original conditions |
+
+The last **confirmed strong repository-scoped safe pause is 378**. No new pause
+is confirmed at 386 or 387. The finite 379–388 batch ends after the separately
+confirmed 388 close: **stop; no automatic 389**. A new batch requires a new user
+request. Repository-only pause is independent of a later Slackware-current
+refresh; it does not establish host absence, live-state safety or global closure.
+
+### Bounded verdict and unresolved obligations
+
+The [accepted 386 integrated review](phase-1-operational-integrated-feasibility-verdict-review.md)
+retains all 45 complete source candidates from 380–385: **34 incompatible as
+stated, 11 unresolved, zero established compatible-unproven**. An incompatible
+stated composition does not prove every use of its primitives impossible.
+Unresolved hypotheses do not supply a complete joint protocol. Even a future
+compatible-unproven finding would grant no implementation, test or runtime rights.
+Counts are navigation, not a completion percentage or a normative scope waiver.
+All eight whole original conflicts and ten feasibility blockers remain unresolved;
+no native component or complete compatible composition has been selected.
+
+| Original conflict | Remaining native obligation |
+| --- | --- |
+| Live revocation without a worker broker | Enforce original live authority at every real and in-flight effect; a lease, poll, macro check or stop request alone is insufficient |
+| All writers, privileged aliases and object lifetime | Establish full writer participation or enforcement, continuous exclusion and original object identity without exempting privileged outsiders |
+| Supervisor loss and surviving descendants | Independently know all descendants, inherited FDs, streams and in-flight effects are drained before scoped release |
+| Whole entry and real backend | Resolve the complete original entry/source/backend/effect graph; a lexical census or three calls is not that graph |
+| Original baseline, owned backups and unknown state | Capture fresh original baseline before owned writes and known exact protected backups before target mutation; unknown backups do not prove unchanged target |
+| Finite time, budget and recovery rights | Preserve original clock, scope, irreversible claim, pre-spent single launch and once-only finite recovery; no refund, retry, rebind, reacquire or renewed grant |
+| Whole stage 12 final receipt causality | Retain the full original streams/status/origin and resolve independent final observation and custody; no self-observed final hash/commit/storage or shortened stage |
+| Independent two-platform native oracle | Capture independent expected vectors, effective faults and exact raw evidence separately on Slackware 15.0 and Slackware-current |
+
+The table is navigation only. The complete original clauses, reasons, candidate
+assumptions, platform unknowns, resolution criteria and source limits in the
+accepted 380–386 dossiers and whole 378 freeze remain normative. No contract is
+amended by this reconciliation. Target, owned-state, controller, publication and
+consumer outcomes remain separate. Original failure stays sticky; known mismatch
+survives another pending result. Unknown claims remain null/quarantined/unavailable,
+never invented consumed or unused. Forward-only expiry/revocation does not
+automatically revoke retained scoped recovery, nor grant blanket recovery exemption.
+Publication uses captured closed data only; no later target/source reread, refresh,
+restore, backend call or reacquisition follows source restoration.
+
+### Complete native scope and separate future test gate
+
+All eight original contracts 320–327, sixteen normative sections 347 and sixteen
+native gaps 348 remain required in full. **46 qualified proofs are unproven,
+52 native cases unrun, twelve independent raw groups uncaptured, and all 1072
+ordered proof/case relations pending.** The 52 cases are 26 cases on each of two
+platforms, not 52 per platform. Historical results and platform results do not
+transfer into this scope. Primary assignments and paper event schedules never
+select native primitives or establish exhaustive fault coverage.
+
+The complete 377 future test-entry and later operational-readiness prerequisites
+remain unchanged and linked through the whole 378 freeze and 386 dossier.
+Before an experiment, independently review a complete original-compatible actual
+composition, safe containment, full source/effect/writer/trust scope, continuous
+guard, fresh original capture, known recovery/storage/custody, original finite
+rights, platform support and effective independent observation. Then obtain a
+**separate fresh explicit bounded native-test grant before any experiment**.
+Complete independent native conformance on both platforms is a later operational
+readiness requirement from separately authorized tests. A passing test cannot
+supply its own permission; repository PASS and accepted documents are no native
+proof or fresh runtime authorization. All historical identities, live bindings
+and consumed authorizations remain unusable.
+
+### Historical Phase 1 acceptance matrix and project gates
+
+The remaining historical matrix has five families and twenty scenarios. It is
+distinct from the 52 pending native operational cases; neither count closes the
+other. Each scenario requires its original separately reviewed evidence and scope.
+
+| Pending historical family | Scenarios |
+| --- | ---: |
+| Kernel package edge | 1 |
+| Boot safety failures | 7 |
+| SBo and ELF | 6 |
+| Cinnamon | 3 |
+| Flatpak | 3 |
+
+Historical core inventory 175, Slackware-current rollback 92, Slackware 15.0
+ELILO 116, configuration/modules 161, English comments 169 and execution-control
+failures 188 keep their accepted original scope. They are not fresh native proofs
+or reusable host grants. **Phase 1 and the kernel package edge remain incomplete.**
+Version 1 result schema and reference-v1 are unfrozen; C development, Phase 2 and
+Production entry remain closed. No native runner, component, collector, injector,
+comparator, service, cryptographic scheme or machine action is selected or
+implemented by this batch. Native runs/proofs added: zero. Machine/controller
+actions and new runtime authority: none. Actual host state is **unobserved, not
+claimed absent**; live bindings remain null and global host closure is false.
+
+### Conditional 388 close
+
+After the complete 387 overlay/tests/exact commit/push/clean matching-head return,
+388 may freeze all complete decision inputs and all **nine whole original scoped
+pause conditions**. Confirmation remains external to immutable prepared metadata
+and needs the actual complete 388 return and all conditions. A schedule, count or
+prepared PASS is not that final receipt. No machine cleanup, native execution,
+service channel, operational publication or historical authority reuse is granted.
+Unknown graph, primitives, protocols and conformance remain blockers after pause.
+
+See the [387 reconciliation review](phase-1-operational-feasibility-readme-roadmap-reconciliation-review.md),
+[379 finite plan](phase-1-operational-feasibility-resolution-resume-planning-review.md),
+[378 whole freeze](phase-1-operational-successor-design-freeze-and-safe-pause-review.md)
+and the accepted integrated review above for the complete binding inputs.
+<!-- step-387-readme-roadmap-reconciliation:end -->
+
+---
+
+The accepted README follows byte-for-byte. Its older current/prepared wording
+records its historical checkpoint; use the 387 reconciliation above for current
+379–388 status, without changing the original normative requirements.
+
+<!-- step-377-readme-roadmap-reconciliation:start -->
+## Current Phase 1 roadmap reconciliation — step 377
+
+This section supersedes the current-roadmap interpretation of the preserved
+step 367 checkpoint below. It leaves every accepted historical byte intact.
+The last accepted successor-design step is **376**, reported commit `24e5dcc`
+with **547 exact ordered PASS**, successful push and clean matching heads in the
+complete user return. Step **377 is prepared; user acceptance is pending**.
+A returned receipt is not independent inspection of GitHub or a native host.
+
+| Step | Repository review | Current disposition |
+| --- | --- | --- |
+| 369 | Bounded successor design plan | Accepted `3a99d10` |
+| 370 | Complete source and effect design | Accepted `607d43c` |
+| 371 | Issuer, admission and single launch design | Accepted `e6d341f` |
+| 372 | Primitive feasibility | Accepted `f8059fc`; native composition blocked |
+| 373 | Original baseline, owned state and finite recovery | Accepted `39f33f8`; native bindings unresolved |
+| 374 | Target closure and captured-data publication | Accepted `9bc9668`; native closure unresolved |
+| 375 | Independent evidence, trust, controls and oracle | Accepted `2218052`; actual evidence uncaptured |
+| 376 | Native microevents and complete proof/case mapping | Accepted `24e5dcc`; actual refinement unproven |
+| 377 | Readiness, future prerequisites and README | Prepared; complete return required |
+| 378 | Freeze and conditional repository-scoped pause | Pending complete 377 acceptance; confirmation requires complete 378 return and all nine original scoped conditions |
+
+The last **confirmed strong repository-scoped safe pause is 368**, covering
+359–368 only. The successor-design batch 369–378 has no new confirmed pause yet.
+Stop after the conditional 378 close; there is **no automatic 379**.
+
+### Complete native obligations remain pending
+
+All eight original contracts 320–327, sixteen normative sections 347 and sixteen
+native gaps 348 remain required in full. All 46 qualified proofs are unproven,
+52 native cases unrun, twelve independent raw groups uncaptured and all 1072
+ordered proof/case relations pending. Counts and primary review assignments only
+help navigation; they never reduce the original normative scope. Ten proposed
+observation families, nine cut dimensions and macro before/within/after questions
+are neither selected native primitives nor exhaustive fault coverage.
+
+Native composition remains blocked: live external revocation at every real and
+in-flight effect without a worker broker channel; every writer/privileged alias
+and object lifetime; supervisor loss and surviving descendants; the complete
+entry/backend/raw-effect graph; fresh original baseline/known backups; finite
+clock/budget/recovery rights; and independent two-platform raw evidence/oracle.
+Whole original stage 12 streams/status/origin remain normative. A final external
+receipt cannot observe its own final hash/commit/durability; actual independent
+actor/event refinement remains unresolved. No guarantee is weakened to claim
+feasibility or close this causal gap.
+
+Future bounded test entry first needs independently reviewed native composition,
+containment, exact fresh original scope, trust, original baseline/recovery,
+platform support and effective fault observation, then a **separate fresh explicit
+test authorization**. Complete native conformance is a later requirement using
+independently observed results of separately authorized tests. Neither review
+acceptance nor this prerequisite list grants tests or operations. Historical
+identities and consumed authorizations remain unusable.
+
+### Project and historical acceptance gates
+
+Phase 1 and the kernel package edge remain incomplete. The remaining historical
+matrix remains five families/twenty scenarios: kernel package edge (1), boot
+safety failures (7), SBo/ELF (6), Cinnamon (3), Flatpak (3). This matrix is distinct
+from the 52 pending native operational cases. Accepted core inventory175,
+Slackware-current rollback92, Slackware15.0 ELILO116, configuration/modules161,
+English comments169 and execution-failure188 closures retain their original
+scope; none is fresh native proof or a reusable host action grant.
+
+The version 1 result schema is unfrozen; reference-v1, C development, Phase 2 and
+Production entry remain closed. No implementation/native component, runner,
+collector, injector, service or cryptography is selected or implemented by this
+review. Native runs/proofs added: zero. Machine/controller actions and new runtime
+authority: none. Actual host state remains unobserved, not claimed absent;
+actual live bindings remain null and global host closure is not established.
+A later Slackware-current refresh does not invalidate this repository-only work.
+
+See the [377 readiness review](phase-1-operational-design-readiness-readme-review.md),
+[376 complete refinement mapping](phase-1-operational-native-refinement-case-design-review.md)
+and the original prerequisites and source reconciliation linked below.
+<!-- step-377-readme-roadmap-reconciliation:end -->
+
+---
+
+The accepted README follows unchanged. Its older checkpoint wording records its
+own historical preparation/acceptance boundary; use the 377 reconciliation above
+for the current successor-design roadmap.
+
+# Slack-Update
+
+A modular and configurable update manager for Slackware, written in C.
+
+Slack-Update is intended to provide a desktop-oriented update experience similar in spirit to Arch Update, while respecting Slackware's tools, conventions, and non-systemd environment. It will support command-line use, a system tray application, desktop notifications, optional update modules, structured results, and safe privileged operations.
+
+> [!IMPORTANT]
+> The project is currently in the planning and reference-implementation stage. The existing shell script is the executable specification for the future C implementation. C development must not begin until the script has passed the acceptance tests defined in this roadmap.
+
+## Project status
+
+- [x] Project name selected: **Slack-Update**
+- [x] Implementation language selected: **C**
+- [x] Core concept defined: Slackware update manager with CLI, tray icon, and notifications
+- [x] Modular and configurable design established
+- [x] Reference shell script created
+- [ ] Complete reference acceptance matrix validated on Slackware 15.0 and Slackware-current installations
+  - [x] Slackware-current reviewed 137-package transaction installed and safe-pause verified with the 6.18.42 generic kernel/initrd pair
+  - [x] Slackware-current reboot into 6.18.42 and post-reboot verification accepted
+  - [x] Optional on-disk rollback reconstruction for 6.18.40 completed and real boot/return demonstrated
+- [x] Public GitHub repository created: `slack-update`
+- [ ] Build system selected
+- [x] License selected: **GNU GPL v3 or later (`GPL-3.0-or-later`)**
+- [x] Supported Slackware targets defined: **Slackware 15.0 and Slackware-current**
+- [ ] First C milestone started
+
+<!-- step-367-readme-roadmap-reconciliation:start -->
+## Current Phase 1 roadmap reconciliation — step 367
+
+This roadmap is reconciled through accepted step **366**, reported commit
+`8963dca`. Step 367 updates documentation; its repository acceptance requires the
+usual tests, exact commit, push and clean matching heads. The previous numbered
+README checkpoint was **120**; the previous substantive reconciliation was **173**.
+
+**Phase 1 is incomplete. `reference-v1`, the C port, Phase 2 and production remain
+blocked.** Historical scenario closures below keep their accepted scope. The
+repository source review in steps 359–366 supplies no native implementation,
+installed dependency binding, fresh test authority or operational conformance.
+
+| Accepted work | Scope and record |
+| --- | --- |
+| Core normal updates, `install-new`, kernel updates and no-change behavior | Historical accepted coverage excluded from replay by [step 175 inventory](phase-1-acceptance-matrix-remainder-inventory.md) |
+| Slackware-current rollback | Closed at step 92; retained recovery evidence and consumed authorization |
+| Slackware 15.0 ELILO cleanup | Closed at step 116 on the accepted 5.15.209 state; retired rollback and recovery targets removed |
+| Configuration and optional-module modes | Workstream closed at [step 161](configuration-module-mode-workstream-closure-checkpoint.md), including runtime validation on both mandatory targets |
+| English reference comments | Remediation closed at [step 169](phase-1-reference-comment-language-remediation-closure-review.md); continuing source changes still require English comments |
+| Execution-control failure paths | Four scenarios closed in the accepted step 188 runtime scope: network failure, simultaneous invocation, signals and cron |
+| Operational source review | [366 reconciliation](phase-1-operational-source-native-gap-reconciliation.md) preserves the full inventory, dependency/effect findings and native prerequisites |
+
+### Remaining real-system acceptance work
+
+The accepted [post-execution-control inventory](../../tests/fixtures/reference/acceptance/phase-1/phase-1-acceptance-matrix-remainder-after-execution-control-closure.tsv)
+contains **five families and 20 scenarios**. These historical matrix scenarios are
+separate from the 52 native operational case templates; neither count proves the
+other complete.
+
+| Pending family | Scenarios | Required next boundary |
+| --- | ---: | --- |
+| Kernel-package edge | 1 | Finish the kernel-headers-without-image scenario using a separately reviewed native implementation and fresh target/test authority |
+| Boot safety failures | 7 | Scenario-specific fail-closed boot validation; no old kernel or boot grant reused |
+| SBo and ELF optional runtime | 6 | Optional-module-capable targets and separate accepted evidence |
+| Cinnamon optional runtime | 3 | Installed, changed and absent cases with explicit scope |
+| Flatpak optional runtime | 3 | Explicit system, user and absent installation scope |
+
+### Native operational prerequisites
+
+The kernel-package-edge operational work remains **unselected, unrefined and
+unproven** across its 16 gaps. All **46 qualified proofs** are unproven, **52 native
+cases** unrun and **12 independent raw evidence groups** uncaptured. Full original
+contracts and rows are normative; these counts only aid navigation. See the
+[365 prerequisites](phase-1-operational-native-implementation-prerequisites.md)
+and [366 reconciliation](phase-1-operational-source-native-gap-reconciliation.md).
+
+The four inspected sources retain their roles: reference specification,
+historical worker body, historical generator and generated historical copy. The
+copy is not a second independent worker. The lexical inventory is not a resolved
+shell graph. The 51-name dependency register is non-exhaustive; the later `cksum`
+site remains an additional unbound input. Actual host state is unobserved, not
+claimed absent, and live native bindings remain unselected.
+
+Source findings include preparation writes before traps, logs and inherited FDs,
+path-check-to-consumption windows, writer/object aliases, owned backup versus
+target uncertainty, rollback descendants and publication target reads after source
+restoration flags. `--check` and `--dry-run` name operation scopes; local files,
+logs and transport probes remain described effects. Their names do not prove an
+absence of effects. Flags, snapshots, `-postinst=off`, namespaces and self-PASS do
+not discharge native closure or independent evidence requirements.
+
+### Finish the current repository batch
+
+After step 367 is accepted, **368** freezes this ten-step 359–368 batch and reviews
+a conditional strong safe pause under the original repository-scoped conditions.
+Final confirmation requires complete tests, exact commit, successful push and a
+clean tree with matching heads. The last confirmed scoped pause is **358**;
+step 367 does not declare a new pause or global host closure. There is no automatic
+369 and no machine action or new native grant in this batch.
+
+A later Slackware-current refresh does not invalidate this repository work. Later
+native work needs a fresh review of implementation, primitives, issuer, complete
+source/dependency/effect lifetimes and independent two-platform evidence before
+any separately scoped authorization. Historical identities and consumed grants
+cannot be reused. The version 1 result schema and remaining matrix gate must be
+accepted before `reference-v1` or C development can open.
+<!-- step-367-readme-roadmap-reconciliation:end -->
+
+## Accepted Slackware-current rollback closure
+
+The Slackware-current rollback demonstration is accepted as closed at Phase 1
+step 92. The host returned through the normal generic GRUB path to kernel
+`6.18.42` after the reviewed one-time boot of retained rollback kernel `6.18.40`.
+The tested rollback kernel, initrd, module tree, and explicit rollback GRUB entry
+remain retained as accepted recovery evidence.
+
+No rollback boot, return reboot, package action, GRUB mutation, or repository
+refresh is pending or authorized by this summary. Any future Slackware-current
+acceptance work must open a fresh scenario-specific review boundary; the closed
+rollback authorization chain must not be reused.
+
+## Accepted Slackware 15.0 ELILO cleanup closure
+
+The Slackware 15.0 ELILO oldkernel cleanup scenario is accepted as closed at
+Phase 1 step 116. The machine is at the accepted final state on kernel
+`5.15.209`: the retired `5.15.19` rollback package, module, ELILO, and EFI targets
+are absent, the retained recovery backup has been released and removed, and all
+historical destructive authorizations are consumed.
+
+No cleanup, package, ELILO, recovery-backup, reboot, or repository action is
+pending or authorized by this summary. Any future Slackware 15.0 Phase 1 work
+must begin from a fresh reviewed boundary rather than reusing the closed cleanup
+authorization chain.
+
+## Goals
+
+- Provide a reliable and understandable update workflow for Slackware.
+- Support Slackware 15.0 and Slackware-current as first-class release targets.
+- Keep system updates independent from optional components such as SBo, Cinnamon, and Flatpak.
+- Allow every optional module to be enabled, disabled, or automatically detected.
+- Provide both graphical and command-line frontends over the same core logic.
+- Run the tray application as an unprivileged user.
+- Request elevated privileges only for operations that require them.
+- Produce human-readable logs and machine-readable results.
+- Detect partial updates, broken ELF dependencies, boot preparation failures, and reboot requirements.
+- Avoid systemd-only assumptions.
+- Make update behavior testable without modifying the host system.
+
+## Supported Slackware targets
+
+Slack-Update must support both:
+
+- **Slackware 15.0**, the supported stable-release baseline;
+- **Slackware-current**, the rolling development branch.
+
+Compatibility with both targets is a release requirement, not a best-effort goal.
+Reference acceptance tests, the future C implementation, packaging, and installation
+documentation must cover both systems. A feature that is only available on one target
+must be detected explicitly and must not silently break the other target.
+
+## Non-goals for the first release
+
+- [ ] Implement a replacement for `slackpkg`, `sbopkg`, Flatpak, or bootloader tools.
+- [ ] Provide transactional package management that Slackware itself does not provide.
+- [ ] Load third-party binary plugins through a public runtime ABI.
+- [ ] Support every Slackware-compatible package manager in version 1.0.
+- [ ] Perform unattended package installation by default.
+- [ ] Require a graphical environment for CLI or headless use.
+
+The first release will use an internal module interface. A stable external plugin ABI may be designed later, after the internal API has proved reliable.
+
+## Design principles
+
+1. **Fail safely**
+   A failed Slackware update, initrd generation, or bootloader update must prevent unsafe follow-up actions.
+
+2. **Detect before acting**
+   Every module follows a common lifecycle: probe, check, plan, apply, verify, and report.
+
+3. **Optional means optional**
+   Missing Cinnamon, Flatpak, SBo, GRUB, or any other optional component must not be treated as a global application failure.
+
+4. **No hidden root session**
+   The tray process must never run permanently as root.
+
+5. **One source of truth**
+   The CLI, tray application, and privileged helper must use the same core data model and status definitions.
+
+6. **Deterministic operation**
+   Package selection, queue generation, dependency ordering, and result reporting must not depend on filesystem enumeration order or ambiguous text parsing.
+
+7. **No systemd dependency**
+   Scheduling, startup, logging, and privilege handling must remain compatible with standard Slackware installations.
+
+8. **Observable execution**
+   Every phase must expose progress, warnings, errors, logs, and a final structured result.
+
+## Planned components
+
+| Component | Purpose | Privileges |
+|---|---|---|
+| `libslackupdate` | Core state model, configuration, modules, planning, command execution, and reporting | Unprivileged by default |
+| `slack-update` | Command-line frontend | Unprivileged for checks; elevation for changes |
+| `slack-update-helper` | Short-lived privileged executor for approved operations | Root only while needed |
+| `slack-update-tray` | System tray icon, status, actions, and desktop notifications | Unprivileged |
+| Reference shell script | Executable specification and regression oracle during the port | Root for apply operations |
+
+## High-level architecture
+
+```text
++----------------------+       +----------------------+
+| slack-update-tray    |       | slack-update CLI     |
+| notifications        |       | interactive/headless |
++----------+-----------+       +----------+-----------+
+           |                              |
+           +--------------+---------------+
+                          |
+                +---------v----------+
+                | libslackupdate      |
+                | configuration       |
+                | module registry     |
+                | planner             |
+                | result model        |
+                +---------+----------+
+                          |
+              unprivileged checks and planning
+                          |
+                +---------v----------+
+                | privilege boundary |
+                +---------+----------+
+                          |
+                +---------v----------+
+                | privileged helper  |
+                | validated actions  |
+                | command execution  |
+                +---------+----------+
+                          |
+       +------------------+-----------------------------+
+       |                  |              |              |
+   slackpkg           sbopkg/sqg     mkinitrd and    optional
+                                      bootloader      modules
+```
+
+The preferred desktop integration is D-Bus plus PolicyKit where available. A root CLI mode must remain available for installations without a graphical authorization agent.
+
+## Module lifecycle
+
+Every update module should implement the same conceptual lifecycle:
+
+1. `probe` — determine whether the module is available and applicable.
+2. `check` — inspect repositories and local state without applying changes.
+3. `plan` — return the exact actions, dependencies, risks, and required privileges.
+4. `apply` — perform the approved changes.
+5. `verify` — confirm that the expected final state was reached.
+6. `report` — return structured status, counts, warnings, errors, and reboot requirements.
+
+Planned module states:
+
+- `disabled`
+- `unavailable`
+- `idle`
+- `checking`
+- `update-available`
+- `planned`
+- `running`
+- `success`
+- `warning`
+- `failed`
+- `skipped`
+- `reboot-required`
+
+## Planned modules
+
+### Slackware module
+
+The Slackware module is the only core update module enabled by default.
+
+- Run `slackpkg update`.
+- Detect and optionally apply `install-new`.
+- Detect and optionally apply `upgrade-all`.
+- Stop secondary modules after a partial Slackware update.
+- Snapshot the package database before and after changes.
+- Determine exact package names that changed.
+- Detect critical library and kernel changes.
+- Expose update counts and package lists to the frontends.
+
+### SBo module
+
+Optional module for systems using `sbopkg` and `sqg`.
+
+- Auto-detect `sbopkg`, `sqg`, and their configuration.
+- Synchronize the configured SBo repository.
+- Detect potential updates for installed SBo packages.
+- Rebuild installed SBo packages after configured ABI changes.
+- Map broken ELF objects to owning SBo packages.
+- Generate one deterministic dependency-ordered queue.
+- Preserve per-package build options.
+- Stop on the first build failure by default.
+- Verify repaired binaries after rebuilding.
+
+### ELF dependency module
+
+Optional diagnostic module, enabled automatically when the required tools are available.
+
+- Inspect ELF objects statically without executing them.
+- Prefer `lddtree` when available.
+- Provide a `readelf`-based fallback.
+- Resolve `RPATH`, `RUNPATH`, `$ORIGIN`, architecture, and loader cache entries.
+- Avoid duplicate scans of the same real file.
+- Record the unresolved library for every affected object.
+- Map affected files to installed package manifests.
+
+### Boot module
+
+Optional module activated by relevant kernel changes.
+
+- Detect the installed kernel and package changes.
+- Validate `/etc/mkinitrd.conf` before running `mkinitrd`.
+- Verify that the configured kernel has installed modules.
+- Generate and validate the initrd.
+- Refuse bootloader changes when initrd preparation fails.
+- Stage and validate bootloader configuration before replacing it.
+- Preserve a backup of the previous configuration.
+- Report a clear **do not reboot** condition after critical failures.
+
+Planned bootloader adapters:
+
+- [ ] GRUB
+- [ ] ELILO
+- [ ] LILO
+- [ ] Extensible bootloader adapter interface
+
+GRUB will be the first implemented adapter because it is already covered by the reference script.
+
+### Cinnamon module
+
+Optional module for users who install Cinnamon through CinnamonSlackBuilds.
+
+- Default mode: `auto`.
+- Remain disabled when Cinnamon or its configured build repository is absent.
+- Synchronize the configured CSB repository.
+- Detect repository changes independently of Slackware ABI changes.
+- Trigger a rebuild after relevant graphical ABI changes.
+- Run the configured Cinnamon build command.
+- Report the exact reason for a rebuild.
+
+### Flatpak module
+
+Optional module for systems that use Flatpak.
+
+- Default mode: `auto`.
+- Update system Flatpaks independently from user Flatpaks.
+- Discover eligible local users safely.
+- Allow an explicit user allowlist or denylist.
+- Report failures per installation and per user.
+- Do nothing when Flatpak is not installed or the module is disabled.
+
+### Notification module
+
+Desktop-only module.
+
+- Notify when updates are available.
+- Notify when an update completes.
+- Notify when an update fails.
+- Notify when a reboot is recommended or required.
+- Avoid repeated notifications for the same update set.
+- Support configurable urgency and notification categories.
+- Never display privileged command output without sanitization.
+
+### Scheduler module
+
+Optional scheduling support without requiring systemd.
+
+- Periodic checks from the tray process.
+- Optional cron integration for headless systems.
+- Configurable interval and quiet hours.
+- Network availability checks before repository access.
+- Single-instance locking shared with manual executions.
+- No automatic application of updates unless explicitly enabled.
+
+## Configuration model
+
+The shell reference now reads its operational settings from:
+
+```text
+/etc/slack-update/slack-update.conf
+```
+
+The repository provides the installable default at
+`data/config/slack-update.conf`. When the reference script is run directly from
+the source tree and the system file is absent, it uses that repository copy. The
+`SLACK_UPDATE_CONFIG` environment variable may select an absolute alternative
+path for isolated tests; it is not yet a stable command-line interface.
+
+The current reference configuration uses schema version `1` and externalizes:
+
+- work, log, lock, package-database, SBo, persistent SBo-option, ELF-scan, boot, and Cinnamon paths;
+- log retention;
+- Slackware `install-new` and `upgrade-all` decisions;
+- ABI, Cinnamon ABI, critical, and kernel package groups;
+- the trusted Cinnamon repository, branch, and relative builder path;
+- activation modes for Flatpak, SBo, ELF diagnostics, Cinnamon, and boot preparation.
+
+The parser treats the file strictly as data and never sources it as shell code.
+Unknown sections, unknown keys, duplicates, missing required values, unsupported
+schema versions, unsafe values, invalid booleans, and invalid paths are rejected.
+Executable command names and argument structures remain fixed in the script so a
+configuration value cannot inject an arbitrary shell command.
+
+The shell reference now implements three activation modes for the optional
+Flatpak, SBo, ELF, Cinnamon, and boot modules:
+
+- `enabled` — require the module and report missing requirements as an error.
+- `disabled` — do not probe or run the module.
+- `auto` — run the module only when its requirements and an applicable local installation are detected.
+
+All optional modules default to `auto`. Configuration files created before the
+mode keys were added remain valid under schema version `1`; an omitted mode is
+interpreted as `auto`.
+
+The current probes are intentionally explicit:
+
+- Flatpak requires the `flatpak` executable.
+- SBo requires both `sbopkg` and `sqg`.
+- ELF diagnostics require `readelf` and `/sbin/ldconfig`.
+- Cinnamon auto-detection accepts the Cinnamon executable, an installed
+  `cinnamon` package record, or an existing managed CSB checkout, and also
+  requires Git.
+- Boot auto-detection enables each supported path independently: a validated
+  `mkinitrd.conf` for initrd preparation, with the configured kernel validated
+  against the post-update installed package and modules tree, and an installed
+  GRUB directory plus both `grub-mkconfig` and `grub-script-check` for staged
+  GRUB generation and validation.
+
+An unavailable module in `auto` mode is skipped without becoming a global
+failure. An unavailable module in `enabled` mode is reported as an error in
+human-readable output, provisional JSON, and final NDJSON events. Stable process
+the stable exit-code mapping described below is applied consistently.
+
+System configuration path:
+
+```text
+/etc/slack-update/slack-update.conf
+```
+
+Cron and other unattended launchers are normalized before argument parsing or
+configuration loading. The reference replaces the inherited command path with:
+
+```text
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+```
+
+It also sets the root identity and home directory, uses `/tmp`, the C locale,
+`TERM=dumb`, and `umask 077`; removes inherited desktop-session variables; and
+disables Git and SSH credential prompts. The workflow does not read from a
+terminal, `slackpkg` is invoked in batch mode, Flatpak uses its non-interactive
+mode, and SBo queue processing uses batch arguments.
+
+A conservative root crontab entry performs only the non-destructive check:
+
+```cron
+0 3 * * 0 /usr/local/sbin/slack-update --check
+```
+
+Automated application remains explicit through `--apply`. Codes `4` and `5`
+are successful apply outcomes, so wrappers must use the exit-code contract
+below rather than treating every non-zero result as a failure.
+
+Proposed per-user desktop preferences path:
+
+```text
+${XDG_CONFIG_HOME:-$HOME/.config}/slack-update/preferences.conf
+```
+
+Proposed final configuration shape:
+
+```ini
+[core]
+check_interval_minutes=60
+automatic_checks=true
+automatic_apply=false
+log_retention_days=30
+minimum_free_mib=4096
+
+[module.slackware]
+mode=enabled
+install_new=true
+upgrade_all=true
+
+[module.sbo]
+mode=auto
+rebuild_on_abi_change=true
+stop_on_failure=true
+options_file=/etc/slack-update/sbo-options.sqf
+
+[module.elf]
+mode=auto
+scan_after_system_update=true
+
+[module.boot]
+mode=auto
+bootloader=auto
+update_initrd=true
+
+[module.cinnamon]
+mode=auto
+repository=/var/lib/slack-update/csb
+branch=master
+
+[module.flatpak]
+mode=auto
+update_system=true
+update_users=true
+
+[notifications]
+enabled=true
+notify_available=true
+notify_completed=true
+notify_failed=true
+notify_reboot=true
+```
+
+Configuration requirements:
+
+- [x] Reject unknown sections, keys, duplicate keys, and invalid critical values with a useful error in the shell reference.
+- [ ] Preserve backward compatibility through a configuration schema version.
+  The current schema-1 parser preserves compatibility with configurations that
+  predate module-mode keys by defaulting omitted modes to `auto`.
+- [ ] Distinguish system policy from per-user presentation preferences.
+- [x] Parse the shell-reference configuration as data without evaluating shell syntax.
+- [ ] Provide `slack-update config validate`.
+- [ ] Provide `slack-update config dump-effective`.
+
+## Result and event model
+
+Every execution must produce a stable structured result in addition to human-readable output.
+
+Proposed top-level result fields:
+
+```json
+{
+  "schema_version": 1,
+  "operation": "apply",
+  "success": true,
+  "partial": false,
+  "reboot": "recommended",
+  "boot_safe": true,
+  "started_at": "2026-01-01T10:00:00Z",
+  "finished_at": "2026-01-01T10:15:00Z",
+  "modules": {},
+  "warnings": [],
+  "errors": []
+}
+```
+
+Progress should be exposed as events so that the CLI and tray application can display the same execution:
+
+- operation started;
+- module started;
+- module progress changed;
+- action started;
+- log message emitted;
+- warning emitted;
+- error emitted;
+- reboot state changed;
+- module completed;
+- operation completed.
+
+The current shell reference exposes two provisional machine-readable interfaces:
+
+- `--json` writes one final JSON result document to standard output.
+- `--events` streams newline-delimited JSON (NDJSON) progress events to standard output.
+- Human-readable progress is redirected to standard error and the normal log in either mode.
+- `--json` and `--events` are mutually exclusive because each reserves standard output.
+- Both interfaces currently use schema version `0` with status `provisional`; they are not stable APIs yet.
+
+The provisional event records contain a sequence number, UTC timestamp, operation,
+event type, module, action, state, message, and optional exit code. The shell
+reference currently emits operation, module, action, warning, error, and completion
+events; finer-grained progress percentages and log-message events remain part of
+the future core model.
+
+## Exit codes
+
+Exit codes `0` through `8` are a stable process-level contract for the shell
+reference and the future C implementation.
+
+| Code | Meaning |
+|---:|---|
+| `0` | Operation completed successfully; no reboot required |
+| `1` | General failure before a complete apply result exists, including failed check or dry-run operations |
+| `2` | Apply completed only partially, or post-update verification failed |
+| `3` | Critical boot preparation failed; the system must not be rebooted |
+| `4` | Operation completed successfully; reboot recommended |
+| `5` | Operation completed successfully; reboot required |
+| `6` | Another Slack-Update instance is already running |
+| `7` | Invalid configuration or command-line arguments |
+| `8` | Required privilege was denied or unavailable |
+
+Codes `4` and `5` are successful outcomes despite being non-zero. Update callers,
+cron jobs, frontends, and tests must handle them explicitly rather than treating every
+non-zero value as failure.
+
+When several apply outcomes are present, the reference uses this precedence:
+
+```text
+3 (unsafe boot) > 2 (partial or verification failure) >
+5 (reboot required) > 4 (reboot recommended) > 0 (success)
+```
+
+Codes `6`, `7`, and `8` are returned before the selected operation starts. A
+successful `--check` returns `0` whether or not `slackpkg check-updates` reports
+available repository changes. A kernel headers change alone does not produce code `5`.
+
+The final `exit_code` field emitted by `--json` and the `exit_code` of the final
+`operation_completed` event emitted by `--events` use this stable contract. Exit
+codes attached to intermediate action events remain the raw status of the external
+command represented by that event.
+
+- [x] Confirm exit-code semantics.
+- [ ] Ensure shell reference and C implementation return equivalent results.
+- [x] Document which codes are stable API before version 1.0.
+
+## Proposed repository layout
+
+```text
+slack-update/
+├── README.md
+├── LICENSE
+├── CHANGELOG.md
+├── CONTRIBUTING.md
+├── meson.build or CMakeLists.txt
+├── include/
+│   └── slack-update/
+├── src/
+│   ├── core/
+│   ├── config/
+│   ├── execution/
+│   ├── modules/
+│   │   ├── slackware/
+│   │   ├── sbo/
+│   │   ├── elf/
+│   │   ├── boot/
+│   │   ├── cinnamon/
+│   │   ├── flatpak/
+│   │   ├── notifications/
+│   │   └── scheduler/
+│   ├── cli/
+│   ├── helper/
+│   └── tray/
+├── data/
+│   ├── config/
+│   │   └── slack-update.conf
+│   ├── icons/
+│   ├── desktop/
+│   ├── dbus/
+│   ├── polkit/
+│   └── translations/
+├── docs/
+│   ├── architecture.md
+│   ├── configuration.md
+│   ├── module-api.md
+│   ├── security.md
+│   └── testing.md
+├── tests/
+│   ├── unit/
+│   ├── integration/
+│   ├── fixtures/
+│   ├── mocks/
+│   └── system/
+├── tools/
+│   └── reference/
+│       └── slack-update-reference.sh
+└── packaging/
+    └── slackware/
+        ├── slack-update.SlackBuild
+        ├── slack-desc
+        └── doinst.sh
+```
+
+The final layout may change during the architecture prototype, but separation between core, modules, frontends, helper, tests, and packaging must be preserved.
+
+# Development roadmap
+
+## Phase 0 — Create the repository and preserve the reference implementation
+
+**Goal:** establish a clean project history before writing C code.
+
+- [x] Create the public GitHub repository `slack-update`.
+- [x] Add this `README.md`.
+- [x] Add the corrected shell script under `tools/reference/slack-update-reference.sh`.
+- [x] Preserve the current reference script byte-for-byte while relocating it; no earlier historical copy was available.
+- [x] Add a `.gitignore` suitable for C build outputs and editor files.
+- [x] Choose a license: GNU GPL v3 or later (`GPL-3.0-or-later`).
+- [x] Add `CONTRIBUTING.md` with the English commit-message policy.
+- [x] Add `CHANGELOG.md` using a consistent release format.
+- [x] Tag the initial planning state as `planning-v1` when the repository structure is complete.
+
+**Completion gate:** the public repository contains documentation and the untouched reference script, but no premature C implementation.
+
+## Phase 1 — Stabilize and validate the shell reference
+
+**Goal:** make the script a trustworthy executable specification.
+
+### Refactoring and interfaces
+
+- [x] Rename paths and identifiers from `sbo-auto` to `slack-update` where appropriate.
+- [x] Split the script into clearly named functions.
+- [x] Add command-line argument parsing.
+- [x] Add `--check` for update detection without package/boot apply; local outputs and transport probes remain in scope.
+- [x] Add `--apply` for approved changes.
+- [x] Add `--dry-run` for planning without package/boot apply; local state/log writes remain source-described effects.
+- [x] Add `--json` for structured final output.
+- [x] Add a machine-readable progress/event mode if practical.
+- [x] Move hard-coded behavior into a configuration file.
+- [x] Add `enabled`, `disabled`, and `auto` modes for optional modules.
+- [x] Add stable exit codes.
+- [x] Close the English-comment remediation (step 169); require English comments in future changes.
+
+### Safety validation
+
+- [x] Validate exact Slackware package-name parsing.
+- [x] Validate package snapshots before and after updates.
+- [x] Confirm that secondary modules stop after partial Slackware updates.
+- [x] Confirm deterministic SBo target selection.
+- [x] Confirm dependency order is preserved in generated SBo queues.
+- [x] Confirm custom SBo options are preserved.
+- [x] Confirm no personal queue is overwritten.
+- [x] Confirm ELF analysis never executes inspected binaries.
+- [x] Confirm architecture-specific library resolution.
+- [x] Confirm initrd validation uses the installed kernel.
+- [x] Confirm GRUB is not updated after an initrd failure.
+- [x] Confirm staged GRUB configuration is validated before replacement.
+- [x] Confirm interruption signals release locks and terminate execution.
+- [x] Confirm errors produce non-zero exit codes.
+- [x] Confirm cron execution works with a minimal environment.
+
+Slackware package records are parsed from the rightmost three hyphen-separated
+fields, matching the `name-version-architecture-build` convention used by
+Slackware `pkgtools`. Directory prefixes and the supported package archive
+extensions (`.tgz`, `.tbz`, `.tlz`, and `.txz`) are removed before parsing.
+Package comparisons are literal: similarly prefixed names such as `openssl` and
+`openssl-solibs` remain distinct, and SBo ownership is determined from the build
+field suffix rather than an arbitrary substring match.
+
+The parser regression test covers representative Slackware 15.0,
+Slackware-current, patched-package, multi-hyphen, plus-sign, and `_SBo` records:
+
+```bash
+tests/reference/test-package-name-parsing.sh
+```
+
+Package snapshots are generated from the configured `pkgtools` package database,
+normalized to canonical records, sorted with the C locale, checked for duplicates,
+and installed atomically only after complete validation. Empty, missing, unreadable,
+malformed, unsorted, duplicate, or non-canonical snapshots are rejected. Apply stops
+before package operations when the baseline snapshot is invalid and stops all work
+that depends on package-state comparison when the final snapshot is invalid.
+
+The focused snapshot regression test is:
+
+```bash
+tests/reference/test-package-snapshots.sh
+```
+
+A non-zero result from any Slackware package operation (`update`, `install-new`,
+or `upgrade-all`) is treated as a partial Slackware update. The post-update
+snapshot is still captured for diagnosis, but Flatpak, package-change analysis,
+SBo, ELF, Cinnamon, initrd, and GRUB work is blocked. Provisional JSON reports
+those modules as `blocked`, and no secondary-module start events are emitted.
+
+The focused partial-update regression test is:
+
+```bash
+tests/reference/test-partial-slackware-update.sh
+```
+
+SBo target selection is now a separate deterministic stage. Active package
+records are extracted from queue files independently of filesystem enumeration
+order, comments, recursive queue references, deselected records, and build
+options. Installed ABI rebuild candidates and broken-object package owners use
+the exact configured SBo build suffix. Every selected target is validated, and
+independent target sets are deduplicated and sorted with the C locale.
+
+Generated queue order is preserved separately. Active records in each `.sqf`
+file become dependency constraints, shared dependencies are deduplicated, and a
+deterministic topological order combines all generated queues. C-locale ordering
+is used only to break ties between independent packages. Cyclic, contradictory,
+or unsafe constraints fail atomically and prevent submission to `sbopkg`. The
+final queue retains this dependency-ordered core and appends unique ABI and
+broken-ELF rebuild targets deterministically.
+
+Per-package build options are preserved independently from dependency ordering.
+Options already present in generated queues are collected, normalized, and
+checked for conflicts. The optional persistent file configured by
+`sbo.options_file` overlays those generated values, so custom choices survive
+subsequent `sqg -a` regeneration. Its default path is:
+
+```text
+/etc/slack-update/sbo-options.sqf
+```
+
+The persistent file uses normal queue records such as:
+
+```text
+OpenCASCADE | FFMPEG=yes FREEIMAGE=yes TBB=yes
+ffmpeg | CHROMAPRINT=yes CODECS=all
+package | CFLAGS="-O2 -fPIC" TESTS=no
+```
+
+Blank lines and comments are accepted. Every active record must contain one or
+more safe `NAME=value` assignments. Identical options repeated by generated
+queues are deduplicated, conflicting generated values fail closed, and duplicate
+records in the persistent override file are rejected. The persistent file is
+optional; if it does not exist, options found in current generated queues are
+used. Options are applied to both dependency-ordered targets and later ABI or
+broken-ELF rebuild targets without selecting additional packages. Invalid option
+data preserves the previous output atomically and prevents `sbopkg` from running.
+
+Personal SBo queues are now treated as read-only source state. During apply, the
+effective sbopkg `QUEUEDIR` is resolved from the supported system and local
+configuration forms, separately from a private per-run workspace under
+Slack-Update's work directory. Regular `.sqf` files are copied byte-for-byte into
+that workspace as owner-only regular files, preserving nested paths. Queue
+symlinks and unrelated files are not followed or copied.
+
+`slack-update` invokes `sqg -a` through owner-only system and local configuration
+wrappers stored inside the disposable workspace. The wrappers load the original
+sbopkg system and local configuration, then reassert the private `QUEUEDIR` after
+each layer. This prevents either configuration file from redirecting generation
+back to personal state after environment variables have been set. Every
+subsequent dependency, target, and build-option stage reads from the private
+copy. The configured personal directory is never passed to the generator and
+remains unchanged even when generation fails partway through. A
+workspace-preparation, wrapper-generation, or non-zero `sqg` result blocks target
+construction and final `sbopkg -B` submission, so the workflow cannot fall back
+to personal state or consume a partially generated queue tree.
+
+Workspace validation rejects relative paths, a workspace equal to or canonically
+inside the personal queue tree, symlinked personal queue roots, and pre-existing
+workspace paths. A missing personal queue directory produces an empty private
+workspace. Apply JSON reports both path roles, copied regular-file and ignored
+symlink counts, the explicit isolation state, and whether private generation
+completed successfully. Cleanup removes a workspace only when Slack-Update
+recorded ownership at creation and its canonical identity is unchanged;
+pre-existing paths and replacement symlinks are never followed or deleted.
+
+The focused SBo regression tests are:
+
+```bash
+tests/reference/test-sbo-target-selection.sh
+tests/reference/test-sbo-dependency-order.sh
+tests/reference/test-sbo-options.sh
+tests/reference/test-sbo-personal-queue-protection.sh
+```
+
+ELF inspection now uses one static path for both initial detection and
+post-rebuild verification. Candidate paths are resolved without following
+non-regular targets, filtered by the ELF magic bytes, and read with `readelf -d`.
+The loader cache is obtained once from `/sbin/ldconfig -p`. Every cached
+library path is resolved and inspected with `readelf -h`, then normalized as an
+exact record containing soname, ELF class, data encoding, machine, and canonical
+path. A `DT_NEEDED` entry is considered available only when both its soname and
+the inspected object's class, data encoding, and machine match a cached record.
+This prevents an ELF32, x86-64, AArch64, or opposite-endian library from hiding
+a broken dependency for an incompatible object. Inspected objects and cached
+libraries are never invoked as commands, and dynamic-loader trace execution is
+not used. If an object cannot be re-inspected after a rebuild, it remains in the
+broken-object set rather than being reported as repaired.
+
+Provisional JSON reports the inspection method, explicitly records
+`executes_inspected_objects=false` and `architecture_specific_resolution=true`,
+lists the exact identity fields, reports the normalized cache-record count, and
+includes static scan and post-build verification statuses.
+
+The focused regression tests are:
+
+```bash
+tests/reference/test-elf-static-inspection.sh
+tests/reference/test-elf-architecture-resolution.sh
+```
+
+The static-inspection test uses guarded executable fixtures that create a marker
+if run, while the architecture-resolution test mixes ELF32 x86, ELF64 x86-64,
+AArch64, and opposite-endian cache records sharing the same soname. Together
+they cover the initial scan, symlinked objects, exact identity matching, parser
+and cache failures, and post-rebuild verification while proving that inspected
+objects are never executed.
+
+Initrd validation now derives its target from the exact `kernel-generic` record
+in the validated post-update package snapshot. It does not use `uname -r`,
+because the running kernel may legitimately remain older until reboot. The
+configured `KERNEL_VERSION` must match the installed package version exactly,
+and the corresponding configured modules root must contain a
+`<modules_directory>/<version>` directory before `mkinitrd -F` is allowed to
+run. Missing, unsafe, duplicate, stale, or ambiguous data fails closed.
+
+Schema-1 configuration accepts these optional keys, with backward-compatible
+defaults when older files omit them:
+
+```ini
+[boot]
+kernel_package=kernel-generic
+modules_directory=/lib/modules
+```
+
+`OUTPUT_IMAGE` is the preferred generated-image path from `mkinitrd.conf`; the
+legacy `OUTPUT` assignment remains supported, followed by
+`boot.initrd_default_output` as the fallback. Provisional JSON reports the
+configured and installed versions, the package source, modules path, output
+path, validation status, and diagnostic. The focused regression test is:
+
+```bash
+tests/reference/test-initrd-installed-kernel.sh
+```
+
+GRUB generation now has an explicit initrd prerequisite whenever both actions
+were scheduled by the same kernel update. A failed initrd validation, a non-zero
+`mkinitrd`, a missing or empty generated image, or required initrd preparation
+that is unavailable in auto mode prevents the GRUB action from starting. The
+coordinator emits `grub_state=blocked` without an `action_started` event, and
+`update_grub_configuration` repeats the guard immediately before the
+`grub-mkconfig` command as a defensive boundary. GRUB-only work remains valid
+when no initrd action was required.
+
+Provisional JSON reports `grub_command_attempted`,
+`grub_blocked_by_initrd`, and a stable `grub_block_reason`, allowing consumers
+to distinguish an intentionally suppressed command from a real
+`grub-mkconfig` failure. The focused regression test is:
+
+```bash
+tests/reference/test-grub-blocked-after-initrd-failure.sh
+```
+
+GRUB configuration replacement is now transactional. `grub-mkconfig` writes to
+an owner-only, unpredictable temporary file created beside the configured
+`grub.cfg`, ensuring that the final rename remains on the same filesystem. The
+active configuration path is never passed to the generator. The temporary file
+must be a readable, non-empty regular file and must pass `grub-script-check`
+before installation is considered.
+
+Slack-Update fingerprints the active configuration before generation and checks
+it again immediately before replacement. A concurrent modification, active
+symlink, configuration outside the configured GRUB directory, generation
+failure, validation failure, permission failure, or final rename failure leaves
+the active file untouched. When validation succeeds, existing ownership and
+permissions are preserved and `mv -T` performs the final atomic replacement. If no active file
+existed, the new configuration is installed with mode `0600`.
+
+Provisional JSON reports the active and temporary paths, generation, validation,
+and installation exit codes, the validator name, replacement-attempt state, and
+whether the active configuration was replaced. Dry-run describes the same
+staged generation, validation, and atomic installation sequence. The focused
+regression test is:
+
+```bash
+tests/reference/test-grub-atomic-replacement.sh
+```
+
+Interruption handling is installed immediately after the process acquires the
+single-instance lock, before runtime directories or temporary files are
+created. Dedicated `SIGHUP`, `SIGINT`, and `SIGTERM` handlers disable all runtime
+traps, run the same ownership-aware cleanup used for normal exit, explicitly
+unlock and close the lock descriptor, and terminate without returning to the
+interrupted workflow. The conventional shell statuses are `129`, `130`, and
+`143` respectively; they identify interrupted runs and remain outside the
+stable `0` through `8` completed-run result contract.
+
+The focused regression test launches real subprocesses, observes their active
+`flock`, delivers each signal, and verifies the terminating status, lock
+availability, temporary-file removal, GRUB transaction cleanup, private SBo
+workspace cleanup, unrelated-file preservation, and absence of post-signal
+execution. It also covers interruption immediately after lock acquisition,
+before runtime state exists:
+
+```bash
+tests/reference/test-signal-cleanup.sh
+```
+
+Runtime setup now fails closed before the selected operation starts if Slack-Update
+cannot record its start time, create its work or log directories, allocate required
+temporary files, create the private dry-run workspace, initialize dry-run state, or
+open the runtime log. A completion-time capture failure is also included in the final
+result instead of being ignored. These failures return stable code `1` before an
+operation starts; failures discovered during apply continue to use the documented
+partial or boot-unsafe precedence.
+
+The focused exit-code regression suite verifies all stable codes `0` through `8`,
+every current error source represented by the final result model, successful
+non-zero reboot outcomes, early command-line/configuration/privilege/lock failures,
+runtime and logging setup failures, completion-time failure, and consistency between
+the process status, final JSON, and final NDJSON event:
+
+```bash
+tests/reference/test-error-exit-codes.sh
+```
+
+Minimal cron execution is covered with a detached harness that starts under
+`env -i`, supplies an unusable inherited `PATH`, connects standard input to
+`/dev/null`, and provides no terminal on any standard stream. It verifies the
+human-readable, JSON, and NDJSON modes, deterministic environment values,
+non-interactive `slackpkg` arguments, persistent logging, and owner-only work,
+log, and lock files:
+
+```bash
+tests/reference/test-cron-minimal-environment.sh
+```
+
+This automated boundary is complete; the equivalent scenario on real
+Slackware 15.0 and Slackware-current installations remains part of the
+acceptance matrix below.
+
+### Real-system acceptance execution
+
+Real-system scenarios live under `tests/acceptance/reference/`. They execute
+actual Slackware tools and must be run only on disposable VM snapshots or
+otherwise recoverable test installations.
+
+The first scenario covers a fully updated host with no package changes. It
+requires an explicit `--execute-apply` acknowledgement, first proves that
+`slackpkg check-updates` reports no updates, and then exercises the real apply
+workflow with Flatpak, SBo, ELF, Cinnamon, and boot preparation disabled so the
+case remains isolated. Expected structured check and apply outputs are stored
+under `tests/fixtures/reference/acceptance/no-updates/`.
+
+Run it separately on each mandatory target:
+
+```bash
+sudo bash tests/acceptance/reference/test-no-updates.sh \
+    --target slackware-15.0 \
+    --execute-apply
+
+sudo bash tests/acceptance/reference/test-no-updates.sh \
+    --target slackware-current \
+    --execute-apply
+```
+
+A passing run must return stable code `0`; report `success=true`,
+`partial=false`, `reboot=none`, and `boot_safe=true`; preserve an identical
+installed-package database; and leave the observed initrd and GRUB
+configuration unchanged. Each run produces a private evidence archive and a
+SHA-256 sidecar below `/var/tmp/slack-update-acceptance/no-updates/` by default.
+When invoked through `sudo`, both published files are assigned to the invoking
+user with mode `0600`; the uncompressed evidence directory remains root-only.
+Slackware 15.0 passed on 2026-07-28 with 1,594 unchanged package records and
+archive SHA-256
+`5a784cd6d830ac271cc3aad02ed89f2e00c2afd63c88f90aabb74b0a81b0b20b`.
+Slackware-current passed on the same date with 2,035 unchanged package records
+and archive SHA-256
+`ba0c1264d57df5acf6bee843391113327736683ede36ec3d708d58ca174a2976`.
+Sanitized acceptance records for both mandatory targets are stored alongside the
+expected fixtures.
+The scenario invokes the reference through `bash`, so extraction tools that lose
+Unix executable bits do not prevent the test from running. Package-database
+enumeration follows the command-line `/var/log/packages` compatibility symlink
+used by modern `pkgtools`, while package-record symlinks inside that directory
+remain excluded. See `tests/acceptance/reference/README.md` for the evidence
+contract.
+
+The second scenario stages a normal official-package update. It must begin with
+a non-destructive preflight that asks `slackpkg` for the actual `install-new` and
+`upgrade-all` candidate lists while answering no to installation, then proves
+that package and boot state are unchanged:
+
+```bash
+sudo bash tests/acceptance/reference/test-normal-update.sh \
+    --target slackware-current \
+    --preflight
+```
+
+Review the resulting candidate files and evidence before using apply mode. A
+real apply requires the exact local hostname, and kernel candidates require a
+second explicit acknowledgement. Flatpak, SBo, ELF, and Cinnamon remain
+disabled for isolation, while boot preparation stays in `auto` mode so kernel
+changes must complete initrd and GRUB handling safely. Unattended package
+operations disable slackpkg post-install processing with `-postinst=off`, keep
+active configuration files, enumerate pending regular `/etc/*.new` files, and
+report them for a later administrator-controlled `slackpkg new-config` review.
+
+A Slackware-current preflight captured on 2026-08-03 is diagnostic only and
+must not authorize apply. Its raw `slackpkg upgrade-all` log contained 56
+package filenames, including `kernel-headers-6.18.41-x86-1.txz`, but the
+normalized evidence retained only 55 because the exact Slackware architecture
+tag `x86` was not recognized. Together with one `install-new` candidate, the
+corrected reconstruction contains 57 packages, two configured kernel
+candidates, and SHA-256
+`d9199fcf6c5cd8c59b87b1bde9a955df2c55d0ac84f6dab37ed8e4c1830dcaf1`.
+The parser and portable SHA-256 sidecar are fixed, but a fresh preflight is
+mandatory because Slackware-current metadata may have changed. The rejected
+record is stored at
+`tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260803-parser-diagnostic.json`.
+
+The corrected rerun is accepted as non-destructive classification evidence. It
+confirmed one `install-new`, 56 upgrades, 57 total candidates, two configured
+kernel candidates, no configured critical candidates, and the same candidate
+digest. Archive SHA-256
+`33a0d6eb20dfc777c4c5f8a0172f8344aab03a20ffd130d0fe95753ffce57cbc`
+verified after copying to `/home/promano`. Its sanitized record is
+`tests/fixtures/reference/acceptance/normal-update/slackware-current-preflight-20260803-accepted.json`.
+Apply remains unauthorized because the set changes the kernel.
+
+Slackware-current kernel candidates now require an additional non-destructive
+boot-layout discovery stage:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-kernel-boot-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 d9199fcf6c5cd8c59b87b1bde9a955df2c55d0ac84f6dab37ed8e4c1830dcaf1 \
+    --confirm-target-kernel 6.18.41
+```
+
+The first run on `pcold-slack` proved the monolithic `kernel-generic` package
+model and unchanged package/boot state, but it also exposed a valid boot layout
+that the initial preflight did not recognize. The host boots GRUB through
+`BOOT_IMAGE=/boot/vmlinuz-generic`; that symlink resolves to the package-owned
+`/boot/vmlinuz-6.18.40`, while both `/etc/mkinitrd.conf` and `/boot/initrd.gz`
+are intentionally absent. This is a coherent `direct-generic-no-initrd` mode,
+not a failure. The rejected diagnostic archive has SHA-256
+`8b7d495f8a1466ef308dcb8664e31df756940695b6ed345834fad4ab1f5f3727`.
+
+The corrected stage accepts either a safe `mkinitrd-managed` layout or the
+observed direct generic-kernel layout. The real-system rerun on 2026-08-03 passed
+all 20 assertions, proved ownership of the running image and module tree,
+confirmed `boot/vmlinuz-6.18.41` plus target modules in repository metadata,
+validated the actual `BOOT_IMAGE` against the syntax-checked GRUB configuration,
+and left package and boot state unchanged. Its archive SHA-256 is
+`ed7462e70496cf38a52c211f3d5945438e5f1bad5b8d8eaa7b90079540381967`, and the
+sanitized accepted record is
+`tests/fixtures/reference/acceptance/kernel-boot/slackware-current-direct-generic-preflight-20260803-accepted.json`.
+Discovery deliberately remains `apply_ready=false` and `apply_authorized=false`.
+
+The reference boot module now implements the corresponding direct-update policy.
+A validated `direct-generic-no-initrd` host suppresses initrd regeneration only
+for that exact layout while retaining mandatory GRUB regeneration. After package
+installation and before GRUB generation, the engine requires exactly one
+post-update `kernel-generic` record, a package-owned
+`/boot/vmlinuz-VERSION` selected by `/boot/vmlinuz-generic`, and the matching
+`/lib/modules/VERSION` tree. The temporary GRUB configuration must pass
+`grub-script-check` and reference the validated versioned kernel or generic
+symlink before atomic replacement. Any missing symlink, module tree, ownership
+record, or stale generated entry blocks GRUB and reports `boot_safe=false`.
+
+This policy change is code-only and does not authorize package installation. A
+later transaction preflight must inspect the exact downloaded
+`kernel-generic-6.18.41-x86_64-1` archive and its install script, revalidate the
+candidate digest, and exercise the staged GRUB plan before any accepted fixture
+may set `apply_ready=true`.
+
+The step 37 transaction preflight passed on `pcold-slack`. It verified the exact `kernel-generic-6.18.41-x86_64-1.txz` package with SHA-256 `b588e9e74258baaf2d5e05a1731981cb679f5665d50a3a91d9f02219c4a8024a`, 6,588 safe archive members, 5,490 target-module paths, the target versioned kernel, no embedded initrd, and unchanged package plus boot state. The accepted evidence archive has SHA-256 `d4f455dafb6783dc96e8cf45c45d00ef4e54d1e9b5dc2ae8e05b8db166b50888`.
+
+Review of the copied `doinst.sh` showed that the versioned `vmlinuz-generic` transition is followed by a guarded `usr/sbin/geninitrd` invocation. The package script was never executed, but this conditional hook may create a versioned initrd, remove orphaned initrds, invoke custom hooks, and update GRUB according to the installed host policy. Therefore exact-package integrity is accepted while apply remains blocked.
+
+The step 38 host-policy preflight passed on `pcold-slack` with 10 assertions and evidence SHA-256 `3b807d2d00fce2b9986308f5cd252d97b483d4b8f1a397fad7d6f047b20421fd`. It confirmed `AUTOGENERATE_INITRD=true`, effective generator `mkinitrd_command_generator.sh`, automatic GRUB update, and a `direct-to-generated-initrd` transition to `/boot/initrd-6.18.41.img`. It also identified two exact executable pre-install DKMS hooks, so package apply remains blocked.
+
+The step 39 DKMS-hook preflight passed on `pcold-slack` with 10 assertions and evidence SHA-256 `95eec7f57d4ff9d3f254830428d5382a155f890b9e57553b71fbd4f661e30ebf`. DKMS 3.4.1 reported zero status rows; `/var/lib/dkms` and the running `updates/dkms` directory were empty or absent. Manual review confirmed that both exact hooks take their explicit no-registered-module branch and therefore do not invoke `dkms install`. The accepted record is `tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-dkms-hook-preflight-20260803-accepted.json`.
+
+Run the step 40 command-output-only GenInitrd preflight on the same machine:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-geninitrd-command-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 d9199fcf6c5cd8c59b87b1bde9a955df2c55d0ac84f6dab37ed8e4c1830dcaf1 \
+    --confirm-target-kernel 6.18.41
+```
+
+This stage invokes the installed `mkinitrd_command_generator.sh` only for the already installed `6.18.40` kernel and never uses `--run`. It parses exactly one inert `mkinitrd` command, stores the argument vector in private evidence, projects only the kernel and output arguments to `6.18.41` and `/boot/initrd-6.18.41.img`, and never executes either vector. It also revalidates the exact cached kernel archive and proves that package, boot, GenInitrd, and DKMS state stay unchanged. Its result always remains `apply_ready=false` and `apply_authorized=false` pending evidence review and a later post-install simulation design.
+
+Step 41 passed on `pcold-slack` with 11 assertions and evidence SHA-256 `246a54dd81c1db6ce2e7d04cb5d6e4739249e4a2f0483edcb9c7a5f1e0e93ad3`. The accepted record is `tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-grub-ownership-preflight-20260803-accepted.json`. It proved that only a same-directory atomic policy override can prevent package-owned `update-grub`, and that the original policy, package database, and boot state remained unchanged.
+
+Step 42 implements that reviewed boundary in the reference engine without running a VM. For the exact `direct-generic-no-initrd` layout, the engine creates a root-owned same-directory backup, stages a policy whose only active assignment is `AUTO_UPDATE_GRUB=false`, rechecks the source fingerprint, and atomically activates it before package operations. It restores the original policy immediately afterward and again from the exit/signal cleanup path if necessary. Restoration refuses to overwrite concurrent changes, retains the backup on conflict, marks the Slackware operation failed, and reports all states in structured output. Other boot layouts remain no-ops. Step 43 supplies the post-package generated-initrd recognition. Step 44 accepted a fresh 69-candidate set whose target is `6.18.42`, invalidating all candidate-bound `6.18.41` records. The first step 45 restart was diagnostic: package-list metadata contained the exact target trio, but the local file inventory did not yet expose `boot/vmlinuz-6.18.42`. The corrected step 46 rerun passed 20 nested plus 6 outer assertions, accepted `target_image_metadata_state=deferred-to-exact-package-preflight`, preserved package and boot state, and produced accepted outer archive SHA-256 `77618b808093f3e5349f5a6e076a110b56876a7ed08878d89c71a78fc594de51`.
+
+Step 47 accepted the restarted exact-package inspection for `6.18.42`. The real `pcold-slack` run passed 12 assertions, accepted package SHA-256 `e9e7a1c5c71c945ee99595868aa8fee8a644b56601ece0c3e5696d643fe84878`, inventoried 6,588 safe members and 5,490 target-module paths, proved `boot/vmlinuz-6.18.42` plus `/lib/modules/6.18.42`, found no embedded initrd, reviewed but did not execute the conditional `geninitrd` hook, preserved package plus boot state, and produced evidence SHA-256 `44c18026052a7d7b0d5e385258389f8bc73beefe9ac35c2a2777707df17c4f57`.
+
+Step 48 accepted the restarted host-policy inspection for `6.18.42`. The real `pcold-slack` run passed all 10 assertions, confirmed `AUTOGENERATE_INITRD=true`, effective generator `mkinitrd_command_generator.sh`, automatic GRUB update, transition `direct-to-generated-initrd`, expected `/boot/initrd-6.18.42.img`, and the same two reviewed DKMS hooks. Package, boot, and policy state remained unchanged; archive SHA-256 `873c7779dcef6f16d72d809704ca732809e6d5db5b1668f6a4942662b97c54ca` was verified after copying to `/home/promano`. The accepted record is `tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-policy-preflight-20260804-accepted.json`.
+
+Step 49 passed on `pcold-slack` with 10 assertions and evidence SHA-256 `c943b3c25703fc395cfba6708a9c6122b033f82876795053f39a6d8e61ff5074`. DKMS 3.4.1 again reported zero status rows, no `/var/lib/dkms` state, no running `updates/dkms` tree, and no target module tree. The exact `dkms-bcachefs` and `dkms-nvidia` hooks remain explicit no-ops for the reviewed host state. The accepted record is `tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-dkms-hook-preflight-20260804-accepted.json`.
+
+Step 50 restarts the command-output-only GenInitrd preflight for `6.18.42`:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-geninitrd-command-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+This stage binds all six accepted records, invokes `mkinitrd_command_generator.sh` only for the installed `6.18.40` kernel without `--run`, parses one inert argument vector, projects only its kernel and output fields to `6.18.42` and `/boot/initrd-6.18.42.img`, and never executes either vector. Package, boot, GenInitrd, and DKMS state must remain unchanged, while `apply_ready=false` and `apply_authorized=false` remain mandatory.
+
+The first real step-50 run passed 10 assertions and failed only the cached-package assertion. The package path existed and the projected 18-module command was safe, but the script compared the file with the stale literal SHA-256 from the earlier `6.18.41` chain. Diagnostic archive SHA-256 `8f3f32b17d735241caf7e22f2aa32b56d2d42590a46bb920979ed51e0ab6c3f6` is not accepted. Step 51 removes all package-digest literals from executable code and loads both filename and SHA-256 from the accepted exact-package record before the corrected rerun.
+
+Step 43 implements post-package recognition without running a VM. When the pre-transaction layout is `direct-generic-no-initrd` and `AUTOGENERATE_INITRD=true`, GRUB regeneration is blocked unless the post-update snapshot contains exactly one safe `kernel-generic` version, `/boot/vmlinuz-generic` selects its package-owned versioned kernel, the matching module tree exists, `/boot/initrd-VERSION.img` is a non-empty root-owned regular file, and `/boot/initrd-generic.img` resolves exactly to it. Legacy `/boot/initrd.gz` and `/etc/mkinitrd.conf` must remain absent. The temporary GRUB configuration must reference both the validated kernel and the versioned or named initrd before atomic replacement. The synthetic fixture records no commands or mutations and does not authorize apply. Final candidate-set revalidation on Slackware-current remains mandatory.
+
+Step 44 adds that final candidate-set revalidation as a dedicated real-system wrapper. It invokes `test-normal-update.sh` only with `--preflight`, embeds the resulting candidate evidence, compares its deterministic digest and exact package list with the accepted chain, and classifies unchanged, changed-kernel, changed-userspace, no-updates, incomplete-kernel, and ambiguous-kernel outcomes. An unchanged kernel set may proceed only to a separate readiness dry-run; any changed target invalidates all target-bound kernel, package, GenInitrd, DKMS, command, and GRUB-ownership evidence. The wrapper never invokes apply, package installation, initrd generation, or GRUB mutation and always reports `apply_ready=false` plus `apply_authorized=false`.
+
+Slackware 15.0 passed the non-kernel branch of this scenario on 2026-08-01.
+The reviewed preflight deferred `kernel-generic`, `kernel-huge`, and
+`kernel-modules`, then authorized an exact 196-package candidate digest containing
+12 `install-new` packages, 184 upgrades, five configured critical packages, and
+no boot-kernel candidates. The real apply returned stable code `4`, installed all
+12 new packages, changed all 184 upgrade candidates, moved the package database
+from 1,554 to 1,566 records, left the observed initrd and GRUB state unchanged,
+and reported 45 pending `.new` files through the hardened deferred policy. The
+broad `kernel_changes` result was true because `kernel-firmware` and
+`kernel-source` changed, while the explicit initrd and GRUB requirements remained
+false. Sanitized preflight and apply records are stored under
+`tests/fixtures/reference/acceptance/normal-update/`.
+
+The three deferred Slackware 15.0 boot-kernel packages use a separate
+non-destructive boot-path preflight before any apply is authorized:
+
+```bash
+sudo bash tests/acceptance/reference/test-kernel-boot-preflight.sh \
+    --target slackware-15.0
+```
+
+This preflight identifies BIOS versus UEFI firmware, classifies probable LILO,
+ELILO, or GRUB usage, inventories readable scalar settings from
+`/etc/mkinitrd.conf` or records availability of Slackware's official command
+generator, records installed and repository kernel package metadata, confirms
+that `kernel-generic`, `kernel-huge`, and `kernel-modules` remain blacklisted,
+and fingerprints relevant boot artifacts before and after inspection. It does
+not modify Slackpkg configuration, packages, initrd images, or boot-loader
+files. The current reference implements automatic boot preparation only for
+mkinitrd plus GRUB; a LILO, ELILO, ambiguous, or unknown classification remains
+blocked until a target-specific safe adapter or an explicit manual acceptance
+procedure is designed.
+
+Real Slackware 15.0 evidence collected on 2026-08-01 identified UEFI with ELILO,
+confirmed that `/boot/initrd.gz` matches the active EFI copy, and found no
+`/etc/mkinitrd.conf`. The initial discovery archive SHA-256 is
+`78f4d60738fe08a5ce599458e7da8917402bb029a90b0f9ac449c6129b6746ab`.
+
+A second non-destructive run captured one valid generator command for kernel
+`5.15.19`, but also proved that the generic `/boot/vmlinuz` alias points to
+`vmlinuz-huge-5.15.19` and does not match the ELILO kernel copy. Its reviewed
+archive SHA-256 is
+`b3a6d98c6163f66b34dd9e50b74ac6e158530f2e03d142c53b818bb7ac54ffd5`.
+This is not evidence of a broken boot entry: ELILO commonly stores a copied
+versioned kernel while Slackware's generic `/boot/vmlinuz` alias may target the
+huge kernel. The preflight now inventories every top-level `/boot/vmlinuz*`
+candidate, collapses aliases resolving to the same file, and requires exactly
+one versioned source whose content matches the EFI image and whose filename
+identifies the running kernel.
+
+A third non-destructive run accepted the exact source mapping: the EFI kernel
+matches `/boot/vmlinuz-generic-5.15.19`, the running kernel is the same release,
+the initrd copies match, the generator proposed exactly one command, and all 20
+assertions passed. The reviewed archive SHA-256 is
+`0eb55c3bda5a4167f4ef9fc19aede6e2029985d5dd325416e78e00ba85d57480`.
+
+Kernel apply remains blocked. The next stage resolves the exact common
+repository candidate for `kernel-generic`, `kernel-huge`, and `kernel-modules`,
+builds versioned EFI filenames, verifies conservative free space, and writes a
+planned ELILO configuration without changing the active system:
+
+```bash
+sudo bash tests/acceptance/reference/test-elilo-kernel-transaction-preflight.sh \
+    --target slackware-15.0
+```
+
+The planned activation boundary is an atomic replacement of `elilo.conf` only
+after the new versioned kernel and initrd files have been generated, copied, and
+verified. The existing ELILO binary, firmware entry, current kernel, current
+initrd, and original configuration remain the rollback path. This preflight does
+not authorize the transaction.
+
+The first real transaction-preflight run on 2026-08-01 remained
+non-destructive but exposed two compatibility defects in the harness. Slackpkg
+retained complete `patches` records for both `5.15.208` and `5.15.209`; the
+selector incorrectly required one historical candidate instead of choosing the
+newest complete version. Slackware 15.0 `df` also rejects `-P` together with
+`--output`. The corrected selector uses version ordering to choose `5.15.209`,
+rejects duplicate records, and the free-space probe now uses portable `df -Pk`
+output with explicit KiB-to-byte conversion. The diagnostic archive SHA-256 is
+`3780c922fffab042ae265b5a54286d7ce22379f4774f174326cec81fed406259`;
+packages, blacklist state, initrd, and ELILO files were unchanged. The corrected
+real-system rerun then selected `5.15.209-1` from `patches`, produced candidate
+digest `10ea616935d628a97ba2bc9cec0d5e57fdebeefe54d2768800ef3a30c3a4c5db`,
+passed all 27 assertions, and changed no system state. Its accepted archive
+SHA-256 is `d951cd9eb24b54b1b8c20262ac12c59b00a042c7426c883dd4af246076d482bb`.
+
+
+
+The reviewed plan now has a separate, deliberately named apply stage:
+
+```bash
+sudo bash tests/acceptance/reference/test-elilo-kernel-transaction-apply.sh \
+    --target slackware-15.0 \
+    --execute-apply \
+    --confirm-hostname vbox-slack15.vbox-slack15.org \
+    --confirm-candidate-sha256 10ea616935d628a97ba2bc9cec0d5e57fdebeefe54d2768800ef3a30c3a4c5db \
+    --confirm-target-kernel 5.15.209
+```
+
+This stage follows Slackware's keep-the-working-kernel safety rule: Slackpkg is
+used only to download the exact reviewed packages, while `installpkg` installs
+`kernel-generic`, `kernel-huge`, and `kernel-modules` alongside version
+`5.15.19`. The original blacklist is restored before package installation
+continues. The generated mkinitrd command is parsed into an argument vector and
+never evaluated as shell text. New kernel and initrd files use versioned names
+in both `/boot` and the EFI partition. The final `elilo.conf` explicitly selects
+the new `vmlinuz` label as default and retains the current unversioned EFI files
+under label `oldkernel`. Activation is a same-directory atomic replacement only
+after all new artifacts pass byte-level verification. The EFI loader binary and
+firmware boot variables are never changed. Package installation cannot be
+rolled back automatically, so this command remains limited to the snapshotted
+Slackware 15.0 VM until its evidence and reboot are accepted.
+
+The first real apply attempt on 2026-08-01 stopped before package installation.
+Slackpkg returned status `20` because the former single argument
+`^kernel-(generic|huge|modules)$` was treated as one unmatched package pattern.
+The blacklist was restored byte-for-byte, `installpkg` and `mkinitrd` were not
+run, and ELILO remained inactive. The corrected stage calls `slackpkg download`
+three times with the exact names `kernel-generic`, `kernel-huge`, and
+`kernel-modules`, records each status, and still resolves only the exact approved
+`5.15.209-x86_64-1` cache files. The diagnostic archive SHA-256 is
+`e3a854a2ed5479e9906ff3dd72592bf39439e55e20d1cc992a42eadf05f14996`.
+
+The corrected real transaction then passed all 31 apply assertions. It kept
+`5.15.19` installed, installed `5.15.209`, generated and verified
+`initrd-generic-5.15.209.gz`, atomically selected the versioned ELILO files,
+and retained label `oldkernel`. The apply archive SHA-256 is
+`93c58c1508085f3dffaa182eac52fb49c72e6222d75b49c79af4309713f0ac95`.
+The subsequent real reboot ran kernel `5.15.209`; `/proc/cmdline` named the
+versioned EFI kernel, and `elilo.conf` still contained the active `vmlinuz`
+entry plus the `oldkernel` rollback entry. The ELILO kernel scenario is accepted. Phase 1 step 30 now defines the
+retention policy and a non-destructive eligibility preflight. Its corrected
+real-system baseline passed all 24 assertions on 2026-08-01, observed a distinct
+later boot into `5.15.209`, and preserved package plus boot state; the reviewed
+archive SHA-256 is
+`5afedf07c964369e19ed7ba28f89f2c92caf50a1f46bba813f5652baedc7c3b4`.
+Removal of the previous packages or rollback artifacts remains blocked until a
+mature eligibility run is reviewed and a separate cleanup apply stage is
+explicitly authorized.
+
+The rollback policy requires both a minimum seven-day interval after the
+accepted reboot review and one additional successful boot into `5.15.209`. The
+accepted transaction reboot counts as the first of two required successful
+boots. Run the new preflight without any cleanup option:
+
+```bash
+sudo bash tests/acceptance/reference/test-elilo-oldkernel-retention-preflight.sh \
+    --target slackware-15.0
+```
+
+The preflight validates the exact active and rollback package records, captures
+the current Linux boot ID and boot start time, verifies both ELILO entries and
+their `/boot` plus EFI copies, inventories package-log paths shared by the old
+and current kernel packages, and proves that package and boot state remain
+unchanged. It follows the standard Slackware `/var/log/packages` compatibility
+symlink only after resolving it to a readable canonical directory, records both
+paths in the evidence, and never follows package-record symlinks inside the
+database. Missing state captures fail closed and are never treated as unchanged.
+It evaluates eligibility only after the final package and boot captures match
+their initial state. It may report `cleanup_eligible=true` only after those
+comparisons and both retention gates pass, but always records
+`cleanup_authorized=false`. The accepted baseline correctly reported
+`cleanup_eligible=false` because only 10,220 of the required 604,800 seconds had
+elapsed. The later-boot requirement is already satisfied; the next eligibility
+run must occur no earlier than `2026-08-08T19:51:00+02:00`. Evidence sidecars
+now contain only the archive basename, so after both files are copied directly
+to `/home/promano`, they can be verified there with `sha256sum -c`. The future
+cleanup plan must revalidate and retain the exact active package archives,
+remove only the three
+old package records, reinstall the active package set to repair shared package
+paths, verify the active boot chain, atomically remove `oldkernel`, and only then
+delete unreferenced rollback files.
+
+
+### Kernel cleanup plan contract
+
+Phase 1 step 31 defines the cleanup transaction as a plan-only, boot-loader-neutral
+contract. It does not change the retained ELILO VM, does not change the GRUB
+development VM, and cannot authorize apply. Generate deterministic plans from the
+included schema-1 fixtures with:
+
+```bash
+tools/reference/kernel-cleanup-plan-reference.sh \
+    --input tests/fixtures/reference/kernel-cleanup/slackware-15.0-elilo-dual-kernel-design.json \
+    --output /tmp/slack-update-elilo-cleanup-plan.json
+```
+
+The common plan requires the running kernel to equal the accepted active kernel,
+exactly one active and one rollback package record for each of `kernel-generic`,
+`kernel-huge`, and `kernel-modules`, a present module tree for both versions, and
+one verified archive for every active package. The package transaction removes
+only the exact rollback records and then reinstalls the exact active package set
+before any boot-loader rollback reference can disappear. Kernel headers, kernel
+source, and firmware packages are preserved.
+
+ELILO and GRUB use different backend actions. ELILO must stage a configuration
+without `oldkernel`, validate the versioned active entry, activate the staged file
+atomically, and prove that legacy EFI files are no longer referenced before they
+can be deleted. GRUB must never be edited manually: `grub-mkconfig` output belongs
+in an owner-only same-directory temporary file, `grub-script-check` must accept it,
+the regenerated configuration must retain active entries and omit rollback
+entries, and replacement must be atomic.
+
+The second Slackware 15.0 VM observed on 2026-08-03 is recorded as a development
+baseline. It boots `5.15.209` through GRUB with
+`BOOT_IMAGE=/boot/vmlinuz-huge-5.15.209`, has active generic, huge, and modules
+records only, retains headers/source/firmware packages, and has no `5.15.19`
+rollback records or entries. Its cleanup result is therefore deliberately
+`not-applicable`, contains zero actions, and leaves packages plus GRUB unchanged.
+The synthetic dual-kernel GRUB fixture exists only to validate backend planning;
+it is not real-system acceptance evidence.
+
+Every generated plan contains `apply_permitted=false`,
+`cleanup_authorized=false`, and `requires_separate_apply_stage=true`. Mature
+retention eligibility removes only the eligibility blocker; it never creates an
+authorization.
+
+
+### Kernel cleanup dry-run contract
+
+Phase 1 step 32 adds a simulation-only executor on top of the step 31 plan. It
+has no apply mode and requires the literal `--dry-run` option:
+
+```bash
+tools/reference/kernel-cleanup-dry-run-reference.sh \
+    --dry-run \
+    --plan /tmp/slack-update-elilo-cleanup-plan.json \
+    --output /tmp/slack-update-elilo-cleanup-dry-run.json
+```
+
+An ineligible plan, including the accepted ELILO baseline before the seven-day
+boundary, produces a blocked result with no simulated steps. An eligible plan
+still remains blocked until it receives a separate schema-1 authorization bound
+to the exact plan SHA-256, target, boot loader, active kernel, and rollback
+kernel. That authorization is limited to `scope=dry-run-only`, must contain
+`apply_authorized=false`, and cannot authorize a real cleanup.
+
+With a matching synthetic authorization, the executor renders fourteen ordered
+steps as data: inventory revalidation, archive verification, private state
+capture, exact rollback-package removal, exact active-package reinstallation,
+backend staging and atomic activation, active-chain verification, delayed removal
+of only unreferenced rollback artifacts, final comparison, and private evidence
+publication. ELILO exposes only its legacy EFI `vmlinuz` and `initrd.gz` copies as
+future explicit deletion candidates. GRUB exposes no unowned rollback artifacts;
+its package-owned old kernel files disappear through the package transaction and
+its configuration is regenerated and validated before atomic replacement.
+
+The simulator can inject a failure at any planned action and emits the recovery
+sequence that a future apply implementation would need. Failures before package
+removal discard only private temporary state; failures after removal require
+reinstallation from verified active archives; failures at or after boot-loader
+activation additionally require atomic configuration restoration; and failures
+after rollback-artifact deletion require restoring those archived files before a
+retry. These are plans only: every result records `commands_executed=[]`,
+`mutations_performed=[]`, `apply_authorized=false`, and
+`real-apply-stage-unavailable`.
+
+The mature ELILO input and authorization policy fixtures are synthetic test data.
+They do not replace the scheduled real retention preflight on
+`2026-08-08T19:51:00+02:00` and do not authorize execution on either VM.
+
+### Real-system acceptance matrix
+
+This checklist records accepted historical scenario coverage and the five-family,
+20-scenario remainder above. Step 188 closed its four execution-control scenarios
+in the recorded Slackware-current VM runtime scope; this does not prove the later
+52 two-platform operational cases or complete the reference gate. The original
+ten-package `.new` record remains diagnostic; core normal-update acceptance is
+carried by later accepted inventory, not by relabeling that record as accepted.
+
+
+- [x] Fully updated system with no available changes.
+  - [x] Reproducible scenario, validators, and expected fixtures implemented.
+  - [x] Slackware 15.0 evidence accepted on 2026-07-28: check and apply returned stable code `0`, 1,594 package records and observed boot state were unchanged, and the reviewed archive SHA-256 is `5a784cd6d830ac271cc3aad02ed89f2e00c2afd63c88f90aabb74b0a81b0b20b`.
+  - [x] Slackware-current evidence accepted on 2026-07-28: check and apply returned stable code `0`, 2,035 package records and observed boot state were unchanged, and the reviewed archive SHA-256 is `ba0c1264d57df5acf6bee843391113327736683ede36ec3d708d58ca174a2976`.
+- [x] Normal Slackware package update — accepted historical core coverage (step 175); later operational guarantees remain pending.
+  - [x] Non-destructive candidate preflight, physical-host safety gates, evidence packaging, and focused automated tests implemented.
+  - [x] Slackware-current preflight evidence reviewed.
+  - [x] Slackware-current ten-package transaction reviewed and accepted as package/boot evidence.
+  - [x] Reconcile the deferred `.new` follow-up with accepted normal-update core coverage (step 175); retain the original diagnostic record.
+  - [x] Diagnose and fix the omitted `x86` `kernel-headers` candidate from the 2026-08-03 preflight.
+  - [x] Corrected Slackware-current preflight and later transaction/reboot chain accepted; historical authorization is consumed.
+  - [x] Slackware 15.0 preflight and real apply evidence accepted.
+  - [x] Revalidate the hardened deferred `.new` policy on Slackware 15.0.
+  - [x] Exercise the three deferred Slackware 15.0 boot-kernel packages in the dedicated kernel-update scenario.
+  - [x] Implement the non-destructive firmware, boot-loader, mkinitrd, kernel-record, blacklist, and boot-artifact preflight.
+  - [x] Review real Slackware 15.0 boot-path evidence and select the ELILO branch.
+  - [x] Record and review the non-executed mkinitrd command-generator proposal for the running ELILO kernel.
+  - [x] Identify and accept the unique versioned `/boot` generic kernel source copied into ELILO.
+  - [x] Resolve and review the exact three-package repository candidate and atomic versioned ELILO transaction plan.
+  - [x] Execute the gated ELILO transaction, review its evidence, and validate reboot into `5.15.209` with the `oldkernel` fallback retained.
+  - [x] Define a seven-day, two-successful-boot retention policy and a non-destructive ELILO oldkernel eligibility preflight.
+  - [x] Run and review the retention preflight while cleanup remains unauthorized.
+  - [x] Mature ELILO retention evidence accepted on 2026-08-11; cleanup subsequently closed at step 116.
+  - [x] Define and validate the boot-loader-neutral cleanup plan contract without authorizing apply.
+  - [x] Implement and validate the simulation-only cleanup executor with plan-bound dry-run authorization and no apply mode.
+  - [x] Separate ELILO cleanup apply, recovery and final closure accepted through step 116; all destructive authority consumed.
+- [x] `install-new` introduces new packages.
+- [x] Kernel package update.
+- [ ] Kernel headers update without a kernel image update.
+- [ ] Invalid or stale `KERNEL_VERSION` in `mkinitrd.conf`.
+- [ ] `mkinitrd` failure leaves GRUB configuration untouched.
+- [ ] GRUB generation failure leaves the active configuration untouched.
+- [ ] Invalid staged GRUB syntax leaves the active configuration untouched.
+- [ ] Concurrent GRUB configuration modification blocks replacement.
+- [ ] Low free space on `/`.
+- [ ] Low free space on `/boot`.
+- [ ] ABI library update with installed SBo packages.
+- [ ] SBo package with multiple dependencies.
+- [ ] SBo build failure in the middle of a queue.
+- [ ] Removed SBo package no longer present in the repository.
+- [ ] Broken ELF object owned by an SBo package.
+- [ ] Broken ELF object not owned by an SBo package.
+- [ ] Cinnamon installed and CSB updated.
+- [ ] Cinnamon installed with graphical ABI changes.
+- [ ] Cinnamon not installed.
+- [ ] Flatpak system installation only.
+- [ ] Flatpak user installation only.
+- [ ] Flatpak not installed.
+- [x] Network failure before repository synchronization — accepted step 188 runtime scope.
+- [x] Simultaneous execution attempt — accepted step 188 runtime scope.
+- [x] `SIGINT`, `SIGTERM`, and `SIGHUP` during safe test operations — accepted step 188 runtime scope.
+- [x] Execution from cron with no interactive terminal — accepted step 188 runtime scope.
+
+### Reference freeze
+
+- [ ] Record expected output and exit code for every acceptance scenario.
+- [ ] Store sanitized fixtures and logs under `tests/fixtures/reference/`.
+- [ ] Define the version 1 JSON result schema.
+- [ ] Mark the script behavior as `reference-v1`.
+- [ ] Do not start the C port until all blocking tests pass.
+
+**Completion gate:** the shell reference behaves deterministically, passes the acceptance matrix, and has documented structured outputs.
+
+## Phase 2 — Define the C architecture and build skeleton
+
+**Goal:** create a warning-clean, testable project skeleton without update logic.
+
+- [ ] Select the build system.
+  - [ ] Evaluate Meson.
+  - [ ] Evaluate CMake if required by portability or contributor needs.
+- [ ] Select the minimum C standard, preferably C11 or newer.
+- [ ] Define supported Slackware versions for the first release.
+- [ ] Define the minimum supported compiler versions.
+- [ ] Create all top-level source directories.
+- [ ] Create a core library target.
+- [ ] Create empty CLI, helper, and tray targets.
+- [ ] Enable strict compiler warnings.
+- [ ] Treat project warnings as errors in CI.
+- [ ] Add debug and release build profiles.
+- [ ] Add AddressSanitizer and UndefinedBehaviorSanitizer development profiles.
+- [ ] Add formatting rules.
+- [ ] Add static-analysis targets.
+- [ ] Add a minimal unit-test framework.
+- [ ] Add GitHub Actions for build and unit tests.
+- [ ] Confirm the build does not require systemd development files.
+
+**Completion gate:** all targets build and tests run, but no privileged or package-management action exists yet.
+
+## Phase 3 — Implement the core data model
+
+**Goal:** represent modules, operations, plans, events, and results independently of any frontend.
+
+- [ ] Define immutable module identifiers.
+- [ ] Define module availability and activation states.
+- [ ] Define operation types: check, plan, apply, verify.
+- [ ] Define action types and required privilege levels.
+- [ ] Define warning and error structures.
+- [ ] Define reboot states: none, recommended, required, unsafe.
+- [ ] Define operation and module result structures.
+- [ ] Define progress events.
+- [ ] Define cancellation semantics.
+- [ ] Define timestamps and duration reporting.
+- [ ] Define ownership and cleanup rules for every allocated structure.
+- [ ] Add unit tests for every state transition.
+- [ ] Add JSON serialization for results.
+- [ ] Add JSON or line-oriented serialization for progress events.
+- [ ] Version the machine-readable schema.
+
+**Completion gate:** synthetic modules can run through the full lifecycle and produce validated structured results.
+
+## Phase 4 — Implement configuration
+
+**Goal:** load, validate, merge, and expose safe system and user configuration.
+
+- [ ] Implement the system configuration parser.
+- [ ] Implement per-user presentation preferences.
+- [ ] Define precedence: defaults, system configuration, approved CLI overrides.
+- [ ] Implement `enabled`, `disabled`, and `auto` module modes.
+- [ ] Validate paths, integers, booleans, enums, and lists.
+- [ ] Reject unsafe command injection and shell fragments.
+- [ ] Provide configuration defaults in a documented sample file.
+- [ ] Implement configuration schema versioning.
+- [ ] Implement effective-configuration output.
+- [ ] Add unit tests for valid, invalid, incomplete, and legacy configurations.
+
+**Completion gate:** configuration behavior is deterministic and no module reads arbitrary global variables directly.
+
+## Phase 5 — Implement the command-execution layer
+
+**Goal:** execute external Slackware tools safely and make them fully testable.
+
+- [ ] Execute programs without invoking a shell by default.
+- [ ] Pass arguments as explicit arrays.
+- [ ] Control environment variables explicitly.
+- [ ] Capture stdout and stderr separately.
+- [ ] Stream progress without losing the final output.
+- [ ] Record exit status and terminating signal.
+- [ ] Support timeouts where safe.
+- [ ] Support cancellation and child-process cleanup.
+- [ ] Redact secrets and unsafe environment data from logs.
+- [ ] Implement a fake command runner for tests.
+- [ ] Implement fixture-based command outputs.
+- [ ] Add tests for large output, invalid UTF-8, signals, and failed process startup.
+
+**Completion gate:** modules can be tested without calling real package-management commands.
+
+## Phase 6 — Port the Slackware core module
+
+**Goal:** reproduce the validated Slackware behavior from the reference script.
+
+- [ ] Detect the Slackware package database path.
+- [ ] Parse Slackware package filenames exactly.
+- [ ] Capture sorted package snapshots.
+- [ ] Calculate exact changed package names.
+- [ ] Implement `slackpkg update` checking and application.
+- [ ] Implement configurable `install-new` behavior.
+- [ ] Implement configurable `upgrade-all` behavior.
+- [ ] Detect partial updates.
+- [ ] Stop dependent modules after unsafe partial updates.
+- [ ] Detect critical library updates.
+- [ ] Detect kernel-related package changes.
+- [ ] Produce the same results as `reference-v1` fixtures.
+- [ ] Add integration tests with mocked package databases and command output.
+
+**Completion gate:** the C Slackware module matches the reference script for every applicable fixture.
+
+## Phase 7 — Port boot preparation
+
+**Goal:** safely prepare boot files after kernel updates.
+
+- [ ] Create a generic boot module.
+- [ ] Create the GRUB adapter.
+- [ ] Parse and validate `mkinitrd.conf` safely.
+- [ ] Detect the installed generic kernel version.
+- [ ] Validate `/lib/modules/<version>`.
+- [ ] Generate the initrd.
+- [ ] Verify the output image exists and is non-empty.
+- [ ] Generate GRUB configuration to a temporary path.
+- [ ] Validate the generated menu entries.
+- [ ] Back up the current GRUB configuration.
+- [ ] Replace the configuration atomically where possible.
+- [ ] Mark the system unsafe to reboot after critical failure.
+- [ ] Add mocked and VM-based tests.
+- [ ] Design, but do not necessarily implement, ELILO and LILO adapters.
+
+**Completion gate:** kernel update scenarios match the reference behavior and cannot silently leave an unsafe reboot recommendation.
+
+## Phase 8 — Port SBo and ELF diagnostics
+
+**Goal:** safely update and rebuild third-party SlackBuilds.
+
+### SBo
+
+- [ ] Parse the effective `sbopkg` configuration.
+- [ ] Synchronize only the configured repository.
+- [ ] Detect updates for installed SBo packages.
+- [ ] Enumerate installed SBo packages after ABI triggers.
+- [ ] Validate target existence in the active repository.
+- [ ] Generate a single dependency-ordered queue through `sqg`.
+- [ ] Apply per-package options without losing queue semantics.
+- [ ] Install rebuilt packages, not merely compile them.
+- [ ] Stop on failure according to configuration.
+- [ ] Preserve complete build logs.
+
+### ELF diagnostics
+
+- [ ] Implement ELF class detection.
+- [ ] Implement loader-cache parsing.
+- [ ] Implement `RPATH`, `RUNPATH`, `$ORIGIN`, `$LIB`, and `$PLATFORM` handling.
+- [ ] Resolve dependencies recursively without executing target files.
+- [ ] Use `lddtree` as an optional optimized backend.
+- [ ] Map affected paths to Slackware package manifests.
+- [ ] Trigger relevant SBo rebuild targets.
+- [ ] Verify affected binaries after the rebuild.
+
+**Completion gate:** dependency ordering, SBo options, failure handling, and ELF verification match the reference fixtures.
+
+## Phase 9 — Port optional desktop and ecosystem modules
+
+**Goal:** add independent modules without coupling them to the Slackware core.
+
+### Cinnamon
+
+- [ ] Detect whether Cinnamon management is applicable.
+- [ ] Synchronize CSB only when enabled or auto-detected.
+- [ ] Detect CSB repository changes.
+- [ ] Detect configured graphical ABI triggers.
+- [ ] Rebuild Cinnamon with complete progress and logs.
+- [ ] Verify success and report the trigger reason.
+
+### Flatpak
+
+- [ ] Detect Flatpak availability.
+- [ ] Update the system installation when configured.
+- [ ] Discover eligible user installations.
+- [ ] Respect user allowlists and denylists.
+- [ ] Execute user updates under the correct account and environment.
+- [ ] Report results per installation.
+
+**Completion gate:** disabling or omitting either module has no effect on unrelated update operations.
+
+## Phase 10 — Implement the CLI
+
+**Goal:** provide a complete interface before building the tray frontend.
+
+Planned commands:
+
+```text
+slack-update check
+slack-update plan
+slack-update apply
+slack-update status
+slack-update modules
+slack-update config validate
+slack-update config dump-effective
+slack-update logs
+```
+
+Planned global options:
+
+```text
+--json
+--no-color
+--dry-run
+--module <id>
+--disable-module <id>
+--config <path>
+--verbose
+--quiet
+```
+
+Tasks:
+
+- [ ] Implement command parsing.
+- [ ] Implement human-readable summaries.
+- [ ] Implement stable JSON output.
+- [ ] Implement progress display for interactive terminals.
+- [ ] Disable ANSI output for non-interactive use.
+- [ ] Map final results to stable exit codes.
+- [ ] Add shell-completion generation if practical.
+- [ ] Add manual pages.
+- [ ] Test operation over SSH and from cron.
+
+**Completion gate:** Slack-Update is fully usable without a graphical desktop.
+
+## Phase 11 — Implement privilege separation
+
+**Goal:** ensure frontends never need to run permanently as root.
+
+- [ ] Enumerate every action that requires root.
+- [ ] Define a strict privileged-action protocol.
+- [ ] Validate every request again inside the helper.
+- [ ] Reject arbitrary executable paths and arbitrary shell commands.
+- [ ] Implement a short-lived privileged helper.
+- [ ] Evaluate PolicyKit authorization.
+- [ ] Provide a root CLI fallback for systems without a graphical authorization agent.
+- [ ] Define D-Bus interfaces if D-Bus is selected.
+- [ ] Add sender identity and authorization checks.
+- [ ] Prevent concurrent privileged operations.
+- [ ] Sanitize environment variables.
+- [ ] Audit file ownership, permissions, temporary files, and symlink handling.
+- [ ] Document the threat model.
+- [ ] Add security-focused tests.
+
+**Completion gate:** the tray application can request approved operations without running as root and without exposing arbitrary command execution.
+
+## Phase 12 — Implement tray icon and notifications
+
+**Goal:** provide the desktop experience that motivates the project.
+
+- [ ] Evaluate StatusNotifierItem/AppIndicator compatibility on Slackware desktops.
+- [ ] Select a tray implementation compatible with Cinnamon.
+- [ ] Keep tray dependencies outside the core and CLI targets.
+- [ ] Add icons for idle, checking, updates available, running, warning, failed, and reboot required.
+- [ ] Add tooltip summaries.
+- [ ] Add a context menu.
+- [ ] Add actions for check, view updates, apply, open logs, preferences, and quit.
+- [ ] Display per-module status and progress.
+- [ ] Integrate desktop notifications.
+- [ ] Suppress duplicate notifications for the same result.
+- [ ] Add XDG autostart support.
+- [ ] Support desktops without a tray through notifications and CLI only.
+- [ ] Ensure the tray remains responsive while updates run.
+- [ ] Handle helper cancellation and disconnection safely.
+
+**Completion gate:** the user can check, inspect, start, follow, and review updates from the desktop without launching the tray as root.
+
+## Phase 13 — Testing and quality assurance
+
+**Goal:** make regressions visible before they reach a real Slackware installation.
+
+### Unit tests
+
+- [ ] Package-name and version parsing.
+- [ ] Package snapshot comparison.
+- [ ] Module state transitions.
+- [ ] Configuration parsing and precedence.
+- [ ] SBo output parsing.
+- [ ] Queue option handling.
+- [ ] ELF path expansion and dependency resolution.
+- [ ] Reboot and boot-safety decisions.
+- [ ] JSON serialization and schema validation.
+- [ ] Exit-code mapping.
+
+### Integration tests
+
+- [ ] Mock command runner scenarios.
+- [ ] Fake Slackware package database.
+- [ ] Fake SBo repository and queues.
+- [ ] Fake `/boot` tree and `mkinitrd.conf`.
+- [ ] Simulated partial update.
+- [ ] Simulated process interruption.
+- [ ] Simulated low disk space.
+- [ ] Simulated privilege denial.
+- [ ] Simulated network failure.
+
+### Real-system tests
+
+- [ ] Slackware 15.0 virtual machine snapshots.
+- [ ] Slackware-current virtual machine snapshots.
+- [ ] Clean installation.
+- [ ] Installation with SBo.
+- [ ] Installation with Cinnamon.
+- [ ] Installation with Flatpak.
+- [ ] Headless installation.
+- [ ] GRUB installation.
+- [ ] Future ELILO/LILO test systems.
+
+### Code quality
+
+- [ ] GCC warning-clean build.
+- [ ] Clang warning-clean build.
+- [ ] AddressSanitizer pass.
+- [ ] UndefinedBehaviorSanitizer pass.
+- [ ] Static-analysis pass.
+- [ ] Memory-leak checks.
+- [ ] Failure-path coverage.
+- [ ] Fuzz configuration and structured-input parsers where practical.
+
+**Completion gate:** release builds pass automated tests and the applicable VM acceptance matrix.
+
+## Phase 14 — Packaging and installation
+
+**Goal:** distribute Slack-Update in a way familiar to Slackware users.
+
+- [ ] Create a SlackBuild.
+- [ ] Define runtime and optional dependencies.
+- [ ] Install binaries under the correct prefixes.
+- [ ] Install default configuration under `/etc/slack-update/`.
+- [ ] Preserve modified configuration during upgrades.
+- [ ] Install icons and desktop files.
+- [ ] Install D-Bus and PolicyKit files only when used.
+- [ ] Install manual pages and documentation.
+- [ ] Add an uninstall manifest or package-owned file list.
+- [ ] Test installation, upgrade, reinstall, and removal.
+- [ ] Document manual build and package build procedures.
+- [ ] Evaluate submission to SlackBuilds.org after the first stable release.
+
+**Completion gate:** Slack-Update can be installed, upgraded, and removed using a normal Slackware package.
+
+## Phase 15 — Documentation, localization, and release
+
+**Goal:** prepare the project for public use and contributions.
+
+- [ ] Complete installation documentation.
+- [ ] Complete configuration reference.
+- [ ] Document every module and activation mode.
+- [ ] Document privilege and security behavior.
+- [ ] Document JSON output and exit codes.
+- [ ] Document troubleshooting and recovery procedures.
+- [ ] Add screenshots after the tray interface stabilizes.
+- [ ] Mark all user-facing strings for translation.
+- [ ] Provide English user-facing strings.
+- [ ] Provide Spanish translation.
+- [ ] Add contribution and coding guidelines.
+- [ ] Add issue and pull-request templates.
+- [ ] Publish a release candidate.
+- [ ] Run the complete acceptance matrix.
+- [ ] Publish version `1.0.0`.
+
+## Security requirements
+
+- [ ] The tray application never runs as root.
+- [ ] The helper exposes only predefined operations.
+- [ ] External commands are executed without a shell unless strictly necessary.
+- [ ] Paths crossing the privilege boundary are canonicalized and validated.
+- [ ] Temporary files use safe creation APIs and restrictive permissions.
+- [ ] Symlink attacks are considered for every privileged file operation.
+- [ ] Configuration writable by normal users cannot alter privileged command paths.
+- [ ] Repository URLs and executable paths have explicit trust rules.
+- [ ] Logs do not expose secrets or sensitive environment data.
+- [ ] Update locks cover CLI, tray, cron, and helper operations.
+- [ ] Boot files are validated before activation.
+- [ ] The UI clearly distinguishes warnings from unsafe-to-reboot failures.
+
+## Coding standards
+
+- Use English for source-code identifiers, comments, commit messages, documentation, and developer-facing logs.
+- Keep user-facing strings translatable.
+- Prefer explicit ownership and cleanup rules.
+- Avoid global mutable state where practical.
+- Keep modules independent from graphical code.
+- Do not parse command output when a stable file or API is available.
+- Treat external command output as untrusted input.
+- Compile with strict warnings.
+- Add tests with every bug fix.
+- Keep commits focused and buildable whenever practical.
+
+## Commit policy
+
+All commit messages will be written in English. During implementation, every delivered file change should be accompanied by a proposed commit message.
+
+Recommended format:
+
+```text
+<type>(<scope>): <imperative summary>
+```
+
+Suggested types:
+
+- `build` — build-system or dependency changes;
+- `docs` — documentation only;
+- `feat` — new functionality;
+- `fix` — bug fix;
+- `refactor` — internal restructuring without behavior change;
+- `test` — tests and fixtures;
+- `chore` — maintenance work;
+- `ci` — continuous-integration changes;
+- `security` — security hardening.
+
+Examples:
+
+```text
+docs: add initial project roadmap
+build: add the initial Meson project skeleton
+feat(core): add the module lifecycle interface
+feat(slackware): detect changed package records
+fix(sbo): preserve dependency order in generated queues
+test(boot): cover invalid mkinitrd kernel versions
+security(helper): reject unapproved executable paths
+```
+
+Commit rules:
+
+- [ ] Use the imperative mood.
+- [ ] Keep the subject concise.
+- [ ] Do not end the subject with a period.
+- [ ] Use a scope when it improves clarity.
+- [ ] Explain why in the body when the change is not obvious.
+- [ ] Mention incompatible configuration or output changes explicitly.
+- [ ] Keep unrelated changes in separate commits.
+
+## License
+
+Slack-Update is licensed under the GNU General Public License, version 3 or any later version (`GPL-3.0-or-later`). See `LICENSE` for the complete license text.
+
+## Versioning
+
+The project should use semantic versioning after public interfaces begin to stabilize.
+
+- `0.x.y` — architecture and feature development; interfaces may change.
+- `1.0.0` — first stable CLI, configuration schema, helper protocol, and documented module behavior.
+- Patch releases must not make incompatible changes to stable machine-readable interfaces.
+
+Planned compatibility surfaces:
+
+- [ ] Configuration schema.
+- [ ] CLI commands and options.
+- [ ] Exit codes.
+- [ ] JSON result schema.
+- [ ] D-Bus/helper protocol.
+- [ ] Module identifiers.
+- [ ] External plugin ABI, only if introduced later.
+
+## Definition of version 1.0
+
+Slack-Update 1.0 will be ready when:
+
+- [ ] Slackware 15.0 and Slackware-current are both covered by the applicable acceptance matrix.
+- [ ] Slackware updates can be checked and applied safely from the CLI.
+- [ ] Optional SBo, Cinnamon, Flatpak, ELF, and boot modules can be independently configured.
+- [ ] Missing optional software does not cause unrelated failures.
+- [ ] The tray application reports available updates and operation progress.
+- [ ] Desktop notifications work without running the tray as root.
+- [ ] Privileged operations use a constrained helper or documented root CLI mode.
+- [ ] Results are available in stable human-readable and JSON formats.
+- [ ] Partial updates and boot failures are clearly identified.
+- [ ] The complete reference acceptance matrix passes.
+- [ ] Automated unit and integration tests pass with GCC and Clang.
+- [ ] A Slackware package and SlackBuild are available.
+- [ ] Installation, configuration, recovery, and security behavior are documented.
+
+## Immediate next steps
+
+> [!NOTE]
+> **Current Phase 1 gate:** five historical acceptance families / 20 scenarios
+> remain pending. The kernel-package-edge operational path also retains all 16
+> native gaps, 46 unproven proofs, 52 unrun cases and 12 uncaptured raw groups.
+> `reference-v1`, the version 1 schema, C development, Phase 2 and production remain
+> blocked. Repository source review is not native conformance or live authority.
+>
+> The next step after accepted README reconciliation 367 is the conditional
+> repository freeze/pause review 368. No automatic 369 or machine action is opened.
+> Later runtime work needs a fresh scenario-specific review and authorization.
+>
+> The checklist below is historical execution evidence reconciled where later
+> accepted records exist. Old commands and authorizations cannot be replayed.
+> The numbered history ends at checkpoint 120; later closures are summarized in
+> the current step 367 reconciliation above. Remaining coverage stays explicit.
+
+
+- [x] Commit the completed Phase 0 repository structure.
+- [x] Tag the initial planning state as `planning-v1` after the Phase 0 commit.
+- [x] Rename `sbo-auto` paths and identifiers to `slack-update` where appropriate, without changing behavior.
+- [x] Modularize the reference script into clearly named functions without changing behavior.
+- [x] Add basic command-line argument parsing without implementing later operation modes.
+- [x] Implement `--check` for non-destructive Slackware repository update detection.
+- [x] Implement `--apply` as an explicit selector for the existing update workflow.
+- [x] Implement `--dry-run` planning without package/boot apply; do not infer absence of local effects.
+- [x] Implement `--json` for structured final output.
+- [x] Implement provisional NDJSON progress events through `--events`.
+- [x] Move hard-coded reference behavior into a validated configuration file.
+- [x] Add `enabled`, `disabled`, and `auto` modes for optional modules.
+- [x] Add stable exit codes.
+- [x] Validate exact Slackware package-name parsing.
+- [x] Validate package snapshots before and after updates.
+- [x] Confirm that secondary modules stop after partial Slackware updates.
+- [x] Confirm deterministic SBo target selection.
+- [x] Preserve dependency order in generated SBo queues.
+- [x] Preserve custom SBo build options.
+- [x] Protect personal SBo queues from `sqg` overwrites.
+- [x] Confirm ELF analysis never executes inspected binaries.
+- [x] Confirm architecture-specific library resolution.
+- [x] Confirm initrd validation uses the installed kernel.
+- [x] Confirm GRUB is not updated after an initrd failure.
+- [x] Validate staged GRUB configuration before replacement.
+- [x] Confirm interruption signals release locks and terminate execution.
+- [x] Confirm errors produce non-zero exit codes.
+- [x] Confirm cron execution works with a minimal environment.
+- [ ] Execute and document the Phase 1 acceptance matrix on Slackware 15.0 and Slackware-current.
+  - [x] Accept the fully updated no-updates scenario on Slackware 15.0.
+  - [x] Accept the fully updated no-updates scenario on Slackware-current.
+  - [x] Accept the non-destructive normal-update preflight on Slackware-current.
+  - [x] Refresh and reclassify package metadata immediately before normal-update apply authorization.
+  - [x] Require separate authorization for kernel and critical normal-update candidates.
+  - [x] Require an exact reviewed candidate-set SHA-256 before normal-update apply.
+  - [x] Accept the corrected 57-candidate Slackware-current preflight classification.
+  - [x] Require a separate matching apply-ready boot-layout record for Slackware-current kernel candidates.
+  - [x] Run the first non-destructive Slackware-current kernel boot-layout preflight and reject its initrd-only assumptions.
+  - [x] Repeat and accept the corrected direct-generic-aware boot-layout preflight for `6.18.41`.
+  - [x] Add reference-engine policy for direct generic kernel transitions without initrd.
+  - [x] Add a non-installing exact Slackware-current kernel-package transaction preflight.
+  - [x] Run and review the exact Slackware-current kernel package transaction evidence before apply readiness.
+  - [x] Detect the package script's conditional `geninitrd` hook and require a host-policy preflight.
+  - [x] Run and review the Slackware-current `geninitrd` policy preflight before transaction design.
+  - [x] Run and review the discovered Slackware-current DKMS hooks and installed DKMS state.
+  - [x] Run and review the command-output-only GenInitrd projection for the target kernel transition.
+  - [x] Run and review the GenInitrd versus Slack-Update GRUB-ownership preflight.
+  - [x] Implement transactional GenInitrd policy override and guaranteed restoration in the reference engine.
+  - [x] Validate the post-package generated-initrd state contract.
+  - [x] Run and accept the fresh Slackware-current candidate-chain preflight for the 69-candidate `6.18.42` set.
+  - [x] Reject the first `6.18.42` chain restart because target file inventory was required before the exact-package stage.
+  - [x] Repeat and accept the corrected target-bound boot restart and exact `kernel-generic-6.18.42` package evidence.
+  - [x] Repeat and accept the GenInitrd policy evidence for `6.18.42`.
+  - [x] Repeat and accept DKMS, command, and GRUB-ownership evidence for `6.18.42`.
+  - [x] Run the final non-installing `6.18.42` readiness preflight; retain it as diagnostic because it exposed the pre-existing versioned initrd.
+  - [x] Run the first corrected `geninitrd-managed-versioned-initrd` boot baseline and retain its restricted-IFS metadata failure as diagnostic.
+  - [x] Repeat and accept the corrected metadata-safe `geninitrd-managed-versioned-initrd` boot baseline.
+  - [x] Repeat and accept the corrected GenInitrd-aware kernel-chain restart.
+  - [x] Rebuild and accept the exact package, policy, DKMS, command, and GRUB-ownership evidence for `6.18.42`.
+  - [x] Run corrected readiness and retain the safe block caused by the 137-candidate userspace expansion.
+  - [x] Classify and accept the 137-candidate userspace-only refresh.
+  - [x] Review and accept the exact identities of the 68 added userspace packages for kernel-evidence rebind.
+  - [x] Rebind the seven accepted kernel evidence records to the 137-candidate digest.
+  - [x] Review the exact 68 userspace package archives without installation; accepted payload evidence retained.
+  - [x] Review the captured 37 userspace maintainer scripts and subsequent configuration effects; accepted evidence retained.
+  - [x] Repeated transaction readiness accepted for the historical 137-candidate set; no current candidate binding.
+  - [x] Historical apply/reboot chain completed after reviewed readiness; its authority is consumed.
+  - [x] Review and accept the ten-package Slackware-current transaction as package and boot evidence.
+  - [x] Reconcile the deferred `.new` follow-up with accepted normal-update core coverage (step 175); retain the original diagnostic record.
+  - [x] Reject the 2026-08-03 Slackware-current diagnostic whose parser omitted the `x86` `kernel-headers` candidate.
+  - [x] Repeat the corrected Slackware-current candidate preflight and review the complete 57-package set.
+  - [x] Accept the Slackware 15.0 normal-update preflight and 196-package real apply.
+  - [x] Revalidate the hardened deferred `.new` policy on Slackware 15.0.
+  - [x] Deferred Slackware 15.0 boot-kernel packages accepted in the dedicated ELILO scenario.
+    - [x] Add a non-destructive boot-path detection and evidence preflight.
+    - [x] Real loader/mkinitrd evidence reviewed for the accepted historical ELILO transaction.
+- [ ] Freeze `reference-v1`.
+- [ ] Begin the C architecture only after the reference gate is complete.
+
+
+### Phase 1 step 52: restarted GenInitrd/GRUB ownership preflight
+
+The corrected step-51 command preflight passed all 11 assertions on `pcold-slack`. It accepted archive SHA-256 `be239e39372ad807be01199051730dbaf2602b962ceebea68b864e5951c78682`, exact cached package SHA-256 `e9e7a1c5c71c945ee99595868aa8fee8a644b56601ece0c3e5696d643fe84878`, and the projected output `/boot/initrd-6.18.42.img`. No generated command, package operation, initrd generation, or GRUB update was executed.
+
+Run the restarted ownership preflight on `pcold-slack`:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-geninitrd-grub-ownership-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+This stage binds all seven accepted records, proves that an environment-only override cannot suppress package-owned `update-grub`, and prepares only an evidence-local copy whose sole active change is `AUTO_UPDATE_GRUB=false`. The real run passed all 11 assertions, preserved all sensitive state, and produced verified archive SHA-256 `f906211517c8887e52b2842ff8756973bf9ef5fa4af378a6c830226befe1d522`. The result remains `apply_ready=false` and `apply_authorized=false`; the accepted record advances to the step-53 readiness review.
+
+
+### Phase 1 step 53: final Slackware-current kernel transaction readiness preflight
+
+Run this final non-installing review only after all `6.18.42` evidence records are accepted:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-kernel-transaction-readiness-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+The wrapper binds the accepted normal-update, boot, chain-restart, exact-package, GenInitrd-policy, no-op DKMS, command, and GRUB-ownership records. It also binds the target-specific synthetic post-state contract and the exact reference-engine SHA-256. It then repeats the existing normal-update preflight, requires exact equality with all 69 reviewed candidates, verifies the cached `kernel-generic` package, direct-generic boot layout, active GenInitrd policy, reviewed hooks, zero-row DKMS state, generator and setup scripts, and syntax-valid active GRUB configuration.
+
+A completely clean result may report `apply_ready=true`, but it always reports `apply_authorized=false`, executes no package transaction, and performs no initrd, DKMS, or GRUB mutation. Apply still requires a later explicit authorization and the normal-update apply path must refresh and compare candidates again. Copy the outer archive and portable sidecar directly to `/home/promano` and verify them there.
+
+
+### Phase 1 step 54: corrected GenInitrd-managed boot baseline
+
+The real step-53 readiness run preserved the system and revalidated all 69 candidates, but blocked readiness because the host already contains `/boot/initrd-generic.img -> initrd-6.18.40.img` and `/boot/initrd-6.18.40.img`. Those files date from 2026-07-28, before the reviewed 2026-08 evidence chain, and the active GRUB configuration was regenerated afterward. The earlier detector looked only for `/boot/initrd.gz`, so the accepted label `direct-generic-no-initrd` is revoked for this host.
+
+Run the corrected boot preflight before rebuilding any target-bound evidence:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-kernel-boot-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+A valid result must classify `boot_mode=geninitrd-managed-versioned-initrd`, verify the exact named-link target and versioned initrd, and prove that one GRUB menuentry pairs `/boot/vmlinuz-generic` with `/boot/initrd-generic.img`. The preflight performs no package, initrd, DKMS, or GRUB mutation and must keep `apply_ready=false` and `apply_authorized=false`. Copy its archive and sidecar directly to `/home/promano` and verify them there. All step-46 through step-52 records remain historical until rebuilt from this corrected baseline.
+
+
+The step-54 repository validation runs all 37 focused suites: 2,412 checks pass with zero failures. The main reference engine remains SHA-256 `0dc4a4def9b063b9a598975f46e7458c5771eb8d8603f4fa8bbd9dfc07c4d4c6`.
+
+### Phase 1 step 55: corrected GenInitrd metadata parser
+
+The first corrected baseline run on `pcold-slack` preserved the live system and identified the correct `geninitrd-managed-versioned-initrd` layout, but one assertion failed with `line 309: [: : integer expected`. The script-wide `IFS` contains only newline and tab, while the safe-file helper attempted to split space-separated `stat` output. Consequently `uid` and `gid` were empty even though `/boot/initrd-6.18.40.img` is a safe root-owned regular file. Diagnostic archive SHA-256 `16ebd14b3dd3447c6663fb25796c603738ce58f99bff56334813f72d5b4fd2bb` is preserved and does not authorize apply.
+
+Repeat the corrected non-destructive baseline:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-kernel-boot-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+The helper now parses colon-delimited metadata with a local `IFS`, validates all fields before mode arithmetic, and still requires root ownership plus no group/world write bits. A valid result must report `boot-mode=geninitrd-managed-versioned-initrd`, `geninitrd-transition=true`, 20 passes, zero failures, and immutable `apply_ready=false` / `apply_authorized=false`. Copy the archive and sidecar directly to `/home/promano` and verify them there. The corrected real-system rerun is accepted with 20 passes, zero failures, archive SHA-256 `6429fd626973b0c3fc498642e1cd9230bc0eceb0291e232b515fef625467c6ac`, and immutable apply denial. The dependent evidence chain must now be rebuilt from this record.
+
+The step-55 repository validation runs all 37 focused suites: 2,424 checks pass with zero failures. The current-kernel boot harness contributes 94 checks. The main reference engine remains SHA-256 `0dc4a4def9b063b9a598975f46e7458c5771eb8d8603f4fa8bbd9dfc07c4d4c6`.
+
+
+
+### Phase 1 step 56: corrected GenInitrd kernel-chain restart
+
+Run the restart wrapper only after accepting the step-55 baseline:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-kernel-chain-restart-preflight.sh \
+    --target slackware-current
+```
+
+The wrapper binds the accepted 69-candidate refresh and normal-update records plus `slackware-current-kernel-boot-preflight-20260805-accepted.json`. It reruns only the non-destructive boot preflight and requires the same `geninitrd-managed-versioned-initrd` classification, `/boot/initrd-6.18.40.img` digest, target-image deferral, unchanged package database, and unchanged boot state. A clean result keeps `apply_ready=false` and `apply_authorized=false` and selects `current-kernel-package-preflight` as the next stage. Copy the final outer archive and portable sidecar directly to `/home/promano` and verify them there.
+
+The step-56 repository validation executes all 37 suites: 2,432 checks pass with zero failures. The chain-restart harness contributes 58 checks.
+
+### Phase 1 step 57: rebuilt exact kernel-package preflight
+
+The corrected step-56 chain restart passed all 20 nested assertions and all 6 wrapper assertions. Its accepted outer archive SHA-256 is `e48c528aafd9daef64edae721ddc96c9b5c52daac1a6f563fe447d1a66e6996e`; the nested boot archive SHA-256 is `286035b2f88b3bd575a6731171180743d80b79f75c2ccbb138df647a6527fcda`.
+
+Run the rebuilt exact-package preflight on `pcold-slack`:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-kernel-package-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+Before downloading anything, the preflight binds the corrected step-55 boot record and accepted step-56 restart record, then revalidates the live `vmlinuz-generic`, `initrd-generic.img`, versioned initrd SHA-256, GenInitrd symlink policy, active GRUB digest, and same-menuentry kernel/initrd pairing. It downloads or confirms only `kernel-generic-6.18.42-x86_64-1.txz`, inventories the archive, validates its conditional `geninitrd` hook without execution, and generates a GRUB configuration only inside the evidence directory. Expect 13 passes, zero failures, `apply_ready=false`, and `apply_authorized=false`. Copy the archive and sidecar directly to `/home/promano` with the printed command and verify them there.
+
+The real step-57 run passed all 13 assertions. Its accepted archive SHA-256 is `9f702e85a8ff3eb6155b834ed11cfe494ec60f04082914d80bae2a13d02e016f`; the accepted package record is `tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-package-preflight-20260805-accepted.json`.
+
+### Phase 1 step 58: rebuilt GenInitrd policy preflight
+
+Run only after accepting step 57:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-geninitrd-policy-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+The rebuilt policy stage binds the corrected boot, chain-restart, and exact-package records. It revalidates the live `vmlinuz-generic`, `initrd-generic.img`, `/boot/initrd-6.18.40.img`, active GenInitrd scalar policy, and same-menuentry GRUB pairing before parsing the installed scripts. The enabled transaction is modeled as `versioned-to-versioned-initrd`, with expected output `/boot/initrd-6.18.42.img`, named symlink enabled, legacy `initrd.gz` disabled, and automatic GRUB update still active for the later ownership review. It inventories hooks but executes none. Expect 11 passes, zero failures, `apply_ready=false`, and `apply_authorized=false`; copy and verify the evidence directly in `/home/promano`.
+
+The step-58 repository matrix executes all 37 suites: 2,465 checks pass with zero failures. Direct per-suite summation corrects the step-57 total to 2,451; the previously stated 2,395 omitted the valid 56-check direct-generic policy suite. The rebuilt GenInitrd policy harness contributes 61 checks.
+
+The real step-58 run passed all 11 assertions and produced accepted archive SHA-256 `de4ad831efda30eaaa6a0ee8fc099815cf0bdb9882bded361942dc6719a88e80`. Its sanitized record is `tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-policy-preflight-20260805-accepted.json`.
+
+### Phase 1 step 59: rebuilt DKMS-hook preflight
+
+Run only after accepting step 58:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-geninitrd-dkms-hook-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+The rebuilt stage binds the accepted normal-update, corrected boot, corrected chain-restart, exact-package, and versioned GenInitrd policy records. Before examining hooks it revalidates the live `vmlinuz-generic`, `initrd-generic.img`, `/boot/initrd-6.18.40.img`, GenInitrd symlink policy, and same-menuentry GRUB pairing. It then verifies the exact `dkms-bcachefs` and `dkms-nvidia` hook hashes, ownership, permissions, syntax, and static command surfaces; runs only `dkms --version` and `dkms status`; and inventories DKMS sources, state, and module trees without following links. No hook, DKMS build/install action, package command, initrd generator, or GRUB command is executed. Expect 11 passes, zero failures, `apply_ready=false`, and `apply_authorized=false`. Copy the evidence archive and portable sidecar directly to `/home/promano` and verify them there.
+
+The real step-59 run passed all 11 assertions and produced accepted archive SHA-256 `780c56432d7d1b1bd4014a56709d6693a7ac1bf1148a072fbf8d1cfceac1cd2f`. Its sanitized record is `tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-dkms-hook-preflight-20260805-accepted.json`.
+
+The step-59 repository matrix executes all 37 suites: 2,473 checks pass with zero failures. The rebuilt DKMS-hook harness contributes 59 checks.
+
+### Phase 1 step 60: rebuilt GenInitrd command preflight
+
+Run only after accepting step 59:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-geninitrd-command-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+The rebuilt stage binds the accepted normal-update, corrected boot, chain-restart, exact-package, versioned-policy, and step-59 DKMS records. Before invoking the generator it revalidates the live `vmlinuz-generic`, `initrd-generic.img`, `/boot/initrd-6.18.40.img`, GenInitrd symlink policy, active GRUB digest, and same-menuentry kernel/initrd pairing. It confirms the exact cached target package, runs `mkinitrd_command_generator.sh` only in command-output mode for the installed kernel, parses exactly one inert `mkinitrd` vector, and projects that vector to `6.18.42` with output `/boot/initrd-6.18.42.img`. Neither the current nor projected command is executed. Expect 12 passes, zero failures, `transition=versioned-to-versioned-initrd`, `apply_ready=false`, and `apply_authorized=false`. Copy the archive and sidecar directly to `/home/promano` and verify them there. Do not advance to the GRUB-ownership preflight until this evidence is reviewed and accepted.
+
+The real step-60 run passed all 12 assertions and produced accepted archive SHA-256 `754ebe19080417c9bcd79ba8ca586085c808e24d1d5120286fff19a09c2cf0f0`. The sanitized accepted record is `tests/fixtures/reference/acceptance/kernel-boot/slackware-current-geninitrd-command-preflight-20260805-accepted.json`. Neither the current nor projected command was executed.
+
+### Phase 1 step 61: rebuilt GenInitrd/GRUB ownership preflight
+
+Run only after accepting step 60:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-geninitrd-grub-ownership-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+The rebuilt stage binds all corrected records through the accepted step-60 command evidence. It revalidates the live generic kernel, named initrd, versioned initrd, scalar GenInitrd symlink policy, active GRUB digest, and same-menuentry kernel/initrd pairing before analyzing ownership. It proves that the active `AUTO_UPDATE_GRUB=true` assignment overrides an environment-only value, writes only an evidence-local copy with that single assignment changed to `false`, and emits a non-executing twelve-stage plan with five recovery boundaries in which Slack-Update exclusively owns validated atomic GRUB replacement. Expect 12 passes, zero failures, `transition=versioned-to-versioned-initrd`, `strategy=temporary-atomic-policy-override`, `environment-override-safe=false`, `apply-ready=false`, and `apply-authorized=false`. Copy the archive and sidecar directly to `/home/promano` and verify them there. Do not advance to readiness review until this evidence is accepted.
+
+The first real step-61 run stopped after its first two passes because sensitive-state capture referenced undeclared `GENERATOR_SCRIPT` under `set -u`. The stop occurred before initial state capture, evidence publication, or any package, initrd, GenInitrd, DKMS, or GRUB operation. Step 62 corrects the reference to the declared `GENINITRD_SCRIPT` and adds a nounset execution test for the capture function.
+
+### Phase 1 step 62: corrected GenInitrd/GRUB ownership preflight
+
+Repeat exactly the same non-destructive command:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-geninitrd-grub-ownership-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+The corrected real run completed all 12 assertions, preserved the `geninitrd-managed-versioned-initrd` baseline, emitted the evidence-local twelve-stage ownership plan, and produced verified archive SHA-256 `53acb06384b4a8fbea1feceb73e6aa2381c43f5702a41ce990d0f515d04588fe`. The accepted result is `transition=versioned-to-versioned-initrd`, `strategy=temporary-atomic-policy-override`, `apply-ready=false`, and `apply-authorized=false`.
+
+### Phase 1 step 63: rebuilt final transaction readiness preflight
+
+Run only after accepting the corrected step-62 ownership evidence:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-kernel-transaction-readiness-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9 \
+    --confirm-target-kernel 6.18.42
+```
+
+This stage binds the accepted normal-update, boot, chain-restart, exact-package, policy, DKMS, command, and GRUB-ownership records. It also binds the corrected synthetic post-state contract whose pre-transaction mode is `geninitrd-managed-versioned-initrd` and whose target state requires `/boot/initrd-6.18.42.img` plus `initrd-generic.img -> initrd-6.18.42.img`.
+
+The wrapper refreshes Slackpkg metadata through the existing non-installing normal-update preflight and requires the same 69 candidates and candidate-set SHA-256. It then revalidates the exact cached package, the current kernel and initrd hashes, the GenInitrd scalar policy, both reviewed no-op DKMS hooks, empty DKMS state, and the active same-menuentry GRUB kernel/initrd pairing. It executes no package transaction, `mkinitrd`, `geninitrd`, DKMS build, `update-grub`, or `grub-mkconfig` command.
+
+The real step-63 run stopped safely at candidate revalidation: Slackpkg reported 137 candidates with digest `27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926`, while the accepted chain was bound to 69 candidates. The wrapper still verified the nested archive, exact package cache, corrected GenInitrd boot layout, no-op DKMS state, and GRUB ownership boundary, and it preserved all live state. The result was `readiness=blocked`, `apply-ready=false`, and `apply-authorized=false`. Outer archive SHA-256 `1726766092ce5b4b334ba314566ea290d85aa7aa9a563a753cb7262d96a7a69e` and nested archive SHA-256 `cd9ab4ec8c9485e5c196c83d34c0077d0b14651b89afe86a24d7c205a188fbfc` were verified in `/home/promano`.
+
+The step-63 repository inventory contains 37 suites and 2,521 checks with zero failures. The rebuilt readiness harness contributes 64 checks. Static validation covers 56 Bash scripts and 53 JSON files.
+
+
+
+### Phase 1 step 64: classify the 137-candidate userspace expansion
+
+The step-63 readiness run is a verified safe stop. Slackpkg still exposes the exact reviewed `kernel-generic`, `kernel-headers`, and `kernel-source` packages for `6.18.42`, but the candidate set expanded from 69 to 137 with 68 additions and no removals. The additions are userspace packages, mostly the Plasma 6.7.4 stack. The previous candidate-bound chain is not directly reusable until that expansion is reviewed and explicitly rebound.
+
+Run only the corrected non-installing refresh wrapper:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-candidate-chain-refresh-preflight.sh \
+    --target slackware-current
+```
+
+The expected classification, while the repository remains unchanged, is `changed-userspace-set` with target `6.18.42`, `kernel_transaction_changed=false`, `strict_candidate_superset=true`, `added_candidate_count=68`, `removed_candidate_count=0`, `next_stage=review-fresh-userspace-candidates`, `apply_ready=false`, and `apply_authorized=false`. The wrapper refreshes metadata only through the existing normal-update preflight, verifies critical-candidate accounting, preserves package and boot state, and publishes one outer archive with a portable sidecar. Copy and verify both files directly in `/home/promano`. Do not run readiness or apply until the fresh userspace evidence is reviewed.
+
+The step-64 repository matrix contains 37 suites and 2,546 checks. The candidate-chain harness contributes 79 checks and the readiness harness contributes 71 checks.
+
+### Phase 1 step 65: userspace candidate review for kernel-evidence rebind
+
+Run only after accepting the step-64 candidate refresh:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-userspace-candidate-review-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926 \
+    --confirm-target-kernel 6.18.42
+```
+
+The review binds the accepted 137-candidate refresh and a checked-in exact policy for the 68 additions. It requires a strict superset of the accepted 69-candidate transaction, no removals, no critical candidates, no added `install-new` entries, and the unchanged `kernel-generic`, `kernel-headers`, and `kernel-source` files for `6.18.42`. The added identities must be exactly 61 Plasma 6.7.4 packages, six supporting userspace packages, and `breeze-grub-6.7.4-x86_64-1.txz` as the only boot-adjacent theme package.
+
+This is deliberately not a package-payload or apply-safety review. A clean result may report `kernel_evidence_rebind_ready=true` and route to `current-kernel-evidence-rebind-preflight`, while `package_payloads_inspected=false`, `userspace_apply_review_complete=false`, `apply_ready=false`, and `apply_authorized=false` remain mandatory. The script executes no package transaction, maintainer script, initrd generator, DKMS action, or GRUB update. Copy the final archive and sidecar directly to `/home/promano` and verify them there.
+
+The real step-65 run passed all 11 assertions and the nested six-check normal-update preflight. Outer archive SHA-256 `7d22806577aa4432436d8760e86fdeec5af25a420fe05b28a5150c2c97617037` and nested archive SHA-256 `11812569b828f31874c01e1c7bcacef069c36fe8391c938ae545495d5f9cd1fc` were copied and verified in `/home/promano`. The accepted record is `tests/fixtures/reference/acceptance/kernel-boot/slackware-current-userspace-candidate-review-20260805-accepted.json`.
+
+The step-65 repository inventory contains 38 suites and 2,591 checks with zero failures. The userspace candidate review harness contributes 46 checks.
+
+### Phase 1 step 66: explicit kernel-evidence rebind to the 137-candidate digest
+
+Run only after accepting the step-65 userspace review:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-kernel-evidence-rebind-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926 \
+    --confirm-target-kernel 6.18.42
+```
+
+The rebind stage validates the accepted userspace review, the explicit rebind policy, and the seven accepted kernel evidence records covering boot layout, chain restart, exact package, GenInitrd policy, no-op DKMS hooks, projected command, and GRUB ownership. It refreshes Slackpkg metadata through the existing normal-update preflight and requires the exact 137-candidate list, unchanged `kernel-generic`, `kernel-headers`, and `kernel-source` identities, the exact cached kernel package, the accepted versioned initrd and policy hashes, empty DKMS state, and a valid same-menuentry GRUB kernel/initrd pair.
+
+A clean result records `kernel_evidence_rebound=true` and changes only the candidate binding from `918ded076efb3ff0131b296ceae8854765dd5e92cc433542c498276f9aeba3f9` to `27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926`. It must still report `package_payloads_inspected=false`, `userspace_apply_review_complete=false`, `userspace_payload_review_required=true`, `apply_ready=false`, and `apply_authorized=false`, and route only to `current-userspace-payload-review-preflight`. Copy the final archive and sidecar directly to `/home/promano` and verify them there.
+
+The step-66 repository inventory contains 39 suites and 2,653 checks with zero failures. The kernel evidence rebind harness contributes 62 checks.
+
+The real step-66 run passed all 12 outer assertions plus the nested six-pass normal-update preflight. Outer archive SHA-256 `38a79511d6c17686b3a2b3e8c349c2c199264849ca1fd0222135d0ab1f00b482` and nested archive SHA-256 `24e8e2146029e9f4aadcf189acee5ababec7ecb89395074517363489aa83556e` were copied and verified in `/home/promano`. The accepted record is `tests/fixtures/reference/acceptance/kernel-boot/slackware-current-kernel-evidence-rebind-20260805-accepted.json`.
+
+### Phase 1 step 67: diagnostic userspace payload archive review
+
+The first real payload review used the exact accepted step-66 boundary and correctly remained non-installing, but it stopped after 13 passes and two failures. The exact `breeze-grub-6.7.4-x86_64-1.txz` archive begins with the explicit directory member `boot`, while the reviewed policy incorrectly described the theme as `usr/share/grub/themes/breeze/`. The generic `/boot` prohibition therefore rejected the package before its actual confined theme subtree could be reviewed.
+
+The rejected outer archive SHA-256 is `b61a17d2fb296d8493bab82dfcbb2bdf4bbebcb0b5168f6d61895674c31b45e8`; the nested normal-update archive SHA-256 is `bae2e427e5c789d3f51141cb8281e0493754f1721b6ba0ecff3af52ca219fe0e`. Both were copied and verified in `/home/promano`. The package database, active kernel, initrd, GenInitrd, DKMS, and GRUB state remained unchanged, and no package transaction or maintainer script ran. The diagnostic record is `tests/fixtures/reference/acceptance/normal-update/slackware-current-userspace-payload-review-20260805-boot-prefix-diagnostic.json`.
+
+### Phase 1 step 68: corrected exact Breeze GRUB payload boundary
+
+Repeat the same non-installing review only from the unchanged accepted state:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-userspace-payload-review-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926 \
+    --confirm-target-kernel 6.18.42
+```
+
+The corrected policy binds the sole boot-adjacent exception to the exact filename `breeze-grub-6.7.4-x86_64-1.txz`, SHA-256 `66209816c42b2363f7a2ca7d1a739dc393c101c752709e7291f1f97b6466008a`, and size `1448432`. Only the explicit ancestor directories `boot`, `boot/grub`, and `boot/grub/themes`, plus the exact `boot/grub/themes/breeze/` root and subtree, are permitted in that archive. Every other `/boot` member, every sibling GRUB theme, every GRUB path in another package, and the stale `usr/share/grub/` layout still fail closed.
+
+The preflight reruns the exact 137-candidate normal-update preflight, resolves all 68 added packages in live Slackpkg metadata, downloads only exact missing archives into the normal Slackpkg cache, and inspects each `.txz` without installing or extracting it into the host. It rejects unsafe or duplicate members, device and FIFO entries, escaping links, setuid/setgid modes, kernel/initrd/pkgtools payloads, and unreviewed GRUB files. Package SHA-256 values, complete member inventories, ELF/config/service counts, and every `install/doinst.sh` are preserved inside the evidence; maintainer scripts receive syntax checks only and are never executed.
+
+The accepted real result reports `package_payloads_inspected=true`, `payload_path_review_complete=true`, and `next_stage=current-userspace-maintainer-script-review-preflight`. It inspected 68 archives and captured 37 syntax-valid but unexecuted scripts while retaining `maintainer_scripts_review_complete=false`, `userspace_apply_review_complete=false`, `apply_ready=false`, and `apply_authorized=false`. Outer evidence SHA-256 `763313828522239da29e3fee5fc2582c14aabb8aa7b5c64fe9e0392ebc2c71ac` and nested evidence SHA-256 `818c40e9cf5e776607d110881d876eaf75937292fc4cfd1814a243b0979ece90` were verified in `/home/promano`.
+
+The step-68 repository inventory contains 40 suites and 2,718 checks with zero failures. The userspace payload review harness contributes 65 checks.
+
+### Phase 1 step 69: accepted maintainer-script review
+
+The real Slackware-current run passed all 15 assertions and statically classified all 37 exact `install/doinst.sh` files without executing them. The accepted boundary contains 1,159 immediately paired remove-plus-symlink replacements, two exact `.new` promotions, five exact cache refreshes, and one package-specific non-persistent `TERM` signal to `kscreenlocker_greet`.
+
+Outer archive SHA-256 `62f87bde4c4b1d49ff6c02476ce4a61af6420fa0798cd13ee9b6f83536762062`, nested payload archive SHA-256 `9bb11f5feec1c4b9be9b38d384717da30c05265b83fa852e5e71bf6d28ea4634`, and nested normal-update archive SHA-256 `98a82f0af75db3019e851ddf8026b5c300839b91abbc19c6db770f359857bcb5` were copied and verified in `/home/promano`. Package, kernel, initrd, GenInitrd, DKMS, and GRUB state remained unchanged. The accepted record is `tests/fixtures/reference/acceptance/normal-update/slackware-current-userspace-maintainer-script-review-20260805-accepted.json`.
+
+### Phase 1 step 70: configuration and service payload review
+
+Run only from the unchanged accepted step-69 state:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-userspace-configuration-service-review-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926 \
+    --confirm-target-kernel 6.18.42
+```
+
+The preflight reruns the maintainer-script review without installing packages or executing payload files. Its policy binds the exact 90-path boundary and the SHA-256 plus size of all 19 contributing `.txz` archives: 46 configuration paths containing 21 regular files, and 44 service paths containing 27 regular files.
+
+Configuration classification covers nine XDG autostart desktop entries, three browser native-messaging manifests, two inert shell helpers checked only with `sh -n`, one PAM `.new` file, one XDG menu XML file, one PNG asset, two bounded INI-style files, one OpenSSL `.new` file, and one stunnel sample. Service classification permits only 26 files below `usr/lib/systemd/user/` and one preset below `usr/lib/systemd/user-preset/`. System units, `rc.d` scripts, privileged directives, shell interpreters or control syntax in unit commands, wildcard presets, unknown files, hash drift, package execution, and service control fail closed.
+
+The accepted real result reported 15 passes and zero failures with `configuration_path_count=46`, `configuration_file_count=21`, `service_path_count=44`, `service_file_count=27`, `systemd_user_service_count=26`, `systemd_user_preset_count=1`, `systemd_system_service_count=0`, and `rc_script_count=0`. Outer evidence SHA-256 `b2e6379879297e81bc2da8fa6aa58ccdaf6c904fe3018691ba6d78f463077140` and the nested maintainer, payload, and normal-update SHA-256 values `5aed2e4895cde3611c41d8ba13f83add40c5e3c24db55429cc9a17a07b6b5d2f`, `b0493bec292d964158b7c7c46596ce269db8b05aaf446d47571097609487739f`, and `7290a56c9e45ea27226accfa19b175bfbb414c91bf7f9b7951ed3eb375948a96` were verified in `/home/promano`. The result retains `elf_runtime_review_complete=false`, `userspace_apply_review_complete=false`, `apply_ready=false`, and `apply_authorized=false`.
+
+### Slackware-current ELF runtime review preflight (step 71)
+
+After accepting the step-70 configuration/service evidence, run:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-userspace-elf-runtime-review-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926 \
+    --confirm-target-kernel 6.18.42
+```
+
+The wrapper reruns the entire non-installing configuration/service chain and verifies the nested archive. Its policy binds all 68 exact archive SHA-256 values and sizes, the exact 61 packages that contain ELF data, each package-specific ELF count, and the total of 722 objects. Members are streamed one at a time into an owner-only temporary file and inspected with `readelf`; no object is launched and no `ldd`, loader tracing, or package installation is permitted.
+
+Every object must remain `ELF64`, little-endian, and `Advanced Micro Devices X86-64`. Program interpreters are limited to `/lib64/ld-linux-x86-64.so.2`; runtime search paths must resolve beneath `/lib`, `/lib64`, `/usr/lib`, or `/usr/lib64`. The resolver reads `ldconfig -p` without updating it, excludes host libraries owned by packages that the pending transaction will replace, indexes reviewed transaction `SONAME` and shared-object basename providers, and requires every `DT_NEEDED` edge to resolve. `TEXTREL`, executable stacks, writable-executable load segments, slash-containing dependency names, unsafe runtime paths, unresolved dependencies, package drift, payload execution, service control, and boot changes fail closed.
+
+The accepted real run reported 15 passes and zero failures with `elf=722`, `packages=61`, `dynamic=566`, `executable=156`, `needed=14639`, `unresolved=0`, and `unsafe=0`. Outer evidence SHA-256 `b4803f5ef86d5383bc191f7087795b8ecb757bc1aad8bb3a42f4c021c4a1a562` and nested configuration/service SHA-256 `fa6867beb3a59500c5c52d09a9dddcc0ed93662ded96d68d2d69d94f3e345d63` were verified in `/home/promano`. The result retains `userspace_apply_review_complete=false`, `next_stage=current-userspace-apply-review-preflight`, `apply_ready=false`, and `apply_authorized=false`.
+
+The focused step-71 harness contains 56 checks. The complete step-71 inventory contains 43 suites and 2,906 checks with zero failures.
+
+### Slackware-current userspace apply review diagnostic (step 72)
+
+The first real step-72 run preserved the exact 137-package plan and completed the embedded ELF/runtime review successfully, but the outer result was rejected with 13 passes and one failure. The child ELF review reported 722 objects, 14,639 resolved dependency edges, zero unresolved edges, and zero unsafe objects. The separate normal-update preflight and the static application contract also passed.
+
+The sole failure was nested evidence composition. The parent supplied `--output-dir .../nested/elf-review`, then expected `nested/elf-review.tar.gz` and its sidecar to exist beside that directory. The child correctly populated the explicit output directory and separately published its canonical archive under `/var/tmp/slack-update-acceptance/current-userspace-elf-runtime-review-preflight/`; it does not create an adjacent archive for a caller-supplied output directory. Therefore the parent looked for an archive pair that had never been produced.
+
+The rejected outer archive SHA-256 is `bec1280dde4d51aa8db99698cd4d92df2270e1f318774ea215a8e02269249168`. The child-reported canonical ELF archive SHA-256 is `83a6c3eaf5956413eac97eec23439965486e292b709acbf63727416f1f59fabb`, and the nested normal-update archive SHA-256 is `7faaec43c20170508c3d04effeb90e556eeb19b8aec7da5091bc6a3e1742d538`. The outer archive and sidecar were verified in `/home/promano`. Package, kernel, initrd, GenInitrd, DKMS, and GRUB state remained unchanged; the diagnostic does not complete userspace apply review or permit readiness.
+
+### Corrected Slackware-current userspace apply review preflight (step 73)
+
+Repeat the same non-installing command with the corrected repository:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-userspace-apply-review-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926 \
+    --confirm-target-kernel 6.18.42
+```
+
+The parent now removes any stale adjacent archive pair, creates a fresh owner-only `nested/elf-review.tar.gz` directly from the exact explicit ELF output directory, writes a portable basename-only SHA-256 sidecar, and verifies the pair before accepting the nested boundary. The archive remains inside the final apply-review evidence and therefore preserves the complete child chain without relying on the child's separately published canonical archive.
+
+All other restrictions are unchanged. The wrapper repeats the complete non-installing ELF/runtime review and a separate normal-update preflight, reconstructs the exact disjoint union of 69 baseline plus 68 reviewed additions, and checks one `install-new`, 136 `upgrade-all`, the three-package `6.18.42` kernel transaction, zero critical candidates, the exact Slackpkg contract, deferred post-install handling, GenInitrd policy restoration, exclusive GRUB ownership, 12 transaction steps, and five recovery boundaries. It does not execute normal-update apply, packages, scripts, initrd generation, DKMS, or GRUB changes.
+
+The corrected real run passed all 15 assertions and accepted the exact transaction. Outer archive SHA-256 `bf627728dcf330b1d22b885466c9f538bc28743ace83af30958ae4555c2a5522`, nested ELF archive SHA-256 `32653f141fb895166c8b422b4e80e0e7dd53c157d809f5085b10388e20706b36`, and nested normal-update archive SHA-256 `5ce4fdc0c4870402890683114b1d2ac30e1a3e3a1a671a7b969a0f022655147b` were verified. The result reported `candidates=137`, `baseline=69`, `additions=68`, `install-new=1`, `upgrade-all=136`, `kernel-transaction=3`, `critical=0`, `userspace-apply-review-complete=true`, `next-stage=current-kernel-transaction-readiness-preflight`, `apply-ready=false`, and `apply-authorized=false`. Package, kernel, initrd, GenInitrd, DKMS, and GRUB state remained unchanged.
+
+The focused step-73 harness contains 76 checks. The complete step-73 inventory contains 44 suites and 2,982 checks with zero failures.
+
+### Rebound Slackware-current kernel transaction readiness preflight (step 74)
+
+Run the final non-installing readiness review only against the accepted 137-candidate digest and target kernel:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-kernel-transaction-readiness-preflight.sh \
+    --target slackware-current \
+    --confirm-candidates-sha256 27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926 \
+    --confirm-target-kernel 6.18.42
+```
+
+The rebuilt boundary binds ten accepted records: the original immutable 69-candidate kernel chain, the explicit 137-candidate rebind, and the accepted userspace application review. It then performs a fresh normal-update preflight and requires the exact 137 reviewed candidates, one `install-new`, 136 `upgrade-all`, the unchanged kernel companions, and zero critical candidates. It also verifies exactly 69 cached package archives: all 68 reviewed userspace additions by filename, size, and SHA-256 plus the exact `kernel-generic-6.18.42` archive.
+
+Live readiness checks still require the exact running generic kernel, named and versioned initrd layout, GenInitrd scalar policy, generator and setup hashes, empty DKMS state, active GRUB digest, same-menuentry kernel/initrd pairing, and exclusive Slack-Update GRUB ownership. The wrapper refreshes metadata and probes candidates only; it does not install packages, execute maintainer scripts, generate initrds, build DKMS modules, or change GRUB.
+
+A clean run is expected to report 10 passes, zero failures, `packages=137`, `reviewed-cache=69`, `readiness=apply-ready`, `pause-safe=false`, `apply-ready=true`, `apply-authorized=false`, and `next-stage=normal-update-apply-authorization-review`. **This is not yet a safe pause point.** Slackware-current metadata must be revalidated again at the actual application boundary, so a repository publication after readiness can still invalidate the reviewed transaction. Continue directly to the separate authorization and apply sequence; pause only when a later accepted stage explicitly reports `pause_safe=true`.
+
+The focused step-74 harness contains 92 checks. The complete prepared step-74 inventory contains 44 suites and 3,003 checks with zero failures. Static validation covers 70 shell scripts and 71 JSON files.
+
+### Phase 1 step 74: accepted rebound transaction readiness
+
+The real Slackware-current run passed all 10 assertions and again refreshed package metadata before comparing the exact 137 candidates. It reported running kernel `6.18.40`, target `6.18.42`, 69 reviewed cached package archives, `readiness=apply-ready`, `apply_ready=true`, `pause_safe=false`, and `apply_authorized=false`. No package, initrd, GenInitrd, DKMS, or GRUB action ran.
+
+The verified outer archive SHA-256 is `d49af0c2f95f6ceaaa6f4073a5567b914f53ee9605724f78fea4a30afc463783`; the nested normal-update archive SHA-256 is `be24bafd8d1340ee781a6994835e64298413076e5a1ff9821a8cee3de6a54631`. The outer archive and sidecar were copied and verified directly in `/home/promano`. This boundary is accepted but is not a safe pause, because the package transaction is still pending.
+
+### Phase 1 steps 75-78: corrected explicitly authorized Slackware-current application
+
+This is the first command in the current chain that performs real package changes:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-normal-update-authorized-apply.sh \
+    --target slackware-current \
+    --execute-authorized-apply \
+    --confirm-hostname pcold-slack \
+    --confirm-hostname-fqdn pcold-slack.pcold-slack.org \
+    --confirm-candidates-sha256 27eb06d282b4279f90f422235363c36897ff45f334607c00287384b848a8d926 \
+    --confirm-target-kernel 6.18.42 \
+    --confirm-readiness-sha256 d49af0c2f95f6ceaaa6f4073a5567b914f53ee9605724f78fea4a30afc463783 \
+    --confirm-authorization-sha256 1b628fe45502b4be887cfd7fa3e79879bf9222db527eb8099a1c9088d8dce0aa
+```
+
+The rejected step-75 run stopped before package execution because `hostname` returned the FQDN `pcold-slack.pcold-slack.org` while the command confirmed the short name `pcold-slack`; the same comparison was duplicated inside boot-state validation. Archive SHA-256 `909b7866a06c1f5d0cd53193af5b8e9c6f4d6ac4145f12491bc0265c9ca849b2` was verified in `/home/promano`, and package plus boot-sensitive snapshots remained identical. The corrected step-76 wrapper validated `hostname -s` and `hostname -f` independently and started the nested normal-update workflow, which refreshed and revalidated all 137 candidates. The reference engine then aborted before package execution because the direct-generic boot probe referenced an uninitialized `BOOT_CMDLINE_FILE`. Outer SHA-256 `6733b71f8ca3cd33c01b06268f8e2b0e6a2ece21593e53f1e5bf96ca04cefa0d` and nested apply SHA-256 `075d9af8fec50aaeb8312d88f95a4b0ee827b827d8cded173920b6dda01ed54e` were verified; package and boot-sensitive snapshots remained identical and `pause_safe=false`.
+
+The step-77 boundary initialized `/proc/cmdline` and again refreshed the exact 137 candidates, but the unchanged engine then stopped before package execution with `GENERIC_KERNEL_LINK: unbound variable`. Outer SHA-256 `1aa2a16df16604603eabf91aa1100a52f3b4143689444a70c4465b9bb666317e` and nested apply SHA-256 `144f1826f68ea979d9ca70ad7f0e758df97057ffdac5e85b6cf55a1ea44760cd` were verified. Package inventories and sensitive-state snapshots remained identical, so this is an immutable pre-transaction failure rather than a partial update.
+
+The step-78 normal-update boundary injects all three live inputs required by the direct-generic probe: `BOOT_CMDLINE_FILE=/proc/cmdline`, `GENERIC_KERNEL_LINK=/boot/vmlinuz-generic`, and `RUNNING_KERNEL` from `uname -r`. The reference engine remains byte-identical. Empty or malformed child JSON now fails quietly without a Python traceback. If the child exits nonzero and package snapshots remain identical, the parent records `failed-before-package-transaction`, skips inapplicable post-apply artifact assertions, and routes to a corrected retry; any package drift remains a partial transaction requiring manual recovery. The authorization scope includes the exact reference-engine, normal-update acceptance, and authorized-wrapper SHA-256 values, so every code correction requires a new explicit authorization digest. The child still refreshes Slackpkg metadata and reconstructs the candidate set immediately before package installation; candidate drift blocks before the engine is called.
+
+The reviewed transaction authorizes kernel packages but does not authorize critical packages. Slackpkg post-install interaction remains disabled and `.new` files remain evidence only. A successful result must use stable exit code 5, report a complete non-partial boot-safe apply, restore `/etc/default/geninitrd` byte-for-byte, install `/boot/vmlinuz-6.18.42`, `/lib/modules/6.18.42`, and `/boot/initrd-6.18.42.img`, retarget the generic kernel and initrd links, atomically replace GRUB with a configuration containing the target kernel/initrd pair, and preserve the 6.18.40 kernel, initrd, and modules as rollback artifacts.
+
+Only that complete state reports `transaction_status=applied-and-boot-prepared`, `apply_authorized=true`, `pause_safe=true`, and `next_stage=current-kernel-post-apply-verification`. Once accepted, later Slackware-current publications no longer invalidate this completed transaction. A changed repository before application or any partial/failed apply retains `pause_safe=false` and routes to candidate refresh or manual recovery rather than claiming a safe pause.
+
+The corrected step-78 authorized-apply and normal-update harnesses contain 99 and 118 checks; the direct-generic harness remains at 56. The complete step-78 inventory contains 45 suites and 3,114 checks with zero failures. Static validation covers 72 shell scripts and 76 JSON files.
+
+### Slackware-current completed package transaction and safe-pause recovery verification (step 79)
+
+The real step-78 run did execute the reviewed package transaction. Slackpkg completed `install-new` and `upgrade-all` with status zero, changed the installed database from 2,039 to 2,040 records, installed the exact `kernel-generic`, `kernel-headers`, and `kernel-source` 6.18.42 records, and left 27 `.new` files for later review. The official kernel package hook generated `/boot/initrd-6.18.42.img`, retargeted `/boot/vmlinuz-generic` and `/boot/initrd-generic.img`, and removed the old versioned 6.18.40 kernel image and initrd. The reference engine then returned stable code 3 because its pre-transaction `auto` boot classification required the generic kernel link to continue selecting the still-running 6.18.40 release. It therefore blocked its own GRUB regeneration after packages had already completed.
+
+The rejected outer archive SHA-256 is `176e23caa8d20166fe0a0011f7f953308cd64d0374a2f9d45926e4260596b37c`; the nested normal-update apply archive SHA-256 is `c98174b96bb15513637c3c5c10c331d424b7f82109eb7732a832a8ce076a40d9`. The package transaction is complete, not merely partial. The target kernel and initrd have exact SHA-256 values `bdbd0e5187e1252f1ef9bb9ac771430be5f2367fb9e8a5f42e1b172efb1cb3d4` and `21ab641ca5b04e831b7cb776bd8ecee00f96e0b53d21d8fe3b5033dbacd9febc`. The active GRUB configuration retained its accepted SHA-256 `5fdff76d42ddec26b0c212668c4981a9ea2853a98b3260f33850c91ccf8ac247`; that same accepted configuration already contains one menuentry pairing `/boot/vmlinuz-generic` with `/boot/initrd-generic.img`. Since both links now resolve to the reviewed 6.18.42 artifacts, GRUB regeneration is not required to prove the installed boot pair.
+
+Run the non-mutating post-package verification:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-post-package-boot-recovery-verification.sh \
+    --target slackware-current \
+    --confirm-hostname pcold-slack \
+    --confirm-hostname-fqdn pcold-slack.pcold-slack.org \
+    --confirm-post-apply-evidence-sha256 176e23caa8d20166fe0a0011f7f953308cd64d0374a2f9d45926e4260596b37c \
+    --confirm-target-kernel 6.18.42
+```
+
+This stage does not refresh Slackpkg metadata, install packages, execute maintainer scripts, generate an initrd, or modify GRUB. It requires the exact 2,040-record installed package snapshot; exact target package records; exact target kernel, initrd, module tree, generic links, GenInitrd controls, and active GRUB digest; a syntax-valid same-menuentry generic pair; and unchanged before/after package and boot-sensitive snapshots. It also records the rollback truth explicitly: the running session remains on 6.18.40 and its module tree remains present, but `/boot/vmlinuz-6.18.40` and `/boot/initrd-6.18.40.img` are absent.
+
+The real step-79 run passed all 13 assertions and was accepted in `tests/fixtures/reference/acceptance/normal-update/slackware-current-post-package-boot-recovery-20260805-accepted.json`. Archive SHA-256 `b2e3ee1d4bcdc243afbde0160d7d7f50e985e365f9580551fea6def4d6ae1f96` was copied to `/home/promano` and verified. It records `package_transaction_completed=true`, `target_boot_pair_verified=true`, `active_grub_mutated=false`, `rollback_state=degraded-running-session-and-modules-only`, `pause_safe=true`, `reboot_ready=true`, `reboot_authorized=false`, and `next_stage=current-kernel-post-apply-reboot-review`. This is a genuinely safe pause against later Slackware-current publications because the reviewed transaction is already installed and locally sealed. Do not reboot until a separate reboot-review boundary is prepared and accepted.
+
+The focused step-79 harness contains 46 checks. The complete step-80 safe-pause checkpoint retains 46 suites and 3,160 checks with zero failures; static validation covers 74 shell scripts and 79 JSON files. No executable code changed in step 80.
+
+### Slackware-current exact reboot review before the first 6.18.42 boot (step 81)
+
+The accepted step-79 state remains the authoritative local checkpoint: the package transaction is complete, `pause_safe=true`, the running session is still 6.18.40, the exact target boot pair is 6.18.42, and the rollback is degraded because the old disk kernel and initrd are absent. No repository refresh or repetition of the candidate, payload, readiness, or apply chain is permitted or required.
+
+Run the separate read-only reboot review:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-kernel-post-apply-reboot-review.sh \
+    --target slackware-current \
+    --authorize-reboot-review \
+    --acknowledge-degraded-rollback \
+    --confirm-hostname pcold-slack \
+    --confirm-hostname-fqdn pcold-slack.pcold-slack.org \
+    --confirm-running-kernel 6.18.40 \
+    --confirm-safe-pause-evidence-sha256 b2e3ee1d4bcdc243afbde0160d7d7f50e985e365f9580551fea6def4d6ae1f96 \
+    --confirm-target-kernel 6.18.42 \
+    --confirm-authorization-sha256 01739dc15e197ce7a4d15e749ca2e0b844de3900e39be83413ad7e5ecdc2307c
+```
+
+This test binds the accepted archive and checkpoint to the exact review code and authorization scope. It rechecks the 2,040 package records, target kernel, initrd, modules, generic links, GenInitrd controls, current generic `BOOT_IMAGE`, active GRUB digest and syntax, and unchanged before/after state. It also reads GRUB's environment without changing it, rejects a one-time `next_entry`, resolves literal, saved, generated-ID, and submenu defaults, and proves that the effective next entry uses `/boot/vmlinuz-generic` with `/boot/initrd-generic.img`.
+
+The command never reboots. A successful real result must show 13 passes, `pause_safe=true`, `reboot_ready=true`, `reboot_authorized=true`, `reboot_executed=false`, and `next_stage=manual-reboot-to-reviewed-target`. Copy and verify its evidence in `/home/promano` and review the result before performing the separate manual reboot. After the machine starts, a second acceptance test will verify `uname -r`, `/proc/cmdline`, loaded modules, target boot artifacts, GRUB, and the installed package database before the update is closed.
+
+The focused step-81 harness contains 68 checks. The complete prepared step-81 inventory contains 47 suites and 3,228 checks with zero failures; static validation covers 76 shell scripts and 80 JSON files.
+
+### Accepted manual-reboot checkpoint (step 82)
+
+The real step-81 reboot review passed all 13 assertions with zero failures. Archive SHA-256 `e41138a31225a795c65ddf76fa75fde19072f5892c9719af32d06b564027937b` was copied directly to `/home/promano` and verified there. The immutable accepted record is `tests/fixtures/reference/acceptance/normal-update/slackware-current-kernel-post-apply-reboot-review-20260805-accepted.json`.
+
+The accepted evidence confirms the exact 2,040-record installed package database, unchanged 6.18.42 kernel/initrd/modules and generic links, unchanged GenInitrd controls, `BOOT_IMAGE=/boot/vmlinuz-generic`, unchanged syntax-valid GRUB, no one-time `next_entry`, and effective selector `0` resolving to `Slackware-15.0+, with Linux generic` using `/boot/vmlinuz-generic` with `/boot/initrd-generic.img`. It records `pause_safe=true`, `reboot_ready=true`, `reboot_authorized=true`, `reboot_executed=false`, and `next_stage=manual-reboot-to-reviewed-target`.
+
+Exactly one manual reboot toward 6.18.42 is now authorized. Do not refresh Slackpkg metadata and do not repeat the candidate, payload, readiness, apply, recovery, or reboot-review chain. After the machine starts, run the separate `current-kernel-post-reboot-verification` acceptance boundary before treating the update as closed. The rollback remains degraded: the 6.18.40 running session and module tree exist before reboot, but its disk kernel and initrd do not.
+
+Step 82 adds no executable code and no new machine-side test. The complete inventory remains 47 suites and 3,228 checks with zero failures; static validation covers 76 shell scripts and 81 JSON files.
+
+### Rejected first-boot verification diagnostic (step 83)
+
+The first real post-reboot run used verification scope `10f68c6a5e7604b06a2e7a0701dc170a6c19e800c14157bbbcb4e9d35c5ff1f1` and archive SHA-256 `bc5d8bd480f5c74cf6ab9a7ac5729b7f90925dcafb69f24daa1d228209ce8263`. It passed 12 assertions and failed two closure assertions.
+
+The evidence proves the machine successfully booted the reviewed target: `uname -r` and `/proc/sys/kernel/osrelease` are 6.18.42, the architecture is `x86_64`, `BOOT_IMAGE=/boot/vmlinuz-generic`, the root UUID is `ba7632d7-7469-483e-830d-59c88d985866`, the boot ID is valid, the exact 2,040-record package transaction remains installed, and the target kernel, initrd, modules, generic links, GenInitrd controls, and rollback classification are correct. Package and reboot-sensitive snapshots remained identical during the verifier.
+
+The failure was a verifier false negative, not GRUB drift. The active `grub.cfg` retained accepted SHA-256 `5fdff76d42ddec26b0c212668c4981a9ea2853a98b3260f33850c91ccf8ac247`, and the on-disk `grubenv` retained SHA-256 `f64122858064885ef0733e42c6a3d2d3fd642671f714db0d974b880c0f087430`. The step-83 parser incorrectly required exactly one top-level `set default` assignment and therefore rejected the canonical GRUB header containing an inactive `set default="${next_entry}"` branch and active `set default="0"` fallback. The immutable diagnostic record is `tests/fixtures/reference/acceptance/normal-update/slackware-current-kernel-post-reboot-verification-20260805-diagnostic.json`.
+
+No manual recovery, metadata refresh, package work, GRUB regeneration, or additional reboot is required.
+
+### Corrected first-boot verification and update closure (step 84)
+
+Run only the corrected read-only post-reboot boundary:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-kernel-post-reboot-verification.sh \
+    --target slackware-current \
+    --confirm-hostname pcold-slack \
+    --confirm-hostname-fqdn pcold-slack.pcold-slack.org \
+    --confirm-reboot-review-evidence-sha256 e41138a31225a795c65ddf76fa75fde19072f5892c9719af32d06b564027937b \
+    --confirm-target-kernel 6.18.42 \
+    --confirm-verification-sha256 06f6a7a43bd8f51ddb72452964fd7b55cab6fafb69c0fb4e56c0369ce9cb8416
+```
+
+The corrected verifier retains all step-83 safety requirements and exact installed-state bindings. Its GRUB resolver now tracks active top-level conditional branches: with an empty `next_entry`, the canonical one-time-boot branch is inactive and the literal fallback `default=0` is the only effective selector. Unknown or ambiguous conditions containing a default assignment still fail closed, and any nonempty `next_entry` remains forbidden.
+
+The command does not call Slackpkg, install or remove packages, generate an initrd, regenerate GRUB, edit `grubenv`, or reboot. It captures package and reboot-sensitive state before and after its checks and requires both snapshots to remain identical.
+
+A successful real run must report 14 passes, zero failures, `running_kernel=6.18.42`, `rollback_state=degraded-modules-only`, `pause_safe=true`, `reboot_verified=true`, `update_closed=true`, and `next_stage=optional-rollback-reconstruction-review`. This closes the mandatory 6.18.42 update chain. Reconstructing a complete rollback kernel and initrd remains optional and requires a separate reviewed boundary.
+
+The focused step-84 harness contains 83 checks. The complete prepared step-84 inventory contains 48 suites and 3,311 checks with zero failures; static validation covers 78 shell scripts and 83 JSON files.
+
+### Accepted Slackware-current post-reboot closure checkpoint (step 85)
+
+The corrected real verification passed all 14 assertions with zero failures. Its archive SHA-256 `5d6fe97ddd81d1c99d0dd807127d6e98b8479d8e719d6c6ffb346fe167c915eb` was copied directly to `/home/promano` and verified there. The immutable accepted record is `tests/fixtures/reference/acceptance/normal-update/slackware-current-kernel-post-reboot-verification-20260805-accepted.json`, with SHA-256 `2735cb3f3a30270432984661dfcdcd5a3e3787190c34867a01651ffcfaaa678a`.
+
+The record proves the active kernel and osrelease are 6.18.42, `BOOT_IMAGE=/boot/vmlinuz-generic`, the reviewed root UUID and nonzero boot ID are valid, the exact 2,040 package records remain installed, the target kernel/initrd/module tree and generic links are correct, GenInitrd controls retain their accepted identities, and the unchanged GRUB configuration selects the reviewed generic kernel/initrd pair with selector `0` and no `next_entry`. Package and sensitive snapshots are byte-identical before and after verification, so the host was not mutated.
+
+The accepted boundary records `pause_safe=true`, `reboot_verified=true`, `update_closed=true`, `mandatory_work_remaining=false`, `rollback_state=degraded-modules-only`, and `next_stage=optional-rollback-reconstruction-review`. No further mandatory test, metadata refresh, package operation, GRUB regeneration, or reboot belongs to this update chain. Later Slackware-current publications do not invalidate this closure or require the completed chain to be repeated. A future normal update starts a new chain.
+
+Rollback reconstruction for 6.18.40 is optional and separate because only its module tree remains. The machine may remain at this safe checkpoint indefinitely before that optional work is considered.
+
+Step 85 adds no executable code or new suite. The complete inventory remains 48 suites and 3,311 checks with zero failures; static validation covers 78 shell scripts and 84 JSON files.
+
+### Accepted signed rollback source and reconstruction plan (step 87)
+
+The real revision-6 preflight passed all 61 assertions with zero failures and zero skips. Archive SHA-256 `ce45977bbcacb237163d821a43d5a79f5246bfca54bc3fb4ca6edfc30243fbfb` was copied to `/home/promano` with its sidecar and verified. The immutable accepted record is `tests/fixtures/reference/acceptance/normal-update/slackware-current-rollback-source-and-plan-preflight-20260806-accepted.json`, SHA-256 `95e24090154ac0d4a1d714100ac19ddbb6d2740961f675439a571334f318c597`.
+
+The accepted boundary proves that the exact signed `kernel-generic-6.18.40-x86_64-1.txz` supplies `/boot/vmlinuz-6.18.40` and the complete 6.18.40 module tree, that the detached Slackware signature and primary fingerprint are valid, that the conservative 1,195,382,528-byte aggregate budget is available, and that the reviewed initrd command targets only `/boot/initrd-6.18.40.img`. The explicit rollback GRUB entry preserves the active source order:
+
+```text
+initrd /boot/intel-ucode.img /boot/amd-ucode.img /boot/initrd-6.18.40.img
+```
+
+The active 6.18.42 kernel, initrd, generic links, package database, GenInitrd controls, GRUB configuration, and metadata-only 6.18.40 placeholder were identical before and after the preflight. The accepted result is `apply_ready=true`, `apply_authorized=false`, and `next_stage=current-rollback-reconstruction-authorized-apply-review`.
+
+### Rollback reconstruction authorized-apply review (step 88)
+
+Run the separate non-mutating authorization review only while the exact package and signature remain under `/home/promano/slack-update-source-6.18.40`:
+
+```bash
+sudo bash tests/acceptance/reference/test-current-rollback-reconstruction-authorized-apply-review.sh \
+    --target slackware-current \
+    --confirm-hostname pcold-slack \
+    --confirm-hostname-fqdn pcold-slack.pcold-slack.org \
+    --confirm-source-plan-evidence-sha256 ce45977bbcacb237163d821a43d5a79f5246bfca54bc3fb4ca6edfc30243fbfb \
+    --confirm-active-kernel 6.18.42 \
+    --confirm-rollback-kernel 6.18.40 \
+    --confirm-authorization-review-sha256 03751103875a56b092e92bd4f915016320e5663000598a7c0fe3c5023aad2b50 \
+    --source-package /home/promano/slack-update-source-6.18.40/kernel-generic-6.18.40-x86_64-1.txz \
+    --source-signature /home/promano/slack-update-source-6.18.40/kernel-generic-6.18.40-x86_64-1.txz.asc
+```
+
+Step 88 binds the accepted step-87 archive and code, rechecks both retained source hashes, reruns revision 6 as nested fresh evidence, validates the exact payload, module manifest, `mkinitrd` vector, microcode order, GRUB fragment, default-selection limit, backup paths, twelve-action sequence, and recovery limits, then proves the package database and rollback-sensitive state are unchanged. Only then does it write `apply-authorization.json` with `apply_ready=true`, `apply_authorized=true`, `apply_executed=false`, and `next_stage=current-rollback-reconstruction-authorized-apply`.
+
+This authorization does not execute the reconstruction. Repository refresh, package installation or registration, extraction into the installed system, `depmod`, `mkinitrd`, GRUB replacement, `grubenv` changes, generic-link changes, and reboot remain forbidden. The authorization is usable only by a later executor that independently reproduces the authorized canonical apply contract, which must independently revalidate every live boundary and source hash before its first mutation.
+
+Step-88 script SHA-256 is `db031cf1185da410efdac5229a34e823ce90d32d29b0c258e08e89488b5c0725`; policy SHA-256 is `9c315dd0d7da4196d1ab2c69353ff7a42abe66742a7a73ba8c236e365a501e4b`; confirmation scope SHA-256 is `03751103875a56b092e92bd4f915016320e5663000598a7c0fe3c5023aad2b50`; canonical apply-contract SHA-256 is `1a2a59d73a72cb609bc1622e5882adddfc1a6f117d6602e0ba3abe238badd923`. The focused harness contains 46 checks. The complete inventory contains 51 suites and 3,529 checks with zero failures; static validation covers 84 shell scripts and 96 JSON files.
+
+
+### Phase 1 step 89: authorized rollback reconstruction and verified safe poweroff
+
+Step 89 is the only mutating command in the optional 6.18.40 rollback-reconstruction block. It binds the accepted step-88 authorization archive, canonical apply contract, exact local package and detached signature, host identity, active 6.18.42 boundary, and its own code hash. Before mutation it reruns step 88 into nested evidence; Slackware-current metadata is never refreshed and the historical package is never installed or registered.
+
+The transaction creates owner-only staging and backup roots, preserves the existing depmod-only placeholder, active GRUB configuration, and `/boot/initrd-tree`, extracts only the reviewed versioned kernel and module tree, verifies the complete 5,504-file manifest, runs `depmod -a 6.18.40`, executes the reviewed versioned `mkinitrd` vector, installs one explicit rollback fragment, generates and syntax-checks a temporary GRUB configuration, proves that 6.18.42 remains the first generic entry, and replaces `grub.cfg` atomically. Generic kernel and initrd links, package records, GRUB default, repository metadata, and the running kernel remain unchanged.
+
+A clean result reports `apply_executed=true`, `apply_committed=true`, `rollback_complete_on_disk=true`, `pause_safe=true`, `reboot_required=false`, and `next_stage=current-rollback-reconstruction-boot-test-optional`. This completes block 1 in one machine execution and permits a normal poweroff after the evidence pair is copied and verified. The later boot test remains optional.
+
+If a failure occurs after mutation starts, the wrapper restores the captured GRUB configuration, removes newly created rollback boot artifacts, restores the original module placeholder and `/boot/initrd-tree`, and compares the full sensitive and package snapshots. A failed run permits poweroff only when it explicitly reports `pause_safe=true`; otherwise the machine must remain on for manual recovery review.
+
+Script SHA-256 is `d98fa9546cc2be38a27436a279f740bd4d7427163287cc774bd77496acde0644`, policy SHA-256 is `960599ca8763b8e67d65f770b4957eb25b36e5666f455836d045e3488acbb839`, accepted step-88 record SHA-256 is `5f65bc36c7f00a4a7baa601ecd0f4732452cff4132ddfb8dde2b8fc5532978a4`, confirmation scope SHA-256 is `df59fe7d67ce54859da0db6c07f055d67ae6ce212498d3a28926432ec0610af9`, and focused-harness SHA-256 is `8313e892a2659181400ec1cadc6f11aa6a87bcb2bea8d9580f8e59aca09ed6db`. The focused harness contains 70 checks. The complete inventory contains 52 suites and 3,599 checks with zero failures; static validation covers 86 shell scripts and 98 JSON files.
+
+### Phase 1 step 90: rollback boot authorization review
+
+After the accepted step-89 reconstruction, run this review before attempting the optional real boot of 6.18.40. The review is non-mutating and does not refresh Slackware-current metadata, modify packages or GRUB, edit grubenv, or reboot. It requires the exact step-89 package snapshot and boot artifacts, verifies that the 6.18.40 rollback entry is unique and complete, proves 6.18.42 remains the first/default path, and rejects any pending `next_entry` or saved rollback selection.
+
+```bash
+sudo bash tests/acceptance/reference/test-current-rollback-boot-authorization-review.sh \
+    --target slackware-current \
+    --confirm-hostname pcold-slack \
+    --confirm-hostname-fqdn pcold-slack.pcold-slack.org \
+    --confirm-apply-evidence-sha256 dc19821f783ad334a49073eaf7596fdbf48471bd8e20fb87753266b9159f475d \
+    --confirm-active-kernel 6.18.42 \
+    --confirm-rollback-kernel 6.18.40 \
+    --confirm-boot-review-sha256 5a3ea1d21c691d16259f2e7409e5c684391f1a0ead1a4eafe105e7291a7f96e7
+```
+
+A clean result reports `boot_authorized=true`, `boot_executed=false`, `manual_selection_required=true`, and `next_stage=current-rollback-boot-test-manual-reboot`. Copy and verify the evidence pair before rebooting. Then reboot manually and select exactly `Slackware GNU/Linux (rollback 6.18.40)` / `slackware-rollback-6.18.40`; do not edit GRUB, set a one-time grubenv entry, or refresh Slackware-current metadata first.
+
+
+
+### Phase 1 step 91: rollback boot verification and normal-return review
+
+Run step 91 only after step 90 was accepted and the machine was manually booted by selecting `Slackware GNU/Linux (rollback 6.18.40)` once. The review is read-only. It requires the running kernel and kernel osrelease to be `6.18.40`, validates the reviewed root source and UUID, records `/proc/cmdline`, rejects a conflicting `BOOT_IMAGE`, checks the exact rollback kernel and gzip-valid initrd, rebuilds the accepted 5,490-object module manifest, verifies module `vermagic`, and proves the persistent GRUB default still points to the active 6.18.42 generic kernel/initrd pair.
+
+```bash
+sudo bash tests/acceptance/reference/test-current-rollback-boot-verification-and-return-review.sh \
+    --target slackware-current \
+    --confirm-hostname pcold-slack \
+    --confirm-hostname-fqdn pcold-slack.pcold-slack.org \
+    --confirm-boot-authorization-evidence-sha256 f78f4a249c1fa44b1e6d171f1f283cd6679dd90623a34686fcf225d1cc1681fa \
+    --confirm-active-kernel 6.18.42 \
+    --confirm-rollback-kernel 6.18.40 \
+    --confirm-return-review-sha256 247fefc960f7dc333ffe64328baaaff04e03fbe42ca17f144145ed862472684a
+```
+
+A clean result reports `rollback_boot_verified=true`, `return_authorized=true`, `return_executed=false`, `manual_selection_required=false`, and `next_stage=current-rollback-return-manual-reboot`. Copy and verify the evidence pair first. Then reboot normally without editing GRUB and without manually selecting the rollback entry; the unchanged first/default path is expected to return to 6.18.42. Do not refresh Slackware-current metadata before the final return verification.
+
+Step 91 never invokes Slackpkg, `grub-mkconfig`, package mutation, grubenv setters, reboot, shutdown, or poweroff. The package database and boot-sensitive snapshots must be byte-identical before and after the review.
+
+### Phase 1 step 92: rollback normal-return verification and closure
+
+Run step 92 only after step 91 was accepted and the machine was rebooted normally without manually selecting the rollback entry. The host must report `uname -r` as `6.18.42`. This boundary is read-only and independent of later Slackware-current publications: it does not invoke Slackpkg, refresh repository metadata, mutate packages, modify GRUB or grubenv, or reboot.
+
+```bash
+sudo bash tests/acceptance/reference/test-current-rollback-return-verification-closure.sh \
+    --target slackware-current \
+    --confirm-hostname pcold-slack \
+    --confirm-hostname-fqdn pcold-slack.pcold-slack.org \
+    --confirm-return-review-evidence-sha256 c4a8e207ad3af7ef118c2371f3cec0694c1e5fca50599d4b5a2e89daa2b77d7f \
+    --confirm-active-kernel 6.18.42 \
+    --confirm-rollback-kernel 6.18.40 \
+    --confirm-closure-sha256 083e44cb173729870b9f825da8363b4576ea501767c126a5384f4438863de8de
+```
+
+A clean result requires the normal generic GRUB path to have returned to 6.18.42, retains the tested 6.18.40 kernel/initrd/module tree and explicit rollback entry, proves the package and boot-sensitive state are unchanged during verification, and reports `normal_return_verified=true`, `rollback_retained=true`, `rollback_boot_demonstration_closed=true`, `pause_safe=true`, `current_work_remaining=false`, and `next_stage=slackware-15.0-elilo-preflight-repeat-review`. The accepted step-91 record SHA-256 is `ba33afa568a550ef16659861d25dc41769d2bec6ae76ad8d47658a12f35e64a0`; script SHA-256 is `a3663e1a254a7bcc24b427681ec581e96b325f40314fb713eccfd9040731f2eb`, policy SHA-256 is `06fcc1c72b9405db7edd64f1590ad7a9f1c9edeff07ab3c08a100f0ee16a5a10`, confirmation scope SHA-256 is `083e44cb173729870b9f825da8363b4576ea501767c126a5384f4438863de8de`, and focused harness SHA-256 is `c2b797f5fffb075298e3c9a7305d05c3839236556df5c63a49d78c6ce5c166e3`.
+
+
+
+### Slackware 15.0 ELILO mature cleanup source-and-plan preflight
+
+The 2026-08-11 mature retention rerun is accepted with archive SHA-256
+`dacf3bf5ecbe1464b9aacd42457f47dcf91d8e79eed61a29bed40173e89c81af`.
+It runs kernel `5.15.209`, retains rollback `5.15.19`, satisfies the seven-day
+retention and later-boot gates, preserves exactly three active plus three
+rollback boot-kernel package records, and still records
+`cleanup_authorized=false`.
+
+Step 93 verifies the inputs required before any cleanup authorization. It never
+runs `slackpkg update` or `slackpkg download`: the exact active
+`kernel-generic`, `kernel-huge`, and `kernel-modules` `5.15.209-x86_64-1`
+archives must already exist as unique regular files below `/var/cache/packages`.
+The preflight authenticates the existing Slackpkg `CHECKSUMS.md5` metadata using
+its detached signature and the reviewed Slackware signing key, checks each
+archive against that authenticated metadata, inspects the package members, and
+computes a SHA-256 for each exact archive.
+
+Run:
+
+```bash
+sudo bash tests/acceptance/reference/test-elilo-oldkernel-cleanup-source-and-plan-preflight.sh \
+    --target slackware-15.0 \
+    --confirm-hostname-fqdn vbox-slack15.vbox-slack15.org \
+    --confirm-retention-evidence-sha256 dacf3bf5ecbe1464b9aacd42457f47dcf91d8e79eed61a29bed40173e89c81af \
+    --confirm-active-kernel 5.15.209 \
+    --confirm-rollback-kernel 5.15.19 \
+    --confirm-cleanup-plan-review-sha256 8dec059faaf5af26d59311e0efe80e2a1c7ffd4b4ffe2f8e362ad0228514b3c8
+```
+
+A clean result emits `source_ready=true`, `plan_ready=true`, and
+`cleanup_ready=true`, but must retain `cleanup_authorized=false` and
+`apply_authorized=false`. The real-system inventory is passed through the
+canonical cleanup planner and then through the existing dry-run executor under a
+dry-run-only authorization. Exactly fourteen proposed actions are rendered as
+data; no command or mutation is executed. Missing cache archives, unauthenticated
+checksum metadata, kernel drift, package-record drift, or ELILO artifact drift
+fail closed. A successful result routes only to the separate
+`elilo-oldkernel-cleanup-authorization-review`.
+
+
+### ELILO cleanup revision-1 final-contract diagnostic
+
+The second destructive cleanup attempt (step 98) was also recovered exactly and is not authorization for another retry. Its evidence SHA-256 is `e44fd3dbb0f0ba9ca2e2d131c36c6b8389b234855028b7581baf2994ece6f3bd`. Offline comparison proves that the attempted final package set was exact, every stable active-module file and every `.ko*` object remained byte-identical, and only the six reviewed generated depmod indexes changed.
+
+Before any third attempt, run the non-mutating final-contract diagnostic:
+
+```bash
+sudo bash tests/acceptance/reference/test-elilo-oldkernel-cleanup-final-contract-diagnostic.sh \
+    --target slackware-15.0 \
+    --confirm-hostname-fqdn vbox-slack15.vbox-slack15.org \
+    --confirm-failed-revision-evidence-sha256 e44fd3dbb0f0ba9ca2e2d131c36c6b8389b234855028b7581baf2994ece6f3bd \
+    --confirm-active-kernel 5.15.209 \
+    --confirm-rollback-kernel 5.15.19 \
+    --confirm-final-diagnostic-sha256 31a091a8a82bba78e67b2dcf121d0e580932e700bca0b1c61007fefdd2420c2e
+```
+
+The diagnostic revalidates the exact recovered state and retained private recovery archive, then executes only `/sbin/depmod -n 5.15.209`. It records the exit status plus stdout/stderr hashes and verifies package, boot, and module manifests are unchanged by the probe. It always keeps `third_attempt_authorized=false`, `cleanup_authorized=false`, `apply_authorized=false`, and `apply_executed=false`. A non-zero depmod exit routes to `elilo-oldkernel-cleanup-depmod-validation-revision-review`; a zero exit routes to `elilo-oldkernel-cleanup-final-predicate-instrumentation-review`.
+
+### ELILO cleanup final-predicate instrumentation review
+
+After the accepted step-99 diagnostic returned `depmod_dry_run_rc=0`, step 100 remains strictly read-only. It binds the recovered revision-1 failure and the accepted step-99 archive, revalidates the exact recovered live state and private recovery backup, then decomposes the previously aggregated `capture_final && verify_final` boundary. In addition, it compares every regular file below `/lib/modules/5.15.19` with the `FILE LIST:` ownership union of the exact three rollback package records. Any package-unowned `.ko*` object is recorded as a projected survivor of `removepkg` and confirms the `rollback-module-object-survivors` root-cause class. No third cleanup attempt is authorized.
+
+Run:
+
+```bash
+sudo bash tests/acceptance/reference/test-elilo-oldkernel-cleanup-final-predicate-instrumentation-review.sh \
+    --target slackware-15.0 \
+    --confirm-hostname-fqdn vbox-slack15.vbox-slack15.org \
+    --confirm-final-diagnostic-evidence-sha256 a967cec7cf1b81f1abcf8d8df5bc02973c8990a6103440b3e6dceecc795eb44d \
+    --confirm-active-kernel 5.15.209 \
+    --confirm-rollback-kernel 5.15.19 \
+    --confirm-instrumentation-review-sha256 a6b1e736b8984fa4b119ae5ea7fdfec7e6e9e3f87c6e043395c0c2c765edfc41
+```
+
+A clean diagnostic always keeps `third_attempt_authorized=false`, `cleanup_authorized=false`, `apply_authorized=false`, and `apply_executed=false`. If package-unowned rollback module objects are found, `root_cause_confirmed=true` routes to `elilo-oldkernel-cleanup-rollback-module-survivor-revision-review`; otherwise the result routes to `elilo-oldkernel-cleanup-instrumented-third-attempt-review`.
+
+
+
+### ELILO cleanup rollback-module survivor review (step 101)
+
+Step 100 confirmed that the failed final rollback-module predicate is caused by exactly three package-unowned VirtualBox Guest Additions objects under the 5.15.19 rollback tree: `vboxguest.ko`, `vboxsf.ko`, and `vboxvideo.ko`. Step 101 is a non-mutating review only. It revalidates the recovered boundary, scans every installed package `FILE LIST:` to prove that none owns those rollback paths, validates rollback `modinfo` identity/vermagic, and requires matching 5.15.209 active counterparts. It fingerprints the exact three rollback objects and their active counterparts into an evidence-local survivor-removal contract. Recursive removal of `/lib/modules/5.15.19`, removal of active counterparts, and any third cleanup attempt remain unauthorized until a separate review accepts that exact scope. A clean step-101 result remains `pause_safe=true`.
+
+
+## Historical ELILO oldkernel cleanup continuation — step 102
+
+The accepted step-101 archive SHA-256 `90eb0d6a9c08acfc68993c8a6a967be17bdaa435aceef82b267483d5d05fe456` proves that the only package-unowned rollback module survivors are the exact VirtualBox Guest Additions objects `vboxguest.ko`, `vboxsf.ko`, and `vboxvideo.ko` below `/lib/modules/5.15.19/misc/`, with reviewed 5.15.209 active counterparts. Step 102 is a read-only authorization boundary. It may authorize only deletion of those three exact rollback paths by fingerprint during a later revised transaction. It never authorizes recursive module-tree deletion, active-counterpart removal, or a third cleanup attempt. A clean result remains `pause_safe=true`.
+
+## Historical ELILO oldkernel cleanup continuation — step 103
+
+The accepted step-102 archive SHA-256 `405327481b0c7459aab7ddab5b1a2f325fffb6ac2312ed1b4a18afc36d32fe6a` authorizes only later unlink of the exact three reviewed package-unowned rollback VirtualBox objects. Step 103 is a strictly read-only executor revision review. It verifies that the revised transactional apply code integrates only those three fingerprinted unlinks, preserves the 5.15.209 counterparts, retains full recovery coverage, and performs the unlink after package-state repair but before ELILO mutation/final verification.
+
+The revised executor remains fail-closed in this delivery: no accepted third-attempt authorization record exists, and the prepared apply policy keeps `execution_authorized=false` and `third_attempt_authorized=false`. A clean step-103 result may set `revision_ready=true` and `survivor_integration_ready=true`, but must retain `cleanup_authorized=false`, `apply_authorized=false`, `apply_executed=false`, and `pause_safe=true`. The next boundary is a separate third-attempt authorization review.
+
+
+The real step-108 release review failed closed with archive SHA-256 `d1da16ad0635c1db89eae273c953fd005b65759699e94e4878676f34fa575003`. Review of that evidence shows no machine-state drift: its active-module manifest differs from step 107 only because step 108 omitted the accepted `./` path prefix, and all 4,652 module objects match after normalization. The second failure came from an incorrect three-file assumption: the retained step-105 recovery directory correctly contains ten regular files, comprising the three payload tarballs plus seven snapshot manifests/metadata files. Step 109 adds a read-only revision-1 release review bound to both accepted step 107 and the failed step-108 diagnostic. It validates all ten files and their exact hashes and still does not remove recovery data; successful review can only authorize a later separately gated removal.
+
+The real step-109 revision-1 release review passed with archive SHA-256 `7c18beea914406dfe0354169b683839c14a03479e3a29dc869d1c2119facb624`. It accepted the exact ten-file recovery snapshot, retained the verified 5.15.209 post-reboot state, authorized recovery-backup removal, and explicitly did not execute removal. Step 110 adds the separately gated destructive boundary. The removal is limited to ten exact regular non-symlink files whose names and hashes are bound by the accepted step-109 record and removal policy. Each file hash is revalidated immediately before `unlink`; only after all ten exact unlinks succeed may the exact now-empty recovery directory be removed with `rmdir`. Recursive removal, globs, parent removal, package/boot/module mutation, network access, repository refresh, and reboot execution remain denied. A successful step 110 also proves package, ELILO, boot, active-module, and rollback-absence state remained unchanged and establishes a safe post-removal pause.
+
+The real step-110 recovery-backup removal failed closed before mutation because its runtime gate required the exact boot ID accepted by step 109. That UUID is intentionally transient and changed after the safe pause/power cycle, while every persistent package, module, ELILO, boot, and recovery baseline remained intact. Step 111 is a read-only boot-rebind review that fixes this boundary without weakening the destructive target. It records boot IDs only as diagnostic evidence and instead validates stable boot identity from the exact running 5.15.209 kernel plus the versioned ELILO `BOOT_IMAGE`, together with all previously accepted persistent hashes and the exact ten-file recovery snapshot. A clean step 111 reauthorizes removal only for a later separately gated revision-1 destructive stage; it performs no removal itself.
+
+Step 112 is the revision-1 destructive recovery-backup removal authorized by the accepted step-111 stable boot rebind. The previous transient boot-ID equality requirement is not used. The runtime gate instead verifies the exact 5.15.209 kernel, the versioned ELILO `BOOT_IMAGE`, and all persistent accepted package/module/ELILO/boot hashes. The destructive scope remains limited to the ten exact reviewed recovery files: every hash is revalidated immediately before an exact `unlink`, and the exact recovery directory is removed with `rmdir` only after all ten unlinks complete. No recursive or glob removal is permitted. A clean result proves that the non-recovery system state stayed unchanged and leaves the machine at a safe post-removal pause boundary.
+
+Step 113 independently verifies the committed step-112 recovery-backup removal. The verification is read-only: it requires the exact Slackware 15.0 host, running kernel 5.15.209, stable versioned ELILO `BOOT_IMAGE`, the accepted package/module/ELILO/boot hashes, continued rollback-module absence, and continued absence of the exact removed recovery path. The current Linux boot UUID is evidence only and is never required to match an earlier boot. A clean result proves that the removal remained committed without mutating the system and advances to the separately reviewed final-state closure stage.
+
+### Slackware 15.0 ELILO oldkernel cleanup final-state review
+
+Step 114 accepts the independent step-113 post-removal verification and performs a final non-mutating functional review of the completed cleanup. It requires the stable versioned 5.15.209 ELILO boot identity, the accepted package and active-module baselines, zero rollback module objects, the accepted boot/ELILO hashes, one active ELILO image/initrd pair with no executable rollback reference, and continued absence of the retired recovery-backup path. The stage does not authorize destructive action and advances only to a separate destructive-boundary closure review.
+
+## Phase 1 step 115 — ELILO oldkernel cleanup destructive-boundary closure
+
+Step 115 closes the destructive boundary after the accepted final-state review. It is review-only and verifies that the rollback package/module/ELILO targets and the retired recovery-backup target remain absent, that historical destructive authorizations have been consumed, and that no destructive action remains pending. It preserves stable boot identity without requiring transient boot-ID equality and advances only to the scenario-closure checkpoint.
+
+## Phase 1 step 116 — ELILO oldkernel cleanup scenario closure
+
+Step 116 is the final non-mutating checkpoint for the Slackware 15.0 ELILO oldkernel cleanup scenario. It accepts the step-115 destructive-boundary closure, revalidates the stable 5.15.209 boot and final persistent baselines, requires rollback and recovery targets to remain absent, confirms that all historical destructive authorizations are consumed, and leaves no pending machine action. A successful result closes this cleanup scenario at a safe power-off boundary; any future phase-1 work must begin from a fresh review boundary rather than reusing the closed cleanup authorization chain.
+
+## Accepted ELILO oldkernel cleanup closure
+
+The Slackware 15.0 ELILO oldkernel cleanup scenario is accepted as closed after step 116. The machine is at a safe no-action checkpoint on kernel 5.15.209: rollback package/module/ELILO targets are absent, the retired recovery backup is absent, all destructive authorizations are consumed, and no machine action is pending. Future Phase 1 work must start from a fresh review boundary at `phase-1-resume-planning`.
+
+## Phase 1 step 117 — configuration boundary review
+
+Step 117 starts a fresh Phase 1 review boundary after the accepted ELILO oldkernel cleanup closure. It adds a repository-local, read-only inventory of hardcoded assignments, system paths, and external command assumptions in `tools/reference/slack-update-reference.sh`. The inventory does not create a runtime configuration file or change behavior; every candidate must first be classified as user-configurable, environment-derived, internal, safety-invariant, or deferred module-mode policy. Module `enabled`/`disabled`/`auto` behavior remains explicitly deferred.
+
+### Phase 1 configuration schema/defaults review
+
+Phase 1 step 118 inventories the configuration schema that already exists in the
+reference implementation. It records all `CONFIG_*` bootstrap initializers and
+the real section/key surface in `data/config/slack-update.conf` without changing
+runtime behavior. The five module activation modes remain deferred to the later
+`enabled`/`disabled`/`auto` migration boundary.
+
+### Phase 1 configuration default parity freeze
+
+Phase 1 step 119 freezes a one-to-one contract between the 34 existing
+configuration-template keys and their `CONFIG_*` variables. It records template
+defaults and bootstrap initializers separately, requires all eight current
+overlaps to remain value-identical, and keeps the five module activation modes
+deferred. The boundary changes no runtime behavior and requires no machine
+action.
+
+The following checkpoint is preserved as historical step 120 evidence. Its
+then-deferred module-mode migration was subsequently closed at step 161; it is
+not a current task or authority to replay that work.
+
+<!-- step-120-configuration-compatibility-checkpoint:start -->
+### Phase 1 configuration compatibility checkpoint
+
+The Phase 1 configuration/default review is closed by a repository-only
+compatibility checkpoint. The existing runtime and shipped configuration
+template remain byte-identical to the reviewed boundary, the 34-row parity
+contract remains accepted, and the common configuration surface for Slackware
+15.0 and Slackware-current is preserved without requiring a machine or package
+repository revalidation.
+
+No configuration action is pending. Future configuration work must open a
+fresh review boundary; module `enabled`/`disabled`/`auto` migration remains
+deferred.
+<!-- step-120-configuration-compatibility-checkpoint:end -->
