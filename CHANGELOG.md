@@ -1,3 +1,21 @@
+## Phase 1 step 428 -- restore reference executable mode and preserve overlay modes
+
+- Accept the complete supplied step 427 return at reported `3f617d3`: 113 JSON
+  checks and 137 exit-code checks passed; five files/two creates/254 insertions,
+  successful reported push, clean status and matching heads. The receipt also
+  exposes an unintended `100755` to `100644` reference mode change.
+- Restore `tools/reference/slack-update-reference.sh` to Git mode `100755`
+  without changing its bytes. The step 427 serializer correction stays intact.
+- Correct the external delivery controller to preserve existing file permissions
+  by default, validate the explicit mode transition in the checkout and index,
+  and preserve it in ZIP metadata. Stage the repair explicitly with
+  `git update-index --chmod=+x` so `core.filemode=false` cannot omit it.
+- Test executable/non-executable preservation, mode-only scope, explicit index
+  staging and invalid-mode rejection in private Git fixtures. No real user Git
+  objects or native acceptance evidence are manufactured by these checks.
+- This is a prepared repair awaiting its actual return. The bounded repository
+  block continues; native gates, unresolved findings and phase status are unchanged.
+
 ## Phase 1 step 427 -- escape all representable JSON control characters
 
 - Start a newly requested bounded 8-12 step repository block from confirmed
