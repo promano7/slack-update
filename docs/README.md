@@ -13,8 +13,8 @@ acceptance material. For the current phase and unfinished work, use the
 | Prepare a checkout and understand reference installation | [Development setup](development-setup.md) |
 | Development phases and completion gates | [Roadmap](roadmap.md) |
 | Planned C components, modules, security and interfaces | [Planned application design](design.md) |
-| Current reference configuration and default values | [Configuration file](../data/config/slack-update.conf) |
-| Source and supported reference options | [Shell reference](../tools/reference/slack-update-reference.sh) and the README usage section |
+| Current reference configuration and default values | [Configuration guide](configuration.md) and [default file](../data/config/slack-update.conf) |
+| Supported reference operations, output and results | [Usage guide](reference-usage.md) and [shell source](../tools/reference/slack-update-reference.sh) |
 | Contribution, language and documentation rules | [Contributing](../CONTRIBUTING.md) |
 | Detailed contracts, audits and evidence | [Reference documentation](reference/README.md) |
 | Real Slackware acceptance scenarios | [Acceptance guide](../tests/acceptance/reference/README.md) |

@@ -1,3 +1,15 @@
+## Phase 1 step 423 -- document current reference usage and configuration
+
+- Add `docs/reference-usage.md` for explicit operations, output modes, startup
+  errors, provisional results, successful reboot codes and interrupted runs.
+- Add `docs/configuration.md` for the current data format, complete recognized
+  key list, optional module modes and separate package/boot policy.
+- Link both guides from the documentation index. Keep README, executable
+  source, tests, fixtures and detailed contracts unchanged.
+- Accept the complete step 422 return at reported `bd4412b`: three files/one
+  create, successful push and clean matching heads. No new CLI/configuration
+  interface, native test, system operation or phase completion is introduced.
+
 ## Phase 1 step 422 -- document reference development setup
 
 - Add `docs/development-setup.md` for source checkout, syntax/help inspection,
