@@ -146,12 +146,13 @@ step 448 against the already accepted steps 122/128/129 fail-closed contract.
 The current 59 checks include unavailable/non-runnable and reason assertions.
 This repaired current test does not rewrite frozen native criteria or evidence.
 
-For an integrated review, run all seven CLI/configuration tests, these seven
-new tests, all six JSON/NDJSON tests, SBo options, stable exit codes, signal
-cleanup and direct-generic: 24 commands. Step 450 locally passes each on the
-prepared source. The seven new drivers retain 64 previously rejected private
-source mutations across steps 443-449; those earlier controls are not new
-independent acceptance or a fresh mutation run at 450.
+The CLI/configuration, setup/completion/module and JSON/NDJSON groups, plus
+SBo options, stable exit codes, signal cleanup and direct-generic, comprise the
+24-command integrated baseline. For the current combined review, also run all
+seven dry-run/package/apply checks below: 31 commands in total. Select the exact
+files, rather than globbing the historical harness directory. The earlier 64
+private source mutations from steps 443-449 keep their original scope; an
+integrated normal run is neither a fresh mutation run nor independent acceptance.
 
 Callbacks and prohibited-entry guards are not an OS sandbox. Supplied flags,
 status pairs and policy combinations need not be reachable native states. No
@@ -159,18 +160,83 @@ normal installed Slackware package/module/boot workflow or network request is
 introduced by this block. No native bootability, whole-host absence of effects,
 global cleanup or compatibility/conformance verdict follows from these tests.
 
-## Conditional repository pause after step 450
+## Current dry-run, package and apply checks
 
-Steps 443-450 form the bounded eight-step repository block. The prepared final
+The seven additional Python drivers use the standard library and Bash. Run them
+from the repository root, together with the preceding baseline for an integrated
+review. Each expected result is authored independently of reference execution;
+none imports another test's oracle.
+
+| Test under `tests/reference/` | Exercised boundary and material limit |
+| --- | --- |
+| [test-dry-run-workflow.py](../tests/reference/test-dry-run-workflow.py) | Real dry-run orchestration with supplied operation/event/summary callbacks; no package or boot action |
+| [test-dry-run-environment.py](../tests/reference/test-dry-run-environment.py) | Real dry-run environment inspection with supplied discovery/probes and private queue files |
+| [test-dry-run-plan.py](../tests/reference/test-dry-run-plan.py) | Real human plan renderer, authored complete text fixture and supplied state/queue/option data |
+| [test-package-snapshot-boundaries.py](../tests/reference/test-package-snapshot-boundaries.py) | Real package snapshot wrapper/parser/validator with a private package database, real find/coreutils and selected supplied command faults |
+| [test-partial-update-policy.py](../tests/reference/test-partial-update-policy.py) | Real in-memory raw-action classifier and secondary-blocking assignments; no workflow |
+| [test-apply-early-exits.py](../tests/reference/test-apply-early-exits.py) | Real apply prefix/classifier/blocker with supplied operations; positive controls stop at a deliberate private checkpoint before secondary dispatch |
+| [test-apply-secondary-workflow.py](../tests/reference/test-apply-secondary-workflow.py) | Complete real apply orchestration with supplied operations/events/summary and seeded private files; no normal main or installed tool actions |
+
+Read each linked test and its corresponding scope document:
+[dry-run orchestration](reference/dry-run-workflow.md),
+[environment](reference/dry-run-environment.md),
+[plan rendering](reference/dry-run-plan.md),
+[snapshot boundaries](reference/package-snapshot-boundaries.md),
+[partial-update policy](reference/partial-update-policy.md),
+[early apply exits](reference/apply-early-exits.md) and
+[secondary apply](reference/apply-secondary-workflow.md).
+
+The package snapshot driver uses real private files and commands; it does not
+inspect the installed package database. The environment and plan checks use
+private files and supplied module states. File predicates, coreutils, redirection
+and callback-written queue content are real where each scope says so. This block
+must not be described as wholly mocked or as native tool acceptance.
+
+For a shared workflow/result change, run the relevant workflow and JSON/result
+checks together; rendering and supplied event callbacks cover different boundaries
+from JSON serialization and NDJSON transport. Apply-prefix controls use process
+marker 86 at their positive continuation checkpoint. Complete secondary controls
+instead reach summary, whose supplied return becomes the normal-end raw workflow
+return. Neither marker nor raw workflow return establishes a main/application
+exit, native success or execution authority. Authored inconsistent flags and raw
+statuses need not be reachable installed states.
+
+Current reference synchronization failures can retain a failed SBo state even
+when later selection/build actions complete; queue/ELF failure can block later
+processing. Event state and raw code are separately observed fields. Preserve
+these regression expectations without adopting them as original native semantics:
+install-new20 still requires empty output AND no effect; upgrade-all20 remains a
+failure. A normative change requires its own independent specification/impact,
+explicit migration if needed, actual-composition review and later native gates.
+
+The seven drivers retain 80 rejected private source mutations from steps451-457.
+Their records include focused versus full-matrix scopes, the supplementary
+secondary-workflow row and the initial nondistinguishing priority-row correction.
+An integrated normal run does not rerun these controls or erase earlier failed
+attempts. Guards prohibit known unwanted calls; they are not OS containment or
+independent observation of an actual native graph.
+
+## Conditional repository pause after step 458
+
+Steps 451-458 form the current bounded eight-step repository block. The prepared final
 source and local PASS results do not confirm the user's actual application,
-commit, push or pause. Confirmation requires the complete final return, exact
-source/Git-mode/tree report and a separate post-return review of all nine whole
-inherited conditions, with their original qualifications retained.
+commit, push or pause. Confirmation requires all 31 selected regression commands, the complete final
+application/scoped commit/subject/reported successful push/clean matching full
+HEAD and origin return, an exact source/Git-mode/tree report and a separate
+post-return review of all nine whole inherited conditions, with their original
+qualifications retained. The last confirmed repository pause remains step450
+until that review; the prepared step458 is only a candidate.
 
 That review must cover the full in-scope effects and outstanding obligations,
 closed native dispatch/publication/rights, any required block-specific cleanup,
 unobserved actual host state and independence from later Slackware-current
 refresh. A later refresh cannot revive a consumed source/run/grant binding.
+The read-only final reporter checks tracked source bytes, index blobs, working
+executable bits and reconstructed Git tree against the pinned prepared delivery.
+Its HEAD/origin comparison reads local Git references; it does not independently
+query GitHub. Repeated identity/clean checks bracket its reads without providing
+a filesystem snapshot lock. It does not observe ignored files, actual host state
+or native rights. A matching report supports only its named repository scope.
 After confirmation, stop; further project work requires a new bounded request.
 
 Phase 1/kernel remain incomplete. All original findings, member criteria,
