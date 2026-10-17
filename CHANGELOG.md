@@ -1,3 +1,38 @@
+## Phase 1 step 465 -- validate human apply and check summaries
+
+- Accept complete supplied actual464 at full HEAD/origin
+  `f2b782e40839dce3d33bb057c123837a708aa0ec`, parent
+  `ca4442da42df6b2a6bd151a8f0128392c1105b62`, exact prepared tree
+  `11405f7ac9aa683a024bd910fc736cc3876428b4`:seven selected outputs,
+  four-path294-addition/two-create commit and required subject agree;reported
+  successful push,empty status and matching full heads. Supplied terminal/local
+  Git evidence only,not independent terminal/remote/native capture.
+- Add an independently authored exact-output regression for real apply/check
+  renderers with supplied states/clock and real private lists,symlinks,wc/sed.
+  Cover388 apply+16 check scenarios,twice each:808 renderer entries. Check full
+  stdout,stderr,raw return,selected input state/array/IFS,trace and private files.
+- Exercise snapshot/pending/blocked sections,ABI/Cinnamon/boot display branches,
+  mode/block/success priority,critical arrays,queues,ELF records and module/footer
+  labels. Keep 16 syntax-valid focused private mutation rejections separate from
+  nine normal commands. Optional unset defaults and clock failure are included.
+- Preserve current broad kernel-trigger reboot text and newline-count versus
+  unterminated ELF display behavior as observations,not reboot/acceptance advice.
+  Summary success labels and no-modification text are not measured native effects;
+  raw zero remains separate from final mapped status and original code20 criteria.
+- Retain initial mutation-generator uniqueness rejection before execution:an if
+  substring also matched elif. Anchor the intended branch;all16 final mutations
+  reject. Initial full normal matrix passed;no production/oracle fix was needed.
+- Recover source from exact persisted464 ZIP;preserve all original qualified
+  failures/unknown causes and full obligations. Explicit full identity fields
+  avoid numeric substitution inside hashes. Only four paths change:CHANGELOG,
+  CONTRIBUTING,new test and scope;reference/README/native bytes/modes unchanged.
+- Seventh prepared step of bounded459-466,max470;actual465 return required next.
+  Last confirmed strong STATIC repository pause458;new pauseFALSE. Phase1/kernel
+  incomplete;alternatives unselected;schema1/reference-v1/C/Phase2/production closed.
+  All specification/migration/composition/independent-safe-whole-review/fresh-native
+  grant/platform-conformance gates remain. Host unobserved,actual live bindings/
+  native evidence null,global closure false;no historical execution right renewed.
+
 ## Phase 1 step 464 -- validate Slackpkg actions and pending configuration capture
 
 - Accept complete supplied actual463 at full HEAD/origin
