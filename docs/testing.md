@@ -53,6 +53,57 @@ not prove installed command semantics, native containment or complete acceptance
 on Slackware 15.0 and Slackware-current. Record the actual check and its scope;
 a PASS count alone does not identify what was demonstrated.
 
+## Current CLI and configuration checks
+
+Run these seven independent Python 3 checks from the repository root. Each invokes
+Bash and uses only the Python standard library; the resolver also uses `dirname`
+and `pwd` in private directories, and the help renderer invokes `cat`.
+They have no shared Python test-support module or cross-test fixture imports.
+
+| Test under `tests/reference/` | Actual exercised boundary |
+| --- | --- |
+| [test-cli-arguments.py](../tests/reference/test-cli-arguments.py) | Parser state/status/diagnostics only; no main or workflow |
+| [test-cli-early-exits.py](../tests/reference/test-cli-early-exits.py) | Real main/parser/help; environment mocked and later boundaries prohibited |
+| [test-configuration-parser.py](../tests/reference/test-configuration-parser.py) | Initialized parser state and private-file text parsing; no value validation/application |
+| [test-configuration-resolver.py](../tests/reference/test-configuration-resolver.py) | Exact source relocated to private files; installed presence/readability modeled |
+| [test-configuration-validation.py](../tests/reference/test-configuration-validation.py) | Authored supplied values and lexical validation; no file lookup or application |
+| [test-configuration-application.py](../tests/reference/test-configuration-application.py) | In-memory scalar/array assignments; no apply workflow |
+| [test-main-configuration-failures.py](../tests/reference/test-main-configuration-failures.py) | Real private-file loader/main; environment/application/privilege callbacks replaced, later effects prohibited |
+
+Run the parser, early-exit and main-configuration checks when argument parsing
+changes. Run the resolver plus main-configuration checks for resolver changes;
+the latter covers explicit private paths, not installed-file precedence. Parser
+state initialization or text grammar changes need the configuration-parser check
+and the main loader check. Validation changes need the validation and main loader
+checks. Assignment changes need the application check; changes to loader stage
+ordering also need the main loader check. Help rendering needs the early-exit
+check. Run all seven for a combined entry/configuration change or integrated review.
+Environment normalization itself has its existing cron-environment regression;
+the two new main harnesses replace that function and do not test its real behavior.
+
+The main loader test includes valid-input controls which stop deliberately at a
+modeled privilege callback with code 8. That is not a native privilege failure.
+Its application callback checks loader sequencing, not real runtime assignments;
+the assignment test covers those separately. Code 7 is the stable main rejection
+status, while parser/resolver/validator internals use status 1. Early help writes
+usage to stdout; invalid arguments write diagnostic plus usage to stderr. A
+configuration-loading error writes its diagnostic without usage or structured
+output, including with `--json` or `--events`.
+
+All files/channels created by these checks are private test artifacts. Config
+resolver unreadability is modeled, not a native permissions test; explicit symlink
+and `..` acceptance describes current resolution without a containment guarantee.
+Supplied parser/assignment values can deliberately bypass semantic validation.
+Lexical checks do not prove path existence, canonical containment, URL validity,
+resource availability or runtime safety. The guards are not an OS sandbox; review
+newly introduced calls before extending a harness to changed reference code.
+
+These are current repository regressions, not native Slackware acceptance or an
+operational protocol implementation. They establish no whole-host absence of
+effects, independent semantic acceptance, schema 1 freeze, contract-option choice
+or native execution right. Original scenario/member criteria, unresolved findings
+and separate review/grant/conformance gates remain binding.
+
 ## Current JSON and NDJSON checks
 
 Run these checks with Python 3 from the repository root. All six invoke Bash; the two existing shell regressions below also use standard
@@ -83,7 +134,7 @@ harness calls `main` with replaced configuration, root, locking, runtime,
 workflow and output boundaries. They use private fixture files; some existing
 checks read the actual clock. Review each harness before expanding its scope.
 
-The new Python checks exercise selected functions with supplied data, not a
+These JSON/NDJSON checks exercise selected functions with supplied data, not a
 normal update workflow. Apply-result projection uses `initialize_runtime_state`
 with a fixed date, not the file-creating `initialize_runtime`. Expected objects
 are authored test data; negative controls reject deliberate output mutations.
