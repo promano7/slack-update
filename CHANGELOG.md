@@ -1,3 +1,42 @@
+## Phase 1 step 451 -- validate dry-run workflow orchestration
+
+- Resume from confirmed repository pause 450 at reported full HEAD
+  `e4e83ee1f42ad350ec63583876a42229dc2dfb4e`, parent
+  `b0048c5d80fbec4ae95ae77f2a2e2fa84e2eb1ca`, tree
+  `6bc390e5c927ba11bf7f8f800b8cb44368a081a1`. The new bounded user
+  request opens an 8-12-step repository block; provisional closure is 458.
+- Verify the incoming archive/repository manifests and restore the complete
+  2,325-file source with explicit original Git executable modes. Preserve the
+  complete confirmed-450 evidence, whole inherited conditions and qualifications.
+- Add 250 scenarios/500 real dry-run-orchestrator calls with supplied check,
+  environment/module/queue/candidate/ELF/event/plan callbacks and five private
+  files. Cross check return/raw-code pairs, runnable/inapplicable modules,
+  queue/candidate/scan failures, ELF warnings and optional-record paths.
+- Assert ordered full callback vectors, failure short-circuiting, continuation
+  into later planning, check-result preservation or inspection-failure result 1,
+  selected stale-state resets, private cleanup bytes/counts, fallback directory,
+  empty stderr, preserved IFS and exact private inventory. Repeat with auxiliary
+  callback return 19; it must not replace the workflow result.
+- Keep supplied counter/file/status combinations distinct from native reachable
+  states. Inapplicable SBo retains its seeded selection status; only the tested
+  runnable branch resets it. A later supplied ELF scan can populate extra queues.
+- New regression and ten private source mutations pass. Related dry-run JSON
+  14/eight controls, check workflow 32/64 calls, main completion 576 and stable
+  exit 137 checks pass. Retain the actual logs and finite mutation definitions.
+- Change only this history, contributor guidance and the new test/scope document.
+  Preserve reference behavior/100755, README, all native criteria/evidence and
+  original open findings/options. Historical mode anomalies remain unresolved;
+  this delivery checks explicit modes without claiming their underlying cause.
+  An extra local extraction file absent from the original ZIP/manifest was
+  isolated with its bytes retained outside source; cause unresolved. Exact
+  source inventory was then checked, without relabeling that first failure.
+- These private repository checks issue no native run, binding, option selection,
+  migration, conformance or whole-host absence/cleanup verdict. Phase 1/kernel
+  remain incomplete, with all original separate decision/review/grant gates due.
+- First prepared step of the new block. Actual 451 application, tests, exact
+  commit, push and clean matching full heads are pending before preparing 452.
+  No new strong repository pause is confirmed by these local prepared results.
+
 ## Phase 1 step 450 -- review integrated regressions before repository pause
 
 - Accept complete actual 449 at reported full HEAD
