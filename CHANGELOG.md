@@ -1,3 +1,44 @@
+## Phase 1 step 452 -- validate dry-run environment inspection
+
+- Accept the complete supplied actual 451 return at full HEAD/origin
+  `e95bdfd5f60cad013eceb7bebf2e25b6d967391c`, parent
+  `e4e83ee1f42ad350ec63583876a42229dc2dfb4e`, exact prepared tree
+  `04bc820bb8e4b0c36deb6b844fd1ed5090326348`: five regression commands,
+  exact four-path/351-addition/two-create commit and required subject pass;
+  push is reported successful, status empty and full heads match.
+- Add 726 scenarios/1452 real planning-environment inspection calls with
+  supplied command discovery and real private file/directory/execute predicates.
+  Cover all modes, independent SBo tool pairs and boot tool triples, eight boot
+  layouts, eight Cinnamon layouts and all 243 five-module mode combinations
+  under two availability profiles. Disabled modules issue no discovery queries.
+- Poison and check all eleven planning flags before both calls; assert complete
+  ordered discovery/predicate vectors, exact incidental helper status, empty
+  stderr, IFS and unchanged configured modes/paths. Compare exact private
+  fixture inventory, lstat modes, symlink targets and regular-file bytes.
+- Preserve current predicate semantics: regular worktree-style marker files do
+  not satisfy the checkout directory test; executable directories satisfy the
+  builder execute test. Presence does not validate configuration contents or
+  runnable builders. The helper's final predicate can yield incidental status 1;
+  the separate workflow regression retains its existing handling of that result.
+- New regression and ten finite syntax-valid private source mutations pass.
+  Related dry-run workflow 250/500 calls, optional probes 50/100 calls, boot
+  policy 261/522 calls and dry-run JSON 14/eight controls pass.
+- Change only this history, contributor guidance and the new test/scope document.
+  Preserve reference behavior/100755, README, native criteria/evidence, original
+  findings and unselected decisions. Historical extraction/mode discrepancies
+  retain their original failed-check qualifications and unresolved causes.
+  A private cross-process executable-loss control unexpectedly returned PASS
+  despite the parent mode assertion. Preserve that failed attempt separately;
+  later mode controls use real chmod/observed bits at the original verifier
+  inspection boundary, not end-to-end CLI mode propagation. Cause unresolved.
+- No installed discovery/database/configuration, network, native builder or boot
+  operation runs in this driver. Private guards do not prove OS containment,
+  native conformance, authorization, migration or whole-host absence/cleanup.
+  Phase 1/kernel and all original separate decision/review/grant gates remain due.
+- Second prepared step of the new bounded block; provisional closure remains
+  458. Actual 452 application/tests/exact commit/push/clean full heads are pending
+  before 453; no new strong repository pause is confirmed by prepared results.
+
 ## Phase 1 step 451 -- validate dry-run workflow orchestration
 
 - Resume from confirmed repository pause 450 at reported full HEAD
