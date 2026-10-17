@@ -1,3 +1,44 @@
+## Phase 1 step 461 -- validate mirror resolution and ChangeLog probing
+
+- Accept complete supplied actual460 at full HEAD/origin
+  `9bea1d43e6d248c9a589f685e6f11a3a8b115b37`, parent
+  `8e2439d1da0029807d6284f7100356621fefd06b`, exact prepared tree
+  `4f23b97c41dd9a0060e04f849d9324ecdaffa010`: eight selected outputs,
+  four-path342-addition/two-create commit and required subject agree; reported
+  successful push, empty status and matching full heads. Supplied terminal/local
+  Git evidence only, not independent remote/native capture.
+- Add an independent standard-library Python/Bash driver calling real mirror
+  resolution, ChangeLog probing and selected real check-helper integration.
+  Use private files/symlinks/readability and supplied discovery/wget/slackpkg
+  callbacks; no network or installed package action. Exercise28 resolver,
+  198 probe and240 check-helper scenarios, twice each:932 top-level entries.
+- Assert complete ordered lookup/readability/command argument vectors, full
+  messages, raw helper and check statuses, stale-state reset or preservation
+  across skipped boundaries, timeout, IFS, outer locals and private inventory.
+  Distinguish exact-one line selection, whitespace/final-line handling and
+  literal locations from transport, content, authenticity or containment proof.
+- Record that the current local probe uses readability only and can accept a
+  readable empty file, directory or private symlink. Permission denial is
+  modeled for two profiles; missing/file/directory/link predicates are real.
+  Keep raw check20 projection separate from original native code20 obligations.
+- Reject14 syntax-valid private source mutations on focused full-matrix rows.
+  Retain the initial timeout control's unexpected PASS: discovery failed before
+  its mutated argument was used. Correct the selected row to available wget /
+  successful transport / timeout15; test and reference remain unchanged.
+- Preserve the initial private predecessor tree mismatch and unexpected bytes
+  outside the accepted source inventory. Reconstruct the exact accepted source
+  from the checksum/CRC/full-manifest-verified persisted460 ZIP; retain excluded
+  bodies outside source. Successful recovery does not explain their origin or
+  establish a whole-host absence/cleanup claim.
+- Change only CHANGELOG.md, CONTRIBUTING.md and the new test/scope document.
+  Keep reference100755/README/native criteria/evidence and original modes intact.
+  Third prepared step of bounded459-466,max470;actual461 return required next.
+- Last confirmed strong static repository pause458;no new pause. Phase1/kernel
+  incomplete, alternatives unselected and schema1/reference-v1/C/Phase2/production
+  closed. All specification/migration/composition/independent-safe-whole-review/
+  fresh-native-grant/platform-conformance gates remain. Actual host unobserved,
+  live bindings/native evidence null;no global host closure or reused rights.
+
 ## Phase 1 step 460 -- validate ABI and kernel change detection
 
 - Accept the complete supplied step459 return at full HEAD/origin

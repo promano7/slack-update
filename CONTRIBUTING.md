@@ -114,6 +114,8 @@ baselines retain their original scope.
 Before submitting a change to the reference script:
 
 1. Run `bash -n tools/reference/slack-update-reference.sh`.
+   Run `python3 tests/reference/test-mirror-probe.py` when mirrors-file selection/counting, ChangeLog target construction, local readability, remote probe arguments or real mirror-to-check-helper propagation changes. It uses private files and supplied discovery/transport/package callbacks; see [the mirror probe scope](docs/reference/mirror-probe.md). Keep native source trust, repository validity and network acceptance separate.
+
    Run `python3 tests/reference/test-check-workflow.py` when check command outcomes, mirror-error fallback, event ordering or workflow status propagation changes. Mirror/command/event/summary callbacks are supplied; see [the check workflow scope](docs/reference/check-workflow.md). Keep JSON and main-completion checks for their separate output boundaries.
 
    Run `python3 tests/reference/test-dry-run-workflow.py` when dry-run inspection sequencing, queue failure cleanup, warning propagation or planning return precedence changes. It calls the real orchestrator with supplied inspections and private files; see [the dry-run workflow scope](docs/reference/dry-run-workflow.md). Keep plan-rendering, JSON and native acceptance claims separate.
