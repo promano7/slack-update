@@ -114,6 +114,7 @@ baselines retain their original scope.
 Before submitting a change to the reference script:
 
 1. Run `bash -n tools/reference/slack-update-reference.sh`.
+   Run `python3 tests/reference/test-configuration-application.py` when configuration-to-runtime scalar assignments, package-list splitting, reapplication or IFS preservation changes. It calls only the in-memory assignment function with supplied state; see [the configuration application scope](docs/reference/configuration-application.md).
    Run `python3 tests/reference/test-configuration-validation.py` when required configuration values, booleans, module modes, lexical path/package/remote/builder checks, ELF path splitting or validation diagnostics change. It validates authored state without applying settings; see [the configuration validation scope](docs/reference/configuration-validation.md).
    Run `python3 tests/reference/test-configuration-resolver.py` when configuration-file precedence, explicit-path rejection, source fallback or resolver diagnostics change. It uses exact relocated source, private files and modeled installed-file/readability predicates; see [the resolver scope](docs/reference/configuration-resolver.md).
    Run `python3 tests/reference/test-configuration-parser.py` when configuration grammar, key assignment, parser defaults or duplicate/unknown-key diagnostics change. It parses private files without resolving system configuration, validating values, applying settings or calling `main`; see [the configuration parser scope](docs/reference/configuration-parser.md).

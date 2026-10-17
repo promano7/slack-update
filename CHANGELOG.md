@@ -1,3 +1,23 @@
+## Phase 1 step 440 -- validate configuration-to-runtime assignments
+
+- Accept complete step 439 at reported full HEAD
+  `8b27f090885d7f956fd3d7b870bb813eef38efc5`: validation 163/0, resolver
+  84/0, parser 72/0, early exits 132/0 and arguments 138/0; four paths/247
+  additions/two new 100644 files, reported push, clean status and matching heads.
+- Add 288 assignment scenarios (296 calls) for all 26 scalar destinations and
+  six package arrays, literal text, empty/repeated lists, stale-state removal,
+  four caller IFS values and repeated application in the same Bash process.
+- Compare complete targets and preserved schema/ELF sentinels. Some supplied
+  inputs deliberately bypass validation; no normal configuration acceptance
+  or system update is inferred from these in-memory assignment probes.
+- All cases and eight private source-mutation controls pass. Previous five
+  current-block checks remain passing; no reference defect/fix is introduced.
+- Document the distinction between apply_configuration and the apply workflow.
+  Preserve reference bytes/mode, README, original contracts/native obligations,
+  open findings, unselected decisions and phase/execution gates.
+- Sixth prepared step of the bounded block. Actual 440 return remains pending;
+  continue toward main configuration-failure coverage and planned 442 closure.
+
 ## Phase 1 step 439 -- validate supplied configuration values
 
 - Accept complete step 438 at reported full HEAD
