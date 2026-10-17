@@ -1,3 +1,42 @@
+## Phase 1 step 455 -- validate partial-update policy helpers
+
+- Accept complete supplied actual 454 at full HEAD/origin
+  `902191310569b19e521f72209ada9f8738031e60`, parent
+  `9891b7c6f092dc7864fe14821d607dcfa4ff45f5`, exact prepared tree
+  `066a4e6c26997228edc2237ceddc35139f5337b9`: all five regression outputs,
+  four-path/488-addition/two-create commit and required subject agree;
+  push reported successful, status empty and matching full heads.
+- Add 1044 scenarios/2088 real in-memory helper calls: 801 action-classifier
+  rows and all 243 five-module mode combinations for secondary blocking.
+  Call each twice without reseeding to check preservation and idempotency.
+- Cover each known action with all raw codes 0-255 and -1, unknown action
+  strings and literal noncanonical zero forms. Preserve the current exact
+  reference matching and inverted helper return convention; do not infer
+  argument validation or native meaning for authored raw combinations.
+- Assert every blocked state, exact shared reason and zero run flag, plus
+  unchanged configured modes, raw codes, selected capabilities, snapshot/queue/
+  scan fields, outer action/status variables and IFS. Require exact state
+  packets, empty stderr and no private working-directory artifacts.
+- New full driver and twelve private syntax-valid source mutations pass.
+  Mutation controls use focused corresponding two-call cases with unchanged
+  new-driver assertions; they are not twelve full-matrix reruns. Related result
+  precedence 492/984 calls, apply JSON 24/eight controls, main completion 576
+  and stable-exit 137 pass. Total block mutations rejected so far is 56.
+- Keep helper projection distinct from workflow sequencing and actual native
+  criteria: original install-new 20 still needs empty AND no-effect; upgrade
+  20 remains native failure. No current reference behavior or norm is changed.
+- Change only history, contributor guidance and new test/scope document.
+  Preserve reference100755, README, native fixtures/evidence, open findings
+  and unselected decisions. No initializer/main/workflow/package/discovery/
+  filesystem utility/network/clock/boot call runs in the selected helper driver.
+- Preserve every historical mode/extraction/symlink failed-check qualification.
+  Private overlay real chmod/link faults remain at original inspection with
+  observed metadata; no end-to-end visibility or restoration persistence claim.
+- Fifth prepared step, provisional close 458. Complete actual 455 application/
+  tests/exact commit/push/clean matching full heads are pending before 456.
+  Next workflow early-exit review checks caller sequencing separately. No new
+  strong repository pause or native right is confirmed by prepared results.
+
 ## Phase 1 step 454 -- validate package snapshot failure boundaries
 
 - Accept complete supplied actual 453 at full HEAD/origin
