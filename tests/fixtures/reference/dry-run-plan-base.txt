@@ -1,0 +1,54 @@
+
+==============================
+DRY-RUN PLAN
+==============================
+
+[1] Slackware
+  Repository status: no updates reported since the last slackpkg update.
+  Planned commands:
+      slackpkg -batch=on -default_answer=y update
+      slackpkg -batch=on -default_answer=y -postinst=off install-new
+      slackpkg -batch=on -default_answer=y -postinst=off upgrade-all
+  Exact changed packages and all package-derived triggers remain conditional
+  until the package metadata is refreshed and the apply snapshots are compared.
+
+[2] Flatpak
+  Mode: disabled
+  Activation state: disabled
+  The module is disabled; no Flatpak command would run.
+
+[3] ABI and kernel triggers
+  After the Slackware commands, the before/after package snapshots would be
+  compared for ABI-sensitive and kernel package changes.
+  Installed SBo packages eligible for an ABI-triggered rebuild: @PLAN_ABI_SBO_COUNT@
+      (none)
+  Kernel image or module changes would schedule boot preparation.
+  Managed-initrd hosts regenerate initrd before GRUB; validated direct-generic hosts regenerate GRUB without initrd.
+  A kernel-headers-only change would only emit the external-module warning.
+
+[4] SBo
+  Mode: disabled
+  Activation state: disabled
+  The module is disabled; repository synchronization and builds would not run.
+
+[5] ELF diagnostics
+  Mode: disabled
+  Activation state: disabled
+  The module is disabled; no ELF object would be inspected.
+
+[6] Cinnamon
+  Mode: disabled
+  Activation state: disabled
+  The module is disabled; graphical ABI changes would not trigger a rebuild.
+
+[7] Boot preparation
+  Mode: disabled
+  Activation state: disabled
+  Preparation layout: unknown
+  The module is disabled; kernel changes would not run initrd or GRUB actions.
+
+[DRY-RUN] No update, synchronization, build, installation, initrd, or bootloader
+          command was executed. Only state inspection and normal logging occurred.
+[CONFIG] Configuration: @CONFIG_FILE@
+[LOG] Full log: @LOG@
+[END] Finished: @FIXED_DATE@
