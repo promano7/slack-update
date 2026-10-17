@@ -1,3 +1,29 @@
+## Phase 1 step 447 -- validate optional-module activation probes
+
+- Accept complete actual 446 at reported full HEAD
+  `93afcc8dba60b2f15be82115e8a534ff1d9d18c4`: lock 14/41 calls, signal
+  cleanup 56 and stable-exit 137 pass; four paths/337 additions/two creates
+  100644, exact English subject, reported push, empty matching full heads.
+- Add 50 scenarios/100 selected-entry calls covering Flatpak/SBo/ELF/Cinnamon
+  activation modes, independent dependency availability and the separate real
+  Cinnamon detector's command/package/private-checkout precedence.
+- Poison every module state/run/reason/availability field before both calls.
+  Assert exact reset values, internal statuses, complete ordered query traces,
+  authored diagnostic reasons, preserved IFS and unchanged private checkout state.
+- Model command discovery, installed ldconfig availability and package presence.
+  Module cases supply Cinnamon detection; detector cases use its real function
+  and a private directory predicate. No installed command/database is inspected.
+  Boot probing and the five-module dispatcher remain outside this new test.
+- All 50 scenarios and eight private source mutations pass. Existing real result
+  precedence 492/984 calls and stable-exit 137 checks pass. Syntax, links,
+  whitespace, byte/mode scope and overlay application/staging controls pass.
+- Preserve reference behavior/100755, README, original native criteria/evidence,
+  findings and unselected decisions. These supplied/private predicates do not
+  establish native command behavior or either platform's conformance. Existing
+  local mode-control anomalies retain their disclosed historical scope.
+- Fifth prepared step of the bounded block, provisional closure target 450.
+  Actual 447 return is pending before preparing 448; no new pause confirmed.
+
 ## Phase 1 step 446 -- validate private instance-lock lifecycle
 
 - Accept complete actual 445 at reported full HEAD
