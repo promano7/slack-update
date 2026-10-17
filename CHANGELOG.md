@@ -1,3 +1,24 @@
+## Phase 1 step 438 -- validate configuration file selection
+
+- Accept the complete step 437 return at reported full HEAD
+  `c31f6d83c0eacc9a0d7a4dbd16d87fece24c7a23`: configuration 72/0, early
+  exits 132/0, arguments 138/0; four paths/253 additions/two new 100644 files,
+  reported successful push, empty status and matching full heads. Preserve the
+  repeated command block with its single output sequence; infer no second run.
+- Add 84 resolver scenarios for explicit/installed/source precedence, empty and
+  unset overrides, missing/directory/link states, unreadability and diagnostics.
+  Exact source is relocated to private fixtures; installed predicates and the
+  requested unreadability are modeled, without probing installed configuration.
+- All cases pass and eight private source mutations are rejected. Existing
+  configuration-parser and CLI checks remain passing. Preserve explicit path
+  text and current symlink behavior without claiming new safety guarantees.
+- Document exact modeled/file boundaries. The resolver does not parse or apply
+  settings; no native filesystem-permission conformance is established here.
+- Preserve reference source/mode, README, historical contracts/native criteria,
+  open findings, unselected decisions and phase/execution gates.
+- Fourth prepared step of the new bounded block. Actual 438 application/test/
+  commit/push and a later whole-block repository pause remain pending.
+
 ## Phase 1 step 437 -- validate configuration text parsing
 
 - Accept the complete step 436 return at reported full HEAD
