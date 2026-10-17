@@ -1,3 +1,29 @@
+## Phase 1 step 446 -- validate private instance-lock lifecycle
+
+- Accept complete actual 445 at reported full HEAD
+  `7d88bfcdd25ef6ae9a77bbf522c6e086be11df5b`: precedence 492/984 calls,
+  apply JSON 24/eight controls and stable-exit 137 pass; four paths/294 additions,
+  two creates 100644, exact subject, reported push, clean matching full heads.
+- Add 14 scenarios/41 real lock-helper calls in private Bash processes. Observe
+  actual kernel advisory-lock availability independently with Python fcntl;
+  exercise acquisition, contention, release/reacquisition and child exit 0/17.
+- Check open failures, repeated/unowned release, flags/descriptors, diagnostics,
+  lock inode retention, existing lock-file truncation and unrelated-file bytes.
+  Missing-command and unlock-command errors are explicitly modeled; successful
+  acquisition and descriptor-close fallback use real private locks.
+- Use stdin/stdout handshakes and finite response/exit deadlines. Emergency
+  cleanup addresses only owned private process groups, not application traps.
+  No main, configuration, native package/boot workload or production path runs.
+- All 14 scenarios and eight private helper mutations pass. Existing signal
+  cleanup 56 and stable-exit 137 checks pass. Syntax, links, byte/mode scope,
+  whitespace and measured overlay application/staging controls pass.
+- No reference behavior change or native acceptance is claimed. Preserve README,
+  original criteria/evidence, open findings and unselected decisions. Real locks
+  in the local test environment do not prove Slackware target conformance or
+  production path/permission safety; Phase 1 remains incomplete.
+- Fourth prepared step of the bounded block, provisional closure target 450.
+  Actual 446 return is pending before preparing 447; no new pause confirmed.
+
 ## Phase 1 step 445 -- validate combined result precedence
 
 - Accept complete actual 444 at reported full HEAD
