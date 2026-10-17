@@ -148,11 +148,12 @@ This repaired current test does not rewrite frozen native criteria or evidence.
 
 The CLI/configuration, setup/completion/module and JSON/NDJSON groups, plus
 SBo options, stable exit codes, signal cleanup and direct-generic, comprise the
-24-command integrated baseline. For the current combined review, also run all
-seven dry-run/package/apply checks below: 31 commands in total. Select the exact
-files, rather than globbing the historical harness directory. The earlier 64
-private source mutations from steps 443-449 keep their original scope; an
-integrated normal run is neither a fresh mutation run nor independent acceptance.
+24-command integrated baseline. The seven dry-run/package/apply checks below
+extend it to the 31-command baseline through step458. The current459-466 combined
+review adds seven more Python drivers and three complementary shell regressions:
+41 commands in total, as described below. Select exact files; do not glob historical
+harnesses. The earlier64 private source mutations from443-449 retain their original
+scope; an integrated normal run is neither a fresh mutation run nor acceptance.
 
 Callbacks and prohibited-entry guards are not an OS sandbox. Supplied flags,
 status pairs and policy combinations need not be reachable native states. No
@@ -216,35 +217,94 @@ An integrated normal run does not rerun these controls or erase earlier failed
 attempts. Guards prohibit known unwanted calls; they are not OS containment or
 independent observation of an actual native graph.
 
-## Conditional repository pause after step 458
+## Current boot, detector, wrapper and human-summary checks
 
-Steps 451-458 form the current bounded eight-step repository block. The prepared final
-source and local PASS results do not confirm the user's actual application,
-commit, push or pause. Confirmation requires all 31 selected regression commands, the complete final
-application/scoped commit/subject/reported successful push/clean matching full
-HEAD and origin return, an exact source/Git-mode/tree report and a separate
-post-return review of all nine whole inherited conditions, with their original
-qualifications retained. The last confirmed repository pause remains step450
-until that review; the prepared step458 is only a candidate.
+The current459-466 block adds seven independent Python drivers. They use the
+standard library and Bash with the real/private/supplied boundaries documented
+below; none imports another test's oracle. Read the dedicated scope for selected
+faults, authored inconsistent states and exclusions before extending a test.
 
-That review must cover the full in-scope effects and outstanding obligations,
-closed native dispatch/publication/rights, any required block-specific cleanup,
-unobserved actual host state and independence from later Slackware-current
-refresh. A later refresh cannot revive a consumed source/run/grant binding.
+| Test under `tests/reference/` | Exercised boundary and material limit |
+| --- | --- |
+| [test-boot-preparation-workflow.py](../tests/reference/test-boot-preparation-workflow.py) | Real coordinator and state/event ordering; prerequisite, initrd/GRUB operations and events supplied |
+| [test-package-change-detection.py](../tests/reference/test-package-change-detection.py) | Real ABI/kernel detectors, parser/snapshot helpers and boot policy; private snapshots and supplied capabilities |
+| [test-mirror-probe.py](../tests/reference/test-mirror-probe.py) | Real resolver/probe/check helpers; private files/readability, two modeled denials and supplied discovery/transport/package callbacks |
+| [test-flatpak-update.py](../tests/reference/test-flatpak-update.py) | Real wrapper with supplied discovery/command and carried status sequences; no installed Flatpak |
+| [test-cinnamon-rebuild.py](../tests/reference/test-cinnamon-rebuild.py) | Real wrapper, private executable/link predicates, subshell/cd and inert builders; supplied Git and selected cd rejection |
+| [test-slackpkg-update.py](../tests/reference/test-slackpkg-update.py) | Real wrapper/capture, private find/sort/wc and files; supplied Slackpkg, exact guarded /etc-to-private root relocation and selected faults |
+| [test-human-summary.py](../tests/reference/test-human-summary.py) | Real apply/check renderers with independently authored complete output/state, supplied clock and private lists/wc/sed |
+
+Their scopes are [boot workflow](reference/boot-preparation-workflow.md),
+[detectors](reference/package-change-detection.md), [mirror](reference/mirror-probe.md),
+[Flatpak](reference/flatpak-update.md), [Cinnamon](reference/cinnamon-rebuild.md),
+[Slackpkg](reference/slackpkg-update.md) and [human summaries](reference/human-summary.md).
+The88 private source controls retain their focused-row/repetition scopes and
+original failures/corrections; they are not repeated by normal integrated testing.
+Real inert builders and private coreutils/file/lock/signal operations are not
+wholly mocked and do not establish native acceptance or OS containment.
+
+Run the31 baseline commands, these seven drivers, and three existing shell tests
+for the current41-command integrated review:
+
+| Complementary test | Additional real/supplied scope |
+| --- | --- |
+| [test-grub-blocked-after-initrd-failure.sh](../tests/reference/test-grub-blocked-after-initrd-failure.sh) | Real prerequisite/GRUB transaction in private paths with supplied generator/validator, selected coordinator and JSON/result checks; requires jq |
+| [test-package-name-parsing.sh](../tests/reference/test-package-name-parsing.sh) | Real parser/exact-name/suffix helpers, authored records and private package files; no installed database enumeration |
+| [test-slackpkg-postinstall-policy.sh](../tests/reference/test-slackpkg-postinstall-policy.sh) | Real wrapper/collection and JSON/message helpers with supplied Slackpkg/find, private lists and real sort/wc |
+
+The [block review](reference/repository-regression-block-459-466.md) records the
+selected order, source binding, current behavioral limits and retained failures.
+These suites do not execute a normal installed package update or native boot
+workflow. They require Python3/Bash and ordinary Unix tools; individual scopes
+add flock/fcntl, timeout, jq and private inert executables. Guarded entry points
+are not an operating-system sandbox. Complete source/test/fixture bytes must
+match the delivery to interpret a reported result.
+
+Do not infer native success or a stable main result from a raw helper zero or a
+human success label. The existing summary recommends reboot on a broad kernel
+trigger even after skipped/failed preparation; this test records that text and
+does not endorse rebooting. Slackpkg direct count failure can leave valid1 with
+an empty count; Cinnamon clone-failure wording differs from preseeded-builder
+continuation. Read the respective scopes; passing regressions do not resolve
+those limits or amend original native install-new20/upgrade20 criteria.
+
+## Conditional repository pause after step466
+
+Steps459-466 are the current bounded eight-step repository block. The last
+confirmed strong STATIC repository pause is458 at preparation; prepared466 and
+local PASS do not confirm the user's application, commit, push or new pause.
+Confirmation requires all41 exact selected regression outputs, the complete
+final application/scoped commit/subject/reported successful push/clean matching
+full HEAD and origin return, and an exact source/Git-mode/tree report. THEN a
+separate post-return review must read EVERY WHOLE inherited condition, including
+all nested original bodies, and review all new in-scope effects, outstanding
+obligations, cleanup needs and observation limits. A count/hash/summary or prior
+review is not a substitute. The delivery preserves the whole inherited bodies;
+they are not silently reduced to this guide.
+
+Native dispatch/service channels, partial operational publication and live/future
+rights remain closed. Actual host state is unobserved-not-claimed-absent; current
+native evidence/live bindings areNULL, global host closureFALSE. Private files,
+locks/signals/builders and private Git checkouts are ordinary work products, not
+evidence of native cleanup/host absence. New successful checks do not explain
+older unknown extraction/mode/link anomalies or prove end-to-end restoration.
+
 The read-only final reporter checks tracked source bytes, index blobs, working
-executable bits and reconstructed Git tree against the pinned prepared delivery.
-Its HEAD/origin comparison reads local Git references; it does not independently
-query GitHub. Repeated identity/clean checks bracket its reads without providing
-a filesystem snapshot lock. It does not observe ignored files, actual host state
-or native rights. A matching report supports only its named repository scope.
-After confirmation, stop; further project work requires a new bounded request.
+executable bits and reconstructed Git tree against its pinned delivery. HEAD/
+origin are local Git references, not an independent GitHub query. Repeated clean/
+identity checks bracket reads without locking a filesystem snapshot. Ignored
+files, actual host state and native rights are outside its observation. A matching
+report supports only the named repository scope. Same-assistant external-to-
+prepared confirmation is not independent native/semantic acceptance.
 
-Phase 1/kernel remain incomplete. All original findings, member criteria,
-unselected contract options, separate specification/impact and conditional
-explicit migration decisions remain binding. Actual composition and independent
-safe whole-run review must precede a separate fresh explicit bounded native
-grant before effects; own-platform independent conformance remains separate.
-Repository confirmation neither selects an option nor authorizes a native run.
+A later Slackware-current refresh cannot invalidate completed STATIC repository
+work or revive consumed source/run/grant bindings. After actual confirmation,
+STOP until a NEW bounded request. Phase1/kernel remain incomplete; original
+findings/member criteria/unselected options and specification/impact obligations
+remain binding. Explicit migration IF norms change, ACTUAL composition binding,
+independent safe ACTUAL WHOLE review, THEN a separate FRESH explicit BOUNDED native
+grant BEFORE effects, and later own-platform independent conformance stay due.
+Repository confirmation neither selects an alternative nor authorizes a native run.
 
 ## Current JSON and NDJSON checks
 

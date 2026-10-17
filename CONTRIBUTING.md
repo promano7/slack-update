@@ -108,6 +108,9 @@ The [testing guide](docs/testing.md) distinguishes documentation checks,
 focused regressions, historical checkpoint snapshots and real acceptance.
 The mappings below still govern reference-script changes; frozen historical
 baselines retain their original scope.
+The current [459-466 integrated review](docs/reference/repository-regression-block-459-466.md)
+selects41 named checks; a prepared pass still requires the complete actual return
+and separate whole-condition review before repository pause confirmation.
 
 ## Reference-script changes
 
