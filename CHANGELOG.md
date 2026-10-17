@@ -1,3 +1,39 @@
+## Phase 1 step 460 -- validate ABI and kernel change detection
+
+- Accept the complete supplied step459 return at full HEAD/origin
+  `8e2439d1da0029807d6284f7100356621fefd06b`, parent
+  `f476134aea2a202d450f55f25565e6722cc81c12`, exact prepared tree
+  `c22966a2e4daa15e85b9baa5d58c838151527818`: eight selected regression outputs,
+  four-path/270-addition/two-create commit and required subject agree; push
+  reported successful, status empty and matching full heads. Preserve the
+  supplied-evidence scope; no independent remote/native capture is inferred.
+- Add a standard-library Python/Bash regression calling the unchanged real
+  ABI/kernel detectors, package parser, exact-name snapshot reader, membership
+  helper and kernel boot policy against private snapshots. Cover 756 ABI and
+  3456 kernel scenarios, twice each: 8424 detector entries. Authored changed-name
+  lists and expectations check full messages, raw returns, selected globals,
+  complete critical/input arrays, IFS, snapshot bytes and private inventory.
+- Distinguish image/module boot requests from broad headers/firmware/source
+  triggers, preserve seeded flags and verify required-before-filter/direct-
+  generic policy propagation. Document exact names, normalization, ignored
+  invalid records, missing snapshots, order/duplicates and final-line behavior
+  as helper observations, not native snapshot acceptance or reboot verdicts.
+- Reject fourteen syntax-valid private mutations on focused full-matrix rows.
+  Retain the first unterminated-tail control's unexpected PASS: both changed
+  and omitted tails triggered detection. Add an unchanged unterminated-line
+  profile and correct that control; preserve initial source/driver/log evidence.
+  No reference mutation or clean-first-attempt claim ships.
+- Change only CHANGELOG.md, CONTRIBUTING.md and the new detector test/scope.
+  Reference bytes/executable mode, README and all native criteria/evidence remain
+  unchanged. Second prepared step of the bounded459-466 block, maximum470;
+  actual460 return remains required before the next numbered delivery.
+- Last confirmed strong static repository pause458; no new pause yet. Phase 1/
+  kernel incomplete, alternatives unselected and schema1/reference-v1/C/Phase2/
+  production closed. All original specification/migration/composition/independent
+  safe whole review/fresh bounded native grant/platform conformance gates remain.
+  Actual host unobserved, actual live bindings/native evidence null; no global
+  host closure or reused historical execution right is claimed.
+
 ## Phase 1 step 459 -- validate boot preparation orchestration
 
 - Resume a newly requested bounded 8-12-step repository block from confirmed
