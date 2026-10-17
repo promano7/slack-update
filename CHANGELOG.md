@@ -1,3 +1,40 @@
+## Phase 1 step 464 -- validate Slackpkg actions and pending configuration capture
+
+- Accept complete supplied actual463 at full HEAD/origin
+  `ca4442da42df6b2a6bd151a8f0128392c1105b62`, parent
+  `26684cb8c95103e9f7419d44c3ddeda852148cbb`, exact prepared tree
+  `8b106ffd40b99095d7feb29fe855f011728ec19f`:six selected outputs,
+  four-path307-addition/two-create commit and required subject agree;reported
+  successful push,empty status and matching full heads. Supplied terminal/local
+  Git evidence only,not independent remote/native capture.
+- Add an independent Python/Bash regression for real Slackpkg wrapper/capture
+  flow with supplied package commands and guarded /etc-to-private find relocation.
+  Use real private files,find/sort/wc,symlinks/redirections and selected faults.
+  Cover12 capture+576 update scenarios,twice each:1176top-level entries.
+- Assert package vectors/ordering/raw statuses,disabled-state preservation,
+  postinstall-off flags,full output channels,collection state/count/list bytes,
+  private inventory and IFS. Separate concurrent pipeline trace files avoid
+  inventing find/sort write order. No installed /etc or package action is used.
+- Record current continuation after command failures,zero wrapper return,retained
+  output on scan failure and unchecked direct wc failure yielding valid1/empty
+  count. These are current helper observations,not normative/native acceptance
+  or application-result guarantees. Original native code20 obligations remain.
+- Preserve the initial normal-run stderr oracle error:command payloads were
+  prepended in reverse order. Correct the oracle to command order then scan
+  stderr;the final full matrix passes and twelve focused mutations are rejected.
+  Production reference unchanged;no clean-first-attempt result claimed.
+- Recover source from exact persisted463 ZIP;preserve all inherited known/unknown
+  generator,extraction,mode/link and control failures with original qualifications.
+  Use explicit full identities rather than numeric substitutions inside hashes.
+- Change only CHANGELOG.md,CONTRIBUTING.md and the new test/scope document.
+  Keep reference100755/README/native criteria/evidence and original modes intact.
+  Sixth prepared step of bounded459-466,max470;actual464 return required next.
+- Last confirmed strong static repository pause458;no new pause. Phase1/kernel
+  incomplete,alternatives unselected,schema1/reference-v1/C/Phase2/production closed.
+  All specification/migration/composition/independent-safe-whole-review/fresh-native
+  grant/platform-conformance gates remain. Actual host unobserved,live bindings/
+  native evidence null;no global closure or reused historical authority claimed.
+
 ## Phase 1 step 463 -- validate the Cinnamon rebuild wrapper
 
 - Accept complete supplied actual462 at full HEAD/origin

@@ -130,6 +130,8 @@ Before submitting a change to the reference script:
 
    Run `python3 tests/reference/test-partial-update-policy.py` when raw action-result classification or secondary-module blocking assignments change. It calls the real in-memory helpers with supplied state; see [the partial-update helper scope](docs/reference/partial-update-policy.md). Keep workflow sequencing, current shell projections and original native code-20 criteria separate.
 
+   Run `python3 tests/reference/test-slackpkg-update.py` when package-action sequencing, postinstall arguments, raw status assignment or pending .new list collection changes. It supplies slackpkg and guarded root relocation, uses real private find/sort/wc and selected faults; see [the Slackpkg wrapper scope](docs/reference/slackpkg-update.md). Keep native /etc state, package effects and application-result acceptance separate.
+
    Run `python3 tests/reference/test-apply-early-exits.py` when baseline/ownership gates, package-result precedence, restoration/final-snapshot ordering or partial-update dispatch blocking changes. It calls the real apply prefix and classifier/blocker with supplied operations; see [the early-exit scope](docs/reference/apply-early-exits.md). Positive controls stop at a private continuation checkpoint before secondary dispatch.
 
    Run `python3 tests/reference/test-cinnamon-rebuild.py` when Cinnamon trigger gating, Git refresh/clone sequencing, private builder execution, subshell cwd isolation, result assignments or output routing changes. It supplies Git and selected cd failure, and executes inert private builders; see [the Cinnamon wrapper scope](docs/reference/cinnamon-rebuild.md). Keep native checkout trust, activation and build acceptance separate.
