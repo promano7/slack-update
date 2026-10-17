@@ -57,3 +57,41 @@ The version 1 result schema and reference freeze remain pending. Original
 native acceptance requirements, open operational findings and independent
 review/execution gates retain their scope. No native grant follows from this
 parser check or a repository commit.
+
+## Main early-exit regression
+
+```bash
+python3 tests/reference/test-cli-early-exits.py
+```
+
+This separate test exercises the real `main`, `parse_arguments` and `print_usage`
+functions. Its 132 scenarios cover 48 valid help invocations and 18 invalid
+argument lists, each with descriptor 3 closed and with it open to a private file.
+The expected usage text is authored in the test, not captured from the reference.
+
+Help returns stable code 0, writes the full usage to stdout and leaves stderr
+empty, including when an operation or output option accompanies help. Invalid
+arguments return stable code 7, leave stdout empty and write the exact diagnostic
+followed by usage to stderr. Help does not override an invalid argument list.
+Neither path emits JSON or NDJSON, even when a format option was supplied.
+
+The harness replaces environment initialization with a private trace callback
+and requires exactly one call. It does not run or validate the real initializer.
+Configuration loading, privilege checks, locking, runtime/trap setup, logging,
+workflow dispatch, completion time, stable-result calculation and structured
+completion emitters are replaced with callbacks that abort on any invocation.
+The harness itself creates private trace/channel files and removes its temporary
+directory. The real usage renderer invokes `cat`; Bash and Python are required.
+
+These replaced functions are a test boundary, not an operating-system sandbox.
+Review any newly added call or effect boundary in `main` before expanding or
+running the harness against changed code. Open/closed descriptor checks do not
+prove complete descriptor isolation or absence of all possible system effects.
+The test never dispatches a normal update workflow or invokes native package,
+boot, configuration or locking implementations.
+
+Eight private main-source mutations were rejected: wrong help/invalid status,
+wrong usage stream on either path, premature configuration, missing help return,
+premature JSON output and omitted environment initialization. Existing parser
+coverage remains separate. The tests establish current supplied/mock behavior;
+native acceptance, operational findings and Phase 1 gates remain unchanged.

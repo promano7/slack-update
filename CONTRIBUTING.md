@@ -114,7 +114,7 @@ baselines retain their original scope.
 Before submitting a change to the reference script:
 
 1. Run `bash -n tools/reference/slack-update-reference.sh`.
-   Run `python3 tests/reference/test-cli-arguments.py` when argument parsing, operation selection, output-mode exclusion or parser-state reset changes; see [the CLI parser regression scope](docs/reference/cli-arguments.md). This sources the reference and calls only `parse_arguments`, without dispatching `main` or any workflow.
+   Run `python3 tests/reference/test-cli-arguments.py` when argument parsing, operation selection, output-mode exclusion or parser-state reset changes; see [the CLI parser regression scope](docs/reference/cli-arguments.md). This sources the reference and calls only `parse_arguments`, without dispatching `main` or any workflow. Run `python3 tests/reference/test-cli-early-exits.py` when help handling, argument rejection, early-exit routing or the boundary before configuration changes. It calls `main` with environment initialization replaced and later boundaries prohibited; see [the early-exit scope](docs/reference/cli-arguments.md#main-early-exit-regression).
 2. Run `tests/reference/test-package-name-parsing.sh` when package records, package ownership, or SBo detection are affected.
 3. Run `tests/reference/test-package-snapshots.sh` when package snapshot capture, validation, or comparison is affected.
 4. Run `tests/reference/test-partial-slackware-update.sh` when Slackware failure handling or secondary-module sequencing is affected.

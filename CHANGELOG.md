@@ -1,3 +1,23 @@
+## Phase 1 step 436 -- validate main help and invalid-input early exits
+
+- Accept the complete step 435 user return at full reported HEAD
+  `39f64dcf2116d633642dca58ab9d00bafbf8a6cc`: 138 parser scenarios pass;
+  four paths/224 insertions/two new 100644 files, successful reported push,
+  empty final status and matching full heads.
+- Add 132 main early-exit scenarios with authored full usage and diagnostics:
+  48 help and 18 invalid-input cases, each with descriptor 3 closed and open.
+  Assert stable codes 0/7, stdout/stderr routing and no structured output.
+- Replace environment initialization with a one-call private trace callback;
+  prohibit configuration, privileges, locking, runtime, logging, workflows and
+  completion boundaries. The real main, parser and usage renderer are exercised.
+- All 132 early-exit and 138 parser scenarios pass. Eight deliberate private
+  main-source mutations are rejected. Bash syntax and whitespace pass.
+- Document exact mock boundaries and contribution mapping; this is not an OS
+  sandbox or native absence-of-effects proof. Preserve reference bytes/mode,
+  README, original contracts, native obligations and phase gates.
+- The second prepared step of the new bounded block awaits its actual complete
+  application/test/commit/push return. No new repository pause is confirmed.
+
 ## Phase 1 step 435 -- validate command-line argument parsing
 
 - Resume from the confirmed step 434 repository pause at reported full HEAD
