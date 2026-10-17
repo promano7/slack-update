@@ -1,3 +1,44 @@
+## Phase 1 step 457 -- validate secondary apply workflow orchestration
+
+- Accept complete supplied actual 456 at full HEAD/origin
+  `c63fe5ffacbcb90d3cb5be1d89a4c9250f41478c`, parent
+  `5e75c5a3c121e1a25635ae51f69b5c1b86ade943`, exact prepared tree
+  `f9a0bdfed809f2df49e1bd440cd4e6acb78aebcb`: all five regression outputs,
+  four-path/375-addition/two-create commit and required subject agree;
+  push reported successful, status empty and matching full heads.
+- Add 472 scenarios/944 complete real apply-workflow entries with a successful
+  supplied prefix, real action classifier and supplied optional operations.
+  Cover all sixteen run-flag patterns, three inactive states, nine SBo profiles,
+  five ELF profiles, five Flatpak raw statuses, seven Cinnamon triggers and
+  present/empty option paths through deduplicated overlapping matrices.
+- Assert complete ordered callback/event vectors, selected state, exact private
+  core/extra/options/broken bytes and inventory, IFS and preserved outer locals.
+  Fresh auxiliary profiles return 0/19; boot returns 0/255. Observe raw summary
+  return at the normal workflow end, without claiming main/application exits.
+- Cover synchronization priority and continued selection after sync failure,
+  failed selection cleanup, ELF short-circuit/blocking, failed-state retention,
+  independent state/raw event fields, Cinnamon mapping and ignored boot return.
+  Authored supplied combinations do not prove native reachability or policy.
+- Twelve syntax-valid private mutations rejected by focused unchanged-driver
+  cases, not twelve full-matrix reruns. Eleven focused rows occur in the full
+  matrix; mapping failure with empty broken file is one supplementary row.
+  Block total is 80; earlier mutation controls retain their original scope.
+- Related apply-prefix 870/1740, apply JSON 24/eight negative controls, main
+  completion 576 and stable-exit 137 pass. Change only history, contributor
+  guidance and a new test/scope document; reference100755 and README unchanged.
+- All package/policy/snapshot/probe/optional/boot/event/summary operations are
+  callbacks; real writes and size checks concern private files. No native tool,
+  normal main/init, network or clock operation runs. Guards are not containment.
+- Preserve original install-new20 empty AND no-effect and upgrade20 failure
+  requirements, all findings/options and separate semantic/migration/actual-
+  composition/review/grant/conformance gates; Phase 1/kernel remain incomplete.
+- Retain all historical failed-control/extraction/mode/symlink qualifications.
+  Current overlay faults use original inspection with observed metadata; no
+  end-to-end visibility or restoration persistence claim. Seventh prepared
+  step; provisional close458. Actual457 application/tests/exact commit/push/
+  clean full heads remain pending before integrated458 and separate whole
+  condition review. No new strong repository pause confirmed by preparation.
+
 ## Phase 1 step 456 -- validate apply early exits and partial-update sequencing
 
 - Accept complete supplied actual 455 at full HEAD/origin
