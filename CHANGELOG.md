@@ -1,3 +1,24 @@
+## Phase 1 step 437 -- validate configuration text parsing
+
+- Accept the complete step 436 return at reported full HEAD
+  `fcefb40e75a0964e17992a5d37effa2917dee029`: early-exit 132/0 and parser
+  138/0, four paths/200 additions/one deletion/one new 100644 file,
+  successful reported push, empty status and matching full heads.
+- Add 72 configuration-parser scenarios: 51 valid text inputs and 21 rejection
+  cases, all 34 authored key mappings, initialized defaults, duplicate tracking,
+  exact diagnostics/line numbers, CRLF, whitespace and final EOF-row handling.
+- Check literal quotes, inline comment characters, equals signs, Unicode,
+  backslashes and shell-like text with private marker probes. Input bytes remain
+  unchanged; no general security or native absence-of-effects proof is claimed.
+- All 72 cases and eight private source-mutation controls pass. Existing CLI
+  parser/early-exit checks remain passing. No reference defect or behavior change
+  was found; README and all original configuration contracts remain unchanged.
+- Document that semantic validation, file resolution, applying settings, main
+  and native workflows are outside this parser check. Preserve phase gates,
+  original findings/decisions and independent native review/execution boundaries.
+- Third prepared step of the new bounded block; actual 437 return is pending,
+  and no new strong safe repository pause is confirmed by this delivery.
+
 ## Phase 1 step 436 -- validate main help and invalid-input early exits
 
 - Accept the complete step 435 user return at full reported HEAD
