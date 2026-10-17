@@ -1,3 +1,47 @@
+## Phase 1 step 456 -- validate apply early exits and partial-update sequencing
+
+- Accept complete supplied actual 455 at full HEAD/origin
+  `5e75c5a3c121e1a25635ae51f69b5c1b86ade943`, parent
+  `902191310569b19e521f72209ada9f8738031e60`, exact prepared tree
+  `7c29187d764af97f37943ba70e7c353f16207247`: all five regression outputs,
+  four-path/221-addition/two-create commit and required subject agree;
+  push reported successful, status empty and matching full heads.
+- Add 870 scenarios/1740 real apply-prefix entries with supplied snapshot,
+  boot/ownership/restoration/package/event/summary operations. Retain the real
+  action classifier and secondary-module blocker; forbid all secondary actions.
+- Cover initial/ownership failure returns 1/23/255, all 216 triples from raw
+  -1/0/20/21/42/255, restoration and final-capture failures, first-failed action
+  priority, restoration-before-final-snapshot ordering and exact failure events.
+  Check every blocked state/reason/run flag and preserved modes/raw codes.
+- Assert exact complete callback/event vectors, diagnostics, selected global
+  state/IFS and private inventory. Two freshly seeded callback profiles use
+  auxiliary return 0/19 without replacing the designated prefix result.
+  Normal early returns preserve outer action_exit/slackware_state variables.
+- Eighteen positive-prefix cases stop with private process marker 86 at the
+  first optional probe; 852 cases return early. This checkpoint is not a
+  complete apply success, native execution right or an application exit code.
+- New driver and twelve focused syntax-valid private source mutations pass;
+  unchanged-driver assertions select corresponding rows, not twelve full-matrix
+  reruns. Preserve the initial nondistinguishing priority-control row/failure:
+  both checked codes were errors while the raw assignment stayed unchanged.
+  Correct the focused row to update42/install0/upgrade0 already in the full
+  matrix; no source/test oracle edit or first-attempt sensitivity PASS claimed.
+- Related partial-policy 1044/2088 entries, apply JSON 24/eight controls, main
+  completion 576 and stable-exit 137 pass. Block total private mutations is 68;
+  earlier controls retain their original scope and are not rerun here.
+- Change only history, contributor guidance and new test/scope document.
+  Preserve reference100755, README, native criteria/evidence, open findings and
+  unselected decisions. No real package/policy/snapshot/boot/network/clock or
+  normal initializer/main runs. Guards are not OS containment or native proof.
+- Keep reference code-20 projection distinct from original native requirements:
+  install-new20 still needs empty AND no-effect; upgrade20 remains failure.
+  All separate semantic/migration/actual-composition/review/grant gates remain.
+- Preserve historical mode/extraction/symlink failed-control qualifications;
+  overlay real faults stay at original inspection, without end-to-end visibility
+  or restoration persistence claims. Sixth prepared step, provisional close458.
+  Actual456 application/tests/exact commit/push/clean full heads pending before
+  457; local prepared results confirm no new strong repository pause.
+
 ## Phase 1 step 455 -- validate partial-update policy helpers
 
 - Accept complete supplied actual 454 at full HEAD/origin
