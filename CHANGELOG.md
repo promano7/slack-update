@@ -1,3 +1,27 @@
+## Phase 1 step 443 -- validate main setup failure boundaries
+
+- Resume a new user-requested bounded 8-12-step block from confirmed step 442,
+  reported full HEAD `25f297d1affe7e3f5b876b2adaf318b0662dd4f4`, tree
+  `1200c49264384ef831cb79e699ca53415986c8a8`. Verify all supplied archive
+  digests and restore its complete 2311-file Git-mode inventory. The accepted
+  source tree remains the entry point; historical STOP required this new request.
+- Add 216 real-main/parser scenarios for privilege/lock status forwarding,
+  operation-specific initializer selection, trap/rotation/logging order and
+  failure normalization. Cross operations, output flags and inherited descriptor
+  states; check complete traces, exact diagnostics and empty output artifacts.
+- Replace setup boundaries with inert callbacks. Positive controls deliberately
+  stop at the banner with test status 96, before any workflow or event. No real
+  root check, lock acquisition, trap installation or logging setup is exercised.
+- Reject eight private source mutations without changing delivered expectations.
+  Run the new test and existing main-loader, CLI early-exit, argument-parser and
+  stable-exit regressions; all pass. No reference behavior fix is claimed.
+- Preserve reference source/mode, README, historical criteria/evidence, original
+  open findings and separate option/semantic/migration/native execution gates.
+  Phase 1 remains incomplete; no current native evidence or host closure follows.
+- First prepared step of the new block, with a provisional closure target of
+  450. Actual 443 application/test/commit/push return is pending; no new pause
+  is confirmed. Review that return before preparing the next source delivery.
+
 ## Phase 1 step 442 -- review CLI and configuration tests before repository pause
 
 - Accept complete step 441 at reported full HEAD
