@@ -1,3 +1,29 @@
+## Phase 1 step 449 -- validate check workflow orchestration
+
+- Accept complete actual 448 at reported full HEAD
+  `6c3fabefc6b62d4b1eaf3afa6be8420ed816bc5f`: boot policy 261/522 calls,
+  corrected direct-generic 59, precedence 492/984 calls and stable-exit 137
+  pass; five paths/317 additions/two deletions/two creates 100644, exact
+  English subject, reported push, empty status and matching full heads.
+- Add 32 scenarios/64 real check-workflow calls. Twelve exercise the real check
+  helper with supplied command/mirror/slackpkg callbacks; twenty isolate
+  orchestration with authored helper-return/raw-status pairs.
+- Check missing-command 127, mirror-failure 69 with explicit/empty/unset reason,
+  raw 0/100 success and six failures, exact slackpkg arguments, stale diagnostic
+  reset, output and ordered complete event/summary argument vectors.
+- Keep event state, raw code and workflow return distinct. Repeat each case
+  with failing event/summary callbacks to ensure they do not replace the check
+  result; check preserved IFS, empty stderr and private trace inventory.
+- Reject eight private source mutations. Existing check JSON, main completion
+  and stable-exit regressions pass. Syntax, links, whitespace, byte/mode scope
+  and disclosed overlay application/staging controls pass.
+- Preserve reference behavior/100755, README, accepted boot regression repair,
+  native fixtures/criteria and original open findings/unselected decisions.
+  No mirror file, network, installed command, clock or native workload runs
+  in the new test; supplied inconsistent states are not reachability claims.
+- Seventh prepared step; provisional integrated closure 450. Actual 449 is
+  pending before 450; no new strong repository pause is confirmed.
+
 ## Phase 1 step 448 -- validate boot activation and request policy
 
 - Accept complete actual 447 at reported full HEAD
