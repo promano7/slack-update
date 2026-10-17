@@ -1,3 +1,23 @@
+## Phase 1 step 441 -- validate main configuration-loading boundaries
+
+- Accept complete step 440 at reported full HEAD
+  `6cad6c9575e610a6435a71c6c5bdc3cc4b5d8875`: application 288/0, validation
+  163/0, resolver 84/0, parser 72/0, early exits 132/0 and arguments 138/0;
+  four paths/229 additions/two new 100644 files, reported push, clean matching heads.
+- Add 456 real private-file loader/main scenarios: 432 failure combinations
+  across operations/output modes/descriptors and 24 valid-loader controls that
+  deliberately stop at a modeled privilege callback with code 8.
+- Assert stable failure code 7, exact diagnostics without usage/structured output,
+  unchanged input bytes and exact traces. Replace environment/application/
+  privilege boundaries; prohibit sixteen later locking/runtime/workflow callbacks.
+- All cases and eight private main/loader mutations pass. Retain the six prior
+  accepted suite results for the integrated 442 rerun; no reference fix is claimed.
+- Document real loader stages versus replaced boundaries. Preserve reference
+  bytes/mode, README, original contracts/native criteria, open findings,
+  unselected decisions and separate phase/execution gates.
+- Seventh prepared step. Actual 441 return is pending before the planned 442
+  integrated review and conditional repository-pause preparation.
+
 ## Phase 1 step 440 -- validate configuration-to-runtime assignments
 
 - Accept complete step 439 at reported full HEAD
