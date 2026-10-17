@@ -104,6 +104,82 @@ effects, independent semantic acceptance, schema 1 freeze, contract-option choic
 or native execution right. Original scenario/member criteria, unresolved findings
 and separate review/grant/conformance gates remain binding.
 
+## Current setup, completion and module checks
+
+The seven independent Python drivers below use the standard library and Bash.
+Select them for the affected boundary, alongside the earlier CLI/configuration
+and JSON checks. Their expected results are authored separately from reference
+output; none imports the shared JSON test support.
+
+| Test under `tests/reference/` | Exercised boundary and material limit |
+| --- | --- |
+| [test-main-setup-failures.py](../tests/reference/test-main-setup-failures.py) | Real main/parser setup sequencing with supplied privilege, lock, trap, runtime and logging callbacks; positive controls stop at the banner |
+| [test-main-completion.py](../tests/reference/test-main-completion.py) | Real main/parser dispatch and completion; setup, workflows, clock, mapper and output are callbacks; checks descriptor 3 routing/closure |
+| [test-result-precedence.py](../tests/reference/test-result-precedence.py) | Real result mapper/message/preparation/status helpers with authored state and private ELF-result files; no workflows |
+| [test-instance-lock.py](../tests/reference/test-instance-lock.py) | Real flock/descriptor lifecycle in owned private child sessions, independently observed with Python fcntl; selected command errors are modeled |
+| [test-optional-module-probes.py](../tests/reference/test-optional-module-probes.py) | Real Flatpak/SBo/ELF/Cinnamon probes and selected Cinnamon detection; supplied discovery/package predicates and private checkout directory |
+| [test-boot-module-policy.py](../tests/reference/test-boot-module-policy.py) | Real boot activation and request policy with supplied discovery/direct-probe results and private file/directory/symlink predicates |
+| [test-check-workflow.py](../tests/reference/test-check-workflow.py) | Real check workflow/helper with supplied mirror, command, event and summary callbacks; selected supplied inconsistent pairs isolate result fields |
+
+For detailed scenarios and exclusions, read the linked tests and the respective
+[setup](reference/main-setup-failures.md),
+[completion](reference/main-completion.md),
+[result](reference/result-precedence.md),
+[lock](reference/instance-lock.md),
+[optional-probe](reference/optional-module-probes.md),
+[boot](reference/boot-module-policy.md) and
+[check workflow](reference/check-workflow.md) scope documents.
+
+The lock test additionally requires Unix advisory locking, Python fcntl and
+flock. Its finite handshakes and owned private process-group cleanup do not
+prove installed application containment. The existing
+[signal-cleanup regression](../tests/reference/test-signal-cleanup.sh) uses real
+signals, timeout, locks and cleanup on private child-process fixtures; it checks
+no normal package or boot workflow. These real private OS operations must not
+be described as wholly mocked, or expand earlier historical mock-only claims.
+
+For boot classification changes, also run the existing
+[direct-generic regression](../tests/reference/test-current-direct-generic-boot-policy.sh).
+It exercises real private classifiers/files and a stub GRUB validator. Its two
+old available/partial expectations after failed validation were corrected in
+step 448 against the already accepted steps 122/128/129 fail-closed contract.
+The current 59 checks include unavailable/non-runnable and reason assertions.
+This repaired current test does not rewrite frozen native criteria or evidence.
+
+For an integrated review, run all seven CLI/configuration tests, these seven
+new tests, all six JSON/NDJSON tests, SBo options, stable exit codes, signal
+cleanup and direct-generic: 24 commands. Step 450 locally passes each on the
+prepared source. The seven new drivers retain 64 previously rejected private
+source mutations across steps 443-449; those earlier controls are not new
+independent acceptance or a fresh mutation run at 450.
+
+Callbacks and prohibited-entry guards are not an OS sandbox. Supplied flags,
+status pairs and policy combinations need not be reachable native states. No
+normal installed Slackware package/module/boot workflow or network request is
+introduced by this block. No native bootability, whole-host absence of effects,
+global cleanup or compatibility/conformance verdict follows from these tests.
+
+## Conditional repository pause after step 450
+
+Steps 443-450 form the bounded eight-step repository block. The prepared final
+source and local PASS results do not confirm the user's actual application,
+commit, push or pause. Confirmation requires the complete final return, exact
+source/Git-mode/tree report and a separate post-return review of all nine whole
+inherited conditions, with their original qualifications retained.
+
+That review must cover the full in-scope effects and outstanding obligations,
+closed native dispatch/publication/rights, any required block-specific cleanup,
+unobserved actual host state and independence from later Slackware-current
+refresh. A later refresh cannot revive a consumed source/run/grant binding.
+After confirmation, stop; further project work requires a new bounded request.
+
+Phase 1/kernel remain incomplete. All original findings, member criteria,
+unselected contract options, separate specification/impact and conditional
+explicit migration decisions remain binding. Actual composition and independent
+safe whole-run review must precede a separate fresh explicit bounded native
+grant before effects; own-platform independent conformance remains separate.
+Repository confirmation neither selects an option nor authorizes a native run.
+
 ## Current JSON and NDJSON checks
 
 Run these checks with Python 3 from the repository root. All six invoke Bash; the two existing shell regressions below also use standard
