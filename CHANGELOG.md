@@ -1,3 +1,50 @@
+## Phase 1 step 454 -- validate package snapshot failure boundaries
+
+- Accept complete supplied actual 453 at full HEAD/origin
+  `9891b7c6f092dc7864fe14821d607dcfa4ff45f5`, parent
+  `28fec0ab160ecd79595bead46b30e32c8843c20c`, exact prepared tree
+  `faa52f7fb022dc8843a05a40d389cb499a67c192`: five exact regression outputs,
+  five-path/430-addition/three-create commit and required subject agree;
+  push reported successful, status empty and matching full heads.
+- Add 61 scenarios/122 selected entry calls for snapshot validation, atomic
+  private capture and before/after wrapper failures. Thirteen validator rows,
+  eighteen capture rows crossed with absent/existing destinations and twelve
+  wrapper rows each repeat with seeded stale state and private fixtures.
+- Exercise real package parsing, find/coreutils, C-locale sort and canonical
+  validation; preserve archive normalization, compatibility-database symlinks,
+  ignored internal links/nested records, and duplicate-normalized rejection.
+  Known-command/path guards and exact call/state diagnostics are reviewed.
+- Supply selected access/temporary/enumeration/sort/validation/install/removal
+  failures. Assert previous-destination preservation, successful canonical
+  installation, count/error resets, full private source inventory/modes/links/
+  bytes, temporary cleanup and separate head-pipeline invocation. Do not infer
+  global atomicity or concurrent installed-database consistency.
+- Isolate wrapper sequencing with a supplied capture producing three canonical
+  records; check before removes both files and after only its final destination,
+  bypass after removal failure, diagnostic propagation and selected state reset.
+  Other wrapper fields retain seeded state; real permission-denial behavior and
+  internal capture-cleanup command failures remain outside this driver's scope.
+- New regression and twelve private syntax-valid source mutations pass.
+  Related result precedence 492/984 calls, apply JSON 24/eight controls, main
+  completion 576 and stable-exit 137 checks pass. Block mutation total is 44;
+  earlier controls are historical, not rerun here. Preserve actual definitions/logs.
+- Change only history, contributor guidance and new test/scope document; preserve
+  reference behavior/100755, README, native criteria/evidence and open findings/
+  unselected decisions. Existing shell snapshot regression retains its original
+  scope and is not invoked by the new test. No native apply/probe runs.
+- Preserve all historical mode/extraction/symlink failed-check qualifications.
+  Private overlay mode controls remain inspection-boundary real chmod with
+  observed bits; symlink fault runs last on disposable fixture, restoration
+  checked in-process only. No broader persistence or host safety proof follows.
+  Current private cross-process symlink injection unexpectedly returned PASS;
+  retain that failed control, cause unresolved. Later real-link injection runs
+  at original safe-path inspection with observed link and original function;
+  it proves no end-to-end cross-process visibility or restoration persistence.
+- Fourth prepared step, provisional close 458. Actual 454 application/tests/
+  exact commit/push/clean matching full heads remain pending before 455.
+  Phase 1/kernel/native decision/review/grant gates remain incomplete; prepared
+  private results confirm no new strong repository pause or native authority.
+
 ## Phase 1 step 453 -- validate human dry-run plan rendering
 
 - Accept complete supplied actual 452 at full HEAD/origin
