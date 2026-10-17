@@ -1,3 +1,36 @@
+## Phase 1 step 462 -- validate the Flatpak update wrapper
+
+- Accept complete supplied actual461 at full HEAD/origin
+  `816feb67463a739e5ff2d95bd71eeefd5d68cf80`, parent
+  `9bea1d43e6d248c9a589f685e6f11a3a8b115b37`, exact prepared tree
+  `cd0b7f9e438ecf0e77c1f6a446257625401845f9`: six selected outputs,
+  four-path352-addition/two-create commit and required subject agree;reported
+  successful push,empty status and matching full heads. Supplied terminal/local
+  Git evidence only,not independent remote/native capture.
+- Add an independent standard-library Python/Bash regression for the unchanged
+  real Flatpak wrapper with supplied discovery/command callbacks. Cover120
+  scenarios and336 wrapper calls:missing commands,eight raw statuses,four seeds,
+  two output profiles and authored consecutive success/failure/missing sequences.
+- Check complete lookup/command vectors,stdout/stderr,raw helper return,stored
+  status,preserved selected module/unrelated state,IFS and private inventory.
+  Verify discovery noise suppression and command-output routing separately.
+- Record the current helper's zero raw return after command failure,stored raw
+  status on failure,reset on later success and preservation when discovery is
+  missing. These are helper observations,not native/application success or a
+  specification migration. Keep activation/workflow/mapper/serializer scopes.
+- Reject eight syntax-valid private mutations on focused full-matrix scenarios;
+  no shipped reference/oracle mutation. Recover the input from the exact verified
+  persisted461 ZIP and retain every earlier extraction/mode/link/control failure
+  with its unknown-cause/restoration and independence qualifications unchanged.
+- Change only CHANGELOG.md,CONTRIBUTING.md and the new test/scope document.
+  Keep reference100755/README/native criteria/evidence and original modes intact.
+  Fourth prepared step of bounded459-466,max470;actual462 return required next.
+- Last confirmed strong static repository pause458;no new pause. Phase1/kernel
+  incomplete,alternatives unselected,schema1/reference-v1/C/Phase2/production closed.
+  All specification/migration/composition/independent-safe-whole-review/fresh-native
+  grant/platform-conformance gates remain. Actual host unobserved,live bindings/
+  native evidence null;no global closure or reused historical authority claimed.
+
 ## Phase 1 step 461 -- validate mirror resolution and ChangeLog probing
 
 - Accept complete supplied actual460 at full HEAD/origin
