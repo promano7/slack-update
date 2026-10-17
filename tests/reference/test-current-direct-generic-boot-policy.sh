@@ -148,8 +148,12 @@ assert_equal 1 "$BOOT_DIRECT_GENERIC_AVAILABLE" 'the direct-generic probe should
 assert_equal direct-generic-no-initrd "$BOOT_PREPARATION_LAYOUT" 'the direct-generic layout should be preserved'
 GRUB_CHECK_STATUS=1
 probe_boot_module
-assert_equal available "$BOOT_MODULE_STATE" 'auto mode should preserve partial inspection when GRUB validation fails'
-assert_equal partial "$BOOT_PREPARATION_LAYOUT" 'a failed direct probe should not claim the direct layout'
+# The step-128 remediation preserves the frozen fail-closed auto contract.
+assert_equal unavailable "$BOOT_MODULE_STATE" 'auto mode should reject an invalid direct-generic preparation path'
+assert_equal 0 "$BOOT_MODULE_RUN" 'an invalid direct-generic preparation path must not run'
+assert_equal unknown "$BOOT_PREPARATION_LAYOUT" 'a failed direct probe must not claim a supported layout'
+assert_equal 'no supported initrd or GRUB preparation path was detected' "$BOOT_MODULE_REASON" 'auto rejection should retain its fail-closed reason'
+assert_equal 'active GRUB configuration failed syntax validation' "$BOOT_DIRECT_GENERIC_REASON" 'direct validation should preserve its syntax-failure diagnostic'
 assert_equal 0 "$BOOT_DIRECT_GENERIC_AVAILABLE" 'a failed GRUB syntax check should reject direct availability'
 PATH=$OLD_PATH
 unset GRUB_CHECK_STATUS

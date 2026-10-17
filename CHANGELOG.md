@@ -1,3 +1,31 @@
+## Phase 1 step 448 -- validate boot activation and request policy
+
+- Accept complete actual 447 at reported full HEAD
+  `58ced5191e370ac289c91e5e257ba60351f6feab`: probes 50/100 calls,
+  precedence 492/984 calls and stable-exit 137 pass; four paths/250 additions,
+  two creates 100644, exact subject, reported push, clean matching full heads.
+- Add 261 scenarios/522 selected-entry calls for boot activation and in-memory
+  request policy: three modes, thirteen private path/capability rows, supplied
+  direct outcomes and complete trigger/capability/layout policy combinations.
+- Check selected poisoned fields, exact diagnostics/query traces, private
+  file/symlink predicates, requirement/execution flags and IFS. Commands and
+  direct classification are callbacks; no native boot preparation runs.
+- Diagnose the standalone direct-generic regression: unchanged pre-review run
+  has exactly two obsolete available/partial expectations in 56 checks. Frozen
+  step-122 contract and accepted step-128/129 remediation already require this
+  failed auto path to be unavailable/non-runnable. Update only current test
+  expectations and strengthen state/reason checks; revised 59 checks pass.
+- Preserve reference bytes/mode, frozen contracts/template and native fixtures.
+  Retain original failing log/source and accepted historical scope; no runtime
+  behavior, native criterion or authorization is changed by this test repair.
+- New 261 scenarios and eight private mutations pass; direct-generic 59,
+  precedence 492/984 and stable-exit 137 pass. Syntax, links, whitespace,
+  byte/mode scope and disclosed overlay application/staging controls pass.
+- No supplied flag/layout result proves native bootability or closes Phase 1.
+  Original findings/options/semantic/migration/native gates remain unchanged.
+- Sixth prepared step; provisional block closure 450. Actual 448 is pending
+  before preparing 449; no new strong repository pause is confirmed.
+
 ## Phase 1 step 447 -- validate optional-module activation probes
 
 - Accept complete actual 446 at reported full HEAD
