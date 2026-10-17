@@ -1,3 +1,29 @@
+## Phase 1 step 445 -- validate combined result precedence
+
+- Accept complete actual 444 at reported full HEAD
+  `039d039c0d0c2598ca10989ce11618b1b59f0ffb`: completion 576/0, setup 216/0
+  and stable-exit 137 PASS; four paths/247 additions/two creates 100644, exact
+  English subject, reported successful push, empty status and matching heads.
+- Add 492 supplied-state scenarios and 984 real mapper calls. Cross eight boot
+  states, ten nonboot fault/warning rows, critical-package presence and three
+  raw workflow statuses; add separate check/dry-run scope cases.
+- Use an authored outcome table and ordered diagnostic fragments, without shared
+  serializer helpers or a runtime initializer. Check boot-unsafe/partial/reboot
+  priority, snapshot/check-error precedence, warning-only cases and private empty
+  versus populated ELF files. Poison results before both calls to verify reset.
+- Assert exact result scalars, ordered errors/warnings, helper status, IFS and
+  unchanged supplied-file bytes. Main, clock, configuration, runtime, locking,
+  workflows and serializers are prohibited; no normal native workload runs.
+- All 492 scenarios and twelve private helper mutations pass. Stable-exit 137
+  and apply JSON 24 scenarios/eight negative controls pass. Syntax, links,
+  whitespace, exact byte/mode scope and overlay application/staging guards pass.
+- No reference defect or behavior change is claimed. Supplied combinations do
+  not prove native reachability, bootability or acceptance of computed safety.
+  Preserve README, original criteria/evidence, open findings, unselected options
+  and separate semantic/migration/native gates; Phase 1 remains incomplete.
+- Third prepared step of the bounded block, provisional closure target 450.
+  Actual 445 return is pending before preparing 446; no new pause confirmed.
+
 ## Phase 1 step 444 -- validate main dispatch and completion boundaries
 
 - Accept complete actual 443 at reported full HEAD
