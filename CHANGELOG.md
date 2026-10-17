@@ -1,3 +1,23 @@
+## Phase 1 step 435 -- validate command-line argument parsing
+
+- Resume from the confirmed step 434 repository pause at reported full HEAD
+  `5cc2fde539fc81ddc5615c3e95deead5e7905c55`. Verify all 2,298 source files
+  and their reported Git modes against tree `d5f6bb9c40583f7292bc3b0c614583dbfb72fae2`.
+- Begin a new user-requested block targeting 8-12 steps and a strong safe
+  repository pause. Start with CLI and configuration entry boundaries; choose
+  later steps from demonstrated gaps and findings rather than a fixed count.
+- Add 138 parser scenarios covering defaults, operation/output permutations,
+  help validation, duplicate/conflicting flags, end-of-options, invalid input,
+  exact diagnostics and repeated-call state reset. All pass on accepted source.
+- Reject eight private source mutations with the unchanged test expectations.
+  Parser failure status 1 remains distinct from main's stable invalid-input 7;
+  this parser-only check does not establish main routing or early-exit behavior.
+- Document current semantics and contribution mapping. Preserve reference bytes,
+  executable mode, README and all original acceptance contracts and records.
+- No native workflow, option selection, migration or execution grant occurs.
+  Phase 1 remains incomplete. The prepared step awaits the complete user return;
+  it neither confirms its own commit/push nor closes the new bounded block.
+
 ## Phase 1 step 434 -- review the JSON regression block before repository pause
 
 - Accept the complete step 433 return at reported `e797f09`: option JSON 14/8,

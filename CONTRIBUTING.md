@@ -114,6 +114,7 @@ baselines retain their original scope.
 Before submitting a change to the reference script:
 
 1. Run `bash -n tools/reference/slack-update-reference.sh`.
+   Run `python3 tests/reference/test-cli-arguments.py` when argument parsing, operation selection, output-mode exclusion or parser-state reset changes; see [the CLI parser regression scope](docs/reference/cli-arguments.md). This sources the reference and calls only `parse_arguments`, without dispatching `main` or any workflow.
 2. Run `tests/reference/test-package-name-parsing.sh` when package records, package ownership, or SBo detection are affected.
 3. Run `tests/reference/test-package-snapshots.sh` when package snapshot capture, validation, or comparison is affected.
 4. Run `tests/reference/test-partial-slackware-update.sh` when Slackware failure handling or secondary-module sequencing is affected.
