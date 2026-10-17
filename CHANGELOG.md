@@ -1,3 +1,41 @@
+## Phase 1 step 463 -- validate the Cinnamon rebuild wrapper
+
+- Accept complete supplied actual462 at full HEAD/origin
+  `26684cb8c95103e9f7419d44c3ddeda852148cbb`, parent
+  `816feb67463a739e5ff2d95bd71eeefd5d68cf80`, exact prepared tree
+  `ad64038f430db64ce9705c217b2166c93c821987`:six selected outputs,
+  four-path211-addition/two-create commit and required subject agree;reported
+  successful push,empty status and matching full heads. Supplied terminal/local
+  Git evidence only,not independent remote/native capture.
+- Add an independent Python/Bash regression calling real Cinnamon orchestration
+  with supplied Git and selected cd rejection,real private file/execute predicates,
+  subshells and inert private executable builders. Cover436 scenarios/872 entries;
+  consecutive calls preserve completed/failed triggers and do not build twice.
+- Check exact refresh/clone vectors and short-circuiting,output routing,builder
+  cwd/zero arguments,subshell isolation,stored RET/OK/trigger and skipped state,
+  parent cwd/IFS and private bytes/modes/link targets/inventory. No network,
+  installed Git action or real Cinnamon build is introduced.
+- Retain the current clone-failure message/control-flow mismatch:after the error
+  message a preseeded executable builder can still run. Successful supplied clone
+  status does not establish checkout contents or validity. Preserve raw wrapper0
+  separately from builder status,application results and native obligations.
+- Reject twelve syntax-valid private mutations on focused full-matrix scenarios.
+  Keep original reference/oracle bytes unmutated. Recover source from exact
+  persisted462 ZIP and preserve all inherited failures/unknown causes and their
+  restoration/independence qualifications without clean-history claims.
+- Preserve the initial unpublished generator error:an unscoped numeric step
+  replacement also altered a tree-hash substring. The private predecessor check
+  rejected it before application. Correct only explicit step/path/identity fields
+  and repeat validation with the exact accepted462 tree;no wrong pin is published.
+- Change only CHANGELOG.md,CONTRIBUTING.md and the new test/scope document.
+  Keep reference100755/README/native criteria/evidence and original modes intact.
+  Fifth prepared step of bounded459-466,max470;actual463 return required next.
+- Last confirmed strong static repository pause458;no new pause. Phase1/kernel
+  incomplete,alternatives unselected,schema1/reference-v1/C/Phase2/production closed.
+  All specification/migration/composition/independent-safe-whole-review/fresh-native
+  grant/platform-conformance gates remain. Actual host unobserved,live bindings/
+  native evidence null;no global closure or reused historical authority claimed.
+
 ## Phase 1 step 462 -- validate the Flatpak update wrapper
 
 - Accept complete supplied actual461 at full HEAD/origin

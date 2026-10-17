@@ -132,6 +132,8 @@ Before submitting a change to the reference script:
 
    Run `python3 tests/reference/test-apply-early-exits.py` when baseline/ownership gates, package-result precedence, restoration/final-snapshot ordering or partial-update dispatch blocking changes. It calls the real apply prefix and classifier/blocker with supplied operations; see [the early-exit scope](docs/reference/apply-early-exits.md). Positive controls stop at a private continuation checkpoint before secondary dispatch.
 
+   Run `python3 tests/reference/test-cinnamon-rebuild.py` when Cinnamon trigger gating, Git refresh/clone sequencing, private builder execution, subshell cwd isolation, result assignments or output routing changes. It supplies Git and selected cd failure, and executes inert private builders; see [the Cinnamon wrapper scope](docs/reference/cinnamon-rebuild.md). Keep native checkout trust, activation and build acceptance separate.
+
    Run `python3 tests/reference/test-flatpak-update.py` when the Flatpak command wrapper, discovery redirection, argument vector, stored raw status or consecutive-call behavior changes. It supplies discovery/command callbacks; see [the Flatpak wrapper scope](docs/reference/flatpak-update.md). Keep activation, apply orchestration, result mapping and native acceptance separate.
 
    Run `python3 tests/reference/test-apply-secondary-workflow.py` when optional apply sequencing, synchronization/selection/ELF blocking, queue cleanup, module state/raw-code reporting or normal workflow completion changes. It uses supplied operations and private files; see [the secondary-workflow scope](docs/reference/apply-secondary-workflow.md). Keep raw workflow returns distinct from main/application exit codes and native conformance.
