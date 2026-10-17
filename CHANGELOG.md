@@ -1,3 +1,27 @@
+## Phase 1 step 444 -- validate main dispatch and completion boundaries
+
+- Accept complete actual 443 at reported full HEAD
+  `8e62693b314456aca8e9d133acab54b10fc92532`: setup 216/0, loader 456/0,
+  early exits 132/0, arguments 138/0 and stable-exit 137 PASS; four paths,
+  199 additions, two new 100644 files, reported push, clean matching full heads.
+- Add 576 independent real-main/parser scenarios covering operation dispatch,
+  workflow status forwarding, fixed completion-time success/failure, supplied
+  mapped-status propagation, final-output selection and descriptor-3 closing.
+- Assert complete traces, exact channel bytes and replacement of stale result/
+  completion state. Setup, workflows, clock, mapping, summaries and serializers
+  are inert callbacks; logging routing is modeled with private descriptors.
+- The mapper intentionally supplies statuses independently of workload outcomes.
+  This checks main propagation, not actual status policy or JSON/event contents.
+  No real logging, lock, trap, package, boot or native workflow is dispatched.
+- All 576 cases and twelve private source mutations pass. Existing setup 216
+  and stable-exit 137 checks remain passing; syntax, links, bytes/modes, overlay
+  scope and unstaged/staged whitespace checks pass. No reference fix is claimed.
+- Preserve README, reference bytes/mode, historical native criteria/evidence,
+  open findings, unselected options and separate semantic/migration/run gates.
+  Phase 1 remains incomplete and no actual host closure is inferred.
+- Second prepared step of the new bounded block; provisional closure target 450.
+  Actual 444 return is pending before preparing 445; no new pause is confirmed.
+
 ## Phase 1 step 443 -- validate main setup failure boundaries
 
 - Resume a new user-requested bounded 8-12-step block from confirmed step 442,
