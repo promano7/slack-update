@@ -1,3 +1,41 @@
+## Phase 1 step 483 -- integrate regression block for conditional repository pause
+
+- Accept complete supplied actual482 HEAD/origin
+  `12f975877500aedac9fad25b3938254f2671fffc`, parent
+  `ce046cf4cba48afecf34ce946eb8e4a30ff325f2`, tree
+  `04cc336ee8923769674709a0c2257943c0cb9ba4`, report SHA256
+  `6a88f9be4a4646694cc3bf37cb46b3250fa480b518f9b31639b2468d5945dba9`.
+  Seven exact outputs, six-path131add4delete scope, subject, reported push,
+  clean matching local refs and full source/mode/tree agree. Exact saved ZIP
+  hash/member inventory checked. Inline receipt transcribed/report extracted;
+  no original uploaded bytes or independent terminal/remote/native capture.
+- Add the475-483 integrated review and reconcile current documentation links,
+  setup, usage, testing, contribution and roadmap. README stays concise. Eleven
+  documentation paths change, one new100644 file; implementation/tests/fixtures,
+  existing modes, native contracts and old CHANGELOG tail remain unchanged.
+- Keep the original54-command order and append the repaired cron153-check and
+  installed-initrd90-check tests, for56 named regressions. All pass in preparation
+  on accepted482 executable/test bytes. Current ELF driver passes133scan/199verify/
+  20diagnostic entries. Exact ordered outputs, real private effects, supplied
+  boundaries, source control history and observation limits remain explicit.
+- Preserve original cron19/79 and initrd1/69 failures, interrupted473 and its
+  qualified synthetic ownership repair. Historical474 selection is not expanded
+  retroactively. Partial-copy/staging effects, unresolved display/readers/cache,
+  runtime and boot-text limitations remain; no blanket all-harness/native PASS.
+- Retain the initial482 integration55/56 and serial cron1/153 failures alongside
+  the exact-logger fixture repair and its six controlled FIFO-barrier cases.
+  This closing run uses the repaired482 fixture; it does not rewrite the failed
+  attempt or claim production logging completion.
+- Ninth prepared step of475-483, maximum486. Actual483 must include all56 outputs,
+  scoped commit/push, clean matching full refs and complete source/mode/tree
+  report FIRST. THEN separately read every whole inherited condition and exact
+  nested original body, assess new effects/obligations/cleanup/observation limits,
+  and confirm a scoped STATIC pause only if satisfied, then STOP. Last confirmed
+  strong pause474 remains; prepared483 does not confirm a new pause.
+- Phase1/kernel incomplete, A/R/D unselected, schema1/reference-v1/C/Phase2/
+  production closed; host unobserved, native evidence/live bindings null,
+  global host closure false. No consumed source/run/grant or right is renewed.
+
 ## Phase 1 step 482 -- wait for private cron logging before fixture assertions
 
 - Accept complete supplied actual481 HEAD/origin

@@ -151,8 +151,9 @@ The CLI/configuration, setup/completion/module and JSON/NDJSON groups, plus
 SBo options, stable exit codes, signal cleanup and direct-generic, comprise the
 24-command baseline. The seven dry-run/package/apply checks below extend it to
 31 through step458. The 459-466 review added seven drivers and three shell tests,
-forming the earlier 41-command selection. The current 467-474 review adds seven
-new drivers and six complementary shell checks, for 54 named commands. Select exact files; do not glob historical
+forming the earlier 41-command selection. The historical467-474 review added seven
+new drivers and six complementary shell checks, for54 named commands. The current
+475-483 selection appends the two repaired cron/initrd tests, for56. Select exact files; do not glob historical
 harnesses. The earlier64 private source mutations from443-449 retain their original
 scope; an integrated normal run is neither a fresh mutation run nor acceptance.
 
@@ -271,9 +272,9 @@ those limits or amend original native install-new20/upgrade20 criteria.
 
 ## Current SBo, ELF, runtime and boot reader checks
 
-The current [467-474 integrated review](reference/repository-regression-block-467-474.md)
-selects the earlier 41 commands, seven new Python drivers and six complementary
-shell regressions. Its exact 54-command order is the reproducible selection;
+The current [475-483 integrated review](reference/repository-regression-block-475-483.md)
+keeps the earlier54-command order and appends the repaired cron and installed-initrd
+fixtures. Its exact56-command order is the reproducible selection;
 there is no glob over historical or native acceptance scripts. Each Python
 matrix uses its own authored oracle and the standard library, Bash and the
 private/supplied boundaries in its scope.
@@ -345,16 +346,17 @@ probes distinguish main exit from complete logging; source runtime is unchanged.
 The wrong-heredoc authoring probe and correction remain qualified separately.
 See [the completion scope](reference/cron-minimal-environment.md#logger-completion-before-assertions).
 
-This focused repair moves closing integration to483, nine steps within the
-requested8-12. No56-command passing integrated run or new pause is claimed here.
+That focused repair moved closing integration to483, nine steps within the
+requested8-12. It did not claim a56-command passing integrated run or new pause;
+the current integrated review above records the later selection separately.
 The historical54-command474 selection remains unchanged. Final actual return must
 still precede the separate every-whole inherited/nested-body review.
 
-## Conditional repository pause after step474
+## Conditional repository pause after step483
 
-The preparation baseline is the confirmed STATIC repository pause466. The bounded
-block is467-474; prepared474 does not attest its later application or pause.
-Confirmation needs all54 exact outputs, scoped commit/subject, reported successful
+The preparation baseline is the confirmed STATIC repository pause474. The bounded
+block is475-483; prepared483 does not attest its later application or pause.
+Confirmation needs all56 exact outputs, scoped commit/subject, reported successful
 push, clean matching full HEAD/origin and the complete source/Git-mode/tree report.
 THEN a separate post-return review must read EVERY WHOLE inherited condition,
 including every nested original body, and assess all new effects, obligations,

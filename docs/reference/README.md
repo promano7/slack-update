@@ -31,11 +31,12 @@ choose a path, approve a migration or grant a native test.
 
 ## Current repository regression coverage
 
-The [integrated 467-474 review](repository-regression-block-467-474.md) identifies
-54 selected commands, retained failures, the synthetic GenInitrd ownership repair
+The [integrated 475-483 review](repository-regression-block-475-483.md) identifies
+56 selected commands, scoped cron/initrd fixture corrections, ELF failure handling
 and the conditions for a STATIC repository pause. It extends the historical
-[459-466 review](repository-regression-block-459-466.md); neither review closes
-native acceptance or selects an operational contract alternative.
+[467-474 review](repository-regression-block-467-474.md), whose54-command selection
+and exclusions retain their original scope. Neither closes native acceptance or
+selects an operational contract alternative.
 
 | Boundary | Detailed current scope |
 | --- | --- |

@@ -88,6 +88,12 @@ selected failure projections are documented as limitations in those scopes.
 Do not treat a printed success label, private regression PASS or plan as native
 acceptance, package no-effect evidence or a bootability guarantee.
 
+The [current integrated selection](reference/repository-regression-block-475-483.md)
+contains56 named commands. Selected ELF traversal/publication/count, work-file
+initialization and diagnostic failures now propagate before success reporting;
+see [ELF scanning](reference/elf-scan-workflow.md). Failed copy can still leave
+partial destination changes, and remaining display/reader limits retain scope.
+
 Human output passes through the current sed filter before tee, so both console
 and log receive filtered text. Supported ANSI sequences and the first carriage
 return per line are removed; emoji and unsupported sequences can remain. In

@@ -36,8 +36,8 @@ flag to test the checkout: the default operation is the legacy apply workflow.
 | Build the planned C application | Future work; the build system and minimum compiler versions are not selected |
 
 There is no single top-level build or test command for every file in this
-repository. The [current integrated selection](reference/repository-regression-block-467-474.md)
-lists 54 named commands; it is a bounded regression selection, not every harness.
+repository. The [current integrated selection](reference/repository-regression-block-475-483.md)
+lists 56 named commands; it is a bounded regression selection, not every harness.
 Run it as an ordinary developer without sudo. It requires Python 3, Bash,
 jq, Unix advisory locking/flock, timeout, awk and the GNU coreutils/findutils/
 sed used by the individual scopes. Delivery verification helpers require
@@ -46,8 +46,9 @@ package, transport and boot callbacks do not require installed Slackware tools.
 
 The synthetic GenInitrd test supplies only the exact target-initrd UID query;
 its paths, links, bytes and permission checks remain real private operations.
-The current selection excludes the recorded cron mirror dependency and the
-installed-initrd probe disagreement. Read their limits in the testing guide.
+The current selection includes the repaired private cron and installed-initrd
+fixtures. Their original failures remain recorded; read the qualified repairs
+and remaining limits in the testing guide.
 No claim that every historical test is unprivileged, isolated or passing follows. Use the applicable checks in
 [CONTRIBUTING](../CONTRIBUTING.md#reference-script-changes). Historical checkpoint
 harnesses can bind exact full source snapshots; do not run all historical

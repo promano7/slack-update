@@ -18,7 +18,7 @@ acceptance material. For the current phase and unfinished work, use the
 | Contribution, language and documentation rules | [Contributing](../CONTRIBUTING.md) |
 | Detailed contracts, audits and evidence | [Reference documentation](reference/README.md) |
 | Select applicable checks and historical snapshots | [Testing guide](testing.md) |
-| Exact current integrated regression selection and known limits | [SBo/ELF/runtime/boot block review](reference/repository-regression-block-467-474.md) |
+| Exact current integrated regression selection and known limits | [Fixture/ELF regression block review](reference/repository-regression-block-475-483.md) |
 | Real Slackware acceptance scenarios | [Acceptance guide](../tests/acceptance/reference/README.md) |
 | Changes by step or version | [CHANGELOG](../CHANGELOG.md) |
 | Earlier README checkpoints and original design text | [Historical README through step 418](reference/readme-through-step418.md) |

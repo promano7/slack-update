@@ -108,11 +108,11 @@ The [testing guide](docs/testing.md) distinguishes documentation checks,
 focused regressions, historical checkpoint snapshots and real acceptance.
 The mappings below still govern reference-script changes; frozen historical
 baselines retain their original scope.
-The current [467-474 integrated review](docs/reference/repository-regression-block-467-474.md)
-selects 54 named checks and records dependencies, the repaired synthetic GenInitrd
-fixture and unresolved historical test failures. The earlier
-[459-466 selection](docs/reference/repository-regression-block-459-466.md) remains
-historical. A prepared pass still needs the complete actual final return and a
+The current [475-483 integrated review](docs/reference/repository-regression-block-475-483.md)
+selects 56 named checks, including the repaired cron/installed-initrd fixtures
+and guarded ELF failure paths. Dependencies, earlier failures and repair limits
+remain explicit. The [467-474 selection](docs/reference/repository-regression-block-467-474.md)
+and earlier reviews retain their original historical scope. A prepared pass still needs the complete actual final return and a
 separate review of every whole inherited condition before pause confirmation.
 
 ## Reference-script changes

@@ -21,8 +21,8 @@ acceptance does not describe the present state of a machine.
 
 ### Repository verification and next decisions
 
-The [current integrated review](reference/repository-regression-block-467-474.md)
-selects 54 repository regressions across CLI/configuration, main setup and
+The [current integrated review](reference/repository-regression-block-475-483.md)
+selects 56 repository regressions across CLI/configuration, main setup and
 completion, result/JSON/events, package and optional workflows, SBo queues,
 static ELF readers/scanning, logging and private boot validation. The
 [testing guide](testing.md) describes their real/private/supplied boundaries.
@@ -39,8 +39,10 @@ Step482 additionally waits for the private cron logger before fixture assertions
 its [completion scope](reference/cron-minimal-environment.md#logger-completion-before-assertions)
 retains the initial55/56 integration and serial diagnostic failures. Closing
 integration moves to483 within the requested block; no new pause is claimed.
-Other observed unchecked failure projections and text-validation limits remain
-in their dedicated scopes. Passing the selected regressions does not approve
+Steps477-481 now reject selected ELF traversal/order/publication/count,
+initialization and diagnostic failures; the [scan scope](reference/elf-scan-workflow.md)
+records exact guarantees and partial-effect limits. Other observed unchecked
+failure projections and text-validation limits remain in their dedicated scopes. Passing the selected regressions does not approve
 those behaviors as native acceptance criteria or resolve the operational audit.
 
 The next work requires a new bounded choice of scope: investigate the remaining

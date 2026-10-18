@@ -108,11 +108,13 @@ their own scopes: mirror probe, check workflow, CLI early exits, runtime/logging
 check JSON and event NDJSON. No arbitrary sleep, logger retry or production drain
 guarantee is introduced. Existing phase/native gates remain closed.
 
-The closing integration moves to483, making nine steps in the requested8-12-step
-block. No56-command integrated PASS or new pause follows from the initial failed
-attempt or this focused repair. Actual482 is still required, followed by the
-closing integration and its complete actual return; only then can the separate
-whole inherited-condition review confirm a scoped repository pause.
+The focused repair moved closing integration to483, making nine steps in the
+requested8-12-step block. Its initial failed attempt did not claim a56-command
+integrated PASS or new pause. The supplied actual482 return is now accepted;
+see the [475-483 integrated review](repository-regression-block-475-483.md) for the
+later selected run and its still-pending complete closing actual return. Only
+after that return can the separate whole inherited-condition review confirm a
+scoped repository pause.
 
 Keep the mirror-probe, check-workflow, CLI early-exit and runtime/logging drivers
 for their separate authored matrices and callback boundaries. The historical
