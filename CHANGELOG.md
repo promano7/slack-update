@@ -1,3 +1,37 @@
+## Phase 1 step 470 -- validate static ELF metadata and architecture matching helpers
+
+- Accept supplied actual469 HEAD/origin
+  `c41c4244afb7a2d4db0804bad0188aa1cde8a9d9`,parent
+  `d951ffe5d87d55bc688d5af6acc072269be1ccc9`,tree
+  `36c66171fe7baef4e860538cbd0be172d1f027f7`:eight exact normal outputs,
+  including92personal-queue checks with seven jq-dependent JSON checks,four
+  paths382adds/two creates,required subject,reported push,empty status and full
+  matching heads. Complete source/mode/tree report checksum verifies;supplied
+  local evidence is not independent terminal/GitHub/native capture.
+- Add independent checks for real ELF magic/path,header/dynamic text parsers,
+  cache matching and dependency classification:96magic/path,68header,44dynamic,
+  189cache and560classifier entries. Use real private files/links/coreutils/AWK
+  with supplied readelf bytes/status/diagnostics and selected draining sort fault.
+- Check complete channels/raw statuses,reader vectors/order,error append bytes,
+  caller IFS and private inventory. Preserve prefix-only validity,opaque header
+  fields,malformed raw reader-output behavior,four-field exact matching without
+  path validation,and classifier0missing/1resolved/2uninspectable semantics.
+- Reject ten syntax-valid focused private mutations and run eight selected normal
+  regressions. Architecture-resolution requires jq;the broader installed-cache
+  static-inspection shell script is outside this selection. No native cache,
+  installed binary,scanner,updater or boot action is introduced by the new driver.
+- Preserve initial source-assembly cwd failure:no completed driver or PASS was
+  inferred before the file existed. Final complete matrix passes;reference source
+  unchanged. All prior qualified failures/unknown causes remain in history.
+- Only CHANGELOG,CONTRIBUTING,new driver and scope change. Reference100755,README,
+  original modes,native criteria/contracts/evidence unchanged. Fourth prepared
+  step of467-474,max478;actual470 required next. Last confirmed strong STATIC
+  repository pause466,new pauseFALSE. Final actual return precedes separate EVERY-
+  WHOLE nested-condition/new-effects/obligations/cleanup/observation-limit review.
+- Phase1/kernel incomplete,A/R/D unselected,schema1/reference-v1/C/Phase2/production
+  closed. Host unobserved-not-claimed-absent,live bindings/native evidenceNULL,
+  global closureFALSE. All original independent semantic/native gates remain.
+
 ## Phase 1 step 469 -- validate SBo synchronization and queue workflow boundaries
 
 - Accept supplied actual468 HEAD/origin

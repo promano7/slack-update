@@ -117,6 +117,8 @@ and separate whole-condition review before repository pause confirmation.
 Before submitting a change to the reference script:
 
 1. Run `bash -n tools/reference/slack-update-reference.sh`.
+   Run `python3 tests/reference/test-elf-metadata.py` when static magic/path resolution, readelf text parsing, architecture cache matching or missing-dependency classification changes. It uses private files, real parsers/coreutils and supplied readelf output; see [the ELF metadata scope](docs/reference/elf-metadata.md). Run the architecture-resolution regression with its jq requirement; cache production, scanning/recheck, workflow and native acceptance retain separate scopes.
+
    Run `python3 tests/reference/test-sbo-workflow.py` when SBo refresh/generation sequencing, core/ABI coordination, generation-ready gating, final submission or post-build recheck propagation changes. It calls real coordinators with supplied commands/collectors and private lists; see [the SBo workflow scope](docs/reference/sbo-workflow.md). Keep real queue-file/configuration, ELF, final result mapping and native acceptance boundaries separate.
 
    Run `python3 tests/reference/test-sbo-queue-files.py` when queue directory enumeration, candidate installation, target-set merging, core/extras ordering or option-map precedence changes. It checks real private files/coreutils and supplied selected faults; see [the queue file scope](docs/reference/sbo-queue-files.md). Run the graph, dependency-order, target-selection and option regressions alongside it; installed database and builder workflows remain separate boundaries.
