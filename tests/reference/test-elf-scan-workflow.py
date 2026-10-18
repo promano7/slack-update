@@ -4,6 +4,7 @@ from pathlib import Path
 from collections import Counter
 import itertools
 import os
+import re
 import shlex
 import subprocess
 import tempfile
@@ -53,6 +54,18 @@ sort() {
     fi
     builtin command sort "$@"
     local status=$?
+    if [[ $FAULT == clear-directory || $FAULT == clear-link-directory ]]; then
+        [[ $status == 0 && $BROKEN == "$TEST_ROOT/broken" \
+            && -f $BROKEN && ! -L $BROKEN && ! -s $STILL_BROKEN ]] || forbidden clear-fixture
+        record block-clear "$FAULT"
+        builtin command mv -- "$BROKEN" "$TEST_ROOT/saved-broken" || forbidden clear-move
+        if [[ $FAULT == clear-directory ]]; then
+            builtin command mkdir -- "$BROKEN" || forbidden clear-directory
+        else
+            builtin command mkdir -- "$TEST_ROOT/clear-target" || forbidden clear-target
+            builtin command ln -s -- "$TEST_ROOT/clear-target" "$BROKEN" || forbidden clear-link
+        fi
+    fi
     [[ $FAULT != sort-partial ]] || return 43
     return "$status"
 }
@@ -123,7 +136,7 @@ def scenario(root, kind, profile, fault, old_errors):
         if profile == 'missing-list':Path(paths['BROKEN']).unlink()
         else:Path(paths['BROKEN']).write_text(value)
     if kind == 'report':Path(paths['BROKEN_ERRORS']).write_text(profile)
-    expected = inventory(root); state=['9','8','7','6']; output=''; status=0; calls=[]; stderr=b''
+    expected = inventory(root); state=['9','8','7','6']; output=''; status=0; calls=[]; stderr=b''; stderr_pattern=None
     def file(key,data):expected[Path(paths[key]).name]=('file',data.encode())
     def call(*args):calls.append(tuple(map(str,args)))
     early = kind == 'verify' and profile in ('missing-list','empty')
@@ -171,6 +184,16 @@ def scenario(root, kind, profile, fault, old_errors):
                     elif name == 'error':errors.append('readelf could not re-inspect '+path)
             value='' if fault == 'sort' else ''.join(path+'\n' for path in sorted(set(broken)))
             file('BROKEN_NEW' if kind == 'scan' else 'STILL_BROKEN',value)
+            clear_failed = kind == 'verify' and fault in ('clear-directory','clear-link-directory')
+            if clear_failed:
+                assert not value
+                call('block-clear',fault)
+                expected['saved-broken']=expected[Path(paths['BROKEN']).name]
+                if fault == 'clear-directory':expected[Path(paths['BROKEN']).name]=('dir',)
+                else:
+                    expected['clear-target']=('dir',)
+                    expected[Path(paths['BROKEN']).name]=('link',str(root/'clear-target'))
+                stderr_pattern=re.escape(str(REFERENCE))+r': line [1-9][0-9]*: '+re.escape(paths['BROKEN'])+r': Is a directory\n'
             pipeline_failed = fault in ('sort','sort-partial') or (kind == 'scan' and (fault in ('find','find-partial') or profile == 'missing-root'))
             if pipeline_failed:
                 status=1;state[0 if kind == 'scan' else 1]='1'
@@ -196,7 +219,10 @@ def scenario(root, kind, profile, fault, old_errors):
                     if fault == 'cp-partial':file('BROKEN','supplied partial copy\n')
                 else:file('BROKEN',value)
                 state[1]='1';status=1
-            elif kind == 'verify' and not pipeline_failed:output+='  [OK] All previously broken ELF objects passed static verification\n';file('BROKEN','')
+            elif kind == 'verify' and not pipeline_failed:
+                if clear_failed:
+                    state[1]='1';status=1;output+='  [WARN] Cannot clear the resolved ELF object list\n'
+                else:output+='  [OK] All previously broken ELF objects passed static verification\n';file('BROKEN','')
     values=paths|dict(FAULT=fault,ELF_SCAN_STATUS=9,ELF_VERIFICATION_STATUS=8,BROKEN_COUNT=7,ELF_LIBRARY_CACHE_RECORD_COUNT=6)
     assignments='\n'.join(key+'='+shlex.quote(str(value)) for key,value in values.items())
     entry={'scan':'detect_broken_elf_objects','verify':'verify_broken_elf_objects_after_rebuild','report':'report_static_elf_scan_errors'}[kind]
@@ -207,7 +233,8 @@ def scenario(root, kind, profile, fault, old_errors):
                            'elf-scan-test',str(REFERENCE),str(root)],capture_output=True,cwd=root,
                           env=dict(os.environ,LC_ALL='C',TMPDIR=str(root)),timeout=10)
     wanted=output.encode()+b'\0STATE\0'+str(status).encode()+b'\0'+b''.join(value.encode()+b'\0' for value in state)
-    if (result.returncode,result.stdout,result.stderr)!=(0,wanted,stderr):
+    stderr_matches=bool(re.fullmatch(stderr_pattern,result.stderr.decode())) if stderr_pattern else result.stderr==stderr
+    if (result.returncode,result.stdout)!=(0,wanted) or not stderr_matches:
         raise AssertionError(f'{kind}/{profile}/{fault}: expected {(0,wanted,stderr)!r}, got {(result.returncode,result.stdout,result.stderr)!r}')
     raw=(root/'trace').read_bytes() if (root/'trace').exists() else b''
     actual=[tuple(item.decode().split('\0')[:-1]) for item in raw.split(b'\n') if item]
@@ -227,6 +254,8 @@ def run():
                 root=parent/str(index);index+=1;root.mkdir();scenario(root,kind,profile,fault,old);counts[kind]+=1
         for old in ('','prior error\n'):
             root=parent/str(index);index+=1;root.mkdir();scenario(root,'scan','missing-root','none',old);counts['scan']+=1
+        for profile,fault,old in itertools.product(('healthy','missing-object'),('clear-directory','clear-link-directory'),('','prior error\n')):
+            root=parent/str(index);index+=1;root.mkdir();scenario(root,'verify',profile,fault,old);counts['verify']+=1
         for text in ('','one\n','one\ntwo\n','unterminated'):
             root=parent/str(index);index+=1;root.mkdir();scenario(root,'report',text,'none','');counts['report']+=1
     print('ELF scan workflow tests: '+', '.join(f'{count} {kind} entries' for kind,count in counts.items())+', 0 failures')

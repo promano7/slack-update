@@ -1,3 +1,41 @@
+## Phase 1 step 479 -- report ELF resolved-list clearing failures accurately
+
+- Accept complete supplied actual478 HEAD/origin
+  `405fa6eea00b6bbcdf44482b0f1fdfedd8ab64d8`, parent
+  `2eed88307598e98450d6dfe745cd51c31356f715`, tree
+  `09d69f1cc29435619b821b331f5c470ac75bd075`, canonical report SHA256
+  `b0a09e241dd6aa0a05393d6d69615761df51d363342a3ed1baf5ccd57831368b`.
+  Eight exact ordered normal outputs, six-path159add40delete scope, subject,
+  reported push, clean matching local refs and full source/mode/tree agree.
+  Exact saved ZIP hash/member inventory verified. Retain transcribed inline
+  output/extracted report, not original file bytes or independent remote/native
+  capture. No actual user Git object is fabricated.
+- Guard the final resolved-list clearing redirection in verification. On failure
+  set verification status 1, warn and return 1; emit success only after clearing
+  succeeds. All other runtime source bytes, including the step 477/478 pipeline,
+  publication/count and unterminated-record fixes, remain unchanged.
+- Add eight controls using an actual private directory/symlink-to-directory
+  replacement after sort completes. Save original input bytes, then observe the
+  real Bash directory write error. This avoids root-dependent chmod assumptions.
+  Check raw/status 1, warning/no success, exact private inventory/callback order
+  and source/target/error stderr shape with a variable positive line number.
+  This is controlled path mutation, not native concurrency or containment.
+- Four controls against accepted478 reproduce the old inconsistent status and
+  premature success; four source mutations reject. Existing driver now passes
+  102scan/152verify/4diagnostic entries. Seven complementary normal suites pass.
+  Full old-source diagnostics, current outputs, diff and finite controls retained.
+- Six existing paths change: source, test, CHANGELOG, contribution, testing and
+  scan scope. README/config/native contracts/evidence/fixtures and modes remain
+  unchanged. Reset/render/reader limitations and partial-copy effects retain
+  their scopes; no native acceptance, schema freeze or global cleanup is claimed.
+- Fifth prepared step of475-482, maximum486; actual479 return required next.
+  Last confirmed strong STATIC pause474 remains; new pause false. Final actual
+  return precedes the separate every-whole inherited-condition/nested-body and
+  effects/obligations/cleanup/observation review before a new pause, then STOP.
+- Phase1/kernel incomplete, A/R/D unselected, schema1/reference-v1/C/Phase2/
+  production closed. Host unobserved, native evidence/live bindings null, global
+  host closure false. No consumed source/run/grant or native right is renewed.
+
 ## Phase 1 step 478 -- propagate ELF list publication and verification failures
 
 - Accept complete supplied actual477 HEAD/origin

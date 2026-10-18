@@ -4254,8 +4254,12 @@ verify_broken_elf_objects_after_rebuild() {
         return 1
     fi
 
+    if ! : > "$BROKEN"; then
+        ELF_VERIFICATION_STATUS=1
+        echo "  [WARN] Cannot clear the resolved ELF object list"
+        return 1
+    fi
     echo "  [OK] All previously broken ELF objects passed static verification"
-    : > "$BROKEN"
 }
 
 map_broken_objects_to_sbo_packages() {

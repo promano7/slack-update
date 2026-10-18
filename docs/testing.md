@@ -305,8 +305,9 @@ Step 477 checks initial ELF traversal/order failures before list publication; se
 [the scan scope](reference/elf-scan-workflow.md#initial-scan-pipeline-failure-handling).
 Step 478 additionally checks count/copy statuses and post-build sort/copy
 failures, and processes nonempty unterminated verification records. Copying can
-still alter a destination partially. Remaining limitations include unchecked
-resolved-list clearing and rotation projections,
+still alter a destination partially. Step 479 checks resolved-list clearing
+before success/status reporting. Remaining limitations include unchecked
+staging/diagnostic resets and rotation projections,
 partial runtime setup without rollback, stale direct-call error fields, lexical
 rather than semantic path/version filtering and GRUB path matches across distinct
 menuentries. The exact conditions remain in the scope documents. Recording a

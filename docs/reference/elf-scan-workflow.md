@@ -16,7 +16,7 @@ python3 tests/reference/test-dry-run-workflow.py
 The new standard-library Python driver calls the real scan, post-build verification
 and diagnostic renderer. It also uses the real path/magic helpers with private
 ELF-prefix files, text, directories, symlinks, dangling targets and space-containing
-names. Bash, `find`, `readlink`, `od`, `tr`, `sort`, `cp`, `wc` and `sed` run on owned
+names. Bash, `find`, `readlink`, `od`, `tr`, `sort`, `cp`, `wc`, `sed` and selected `mv`/`mkdir`/`ln` run on owned
 private fixtures. Fake ELF-prefix bytes are not complete native executables.
 
 Cache refresh and dependency classification are supplied callbacks. The cache
@@ -33,11 +33,12 @@ of every supplied state. No inspected object is deliberately invoked as a comman
 | Boundary | Entries | Covered behavior |
 | --- | ---: | --- |
 | Initial scan | 102 | Five private layouts across ten normal/fault profiles and two diagnostic seeds, plus two real private missing-root cases |
-| Post-build verification | 144 | Twelve input-list profiles across six normal/cache/sort/copy outcomes and two diagnostic seeds |
+| Post-build verification | 152 | 144 normal/fault matrix entries plus eight controlled directory/link redirection failures |
 | Diagnostic rendering | 4 | Empty, one-line, multiline and unterminated messages |
 
-Expected stdout/stderr bytes (including the real GNU find missing-root diagnostic
-under LC_ALL=C), raw returns, four selected state fields, callback
+Expected stdout bytes and controlled stderr (exact GNU find diagnostic under
+LC_ALL=C, plus full Bash source/target/directory-error shape with a positive
+variable line number), raw returns, four selected state fields, callback
 vectors and complete private file/directory/link inventory are authored separately
 from reference execution. Check caller IFS and an unrelated scalar too. The real
 `find` traversal order is unspecified: compare callback vectors/multiplicity and
@@ -157,11 +158,47 @@ zero, old unchecked verification, dropped final record and verification copy
 status zero. Seven related normal suites keep their separate supplied boundaries.
 The step 477 pipeline guard and both earlier fixture repairs remain intact.
 
-Resolved-list clearing remains the preexisting `: > "$BROKEN"` after the success
-message and has no explicit verification-status assignment on redirection error;
-this patch does not claim to validate that path. Staging/diagnostic reset errors,
-reader classification and diagnostic-rendering faults retain their scopes.
+At step 478, resolved-list clearing was still the unchecked redirection after
+the success message, with no explicit verification-status assignment on error.
+That path was outside its patch; step 479 below handles the final clear.
+Staging/diagnostic reset errors, reader classification and diagnostic-rendering
+faults retain their separate scopes.
 No metadata/cache/native contract, result schema or execution authority changes.
+
+## Resolved-list clearing
+
+Step 479 checks the final `: > "$BROKEN"` before announcing successful
+verification. A failed redirection sets `ELF_VERIFICATION_STATUS=1`, reports
+`Cannot clear the resolved ELF object list` and returns 1. The success message
+is emitted only after clearing succeeds. This changes only the final tail of
+verification; all other reference bytes and the step 477/478 protections remain.
+
+Eight added cases cross healthy/vanished-object input, two blocking path shapes
+and empty/preseeded diagnostics. After the real private sort has drained its
+input and produced an empty verification list, the selected callback moves the
+original input to private `saved-broken` and replaces the publication path with
+a private directory or a symlink to another private directory. The guard checks
+exact owned paths and the empty staging result before these operations. The
+subsequent real Bash write redirection fails with `Is a directory`, including
+when the preparer is root. This does not rely on chmod unreadability modeling.
+It does not constitute a concurrent writer or filesystem containment test.
+
+Each added case checks raw/status 1, the warning, absence of the success message,
+the full expected private directory/link/file inventory, saved input bytes,
+callback order and the Bash source/target/error text with only its numeric line
+number variable. The original normal success controls still require an empty
+published list and exactly one success message. No sudo, chown or installed
+package/boot/cache operation is introduced; all moved/replaced paths are owned
+fixtures and are removed by the Python test's private cleanup.
+
+Four old-source controls reproduce the misleading success message/status 0 with
+raw failure on accepted478. Four syntax-valid source mutations reject: restored
+old clear tail, status zero, return zero and premature success output. Current
+coverage is102scan/152verify/4diagnostic entries plus seven complementary normal
+suites with their existing separate boundaries. These controls do not establish
+native permission/race/disk behavior or an unprivileged OS run by this preparer.
+No global cleanup or independent native conformance follows. Reset/render faults
+and other original limitations remain outside this narrow final-clear repair.
 
 These tests characterize present coordinator behavior. They are not acceptance
 criteria approving the unchecked failure cases. Real cache construction, installed
