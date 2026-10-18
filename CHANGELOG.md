@@ -1,3 +1,44 @@
+## Phase 1 step 477 -- reject incomplete initial ELF scan pipelines
+
+- Recover the exact persisted step476 ZIP after transient workspace loss;
+  verify its stored archive hash/all member hashes, explicit modes, complete
+  2371-file source manifest and reconstructed tree. Accept complete supplied
+  actual476 HEAD/origin `e421a21b5c5bcba4cb482c33d0df79e748832c54`, parent
+  `3aa626d7a4763b7c0981933e3184e48fbd75dcfd`, tree
+  `a14ab45333e118b0ed50de12c55d5e3c83f30e34`, canonical report SHA256
+  `3df606ed88f4c63a5e482f19fe94d7e24d8e689887cd03ca7420590f62f1def8`.
+  Seven normal outputs, eight-path188add25delete scope, subject, reported push,
+  clean matching local refs and source/mode/tree agree. Only the single generated
+  private mktemp root in initrd stdout is normalized. Visible inline output is
+  transcribed and report extracted, not original supplied file bytes or an
+  independent terminal/GitHub/native capture. No user Git object is fabricated.
+- Preserve the original ELF scan 60/96/4 matrix. Expanded existing tests reject
+  that exact source: quiet traversal failure previously published an empty list,
+  counted zero and reported success. Change only detect_broken_elf_objects to
+  check the pipeline with the existing pipefail option, set scan status 1 and
+  return 1 before list replacement/counting after traversal or ordering failure.
+- Preserve prior BROKEN bytes/count on failed pipelines, including emitted
+  staging output. Cache/staging/diagnostics may still change. Successful scans,
+  cache failure behavior, metadata classification and post-build verification
+  remain unchanged. Copy/count and recheck sort/copy projections stay open;
+  no transaction, rollback, global cleanup or native acceptance is claimed.
+- Extend the existing matrix to 82 scan entries, retaining 96 recheck and four
+  diagnostic entries. Add late find/sort failures after real private output and
+  two real GNU find missing-private-root controls. Check exact status, output,
+  stderr, callback absence and private inventory. Fake ELF bytes are never run.
+- Reject six focused syntax-valid source mutations and pass seven complementary
+  normal suites for metadata/architecture/SBo/apply/result/JSON/dry-run. Preserve
+  full outputs and old-source failure. Update contribution/testing/scan scope;
+  README, native contracts/evidence/fixtures, configuration and modes unchanged.
+- Third prepared step of475-482, maximum486; actual477 application/test/commit/
+  push/full final report is due next. Last confirmed strong STATIC pause474
+  remains; new pause false. Complete final actual return must precede a separate
+  every-whole inherited nested-condition/effects/obligations/cleanup/observation
+  review before the next strong pause, then STOP until another bounded request.
+- Phase1/kernel incomplete, A/R/D unselected, schema1/reference-v1/C/Phase2/
+  production closed. Host unobserved, native evidence/live bindings null, global
+  host closure false. No native right or consumed source/run/grant is renewed.
+
 ## Phase 1 step 476 -- align installed-initrd fixture with accepted boot policy
 
 - Accept the complete inline supplied actual475 return at HEAD/origin

@@ -284,7 +284,7 @@ private/supplied boundaries in its scope.
 | [test-sbo-queue-files.py](../tests/reference/test-sbo-queue-files.py) | Real directory collection/merging and selected supplied file-operation faults |
 | [test-sbo-workflow.py](../tests/reference/test-sbo-workflow.py) | Real synchronization/core/ABI/final coordinators; command/collector callbacks supplied |
 | [test-elf-metadata.py](../tests/reference/test-elf-metadata.py) | Real private magic/path/AWK/cache matching; readelf bytes/status supplied |
-| [test-elf-scan-workflow.py](../tests/reference/test-elf-scan-workflow.py) | Real private traversal/recheck/list replacement; cache/dependency readers supplied |
+| [test-elf-scan-workflow.py](../tests/reference/test-elf-scan-workflow.py) | Real private traversal/recheck/list handling; initial traversal/order failure propagation and a real private missing-root find error; cache/dependency readers supplied |
 | [test-runtime-logging.py](../tests/reference/test-runtime-logging.py) | Real private mkdir/files, sed/tee descriptor routing and find rotation; state/date/mktemp/fault callbacks supplied |
 | [test-boot-artifact-validation.py](../tests/reference/test-boot-artifact-validation.py) | Real token/scalar/package/output/GRUB text helpers, private awk/chmod and supplied GRUB checker |
 
@@ -301,7 +301,9 @@ Python 3.9 or newer. Real private files, links, permissions, inert builders,
 locks, signals and child descriptors are effects; callback guards are not OS
 containment or global host absence. This is not two-platform native conformance.
 
-Observed limitations include unchecked scan/copy/sort/count/rotation projections,
+Step 477 checks initial ELF traversal/order failures before list publication; see
+[the scan scope](reference/elf-scan-workflow.md#initial-scan-pipeline-failure-handling).
+Remaining limitations include unchecked copy/count, post-build sort and rotation projections,
 partial runtime setup without rollback, stale direct-call error fields, lexical
 rather than semantic path/version filtering and GRUB path matches across distinct
 menuentries. The exact conditions remain in the scope documents. Recording a

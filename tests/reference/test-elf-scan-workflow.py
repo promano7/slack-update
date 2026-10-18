@@ -40,6 +40,9 @@ find() {
     record find "$@"
     [[ $FAULT != find ]] || return 43
     builtin command find "$@"
+    local status=$?
+    [[ $FAULT != find-partial ]] || return 43
+    return "$status"
 }
 sort() {
     [[ $# == 1 && $1 == -u ]] || forbidden sort-vector
@@ -49,6 +52,9 @@ sort() {
         return 43
     fi
     builtin command sort "$@"
+    local status=$?
+    [[ $FAULT != sort-partial ]] || return 43
+    return "$status"
 }
 cp() {
     [[ $# == 4 && $1 == -f && $2 == -- && $3 == "$TEST_ROOT/"* && $4 == "$BROKEN" ]] || forbidden cp-vector
@@ -83,13 +89,14 @@ def diagnostics(lines):
 
 
 def scenario(root, kind, profile, fault, old_errors):
-    scan = root/'scan';scan.mkdir()
+    scan = root/'scan'
+    if profile != 'missing-root':scan.mkdir()
     paths = {key:str(root/key.lower()) for key in ('BROKEN','BROKEN_NEW','STILL_BROKEN','BROKEN_ERRORS','ELF_LIBRARY_CACHE')}
     for path in paths.values():Path(path).write_text('old\n')
     Path(paths['BROKEN_ERRORS']).write_text(old_errors)
     names = []
     if kind == 'scan':
-        names = [] if profile == 'empty' else [profile] if profile != 'mixed' else [
+        names = [] if profile in ('empty','missing-root') else [profile] if profile != 'mixed' else [
             'healthy','broken','error','other','text','link-broken','dangling','nested/broken2','space name']
     elif kind == 'verify':
         names = ['healthy','broken','error','other','text','link-broken','dangling','nested/broken2','space name']
@@ -108,7 +115,7 @@ def scenario(root, kind, profile, fault, old_errors):
         if profile == 'missing-list':Path(paths['BROKEN']).unlink()
         else:Path(paths['BROKEN']).write_text(value)
     if kind == 'report':Path(paths['BROKEN_ERRORS']).write_text(profile)
-    expected = inventory(root); state=['9','8','7','6']; output=''; status=0; calls=[]
+    expected = inventory(root); state=['9','8','7','6']; output=''; status=0; calls=[]; stderr=b''
     def file(key,data):expected[Path(paths[key]).name]=('file',data.encode())
     def call(*args):calls.append(tuple(map(str,args)))
     early = kind == 'verify' and profile in ('missing-list','empty')
@@ -155,18 +162,24 @@ def scenario(root, kind, profile, fault, old_errors):
                     if name in ('text','dangling'):errors.append('cannot statically re-inspect '+path)
                     elif name == 'error':errors.append('readelf could not re-inspect '+path)
             value='' if fault == 'sort' else ''.join(path+'\n' for path in sorted(set(broken)))
-            file('BROKEN_NEW' if kind == 'scan' else 'STILL_BROKEN',value);output+=diagnostics(errors)
-            if kind == 'scan':
+            file('BROKEN_NEW' if kind == 'scan' else 'STILL_BROKEN',value)
+            pipeline_failed = kind == 'scan' and (fault in ('find','find-partial','sort','sort-partial') or profile == 'missing-root')
+            if pipeline_failed:
+                status=1;state[0]='1'
+                output+='  [ERROR] Cannot enumerate or sort the static ELF scan results\n'+diagnostics(errors)
+                if profile == 'missing-root':stderr=f"find: '{scan}': No such file or directory\n".encode()
+            else:output+=diagnostics(errors)
+            if kind == 'scan' and not pipeline_failed:
                 call('cp','-f','--',paths['BROKEN_NEW'],paths['BROKEN'])
                 if fault != 'cp':file('BROKEN',value)
                 call('wc','-l');count='0' if fault == 'wc' else str((b'old\n' if fault == 'cp' else value.encode()).count(b'\n'))
                 state[2]=count;output+='  Broken ELF objects detected: '+count+'\n'
-            elif value:
+            elif kind == 'verify' and value:
                 output+='  [WARN] ELF objects that still have unresolved dependencies:\n'+''.join('    '+line+'\n' for line in value.splitlines())
                 call('cp','-f','--',paths['STILL_BROKEN'],paths['BROKEN'])
                 if fault != 'cp':file('BROKEN',value)
                 state[1]='1';status=1
-            else:output+='  [OK] All previously broken ELF objects passed static verification\n';file('BROKEN','')
+            elif kind == 'verify':output+='  [OK] All previously broken ELF objects passed static verification\n';file('BROKEN','')
     values=paths|dict(FAULT=fault,ELF_SCAN_STATUS=9,ELF_VERIFICATION_STATUS=8,BROKEN_COUNT=7,ELF_LIBRARY_CACHE_RECORD_COUNT=6)
     assignments='\n'.join(key+'='+shlex.quote(str(value)) for key,value in values.items())
     entry={'scan':'detect_broken_elf_objects','verify':'verify_broken_elf_objects_after_rebuild','report':'report_static_elf_scan_errors'}[kind]
@@ -177,8 +190,8 @@ def scenario(root, kind, profile, fault, old_errors):
                            'elf-scan-test',str(REFERENCE),str(root)],capture_output=True,cwd=root,
                           env=dict(os.environ,LC_ALL='C',TMPDIR=str(root)),timeout=10)
     wanted=output.encode()+b'\0STATE\0'+str(status).encode()+b'\0'+b''.join(value.encode()+b'\0' for value in state)
-    if (result.returncode,result.stdout,result.stderr)!=(0,wanted,b''):
-        raise AssertionError(f'{kind}/{profile}/{fault}: expected {(0,wanted,b"")!r}, got {(result.returncode,result.stdout,result.stderr)!r}')
+    if (result.returncode,result.stdout,result.stderr)!=(0,wanted,stderr):
+        raise AssertionError(f'{kind}/{profile}/{fault}: expected {(0,wanted,stderr)!r}, got {(result.returncode,result.stdout,result.stderr)!r}')
     raw=(root/'trace').read_bytes() if (root/'trace').exists() else b''
     actual=[tuple(item.decode().split('\0')[:-1]) for item in raw.split(b'\n') if item]
     # Real find order is unspecified; cache-first, command vectors and multiplicity are checked.
@@ -191,10 +204,12 @@ def run():
     counts=dict.fromkeys(('scan','verify','report'),0)
     with tempfile.TemporaryDirectory(prefix='slack-update-elf-scan-') as tmp:
         parent=Path(tmp).resolve();index=0
-        for kind,profiles,faults in [('scan',SCAN_PROFILES,('none','cache','find','sort','cp','wc')),
+        for kind,profiles,faults in [('scan',SCAN_PROFILES,('none','cache','find','find-partial','sort','sort-partial','cp','wc')),
                                       ('verify',VERIFY_PROFILES,('none','cache','sort','cp'))]:
             for profile,fault,old in itertools.product(profiles,faults,('','prior error\n')):
                 root=parent/str(index);index+=1;root.mkdir();scenario(root,kind,profile,fault,old);counts[kind]+=1
+        for old in ('','prior error\n'):
+            root=parent/str(index);index+=1;root.mkdir();scenario(root,'scan','missing-root','none',old);counts['scan']+=1
         for text in ('','one\n','one\ntwo\n','unterminated'):
             root=parent/str(index);index+=1;root.mkdir();scenario(root,'report',text,'none','');counts['report']+=1
     print('ELF scan workflow tests: '+', '.join(f'{count} {kind} entries' for kind,count in counts.items())+', 0 failures')

@@ -4153,7 +4153,9 @@ detect_broken_elf_objects() {
         return 1
     fi
 
-    find "${ELF_SCAN_PATHS[@]}" \( -type f -o -type l \) -print0 |
+    # With pipefail, any failed traversal or ordering stage invalidates the scan.
+    # Keep the previous published list until the complete pipeline succeeds.
+    if ! find "${ELF_SCAN_PATHS[@]}" \( -type f -o -type l \) -print0 |
     while IFS= read -r -d '' path; do
         object=$(resolve_static_elf_object_path "$path") || continue
 
@@ -4165,7 +4167,12 @@ detect_broken_elf_objects() {
                 printf 'readelf could not inspect %s\n' "$path" >> "$BROKEN_ERRORS"
             fi
         fi
-    done | LC_ALL=C sort -u > "$BROKEN_NEW"
+    done | LC_ALL=C sort -u > "$BROKEN_NEW"; then
+        ELF_SCAN_STATUS=1
+        echo "  [ERROR] Cannot enumerate or sort the static ELF scan results"
+        report_static_elf_scan_errors
+        return 1
+    fi
 
     report_static_elf_scan_errors
 
