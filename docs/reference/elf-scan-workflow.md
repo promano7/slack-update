@@ -23,7 +23,7 @@ Cache refresh and dependency classification are supplied callbacks. The cache
 callback writes one supplied private cache line or reports a selected failure; it does
 not call `/sbin/ldconfig`. The classifier returns authored 0/1/2 results, plus an
 explicit out-of-contract 23 case to isolate the coordinator's fallback branch.
-The added late find/sort failures first emit their real private command output
+The late find/sort failures first emit their real private command output
 and then return 43; quiet sort still drains its input. These callbacks do not
 establish installed library availability or reachability
 of every supplied state. No inspected object is deliberately invoked as a command.
@@ -32,8 +32,8 @@ of every supplied state. No inspected object is deliberately invoked as a comman
 
 | Boundary | Entries | Covered behavior |
 | --- | ---: | --- |
-| Initial scan | 82 | Five private layouts across eight normal/fault profiles and two diagnostic seeds, plus two real private missing-root cases |
-| Post-build verification | 96 | Twelve input-list profiles, normal/cache/sort/copy outcomes and two diagnostic seeds |
+| Initial scan | 102 | Five private layouts across ten normal/fault profiles and two diagnostic seeds, plus two real private missing-root cases |
+| Post-build verification | 144 | Twelve input-list profiles across six normal/cache/sort/copy outcomes and two diagnostic seeds |
 | Diagnostic rendering | 4 | Empty, one-line, multiline and unterminated messages |
 
 Expected stdout/stderr bytes (including the real GNU find missing-root diagnostic
@@ -65,10 +65,10 @@ pipe errors.
   Final list output is sorted and unique; symlink results use the scanned path.
 - Initial `find`/sort failures now set scan status 1 and return 1 before copy/count,
   preserving the published list and its prior count. This includes late failures
-  which have emitted staging data. See the step 477 handling below. A quiet copy
-  failure can still preserve the old list while reporting its old count/status 0;
-  count failure still uses the zero fallback. Those remaining unchecked status
-  projections are limitations, not native success or approved error handling.
+  which have emitted staging data. Count is checked on staging before publication;
+  a count failure preserves the old list/count. Copy failure sets scan status 1
+  and returns 1 without assigning the new count; the destination can still be
+  partially altered. See the separate step 477/478 handling below.
 - Empty or missing post-build lists return zero early, retaining old diagnostics,
   cache count and still-broken file. Cache failure after a nonempty list preserves
   that list but clears the private still-broken staging file and reports failure.
@@ -77,13 +77,13 @@ pipe errors.
   object and reports a diagnostic; supplied status 23 is outside the real reader's
   0/1/2 contract and is not treated as a retained inspection error by the wrapper.
 - Duplicate results normalize; repeated input errors retain repeated diagnostics.
-  A nonempty unterminated final record is ignored by the current `read` loop.
-  That deliberately malformed direct list can consequently be cleared as passing;
-  the normal scan producer emits terminated records. No input contract is amended.
-- A quiet sort failure in verification can produce an empty staging list and a
-  passing status. Copy failure on the warning branch still returns failure, but
-  can leave the previous input list intact. No atomic transaction or native
-  recovery guarantee follows from these selected private observations.
+  A nonempty unterminated final record is now processed by the verification loop,
+  so a broken final path is not dropped as passing. The normal scan producer
+  continues to emit terminated records; no native input contract is amended.
+- Quiet and late sort failures in verification set verification status 1 and
+  return 1 before publishing/clearing the prior list. Copy failure on the warning
+  branch is reported specifically and returns failure/status 1; partial writes
+  remain possible. No atomic transaction or native recovery guarantee follows.
 
 ## Initial scan pipeline failure handling
 
@@ -100,13 +100,14 @@ still change; cache construction and diagnostic reset occur before enumeration.
 Partial staging results are retained privately, not published as a successful
 scan. There is no filesystem transaction, rollback, complete cleanup guarantee
 or new result-schema field. Copy/count failures after a successful pipeline and
-post-build verification sort/copy behavior are outside this repair.
+post-build verification sort/copy behavior were outside the step 477 repair;
+step 478 below adds explicit failure handling.
 
 The original 60/96/4 matrix is retained in the predecessor delivery. The updated
 matrix fails against that exact old implementation on its first quiet-find
 control: expected raw/status 1 with preserved state, observed raw/status 0 with
-empty published result. The repaired source passes 82 scan, 96 verification and
-four diagnostic entries. Scan coverage adds late real-output-then-43 faults for
+empty published result. The step 477 source passed 82 scan, 96 verification and
+four diagnostic entries; the current expanded counts are in the table above. Scan coverage adds late real-output-then-43 faults for
 find and sort, plus an actually absent private scan root. Each failure checks
 exact status/diagnostic, unchanged publication/count, no copy/count callbacks
 and the complete expected private inventory. Successful empty scans still
@@ -119,7 +120,48 @@ apply/result/JSON/dry-run suites retain their separate callback scopes; they do
 not constitute native end-to-end composition. Existing callers already gate
 ownership mapping on scan success and record scan failure; those call sites
 are unchanged. Source fixes do not amend native criteria or authorize native
-execution. The remaining copy/count/recheck failure projections stay open.
+execution. Its then-remaining copy/count/recheck failures are addressed below.
+
+## List publication and verification failure handling
+
+Step 478 changes only the initial scan and post-build verification functions.
+The initial scan counts the complete staging file before copying it. Nonzero
+count status, including failure after partial stdout, sets scan status 1 and
+returns 1 before copy; no zero fallback is used. Publication status is checked,
+and the new global count is assigned only after copy succeeds. A quiet copy
+failure or a supplied partial-write failure produces raw/status 1 rather than a
+successful count/summary. The old count is retained as a prior value, not a valid
+current result after failure.
+
+Verification now checks its read/classification/sort pipeline under the existing
+pipefail option. Quiet and late sort failures produce raw/status 1, report
+reader diagnostics and preserve the original list bytes before any copy/clear.
+The loop also processes a nonempty last record without a newline. An unresolved
+final path is retained normally. Publishing a nonempty unresolved result checks
+copy status and reports a specific warning on failure; verification remains
+failed whether unresolved objects persist or their publication fails.
+
+Copying is still ordinary `cp`, not an atomic transaction. The partial-copy
+callback writes a selected private marker before returning 43; tests explicitly
+retain that destination alteration while requiring raw/status failure and no
+success summary. There is no rollback claim. Count callbacks can emit `42` and
+then fail; those bytes are not accepted as a successful count. The actual GNU
+commands, redirections and private files retain their documented real effects.
+These supplied faults are not native disk/permission/race measurements.
+
+Five focused controls against accepted477 demonstrate the old quiet-copy,
+count, quiet-sort, late-sort and unterminated-record failures. The current driver
+passes 102 scan, 144 verification and four diagnostic entries. Six syntax-valid
+mutations reject: zero-count fallback, copy-failure success return, count status
+zero, old unchecked verification, dropped final record and verification copy
+status zero. Seven related normal suites keep their separate supplied boundaries.
+The step 477 pipeline guard and both earlier fixture repairs remain intact.
+
+Resolved-list clearing remains the preexisting `: > "$BROKEN"` after the success
+message and has no explicit verification-status assignment on redirection error;
+this patch does not claim to validate that path. Staging/diagnostic reset errors,
+reader classification and diagnostic-rendering faults retain their scopes.
+No metadata/cache/native contract, result schema or execution authority changes.
 
 These tests characterize present coordinator behavior. They are not acceptance
 criteria approving the unchecked failure cases. Real cache construction, installed

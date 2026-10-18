@@ -303,7 +303,10 @@ containment or global host absence. This is not two-platform native conformance.
 
 Step 477 checks initial ELF traversal/order failures before list publication; see
 [the scan scope](reference/elf-scan-workflow.md#initial-scan-pipeline-failure-handling).
-Remaining limitations include unchecked copy/count, post-build sort and rotation projections,
+Step 478 additionally checks count/copy statuses and post-build sort/copy
+failures, and processes nonempty unterminated verification records. Copying can
+still alter a destination partially. Remaining limitations include unchecked
+resolved-list clearing and rotation projections,
 partial runtime setup without rollback, stale direct-call error fields, lexical
 rather than semantic path/version filtering and GRUB path matches across distinct
 menuentries. The exact conditions remain in the scope documents. Recording a

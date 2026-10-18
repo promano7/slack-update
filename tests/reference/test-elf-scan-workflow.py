@@ -60,12 +60,20 @@ cp() {
     [[ $# == 4 && $1 == -f && $2 == -- && $3 == "$TEST_ROOT/"* && $4 == "$BROKEN" ]] || forbidden cp-vector
     record cp "$@"
     [[ $FAULT != cp ]] || return 43
+    if [[ $FAULT == cp-partial ]]; then
+        builtin printf 'supplied partial copy\n' > "$BROKEN"
+        return 43
+    fi
     builtin command cp "$@"
 }
 wc() {
     [[ $# == 1 && $1 == -l ]] || forbidden wc-vector
     record wc "$@"
     [[ $FAULT != wc ]] || return 43
+    if [[ $FAULT == wc-partial ]]; then
+        builtin printf '42\n'
+        return 43
+    fi
     builtin command wc "$@"
 }
 '''
@@ -140,7 +148,7 @@ def scenario(root, kind, profile, fault, old_errors):
                 candidates=[(str(scan/name),name) for name in selected_names if name not in ('text','dangling')]
             else:
                 candidates=[]
-                for path in lines if profile != 'no-newline' else []:
+                for path in lines:
                     if not path:continue
                     name=Path(path).name
                     if name in ('text','dangling'):
@@ -156,30 +164,39 @@ def scenario(root, kind, profile, fault, old_errors):
             # Recheck diagnostics follow input order, independently of sorted result output.
             if kind == 'verify':
                 errors=[]
-                for path in lines if profile != 'no-newline' else []:
+                for path in lines:
                     if not path:continue
                     name=Path(path).name
                     if name in ('text','dangling'):errors.append('cannot statically re-inspect '+path)
                     elif name == 'error':errors.append('readelf could not re-inspect '+path)
             value='' if fault == 'sort' else ''.join(path+'\n' for path in sorted(set(broken)))
             file('BROKEN_NEW' if kind == 'scan' else 'STILL_BROKEN',value)
-            pipeline_failed = kind == 'scan' and (fault in ('find','find-partial','sort','sort-partial') or profile == 'missing-root')
+            pipeline_failed = fault in ('sort','sort-partial') or (kind == 'scan' and (fault in ('find','find-partial') or profile == 'missing-root'))
             if pipeline_failed:
-                status=1;state[0]='1'
-                output+='  [ERROR] Cannot enumerate or sort the static ELF scan results\n'+diagnostics(errors)
+                status=1;state[0 if kind == 'scan' else 1]='1'
+                output+=('  [ERROR] Cannot enumerate or sort the static ELF scan results\n' if kind == 'scan' else '  [WARN] Cannot sort the static ELF verification results\n')+diagnostics(errors)
                 if profile == 'missing-root':stderr=f"find: '{scan}': No such file or directory\n".encode()
             else:output+=diagnostics(errors)
             if kind == 'scan' and not pipeline_failed:
-                call('cp','-f','--',paths['BROKEN_NEW'],paths['BROKEN'])
-                if fault != 'cp':file('BROKEN',value)
-                call('wc','-l');count='0' if fault == 'wc' else str((b'old\n' if fault == 'cp' else value.encode()).count(b'\n'))
-                state[2]=count;output+='  Broken ELF objects detected: '+count+'\n'
-            elif kind == 'verify' and value:
+                call('wc','-l')
+                if fault in ('wc','wc-partial'):
+                    status=1;state[0]='1';output+='  [ERROR] Cannot count the static ELF scan results\n'
+                else:
+                    call('cp','-f','--',paths['BROKEN_NEW'],paths['BROKEN'])
+                    if fault in ('cp','cp-partial'):
+                        status=1;state[0]='1';output+='  [ERROR] Cannot publish the static ELF scan results\n'
+                        if fault == 'cp-partial':file('BROKEN','supplied partial copy\n')
+                    else:
+                        file('BROKEN',value);state[2]=str(value.count('\n'));output+='  Broken ELF objects detected: '+state[2]+'\n'
+            elif kind == 'verify' and not pipeline_failed and value:
                 output+='  [WARN] ELF objects that still have unresolved dependencies:\n'+''.join('    '+line+'\n' for line in value.splitlines())
                 call('cp','-f','--',paths['STILL_BROKEN'],paths['BROKEN'])
-                if fault != 'cp':file('BROKEN',value)
+                if fault in ('cp','cp-partial'):
+                    output+='  [WARN] Cannot publish the unresolved ELF verification results\n'
+                    if fault == 'cp-partial':file('BROKEN','supplied partial copy\n')
+                else:file('BROKEN',value)
                 state[1]='1';status=1
-            elif kind == 'verify':output+='  [OK] All previously broken ELF objects passed static verification\n';file('BROKEN','')
+            elif kind == 'verify' and not pipeline_failed:output+='  [OK] All previously broken ELF objects passed static verification\n';file('BROKEN','')
     values=paths|dict(FAULT=fault,ELF_SCAN_STATUS=9,ELF_VERIFICATION_STATUS=8,BROKEN_COUNT=7,ELF_LIBRARY_CACHE_RECORD_COUNT=6)
     assignments='\n'.join(key+'='+shlex.quote(str(value)) for key,value in values.items())
     entry={'scan':'detect_broken_elf_objects','verify':'verify_broken_elf_objects_after_rebuild','report':'report_static_elf_scan_errors'}[kind]
@@ -204,8 +221,8 @@ def run():
     counts=dict.fromkeys(('scan','verify','report'),0)
     with tempfile.TemporaryDirectory(prefix='slack-update-elf-scan-') as tmp:
         parent=Path(tmp).resolve();index=0
-        for kind,profiles,faults in [('scan',SCAN_PROFILES,('none','cache','find','find-partial','sort','sort-partial','cp','wc')),
-                                      ('verify',VERIFY_PROFILES,('none','cache','sort','cp'))]:
+        for kind,profiles,faults in [('scan',SCAN_PROFILES,('none','cache','find','find-partial','sort','sort-partial','cp','cp-partial','wc','wc-partial')),
+                                      ('verify',VERIFY_PROFILES,('none','cache','sort','sort-partial','cp','cp-partial'))]:
             for profile,fault,old in itertools.product(profiles,faults,('','prior error\n')):
                 root=parent/str(index);index+=1;root.mkdir();scenario(root,kind,profile,fault,old);counts[kind]+=1
         for old in ('','prior error\n'):

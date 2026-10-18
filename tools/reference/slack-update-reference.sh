@@ -4135,6 +4135,7 @@ detect_broken_elf_objects() {
     local path
     local object
     local inspection_status
+    local scan_count
 
     # ---------------------------
     # [8] BROKEN LIBS DETECTION
@@ -4176,10 +4177,19 @@ detect_broken_elf_objects() {
 
     report_static_elf_scan_errors
 
-    # broken.txt represents only the current static inspection result.
-    cp -f -- "$BROKEN_NEW" "$BROKEN"
+    # Count the complete staging list before attempting publication.
+    if ! scan_count=$(wc -l < "$BROKEN_NEW"); then
+        ELF_SCAN_STATUS=1
+        echo "  [ERROR] Cannot count the static ELF scan results"
+        return 1
+    fi
+    if ! cp -f -- "$BROKEN_NEW" "$BROKEN"; then
+        ELF_SCAN_STATUS=1
+        echo "  [ERROR] Cannot publish the static ELF scan results"
+        return 1
+    fi
 
-    BROKEN_COUNT=$(wc -l < "$BROKEN" 2>/dev/null || echo 0)
+    BROKEN_COUNT=$scan_count
     echo "  Broken ELF objects detected: $BROKEN_COUNT"
 }
 
@@ -4205,7 +4215,7 @@ verify_broken_elf_objects_after_rebuild() {
         return 1
     fi
 
-    while IFS= read -r path; do
+    if ! while IFS= read -r path || [ -n "$path" ]; do
         [ -n "$path" ] || continue
         if ! object=$(resolve_static_elf_object_path "$path"); then
             if [ -e "$path" ] || [ -L "$path" ]; then
@@ -4224,15 +4234,23 @@ verify_broken_elf_objects_after_rebuild() {
                 printf 'readelf could not re-inspect %s\n' "$path" >> "$BROKEN_ERRORS"
             fi
         fi
-    done < "$BROKEN" | LC_ALL=C sort -u > "$STILL_BROKEN"
+    done < "$BROKEN" | LC_ALL=C sort -u > "$STILL_BROKEN"; then
+        ELF_VERIFICATION_STATUS=1
+        echo "  [WARN] Cannot sort the static ELF verification results"
+        report_static_elf_scan_errors
+        return 1
+    fi
 
     report_static_elf_scan_errors
 
     if [ -s "$STILL_BROKEN" ]; then
         echo "  [WARN] ELF objects that still have unresolved dependencies:"
         sed 's/^/    /' "$STILL_BROKEN"
-        cp -f -- "$STILL_BROKEN" "$BROKEN"
         ELF_VERIFICATION_STATUS=1
+        if ! cp -f -- "$STILL_BROKEN" "$BROKEN"; then
+            echo "  [WARN] Cannot publish the unresolved ELF verification results"
+            return 1
+        fi
         return 1
     fi
 

@@ -1,3 +1,42 @@
+## Phase 1 step 478 -- propagate ELF list publication and verification failures
+
+- Accept complete supplied actual477 HEAD/origin
+  `2eed88307598e98450d6dfe745cd51c31356f715`, parent
+  `e421a21b5c5bcba4cb482c33d0df79e748832c54`, tree
+  `c8cabf638d9f3cb47bb5c735ee3235dd1e5ca037`, report SHA256
+  `bc503677f794f57e280097bbf6e46e09106255c43e824a824134f98604e0796a`.
+  All eight ordered normal outputs, six-path137add28delete scope, subject,
+  reported push, clean matching local refs and complete source/mode/tree agree.
+  Retain transcribed inline output and extracted report, not original supplied
+  file bytes or independent terminal/GitHub/native capture. Verify exact saved
+  ZIP hash/member inventory; no actual user Git object is fabricated.
+- Count the initial ELF staging list before publication. Failed count, including
+  partial output, returns failure/status 1 before copy. Check copy status and
+  assign BROKEN_COUNT only on success. A partial copy may alter BROKEN; its
+  failed status is explicit, without atomicity, rollback or recovery claims.
+- Check post-build verification pipeline failure before publishing/clearing.
+  Quiet/late sort failure preserves the prior list and returns failure/status 1.
+  Process nonempty unterminated final records; explicitly report failed copy
+  of unresolved results. Other source functions and metadata/cache semantics
+  remain byte-identical, including the step 477 initial-pipeline protection.
+- Expand the existing driver to102scan/144verify/4diagnostic cases with quiet,
+  late-output, partial-copy and partial-count fault controls. Five old-source
+  controls reject accepted477 behavior; current normal cases pass. Six focused
+  mutations reject; seven complementary normal suites pass. Full diagnostics,
+  private inventory/callback checks and old failure records remain retained.
+- Update contribution/testing/scan scope only alongside source/test/CHANGELOG.
+  README, native contracts/fixtures/evidence, config and modes unchanged. Final
+  resolved-list clearing, reset/render errors and other observed limitations
+  remain scoped; no native acceptance, schema freeze or global cleanup follows.
+- Fourth prepared step of475-482, maximum486; actual478 application/test/commit/
+  push/full final report required next. Last confirmed STATIC pause474 remains;
+  new pause false. Complete final actual return precedes the separate every-whole
+  inherited-condition/nested-body/effects/obligations/cleanup/observation review,
+  then STOP after confirming the bounded pause until another user request.
+- Phase1/kernel incomplete, A/R/D unselected, schema1/reference-v1/C/Phase2/
+  production closed; host unobserved, native evidence/live bindings null, global
+  host closure false. No consumed source/run/grant or native right is renewed.
+
 ## Phase 1 step 477 -- reject incomplete initial ELF scan pipelines
 
 - Recover the exact persisted step476 ZIP after transient workspace loss;
