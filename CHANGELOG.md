@@ -1,3 +1,39 @@
+## Phase 1 step 480 -- stop ELF workflows on work-file initialization failures
+
+- Accept complete supplied actual479 HEAD/origin
+  `0399fd4275c2eba1be4d727b4134ea1185d7bf98`, parent
+  `405fa6eea00b6bbcdf44482b0f1fdfedd8ab64d8`, tree
+  `b06ac78cf6a6e90aa0f94f1fa377eb2ed3128ce1`, report SHA256
+  `e8f90c973c0f0895953a7d1cf6787595263d248922449a137d8c870fd2290222`.
+  Eight ordered outputs, six-path124add15delete scope, subject, reported push,
+  clean matching local refs and full source/mode/tree agree. Exact saved ZIP
+  hash/member inventory checked. Receipt is transcribed inline output with
+  extracted report, not original bytes or independent remote/native capture.
+- Check diagnostic/result initialization before initial scan or nonempty-list
+  verification cache refresh. A failed redirection sets the relevant status 1,
+  emits its initialization error and returns 1. Short-circuit result clearing
+  after diagnostic initialization failure. All other reference bytes remain
+  unchanged, including477-479 guards and empty/missing-list early returns.
+- Add48 real private directory/link-to-directory obstruction controls:16scan,
+  16active verification and16empty/missing-list bypass entries. Independently
+  check full output, Bash error shape, raw/state, callback absence and complete
+  private inventory. Preserve prior publication/count/cache; require successful
+  diagnostic clearing before result-path failure. No atomic rollback is claimed.
+- Existing driver passes118scan/184verify/4diagnostic entries. Eight controls
+  against accepted479 expose continued execution; six syntax-valid source
+  mutations reject. Seven complementary normal suites pass within their own
+  scopes. Current authoring UID0; no unprivileged/native execution is claimed.
+- Six existing paths change: source/test/CHANGELOG/contribution/testing/scan
+  scope. README/config/native contracts/evidence/fixtures/modes remain unchanged.
+  Rendering/reader limitations and partial-copy effects retain their scopes.
+- Sixth prepared step of475-482, maximum486; actual480 return required next.
+  Last confirmed strong STATIC pause474 remains; new pause false. Final actual
+  return must precede the separate every-whole inherited-condition/nested-body
+  and effects/obligations/cleanup/observation review before a new pause, then STOP.
+- Phase1/kernel incomplete, A/R/D unselected, schema1/reference-v1/C/Phase2/
+  production closed; host unobserved, native evidence/live bindings null,
+  global host closure false. No consumed source/run/grant or right is renewed.
+
 ## Phase 1 step 479 -- report ELF resolved-list clearing failures accurately
 
 - Accept complete supplied actual478 HEAD/origin

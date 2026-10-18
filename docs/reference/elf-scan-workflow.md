@@ -32,8 +32,8 @@ of every supplied state. No inspected object is deliberately invoked as a comman
 
 | Boundary | Entries | Covered behavior |
 | --- | ---: | --- |
-| Initial scan | 102 | Five private layouts across ten normal/fault profiles and two diagnostic seeds, plus two real private missing-root cases |
-| Post-build verification | 152 | 144 normal/fault matrix entries plus eight controlled directory/link redirection failures |
+| Initial scan | 118 | Original 102 entries plus 16 diagnostic/result initialization failures |
+| Post-build verification | 184 | Original 152 entries plus 16 initialization failures and 16 empty/missing-list bypass controls |
 | Diagnostic rendering | 4 | Empty, one-line, multiline and unterminated messages |
 
 Expected stdout bytes and controlled stderr (exact GNU find diagnostic under
@@ -58,7 +58,10 @@ pipe errors.
 
 ## Preserve and qualify current behavior
 
-- Initial scanning clears prior diagnostic/new-list files. A cache failure sets
+- Initial scanning checks diagnostic/new-list initialization before cache refresh.
+  Failure returns raw/status 1 without a cache, traversal, count or copy callback.
+  Prior publication/count and cache state survive; a successful diagnostic clear
+  can precede a staging-clear failure. A cache failure sets
   scan status 1, reports and clears its diagnostics, and preserves the prior
   broken list. Successful supplied cache refresh records its authored count.
 - Initial enumeration emits unresolved objects, omits regular non-ELF/dangling
@@ -151,8 +154,8 @@ commands, redirections and private files retain their documented real effects.
 These supplied faults are not native disk/permission/race measurements.
 
 Five focused controls against accepted477 demonstrate the old quiet-copy,
-count, quiet-sort, late-sort and unterminated-record failures. The current driver
-passes 102 scan, 144 verification and four diagnostic entries. Six syntax-valid
+count, quiet-sort, late-sort and unterminated-record failures. The step 478 driver
+passed 102 scan, 144 verification and four diagnostic entries. Six syntax-valid
 mutations reject: zero-count fallback, copy-failure success return, count status
 zero, old unchecked verification, dropped final record and verification copy
 status zero. Seven related normal suites keep their separate supplied boundaries.
@@ -193,12 +196,51 @@ fixtures and are removed by the Python test's private cleanup.
 
 Four old-source controls reproduce the misleading success message/status 0 with
 raw failure on accepted478. Four syntax-valid source mutations reject: restored
-old clear tail, status zero, return zero and premature success output. Current
-coverage is102scan/152verify/4diagnostic entries plus seven complementary normal
+old clear tail, status zero, return zero and premature success output. At step 479,
+coverage was102scan/152verify/4diagnostic entries plus seven complementary normal
 suites with their existing separate boundaries. These controls do not establish
 native permission/race/disk behavior or an unprivileged OS run by this preparer.
 No global cleanup or independent native conformance follows. Reset/render faults
 and other original limitations remain outside this narrow final-clear repair.
+
+## Work-file initialization failures
+
+Step 480 checks the two initialization redirections in each of the initial scan
+and nonempty-list verification paths. Diagnostic initialization is attempted
+first; results initialization is attempted only if it succeeds. Failure sets
+the corresponding scan/verification status to 1, emits `Cannot initialize the
+static ELF scan files` or `Cannot initialize the static ELF verification files`
+and returns 1 before cache refresh, readers, traversal, sorting or publication.
+The original empty/missing verification-list early return remains before these
+operations and still leaves its old diagnostics/cache/staging state untouched.
+
+The prior published list, count and cache bytes/count are preserved on these
+failures. This is not a transaction: if diagnostics initialize successfully but
+the results path fails, the old diagnostic bytes have already been cleared.
+An initialization redirection can have ordinary filesystem effects even when a
+later operation fails. No atomic rollback, global cleanup, path-trust or native
+permission guarantee is introduced. Diagnostic rendering, later reader failures
+and partial publication retain their separate limits.
+
+Forty-eight added entries use real private directories or links to private
+directories in place of the diagnostic or result file before entry. Sixteen scan
+cases cross healthy/broken inputs, four obstructions and two diagnostic seeds.
+Thirty-two verification cases add the same 16 active checks plus 16 empty/missing
+list early-return controls. The real Bash redirection error is checked against
+its full source/target/directory-error shape with a variable positive source-line
+number. Full output, raw/status, unchanged publication/cache state, complete
+private inventory and absence of callbacks are independently authored.
+Results-path failures explicitly require that diagnostics were already cleared;
+diagnostic-path failures require untouched result staging. The fixture does not
+rely on chmod behavior for root and does not run an unprivileged subprocess.
+
+Eight controls against accepted479 reproduce the old continued execution and
+misleading success. Six syntax-valid source mutations reject unchecked resets,
+zero status and zero raw returns separately for scan and verification. The
+current driver passes118scan/184verify/4diagnostic entries; seven complementary
+normal suites pass with their existing independent scopes. Every reference byte
+outside the two initialization blocks remains unchanged, including477-479 guards.
+No installed cache, package, boot or inspected-object execution is added.
 
 These tests characterize present coordinator behavior. They are not acceptance
 criteria approving the unchecked failure cases. Real cache construction, installed

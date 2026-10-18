@@ -4144,8 +4144,11 @@ detect_broken_elf_objects() {
     echo "[8] Detecting broken ELF objects without executing inspected files"
 
     ELF_SCAN_STATUS=0
-    : > "$BROKEN_ERRORS"
-    : > "$BROKEN_NEW"
+    if ! : > "$BROKEN_ERRORS" || ! : > "$BROKEN_NEW"; then
+        ELF_SCAN_STATUS=1
+        echo "  [ERROR] Cannot initialize the static ELF scan files"
+        return 1
+    fi
 
     if ! refresh_static_elf_library_cache "$ELF_LIBRARY_CACHE"; then
         ELF_SCAN_STATUS=1
@@ -4205,8 +4208,11 @@ verify_broken_elf_objects_after_rebuild() {
 
     ELF_VERIFICATION_STATUS=0
     echo "  Verifying rebuilt ELF objects with static inspection..."
-    : > "$BROKEN_ERRORS"
-    : > "$STILL_BROKEN"
+    if ! : > "$BROKEN_ERRORS" || ! : > "$STILL_BROKEN"; then
+        ELF_VERIFICATION_STATUS=1
+        echo "  [WARN] Cannot initialize the static ELF verification files"
+        return 1
+    fi
 
     if ! refresh_static_elf_library_cache "$ELF_LIBRARY_CACHE"; then
         ELF_VERIFICATION_STATUS=1

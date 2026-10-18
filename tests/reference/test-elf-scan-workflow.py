@@ -136,6 +136,12 @@ def scenario(root, kind, profile, fault, old_errors):
         if profile == 'missing-list':Path(paths['BROKEN']).unlink()
         else:Path(paths['BROKEN']).write_text(value)
     if kind == 'report':Path(paths['BROKEN_ERRORS']).write_text(profile)
+    if fault in ('reset-errors-directory','reset-errors-link-directory','reset-results-directory','reset-results-link-directory'):
+        key='BROKEN_ERRORS' if fault.startswith('reset-errors-') else 'BROKEN_NEW' if kind == 'scan' else 'STILL_BROKEN'
+        blocked=Path(paths[key]);blocked.unlink()
+        if fault.endswith('-link-directory'):
+            target=root/'reset-target';target.mkdir();blocked.symlink_to(target)
+        else:blocked.mkdir()
     expected = inventory(root); state=['9','8','7','6']; output=''; status=0; calls=[]; stderr=b''; stderr_pattern=None
     def file(key,data):expected[Path(paths[key]).name]=('file',data.encode())
     def call(*args):calls.append(tuple(map(str,args)))
@@ -143,6 +149,13 @@ def scenario(root, kind, profile, fault, old_errors):
     if kind == 'report':
         if profile:output='  [WARN] Static ELF inspection diagnostics:\n'+''.join('    '+line for line in profile.splitlines(keepends=True));file('BROKEN_ERRORS','')
     elif early:state[1]='0'
+    elif fault.startswith('reset-'):
+        state[0 if kind == 'scan' else 1]='1';status=1
+        if kind == 'scan':output='[8] Detecting broken ELF objects without executing inspected files\n  [ERROR] Cannot initialize the static ELF scan files\n'
+        else:output='  Verifying rebuilt ELF objects with static inspection...\n  [WARN] Cannot initialize the static ELF verification files\n'
+        key='BROKEN_ERRORS' if fault.startswith('reset-errors-') else 'BROKEN_NEW' if kind == 'scan' else 'STILL_BROKEN'
+        if key != 'BROKEN_ERRORS':file('BROKEN_ERRORS','')
+        stderr_pattern=re.escape(str(REFERENCE))+r': line [1-9][0-9]*: '+re.escape(paths[key])+r': Is a directory\n'
     else:
         state[0 if kind == 'scan' else 1]='0';state[3]='0' if fault == 'cache' else '1'
         file('BROKEN_ERRORS','');file('BROKEN_NEW' if kind == 'scan' else 'STILL_BROKEN','')
@@ -256,6 +269,10 @@ def run():
             root=parent/str(index);index+=1;root.mkdir();scenario(root,'scan','missing-root','none',old);counts['scan']+=1
         for profile,fault,old in itertools.product(('healthy','missing-object'),('clear-directory','clear-link-directory'),('','prior error\n')):
             root=parent/str(index);index+=1;root.mkdir();scenario(root,'verify',profile,fault,old);counts['verify']+=1
+        reset_faults=('reset-errors-directory','reset-errors-link-directory','reset-results-directory','reset-results-link-directory')
+        for kind,profiles in (('scan',('healthy','broken')),('verify',('healthy','broken','empty','missing-list'))):
+            for profile,fault,old in itertools.product(profiles,reset_faults,('','prior error\n')):
+                root=parent/str(index);index+=1;root.mkdir();scenario(root,kind,profile,fault,old);counts[kind]+=1
         for text in ('','one\n','one\ntwo\n','unterminated'):
             root=parent/str(index);index+=1;root.mkdir();scenario(root,'report',text,'none','');counts['report']+=1
     print('ELF scan workflow tests: '+', '.join(f'{count} {kind} entries' for kind,count in counts.items())+', 0 failures')
