@@ -1,3 +1,34 @@
+## Phase 1 step 471 -- characterize private ELF scanning and post-build verification
+
+- Accept supplied actual470 HEAD/origin
+  `1a8e05de0e347396905904fbc39203e613b867da`,parent
+  `c41c4244afb7a2d4db0804bad0188aa1cde8a9d9`,tree
+  `63ff0e945ddc2e733e24aaa162def87a6f398549`:eight exact normal outputs,
+  fourpaths309adds/two creates,required subject,reported successful push,empty
+  status and full matching heads. Complete source/mode/tree report checksum
+  verifies;supplied local evidence is not independent terminal/GitHub/native capture.
+- Recover exact persisted470ZIP after local scratch state was absent;verify CRC,
+  every archive/source hash,all original modes and reconstructed tree. No actual
+  user Git object is fabricated and no unknown earlier anomaly cause is inferred.
+- Add independent output/state/vector/file checks for real scan/recheck/diagnostic
+  helpers:60scan,96verification and4report entries. Use real private find/path/
+  magic/coreutils/files/links;cache refresh and dependency results are supplied.
+- Characterize unchecked find/sort/copy/count projections,early-empty preservation,
+  cache-failure retention,existing unreadable/dangling versus vanished entries,
+  duplicate diagnostics and ignored unterminated input. These implementation
+  limitations are not newly approved native success/error-handling criteria.
+- Reject nine syntax-valid private source mutations;run eight selected normal
+  regressions. Preserve initial callback cp-vector authoring failure:missing --
+  in the guard/oracle corrected before final passes,reference source unchanged.
+- Only CHANGELOG,CONTRIBUTING,new driver and scope change. Reference100755,README,
+  original modes,native criteria/contracts/evidence unchanged. Fifth prepared
+  step of467-474,max478;actual471 required next. Last confirmed strong STATIC
+  repository pause466,new pauseFALSE. Final actual return precedes separate EVERY-
+  WHOLE nested-condition/new-effects/obligations/cleanup/observation-limit review.
+- Phase1/kernel incomplete,A/R/D unselected,schema1/reference-v1/C/Phase2/production
+  closed. Host unobserved-not-claimed-absent,live bindings/native evidenceNULL,
+  global closureFALSE. All original independent semantic/native gates remain.
+
 ## Phase 1 step 470 -- validate static ELF metadata and architecture matching helpers
 
 - Accept supplied actual469 HEAD/origin
