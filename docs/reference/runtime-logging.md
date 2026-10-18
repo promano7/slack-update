@@ -78,8 +78,11 @@ step 472. Its source/environment checks passed, but its three workflow cases
 reached the real mirror preflight before their supplied slackpkg callback and
 failed because `/etc/slackpkg/mirrors` was unreadable here. It reported 19 of 79
 checks failed. The complete failed attempt and retained private diagnostic are
-delivery evidence; the script is unchanged and is outside the eight passing
-normal commands selected for this delivery. No cron workflow PASS is inferred.
+delivery evidence. It was unchanged and outside the eight passing normal
+commands selected for step 472 and the later step 474 selection. Step 475
+reproduces that failure and repairs the private mirror fixture; see the
+[separate cron scope](cron-minimal-environment.md). That later result does not
+change the historical selection or imply native cron acceptance.
 
 Nine syntax-valid private mutations are rejected: ordinary queue path, CSB
 binding, dry-run work binding, omitted dry-run cache file, structured-mode

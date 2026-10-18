@@ -311,7 +311,7 @@ behavior does not approve it as native success or weaken original requirements.
 
 | Test or attempt | Recorded result and current treatment |
 | --- | --- |
-| `test-cron-minimal-environment.sh` | 19 of 79 failed here: workflow cases read the real `/etc/slackpkg/mirrors` before the supplied slackpkg callback. Unchanged and excluded from the passing selection; see [runtime/logging](reference/runtime-logging.md). |
+| `test-cron-minimal-environment.sh` | Historical 19/79 failure reproduced in step 475. The current fixture uses private local mirrors with the real reader/preflight: 153 checks cover three successful modes and 12 preflight rejections. This repairs the fixture dependency; it does not establish native cron compatibility. See [cron scope](reference/cron-minimal-environment.md). |
 | `test-initrd-installed-kernel.sh` | 1 of 69 failed: fixture selects an absent GRUB directory but expects auto availability; the current managed-layout probe requires both initrd and GRUB. Expectation/implementation disagreement unresolved, both unchanged; see [boot scope](reference/boot-artifact-validation.md). |
 | Original step473 generated-initrd test | Passed in the preparer's UID0 environment, failed for the user's pending checkout and aborted on unset INITRD_OK. Exact target UID1000 callback reproduced the failure; no actual user temp ownership or unprivileged OS run was independently observed. |
 | Repaired `test-current-geninitrd-post-state.sh` | User-reported 52 checks pass at accepted473: only the exact synthetic target UID query is supplied, with real modes/paths/links and explicit non-root rejection/root restoration. Reference root-ownership guard unchanged. See [repair details](reference/boot-artifact-validation.md#repair-1-synthetic-geninitrd-ownership-fixture). |
@@ -320,7 +320,10 @@ The original interrupted473 attempt, local root-only baseline, callback
 reproduction, repair and complete later user return all remain in delivery
 history. The later success qualifies that synthetic fixture; it does not erase
 the failure, certify a real root-owned initrd or explain older unknown anomalies.
-The two other failing tests are not silently counted as passing or closed.
+The original cron failure remains retained alongside its step 475 fixture repair.
+The installed-initrd disagreement remains unresolved and outside the historical
+54-command selection. The cron repair adds a focused runnable regression; it
+does not retrospectively add it to the step 474 selection.
 
 ## Conditional repository pause after step474
 

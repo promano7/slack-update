@@ -71,6 +71,17 @@ assert_file_exists() {
     fi
 }
 
+assert_file_absent() {
+    local path=$1
+    local message=$2
+
+    if [ -e "$path" ] || [ -L "$path" ]; then
+        fail "$message"
+    else
+        pass
+    fi
+}
+
 assert_mode() {
     local expected=$1
     local path=$2
@@ -288,11 +299,30 @@ export SLACK_UPDATE_CONFIG
 # shellcheck source=/dev/null
 source "$REFERENCE_SCRIPT"
 
+# Keep the real mirror reader and local ChangeLog preflight on private files.
+SLACKPKG_MIRRORS_FILE="$CASE_DIR/mirrors"
+
 require_root() {
     return 0
 }
 
+forbidden_call() {
+    printf '%s\n' "$*" >> "$CASE_DIR/forbidden.calls"
+    return 97
+}
+
+# These guards detect selected regressions; they are not an OS sandbox.
+wget() { forbidden_call wget "$@"; }
+curl() { forbidden_call curl "$@"; }
+run_apply_workflow() { forbidden_call run_apply_workflow "$@"; }
+run_dry_run_workflow() { forbidden_call run_dry_run_workflow "$@"; }
+
 slackpkg() {
+    if [ "$#" -ne 3 ] || [ "$1" != -batch=on ] \
+        || [ "$2" != -default_answer=n ] || [ "$3" != check-updates ]; then
+        forbidden_call slackpkg "$@"
+        return 97
+    fi
     {
         printf 'PATH=%s\n' "$PATH"
         printf 'HOME=%s\n' "$HOME"
@@ -323,13 +353,39 @@ chmod 0755 "$CRON_HARNESS"
 
 run_cron_case() {
     local name=$1
-    shift
+    local mirror_fixture=$2
+    shift 2
     local case_dir="$TEST_TMP/$name"
     local config="$case_dir/slack-update.conf"
     local status
 
     mkdir -p "$case_dir"
     make_case_config "$case_dir" "$config"
+    mkdir -p "$case_dir/mirror"
+    printf 'Private test ChangeLog\n' > "$case_dir/mirror/ChangeLog.txt"
+    case "$mirror_fixture" in
+        local)
+            printf '# Private mirror only\n%s/mirror/\n' "$case_dir" > "$case_dir/mirrors"
+            ;;
+        file-url)
+            printf 'file://%s/mirror/\n' "$case_dir" > "$case_dir/mirrors"
+            ;;
+        missing-file)
+            ;;
+        no-active)
+            printf '# No active mirror\n\n' > "$case_dir/mirrors"
+            ;;
+        multiple)
+            printf '%s/mirror/\n%s/other/\n' "$case_dir" "$case_dir" > "$case_dir/mirrors"
+            ;;
+        missing-changelog)
+            printf '%s/absent/\n' "$case_dir" > "$case_dir/mirrors"
+            ;;
+        *)
+            printf 'Unknown private mirror fixture: %s\n' "$mirror_fixture" >&2
+            return 98
+            ;;
+    esac
 
     timeout 10 /usr/bin/env -i \
         PATH=/missing \
@@ -344,7 +400,7 @@ run_cron_case() {
     printf '%s' "$status"
 }
 
-human_status=$(run_cron_case human --check)
+human_status=$(run_cron_case human local --check)
 assert_equal 0 "$human_status" 'a detached human-readable cron check should succeed'
 assert_file_contains 'Slackware repository updates are available' "$TEST_TMP/human/stdout" \
     'the cron check should complete its human-readable summary'
@@ -381,7 +437,7 @@ assert_file_exists "$human_log" 'the cron workflow should create a persistent lo
 assert_mode 600 "$human_log" 'the cron log should be owner-only'
 assert_file_contains 'CHECK SUMMARY' "$human_log" 'the cron log should contain the completed summary'
 
-json_status=$(run_cron_case json --check --json)
+json_status=$(run_cron_case json file-url --check --json)
 assert_equal 0 "$json_status" 'a detached JSON cron check should succeed'
 assert_file_contains '"exit_code": 0' "$TEST_TMP/json/stdout" \
     'JSON cron output should expose the successful process code'
@@ -394,7 +450,7 @@ assert_file_contains 'CHECK SUMMARY' "$TEST_TMP/json/stderr" \
 assert_equal 1 "$(grep -c '^{[[:space:]]*$' "$TEST_TMP/json/stdout")" \
     'JSON mode should emit one final structured object'
 
-events_status=$(run_cron_case events --check --events)
+events_status=$(run_cron_case events local --check --events)
 assert_equal 0 "$events_status" 'a detached NDJSON cron check should succeed'
 assert_file_contains '"type":"operation_started"' "$TEST_TMP/events/stdout" \
     'event mode should begin with an operation-started record'
@@ -406,6 +462,60 @@ assert_file_not_contains 'CHECK SUMMARY' "$TEST_TMP/events/stdout" \
     'event stdout should remain free of human-readable progress'
 assert_file_contains 'CHECK SUMMARY' "$TEST_TMP/events/stderr" \
     'event mode should route human-readable progress to stderr'
+
+for name in human json events; do
+    assert_file_exists "$TEST_TMP/$name/slackpkg.environment" \
+        "$name mode should reach only the supplied slackpkg check"
+    assert_file_absent "$TEST_TMP/$name/forbidden.calls" \
+        "$name mode should not call network or apply entry points"
+done
+
+# Invalid private mirrors must fail before the slackpkg callback in every mode.
+for mirror_fixture in missing-file no-active multiple missing-changelog; do
+    for output_mode in human json events; do
+        name="$mirror_fixture-$output_mode"
+        case_dir="$TEST_TMP/$name"
+        case "$output_mode" in
+            human) status=$(run_cron_case "$name" "$mirror_fixture" --check) ;;
+            json) status=$(run_cron_case "$name" "$mirror_fixture" --check --json) ;;
+            events) status=$(run_cron_case "$name" "$mirror_fixture" --check --events) ;;
+        esac
+        case "$mirror_fixture" in
+            missing-file) error="slackpkg mirrors file is not readable: $case_dir/mirrors" ;;
+            no-active) error='slackpkg mirrors file has no active mirror' ;;
+            multiple) error='slackpkg mirrors file has multiple active mirrors' ;;
+            missing-changelog) error="configured local Slackware mirror ChangeLog is unreadable: $case_dir/absent/ChangeLog.txt" ;;
+        esac
+        if [ "$output_mode" = human ]; then
+            progress="$case_dir/stdout"
+        else
+            progress="$case_dir/stderr"
+        fi
+        assert_equal 1 "$status" "$name should return stable check failure"
+        assert_file_contains "[ERROR] $error" "$progress" \
+            "$name should retain the real mirror-preflight diagnostic"
+        assert_file_absent "$case_dir/slackpkg.environment" \
+            "$name should stop before slackpkg"
+        assert_file_absent "$case_dir/forbidden.calls" \
+            "$name should not call network or apply entry points"
+        case "$output_mode" in
+            json)
+                assert_file_contains '"check_exit_code": 69' "$case_dir/stdout" \
+                    "$name should retain the mirror failure code in JSON"
+                assert_file_contains '"success": false' "$case_dir/stdout" \
+                    "$name should report failed JSON result"
+                assert_file_contains '"exit_code": 1' "$case_dir/stdout" \
+                    "$name should report stable JSON failure"
+                ;;
+            events)
+                assert_file_contains '"type":"operation_completed"' "$case_dir/stdout" \
+                    "$name should emit the final event"
+                assert_file_contains '"exit_code":1' "$case_dir/stdout" \
+                    "$name should report stable event failure"
+                ;;
+        esac
+    done
+done
 
 if [ "$FAILURE_COUNT" -ne 0 ]; then
     printf 'FAILED: %d of %d cron-environment checks failed\n' \

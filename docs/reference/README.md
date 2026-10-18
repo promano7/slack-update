@@ -45,12 +45,14 @@ native acceptance or selects an operational contract alternative.
 | ELF magic, reader text, cache identities and dependencies | [ELF metadata](elf-metadata.md) |
 | Private scan, broken-list handling and post-build recheck | [ELF scanning](elf-scan-workflow.md) |
 | Runtime paths, temporary setup, log routing and rotation | [Runtime/logging](runtime-logging.md) |
+| Detached minimal-environment checks and private mirror preflight | [Cron fixture repair](cron-minimal-environment.md) |
 | Version/scalar/snapshot/output readers and GRUB candidate text | [Boot artifacts and ownership-fixture repair](boot-artifact-validation.md) |
 
 These scopes distinguish real private files/coreutils from supplied operations
-and preserve observed implementation limitations. The historical cron and
-installed-initrd test failures remain explicit; the selected suite is not every
-historical harness. Use the [testing guide](../testing.md) for dependencies and
+and preserve observed implementation limitations. The historical cron failure
+and its later private-fixture repair remain explicit; the installed-initrd
+disagreement remains unresolved. The selected suite is not every historical
+harness. Use the [testing guide](../testing.md) for dependencies and
 interpretation before executing a selected check.
 
 ## Locate the supporting files

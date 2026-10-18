@@ -30,8 +30,10 @@ The synthetic GenInitrd test now models its exact target UID query and includes
 non-root rejection; it does not establish native ownership conformance.
 
 Repository coverage has expanded while the native acceptance inventory below
-remains unchanged. Known cron mirror dependence and an installed-initrd
-probe expectation/implementation disagreement remain recorded for follow-up.
+remains unchanged. The cron mirror dependence was reproduced and repaired in the private test
+fixture in step 475; its [focused scope](reference/cron-minimal-environment.md)
+preserves the historical failure. The installed-initrd probe expectation/
+implementation disagreement remains recorded for follow-up.
 Other observed unchecked failure projections and text-validation limits remain
 in their dedicated scopes. Passing the selected regressions does not approve
 those behaviors as native acceptance criteria or resolve the operational audit.

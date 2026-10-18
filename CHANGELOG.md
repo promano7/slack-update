@@ -1,3 +1,39 @@
+## Phase 1 step 475 -- isolate cron regression from installed mirrors
+
+- Resume the new bounded repository block from confirmed STATIC pause 474 at
+  supplied HEAD/origin `281546acd203e046f652ee188beb255371c7dfdd`, tree
+  `78ba80f17e840b31afcc7011cdb139350758baed`. Verify archive member hashes,
+  the complete 2370-file source and explicit modes/tree without fabricating user
+  Git objects. Target eight steps 475-482, at most twelve through 486; later
+  focused scopes depend on findings and each actual return.
+- Reproduce the original cron regression failure: 19 of 79 assertions fail.
+  Preserve that full output and all prior failure/receipt qualifications.
+  The workflows reach the installed mirror preflight before supplied slackpkg.
+- Bind the child harness to private absolute/file-URL mirrors and use the real
+  reader/local ChangeLog preflight. Keep all original 79 assertions. Add missing,
+  empty-active, multiple-active and missing-ChangeLog rejections in human, JSON
+  and event modes, exact slackpkg argument guarding and prohibited-call markers.
+  The current 153 assertions pass; this repairs a test dependency, not source
+  behavior or real Slackware cron acceptance.
+- Reject five focused source mutations and one HTTPS fixture mutation through
+  the supplied wget guard. Run the separate mirror-probe, check-workflow,
+  CLI early-exit and runtime/logging regressions. Full outputs and finite scopes
+  are retained in the delivery; no new exhaustive/native result is claimed.
+- Update current contribution/testing/navigation and the runtime scope to
+  distinguish the later fixture repair from historical selections. README is
+  unchanged; detailed history remains here and in reference records. Reference
+  implementation, original native contracts/fixtures/evidence and modes remain
+  unchanged. The installed-initrd disagreement is still open.
+- First prepared step of the new block; actual 475 application/test/commit/push
+  and complete source/mode/tree return are required next. Last confirmed strong
+  STATIC repository pause is 474; a new block pause is not yet confirmed. Final
+  actual return must precede a separate full inherited-condition/effects/cleanup/
+  observation review before the next strong pause, then STOP.
+- Phase 1/kernel incomplete, A/R/D unselected; schema 1/reference-v1/C/Phase 2/
+  production closed. Host unobserved-not-claimed-absent, native evidence/live
+  bindings null, actual global host closure false. No native right, consumed
+  source/run/grant binding, migration decision or platform conformance is opened.
+
 ## Phase 1 step 474 -- integrate regression coverage and refresh current documentation
 
 - Accept supplied repaired473 HEAD/origin
