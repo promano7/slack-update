@@ -35,6 +35,10 @@ fixture in step 475; its [focused scope](reference/cron-minimal-environment.md)
 preserves the historical failure. Step 476 aligns the installed-initrd test
 with the accepted incomplete-path rejection contract and preserves later
 unsafe-data validation; see the [fixture alignment](reference/boot-artifact-validation.md#installed-kernel-fixture-alignment).
+Step482 additionally waits for the private cron logger before fixture assertions;
+its [completion scope](reference/cron-minimal-environment.md#logger-completion-before-assertions)
+retains the initial55/56 integration and serial diagnostic failures. Closing
+integration moves to483 within the requested block; no new pause is claimed.
 Other observed unchecked failure projections and text-validation limits remain
 in their dedicated scopes. Passing the selected regressions does not approve
 those behaviors as native acceptance criteria or resolve the operational audit.

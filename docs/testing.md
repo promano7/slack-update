@@ -334,6 +334,22 @@ contract-aligned fixture correction. Both later focused regressions are runnable
 neither is retrospectively added to the historical step 474 selection of 54
 commands. Other recorded failure projections and native acceptance remain open.
 
+## Cron logger completion qualification
+
+The initial planned step482 integration ran56 commands:55 passed, but cron missed
+one events diagnostic and failed1/153. A serial repeat failed a different events
+diagnostic1/153. Step482 changes only the fixture to capture the exact logger PID,
+close its pipe writers and wait before inspecting files, retaining main's status.
+All153 assertions remain unchanged. Three old and three repaired FIFO-barrier
+probes distinguish main exit from complete logging; source runtime is unchanged.
+The wrong-heredoc authoring probe and correction remain qualified separately.
+See [the completion scope](reference/cron-minimal-environment.md#logger-completion-before-assertions).
+
+This focused repair moves closing integration to483, nine steps within the
+requested8-12. No56-command passing integrated run or new pause is claimed here.
+The historical54-command474 selection remains unchanged. Final actual return must
+still precede the separate every-whole inherited/nested-body review.
+
 ## Conditional repository pause after step474
 
 The preparation baseline is the confirmed STATIC repository pause466. The bounded

@@ -302,6 +302,21 @@ source "$REFERENCE_SCRIPT"
 # Keep the real mirror reader and local ChangeLog preflight on private files.
 SLACKPKG_MIRRORS_FILE="$CASE_DIR/mirrors"
 
+# Delegate the exact sourced logging body, retaining its process-substitution PID.
+# This fixture runs only the supplied check workflow; it does not change runtime code.
+eval "cron_reference_$(declare -f configure_logging)"
+CRON_LOGGER_PID=
+configure_logging() {
+    local logging_status
+
+    cron_reference_configure_logging "$@"
+    logging_status=$?
+    if [ "$logging_status" -ne 0 ]; then
+        return "$logging_status"
+    fi
+    CRON_LOGGER_PID=$!
+}
+
 require_root() {
     return 0
 }
@@ -348,6 +363,15 @@ slackpkg() {
 }
 
 main "$@"
+cron_status=$?
+if [ -n "$CRON_LOGGER_PID" ]; then
+    # Closing both writers delivers EOF; wait for the exact logger before inspection.
+    exec 1>&- 2>&-
+    if ! wait "$CRON_LOGGER_PID"; then
+        exit 97
+    fi
+fi
+exit "$cron_status"
 HARNESS_EOF
 chmod 0755 "$CRON_HARNESS"
 

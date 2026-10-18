@@ -59,8 +59,9 @@ by the current check workflows. The normal test does not execute network tools
 or ordinary package/boot/module operations. Real private locking, coreutils,
 logging, process substitution and cleanup still occur. Runtime temporary files
 use the real reference mktemp calls under `/tmp`; the test case root is removed
-on exit. This does not establish whole-host cleanup or trap behavior under every
-failure. Test setup/redirection faults and concurrent execution are out of scope.
+on exit after the selected logger has completed. This does not establish whole-host cleanup or trap behavior under every
+failure. Arbitrary setup/redirection faults and native concurrent execution remain outside
+this fixture; the selected completion barrier below is independently controlled.
 
 Five syntax-valid private mutations are rejected: removing the private mirror
 binding, bypassing preflight, enabling Git terminal prompts, changing the
@@ -69,10 +70,55 @@ fixture mutation selects HTTPS and is rejected through the supplied wget guard;
 no actual request is made. Mutation results are finite controls, not exhaustive
 coverage or independent native/semantic acceptance.
 
+## Logger completion before assertions
+
+The first planned closing integration in step482 ran56 named commands:55 passed,
+but cron missed the missing-file/events diagnostic and failed1/153. A serial
+repeat missed the no-active/events diagnostic and also failed1/153. These are
+retained new outcomes, separate from the original installed-mirror19/79 failure.
+The focused user153PASS at475 remains valid for its reported run; it did not
+establish producer/consumer completion under every scheduling order.
+
+The main child can return while its process-substitution logger still reads and
+forwards progress. The old fixture immediately inspected regular output files,
+so main's status did not mean those files were complete. Step482 repairs only
+the fixture: copy the exact sourced `configure_logging` definition under a private
+name with Bash builtins, delegate its unchanged body and retain its logger PID
+immediately after success. After main returns, save its status, close both pipe
+writers and wait for that exact child. Return the original main status after a
+successful drain. A failed wait returns fixture-only97 and cannot count as an
+expected main0/1 result. The production reference and cleanup path are unchanged.
+
+Six controlled private probes hold the actual logger behind an owned FIFO before
+real tee forwards bytes. All three old human/JSON/event children exit with the
+expected mirror-failure1 while that logger remains held. All three repaired
+children remain waiting until release, then return1 with the complete diagnostic.
+The controller observes main-finished and logger-entered markers, releases its
+exact FIFO and captures both pipes through EOF with finite deadlines. Prohibited
+call/slackpkg markers remain absent. This is a controlled private completion
+experiment, not native timing, permission, global process cleanup or conformance.
+An early probe authoring attempt selected the unrelated environment heredoc; it
+failed before logging. The corrected probe selects the exact cron heredoc; its
+failed output and correction qualification remain in the delivery.
+
+All153 assertions remain unchanged and pass after repair, including three main
+success statuses0 and12 real mirror-preflight failures1. A further normal run
+under the selected companion checks also passes. Six companion drivers retain
+their own scopes: mirror probe, check workflow, CLI early exits, runtime/logging,
+check JSON and event NDJSON. No arbitrary sleep, logger retry or production drain
+guarantee is introduced. Existing phase/native gates remain closed.
+
+The closing integration moves to483, making nine steps in the requested8-12-step
+block. No56-command integrated PASS or new pause follows from the initial failed
+attempt or this focused repair. Actual482 is still required, followed by the
+closing integration and its complete actual return; only then can the separate
+whole inherited-condition review confirm a scoped repository pause.
+
 Keep the mirror-probe, check-workflow, CLI early-exit and runtime/logging drivers
 for their separate authored matrices and callback boundaries. The historical
 54-command step 474 selection remains unchanged; this is a later focused repair.
-The installed-initrd discrepancy remains open. Phase 1/kernel acceptance remains
+The installed-initrd fixture was aligned in476 with the accepted incomplete-path
+contract; its original failure and native criteria remain preserved. Phase 1/kernel acceptance remains
 incomplete, A/R/D unselected and schema 1/reference-v1/C/Phase 2/production closed.
 Native evidence/live bindings remain null; host state is unobserved and global
 host closure false. No native execution right or consumed binding is renewed.

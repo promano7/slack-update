@@ -1,3 +1,40 @@
+## Phase 1 step 482 -- wait for private cron logging before fixture assertions
+
+- Accept complete supplied actual481 HEAD/origin
+  `ce046cf4cba48afecf34ce946eb8e4a30ff325f2`, parent
+  `7a8123fd32fe783ef5da71102913aa4ec6492c24`, tree
+  `9dc87e0752e11c18db388a70237e0246e92be398`, report SHA256
+  `4da6587fa0f28a4987b40fb9a1b909abc5fb1897a7c0d330de187a49cfcf130b`.
+  Eight ordered outputs, six-path217add11delete scope, subject, reported push,
+  clean matching local refs and complete source/mode/tree agree. Exact saved ZIP
+  inventory/hashes checked. Inline receipt transcribed/report extracted, not
+  original uploaded bytes or independent terminal/remote/native capture.
+- Preserve the initial56-command integration:55PASS, cron1/153 failure for a
+  missing-file/events diagnostic. Serial repeat fails another no-active/events
+  diagnostic1/153. Do not claim the drafted closing integration or erase these
+  outcomes. The original475 mirror repair and user153PASS retain their scopes.
+- Repair only the cron child fixture: delegate the unchanged logging definition,
+  capture its exact process-substitution PID, save main status, close writers,
+  wait that child and preserve main status. Failed wait returns fixture-only97.
+  All153 assertions, real private preflight and supplied slackpkg guards remain.
+  Reference runtime, installed configuration, other tests and modes unchanged.
+- Three old and three repaired controlled FIFO-barrier probes demonstrate early
+  main exit versus logger completion in human/JSON/events modes. Both repaired
+  normal153-check runs and six companion suites pass. No arbitrary sleep/retry,
+  production logging-completion or native concurrency/permission claim follows.
+  Wrong-heredoc probe authoring failures and corrected selection remain qualified.
+- Six existing paths change: cron test, its scope, testing, contribution, roadmap
+  and CHANGELOG. No new files or modes. Initial failed integrated outputs and
+  complete actual481 source reconstruction remain in the delivery.
+- Eighth prepared step; closing integration moves to483, nine total in the
+  requested8-12, maximum486. Actual482 return required next. Last confirmed strong
+  STATIC pause474 remains; new pause false. Final closing actual return must
+  precede separate every-whole inherited/nested-body and effects/obligations/
+  cleanup/observation review before scoped pause confirmation, then STOP.
+- Phase1/kernel incomplete, A/R/D unselected, schema1/reference-v1/C/Phase2/
+  production closed; host unobserved, native evidence/live bindings null,
+  global host closure false. No consumed source/run/grant or right is renewed.
+
 ## Phase 1 step 481 -- preserve ELF diagnostics and propagate reporting failures
 
 - Accept complete supplied actual480 HEAD/origin
