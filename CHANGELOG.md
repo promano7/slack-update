@@ -1,3 +1,36 @@
+## Phase 1 step 472 -- characterize private runtime initialization and logging
+
+- Accept the complete supplied actual471 return at
+  `2513dd8ac9689c66f83686d1cfecf7a4635ea069`, with parent
+  `1a8e05de0e347396905904fbc39203e613b867da` and tree
+  `9f718cda6194f28b4ec8830711fb5d28d294f34f`: eight passing normal checks,
+  four paths with 337 insertions, two creates, required subject and matching
+  clean local heads. Verify the full source/mode/tree report checksum.
+- Retain the initial SSH push disconnect and the successful push-only retry of
+  the same commit. The supplied output is not independent remote/native capture.
+- Add 28 private setup, 28 logging and six rotation entries. Check selected full
+  bindings, exact diagnostics, call vectors/order, file contents, raw statuses,
+  actual sed/tee routing and real private find deletion. Runtime-state reset,
+  date, mktemp and selected failures are explicitly supplied boundaries.
+- Record partial setup without rollback, filtered console and log output,
+  retained emoji, first-CR removal, recursive rotation without a type filter and
+  quiet find failure returning zero. These are implementation observations and
+  limitations, not newly approved native error-handling requirements.
+- Reject nine syntax-valid focused mutations; eight selected normal regressions
+  pass. Retain the initial nounset harness failure, mutation-runner assertion
+  failure and historical cron regression failure (19 of 79 checks): the latter
+  reaches an unreadable installed mirrors file before its slackpkg callback.
+  Keep the historical cron script unchanged and outside the passing selection.
+- Only CHANGELOG, CONTRIBUTING, the new test and its scope change. Reference
+  source, executable mode, README, native contracts/evidence and old modes remain
+  unchanged. Sixth prepared step of 467-474, maximum 478; actual472 is required.
+  Last confirmed strong STATIC repository pause remains 466; new pause is false.
+- After the final actual return, separately review every whole inherited nested
+  condition, new effects, obligations, cleanup and observation limits before any
+  new pause confirmation. Phase1/kernel incomplete, A/R/D unselected and
+  schema1/reference-v1/C/Phase2/production closed. Host unobserved, live bindings
+  and native evidence null, global closure false; original native gates remain.
+
 ## Phase 1 step 471 -- characterize private ELF scanning and post-build verification
 
 - Accept supplied actual470 HEAD/origin
