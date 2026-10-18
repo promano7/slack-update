@@ -117,6 +117,8 @@ and separate whole-condition review before repository pause confirmation.
 Before submitting a change to the reference script:
 
 1. Run `bash -n tools/reference/slack-update-reference.sh`.
+   Run `python3 tests/reference/test-sbo-queue-files.py` when queue directory enumeration, candidate installation, target-set merging, core/extras ordering or option-map precedence changes. It checks real private files/coreutils and supplied selected faults; see [the queue file scope](docs/reference/sbo-queue-files.md). Run the graph, dependency-order, target-selection and option regressions alongside it; installed database and builder workflows remain separate boundaries.
+
    Run `python3 tests/reference/test-sbo-queue-graph.py` with the existing SBo dependency-order, target-selection and option checks when queue constraints, edge deduplication, deterministic ordering, cycle handling or parser-to-graph propagation changes. It compares real Bash/AWK helpers with an independently authored model and private graph bytes; see [the graph regression scope](docs/reference/sbo-queue-graph.md). Keep directory collectors, build submission and native acceptance separate.
 
    Run `python3 tests/reference/test-mirror-probe.py` when mirrors-file selection/counting, ChangeLog target construction, local readability, remote probe arguments or real mirror-to-check-helper propagation changes. It uses private files and supplied discovery/transport/package callbacks; see [the mirror probe scope](docs/reference/mirror-probe.md). Keep native source trust, repository validity and network acceptance separate.

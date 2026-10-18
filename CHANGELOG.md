@@ -1,3 +1,36 @@
+## Phase 1 step 468 -- validate SBo queue directory selection and file merging
+
+- Accept the complete supplied actual467 return:HEAD/origin
+  `ec3e842de733c12f3d40271ce78e75e03d8efa74`,parent
+  `4c87f2b90fc60f5860c4c32b740b87c0cdf6c418`,tree
+  `8e6da713c3e9418ed8e26c5f40a0a0f4e9c6ccac`,seven exact normal outputs,
+  four-path281-addition/two-create commit,required subject,reported push and
+  clean full matching heads. Complete source/mode/tree report checksum verifies.
+  Supplied terminal/local Git evidence is not independent remote/native capture.
+- Add an independently authored regression for both real queue-directory
+  collectors and sorted/final ordered merging:40 collection entries,56 merge
+  entries and50 supplied fault entries. Each checks complete channels/raw status,
+  selected errors,caller IFS and private file/directory/link inventory.
+- Use real private Bash/AWK/coreutils/files/symlinks;selected mktemp/find/sort/
+  graph/mv failures are callbacks. Absent and old destinations are checked;all
+  selected private temporary artifacts disappear. Guards are not OS containment
+  and private cleanup is not global host cleanup or native no-effect proof.
+- Preserve current missing-core/map skipping,non-followed queue symlinks,cat
+  concatenation of unterminated records,core control/comment rejection,first-inline
+  versus map option precedence,and diagnostic reset/reachability distinctions.
+  These observations do not amend native acceptance or compatibility contracts.
+- Reject eight syntax-valid private source mutations;run eight selected normal
+  regressions. Reference100755,README,native criteria/evidence/contracts and all
+  old modes unchanged. Only CHANGELOG,CONTRIBUTING,new driver and scope change.
+  Preserve complete prior histories,authoring failures and unknown anomaly causes.
+- Second prepared step of bounded467-474,max478. Complete actual468 return is
+  required next;last confirmed strong STATIC repository pause466,new pauseFALSE.
+  At final close,complete return precedes separate EVERY-WHOLE nested-condition
+  and new-effects/obligations/cleanup/observation-limit review. Phase1/kernel
+  incomplete,A/R/D unselected,schema1/reference-v1/C/Phase2/production closed.
+  Host unobserved-not-claimed-absent,live bindings/native evidenceNULL,global
+  closureFALSE. All original independent semantic and native gates remain.
+
 ## Phase 1 step 467 -- validate SBo queue constraints and deterministic graph ordering
 
 - Resume from the supplied confirmed strong STATIC repository pause466 at full
