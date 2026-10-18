@@ -32,14 +32,15 @@ non-root rejection; it does not establish native ownership conformance.
 Repository coverage has expanded while the native acceptance inventory below
 remains unchanged. The cron mirror dependence was reproduced and repaired in the private test
 fixture in step 475; its [focused scope](reference/cron-minimal-environment.md)
-preserves the historical failure. The installed-initrd probe expectation/
-implementation disagreement remains recorded for follow-up.
+preserves the historical failure. Step 476 aligns the installed-initrd test
+with the accepted incomplete-path rejection contract and preserves later
+unsafe-data validation; see the [fixture alignment](reference/boot-artifact-validation.md#installed-kernel-fixture-alignment).
 Other observed unchecked failure projections and text-validation limits remain
 in their dedicated scopes. Passing the selected regressions does not approve
 those behaviors as native acceptance criteria or resolve the operational audit.
 
-The next work requires a new bounded choice of scope: investigate those test
-and implementation discrepancies, or advance an applicable acceptance family
+The next work requires a new bounded choice of scope: investigate the remaining
+implementation failure projections, or advance an applicable acceptance family
 through its original independent review, binding and authority gates. A
 repository pause permits leaving the static source review complete across a
 Slackware-current refresh; it neither reserves candidates nor renews a consumed

@@ -355,18 +355,87 @@ EOF_CONFIG
 assert_failure 'mkinitrd success without an image should fail closed' regenerate_initrd
 assert_equal 0 "$INITRD_OK" 'an absent output must not be reported as success'
 
-# Boot probing should detect the path, while exact safety validation remains apply-time.
+# Capability discovery does not make an incomplete boot layout runnable.
+# Steps 122/128/129 require the complete supported path in auto mode.
 BOOT_MODE=auto
 GRUB_DIRECTORY="$TEST_TMP/no-grub"
+BOOT_PROBE_FORBIDDEN="$TEST_TMP/boot-probe-forbidden"
+grub-mkconfig() {
+    printf 'grub-mkconfig\n' >> "$BOOT_PROBE_FORBIDDEN"
+    return 97
+}
+grub-script-check() {
+    printf 'grub-script-check\n' >> "$BOOT_PROBE_FORBIDDEN"
+    return 97
+}
+probe_direct_generic_boot_layout() {
+    printf 'probe_direct_generic_boot_layout\n' >> "$BOOT_PROBE_FORBIDDEN"
+    return 97
+}
+: > "$MKINITRD_CALLS"
 write_config <<'EOF_CONFIG'
 KERNEL_VERSION="$(uname -r)"
 ROOTDEV="/dev/sda2"
 EOF_CONFIG
 probe_boot_module
 assert_equal 1 "$BOOT_INITRD_AVAILABLE" \
-    'an installed mkinitrd command and configuration file should activate validation'
+    'a supplied mkinitrd command and private configuration should expose initrd capability'
+assert_equal 0 "$BOOT_GRUB_AVAILABLE" \
+    'an absent private GRUB directory should leave GRUB capability unavailable'
+assert_equal unavailable "$BOOT_MODULE_STATE" \
+    'auto mode must reject an initrd-only partial boot path'
+assert_equal 0 "$BOOT_MODULE_RUN" \
+    'an incomplete auto layout must remain non-runnable'
+assert_equal unknown "$BOOT_PREPARATION_LAYOUT" \
+    'an incomplete auto layout must not select a supported preparation path'
+assert_equal 'no supported initrd or GRUB preparation path was detected' "$BOOT_MODULE_REASON" \
+    'an incomplete auto layout should retain the accepted rejection reason'
+assert_file_missing "$BOOT_PROBE_FORBIDDEN" \
+    'an initrd-only probe must not execute GRUB commands or direct-layout probing'
+
+# A complete managed capability set is available, but unsafe scalar data must
+# still be rejected by the real apply-time validator before any generator call.
+GRUB_DIRECTORY="$TEST_TMP/grub"
+mkdir -p "$GRUB_DIRECTORY"
+probe_boot_module
+assert_equal 1 "$BOOT_INITRD_AVAILABLE" \
+    'the complete managed path should retain initrd capability'
+assert_equal 1 "$BOOT_GRUB_AVAILABLE" \
+    'supplied GRUB discovery and a private directory should expose GRUB capability'
 assert_equal available "$BOOT_MODULE_STATE" \
-    'auto mode should run the boot module so invalid data fails closed later'
+    'auto mode should retain the complete managed preparation path'
+assert_equal 1 "$BOOT_MODULE_RUN" \
+    'the complete managed capability set should be runnable'
+assert_equal mkinitrd-managed "$BOOT_PREPARATION_LAYOUT" \
+    'the complete managed capability set should select its supported layout'
+assert_equal '' "$BOOT_MODULE_REASON" \
+    'the complete managed probe should clear its earlier partial-layout reason'
+assert_file_missing "$BOOT_PROBE_FORBIDDEN" \
+    'managed discovery must not execute supplied GRUB commands or the direct probe'
+assert_file_missing "$UNAME_MARKER" \
+    'capability probing must not evaluate the private scalar text'
+if [ ! -s "$MKINITRD_CALLS" ]; then
+    pass
+else
+    fail 'capability probing must not invoke mkinitrd'
+fi
+assert_failure 'unsafe configuration must block regeneration after complete discovery' \
+    regenerate_initrd
+assert_equal 1 "$INITRD_VALIDATION_STATUS" \
+    'unsafe configuration should retain apply-time validation failure'
+assert_equal "unsafe KERNEL_VERSION assignment in: $MKINITRD_CONFIG" "$INITRD_VALIDATION_ERROR" \
+    'unsafe configuration should retain the exact scalar rejection diagnostic'
+assert_equal 0 "$INITRD_OK" \
+    'unsafe configuration must not produce a successful initrd result'
+assert_file_missing "$UNAME_MARKER" \
+    'apply-time validation must not evaluate the private scalar text'
+if [ ! -s "$MKINITRD_CALLS" ]; then
+    pass
+else
+    fail 'unsafe configuration must stop before mkinitrd'
+fi
+assert_file_missing "$INITRD_OUTPUT" \
+    'unsafe configuration must not create an initrd output'
 
 # Backward-compatible schema-1 defaults and explicit configuration keys.
 initialize_configuration_state

@@ -32,6 +32,14 @@ the auto rejection reason, and the retained syntax-validation reason. It passes
 acceptance fixtures are unchanged. Historical test outputs remain historical;
 this update aligns a current standalone test with the accepted source contract.
 
+The installed-kernel initrd test retained a second pre-remediation expectation:
+an initrd-only auto path with an absent GRUB directory should be available.
+Step 476 reproduces its historical 1/69 failure and aligns that expectation with
+the same accepted contract. Its 90 checks include complete managed discovery
+and later unsafe-scalar rejection. See the
+[fixture alignment](boot-artifact-validation.md#installed-kernel-fixture-alignment).
+The policy driver and reference remain unchanged; native acceptance is separate.
+
 ## New probe matrix
 
 The 117 probe scenarios cross three activation modes, thirteen authored

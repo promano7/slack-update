@@ -1,3 +1,41 @@
+## Phase 1 step 476 -- align installed-initrd fixture with accepted boot policy
+
+- Accept the complete inline supplied actual475 return at HEAD/origin
+  `3aa626d7a4763b7c0981933e3184e48fbd75dcfd`, parent
+  `281546acd203e046f652ee188beb255371c7dfdd`, tree
+  `1c1c7da90bbec653c3496f0c96f80c88689737af`. Five exact normal outputs,
+  eight-path 249-add/15-delete scope, subject, reported push, clean matching
+  local refs and complete source/mode/tree checksum agree. Retained output is
+  transcribed from the visible inline message, with its report extracted, not
+  original uploaded receipt bytes or independent terminal/GitHub/native capture.
+- Reproduce the original installed-initrd regression: 69 checks, one failure.
+  Read the complete governing steps 122/128/129 records. They explicitly reject
+  initrd-only partial auto capability. The standalone available expectation
+  predates the accepted branch removal; the implementation already conforms.
+- Correct that one stale expected state. Supply GRUB command discovery through
+  guarded functions, retain an absent private GRUB directory for the partial
+  case and add a complete managed case using a private directory. Require
+  non-runnable partial state and later unsafe-scalar rejection before generation
+  after complete discovery. Current result: 90 checks, zero failures.
+- Retain every other existing expected value and all original parsing,
+  installed-version, configuration, output/regeneration and JSON controls.
+  Reject six focused syntax-valid source mutations and run six complementary
+  boot/artifact/coordinator/result regressions. Preserve full outputs and the
+  original failure. Real private paths, file creation/removal and jq parsing
+  retain their finite scopes; shell guards are not native containment.
+- Update current policy/artifact scopes, contribution, testing, navigation and
+  roadmap. Reference implementation, native contracts/evidence/fixtures, config
+  template and modes remain unchanged. README remains concise and unchanged.
+  These two fixture repairs do not retroactively expand the historical 54-test
+  selection or resolve other unchecked implementation failure projections.
+- Second prepared step of 475-482, maximum 486. Actual476 return is required
+  next. Last confirmed STATIC pause474 remains; new pause false. Complete final
+  actual return must precede the separate every-whole inherited nested-condition,
+  effects, obligations, cleanup and observation review before the next pause.
+- Phase1/kernel incomplete, A/R/D unselected; schema1/reference-v1/C/Phase2/
+  production closed. Host unobserved, native evidence/live bindings null, global
+  host closure false. No native right or consumed source/run/grant is renewed.
+
 ## Phase 1 step 475 -- isolate cron regression from installed mirrors
 
 - Resume the new bounded repository block from confirmed STATIC pause 474 at

@@ -106,6 +106,53 @@ HEAD/tree before writing the reviewed five-path postimage. It does not discard
 unrelated changes. File replacements are individual; whole-transaction atomicity
 is not claimed. The original failed473 report remains pending, not accepted.
 
+## Installed-kernel fixture alignment
+
+Run `bash tests/reference/test-initrd-installed-kernel.sh` for installed-kernel
+resolution, mkinitrd scalar/configuration validation, output selection and their
+existing regeneration/JSON controls. It requires Bash, GNU coreutils, grep, jq
+and the ordinary commands used by the sourced configuration loader. It uses
+private files and shell functions; it does not require installed mkinitrd/GRUB,
+root privilege or a Slackware machine. No main/update workflow is called.
+
+Step 476 diagnoses its reproduced 1/69 failure against the
+[step 122 contract](configuration-module-mode-contract-freeze.md),
+[step 128 branch removal](configuration-module-mode-source-remediation-implementation.md)
+and [step 129 regression](configuration-module-mode-source-remediation-regression-review.md).
+Those records explicitly require initrd-only auto capability to remain
+unavailable/non-runnable, while complete managed preparation remains available.
+The old standalone expectation described the removed partial-activation branch.
+The current correction changes that one expected state to unavailable and adds
+21 assertions, for 90 checks; all other existing expected values remain intact.
+The reference, frozen contract, template and original native criteria are unchanged.
+
+| Private fixture and stage | Required result |
+| --- | --- |
+| mkinitrd function and configuration, absent GRUB directory | Initrd capability 1, GRUB capability 0; unavailable, non-runnable, unknown layout and exact auto rejection reason |
+| Same configuration, supplied GRUB discovery and private GRUB directory | Both capabilities 1; available/runnable managed layout, cleared prior reason |
+| Unsafe KERNEL_VERSION scalar after complete discovery | Real regeneration wrapper rejects before mkinitrd; status 1, exact scalar diagnostic, INITRD_OK 0, no output image or uname marker |
+
+The private scalar contains literal command-substitution text. Discovery checks
+capabilities/path shape; it does not parse/evaluate that scalar or invoke the
+builders. The later real validator rejects the text without evaluating it.
+The mkinitrd function and existing uname function write only private markers;
+mkinitrd callbacks earlier in the test create/remove private output images.
+GRUB command functions supply discovery while recording/failing any execution;
+a direct-probe guard likewise records/fails unexpected entry. Both discovery
+cases assert no prohibited marker. These finite guards are not OS containment,
+installed command conformance or native boot validation. The original jq check
+parses the small provisional module object; separate result suites retain their
+own serialization and workflow boundaries.
+
+Six syntax-valid private source mutations are rejected: partial auto activation,
+loss of the complete managed layout, bypassed apply-time scalar validation,
+accepting an absent image, premature scalar validation during discovery and
+execution of the supplied GRUB generator during probing. Full mutation outputs
+and six complementary normal-suite outputs are retained in the delivery.
+The original 1/69 result is preserved alongside the repair; the old 54-command
+step 474 selection is not retrospectively changed. Source changes are not needed
+to repair either this fixture or the earlier cron dependency.
+
 ## Other boundaries
 
 The passing normal selection also runs the existing direct-generic policy,
@@ -115,16 +162,13 @@ operations, fixtures and scopes. No original native boot acceptance scenario is
 closed by this selection. The earlier cron failure remains recorded in the
 runtime/logging scope and its delivery; this step does not rerun or repair it.
 
-An initial attempt also ran `test-initrd-installed-kernel.sh`: 69 checks with
-one failure. The test deliberately supplies an absent GRUB directory and expects
-the auto boot module to be available from the mkinitrd capability alone. The
-current real probe sets a managed layout only when both initrd and GRUB are
-available, so it reports unavailable. This expectation/implementation disagreement
-is unresolved; neither the original assertion nor the reference is changed.
-Its complete failing output and relevant source excerpts remain in this delivery.
-It is outside the final eight passing commands, not a passing or closed native
-scenario. Static repository regression is not a claim that every historical
-test passes. Final block documentation must carry this limitation forward.
+An initial step 473 attempt also ran `test-initrd-installed-kernel.sh`: 69 checks
+with one failure. Its absent-GRUB fixture expected auto availability from mkinitrd
+alone. Neither the assertion nor the reference was changed in that delivery;
+the complete failed output/source excerpts remain historical evidence, outside
+its eight passing commands. Step 476 reproduces that failure and resolves the
+current fixture expectation against the already accepted contract, as detailed
+below. This does not replace the original record or certify native acceptance.
 
 The new driver does not cover chmod faults, actual unreadability under another
 user, descriptor races, concurrent replacement, installed-command conformance,
