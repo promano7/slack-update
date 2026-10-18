@@ -257,6 +257,104 @@ def scenario(root, kind, profile, fault, old_errors):
     if inventory(root)!=expected:raise AssertionError(f'{kind}/{profile}/{fault}: private inventory differs')
 
 
+
+def diagnostic_failure_scenario(root, kind, stage, fault, text='one\ntwo\n'):
+    """Author diagnostic-failure outcomes independently of the general matrix."""
+    scan=root/'scan';scan.mkdir();obj=scan/'error';obj.write_bytes(b'\x7fELFfixture\n')
+    paths={key:str(root/key.lower()) for key in ('BROKEN','BROKEN_NEW','STILL_BROKEN','BROKEN_ERRORS','ELF_LIBRARY_CACHE')}
+    for value in paths.values():Path(value).write_text('old\n')
+    Path(paths['BROKEN']).write_text(str(obj)+'\n' if kind == 'verify' else 'prior published\n')
+    Path(paths['BROKEN_ERRORS']).write_text(text if kind == 'report' else 'prior error\n')
+    expected=inventory(root);state=['9','8','7','6'];calls=[];output='';stderr_pattern=None;raw=0
+    def file(key,value):expected[Path(paths[key]).name]=('file',value.encode())
+    def call(*args):calls.append(tuple(map(str,args)))
+    diagnostic=text
+    if kind != 'report':
+        output='[8] Detecting broken ELF objects without executing inspected files\n' if kind == 'scan' else '  Verifying rebuilt ELF objects with static inspection...\n'
+        state[0 if kind == 'scan' else 1]='1';raw=1;state[3]='0' if stage == 'cache' else '1'
+        file('BROKEN_NEW' if kind == 'scan' else 'STILL_BROKEN','');call('refresh',paths['ELF_LIBRARY_CACHE'])
+        if stage == 'cache':
+            diagnostic='supplied cache error\n'
+            output+='  [ERROR] Cannot build the static ELF library cache\n' if kind == 'scan' else '  [WARN] Cannot refresh the static ELF library cache after the rebuild\n'
+        else:
+            file('ELF_LIBRARY_CACHE','supplied cache\n')
+            if kind == 'scan':call('find',scan,'(','-type','f','-o','-type','l',')','-print0')
+            call('dependency',obj,paths['ELF_LIBRARY_CACHE'])
+            diagnostic=('readelf could not inspect ' if kind == 'scan' else 'readelf could not re-inspect ')+str(obj)+'\n'
+            if kind == 'verify':file('STILL_BROKEN',str(obj)+'\n')
+            if stage == 'pipeline':
+                output+='  [ERROR] Cannot enumerate or sort the static ELF scan results\n' if kind == 'scan' else '  [WARN] Cannot sort the static ELF verification results\n'
+    if diagnostic:
+        file('BROKEN_ERRORS',diagnostic);output+='  [WARN] Static ELF inspection diagnostics:\n'
+        call('render','s/^/    /',paths['BROKEN_ERRORS'])
+        if fault != 'render-quiet':output+=''.join('    '+line for line in diagnostic.splitlines(keepends=True))
+        if fault in ('render-quiet','render-late'):
+            raw=1;output+='  [WARN] Cannot render the static ELF inspection diagnostics\n'
+        elif fault in ('diagnostic-clear-directory','diagnostic-clear-link-directory'):
+            call('block-diagnostic-clear',fault);expected['saved-diagnostics']=('file',diagnostic.encode());raw=1
+            if fault == 'diagnostic-clear-directory':expected['broken_errors']=('dir',)
+            else:
+                expected['diagnostic-clear-target']=('dir',)
+                expected['broken_errors']=('link',str(root/'diagnostic-clear-target'))
+            stderr_pattern=re.escape(str(REFERENCE))+r': line [1-9][0-9]*: '+re.escape(paths['BROKEN_ERRORS'])+r': Is a directory\n'
+            output+='  [WARN] Cannot clear the static ELF inspection diagnostics\n'
+        else:
+            assert fault == 'none';file('BROKEN_ERRORS','')
+    if kind != 'report' and stage == 'normal' and fault == 'none':
+        if kind == 'scan':
+            state[0]='0';state[2]='0';raw=0;file('BROKEN','')
+            call('wc','-l');call('cp','-f','--',paths['BROKEN_NEW'],paths['BROKEN'])
+            output+='  Broken ELF objects detected: 0\n'
+        else:
+            output+='  [WARN] ELF objects that still have unresolved dependencies:\n    '+str(obj)+'\n'
+            call('unresolved-render','s/^/    /',paths['STILL_BROKEN']);call('cp','-f','--',paths['STILL_BROKEN'],paths['BROKEN'])
+    values=paths|dict(FAULT='cache' if stage == 'cache' else 'sort-partial' if stage == 'pipeline' else 'none',
+                      DIAGNOSTIC_FAULT=fault,ELF_SCAN_STATUS=9,ELF_VERIFICATION_STATUS=8,BROKEN_COUNT=7,ELF_LIBRARY_CACHE_RECORD_COUNT=6)
+    assignments='\n'.join(key+'='+shlex.quote(str(value)) for key,value in values.items())
+    entry={'scan':'detect_broken_elf_objects','verify':'verify_broken_elf_objects_after_rebuild','report':'report_static_elf_scan_errors'}[kind]
+    suffix='\nELF_SCAN_PATHS=("$TEST_ROOT/scan")\nsaved_ifs=$IFS\nouter=kept\n'+entry+'\nraw=$?\n'
+    suffix+='[[ $IFS == "$saved_ifs" && $outer == kept ]] || exit 96\nbuiltin printf "\\0STATE\\0%s\\0" "$raw"\n'
+    suffix+='\n'.join('builtin printf "%s\\0" "${'+name+'}"' for name in FIELDS)+'\n'
+    callback=r"""
+sed() {
+    [[ $# == 2 && $1 == 's/^/    /' ]] || forbidden diagnostic-sed-vector
+    if [[ $2 == "$STILL_BROKEN" ]]; then
+        record unresolved-render "$@"
+        builtin command sed "$@"
+        return $?
+    fi
+    [[ $2 == "$BROKEN_ERRORS" ]] || forbidden diagnostic-sed-path
+    record render "$@"
+    [[ $DIAGNOSTIC_FAULT != render-quiet ]] || return 43
+    builtin command sed "$@" || forbidden diagnostic-real-sed
+    [[ $DIAGNOSTIC_FAULT != render-late ]] || return 43
+    if [[ $DIAGNOSTIC_FAULT == diagnostic-clear-directory || $DIAGNOSTIC_FAULT == diagnostic-clear-link-directory ]]; then
+        [[ $BROKEN_ERRORS == "$TEST_ROOT/broken_errors" && -f $BROKEN_ERRORS && ! -L $BROKEN_ERRORS ]] || forbidden diagnostic-clear-path
+        record block-diagnostic-clear "$DIAGNOSTIC_FAULT"
+        builtin command mv -- "$BROKEN_ERRORS" "$TEST_ROOT/saved-diagnostics" || forbidden diagnostic-clear-move
+        if [[ $DIAGNOSTIC_FAULT == diagnostic-clear-directory ]]; then
+            builtin command mkdir -- "$BROKEN_ERRORS" || forbidden diagnostic-clear-directory
+        else
+            builtin command mkdir -- "$TEST_ROOT/diagnostic-clear-target" || forbidden diagnostic-clear-target
+            builtin command ln -s -- "$TEST_ROOT/diagnostic-clear-target" "$BROKEN_ERRORS" || forbidden diagnostic-clear-link
+        fi
+    fi
+    return 0
+}
+"""
+    result=subprocess.run(['bash','--noprofile','--norc','-c',PREFIX+GUARDS+callback+'\n'+assignments+suffix,
+                           'elf-diagnostic-test',str(REFERENCE),str(root)],capture_output=True,cwd=root,
+                          env=dict(os.environ,LC_ALL='C',TMPDIR=str(root)),timeout=10)
+    wanted=output.encode()+b'\0STATE\0'+str(raw).encode()+b'\0'+b''.join(value.encode()+b'\0' for value in state)
+    stderr_ok=bool(re.fullmatch(stderr_pattern,result.stderr.decode())) if stderr_pattern else result.stderr == b''
+    if (result.returncode,result.stdout)!=(0,wanted) or not stderr_ok:
+        raise AssertionError(f'diagnostic/{kind}/{stage}/{fault}: expected {(0,wanted,stderr_pattern)!r}, got {(result.returncode,result.stdout,result.stderr)!r}')
+    trace=(root/'trace').read_bytes() if (root/'trace').exists() else b''
+    actual=[tuple(item.decode().split('\0')[:-1]) for item in trace.split(b'\n') if item]
+    if actual != calls:raise AssertionError(f'diagnostic/{kind}/{stage}/{fault}: callback order/vectors differ')
+    if inventory(root) != expected:raise AssertionError(f'diagnostic/{kind}/{stage}/{fault}: private inventory differs')
+
+
 def run():
     counts=dict.fromkeys(('scan','verify','report'),0)
     with tempfile.TemporaryDirectory(prefix='slack-update-elf-scan-') as tmp:
@@ -275,6 +373,11 @@ def run():
                 root=parent/str(index);index+=1;root.mkdir();scenario(root,kind,profile,fault,old);counts[kind]+=1
         for text in ('','one\n','one\ntwo\n','unterminated'):
             root=parent/str(index);index+=1;root.mkdir();scenario(root,'report',text,'none','');counts['report']+=1
+        diagnostic_faults=('render-quiet','render-late','diagnostic-clear-directory','diagnostic-clear-link-directory')
+        for kind,stage,fault in itertools.product(('scan','verify'),('normal','cache','pipeline'),('none',)+diagnostic_faults):
+            root=parent/str(index);index+=1;root.mkdir();diagnostic_failure_scenario(root,kind,stage,fault);counts[kind]+=1
+        for text,fault in itertools.product(('','one\n','one\ntwo\n','unterminated'),diagnostic_faults):
+            root=parent/str(index);index+=1;root.mkdir();diagnostic_failure_scenario(root,'report','normal',fault,text);counts['report']+=1
     print('ELF scan workflow tests: '+', '.join(f'{count} {kind} entries' for kind,count in counts.items())+', 0 failures')
 
 

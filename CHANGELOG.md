@@ -1,3 +1,41 @@
+## Phase 1 step 481 -- preserve ELF diagnostics and propagate reporting failures
+
+- Accept complete supplied actual480 HEAD/origin
+  `7a8123fd32fe783ef5da71102913aa4ec6492c24`, parent
+  `0399fd4275c2eba1be4d727b4134ea1185d7bf98`, tree
+  `fd5d611ca2105c1efcb15685884a741640ebcbfa`, report SHA256
+  `a37e2d53442274d63abf768b796f07d19a6fff01e3a48262d933c9a92bd65c5c`.
+  Eight ordered outputs, six-path116add14delete scope, subject, reported push,
+  clean matching local refs and full source/mode/tree agree. Exact saved ZIP
+  hash/member inventory checked. Inline receipt transcribed/report extracted;
+  no original uploaded bytes or independent terminal/remote/native capture.
+- Check diagnostic sed status before clearing its input. Failed rendering warns,
+  returns1 and preserves bytes, including after full output followed by failure.
+  Check the later clear redirection and report its failure. Empty input succeeds;
+  renderer assigns no workflow state. Check its ordinary post-pipeline scan and
+  verification calls before publication; failed cache/pipeline paths still fail.
+- Add46 independently authored private entries:15scan/15verification across
+  normal/cache/pipeline stages and five report outcomes;16direct helper cases
+  across four input layouts and four selected failures. Real sed output and real
+  Bash directory/link write errors retain exact private effects. No retry,
+  atomic transaction, rollback or native permission/concurrency claim follows.
+- Driver passes133scan/199verify/20diagnostic entries. Twelve old-source controls
+  expose missing reporting failures/diagnostic loss; eight syntax-valid source
+  mutations reject. Seven complementary normal suites pass in their own scopes.
+  Current authoring UID0; no actual unprivileged/native execution claimed.
+- Six existing paths change: source/test/CHANGELOG/contribution/testing/scan
+  scope. Runtime changes only the renderer and two normal-path call guards;
+  477-480 protections and all other reference bytes remain unchanged. README,
+  config/native contracts/evidence/fixtures/modes remain unchanged. Unresolved
+  display/reader/cache limits and partial-copy effects retain their own scopes.
+- Seventh prepared step of475-482, maximum486; actual481 return required next.
+  Last confirmed strong STATIC pause474 remains; new pause false. Final actual
+  return must precede separate every-whole inherited-condition/nested-body and
+  effects/obligations/cleanup/observation review before a new pause, then STOP.
+- Phase1/kernel incomplete, A/R/D unselected, schema1/reference-v1/C/Phase2/
+  production closed; host unobserved, native evidence/live bindings null,
+  global host closure false. No consumed source/run/grant or right is renewed.
+
 ## Phase 1 step 480 -- stop ELF workflows on work-file initialization failures
 
 - Accept complete supplied actual479 HEAD/origin

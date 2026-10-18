@@ -308,7 +308,8 @@ failures, and processes nonempty unterminated verification records. Copying can
 still alter a destination partially. Step 479 checks resolved-list clearing
 before success/status reporting. Step 480 checks diagnostic/staging initialization
 failures before cache refresh; empty/missing verification lists still return early.
-Remaining limitations include diagnostic rendering and rotation projections,
+Step 481 checks diagnostic rendering/clearing and propagates its failure before
+publication. Remaining limitations include unresolved-list display and rotation projections,
 partial runtime setup without rollback, stale direct-call error fields, lexical
 rather than semantic path/version filtering and GRUB path matches across distinct
 menuentries. The exact conditions remain in the scope documents. Recording a

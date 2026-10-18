@@ -4126,9 +4126,16 @@ static_elf_object_has_missing_dependency() {
 report_static_elf_scan_errors() {
     if [ -s "$BROKEN_ERRORS" ]; then
         echo "  [WARN] Static ELF inspection diagnostics:"
-        sed 's/^/    /' "$BROKEN_ERRORS"
-        : > "$BROKEN_ERRORS"
+        if ! sed 's/^/    /' "$BROKEN_ERRORS"; then
+            echo "  [WARN] Cannot render the static ELF inspection diagnostics"
+            return 1
+        fi
+        if ! : > "$BROKEN_ERRORS"; then
+            echo "  [WARN] Cannot clear the static ELF inspection diagnostics"
+            return 1
+        fi
     fi
+    return 0
 }
 
 detect_broken_elf_objects() {
@@ -4178,7 +4185,10 @@ detect_broken_elf_objects() {
         return 1
     fi
 
-    report_static_elf_scan_errors
+    if ! report_static_elf_scan_errors; then
+        ELF_SCAN_STATUS=1
+        return 1
+    fi
 
     # Count the complete staging list before attempting publication.
     if ! scan_count=$(wc -l < "$BROKEN_NEW"); then
@@ -4247,7 +4257,10 @@ verify_broken_elf_objects_after_rebuild() {
         return 1
     fi
 
-    report_static_elf_scan_errors
+    if ! report_static_elf_scan_errors; then
+        ELF_VERIFICATION_STATUS=1
+        return 1
+    fi
 
     if [ -s "$STILL_BROKEN" ]; then
         echo "  [WARN] ELF objects that still have unresolved dependencies:"

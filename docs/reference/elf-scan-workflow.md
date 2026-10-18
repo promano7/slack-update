@@ -13,7 +13,7 @@ python3 tests/reference/test-apply-json-result.py
 python3 tests/reference/test-dry-run-workflow.py
 ```
 
-The new standard-library Python driver calls the real scan, post-build verification
+The standard-library Python driver calls the real scan, post-build verification
 and diagnostic renderer. It also uses the real path/magic helpers with private
 ELF-prefix files, text, directories, symlinks, dangling targets and space-containing
 names. Bash, `find`, `readlink`, `od`, `tr`, `sort`, `cp`, `wc`, `sed` and selected `mv`/`mkdir`/`ln` run on owned
@@ -32,9 +32,9 @@ of every supplied state. No inspected object is deliberately invoked as a comman
 
 | Boundary | Entries | Covered behavior |
 | --- | ---: | --- |
-| Initial scan | 118 | Original 102 entries plus 16 diagnostic/result initialization failures |
-| Post-build verification | 184 | Original 152 entries plus 16 initialization failures and 16 empty/missing-list bypass controls |
-| Diagnostic rendering | 4 | Empty, one-line, multiline and unterminated messages |
+| Initial scan | 133 | Original 118 entries plus 15 diagnostic outcome checks across normal/cache/pipeline stages |
+| Post-build verification | 199 | Original 184 entries plus 15 diagnostic outcome checks across normal/cache/pipeline stages |
+| Diagnostic rendering | 20 | Four original layouts plus 16 quiet/late render or clear-obstruction checks |
 
 Expected stdout bytes and controlled stderr (exact GNU find diagnostic under
 LC_ALL=C, plus full Bash source/target/directory-error shape with a positive
@@ -237,10 +237,61 @@ rely on chmod behavior for root and does not run an unprivileged subprocess.
 Eight controls against accepted479 reproduce the old continued execution and
 misleading success. Six syntax-valid source mutations reject unchecked resets,
 zero status and zero raw returns separately for scan and verification. The
-current driver passes118scan/184verify/4diagnostic entries; seven complementary
+step 480 driver passed118scan/184verify/4diagnostic entries; seven complementary
 normal suites pass with their existing independent scopes. Every reference byte
 outside the two initialization blocks remains unchanged, including477-479 guards.
 No installed cache, package, boot or inspected-object execution is added.
+
+## Diagnostic rendering and clearing failures
+
+Step 481 checks diagnostic rendering before clearing its input. A nonzero `sed`
+status returns 1 with `Cannot render the static ELF inspection diagnostics` and
+does not attempt the clear. This includes failure after the command has already
+emitted all its selected private output. Successful rendering then checks its
+clear redirection; failure returns 1 with `Cannot clear the static ELF inspection
+diagnostics`. Empty diagnostic input remains a successful no-op. No state field
+is assigned by the renderer itself.
+
+The ordinary post-pipeline scan and verification paths now check the helper's
+return, set their relevant status 1 and return 1 before publication/counting or
+resolved-list clearing. Already-failed cache/pipeline branches still return 1;
+they also use the guarded helper and retain its warning and diagnostic effects.
+There is no second rendering attempt or automatic retry. Previous published
+list/count survive this failure, but preceding cache/staging work remains real.
+Diagnostic clearing is not an atomic transaction and no rollback is claimed.
+
+Forty-six added entries use the existing guarded private cache/classifier plus
+a selected `sed` callback. Fifteen per workflow cross normal/cache-failure/
+late-pipeline-failure stages with success, quiet renderer failure, full real
+rendering followed by failure, and two diagnostic-clear obstructions. Sixteen
+direct-helper entries cross empty/one-line/multiline/unterminated input and the
+four failure selections; empty input invokes no renderer and succeeds.
+The two clear callbacks first run real private `sed`, save its original input
+and then substitute a directory or a link to a private directory. The subsequent
+real Bash clear fails even under preparer UID0. This is controlled private path
+mutation, not an unprivileged execution, concurrent writer or OS containment test.
+
+Expected stdout, raw returns, four state fields, callback order/arguments and
+complete private inventory are authored separately. Quiet/late rendering failure
+must retain exact diagnostic bytes; a clear obstruction retains saved input and
+its private directory/link effects. Bash stderr matches its full source/target/
+directory-error shape with a variable positive line number. Positive workflow
+controls retain normal scan publication and unresolved verification behavior.
+
+Twelve controls against accepted480 expose old lost diagnostics, missing clear
+warnings or continued publication. Eight syntax-valid source mutations reject:
+old helper, zero render/clear returns, erasure on failed render, unchecked scan/
+verification helper returns and zero scan/verification status assignments.
+The driver passes133scan/199verify/20diagnostic entries, plus seven complementary
+normal suites with their existing separate boundaries. Reference changes are
+limited to this helper and two ordinary post-pipeline call guards. The original
+477-480 protections remain intact. No native acceptance or result schema changes.
+
+Later unresolved-list display, individual reader failures, cache construction
+and ordinary partial-copy effects retain their separate scopes. A helper's
+nonempty-file predicate is not a complete filesystem-readability or descriptor
+error protocol. These tests do not prove race resistance, global cleanup,
+installed-state consistency or two-platform native composition/conformance.
 
 These tests characterize present coordinator behavior. They are not acceptance
 criteria approving the unchecked failure cases. Real cache construction, installed
