@@ -1,3 +1,38 @@
+## Phase 1 step 467 -- validate SBo queue constraints and deterministic graph ordering
+
+- Resume from the supplied confirmed strong STATIC repository pause466 at full
+  HEAD/origin `4c87f2b90fc60f5860c4c32b740b87c0cdf6c418`, tree
+  `aa3e3606e3e913b77f287af6807d1f51badbd7f9`. Verify both complete archive
+  manifests, all 2,355 source files, original executable classification and the
+  reconstructed Git tree. Retain the supplied receipt and complete condition
+  bodies; no independent terminal/GitHub/native observation is claimed.
+- New user request authorizes a bounded 8-12-step repository block467-474,
+  maximum478, seeking a new strong STATIC repository pause. Only467 is prepared
+  here; subsequent work depends on actual returns and reviewed scope. No old
+  native authority, source binding or execution right is reused or renewed.
+- Add an independently authored graph-model regression calling real Bash parser,
+  constraint appender and AWK ordering helpers:1,737 graph entries, eight record
+  cases and41 constraint entries. Check complete byte outputs, raw status,
+  partial-cycle prefixes, duplicate-edge handling, caller IFS and private files.
+- Preserve current partial append semantics and direct raw graph acceptance of
+  CR inside a name. A targeted supplied writer failure leaves an empty shell
+  redirection file. These helper observations are not native acceptance or a
+  statement that callers install partial/invalid queues.
+- Validate eight syntax-valid focused private source mutations and six related
+  normal regressions. Retain authoring failures:Python text capture normalized
+  CR;the first overly broad writer callback intercepted trimming and skipped
+  the target. Narrow byte capture/writer injection;reference source unchanged.
+- Change exactly four paths:CHANGELOG,CONTRIBUTING,new regression and its scope.
+  README,reference100755,native contracts/criteria/evidence and all old modes
+  remain unchanged. Full prior failures and qualified conditions are retained.
+- Prepared local PASS requires actual467 apply/test/commit/push/clean/full-head
+  return next. Last confirmed strong STATIC repository pause466;new pauseFALSE.
+  At block close,complete final return and separate EVERY-WHOLE-condition review
+  of all nested obligations/new effects/cleanup/observation limits are required.
+  Phase1/kernel incomplete,A/R/D unselected,schema1/reference-v1/C/Phase2/production
+  closed. Host unobserved-not-claimed-absent,live bindings/native evidenceNULL,
+  global host closureFALSE;all original native and independent semantic gates stay.
+
 ## Phase 1 step 466 -- integrated regressions and conditional repository pause review
 
 - Accept complete supplied actual465 HEAD/origin
