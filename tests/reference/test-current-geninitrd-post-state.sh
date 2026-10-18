@@ -16,7 +16,22 @@ TEST_COUNT=0
 FAILURE_COUNT=0
 pass() { TEST_COUNT=$((TEST_COUNT + 1)); }
 fail() { TEST_COUNT=$((TEST_COUNT + 1)); FAILURE_COUNT=$((FAILURE_COUNT + 1)); printf 'FAIL: %s\n' "$1" >&2; }
-assert_success() { local message=$1; shift; "$@" >/dev/null 2>&1 && pass || fail "$message"; }
+assert_success() {
+    local message=$1
+    local status
+    shift
+    "$@" >/dev/null 2>&1
+    status=$?
+    if [ "$status" -eq 0 ]; then
+        pass
+    else
+        fail "$message"
+        if [ "$1" = validate_generated_initrd_transition_state ]; then
+            printf '  validation status=%s error=%s\n' "$status" \
+                "${GENINITRD_POST_VALIDATION_ERROR:-not-reported}" >&2
+        fi
+    fi
+}
 assert_failure() { local message=$1; shift; "$@" >/dev/null 2>&1 && fail "$message" || pass; }
 assert_equal() { [ "$1" = "$2" ] && pass || fail "$3 (expected '$1', got '$2')"; }
 assert_contains() { grep -Fq -- "$1" "$2" && pass || fail "$3"; }
@@ -46,6 +61,21 @@ printf 'kernel\n' > "$TARGET_KERNEL_PATH"
 ln -s "vmlinuz-$TARGET_KERNEL" "$GENERIC_LINK"
 printf 'initrd\n' > "$TARGET_INITRD"
 chmod 600 "$TARGET_INITRD"
+
+# This is a synthetic filesystem fixture, runnable by an ordinary developer.
+# Model only the exact initrd ownership query; preserve real mode/path checks.
+# The native reference's root-ownership requirement remains unchanged.
+TEST_INITRD_OWNER_UID=0
+INITRD_OK=0
+stat() {
+    if [ "$#" -eq 4 ] && [ "$1" = -c ] && [ "$2" = %u ] \
+        && [ "$3" = -- ] && [ "$4" = "$TARGET_INITRD" ]; then
+        printf '%s\n' "$TEST_INITRD_OWNER_UID"
+        return 0
+    fi
+    command stat "$@"
+}
+
 ln -s "initrd-$TARGET_KERNEL.img" "$NAMED_INITRD_LINK"
 printf 'module\n' > "$TARGET_MODULES/kernel/test.ko"
 printf '%s\n' "$TARGET_RECORD" > "$AFTER_SNAPSHOT"
@@ -122,6 +152,19 @@ assert_equal "$TARGET_MODULES" "$GENINITRD_POST_MODULES_PATH" 'the validated mod
 assert_equal "$TARGET_INITRD" "$GENINITRD_POST_INITRD_PATH" 'the validated versioned initrd should be preserved'
 assert_equal "$NAMED_INITRD_LINK" "$GENINITRD_POST_NAMED_LINK" 'the named initrd link should be preserved'
 assert_equal 1 "$INITRD_OK" 'a validated GenInitrd result should satisfy the initrd prerequisite'
+
+# Prove that the real validator still rejects the supplied non-root owner.
+TEST_INITRD_OWNER_UID=1000
+INITRD_OK=0
+assert_failure 'a non-root-owned generated initrd should fail closed' validate_generated_initrd_transition_state
+assert_equal invalid "$GENINITRD_POST_STATE" 'a non-root owner should leave the post state invalid'
+assert_equal 1 "$GENINITRD_POST_VALIDATION_STATUS" 'a non-root owner should expose failure status'
+assert_equal "generated versioned initrd is not root-owned: $TARGET_INITRD" \
+    "$GENINITRD_POST_VALIDATION_ERROR" 'the non-root ownership diagnostic should be preserved'
+assert_equal 0 "$INITRD_OK" 'a rejected non-root owner must not satisfy the initrd prerequisite'
+TEST_INITRD_OWNER_UID=0
+assert_success 'restoring the modeled root owner should revalidate the post state' validate_generated_initrd_transition_state
+
 
 GRUB_REQUIRED=1
 GRUB_UPDATE=1

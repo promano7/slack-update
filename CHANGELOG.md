@@ -1,3 +1,52 @@
+## Phase 1 step 473 -- characterize private boot artifact validation
+
+- Repair 1 retains the interrupted original473 application: three selected tests
+  passed, then the synthetic GenInitrd post-state test failed before staging,
+  commit, push or final report. No actual473 commit is accepted or fabricated.
+- Reproduce the failure with a supplied non-root stat ownership result. This
+  environment executes as UID0; an attempted UID switch was denied, so this is
+  a qualified callback reproduction, not an independent unprivileged OS run.
+  The old fixture created its initrd as the caller but required root ownership.
+- Make the existing synthetic post-state test runnable without privilege by
+  supplying only its exact target-initrd UID query. Real paths, links, bytes,
+  modes and native reference validation remain unchanged. Add non-root-owner
+  rejection and root-owner restoration controls; initialize INITRD_OK and show
+  validation errors on failed positive assertions. All 52 checks now pass here.
+- Accept the complete supplied actual472 return at
+  `106c40dbbf40faa0851524e56bccebe849b027ad`, parent
+  `2513dd8ac9689c66f83686d1cfecf7a4635ea069`, tree
+  `b4e89bf26745a2b9bf014ed65296cd326338b150`: eight normal outputs,
+  four paths with 413 insertions, two creates, required subject, reported push,
+  empty status and matching full local heads. Verify source/mode/tree checksum;
+  supplied local output is not independent terminal/GitHub/native capture.
+- Add 20 version, 44 scalar-reader, 12 installed-snapshot, 10 initrd-output and
+  34 GRUB-candidate entries. Call real readers/parser/validators over private
+  files, actual awk/chmod and a supplied GRUB checker/discovery result. Assert
+  raw status, selected globals, exact diagnostics, vectors/order and file modes.
+- Record lexical version filtering, scalar comment/quote behavior, retained
+  direct-call error fields, same-version duplicate counts, absolute output
+  without normalization and global GRUB path searches across distinct entries.
+  Candidate chmod persists on later failure; callback statuses remain raw.
+  These observations do not approve native boot safety or failure semantics.
+- Reject ten syntax-valid focused mutations and run eight selected normal
+  regressions. Preserve the installed-initrd regression's initial 1/69 failure:
+  its auto-probe expectation disagrees with the current missing-GRUB behavior.
+  Neither assertion nor source is changed; the passing selection uses the
+  private direct-generic policy test. This remains an unresolved limitation.
+  Prior cron failure, all original failed attempts and unknown
+  causes remain immutable; no new success explains or closes them.
+- Five paths change: CHANGELOG, CONTRIBUTING, the new driver/scope and the
+  existing synthetic GenInitrd post-state test. Reference source/modes, README,
+  native contracts and evidence remain unchanged here.
+  Preserve the user's request to refresh README, docs/roadmap.md and relevant
+  current guides/indices in final step 474, without duplicating step history.
+- Seventh prepared step of 467-474, maximum 478; actual473 is required next.
+  Last confirmed strong STATIC repository pause is 466; a new pause remains
+  false. Final actual return must precede a separate every-whole nested-condition,
+  effects, obligations, cleanup and observation-limit review. Phase1/kernel
+  incomplete, A/R/D unselected, schema1/reference-v1/C/Phase2/production closed.
+  Host unobserved, native evidence/live bindings null, global closure false.
+
 ## Phase 1 step 472 -- characterize private runtime initialization and logging
 
 - Accept the complete supplied actual471 return at

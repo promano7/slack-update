@@ -117,6 +117,8 @@ and separate whole-condition review before repository pause confirmation.
 Before submitting a change to the reference script:
 
 1. Run `bash -n tools/reference/slack-update-reference.sh`.
+   Run `python3 tests/reference/test-boot-artifact-validation.py` when version/scalar readers, installed-kernel selection, initrd-output precedence or generated GRUB validation changes. It uses private files, real parser/awk/chmod and a supplied GRUB checker; see [the boot artifact scope](docs/reference/boot-artifact-validation.md). Preserve the distinction between text matching, actual artifact binding and native boot acceptance; keep coordinator and transaction regressions for their separate boundaries.
+
    Run `python3 tests/reference/test-runtime-logging.py` when runtime path/temporary-file setup, log descriptor routing, text filtering or retention changes. It uses private files, real sed/tee/find and supplied state/date/mktemp callbacks; see [the runtime/logging scope](docs/reference/runtime-logging.md). Keep main setup/completion and trap/lock regressions for their separate boundaries; the historical cron script currently depends on the installed mirror preflight and is not part of this delivery's passing selection.
 
    Run `python3 tests/reference/test-elf-scan-workflow.py` when ELF traversal, error rendering, broken-list replacement or post-build recheck coordination changes. It uses real private files/coreutils/path helpers with supplied cache/dependency callbacks and selected quiet faults; see [the ELF scan workflow scope](docs/reference/elf-scan-workflow.md). Preserve the distinction between observed unchecked status projections and native acceptance requirements; cache construction, metadata parsing and final result mapping retain separate tests.
