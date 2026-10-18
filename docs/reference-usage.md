@@ -78,6 +78,28 @@ invalid arguments/configuration, missing root privileges or lock failure may
 produce no final JSON or completion event. Preserve the process status and
 standard error; an empty result is not successful evidence.
 
+## Interpreting current diagnostics
+
+The [regression scopes](testing.md#current-sbo-elf-runtime-and-boot-reader-checks)
+now distinguish queue graph/file handling, SBo coordination, static ELF reader
+results, scan/recheck state, runtime setup/logging and boot text validation.
+A raw helper zero is not proof that a preceding filesystem operation succeeded;
+selected failure projections are documented as limitations in those scopes.
+Do not treat a printed success label, private regression PASS or plan as native
+acceptance, package no-effect evidence or a bootability guarantee.
+
+Human output passes through the current sed filter before tee, so both console
+and log receive filtered text. Supported ANSI sequences and the first carriage
+return per line are removed; emoji and unsupported sequences can remain. In
+structured modes human progress goes to stderr/log and descriptor 3 preserves
+machine-readable stdout. See [runtime/logging](reference/runtime-logging.md).
+
+Generated GRUB path searches can find the kernel and initrd in different entries;
+the text check does not establish a bootable paired entry. The synthetic
+GenInitrd regression models target ownership and is separate from the real
+root-ownership requirement. See [boot artifact validation](reference/boot-artifact-validation.md)
+and the original scenario requirements before drawing a native safety conclusion.
+
 ## Handle completion correctly
 
 Codes `4` and `5` are successful apply outcomes with reboot guidance. A wrapper

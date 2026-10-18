@@ -19,6 +19,30 @@ remediation and the four execution-control failure scenarios in their recorded
 scope. Detailed evidence remains in the existing reference records; historical
 acceptance does not describe the present state of a machine.
 
+### Repository verification and next decisions
+
+The [current integrated review](reference/repository-regression-block-467-474.md)
+selects 54 repository regressions across CLI/configuration, main setup and
+completion, result/JSON/events, package and optional workflows, SBo queues,
+static ELF readers/scanning, logging and private boot validation. The
+[testing guide](testing.md) describes their real/private/supplied boundaries.
+The synthetic GenInitrd test now models its exact target UID query and includes
+non-root rejection; it does not establish native ownership conformance.
+
+Repository coverage has expanded while the native acceptance inventory below
+remains unchanged. Known cron mirror dependence and an installed-initrd
+probe expectation/implementation disagreement remain recorded for follow-up.
+Other observed unchecked failure projections and text-validation limits remain
+in their dedicated scopes. Passing the selected regressions does not approve
+those behaviors as native acceptance criteria or resolve the operational audit.
+
+The next work requires a new bounded choice of scope: investigate those test
+and implementation discrepancies, or advance an applicable acceptance family
+through its original independent review, binding and authority gates. A
+repository pause permits leaving the static source review complete across a
+Slackware-current refresh; it neither reserves candidates nor renews a consumed
+native grant. Prepared documentation cannot confirm its later commit or pause.
+
 ### Remaining Phase 1 work
 
 | Acceptance family | Remaining scenarios |

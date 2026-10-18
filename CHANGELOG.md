@@ -1,3 +1,39 @@
+## Phase 1 step 474 -- integrate regression coverage and refresh current documentation
+
+- Accept supplied repaired473 HEAD/origin
+  `ffda4571b320877ac85e61144b4ee17784095fcc`, parent
+  `106c40dbbf40faa0851524e56bccebe849b027ad`, tree
+  `d03d8e361437de6cb1542a2a7dd16585a1826b53`: eight exact normal passes,
+  including52 synthetic post-state checks, five paths/475 insertions/one deletion,
+  required subject, reported successful push, empty status and matching heads.
+  Verify full source/mode/tree report checksum; local supplied output is not
+  independent terminal/GitHub/native capture. Original failed473 remains intact.
+- Select54 distinct current repository regressions: earlier41, seven new drivers
+  and six complementary shell tests. Retain exact command order/full outputs;
+  independent normal results do not repeat retained mutation controls or prove
+  an actual native composition. No glob over historical/native harnesses.
+- Refresh README, roadmap, testing, contribution, setup, usage and both indices
+  as requested. README summarizes capabilities and links to details; CHANGELOG
+  and reference records retain per-step history. Link new SBo/ELF/runtime/boot
+  scopes and document dependencies, root-modeled fixture and real private effects.
+- Preserve excluded cron19/79 and installed-initrd1/69 failures and unresolved
+  expectation/source disagreement. Explain interrupted473/root-only baseline,
+  scoped ownership repair and later actual52 PASS without claiming native
+  ownership acceptance or erasing the original failure. All older unknown
+  anomalies and local failed attempts retain their original qualifications.
+- Ten documentation paths change, including one new integrated review. Reference,
+  all tests/fixtures/native contracts/evidence and old modes remain unchanged.
+  Native Phase1/kernel acceptance inventory and all unselected options are intact.
+- Eighth prepared step of467-474; actual474 still required. Preparation baseline
+  strong STATIC pause466; new pause false. After complete actual474, separately
+  read every whole inherited condition/nested body and assess new effects,
+  obligations, cleanup and observation limits before any confirmation, then STOP
+  until a new bounded request. No source/run/grant/native authority is renewed.
+- Phase1/kernel incomplete, A/R/D unselected, schema1/reference-v1/C/Phase2/
+  production closed; host unobserved-not-claimed-absent, native evidence/live
+  bindings null, actual global host closure false. Original independent semantic,
+  migration, ACTUAL composition/review, fresh grant and platform gates remain.
+
 ## Phase 1 step 473 -- characterize private boot artifact validation
 
 - Repair 1 retains the interrupted original473 application: three selected tests

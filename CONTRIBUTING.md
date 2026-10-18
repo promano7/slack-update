@@ -108,9 +108,12 @@ The [testing guide](docs/testing.md) distinguishes documentation checks,
 focused regressions, historical checkpoint snapshots and real acceptance.
 The mappings below still govern reference-script changes; frozen historical
 baselines retain their original scope.
-The current [459-466 integrated review](docs/reference/repository-regression-block-459-466.md)
-selects41 named checks; a prepared pass still requires the complete actual return
-and separate whole-condition review before repository pause confirmation.
+The current [467-474 integrated review](docs/reference/repository-regression-block-467-474.md)
+selects 54 named checks and records dependencies, the repaired synthetic GenInitrd
+fixture and unresolved historical test failures. The earlier
+[459-466 selection](docs/reference/repository-regression-block-459-466.md) remains
+historical. A prepared pass still needs the complete actual final return and a
+separate review of every whole inherited condition before pause confirmation.
 
 ## Reference-script changes
 
@@ -179,7 +182,7 @@ Before submitting a change to the reference script:
 8. Run `tests/reference/test-sbo-personal-queue-protection.sh` when sbopkg system/local queue-directory resolution, private `sqg` configuration wrappers, queue workspaces, symlink handling, invocation isolation, or cleanup is affected.
 9. Run `tests/reference/test-elf-static-inspection.sh` when ELF candidate filtering, `readelf` parsing, loader-cache handling, broken-object verification, or the non-execution boundary is affected.
 10. Run `tests/reference/test-elf-architecture-resolution.sh` when ELF identity extraction, cache record structure, class/data/machine compatibility, multilib behavior, or architecture-aware verification is affected.
-11. Run `tests/reference/test-initrd-installed-kernel.sh` when `mkinitrd.conf` parsing, installed kernel resolution, module-tree validation, initrd output selection, or boot safety reporting is affected.
+11. Run `tests/reference/test-initrd-installed-kernel.sh` when `mkinitrd.conf` parsing, installed kernel resolution, module-tree validation, initrd output selection, or boot safety reporting is affected. Its recorded 1/69 probe expectation disagreement remains unresolved; it is outside the current passing integrated selection. Preserve the failure and original criteria when investigating it; see [known limits](docs/testing.md#known-test-failures-and-fixture-repair).
 12. Run `tests/reference/test-grub-blocked-after-initrd-failure.sh` when initrd-to-GRUB sequencing, boot action events, GRUB command guards, blocked boot reporting, or boot safety result diagnostics are affected.
 13. Run `tests/reference/test-grub-atomic-replacement.sh` when staged GRUB generation, syntax validation, active-file fingerprinting, temporary-file cleanup, permission preservation, or atomic replacement is affected.
 14. Run `tests/reference/test-signal-cleanup.sh` when signal traps, instance locking, runtime cleanup, GRUB temporary cleanup, SBo workspace cleanup, or interruption statuses are affected.
@@ -190,7 +193,7 @@ Before submitting a change to the reference script:
    Run `python3 tests/reference/test-apply-json-result.py` when final apply result fields, boot/module reporting or supplied-state precedence are affected; see [the supplied apply-result scope](docs/reference/apply-json-result.md). Include this test when changing shared JSON-result support.
    Run `python3 tests/reference/test-event-ndjson.py` when event fields, wrappers, sequence state, descriptor routing or final event diagnostics/codes are affected; see [the supplied-event scope](docs/reference/event-ndjson.md). Include it when changing shared JSON-result support.
    Run `python3 tests/reference/test-sbo-option-json.py` when SBo option JSON projection or its dry-run/apply supplied-case helpers change; see [EOF behavior and focused regressions](docs/reference/sbo-option-json.md). Preserve upstream option validation and package-submission boundaries.
-16. Run `tests/reference/test-cron-minimal-environment.sh` when command-path normalization, root environment defaults, non-interactive behavior, detached output, prompt suppression, runtime permissions, or cron compatibility is affected.
+16. Run `tests/reference/test-cron-minimal-environment.sh` when command-path normalization, root environment defaults, non-interactive behavior, detached output, prompt suppression, runtime permissions, or cron compatibility is affected. Its workflow cases currently reach the installed mirrors preflight; the recorded 19/79 failure is outside the current passing selection. See [known limits](docs/testing.md#known-test-failures-and-fixture-repair).
 17. Run `tests/reference/test-no-updates-acceptance-harness.sh` when the no-updates real-system scenario, its expected fixtures, failure diagnostics, evidence ownership, archive publication, or JSON contract is affected.
 18. Run `tests/reference/test-normal-update-acceptance-harness.sh` when normal-update candidate detection, Slackware architecture tags, package classification, physical-host safety gates, portable SHA-256 sidecars, apply validation, or evidence publication is affected.
 19. Run `tests/reference/test-slackpkg-postinstall-policy.sh` when slackpkg post-install arguments, deferred `.new` handling, pending-file enumeration, human warnings, or structured-result metadata is affected.
@@ -210,7 +213,7 @@ Before submitting a change to the reference script:
 33. Run `tests/reference/test-current-geninitrd-grub-ownership-preflight-harness.sh` when accepted chain linkage, GenInitrd policy precedence, automatic GRUB suppression, evidence-local policy staging, transaction ordering, recovery boundaries, or exclusive Slack-Update GRUB ownership are affected.
 34. Run `tests/reference/test-current-kernel-transaction-readiness-preflight-harness.sh` when final candidate refresh, accepted evidence linkage, exact package-cache identity, live transaction state, post-state contract binding, positive readiness, or separate authorization denial are affected.
 34. Run `tests/reference/test-geninitrd-grub-ownership-engine.sh` when same-directory policy staging, atomic activation or restoration, cleanup recovery, concurrent-change handling, backup retention, apply workflow ordering, or ownership-state reporting is affected.
-35. Run `tests/reference/test-current-geninitrd-post-state.sh` when generated-initrd expectation, post-update kernel ownership, versioned initrd validation, named initrd links, legacy-initrd exclusion, or kernel-plus-initrd GRUB validation is affected.
+35. Run `tests/reference/test-current-geninitrd-post-state.sh` when generated-initrd expectation, post-update kernel ownership, versioned initrd validation, named initrd links, legacy-initrd exclusion, or kernel-plus-initrd GRUB validation is affected. This synthetic fixture models only its exact target UID query and tests non-root rejection; real reference ownership enforcement remains unchanged. See [the repair scope](docs/reference/boot-artifact-validation.md#repair-1-synthetic-geninitrd-ownership-fixture).
 36. Run `tests/reference/test-current-candidate-chain-refresh-preflight-harness.sh` when fresh Slackware-current metadata refresh, embedded preflight composition, candidate-set hashing, exact kernel-transaction comparison, userspace-only expansion classification, critical-candidate validation, stale-chain classification, or no-apply evidence publication is affected.
 37. Run `tests/reference/test-current-kernel-chain-restart-preflight-harness.sh` when accepted refresh/normal-update/boot binding, corrected GenInitrd-versioned boot composition, nested target-image metadata or initrd digest, diagnostic restart evidence, nested archive verification, or restarted-chain no-apply boundaries are affected.
 38. Run `tests/reference/test-current-userspace-candidate-review-preflight-harness.sh` when exact userspace-expansion identity, category boundaries, kernel-evidence rebind eligibility, nested preflight composition, or no-apply review constraints are affected.
@@ -234,6 +237,13 @@ Optional rollback reconstruction authorization must remain distinct from executi
 
 Never run the apply workflow on a production machine merely to validate a contribution.
 
+
+## Historical native workflow instructions
+
+The dated step-specific instructions below retain their original requirements
+and evidence bindings. Their imperative wording is historical context, not a
+current grant to repeat a run. Follow the [current phase gate](docs/roadmap.md#current-phase-and-release-gate)
+and the separate source/target/review/authorization gates before any native work.
 
 ## Current Slackware-current boot-baseline preflight
 

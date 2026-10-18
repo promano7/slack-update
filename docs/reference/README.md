@@ -29,6 +29,30 @@ contracts, exact member criteria or the separate evidence due on each platform.
 The decision reference leaves all alternatives unselected; linking it does not
 choose a path, approve a migration or grant a native test.
 
+## Current repository regression coverage
+
+The [integrated 467-474 review](repository-regression-block-467-474.md) identifies
+54 selected commands, retained failures, the synthetic GenInitrd ownership repair
+and the conditions for a STATIC repository pause. It extends the historical
+[459-466 review](repository-regression-block-459-466.md); neither review closes
+native acceptance or selects an operational contract alternative.
+
+| Boundary | Detailed current scope |
+| --- | --- |
+| SBo graph constraints and deterministic order | [Queue graph](sbo-queue-graph.md) |
+| Queue directory selection and file merging | [Queue files](sbo-queue-files.md) |
+| Synchronization, generation gates and submission coordination | [SBo workflow](sbo-workflow.md) |
+| ELF magic, reader text, cache identities and dependencies | [ELF metadata](elf-metadata.md) |
+| Private scan, broken-list handling and post-build recheck | [ELF scanning](elf-scan-workflow.md) |
+| Runtime paths, temporary setup, log routing and rotation | [Runtime/logging](runtime-logging.md) |
+| Version/scalar/snapshot/output readers and GRUB candidate text | [Boot artifacts and ownership-fixture repair](boot-artifact-validation.md) |
+
+These scopes distinguish real private files/coreutils from supplied operations
+and preserve observed implementation limitations. The historical cron and
+installed-initrd test failures remain explicit; the selected suite is not every
+historical harness. Use the [testing guide](../testing.md) for dependencies and
+interpretation before executing a selected check.
+
 ## Locate the supporting files
 
 Paths in the following table are relative to the repository root.

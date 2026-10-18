@@ -8,6 +8,12 @@ update logic, using Slackware tools without a systemd dependency.
 The repository currently contains the **shell reference implementation** and
 its validation material. The C application is planned work.
 
+Current repository regressions cover CLI/configuration, workflow and result
+handling, SBo queue selection and ordering, static ELF helpers, runtime logging
+and private boot-artifact validation. See the [testing guide](docs/testing.md)
+for the exact integrated selection, dependencies and known limitations. These
+checks complement the remaining real Slackware acceptance work.
+
 ## Project status
 
 **Phase 1 is incomplete.** The reference acceptance matrix must be completed
@@ -89,6 +95,7 @@ carry raw command statuses; the final process/result status uses this table.
 ## Documentation and contributing
 
 - [Development roadmap and phase gates](docs/roadmap.md)
+- [Current regression selection and limits](docs/reference/repository-regression-block-467-474.md)
 - [Reference acceptance guide](tests/acceptance/reference/README.md)
 - [Configuration example](data/config/slack-update.conf)
 - [Contribution and documentation policy](CONTRIBUTING.md)
