@@ -29,8 +29,8 @@ creates files or a directory owned by the Python test and can fail at each of
 the five ordinary temporary-file positions. The dry-run callback requires the
 literal `-d /tmp/slack-update-dry-run.XXXXXX` request but maps it to a private
 test directory. It does not execute that installed temporary-directory request.
-The five temporary failures preserve earlier files, empty the failed assignment
-and leave later bindings seeded. No rollback is claimed. The dry-run success
+Under that supplied state callback, the five temporary failures preserve earlier
+files, empty the failed assignment and leave later bindings seeded. No rollback is claimed. The dry-run success
 creates exactly the six state files selected by the implementation; other
 assigned paths remain uncreated. Existing unrelated private files survive.
 
@@ -149,3 +149,14 @@ All six normal commands and shell syntax pass in preparation underUID0. This is
 not an actual unprivileged OS run, installed logging acceptance or independent
 native conformance. Startup/late pipeline errors, disk exhaustion, real permission
 failures, concurrent rotation and production logger drain remain separate limits.
+
+
+## Real state reset and EXIT lifecycle (step489)
+
+The separate [runtime lifecycle driver](runtime-lifecycle.md) composes real state
+initialization with runtime setup, actual EXIT cleanup and a private instance lock.
+Step489 now clears six cleanup-managed bindings before the first checked setup
+operation, preventing selected early failures from passing prior targets to cleanup.
+This wrapper driver's supplied state callback and its seeded expectations remain
+unchanged; they do not describe the real reset or prove cleanup ownership. The
+new40-case composition and its partial-state/resource limits are documented there.

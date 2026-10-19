@@ -1,3 +1,37 @@
+## Phase 1 step 489 -- reset cleanup bindings before runtime setup failures
+
+- Accept complete supplied488 HEAD/origin
+  `fd257e3d30de51d2c9eab91dc03fa1c885d5f15f`, parent
+  `0e673c0eacb65ccba1a58a55ee53b3f0aec62aad`, tree
+  `dad8674d36a2cd1e6b215c5d1770785d3a1145fa`, canonical reportSHA256
+  `5a9aacecc982cb043f121d4ea13fcaaf17581f4e270db3cd41ba2c0023ba7414`.
+  Six outputs, five-path176add8delete scope, subject, reported push, clean matching
+  full refs and2377-file source/modes/tree agree. Retained inline transcription/
+  report are not original terminal bytes or independent remote/native capture.
+- Reproduce an early-start-time failure deleting five seeded private prior files
+  and a seeded prior directory during real cleanup. Clear six cleanup-managed
+  bindings at real state initialization entry before checked setup operations;
+  later allocations bind fresh paths normally. Prior resources are preserved,
+  not reclaimed or proven absent. No general ownership/reinitialization guarantee.
+- Add40-case real state/setup/EXIT-cleanup/private-lock composition. Exact accepted
+  488 controls:29cases pass,11populated early-failure cases reject with full state/
+  file differences. Six syntax-valid private reset omissions reject. All40 cases,
+  twelve complementary suites and syntax pass under preparerUID0; no actual
+  unprivileged OS/native run or global cleanup/conformance claim.
+- Six paths change: reference,new lifecycle driver/scope,runtime scope,testing
+  guide,this log. Two new100644 paths;no removals or existing-mode changes. Other
+  implementation/tests/fixtures, README,native contracts and old log tail unchanged.
+  Existing wrapper-test state callbacks retain their own seeded expectations;
+  lifecycle uses real reset and a separately authored oracle. Cleanup/traps/locks
+  and result mappings unchanged; current resets can leave older resources untracked.
+- Preserve exact prior archive/whole conditions, accepted488 complete return,
+  initial deletion probe and all scoped controls. Delivery Git commands keep -C.
+  Prepared489 awaits complete actual application/tests/commit/push/clean full refs/
+  source-Git-mode-tree return. Five actual steps484-488 complete,target8-12 total;
+  last strong STATIC pause483,no new pause. Phase1/kernel incomplete;A/R/D unselected;
+  native evidence/live bindingsNULL,host unobserved/global closureFALSE;all original
+  independent/native grant gates remain unchanged.
+
 ## Phase1 step488 -- cover real logging setup failures and correct comments
 
 - Accept complete supplied487 after reported push recovery:HEAD/origin

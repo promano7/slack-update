@@ -382,6 +382,19 @@ Complete supplied487 is accepted after reported SSH-push recovery at
 Git retries and pre-recovery reporter rejection remain retained. Prepared488
 awaits its own full return; four actual steps complete, last strong STATIC pause483.
 
+## Step489 runtime initialization and EXIT cleanup
+
+Run `python3 tests/reference/test-runtime-lifecycle.py` for40 private real-state/
+initializer/trap/cleanup/lock scenarios. The [lifecycle scope](reference/runtime-lifecycle.md)
+gives the exact thirteen-command selection, selected supplied operations and real
+private effects. Six cleanup-managed bindings now clear before the first checked
+setup failure, preserving prior fixture targets. Older resources can remain
+untracked; this is not a general ownership, rollback or global cleanup guarantee.
+
+Complete supplied488 is accepted at `fd257e3d30de51d2c9eab91dc03fa1c885d5f15f`.
+Prepared489 awaits its full return. Five actual steps484-488 complete; the last
+confirmed strong STATIC pause remains483. Closing integration is still pending.
+
 ## Known test failures and fixture repair
 
 | Test or attempt | Recorded result and current treatment |

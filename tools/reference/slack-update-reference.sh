@@ -2149,6 +2149,14 @@ release_instance_lock() {
 }
 
 initialize_runtime_state() {
+    # Discard prior cleanup bindings before the first fallible setup operation.
+    QUEUE_FINAL=
+    BROKEN_NEW=
+    STILL_BROKEN=
+    BROKEN_ERRORS=
+    ELF_LIBRARY_CACHE=
+    RUNTIME_TMPDIR=
+
     KERNEL_TRIGGER=0
     INITRD_UPDATE=0
     GRUB_UPDATE=0
