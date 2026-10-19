@@ -1,3 +1,35 @@
+## Phase 1 step 487 -- cover real ELF cache workflow failure propagation
+
+- Accept complete supplied486 HEAD/origin
+  `1b85fde4fa707d67a625922d3c6ddbcbba09b382`, parent
+  `e5398e6f0cad21c7ce82d883701ba2812a690d50`, tree
+  `9a074fbc9a2e89602e063928a20716cc05e1a70b`, canonical reportSHA256
+  `50903a6d0e66490901773385c9e2ac293be13d72bcbd4ca49f01a810112087ba`.
+  Ten ordered outputs, five-path143add17delete scope, subject, reported push, clean
+  matching local refs and full2375-file source/modes/tree agree. Retained inline
+  transcription/report are not original terminal bytes or independent remote/native
+  capture. Source was recovered from the exact saved486 archive after workspace
+  reset; CRC/full member hashes/modes and exact archive SHA256 agree.
+- Add a60-scenario private composition driver using real cache construction,
+  dependency/cache matching, scan/recheck and diagnostics with supplied raw/ELF
+  metadata and selected command faults. Explicit output/state/effect/callback
+  expectations test cache failure propagation before object processing.
+- Exact accepted485 preimage:2healthy controls pass,4move/count fault cases reject
+  across both coordinators. Six syntax-valid private coordinator mutations reject.
+  All60 new cases, five complementary ELF suites and shell syntax pass under
+  preparerUID0. No actual unprivileged OS/native run or independent conformance.
+  Retain initial-scan reader-error raw0 versus recheck failure as characterized
+  behavior, not approval of native success or a new result mapping.
+- Four paths change: this log,testing guide,new test,new composition scope.
+  Reference and all old implementation/test/fixture bytes and original modes are
+  unchanged; no paths removed. README and original log tail unchanged. Full prior
+  conditions/history, accepted486 receipt/report and scoped controls accompany ZIP.
+- Prepared487 awaits complete actual application/tests/commit/push/clean full refs/
+  source-Git-mode-tree return. Three actual steps484-486 complete; target8-12 total;
+  last confirmed strong STATIC pause483, no new pause. Phase1/kernel incomplete;
+  A/R/D unselected; native evidence/live bindingsNULL, host unobserved/global
+  closureFALSE; original independent/native grant gates remain unchanged.
+
 ## Phase 1 step 486 -- reject ELF cache publication and count failures
 
 - Accept complete supplied485 HEAD/origin

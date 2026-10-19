@@ -356,6 +356,19 @@ Complete supplied485 is accepted at `e5398e6f0cad21c7ce82d883701ba2812a690d50`.
 Prepared486 awaits its full return. Two actual steps (484-485) are complete in the
 new block; the last confirmed strong STATIC repository pause remains483.
 
+## Step 487 real ELF helper composition
+
+Run `python3 tests/reference/test-elf-cache-workflow.py` for60 private scenarios
+that compose the real cache builder, dependency/cache matching, scan, recheck and
+diagnostic renderer. The [composition scope](reference/elf-cache-workflow.md)
+gives the exact six-command ELF selection, supplied metadata/fault boundaries,
+retained reader-error behavior and publication/count effects. Reference code is
+byte-identical to accepted486; no native criterion or schema changes.
+
+Complete supplied486 is accepted at `1b85fde4fa707d67a625922d3c6ddbcbba09b382`.
+Prepared487 awaits its own complete return. Three actual steps484-486 are complete;
+last confirmed strong STATIC pause483. This focused run is not closing integration.
+
 ## Known test failures and fixture repair
 
 | Test or attempt | Recorded result and current treatment |
