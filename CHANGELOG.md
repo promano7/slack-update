@@ -1,3 +1,35 @@
+## Phase 1 step 485 -- reject incomplete ELF cache construction
+
+- Accept the complete inline user484 return: HEAD/origin
+  `5bb6aba72ad5881389363099f240f8ffeb9cd940`, parent
+  `4d485738bf954ec668ce67a60c236f492ae148a8`, tree
+  `a76fb32d93290897c2208b3efffb65d20d52e1db`, canonical report SHA256
+  `f4dc985e438c40d14bb3ac7a6f04a8f1cca9d1b3d73829f5939c9eccf6921e89`.
+  Nine exact ordered outputs, five-path278add3delete scope, subject, reported
+  push, clean matching local refs and full2373-file source/modes/tree agree.
+  Retained inline transcription/report are not original terminal-file bytes or
+  independent remote/native capture. No actual user Git object is fabricated.
+- Guard the existing architecture-tagged ELF cache construction pipeline under
+  existing pipefail. Failed construction attempts removal of both temporary files
+  and returns1 before publication/counting; prior cache bytes survive selected
+  faults, current record count stays0. Normal skipped-record/empty-cache behavior
+  remains. Later move/count/cleanup projections retain their separate limits.
+- Add an independently authored50-scenario private driver and focused scope.
+  Exact accepted484 controls:30 normal/earlier-failure cases pass,20 final-sort
+  fault cases reject. Five syntax-valid private source mutations reject.
+  All50 new scenarios, nine complementary normal suites and shell syntax pass
+  under preparerUID0; no actual unprivileged OS/native run is claimed. Retain the
+  initial fixture trace/normalization authoring failure and its correction.
+- Five paths change: reference,new test,new cache scope,testing guide,this log.
+  README, old CHANGELOG tail, all original modes and native contracts/fixtures/
+  evidence unchanged. Exact predecessor archive/full inherited conditions,
+  transcribed484 receipt and scoped preparation evidence accompany the package.
+- Prepared485 is pending its complete application/tests/commit/push/clean full
+  refs/source-mode-tree return. New block actual steps:1 (484), target8-12 total;
+  last confirmed strong STATIC pause483, no new pause confirmed. Phase1/kernel
+  incomplete; A/R/D unselected; native evidence/live bindingsNULL, actual host
+  unobserved/global closureFALSE. Native requirements and grants unchanged.
+
 ## Phase 1 step 484 -- stop ELF publication after unresolved display failure
 
 - Resume a new user-requested bounded repository block from confirmed STATIC

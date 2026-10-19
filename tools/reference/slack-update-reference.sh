@@ -4043,7 +4043,7 @@ refresh_static_elf_library_cache() {
         return 1
     fi
 
-    while IFS=$'\t' read -r soname candidate; do
+    if ! while IFS=$'\t' read -r soname candidate; do
         [ -n "$soname" ] && [ -n "$candidate" ] || continue
 
         if ! resolved=$(resolve_static_elf_object_path "$candidate"); then
@@ -4058,7 +4058,10 @@ refresh_static_elf_library_cache() {
         fi
 
         printf '%s\t%s\t%s\n' "$soname" "$identity" "$resolved"
-    done < "$raw_cache" | LC_ALL=C sort -u > "$temporary"
+    done < "$raw_cache" | LC_ALL=C sort -u > "$temporary"; then
+        rm -f -- "$raw_cache" "$temporary"
+        return 1
+    fi
 
     rm -f -- "$raw_cache"
 

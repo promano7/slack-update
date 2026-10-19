@@ -330,6 +330,19 @@ Prepared 484 awaits the complete user application/test/commit/push/source report
 The new bounded block aims for 8-12 actual steps, subject to findings and a later
 integrated review; no native acceptance criterion or gate changes.
 
+## Step 485 focused addition
+
+Run `python3 tests/reference/test-elf-cache-construction.py` for 50 private cache
+construction scenarios. The [cache scope](reference/elf-cache-construction.md)
+gives the ten-command focused selection, raw/identity/selected-sort callbacks,
+real private commands and remaining publication/count/cleanup limits. Failed
+construction returns before publication; prior cache bytes survive the selected
+faults while the current record count stays zero. Diagnostic effects remain.
+
+Complete supplied484 is accepted at `5bb6aba72ad5881389363099f240f8ffeb9cd940`.
+Prepared485 awaits its own full return. The historical56-command selection remains
+unchanged; neither focused addition confirms the new block's closing pause.
+
 ## Known test failures and fixture repair
 
 | Test or attempt | Recorded result and current treatment |
