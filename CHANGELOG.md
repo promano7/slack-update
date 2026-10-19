@@ -1,3 +1,33 @@
+## Phase 1 step 484 -- stop ELF publication after unresolved display failure
+
+- Resume a new user-requested bounded repository block from confirmed STATIC
+  pause483, accepted HEAD/origin `4d485738bf954ec668ce67a60c236f492ae148a8`,
+  tree `596683027e0d780e57499f99a27eadf8a6bda33c`. Target 8-12 actual steps
+  (484 through 491-495), with closing integration and separate post-return review.
+  Do not count prepared steps as executed or confirm a future pause in advance.
+- Set verification failure status before unresolved-list display; check renderer
+  status and return with an explicit warning before publication on failure.
+  Preserve the prior published list; cache/staging/diagnostic effects remain.
+  No atomic copy, rollback, retry or native recovery guarantee is introduced.
+- Add an independently authored 33-scenario private driver. Exact output/status,
+  callback order/vectors, private file bytes and directory inventory distinguish
+  successful display/publication, quiet/late failures and inactive branches.
+  Exact accepted483 source rejects all16 selected failure controls;8 normal
+  controls pass. Five syntax-valid private source mutations are rejected.
+- All33 new scenarios and eight related normal suites pass in preparation under
+  UID0; shell syntax passes. Existing133scan/199verify/20diagnostic checks retain
+  their scope. Supplied cache/reader/fault callbacks and private real effects are
+  documented; no unprivileged OS run or native Slackware conformance is claimed.
+- Five paths change: reference, new test, ELF scope, testing guide and this log.
+  README, old CHANGELOG tail, all original file modes, frozen native contracts,
+  fixtures and evidence remain unchanged. Exact predecessor archive/full inherited
+  condition bodies and preparation evidence accompany the delivery outside Git.
+- Prepared484 is not an actual user result. Await exact scoped application,
+  focused tests, commit/subject, reported push, clean full HEAD/origin and complete
+  source/Git-mode/tree report. Last confirmed pause remains483; no new pause yet.
+  Phase1/kernel incomplete; A/R/D unselected; native evidence/live bindings NULL;
+  actual host unobserved, global host closure FALSE; native gates unchanged.
+
 ## Phase 1 step 483 -- integrate regression block for conditional repository pause
 
 - Accept complete supplied actual482 HEAD/origin

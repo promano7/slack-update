@@ -287,8 +287,9 @@ normal suites with their existing separate boundaries. Reference changes are
 limited to this helper and two ordinary post-pipeline call guards. The original
 477-480 protections remain intact. No native acceptance or result schema changes.
 
-Later unresolved-list display, individual reader failures, cache construction
-and ordinary partial-copy effects retain their separate scopes. A helper's
+The then-unchecked unresolved-list display is addressed by step 484 below.
+Individual reader failures, cache construction and ordinary partial-copy effects
+retain their separate scopes. A helper's
 nonempty-file predicate is not a complete filesystem-readability or descriptor
 error protocol. These tests do not prove race resistance, global cleanup,
 installed-state consistency or two-platform native composition/conformance.
@@ -315,3 +316,63 @@ incomplete; A/R/D unselected, schema 1/reference-v1/C/Phase 2/production closed.
 Install-new20 empty AND no-effect, upgrade20 failure, original specification/
 migration/composition/independent whole-review/fresh native grant/platform
 conformance gates all remain unchanged.
+
+## Unresolved-list display failure before publication
+
+Step 484 checks the unresolved-list `sed` before copying the staged list over
+`BROKEN`. Verification status is set to 1 before attempting display. A nonzero
+renderer status, including failure after emitting its complete selected output,
+produces `Cannot render the unresolved ELF verification results` and returns 1
+without calling the publication copy. The previous published list survives;
+the newly computed staging list and preceding cache/diagnostic effects remain.
+There is no retry, rollback or atomic publication guarantee. Unresolved objects
+still mean failure when rendering and publication both succeed.
+
+Run the dedicated driver and related checks from the repository root:
+
+```bash
+python3 tests/reference/test-elf-unresolved-display.py
+python3 tests/reference/test-elf-scan-workflow.py
+python3 tests/reference/test-elf-metadata.py
+bash tests/reference/test-elf-architecture-resolution.sh
+python3 tests/reference/test-sbo-workflow.py
+python3 tests/reference/test-apply-secondary-workflow.py
+python3 tests/reference/test-result-precedence.py
+python3 tests/reference/test-apply-json-result.py
+python3 tests/reference/test-dry-run-workflow.py
+```
+
+The new standard-library driver independently authors 33 scenarios. Twenty-four
+cross broken, mixed, duplicate and unterminated lists with successful, quiet-failed
+and full-output-then-failed rendering, and two prior diagnostic seeds. Nine controls
+cross healthy, empty and absent lists with all three renderer selections; these
+must never invoke unresolved display. Real path/magic helpers, Bash redirections,
+private files and ordinary readlink/od/tr/sort/sed/cp run. Cache refresh and the
+dependency reader are supplied callbacks; only the unresolved renderer receives
+selected quiet/late status 43. Diagnostic rendering remains real and successful.
+No inspected object is executed and no installed library cache is queried.
+
+Exact output/stderr, raw return, scan/verification/count/cache fields, callback
+vectors/order, complete private file bytes and directory inventory are checked.
+Failure must retain the original published bytes, including duplicates or a missing
+final newline, while preserving the normalized staging result. Normal controls
+must still publish that normalized result. Empty/absent-list early returns retain
+old cache/diagnostic/staging bytes. Named prohibited boundaries are guards, not
+an OS sandbox; the inventory does not measure permissions, ownership, descriptors,
+xattrs, concurrent writers or global host state.
+
+Against exact accepted 483 reference bytes, eight normal controls pass and all
+16 selected quiet/late cases are rejected. Five syntax-valid private source
+mutations are rejected: unchecked renderer, zero failure return, zero verification
+status, omitted warning and publication after failed rendering. The new 33 cases
+and eight complementary normal suites pass in preparation under UID 0. This is
+not an actual unprivileged OS run or two-platform native conformance. Mutation
+runs are separate retained preparation controls, not part of the normal user run.
+The earlier 133 scan/199 verification/20 diagnostic driver remains unchanged.
+
+Only this unresolved-display branch changes in the reference. Reader failure
+protocols, cache publication/count/cleanup, ordinary partial-copy effects and
+nonempty-file predicates keep their separate limits. Original native criteria,
+including install-new20 empty AND no-effect and upgrade20 failure, remain binding.
+Phase 1/kernel remain incomplete; A/R/D unselected; schema1/reference-v1/C/Phase2/
+production closed. This repository step grants no native execution authority.

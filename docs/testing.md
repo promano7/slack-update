@@ -316,6 +316,20 @@ rather than semantic path/version filtering and GRUB path matches across distinc
 menuentries. The exact conditions remain in the scope documents. Recording a
 behavior does not approve it as native success or weaken original requirements.
 
+## Step 484 focused addition
+
+Run `python3 tests/reference/test-elf-unresolved-display.py` for 33 private
+unresolved-list display scenarios. The [ELF scope](reference/elf-scan-workflow.md#unresolved-list-display-failure-before-publication)
+gives the exact nine-command focused selection, supplied faults and real private
+effects. A failed display now stops publication while retaining failure status
+and the previous list. Cache/staging/diagnostic effects can already have occurred.
+
+The 56-command 475-483 selection above remains its historical integrated baseline;
+this addition does not retroactively change that selection or confirm a new pause.
+Prepared 484 awaits the complete user application/test/commit/push/source report.
+The new bounded block aims for 8-12 actual steps, subject to findings and a later
+integrated review; no native acceptance criterion or gate changes.
+
 ## Known test failures and fixture repair
 
 | Test or attempt | Recorded result and current treatment |

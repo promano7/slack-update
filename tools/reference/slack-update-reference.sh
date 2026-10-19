@@ -4264,8 +4264,11 @@ verify_broken_elf_objects_after_rebuild() {
 
     if [ -s "$STILL_BROKEN" ]; then
         echo "  [WARN] ELF objects that still have unresolved dependencies:"
-        sed 's/^/    /' "$STILL_BROKEN"
         ELF_VERIFICATION_STATUS=1
+        if ! sed 's/^/    /' "$STILL_BROKEN"; then
+            echo "  [WARN] Cannot render the unresolved ELF verification results"
+            return 1
+        fi
         if ! cp -f -- "$STILL_BROKEN" "$BROKEN"; then
             echo "  [WARN] Cannot publish the unresolved ELF verification results"
             return 1
