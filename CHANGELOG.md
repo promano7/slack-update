@@ -1,3 +1,31 @@
+## Phase 1 step 490 -- integrate the bounded repository regression selection
+
+- Accept complete supplied 489 at HEAD/origin
+  `e57d454178b78321ca65f9c6b58eb48f34dc25e2`, parent
+  `fd257e3d30de51d2c9eab91dc03fa1c885d5f15f`, tree
+  `76284a42ee2fead9530d80cb3e5c427572a66eed`, canonical report SHA256
+  `45f9a82094f981d449342199f374a674519b013a5b73087d066c657be9fd95e4`.
+  Thirteen ordered outputs, six-path 355-addition/two-deletion scope, subject,
+  reported push, empty status and full source/Git-mode/tree report agree.
+  Inline transcriptions are not original terminal bytes or independent capture.
+- Select exactly the historical 56 normal commands in order, then append four
+  new drivers: unresolved display, cache construction, cache workflow and runtime
+  lifecycle. All 60 pass in preparation. Retain individual command vectors,
+  stdout/stderr and exit status;
+  preparer UID 0 is not an actual unprivileged OS/native run. Historical controls,
+  failures, private effects and limits keep their original scope.
+- Change three documentation paths only, adding the block's integration scope.
+  Reference/tests/fixtures/requirements/README and existing modes stay unchanged.
+  Full source/modes/preimages, exact predecessor history and whole inherited
+  conditions remain in the delivery. Git commands retain explicit checkout -C.
+- Six actual steps 484-489 are complete. Prepared 490 awaits complete actual
+  return; closing 491 remains conditional within the requested 8-12 steps.
+  Last confirmed strong STATIC pause is 483. Complete final actual acceptance
+  must precede a separate reading of every whole condition and nested original
+  body; counts/hashes/summaries/prior review cannot replace it. No new pause or
+  native grant; phase 1/kernel incomplete, A/R/D unselected, native evidence/live
+  bindings null, host unobserved and actual global closure false.
+
 ## Phase 1 step 489 -- reset cleanup bindings before runtime setup failures
 
 - Accept complete supplied488 HEAD/origin

@@ -272,10 +272,12 @@ those limits or amend original native install-new20/upgrade20 criteria.
 
 ## Current SBo, ELF, runtime and boot reader checks
 
-The current [475-483 integrated review](reference/repository-regression-block-475-483.md)
-keeps the earlier54-command order and appends the repaired cron and installed-initrd
-fixtures. Its exact56-command order is the reproducible selection;
-there is no glob over historical or native acceptance scripts. Each Python
+The [475-483 integrated review](reference/repository-regression-block-475-483.md)
+records its historical 56-command order: the earlier 54 commands followed by the
+repaired cron and installed-initrd fixtures. The
+[484-491 integration scope](reference/repository-regression-block-484-491.md)
+keeps those 56 commands and appends four drivers for a named 60-command selection.
+There is no glob over historical or native acceptance scripts. Each Python
 matrix uses its own authored oracle and the standard library, Bash and the
 private/supplied boundaries in its scope.
 
@@ -555,3 +557,16 @@ When reporting verification, name the check, source/checkpoint, outcome and
 material limits. Distinguish local checks from a user's reported commit/push,
 actual native evidence and final repository pause confirmation. Early failures,
 missing dependencies or absent matching snapshots must remain visible.
+
+## Integrated selection for the 484-491 block
+
+The [484-491 integration scope](reference/repository-regression-block-484-491.md)
+selects the historical 56 normal commands in their original order and appends
+four new independent drivers: unresolved display, cache construction, cache
+workflow and runtime lifecycle. Run exactly those 60 commands, followed by the
+separate syntax, executable and whitespace checks. Its individual outputs,
+dependencies, real private effects, supplied boundaries and preparer UID 0
+qualification remain explicit. Historical mutation controls are not rerun by
+this selection. Step 490 prepares integration; final step 491 and the separate
+post-return whole-condition review remain pending. This does not confirm a new
+pause or authorize native acceptance, host cleanup or any system operation.
