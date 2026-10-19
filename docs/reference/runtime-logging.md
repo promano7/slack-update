@@ -11,7 +11,7 @@ It requires Python 3.9 or newer, Bash, GNU sed, tee and find on Linux.
 | Boundary | Entries | Checks |
 | --- | ---: | --- |
 | Runtime setup | 28 | Full selected bindings, raw return, exact diagnostic, callback order/vectors and private file contents |
-| Logging | 28 | Four JSON/events combinations, new/existing log, authored text bytes, missing command discovery and descriptor routing |
+| Logging | 46 | Four JSON/events combinations, new/existing log, authored text bytes, missing command discovery and descriptor routing |
 | Rotation | 6 | Three retention values, real recursive deletion and supplied quiet find failure |
 
 Setup entries exercise new and existing configured directories. The ordinary
@@ -44,9 +44,9 @@ before log creation and redirection, with the exact discovery diagnostic.
 Authored byte expectations cover plain text, supported ANSI color sequences,
 carriage returns, UTF-8 and an unsupported ANSI sequence. The actual pipeline
 filters both the console output and the log. It preserves the emoji and removes
-only the first carriage return on each line. These observations disagree with
-the nearby source comment about emoji removal and console filtering order; the
-regression follows the implementation. The reference script is unchanged.
+only the first carriage return on each line. These observations disagreed with
+the pre488 source comments about emoji removal and console filtering order.
+Step488 corrects those comments; executable logging statements remain unchanged.
 
 Rotation uses real find under a private log directory with authored ages safely
 away from whole-day boundaries. It removes old matching files recursively,
@@ -98,3 +98,54 @@ The scope remains static repository regression. Phase 1 and kernel work remain
 incomplete. Native evidence and live bindings are null, actual host state is
 unobserved-not-claimed-absent and actual global host closure is false. Existing
 native criteria, independent acceptance requirements and authority limits remain.
+
+
+## Real open and descriptor failure guards (step488)
+
+The logging matrix adds18 cases, for46 logging entries while28setup/6rotation
+entries retain their scope. Twelve cases cross all four JSON/events combinations
+with a private directory, symlink to a private directory or missing parent at
+LOG. Six cross the three structured combinations with empty/existing log bytes
+and a genuinely closed stdout descriptor. These errors do not depend on chmod
+unreadability, so the same selected failure is observable under preparerUID0.
+
+Real Bash append/duplication redirections fail. Exact C-locale shell diagnostics
+are matched against the reference path, target/error text and following explicit
+application diagnostic; only the positive source-line number varies. Raw status1,
+command-discovery vectors/order, original descriptor3 routing and the complete
+private file/directory/link snapshot are checked. Open failure leaves the target
+shape intact. Descriptor failure occurs after log append/open, so a new empty log
+can already exist; existing bytes remain. The descriptor3 marker still goes to
+its original private file. No rollback or asynchronous logger completion guarantee
+is inferred from these setup guards.
+
+The error probe keeps a separate control descriptor and drains a logger if an
+unexpected successful setup starts one. Its optional background PID expansion is
+safe even when a deliberately broken success return starts no logger. The normal
+payload driver's exact logger wait remains unchanged. Private snapshots omit
+ownership, permissions, xattrs, every descriptor and global host state.
+
+All18 cases also pass on exact accepted487 reference bytes, establishing that
+these are existing guards, not a newly implemented error contract. Six syntax-valid
+private mutations reject: success return, omitted explicit diagnostic and loss of
+original descriptor3 on open failure; success return, omitted explicit diagnostic
+and truncation of existing log on descriptor failure. Normal user runs do not
+rerun those controls. The reference patch corrects only three logging comments:
+supported ANSI/first-CR filtering precedes tee, both destinations get filtered
+bytes and UTF-8 is retained. No executable statement or native criterion changes.
+
+The exact focused selection for this step is:
+
+```bash
+python3 tests/reference/test-runtime-logging.py
+bash tests/reference/test-cron-minimal-environment.sh
+python3 tests/reference/test-main-setup-failures.py
+python3 tests/reference/test-main-completion.py
+python3 tests/reference/test-event-ndjson.py
+python3 tests/reference/test-dry-run-environment.py
+```
+
+All six normal commands and shell syntax pass in preparation underUID0. This is
+not an actual unprivileged OS run, installed logging acceptance or independent
+native conformance. Startup/late pipeline errors, disk exhaustion, real permission
+failures, concurrent rotation and production logger drain remain separate limits.

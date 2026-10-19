@@ -2490,10 +2490,9 @@ configure_logging() {
         return 1
     fi
 
-    # Redirect logging while filtering ANSI codes
-    # FIX #10: Emoji characters are removed from the log to avoid encoding problems in cron.
-    # Console output (when run interactively) will still display them
-    # because tee writes to stdout before the ANSI filter.
+    # Filter supported ANSI sequences and the first carriage return per line before tee.
+    # The console and appended log receive the filtered bytes; UTF-8 is preserved.
+    # Structured modes route human output to stderr and reserve the original stdout.
     if [ "$JSON_OUTPUT" -eq 1 ] || [ "$EVENTS_OUTPUT" -eq 1 ]; then
         # Keep stdout reserved for machine-readable output.
         if ! exec 3>&1; then

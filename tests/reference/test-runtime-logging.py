@@ -3,6 +3,7 @@
 from pathlib import Path
 import itertools
 import os
+import re
 import shlex
 import subprocess
 import tempfile
@@ -219,6 +220,70 @@ if [[ $status == 0 ]]; then logger_pid=$!; fi
         assert (root / 'descriptor3').read_bytes() == (b'' if structured else b'MACHINE\n')
 
 
+def logging_failure_case(root, json_mode, events, profile, prefix=b''):
+    """Exercise existing open/descriptor guards with real private failures."""
+    logfile = root / 'run.log'
+    if profile == 'directory':
+        logfile.mkdir()
+    elif profile == 'link-directory':
+        target = root / 'log-target'
+        target.mkdir()
+        logfile.symlink_to(target)
+    elif profile == 'missing-parent':
+        logfile = root / 'missing/run.log'
+    elif profile == 'closed-stdout':
+        if prefix:
+            logfile.write_bytes(prefix)
+    else:
+        raise AssertionError('unexpected failure profile')
+
+    def snapshot():
+        return {str(path.relative_to(root)): ('link', os.readlink(path)) if path.is_symlink()
+                else ('dir',) if path.is_dir() else ('file', path.read_bytes())
+                for path in root.rglob('*') if path.name != 'trace'}
+
+    expected = snapshot()
+    expected['descriptor3'] = ('file', b'FD3\n')
+    if profile == 'closed-stdout':
+        expected['run.log'] = ('file', prefix)
+    body = '\nLOG=' + quote(logfile) + '\nJSON_OUTPUT=' + str(json_mode) + '\nEVENTS_OUTPUT=' + str(events)
+    body += r'''
+command() {
+    [[ $# == 2 && $1 == -v && ( $2 == sed || $2 == tee ) ]] || forbidden command-vector
+    record discover "$2"
+    builtin command -v "$2"
+}
+exec 4>&1
+exec 3> "$TEST_ROOT/descriptor3"
+'''
+    if profile == 'closed-stdout':
+        assert json_mode == 1 or events == 1
+        body += 'exec 1>&-\n'
+    body += r'''
+configure_logging
+status=$?
+if [[ $status == 0 ]]; then
+    logger_pid=${!:-}
+    exec 1>&- 2>&-
+    if [[ -n $logger_pid ]]; then wait "$logger_pid"; fi
+fi
+builtin printf 'FD3\n' >&3
+builtin printf 'STATUS=%s\n' "$status" >&4
+'''
+    _, out, err = execute(root, body)
+    assert out == b'STATUS=1\n', (profile, out)
+    if profile == 'closed-stdout':
+        shell_error = '1: Bad file descriptor\n'
+        message = 'Error: cannot reserve the machine-readable output descriptor\n'
+    else:
+        shell_error = str(logfile) + (': No such file or directory\n' if profile == 'missing-parent' else ': Is a directory\n')
+        message = 'Error: cannot open the runtime log for writing: ' + str(logfile) + '\n'
+    pattern = re.escape(str(REFERENCE)) + r': line [1-9][0-9]*: ' + re.escape(shell_error + message)
+    assert re.fullmatch(pattern, err.decode()), (profile, err, pattern)
+    assert trace(root) == [('discover', 'sed'), ('discover', 'tee')], trace(root)
+    assert snapshot() == expected, (profile, snapshot(), expected)
+
+
 def rotation_case(root, days, fault):
     log = root / 'logs'
     (log / 'nested').mkdir(parents=True)
@@ -271,6 +336,12 @@ def main():
             for prefix in (b'', b'old\n'):
                 case = root / ('logging-' + str(counts[1])); case.mkdir()
                 logging_case(case, 0, 0, prefix, b'plain\n', missing); counts[1] += 1
+        for json_mode, events, profile in itertools.product((0, 1), (0, 1), ('directory', 'link-directory', 'missing-parent')):
+            case = root / ('logging-' + str(counts[1])); case.mkdir()
+            logging_failure_case(case, json_mode, events, profile); counts[1] += 1
+        for (json_mode, events), prefix in itertools.product(((1, 0), (0, 1), (1, 1)), (b'', b'old\n')):
+            case = root / ('logging-' + str(counts[1])); case.mkdir()
+            logging_failure_case(case, json_mode, events, 'closed-stdout', prefix); counts[1] += 1
         for days, fault in itertools.product((0, 1, 30), (0, 43)):
             case = root / ('rotation-' + str(counts[2])); case.mkdir()
             rotation_case(case, days, fault); counts[2] += 1

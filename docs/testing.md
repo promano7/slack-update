@@ -369,6 +369,19 @@ Complete supplied486 is accepted at `1b85fde4fa707d67a625922d3c6ddbcbba09b382`.
 Prepared487 awaits its own complete return. Three actual steps484-486 are complete;
 last confirmed strong STATIC pause483. This focused run is not closing integration.
 
+## Step488 logging setup failure guards
+
+The runtime driver now has28setup/46logging/6rotation entries, including18 real
+private log-open/closed-stdout failure cases. The [logging scope](reference/runtime-logging.md#real-open-and-descriptor-failure-guards-step488)
+gives exact diagnostics, file/link/descriptor effects and the six-command focused
+selection. Existing guards pass these cases on accepted487 too. The reference
+patch corrects logging comments; executable statements and native criteria stay.
+
+Complete supplied487 is accepted after reported SSH-push recovery at
+`0e673c0eacb65ccba1a58a55ee53b3f0aec62aad`. Initial disconnect, wrong-directory
+Git retries and pre-recovery reporter rejection remain retained. Prepared488
+awaits its own full return; four actual steps complete, last strong STATIC pause483.
+
 ## Known test failures and fixture repair
 
 | Test or attempt | Recorded result and current treatment |

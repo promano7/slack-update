@@ -1,3 +1,37 @@
+## Phase1 step488 -- cover real logging setup failures and correct comments
+
+- Accept complete supplied487 after reported push recovery:HEAD/origin
+  `0e673c0eacb65ccba1a58a55ee53b3f0aec62aad`, parent
+  `1b85fde4fa707d67a625922d3c6ddbcbba09b382`, tree
+  `ea6ad1d5a3d9406a4571d221faa4f93efb74bc0f`, canonical reportSHA256
+  `42518c96854bee75b10e2b469abec26433d920f536adcfb89627bc2977c4163f`.
+  Six ordered normal outputs, four-path375add scope, subject, final reported push,
+  clean matching full refs and2377-file source/modes/tree agree. Retain initial
+  SSH disconnect, four wrong-directory Git failures and absolute reporter rejection
+  before successful retry; reporter had an explicit checkout path. No intermediate
+  refs observed or original terminal-file bytes/independent remote capture claimed.
+- Extend runtime/logging regression with18 real private open/descriptor failures:
+  directory/link-directory/missing parent and structured closed stdout. Check raw1,
+  exact shell/application diagnostics, preserved descriptor3 and complete private
+  files/directories/links. Matrix now28setup/46logging/6rotation; prior entries stay.
+- All18 added cases pass on exact accepted487 source. Six syntax-valid private
+  guard mutations reject. Six focused normal commands and syntax pass under
+  preparerUID0; no actual unprivileged OS/native run or global cleanup claim.
+  Existing log-append effects before descriptor failure remain observable.
+- Correct three source comments to match unchanged executable filtering/routing:
+  supported ANSI and first CR are filtered before tee; console/log receive filtered
+  bytes; UTF-8 survives. Five existing paths change: reference,runtime driver/scope,
+  testing guide,this log. All old executable statements, modes, other tests/fixtures,
+  native contracts, README and original log tail unchanged; no paths added/removed.
+- Delivery Git commands select the explicit checkout with -C, including the push/
+  final-report recovery tail, to work independently of the caller's directory.
+  Full prior conditions/history and accepted487 complete failed/final return retained.
+- Prepared488 awaits complete actual application/tests/commit/push/clean full refs/
+  source-Git-mode-tree return. Four actual steps484-487 complete; target8-12 total;
+  last confirmed strong STATIC pause483, no new pause. Phase1/kernel incomplete;
+  A/R/D unselected; native evidence/live bindingsNULL, host unobserved/global
+  closureFALSE; all original independent/native grant gates unchanged.
+
 ## Phase 1 step 487 -- cover real ELF cache workflow failure propagation
 
 - Accept complete supplied486 HEAD/origin
