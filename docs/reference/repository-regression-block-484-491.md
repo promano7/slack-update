@@ -1,24 +1,33 @@
 # Integrated repository regression block 484-491
 
-This is the integration preparation at step 490, before the proposed closing
-step 491. Six actual steps, 484-489, are accepted in the requested 8-12-step block.
-The complete supplied 489 return reports HEAD/origin
-`e57d454178b78321ca65f9c6b58eb48f34dc25e2`, parent
-`fd257e3d30de51d2c9eab91dc03fa1c885d5f15f`, tree
-`76284a42ee2fead9530d80cb3e5c427572a66eed`, and canonical report SHA256
-`45f9a82094f981d449342199f374a674519b013a5b73087d066c657be9fd95e4`.
-Its thirteen ordered outputs, six-path 355-addition/two-deletion scope, required
-subject, reported successful push, empty status, matching full local refs and
-2,379-file source/Git-mode/tree report agree with the prepared delivery.
-Receipts transcribe supplied inline terminal output; they are not original
-terminal-file bytes or independent terminal, GitHub or native observation.
-Actual user Git objects are not recreated from those reports.
+This is the prepared final source/docs/navigation review at step 491. Seven
+actual steps 484-490 are accepted in the requested 8-12-step block. Final 491
+would make eight only after its complete actual return is accepted. Last
+confirmed strong STATIC repository pause remains 483; no new pause is confirmed.
 
-Step 490 changes this new scope document, the testing guide and CHANGELOG only.
-Reference implementation, tests, fixtures, requirements, README, existing modes
-and the old log tail stay unchanged. Full source and modes, exact predecessor
-archive, preimages, receipts and pinned delivery controls remain outside Git in
-the delivery. Prepared source and local PASS cannot attest later user actions.
+Complete uploaded actual 490 reports HEAD/origin
+`6843cd38c7cb73d32e4a7100ab12aac62de43431`, parent
+`e57d454178b78321ca65f9c6b58eb48f34dc25e2`, tree
+`8e9bb3b3251fc20420d6be36a20505b6bc2ecba7`, canonical report SHA256
+`a58880c49483cce513e8cda27d1878b2cef5fbd480919b0e728928f16140963f`.
+All 60 command vectors and outputs match in order, normalizing only one consistent
+generated initrd temporary root. Application/two scope checks, syntax/executable/
+whitespace checks, exact three-path 265-addition/four-deletion scope, required
+subject, reported push, empty status and full source/Git-mode/tree report agree.
+The exact supplied uploaded file is retained with SHA256
+`eac637ee66c5b7e949f4cf5c223c8444303a6e57b16ec859e7641aa0697b6177`.
+The file is supplied evidence, not independent terminal/GitHub/native capture.
+Earlier inline transcriptions keep their original provenance; no actual user Git
+objects are fabricated.
+
+Step 491 changes ten existing documentation paths: this review, CHANGELOG,
+README's existing selection link, contribution mappings, documentation/reference
+indexes, development setup, reference usage, roadmap and testing guidance.
+The README remains an overview without new step history. Reference implementation,
+tests, fixtures, native requirements, file inventory and existing modes stay
+unchanged from accepted 490. Full source, modes, exact predecessor, ten preimages,
+receipts and pinned controls are retained outside Git. Prepared source and local
+checks cannot attest later user actions.
 
 ## Bounded changes and retained controls
 
@@ -30,6 +39,8 @@ the delivery. Prepared source and local PASS cannot attest later user actions.
 | 487 | [Cache workflow](elf-cache-workflow.md): 60 cases compose real cache, dependency matcher, scan/recheck and diagnostic helpers | Two old healthy controls pass, four old move/count controls reject; six caller mutations reject |
 | 488 | [Runtime logging](runtime-logging.md): 18 real open/descriptor failure cases; correct three comments | All 18 cases pass on old executable statements; six guard mutations reject |
 | 489 | [Runtime lifecycle](runtime-lifecycle.md): reset six prior cleanup bindings before fallible setup; 40 real helper-composition cases | Original private deletion counterexample; 29 old-source cases pass and 11 populated early failures reject; six reset omissions reject |
+| 490 | Integrate the historical 56 commands followed by four new drivers | Complete uploaded actual 60-command result, source/modes/tree and scoped docs commit accepted |
+| 491 | Final cumulative source/guidance review and current navigation | Prepared documentation-only verification; actual final run and separate post-return whole-body review pending |
 
 The current runtime/logging matrix has 28 setup, 46 logging and six rotation
 entries. Existing ELF scan, metadata and all other drivers retain their own
@@ -130,11 +141,15 @@ test -x tools/reference/slack-update-reference.sh
 git diff --check
 ```
 
-All 60 normal commands pass in preparation. The delivery records ordered
-command vectors, individual raw stdout/stderr and exit status. Preparation runs as UID 0; it does not establish an actual
-unprivileged OS run. Complete actual step 490 must run the same 60 commands on
-this prepared tree. Syntax and executable/whitespace checks are separate from
-the 60 normal commands. Documentation changes no executable or test bytes.
+All 60 normal commands pass in the recorded 490 preparation and complete
+actual 490 return. Preparation ran as UID 0; it did not establish an actual
+unprivileged OS run. The actual result was supplied from the user's Arch checkout,
+not a native Slackware acceptance environment. Step 491 reuses that recorded
+normal run because implementation, tests, fixtures and modes are unchanged;
+it does not claim a second local 60-command execution. Final documentation links,
+fragments, byte/mode scope, whitespace and delivery controls are checked separately.
+Complete actual 491 must repeat the same 60 commands on the final tree. Syntax
+and executable/whitespace checks remain separate from the 60 normal commands.
 
 Real private effects include files/directories/links, redirections, moves,
 selected boot-file replacements, descriptors/pipelines, locks, signals, parsing,
@@ -160,7 +175,16 @@ and unknown packaging causes stay in exact predecessor history. A later PASS
 neither erases a failure nor explains its cause. Current finite inventory/CRC/
 manifest/mode checks do not prove end-to-end restoration or identify unknown
 ambient copy causes. Original pending metadata is retained as historical;
-CURRENT490 is active and waits for the actual return.
+CURRENT491 is active and waits for the final actual return.
+
+The first 491 preparer inventory check rejected one additional 25 MiB temporary
+copy, equal to a prefix of an existing fixture. Its bytes and hash are preserved
+outside the canonical source, and its cause remains unknown. The original saved
+490 archive and canonical file inventory are unchanged. A separate checker input
+lookup used a selectively extracted directory without the needed preimages;
+reading the exact saved 486 ZIP supplies them. Those initial rejected checks
+are retained, not retroactively counted as PASS. Canonical bytes/modes and the
+accepted source chain are checked again after those corrections.
 
 ELF publication is not atomic: failed copy or move implementations can affect
 their destination. A successful clear can precede later staging failure; cache
@@ -173,11 +197,11 @@ native output/no-effect/boot criteria.
 
 ## Conditional closing review
 
-Last confirmed strong STATIC repository pause is 483. Step 490 is integration
-preparation, not a new pause. After its complete actual return is accepted,
-prepare the final source/docs/navigation review at 491 if the evidence supports
-that scope. Eight actual steps 484-491 would meet the requested lower bound.
-Keep README concise and detailed history in CHANGELOG/reference documents.
+Complete actual 490 has been accepted. Prepared 491 is the final source/docs/
+navigation review for the proposed eight-step block 484-491. It does not confirm
+its own execution or pause. Complete final actual 491 remains due, followed by
+the separate review below. The original whole conditions and every nested body
+must be read again after that final return, even if earlier reviews passed.
 
 Complete actual FINAL return must come FIRST: application/scope checks, selected
 normal outputs, exact commit/subject, reported successful push, empty status,

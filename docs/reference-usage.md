@@ -88,17 +88,24 @@ selected failure projections are documented as limitations in those scopes.
 Do not treat a printed success label, private regression PASS or plan as native
 acceptance, package no-effect evidence or a bootability guarantee.
 
-The [current integrated selection](reference/repository-regression-block-475-483.md)
-contains56 named commands. Selected ELF traversal/publication/count, work-file
-initialization and diagnostic failures now propagate before success reporting;
-see [ELF scanning](reference/elf-scan-workflow.md). Failed copy can still leave
-partial destination changes, and remaining display/reader limits retain scope.
+The [current integrated selection](reference/repository-regression-block-484-491.md)
+contains 60 named commands. Selected ELF traversal/publication/count, work-file
+initialization and diagnostic/display failures propagate before success reporting;
+see [ELF scanning](reference/elf-scan-workflow.md). Cache construction, publication
+and count failures have a separate [cache scope](reference/elf-cache-construction.md)
+and [real helper workflow](reference/elf-cache-workflow.md). Failed copy or move can
+still affect the destination; a failed count can follow successful publication.
+Individual reader protocols and unselected failures retain their limits.
 
 Human output passes through the current sed filter before tee, so both console
 and log receive filtered text. Supported ANSI sequences and the first carriage
 return per line are removed; emoji and unsupported sequences can remain. In
 structured modes human progress goes to stderr/log and descriptor 3 preserves
 machine-readable stdout. See [runtime/logging](reference/runtime-logging.md).
+Real state initialization clears six cleanup bindings before fallible setup;
+the [lifecycle scope](reference/runtime-lifecycle.md) covers selected failure/EXIT
+compositions. Prior resources can remain untracked; this is not general recovery
+or proof that older resources are absent.
 
 Generated GRUB path searches can find the kernel and initrd in different entries;
 the text check does not establish a bootable paired entry. The synthetic

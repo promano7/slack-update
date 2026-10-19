@@ -1,3 +1,37 @@
+## Phase 1 step 491 -- prepare the final bounded repository pause review
+
+- Accept complete uploaded actual 490 at HEAD/origin
+  `6843cd38c7cb73d32e4a7100ab12aac62de43431`, parent
+  `e57d454178b78321ca65f9c6b58eb48f34dc25e2`, tree
+  `8e9bb3b3251fc20420d6be36a20505b6bc2ecba7`, report SHA256
+  `a58880c49483cce513e8cda27d1878b2cef5fbd480919b0e728928f16140963f`.
+  All 60 vectors/outputs agree in order, normalizing one consistent generated
+  initrd temporary root only. Three-path 265-addition/four-deletion scope,
+  subject, reported push, empty status and full source/Git-mode/tree agree.
+  Preserve exact uploaded receipt bytes; supplied evidence is not independent
+  terminal/GitHub/native capture. Earlier transcriptions keep their provenance.
+- Review the bounded reference changes against exact 483 source preimages:
+  unresolved rendering, cache pipeline/publication/count guards, accurate logging
+  comments and six early cleanup resets. Preserve dedicated controls, original
+  failures, partial-effect and untracked-resource limits. No runtime change here.
+- Update ten existing documents for the current 60-command selection, four new
+  driver mappings, scoped results and pending final review. README changes only
+  its existing selection link. Implementation/tests/fixtures/native requirements,
+  inventory, existing modes and old log tail remain unchanged from accepted 490.
+- Reuse the recorded 490 normal run on those identical executable/test bytes;
+  do not claim another local 60-command execution. Check final documentation
+  links/fragments, exact scope/modes, whitespace and synthetic delivery controls.
+  Complete actual 491 must still run all 60 on the final tree and return exact
+  application/scope/commit/push/clean refs/source-Git-mode-tree evidence.
+- Seven actual steps 484-490 accepted; 491 would complete eight. Last confirmed
+  strong STATIC pause remains 483. AFTER complete actual final acceptance,
+  separately read/review EVERY WHOLE condition and EVERY exact nested original
+  body plus all new effects/obligations/cleanup/limits. Counts/hashes/summaries/
+  prior reviews cannot replace that reading. Only then may the scoped STATIC
+  pause be confirmed; stop until a new bounded request. Phase 1/kernel incomplete,
+  A/R/D unselected; native evidence/live bindings null, host unobserved and global
+  closure false. Original native/independent review and fresh grant gates remain.
+
 ## Phase 1 step 490 -- integrate the bounded repository regression selection
 
 - Accept complete supplied 489 at HEAD/origin

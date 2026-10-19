@@ -108,18 +108,26 @@ The [testing guide](docs/testing.md) distinguishes documentation checks,
 focused regressions, historical checkpoint snapshots and real acceptance.
 The mappings below still govern reference-script changes; frozen historical
 baselines retain their original scope.
-The current [475-483 integrated review](docs/reference/repository-regression-block-475-483.md)
-selects 56 named checks, including the repaired cron/installed-initrd fixtures
-and guarded ELF failure paths. Dependencies, earlier failures and repair limits
-remain explicit. The [467-474 selection](docs/reference/repository-regression-block-467-474.md)
-and earlier reviews retain their original historical scope. A prepared pass still needs the complete actual final return and a
-separate review of every whole inherited condition before pause confirmation.
+The current [484-491 integrated review](docs/reference/repository-regression-block-484-491.md)
+selects 60 named checks: the original 56 followed by four ELF/runtime drivers.
+Dependencies, earlier failures, real/private/supplied effects and limits remain
+explicit. The [475-483 selection](docs/reference/repository-regression-block-475-483.md)
+and earlier reviews retain their historical scope. A prepared pass still needs
+the complete actual final return and a separate post-return reading/review of
+every whole inherited condition and every exact nested original body before
+pause confirmation. Counts, hashes, summaries and prior reviews cannot replace it.
 
 ## Reference-script changes
 
 Before submitting a change to the reference script:
 
 1. Run `bash -n tools/reference/slack-update-reference.sh`.
+   Run `python3 tests/reference/test-runtime-lifecycle.py` when real state initialization, early cleanup bindings, setup/EXIT composition or private lock lifecycle changes. Its [lifecycle scope](docs/reference/runtime-lifecycle.md) distinguishes supplied failures, real cleanup and preserved prior resources; keep main, logging, signal and lock tests for their separate boundaries.
+
+   Run `python3 tests/reference/test-elf-unresolved-display.py` when unresolved-list rendering and its publication guard change; see the [display scope](docs/reference/elf-scan-workflow.md#unresolved-list-display-failure-before-publication).
+
+   Run `python3 tests/reference/test-elf-cache-construction.py` for cache construction/order/publication/count changes, and `python3 tests/reference/test-elf-cache-workflow.py` for their propagation through real dependency/scan/recheck/report helpers. The [construction](docs/reference/elf-cache-construction.md) and [workflow](docs/reference/elf-cache-workflow.md) scopes retain supplied metadata/faults, partial publication and cleanup limits. These checks do not replace metadata, architecture, main result or native acceptance scopes.
+
    Run `python3 tests/reference/test-boot-artifact-validation.py` when version/scalar readers, installed-kernel selection, initrd-output precedence or generated GRUB validation changes. It uses private files, real parser/awk/chmod and a supplied GRUB checker; see [the boot artifact scope](docs/reference/boot-artifact-validation.md). Preserve the distinction between text matching, actual artifact binding and native boot acceptance; keep coordinator and transaction regressions for their separate boundaries.
 
    Run `python3 tests/reference/test-runtime-logging.py` when runtime path/temporary-file setup, log descriptor routing, text filtering or retention changes. It uses private files, real sed/tee/find and supplied state/date/mktemp callbacks; see [the runtime/logging scope](docs/reference/runtime-logging.md). Keep main setup/completion and trap/lock regressions for their separate boundaries; the separate cron regression now uses private local mirror fixtures and the real preflight, as described in [its scope](docs/reference/cron-minimal-environment.md).

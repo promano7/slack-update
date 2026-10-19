@@ -21,10 +21,11 @@ acceptance does not describe the present state of a machine.
 
 ### Repository verification and next decisions
 
-The [current integrated review](reference/repository-regression-block-475-483.md)
-selects 56 repository regressions across CLI/configuration, main setup and
+The [current integrated review](reference/repository-regression-block-484-491.md)
+selects 60 repository regressions across CLI/configuration, main setup and
 completion, result/JSON/events, package and optional workflows, SBo queues,
-static ELF readers/scanning, logging and private boot validation. The
+static ELF readers/scanning/cache, runtime lifecycle/logging and private boot
+validation. The original 56-command selection remains historical. The
 [testing guide](testing.md) describes their real/private/supplied boundaries.
 The synthetic GenInitrd test now models its exact target UID query and includes
 non-root rejection; it does not establish native ownership conformance.
@@ -37,13 +38,18 @@ with the accepted incomplete-path rejection contract and preserves later
 unsafe-data validation; see the [fixture alignment](reference/boot-artifact-validation.md#installed-kernel-fixture-alignment).
 Step482 additionally waits for the private cron logger before fixture assertions;
 its [completion scope](reference/cron-minimal-environment.md#logger-completion-before-assertions)
-retains the initial55/56 integration and serial diagnostic failures. Closing
-integration moves to483 within the requested block; no new pause is claimed.
+retains the initial 55/56 integration and serial diagnostic failures. That
+earlier block closed at the confirmed STATIC repository pause 483.
 Steps477-481 now reject selected ELF traversal/order/publication/count,
 initialization and diagnostic failures; the [scan scope](reference/elf-scan-workflow.md)
-records exact guarantees and partial-effect limits. Other observed unchecked
-failure projections and text-validation limits remain in their dedicated scopes. Passing the selected regressions does not approve
-those behaviors as native acceptance criteria or resolve the operational audit.
+records exact guarantees and partial-effect limits. Steps 484-489 add selected
+unresolved-display, cache-construction/publication/count and early cleanup-binding
+guards, plus real ELF/runtime helper compositions. Their dedicated scopes retain
+partial-publication and untracked-prior-resource limits. All 60 selected commands
+pass in the complete actual 490 return; final documentation step 491 still needs
+its complete return and a separate whole-condition review before a new pause.
+Other failure projections and text-validation limits remain in scope. Passing
+regressions does not approve native criteria or resolve the operational audit.
 
 The next work requires a new bounded choice of scope: investigate the remaining
 implementation failure projections, or advance an applicable acceptance family

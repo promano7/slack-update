@@ -312,7 +312,9 @@ still alter a destination partially. Step 479 checks resolved-list clearing
 before success/status reporting. Step 480 checks diagnostic/staging initialization
 failures before cache refresh; empty/missing verification lists still return early.
 Step 481 checks diagnostic rendering/clearing and propagates its failure before
-publication. Remaining limitations include unresolved-list display and rotation projections,
+publication. Step 484 separately guards unresolved-list display; steps 485-486
+guard selected cache pipeline/publication/count failures. Remaining limits include
+individual reader protocols, partial publication and rotation projections,
 partial runtime setup without rollback, stale direct-call error fields, lexical
 rather than semantic path/version filtering and GRUB path matches across distinct
 menuentries. The exact conditions remain in the scope documents. Recording a
@@ -429,11 +431,11 @@ See [the completion scope](reference/cron-minimal-environment.md#logger-completi
 
 That focused repair moved closing integration to483, nine steps within the
 requested8-12. It did not claim a56-command passing integrated run or new pause;
-the current integrated review above records the later selection separately.
+the historical 475-483 review records its later selection separately.
 The historical54-command474 selection remains unchanged. Final actual return must
 still precede the separate every-whole inherited/nested-body review.
 
-## Conditional repository pause after step483
+## Historical conditional repository pause after step 483
 
 The preparation baseline is the confirmed STATIC repository pause474. The bounded
 block is475-483; prepared483 does not attest its later application or pause.
@@ -567,6 +569,11 @@ workflow and runtime lifecycle. Run exactly those 60 commands, followed by the
 separate syntax, executable and whitespace checks. Its individual outputs,
 dependencies, real private effects, supplied boundaries and preparer UID 0
 qualification remain explicit. Historical mutation controls are not rerun by
-this selection. Step 490 prepares integration; final step 491 and the separate
-post-return whole-condition review remain pending. This does not confirm a new
-pause or authorize native acceptance, host cleanup or any system operation.
+this selection. Complete actual 490 passed all 60 in order. Final 491 changes
+documentation/navigation only; implementation/tests/fixtures and existing modes
+are byte-identical to accepted 490. The preparation reuses the recorded 490
+normal run on those unchanged bytes, rather than claiming a second local run.
+Complete actual 491 must repeat the same 60 on the final tree, then supply the
+exact scope/commit/push/clean refs/source-Git-mode-tree report. Only AFTER that
+return can a separate reading/review of every whole condition and nested original
+body confirm a scoped STATIC pause. No native or host-cleanup authority follows.

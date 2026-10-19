@@ -31,12 +31,14 @@ choose a path, approve a migration or grant a native test.
 
 ## Current repository regression coverage
 
-The [integrated 475-483 review](repository-regression-block-475-483.md) identifies
-56 selected commands, scoped cron/initrd fixture corrections, ELF failure handling
-and the conditions for a STATIC repository pause. It extends the historical
-[467-474 review](repository-regression-block-467-474.md), whose54-command selection
-and exclusions retain their original scope. Neither closes native acceptance or
-selects an operational contract alternative.
+The [integrated 484-491 review](repository-regression-block-484-491.md) identifies
+60 selected commands, the bounded ELF/runtime changes and the conditions for a
+STATIC repository pause. Its complete actual 490 run passes; final 491 remains
+pending. The historical [475-483 review](repository-regression-block-475-483.md)
+retains its original 56-command selection, failures and fixture corrections, as
+does the earlier [467-474 review](repository-regression-block-467-474.md). These
+repository selections do not close native acceptance or select an operational
+contract alternative.
 
 | Boundary | Detailed current scope |
 | --- | --- |
@@ -44,7 +46,10 @@ selects an operational contract alternative.
 | Queue directory selection and file merging | [Queue files](sbo-queue-files.md) |
 | Synchronization, generation gates and submission coordination | [SBo workflow](sbo-workflow.md) |
 | ELF magic, reader text, cache identities and dependencies | [ELF metadata](elf-metadata.md) |
-| Private scan, broken-list handling and post-build recheck | [ELF scanning](elf-scan-workflow.md) |
+| Private scan, broken-list handling, unresolved display and post-build recheck | [ELF scanning](elf-scan-workflow.md) |
+| Cache construction, publication and record-count failures | [ELF cache construction](elf-cache-construction.md) |
+| Cache failure propagation through real dependency/scan/recheck helpers | [ELF cache workflow](elf-cache-workflow.md) |
+| Real state/setup/EXIT-cleanup and private lock composition | [Runtime lifecycle](runtime-lifecycle.md) |
 | Runtime paths, temporary setup, log routing and rotation | [Runtime/logging](runtime-logging.md) |
 | Detached minimal-environment checks and private mirror preflight | [Cron fixture repair](cron-minimal-environment.md) |
 | Version/scalar/snapshot/output readers and GRUB candidate text | [Boot artifacts and fixture repairs](boot-artifact-validation.md) |
