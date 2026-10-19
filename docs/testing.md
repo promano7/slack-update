@@ -343,6 +343,19 @@ Complete supplied484 is accepted at `5bb6aba72ad5881389363099f240f8ffeb9cd940`.
 Prepared485 awaits its own full return. The historical56-command selection remains
 unchanged; neither focused addition confirms the new block's closing pause.
 
+## Step 486 focused extension
+
+The current `test-elf-cache-construction.py` matrix has100 scenarios: the original
+50 construction cases plus50 publication/count cases and inactive controls.
+The [publication/count scope](reference/elf-cache-construction.md#publication-and-count-failure-handling-step-486)
+records exact failure effects and the unchanged ten-command focused selection.
+Failed moves return before count; failed counts keep the current count zero.
+Destination bytes may already have changed and are not rolled back.
+
+Complete supplied485 is accepted at `e5398e6f0cad21c7ce82d883701ba2812a690d50`.
+Prepared486 awaits its full return. Two actual steps (484-485) are complete in the
+new block; the last confirmed strong STATIC repository pause remains483.
+
 ## Known test failures and fixture repair
 
 | Test or attempt | Recorded result and current treatment |

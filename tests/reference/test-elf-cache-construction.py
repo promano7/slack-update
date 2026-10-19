@@ -78,11 +78,23 @@ chmod() {
 mv() {
     [[ $# == 4 && $1 == -f && $2 == -- && $3 == "$TEST_ROOT/cache."* && $4 == "$TEST_ROOT/cache" ]] || forbidden mv-vector
     record mv "$@"
-    builtin command mv "$@"
+    [[ $FAULT != mv-quiet ]] || return 43
+    if [[ $FAULT == mv-partial ]]; then
+        builtin printf 'supplied partial publication\n' > "$4"
+        return 43
+    fi
+    builtin command mv "$@" || forbidden real-mv
+    [[ $FAULT != mv-late ]] || return 43
+    return 0
 }
 wc() {
     [[ $# == 1 && $1 == -l ]] || forbidden wc-vector
     record wc "$@"
+    [[ $FAULT != wc-quiet ]] || return 43
+    if [[ $FAULT == wc-late ]]; then
+        builtin printf '42\n'
+        return 43
+    fi
     builtin command wc "$@"
 }
 '''
@@ -141,10 +153,20 @@ def scenario(root, profile, fault, old_errors):
         else:
             calls.append('rm <RAW>')
             if records:
-                status = 0
-                count = len(records)
-                expected['cache'] = ''.join(sorted(set(records))).encode()
-                calls += ['chmod 600 <STAGE>', 'mv -f -- <STAGE> ' + str(root / 'cache'), 'wc -l']
+                normalized = ''.join(sorted(set(records))).encode()
+                calls += ['chmod 600 <STAGE>', 'mv -f -- <STAGE> ' + str(root / 'cache')]
+                if fault in ('mv-quiet', 'mv-partial', 'mv-late'):
+                    calls.append('rm <STAGE>')
+                    if fault == 'mv-partial':
+                        expected['cache'] = b'supplied partial publication\n'
+                    elif fault == 'mv-late':
+                        expected['cache'] = normalized
+                else:
+                    calls.append('wc -l')
+                    expected['cache'] = normalized
+                    if fault not in ('wc-quiet', 'wc-late'):
+                        status = 0
+                        count = len(records)
             else:
                 errors += 'ldconfig produced no usable architecture-tagged ELF records\n'
                 calls.append('rm <STAGE>')
@@ -175,8 +197,12 @@ builtin printf '\0STATE\0%s\0%s\0' "$raw" "$ELF_LIBRARY_CACHE_RECORD_COUNT"
     # Sort producers/consumers can interleave. Only serial phase relationships are asserted.
     if actual[:2] != calls[:2] or actual.index('sort 1 -u') > next((i for i, item in enumerate(actual) if item.startswith('identity ')), len(actual)):
         raise AssertionError(f'{profile}/{fault}: phase order differs')
-    if status == 0 and not (actual.index('sort 2 -u') < actual.index('chmod 600 <STAGE>') < actual.index('wc -l')):
-        raise AssertionError(f'{profile}/{fault}: publication phase order differs')
+    publication = 'mv -f -- <STAGE> ' + str(root / 'cache')
+    if publication in actual:
+        if not actual.index('sort 2 -u') < actual.index('chmod 600 <STAGE>') < actual.index(publication):
+            raise AssertionError(f'{profile}/{fault}: publication phase order differs')
+        if 'wc -l' in actual and actual.index('wc -l') < actual.index(publication):
+            raise AssertionError(f'{profile}/{fault}: count precedes publication')
     if inventory(root) != expected:
         raise AssertionError(f'{profile}/{fault}: complete private file inventory differs: {inventory(root)!r} != {expected!r}')
     if {str(p.relative_to(root)) for p in root.rglob('*') if p.is_dir()} != {'objects'}:
@@ -186,7 +212,9 @@ builtin printf '\0STATE\0%s\0%s\0' "$raw" "$ELF_LIBRARY_CACHE_RECORD_COUNT"
 def run():
     count = 0
     with tempfile.TemporaryDirectory(prefix='slack-update-elf-cache-') as temporary:
-        for profile, fault, old_errors in itertools.product(PROFILES, ('none', 'raw-quiet', 'raw-late', 'final-quiet', 'final-late'), ('', 'prior diagnostic\n')):
+        faults = ('none', 'raw-quiet', 'raw-late', 'final-quiet', 'final-late',
+                  'mv-quiet', 'mv-partial', 'mv-late', 'wc-quiet', 'wc-late')
+        for profile, fault, old_errors in itertools.product(PROFILES, faults, ('', 'prior diagnostic\n')):
             root = Path(temporary).resolve() / str(count)
             root.mkdir()
             scenario(root, profile, fault, old_errors)

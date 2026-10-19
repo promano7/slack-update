@@ -1,4 +1,4 @@
-# Private static ELF cache construction checks
+# Private static ELF cache construction and publication checks
 
 Step 485 checks the architecture-tagged cache construction pipeline before any
 publication. The existing `pipefail` setting makes a nonzero loop or final sort
@@ -31,7 +31,7 @@ python3 tests/reference/test-dry-run-workflow.py
 
 ## Independently authored matrix and private effects
 
-The standard-library Python driver authors 50 scenarios: valid, duplicate,
+Step 485's original standard-library Python matrix authored 50 scenarios: valid, duplicate,
 mixed-validity, empty and wholly invalid raw records; normal, quiet/late raw
 producer failure and quiet/late final-sort failure; and two diagnostic seeds.
 Successful controls publish sorted unique five-field records and the exact count.
@@ -58,7 +58,7 @@ It does not measure ownership, permissions, xattrs, descriptors or host state.
 
 ## Evidence and remaining limits
 
-All 50 scenarios and nine complementary normal suites pass in preparation under
+At step 485, all 50 scenarios and nine complementary normal suites passed under
 UID 0; shell syntax passes. This does not establish an actual unprivileged OS run.
 Against exact accepted484 reference bytes, 30 normal/earlier-failure controls pass
 and all20 final-sort fault cases reject. In particular, a late failed sort after
@@ -75,10 +75,11 @@ normalization. That harness failure is separate from the later exact old-source
 controls; no reference change was made to accommodate its initial faulty trace.
 Preparation evidence and this qualification remain outside the normal test run.
 
-Only the construction pipeline guard changes in the reference. Cleanup commands
-can fail; this guard preserves raw failure regardless, but does not prove global
-cleanup. Earlier cache/diagnostic setup has real effects. Later chmod, move,
-count and cleanup failure projections remain outside this patch; ordinary moves
+Step 485 changed only the construction pipeline guard in the reference. Cleanup
+commands can fail; that guard preserves raw failure regardless, but does not prove
+global cleanup. Earlier cache/diagnostic setup has real effects. Step 485 left
+chmod, move, count and cleanup failure projections outside its patch; step 486
+below addresses publication/count status and count retention. Ordinary moves
 are not an atomic whole-operation or recovery contract. Reader skip semantics,
 path trust, file predicates and caller changes to pipefail retain their limits.
 The step484 unresolved-display guard and existing scan/verification protections
@@ -91,3 +92,47 @@ bindings are null; actual host unobserved, global host closure false. Separate
 native decision, independent review, conditional migration, actual composition,
 independent safe whole review, fresh bounded grant and own-platform conformance
 remain due. Schema1/reference-v1/C/Phase2/production remain closed.
+
+
+## Publication and count failure handling (step 486)
+
+After successful construction, a nonzero move status now attempts to remove the
+owned staging temporary and returns 1 before counting. The initialized global
+count stays zero. A successful move is followed by a checked local count capture;
+only successful capture assigns the public count. A failed count returns 1 and
+keeps that count zero, including when the failed command emitted partial stdout.
+The helper normalizes these failures to raw 1; the two real scan/verification
+callers already test cache refresh as a Boolean and retain their failure paths.
+Their result mapping, schema and native criteria are unchanged.
+
+The destination is not rolled back: a failed move can already have altered it,
+and a failed count follows an already successful publication. Zero current count
+marks the failed refresh; it does not assert an empty or restored cache file.
+A failed staging cleanup can leave a temporary file while raw failure remains 1.
+There is no retry, whole-operation atomicity, global cleanup or recovery claim.
+The existing chmod projection and earlier raw cleanup failures remain separate.
+
+The expanded driver has 100 scenarios. The original50 cases stay unchanged in
+scope. Fifty additions cross all five profiles and both prior diagnostic seeds
+with quiet/partial/late move failure and quiet/partial-output count failure.
+Thirty active cases reach publication/count; twenty empty/invalid controls never
+call those operations. Move faults respectively leave the old destination, write
+a selected private marker, or perform the complete real move before returning43.
+The late count emits42 and returns43. These are supplied faults over private real
+file effects, not native disk, permission, race or concurrent-writer measurements.
+
+Exact status/count/output, bytes/directories, callback vectors/multiplicity and
+serial publication-before-count relationships are checked. Move failure must
+skip counting and attempt staging cleanup; count failure must retain published
+bytes and discard partial count stdout. Normal success still assigns the exact
+record count. Two generated mktemp suffixes retain the original normalization;
+no additional output relaxation or another driver's oracle is imported.
+
+Against exact accepted485 source,70 unaffected cases pass and all30 active new
+fault cases reject. The initial quiet move probe reproduces raw success and a
+count of the old cache. Seven syntax-valid private mutations reject: unchecked
+move, zero move-failure return, counting after failed move, retained failed-move
+staging, unchecked count, zero count-failure return and partial-count retention.
+All100 normal cases, nine complementary suites and shell syntax pass in preparation
+under UID0. No actual unprivileged OS/native run or independent conformance is
+claimed. Earlier construction/display guards and native gates above remain intact.

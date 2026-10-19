@@ -4028,6 +4028,7 @@ refresh_static_elf_library_cache() {
     local candidate
     local resolved
     local identity
+    local cache_count
 
     ELF_LIBRARY_CACHE_RECORD_COUNT=0
     raw_cache=$(mktemp "${destination}.raw.XXXXXX") || return 1
@@ -4073,8 +4074,14 @@ refresh_static_elf_library_cache() {
     fi
 
     chmod 600 "$temporary" 2>/dev/null || true
-    mv -f -- "$temporary" "$destination"
-    ELF_LIBRARY_CACHE_RECORD_COUNT=$(wc -l < "$destination")
+    if ! mv -f -- "$temporary" "$destination"; then
+        rm -f -- "$temporary"
+        return 1
+    fi
+    if ! cache_count=$(wc -l < "$destination"); then
+        return 1
+    fi
+    ELF_LIBRARY_CACHE_RECORD_COUNT=$cache_count
 }
 
 static_elf_cache_has_compatible_library() {

@@ -1,3 +1,36 @@
+## Phase 1 step 486 -- reject ELF cache publication and count failures
+
+- Accept complete supplied485 HEAD/origin
+  `e5398e6f0cad21c7ce82d883701ba2812a690d50`, parent
+  `5bb6aba72ad5881389363099f240f8ffeb9cd940`, tree
+  `e17d49ec115ac9bc79f223f3d99a215eb0818ca9`, canonical report SHA256
+  `c0030072d7f508816e6d3057db95e73719ca032ab8e6d378c2d78bf7a02931d3`.
+  Ten ordered normal outputs, five-path341add2delete scope, subject, reported push,
+  clean matching local refs and full2375-file source/modes/tree agree. Inline
+  single-paragraph Markdown return is normalized/transcribed; original terminal
+  bytes and independent remote/native capture are unavailable. No user Git object
+  is fabricated; prior prepared pending metadata stays historical.
+- Guard cache publication before count; failed move attempts staging cleanup and
+  returns1. Capture count locally and assign its public field only on success;
+  failed count returns1 with current count0. Partial publication/count effects
+  remain: destination may have changed and is not rolled back. Existing Boolean
+  callers/result mapping, chmod/raw-cleanup projections and native criteria stay.
+- Extend the independent cache matrix from50 to100 scenarios. Retain original50
+  and add50 cases:30active publication/count faults plus20inactive controls.
+  Exact accepted485 source passes70unaffected cases and rejects30active controls.
+  Seven syntax-valid private source mutations reject. All100 cases, nine related
+  suites and shell syntax pass under preparerUID0; no actual unprivileged OS or
+  native run is claimed. Real private move/cleanup/file effects remain qualified.
+- Five existing paths change: reference,cache test,cache scope,testing guide and
+  this log. No paths added/removed; all2375file modes, README, original log tail,
+  frozen contracts/fixtures/evidence unchanged. Full prior conditions/history,
+  accepted485 normalized receipt/report and preparation controls accompany delivery.
+- Prepared486 awaits complete actual application/tests/commit/push/clean full refs/
+  source-Git-mode-tree report. Two actual steps484-485 complete; target8-12 total;
+  last confirmed strong STATIC pause483, no new pause. Phase1/kernel incomplete;
+  A/R/D unselected; native evidence/live bindingsNULL, actual host unobserved and
+  global host closureFALSE; all original independent/native grant gates unchanged.
+
 ## Phase 1 step 485 -- reject incomplete ELF cache construction
 
 - Accept the complete inline user484 return: HEAD/origin
