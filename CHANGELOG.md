@@ -1,3 +1,51 @@
+## Phase 1 step 499 -- final source and guidance review for conditional repository pause
+
+- Accept complete actual498 at HEAD/local origin
+  5cf8ca0c6d676b95d76b89dbfb5b7a34e8f30180, parent
+  cada3d16e7b0344ea1bf1f06383cb68e76612800, tree
+  cb362f82f0f22a556f464c1b37196ae4b3feccd4, source-policy SHA256
+  da1066150d12f1ca995c11b942b3056c451947e86e4b3e3c4f3617640438e2ff.
+  All66 vectors/outputs agree in order, normalizing only one consistent generated
+  initrd root for its single command. Expected ERROR controls finish90checks/zero
+  failures. ZIP2787entries/312478384bytes, application/three scope gates, exact
+  fourpaths261add2delete/oneNEW100644, subject/reportedpush/empty status/fullrefs/
+  source-mode report agree. Preserve supplied inline provenance, not original
+  terminal bytes or independent terminal/GitHub/native capture.
+- Reconcile final review/navigation/status across twelve existing documentation
+  paths. README changes only its existing current-selection link; do not duplicate
+  per-step history there. Point guides/indexes to current66 selection and owner/
+  cache/archive qualifications. Preserve historical54/56/60 source/control scopes
+  and every failure, repair and unknown cause. No normative/native criteria change.
+- Runtime, tests, support, fixtures/native criteria/evidence and every existing mode
+  stay exact from accepted498. Reuse its recorded local66 run and complete actual
+  return on unchanged executable/test/fixture bytes; claim no second local suite.
+  Source2391files,501exec/1890regular; no new paths/removals/modechanges. Exact
+  oldlog tail and twelve preimages accompany the full source delivery. Final
+  actual499 must repeat all66 on its final tree and return complete Git/source state.
+- Review the bounded source/history projection and retain open binary-history
+  incompleteness: both491 continuations matched, but saved nested491 is truncated;
+  separate original retrieval failed/unread. No repaired archive or actual Git
+  history is fabricated. CRC/manifests/source/modes are finite integrity checks,
+  not atomic filesystem snapshots, ignored-file surveys or complete host closure.
+- Preserve GNU awk original497 runtime487/11, distinct earlier diagnostic-oracle
+  failure, repaired runtime/private498/fourteen/expanded592 scopes, SSH disconnect/
+  rejected intermediate capture/orphan-parenthesis recovery and all earlier
+  failures. Scan error omission/raw0, partial publication/count/cleanup/read/input
+  races, supplied operations and whole-state limits remain. Normal PASS is not
+  installed/native acceptance or safe whole native graph review.
+- Seven actual steps492-498 accepted; prepared499 would make eight only after its
+  complete actual application/tests/commit/push/clean fullrefs/source-mode-tree
+  return. No new pause is confirmed. Accept final actual return FIRST; THEN
+  separately read EVERY WHOLE inherited condition/header and EVERY exact nested
+  original body plus all new effects/obligations/cleanup/limits. Counts/hashes/
+  summaries/prior reviews cannot replace that reading. Only then assess a scoped
+  STATIC repository pause. Reserve through503 only if needed, no automatic work.
+- Phase1/kernel incomplete; A/R/D unselected, native evidence/livebindingsNULL,
+  host unobserved/globalclosurefalse. Original independent acceptance, migration
+  IF norms change, ACTUAL composition, independent safe ACTUAL WHOLE review,
+  fresh bounded native grant and own-platform conformance gates remain. No old
+  or consumed right/binding is reused, revived or renewed.
+
 ## Phase 1 step 498 -- integrate 66 named repository regression commands
 
 - Accept complete repaired497 supplied return at HEAD/local origin

@@ -31,20 +31,24 @@ choose a path, approve a migration or grant a native test.
 
 ## Current repository regression coverage
 
-The [integrated 484-491 review](repository-regression-block-484-491.md) identifies
-60 selected commands, the bounded ELF/runtime changes and the conditions for a
-STATIC repository pause. Its complete actual 490 run passes; final 491 remains
-pending. The historical [475-483 review](repository-regression-block-475-483.md)
-retains its original 56-command selection, failures and fixture corrections, as
-does the earlier [467-474 review](repository-regression-block-467-474.md). These
-repository selections do not close native acceptance or select an operational
-contract alternative.
+The [integrated492-499 review](repository-regression-block-492-499.md) identifies
+66 selected commands and current ZIP/ELF-owner/cache changes. Complete actual498
+passed; prepared499 is the final source/docs/navigation review and still needs
+its complete return plus separate whole-condition/nested-original reading before
+any new scoped STATIC pause. The [484-491 review](repository-regression-block-484-491.md),
+[475-483 review](repository-regression-block-475-483.md) and earlier
+[467-474 review](repository-regression-block-467-474.md) retain their historical
+60/56/54 selections, failures and qualifications. None closes native acceptance
+or selects an operational contract alternative.
 
 | Boundary | Detailed current scope |
 | --- | --- |
 | SBo graph constraints and deterministic order | [Queue graph](sbo-queue-graph.md) |
 | Queue directory selection and file merging | [Queue files](sbo-queue-files.md) |
 | Synchronization, generation gates and submission coordination | [SBo workflow](sbo-workflow.md) |
+| Delivery ZIP structure/CRC and explicitly selected embedded archives | [Archive integrity and incomplete history](delivery-archive-integrity.md) |
+| Literal ELF-owner mapping, collection, count/publication and private apply composition | [Owner mapping](elf-owner-mapping.md) |
+| Compatible/absent/error cache lookup and successful directory-skip repair | [Cache lookup](elf-cache-lookup.md) |
 | ELF magic, reader text, cache identities and dependencies | [ELF metadata](elf-metadata.md) |
 | Private scan, broken-list handling, unresolved display and post-build recheck | [ELF scanning](elf-scan-workflow.md) |
 | Cache construction, publication and record-count failures | [ELF cache construction](elf-cache-construction.md) |

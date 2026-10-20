@@ -88,14 +88,21 @@ selected failure projections are documented as limitations in those scopes.
 Do not treat a printed success label, private regression PASS or plan as native
 acceptance, package no-effect evidence or a bootability guarantee.
 
-The [current integrated selection](reference/repository-regression-block-484-491.md)
-contains 60 named commands. Selected ELF traversal/publication/count, work-file
+The [current integrated selection](reference/repository-regression-block-492-499.md)
+contains66 named commands and passed complete actual498. Prepared499 still needs
+its final return and the separate whole-condition review. Selected ELF traversal/publication/count, work-file
 initialization and diagnostic/display failures propagate before success reporting;
 see [ELF scanning](reference/elf-scan-workflow.md). Cache construction, publication
 and count failures have a separate [cache scope](reference/elf-cache-construction.md)
 and [real helper workflow](reference/elf-cache-workflow.md). Failed copy or move can
 still affect the destination; a failed count can follow successful publication.
 Individual reader protocols and unselected failures retain their limits.
+[Owner mapping](reference/elf-owner-mapping.md) now covers literal records,
+collection and count-before-publication failure handling; a failed partial move
+may change its destination. [Cache lookup](reference/elf-cache-lookup.md) separates
+absence from errors, including GNU awk's successful directory skip. The initial
+scan can still omit inspection errors and return0; neither that return nor a
+private PASS establishes complete inspection or a native safety guarantee.
 
 Human output passes through the current sed filter before tee, so both console
 and log receive filtered text. Supported ANSI sequences and the first carriage

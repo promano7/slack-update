@@ -220,10 +220,11 @@ The inherited incomplete binary-history record from 492 remains open. Source,
 receipt and whole-condition records accompany this delivery with exact archive
 identities/hashes; no complete historical archive restoration is claimed.
 
-Prepared496 awaits actual application/test/commit/push/clean source/mode/tree
-evidence. Four actual steps (492-495) of the new 8-12-step block are accepted;
-496 is not accepted by these prepared documents. The recorded previous repository pause is
-491; no new pause is confirmed. Phase1/kernel remain incomplete, A/R/D unselected,
+The original prepared496 status is historical; complete actual496 and the later
+[66-command actual498 integration](repository-regression-block-492-499.md) are now
+accepted in their supplied scopes. Seven actual steps492-498 are accepted. Final
+prepared499 still needs its actual return and the separate whole-condition review.
+The previous recorded repository pause is491; no new pause is confirmed here. Phase1/kernel remain incomplete, A/R/D unselected,
 native evidence/live bindings null, host unobserved and global closure false.
 All original independent acceptance, migration-if-needed, actual composition,
 safe whole review, fresh bounded native grant and own-platform conformance gates

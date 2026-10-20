@@ -602,14 +602,13 @@ workflow and runtime lifecycle. Run exactly those 60 commands, followed by the
 separate syntax, executable and whitespace checks. Its individual outputs,
 dependencies, real private effects, supplied boundaries and preparer UID 0
 qualification remain explicit. Historical mutation controls are not rerun by
-this selection. Complete actual 490 passed all 60 in order. Final 491 changes
-documentation/navigation only; implementation/tests/fixtures and existing modes
-are byte-identical to accepted 490. The preparation reuses the recorded 490
-normal run on those unchanged bytes, rather than claiming a second local run.
-Complete actual 491 must repeat the same 60 on the final tree, then supply the
-exact scope/commit/push/clean refs/source-Git-mode-tree report. Only AFTER that
-return can a separate reading/review of every whole condition and nested original
-body confirm a scoped STATIC pause. No native or host-cleanup authority follows.
+this historical selection. Actual490 and final491 passed those60;491's later
+separate whole-condition review recorded the previous STATIC repository pause.
+Their prepared source documents remain historical records, not new commands to
+replay or later execution evidence. Current492-499 coverage is described below.
+Every future closing boundary still requires its own complete final actual return
+before separate full inherited-condition/nested-original reading. No native or
+host-cleanup authority follows from a normal selection or historical pause.
 
 For the private owner/apply/builder/result composition, run
 `python3 tests/reference/test-elf-owner-composition.py`. Its 192 cases connect real
@@ -621,15 +620,15 @@ supplied recheck/boot flags, mutation controls and retained authoring failures.
 This is not installed workflow or native acceptance.
 
 For completed ELF cache searches versus lookup failures, run
-`python3 tests/reference/test-elf-cache-lookup.py`. Its 498 scenarios include real
-private missing-file/directory errors and real object/scan/verification helpers,
+`python3 tests/reference/test-elf-cache-lookup.py`. Its repaired592 scenarios include
+real private missing-file/directory errors and object/scan/verification helpers,
 with supplied readelf/cache-refresh operations. See the
 [lookup status scope](reference/elf-cache-lookup.md) for the three helper outcomes,
 legacy scan error policy, diagnostic-oracle authoring failure and control limits.
 Also run the unchanged metadata, architecture and scan workflow regressions.
 
-Step497 repair1 extends that driver to592 cases, including a supplied directory
-skip that returns0. The original498 user return and fourteen complementary passes
+Step497 repair1 extended the original498-case driver to592, adding a supplied
+directory skip that returns0. The original498-case temporary check and fourteen complementary passes
 apply to the same repaired runtime hash, not the expanded driver. Preserve the
 original487/11 runtime failure and the distinct earlier diagnostic-oracle failure.
 See [repair evidence](reference/elf-cache-lookup.md#original-failure-and-repair-evidence).
@@ -641,10 +640,13 @@ keeps the historical60 command order and appends six named drivers from492-497:
 delivery ZIP, owner mapping/collection/publication/composition and cache lookup.
 Run exactly those66 normal commands, then the separate syntax/executable/ZIP/
 whitespace and delivery source/index/mode/tree checks. All66 pass in498 preparation
-on the unchanged accepted497 executable/test/fixture bytes. Complete actual498
-is still pending; prepared documentation cannot attest its later run or a pause.
-Separate historical mutation controls are not rerun. Real private effects versus
-supplied operations, UID0, initial scan error omission, partial publication/cleanup,
-input races and incomplete binary history remain explicit. Actual498 would make
-seven accepted steps492-498; final499 and separate post-return whole-condition/
-nested-original reading remain due before any new scoped STATIC pause.
+and complete actual498. Final499 changes twelve documentation paths only, reuses
+those recorded results on exact unchanged runtime/test/fixture bytes, and claims
+no second local suite execution. Actual final499 must repeat the same66 on its
+final tree and supply complete scope/commit/push/clean refs/source-mode-tree evidence.
+Separate historical source-mutation controls are not rerun. Real private effects,
+supplied operations, UID0, scan error omission/raw0, partial publication/cleanup,
+input races and incomplete binary history remain explicit. Seven actual steps
+492-498 are accepted; final499 and the subsequent separate whole-condition/header/
+nested-original and new-effect/obligation/cleanup/limit review remain due before
+any new scoped STATIC pause. Counts/hashes/summaries cannot replace that reading.

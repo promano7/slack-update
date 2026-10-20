@@ -124,16 +124,18 @@ and corrected-driver baseline248/250 are retained only with those original scope
 That test-only issue did not explain or excuse the later user's real GNU awk
 runtime defect. Neither failed result is erased by a later pass.
 
-Fifteen selected normal commands run separately. This is not the historical
-sixty-command integration or acceptance of a whole native workflow composition.
+Fifteen selected normal commands ran separately during repair preparation and
+actual497; the later [66-command actual498 integration](repository-regression-block-492-499.md)
+also passed. Neither result accepts a whole native workflow composition.
 Existing owner collection/publication cleanup, partial-move, concurrency and
 whole-state limits remain. No complete archive repair is claimed for the inherited
 incomplete nested491 delivery. Full source, receipts and exact inherited condition
 bodies accompany the prepared delivery.
 
-Prepared497 repair1 awaits complete actual repair/tests/commit/push/clean refs/source/
-mode/tree evidence. Five actual steps492-496 are accepted; previous recorded
-repository pause491. No new pause is confirmed. Phase1/kernel remain incomplete,
+Complete actual497 repair1 and actual498 integration are accepted as supplied
+evidence. Seven actual steps492-498 are accepted; final prepared499 still needs
+its actual return and separate whole-condition review. Previous recorded
+repository pause491; no new pause is confirmed here. Phase1/kernel remain incomplete,
 A/R/D unselected, native evidence/live bindings null, host unobserved and global
 closure false. Original independent acceptance/migration-if-needed/actual
 composition/safe whole review/fresh bounded native grant/own-platform conformance

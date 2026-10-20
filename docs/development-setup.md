@@ -36,9 +36,10 @@ flag to test the checkout: the default operation is the legacy apply workflow.
 | Build the planned C application | Future work; the build system and minimum compiler versions are not selected |
 
 There is no single top-level build or test command for every file in this
-repository. The [current integrated selection](reference/repository-regression-block-484-491.md)
-lists 60 named commands, retaining the historical 56 in order and appending four
-ELF/runtime drivers. Use that named selection rather than every harness.
+repository. The [current integrated selection](reference/repository-regression-block-492-499.md)
+lists66 named commands: historical60 in order, followed by delivery ZIP, owner
+mapping/collection/publication/composition and cache lookup. Actual498 passed the
+selection; final499 remains pending. Use those names rather than every harness.
 Run it as an ordinary developer without sudo. It requires Python 3, Bash,
 jq, Unix advisory locking/flock, timeout, awk and the GNU coreutils/findutils/
 sed used by the individual scopes. Delivery verification helpers require

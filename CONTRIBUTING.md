@@ -114,11 +114,13 @@ when their validity is claimed. See the
 
 The mappings below still govern reference-script changes; frozen historical
 baselines retain their original scope.
-The current [484-491 integrated review](docs/reference/repository-regression-block-484-491.md)
-selects 60 named checks: the original 56 followed by four ELF/runtime drivers.
-Dependencies, earlier failures, real/private/supplied effects and limits remain
-explicit. The [475-483 selection](docs/reference/repository-regression-block-475-483.md)
-and earlier reviews retain their historical scope. A prepared pass still needs
+The current [492-499 integrated review](docs/reference/repository-regression-block-492-499.md)
+selects66 named checks: historical60 in order, then six ZIP/owner/cache drivers.
+Complete actual498 passed all66; prepared499 is the final documentation review
+and still needs its actual return. Dependencies, failures, real/private/supplied
+effects and limits remain explicit. The [484-491 selection](docs/reference/repository-regression-block-484-491.md),
+[475-483 selection](docs/reference/repository-regression-block-475-483.md) and earlier
+reviews retain their historical scope. A prepared pass still needs
 the complete actual final return and a separate post-return reading/review of
 every whole inherited condition and every exact nested original body before
 pause confirmation. Counts, hashes, summaries and prior reviews cannot replace it.
@@ -514,8 +516,3 @@ For static ELF cache lookup status changes, run
 `python3 tests/reference/test-elf-cache-lookup.py` with metadata, architecture and
 scan workflow regressions. Read the [lookup scope](docs/reference/elf-cache-lookup.md)
 for absent-versus-error statuses, supplied operations and existing scan limits.
-
-For the current bounded492-499 repository integration, use the
-[exact66-command selection and limits](docs/reference/repository-regression-block-492-499.md).
-Preserve the old60 order and append only the six named regressions; do not glob
-historical/native harnesses or treat a passing normal selection as native authority.

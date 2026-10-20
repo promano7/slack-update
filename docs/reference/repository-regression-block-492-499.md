@@ -1,8 +1,8 @@
 # Integrated repository regression block 492-499
 
-Prepared integration498 follows six accepted actual steps492-497 in the new
-8-12-step request. Complete actual498 would make seven; a later closing review499
-would make eight only after its actual return and separate whole-condition review.
+Prepared final source/docs/navigation review499 follows seven accepted actual
+steps492-498 in the new8-12-step request. Complete final499 would make eight only
+after its actual return and separate whole-condition review.
 The previous recorded strong STATIC repository pause is491. No new pause is
 confirmed here. Phase1/kernel remain incomplete; this is repository verification,
 not installed Slackware acceptance or native execution authority.
@@ -31,6 +31,23 @@ occurred after END REPOSITORY497. It did not undo the completed capture, commit 
 push. Retain these failures and successful recovery. Use complete parenthesized
 blocks and explicit checkout paths. Push recovery never repeats the commit.
 
+## Accepted498 and prepared final review
+
+Complete supplied actual498 reports HEAD/local origin
+`5cf8ca0c6d676b95d76b89dbfb5b7a34e8f30180`, parent
+`cada3d16e7b0344ea1bf1f06383cb68e76612800`, tree
+`cb362f82f0f22a556f464c1b37196ae4b3feccd4`, source-policy SHA256
+`da1066150d12f1ca995c11b942b3056c451947e86e4b3e3c4f3617640438e2ff`.
+All66 individual command outputs match preparation in order, normalizing only
+one consistent generated initrd root for its single command. Expected negative
+initrd diagnostics end90checks/zero failures. ZIP2787entries/312478384bytes,
+application/three scope gates, fourpaths261add2delete/oneNEW100644, subject,
+reported push, empty status/full matching refs/source-mode report agree.
+Canonical report SHA256
+`8c406a7062aa9052682dcbb49fff4544760c6b567a91e6063035802bf4743484`.
+Keep supplied-inline provenance, not original terminal bytes or independent
+capture. Prepared499 documents cannot attest their later actual run or pause.
+
 ## Bounded source changes and retained controls
 
 | Step | Current finite change/check | Qualification retained |
@@ -41,7 +58,8 @@ blocks and explicit checkout paths. Push recovery never repeats the commit.
 | 495 | Count before owner-queue publication;96 cases | Failed partial move may change destination; retained count does not describe partial bytes |
 | 496 | Real private owner/apply/builder-wrapper/result composition;192 cases | External operations/flags/recheck/summary supplied; raw workflow0 can coexist with stable partial2 |
 | 497 | Lookup absence versus inspection failure;592 cases after repair | GNU awk directory skip/status0 counterexample retained; post-search directory check is not atomic input binding |
-| 498 | Exact66 named normal commands on unchanged executable/test bytes | No historical source-mutation rerun or installed/native whole-graph acceptance |
+| 498 | Complete actual66-command integration accepted | No historical source-mutation rerun or installed/native whole-graph acceptance |
+| 499 | Final source/docs/navigation review prepared | Actual final return and subsequent separate whole-condition review remain due |
 
 Original497 passed the preparer's498 under mawk but failed the user's first run
 with487pass/11fail: GNU awk skipped a directory with status0. This runtime defect
@@ -51,14 +69,15 @@ complementary tests; the expanded592 later passed actual497. Keep each subject,
 driver count, callback boundary, failure and source/driver hash bound to its own
 record. Local source controls are not independent semantic/native acceptance.
 
-Prepared498 changes this new review, CHANGELOG, contribution mapping and testing
-guidance only. All runtime statements, test drivers, support, fixtures/native
-criteria/evidence and existing modes stay exact from accepted497. Three existing
-documents change and one new100644 review is added;2391 source files,501executable/
-1890regular. README stays an overview. Preparation ran the66 commands before these
-documentation edits on exactly the same executable/test/fixture bytes; no second
-run is claimed for a documentation-only copy. Final actual498 must execute the
-same66 on its final tree. A prepared source document cannot attest that later run.
+Prepared499 changes twelve existing documentation paths: this review, CHANGELOG,
+README's existing selection link, contribution/testing guides, documentation/
+reference indexes, setup/usage/roadmap and current owner/cache scope status.
+All runtime statements, test drivers, support, fixtures/native criteria/evidence
+and modes stay exact from accepted498. No new paths or removals;2391source files,
+501executable/1890regular. README remains an overview without added step history.
+Preparation explicitly reuses the recorded498 suite on unchanged executable/test/
+fixture bytes, not a second local run. Actual final499 must repeat the same66 on
+its final tree. A prepared source document cannot attest that later execution.
 
 ## Exact ordered selection
 
@@ -72,9 +91,9 @@ selections retain their original scopes and exclusions.
 
 Run as an ordinary developer without sudo. Dependencies include Python3, Bash,
 jq, flock, timeout, awk, GNU coreutils/findutils/sed and the existing JSON support.
-The delivery includes step498-overlay/run-step498-tests.sh with exactly the
+The delivery includes step499-overlay/run-step499-tests.sh with exactly the
 following66 command vectors. That shell entry sets PYTHONDONTWRITEBYTECODE and LC_ALL=C,
-requires an explicit absolute checkout, prints BEGIN/END TESTS498 and stops on
+requires an explicit absolute checkout, prints BEGIN/END TESTS499 and stops on
 failure. It performs no Git add/commit/push or normal installed/native workflow.
 Individual stdout/stderr/status records and sequential order are retained in
 preparation498/. Syntax, executable, ZIP, whitespace and source/index/mode/tree
@@ -156,8 +175,9 @@ test -x tools/reference/slack-update-reference.sh
 git diff --check
 ```
 
-All66 preparation commands pass in exact sequential order; individual outputs
-remain available. Expected negative initrd diagnostics finish90checks/zero failures;
+All66 commands pass in the recorded498 preparation and complete actual498 return.
+Individual outputs remain available;499 reuses those records on unchanged executable/
+test/fixture bytes and does not claim a second local run. Expected negative initrd diagnostics finish90checks/zero failures;
 those ERROR lines are controls, not a failed normal run. Preparer UID0 establishes
 no actual unprivileged OS or native acceptance. Internal negative controls remain
 part of their individual driver; separate historical source-mutation selections
@@ -183,8 +203,8 @@ failed and was unread. No repaired binary history, prefix equivalence or unknown
 cause is claimed. Preserve all source/receipt/condition/history records and every
 older failure/qualification. Historical manifests bind their original layouts.
 
-Accept complete actual498 FIRST, then perform the planned bounded closing review
-499 if results support it. Accept complete FINAL actual return FIRST. THEN separately
+Complete actual498 is accepted; prepared499 is the final bounded source/docs/
+navigation review. Accept complete FINAL actual499 return FIRST. THEN separately
 read EVERY WHOLE inherited condition/header and EVERY exact nested original body,
 plus all new effects/obligations/cleanup/limits. Counts/hashes/summaries/earlier
 reviews do not replace that reading. Only afterwards may a scoped STATIC repository

@@ -21,11 +21,11 @@ acceptance does not describe the present state of a machine.
 
 ### Repository verification and next decisions
 
-The [current integrated review](reference/repository-regression-block-484-491.md)
-selects 60 repository regressions across CLI/configuration, main setup and
-completion, result/JSON/events, package and optional workflows, SBo queues,
-static ELF readers/scanning/cache, runtime lifecycle/logging and private boot
-validation. The original 56-command selection remains historical. The
+The [current integrated review](reference/repository-regression-block-492-499.md)
+selects66 repository regressions across CLI/configuration, main setup/completion,
+result/JSON/events, package/optional workflows, SBo queues, static ELF helpers,
+runtime lifecycle/logging, private boot validation and delivery ZIP integrity.
+Historical60/56/54 selections retain their original scopes. The
 [testing guide](testing.md) describes their real/private/supplied boundaries.
 The synthetic GenInitrd test now models its exact target UID query and includes
 non-root rejection; it does not establish native ownership conformance.
@@ -45,13 +45,18 @@ initialization and diagnostic failures; the [scan scope](reference/elf-scan-work
 records exact guarantees and partial-effect limits. Steps 484-489 add selected
 unresolved-display, cache-construction/publication/count and early cleanup-binding
 guards, plus real ELF/runtime helper compositions. Their dedicated scopes retain
-partial-publication and untracked-prior-resource limits. All 60 selected commands
-pass in the complete actual 490 return; final documentation step 491 still needs
-its complete return and a separate whole-condition review before a new pause.
-Other failure projections and text-validation limits remain in scope. Passing
-regressions does not approve native criteria or resolve the operational audit.
+partial-publication and untracked-prior-resource limits. The previous recorded
+STATIC pause is491. The new bounded492-499 block adds ZIP validation, literal
+ELF-owner collection/publication/composition and cache lookup/error handling.
+Original497's GNU awk directory-skip failure, its repair and prior authoring/
+transport failures remain distinct. Complete actual498 passed all66 commands;
+prepared499 still needs its complete final return and separate whole inherited
+condition/header/nested-original reading before a new pause. Initial scan error
+omission/raw0, partial publication/cleanup, input races and incomplete saved binary
+history remain explicit. Passing regressions does not approve native criteria
+or resolve the operational audit.
 
-The next work requires a new bounded choice of scope: investigate the remaining
+After this bounded block, future work requires a new bounded choice of scope: investigate the remaining
 implementation failure projections, or advance an applicable acceptance family
 through its original independent review, binding and authority gates. A
 repository pause permits leaving the static source review complete across a
