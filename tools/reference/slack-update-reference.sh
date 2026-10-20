@@ -4302,6 +4302,9 @@ verify_broken_elf_objects_after_rebuild() {
 }
 
 map_broken_objects_to_sbo_packages() {
+    local owner_records
+    local owner_status
+
     # ---------------------------
     # [9] MAP BROKEN TO SBo PKGS
     # ---------------------------
@@ -4311,14 +4314,31 @@ map_broken_objects_to_sbo_packages() {
     if [ -s "$BROKEN" ]; then
         # FIX #3: Accumulate in a temporary file and merge to avoid contaminating QUEUE_EXTRA
         # with data from previous runs when ABI was not triggered (block [7]).
-        _BROKEN_PKGS=$(mktemp)
-        while IFS= read -r bin || [ -n "$bin" ]; do
+        if ! _BROKEN_PKGS=$(mktemp); then
+            SBO_TARGET_SELECTION_ERROR="cannot allocate broken-object SBo owner list"
+            echo "  [ERROR] $SBO_TARGET_SELECTION_ERROR"
+            return 1
+        fi
+        if ! while IFS= read -r bin || [ -n "$bin" ]; do
             [ -e "$bin" ] || continue
             # Match complete literal manifest lines with either accepted slash form.
             # Object paths are data, including regular-expression metacharacters.
-            grep -rlFx -e "$bin" -e "${bin#/}" -- "$PACKAGE_DATABASE"/ 2>/dev/null \
-                | package_names_with_build_suffix_from_stream "$SBO_PACKAGE_TAG"
-        done < "$BROKEN" | LC_ALL=C sort -u > "$_BROKEN_PKGS"
+            if owner_records=$(grep -rlFx -e "$bin" -e "${bin#/}" -- "$PACKAGE_DATABASE"/ 2>/dev/null); then
+                if ! printf '%s\n' "$owner_records" \
+                    | package_names_with_build_suffix_from_stream "$SBO_PACKAGE_TAG"; then
+                    exit 1
+                fi
+            else
+                owner_status=$?
+                # No match is normal; any other lookup failure invalidates this pipeline child.
+                [ "$owner_status" -eq 1 ] || exit 1
+            fi
+        done < "$BROKEN" | LC_ALL=C sort -u > "$_BROKEN_PKGS"; then
+            rm -f -- "$_BROKEN_PKGS"
+            SBO_TARGET_SELECTION_ERROR="cannot collect broken-object SBo owners"
+            echo "  [ERROR] $SBO_TARGET_SELECTION_ERROR"
+            return 1
+        fi
 
         # Merge the existing ABI targets and broken-object owners deterministically.
         if ! merge_sbo_target_sets "$QUEUE_EXTRA.merged" "$QUEUE_EXTRA" "$_BROKEN_PKGS"; then

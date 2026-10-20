@@ -1,3 +1,44 @@
+## Phase 1 step 494 -- reject incomplete broken-object owner collection
+
+- Accept complete inline493 at HEAD/local origin
+  `7b68324ba73d9d09b488e6d2fa4e44beccae6edd`, parent
+  `ac08baebf3891495ce2e54fe5b874a597bb33e8b`, tree
+  `e7e4ca920fc5cf3d8745dc14baf25ca7e5a85305`, source-policy SHA256
+  `7c901e2ea70f64003021af40b10506fe15ede9eee6e51441d5c9480c67f396d3`.
+  Ten exact ordered normal outputs,ZIP2531entries/277868144bytes,application/
+  three scope gates,sixpaths291add4delete/two100644,subject,reported push,empty
+  status/full matching refs/report agree. Keep inline provenance, not original
+  terminal-file bytes or independent remote/native capture.
+- Guard initial owner-stage allocation. Capture each literal grep lookup, keep
+  ordinary no-match1 successful and reject other statuses before parsing partial
+  output. Fail the collection child on parser/filter error so later rows cannot
+  hide an earlier error. Guard the whole pipefail collection/sort before merge;
+  attempt fresh-stage cleanup, set a diagnostic and return1 on failure. Observed
+  collection failures preserve previous ABI queue bytes/count. No transaction.
+- Add168 authored private collection cases. Exact accepted493 source64pass/
+  104reject; corrected source168pass. Six syntax-valid focused mutations reject
+  10/40/30/12/82/82 cases. Record real missing-private-database and input-open
+  errors, supplied quiet/partial command faults and inactive controls separately.
+  Retain midstream-read,partial-allocation,publication/count/cleanup-failure,
+  concurrency and whole-host observation limits. Named guards are not containment.
+- Run the new driver,unchanged91-case literal driver and nine complementary
+  package/SBo/apply/result/ELF commands, with individual outputs. This eleven-
+  command selection is not a new historical60-command integration or native
+  composition. PreparerUID0 does not establish actual unprivileged acceptance.
+- Six paths change: reference,new collection driver,owner scope,contribution/
+  testing maps,this log. One new100644 path;no removals or existing-mode changes.
+  README,prior tests,native contracts/fixtures/evidence and old CHANGELOG tail
+  unchanged. Full source/preimages/exact inherited conditions/receipts accompany
+  the delivery; separately retained binary-history incompleteness remains open.
+- Two actual steps492-493 accepted. Prepared494 awaits complete actual application/
+  tests/commit/push/clean full refs/source-mode-tree return. Aim for eight actual
+  steps through499,up to four reserves through503 if results require; no new
+  strong pause. Final actual acceptance precedes separate full inherited-body/
+  header and new-effect/obligation/cleanup/limit review. Phase1/kernel incomplete;
+  A/R/D unselected,native evidence/live bindings null,host unobserved/global
+  closurefalse. Original independent/native grant/conformance gates remain;
+  no old native right or binding is reused,revived or renewed.
+
 ## Phase 1 step 493 -- match broken-object package owners literally
 
 - Accept the complete inline492 return at HEAD/local origin

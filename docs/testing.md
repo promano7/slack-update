@@ -58,6 +58,13 @@ the accepted-source/mutation controls and the remaining collection/publication
 failure limits. This focused driver has not yet been added to a new integrated
 runtime selection.
 
+For owner collection failure handling, additionally run
+`python3 tests/reference/test-elf-owner-collection.py`. Its 168 authored private
+cases distinguish no-match from lookup errors, project quiet/partial filter and
+sort failures and check the pre-merge gate and selected cleanup. Read the
+[collection guard scope](reference/elf-owner-mapping.md#collection-failure-guard-step-494)
+for active versus inactive faults and retained publication/read/cleanup limits.
+
 ## Current regression checks
 
 Select tests using the existing contribution mappings. For example,
