@@ -65,6 +65,14 @@ sort failures and check the pre-merge gate and selected cleanup. Read the
 [collection guard scope](reference/elf-owner-mapping.md#collection-failure-guard-step-494)
 for active versus inactive faults and retained publication/read/cleanup limits.
 
+For owner-queue count/publication changes, also run
+`python3 tests/reference/test-elf-owner-publication.py`. Its 96 private cases
+check count-before-publication, valid zero counts and quiet/partial failures,
+including a real missing-stage open error and an explicitly changed destination
+after failed movement. Read the
+[publication scope](reference/elf-owner-mapping.md#count-before-publication-step-495)
+before treating a failed movement as preserving queue contents.
+
 ## Current regression checks
 
 Select tests using the existing contribution mappings. For example,

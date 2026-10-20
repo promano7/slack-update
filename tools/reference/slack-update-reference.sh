@@ -4304,6 +4304,7 @@ verify_broken_elf_objects_after_rebuild() {
 map_broken_objects_to_sbo_packages() {
     local owner_records
     local owner_status
+    local total_extra
 
     # ---------------------------
     # [9] MAP BROKEN TO SBo PKGS
@@ -4347,10 +4348,22 @@ map_broken_objects_to_sbo_packages() {
             echo "  [ERROR] $SBO_TARGET_SELECTION_ERROR"
             return 1
         fi
-        mv -f -- "$QUEUE_EXTRA.merged" "$QUEUE_EXTRA"
+        # Count the complete staging list before attempting publication.
+        if ! total_extra=$(wc -l < "$QUEUE_EXTRA.merged"); then
+            rm -f -- "$_BROKEN_PKGS" "$QUEUE_EXTRA.merged"
+            SBO_TARGET_SELECTION_ERROR="cannot count merged broken-object SBo targets"
+            echo "  [ERROR] $SBO_TARGET_SELECTION_ERROR"
+            return 1
+        fi
+        if ! mv -f -- "$QUEUE_EXTRA.merged" "$QUEUE_EXTRA"; then
+            rm -f -- "$_BROKEN_PKGS" "$QUEUE_EXTRA.merged"
+            SBO_TARGET_SELECTION_ERROR="cannot publish broken-object SBo targets"
+            echo "  [ERROR] $SBO_TARGET_SELECTION_ERROR"
+            return 1
+        fi
         rm -f "$_BROKEN_PKGS"
 
-        TOTAL_EXTRA=$(wc -l < "$QUEUE_EXTRA")
+        TOTAL_EXTRA=$total_extra
         echo "  Cola extra tras rotos: $TOTAL_EXTRA paquetes"
     else
         echo "  Sin binarios rotos, nada que anadir"

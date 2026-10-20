@@ -1,3 +1,45 @@
+## Phase 1 step 495 -- guard owner-queue counting and publication
+
+- Accept complete inline494 at HEAD/local origin
+  `40217460ec12cf9a0d0b6d5913cd1f4f577ff8fc`, parent
+  `7b68324ba73d9d09b488e6d2fa4e44beccae6edd`, tree
+  `506b1ce0e269fb662ab72806ae60d6791d65adb3`, source-policy SHA256
+  `71a4973ed3221f0ed08c45ace7c5025e11ecd986646fe432620af691c752cab3`.
+  Eleven exact ordered outputs,ZIP2570entries/283517980bytes,application/three
+  scope gates,sixpaths316add17delete/oneNEW100644,subject,reported push,empty
+  status/full refs/source-mode-report agree. Retain supplied inline provenance,
+  not original terminal bytes or independent remote/native capture.
+- Count the merged staging list locally before publication. Reject failed counts
+  including partial stdout before attempting the final move. Guard that move;
+  on either failure,attempt staging cleanup,set diagnostic,return1. Assign public
+  TOTAL_EXTRA only after both succeed,including a valid zero count. Failed move
+  may already change destination;prior count retention is not rollback or a count
+  of partial bytes. No cleanup-command/concurrency/global-restoration guarantee.
+- Add96 authored private publication cases. Exact494source48pass/48reject;
+  corrected96pass. Baseline rejections include the new event order on normal
+  rows,not48distinct unsafe native faults. Seven syntax-valid focused mutations
+  reject24/16/12/24/40/48/8. Initial80-case success/control records retained;
+  sixteen empty-ABI cases extend the final matrix without subject changes.
+- Run final96,newer168/91drivers and nine complementary package/SBo/apply/result/
+  ELF commands,retaining twelve individual outputs. This is not a new historical
+  60-command integration or native composition. Real private rename/redirection/
+  tempfile effects and supplied partial-command projections retain their limits;
+  preparerUID0 is not native or actual unprivileged acceptance.
+- Six paths change: reference,new publication driver,owner scope,contribution/
+  testing maps,this log. OneNEW100644,no removals/old-modechanges. All2381other
+  originals,README,previous tests,native contracts/fixtures/evidence unchanged;
+  oldCHANGELOG exacttail and modified-source preimages retained. Full source and
+  exact inherited condition/receipt metadata accompany the delivery. Binary
+  history incompleteness remains open;no restoration or recursive copy claimed.
+- Three actual steps492-494 accepted. Prepared495 awaits complete actual
+  application/tests/commit/push/clean full refs/source-mode-tree return. Aim for
+  eight actual steps through499,up to four reserves through503 if needed;no new
+  strong pause. Final actual acceptance precedes separate full inherited-body/
+  header and new-effect/obligation/cleanup/limit review. Phase1/kernel incomplete;
+  A/R/D unselected,native evidence/livebindingsNULL,host unobserved/globalclosure
+  false. Original independent/native grant/conformance gates remain;no old right
+  or binding is reused,revived or renewed.
+
 ## Phase 1 step 494 -- reject incomplete broken-object owner collection
 
 - Accept complete inline493 at HEAD/local origin

@@ -5,6 +5,7 @@ Run the focused regression from the repository root:
 ```bash
 python3 tests/reference/test-elf-owner-mapping.py
 python3 tests/reference/test-elf-owner-collection.py
+python3 tests/reference/test-elf-owner-publication.py
 bash tests/reference/test-package-name-parsing.sh
 bash tests/reference/test-sbo-target-selection.sh
 ```
@@ -64,10 +65,12 @@ controls are preparation evidence, not a fresh run of older mutation selections.
 
 ## Retained boundaries
 
-Step 493 changes only matching and input reading; step 494 adds the bounded
-collection guard described below. Publication/count and cleanup-failure handling
-remain separate: a failed move/count may leave changed state. No transaction,
-rollback or complete I/O-failure coverage follows. Missing-list early returns,
+Step 493 changes matching/input reading, step 494 adds the collection guard and
+step 495 checks the count/publication stages described below. A failed movement
+can still leave a changed destination; retained prior count does not describe
+that partial destination. Cleanup-command failures remain outside the checked
+fault projections. No transaction, rollback or complete I/O-failure coverage
+follows. Missing-list early returns,
 dangling object links and arbitrary manifest text retain their existing limits.
 The Bash input loop still does not distinguish every possible midstream read
 failure from EOF. Quiet allocation failures are tested; partial allocation,
@@ -113,6 +116,48 @@ normal no-match, ignored filter error, ignored collection failure and omitted
 failed-stage cleanup. Successful private cleanup and a rejected omitted-cleanup
 mutation do not establish cleanup when the cleanup command itself fails.
 
+## Count before publication (step 495)
+
+After a successful merge, count the complete `.merged` staging file into a local
+value. Count failure, including partial stdout, sets a diagnostic, attempts
+removal of the two staging files and returns 1 before publication. Guard the
+final move separately, with a publication diagnostic and cleanup attempt on
+failure. Assign `TOTAL_EXTRA` only after count and move both succeed. A normal
+empty merged queue has count zero and is published successfully.
+
+Count failures preserve the prior queue and public count in the checked cases.
+A failed move may already have modified its destination; the partial-move fault
+deliberately writes such bytes and verifies failure with the prior public count
+retained. No rollback is attempted or certified. Cleanup failures, concurrent
+replacement, arbitrary success output from installed tools and filesystem-wide
+restoration remain outside the private oracle.
+
+The independent publication driver calls the real collector/parser/merge with
+private text objects/manifests and real grep/coreutils/temporary files. Merge,
+count and move wrappers supply quiet/partial errors; normal branches call real
+commands. A callback deletes the successful merge stage before counting to
+produce a real private redirection/open error. The test checks exact output/raw
+status/selected state, ordered merge-count-publication events, caller IFS and
+the whole private inventory except the explicitly observed event file. It does
+not inspect every global, descriptor, permission, ownership, xattr or race.
+
+Six profiles crossed with eight fault selections and two record termination
+states give 96 cases: two owners, unowned objects, duplicates, empty ABI with
+unowned objects, empty input and missing input; normal, merge quiet/partial,
+count quiet/partial, publication quiet/partial and missing-stage faults. Inactive
+selections remain controls. The initial 80-case evidence is retained separately;
+sixteen empty-ABI cases extended the final matrix without changing the subject.
+Final counts refer only to the final 96-case driver.
+
+Exact accepted494 source passes 48 cases and rejects 48; the corrected source
+passes all 96. Rejections include the newly required count-before-publication
+event order even on otherwise normal rows, not 48 distinct unsafe native faults.
+Seven syntax-valid private mutations reject 24/16/12/24/40/48/8 cases: ignored
+count failure, ignored publication failure, counting the old queue, assigning
+public count on failure, omitted failure cleanup, premature publication and
+omitted successful count assignment. Older literal/collection controls retain
+their original scopes; this does not rerun or enlarge their native significance.
+
 The apply coordinator and final result mapper retain separate supplied-callback
 regressions. Their passes alongside this private mapper test are not an actual
 installed workflow composition. No installed package database, native build,
@@ -123,9 +168,9 @@ The inherited incomplete binary-history record from 492 remains open. Source,
 receipt and whole-condition records accompany this delivery with exact archive
 identities/hashes; no complete historical archive restoration is claimed.
 
-Prepared494 awaits actual application/test/commit/push/clean source/mode/tree
-evidence. Two actual steps (492-493) of the new 8-12-step block are accepted;
-494 is not accepted by these prepared documents. The recorded previous repository pause is
+Prepared495 awaits actual application/test/commit/push/clean source/mode/tree
+evidence. Three actual steps (492-494) of the new 8-12-step block are accepted;
+495 is not accepted by these prepared documents. The recorded previous repository pause is
 491; no new pause is confirmed. Phase1/kernel remain incomplete, A/R/D unselected,
 native evidence/live bindings null, host unobserved and global closure false.
 All original independent acceptance, migration-if-needed, actual composition,

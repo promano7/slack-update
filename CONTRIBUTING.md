@@ -196,6 +196,8 @@ Before submitting a change to the reference script:
    [private manifest scope and failure limits](docs/reference/elf-owner-mapping.md).
    For owner-list allocation, lookup/filter/ordering failures and the pre-merge
    gate, also run `python3 tests/reference/test-elf-owner-collection.py`.
+   For merged-list counting, publication and public-count assignment, also run
+   `python3 tests/reference/test-elf-owner-publication.py`.
 6. Run `tests/reference/test-sbo-dependency-order.sh` when generated queue constraints, dependency ordering, final ordered merging, or SBo queue submission is affected.
 7. Run `tests/reference/test-sbo-options.sh` when queue build options, persistent overrides, option conflict handling, or final option-preserving submission is affected.
 8. Run `tests/reference/test-sbo-personal-queue-protection.sh` when sbopkg system/local queue-directory resolution, private `sqg` configuration wrappers, queue workspaces, symlink handling, invocation isolation, or cleanup is affected.
