@@ -514,3 +514,8 @@ For static ELF cache lookup status changes, run
 `python3 tests/reference/test-elf-cache-lookup.py` with metadata, architecture and
 scan workflow regressions. Read the [lookup scope](docs/reference/elf-cache-lookup.md)
 for absent-versus-error statuses, supplied operations and existing scan limits.
+
+For the current bounded492-499 repository integration, use the
+[exact66-command selection and limits](docs/reference/repository-regression-block-492-499.md).
+Preserve the old60 order and append only the six named regressions; do not glob
+historical/native harnesses or treat a passing normal selection as native authority.

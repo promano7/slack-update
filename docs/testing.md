@@ -55,8 +55,8 @@ and SBo target selection. Its 91 private manifest cases exercise literal complet
 lines, slash forms, whitespace and the final unterminated input record. See the
 [owner mapping scope](reference/elf-owner-mapping.md) for real private operations,
 the accepted-source/mutation controls and the remaining collection/publication
-failure limits. This focused driver has not yet been added to a new integrated
-runtime selection.
+failure limits. This driver is also named in the prepared492-499 integrated selection below;
+its earlier isolated results retain their original scopes.
 
 For owner collection failure handling, additionally run
 `python3 tests/reference/test-elf-owner-collection.py`. Its 168 authored private
@@ -633,3 +633,18 @@ skip that returns0. The original498 user return and fourteen complementary passe
 apply to the same repaired runtime hash, not the expanded driver. Preserve the
 original487/11 runtime failure and the distinct earlier diagnostic-oracle failure.
 See [repair evidence](reference/elf-cache-lookup.md#original-failure-and-repair-evidence).
+
+## Integrated selection for the 492-499 block
+
+The [492-499 integration review](reference/repository-regression-block-492-499.md)
+keeps the historical60 command order and appends six named drivers from492-497:
+delivery ZIP, owner mapping/collection/publication/composition and cache lookup.
+Run exactly those66 normal commands, then the separate syntax/executable/ZIP/
+whitespace and delivery source/index/mode/tree checks. All66 pass in498 preparation
+on the unchanged accepted497 executable/test/fixture bytes. Complete actual498
+is still pending; prepared documentation cannot attest its later run or a pause.
+Separate historical mutation controls are not rerun. Real private effects versus
+supplied operations, UID0, initial scan error omission, partial publication/cleanup,
+input races and incomplete binary history remain explicit. Actual498 would make
+seven accepted steps492-498; final499 and separate post-return whole-condition/
+nested-original reading remain due before any new scoped STATIC pause.

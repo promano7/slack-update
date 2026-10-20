@@ -1,3 +1,46 @@
+## Phase 1 step 498 -- integrate 66 named repository regression commands
+
+- Accept complete repaired497 supplied return at HEAD/local origin
+  cada3d16e7b0344ea1bf1f06383cb68e76612800, parent
+  ddffbaa5a29a4fc3be73abf63a1cadb117081bcf, tree
+  43574eaa25e858932d4a9ecc98c9ed3a379c4446, source-policy SHA256
+  0e332502c93ea16b91f11f4ac689573184d7f8c4a322adc520f95b0c95e535fb.
+  Fifteen ordered normal outputs, ZIP2746entries/307426648bytes, application/three
+  scope gates, sixpaths460add5delete/twoNEW100644, subject/finalpush/empty status/
+  full refs/source-mode report agree. Supplied inline provenance is not original
+  terminal bytes or independent terminal/GitHub/native capture.
+- Retain initial SSH ByeBye (causeunknown), intermediate mismatched refs/rejected
+  capture and later successful same-commit push. Do not invent intermediate remote
+  state. Orphan closing parentheses were entered after recovery command lists;
+  the final syntax error followed END REPOSITORY497 and did not undo capture,
+  commit or push. Recovery tails retain explicit checkout paths and never recommit.
+- Run the exact historical60 normal commands sequentially, preserving order,
+  followed by six named drivers from492-497: ZIP integrity, owner mapping,
+  collection, publication, composition and cache lookup. All66 pass individually.
+  First60 tests/shared JSON support match the accepted491 source manifest; all
+  current runtime/test/fixture bytes match accepted497. UID0 is not actual
+  unprivileged/native acceptance. Historical source-mutation matrices not rerun;
+  internal driver controls retain their own scopes. No heterogeneous native total.
+- Add an integrated review and update contribution/testing guidance. Only these
+  four documentation paths change: three originals plus oneNEW100644 review.
+  Runtime, tests, fixtures/native criteria/evidence, README and all2387 other
+  originals unchanged; no removals or old-mode changes. Full source2391files,
+  501exec/1890regular, exact old log tail and three preimages accompany delivery.
+- Preserve original497 GNU awk487/11 failure, distinct prior diagnostic-oracle
+  failure and repair/private498/fourteen/expanded592 evidence separately. Existing
+  scan error omission/raw0, dependency short circuit, directory input race,
+  partial publication/count/cleanup/read/whole-state limits remain. Incomplete
+  saved nested491 binary history stays open. No normal installed/native build,
+  package/service/boot workflow or whole native graph acceptance follows.
+- Six actual steps492-497 accepted; prepared498 awaits complete actual66-command/
+  application/commit/push/clean refs/source-mode-tree return. Aim for eight through
+  499, reserve through503 only if needed. No new pause. Final actual acceptance
+  must precede separate reading of every whole inherited header/body/nested
+  original and new effects/obligations/cleanup/limits. Phase1/kernel incomplete,
+  A/R/D unselected, native evidence/livebindingsNULL, host unobserved/globalclosure
+  false. All original independent/native gates remain; no old right or binding
+  is reused, revived or renewed.
+
 ## Phase 1 step 497 repair 1 -- reject successful directory skips in ELF cache lookup
 
 - Preserve the failed original497 user return:487pass/11fail on its first test.
