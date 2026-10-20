@@ -6,6 +6,7 @@ Run the focused regression from the repository root:
 python3 tests/reference/test-elf-owner-mapping.py
 python3 tests/reference/test-elf-owner-collection.py
 python3 tests/reference/test-elf-owner-publication.py
+python3 tests/reference/test-elf-owner-composition.py
 bash tests/reference/test-package-name-parsing.sh
 bash tests/reference/test-sbo-target-selection.sh
 ```
@@ -164,13 +165,64 @@ installed workflow composition. No installed package database, native build,
 network, service, initrd or GRUB action is performed by this driver. Preparation
 UID 0 does not prove actual unprivileged execution or Slackware acceptance.
 
+## Private apply composition (step 496)
+
+The composition driver connects the real apply coordinator, owner mapper,
+package parser, normalization, queue merges, SBo builder wrapper and stable
+result classification. It uses real private text objects/manifests and normal
+coreutils/file effects. Snapshots, package actions, policy preparation/restoration,
+module probes and activation flags, synchronization, initial queue construction,
+ELF scan/recheck, boot work, summary, clock and selected event sinks are supplied
+callbacks. The final `sbopkg` callback only records its private queue vector and
+returns the selected status; it performs no build. Named boundary guards are not
+an OS sandbox. Source loading bypasses main/configuration/privilege/lock/logging
+entry points. UID 0 and private callbacks establish no installed/native acceptance.
+
+The 192 authored cases cross three profiles (owned, unowned, empty scan), eight
+fault selections (normal, scan, lookup, sorting, count quiet/partial, publication
+quiet/partial), supplied SBo and ELF activation flags, and inert builder statuses
+0/43. Inactive selections are controls. Object records are unterminated; the
+literal pathname includes brackets and a plus. Independent expected output,
+raw status, twelve selected result/state fields, exact error/warning arrays,
+selected action/module/builder/summary event order, caller IFS and outer locals,
+and the complete private inventory excluding the observed event file are checked.
+It does not inspect every global/descriptor/permission/ownership/xattr or race.
+
+On a mapping failure the real coordinator records failed selection, blocks the
+inert builder and the real stable classifier reports partial failure (2). The
+supplied successful summary leaves raw workflow return 0; that raw return alone
+is not success. Current ELF module completion records raw 0 even with failed
+state; mapping failure can retain scan status 0 while selection status is 1.
+A supplied recheck may clear broken objects even after the inert builder returns
+43; real build status still makes the final classification fail. These observed
+fields/events are retained, not silently normalized by the oracle. Supplied
+activation combinations need not be reachable from installed probe policy.
+The computed boot-safe flag follows supplied disabled-boot fields and does not
+validate a real boot. No native repair, build, host closure or whole native graph
+acceptance follows from this private composition.
+
+Current accepted495 runtime passes all 192 cases without runtime changes. Exact
+accepted494 runtime passes 160 and rejects 32. Seven syntax-valid private mutations
+reject 84/48/60/30/60/33/97 cases: omitted owner call, ignored owner return, omitted
+selection-failure flag, bypassed builder selection gate, omitted selection error,
+discarded builder status and discarded partial exit classification. These are
+finite discrimination controls, not counts of distinct unsafe installed faults.
+
+The initial test rejected all 192 cases before entering the workflow because its
+clock-vector guard joined arguments with the reference IFS. Correcting the guard
+to inspect the two arguments separately fixed the driver, not the runtime. A first
+repair command used the wrong working directory and repeated the unchanged failed
+driver. Both failed outputs, initial driver and explanation remain in preparation
+records; later passes erase neither failure. The thirteen selected normal commands
+pass separately. The historical sixty-command integration is not rerun here.
+
 The inherited incomplete binary-history record from 492 remains open. Source,
 receipt and whole-condition records accompany this delivery with exact archive
 identities/hashes; no complete historical archive restoration is claimed.
 
-Prepared495 awaits actual application/test/commit/push/clean source/mode/tree
-evidence. Three actual steps (492-494) of the new 8-12-step block are accepted;
-495 is not accepted by these prepared documents. The recorded previous repository pause is
+Prepared496 awaits actual application/test/commit/push/clean source/mode/tree
+evidence. Four actual steps (492-495) of the new 8-12-step block are accepted;
+496 is not accepted by these prepared documents. The recorded previous repository pause is
 491; no new pause is confirmed. Phase1/kernel remain incomplete, A/R/D unselected,
 native evidence/live bindings null, host unobserved and global closure false.
 All original independent acceptance, migration-if-needed, actual composition,

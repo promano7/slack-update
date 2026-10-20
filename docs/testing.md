@@ -610,3 +610,12 @@ Complete actual 491 must repeat the same 60 on the final tree, then supply the
 exact scope/commit/push/clean refs/source-Git-mode-tree report. Only AFTER that
 return can a separate reading/review of every whole condition and nested original
 body confirm a scoped STATIC pause. No native or host-cleanup authority follows.
+
+For the private owner/apply/builder/result composition, run
+`python3 tests/reference/test-elf-owner-composition.py`. Its 192 cases connect real
+coordinator/mapper/merge/builder-wrapper/classifier helpers with supplied external
+operations and real private files. See the
+[composition scope](reference/elf-owner-mapping.md#private-apply-composition-step-496)
+for inactive selections, raw return 0 versus stable partial classification,
+supplied recheck/boot flags, mutation controls and retained authoring failures.
+This is not installed workflow or native acceptance.

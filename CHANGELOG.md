@@ -1,3 +1,45 @@
+## Phase 1 step 496 -- compose owner failures with apply and result handling
+
+- Accept complete inline495 at HEAD/local origin
+  `099a0997eb79f079e9183f231b4fed9cd2aa15ce`, parent
+  `40217460ec12cf9a0d0b6d5913cd1f4f577ff8fc`, tree
+  `7af66e0b38bee22d8ac46b7d7980badd4c4fd598`, source-policy SHA256
+  `5a7db56ceb27ee8052de486c08687479bdba995621da5ab11b9eee31c087865e`.
+  Twelve exact ordered outputs, ZIP2612entries/289202165bytes, application/three
+  scope gates, sixpaths269add9delete/oneNEW100644, subject, reported push, empty
+  status/full refs/source-mode report agree. Preserve supplied inline provenance;
+  this is not original terminal bytes or independent remote/native capture.
+- Add 192 private composition cases connecting real apply, owner mapping, package
+  parsing, queue merges, builder wrapper and stable result classification. Other
+  operations, activation flags, event sinks, summary and clock are supplied;
+  inert sbopkg does not build. Check exact output, selected state/errors/events,
+  outer locals/IFS and private inventory. Real failed selection blocks builder;
+  stable partial classification remains 2 despite supplied summary/raw return 0.
+  Retain raw event/status distinctions and supplied recheck/boot-field limits.
+- Exact494 runtime passes160/rejects32; accepted495 passes192 unchanged. Seven
+  syntax-valid private mutations reject84/48/60/30/60/33/97. Preserve initial
+  0pass/192fail authoring output: incorrect clock guard joined arguments under
+  reference IFS. Also retain wrong-directory repair and repeated unchanged fail.
+  Correct only driver clock validation; no runtime fix is claimed by this step.
+- Thirteen selected normal commands pass, including unchanged96publication,
+  168collection/91literal and nine complementary tests. Historical60 integration
+  is not rerun. UID0/private callbacks/named guards are not installed/native
+  acceptance, OS containment or whole native graph review. Inactive fault rows
+  are controls. No installed package/build/network/service/initrd/GRUB work runs.
+- Five paths change: new composition driver, owner scope, contribution/testing
+  maps and this log. OneNEW100644; no removals or old mode changes. Runtime,
+  README, previous tests, native contracts/fixtures/evidence and 2383 other
+  originals stay exact. Old CHANGELOG tail and four modified preimages retained.
+  Full source/conditions/receipts accompany delivery. Binary-history defect from
+  492 stays open; no recursive archive copy or historical repair is claimed.
+- Four actual steps492-495 accepted; prepared496 awaits complete actual return.
+  Aim for eight actual steps through499, reserve through503 only as needed.
+  No new pause. Final actual acceptance must precede separate reading of EVERY
+  whole inherited condition/header/nested original body and all new effects,
+  obligations, cleanup and limits. Phase1/kernel incomplete; A/R/D unselected,
+  native evidence/livebindingsNULL, host unobserved/globalclosurefalse. Original
+  independent/native-grant/conformance gates remain; no old right is revived.
+
 ## Phase 1 step 495 -- guard owner-queue counting and publication
 
 - Accept complete inline494 at HEAD/local origin
