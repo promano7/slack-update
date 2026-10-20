@@ -4098,21 +4098,33 @@ static_elf_cache_has_compatible_library() {
     local elf_class
     local elf_data
     local elf_machine
+    local match
 
     IFS=$'\t' read -r elf_class elf_data elf_machine <<< "$identity"
     [ -n "$elf_class" ] && [ -n "$elf_data" ] && [ -n "$elf_machine" ] || return 1
 
-    awk -F '\t' \
+    # A completed no-match search and an awk failure have different statuses.
+    if ! match=$(awk -F '\t' \
         -v soname="$soname" \
         -v elf_class="$elf_class" \
         -v elf_data="$elf_data" \
         -v elf_machine="$elf_machine" '
             $1 == soname && $2 == elf_class && $3 == elf_data && $4 == elf_machine {
                 found=1
-                exit
             }
-            END { exit(found ? 0 : 1) }
-        ' "$library_cache"
+            END { print(found ? "compatible" : "absent") }
+        ' "$library_cache"); then
+        return 2
+    fi
+
+    # Some awk implementations skip directories and return success.
+    [ ! -d "$library_cache" ] || return 2
+
+    case "$match" in
+        compatible) return 0 ;;
+        absent) return 1 ;;
+        *) return 2 ;;
+    esac
 }
 
 static_elf_object_has_missing_dependency() {
@@ -4121,6 +4133,7 @@ static_elf_object_has_missing_dependency() {
     local identity
     local needed_libraries
     local library
+    local lookup_status
 
     if ! identity=$(extract_static_elf_identity "$object"); then
         return 2
@@ -4131,10 +4144,16 @@ static_elf_object_has_missing_dependency() {
 
     while IFS= read -r library; do
         [ -n "$library" ] || continue
-        if ! static_elf_cache_has_compatible_library \
+        if static_elf_cache_has_compatible_library \
             "$library_cache" "$library" "$identity"; then
+            continue
+        else
+            lookup_status=$?
+        fi
+        if [ "$lookup_status" -eq 1 ]; then
             return 0
         fi
+        return 2
     done <<< "$needed_libraries"
 
     return 1

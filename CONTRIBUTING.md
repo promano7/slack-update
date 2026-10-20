@@ -509,3 +509,8 @@ The unlink stage must occur after exact rollback package removal, active-package
 
 31. Third-attempt authorization must remain separate from destructive execution. `tests/acceptance/reference/test-elilo-oldkernel-cleanup-third-attempt-authorization-review.sh` may authorize only the exact step-103 survivor-integrated revision after revalidating the recovered live boundary, exact survivor fingerprints, and exact cached active archives. Its authorization artifact may set `third_attempt_authorized=true` and `apply_authorized=true`, but the prepared executor policy must remain `execution_authorized=false` until a later accepted-evidence boundary explicitly enables execution. Run `tests/reference/test-elilo-oldkernel-cleanup-third-attempt-authorization-review-harness.sh` whenever this separation, authorization contract, cached-archive gate, or confirmation scope changes.
 
+
+For static ELF cache lookup status changes, run
+`python3 tests/reference/test-elf-cache-lookup.py` with metadata, architecture and
+scan workflow regressions. Read the [lookup scope](docs/reference/elf-cache-lookup.md)
+for absent-versus-error statuses, supplied operations and existing scan limits.

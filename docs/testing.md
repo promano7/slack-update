@@ -619,3 +619,17 @@ operations and real private files. See the
 for inactive selections, raw return 0 versus stable partial classification,
 supplied recheck/boot flags, mutation controls and retained authoring failures.
 This is not installed workflow or native acceptance.
+
+For completed ELF cache searches versus lookup failures, run
+`python3 tests/reference/test-elf-cache-lookup.py`. Its 498 scenarios include real
+private missing-file/directory errors and real object/scan/verification helpers,
+with supplied readelf/cache-refresh operations. See the
+[lookup status scope](reference/elf-cache-lookup.md) for the three helper outcomes,
+legacy scan error policy, diagnostic-oracle authoring failure and control limits.
+Also run the unchanged metadata, architecture and scan workflow regressions.
+
+Step497 repair1 extends that driver to592 cases, including a supplied directory
+skip that returns0. The original498 user return and fourteen complementary passes
+apply to the same repaired runtime hash, not the expanded driver. Preserve the
+original487/11 runtime failure and the distinct earlier diagnostic-oracle failure.
+See [repair evidence](reference/elf-cache-lookup.md#original-failure-and-repair-evidence).

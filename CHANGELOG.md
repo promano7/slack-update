@@ -1,3 +1,89 @@
+## Phase 1 step 497 repair 1 -- reject successful directory skips in ELF cache lookup
+
+- Preserve the failed original497 user return:487pass/11fail on its first test.
+  GNU awk skipped a directory with a warning and returned0, so the helper's
+  successful absent marker became absence1 instead of inspection2. Original CRC,
+  apply and pre-test scope passed; later tests/git add/commit/push/capture did not
+  run. No actual497 acceptance is claimed. This runtime defect is separate from
+  the earlier mawk diagnostic-oracle authoring failure retained below.
+- After awk completes, reject a cache path that is a directory before interpreting
+  its marker. Runtime SHA256 remains exactly the user-tested private candidate:
+  cf26b233556522176875427fcfad9bd4eba72b94ddc2d81bfda9e69994ef1f95. It passed the
+  original498 and fourteen complementary tests on the user's PC without changing
+  repository source. Retain supplied inline provenance, not independent capture.
+- Extend the driver to592 cases:432lookup,64object,48scan,48verification. The94
+  additional selections include a supplied directory warning/absent-marker/status0
+  projection. Inactive selections remain controls. Do not relabel old498 results.
+  Current syntax-valid discrimination controls and fifteen normal outputs are
+  recorded separately from the original497 preparation and its failed user return.
+- Update the existing six-path delivery policy, source hashes/tree, scope/testing
+  notes and full-source package. Preserve the exact unaccepted original overlay
+  and metadata under unrepaired497/. The repair applicator requires that precise
+  original497 worktree on the accepted496 base with an unstaged base index; it
+  writes no Git commit or remote push. Per-file replacements are not a transaction;
+  retain any partial-write failure. Source count2390,501exec/1889regular, two new
+  100644 paths relative to496; no removals or old mode changes.
+- Existing scan policy can log inspection2, omit an object and still return0;
+  recheck retains it and fails. Directory observation is not an atomic input
+  binding or concurrency/special-file guarantee. No native package/build/boot
+  operations, complete archive repair or native acceptance follow. Prior owner
+  partial-publication/count/cleanup and whole-state limits remain in force.
+- Five actual steps492-496 remain accepted at
+  ddffbaa5a29a4fc3be73abf63a1cadb117081bcf. This repairs pending497 and counts no
+  extra step. Complete actual repair/tests/commit/push/clean refs/source-mode-tree
+  return is still required. Aim through499, reserves through503 only if needed.
+  No new pause; final actual acceptance precedes separate reading of every whole
+  inherited header/body/nested original and new effect/obligation/cleanup/limit.
+  Phase1/kernel incomplete; A/R/D unselected; native evidence/livebindingsNULL,
+  host unobserved/globalclosurefalse. All original independent/native gates persist;
+  no historical or consumed right or binding is reused, revived or renewed.
+
+## Phase 1 step 497 -- distinguish ELF cache lookup errors from absent libraries
+
+- Accept complete inline496 at HEAD/local origin
+  `ddffbaa5a29a4fc3be73abf63a1cadb117081bcf`, parent
+  `099a0997eb79f079e9183f231b4fed9cd2aa15ce`, tree
+  `b5d1e5cbf22f6b55577bce407a6b194ebfe5e9cb`, source-policy SHA256
+  `3e940ed6b96be62e059ba6fb1ee513e3e6b7569adcd6b8706163d73494f51385`.
+  Thirteen ordered outputs, ZIP2660entries/295540630bytes, application/three
+  scope gates, fivepaths379add3delete/oneNEW100644, English subject, reported
+  push, empty status/full refs/source-mode report agree. Retain supplied inline
+  provenance, not original terminal bytes or independent remote/native capture.
+- Separate awk execution status from a completed compatible/absent search marker.
+  Nonzero status (including partial stdout) and unexpected successful output
+  return lookup2. Preserve matching0, completed absence1 and the existing early
+  incomplete-identity1. Read through cache completion. Object helper maps only
+  lookup1 to missing0; lookup errors become inspection2. No format/architecture
+  policy change or validation of every cache row is claimed.
+- Add498 private cases:378lookups,48object inspections,36scans,36verifications.
+  Real private files, coreutils and helpers use supplied readelf/cache refresh
+  and selected awk faults. Existing scan policy logs inspection2 and can publish
+  an empty list with return0; recheck retains the object and fails. This step
+  does not establish complete failure-blocking scans or SBo blocking. No installed
+  ELF parsing/build/repair/boot or whole native graph acceptance takes place.
+- Final exact496 baseline248pass250reject; corrected498pass. Seven syntax-valid
+  mutations reject64/222/72/5/4/70/11. Preserve initial path-diagnostic oracle,
+  initial baseline244pass254reject and corrected-runtime487pass11reject. mawk
+  directory errors may omit the path; fix test-only semantic diagnostic checks.
+  Final controls use the corrected driver. Later passes erase no authoring failure.
+- Fifteen selected normal commands pass, including unchanged metadata (96magic/
+  path,68header,44dynamic,189cache,560dependency), architecture43, scan workflow
+  and owner/apply/result regressions. Historical60 integration not rerun here.
+  UID0, supplied operations and named guards do not prove OS containment or actual
+  unprivileged/native acceptance. Inactive fault selections remain controls.
+- Six paths: reference, new regression/scope, contribution/testing maps and log.
+  TwoNEW100644, no removals/old-mode changes. All2384 other originals, README,
+  previous tests/native contracts/fixtures/evidence exact; old log exact tail and
+  four modified preimages retained. Full source/receipts/whole inherited conditions
+  accompany delivery. Incomplete binary history remains open; no repair claimed.
+- Five actual steps492-496 accepted; prepared497 awaits complete actual return.
+  Target eight actual steps through499, reserves through503 only as needed. No new
+  pause. Accept final actual return before separate complete inherited-header/body/
+  nested-original and new-effect/obligation/cleanup/limit reading. Phase1/kernel
+  incomplete; A/R/D unselected, native evidence/livebindingsNULL, host unobserved/
+  globalclosurefalse. All original independent/native gates remain; no old right
+  or binding is reused, revived or renewed.
+
 ## Phase 1 step 496 -- compose owner failures with apply and result handling
 
 - Accept complete inline495 at HEAD/local origin
