@@ -106,6 +106,12 @@ Use the commit body to explain non-obvious decisions, compatibility changes, or 
 
 The [testing guide](docs/testing.md) distinguishes documentation checks,
 focused regressions, historical checkpoint snapshots and real acceptance.
+For delivery archive validation changes, run
+`python3 tests/reference/test-delivery-zip.py` and validate the exact final archive
+with `tools/reference/verify-delivery-zip.py`. Explicitly select embedded ZIPs
+when their validity is claimed. See the
+[delivery integrity scope](docs/reference/delivery-archive-integrity.md).
+
 The mappings below still govern reference-script changes; frozen historical
 baselines retain their original scope.
 The current [484-491 integrated review](docs/reference/repository-regression-block-484-491.md)

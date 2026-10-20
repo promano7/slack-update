@@ -1,3 +1,41 @@
+## Phase 1 step 492 -- validate delivery ZIPs and record incomplete inherited history
+
+- Begin a NEW user-requested 8-12-step repository block from recorded pause 491,
+  accepted HEAD/origin `4f789a4e2942f6f08e26d9bfc65c420b6a45e919` and tree
+  `cdcde5a9efd939f7ecbbfca51ece0879e440c26a`. Recheck all 2,380 source hashes,
+  recorded modes and reconstructed tree; all match. Do not fabricate actual Git
+  history: the preparation baseline is explicitly synthetic and is not delivered.
+- Observe a newly qualified archive-integrity defect: the continuation's outer
+  CRC and 2,466 manifest entries pass, but its saved historical 491 ZIP ends at
+  482,738,176 bytes inside a source fixture member. Its recorded hash also matches;
+  outer manifests therefore do not prove embedded ZIP completeness. Preserve the
+  exact evidence identity and failure. A separately located original could not
+  be retrieved and was not inspected. Complete inherited binary history remains
+  unverified; no cause, restoration or repaired-history claim is made.
+- Add an explicit ZIP structure/CRC checker and 31 independently authored private
+  CLI cases. Check selected embedded ZIPs separately; reject duplicate names,
+  declared-size excess and nonzero archive origins. A first-draft control caught
+  Python accepting an embedded ZIP after outer truncation; retain that failure
+  and the byte-zero correction. Record private mutation controls separately.
+- Change six paths only: this log, contribution/testing maps, one new scope,
+  one new checker and one new test. Existing source modes, runtime, previous
+  tests, native contracts/fixtures/criteria and README remain unchanged. Full
+  source plus exact inherited state/condition/receipt records accompany the
+  delivery; prior binary archives are referenced by identity/hash, not recursively
+  copied or represented as restored. Old CHANGELOG bytes remain an exact tail.
+- Run the focused new regression, checker controls, documentation/scope/mode and
+  delivery checks. Do not claim another run of the historical 60 runtime checks.
+  Prepared 492 awaits complete actual application/test/commit/push/clean refs and
+  source/mode/tree return. New block accepted actual count is zero; last recorded
+  pause remains 491, with the newly observed archival limit retained. No new pause.
+  Aim for an eight-step close at 499, with up to four reserve steps only as needed;
+  reassess based on actual results and stop at the bounded closure. Final actual
+  acceptance must precede separate complete inherited-condition and effect review.
+- Phase 1/kernel incomplete; A/R/D unselected; native evidence/live bindings null,
+  host unobserved/global closure false. All separate independent acceptance,
+  migration-if-needed, actual-composition/safe-whole-graph/fresh-native-grant and
+  own-platform conformance gates remain. No native right is issued or revived.
+
 ## Phase 1 step 491 -- prepare the final bounded repository pause review
 
 - Accept complete uploaded actual 490 at HEAD/origin

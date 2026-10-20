@@ -40,6 +40,15 @@ verify fragments, not just search for a filename somewhere in the repository.
 Documentation checks do not need a new permanent fixture set or a native test
 run merely because another numbered step has been delivered.
 
+For delivery archive changes, run `python3 tests/reference/test-delivery-zip.py`
+and check the exact resulting ZIP with
+`python3 tools/reference/verify-delivery-zip.py /absolute/path/delivery.zip`.
+Select embedded historical ZIPs explicitly with `--member`; an outer CRC pass
+does not check their ZIP validity. Read the
+[delivery archive integrity scope](reference/delivery-archive-integrity.md),
+including the newly observed incomplete historical 491 copy. These 31 private
+cases are separate from the historical 60 runtime commands and native acceptance.
+
 ## Current regression checks
 
 Select tests using the existing contribution mappings. For example,
