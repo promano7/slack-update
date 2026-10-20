@@ -191,6 +191,9 @@ Before submitting a change to the reference script:
 3. Run `tests/reference/test-package-snapshots.sh` when package snapshot capture, validation, or comparison is affected.
 4. Run `tests/reference/test-partial-slackware-update.sh` when Slackware failure handling or secondary-module sequencing is affected.
 5. Run `tests/reference/test-sbo-target-selection.sh` when SBo queue parsing, target discovery, ABI rebuild candidates, broken-object ownership, or deterministic target-set merging is affected.
+   For literal broken-object ownership and input-record reading, also run
+   `python3 tests/reference/test-elf-owner-mapping.py`; see the
+   [private manifest scope and failure limits](docs/reference/elf-owner-mapping.md).
 6. Run `tests/reference/test-sbo-dependency-order.sh` when generated queue constraints, dependency ordering, final ordered merging, or SBo queue submission is affected.
 7. Run `tests/reference/test-sbo-options.sh` when queue build options, persistent overrides, option conflict handling, or final option-preserving submission is affected.
 8. Run `tests/reference/test-sbo-personal-queue-protection.sh` when sbopkg system/local queue-directory resolution, private `sqg` configuration wrappers, queue workspaces, symlink handling, invocation isolation, or cleanup is affected.

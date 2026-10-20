@@ -49,6 +49,15 @@ does not check their ZIP validity. Read the
 including the newly observed incomplete historical 491 copy. These 31 private
 cases are separate from the historical 60 runtime commands and native acceptance.
 
+For broken-object package ownership matching, also run
+`python3 tests/reference/test-elf-owner-mapping.py` alongside package-name parsing
+and SBo target selection. Its 91 private manifest cases exercise literal complete
+lines, slash forms, whitespace and the final unterminated input record. See the
+[owner mapping scope](reference/elf-owner-mapping.md) for real private operations,
+the accepted-source/mutation controls and the remaining collection/publication
+failure limits. This focused driver has not yet been added to a new integrated
+runtime selection.
+
 ## Current regression checks
 
 Select tests using the existing contribution mappings. For example,

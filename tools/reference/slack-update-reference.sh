@@ -4312,11 +4312,11 @@ map_broken_objects_to_sbo_packages() {
         # FIX #3: Accumulate in a temporary file and merge to avoid contaminating QUEUE_EXTRA
         # with data from previous runs when ABI was not triggered (block [7]).
         _BROKEN_PKGS=$(mktemp)
-        while read -r bin; do
+        while IFS= read -r bin || [ -n "$bin" ]; do
             [ -e "$bin" ] || continue
-            # FIX #4: Anchor with grep -P to cover paths with and without a leading slash
-            # in /var/log/packages manifests (some omit the initial '/').
-            grep -rlP "^/?${bin#/}$" "$PACKAGE_DATABASE"/ 2>/dev/null \
+            # Match complete literal manifest lines with either accepted slash form.
+            # Object paths are data, including regular-expression metacharacters.
+            grep -rlFx -e "$bin" -e "${bin#/}" -- "$PACKAGE_DATABASE"/ 2>/dev/null \
                 | package_names_with_build_suffix_from_stream "$SBO_PACKAGE_TAG"
         done < "$BROKEN" | LC_ALL=C sort -u > "$_BROKEN_PKGS"
 

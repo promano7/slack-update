@@ -1,3 +1,42 @@
+## Phase 1 step 493 -- match broken-object package owners literally
+
+- Accept the complete inline492 return at HEAD/local origin
+  `ac08baebf3891495ce2e54fe5b874a597bb33e8b`, parent
+  `4f789a4e2942f6f08e26d9bfc65c420b6a45e919`, tree
+  `322dcb97cb83daa99452e2d2b5aa4eb9252fa58b`, source-policy SHA256
+  `8cd07fcdfcd646a31177ee55f186f6f74f6f42fce8809ac10cdfd99f690b3414`.
+  ZIP/application/scope,31-case output,six-path349-addition/three100644 scope,
+  subject,reported push,empty status/full matching refs/report agree. Retain
+  supplied inline provenance; no original terminal bytes or independent capture.
+- Replace regex ownership matching with fixed-string whole-line grep patterns
+  for the existing absolute/slashless manifest forms. Preserve input whitespace
+  and a final nonempty unterminated broken-object record. Keep exact SBo suffix,
+  deterministic target merging and surrounding presence/dispatch policy.
+- Add91 authored private real-file/manifest cases. Accepted492 source passes23
+  and rejects68; corrected source passes91. Five syntax-valid focused mutations
+  reject28/85/40/38/4 cases. Real Bash/grep/coreutils/temporary/rename/delete
+  effects are private fixtures, not ELF execution, native acceptance or OS
+  containment. Preserve collection/publication/count/cleanup failure limits.
+- Run the focused driver and nine complementary package/SBo/apply/result/ELF
+  commands with individual outputs. These ten checks do not constitute a new
+  historical60-command integration or native composition. PreparerUID0 does not
+  establish actual unprivileged execution. The final bounded integration remains
+  future work, selected according to actual source changes and results.
+- Six paths change: reference,new owner driver/scope,contribution/testing maps,
+  this log. Two new100644 paths; no removals or old-mode changes. All2379 other
+  originals,old CHANGELOG tail,README,native contracts/fixtures/evidence unchanged.
+  Source and exact inherited condition/receipt metadata accompany the delivery;
+  prior binary archives remain separately referenced, with their unverified
+  completeness/incomplete nested491 qualification retained.
+- One actual step in the new492-503 maximum block is accepted. Prepared493 awaits
+  complete actual application/tests/commit/push/clean full refs/source-mode-tree
+  return. Aim for eight actual steps through499, reserving up to four if needed;
+  no new strong pause. Final actual acceptance must precede separate whole
+  inherited-condition/body and new-effect/obligation/cleanup/limit review.
+  Phase1/kernel incomplete; A/R/D unselected; native evidence/live bindings null,
+  host unobserved/global closure false. Original independent/native grant and
+  conformance gates remain; no old right is revived or reused.
+
 ## Phase 1 step 492 -- validate delivery ZIPs and record incomplete inherited history
 
 - Begin a NEW user-requested 8-12-step repository block from recorded pause 491,
