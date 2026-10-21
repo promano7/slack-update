@@ -633,6 +633,18 @@ apply to the same repaired runtime hash, not the expanded driver. Preserve the
 original487/11 runtime failure and the distinct earlier diagnostic-oracle failure.
 See [repair evidence](reference/elf-cache-lookup.md#original-failure-and-repair-evidence).
 
+## Count failures composed through apply
+
+Run `python3 tests/reference/test-sbo-count-apply-composition.py` for144 private
+cases using the real apply/queue/count/build-wrapper/result composition. Check
+selection blocking, no builder entry after count errors, exact files/events and
+stable partial2 versus raw0. The [scope note](reference/sbo-count-apply-composition.md)
+keeps supplied snapshots/updates/synchronization/clock/boot/summary/inert builder
+boundaries and seeded TOTAL fixture explicit. Nineteen normal commands include the
+unchanged eighteen from accepted503 repair1. Runtime bytes unchanged; six selected
+source variants reject. Initial harness unseeded-TOTAL failure remains separate.
+Candidate504 and a new pause remain pending.
+
 ## SBo option-map count failure
 
 Step503 repair1 preserves the failed original user run: its state/output matched,

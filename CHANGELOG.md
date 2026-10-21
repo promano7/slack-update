@@ -1,3 +1,56 @@
+## Phase 1 step 504 -- compose SBo count failures through apply and result mapping
+
+- Accept complete supplied repaired503: HEAD/local origin
+  9e402ed8ddde78b6c6b7a6cb318d486f1a385dfc, parent
+  09f2d62ad00f8495634bad08a1e0e2f09030b48b, tree
+  96fa4c9e33f37940714932c4b30271fd70a75f64, policy SHA256
+  232b9c6bfbebfbf0e1efaae368ffe516b5f594beefe1e49a6c4f5376d8068e22.
+  All18outputs/repair_number1 agree; ZIP3093entries/435652720bytes, repair/three
+  scope gates/syntax/executable/whitespace/fivepaths442add1delete/twoNEW100644/
+  subject/reportedpush/cleanfullrefs/source-mode report agree. Retain supplied
+  inline/reconstructed provenance, not original bytes or independent capture.
+- Add144 private compositions of real apply/core/options/ABI/gate/final merge/
+  build wrapper/result mapper. Real private queue parsing/graph/options/package
+  enumeration/tag filtering/tempfiles/coreutils/publication/cleanup/redirections/
+  counts; supply snapshots/updates/probes/sync readiness/trigger/clock/boot/summary/
+  event adapters and inert sbopkg0/43. ELF/Flatpak/Cinnamon/boot actions disabled.
+  No normal installed/native workload or whole-flow/native acceptance claimed.
+- Cross empty/full profiles, nine stage-fault selections, ABI0/1, SBo0/1, builder
+  0/43. Quiet43/partial42-status43 failures at options/core/ABI/final. Assert exact
+  stdout/raw0/stablepartial2/counters/errors/resultarrays/orderedvectors/caller/
+  stage restoration/private inventory excludingevents. Earlier selection failures
+  clear/reset private selected queues/counters and block final processing; final
+  count failure leaves merged final file but blocks builder. Inactive faults and
+  empty queues retain scope. Generic final-count result message still names queue
+  processing exit1 despite no builder entry; no new diagnostic policy claimed.
+- Runtime unchanged SHA25607cddef43ab00bd288710894f3a755b330bd424cafd31efca899e0ec25f89262.
+  Preserve initial harness unboundTOTAL output error (trace/inventory matched);
+  seed private priorTOTAL0 explicitly before running coordinator. Original driver/
+  failure/correction retained; no runtime defect inferred. Six syntax-valid source
+  variants reject four unguarded counts/selection bypass/failed-action suppression.
+  New144 plus unchanged18normalcommands pass separately. No historical66-suite/
+  mutation-matrix rerun or heterogeneous native total. UID0/guards not conformance.
+- Change only two existing docs (testing/log), add composition driver/scope100644.
+  Full2401source/501exec/1900regular; all2397other originals/oldmodes/runtime/old
+  tests/fixtures/native criteria exact, no removals. Full source/policy/twopreimages/
+  oldlogtail and mapped exact repaired503members/wholeconditions/receipts/source
+  chain/failures/anomalybytes retained. No actual-user Git commit objects fabricated.
+- Four actual500-503 accepted in bounded500-507; reserves508-511only if needed.
+  Prepared504 awaits actual application/tests/commit/push/cleanrefs/source-mode-tree
+  return. Last confirmed STATICpause499; no newpause. Complete finalactual accepted
+  FIRST, THEN separately read EVERY WHOLE inherited header/condition/exact nested
+  original and all currenteffects/obligations/cleanup/limits before pause assessment.
+  No counts/hashes/indices/summaries/prior reviews substitute for that reading.
+- Preserve original503 diagnostic failure/repair and502label/description defects,
+  every earlier authoring/runtime/transport/capture/packaging/unknown-prefix cause
+  qualification and incomplete491binary history. No binary repair inferred. ELF
+  initialinspection2omission/raw0/shortcircuit/partialpublication/count/cleanup/
+  read/input races/whole-state limits persist. Phase1/kernel incomplete, A/R/D
+  unselected/proposedrepairsinactive, actualnativeevidence/livebindingsNULL,
+  hostunobserved/globalclosurefalse. Original independent decision/acceptance/
+  migrationIFneeded/ACTUALcomposition/safeACTUALWHOLEreview/freshboundednativegrant/
+  OWNplatformconformance gates remain; no old/consumed right or binding renewed.
+
 ## Phase 1 step 503 repair 1 -- accept the observed Bash diagnostic launcher prefix
 
 - Preserve failed supplied original503: outer ZIP/all3047members/source/modes/tree,
