@@ -36,14 +36,16 @@ flag to test the checkout: the default operation is the legacy apply workflow.
 | Build the planned C application | Future work; the build system and minimum compiler versions are not selected |
 
 There is no single top-level build or test command for every file in this
-repository. The [current integrated selection](reference/repository-regression-block-492-499.md)
-lists66 named commands: historical60 in order, followed by delivery ZIP, owner
-mapping/collection/publication/composition and cache lookup. Actual498 passed the
-selection; final499 remains pending. Use those names rather than every harness.
+repository. The [current integrated selection](reference/repository-regression-block-500-507.md)
+lists72 named commands: historical66 in order, followed by six SBo count/removal/
+apply-composition drivers. Complete actual506 passed all72; final507 is a prepared
+documentation review and needs its actual return plus subsequent separate whole-
+condition review. Last confirmed STATIC repository pause499. Use those names
+rather than every harness.
 Run it as an ordinary developer without sudo. It requires Python 3, Bash,
 jq, Unix advisory locking/flock, timeout, awk and the GNU coreutils/findutils/
 sed used by the individual scopes. Delivery verification helpers require
-Python 3.9 or newer. The drivers use the Python standard library; supplied
+Python 3.11 or newer for their `hashlib.file_digest` API. The drivers use the Python standard library; supplied
 package, transport and boot callbacks do not require installed Slackware tools.
 
 The synthetic GenInitrd test supplies only the exact target-initrd UID query;

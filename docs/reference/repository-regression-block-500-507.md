@@ -1,11 +1,47 @@
 # Integrated repository regression block500-507
 
-Step506 follows six accepted actual steps500-505 in the requested8-12-step block.
-It expands the private apply composition and runs the broad ordered72-command
-selection. Candidate506 and final507 require their own complete actual returns.
-Only after final actual acceptance and the separate whole-condition review may a
-new scoped STATIC repository pause be assessed. Last confirmed pause499. No native
-entry, installed Slackware acceptance, Phase1 completion or kernel completion.
+Prepared final507 follows seven accepted actual steps500-506 in the requested
+8-12-step block. Complete actual506 passed all72 normal commands. Final507 changes
+existing documentation only, reusing those recorded results on byte-identical
+runtime/tests/support/fixtures without claiming a second local suite execution.
+Actual507 must repeat the same72 and provide its complete scope/commit/push/clean
+refs/source-mode-tree return. Only AFTER final actual acceptance, THEN a separate
+EVERY WHOLE inherited header/condition/exact nested original and ALL new effects/
+obligations/cleanup/limits reading may assess a new scoped STATIC repository pause.
+Counts/hashes/summaries/indices/prior reviews do not substitute. Last confirmed
+pause499. No native entry, installed acceptance, Phase1 or kernel completion.
+
+## Accepted506 and prepared final507
+
+Complete supplied actual506 reports HEAD/local origin
+`34910b16da065050884d10dba719b87692c67a78`, parent
+`aa74fcb745ca5944a364db7e8559f91ca4810539`, tree
+`1ff2b22a2d76aceaa1ddd882953ab8dd3a4ebf2e`, source-policy SHA256
+`69402ffb54ae776f359f0b8cb4733ae18f0af0bd0edea0bdbe877ecd2df690f3`.
+All72 individual outputs match in order, normalizing only one consistent generated
+initrd root inside command56. Expected negative initrd diagnostics end90checks/
+zero failures. ZIP3214entries/472505335uncompressed bytes, scope/syntax/executable/
+whitespace, fourpaths338add7delete/oneNEW100644, subject, reported push, clean
+full matching refs and full source/mode report agree. Receipts reconstruct supplied
+inline text, not original terminal bytes or independent terminal/remote/native capture.
+
+Final507 changes twelve existing documentation paths: this review, CHANGELOG,
+README's existing regression link, contribution/testing guides, documentation and
+reference indexes, setup/usage/roadmap and current count-composition/removal scopes.
+The README remains an overview. Full2404source/501exec/1903regular; no additions,
+removals or mode changes. Runtime/test/support/fixture/native-criterion bytes stay
+exact from accepted506. The setup guide corrects the delivery-helper requirement
+to Python3.11 for the already used hashlib.file_digest API; no helper behavior changes.
+Historical144/96 preparation text is explicitly labeled and retained, not rewritten
+as if its old driver/state had the later scope. All exact506 originals/preimages,
+full source/policy, every3214 predecessor member byte, source chain/whole conditions/
+receipts/failures/unknown-origin anomaly bytes remain. Per-file overlay is not atomic.
+
+The prepared source cannot attest its later actual507 commit/push/pause. Actual507
+must repeat72; acceptance then separate whole-condition reading remains due. No
+source mutation matrix rerun, native test, authority reopening or new pause follows
+from documentation preparation. Later-current refresh cannot invalidate the
+completed scoped STATICpause499 or revive historical/consumed rights or bindings.
 
 ## Accepted505 and retained evidence
 
@@ -41,9 +77,9 @@ TESTS501/member-map descriptive defects remain distinct and exact.
 | 504 | Private real apply/count/build-wrapper/result composition;144 cases historically | External operations supplied; raw workflow0 can coexist with stable partial2 |
 | 505 | Queue removal failure stops collection/count/ABI;96 cases | Real rm can partially remove operands; no rollback/global absence |
 | 506 | Expanded192-case apply composition plus ordered72 normal commands | Runtime unchanged; no historical/native mutation-matrix or installed acceptance |
-| 507 | Planned final source/docs/navigation and separate closing assessment | Final actual return and subsequent whole-condition reading still due |
+| 507 | Prepared final existing-documentation/navigation review | Final actual return and subsequent separate whole-condition reading still due |
 
-Candidate506 changes four paths: this new100644 scope note, testing/log and the
+The historical506 source change was four paths: this new100644 scope note, testing/log and the
 existing apply composition driver. Full2404source/501exec/1903regular; no source
 removals or existing mode changes. Runtime and every other old test/support/fixture/
 native criterion remain byte-exact from accepted505. Preserve old driver/log/
@@ -194,7 +230,9 @@ python3 tests/reference/test-sbo-count-apply-composition.py
 python3 tests/reference/test-sbo-queue-reset.py
 ```
 
-All72 named normal commands must pass independently; do not add heterogeneous
+All72 passed in506 preparation and complete actual506. Actual final507 must repeat
+them independently;507 preparation reuses the506 records without a second local
+suite execution. Do not add heterogeneous
 scenario/assertion/control totals to claim coverage. Expected negative initrd
 ERROR output ends90checks/zero failures, not a failed normal run. Historical
 selected source-mutation matrices are not rerun by this ordered normal selection.
@@ -207,7 +245,7 @@ Read the whole inherited originals, not only this review. Complete final actual
 return must be accepted FIRST. THEN separately read EVERY WHOLE inherited header/
 condition and EVERY exact nested original body plus ALL new effects/obligations/
 cleanup/limits before assessing a scoped STATIC repository pause. Hashes, counts,
-summaries, indices and earlier reviews cannot replace that reading. Prepared506
+summaries, indices and earlier reviews cannot replace that reading. Prepared507
 cannot attest its later actual run or confirm a new pause. Reserves508-511 only
 if required; no automatic extension beyond planned500-507.
 

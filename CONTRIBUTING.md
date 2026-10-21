@@ -114,11 +114,15 @@ when their validity is claimed. See the
 
 The mappings below still govern reference-script changes; frozen historical
 baselines retain their original scope.
-The current [492-499 integrated review](docs/reference/repository-regression-block-492-499.md)
-selects66 named checks: historical60 in order, then six ZIP/owner/cache drivers.
-Complete actual498 passed all66; prepared499 is the final documentation review
-and still needs its actual return. Dependencies, failures, real/private/supplied
-effects and limits remain explicit. The [484-491 selection](docs/reference/repository-regression-block-484-491.md),
+The current [500-507 integrated review](docs/reference/repository-regression-block-500-507.md)
+selects72 named checks: historical66 in order, then six SBo count/removal/apply
+composition drivers. Complete actual506 passed all72. Prepared507 changes only
+existing documentation and reuses those records on identical runtime/test/fixture
+bytes; actual507 must repeat the72 before its final return. Last confirmed scoped
+STATIC repository pause499; no new pause follows from prepared documentation.
+Dependencies, failures, real/private/supplied effects and limits remain explicit.
+The [492-499 selection](docs/reference/repository-regression-block-492-499.md),
+[484-491 selection](docs/reference/repository-regression-block-484-491.md),
 [475-483 selection](docs/reference/repository-regression-block-475-483.md) and earlier
 reviews retain their historical scope. A prepared pass still needs
 the complete actual final return and a separate post-return reading/review of
@@ -145,6 +149,20 @@ Before submitting a change to the reference script:
    Run `python3 tests/reference/test-elf-metadata.py` when static magic/path resolution, readelf text parsing, architecture cache matching or missing-dependency classification changes. It uses private files, real parsers/coreutils and supplied readelf output; see [the ELF metadata scope](docs/reference/elf-metadata.md). Run the architecture-resolution regression with its jq requirement; cache production, scanning/recheck, workflow and native acceptance retain separate scopes.
 
    Run `python3 tests/reference/test-sbo-workflow.py` when SBo refresh/generation sequencing, core/ABI coordination, generation-ready gating, final submission or post-build recheck propagation changes. It calls real coordinators with supplied commands/collectors and private lists; see [the SBo workflow scope](docs/reference/sbo-workflow.md). Keep real queue-file/configuration, ELF, final result mapping and native acceptance boundaries separate.
+
+   For SBo count/removal changes, also select `test-sbo-final-queue-count.py`,
+   `test-sbo-core-queue-count.py`, `test-sbo-abi-queue-count.py`,
+   `test-sbo-option-map-count.py` and `test-sbo-queue-reset.py` through `python3`
+   under `tests/reference/`. Their [final](docs/reference/sbo-final-queue-count.md),
+   [core](docs/reference/sbo-core-queue-count.md), [ABI](docs/reference/sbo-abi-queue-count.md),
+   [option-map](docs/reference/sbo-option-map-count.md) and
+   [removal](docs/reference/sbo-queue-reset.md) scopes distinguish preserved counters,
+   published files, partial effects and blocked callbacks. Run
+   `python3 tests/reference/test-sbo-count-apply-composition.py` for their selected
+   propagation through real private apply/result mapping; the
+   [current integration](docs/reference/repository-regression-block-500-507.md)
+   describes192 cases and supplied boundaries. No rollback/global-cleanup/native
+   guarantee follows; retain original diagnostic failures and oracle corrections.
 
    Run `python3 tests/reference/test-sbo-queue-files.py` when queue directory enumeration, candidate installation, target-set merging, core/extras ordering or option-map precedence changes. It checks real private files/coreutils and supplied selected faults; see [the queue file scope](docs/reference/sbo-queue-files.md). Run the graph, dependency-order, target-selection and option regressions alongside it; installed database and builder workflows remain separate boundaries.
 

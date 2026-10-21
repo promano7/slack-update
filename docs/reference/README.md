@@ -31,11 +31,14 @@ choose a path, approve a migration or grant a native test.
 
 ## Current repository regression coverage
 
-The [integrated492-499 review](repository-regression-block-492-499.md) identifies
-66 selected commands and current ZIP/ELF-owner/cache changes. Complete actual498
-passed; prepared499 is the final source/docs/navigation review and still needs
-its complete return plus separate whole-condition/nested-original reading before
-any new scoped STATIC pause. The [484-491 review](repository-regression-block-484-491.md),
+The [integrated500-507 review](repository-regression-block-500-507.md) identifies
+72 selected commands, SBo count/removal guards and current192-case private apply
+composition. Complete actual506 passed all72. Prepared507 reviews only existing
+documentation and must receive its complete actual return before a separate whole-
+condition/header/exact-nested-original and new-effect/obligation/cleanup/limit
+reading can assess a new pause. Last confirmed scoped STATIC repository pause499.
+The [492-499 review](repository-regression-block-492-499.md),
+[484-491 review](repository-regression-block-484-491.md),
 [475-483 review](repository-regression-block-475-483.md) and earlier
 [467-474 review](repository-regression-block-467-474.md) retain their historical
 60/56/54 selections, failures and qualifications. None closes native acceptance
@@ -46,6 +49,9 @@ or selects an operational contract alternative.
 | SBo graph constraints and deterministic order | [Queue graph](sbo-queue-graph.md) |
 | Queue directory selection and file merging | [Queue files](sbo-queue-files.md) |
 | Synchronization, generation gates and submission coordination | [SBo workflow](sbo-workflow.md) |
+| Count failures and following core/ABI/builder gates | [Final](sbo-final-queue-count.md), [core](sbo-core-queue-count.md), [ABI](sbo-abi-queue-count.md) and [option map](sbo-option-map-count.md) |
+| Previous private queue removal failure and partial effects | [Queue removal](sbo-queue-reset.md) |
+| Selected count/removal propagation through apply and result mapping | [Current192-case integration](repository-regression-block-500-507.md) and [historical144-case scope](sbo-count-apply-composition.md) |
 | Delivery ZIP structure/CRC and explicitly selected embedded archives | [Archive integrity and incomplete history](delivery-archive-integrity.md) |
 | Literal ELF-owner mapping, collection, count/publication and private apply composition | [Owner mapping](elf-owner-mapping.md) |
 | Compatible/absent/error cache lookup and successful directory-skip repair | [Cache lookup](elf-cache-lookup.md) |

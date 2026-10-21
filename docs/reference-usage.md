@@ -88,9 +88,10 @@ selected failure projections are documented as limitations in those scopes.
 Do not treat a printed success label, private regression PASS or plan as native
 acceptance, package no-effect evidence or a bootability guarantee.
 
-The [current integrated selection](reference/repository-regression-block-492-499.md)
-contains66 named commands and passed complete actual498. Prepared499 still needs
-its final return and the separate whole-condition review. Selected ELF traversal/publication/count, work-file
+The [current integrated selection](reference/repository-regression-block-500-507.md)
+contains72 named commands and passed complete actual506. Prepared final507 still
+needs its complete actual return and subsequent separate whole-condition review.
+Last confirmed scoped STATIC repository pause499. Selected ELF traversal/publication/count, work-file
 initialization and diagnostic/display failures propagate before success reporting;
 see [ELF scanning](reference/elf-scan-workflow.md). Cache construction, publication
 and count failures have a separate [cache scope](reference/elf-cache-construction.md)
@@ -103,6 +104,14 @@ may change its destination. [Cache lookup](reference/elf-cache-lookup.md) separa
 absence from errors, including GNU awk's successful directory skip. The initial
 scan can still omit inspection errors and return0; neither that return nor a
 private PASS establishes complete inspection or a native safety guarantee.
+
+Selected SBo option/core/ABI/final count failures now set errors and block the
+following stage or builder. Failed removal of prior private queues also blocks
+collection/ABI; rm can already have removed other operands. The outer apply flow
+can return raw0 through its summary while the final mapper reports partial2.
+The [count/removal composition](reference/repository-regression-block-500-507.md)
+keeps exact real/supplied boundaries, prior-count fixtures and remaining failed-
+cleanup/publication/race limits. A failed operation is not rollback evidence.
 
 Human output passes through the current sed filter before tee, so both console
 and log receive filtered text. Supported ANSI sequences and the first carriage

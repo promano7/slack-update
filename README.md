@@ -95,7 +95,7 @@ carry raw command statuses; the final process/result status uses this table.
 ## Documentation and contributing
 
 - [Development roadmap and phase gates](docs/roadmap.md)
-- [Current regression selection and limits](docs/reference/repository-regression-block-492-499.md)
+- [Current regression selection and limits](docs/reference/repository-regression-block-500-507.md)
 - [Reference acceptance guide](tests/acceptance/reference/README.md)
 - [Configuration example](data/config/slack-update.conf)
 - [Contribution and documentation policy](CONTRIBUTING.md)

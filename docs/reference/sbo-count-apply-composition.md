@@ -1,5 +1,22 @@
 # SBo count failure composition through apply
 
+## Current source status at prepared507
+
+Complete actual506 accepted all72 normal commands. The current driver has192
+cases, including reset-quiet/reset-partial/reset-removed and intermediate private
+file snapshots; see the [current integration](repository-regression-block-500-507.md).
+Explicit prior counters6/5/4/TOTAL0 are private fixtures. Successful ABI0 preserves
+extra4; initial oracle failure/correction is retained. Runtime is unchanged from
+accepted505; all code/tests/fixtures remain exact from506 in documentation-only507.
+Prepared507 still needs its actual return and later separate whole-condition
+review; last confirmed STATIC repository pause499, no new native authority.
+
+## Historical prepared504 scope (144 cases)
+
+The remaining text describes the original504 driver and its own preparation,
+source hash, supplied boundaries and then-pending flags. It does not claim that
+that144-case driver injected reset faults or seeded the later counters.
+
 Run from the repository root:
 
 ```bash

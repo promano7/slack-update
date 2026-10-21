@@ -1,5 +1,22 @@
 # Stop SBo selection after private queue removal failure
 
+## Current source status at prepared507
+
+Complete actual505 accepted the96-case removal driver; complete actual506 passed
+all72 normal commands. The expanded192-case
+[apply integration](repository-regression-block-500-507.md) now checks three
+supplied regular-file removal failures before real outer cleanup/reset and result
+mapping. Real directory failures remain the separate unit scope below; arbitrary
+failed cleanup, rollback or global absence is not established. Runtime/tests/
+fixtures are exact from506 in documentation-only507. Actual507 and its subsequent
+separate whole-condition review remain due; last confirmed STATIC pause499.
+
+## Historical prepared505 scope (96 cases)
+
+The remaining text preserves505's original focused preparation boundaries and
+then-pending flags; its statement that the old144-case composition supplied no
+reset failure remains a historical statement about that driver.
+
 Step505 guards the existing `rm -f` of `QUEUE_CORE`, `QUEUE_EXTRA` and
 `SBO_OPTION_RECORDS` at the start of `build_sbo_core_queue`. Any nonzero status
 sets `SBO_TARGET_SELECTION_ERROR` to `cannot remove previous private SBo queue files`,

@@ -6,6 +6,20 @@ remain the detailed guide for reference-script changes. This document explains
 how current regression checks, historical checkpoint harnesses and real
 Slackware acceptance differ; it does not authorize a system run.
 
+## Current integrated selection
+
+The [500-507 review](reference/repository-regression-block-500-507.md) names72
+ordered commands: historical66 plus six SBo count/removal/composition drivers.
+Complete actual506 passed all72. Prepared507 changes twelve existing documents
+only; preparation reuses those results on exact unchanged runtime/test/support/
+fixture bytes and claims no second local suite run. Actual507 must repeat the72
+on its final tree. Last confirmed scoped STATIC repository pause499; no new pause.
+Accept the complete final actual return FIRST, THEN separately read EVERY WHOLE
+inherited header/condition/exact nested original and every new effect/obligation/
+cleanup/limit before assessment. Counts/hashes/summaries/prior reviews cannot
+substitute. Older numbered preparation paragraphs below retain their own historical
+scope and pending flags; they do not override this current status or amend criteria.
+
 ## Select the applicable checks
 
 | Change or review | Verification scope |
@@ -741,5 +755,6 @@ blocking and result mapping. Seeded ABI0 retains prior extra total4; initial ora
 failure/correction remain distinct. Runtime unchanged from accepted505; nine
 selected source variants reject. Preserve all individual real/supplied scopes,
 UID0, expected negative initrd controls, partial effects/cleanup/races/binary-history
-limits. Complete actual505 accepted; candidate506 and final507/whole-condition
-review remain due. No new pause or native acceptance follows from preparation.
+limits. Complete actual506 accepted; prepared507 requires its final actual return
+and subsequent separate whole-condition review. No new pause or native acceptance
+follows from preparation.

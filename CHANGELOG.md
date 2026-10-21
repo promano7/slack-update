@@ -1,3 +1,55 @@
+## Phase 1 step 507 -- reconcile final SBo regression guidance and pause gates
+
+- Accept complete supplied506: HEAD/local origin
+  34910b16da065050884d10dba719b87692c67a78, parent
+  aa74fcb745ca5944a364db7e8559f91ca4810539, tree
+  1ff2b22a2d76aceaa1ddd882953ab8dd3a4ebf2e, policy SHA256
+  69402ffb54ae776f359f0b8cb4733ae18f0af0bd0edea0bdbe877ecd2df690f3.
+  All72outputs agree in order, normalizing only one consistent generated initrd
+  root in command56. Expected negative initrd diagnostics end90checks/zerofailures.
+  ZIP3214entries472505335bytes/scope/syntax/executable/whitespace/fourpaths338add7delete/
+  oneNEW100644/subject/reportedpush/cleanrefs/fullsource-mode report agree. Supplied
+  inline reconstruction not original terminal bytes or independent capture.
+- Reconcile current72-command selection/navigation in README's existing link,
+  contribution/testing/setup/usage/roadmap and both documentation indexes. Keep
+  README an overview, not step history. Add precise focused SBo count/removal/apply
+  contribution mappings. Correct documented overlay-helper minimum to Python3.11
+  for its existing hashlib.file_digest API; no helper/code behavior changed.
+- Distinguish current192-case count/reset apply composition and accepted96-case
+  removal unit scope from explicitly historical144/96 preparation text/flags.
+  Preserve prior-count fixture6/5/4/TOTAL0, ABI0keeps4 oracle correction, partial
+  effects, regular-file-only apply faults and separate directory-failure scope.
+  Keep raw0/stablepartial2, real/supplied callback boundaries and UID0/guard limits.
+- Change twelve existing documentation paths only. Full2404source/501exec/1903regular;
+  no new paths/removals/modechanges. Runtime/ALL tests/support/fixtures/nativecriteria
+  byte-exact from accepted506. Reuse recorded72 preparation passes on those exact
+  bytes; no second local suite execution or historical/native mutation rerun.
+  Actual final507 must repeat72 on its final tree. Check changed links/fragments,
+  syntax/command syntax/whitespace/fullsource-index-mode-tree and delivery boundaries.
+- Retain full source/policy/twelvepreimages/oldlogtail/every3214mapped506member/
+  receipts/sourcechain/wholeconditions/failures/anomalybytes; no actual-user Git
+  commit objects fabricated from private synthetic controls. Finite local source/
+  ref reads not atomic snapshots/independent remote capture; ignoredfiles unobserved.
+- Seven actual500-506 accepted in bounded500-507. Prepared507 needs COMPLETE FINAL
+  actual return FIRST, THEN separately read EVERY WHOLE inheritedheader/condition/
+  exactnestedoriginal plus ALL neweffects/obligations/cleanup/limits before scoped
+  pauseassessment. Counts/hashes/indices/summaries/priorreviews not substitutes.
+  Last confirmed STATICpause499; no newpause confirmed here. Reserves508-511only
+  if required, no automatic extension. Later-current refresh cannot invalidate
+  completed STATICpause499 or revive old/consumed rights/bindings.
+- Preserve506initial ABI0oracle failure,505unknown-origin prefix/first rejection,
+  original503diagnostic failure/repair,502label/description defects, all older
+  causes/qualifications and incomplete491binaryhistory. No inferred cause/repair.
+  ELF omission/raw0/shortcircuit/partial publication/count/cleanup/resource-untracking/
+  allocation/read/inputrace/whole-state limits remain. Privatecleanup not historical
+  cleanup/globalabsence. Phase1/kernel incomplete;13OPENfindings/16gaps/fivefamilies/
+  20native scenarios/originalcriteria remain. A/R/Dunselected/fourrepairsinactive,
+  nativeevidence/livebindingsNULL/hostunobserved/globalclosurefalse. Original
+  independent decision/acceptance/migrationIFneeded/ACTUALcomposition/safeACTUALWHOLE
+  review/freshboundednativegrant/OWNplatformconformance gates remain. No oldright/
+  binding reuse/revival/retry/refund/replay/relaunch/rebind/reacquire/renewal/
+  replacement/post-release action or native authority follows from static work.
+
 ## Phase 1 step 506 -- integrate SBo removal failures and broad regression
 
 - Accept complete supplied505: HEAD/local origin
