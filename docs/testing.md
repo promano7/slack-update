@@ -633,6 +633,25 @@ apply to the same repaired runtime hash, not the expanded driver. Preserve the
 original487/11 runtime failure and the distinct earlier diagnostic-oracle failure.
 See [repair evidence](reference/elf-cache-lookup.md#original-failure-and-repair-evidence).
 
+## SBo option-map count failure
+
+Step503 repair1 preserves the failed original user run: its state/output matched,
+but the missing-input diagnostic used the launcher prefix `sbo-option-count-test`.
+The oracle now accepts that exact prefix alongside source/environment and retains
+strict path/line/error/no-extra-output checks. The driver runs the same168 cases
+plus13 diagnostic controls. Runtime bytes are unchanged; actual503 remains pending.
+See the [repair scope](reference/sbo-option-map-count.md#step503-repair1-bash-diagnostic-prefix).
+
+Run `python3 tests/reference/test-sbo-option-map-count.py` for168 private cases
+using real option collection, core coordination and caller gate with supplied ABI
+work. Failed counts keep the initialized zero, return1 and block later core/ABI
+callbacks; the already published map remains. The
+[scope note](reference/sbo-option-map-count.md) retains baseline24pass/144reject,
+six source controls and cleanup/publication limits. Eighteen normal commands
+include the unchanged seventeen from502. Preserve502's mislabeled TESTS501 markers
+and member-map description as history;503 delivery checks correct labels explicitly.
+Actual502 accepted; candidate503/new pause pending.
+
 ## ABI SBo target queue count failure
 
 Run `python3 tests/reference/test-sbo-abi-queue-count.py` for288 cases with the real

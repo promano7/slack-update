@@ -1069,6 +1069,7 @@ collect_sbo_option_records_from_sources() {
     local record
     local target
     local options
+    local option_count
     local -A selected_options=()
 
     SBO_TARGET_SELECTION_ERROR=
@@ -1178,7 +1179,14 @@ collect_sbo_option_records_from_sources() {
         return 1
     fi
 
-    SBO_OPTION_RECORD_COUNT=$(wc -l < "$destination")
+    # Keep the initialized zero count when inspection fails after publication.
+    if ! option_count=$(wc -l < "$destination"); then
+        rm -f "$queue_listing" "$queue_raw" "$queue_normalized" \
+            "$override_raw" "$override_normalized"
+        SBO_TARGET_SELECTION_ERROR="cannot count normalized SBo option map"
+        return 1
+    fi
+    SBO_OPTION_RECORD_COUNT=$option_count
     rm -f "$queue_listing" "$queue_raw" "$queue_normalized" \
         "$override_raw" "$override_normalized"
 }

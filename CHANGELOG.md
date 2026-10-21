@@ -1,3 +1,95 @@
+## Phase 1 step 503 repair 1 -- accept the observed Bash diagnostic launcher prefix
+
+- Preserve failed supplied original503: outer ZIP/all3047members/source/modes/tree,
+  apply and initial source-scope checks passed; first test rejected the
+  empty/missing/options/absent-destination case. Raw1/stdout/selected state exactly
+  matched. Bash emitted sbo-option-count-test:line110 for the exact private missing
+  path; oracle accepted only source/environment prefixes. Later17tests/gitadd/
+  commit/push/capture did not run. No actual503 acceptance or new pause claimed.
+- Extend only the missing-input diagnostic prefix alternatives to that exact
+  launcher name. Keep exact positive line number/private path/C-locale message/
+  newline/noextra stderr checks. Add13 pure oracle controls:3positive/10negative.
+  Original168behavioral scope unchanged. Source runtime byte-identical to original
+  503, SHA25607cddef43ab00bd288710894f3a755b330bd424cafd31efca899e0ec25f89262.
+  No native policy/criteria/result contract change or inferred Bash-version cause.
+- Repaired168behavioral+13diagnostic controls and18normalcommands pass separately;
+  updated-driver24normalpass/144countreject baseline and six syntax-valid source
+  variants retain separate records. Do not relabel original preparation passes or
+  failed user run. Exact supplied inline failure/reconstruction provenance retained;
+  not original terminal bytes or independent terminal/GitHub/native capture.
+- Repair requires exact original503 applied source on accepted502 and unstaged
+  base index. Replace four driver/doc/log paths; final step still changes five
+  paths versus502, with twoNEW100644. Full2399source/501exec/1898regular, all modes/
+  runtime/other original503bytes unchanged. Full source/policy/original-policy hash/
+  original503mapped members/repair preimages/context retained. Per-file replacements
+  are not atomic; preserve partial failures. No actual-user Git objects fabricated.
+- This is the same pending503, no extra step. Three actual500-502 accepted in
+  bounded500-507; reserves508-511only if needed. Complete repaired actual tests/
+  commit/push/cleanrefs/source-mode-tree return due. Last confirmed STATICpause499;
+  no new pause. Final actual acceptance before separate EVERY WHOLE inherited
+  header/condition/exact nested original and all current effects/obligations/
+  cleanup/limits reading; no hash/count/summary/prior-review substitute.
+- Preserve original502 TESTS501/member-map descriptive defects and every earlier
+  runtime/authoring/transport/capture/packaging/unknown-origin prefix qualification.
+  Incomplete nested491binary/history causes remain OPEN, no repaired binary history
+  inferred. ELF initial inspection2 omission/raw0, short circuit, partial publication/
+  count/cleanup/input race/whole-state limits persist. Phase1/kernel incomplete,
+  A/R/Dunselected/proposed repairs inactive, nativeevidence/livebindingsNULL,
+  hostunobserved/globalclosurefalse. All original independent decision/acceptance/
+  migrationIFneeded/ACTUALcomposition/safeACTUALWHOLEreview/freshboundednativegrant/
+  OWNplatformconformance gates remain; no old/consumed right or binding renewed.
+
+## Phase 1 step 503 -- propagate SBo option-map count failures
+
+- Accept complete supplied inline actual502: HEAD/local origin
+  09f2d62ad00f8495634bad08a1e0e2f09030b48b, parent
+  ee050becb186f345e42c8cfd6aa5c9929a6567bb, tree
+  b4912e2e5bb77343adb2a45ed7da1026cbb3018c, source-policy SHA256
+  cb0faf0a05f0fa649158f64321bb749b9209c2faa667aa69900a645c0ad16d06.
+  All17 vectors/outputs agree; ZIP3005entries/420390385bytes, apply/three scope
+  gates/syntax/executable/whitespace/fivepaths332add1delete/twoNEW100644/subject/
+  reportedpush/clean refs/source-mode report agree. Inline reconstruction is not
+  original terminal bytes or independent terminal/GitHub/native capture.
+- Preserve historical502 BEGIN/END TESTS501 label despite its correct17commands.
+  Its member-map description says original500 although filename/hash/all2954members
+  bind exact501. Retain both descriptive defects without rewriting original records.
+  Correct503 labels/description; explicitly check both markers and18 exact vectors.
+- Reproduce unchecked option-map count after publication: empty/partial count and
+  cleanup return0 hid failure from real core/ABI gate. Guard local count, attempt
+  remaining five-temp cleanup, set selectionerror/raw1 and keep initialized count0.
+  Real core/gate then block later corecount/ABI callback. Already published map
+  remains; no rollback/atomic input binding/race/special-file/arbitrary successful
+  output/failed-cleanup or whole-host guarantee. Successful behavior unchanged.
+- Add168 cases with real option collector/body/parsers/normalization/overrides/
+  core/gate/private files/graph/sort/move/cleanup/redirections/wc; supplied ABI and
+  count1/43/127/partial42-status43, private missing/directory postpublication
+  projections. Exact bytes/raw/status/counts/error/orderedvectors/caller/private
+  inventory excludingevents checked. Preserve first old-source rejection and
+  separate24normalpass/144countreject matrix. Six syntax-valid source variants
+  reject; new168 and seventeen complementary normal commands pass separately.
+  No historical66-suite/mutation-matrix rerun; UID0/private guards not native or
+  actual unprivileged/installed/whole-workflow conformance or OS containment.
+- Modify runtime/testing/log originals, add driver/scope100644. Full2399source,
+  501exec/1898regular; all2394other originals/old modes/fixtures/native criteria
+  exact, no removals. Full source/policy/threepreimages/oldlogtail and exact mapped
+  predecessor/whole conditions/receipts/source-chain/failure/anomaly bytes retained.
+  Private synthetic Git source preparation fabricates no actual-user Git objects.
+- Three actual steps500-502 accepted in bounded500-507; reserves508-511 only if
+  needed. Prepared503 awaits complete actual application/tests/commit/push/clean
+  refs/source-mode-tree return. Last confirmed STATIC pause499; no new pause.
+  Final complete actual acceptance FIRST, THEN separate EVERY WHOLE inherited
+  header/condition/EVERY exact nested original and new effects/obligations/cleanup/
+  limits reading before pause assessment. Hashes/counts/summaries cannot replace it.
+- Incomplete saved nested491binary, unknown-origin prefixes and every authoring/
+  runtime/packaging/transport/capture qualification remain, no unknown cause or
+  history repair inferred. ELF initial inspection2 omission/raw0, short circuit,
+  partial publication/count/cleanup/read/input races and whole-state limits persist.
+  Phase1/kernel incomplete, A/R/D unselected/proposed repairs inactive, actualnative
+  evidence/livebindingsNULL, hostunobserved/globalclosurefalse. Original independent
+  decision/acceptance/migrationIFneeded/ACTUALcomposition/safeACTUALWHOLEreview/
+  freshboundednativegrant/OWNplatformconformance gates remain. No old/consumed right
+  or live binding reused, revived or renewed.
+
 ## Phase 1 step 502 -- reject failed ABI SBo target queue counts
 
 - Accept complete supplied inline actual501: HEAD/local origin
