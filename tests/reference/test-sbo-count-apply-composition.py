@@ -10,7 +10,8 @@ import tempfile
 ROOT = Path(__file__).resolve().parents[2]
 REFERENCE = ROOT / 'tools/reference/slack-update-reference.sh'
 FAULTS = ('none', 'options-quiet', 'options-partial', 'core-quiet', 'core-partial',
-          'abi-quiet', 'abi-partial', 'final-quiet', 'final-partial')
+          'abi-quiet', 'abi-partial', 'final-quiet', 'final-partial',
+          'reset-quiet', 'reset-partial', 'reset-removed')
 PREFIX = r'''
 source "$1"
 TEST_ROOT=$2
@@ -53,6 +54,32 @@ build_and_apply_sbo_queue() {
     real_build_and_apply_sbo_queue || result=$?
     COUNT_STAGE=$previous
     return "$result"
+}
+reset_snapshot() {
+    local path
+    for path in "$QUEUE_CORE" "$QUEUE_EXTRA" "$SBO_OPTION_RECORDS"; do
+        if [[ -e $path ]]; then event reset-file "$path" present "$(< "$path")"
+        else event reset-file "$path" absent; fi
+    done
+}
+rm() {
+    if [[ $COUNT_STAGE == core && $# == 4 && $1 == -f && $2 == "$QUEUE_CORE" \
+        && $3 == "$QUEUE_EXTRA" && $4 == "$SBO_OPTION_RECORDS" ]]; then
+        event reset "$@"
+        case "$FAULT" in
+            reset-quiet) reset_snapshot; return 43 ;;
+            reset-partial)
+                builtin command rm -f -- "$QUEUE_CORE" || forbidden reset-partial-remove
+                builtin printf 'supplied-reset-output\n'
+                reset_snapshot
+                return 43 ;;
+            reset-removed)
+                builtin command rm "$@" || forbidden reset-complete-remove
+                reset_snapshot
+                return 43 ;;
+        esac
+    fi
+    builtin command rm "$@"
 }
 wc() {
     [[ $# == 1 && $1 == -l && $COUNT_STAGE != none ]] || forbidden count-vector
@@ -139,11 +166,12 @@ def scenario(root, profile, fault, abi, sbo, build):
     final = '' if profile == 'empty' else 'core-b\ncore-a | V=yes\n' + ('extra\n' if abi else '')
     stage = fault.split('-')[0]
     failed_stage = stage if sbo and stage != 'none' and (stage != 'abi' or abi) else ''
-    selection_failed = failed_stage in ('options', 'core', 'abi')
+    selection_failed = failed_stage in ('reset', 'options', 'core', 'abi')
     final_failed = failed_stage == 'final'
-    error = {'options': 'cannot count normalized SBo option map', 'core': 'cannot count the core SBo queue',
+    error = {'reset': 'cannot remove previous private SBo queue files', 'options': 'cannot count normalized SBo option map', 'core': 'cannot count the core SBo queue',
              'abi': 'cannot count the ABI SBo target queue', 'final': 'cannot count the final dependency-ordered SBo queue'}.get(failed_stage, '')
-    core_count = option_count = extra_count = total = 0
+    core_count = option_count = total = 0
+    extra_count = 4 if sbo and not abi else 0
     build_status = -1
     selection = 0 if sbo else -1
 
@@ -151,9 +179,17 @@ def scenario(root, profile, fault, abi, sbo, build):
 
     if sbo:
         rows += [('sync',), ('action', 'sbo', 'synchronize', 'success', 'SBo repository synchronization completed', 0),
-                 ('core',), ('count', 'options', '-l')]
+                 ('core',), ('reset', '-f', str(root / 'core'), str(root / 'extra'), str(root / 'options'))]
         output += '[6] Generando colas SBo\n'
-        if failed_stage != 'options':
+        if failed_stage == 'reset':
+            if fault == 'reset-partial': output += 'supplied-reset-output\n'
+            for name in ('core', 'extra', 'options'):
+                present = fault == 'reset-quiet' or (fault == 'reset-partial' and name != 'core')
+                rows.append(('reset-file', str(root / name), 'present', 'old-' + name) if present else
+                            ('reset-file', str(root / name), 'absent'))
+        else:
+            rows.append(('count', 'options', '-l'))
+        if failed_stage not in ('reset', 'options'):
             rows.append(('count', 'core', '-l'))
             if failed_stage != 'core':
                 core_count = core.count('\n'); option_count = options.count('\n')
@@ -214,6 +250,7 @@ def scenario(root, profile, fault, abi, sbo, build):
     fields = [2 if errors else 0, 0 if errors else 1, 1 if errors else 0, 1, 'none', selection, error,
               build_status, core_count, option_count, extra_count, total, total, -1, -1]
     settings = dict(FAULT=fault, ABI_TRIGGER=str(abi), SBO_RUN=str(sbo), BUILD_CODE=str(build), COUNT_STAGE='none', TOTAL='0',
+        TOTAL_CORE='6', SBO_OPTION_RECORD_COUNT='5', TOTAL_EXTRA='4',
         PACKAGE_DATABASE=str(root / 'packages'), SBO_PACKAGE_TAG='_SBo', SBO_PERSONAL_QUEUE_DIR=str(root / 'queues'),
         QUEUE_CORE=str(root / 'core'), QUEUE_EXTRA=str(root / 'extra'), QUEUE_FINAL=str(root / 'final'),
         SBO_OPTION_RECORDS=str(root / 'options'), SBO_OPTIONS_FILE=str(root / 'overrides'), BROKEN=str(root / 'broken'),
@@ -248,7 +285,7 @@ def main():
             root.mkdir()
             scenario(root, *values)
             count += 1
-    print(f'SBo count apply composition: {count} scenarios, 0 failures')
+    print(f'SBo count/reset apply composition: {count} scenarios, 0 failures')
 
 
 if __name__ == '__main__':

@@ -1,3 +1,50 @@
+## Phase 1 step 506 -- integrate SBo removal failures and broad regression
+
+- Accept complete supplied505: HEAD/local origin
+  aa74fcb745ca5944a364db7e8559f91ca4810539, parent
+  b3945231e6658b83cae167ac5b2ac26c7bff435a, tree
+  33cd0d00a305408a34d4ec211183cab793146c81, policy SHA256
+  dd914a05b1e412e172de4a57a76b21fc2929b69649d2faef1e0be85c4abc50c6.
+  All20outputs/ZIP3174entries466417997bytes/scope/syntax/executable/whitespace/
+  fivepaths373add1delete/twoNEW100644/subject/reportedpush/cleanfullrefs/source-
+  modes agree. Supplied inline reconstruction not originalbytes/independentcapture.
+- Expand existing144applycomposition to192: append reset quiet/partial/all-removed
+  status43; measure private file state before real apply cleanup/reset; block
+  finalhelper/builder, preserve specific selection error, raw0/stablepartial2.
+  Runtime unchanged. Real ordinary private removal/files/counters/coordinator/
+  parser/graph/options/count/finalmerge/resultmapper; supplied external adapters,
+  selected faults and inertbuilder. Real directory failures stay separate505scope;
+  no arbitrary failed-cleanup/rollback/atomicity/globalabsence proof.
+- Seed prior core/options/extra6/5/4/total0 private fixtures. Initial oracle wrongly
+  expected extra0 on successful ABI0; actual preserves4, other trace/inventory/
+  output matched. Retain firstdriver/output/correction; correct expectation, no
+  runtime defect/initialization-policy claim. Nine syntax-valid source controls
+  reject four count regressions/selectiongate/actionclassification/unguardedreset/
+  missingearlyreturn/omittedoutercorereset. No historical/native mutation rerun.
+- Run exactly historical66normalcommands plus six named drivers500-505 in step
+  order:72distinct commands with individual outputs/statuses. All normal commands
+  must pass; expected negative initrd ERROR controls end90checks/zerofailures.
+  Keep real/supplied/privateeffects/UID0/namedguard/partialpublication/cleanup/
+  allocation/read/race/whole-state limits; no installed/native conformance claim.
+- Change four paths: existing composition driver/testing/log plus new100644
+  integration scope. Full2404source/501exec/1903regular, no removals/oldmodechanges.
+  Runtime/otheroldtests/support/fixtures/nativecriteria exact. Full source/policy/
+  threepreimages/oldlogtail/every3174mapped505member/receipts/wholeconditions/
+  sourcechain/failures/anomalybytes retained. No actual-user Git objects fabricated.
+- Six actual500-505 accepted; prepared506 needs complete actual return. Planned
+  final507 then separate EVERY WHOLE inheritedheader/condition/exactnestedoriginal/
+  neweffect/obligation/cleanup/limit reading AFTER finalactualacceptance before any
+  pauseassessment. Counts/hashes/summaries/priorreviews not substitutes. Last
+  confirmed scopedSTATICpause499; no newpause. Reserves508-511only if required.
+- Preserve505unknown-origin18,350,080byte sourceprefix/first rejection/full bytes,
+  original503diagnostic failure/repair,502label/description defects, all older
+  causes/qualifications and incomplete491binaryhistory. No repair/origin claim.
+  ELF omission/raw0/shortcircuit/partial effects persist. Phase1/kernel incomplete;
+  A/R/Dunselected/fourrepairsinactive, nativeevidence/livebindingsNULL/hostunobserved/
+  globalclosurefalse. Original independent decision/acceptance/migrationIFneeded/
+  ACTUALcomposition/safeACTUALWHOLEreview/freshboundednativegrant/OWNplatform
+  conformance gates remain; no consumedright or oldbinding reuse/revival/renewal.
+
 ## Phase 1 step 505 -- stop SBo selection after private queue removal failure
 
 - Accept complete supplied504: HEAD/local origin

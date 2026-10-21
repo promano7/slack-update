@@ -730,3 +730,16 @@ Twenty normal commands include the unchanged nineteen from504; its144-case apply
 composition still supplies no reset fault. No historical66/native rerun claimed.
 Complete supplied504 accepted; candidate505/new pause pending. Private cleanup
 is not rollback, historical cleanup or global absence; all inherited gates remain.
+
+## Integrated selection for the500-507 block
+
+The [500-507 integration review](reference/repository-regression-block-500-507.md)
+retains the historical66-command order and appends six named drivers500-505,
+for72 distinct normal commands. The apply composition now runs192 private cases,
+including quiet/partial/complete removal failures through real apply cleanup,
+blocking and result mapping. Seeded ABI0 retains prior extra total4; initial oracle
+failure/correction remain distinct. Runtime unchanged from accepted505; nine
+selected source variants reject. Preserve all individual real/supplied scopes,
+UID0, expected negative initrd controls, partial effects/cleanup/races/binary-history
+limits. Complete actual505 accepted; candidate506 and final507/whole-condition
+review remain due. No new pause or native acceptance follows from preparation.
