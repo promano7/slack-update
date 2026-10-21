@@ -633,6 +633,20 @@ apply to the same repaired runtime hash, not the expanded driver. Preserve the
 original487/11 runtime failure and the distinct earlier diagnostic-oracle failure.
 See [repair evidence](reference/elf-cache-lookup.md#original-failure-and-repair-evidence).
 
+## Final SBo queue count failure
+
+Run `python3 tests/reference/test-sbo-final-queue-count.py` for 288 private cases
+using the real final-queue merge and an inert builder. Failed counts (including
+partial numeric stdout and real missing/directory input) must fail before builder
+dispatch, preserve both previous totals and set the build/error fields. See the
+[count scope](reference/sbo-final-queue-count.md) for exact real/supplied boundaries,
+the preserved baseline failures, source discrimination controls and fourteen
+complementary commands. This focused selection does not rerun the historical66
+integration. Pause499 was separately confirmed after its complete actual return;
+the new bounded500-507 block has reserves through511 only if required. Prepared500
+awaits actual application/tests/commit/push/clean-source evidence. No new pause or
+native acceptance follows from this preparation.
+
 ## Integrated selection for the 492-499 block
 
 The [492-499 integration review](reference/repository-regression-block-492-499.md)

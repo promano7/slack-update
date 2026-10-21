@@ -1,3 +1,51 @@
+## Phase 1 step 500 -- block SBo builder dispatch after a failed final queue count
+
+- Resume from confirmed STATIC repository pause499. Complete supplied actual499
+  accepted HEAD/local origin11139b0f59e1151721396c4a7a32748482d0783e, parent
+  5cf8ca0c6d676b95d76b89dbfb5b7a34e8f30180, tree
+  a7090a69611709cb1ca95760c2ea64e86b86298a and policy SHA256
+  1407388bbaff1215966ff20dd97fc2686f00264fc17cbcec902d81ec3aa9c076.
+  Exact supplied return and separate external whole-condition review retained;
+  source preparation flags remain unchanged historical records. Verify the supplied
+  continuation's full2391source/modes/tree, receipts and492-499 policy chain.
+- New user request opens bounded repository block500-507, reserves508-511 only
+  if needed. Select SBo queue construction/count failure projections, followed by
+  integration and final source/guidance review. This is candidate500, not an
+  accepted actual step or new pause. User application/tests/commit/push/clean
+  refs/source-mode-tree evidence is still required before advancing.
+- Reproduce unchecked final queue count: empty failure stdout erased totals and
+  reported an empty queue; positive partial stdout could dispatch sbopkg. Capture
+  into a local variable; nonzero status now sets build failure/error, returns1,
+  retains both old totals and invokes neither builder nor recheck. The queue is
+  already merged; no rollback, atomic input binding, race/special-file guarantee
+  or arbitrary successful-output validation is claimed. Other policies unchanged.
+- Add288 private behavioral cases with real final merge/parsers/option normalization,
+  private files/coreutils and missing/directory count inputs. Supply count failures,
+  inert builder0/7/20 and recheck19. Assert raw return/selected fields/totals,
+  caller IFS/outer variables, exact output/diagnostics/ordered vectors and complete
+  private inventory excluding events. Preserve first old-source rejection and
+  separate full old-source72pass/216reject matrix; six syntax-valid private source
+  variants reject. Normal288 plus fourteen complementary commands pass separately.
+  PreparerUID0; no installed/native workflow or historical66-suite rerun claimed.
+- Change three existing paths (runtime, testing guide, this log) and add two
+  100644 paths (driver and scope note). Full2393source,501exec/1892regular;
+  all2388 other originals/old modes/fixtures/native contracts exact, no removals.
+  Exact old log tail, three preimages, full source/policy and mapped original499
+  continuation members accompany the candidate. Private synthetic Git preparation
+  does not fabricate the actual user's Git commit objects.
+- Incomplete nested491 binary history and unknown-origin scratch-prefix observations
+  stay OPEN. Preserve every earlier failure/repair/transport/capture qualification;
+  current scan inspection-error omission/raw0, partial publication/cleanup/input
+  races and whole-state limits persist. Phase1/kernel incomplete; A/R/D unselected,
+  actual native evidence/live bindingsNULL, host unobserved/globalclosurefalse.
+  Original separate decision/independent acceptance/migration IF norms change/
+  ACTUAL composition/independent safe ACTUAL WHOLE review/fresh bounded native grant/
+  OWN-platform conformance gates remain. No native right or old binding is renewed.
+- Final actual acceptance must precede separate reading of EVERY WHOLE inherited
+  condition/header and EVERY exact nested original plus all new effects/obligations/
+  cleanup/limits before any scoped pause assessment. Counts/hashes/summaries/prior
+  reviews cannot replace this. Pause499 remains historical; no new pause confirmed.
+
 ## Phase 1 step 499 -- final source and guidance review for conditional repository pause
 
 - Accept complete actual498 at HEAD/local origin

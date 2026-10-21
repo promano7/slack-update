@@ -4402,6 +4402,7 @@ build_sbo_target_queues_after_synchronization() {
 
 build_and_apply_sbo_queue() {
     local option_records=${SBO_OPTION_RECORDS:-/dev/null}
+    local queue_count
 
     # ---------------------------
     # [10] BUILD FINAL QUEUE + APPLY
@@ -4417,8 +4418,15 @@ build_and_apply_sbo_queue() {
         return 1
     fi
 
-    TOTAL=$(wc -l < "$QUEUE_FINAL")
-    TOTAL_EN_COLA=$TOTAL
+    # A failed count must not dispatch a builder using empty or partial output.
+    if ! queue_count=$(wc -l < "$QUEUE_FINAL"); then
+        SBO_TARGET_SELECTION_ERROR="cannot count the final dependency-ordered SBo queue"
+        SBO_BUILD_STATUS=1
+        echo "  [ERROR] $SBO_TARGET_SELECTION_ERROR"
+        return 1
+    fi
+    TOTAL=$queue_count
+    TOTAL_EN_COLA=$queue_count
     echo "  Total paquetes en cola: $TOTAL"
 
     if [ "$TOTAL" -gt 0 ]; then
