@@ -1,3 +1,55 @@
+## Phase 1 step 505 -- stop SBo selection after private queue removal failure
+
+- Accept complete supplied504: HEAD/local origin
+  b3945231e6658b83cae167ac5b2ac26c7bff435a, parent
+  9e402ed8ddde78b6c6b7a6cb318d486f1a385dfc, tree
+  30f62e742be577945310d742d5ef14153415733b, policy SHA256
+  1d2556586b1f232803905a554e1e93f7322f2c7bd2b952621aafd309893ee94a.
+  All19outputs/ZIP3133entries441581205bytes/scope/syntax/executable/whitespace/
+  fourpaths421add0delete/twoNEW100644/subject/reportedpush/cleanrefs/source-mode
+  report agree. Supplied inline reconstruction is not original terminal bytes or
+  independent terminal/GitHub/native capture. No actual-user Git objects fabricated.
+- Guard existing rm-f core/extra/options vector in core queue coordination. Any
+  nonzero status sets selection error, prints error and returns1 before collectors/
+  count/ABI gate. Preserve earlier assignments and prior totals/status/readiness.
+  Successful/absent/symlink removal retains order. Partial and complete removals
+  followed by failure remain errors; no rollback/atomicity/globalabsence claimed.
+- Add96 private cases: empty/full payloads, twelve controls/fault selections,
+  direct/gated calls and supplied/pre-resolved directory. Real GNU rm directory
+  failure at each operand, private symlink/absent/sentinel/child effects, coreutils,
+  privatewrites/redirections; supplied resolution/collectors/ABI/selected rm faults.
+  Assert exact output/status/selectedstate/orderedvectors/caller/local/inventory
+  excludingevents. Named guards/UID0 not OScontainment/unprivileged/native proof.
+- Unchanged504source yields32pass/64reject. Six syntax-valid source variants reject
+  unguardedremove/wrongerror/noearlyreturn/resetoldtotal/ignoregate/omitextra.
+  New96 and unchanged19normalcommands pass separately. Existing144applycomposition
+  retains successful removal, no injected reset failure; no historical66-suite or
+  historical/native mutation-matrix rerun. Earlier failure/repair histories exact.
+- Change five paths: runtime/testing/log and new reset driver/scope100644. Full
+  2403source/501exec/1902regular; all existing modes/otherbytes/oldtests/fixtures/
+  nativecriteria exact, no removals. Full source/policy/threepreimages/oldlogtail/
+  all3133mapped504members/wholeconditions/receipts/sourcechain/anomalybytes retained.
+  Finite source/index/mode/tree reads, not atomic snapshot or ignored-file survey.
+- First packaging inventory rejected one unmanifested18,350,080byte source extra,
+  an observed strict prefix of a canonical26,424,442byte fixture. All2403canonical
+  hashes agreed; extra absent from observed working/predecessor source/504ZIP.
+  Retain exact extra/hash/first script/output/finite comparison outside canonical;
+  repeat packaging. Origin unknown, no inferred cause/user corruption/binary repair.
+- Five actual500-504 accepted in bounded500-507; reserves508-511only if required.
+  Prepared505 awaits full actual application/tests/commit/push/cleanrefs/source-
+  mode-tree return. Last confirmed STATICpause499, no newpause. Accept COMPLETE
+  finalactual FIRST, THEN separately read EVERY WHOLE inherited header/condition/
+  exactnestedoriginal plus neweffects/obligations/cleanup/limits before assessment;
+  counts/hashes/summaries/priorreviews cannot substitute. No automatic extension.
+- Preserve original503 diagnostic-prefix failure/repair,502marker/description
+  defects, every older cause/qualification, incomplete491binaryhistory and unknown-
+  origin sourceprefix records. No binary repair or oldauthority/binding renewal.
+  ELF omission/raw0/shortcircuit/partialpublication/count/cleanup/read/race/whole-
+  state limits remain. Phase1/kernel incomplete/A-R-Dunselected/repairsinactive;
+  nativeevidence/livebindingsNULL/hostunobserved/globalclosurefalse. Original
+  independent decision/acceptance/migrationIFneeded/ACTUALcomposition/safeACTUAL-
+  WHOLEreview/freshboundednativegrant/OWNplatformconformance gates remain due.
+
 ## Phase 1 step 504 -- compose SBo count failures through apply and result mapping
 
 - Accept complete supplied repaired503: HEAD/local origin

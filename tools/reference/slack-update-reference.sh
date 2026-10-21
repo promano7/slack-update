@@ -3945,7 +3945,12 @@ build_sbo_core_queue() {
         SBO_QUEUE_SOURCE_DIR=$SBO_PERSONAL_QUEUE_DIR
     fi
 
-    rm -f "$QUEUE_CORE" "$QUEUE_EXTRA" "$SBO_OPTION_RECORDS"
+    # Do not collect new targets after a failed removal of the previous queues.
+    if ! rm -f "$QUEUE_CORE" "$QUEUE_EXTRA" "$SBO_OPTION_RECORDS"; then
+        SBO_TARGET_SELECTION_ERROR="cannot remove previous private SBo queue files"
+        echo "  [ERROR] $SBO_TARGET_SELECTION_ERROR"
+        return 1
+    fi
 
     if [ ! -d "$SBO_QUEUE_SOURCE_DIR" ]; then
         echo "  [WARN] SBo queue source directory not found: $SBO_QUEUE_SOURCE_DIR"

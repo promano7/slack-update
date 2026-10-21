@@ -718,3 +718,15 @@ input races and incomplete binary history remain explicit. Seven actual steps
 492-498 are accepted; final499 and the subsequent separate whole-condition/header/
 nested-original and new-effect/obligation/cleanup/limit review remain due before
 any new scoped STATIC pause. Counts/hashes/summaries cannot replace that reading.
+
+## SBo private queue reset failure
+
+Run `python3 tests/reference/test-sbo-queue-reset.py` for96 private core/gate cases.
+Failed removal must block target/options collection, count and ABI work, including
+when GNU rm removed other operands before rejecting a directory. The
+[scope note](reference/sbo-queue-reset.md) retains real/supplied operations, symlink/
+child preservation, partial effects,32pass/64reject baseline and six source controls.
+Twenty normal commands include the unchanged nineteen from504; its144-case apply
+composition still supplies no reset fault. No historical66/native rerun claimed.
+Complete supplied504 accepted; candidate505/new pause pending. Private cleanup
+is not rollback, historical cleanup or global absence; all inherited gates remain.
