@@ -1,3 +1,54 @@
+## Phase 1 step 501 -- fail core SBo queue selection after a count error
+
+- Accept complete supplied inline actual500: HEAD/local origin
+  e719255a5ddc7596f53192a0a7fe37cc185c51f6, parent
+  11139b0f59e1151721396c4a7a32748482d0783e, tree
+  a04a51a2bd17dc78dd3e37e6cb69579266418328, policy SHA256
+  f6d8d7388ded24d7ec6002d0d69b8ed78195eee65e2953a4c65a0ae5f462073f.
+  All15 named outputs agree in order; ZIP2909entries/361922682bytes, application/
+  three scope gates, syntax/executable/whitespace, fivepaths338add2delete/twoNEW
+  100644, English subject/reportedpush/clean fullrefs/source-mode report agree.
+  Preserve inline-transcription provenance, not original terminal bytes or an
+  independent terminal/GitHub/native capture. Prepared500 flags remain historical.
+- Reproduce unchecked core count: failed wc erased or replaced TOTAL_CORE, printed
+  success-looking totals and returned0; the real following ABI gate could proceed.
+  Capture count locally; failure now sets selection error, returns1 and preserves
+  previous TOTAL_CORE. Existing caller&& blocks ABI selection. No build-status or
+  caller target-status rewrite. Prior private removal/core/options publication and
+  option count remain; no rollback, atomic input binding or arbitrary successful
+  output validation. Earlier resolve/collection and successful behavior unchanged.
+- Add240 cases using real core/gate, supplied target/options/resolution/ABI callbacks,
+  real private rm/files/redirections/wc and supplied count1/43/127/partial42-status43.
+  Assert exact output/raw return/selected fields/old totals/ordered callbacks/
+  caller variables/source fallback/full private inventory excluding events.
+  Missing input fails before count callback; directory fails in real wc. Earlier
+  resolve/core/options failures and inactive selections remain separate controls.
+- Retain first old-source rejection and separate complete baseline96pass/144reject
+  matrix. Six syntax-valid private source variants reject. New240 normal cases and
+  fifteen complementary commands pass individually, including unchanged500driver288.
+  No historical66-suite/mutation-matrix rerun claimed; UID0/private/supplied scopes
+  establish no installed/native/unprivileged/whole workflow acceptance.
+- Change three existing paths (runtime, testing, this log), add two100644driver/scope
+  paths. Full2395source,501exec/1894regular; all2390other originals/old modes/
+  fixtures/native contracts exact, no removals. Full source/policy/three preimages/
+  old log tail and exact mapped predecessor source/evidence/conditions retained.
+  Private synthetic Git preparation does not fabricate actual-user commit objects.
+- One actual step500 accepted in bounded500-507, reserve508-511 only if needed.
+  Prepared501 awaits complete actual application/tests/commit/push/clean refs/
+  source-mode-tree return. Previous confirmed STATIC pause499; no new pause.
+  Final complete actual acceptance must precede separate EVERY WHOLE inherited
+  condition/header/exact nested original and all new effect/obligation/cleanup/
+  limit reading before pause assessment. Summaries/counts/hashes do not replace it.
+- Incomplete saved nested491 binary history, unknown-origin scratch prefixes and
+  rejected packaging candidates retain exact open qualifications/unknown causes.
+  ELF initial inspection2 omission/raw0, short circuit, partial publication/count/
+  cleanup/read/input races and whole-state limits persist. Phase1/kernel incomplete,
+  A/R/D unselected/proposed repairs inactive, native evidence/livebindingsNULL,
+  host unobserved/globalclosurefalse. All original member criteria and independent
+  decision/acceptance/migrationIFneeded/ACTUALcomposition/safeACTUALWHOLEreview/
+  fresh bounded native grant/OWN-platform conformance gates remain. No historical
+  or consumed native right or live binding reused, revived or renewed.
+
 ## Phase 1 step 500 -- block SBo builder dispatch after a failed final queue count
 
 - Resume from confirmed STATIC repository pause499. Complete supplied actual499

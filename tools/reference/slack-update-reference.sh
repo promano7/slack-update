@@ -3919,6 +3919,8 @@ synchronize_sbo_repository() {
 }
 
 build_sbo_core_queue() {
+    local core_count
+
     # ---------------------------
     # [6] BUILD QUEUES
     # ---------------------------
@@ -3951,7 +3953,13 @@ build_sbo_core_queue() {
         return 1
     fi
 
-    TOTAL_CORE=$(wc -l < "$QUEUE_CORE")
+    # A failed count must block later ABI target selection through the caller gate.
+    if ! core_count=$(wc -l < "$QUEUE_CORE"); then
+        SBO_TARGET_SELECTION_ERROR="cannot count the core SBo queue"
+        echo "  [ERROR] $SBO_TARGET_SELECTION_ERROR"
+        return 1
+    fi
+    TOTAL_CORE=$core_count
     echo "  Cola principal: $TOTAL_CORE paquetes"
     echo "  Opciones de compilacion preservadas: $SBO_OPTION_RECORD_COUNT"
 }
