@@ -3965,6 +3965,8 @@ build_sbo_core_queue() {
 }
 
 add_abi_rebuild_targets() {
+    local abi_count
+
     # ---------------------------
     # [7] ABI FORCES SBo REBUILD
     # ---------------------------
@@ -3978,7 +3980,13 @@ add_abi_rebuild_targets() {
             return 1
         fi
 
-        TOTAL_EXTRA=$(wc -l < "$QUEUE_EXTRA")
+        # Do not accept an incomplete count as successful ABI target selection.
+        if ! abi_count=$(wc -l < "$QUEUE_EXTRA"); then
+            SBO_TARGET_SELECTION_ERROR="cannot count the ABI SBo target queue"
+            echo "  [ERROR] $SBO_TARGET_SELECTION_ERROR"
+            return 1
+        fi
+        TOTAL_EXTRA=$abi_count
         echo "  Cola ABI extra: $TOTAL_EXTRA paquetes"
 
     else

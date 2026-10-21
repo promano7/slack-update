@@ -633,6 +633,17 @@ apply to the same repaired runtime hash, not the expanded driver. Preserve the
 original487/11 runtime failure and the distinct earlier diagnostic-oracle failure.
 See [repair evidence](reference/elf-cache-lookup.md#original-failure-and-repair-evidence).
 
+## ABI SBo target queue count failure
+
+Run `python3 tests/reference/test-sbo-abi-queue-count.py` for288 cases with the real
+ABI helper/installed-target collector/private package records and real caller gate.
+Failed counts preserve the old extra total, set selection error and return1 through
+the gate. Trigger0/2 keep the existing touch branch. The
+[scope note](reference/sbo-abi-queue-count.md) retains exact real/supplied boundaries,
+baseline216pass/72reject, six source controls and the initial test-oracle correction.
+Seventeen named normal commands include the unchanged sixteen from501. Complete
+supplied actual501 is accepted; candidate502 and a new pause remain pending.
+
 ## Core SBo queue count failure
 
 Run `python3 tests/reference/test-sbo-core-queue-count.py` for 240 private cases

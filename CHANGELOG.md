@@ -1,3 +1,54 @@
+## Phase 1 step 502 -- reject failed ABI SBo target queue counts
+
+- Accept complete supplied inline actual501: HEAD/local origin
+  ee050becb186f345e42c8cfd6aa5c9929a6567bb, parent
+  e719255a5ddc7596f53192a0a7fe37cc185c51f6, tree
+  19d444c109ff0372b9d52ae0285b5effb1a4601d, source-policy SHA256
+  0d19dcdb00e1fd7f6dacbc8ccb4b92c18750638162544b3989b8f57fab56d198.
+  All16 outputs agree in order; ZIP2954entries/391818281bytes, application/three
+  scope gates, syntax/executable/whitespace, fivepaths351add1delete/twoNEW100644,
+  subject/reportedpush/cleanfullrefs/source-mode report agree. Preserve supplied
+  inline/reconstructed provenance, not original bytes or independent capture.
+- Reproduce unchecked ABI queue count after real installed-target selection.
+  Capture result locally; nonzero status now sets selection error/raw1 and retains
+  oldTOTAL_EXTRA. Real caller propagates failure. Build/caller target statuses and
+  successful count unchanged. Queue already published, no rollback/atomic input
+  binding/race/special-file/arbitrary-success-output guarantee. Trigger0/2 existing
+  touch branch unchanged; earlier collection failures keep their behavior.
+- Add288 cases with real ABI helper/caller/installed-target collector/parsers/tag
+  filter/normalization and private package-record enumeration/coreutils/publication/
+  cleanup. Supply core stage/collector error/count1/43/127/partial42-status43 and
+  private post-collection missing/directory replacement. Real redirection/missing
+  and wc directory failures; inactive triggers/faults retain control scope. Assert
+  exact output/raw/status/totals/vectors/caller/private inventory excluding events;
+  no timestamp/owner/ACL/xattr/whole-state or installed/native acceptance claimed.
+- Preserve distinct initial preparer find-vector oracle rejection: expected newline
+  instead of literal backslash-n, corrected before runtime change. Original driver/
+  rejection and correction retained. Corrected-driver old-source first count failure
+  and separate216pass/72reject matrix retained. Six syntax-valid source variants
+  reject; new288 and sixteen complementary normal commands pass separately. No
+  historical66-suite/mutation-matrix rerun or heterogeneous native count claimed.
+- Change runtime/testing/log originals, add driver/scope100644. Full2397source,
+  501exec/1896regular; all2392other originals/old modes/fixtures/native contracts
+  exact; no removals. Three preimages/old log tail/full source/policy and exact
+  mapped predecessor members/receipts/whole conditions/anomaly evidence retained.
+  Private synthetic source Git preparation fabricates no actual-user commit objects.
+- Two actual steps500-501 accepted in bounded500-507; reserves508-511 only if needed.
+  Prepared502 awaits complete actual application/tests/commit/push/clean refs/
+  source-mode-tree return. Last confirmed STATIC pause499; no new pause. Final
+  actual acceptance FIRST, THEN separate EVERY WHOLE inherited condition/header/
+  exact nested original plus current effects/obligations/cleanup/limits reading
+  before pause assessment. Counts/hashes/summaries/earlier review cannot replace it.
+- Incomplete saved nested491binary, unknown-origin source prefixes and packaging/
+  authoring/transport/capture failures keep exact original qualifications/unknown
+  causes. ELF inspection2 initial omission/raw0, short circuit, partial publication/
+  count/cleanup/input races/whole-state limits persist. Phase1/kernel incomplete,
+  A/R/D unselected/proposed repairs inactive, actual native evidence/livebindings
+  NULL, host unobserved/globalclosurefalse. All original independent decision/
+  acceptance/migrationIFneeded/ACTUALcomposition/safeACTUALWHOLEreview/freshbounded
+  nativegrant/OWNplatformconformance gates remain. No old/consumed right or binding
+  reused, revived or renewed.
+
 ## Phase 1 step 501 -- fail core SBo queue selection after a count error
 
 - Accept complete supplied inline actual500: HEAD/local origin
