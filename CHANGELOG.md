@@ -1,3 +1,57 @@
+## Phase 1 step 510 -- reject failed ELF planning counts before publishing totals
+
+- Accept supplied complete inline actual509: HEAD/local origin
+  9f3f6d5ad6d58990f57d8717e1aab5fdd33dfef0, parent
+  2249057952a6bf288ae183bdbcd448b27375be76, tree
+  ddeb797efd2a7ed623e18ae2d68d5be041f74237, source-policy SHA256
+  cfbc9ac33f51b1ffa6b5d86458aa3a8383b17b15b4a8a4634eda51137b34a8ca.
+  All19outputs/ZIP3395entries547400245bytes/apply/three source gates/syntax/
+  executable/whitespace/fivepaths363add11delete/twoNEW100644/exactsubject/reported
+  push/clean fullrefs/source-mode-tree report agree. Inline reconstruction is not
+  original terminal bytes or independent terminal/GitHub/native capture. First
+  private reconstruction selected git-add filename as stat start, omitted middle
+  and was rejected before acceptance; retain rejected bytes/IndexError/correction.
+- Reproduce first ELF planning count failure hidden by second success, and second
+  count failure propagating after totals overwritten. Guard two local counts,
+  print specific failure/return1, block second after first failure; publish both
+  planning totals only after both succeed. Preserve prior pair on either failure;
+  valid zeros remain success. Sequential publication is not an atomic transaction.
+  Already written scanner/mapper bytes/state remain; successful ELF_SCAN_STATUS0
+  can coexist with later planning-count failure. Earlier unavailable/detect/map
+  branches and outer cleanup policy unchanged; no new generic error variable.
+- Add456 private cases: three profiles/19selections/readelf0or1/directorconditional/
+  prior0-0or6-4. Real inspector/redirections/truncations/GNUwc/private rm/mkdir;
+  supplied scanner/mapper/selected failures/conditional markers. Quiet1/43/127,
+  partial42/zero/stderr-status43/missing/directory at EACH count. Exact output/raw/
+  selectedstate/orderedvectors/measured count index/IFS/outer/twolocals/complete
+  private inventory excludingevents checked. Scanner/mapper not real ELF composition.
+- Retain first original-source rejection,456-case264pass192reject matrix and nine
+  syntax-valid source variant rejections. New456 and23 unchanged complementary
+  normal commands pass in exact24-command order. No historical72/mutation/native
+  rerun or heterogeneous coverage total. Whole planning/coordinator/result
+  composition remains planned511. Named guards/UID0/private cleanup do not prove
+  OScontainment/unprivileged/Slackware/native/wholehost/historicalcleanup conformance.
+- Change five paths: runtime/testing/log plus newdriver/scope100644; full2410source/
+  501exec/1909regular, no removals/oldmodechanges. Every other old byte/test/support/
+  fixture/native criterion exact. Full source/policy/threepreimages/every3395 exact
+  predecessor member/actual509 transcription/acceptance/wholeconditions/receipts/
+  sourcechain/failures retained. No actual-user Git objects, original compressed ZIP
+  embedding/reconstruction or multi-file overlay atomicity claimed.
+- Two actual508-509 accepted in planned508-515, reserve516-519only if required.
+  Prepared510 awaits complete actual return; last confirmed scopedSTATICpause507.
+  Final COMPLETE actual acceptance FIRST, THEN separate EVERY WHOLE inheritedheader/
+  condition/exactnestedoriginal and ALL neweffect/obligation/cleanup/limit reading
+  before new pause assessment; counts/hashes/summaries/prior reviews not substitutes.
+- Every old failure/repair/unknown-origin/transport/diagnostic/capture qualification
+  retained, including incomplete491binary/failed retrieval/unreadbytes/unknowncause;
+  history limit OPEN. Initial ELF omission/raw0/shortcircuit/partialpublication/count/
+  cleanup/resource-untracking/allocation/read/inputrace/whole-state limits remain.
+  Phase1/kernel incomplete/A-R-Dunselected/fourrepairsinactive/schema1/reference-v1/
+  C/Phase2/production closed. All native criteria/independent decision/acceptance/
+  migrationIFneeded/ACTUALbinding/safeACTUALWHOLEreview/FRESHboundedgrant/OWNplatform
+  conformance gates remain. Evidence/livebindingsNULL, hostunobserved/globalclosure
+  false; no consumed right/historical binding reused/revived/retried/renewed/replaced.
+
 ## Phase 1 step 509 -- preserve failed dry-run installed SBo candidate counts
 
 - Accept complete supplied inline actual508: HEAD/local origin

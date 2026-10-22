@@ -2780,6 +2780,9 @@ collect_installed_sbo_candidates() {
 }
 
 inspect_current_elf_state() {
+    local broken_count
+    local broken_sbo_count
+
     echo "[PLAN] Inspecting current ELF dependency state"
 
     if [ "$PLAN_READELF_AVAILABLE" -eq 0 ]; then
@@ -2800,8 +2803,16 @@ inspect_current_elf_state() {
     fi
     map_broken_objects_to_sbo_packages || return 1
 
-    PLAN_BROKEN_COUNT=$(wc -l < "$BROKEN")
-    PLAN_BROKEN_SBO_COUNT=$(wc -l < "$QUEUE_EXTRA")
+    if ! broken_count=$(wc -l < "$BROKEN"); then
+        echo "  [ERROR] Cannot count the current broken ELF objects for dry-run"
+        return 1
+    fi
+    if ! broken_sbo_count=$(wc -l < "$QUEUE_EXTRA"); then
+        echo "  [ERROR] Cannot count the current broken-ELF SBo targets for dry-run"
+        return 1
+    fi
+    PLAN_BROKEN_COUNT=$broken_count
+    PLAN_BROKEN_SBO_COUNT=$broken_sbo_count
 }
 
 print_plan_file() {

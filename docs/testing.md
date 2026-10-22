@@ -9,25 +9,24 @@ Slackware acceptance differ; it does not authorize a system run.
 ## Current bounded block and integrated selection
 
 The step507 external continuation confirms the scoped STATIC repository pause
-for500-507 after complete actual507 and its separate whole-condition review,
-with the inherited binary-history qualification OPEN. Immutable prepared pending
-flags and older numbered paragraphs below retain their own historical scopes;
-they do not override the external confirmation or amend native criteria.
+for500-507 after complete actual507 and separate whole-condition review, with
+inherited binary-history qualification OPEN. Immutable prepared pending flags and
+older paragraphs retain historical scopes, not current external confirmations.
 
-The new user request opens planned508-515, reserve516-519 only if required.
-Complete actual508 accepted all18 named commands and its exact commit/reported
-push/clean source-mode-tree capture. The [508 scope](reference/dry-run-sbo-queue-count.md)
-retains the bounded plan and its original preparation. The
-[509 scope](reference/dry-run-sbo-candidate-count.md) adds144 private installed-
-candidate count cases and selects19 ordered normal commands. Actual509 is pending;
-no new pause. The [500-507 review](reference/repository-regression-block-500-507.md)
-retains its historical72-command selection, not rerun in508/509 preparation.
+The new request opens planned508-515, reserve516-519 only if required. Complete
+actual508 and509 accepted their18/19 named commands, exact commits/reported pushes
+and clean full source-mode-tree captures. The [508 scope](reference/dry-run-sbo-queue-count.md)
+retains the bounded plan; [509](reference/dry-run-sbo-candidate-count.md) retains its
+installed-target count scope. The [510 scope](reference/dry-run-elf-counts.md) adds456
+private ELF planning-count cases and selects24 ordered normal commands. Actual510
+is pending; no new pause. The [500-507 review](reference/repository-regression-block-500-507.md)
+retains its historical72 selection, not rerun in508-510 preparation. Whole real
+planning-count/coordinator/result composition remains planned511.
 
-Before a new pause: accept COMPLETE final actual return FIRST; THEN separately
-read EVERY WHOLE inherited header/condition/exact nested original and ALL new
-effects/obligations/cleanup/limits. Hashes/counts/summaries/indices/prior reviews
-cannot substitute. Static regressions do not authorize native work or complete
-Phase1/kernel acceptance.
+Before a new pause: COMPLETE final actual acceptance FIRST; THEN separately read
+EVERY WHOLE inherited header/condition/exact nested original and ALL new effects/
+obligations/cleanup/limits. Hashes/counts/summaries/indices/prior reviews cannot
+substitute. Static regressions do not authorize native work or complete Phase1/kernel.
 
 ## Select the applicable checks
 
