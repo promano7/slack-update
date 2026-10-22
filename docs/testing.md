@@ -8,40 +8,41 @@ Slackware acceptance differ; it does not authorize a system run.
 
 ## Current bounded block and integrated selection
 
-Confirmed external scoped STATICpause500-507 remains507, with binary-history
-qualification OPEN. Current bounded request508-515 has reserve516-519 if needed.
-Actual508-513 accepted18/19/24/25/25/26 normal commands, exact subjects/reported
-pushes/clean full source-mode-tree captures. Actual512 repair1 also passes audit60;
-original stopped512 and all repairs retain their separate outcomes. Actual513
-HEAD/local origin is `8b4db4ef47bec0b38ce110b24e6d58850690e6cf`.
+Confirmed scoped STATICpause507 remains the latest pause, with incomplete491
+binary-history qualification OPEN. Seven actual508-514 steps are accepted in the
+planned508-515 block, reserve516-519only if required. Complete actual514 passed27
+commands and publication/clean source-mode-tree capture at
+`7dd1e886ecb4909f8db5a4577bf6e8d41564d0af`. All original failures, corrected
+attempts and reused-versus-fresh preparation records retain separate outcomes.
 
-The [508 plan](reference/dry-run-sbo-queue-count.md),
-[509 candidates](reference/dry-run-sbo-candidate-count.md),
-[510 ELF counts](reference/dry-run-elf-counts.md),
-[511 composition](reference/dry-run-count-composition.md),
-[512 audit](reference/sbo-workspace-failure-audit.md) and
-[513 workspace guard](reference/sbo-workspace-count.md) retain their historical
-scopes/failures/corrections. The512 pre-repair audit must NOT run on513 or514.
-The permanent76-case workspace driver remains unchanged and selected.
+The [508-515 integrated review](reference/repository-regression-block-508-515.md)
+compares exact policies/preimages back to507: only reference runtime/testing/log
+changed among old paths,13 new test/scope files through514, no old removals/mode
+changes. Runtime changes affect four count-inspection/workspace functions. Final515
+adds one documentation file and leaves runtime/tests/support/fixtures exact514.
 
-[514 workspace apply composition](reference/sbo-workspace-apply-composition.md)
-adds136 cases over real workspace/sync/readiness/apply/result paths, with supplied
-package/boot/core/ABI/process boundaries. No runtime change. Failed count blocks
-copy/config/sqg/core/ABI/final processing; raw workflow0 maps to stable2, SQG1,
-selection1 and ordered errors. Prior sync0/43, disabled/missing-source controls
-and selected cleanup/resource-untracking obligations are checked separately.
+The final selection retains the entire72-command500-507 order, then appends six
+new drivers: dry-run SBo queue/candidates/ELF counts, dry-run count composition,
+workspace count and workspace apply composition. ALL78 run freshly in515 preparation;
+no normal-result reuse. Actual final515 must repeatall78. Read the integrated
+review's exact list and individual real/supplied limits. Historical/native source
+mutation matrices are not rerun. Expected negative initrd diagnostics end90checks/
+zero failures; only its one consistent private fixture root may be normalized.
 
-```bash
-python3 tests/reference/test-sbo-workspace-apply-composition.py
-```
+The [512 audit](reference/sbo-workspace-failure-audit.md) is bound to the old runtime
+and must NOT run on515. Its stopped original attempt, successful repair1 and all
+later authoring/metadata corrections remain preserved. New workspace failure gates
+block copy/config/sqg/core/ABI/final work in the selected cases, while raw workflow0
+maps stable2. Prior sync effects, failed cleanup, resource-untracking, successful-
+output trust, races/whole-state and initial ELF scan omission remain explicit.
 
-Eight selected defective-source controls are separate from normal commands.
-Preparation executes this new command and reuses26 exact513 records on unchanged
-runtime/older tests/support/fixtures, not a fresh27-command local run. Actual514
-must run all27. First driver omitted TOTAL initialization and failed before its
-first complete case; original/error/correction retained. Historical72/native/
-mutation matrices not rerun. Existing prior-sync failure can still reach supplied
-build leaves if workspace succeeds; no broader synchronization stop is claimed.
+The first515 package inventory rejected one unmanifested source-copy extra despite
+all2418 canonical hashes/modes matching. Full extra bytes/first policy/source map
+are retained outside canonical source; origin unknown. See the integrated review's
+[packaging qualification](reference/repository-regression-block-508-515.md#rejected-first-packaging-inventory).
+Only that recorded extra is removed after preservation and current docs/policy/ZIP
+regenerated; runtime/tests and all78 results remain exact. No binary-history repair,
+global absence or user-corruption explanation follows.
 
 No new pause: COMPLETE final actual acceptance FIRST; THEN separately read EVERY
 WHOLE inherited header/condition/exact nested original AND ALL new effects/obligations/

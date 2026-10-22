@@ -1,3 +1,61 @@
+## Phase 1 step 515 -- review dry-run and private workspace regression block
+
+- Accept complete supplied actual514: HEAD/local origin
+  7dd1e886ecb4909f8db5a4577bf6e8d41564d0af, parent
+  8b4db4ef47bec0b38ce110b24e6d58850690e6cf, tree
+  452f01ad95132a4642607674fc719ca605909053, source-policy SHA256
+  3d3bf76c497c1d9cfa10352ab24a30d13aca51795fa9a4840486a3d1899f4aeb.
+  All27 exact outputs/ZIP3694members615518555bytes/application/three source gates/
+  syntax/executable/whitespace/fourpaths409adds24deletes/two new100644/subject/
+  reported push/clean fullrefs/source-mode-tree agree. Inline reconstruction is
+  not original terminal bytes or independent terminal/GitHub/native capture.
+- First reconstruction changed a full parent prefix through an overbroad short-hash
+  edit; acceptance rejected it. Preserve first script/text/correction; restore the
+  exact supplied parent and accept regenerated return. No actual Git/runtime change.
+  All earlier original failures/repairs/authoring/metadata/provenance limits remain.
+- Review entire508-515 delta by exact policy/preimage reversal514->507: three old
+  changed paths runtime/testing/log,13 added test/scope files through514, no old
+  removals/mode changes. Only four runtime functions changed. Preserve full507 source
+  hashes/modes/tree binding and runtime diff, without fabricating user Git objects.
+- Fresh integrated78-command selection retains72 historical normal vectors in order
+  and appends six508-514 drivers. Actual515 must repeatall78. No normal-result reuse
+  or historical/native mutation-matrix rerun. Individual real/supplied scopes and
+  expected negative initrd90checks/zero failures remain; no aggregate coverage claim.
+- Retain dry-run count publication/pair preservation and workspace initialized-zero/
+  helper1/SQG1/readiness0/gate1/selection1/stable2 behavior. Prior sbopkg synchronization
+  already happened; successful workspace can still reach supplied leaves after its
+  failure. Failed listing/owned cleanup/canonical mismatch can leave resources,
+  including existing ownership-untracking. No rollback/global cleanup/host absence.
+- Preserve original512 failed audit versus successful repair1, exact old-source audit
+  binding, all513/514 authoring/metadata corrections,505 unknown-origin extra, older
+  diagnostic/marker defects, initial ELF omission/raw0/short circuit, partial effects/
+  publication/cleanup/allocation/readEOF/dirname/input races/whole-state limitations.
+- First515 packaging rejects one12,320,768byte0600 unmanifested source extra while all
+  2418 canonical hashes/modes agree. Preserve full bytes/hash/path, first policy/tree/
+  changed-doc snapshot and full first-source map outside canonical source. Observed
+  strict prefix of one26,424,442byte fixture, absent from observed private515/restored
+  514 source and verified original514ZIP. Origin UNKNOWN; no user corruption/shared
+  cause with505/binary491 equivalence or repair inferred. Only recorded extra removed
+  after preservation, docs/policy/controls/ZIP regenerated; runtime/tests unchanged,
+  fresh78 records retained. Rejected first preparation is not accepted; no global
+  cleanup/absence/atomic/provenance closure claimed.
+- Three docs testing/log/newreview100644; full2418source/501exec/1917regular. Runtime/
+  tests/support/fixtures/native criteria exact514; no old removals/mode changes.
+  Full source/policy/two preimages/every3694 original514 member/receipts/whole conditions/
+  source chain/failures retained. No original ZIP reconstruction/actual-user Git
+  objects/atomic overlay/independent refs/ignored-file or actual-host observation.
+- Seven actual508-514 accepted; final515 prepared only. Last scopedSTATICpause507,
+  incomplete491binary-history limit OPEN. Complete final ACTUAL515 acceptance FIRST,
+  THEN separate EVERY WHOLE inherited header/EACH whole condition/every exact nested
+  original plus ALL new effects/obligations/cleanup/limits reading before any scoped
+  new pause assessment. Two exploratory preparatory displays truncated and do not
+  count as complete/final reads. No hash/count/summary/index/prior-review substitute.
+- Phase1/kernel incomplete; all original native criteria/options/independent impact
+  acceptance/migrationIF/ACTUAL binding/independent safe ACTUAL WHOLE review/FRESH
+  bounded case-platform-run grant BEFORE effects/OWN-platform conformance gates
+  remain. Evidence/livebindingsNULL/hostunobserved/globalclosurefalse. No native
+  authority, consumed rights/bindings revival/retry/reuse/renewal or binary repair.
+
 ## Phase 1 step 514 -- compose private SBo workspace failures through apply
 
 - Accept complete supplied actual513: HEAD/local origin
