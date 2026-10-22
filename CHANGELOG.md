@@ -1,3 +1,79 @@
+## Phase 1 step 512 -- audit private SBo workspace count failure propagation
+
+- Repair1 preserves the complete supplied original512 failure: application and
+  two scope outputs passed, then audit case empty/wc-1/sync stopped before normal25
+  tests/Git add/commit/push/capture. Raw0 and all stdout/state bytes equal the oracle;
+  observed Bash diagnostic is integer expected, while original oracle required
+  integer expression expected. Actual512 NOT accepted. No runtime cause/version
+  inferred beyond the observed phrase; source remains unchanged and count defect
+  unrepaired. Correct only external probe matcher to admit those TWO exact phrases,
+  retaining source path/positive line/builtin/empty operand/supplied-stderr anchors.
+  Repaired60 characterization passes,16 diagnostic positives/15 negative controls
+  pass; original oracle rejects observed phrase. Preserve original3535member bytes,
+  original probe/failure/transcription and new repair records. Three docs updated;
+  repair helper requires exact already-applied original512 source/index/base refs,
+  not clean-base reapplication. Normal25 preparation records still reused511, no
+  second local suite run; actual repaired512 must execute audit and all25 before
+  its first commit/push/capture. No native gate or new pause supplied.
+
+- Accept complete supplied inline actual511: HEAD/local origin
+  f8a8a180acef04d4cec568632a8b5b4ace7e4de7, parent
+  5321269a9b964e7029f9221807ab2c3036049f29, tree
+  0345c6f561d0bb6c50214fc0e0dea416053989b3, source-policy SHA256
+  6b37027f0c70fe9608bc79afa262c78a4df13fd33d67d9858eacba7f1ee450eb.
+  All25outputs/ZIP3495entries583388136bytes/apply/three source gates/syntax/
+  executable/whitespace/fourpaths461add15delete/twoNEW100644/subject/reported
+  successfulpush/clean fullrefs/source-mode-tree report agree. Inline reconstruction
+  is not original terminal bytes or independent terminal/GitHub/native capture.
+- Audit selects UNREPAIRED unchecked symlink find|wc assignment in private workspace
+  preparation: pipefail supplies a failure but later copy/source publication hides
+  it. Empty/partial/falsezero counters can reach real sync caller config/inert sqg/
+  ready1; empty counter warning comparison diagnoses but still continues. Prior
+  sbopkg synchronization already precedes workspace preparation; no rollback claim.
+- Source-bound external60-case probe: missing/empty/full source,10 selections,
+  direct/real synchronization caller. Real path validation/workspace creation/
+  listing/regular copying/owned cleanup/coreutils; supplied discovery/resolver/
+  config/sbopkg/sqg and selected find/wc failures.32 unchecked count failures,
+  four guarded regular-enumeration failures,20 inactive missing-source controls,
+  four normal existing-source controls. Exact raw/status/readiness/counts/errors/
+  output/callbacks/selected modes/symlinks/full private inventory; personal/sentinel
+  inputs unchanged. Parallel find/wc vectors logged separately, no scheduler order.
+- Retain first private probe/stdout/stderr/bytes-text regex TypeError and exact
+  oracle correction. Corrected60 observations pass; no runtime defect inferred
+  from authoring error. Probe is bound to exact pre-repair source and is not a
+  permanent regression approving unsafe behavior. Runtime remains unchanged in512.
+- Freeze selected513 repair purpose: local checked complete pipeline before copy,
+  attempted listing/owned cleanup/specific error/return1; publish only on success.
+  Initialized counters0 remain on failure, valid zero/missing-source success stays.
+  Caller SQG1/ready0 blocks config/sqg; no raw-return/prior-sync policy change.
+  Cleanup failure/races/dirname/final-list removal/read/allocation/partial-copy/
+  whole-state limits remain; no claim all workspace projections are resolved.
+- Three docs paths testing/log/newscope100644; full2413source/501exec/1912regular,
+  no removals/oldmodechanges. Every runtime/test/support/fixture/native criterion/
+  other old byte exact. Full source/policy/twopreimages/every3495 exact predecessor
+  member/actual511 transcription/acceptance/wholeconditions/receipts/failures retained.
+  No actual-user Git objects/compressed ZIP embedding/reconstruction/atomic overlay.
+- Reuse exact511 normal preparation results on byte-identical runtime/tests/support/
+  fixtures, no second local25-suite run. Actual512 must repeat25 and separately
+  execute source-bound audit;32 defect reproductions are not safety PASS coverage.
+  Historical72/native/mutation matrices not rerun. Named guards/UID0/private cleanup
+  not OScontainment/unprivileged/Slackware/native/historical/globalcleanup proof.
+- Four actual508-511 accepted in planned508-515,reserve516-519only if required.
+  Prepared512 awaits full actual return; last scopedSTATICpause507. Final COMPLETE
+  actual acceptance FIRST, THEN separate EVERY WHOLE inheritedheader/condition/
+  exactnestedoriginal AND ALL neweffect/obligation/cleanup/limit reading before new
+  pause; counts/hashes/summaries/prior reviews not substitutes. Phase1/kernel
+  incomplete/A-R-Dunselected/four native repairs inactive/schema1/reference-v1/C/
+  Phase2/production closed. All original native criteria/independent decision/
+  acceptance/migrationIFneeded/ACTUALbinding/safeACTUALWHOLEreview/FRESHboundedgrant/
+  OWNplatformconformance gates remain; evidence/livebindingsNULL/hostunobserved/
+  globalclosurefalse. No consumed right/binding reused/revived/retried/renewed.
+- Preserve every older failure/repair/unknown-origin/transport/diagnostic/capture
+  qualification and ELF omission/raw0/shortcircuit/partialpublication/count/cleanup/
+  resource-untracking/allocation/read/inputrace/whole-state limits. Incomplete491
+  binary/failed retrieval/unreadbytes/unknowncause/no prefix-equivalence/history
+  repair remain OPEN. No native probe/cleanup authorized or needed for static work.
+
 ## Phase 1 step 511 -- compose dry-run count failures and stable results
 
 - Accept complete supplied inline actual510: HEAD/local origin

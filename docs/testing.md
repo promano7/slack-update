@@ -8,26 +8,36 @@ Slackware acceptance differ; it does not authorize a system run.
 
 ## Current bounded block and integrated selection
 
-The step507 external continuation confirms scoped STATICpause500-507 after complete
-actual507 and separate whole-condition review, with inherited binary-history
-qualification OPEN. Immutable prepared pending flags retain historical scopes.
+Confirmed external scoped STATICpause500-507 remains507, with binary-history
+qualification OPEN. Current bounded request is508-515, reserve516-519 only if
+required. Actual508-511 accepted18/19/24/25 commands, exact commits/reported pushes
+and clean full source-mode-tree captures. Older prepared pending flags keep their
+original scopes. The [508 plan](reference/dry-run-sbo-queue-count.md),
+[509 candidates](reference/dry-run-sbo-candidate-count.md),
+[510 ELF counts](reference/dry-run-elf-counts.md) and
+[511 composition](reference/dry-run-count-composition.md) retain exact scopes.
 
-Current bounded request: planned508-515, reserve516-519 only if required. Actual
-508/509/510 accepted their18/19/24 named commands, exact commits/reported pushes
-and clean full source-mode-tree captures. [508](reference/dry-run-sbo-queue-count.md)
-retains the plan; [509](reference/dry-run-sbo-candidate-count.md) and
-[510](reference/dry-run-elf-counts.md) retain their individual count scopes.
-[511 composition](reference/dry-run-count-composition.md) adds312 private real
-planning/coordinator/stable-result cases and selects25 ordered normal commands;
-runtime unchanged from510. Actual511 pending, no new pause. The
-[500-507 review](reference/repository-regression-block-500-507.md) retains its
-historical72 selection, not rerun in508-511 preparation. New composition supplies
-ELF backend/activation/check/render/event callbacks; read its exact limits.
+[512 workspace audit](reference/sbo-workspace-failure-audit.md) documents an UNREPAIRED
+symlink enumeration/count failure, with60 external private characterization cases
+and32 selected unchecked-failure reproductions. Source-bound audit helper runs
+separately from the25 normal commands. Documentation-only512 reuses recorded511
+normal preparation results on identical runtime/tests/support/fixtures; no second
+local25-suite run claimed. Actual512 repeats25 plus the audit. New safety regression
+and source repair are planned513. Historical72/native/mutation matrices not rerun.
 
-Before a new pause: COMPLETE final actual acceptance FIRST; THEN separately read
-EVERY WHOLE inherited header/condition/exact nested original and ALL new effects/
-obligations/cleanup/limits. Counts/hashes/summaries/indices/prior reviews cannot
-substitute. Static regressions do not authorize native work or complete Phase1/kernel.
+The original512 PC audit stopped at empty/wc-1/sync: stdout/state were exact,
+but its Bash diagnostic said integer expected instead of integer expression
+expected. Repair1 admits only those two exact phrases with all other diagnostic
+anchors unchanged. Repaired60 cases and16 positive/15 negative oracle controls
+pass; runtime/tests/support/fixtures unchanged. Normal25 tests and Git publication
+were not reached in the supplied original attempt. Use the source-bound repair
+helper on exact already-applied original512 before retrying audit/25/first commit.
+Original failed probe/return and full original ZIP member projection are retained.
+
+No new pause: COMPLETE final actual acceptance FIRST; THEN separately read EVERY
+WHOLE inherited header/condition/exact nested original AND ALL new effects/obligations/
+cleanup/limits. Counts/hashes/summaries/indices/prior reviews cannot substitute.
+Static characterization does not authorize native work or complete Phase1/kernel.
 
 ## Select the applicable checks
 
