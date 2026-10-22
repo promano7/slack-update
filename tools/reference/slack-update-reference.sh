@@ -2764,12 +2764,19 @@ inspect_current_sbo_queues() {
 }
 
 collect_installed_sbo_candidates() {
+    local candidate_count
+
     if ! collect_installed_sbo_targets "$ABI_CANDIDATES"; then
         echo "  [ERROR] $SBO_TARGET_SELECTION_ERROR"
         return 1
     fi
 
-    PLAN_ABI_SBO_COUNT=$(wc -l < "$ABI_CANDIDATES")
+    if ! candidate_count=$(wc -l < "$ABI_CANDIDATES"); then
+        SBO_TARGET_SELECTION_ERROR="cannot count installed SBo candidates for dry-run"
+        echo "  [ERROR] $SBO_TARGET_SELECTION_ERROR"
+        return 1
+    fi
+    PLAN_ABI_SBO_COUNT=$candidate_count
 }
 
 inspect_current_elf_state() {

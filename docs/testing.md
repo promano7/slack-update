@@ -10,16 +10,18 @@ Slackware acceptance differ; it does not authorize a system run.
 
 The step507 external continuation confirms the scoped STATIC repository pause
 for500-507 after complete actual507 and its separate whole-condition review,
-with the inherited binary-history qualification OPEN. Immutable prepared507
-pending flags and older numbered paragraphs below retain their own historical
-scope; they do not override that external confirmation or amend native criteria.
+with the inherited binary-history qualification OPEN. Immutable prepared pending
+flags and older numbered paragraphs below retain their own historical scopes;
+they do not override the external confirmation or amend native criteria.
 
-The new user request opens a bounded8-12-step repository block: planned508-515,
-reserve516-519 only if required. The [step508 scope](reference/dry-run-sbo-queue-count.md)
-records the plan,144 new private planning-count cases and18 exact bounded normal
-commands. Actual508 is pending; no new pause is confirmed. The
-[500-507 review](reference/repository-regression-block-500-507.md) retains its exact
-historical72-command selection;508 does not rerun that whole selection.
+The new user request opens planned508-515, reserve516-519 only if required.
+Complete actual508 accepted all18 named commands and its exact commit/reported
+push/clean source-mode-tree capture. The [508 scope](reference/dry-run-sbo-queue-count.md)
+retains the bounded plan and its original preparation. The
+[509 scope](reference/dry-run-sbo-candidate-count.md) adds144 private installed-
+candidate count cases and selects19 ordered normal commands. Actual509 is pending;
+no new pause. The [500-507 review](reference/repository-regression-block-500-507.md)
+retains its historical72-command selection, not rerun in508/509 preparation.
 
 Before a new pause: accept COMPLETE final actual return FIRST; THEN separately
 read EVERY WHOLE inherited header/condition/exact nested original and ALL new

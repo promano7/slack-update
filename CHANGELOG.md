@@ -1,3 +1,55 @@
+## Phase 1 step 509 -- preserve failed dry-run installed SBo candidate counts
+
+- Accept complete supplied inline actual508: HEAD/local origin
+  2249057952a6bf288ae183bdbcd448b27375be76, parent
+  48bd060e94334a4552bf67b4214eeca422b6a501, tree
+  13573d6807c1417ac486d8cb72893c23a861e0af, source-policy SHA256
+  f1cb868da7bb3807e2603aa1ee8ade29d1cb343f653a9485d358e6e759207fb0.
+  All18 outputs/ZIP3349entries538971780bytes/apply/three scope gates/syntax/
+  executable/whitespace/fivepaths401add14delete/twoNEW100644/subject/reported
+  successful push/clean fullrefs/source-mode-tree report agree. Inline transcription
+  is not original terminal bytes or independent terminal/GitHub/native capture.
+- Review candidate wrapper separately: old final count assignment already returned
+  nonzero on count failure, unlike508's success-echo defect. It still overwrote the
+  prior count with empty/partial stdout and retained an empty selection diagnostic.
+  Guard local candidate_count, set specific error/print/return1; publish total only
+  on success. Valid zero succeeds and prior total survives failure. Already published
+  candidate file remains; no rollback/atomicity/arbitrary successful-output proof.
+- Add144 private cases: three real package profiles/12 selections/direct-or-
+  conditional/prior0-or4. Real wrapper/collector/private enumeration/parser/tag/
+  normalizer/sort/dedup/tempfiles/move/removal/redirections/wc. Supplied earlycollect,
+  partialenumeration43/quietpartialzerostderr count failures/postpublication missing/
+  directory; actual unsafe target normalization failure. Exact outputs/raw/selected
+  state/orderedvectors/IFS/outer/local/private inventory excludingevents checked.
+  Conditional branch markers are test observations, not real coordinator events.
+- Retain first old-source failure,144-case48pass96reject matrix and seven syntax-
+  valid selected source variant rejections. New144 and18 unchanged complementary
+  normal commands pass in exact19-command order. No historical72/mutation/native
+  rerun; whole real planning-count/coordinator/results composition planned511.
+  Named guards/UID0/private cleanup do not prove OScontainment/unprivileged/native/
+  installed/whole-host/historical-cleanup conformance. Partial effects/races remain.
+- Five paths: runtime/testing/log plus new driver/scope100644; full2408source/
+  501exec/1907regular, no removals/oldmodechanges. Every other old byte/test/support/
+  fixture/native criterion exact. Full source/policy/threepreimages/every3349 exact
+  predecessor member/full actual508 transcription/acceptance/wholeconditions/
+  receipts/sourcechain/failures retained. No actual-user Git objects fabricated,
+  compressed original embedded/reconstructed or multi-file overlay atomicity.
+- One actual step508 accepted in planned508-515, reserve516-519only if required.
+  Prepared509 awaits complete actual return; last confirmed scopedSTATICpause507.
+  Final COMPLETE actual acceptance FIRST, THEN separate EVERY WHOLE inheritedheader/
+  condition/exactnestedoriginal and ALL neweffect/obligation/cleanup/limit reading
+  before a new pause assessment; counts/hashes/summaries/prior reviews not substitutes.
+- Retain508 unknown-origin extra bytes/rejected private baseline attempts and every
+  older failure/repair/transport/diagnostic/capture qualification; no cause inferred.
+  Incomplete saved491binary/failed original retrieval/unread bytes/history limit OPEN.
+  ELF omission/raw0/shortcircuit/partialpublication/count/cleanup/resource-untracking/
+  allocation/read/inputrace/whole-state limits remain. Phase1/kernel incomplete,
+  A/R/Dunselected/fourrepairsinactive/schema1/reference-v1/C/Phase2/production closed.
+  All original native criteria/independent decision/acceptance/migrationIFneeded/
+  ACTUALbinding/safeACTUALWHOLEreview/FRESHboundedgrant/OWNplatformconformance gates
+  remain; evidence/livebindingsNULL, hostunobserved/globalclosurefalse. No consumed
+  right/historical binding reused/revived/retried/renewed/replaced/reacquired.
+
 ## Phase 1 step 508 -- reject failed SBo queue counts during dry-run inspection
 
 - Verify supplied confirmed507 continuation: all3304members/CRC/SHA, full2404
