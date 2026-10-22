@@ -1,3 +1,62 @@
+## Phase 1 step 511 -- compose dry-run count failures and stable results
+
+- Accept complete supplied inline actual510: HEAD/local origin
+  5321269a9b964e7029f9221807ab2c3036049f29, parent
+  9f3f6d5ad6d58990f57d8717e1aab5fdd33dfef0, tree
+  5750922a1f3e766489d0b8368361cfdaf0d7d6b2, source-policy SHA256
+  c2975f3dc857f7064364c3938210030bbb40bfc0c999ca4216e0c070241d0303.
+  All24 outputs/ZIP3447entries574792653bytes/apply/three source gates/syntax/
+  executable/whitespace/fivepaths398add21delete/twoNEW100644/subject/reported
+  successfulpush/clean fullrefs/source-mode-tree report agree. Inline reconstruction
+  is not original terminal bytes or independent terminal/GitHub/native capture.
+- Add312 private compositions: real dry-run coordinator/three planning inspectors/
+  queue graph/options/installed package selection/counts/message preparation/result
+  state/stable mapper. Real private parsing/package enumeration/tag/normalization/
+  sort/dedup/tempfiles/move/removal/redirection. Supplied environment/probes/check/
+  resolution/clock/ELF scanner/owner mapper/human renderer/event callbacks; no native
+  or full ELF metadata/cache/manifest/JSON/NDJSON rendering composition claimed.
+- Cross empty/full inputs,13 fault selections,SBo0/1,ELF0/1,check0/100/69. Quiet43/
+  partial42-status43 at five counts,plus two simultaneous SBo+ELF faults. Real SBo
+  failure cleanup/status blocks candidates where applicable and continues ELF.
+  Preserve prior ELF planning pair, including prior disabled-SBo target reset.
+  Failed ELF action1/modulefailed0/scanner0 fields retained separately. ELF-only
+  failure can have empty errorarray but raw1/stablegeneral1; no diagnostic policy
+  rewrite. Warning/broken-success/check100/raw69/partial0/boot-safe1/rebootnone exact.
+- Assert exact stdout/stderr/raw/stable/flags/counts/errors/warnings/ordered helper
+  and event vectors/renderer inputs/selected IFS/stage/caller state/complete private
+  inventory excludingevents. Real private cleanup is not rollback/atomicity/arbitrary
+  failedcleanup/historicalcleanup/globalabsence proof. Named guards/UID0 do not prove
+  OScontainment/unprivileged/Slackware/native/installed/wholehost conformance.
+- First authoring run312passes; no invented runtime/authoring failure. Nine syntax-
+  valid source variants reject four count regressions/early publication/omitted
+  candidate reset/ignored ELF workflow error/ignored raw result/omitted SBo status.
+  New312 plus24 unchanged normal commands pass in exact25-vector order. No historical
+  72/mutation/native rerun or heterogeneous total. Runtime byte-identical to510.
+- Correct preparation-only explicit compile target to new composition driver; old
+  509/510 packagers compiled existing508driver there, while recorded new-driver
+  executions parsed/exercised exact new files. Preserve original scripts/observation,
+  no production or missing-execution defect inferred.
+- Four paths: testing/log plus newdriver/scope100644; full2412source/501exec/
+  1911regular, no removals/oldmodechanges. Every old runtime/test/support/fixture/
+  native criterion and other old byte exact. Full source/policy/twopreimages/every
+  3447 exact predecessor member/actual510 transcription/acceptance/wholeconditions/
+  receipts/sourcechain/failures retained; no actual-user Git objects or compressed
+  ZIP embedding/reconstruction/multi-file atomicity claimed.
+- Three actual508-510 accepted in planned508-515, reserve516-519only if necessary.
+  Prepared511 awaits complete actual return; last scopedSTATICpause507. Complete
+  finalactual acceptance FIRST, THEN separate EVERY WHOLE inheritedheader/condition/
+  exactnestedoriginal and ALL neweffect/obligation/cleanup/limit reading before
+  pause assessment. Counts/hashes/summaries/prior reviews cannot substitute.
+- Preserve every older failure/repair/unknown-origin/transport/diagnostic/capture
+  qualification and incomplete491binary/failed retrieval/unreadbytes/unknowncause/
+  history limit OPEN. ELF omission/raw0/shortcircuit/partialpublication/count/cleanup/
+  resource-untracking/allocation/read/inputrace/whole-state limits remain. Phase1/
+  kernel incomplete/A-R-Dunselected/fourrepairsinactive/schema1/reference-v1/C/Phase2/
+  production closed. All exact native criteria/independent decision/acceptance/
+  migrationIFneeded/ACTUALbinding/safeACTUALWHOLEreview/FRESHboundedgrant/OWNplatform
+  conformance gates remain; evidence/livebindingsNULL/hostunobserved/globalclosure
+  false. No old consumed right/binding reused/revived/retried/renewed/replaced.
+
 ## Phase 1 step 510 -- reject failed ELF planning counts before publishing totals
 
 - Accept supplied complete inline actual509: HEAD/local origin
