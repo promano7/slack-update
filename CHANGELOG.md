@@ -1,3 +1,55 @@
+## Phase 1 step 514 -- compose private SBo workspace failures through apply
+
+- Accept complete supplied actual513: HEAD/local origin
+  8b4db4ef47bec0b38ce110b24e6d58850690e6cf, parent
+  c138db77c26a275df618453a0c65a87d8879bbfc, tree
+  ec4c155abbae02682030cf5ed01e95ab1932fb8d, source-policy SHA256
+  355edf0799a660f88c58dbce1ce9af8dbbb40543ff3ead0eaa2ae0d909299b57.
+  All26outputs/ZIP3643entries606891477bytes/three source gates/syntax/executable/
+  whitespace/fivepaths434adds24deletes/two new100644/subject/reportedpush/clean
+  fullrefs/source-mode-tree agree. Inline reconstruction is not original terminal
+  bytes or independent terminal/GitHub/native capture. All old failures/repairs remain.
+- Add136-case real workspace/sync/readiness/apply/message/result composition:
+  missing/empty/full x10selections xSBo off/on xprior sbopkg0/43, plus16 selected
+  partial-count cleanup projections. Failed helper1/SQG1/ready0 blocks config/sqg,
+  real target gate1 blocks core/ABI; apply selection1 resets private queues/counts,
+  preserves final and blocks processing. Raw workflow0 maps to stable2 with ordered
+  sync/SQG/selection errors; failed module/summary still observed. No runtime change.
+- Valid zero/full/missing-source and module-disabled controls remain distinct.
+  Existing prior sync43 can still reach supplied build leaves when workspace
+  succeeds; module/result remain failed. No new prior-sync abort or rollback claim.
+  Listing/owned rm/canonical failure and supplied mismatch retain exact resources/
+  ownership fields through apply, including existing resource-untracking limit.
+- Reuse unchanged513 fault scaffolding/inventory support; independently author the
+  new selected apply expectations. Assert exact22globals/raw/output/errors/vectors/
+  IFS/environment/local sentinels/full selected private bytes/modes/symlinks. Named
+  guards/UID0/private cleanup not OS containment/native/Slackware conformance/global
+  absence. Package/boot/core/ABI/process/event callbacks supplied; no package effects.
+- Eight same-author valid-shell source controls reject old512 unchecked source,
+  false readiness/bypassed readiness/hidden selection/ignored gate/omitted result
+  errors/omitted owned cleanup/discarded prior sync status. No independent or full
+  historical/native mutation-matrix acceptance inferred. First driver omitted TOTAL
+  initialization; unbound127 in first disabled case, retain original/tool-return
+  transcription/correction. Initialize TOTAL0 in fixture only; runtime unchanged.
+- Preparation executes one new136-case command and REUSES26 exact513 normal records
+  on identical runtime/older test/support/fixture bytes, not a fresh27-suite run.
+  Actual514 repeatsall27. Historical72/native tests not rerun. Full selected scope
+  retains successful-output trust/dirname/final listing rm/readEOF/allocation/
+  partial copy/cleanup/ownership/resource tracking/input races/whole-state limits.
+- Four paths testing/log/newscope/newtest100644; full2417source/501exec/1916regular,
+  no old removals/mode changes. All other old bytes exact; full source/policy/two
+  preimages/every3643 original513 member/receipts/whole conditions/failures retained.
+  No ZIP reconstruction/actual-user Git objects/atomic overlay or independent refs.
+- Six actual508-513 accepted; prepared514 awaits completeactual in planned508-515,
+  reserve516-519if needed. Last scopedSTATICpause507, incomplete491binary historyOPEN.
+  Final COMPLETE actual acceptance FIRST THEN separate EVERY WHOLE inherited header/
+  condition/exact nested original AND ALL new effects/obligations/cleanup/limits
+  reading before any new pause. No summaries/hashes/counts/prior-review substitutes.
+  Phase1/kernel incomplete; all exact independent decision/acceptance/migrationIF/
+  ACTUAL WHOLE containment/binding/FRESHboundedgrant/OWN-platform conformance gates
+  unchanged. Evidence/livebindingsNULL/hostunobserved/globalclosurefalse; no native
+  authority or old consumed source/boot/run/grant/right/binding renewal/reuse.
+
 ## Phase 1 step 513 -- reject failed private SBo workspace symlink counts
 
 - Accept complete supplied actual512 repair1: HEAD/local origin

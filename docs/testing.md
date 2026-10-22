@@ -9,38 +9,39 @@ Slackware acceptance differ; it does not authorize a system run.
 ## Current bounded block and integrated selection
 
 Confirmed external scoped STATICpause500-507 remains507, with binary-history
-qualification OPEN. Current bounded request is508-515, reserve516-519 only if
-required. Actual508-512 accepted18/19/24/25/25 normal commands, exact subjects,
-reported pushes and clean full source-mode-tree captures. Actual512 repair1 also
-passes its60-case source-bound characterization; original512 failed before tests/
-publication and remains separately retained. Complete repaired512 HEAD/local origin
-is `c138db77c26a275df618453a0c65a87d8879bbfc`.
+qualification OPEN. Current bounded request508-515 has reserve516-519 if needed.
+Actual508-513 accepted18/19/24/25/25/26 normal commands, exact subjects/reported
+pushes/clean full source-mode-tree captures. Actual512 repair1 also passes audit60;
+original stopped512 and all repairs retain their separate outcomes. Actual513
+HEAD/local origin is `8b4db4ef47bec0b38ce110b24e6d58850690e6cf`.
 
 The [508 plan](reference/dry-run-sbo-queue-count.md),
 [509 candidates](reference/dry-run-sbo-candidate-count.md),
 [510 ELF counts](reference/dry-run-elf-counts.md),
-[511 composition](reference/dry-run-count-composition.md) and
-[512 audit](reference/sbo-workspace-failure-audit.md) retain their exact historical
-scopes, original failures and corrections. The512 pre-repair audit is source-bound
-and must NOT run against repaired513. Its integer-diagnostic portability repair
-and all original member bytes remain preserved.
+[511 composition](reference/dry-run-count-composition.md),
+[512 audit](reference/sbo-workspace-failure-audit.md) and
+[513 workspace guard](reference/sbo-workspace-count.md) retain their historical
+scopes/failures/corrections. The512 pre-repair audit must NOT run on513 or514.
+The permanent76-case workspace driver remains unchanged and selected.
 
-[513 workspace count guard](reference/sbo-workspace-count.md) checks the complete
-symlink find/wc assignment before copying or publishing the count. Nonzero status
-attempts listing/owned cleanup and returns1; counters stay at initialized0. Real
-sync reports SQG1/readiness0 and skips config/sqg. Prior synchronization/raw return
-policy and cleanup/resource-untracking/race limits remain. Run the permanent check:
+[514 workspace apply composition](reference/sbo-workspace-apply-composition.md)
+adds136 cases over real workspace/sync/readiness/apply/result paths, with supplied
+package/boot/core/ABI/process boundaries. No runtime change. Failed count blocks
+copy/config/sqg/core/ABI/final processing; raw workflow0 maps to stable2, SQG1,
+selection1 and ordered errors. Prior sync0/43, disabled/missing-source controls
+and selected cleanup/resource-untracking obligations are checked separately.
 
 ```bash
-python3 tests/reference/test-sbo-workspace-count.py
+python3 tests/reference/test-sbo-workspace-apply-composition.py
 ```
 
-76 cases cover32 selected count failures,20 inactive missing-source controls,
-four normal/four regular-enumeration cases and16 cleanup projections. Seven
-selected defective-source controls are separate from normal testing. All26 normal
-preparation commands run on513: this driver plus the25 from512; no reused old-source
-results. First preparation runner sha266 authoring failure occurred before tests;
-original/correction retained. Historical72/native/mutation matrices not rerun.
+Eight selected defective-source controls are separate from normal commands.
+Preparation executes this new command and reuses26 exact513 records on unchanged
+runtime/older tests/support/fixtures, not a fresh27-command local run. Actual514
+must run all27. First driver omitted TOTAL initialization and failed before its
+first complete case; original/error/correction retained. Historical72/native/
+mutation matrices not rerun. Existing prior-sync failure can still reach supplied
+build leaves if workspace succeeds; no broader synchronization stop is claimed.
 
 No new pause: COMPLETE final actual acceptance FIRST; THEN separately read EVERY
 WHOLE inherited header/condition/exact nested original AND ALL new effects/obligations/
