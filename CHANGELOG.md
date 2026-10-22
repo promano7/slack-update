@@ -1,3 +1,56 @@
+## Phase 1 step 513 -- reject failed private SBo workspace symlink counts
+
+- Accept complete supplied actual512 repair1: HEAD/local origin
+  c138db77c26a275df618453a0c65a87d8879bbfc, parent
+  f8a8a180acef04d4cec568632a8b5b4ace7e4de7, tree
+  54c2160d4ec2969118fbaf11b3855ad2165e3aaa, source-policy SHA256
+  50b5c739e2b20a2076067ae4b52193ad7e39504b15c69538ff85fab166c5a550.
+  Audit60/all25 exact outputs/ZIP3590entries598099651bytes/three source gates/
+  syntax/executable/whitespace/threepaths295adds20deletes/new100644/subject/
+  reported push/clean full refs/source-mode-tree capture agree. Inline reconstruction
+  is not original terminal bytes or independent terminal/GitHub/native capture.
+  Original stopped512 and diagnostic repair1 remain separately preserved.
+- Check complete symlink find/wc assignment into local count before regular copying.
+  On nonzero status attempt listing/real owned cleanup, set specific count error,
+  return1 and retain initialized counts0. Publish only successful count. Missing
+  source bypass/valid zero/full regular copying remain; outer same-name value stays.
+- Permanent76-case regression: base60 missing/empty/full x10selections xdirect/sync,
+  plus16 partial-count/cleanup projections.32 normal-cleanup count failures and16
+  selected cleanup failures rejected;20 inactive missing/four normal/four existing
+  enumeration controls. Check exact raw helper1/coordinator0/SQG1/readiness0, counts,
+  selected globals/output/vectors/IFS/environment/bytes/link targets/modes/inventory.
+  Copy events absent before count success; config/sqg skipped. Prior sbopkg sync
+  remains earlier and is inert in tests; no rollback/raw-return-policy change.
+- Listing rm failure leaves listing; owned rm/canonical failure retains directory
+  and owned fields; supplied mismatch retains directory but existing cleanup clears
+  owned fields. Preserve resource-untracking and arbitrary failure/race limits.
+  Seven authored valid-shell source controls fail the new driver: old source,
+  missing local, failed count publication, omitted cleanup, copy before count,
+  pipefail disabled, helper failure returned as success. No independent/native or
+  historical mutation-matrix acceptance inferred from these selected controls.
+- Execute all26 normal commands on513, no old-source result reuse. First runner
+  failed before tests because broad count replacement changed sha256 to sha266;
+  original/error/correction retained, runtime/test unchanged. After full26, correct
+  driver-hash metadata from old composition driver to new first workspace driver;
+  all26 execution records unchanged, original runner/result preserved. Historical72/native
+  tests not rerun. Named guards/UID0/temporary cleanup are not OS containment,
+  unprivileged/Slackware conformance, independent acceptance or global absence.
+- Five paths runtime/testing/log/newscope/newtest100644; full2415source/501exec/
+  1914regular, no old removals/mode changes. Other old bytes exact; full source/
+  policy/three preimages/every3590 original512repair1 member/receipts/whole conditions/
+  original failures and repairs retained. No ZIP reconstruction/actual Git objects.
+- Five actual508-512 accepted; prepared513 pending in planned508-515/reserve519.
+  Last confirmed scoped STATICpause507; final COMPLETE actual acceptance FIRST,
+  THEN separate EVERY WHOLE inherited header/condition/exact nested original AND
+  ALL new effects/obligations/cleanup/limits reading before any new pause. No hash/
+  summary/count substitute. Phase1/kernel incomplete, binary-history491 limit OPEN,
+  all exact native criteria/options/independent ACTUAL WHOLE review/fresh bounded
+  grant/OWN-platform conformance gates unchanged. Evidence/livebindingsNULL,
+  hostunobserved/globalclosurefalse; no old consumed rights/bindings renewed.
+- Retain successful-output trust, unchecked dirname/final listing removal/read/EOF/
+  allocation/partial copy/input races/whole-state/cleanup/resource obligations and
+  every older ELF/publication/count/unknown-origin/unread-bytes qualification.
+
 ## Phase 1 step 512 -- audit private SBo workspace count failure propagation
 
 - Repair1 preserves the complete supplied original512 failure: application and

@@ -10,29 +10,37 @@ Slackware acceptance differ; it does not authorize a system run.
 
 Confirmed external scoped STATICpause500-507 remains507, with binary-history
 qualification OPEN. Current bounded request is508-515, reserve516-519 only if
-required. Actual508-511 accepted18/19/24/25 commands, exact commits/reported pushes
-and clean full source-mode-tree captures. Older prepared pending flags keep their
-original scopes. The [508 plan](reference/dry-run-sbo-queue-count.md),
+required. Actual508-512 accepted18/19/24/25/25 normal commands, exact subjects,
+reported pushes and clean full source-mode-tree captures. Actual512 repair1 also
+passes its60-case source-bound characterization; original512 failed before tests/
+publication and remains separately retained. Complete repaired512 HEAD/local origin
+is `c138db77c26a275df618453a0c65a87d8879bbfc`.
+
+The [508 plan](reference/dry-run-sbo-queue-count.md),
 [509 candidates](reference/dry-run-sbo-candidate-count.md),
-[510 ELF counts](reference/dry-run-elf-counts.md) and
-[511 composition](reference/dry-run-count-composition.md) retain exact scopes.
+[510 ELF counts](reference/dry-run-elf-counts.md),
+[511 composition](reference/dry-run-count-composition.md) and
+[512 audit](reference/sbo-workspace-failure-audit.md) retain their exact historical
+scopes, original failures and corrections. The512 pre-repair audit is source-bound
+and must NOT run against repaired513. Its integer-diagnostic portability repair
+and all original member bytes remain preserved.
 
-[512 workspace audit](reference/sbo-workspace-failure-audit.md) documents an UNREPAIRED
-symlink enumeration/count failure, with60 external private characterization cases
-and32 selected unchecked-failure reproductions. Source-bound audit helper runs
-separately from the25 normal commands. Documentation-only512 reuses recorded511
-normal preparation results on identical runtime/tests/support/fixtures; no second
-local25-suite run claimed. Actual512 repeats25 plus the audit. New safety regression
-and source repair are planned513. Historical72/native/mutation matrices not rerun.
+[513 workspace count guard](reference/sbo-workspace-count.md) checks the complete
+symlink find/wc assignment before copying or publishing the count. Nonzero status
+attempts listing/owned cleanup and returns1; counters stay at initialized0. Real
+sync reports SQG1/readiness0 and skips config/sqg. Prior synchronization/raw return
+policy and cleanup/resource-untracking/race limits remain. Run the permanent check:
 
-The original512 PC audit stopped at empty/wc-1/sync: stdout/state were exact,
-but its Bash diagnostic said integer expected instead of integer expression
-expected. Repair1 admits only those two exact phrases with all other diagnostic
-anchors unchanged. Repaired60 cases and16 positive/15 negative oracle controls
-pass; runtime/tests/support/fixtures unchanged. Normal25 tests and Git publication
-were not reached in the supplied original attempt. Use the source-bound repair
-helper on exact already-applied original512 before retrying audit/25/first commit.
-Original failed probe/return and full original ZIP member projection are retained.
+```bash
+python3 tests/reference/test-sbo-workspace-count.py
+```
+
+76 cases cover32 selected count failures,20 inactive missing-source controls,
+four normal/four regular-enumeration cases and16 cleanup projections. Seven
+selected defective-source controls are separate from normal testing. All26 normal
+preparation commands run on513: this driver plus the25 from512; no reused old-source
+results. First preparation runner sha266 authoring failure occurred before tests;
+original/correction retained. Historical72/native/mutation matrices not rerun.
 
 No new pause: COMPLETE final actual acceptance FIRST; THEN separately read EVERY
 WHOLE inherited header/condition/exact nested original AND ALL new effects/obligations/

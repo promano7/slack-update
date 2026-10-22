@@ -3715,6 +3715,7 @@ prepare_private_sbo_queue_workspace() {
     local destination_parent
     local canonical_source
     local canonical_destination
+    local symlink_count
 
     SBO_TARGET_SELECTION_ERROR=
     SBO_PERSONAL_QUEUE_FILE_COUNT=0
@@ -3797,8 +3798,14 @@ prepare_private_sbo_queue_workspace() {
         return 1
     fi
 
-    SBO_PERSONAL_QUEUE_SYMLINK_COUNT=$(find "$source_directory" -type l -name '*.sqf' \
-        -printf '.' 2>/dev/null | wc -c)
+    if ! symlink_count=$(find "$source_directory" -type l -name '*.sqf' \
+        -printf '.' 2>/dev/null | wc -c); then
+        rm -f "$source_listing"
+        remove_owned_sbo_queue_workspace
+        SBO_TARGET_SELECTION_ERROR="cannot count personal SBo queue symlinks: $source_directory"
+        return 1
+    fi
+    SBO_PERSONAL_QUEUE_SYMLINK_COUNT=$symlink_count
 
     while IFS= read -r -d '' source_file; do
         relative_path=${source_file#"$source_directory"/}
