@@ -6,19 +6,26 @@ remain the detailed guide for reference-script changes. This document explains
 how current regression checks, historical checkpoint harnesses and real
 Slackware acceptance differ; it does not authorize a system run.
 
-## Current integrated selection
+## Current bounded block and integrated selection
 
-The [500-507 review](reference/repository-regression-block-500-507.md) names72
-ordered commands: historical66 plus six SBo count/removal/composition drivers.
-Complete actual506 passed all72. Prepared507 changes twelve existing documents
-only; preparation reuses those results on exact unchanged runtime/test/support/
-fixture bytes and claims no second local suite run. Actual507 must repeat the72
-on its final tree. Last confirmed scoped STATIC repository pause499; no new pause.
-Accept the complete final actual return FIRST, THEN separately read EVERY WHOLE
-inherited header/condition/exact nested original and every new effect/obligation/
-cleanup/limit before assessment. Counts/hashes/summaries/prior reviews cannot
-substitute. Older numbered preparation paragraphs below retain their own historical
-scope and pending flags; they do not override this current status or amend criteria.
+The step507 external continuation confirms the scoped STATIC repository pause
+for500-507 after complete actual507 and its separate whole-condition review,
+with the inherited binary-history qualification OPEN. Immutable prepared507
+pending flags and older numbered paragraphs below retain their own historical
+scope; they do not override that external confirmation or amend native criteria.
+
+The new user request opens a bounded8-12-step repository block: planned508-515,
+reserve516-519 only if required. The [step508 scope](reference/dry-run-sbo-queue-count.md)
+records the plan,144 new private planning-count cases and18 exact bounded normal
+commands. Actual508 is pending; no new pause is confirmed. The
+[500-507 review](reference/repository-regression-block-500-507.md) retains its exact
+historical72-command selection;508 does not rerun that whole selection.
+
+Before a new pause: accept COMPLETE final actual return FIRST; THEN separately
+read EVERY WHOLE inherited header/condition/exact nested original and ALL new
+effects/obligations/cleanup/limits. Hashes/counts/summaries/indices/prior reviews
+cannot substitute. Static regressions do not authorize native work or complete
+Phase1/kernel acceptance.
 
 ## Select the applicable checks
 

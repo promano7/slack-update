@@ -2733,6 +2733,8 @@ inspect_dry_run_environment() {
 }
 
 inspect_current_sbo_queues() {
+    local core_count
+
     echo "[PLAN] Inspecting current SBo queues"
 
     if ! resolve_sbo_personal_queue_directory; then
@@ -2751,7 +2753,12 @@ inspect_current_sbo_queues() {
         return 1
     fi
 
-    TOTAL_CORE=$(wc -l < "$QUEUE_CORE")
+    if ! core_count=$(wc -l < "$QUEUE_CORE"); then
+        SBO_TARGET_SELECTION_ERROR="cannot count the current local SBo queue"
+        echo "  [ERROR] $SBO_TARGET_SELECTION_ERROR"
+        return 1
+    fi
+    TOTAL_CORE=$core_count
     echo "  Current local queue targets: $TOTAL_CORE"
     echo "  Preserved build-option records: $SBO_OPTION_RECORD_COUNT"
 }

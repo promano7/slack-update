@@ -1,3 +1,53 @@
+## Phase 1 step 508 -- reject failed SBo queue counts during dry-run inspection
+
+- Verify supplied confirmed507 continuation: all3304members/CRC/SHA, full2404
+  source/501exec/1903regular/tree9dc8f6111fae9ab1959c1c1eb5016c6439508e4b,
+  actual HEAD/local origin48bd060e94334a4552bf67b4214eeca422b6a501. Preserve the
+  exact actual507 receipts/external whole-condition close, immutable prepared
+  pending flags and OPEN inherited binary-history qualification. No new independent
+  terminal/GitHub/native capture or actual-user Git object reconstruction claimed.
+- New bounded user request opens planned508-515, reserve516-519 only if required.
+  Zero actual steps accepted in the new block; prepared508 awaits complete actual
+  return. Last confirmed scoped STATICpause507. Complete final actual acceptance
+  FIRST, THEN separate EVERY WHOLE inherited header/condition/exact nested original
+  and ALL new effect/obligation/cleanup/limit reading before any new pause assessment.
+  Preparation508 navigation is not that final reading; counts/hashes/summaries/
+  indices/prior confirmation cannot replace it. No automatic native authority.
+- Reproduce unchecked planning core count: failure replaced TOTAL_CORE with empty/
+  partial stdout and later success echoes returned0, allowing candidate inspection.
+  Check local core_count assignment; set specific selection error/return1 before
+  success echoes; publish total only after successful count. Valid zero succeeds,
+  prior total survives failure. Earlier published queues/options/count remain;
+  no rollback/atomic input binding/arbitrary successful-output validation claimed.
+- Add144 private cases: three payload profiles,12 fault/control selections,
+  direct/candidate-gated calls, prior0/6. Real inspector/redirection/private count/
+  selected rm/mkdir; supplied resolver/collectors/candidate callback. Exact output/
+  raw/selected state/orderedvectors/IFS/outervars/local/source-dir/full private
+  inventory excludingevents checked. Missing/directory diagnostics retained.
+  Initial old-source rejection, separate48pass/96reject matrix and six syntax-valid
+  variant rejections retained. No full real dry-run composition, native/installed/
+  unprivileged/OScontainment or whole-host guarantee. Whole composition planned511.
+- New144 plus17 unchanged complementary normal commands pass in exact18-command
+  order, with original stdout/stderr/status records. Historical72selection and
+  historical/native mutation matrices not rerun. No heterogeneous coverage total.
+- Change runtime/testing/log and add driver/scope100644: full2406source/501exec/
+  1905regular, no removals/oldmodechanges. All other old bytes/tests/support/fixtures/
+  nativecriteria exact. Full source/policy/threepreimages/exact3304mapped predecessor
+  members/receipts/wholeconditions/sourcechain/failures retained; no nested ZIP.
+  Per-file replacement is not an atomic overlay transaction.
+- Initial private baseline tree mismatch and subsequent diagnostic KeyError retained:
+  two source extras absent from attached ZIP observed, exact bytes/paths/hashes and
+  observations preserved outside canonical. All2404canonical hashes match; scoped
+  private-extra removal restores exact507tree. Origin unknown; no user corruption,
+  source-history or binary-history repair inferred. Older failures/repairs remain.
+- Initial ELF omission/raw0/shortcircuit/partialpublication/count/cleanup/read/input-
+  race/resource-untracking/whole-state limits remain. Phase1/kernel incomplete,
+  A/R/Dunselected/fourrepairsinactive/schema1/reference-v1/C/Phase2/production closed.
+  All native criteria/independent decision/acceptance/migrationIFneeded/ACTUALbinding/
+  safeACTUALWHOLEreview/FRESHboundedgrant/OWNplatformconformance gates remain due.
+  Native evidence/livebindingsNULL, hostunobserved/globalclosurefalse. No consumed
+  right or historical binding reused/revived/retried/renewed/replaced/reacquired.
+
 ## Phase 1 step 507 -- reconcile final SBo regression guidance and pause gates
 
 - Accept complete supplied506: HEAD/local origin
