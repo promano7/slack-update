@@ -3829,7 +3829,11 @@ prepare_private_sbo_queue_workspace() {
         SBO_PERSONAL_QUEUE_FILE_COUNT=$((SBO_PERSONAL_QUEUE_FILE_COUNT + 1))
     done < "$source_listing"
 
-    rm -f "$source_listing"
+    if ! rm -f "$source_listing"; then
+        remove_owned_sbo_queue_workspace
+        SBO_TARGET_SELECTION_ERROR="cannot remove personal SBo queue listing"
+        return 1
+    fi
     SBO_QUEUE_SOURCE_DIR=$destination_directory
 }
 

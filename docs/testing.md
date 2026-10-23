@@ -19,7 +19,8 @@ Incomplete491 binary history and unknown extra provenance remain OPEN.
 The first516 private inventory additionally rejected an unmanifested17,039,360-byte
 file. Full bytes and first/corrected comparison records were preserved before
 removing only that extra; all canonical hashes/modes agree. Cause remains unknown.
-See the new audit scope for the exact fixture-prefix comparison and limits. A
+See the [516 audit](reference/sbo-workspace-final-listing-audit.md) for the exact
+fixture-prefix comparison and limits. A
 correct canonical projection is not historical/global absence or provenance closure.
 
 A new user-requested bounded516-523 block, with reserves524-527 only if needed,
@@ -27,25 +28,30 @@ starts with the [final-listing audit](reference/sbo-workspace-final-listing-audi
 It selects missed final-listing-removal failure handling, then the destination-
 parent assignment if the observations support that choice, separate repairs and
 caller/apply compositions. README will be updated at the END of the block.
-These are planned steps; actual516 is pending and no new pause is confirmed.
+Complete actual516 is accepted at `e0b336c46e4ff032234d9e2918038f864a25ee54`:
+source-bound30-observation audit/all27 ordered commands, exact scope/commit/push/
+clean fullrefs/source-mode-tree agree. Inline reconstruction is not original
+terminal bytes or independent terminal/GitHub/native capture. No new pause.
 
-Step516 changes only CHANGELOG, this guidance and the new audit scope. Runtime,
-all existing tests/support/fixtures and original native criteria remain exact515.
-The external source-bound30-observation audit reproduces16 ignored removal
-failures, including four cases where deletion happened before failure status.
-These are defect observations, not safety-regression passes. Do NOT run this
-unrepaired-source oracle after a future runtime repair. Exact source/support
-binding, real/supplied boundaries, retained private listing/workspace resources,
-first expected-byte authoring correction and selected controls remain explicit.
+Prepared517 adds the [final listing-removal guard](reference/sbo-workspace-listing-removal.md)
+and its54-case permanent regression. Failed removal returns helper1 before source
+publication, attempts owned cleanup and preserves earlier measured copy/counts.
+Real sync remains raw0 but records SQG1/readiness0 and skips config/sqg. Selected
+cleanup failures/mismatch retain exact resources/fields, including ownership
+untracking. The516 source-bound audit MUST NOT run on517: its unsafe observations
+are historical, not repaired-source safety coverage. All prior failure/repair/
+unknown-extra/first-byte-comparison qualifications remain preserved.
 
-The focused516 runner freshly executes the27 named workspace/count/dry-run/SBo/
-ELF composition commands retained in actual514's order. The external audit runs
-separately. It does not rerun all78, historical source-mutation matrices or native
-acceptance. The [508-515 integration](reference/repository-regression-block-508-515.md)
-retains its exact78 command order and measured boundaries for the previous block.
-The [512 audit](reference/sbo-workspace-failure-audit.md) remains bound to its older
-pre-count-repair runtime and must NOT be run on516. Every prior stopped/failed/
-repaired/accepted attempt keeps its original result and provenance.
+Fresh517 selection:28 normal commands, new listing-removal driver first followed
+by all27 prior516 vectors in order; no normal-result reuse/full78/historical or
+native mutation rerun. The76-case count and136-case apply drivers retain their
+separate count-failure scopes. New listing-error apply composition is planned518
+after complete actual517 acceptance. Eight same-author source controls reject,
+not independent acceptance. Only runtime/testing/log/new scope/new driver change;
+all other source/fixtures and native criteria remain exact516. README update stays
+at END. See the [508-515 integration](reference/repository-regression-block-508-515.md)
+for its exact78 selection. The older [512 audit](reference/sbo-workspace-failure-audit.md)
+remains pre-count-repair-source-bound and must NOT run on517 either.
 
 A new pause needs COMPLETE final actual acceptance FIRST, THEN separate reading
 of EVERY WHOLE inherited header/condition/exact nested original AND ALL new

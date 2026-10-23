@@ -1,3 +1,64 @@
+## Phase 1 step 517 -- reject failed final private SBo listing removal
+
+- Accept supplied complete actual516: HEAD/local origin
+  e0b336c46e4ff032234d9e2918038f864a25ee54, parent
+  d5e30d580e1420704225f478c624a119ddd151b0, tree
+  629278b616111c59268c9fdab4d486f5c1b4d5ee, policy SHA256
+  300331f601419fe1226f777c4aa99afea8e88ed78d50d4b8e4f25eb916f05851.
+  Audit30/all27 ordered outputs/ZIP3846members680397250bytes/three source gates/
+  syntax/executable/whitespace/threepaths270add40delete/new100644/subject/reported
+  push/clean fullrefs/source-mode-tree agree. Reconstructed supplied inline output/
+  command block is not original terminal bytes or independent terminal/GitHub/native
+  capture. Prepared516 pending flags retain historical scope; actual acceptance
+  separate. First step accepted in planned516-523/reserve524-527 block.
+- Guard final listing rm status before workspace source publication. On failure
+  attempt existing owned cleanup, set specific listing-removal error and return1.
+  Preserve measured file/symlink counters and direct previous source. Real sync
+  already clears source, stays raw0/SQG1/readiness0/no config/sqg. Earlier sbopkg
+  sync not rolled back. Missing-source bypass/successful empty/full outputs and
+  earlier enumeration/count/copy error paths unchanged. No listing-removal retry
+  or path-absence-as-status-success rule.
+- Add54-case permanent regression:30 missing/empty/full xfive removal selections
+  xdirect/sync;24 additional empty/full xquiet43/removed-before43 xdirect/sync x
+  owned-rm/canonical-failure/supplied-mismatch.40 active failures rejected before
+  publication,24 listing resources and24 workspaces retained in distinct cases.
+  Full-profile copies already occurred; counters preserve those earlier effects.
+  Cleanup failure retains workspace/fields; mismatch leaves resource but clears
+  fields, existing resource-untracking OPEN. No universal cleanup/rollback claim.
+- Assert raw/helper/ten named globals/exact stdout-stderr/main/copy/removal/canonical
+  and separate pipeline vectors/private bytes/modes/link targets/IFS/environment/
+  local sentinel. Real private helpers/coreutils/cleanup/sync; supplied discovery/
+  resolver/config/sbopkg/sqg/faults. Guards/UID0/private disposal not OS containment,
+  unprivileged/Slackware/native conformance or historical/global absence. Eight
+  selected valid-shell source controls rejected; same-author, not independent
+  acceptance or historical/native mutation matrix.
+- Fresh28 normal commands: new54-case driver first, then all27 prior516 vectors in
+  order; no result reuse/full78/native rerun. Existing76-count/136-apply cases keep
+  their earlier failure scopes. New final-listing apply composition due separately
+  at518 after complete actual517 acceptance. Do NOT run source-bound unsafe516 audit
+  on repaired517; preserve its30 observations/16 unsafe reproductions separately.
+- Five paths runtime/testing/log/newscope/newtest100644; full2421source/501exec/
+  1920regular, no old removals/mode changes. Other old source/fixtures exact516.
+  Full policy/three preimages/source/inline receipt/every3846 original516 member
+  retained exactly. No original compressed ZIP or actual-user Git objects rebuilt;
+  private synthetic baseline only. Per-file overlay and local source/ref reads
+  non-atomic; ignored files/actual host unobserved. README unchanged until block END.
+- Preserve all earlier unknown extras/first rejected inventories/comparison and
+  authoring corrections, original whole conditions, incomplete491 binary-history/
+  failed unread retrieval/unknown cause/no prefix-equivalence/no reconstructed
+  history-repair qualification OPEN. Successful-output trust, partial effects,
+  dirname/readEOF/allocation/input-race/all-state/initialELFomission/raw0 limits
+  remain. No historical/global cleanup or ownership/right renewal inferred.
+- Prepared517 awaits complete actual28/source gates/first commit/push/clean fullrefs/
+  source-mode-tree return. Last qualified STATICpause515; no new pause. Final actual
+  acceptance FIRST THEN separate every WHOLE header/condition/exact nested original
+  plus new effects/obligations/cleanup/limits reading and stored-original comparison
+  remain due; no counts/hashes/summaries/prior confirmations substitute.
+- Phase1/kernel incomplete; all exact independent decision/impact/migrationIF/
+  ACTUAL WHOLE binding/safety review/FRESH bounded before-effects grant/OWN-platform
+  conformance gates unchanged. Evidence/livebindingsNULL/hostunobserved/globalclosure
+  false. No native authority or consumed rights/bindings reuse/revival/retry/renewal.
+
 ## Phase 1 step 516 -- audit private SBo workspace final-listing removal
 
 - Continue from confirmed qualified STATIC pause515. Complete actual515 HEAD/local
