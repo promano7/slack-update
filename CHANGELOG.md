@@ -1,3 +1,63 @@
+## Phase 1 step 518 -- compose final SBo listing failures through apply
+
+- Accept complete supplied actual517: HEAD/local origin
+  6283bb1cad590661113bb9a62ae233f7ad2b2bc3, parent
+  e0b336c46e4ff032234d9e2918038f864a25ee54, tree
+  690db027a564e0bca321ef5a20f775f2a0c1eca8, policy SHA256
+  44cd0d55db70b5d9a61199918fda03dc6e8ef4da1521cd91f8b9ef64eb13a468.
+  All28 ordered outputs/ZIP3897members690499485bytes/application/three source gates/
+  syntax/executable/whitespace/fivepaths390add21delete/two new100644/subject/reported
+  push/clean fullrefs/source-mode-tree agree. Retain reconstructed supplied inline
+  output/commands, not original terminal bytes or independent terminal/GitHub/native
+  capture. Prepared517 flags immutable historical scope; actual acceptance separate.
+- Add84-case real workspace/sync/readiness/apply/result composition:60 missing/empty/
+  full xfive final-removal selections xSBo off/on xprior sbopkg0/43, plus24 selected
+  quiet43/removed-before43 failed-cleanup/mismatch cases.40 active listing failures
+  helper1/SQG1/readiness0/gate1/selection1 block config/sqg/core/ABI/final process.
+  Real apply clears core/extra/options and preserves prior final queue. Raw0 maps
+  stable2/partial1 with exact prior-sync/SQG/selection errors and event precedence.
+- Full-profile personal copies/counts already happened and remain2 despite later
+  rejection/normal workspace deletion.24 listing resources and24 workspaces retained
+  in separate cases. Failed owned rm/canonicalization retains ownership; supplied
+  mismatch leaves directory but clears fields: resource-untracking remains OPEN.
+  No later global cleanup/retry/rollback or historical absence claim. Prior sbopkg
+  sync already occurred; successful workspace with prior43 can still reach supplied
+  builds under existing policy. Supplied boot/summary callbacks still run.
+- Reuse unchanged count-apply/listing fault scaffolding and field/inventory support;
+  author new selected apply expectations. Check22globals/raw/exact output/ordered
+  errors/warnings/vectors/private bytes/modes/link targets/IFS/environment/local
+  sentinels; separate pipeline logs. Selected operations supplied; named guards/
+  UID0/private cleanup not OS containment/unprivileged/Slackware/native conformance.
+  Eight valid-shell source controls reject; same-author selection, not independent
+  acceptance or historical/native mutation matrix. No all-state/race/ownership proof.
+- Preparation runs ONE fresh84-case command and explicitly REUSES28 exact517 normal
+  records on unchanged runtime/old tests/support/fixtures; not a fresh29-suite run.
+  Actual518 must repeat all29, new driver first then prior28 exact order. Original
+  actual517 supplied all28 matching outputs. Full78/native matrices not rerun; do
+  not aggregate heterogeneous54/84/136 totals. Unsafe516/older512 source-bound audits
+  must not run on current repaired source; preserve their original outcomes.
+- Four paths testing/log/newscope/newtest100644; full2423source/501exec/1922regular,
+  no old removals/mode changes. Runtime/old tests/support/fixtures/native criteria
+  exact517. Full policy/two preimages/source/inline receipt/every3897 original517
+  member preserved with exact bytes/CRC/attributes; no compressed ZIP or actual user
+  Git objects reconstructed. Private synthetic baseline only; per-file overlay/
+  localref/source reads non-atomic, ignored files/actual host unobserved. README
+  unchanged until block END. Preserve all earlier extras/failures/corrections and
+  incomplete491 binary-history/failed unread retrieval/unknown-cause qualifications.
+- Two actual516-517 accepted; prepared518 awaits complete actual29/source gates/
+  exact first commit/push/clean fullrefs/source-mode-tree return. Last qualified
+  STATICpause515, no new pause. Next519 parent-assignment investigation only after
+  acceptance. Final COMPLETE actual acceptance FIRST THEN separate every WHOLE
+  inherited header/condition/exact nested original and all new effects/obligations/
+  cleanup/limits/stored-original comparison remain due; no hash/count/summary/
+  index/prior-confirmation substitute. Successful-output trust/dirname/readEOF/
+  allocation/partial copy-publication/cleanup/resource tracking/races/initialELFraw0
+  and whole-state limits persist. No native cleanup or right renewal authorized.
+- Phase1/kernel incomplete; all independent decision/impact/migrationIF/ACTUAL WHOLE
+  binding/safety review/FRESH bounded before-effects grant/OWN-platform conformance
+  gates unchanged. Evidence/livebindingsNULL/hostunobserved/globalclosurefalse;
+  no native authority or consumed source/boot/run/right/grant/binding reuse/revival.
+
 ## Phase 1 step 517 -- reject failed final private SBo listing removal
 
 - Accept supplied complete actual516: HEAD/local origin
