@@ -1,3 +1,71 @@
+## Phase 1 step 520 -- reject failed private SBo destination-parent assignment
+
+- Accept complete supplied actual519: HEAD/local origin
+  a51b8f76881f8e60a2bd347424c790f375031f88, parent
+  34e6e63c132eb81eb2341ffe6a670079fc04f4e1, tree
+  5ccd27cd3281dcc33ea86e16a9efa05c461d12ea, policy SHA256
+  a1d28581709fec21e6a00aaf5d8cd255e98b55a3d389b68551aab3e42d0e87d7.
+  Audit72/all29 exact outputs/ZIP3991members708805507bytes/application/three source
+  gates/syntax/executable/whitespace/threepaths222add31delete/new100644/subject/
+  reported push/clean fullrefs/source-mode-tree agree. Reconstructed supplied inline
+  output/commands not original terminal bytes or independent terminal/GitHub/native
+  capture. Preserve unfinished private transcription draft/correction before any
+  acceptance; no supplied actual return/runtime changed. Prepared519 flags retain
+  historical scope, actual acceptance separate. Four actual516-519 accepted.
+- Check complete existing local dirname assignment before mkdir/install/cat. Failed
+  status attempts listing/owned cleanup, sets destination-file-specific parent error,
+  returns1 even with valid stdout. No failed file's mkdir/install/cat or later
+  source publication. Preserve earlier copy0/1, symlink2, direct old source and real
+  sync cleared source/SQG1/readiness0/skipped config/sqg. Sync raw0 and earlier
+  sbopkg effects unchanged; no rollback or broad prior-sync failure abort.
+- Permanent104 cases:72 missing/empty/full xsix parent selections xfirst/second x
+  direct/sync;32 full xparent43/quiet43 xfirst/second xdirect/sync xlisting-removal/
+  owned-removal/canonicalization-failure/supplied-mismatch.52 active failures
+  rejected before target compound;48 inactive/four full normal controls distinct.
+  Eight listings and24 workspaces retained in selected cases. Retained second-file
+  workspaces include earlier nested copy; mismatch clears fields but leavesresource,
+  existing resource-untracking OPEN. No universal cleanup/absence/right renewal.
+- Check raw/helper/ten globals/exact output/vectors/dirname/mkdir/creation/copy/
+  removal/canonicalization/separate pipeline logs/private bytes/modes/link targets/
+  IFS/environment/local sentinels. Real private helpers/coreutils/cleanup/sync with
+  supplied discovery/resolver/config/sbopkg/sqg/faults. Old supplied empty-parent
+  mkdir rejection not entered now; no installed GNU diagnostic/native-conformance
+  claim. Named guards/UID0/private disposal not OS containment/unprivileged/native
+  conformance/global cleanup. Eight valid-shell source controls reject, same-author
+  selection not independent acceptance or historical/native mutation matrix.
+- Fresh30 normal commands: new104-case driver first then all29 prior519 vectors;
+  zero reuse, actual520 must repeat all30. No full78/native matrix rerun. Existing
+  54/84 listing and136 count-apply scopes distinct; parent error's new apply/result
+  composition planned521 only after complete actual520 acceptance. Original519
+  unsafe source-bound audit MUST NOT run on repaired520; its72 observations/16
+  ignored failures remain separate defect history, not safety-regression passes.
+- Five paths runtime/testing/log/newscope/newtest100644; full2426source/501exec/
+  1925regular, no old removal/mode change. Other old source/fixtures/native criteria
+  exact519. Full policy/three preimages/source/accepted519 receipt/every3991 original
+  519 delivery member retained with exact bytes/CRC/attributes; no compressed ZIP/
+  actual-user Git objects rebuilt. Private synthetic baseline only. Per-file overlay/
+  finite source/localref reads non-atomic, ignored files/host unobserved. README
+  unchanged until block END. Every earlier failure/repair/provenance/comparison/
+  authoring/metadata/receipt/inventory qualification and incomplete491 binary-history/
+  failed unread retrieval/unknown cause/no prefix equivalence/no reconstructed
+  binary-history repair remains OPEN. No historical/global cleanup proof follows.
+- First packaging520 rejects an unmanifested11,272,192-byte0600 extra; preserve
+  full bytes/first policy/index/rejection before removing only that extra. Exact
+  named19,257,126-byte fixture strict-prefix comparison does not explain origin;
+  UNKNOWN, no test/user/copy/common-cause/provenance closure. Canonical hashes
+  unchanged; this new obligation remains OPEN alongside older extras.
+- Prepared520 awaits complete actual30/source gates/exact firstcommit/push/clean
+  fullrefs/source-mode-tree. Last qualified STATICpause515, no new pause. Final
+  COMPLETE actual acceptance FIRST THEN separate EVERY WHOLE inherited header/
+  condition/exact nested original and ALL new effects/obligations/cleanup/limits/
+  stored-original comparison remain due; no counts/hashes/summaries/indexes/prior
+  confirmations substitute. Success-output trust/readEOF/allocation/partial copy/
+  publication/cleanup/resource tracking/races/whole-state/initialELFraw0 persist.
+- Phase1/kernel incomplete; every independent decision/impact/migrationIF/ACTUAL
+  WHOLE binding/safety/FRESH bounded before-effects grant/OWN-platform conformance
+  gate unchanged. Evidence/livebindingsNULL/hostunobserved/globalclosurefalse;
+  no native authority or consumed source/boot/run/grant/right/binding revival.
+
 ## Phase 1 step 519 -- audit private SBo destination-parent assignment
 
 - Accept complete supplied actual518: HEAD/local origin

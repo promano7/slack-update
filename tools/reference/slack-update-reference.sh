@@ -3817,7 +3817,12 @@ prepare_private_sbo_queue_workspace() {
         fi
 
         destination_file="$destination_directory/$relative_path"
-        destination_parent=$(dirname -- "$destination_file")
+        if ! destination_parent=$(dirname -- "$destination_file"); then
+            rm -f "$source_listing"
+            remove_owned_sbo_queue_workspace
+            SBO_TARGET_SELECTION_ERROR="cannot derive private SBo queue parent directory: $destination_file"
+            return 1
+        fi
         if ! mkdir -p -m 0700 -- "$destination_parent" \
             || ! install -m 0600 /dev/null "$destination_file" \
             || ! cat -- "$source_file" > "$destination_file"; then
