@@ -1,3 +1,67 @@
+## Phase 1 step 521 -- compose private SBo parent assignment failures through apply
+
+- Accept complete supplied actual520 FIRST: HEAD/local origin
+  841a98c4265f1eb38026d3f1e405b72cacb8120a, parent
+  a51b8f76881f8e60a2bd347424c790f375031f88, tree
+  d72310505435cd7e9e252183381edf7e61b2c451, policy SHA256
+  aea38fc33617cc6552b6ee741bd1bb9434c4579edb51d1ca5d45b6727b4ce1bd.
+  All30 exact ordered outputs/ZIP4047members732464663bytes/application/three source
+  gates/syntax/executable/whitespace/fivepaths409add28delete/two new100644 files/
+  subject/reported push/clean fullrefs/source-mode-tree agree. Reconstructed inline
+  output/commands are not original terminal bytes or independent terminal/GitHub/
+  native capture. Prepared520 pending flags keep historical scope; actual acceptance
+  separate. Five actual steps516-520 accepted, no new pause.
+- New176-case parent-error composition:144 missing/empty/full x six parent selections
+  x first/second file x SBo off/on x prior sync0/43;32 selected full/parent43-or-quiet43/
+  first-or-second/on/sync0-or43/listing-or-owned-removal/canonical-failure-or-mismatch.
+  All52 active failures stop before the failed file's mkdir/install/cat, preserve
+  earlier copy0/1 and symlink2. Real helper/sync/readiness/apply/result functions
+  block supplied queue/build leaves, keep helper1/syncraw0/SQG1/readiness0/selection1/
+  build-1 and stable2/partial1 distinct from applyraw0/fixture boot-safe1. Prior-sync43
+  keeps action/error precedence;26 successful-workspace sync43 cases still reach
+  supplied build leaves under existing policy, no general sync-failure abort added.
+- Exact22 named globals/error-warning arrays/stdout-stderr/action-module-summary/
+  callback/dirname/mkdir/copy/removal/canonical/separate pipeline/private bytes/
+  modes/link targets/personal-sentinel/IFS/environment/outer-local checks. Core,
+  extra, option and broken-object resets checked; failed final queue stays old.
+  Eight retained listings and24 workspaces in selected cleanup cases, second-file
+  workspaces retain earlier nested copy. Mismatch leaves resource but clears fields;
+  existing resource-untracking remains OPEN. No rollback/global cleanup/right renewal.
+- Real private helper coordination with explicit supplied discovery/config/sync/
+  build/package/snapshot/boot/event/clock/summary leaves. Guards/UID0/private disposal
+  are not OS containment, unprivileged/Slackware/native acceptance or whole-host
+  proof. Eight same-author valid-shell source controls reject unrepaired519/false
+  readiness/bypassed gate/hidden status/missing sqg error/missing owned cleanup/
+  discarded prior sync/omitted core reset; not independent or historical mutation
+  acceptance. No installed effects or later global cleanup/retry selected.
+- Preparation521 one fresh176-case driver plus30 explicitly reused exact520 normal
+  records; runtime/old tests/support/fixtures unchanged. Actual521 must run all31.
+  No full78/historical/native matrix rerun or heterogeneous coverage total. Existing
+  104 helper/54 listing/84 listing-apply/136 count-apply scopes remain distinct.
+  Unsafe source-bound519/516/512 audits must not run on repaired521.
+- Four paths testing/CHANGELOG/new scope/new driver; full2428source/501exec/1927regular,
+  no old removal/mode change. Runtime/README/other old source/fixtures/native criteria
+  exact520. Full policy/two preimages/accepted520 receipt/all4047 original520 members
+  preserved with exact bytes/CRC/attributes; no compressed ZIP or actual-user Git
+  objects rebuilt. Private synthetic baseline/non-atomic finite local reads only;
+  ignored files/host unobserved. README due at END;522 navigation,523 integrated/end
+  README/final actual/separate review if supported, reserves524-527 only if needed.
+- Preserve every earlier failure/repair/authoring/receipt/metadata/inventory/provenance
+  qualification. Unknown520 extra11,272,192-byte0600/full bytes/first policy/index/
+  exact19,257,126-byte fixture strict-prefix comparison remain with UNKNOWN cause,
+  no test/user/copy/common-cause closure; older515/516/505 extras and incomplete491
+  saved binary/failed original retrieval/unread bytes/no prefix equivalence/no
+  reconstructed binary-history repair remain OPEN. Canonical inventory does not
+  prove historical/global absence. Output-trust/readEOF/allocation/partial publication/
+  cleanup/resource tracking/races/all-state/initial ELF omission/raw0 limits persist.
+- Prepared521 actual/newpause pending; last qualified STATICpause515. COMPLETE final
+  actual acceptance FIRST, THEN separate EVERY WHOLE inherited header/condition/
+  exact nested original/all new effects/obligations/cleanup/limits/stored-original
+  review; hashes/counts/summaries/indices/prior readings do not substitute. Phase1/
+  kernel incomplete; every independent decision/spec-impact/migrationIF/ACTUAL WHOLE/
+  FRESH bounded before-effects grant/OWN-platform conformance gate unchanged. Native
+  evidence/livebindingsNULL/hostunobserved/globalclosurefalse, no consumed-right revival.
+
 ## Phase 1 step 520 -- reject failed private SBo destination-parent assignment
 
 - Accept complete supplied actual519: HEAD/local origin

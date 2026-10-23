@@ -23,53 +23,64 @@ See the [516 audit](reference/sbo-workspace-final-listing-audit.md) for the exac
 fixture-prefix comparison and limits. A
 correct canonical projection is not historical/global absence or provenance closure.
 
-A new user-requested bounded516-523 block, with reserves524-527 only if needed,
-starts with the [final-listing audit](reference/sbo-workspace-final-listing-audit.md).
-It selects missed final-listing-removal failure handling, then the destination-
-parent assignment if the observations support that choice, separate repairs and
-caller/apply compositions. README will be updated at the END of the block.
-Actual516-519 are accepted; latest HEAD/local origin is
-`a51b8f76881f8e60a2bd347424c790f375031f88`. Complete actual519 supplied audit72/all29
-ordered outputs, exact three-path commit/push/clean fullrefs/source-mode-tree. Its
-preparation reused29 records with a separate fresh audit; actual519 ran all29.
-Reconstructed inline output/commands are not original terminal bytes or independent
-terminal/GitHub/native capture. Last qualified pause515; no new pause in this block.
+The requested516-523 block has five accepted actual steps516-520, with reserves
+524-527 only if needed. Latest HEAD/local origin is
+`841a98c4265f1eb38026d3f1e405b72cacb8120a`. Complete supplied actual520 matches all30
+ordered outputs, exact five-path commit/push/clean full refs/source modes/tree.
+Its preparation ran all30 fresh. Reconstructed inline output/commands are not
+original terminal bytes or independent terminal/GitHub/native capture. Last
+qualified pause515; README update remains due at END.
 
-Prepared520 adds the [parent-assignment guard](reference/sbo-workspace-parent-assignment.md)
-and104-case permanent regression.52 active parent failures reject before the failed
-file's mkdir/install/cat, preserving earlier copy0/1 and symlink2; helper1/syncraw0/
-SQG1/readiness0/no config/sqg. Eight retained listings and24 workspaces in selected
-cleanup failures/mismatch keep precise resource/ownership obligations, including
-existing ownership untracking. Successful missing/empty/full behavior remains.
+Prepared521 adds the [parent-error apply composition](reference/sbo-workspace-parent-apply-composition.md).
+Its176 cases cover first/second-file failure, SBo off/on, prior sync0/43, inactive
+missing/empty inputs, normal full inputs and selected cleanup faults/mismatch.
+All52 active failures stop the failed file's mkdir/install/cat, retain earlier
+copy0/1 and symlink2, and reach helper1/syncraw0/SQG1/readiness0/selection1/build-1.
+The real apply gate blocks supplied queue/build leaves; raw0 remains distinct from
+stable2/partial1 and fixture-relative boot-safe1. Prior sync43 takes precedence in
+its action/error vector. Existing policy still reaches supplied build leaves in
+26 prior-sync43 cases with successful workspace preparation; no broad abort added.
 
-All30 selected normal commands run FRESH in preparation: new104-case driver first,
-then all29 prior519 vectors in order. Zero reuse; actual520 must repeat all30. Eight
-selected same-author valid-shell source controls reject. No full78/historical/native
-matrix rerun or independent acceptance. Parent error's apply/result composition is
-planned521 after complete actual520 acceptance. Runtime/testing/log/new scope/new
-driver change; other old source/fixtures/native criteria exact519. README stays
-at END. The unfinished private receipt draft/correction is retained separately.
-Packaging520 also rejected an unknown11,272,192-byte0600 extra. Its full bytes/
-first policy/index/rejection and exact-fixture strict-prefix comparison were
-preserved before removing only that extra. Canonical hashes stayed unchanged;
-origin remains UNKNOWN, not test/user/common-cause proof or provenance closure.
+Eight listings and24 workspaces remain in selected cleanup projections, including
+an earlier nested copy at second-file failure. Supplied canonical mismatch clears
+fields while leaving workspace: existing resource-untracking stays OPEN. No later
+global cleanup/retry, rollback or actual-host safety is established. The new driver
+checks exact selected result/output/vector/private-state/environment boundaries;
+its supplied leaves and unobserved whole-host/native state are explicit.
 
-The [519 audit](reference/sbo-workspace-parent-assignment-audit.md) is now historical
-pre-parent-repair-source-bound and MUST NOT run on520. Its72 observations/16 ignored
-failures are defect history, not safety coverage. Older516/512 unsafe source-bound
-audits must not run either. The [517 listing guard](reference/sbo-workspace-listing-removal.md)
-and [518 apply composition](reference/sbo-workspace-listing-apply-composition.md)
-keep their54/84 scopes; count-apply136 remains separate. Preserve every original
+Preparation521 runs the new176-case driver fresh and explicitly reuses30 exact520
+normal records: runtime, old tests, support and fixtures unchanged. Actual521 must
+run all31. Eight selected same-author valid-shell source controls reject; no full78/
+historical/native matrix rerun or independent semantic acceptance. Four source
+paths change: testing/CHANGELOG/new scope/new driver. Runtime/README stay exact520.
+Next522 reconciles contributor/roadmap navigation;523 updates README and runs the
+integrated selection before final actual acceptance and separate pause review.
+
+The [520 helper regression](reference/sbo-workspace-parent-assignment.md) retains
+its104-case scope. The [519 audit](reference/sbo-workspace-parent-assignment-audit.md)
+is historical pre-parent-repair-source-bound and MUST NOT run on521. Its72
+observations/16 ignored failures remain defect history, not safety coverage. Older
+516/512 unsafe source-bound audits must not run either. The
+[517 listing guard](reference/sbo-workspace-listing-removal.md) and
+[518 listing composition](reference/sbo-workspace-listing-apply-composition.md) keep
+separate54/84 scopes; count-apply136 remains separate. Preserve every original
 failure/repair/unknown-extra/comparison/authoring/metadata/receipt qualification.
 The [508-515 integration](reference/repository-regression-block-508-515.md) retains
 its exact78 selection; do not sum heterogeneous counts or infer native acceptance.
 
+Packaging520 rejected an unknown11,272,192-byte0600 extra. Full bytes/first policy/
+index/rejection and exact-fixture strict-prefix comparison were preserved before
+removing only that extra. Origin remains UNKNOWN; no test/user/common-cause proof
+or provenance closure. Its unfinished private receipt draft/correction is also
+retained. Older extras and incomplete491 binary history remain OPEN.
+
 A new pause needs COMPLETE final actual acceptance FIRST, THEN separate reading
 of EVERY WHOLE inherited header/condition/exact nested original AND ALL new
-effects/obligations/cleanup/limits. Counts/hashes/summaries/indexes and prior
-confirmations cannot substitute. Earlier effects and cleanup/resource-untracking/
-partial-publication/input-race/initial-ELF-omission limits remain. Static review
-neither closes Phase1/kernel nor authorizes native effects or historical cleanup.
+effects/obligations/cleanup/limits, plus stored-original comparison. Counts, hashes,
+summaries, indices and prior confirmations cannot substitute. Earlier effects,
+cleanup/resource-untracking/partial-publication/input-race/initial-ELF-omission
+limits remain. Static review neither closes Phase1/kernel nor authorizes native
+effects, consumed-right renewal or historical cleanup.
 
 ## Select the applicable checks
 
