@@ -8,46 +8,51 @@ Slackware acceptance differ; it does not authorize a system run.
 
 ## Current bounded block and integrated selection
 
-Confirmed scoped STATICpause507 remains the latest pause, with incomplete491
-binary-history qualification OPEN. Seven actual508-514 steps are accepted in the
-planned508-515 block, reserve516-519only if required. Complete actual514 passed27
-commands and publication/clean source-mode-tree capture at
-`7dd1e886ecb4909f8db5a4577bf6e8d41564d0af`. All original failures, corrected
-attempts and reused-versus-fresh preparation records retain separate outcomes.
+The qualified STATIC repository pause515 is confirmed after complete actual515
+acceptance at `d5e30d580e1420704225f478c624a119ddd151b0`, all78 ordered actual
+commands and a separate post-return reading/review of every whole inherited
+header/condition/exact nested original and new effects/obligations/limits. The
+immutable prepared515 records retain their original pending scope. The external
+confirmation is not independent semantic/native/terminal/GitHub acceptance.
+Incomplete491 binary history and unknown extra provenance remain OPEN.
 
-The [508-515 integrated review](reference/repository-regression-block-508-515.md)
-compares exact policies/preimages back to507: only reference runtime/testing/log
-changed among old paths,13 new test/scope files through514, no old removals/mode
-changes. Runtime changes affect four count-inspection/workspace functions. Final515
-adds one documentation file and leaves runtime/tests/support/fixtures exact514.
+The first516 private inventory additionally rejected an unmanifested17,039,360-byte
+file. Full bytes and first/corrected comparison records were preserved before
+removing only that extra; all canonical hashes/modes agree. Cause remains unknown.
+See the new audit scope for the exact fixture-prefix comparison and limits. A
+correct canonical projection is not historical/global absence or provenance closure.
 
-The final selection retains the entire72-command500-507 order, then appends six
-new drivers: dry-run SBo queue/candidates/ELF counts, dry-run count composition,
-workspace count and workspace apply composition. ALL78 run freshly in515 preparation;
-no normal-result reuse. Actual final515 must repeatall78. Read the integrated
-review's exact list and individual real/supplied limits. Historical/native source
-mutation matrices are not rerun. Expected negative initrd diagnostics end90checks/
-zero failures; only its one consistent private fixture root may be normalized.
+A new user-requested bounded516-523 block, with reserves524-527 only if needed,
+starts with the [final-listing audit](reference/sbo-workspace-final-listing-audit.md).
+It selects missed final-listing-removal failure handling, then the destination-
+parent assignment if the observations support that choice, separate repairs and
+caller/apply compositions. README will be updated at the END of the block.
+These are planned steps; actual516 is pending and no new pause is confirmed.
 
-The [512 audit](reference/sbo-workspace-failure-audit.md) is bound to the old runtime
-and must NOT run on515. Its stopped original attempt, successful repair1 and all
-later authoring/metadata corrections remain preserved. New workspace failure gates
-block copy/config/sqg/core/ABI/final work in the selected cases, while raw workflow0
-maps stable2. Prior sync effects, failed cleanup, resource-untracking, successful-
-output trust, races/whole-state and initial ELF scan omission remain explicit.
+Step516 changes only CHANGELOG, this guidance and the new audit scope. Runtime,
+all existing tests/support/fixtures and original native criteria remain exact515.
+The external source-bound30-observation audit reproduces16 ignored removal
+failures, including four cases where deletion happened before failure status.
+These are defect observations, not safety-regression passes. Do NOT run this
+unrepaired-source oracle after a future runtime repair. Exact source/support
+binding, real/supplied boundaries, retained private listing/workspace resources,
+first expected-byte authoring correction and selected controls remain explicit.
 
-The first515 package inventory rejected one unmanifested source-copy extra despite
-all2418 canonical hashes/modes matching. Full extra bytes/first policy/source map
-are retained outside canonical source; origin unknown. See the integrated review's
-[packaging qualification](reference/repository-regression-block-508-515.md#rejected-first-packaging-inventory).
-Only that recorded extra is removed after preservation and current docs/policy/ZIP
-regenerated; runtime/tests and all78 results remain exact. No binary-history repair,
-global absence or user-corruption explanation follows.
+The focused516 runner freshly executes the27 named workspace/count/dry-run/SBo/
+ELF composition commands retained in actual514's order. The external audit runs
+separately. It does not rerun all78, historical source-mutation matrices or native
+acceptance. The [508-515 integration](reference/repository-regression-block-508-515.md)
+retains its exact78 command order and measured boundaries for the previous block.
+The [512 audit](reference/sbo-workspace-failure-audit.md) remains bound to its older
+pre-count-repair runtime and must NOT be run on516. Every prior stopped/failed/
+repaired/accepted attempt keeps its original result and provenance.
 
-No new pause: COMPLETE final actual acceptance FIRST; THEN separately read EVERY
-WHOLE inherited header/condition/exact nested original AND ALL new effects/obligations/
-cleanup/limits. Counts/hashes/summaries/indices/prior reviews cannot substitute.
-Static characterization does not authorize native work or complete Phase1/kernel.
+A new pause needs COMPLETE final actual acceptance FIRST, THEN separate reading
+of EVERY WHOLE inherited header/condition/exact nested original AND ALL new
+effects/obligations/cleanup/limits. Counts/hashes/summaries/indexes and prior
+confirmations cannot substitute. Earlier effects and cleanup/resource-untracking/
+partial-publication/input-race/initial-ELF-omission limits remain. Static review
+neither closes Phase1/kernel nor authorizes native effects or historical cleanup.
 
 ## Select the applicable checks
 

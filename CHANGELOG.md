@@ -1,3 +1,69 @@
+## Phase 1 step 516 -- audit private SBo workspace final-listing removal
+
+- Continue from confirmed qualified STATIC pause515. Complete actual515 HEAD/local
+  origin d5e30d580e1420704225f478c624a119ddd151b0, parent
+  7dd1e886ecb4909f8db5a4577bf6e8d41564d0af, tree
+  c6e24dd1326e85c812f6dc02e75bf7c0b2a8320a, policy SHA256
+  1ef8e82aa4751c0afa4e18074767ef9f3ef4388526a127a72657b66d1e5f605e.
+  All78 actual outputs/publication/clean source-mode-tree accepted BEFORE separate
+  whole-header/nine-whole-condition/every-exact-nested-original/new-effects review.
+  Retain immutable prepared pending flags/report and external515 confirmation.
+  This is same-assistant STATIC review, not independent/native/host safety proof.
+- New user request selects8-12 repository steps: plan516-523, reserves524-527 only
+  if evidence requires. Audit/fix final listing-removal status, check real apply
+  composition, investigate/repair measured parent-assignment failure, reconcile
+  documentation and update README at END before final actual/pause review.
+  Later steps are plans, not accepted work; native rights remain closed.
+- External exact515-runtime/support-bound audit:30 missing/empty/full x five
+  removal selections x direct/real-sync observations.16 active failure statuses
+  are overwritten by source-directory publication; helper0/sync0/SQG0/readiness1
+  and supplied config/sqg entered.12 retain listing; four delete it before43.
+  Missing10 inactive and existing4 normal controls distinct. Full inputs already
+  copied two files/count two symlinks; counters/effects not rollback. No owned
+  cleanup attempted. These are unsafe reproductions, NOT safety PASS coverage.
+- Exact raw/ten globals/output/callback and command vectors, separate pipeline
+  logs, selected private bytes/modes/link targets/IFS/environment/local sentinel
+  checked. Real private files/helpers/coreutils/sync with supplied discovery/
+  configuration/resolver/sbopkg/sqg/faults; no native package/boot/transport action.
+  Guards/UID0/private cleanup not OS containment/unprivileged/Slackware conformance
+  or global absence. Three valid-shell behavior controls plus wrong-source gate
+  rejected; same-author selection, not independent/native mutation acceptance.
+- First audit expected-byte literal swallowed status0 via Python octal escape;
+  preserve full first script/stdout/stderr/correction and split explicit NUL fields.
+  Rejected first observation not accepted; runtime unchanged. Separately retain
+  initial session navigation error: prepared515 history read before outer515
+  confirmation; corrected after reading CONTINUE-HERE/current external records.
+  No prepared flags rewritten and no actual515 rerun/reapplication requested.
+- Three docs only: CHANGELOG/testing/new scope. Runtime/old tests/support/fixtures
+  exact515;27 selected normal commands freshly executed, no78/mutation/native
+  rerun claimed. Full source/preimages/policy and every3798 original515-continuation
+  member retained by exact byte/CRC/attribute mapping; no compressed ZIP or actual
+  user Git objects reconstructed. Private synthetic Git baseline is preparation
+  only. Per-file overlay and local ref/source capture are non-atomic; ignored files
+  and actual host not surveyed. README unchanged until requested final closure.
+- Final listing guard remains UNREPAIRED; next517 only after complete actual516
+  acceptance. Cleanup attempts, partial copying/counters, resource-untracking,
+  dirname/readEOF/allocation/success-output trust/initial ELF omission/races and
+  whole-state limits remain. Preserve every unknown-origin extra/failure/repair/
+  original whole condition and incomplete491 binary-history qualification OPEN.
+- First516 private inventory gate rejects one17,039,360-byte0600 unmanifested
+  source extra; preserve full bytes/hash/path/rejection before removing only it.
+  All2419 canonical hashes/modes agree. Observed strict prefix of corresponding
+  18,583,199-byte fixture; first wrong-fixture comparison/false result preserved
+  separately and corrected. Origin UNKNOWN; no test/user/shared-cause/history-
+  repair attribution. Regenerate current docs/policy/ZIP and verify canonical
+  inventory again. Runtime/tests/fixtures and fresh27 results remain unchanged;
+  rejected first inventory is not accepted, no historical/global absence implied.
+- Prepared516 awaits exact actual audit/all27/application/source gates/first commit/
+  successful push/clean fullrefs/source-mode-tree return. Last confirmed515; no new
+  pause. Final actual acceptance FIRST THEN separate every WHOLE header/condition/
+  exact nested original plus new effects/obligations/cleanup/limits reading remains
+  mandatory; no counts/hashes/summaries/prior confirmations substitute.
+- Phase1/kernel incomplete; all original independent decision/impact/migrationIF/
+  ACTUAL WHOLE binding/safety review/FRESH bounded before-effects grant/OWN-platform
+  conformance gates unchanged. Native evidence/livebindingsNULL/hostunobserved/
+  globalclosurefalse. No native authority or consumed rights/bindings reuse/revival.
+
 ## Phase 1 step 515 -- review dry-run and private workspace regression block
 
 - Accept complete supplied actual514: HEAD/local origin
