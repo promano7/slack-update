@@ -1,3 +1,65 @@
+## Phase 1 step 519 -- audit private SBo destination-parent assignment
+
+- Accept complete supplied actual518: HEAD/local origin
+  34e6e63c132eb81eb2341ffe6a670079fc04f4e1, parent
+  6283bb1cad590661113bb9a62ae233f7ad2b2bc3, tree
+  87dff6c10b4ec0705496bf328f7bdc82435a13e8, policy SHA256
+  e1d65c55b712c41b66bd0ce648e0cfa298c6857b923f575981826441c0e2345d.
+  All29 exact ordered outputs/ZIP3945members700213773bytes/application/three source
+  gates/syntax/executable/whitespace/fourpaths366add24delete/two new100644/subject/
+  reported push/clean fullrefs/source-mode-tree agree. Reconstructed supplied inline
+  output/commands not original terminal bytes or independent terminal/GitHub/native
+  capture. Actual518 ran all29; its preparation had one fresh84-case driver plus28
+  reused517 records. Immutable prepared pending flags retain historical scope.
+- External exact518-runtime/count-support-bound parent audit:72 missing/empty/full
+  x six dirname selections x first/second file position x direct/sync.16 nonzero
+  dirname statuses with valid parent output ignored; both files copied, helper0/
+  source publication/syncraw0/SQG0/readiness1/config/sqg. Four quiet failures meet
+  SUPPLIED empty-parent mkdir rejection caught by existing copy compound; helper1/
+  syncraw0/SQG1/readiness0/no config/sqg. First/second positions preserve earlier
+  copy counts0/1 and symlink count2; private cleanup not rollback/global absence.
+- 48 missing/empty inactive cases/four full normal cases distinct. All active quiet
+  later failures attempt listing/real owned cleanup. Parent dirname/mkdir vectors,
+  initial creation, copy/removal/canonicalization/separate find-wc logs/exact raw/
+  ten globals/stdout-stderr/private bytes/modes/link targets/IFS/environment/local
+  sentinels checked. Real private helpers/coreutils/sync, supplied discovery/
+  resolver/config/sbopkg/sqg/dirname statuses and empty-parent mkdir diagnostic.
+  No installed GNU diagnostic/native mkdir conformance inferred. Named guards/UID0/
+  private disposal not OS containment/unprivileged/Slackware/native conformance.
+- Three valid-shell observation/vector/local-scope controls plus wrong-source
+  main-entry gate reject. Full variants/hashes/failed assertions retained; same-
+  author, not independent acceptance or historical/native mutation matrix. Exact
+  source gate refuses later repaired runtime.72 observations/16 ignored
+  failures are NOT permanent safety regression coverage. Parent status UNREPAIRED.
+- Preparation runs fresh external audit but REUSES all29 exact518 normal records
+  on unchanged runtime/tests/support/fixtures: ZERO fresh normal commands. Actual519
+  must repeat audit AND all29 before first commit/push/capture. No full78/native
+  matrix rerun. Next520 checks full local assignment before mkdir/install/cat,
+  attempts listing/owned cleanup, specific destination-parent error/return1,
+  preserves earlier copy count0/1 and symlink2.521 composition separately due.
+- Three docs testing/log/newaudit100644; full2424source/501exec/1923regular, no old
+  removal/mode change. Other old source/fixtures/native criteria exact518. Full
+  policy/two preimages/source/inline receipt/every3945 original518 member preserved
+  with exact bytes/CRC/attributes; no compressed ZIP/actual-user Git objects rebuilt.
+  Private synthetic baseline only; per-file overlay/local source/ref reads non-
+  atomic, ignored files/host unobserved. README unchanged until block END.
+- Preserve all earlier unknown extras/first inventories/wrong-fixture comparison/
+  corrections/authoring/metadata/receipt qualifications and incomplete491 binary/
+  failed unread retrieval/unknown cause/no prefix equivalence/no reconstructed
+  binary-history repair OPEN. Success-output trust/readEOF/allocation/partial copy/
+  publication/cleanup/resource-untracking/input races/whole-state/initialELFraw0
+  persist; no native cleanup/consumed right renewal inferred.
+- Three actual516-518 accepted in planned516-523/reserves524-527only if required;
+  prepared519 awaits complete actual audit/all29/exact scope/firstcommit/push/clean
+  fullrefs/source-mode-tree. Last qualified STATICpause515; no new pause. COMPLETE
+  final actual acceptance FIRST THEN separate EVERY WHOLE inherited header/condition/
+  exact nested original and ALL new effects/obligations/cleanup/limits/stored-original
+  comparison remain due. No hashes/counts/summaries/indexes/prior confirmations
+  substitute. Phase1/kernel incomplete, all original independent decision/impact/
+  migrationIF/ACTUAL WHOLE binding/safety/FRESH bounded before-effects grant/OWN-
+  platform conformance gates unchanged. Evidence/livebindingsNULL/hostunobserved/
+  globalclosurefalse; no native authority or consumed identities/rights revival.
+
 ## Phase 1 step 518 -- compose final SBo listing failures through apply
 
 - Accept complete supplied actual517: HEAD/local origin

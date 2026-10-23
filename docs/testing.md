@@ -28,37 +28,35 @@ starts with the [final-listing audit](reference/sbo-workspace-final-listing-audi
 It selects missed final-listing-removal failure handling, then the destination-
 parent assignment if the observations support that choice, separate repairs and
 caller/apply compositions. README will be updated at the END of the block.
-Actual516 and517 are accepted; latest HEAD/local origin is
-`6283bb1cad590661113bb9a62ae233f7ad2b2bc3`. Complete actual517 supplied all28 ordered
-outputs, exact five-path commit/push/clean fullrefs/source-mode-tree. Inline
-reconstruction is not original terminal bytes or independent terminal/GitHub/native
-capture. Last qualified pause515; no new pause confirmed in this block.
+Actual516-518 are accepted; latest HEAD/local origin is
+`34e6e63c132eb81eb2341ffe6a670079fc04f4e1`. Complete actual518 supplied all29 ordered
+outputs, exact four-path commit/push/clean fullrefs/source-mode-tree. Its preparation
+had one fresh84-case command plus28 reused517 records, distinct from that actual
+all29 execution. Inline reconstruction is not original terminal bytes or independent
+terminal/GitHub/native capture. Last qualified pause515; no new pause in this block.
 
-The [517 listing-removal guard](reference/sbo-workspace-listing-removal.md) and its
-54-case helper/sync regression remain exact. Prepared518 adds the
-[84-case listing apply composition](reference/sbo-workspace-listing-apply-composition.md).
-Real workspace/sync/readiness/apply/result mapping with supplied external leaves
-checks helper1/SQG1/readiness0/gate1/selection1, cleared core/extra/options and
-preserved old final queue. Raw apply0 maps stable2/partial1 with ordered prior-sync/
-SQG/selection errors. Earlier personal copies/counts remain; selected cleanup
-failures/mismatch retain resources/fields, including existing ownership untracking.
-Successful workspace after prior sync43 can still reach supplied build leaves.
+Prepared519 adds the [parent-assignment audit](reference/sbo-workspace-parent-assignment-audit.md):
+72 private observations,16 ignored dirname failures with valid output and four
+later copy-compound rejections from SUPPLIED empty-parent mkdir failure. First/
+second regular-file positions distinguish no earlier copy from one earlier copy.
+These are defect observations on exact518 parent source, not safety-regression
+passes or a repair. Do NOT run this source-bound oracle on later repaired source.
+Three valid-shell observation controls and one exact-source main-entry gate reject.
 
-Preparation freshly runs ONLY the new84-case command and explicitly REUSES28 exact
-517 normal records on unchanged runtime/old-test/support/fixture bytes. It is NOT a
-fresh29-command run. Actual518 must run all29: new driver first, then complete prior
-28 order. Eight selected same-author valid-shell source controls reject; no full78,
-historical/native matrix or independent/native acceptance. The old136-case apply
-suite retains its count-failure scope; heterogeneous totals must not be summed.
+Preparation freshly runs only the external audit; all29 normal results are REUSED
+from518 on unchanged runtime/tests/support/fixtures. ZERO fresh normal commands.
+Actual519 must repeat audit AND all29 existing vectors. Runtime/native criteria
+remain exact518; three docs testing/log/new audit change. Separate520 parent-status
+guard/regression and521 caller composition are planned after preceding actual
+acceptance. README update stays at END. No full78/historical/native matrix rerun.
 
-Four paths testing/log/new scope/new driver change; runtime and all old tests/support/
-fixtures/native criteria exact517. Original516 unsafe source-bound audit MUST NOT
-run on518; older512 audit is also pre-repair-source-bound. All previous failures,
-repairs, unknown extras, first comparison/authoring/metadata/receipt qualifications
-remain preserved. README update stays at END of the block. The
-[508-515 integration](reference/repository-regression-block-508-515.md) retains its
-exact78 selection and original boundaries. Later519 parent-assignment audit is
-planned only after complete actual518 acceptance.
+The [517 final-listing guard](reference/sbo-workspace-listing-removal.md) and
+[518 apply composition](reference/sbo-workspace-listing-apply-composition.md) retain
+54/84-case distinct scopes. Earlier count-apply136 remains separate. Old unsafe516/
+512 source-bound audits must not run on519 either. Preserve every original failure,
+repair, authoring/metadata/receipt/unknown-extra and first comparison qualification.
+See the [508-515 integration](reference/repository-regression-block-508-515.md) for
+its exact78 selection; no heterogeneous coverage totals or native acceptance.
 
 A new pause needs COMPLETE final actual acceptance FIRST, THEN separate reading
 of EVERY WHOLE inherited header/condition/exact nested original AND ALL new
