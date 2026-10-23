@@ -114,15 +114,15 @@ when their validity is claimed. See the
 
 The mappings below still govern reference-script changes; frozen historical
 baselines retain their original scope.
-The latest completed integrated selection is the
-[508-515 review](docs/reference/repository-regression-block-508-515.md):78 named
-commands in its recorded order. Qualified STATIC repository pause515 was confirmed
-only after complete actual515 acceptance and a separate whole-condition review.
+The prepared [516-523 integrated review](docs/reference/repository-regression-block-516-523.md)
+selects82 named commands: all78 from the [508-515 review](docs/reference/repository-regression-block-508-515.md)
+in their original order, then the four listing/parent helper/apply drivers in step
+order. All82 run fresh on current source, with no normal-result reuse. Seven actual
+steps516-522 are accepted; final actual523 and a separate whole-condition review
+remain due. README is updated in this prepared final delivery, not evidence of its
+later actual commit or pause. Last confirmed qualified STATIC repository pause515.
 The [testing guide](docs/testing.md#current-bounded-block-and-integrated-selection)
-records the current516-523 block. Six actual steps516-521 are accepted; actual521
-ran all31 selected commands. Prepared522 reconciles existing documentation only,
-with no runtime/test/fixture change or fresh normal execution. README is reserved
-for the block end; the next integrated selection and a new pause remain pending.
+records the selection, dependencies and remaining limits.
 
 Workspace count, final-listing removal and destination-parent failures have
 separate helper/apply regressions below. Their selected private/supplied effects,

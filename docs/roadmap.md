@@ -21,14 +21,15 @@ acceptance does not describe the present state of a machine.
 
 ### Repository verification and next decisions
 
-The latest completed [508-515 integrated selection](reference/repository-regression-block-508-515.md)
-contains78 repository regressions in its recorded order, across CLI/configuration,
-main setup/completion, result/JSON/events, package/optional workflows, SBo queues,
-static ELF helpers, runtime lifecycle/logging, private boot validation and delivery
-ZIP integrity. Historical72/66/60/56/54 selections keep their original scopes.
-The [testing guide](testing.md) distinguishes real/private/supplied effects.
-The synthetic GenInitrd test models its exact target UID query and includes
-non-root rejection; it does not establish native ownership conformance.
+The prepared [516-523 integrated selection](reference/repository-regression-block-516-523.md)
+contains82 current repository regressions: all78 from508-515 in their recorded
+order, then four listing/parent helper/apply drivers. All82 run fresh, zero reused
+normal records. These cover CLI/configuration, main setup/completion, results/JSON/
+events, package/optional workflows, SBo queues, static ELF helpers, runtime lifecycle/
+logging, private boot validation and delivery ZIP integrity. Historical78/72/66/60/
+56/54 selections keep their original scopes. The [testing guide](testing.md)
+distinguishes real/private/supplied effects. The synthetic GenInitrd test models its
+exact target UID query and non-root rejection, not native ownership conformance.
 
 Repository coverage has expanded while the native acceptance inventory below
 remains unchanged. The cron mirror dependence was reproduced and repaired in the private test
@@ -56,8 +57,8 @@ block added SBo count/removal guards and private apply/result compositions;508-5
 added dry-run count guards and private workspace count/apply checks. Their original
 records keep their own prepared/actual scopes and qualifications.
 
-The current516-523 block has six accepted actual steps516-521, latest HEAD/local
-origin `c42cfbd70bbe3b4363b9e7b5d860647c20289d38`. Actual521 passed all31 selected
+The current516-523 block has seven accepted actual steps516-522, latest HEAD/local
+origin `b75765c3d4415a3cbe344bfe406d0868c974a6d7`. Actual522 passed all31 selected
 commands. The [listing guard](reference/sbo-workspace-listing-removal.md) and
 [listing apply scope](reference/sbo-workspace-listing-apply-composition.md) cover
 selected final-removal failures. The [parent guard](reference/sbo-workspace-parent-assignment.md)
@@ -66,16 +67,17 @@ selected dirname failures before the failed file's mkdir/install/cat, preserving
 earlier-copy counters, status precedence and precise retained-resource obligations.
 Their prior unsafe audits remain source-bound defect history, not safety coverage.
 
-Prepared522 reconciles existing documentation only; runtime/tests/fixtures/native
-criteria are unchanged. README and the next integrated selection remain due at the
-end of the block. Complete FINAL actual acceptance must come FIRST, THEN a separate
-reading of EVERY WHOLE inherited header/condition/EVERY exact nested original and
-ALL new effects/obligations/cleanup/limits, with stored-original comparison, before
-any new pause. Counts, hashes, summaries, indices and prior reviews do not replace
-that reading. Initial scan error omission/raw0, successful-output trust, partial
-publication/cleanup, resource untracking, input races, incomplete491 saved binary
-history and unknown extra provenance remain OPEN. Passing regressions neither
-approves native criteria nor resolves the operational audit.
+Prepared final523 changes documentation only, including the root README and new
+integrated review. Runtime/tests/fixtures/native criteria remain exact522. All82
+selected commands run fresh on current source; actual523 must repeat all82. Complete
+FINAL actual acceptance must come FIRST, THEN separate reading of EVERY WHOLE
+inherited header/condition/EVERY exact nested original and ALL new effects/
+obligations/cleanup/limits, with stored-original comparison, before any new pause.
+Counts, hashes, summaries, indices and prior reviews do not replace that reading.
+Initial scan error omission/raw0, successful-output trust, partial publication/
+cleanup, resource untracking, input races, incomplete491 saved binary history and
+unknown extra provenance remain OPEN. Passing regressions neither approves native
+criteria nor resolves the operational audit.
 
 After this bounded block, future work requires a new bounded choice of scope: investigate the remaining
 implementation failure projections, or advance an applicable acceptance family

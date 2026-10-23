@@ -1,3 +1,71 @@
+## Phase 1 step 523 -- integrate regression block and update README for final review
+
+- Accept complete supplied actual522 FIRST: HEAD/local origin
+  b75765c3d4415a3cbe344bfe406d0868c974a6d7, parent
+  c42cfbd70bbe3b4363b9e7b5d860647c20289d38, tree
+  898dabe887f94d821ceb7851263a02a02d971fb6, policy SHA256
+  ef9af70a00215e6be39c8ec4568fa138ba8ebfb070575001b8e7c35b0207808b.
+  All31 exact ordered outputs/ZIP4148members754442807bytes/application/three source
+  gates/syntax/executable/whitespace/six existing docs203add63delete/no new modes/
+  English subject/reported push/clean fullrefs/source-mode-tree agree. Reconstructed
+  inline output/commands not original terminal bytes or independent terminal/GitHub/
+  native capture. Preparation522 zero fresh/31 reused521, actual522 ran all31.
+- Final eighth-step preparation updates root README and adds the516-523 integrated
+  review, reconciles current contribution/index/roadmap/testing/CHANGELOG pointers.
+  Eight paths/one new100644 document; full2429source/501exec/1928regular, no old
+  removal/mode change. Runtime/all permanent tests/support/fixtures/native criteria
+  exact522. README retains original phase/usage/explicit-operation/exit boundaries;
+  updated final status is prepared, not proof of later actual commit or new pause.
+- Execute all82 selected commands FRESH on current source: exact78 from515 in order,
+  then listing helper517/listing apply518/parent helper520/parent apply521. No normal
+  result reuse; exact ordered vectors/full status/stdout/stderr/runtime/driver hashes
+  retained. All31 prior522 commands occur in this selection. Historical78 vectors
+  rerun on current source, not historical515 snapshot; source-control/historical/native
+  mutation matrices and dormant harnesses not rerun. Existing31-case delivery driver
+  is included in82. Only named installed-initrd output permits the documented single
+  consistent private-root normalization with all diagnostics/90checks/zero failures
+  and both full outputs retained; never normalize missing/failed commands to success.
+- Exact515-to522 canonical source proof:2418 to2428 paths, ten additions/seven old
+  changed paths/no removals/modes; old tests/support/fixtures/native records exact515.
+  Entire runtime delta consists of two guards in prepare_private_sbo_queue_workspace:
+  final listing removal before publication and dirname status before mkdir/install/
+  cat. Final523 adds only documentation. No entrypoint/authority/service/native-
+  validator change or actual-user Git-object/binary-history reconstruction.
+- Preserve helper/raw/readiness/selection/stable-result distinctions, earlier copies
+  and sbopkg effects, exact prior-sync43 precedence, selected retained listings/
+  workspaces and existing mismatch resource-untracking.26 successful-workspace sync43
+  cases still reach supplied build leaves under existing policy; boot-safe1 remains
+  fixture-relative. No rollback/universal or later-global cleanup/ownership renewal.
+  Real private helper coordination and supplied leaves/guards/UID0/disposal do not
+  prove OS containment, unprivileged/Slackware/native conformance or whole-host state.
+- Preserve every inherited original failure/repair/source-control/oracle/metadata/
+  receipt/inventory/provenance qualification.521 rejected push/wrong-cwd Git/capture
+  failures and later same-commit success remain separate.522 first verifier-template
+  literal failure/correction/all4140 first-candidate members by exact projection,
+  original bad verifier/manifest/continuation/diagnostic remain; no compressed candidate
+  ZIP embedded, source/runtime/policy unchanged. Unknown520/516/515/505 extras/full
+  bytes/first comparisons/corrections/UNKNOWN causes and incomplete491 saved binary/
+  failed unread original retrieval/no prefix equivalence/no reconstructed binary-
+  history repair stay OPEN. Canonical inventory is not historical/global absence.
+- Full policy/seven base preimages/source/accepted522 receipt/all4148 original522
+  delivery members retained with exact bytes/CRC/attributes. No compressed predecessor
+  ZIP or actual-user Git objects rebuilt; private synthetic baseline and non-atomic
+  finite local source/ref reads, ignored files/host unobserved. Output-trust/readEOF/
+  allocation/partial publication/cleanup/resource tracking/races/all-state/initial
+  ELF omission/raw0 limits survive. Heterogeneous case totals must not be summed.
+- Prepared523 awaits complete actual82/source gates/first commit/push/clean fullrefs/
+  source-mode-tree FIRST, THEN separate EVERY WHOLE inherited515 header/nine whole
+  conditions/EVERY exact nested original/separately stored originals and ALL new
+  effects/obligations/cleanup/limits reading. Hashes/counts/summaries/indices/prior
+  readings and current preparation do not substitute. Last qualified STATICpause515;
+  no new pause or automatic next stage. Reserves524-527 only if evidence requires.
+- Phase1/kernel incomplete; A/R/D unselected/four native repairs inactive/schema1/
+  reference-v1/C/Phase2/production closed. Exact13 findings/16 gaps/five families20
+  native scenarios and every original criterion binding. Independent decision/impact/
+  migrationIF/ACTUAL WHOLE/FRESH bounded before-effects grant/OWN-platform conformance
+  gates unchanged. Evidence/livebindingsNULL/hostunobserved/globalclosurefalse, no
+  native authority, consumed-right revival or actual-host safety claim.
+
 ## Phase 1 step 522 -- reconcile current regression documentation navigation
 
 - Accept complete supplied actual521 FIRST at HEAD/local origin

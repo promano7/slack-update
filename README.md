@@ -10,7 +10,8 @@ its validation material. The C application is planned work.
 
 Current repository regressions cover CLI/configuration, workflow and result
 handling, SBo queue selection and ordering, static ELF helpers, runtime logging
-and private boot-artifact validation. See the [testing guide](docs/testing.md)
+and private boot-artifact validation, including selected private file-operation
+failure paths. See the [testing guide](docs/testing.md)
 for the exact integrated selection, dependencies and known limitations. These
 checks complement the remaining real Slackware acceptance work.
 
@@ -25,6 +26,11 @@ boot safety failures, SBo/ELF, Cinnamon and Flatpak. The kernel operational
 design also has unresolved contract and native implementation requirements.
 All 13 manuscript audit findings remain open; alternatives A/R/D are unselected
 and the original requirements remain binding.
+
+The prepared [516-523 integrated review](docs/reference/repository-regression-block-516-523.md)
+selects82 repository checks. Final actual acceptance and a separate whole-condition
+review remain due before a new scoped STATIC pause; the last confirmed pause is515.
+Incomplete binary history and unknown extra provenance remain open qualifications.
 
 See the [development roadmap](docs/roadmap.md),
 [remaining acceptance inventory](tests/fixtures/reference/acceptance/phase-1/phase-1-acceptance-matrix-remainder-after-execution-control-closure.tsv)
@@ -95,7 +101,7 @@ carry raw command statuses; the final process/result status uses this table.
 ## Documentation and contributing
 
 - [Development roadmap and phase gates](docs/roadmap.md)
-- [Current regression selection and limits](docs/reference/repository-regression-block-500-507.md)
+- [Prepared integrated regression selection and limits](docs/reference/repository-regression-block-516-523.md)
 - [Reference acceptance guide](tests/acceptance/reference/README.md)
 - [Configuration example](data/config/slack-update.conf)
 - [Contribution and documentation policy](CONTRIBUTING.md)

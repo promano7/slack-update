@@ -31,20 +31,20 @@ choose a path, approve a migration or grant a native test.
 
 ## Current repository regression coverage
 
-The latest completed integrated selection is the
-[508-515 review](repository-regression-block-508-515.md), with78 named commands in
-its exact recorded order. Qualified STATIC pause515 followed complete actual515
-acceptance and a separate reading/review of the whole inherited conditions and
-exact nested originals. It is not independent semantic/native/host acceptance.
+The prepared [516-523 integrated review](repository-regression-block-516-523.md)
+selects82 fresh commands: the exact78 from [508-515](repository-regression-block-508-515.md)
+followed by four new listing/parent helper/apply drivers in step order. Seven
+actual steps516-522 are accepted; final523 actual acceptance remains pending.
+README is updated in this final preparation. Last qualified STATIC pause515 is
+confirmed externally after its complete actual return and separate whole-condition
+reading; it is not independent semantic/native/host acceptance.
 
-The [current testing status](../testing.md#current-bounded-block-and-integrated-selection)
-tracks the516-523 block: actual516-521 accepted, actual521 all31 selected commands;
-prepared522 changes navigation only. New final-listing and destination-parent
-helper/apply scopes are linked below. README and the next integrated selection are
-due at block end; no new pause is confirmed. Before a new pause, complete FINAL
-actual acceptance must precede a separate EVERY WHOLE header/condition/exact nested
-original and ALL new-effect/obligation/cleanup/limit reading plus stored-original
-comparison. Counts, hashes, summaries, indices and prior reviews do not substitute.
+The [testing guide](../testing.md#current-bounded-block-and-integrated-selection)
+tracks current selection and scope. A new pause requires complete FINAL actual
+acceptance FIRST, THEN a separate reading of EVERY WHOLE inherited header/condition/
+EVERY exact nested original and ALL new effects/obligations/cleanup/limits, with
+stored-original comparison. Counts, hashes, summaries, indices and prior reviews do
+not substitute. No new pause follows from prepared523 or from updated navigation.
 
 The [500-507 review](repository-regression-block-500-507.md),
 [492-499 review](repository-regression-block-492-499.md),
