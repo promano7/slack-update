@@ -31,18 +31,31 @@ choose a path, approve a migration or grant a native test.
 
 ## Current repository regression coverage
 
-The [integrated500-507 review](repository-regression-block-500-507.md) identifies
-72 selected commands, SBo count/removal guards and current192-case private apply
-composition. Complete actual506 passed all72. Prepared507 reviews only existing
-documentation and must receive its complete actual return before a separate whole-
-condition/header/exact-nested-original and new-effect/obligation/cleanup/limit
-reading can assess a new pause. Last confirmed scoped STATIC repository pause499.
-The [492-499 review](repository-regression-block-492-499.md),
+The latest completed integrated selection is the
+[508-515 review](repository-regression-block-508-515.md), with78 named commands in
+its exact recorded order. Qualified STATIC pause515 followed complete actual515
+acceptance and a separate reading/review of the whole inherited conditions and
+exact nested originals. It is not independent semantic/native/host acceptance.
+
+The [current testing status](../testing.md#current-bounded-block-and-integrated-selection)
+tracks the516-523 block: actual516-521 accepted, actual521 all31 selected commands;
+prepared522 changes navigation only. New final-listing and destination-parent
+helper/apply scopes are linked below. README and the next integrated selection are
+due at block end; no new pause is confirmed. Before a new pause, complete FINAL
+actual acceptance must precede a separate EVERY WHOLE header/condition/exact nested
+original and ALL new-effect/obligation/cleanup/limit reading plus stored-original
+comparison. Counts, hashes, summaries, indices and prior reviews do not substitute.
+
+The [500-507 review](repository-regression-block-500-507.md),
+[492-499 review](repository-regression-block-492-499.md),
 [484-491 review](repository-regression-block-484-491.md),
 [475-483 review](repository-regression-block-475-483.md) and earlier
 [467-474 review](repository-regression-block-467-474.md) retain their historical
-60/56/54 selections, failures and qualifications. None closes native acceptance
-or selects an operational contract alternative.
+selections, failures and qualifications. Incomplete491 binary history and unknown
+extra provenance remain OPEN. No inventory/checksum establishes historical/global
+absence. These links neither close native acceptance nor select an operational
+contract alternative. Unsafe source-bound512/516/519 audits remain historical and
+must not run on repaired current source.
 
 | Boundary | Detailed current scope |
 | --- | --- |
@@ -51,7 +64,10 @@ or selects an operational contract alternative.
 | Synchronization, generation gates and submission coordination | [SBo workflow](sbo-workflow.md) |
 | Count failures and following core/ABI/builder gates | [Final](sbo-final-queue-count.md), [core](sbo-core-queue-count.md), [ABI](sbo-abi-queue-count.md) and [option map](sbo-option-map-count.md) |
 | Previous private queue removal failure and partial effects | [Queue removal](sbo-queue-reset.md) |
-| Selected count/removal propagation through apply and result mapping | [Current192-case integration](repository-regression-block-500-507.md) and [historical144-case scope](sbo-count-apply-composition.md) |
+| Selected count/removal propagation through apply and result mapping | [192-case500-507 integration](repository-regression-block-500-507.md) and [historical144-case scope](sbo-count-apply-composition.md) |
+| Private workspace count and real apply/readiness propagation | [76-case helper](sbo-workspace-count.md) and [136-case apply scope](sbo-workspace-apply-composition.md) |
+| Final private listing removal status before publication | [516 defect audit](sbo-workspace-final-listing-audit.md), [54-case repair](sbo-workspace-listing-removal.md) and [84-case apply scope](sbo-workspace-listing-apply-composition.md) |
+| Destination-parent assignment status before mkdir/install/cat | [519 defect audit](sbo-workspace-parent-assignment-audit.md), [104-case repair](sbo-workspace-parent-assignment.md) and [176-case apply scope](sbo-workspace-parent-apply-composition.md) |
 | Delivery ZIP structure/CRC and explicitly selected embedded archives | [Archive integrity and incomplete history](delivery-archive-integrity.md) |
 | Literal ELF-owner mapping, collection, count/publication and private apply composition | [Owner mapping](elf-owner-mapping.md) |
 | Compatible/absent/error cache lookup and successful directory-skip repair | [Cache lookup](elf-cache-lookup.md) |

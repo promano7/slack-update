@@ -23,16 +23,22 @@ See the [516 audit](reference/sbo-workspace-final-listing-audit.md) for the exac
 fixture-prefix comparison and limits. A
 correct canonical projection is not historical/global absence or provenance closure.
 
-The requested516-523 block has five accepted actual steps516-520, with reserves
+The requested516-523 block has six accepted actual steps516-521, with reserves
 524-527 only if needed. Latest HEAD/local origin is
-`841a98c4265f1eb38026d3f1e405b72cacb8120a`. Complete supplied actual520 matches all30
-ordered outputs, exact five-path commit/push/clean full refs/source modes/tree.
-Its preparation ran all30 fresh. Reconstructed inline output/commands are not
-original terminal bytes or independent terminal/GitHub/native capture. Last
+`c42cfbd70bbe3b4363b9e7b5d860647c20289d38`. Complete supplied actual521 matches all31
+ordered outputs, exact four-path commit and final clean full refs/source modes/tree.
+Its preparation ran the new176-case composition fresh and reused30 exact520 records;
+actual521 ran all31. Reconstructed inline output/commands are not original terminal
+bytes or independent terminal/GitHub/native capture. The first push was reported
+rejected with an internal server error; four later Git commands from Descargas
+failed outside a repository and the intermediate capture rejected local HEAD/origin
+mismatch. A later push from the correct checkout was reported successful with the
+same commit, followed by the matching final capture. Preserve that complete sequence;
+no independent service diagnosis or historical/host-wide absence follows. Last
 qualified pause515; README update remains due at END.
 
-Prepared521 adds the [parent-error apply composition](reference/sbo-workspace-parent-apply-composition.md).
-Its176 cases cover first/second-file failure, SBo off/on, prior sync0/43, inactive
+The accepted [521 parent-error apply composition](reference/sbo-workspace-parent-apply-composition.md)
+contains176 cases: first/second-file failure, SBo off/on, prior sync0/43, inactive
 missing/empty inputs, normal full inputs and selected cleanup faults/mismatch.
 All52 active failures stop the failed file's mkdir/install/cat, retain earlier
 copy0/1 and symlink2, and reach helper1/syncraw0/SQG1/readiness0/selection1/build-1.
@@ -44,17 +50,19 @@ its action/error vector. Existing policy still reaches supplied build leaves in
 Eight listings and24 workspaces remain in selected cleanup projections, including
 an earlier nested copy at second-file failure. Supplied canonical mismatch clears
 fields while leaving workspace: existing resource-untracking stays OPEN. No later
-global cleanup/retry, rollback or actual-host safety is established. The new driver
-checks exact selected result/output/vector/private-state/environment boundaries;
-its supplied leaves and unobserved whole-host/native state are explicit.
+global cleanup/retry, rollback or actual-host safety is established. The driver
+checks selected result/output/vector/private-state/environment boundaries; supplied
+leaves and unobserved whole-host/native state remain explicit.
 
-Preparation521 runs the new176-case driver fresh and explicitly reuses30 exact520
-normal records: runtime, old tests, support and fixtures unchanged. Actual521 must
-run all31. Eight selected same-author valid-shell source controls reject; no full78/
-historical/native matrix rerun or independent semantic acceptance. Four source
-paths change: testing/CHANGELOG/new scope/new driver. Runtime/README stay exact520.
-Next522 reconciles contributor/roadmap navigation;523 updates README and runs the
-integrated selection before final actual acceptance and separate pause review.
+Prepared522 changes six existing documentation paths only: CHANGELOG, CONTRIBUTING,
+the two documentation indexes, roadmap and this guide. Runtime, all tests/support/
+fixtures and root README remain exact521. Zero fresh normal commands;31 exact521
+records explicitly reused. Actual522 must repeat all31 before its final return.
+Documentation verification checks changed links/fragments, current status, scope,
+unchanged normative tails, syntax and whitespace. No new fixture or permanent test,
+full78/historical/native matrix rerun, independent semantic acceptance or new pause.
+Next523 updates README and chooses/runs the integrated selection before COMPLETE
+final actual acceptance and the separate whole-condition review if supported.
 
 The [520 helper regression](reference/sbo-workspace-parent-assignment.md) retains
 its104-case scope. The [519 audit](reference/sbo-workspace-parent-assignment-audit.md)

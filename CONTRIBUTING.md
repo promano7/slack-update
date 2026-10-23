@@ -114,20 +114,35 @@ when their validity is claimed. See the
 
 The mappings below still govern reference-script changes; frozen historical
 baselines retain their original scope.
-The current [500-507 integrated review](docs/reference/repository-regression-block-500-507.md)
-selects72 named checks: historical66 in order, then six SBo count/removal/apply
-composition drivers. Complete actual506 passed all72. Prepared507 changes only
-existing documentation and reuses those records on identical runtime/test/fixture
-bytes; actual507 must repeat the72 before its final return. Last confirmed scoped
-STATIC repository pause499; no new pause follows from prepared documentation.
-Dependencies, failures, real/private/supplied effects and limits remain explicit.
-The [492-499 selection](docs/reference/repository-regression-block-492-499.md),
+The latest completed integrated selection is the
+[508-515 review](docs/reference/repository-regression-block-508-515.md):78 named
+commands in its recorded order. Qualified STATIC repository pause515 was confirmed
+only after complete actual515 acceptance and a separate whole-condition review.
+The [testing guide](docs/testing.md#current-bounded-block-and-integrated-selection)
+records the current516-523 block. Six actual steps516-521 are accepted; actual521
+ran all31 selected commands. Prepared522 reconciles existing documentation only,
+with no runtime/test/fixture change or fresh normal execution. README is reserved
+for the block end; the next integrated selection and a new pause remain pending.
+
+Workspace count, final-listing removal and destination-parent failures have
+separate helper/apply regressions below. Their selected private/supplied effects,
+partial copies and cleanup/resource-tracking limits must stay explicit. Do not run
+old512/516/519 unsafe source-bound audits on the repaired current source. Their
+observations remain defect history, not safety-regression passes.
+
+The [500-507 selection](docs/reference/repository-regression-block-500-507.md),
+[492-499 selection](docs/reference/repository-regression-block-492-499.md),
 [484-491 selection](docs/reference/repository-regression-block-484-491.md),
 [475-483 selection](docs/reference/repository-regression-block-475-483.md) and earlier
-reviews retain their historical scope. A prepared pass still needs
-the complete actual final return and a separate post-return reading/review of
-every whole inherited condition and every exact nested original body before
-pause confirmation. Counts, hashes, summaries and prior reviews cannot replace it.
+reviews retain their historical scopes, failures and corrections. Incomplete491
+binary history and unknown extra provenance remain OPEN. An archive checksum or
+correct current inventory does not close those questions.
+
+A new pause needs complete FINAL actual acceptance FIRST, THEN a separate reading
+of EVERY WHOLE inherited header/condition/EVERY exact nested original and ALL new
+effects/obligations/cleanup/limits, with stored-original comparison. Counts, hashes,
+summaries, indices and prior reviews cannot replace it. Static repository work
+neither changes native criteria nor opens consumed authority or a new native run.
 
 ## Reference-script changes
 
@@ -160,9 +175,28 @@ Before submitting a change to the reference script:
    published files, partial effects and blocked callbacks. Run
    `python3 tests/reference/test-sbo-count-apply-composition.py` for their selected
    propagation through real private apply/result mapping; the
-   [current integration](docs/reference/repository-regression-block-500-507.md)
+   [500-507 integration](docs/reference/repository-regression-block-500-507.md)
    describes192 cases and supplied boundaries. No rollback/global-cleanup/native
    guarantee follows; retain original diagnostic failures and oracle corrections.
+
+   For private workspace count failures, run
+   `python3 tests/reference/test-sbo-workspace-count.py` and
+   `python3 tests/reference/test-sbo-workspace-apply-composition.py`; their
+   [helper](docs/reference/sbo-workspace-count.md) and
+   [apply scope](docs/reference/sbo-workspace-apply-composition.md) retain76/136 cases.
+   For failed final-listing removal, run
+   `python3 tests/reference/test-sbo-workspace-listing-removal.py` and
+   `python3 tests/reference/test-sbo-workspace-listing-apply-composition.py`; see the
+   [54-case helper](docs/reference/sbo-workspace-listing-removal.md) and
+   [84-case apply scope](docs/reference/sbo-workspace-listing-apply-composition.md).
+   For destination-parent assignment/status changes, run
+   `python3 tests/reference/test-sbo-workspace-parent-assignment.py` and
+   `python3 tests/reference/test-sbo-workspace-parent-apply-composition.py`; see the
+   [104-case helper](docs/reference/sbo-workspace-parent-assignment.md) and
+   [176-case apply scope](docs/reference/sbo-workspace-parent-apply-composition.md).
+   Select companion workflow/result checks for the affected callers. Preserve
+   earlier-copy counters, raw/stable/readiness distinctions and selected retained
+   resources; these are not rollback, universal-cleanup or native guarantees.
 
    Run `python3 tests/reference/test-sbo-queue-files.py` when queue directory enumeration, candidate installation, target-set merging, core/extras ordering or option-map precedence changes. It checks real private files/coreutils and supplied selected faults; see [the queue file scope](docs/reference/sbo-queue-files.md). Run the graph, dependency-order, target-selection and option regressions alongside it; installed database and builder workflows remain separate boundaries.
 

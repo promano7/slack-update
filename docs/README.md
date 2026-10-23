@@ -18,10 +18,17 @@ acceptance material. For the current phase and unfinished work, use the
 | Contribution, language and documentation rules | [Contributing](../CONTRIBUTING.md) |
 | Detailed contracts, audits and evidence | [Reference documentation](reference/README.md) |
 | Select applicable checks and historical snapshots | [Testing guide](testing.md) |
-| Exact current integrated regression selection and known limits | [Integrated regression block review](reference/repository-regression-block-500-507.md) |
+| Latest completed integrated selection and known limits | [508-515 review](reference/repository-regression-block-508-515.md) |
+| Current bounded regression block and focused workspace checks | [Current testing status](testing.md#current-bounded-block-and-integrated-selection) and [reference index](reference/README.md#current-repository-regression-coverage) |
 | Real Slackware acceptance scenarios | [Acceptance guide](../tests/acceptance/reference/README.md) |
 | Changes by step or version | [CHANGELOG](../CHANGELOG.md) |
 | Earlier README checkpoints and original design text | [Historical README through step 418](reference/readme-through-step418.md) |
+
+Qualified STATIC repository pause515 remains the last confirmed pause. Actual
+steps516-521 are accepted; prepared522 updates navigation only. The final README
+update, next integrated selection, complete final actual return and separate whole-
+condition review remain due at the end of the block. Historical prepared flags
+retain their original scope. Repository checks do not close native acceptance.
 
 The design's proposed configuration and result examples describe future
 interfaces. Use the checked-in configuration and the shell reference for the

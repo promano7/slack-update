@@ -21,13 +21,13 @@ acceptance does not describe the present state of a machine.
 
 ### Repository verification and next decisions
 
-The [current integrated review](reference/repository-regression-block-500-507.md)
-selects72 repository regressions across CLI/configuration, main setup/completion,
-result/JSON/events, package/optional workflows, SBo queues, static ELF helpers,
-runtime lifecycle/logging, private boot validation and delivery ZIP integrity.
-Historical66/60/56/54 selections retain their original scopes. The
-[testing guide](testing.md) describes their real/private/supplied boundaries.
-The synthetic GenInitrd test now models its exact target UID query and includes
+The latest completed [508-515 integrated selection](reference/repository-regression-block-508-515.md)
+contains78 repository regressions in its recorded order, across CLI/configuration,
+main setup/completion, result/JSON/events, package/optional workflows, SBo queues,
+static ELF helpers, runtime lifecycle/logging, private boot validation and delivery
+ZIP integrity. Historical72/66/60/56/54 selections keep their original scopes.
+The [testing guide](testing.md) distinguishes real/private/supplied effects.
+The synthetic GenInitrd test models its exact target UID query and includes
 non-root rejection; it does not establish native ownership conformance.
 
 Repository coverage has expanded while the native acceptance inventory below
@@ -45,20 +45,37 @@ initialization and diagnostic failures; the [scan scope](reference/elf-scan-work
 records exact guarantees and partial-effect limits. Steps 484-489 add selected
 unresolved-display, cache-construction/publication/count and early cleanup-binding
 guards, plus real ELF/runtime helper compositions. Their dedicated scopes retain
-partial-publication and untracked-prior-resource limits. The previous recorded
-STATIC pause is499, confirmed after its complete actual return and separate
-whole-condition review. The492-499 block added ZIP validation, literal ELF-owner
-collection/publication/composition and cache lookup/error handling. Original497's
-GNU awk directory-skip failure, repair and prior authoring/transport failures remain
-distinct. The new500-507 block adds SBo count/removal guards and selected private
-apply/result compositions. Seven actual500-506 accepted; complete actual506 passed
-all72 commands. Prepared507 changes existing documentation only; its complete
-actual return must precede a separate reading of every whole inherited condition/
-header/exact nested original plus new effects/obligations/cleanup/limits before
-any new pause. Counts/hashes/summaries/prior reviews cannot replace that reading. Initial scan error
-omission/raw0, partial publication/cleanup, input races and incomplete saved binary
-history remain explicit. Passing regressions does not approve native criteria
-or resolve the operational audit.
+partial-publication and untracked-prior-resource limits.
+
+Qualified STATIC repository pause515 is the last confirmed pause, after complete
+actual515 acceptance/all78 ordered commands and a separate whole-condition review.
+The492-499 block added ZIP validation, literal ELF-owner collection/publication/
+composition and cache lookup/error handling. Original497's GNU awk directory-skip
+failure, repair and prior authoring/transport failures remain distinct. The500-507
+block added SBo count/removal guards and private apply/result compositions;508-515
+added dry-run count guards and private workspace count/apply checks. Their original
+records keep their own prepared/actual scopes and qualifications.
+
+The current516-523 block has six accepted actual steps516-521, latest HEAD/local
+origin `c42cfbd70bbe3b4363b9e7b5d860647c20289d38`. Actual521 passed all31 selected
+commands. The [listing guard](reference/sbo-workspace-listing-removal.md) and
+[listing apply scope](reference/sbo-workspace-listing-apply-composition.md) cover
+selected final-removal failures. The [parent guard](reference/sbo-workspace-parent-assignment.md)
+and [parent apply scope](reference/sbo-workspace-parent-apply-composition.md) reject
+selected dirname failures before the failed file's mkdir/install/cat, preserving
+earlier-copy counters, status precedence and precise retained-resource obligations.
+Their prior unsafe audits remain source-bound defect history, not safety coverage.
+
+Prepared522 reconciles existing documentation only; runtime/tests/fixtures/native
+criteria are unchanged. README and the next integrated selection remain due at the
+end of the block. Complete FINAL actual acceptance must come FIRST, THEN a separate
+reading of EVERY WHOLE inherited header/condition/EVERY exact nested original and
+ALL new effects/obligations/cleanup/limits, with stored-original comparison, before
+any new pause. Counts, hashes, summaries, indices and prior reviews do not replace
+that reading. Initial scan error omission/raw0, successful-output trust, partial
+publication/cleanup, resource untracking, input races, incomplete491 saved binary
+history and unknown extra provenance remain OPEN. Passing regressions neither
+approves native criteria nor resolves the operational audit.
 
 After this bounded block, future work requires a new bounded choice of scope: investigate the remaining
 implementation failure projections, or advance an applicable acceptance family

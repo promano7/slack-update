@@ -1,3 +1,61 @@
+## Phase 1 step 522 -- reconcile current regression documentation navigation
+
+- Accept complete supplied actual521 FIRST at HEAD/local origin
+  c42cfbd70bbe3b4363b9e7b5d860647c20289d38, parent
+  841a98c4265f1eb38026d3f1e405b72cacb8120a, tree
+  78f674c11b0c6d5852b673c0ed3bb17238a8de5d, policy SHA256
+  6075b755ba0537739c2ac302a2a95e6c54b705f11d9acf9e33504799fbd57690.
+  All31 ordered outputs/ZIP4095members742495910bytes/application/three source gates/
+  syntax/executable/whitespace/fourpaths408add41delete/two new100644/Englishsubject
+  agree. First push reported rejected with Internal Server Error, request
+  D9DE:265405:0069:0132:6ADB96C5 at supplied remote time2026-10-23T17:18:10Z.
+  Four Git commands from Descargas failed outside a repository; intermediate
+  capture rejected local HEAD/origin mismatch. Later correct-checkout push reported
+  successful, same single commit and clean matching fullrefs/source-mode-tree.
+  Preserve complete failure/recovery sequence, no independent service diagnosis,
+  remote capture or historical/host-wide absence claim. Reconstructed inline output/
+  commands not original terminal bytes or independent terminal/GitHub/native capture.
+- Reconcile six existing documents: CHANGELOG, CONTRIBUTING, docs/README,
+  docs/reference/README, roadmap and testing. Point to the latest completed508-515
+  integrated78 selection and externally qualified STATICpause515; distinguish six
+  accepted actual516-521 steps and prepared522 pending scope. Add workspace count,
+  final-listing and parent helper/apply navigation with separate76/136,54/84,104/176
+  scopes and original audit/repair/cleanup limits. Old512/516/519 unsafe source-bound
+  audits must not run on current repaired source; original observations retained
+  as defect history. Older integrated selections retain historical scope.
+- Add contributor check mappings for the affected workspace boundaries; do not
+  change original native criteria, decision alternatives, later-phase checklists,
+  historical reference records or frozen harness baselines. Existing192-case
+  count/reset integration retains its500-507 context. README remains unchanged
+  until block END; next523 prepares README/integrated selection if supported.
+- Documentation checks cover changed link paths/fragments, current state, exact
+  source scope, syntax/whitespace and unchanged normative tails. Full2428source/
+  501exec/1927regular, no addition/removal/mode change; runtime/tests/support/fixtures/
+  root README exact521. Zero fresh normal commands;31 exact521 records explicitly
+  reused. Actual522 must run all31. No new permanent test/fixture or full78/historical/
+  native matrix rerun; packaging checks remain separately scoped.
+- Preserve full policy/six base preimages/accepted521 receipt/all4095 original521
+  delivery member bytes/CRC/attributes, including failed push/wrong-cwd/capture and
+  older authoring/metadata/inventory/repair/provenance records. No compressed ZIP or
+  actual-user Git objects rebuilt; synthetic preparation baseline/non-atomic finite
+  source/localref reads, ignored files/host unobserved. Incomplete491 binary history,
+  failed unread original retrieval/no prefix equivalence/no reconstructed binary-
+  history repair and unknown520/516/515/505 extras remain OPEN. Canonical inventory
+  does not prove historical/global absence or explain test/user/copy/common cause.
+- Current176-case parent composition preserves earlier effects/status precedence,
+  eight listings/24 workspaces and existing mismatch resource-untracking;26 successful
+  workspace/prior-sync43 cases still reach supplied build leaves under old policy.
+  Fixture boot-safe1 is not actual boot safety. Output trust/readEOF/allocation/
+  partial publication/cleanup/input races/all-state/initial ELF omission/raw0 persist.
+- Prepared522 actual/newpause pending; last qualified STATICpause515. COMPLETE final
+  actual acceptance FIRST, THEN separate EVERY WHOLE inherited header/condition/
+  exact nested original/all new effects/obligations/cleanup/limits/stored-original
+  reading. Hashes/counts/summaries/indices/prior readings do not substitute. Phase1/
+  kernel incomplete; every independent decision/spec-impact/migrationIF/ACTUAL WHOLE/
+  FRESH bounded before-effects grant/OWN-platform conformance gate unchanged.
+  Evidence/livebindingsNULL/hostunobserved/globalclosurefalse, no native authority,
+  consumed-right revival, rollback or global cleanup claim.
+
 ## Phase 1 step 521 -- compose private SBo parent assignment failures through apply
 
 - Accept complete supplied actual520 FIRST: HEAD/local origin
