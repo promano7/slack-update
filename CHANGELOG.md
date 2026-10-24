@@ -1,3 +1,26 @@
+## Phase 1 step 524 -- characterize private SBo cleanup binding loss
+
+- Start a newly requested bounded static block524-531, reserve532-535 only if
+  required. Accepted inherited523 HEAD5da5f6910955627fe6e7dd8c137427b69d59a3e0,
+  tree31ffc17ce2d108aa66741bac404eaebe9e636bbe. The standalone continuation
+  verifier passes4250 members and its finite recorded checks; this does not
+  replace whole-condition reading or independent/native acceptance.
+- Add a runtime-hash-bound six-case cleanup audit. Canonical mismatch and an
+  actual owned-path symlink retain the resource but clear both binding fields:
+  first status1, second0 with no further readlink/rm. Four controls separately
+  preserve empty-path/stale-canonical, normal disposal and readlink/rm failures.
+  These are defect observations, not safety passes. Runtime unchanged.
+- Preserve the initial preparation launch failure: audit invoked from the
+  incomplete overlay payload could not find tools/reference source and raised
+  FileNotFoundError before any fixture or runtime call. Re-run in the complete
+  mode-restored canonical source passes all six characterizations. No source or
+  expected-result change was needed. Full preparation logs accompany delivery.
+- No native workflow, original criteria, schema1/reference-v1/C/Phase2 gate or
+  historical receipt is changed. Final separate whole inherited-condition and
+  new-effect review remains due before any new scoped strong pause. Root README
+  update is due at block end. Actual524 commit/push/receipt acceptance pending;
+  source/native authority, live bindings and host closure remain unclaimed.
+
 ## Phase 1 step 523 -- integrate regression block and update README for final review
 
 - Accept complete supplied actual522 FIRST: HEAD/local origin
