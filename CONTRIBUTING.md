@@ -105,28 +105,26 @@ Use the commit body to explain non-obvious decisions, compatibility changes, or 
 ## Choosing verification scope
 
 Use the [testing guide](docs/testing.md) and
-[current preintegration review](docs/reference/repository-regression-block-532-538-preintegration.md).
-Six actual532-537 steps accepted;538 documentation prepared,539 final fresh91
-planned. Last confirmed qualified outer STATIC pause531; no new pause/native gate.
-Current runtime has the533 metadata-error and537 path-emission failure guards in
-initial scan only. Preserve original scenarios/assertions/native criteria and
-real/private/supplied distinctions. README update remains due at block END.
+[prepared final integrated review](docs/reference/repository-regression-block-532-539.md).
+Seven actual532-538 steps accepted;539 is prepared eighth/final. Root README now
+reflects current ELF behavior and91-command selection. Last confirmed qualified
+outer STATIC pause531; final actual539 acceptance and separate whole-condition
+review pending. No new pause or native gate is established by preparation.
 
-Final91 is ordered86 from531 on current source plus five permanent drivers in
-introduction order. Run every command fresh in final preparation and on PC; no
-result reuse. Historical532/536 audit code AND scopes stay frozen and refuse this
-runtime before fixtures; exclude them and earlier unsafe512/516/519/524/527 audits
-from normal integration. First533 old-driver failures and every earlier failure/
-unknown extra/incomplete491 binary/UNKNOWN origin qualification remain preserved.
-Current CRC/SHA/source equality closes no historical/global obligation.
+Final91 is exact ordered86 from531 on CURRENT source plus five permanent ELF
+drivers in introduction order. Execute each command FRESH in preparation and on
+PC, retain complete output/status/current driver/runtime/support hashes, and
+do not reuse earlier results. Historical512/516/519/524/527/532/536 audits are
+excluded; both532/536 code AND scopes/guards/defective expectations remain frozen.
+Real/private/supplied boundaries, every earlier failure/unknown extra/incomplete491
+binary/UNKNOWN-origin/no-repair qualification and original native criteria remain.
 
 For delivery validation changes, use `python3 tests/reference/test-delivery-zip.py`
 and the exact archive verifier. Select embedded ZIPs explicitly before claiming
 inner validity; see [delivery scope](docs/reference/delivery-archive-integrity.md).
-The earlier [524-531 integration](docs/reference/repository-regression-block-524-531.md)
-and [530 fixture repair](docs/reference/repository-regression-block-524-530-preintegration.md)
-retain original preparation meanings and114 personal-queue checks; later531
-acceptance/pause is external. Older detailed scopes/receipts remain authoritative.
+The [538 plan](docs/reference/repository-regression-block-532-538-preintegration.md)
+and [524-531 integration](docs/reference/repository-regression-block-524-531.md)
+retain original preparation meanings; later531 confirmation is external.
 
 A new pause requires complete FINAL actual acceptance FIRST, THEN separate reading
 of WHOLE inherited header/EVERY WHOLE condition/EVERY exact nested original and ALL

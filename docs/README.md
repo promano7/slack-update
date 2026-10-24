@@ -18,19 +18,20 @@ acceptance material. For the current phase and unfinished work, use the
 | Contribution, language and documentation rules | [Contributing](../CONTRIBUTING.md) |
 | Detailed contracts, audits and evidence | [Reference documentation](reference/README.md) |
 | Select applicable checks and historical snapshots | [Testing guide](testing.md) |
-| Current ELF block, planned final integration and precise limits | [532-538 preintegration](reference/repository-regression-block-532-538-preintegration.md) |
-| Last completed integration, with later outer531 closure | [524-531 review](reference/repository-regression-block-524-531.md) |
+| Current ELF block, prepared final integration and precise limits | [532-539 integration](reference/repository-regression-block-532-539.md) |
+| Earlier completed integration, with later outer531 closure | [524-531 review](reference/repository-regression-block-524-531.md) |
 | Current bounded regression block and focused workspace checks | [Current testing status](testing.md#current-bounded-block-and-integrated-selection) and [reference index](reference/README.md#current-repository-regression-coverage) |
 | Real Slackware acceptance scenarios | [Acceptance guide](../tests/acceptance/reference/README.md) |
 | Changes by step or version | [CHANGELOG](../CHANGELOG.md) |
 | Earlier README checkpoints and original design text | [Historical README through step 418](reference/readme-through-step418.md) |
 
 Last confirmed qualified outer STATIC pause531 is recorded in its supplied
-continuation. Six actual532-537 steps accepted;538 documentation prepared,539
-fresh91 integration/final README and separate whole inherited-condition review
-remain due. The five current ELF regressions and original scope limits are linked
-from the preintegration review. Runtime/old tests/native criteria/root README
-remain exact537 in538. No new pause, native conformance or actual-host closure.
+continuation. Seven actual532-538 steps accepted;539 is the prepared eighth/final
+integration with91 fresh current-source commands and the final README update.
+Complete actual539 acceptance and separate whole inherited-condition/nested-original/
+new-effects review remain due. The [final review](reference/repository-regression-block-532-539.md)
+links precise scopes, earlier failures and retained limits. Runtime/tests/native
+criteria remain exact538. No new pause, native conformance or actual-host closure.
 Historical detailed records keep their original preparation-time meanings.
 
 The design's proposed configuration and result examples describe future

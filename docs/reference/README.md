@@ -31,21 +31,23 @@ choose a path, approve a migration or grant a native test.
 
 ## Current repository regression coverage
 
-Six actual532-537 steps accepted, latest
-`4d92c7651dfa867c04e1a67caffe942242895b73`. Prepared538
-[consolidates the current block](repository-regression-block-532-538-preintegration.md)
-without runtime/test/native-criteria/root README changes. Final539 plans91 FRESH
-commands: ordered86 from531 on current source plus five permanent ELF drivers in
-introduction order. No fresh91 integration or new pause yet. Last confirmed
-qualified outer STATIC pause531 is recorded externally in the supplied continuation.
-Canonical old preparation flags keep their original meanings.
+Seven actual532-538 steps accepted, latest
+`6100e602c3c0a9c8fa30c0aef961e85bf4a96694`. Prepared539
+[integrates the current block](repository-regression-block-532-539.md): root README
+update and91 FRESH current-source commands, ordered86 from531 then five permanent
+ELF drivers. Code/tests/native criteria exact538. Complete actual539 acceptance
+and separate whole inherited-condition/nested-original/new-effects review remain
+due; no new pause. Last confirmed qualified outer STATIC pause531 is external.
+Canonical historical preparation flags keep their original meanings.
 
-Current source guards initial metadata and path-emission failures before count/
-publication, with explicit private/supplied/result/cleanup/trust limits. Historical
-532/536 defect audits AND scopes stay unchanged and refuse current source; exclude
-them and earlier unsafe512/516/519/524/527 audits from normal integration. Complete
-FINAL actual acceptance must precede separate WHOLE inherited-condition/nested-
-original/all-new-effects review with original comparisons. No summaries substitute.
+Initial metadata and any path-emission failure prevent count/publication while
+all selected input is processed. Preserve real/private/supplied/result/cleanup/
+trust limits and all earlier failures. Both532/536 audit code AND scopes remain
+frozen and excluded, with earlier unsafe512/516/519/524/527 audits. The
+[538 preintegration](repository-regression-block-532-538-preintegration.md) retains
+its original plan-only meaning. Complete FINAL actual acceptance must precede
+WHOLE inherited-body/original/all-new-effects review with original comparisons;
+no counts/hashes/summaries/prior confirmations substitute.
 
 Earlier [524-531](repository-regression-block-524-531.md),
 [516-523](repository-regression-block-516-523.md),

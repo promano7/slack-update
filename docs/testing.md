@@ -8,46 +8,40 @@ Slackware acceptance differ; it does not authorize a system run.
 
 ## Current bounded block and integrated selection
 
-Six actual steps532-537 accepted, latest HEAD/local origin
-`4d92c7651dfa867c04e1a67caffe942242895b73`. Prepared538 consolidates documentation
-only; runtime/all tests/support/fixtures/native criteria/root README exact537.
-[The preintegration review](reference/repository-regression-block-532-538-preintegration.md)
-records the two initial-scan repairs, five permanent regressions and remaining
-private/supplied/trust/cleanup/publication limits. Last confirmed outer qualified
-STATIC pause531 is historical; no new pause in this open532-539 block.
+Seven actual steps532-538 accepted, latest HEAD/local origin
+`6100e602c3c0a9c8fa30c0aef961e85bf4a96694`. Prepared539 is the eighth/final step:
+root README update and91 fresh current-source commands; runtime/ALL tests/support/
+fixtures/native criteria exact538. See the
+[final integrated review](reference/repository-regression-block-532-539.md) for
+exact ordered selection and retained real/private/supplied/trust/cleanup limits.
+Last confirmed outer qualified STATIC pause531; no new pause in this preparation.
 
-Planned539 integration is ordered86 from accepted531 on CURRENT source, then
-metadata-error96, diagnostic72, initial-apply96, emission-direct36 and emission-
-apply48 in introduction order:91 commands. All91 must run FRESH in final preparation
-and on the PC, zero reused results. They have NOT run as an integration in538.
+Final91 is exact ordered86 from531 on CURRENT source then metadata-error96,
+diagnostic72, initial-apply96, emission-direct36 and emission-apply48 in introduction
+order. Each command runs FRESH in final preparation and on PC, zero reused results.
+Retain complete stdout/stderr/status and current driver/runtime/support hashes.
 No heterogeneous case-total/native coverage sum or historical snapshot rerun.
-The91 vectors and current driver hashes are reviewed separately from execution.
 
-Historical source-bound512/516/519/524/527/532/536 audits are excluded. Preserve
-both532/536 code AND scopes, exact hashes/defective expectations; both refuse this
-runtime before fixtures as recorded in537 preparation, not newly rerun by538.
-The three old scan/cache expectation updates occurred in533 after preserving full
-first failures. All later old tests remain unchanged; no native criterion changed.
+Historical source-bound512/516/519/524/527/532/536 audits are excluded. Both532/536
+code AND scopes/guards/defective expectations remain frozen; their537 source
+refusals are historical evidence, not newly run by539. Three old scan/cache
+expectation updates occurred in533 after preserving full first failures; all
+later old tests and original native criteria remain unchanged.
 
-Python3.11+, Bash,jq,flock,timeout,awk and GNU coreutils/findutils/sed remain required
-for full regression selection. Position51 personal-queue retains114 checks after530
-fixture isolation;56 installed-initrd retains expected negative diagnostics/90
-checks and only one consistent private-root normalization with full outputs kept.
-Existing31-case delivery-ZIP check is61. Preserve all previous failures and limits.
-
-538 runs documentation-only checks: added links/fragments, exact planned86+5 vectors/
-current driver hashes, source/mode/native guidance-tail preservation and accurate
-current/prepared status, plus syntax/executable/whitespace checks. No permanent
-fixture is added and no unit suite is rerun solely for this numbered docs step.
-Root README update and fresh91 execution remain539 work after complete actual538.
+Python3.11+, Bash,jq,flock,timeout,awk and GNU coreutils/findutils/sed remain required.
+Position51 personal-queue retains114 checks after530 fixture isolation;56 installed-
+initrd has expected negative diagnostics/90 checks and only one consistent private-
+root normalization with both full outputs retained. Delivery-ZIP31 is61, included
+in91. Preserve every earlier failure and limit. Added-link/fragment/status/source/
+mode/native-tail checks accompany syntax/executable/staged-and-unstaged whitespace.
 
 Final complete actual acceptance FIRST, THEN separately READ WHOLE inherited header,
 EVERY WHOLE condition/EVERY exact nested original and ALL new effects/obligations/
 cleanup/failures/limits with stored-original comparisons. Counts/hashes/summaries/
 indices/prior confirmations do not replace pending whole reading. Only if supported
-may later external review confirm a qualified STATIC pause, then STOP. Preserve
-entire original531 continuation/532-537 ZIPs/nested history/unknown extras/incomplete491
-binary/UNKNOWN origins/no repair. Phase1/kernel/native/independent option/spec-impact/
+may later external review confirm a qualified STATIC pause, then STOP. Original531
+continuation/532-538 ZIPs/nested history/unknown extras/incomplete491 binary/UNKNOWN
+origins/no repair stay preserved. Phase1/kernel/native/independent option/spec-impact/
 migration IF norms change/ACTUAL binding/safe ACTUAL WHOLE review/fresh bounded grant
 BEFORE effects/OWN-platform gates remain. No consumed rights renewed. Evidence/live
 bindings null; host unobserved-not-claimed-absent/global closurefalse.
