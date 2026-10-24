@@ -152,6 +152,13 @@ neither changes native criteria nor opens consumed authority or a new native run
 
 ## Reference-script changes
 
+For ELF path-emission status, run `python3 tests/reference/test-elf-emission-status.py`
+and `python3 tests/reference/test-elf-emission-apply.py`; see the
+[direct36/apply48 scope](docs/reference/elf-emission-status.md). Retain failures
+across every iteration without stopping input early or publishing/counting a
+failed scan. Historical532/536 audits and scopes stay unchanged and must refuse
+repaired source before fixtures; exclude them from normal integration.
+
 For real initial ELF scan through apply/owner/builder/stable mapping, run
 `python3 tests/reference/test-elf-initial-inspection-apply.py`; see the
 [96-case composition scope](docs/reference/elf-initial-inspection-apply.md).

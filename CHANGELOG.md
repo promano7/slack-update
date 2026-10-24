@@ -1,3 +1,47 @@
+## Phase 1 step 537 -- retain every ELF path-emission failure during scanning
+
+- Accept complete supplied actual536 FIRST: HEAD/local origin
+  6051406e319c154a23cbbd28a5dd11ed64b0599f, parent
+  99988f1ad8275fc606153c4ee47ed558b2289cba, tree
+  3ac7c68c7e1f216c430a09ff2247e99bbf17a1a7, policy SHA256
+  53193dd28d1c5f3e64d6375e8093ac72f5eb0f5b18481281337f86e3d3dd5775.
+  Four ordered outputs/six paths357add8delete/exact subject/reported push/clean
+  full local refs/source-mode-tree/shared hash agree. Inline output transcribed,
+  commands reconstructed from matching template; not original attachment bytes,
+  independent terminal/remote/native capture or actual user Git objects.
+- Only runtime change: path printf now retains nonzero status in existing local
+  inspection_failed flag, plus one English comment. Process all input, no early
+  abort/retry/new global/file; later iterations cannot erase failure. Existing
+  done-AND/pipefail branch fails BEFORE count/copy, preserving prior list/count.
+  Other functions/metadata flags/diagnostics/resolver/unknown statuses/native criteria
+  unchanged. Cache/staging effects remain; no rollback/atomicity/real storage proof.
+- New direct36 reject24 failed emissions in either order; four extra metadata-error
+  controls fail and eight normal nonerror controls publish. New apply48 reject32
+  emissions through real scan/apply/message/state/stable mapping and16 normal
+  controls preserve owner/build/recheck/sync policy. Raw apply0 versus stable2/
+  partial1/fixture-relative boot-safe1 explicit. Real private helpers, supplied
+  installed/cache/readelf/order/printf leaves. All selected objects still inspected.
+  Full outputs/fields/traces/arrays/caller state/private inventory/modes/links checked.
+- Historical532/536 audits AND scopes exact536, hash guards unchanged and refuse
+  repaired source BEFORE fixtures. Old tests/support/fixtures/native criteria/root
+  README exact536; nine paths/three new100644 files/old modes preserved. Fifteen
+  normal commands FRESH, zero reuse: new2 then exact11 from533 then diagnostic72/
+  apply96. Six valid-shell source controls run both drivers, rejected by relevant
+  scope; stable-only mutant can pass direct/fail apply. Full matrix/first candidates/
+  source variants/results retained. No full91 integration/exhaustive/native acceptance.
+- Five actual532-536 accepted;537 prepared only, commit/push/full return pending.
+  Target532-539/reserve540-543 if needed;538 consolidate/preintegrate,539 fresh91
+  and final README after prior actual acceptance. Planned91=ordered86 from531 plus
+  permanent53396/53472/53596/53736/53748; exclude historical audits. No new pause:
+  separate WHOLE inherited header/EVERY WHOLE condition/EVERY exact nested original/
+  ALL new effects/obligations/cleanup/failures/limits with original comparisons due
+  AFTER complete FINAL actual acceptance FIRST. No summary/hash substitutes; full
+  bodies/original ZIP history preserved. All original failures/unknown extras/
+  incomplete491 binary/UNKNOWN origins/no repair remain OPEN. Phase1/kernel/native
+  gates unchanged; evidence/live bindings null, actual host unobserved/global
+  closurefalse. No consumed source/boot/attempt/run/grant/right/binding reuse/
+  revival/renewal or required native setup/cleanup/fresh native authority.
+
 ## Phase 1 step 536 -- characterize earlier ELF path-emission status loss
 
 - Accept complete supplied actual535 FIRST: HEAD/local origin

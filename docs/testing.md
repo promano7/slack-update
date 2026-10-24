@@ -8,6 +8,15 @@ Slackware acceptance differ; it does not authorize a system run.
 
 ## Current bounded block and integrated selection
 
+Later checkpoint537: actual536 accepted at
+`6051406e319c154a23cbbd28a5dd11ed64b0599f`. Prepared537 adds one sticky path-emission
+failure guard and [direct36/apply48 regressions](reference/elf-emission-status.md).
+Fifteen current commands fresh; historical532/536 audits must refuse current
+runtime before fixtures and are excluded. Old tests/fixtures/native criteria/root
+README exact536. Planned final91 retains ordered86 from531 plus five permanent
+new drivers in introduction order; not run yet. Five actual steps/no new pause.
+Earlier prepared paragraphs below retain original checkpoint meanings.
+
 Later checkpoint536: actual535 accepted at
 `99988f1ad8275fc606153c4ee47ed558b2289cba`. Prepared536 adds the
 [exact535 emission audit](reference/elf-emission-status-audit.md),36 observations/

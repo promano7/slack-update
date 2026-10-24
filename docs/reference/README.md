@@ -39,17 +39,14 @@ original preparation-time language; the later closure is external to that source
 New block532-539/reserve540-543 starts with the exact-source
 [initial ELF inspection audit](elf-initial-inspection-audit.md). Its48 observations
 include12 known metadata-error omissions by the initial scan, not safety passes.
-Actual532-535 accepted, latest `99988f1ad8275fc606153c4ee47ed558b2289cba`.
-Prepared536 adds the exact535-source-bound
-[earlier emission audit](elf-emission-status-audit.md):36 observations include
-8 masked failures, not safety passes. Runtime/old tests/native criteria exact535.
-[533 metadata repair](elf-initial-inspection-errors.md),
-[534 diagnostics](elf-initial-inspection-diagnostics.md) and
-[535 apply composition](elf-initial-inspection-apply.md) keep their exact scopes.
-Historical532 audit refuses current source;536 must also refuse after a later
-runtime change. Exclude changed-source historical audits from normal integration.
-Root README remains exact531 until END. No new pause; whole inherited-condition
-review due after final complete actual acceptance.
+Actual532-536 accepted, latest `6051406e319c154a23cbbd28a5dd11ed64b0599f`.
+Prepared537 [retains every path-emission failure](elf-emission-status.md) through
+scan completion, with direct36/apply48 regressions. Historical
+[536 emission observations](elf-emission-status-audit.md) and532 audit stay frozen
+and must refuse changed runtime. Fifteen current normal commands are selected;
+planned final91 is ordered86 from531 plus five new permanent drivers. Old tests/
+fixtures/native criteria/root README exact536. No new pause; final whole inherited-
+condition review follows complete FINAL actual acceptance.
 
 The [preintegration record](repository-regression-block-524-530-preintegration.md)
 retains530's initial legacy-fixture failure and114-check isolation repair. Current
@@ -92,6 +89,7 @@ native decisions/reviews/authority gates remain due.
 | Inspection/report/staging and final producer-status interactions | [Diagnostic composition](elf-initial-inspection-diagnostics.md) |
 | Real initial scan through ownership, build and stable apply mapping | [Apply composition](elf-initial-inspection-apply.md) |
 | Earlier path-emission failure masked by a later iteration, exact535 source | [Historical emission audit](elf-emission-status-audit.md) |
+| Sticky path-emission failure through scanner and real apply/result mapping | [Current emission regressions](elf-emission-status.md) |
 | Private scan, broken-list handling, unresolved display and post-build recheck | [ELF scanning](elf-scan-workflow.md) |
 | Cache construction, publication and record-count failures | [ELF cache construction](elf-cache-construction.md) |
 | Cache failure propagation through real dependency/scan/recheck helpers | [ELF cache workflow](elf-cache-workflow.md) |

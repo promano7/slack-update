@@ -414,3 +414,12 @@ membership is verified before supplied deterministic ordering. Companion metadat
 errors and final emission faults keep their previous failure semantics. Defect
 observations, not current safety passes or an implemented repair. Preserve guard/
 expectations and exclude after source changes. Original criteria remain binding.
+
+## Sticky path-emission failure at step537
+
+[Direct36/apply48 regressions](elf-emission-status.md) cover a path printf failure
+retained in the producer flag through every later iteration. Continue all selected
+input; raw/status1 precedes count/copy and preserves prior publication/count.
+Historical536 source-bound audit remains unchanged and must refuse repaired source.
+Only this printf guard/comment changes runtime; native criteria/other helper limits
+unchanged. Real apply0 versus stable2 and supplied-leaf limits remain explicit.

@@ -4285,7 +4285,8 @@ detect_broken_elf_objects() {
             object=$(resolve_static_elf_object_path "$path") || continue
 
             if static_elf_object_has_missing_dependency "$object" "$ELF_LIBRARY_CACHE"; then
-                printf '%s\n' "$path"
+                # Retain failed path emission until all selected input is processed.
+                printf '%s\n' "$path" || inspection_failed=1
             else
                 inspection_status=$?
                 if [ "$inspection_status" -eq 2 ]; then
