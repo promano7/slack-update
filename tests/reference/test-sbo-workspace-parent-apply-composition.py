@@ -72,7 +72,7 @@ def scenario(reference,root,profile,fault,ordinal,sbo,sync_code,cleanup='none'):
             expected['workspace/nested']=('dir',0o700)
             expected['workspace/nested/private.sqf']=('file',b'beta\n',0o600)
             if copied==2:expected['workspace/top.sqf']=('file',b'alpha\n',0o600)
-    owned=str(workspace) if sbo and (not early or retained and cleanup!='mismatch') else ''
+    owned=str(workspace) if sbo and (not early or retained) else ''
     fields=[2 if errors else 0,0 if errors else 1,1 if errors else 0,1,'none',
             sync_code if sbo else -1,1 if early else 0 if sbo else -1,1 if sbo and not early else 0,
             1 if early else 0 if sbo else -1,0 if sbo and not early else -1,

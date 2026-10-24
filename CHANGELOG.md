@@ -1,3 +1,45 @@
+## Phase 1 step 525 -- retain unresolved private SBo cleanup bindings
+
+- Accept supplied actual524 first: HEAD/local origin
+  1713c06049502a4fcc8e3aaf70b1cc96125d57c8, parent
+  5da5f6910955627fe6e7dd8c137427b69d59a3e0, tree
+  5534cd549b63634810eef9dee11b2434d8ab500b, policy SHA256
+  097b4526266283d836bcd55870b60afa48385dffc9147a3e58a44b0cfc81c945.
+  Ordered outputs, threepaths/178 additions, exact subject/reported push/clean local
+  refs/source-mode-tree agree. Reconstructed inline return is not original terminal
+  bytes, independent terminal/GitHub/native capture or actual-host closure.
+- On owned-path symlink/canonical mismatch, retain both bookkeeping fields and
+  return1 before rm. Empty/unset binding, canonicalization error, rm error and
+  successful disposal retain existing status/side-effect behavior. No new global,
+  retry, rebinding, removal authority or native operation. Caller cleanup still
+  ignores errors; later overwrite/canonical-string trust/races remain limitations.
+- Add32 private regression cases (two calls each; ordinary and conditional-errexit
+  entries). Twenty-four persistent-error cases retain both bindings; selected
+  argv/status/stdout/stderr/private inventory/modes/bytes/links/caller sentinels/IFS
+  checked. Six existing SBo drivers change only mismatch-field expectations;
+  their other status/counter/output/copy/build/retained-resource checks stay intact.
+  Historical audit524 and scope/receipt records stay unchanged and source-bound;
+  do not run audit524 on repaired runtime. New scope qualifies old historical prose.
+- Execute15 focused normal commands fresh with zero reused results, plus six
+  selected valid-shell faulty-source controls, syntax/source/index/tree/whitespace
+  and delivery checks. No full82/historical/native matrix or independent semantic
+  acceptance is claimed. Complete records accompany the delivery.
+- Before policy/ZIP creation, physical inventory rejected one unmanifested
+  18,350,080-byte0600 file. Preserve full bytes, first generator/inventory/rejection
+  and exact26,424,442-byte fixture comparison before removing only the saved extra.
+  It is a strict prefix of that exact fixture; origin/cause UNKNOWN, not test/user/
+  copy/common-cause proof. Canonical fixture hashes unchanged; this new provenance
+  obligation remains open and does not repair incomplete491 binary history.
+- Preserve source-control generator's initial extra-parent lookup failure before
+  any variant creation/execution; only historical lookup corrected. Also preserve
+  the private whitespace checker's empty-base comparison failure; checking against
+  the exact verified base tree fixes its scope without changing source. Runtime/new
+  driver unchanged. Actual525 commit/push/acceptance pending; one accepted step
+  of524-531, reserves532-535 only if required. README due at END; no new pause.
+  Final whole inherited-condition/nested-original/new-effect review remains due.
+  Original native gates, incomplete491 binary history, unknown-extra provenance,
+  Phase1/kernel and all previously qualified obligations remain unresolved.
+
 ## Phase 1 step 524 -- characterize private SBo cleanup binding loss
 
 - Start a newly requested bounded static block524-531, reserve532-535 only if

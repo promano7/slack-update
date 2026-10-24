@@ -57,7 +57,7 @@ def scenario(reference, root, profile, fault, entry, cleanup='none'):
     links = 2 if profile == 'full' else 0
     error = 'cannot remove personal SBo queue listing' if failed else ''
     raw = 1 if failed and entry == 'direct' else 0
-    owned = str(workspace) if not failed or retained and cleanup != 'mismatch' else ''
+    owned = str(workspace) if not failed or retained else ''
     source = str(root/'old-source') if failed and entry == 'direct' else '' if failed else str(workspace)
     state = ['0' if entry == 'sync' else '17',
         '1' if entry == 'sync' and failed else '0' if entry == 'sync' else '18',

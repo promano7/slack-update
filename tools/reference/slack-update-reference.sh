@@ -2427,8 +2427,7 @@ remove_owned_sbo_queue_workspace() {
 
     current_canonical=$(readlink -m -- "$owned_path") || return 1
     if [ -L "$owned_path" ] || [ "$current_canonical" != "$owned_canonical" ]; then
-        SBO_GENERATED_QUEUE_OWNED_PATH=
-        SBO_GENERATED_QUEUE_OWNED_CANONICAL=
+        # Retain unresolved cleanup bookkeeping without authorizing removal.
         return 1
     fi
 

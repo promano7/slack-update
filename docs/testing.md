@@ -8,6 +8,28 @@ Slackware acceptance differ; it does not authorize a system run.
 
 ## Current bounded block and integrated selection
 
+The new bounded block targets524-531, reserves532-535 only if needed. Outer
+STATIC repository pause523 was confirmed after final actual acceptance and its
+separate full review; its immutable prepared records below retain their earlier
+pending state. Actual524 is accepted at
+`1713c06049502a4fcc8e3aaf70b1cc96125d57c8`. No new pause or native authority.
+
+Prepared525 [retains unresolved cleanup bindings](reference/sbo-workspace-cleanup-binding.md)
+without removing a symlink or mismatched path. The new32-case regression and six
+existing workspace drivers check the retained fields; earlier historical scope
+prose about clearing them describes its original source. Fifteen focused normal
+commands run fresh in preparation; actual525 must repeat them. The historical
+[524 audit](reference/sbo-workspace-cleanup-binding-audit.md) requires old runtime
+bytes and MUST NOT run on repaired source. Its defect observations are not
+safety passes. Root README update remains due at block end; complete final actual
+acceptance and a separate whole inherited-condition/new-effect review remain due.
+
+### Historical prepared516-523 selection
+
+The remainder of this subsection retains its original prepared523 status and
+cleanup expectations. The new525 scope above qualifies current-source binding
+retention only; historical receipts, failures and full criteria are unchanged.
+
 The qualified STATIC repository pause515 is confirmed after complete actual515
 acceptance at `d5e30d580e1420704225f478c624a119ddd151b0`, all78 ordered actual
 commands and a separate post-return reading/review of every whole inherited

@@ -31,6 +31,17 @@ choose a path, approve a migration or grant a native test.
 
 ## Current repository regression coverage
 
+The new524-531 block has accepted actual524, with525 prepared only. The
+[cleanup-binding repair](sbo-workspace-cleanup-binding.md) retains unresolved
+bookkeeping on refusal, adds a32-case regression and adjusts six drivers' narrow
+mismatch-field expectations. See the [testing guide](../testing.md#current-bounded-block-and-integrated-selection)
+for current scope. [Audit524](sbo-workspace-cleanup-binding-audit.md) remains
+historical/source-bound and must not run on repaired runtime. Root README update
+and a separate final whole-condition/new-effect review remain due; no new pause.
+
+The following original prepared523 coverage is historical. Its pending status
+was later resolved by the qualified outer523 closure, not by rewriting receipts.
+
 The prepared [516-523 integrated review](repository-regression-block-516-523.md)
 selects82 fresh commands: the exact78 from [508-515](repository-regression-block-508-515.md)
 followed by four new listing/parent helper/apply drivers in step order. Seven

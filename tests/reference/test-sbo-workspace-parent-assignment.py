@@ -72,7 +72,7 @@ def scenario(reference,root,profile,fault,ordinal,entry,cleanup='none'):
     error='cannot derive private SBo queue parent directory: '+str(workspace/failing_relative) if failed else ''
     raw=1 if failed and entry=='direct' else 0
     source=str(root/'old-source') if failed and entry=='direct' else '' if failed else str(workspace)
-    owned=str(workspace) if not failed or retained and cleanup!='mismatch' else ''
+    owned=str(workspace) if not failed or retained else ''
     state=['0' if entry=='sync' else '17',
         '1' if entry=='sync' and failed else '0' if entry=='sync' else '18',
         '0' if entry=='sync' and failed else '1' if entry=='sync' else '9',

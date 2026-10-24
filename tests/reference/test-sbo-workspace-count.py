@@ -127,7 +127,7 @@ def scenario(reference,root,profile,fault,entry,cleanup="none"):
     state=['0' if entry=='sync' else '17','1' if early and entry=='sync' else '0' if entry=='sync' else '18',
            '0' if early and entry=='sync' else '1' if entry=='sync' else '9',
            '' if early and entry=='sync' else str(root/'old-source') if early else str(workspace),
-           str(copied),count,error,str(workspace) if retained and cleanup!='mismatch' or not early else '',str(workspace) if retained and cleanup!='mismatch' or not early else '',
+           str(copied),count,error,str(workspace) if retained or not early else '',str(workspace) if retained or not early else '',
            str(root/'private.conf') if entry=='sync' and not early else 'old-conf']
     raw=1 if early and entry=='direct' else 0
     main=[]
