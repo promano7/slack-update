@@ -1,3 +1,46 @@
+## Phase 1 step 534 -- compose initial ELF diagnostics and final producer status
+
+- Accept complete supplied actual533 FIRST: HEAD/local origin
+  678850d838c140f6c587b532c028be37ed6612e5, parent
+  72bf2e776d145a1d36ebade2605dbdbb9068dfa0, tree
+  c6b6bcbca81c51e59620fbf36cfb4643ec9667b4, policy SHA256
+  35ba40c4aa91d8983f781a4ea75a07cd23352d34f8c7be421504da91b9001775.
+  Eleven ordered outputs/eleven paths443add32delete/exact subject/reported push/
+  clean full local refs/source-mode-tree agree. Full output transcribed from inline
+  user message; commands reconstructed from matching template, not original
+  attachment bytes/independent terminal/remote/native capture or Git objects.
+- Add72 regression cases:60 cross header/dynamic errors/successful reader warning,
+  missing companion/five reporting outcomes/normal-late sorting;12 cross final
+  emission0/quiet43/complete-output43, sorting and prior empty/nonempty publication.
+  Real parsers/classifier/path/magic/scan/report/private coreutils; supplied cache/
+  readelf/selected faults. All68 failures preserve published list/count, four
+  controls publish. Quiet/late rendering retains diagnostics; blocked clearing
+  saves exact bytes and leaves authored private directory/link. No atomic rollback.
+- Full outputs/raw/status/four fields/vectors/multiplicity/phase-order/caller IFS/
+  scalar/same-named flag/private inventory/bytes/modes/links checked. Exact trace
+  excluded from inventory and separately fully checked. One emitting object limits
+  the12 producer cases to final raw status; earlier-write masking remains possible
+  by source review and separate from current guarantees. Resolver skipping open.
+- Runtime/all old tests/support/fixtures/native criteria/root README exact533.
+  Seven changed paths/two new100644 files; old modes preserved. Six normal commands
+  FRESH, zero reused results: new72, previous96, scan/cache-workflow/cache-lookup/
+  unresolved display. Six valid-shell finite controls reject omitted flag/final
+  loop-status loss/ignored renderer/omitted clear/failure publication/count reset.
+  No full11/86 integration, historical unsafe audit/native run/independent acceptance.
+- Two actual532-533 accepted;534 prepared only, commit/push/full return pending.
+  Target532-539/reserve540-543 if evidence needs;535 real scan/caller/result
+  composition then evidence-led producer/resolver coverage/preintegration/final
+  README. No new pause. Whole inherited header/EVERY WHOLE condition/EVERY exact
+  nested original/all-new-effects/obligations/cleanup/failure/limit review with
+  original comparisons due AFTER final complete actual acceptance FIRST. No
+  counts/hashes/summaries/previous confirmations substitute; full bodies preserved.
+- Every original failure/unknown extra/incomplete491 binary/UNKNOWN cause/no binary
+  repair qualification OPEN. Phase1/kernel/native criteria/ordered independent
+  option/spec-impact/migration/ACTUAL binding/safe WHOLE review/fresh bounded grant
+  BEFORE effects/OWN-platform conformance gates unchanged. Evidence/live bindings
+  null, actual host unobserved/global closurefalse. No consumed source/boot/attempt/
+  run/grant/right/binding reuse/revival/renewal or required native setup/cleanup.
+
 ## Phase 1 step 533 -- reject incomplete initial ELF metadata inspection
 
 - Accept complete supplied actual532 FIRST: HEAD/local origin

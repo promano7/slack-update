@@ -388,3 +388,11 @@ statuses and post-build recheck keep their prior behavior. Historical532 audit
 stays exact/source-bound and must refuse this repaired runtime. Three older scan/
 cache expectation changes retain all cases/assertions; first failures preserved.
 Native criteria, full caller composition, output trust and race limits unchanged.
+
+## Diagnostic and final producer-status composition at step534
+
+[Seventy-two cases](elf-initial-inspection-diagnostics.md) combine real metadata
+inspection with selected diagnostic render/clear faults and late final sorting,
+plus final-path emission faults. Prior published bytes/count survive all68 failed
+cases; four successful controls publish. Runtime unchanged from533. Earlier
+producer-write masking/resolver skipping/whole caller/native boundaries separate.

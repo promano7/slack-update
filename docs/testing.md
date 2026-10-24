@@ -8,6 +8,13 @@ Slackware acceptance differ; it does not authorize a system run.
 
 ## Current bounded block and integrated selection
 
+Later checkpoint534: complete actual533 accepted at
+`678850d838c140f6c587b532c028be37ed6612e5`. Prepared534 adds
+[72 diagnostic/staging cases](reference/elf-initial-inspection-diagnostics.md)
+and freshly selects six normal commands. Runtime/old tests/native criteria/root
+README exact533. Preceding531-533 preparation paragraphs below keep their original
+checkpoint meanings. New532-539 block has two accepted actual steps/no new pause.
+
 Later checkpoint533: complete actual532 accepted at
 `72bf2e776d145a1d36ebade2605dbdbb9068dfa0`. Prepared533 rejects classifier2 initial
 ELF inspection before list/count publication. Run the

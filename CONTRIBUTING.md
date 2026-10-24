@@ -152,6 +152,12 @@ neither changes native criteria nor opens consumed authority or a new native run
 
 ## Reference-script changes
 
+For initial ELF diagnostic/staging composition, run
+`python3 tests/reference/test-elf-initial-inspection-diagnostics.py`; see the
+[72-case scope](docs/reference/elf-initial-inspection-diagnostics.md). Preserve
+failed metadata/last-emission status through reporting and prior publication/count.
+These cases leave earlier producer-write masking/resolver skipping separate.
+
 Before submitting a change to the reference script:
 
 For initial ELF metadata-error handling, also run
