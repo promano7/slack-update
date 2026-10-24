@@ -1,3 +1,42 @@
+## Phase 1 step 529 -- compose unresolved SBo binding admission through apply
+
+- Accept complete supplied actual528 FIRST: HEAD/local origin
+  49f78aad46ac35c28fa33458860069f4f9a59137, parent
+  7782fd62abec51864839a52f8513344b1c417ccb, tree
+  6c49b1dee32c5b55e436e9951953747a959f66fd, policy SHA256
+  af7ad0e8fce788dd7cae11297c016e8d162b276f6fc54661492ed8ec1facb43b.
+  All17 ordered outputs/sixpaths329 additions/new100644 pair/exact subject/reported
+  push/clean localrefs/source-mode-tree agree. Inline reconstruction is not original
+  terminal bytes, independent terminal/GitHub/native capture or host observation.
+- Add72 private composition cases: six prior-binding shapes x missing/empty/full
+  source x disabled/enabled SBo x supplied sync0/43. Real initialization/sync/helper/
+  readiness gate/apply/messages/stable mapping, supplied installed leaves.24 active
+  admission failures retain exact fields/counters8/7/prior bytes and block supplied
+  core/ABI/process/config/sqg.36 disabled controls skip those paths;12 admitted
+  controls retain normal workspace publication and supplied processing behavior.
+- Check rawapply0 versus stable2/success0/partial1/fixture-relative boot-safe1,
+  prior sync43 error/action precedence, selected queue/option/reset/final-byte
+  effects,22 named fields/eight named logs/error-warning arrays/caller sentinels/
+  private bytes/modes/link targets. Six admitted/prior-sync43 cases still reach
+  supplied build leaves under unchanged policy; no general sync abort or rollback.
+  Shared inventory excludes all.events names; logs checked separately. No all-state/
+  OS containment/native/host-safety proof. Runtime/all old tests/support/fixtures/
+  native criteria/root README remain exact528.
+- Run18 normal commands FRESH, zero reuse: new72-case driver then exact17 from528.
+  Six selected valid-shell source controls reject old527, missing readiness gate,
+  processing despite selection failure, missing sync/selection diagnostics and
+  stable success substituted for partial failure. Full records retained; no full82/
+  historical/native rerun or independent semantic acceptance. Audits527/524 remain
+  immutable source-bound history and MUST NOT run on repaired current runtime.
+- Five actual steps524-528 accepted;529 prepared/commit/push/acceptance pending.
+  Target524-531/reserve532-535 only if needed.530 documentation and531 integration/
+  final README plans follow actual acceptance; no new pause. Final separate whole
+  inherited-condition/nested-original/new-effect review remains due AFTER final
+  actual acceptance. Every old failure/unknown extra/incomplete491 binary-history/
+  native-gate obligation and setup/durability/canonical/race/cleanup limits persist.
+  Evidence/live bindings null, actual host unobserved/global closurefalse; no new
+  removal authority or consumed source/boot/run/grant/right reuse/renewal.
+
 ## Phase 1 step 528 -- reject replacement of unresolved SBo workspace bindings
 
 - Accept complete supplied actual527 FIRST: HEAD/local origin

@@ -8,6 +8,17 @@ Slackware acceptance differ; it does not authorize a system run.
 
 ## Current bounded block and integrated selection
 
+Prepared529 [binding apply composition](reference/sbo-workspace-binding-apply-composition.md)
+adds72 private cases through real sync/readiness/apply/message/stable-result paths
+with supplied installed leaves. Actual524-528 are accepted, latest
+`49f78aad46ac35c28fa33458860069f4f9a59137`;529 is prepared only. Runtime/all old
+checks/fixtures/native criteria remain exact528. Eighteen normal vectors run fresh:
+new composition then exact17 from528.24 admission failures block supplied builders;
+six admitted/prior-sync43 cases still reach them under existing policy. Raw0 and
+stable2/partial1/fixture-relative boot-safe1 remain distinct. No new strong pause;
+root README and final whole-condition/new-effect review remain due at block end.
+Following older preparation records retain their original historical states.
+
 The prepared528 [binding admission guard](reference/sbo-workspace-binding-admission.md)
 rejects a new private workspace while either cleanup field is nonempty, before
 path inspection/counter reset or filesystem work. New96-case regression covers

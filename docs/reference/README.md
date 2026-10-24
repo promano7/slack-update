@@ -31,6 +31,14 @@ choose a path, approve a migration or grant a native test.
 
 ## Current repository regression coverage
 
+Prepared [529 binding apply composition](sbo-workspace-binding-apply-composition.md)
+checks72 real-coordination/private cases with runtime unchanged from528. Actual524-
+528 are accepted;529 is prepared only. Eighteen normal vectors run fresh. Admission
+blocking/earlier-error precedence/retained fields and separate prior-sync43 build
+policy remain precisely scoped. Root README/final full inherited-condition/new-
+effect review remain due at block end; no new strong pause. Earlier records below
+retain their own preparation/history boundaries.
+
 The prepared [528 binding admission guard](sbo-workspace-binding-admission.md)
 protects unresolved cleanup fields from replacement before new workspace work.
 Actual524-527 are accepted;528 is prepared only. New96-case regression and16
