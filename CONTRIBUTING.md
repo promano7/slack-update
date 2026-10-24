@@ -152,6 +152,12 @@ neither changes native criteria nor opens consumed authority or a new native run
 
 ## Reference-script changes
 
+For real initial ELF scan through apply/owner/builder/stable mapping, run
+`python3 tests/reference/test-elf-initial-inspection-apply.py`; see the
+[96-case composition scope](docs/reference/elf-initial-inspection-apply.md).
+Preserve failed-scan owner/builder gates, raw0/stable2 distinction, prior-list
+meaning and exact shared owner-scaffold hash. Installed leaves remain supplied.
+
 For initial ELF diagnostic/staging composition, run
 `python3 tests/reference/test-elf-initial-inspection-diagnostics.py`; see the
 [72-case scope](docs/reference/elf-initial-inspection-diagnostics.md). Preserve

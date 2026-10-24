@@ -8,6 +8,14 @@ Slackware acceptance differ; it does not authorize a system run.
 
 ## Current bounded block and integrated selection
 
+Later checkpoint535: actual534 accepted at
+`c5bbdfa33a3f94f08c38c68c03867886b523bf30`. Prepared535 adds
+[96 initial-scan/apply cases](reference/elf-initial-inspection-apply.md), selecting
+seven fresh normal commands. Real scan/owner/builder/recheck/stable mapping with
+supplied installed leaves; runtime/old tests/native criteria/root README exact534.
+Preceding prepared paragraphs below keep their original checkpoint meanings.
+Three accepted actual steps in532-539 block; no new pause or native authority.
+
 Later checkpoint534: complete actual533 accepted at
 `678850d838c140f6c587b532c028be37ed6612e5`. Prepared534 adds
 [72 diagnostic/staging cases](reference/elf-initial-inspection-diagnostics.md)

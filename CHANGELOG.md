@@ -1,3 +1,48 @@
+## Phase 1 step 535 -- compose initial ELF inspection through apply and stable results
+
+- Accept complete supplied actual534 FIRST: HEAD/local origin
+  c5bbdfa33a3f94f08c38c68c03867886b523bf30, parent
+  678850d838c140f6c587b532c028be37ed6612e5, tree
+  abecfac1fafa16a10eae3ad475ff25502e06720d, policy SHA256
+  f28246d58bda405c5e1e510c94fe69c953f40b256439a3e2af13563b283c75ff.
+  Six ordered outputs/seven paths424add6delete/exact subject/reported push/clean
+  full local refs/source-mode-tree agree. Complete output transcribed from inline
+  user return, commands reconstructed from matching template; not original
+  attachment bytes/independent terminal/remote/native capture or Git objects.
+- New96 cases compose real initialization/apply/scan/parsers/classifier/literal
+  owner mapping/final queue builder/recheck/message-state-stable mapper. Import
+  exact old owner fixture for supplied installed leaves/events/guards only; retain
+  shared scaffold hash. Six metadata profiles cross SBo/ELF activation, prior
+  list empty/nonempty and supplied sync0/43.24 active errors block map/build,
+  preserve published list/count and yield stable2/success0/partial1 despite raw
+  apply0.48 disabled controls clear/skip under old policy;24 complete scans map.
+- Four missing/SBo-on cases run real recheck with supplied improved metadata after
+  supplied successful build; object bytes unchanged. Initial count1 remains after
+  list clearing. Four missing/SBo-off cases retain unresolved list/partial result.
+  Six active-complete/prior-sync43 cases still build under unchanged policy;
+  no general sync abort or rollback. Prior list is not fresh object evidence.
+  Failed ELF action1/module0, generic unknown-selection diagnostic and fixture-
+  relative boot-safe1 remain distinct and fully checked; no actual boot claim.
+- Full stdout/stderr/raw/18 fields/error-warning arrays/caller IFS/outer locals/
+  workflow+reader traces/private inventory/bytes/modes/links checked. Exclude only
+  exact two trace paths and fully check both. Seven normal commands FRESH, zero
+  reuse; six valid-shell finite controls reject old532/unconditional map/processing
+  after failure/omitted selection/stable success/omitted result diagnostic. Full
+  variants/outputs retained; no full86/exhaustive matrix/independent acceptance.
+- Runtime/old tests/support/fixtures/native criteria/root README exact534. Seven
+  changed paths/two new100644 files/old modes preserved. Three actual532-534
+  accepted;535 prepared only, commit/push/full return pending. Target532-539/
+  reserve540-543 if evidence needs;536 bounded nonfinal-producer characterization
+  can follow, resolver skipping separate. README due END; no new pause. Whole
+  inherited header/EVERY WHOLE condition/EVERY exact nested original/all-new-
+  effects/obligations/cleanup/failures/limits with original comparisons due AFTER
+  final complete actual acceptance FIRST. No summaries/hash substitutes; full
+  conditions/history preserved. All original failures/unknown extras/incomplete491
+  binary/UNKNOWN origins/no binary repair remain OPEN. Phase1/kernel/native gates
+  unchanged; evidence/live bindings null; actual host unobserved/global closurefalse.
+  No consumed source/boot/attempt/run/grant/right/binding reuse/revival/renewal,
+  required native setup/cleanup or fresh native authority.
+
 ## Phase 1 step 534 -- compose initial ELF diagnostics and final producer status
 
 - Accept complete supplied actual533 FIRST: HEAD/local origin

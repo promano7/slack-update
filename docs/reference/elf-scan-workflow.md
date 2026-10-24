@@ -396,3 +396,12 @@ inspection with selected diagnostic render/clear faults and late final sorting,
 plus final-path emission faults. Prior published bytes/count survive all68 failed
 cases; four successful controls publish. Runtime unchanged from533. Earlier
 producer-write masking/resolver skipping/whole caller/native boundaries separate.
+
+## Real apply/owner/builder/result composition at step535
+
+[96 cases](elf-initial-inspection-apply.md) run the real initial scan/parsers/
+classifier/owner mapping/final queue builder/recheck/stable mapper with supplied
+installed leaves.24 active errors block ownership/build dispatch and preserve
+prior list/count; real apply raw0 differs from stable2.48 disabled controls and
+24 active-complete scans retain existing synchronization/build/recheck policy.
+Runtime unchanged. Stable boot-safe1 is fixture-relative, not native host evidence.

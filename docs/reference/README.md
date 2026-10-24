@@ -39,11 +39,11 @@ original preparation-time language; the later closure is external to that source
 New block532-539/reserve540-543 starts with the exact-source
 [initial ELF inspection audit](elf-initial-inspection-audit.md). Its48 observations
 include12 known metadata-error omissions by the initial scan, not safety passes.
-Actual532 and533 accepted, latest `678850d838c140f6c587b532c028be37ed6612e5`.
+Actual532-534 accepted, latest `c5bbdfa33a3f94f08c38c68c03867886b523bf30`.
 [533 rejects incomplete inspection](elf-initial-inspection-errors.md) before
-count/publication with96 cases. Prepared534 adds the
-[72-case diagnostic/staging composition](elf-initial-inspection-diagnostics.md),
-including final-emission status; runtime/old tests/native criteria exact533.
+count/publication; [534 composes diagnostics](elf-initial-inspection-diagnostics.md).
+Prepared535 adds [96 real apply/owner/builder/result cases](elf-initial-inspection-apply.md)
+with supplied installed leaves. Runtime/old tests/native criteria exact534.
 Historical532 audit refuses repaired source and is excluded from normal checks.
 Root README remains exact531 until END. No new pause; final whole inherited-
 condition review due after final complete actual acceptance.
@@ -87,6 +87,7 @@ native decisions/reviews/authority gates remain due.
 | Known metadata-error omission on exact531 source, before any repair | [Historical initial-inspection audit](elf-initial-inspection-audit.md) |
 | Initial metadata-error refusal before list/count publication | [Current inspection-error regression](elf-initial-inspection-errors.md) |
 | Inspection/report/staging and final producer-status interactions | [Diagnostic composition](elf-initial-inspection-diagnostics.md) |
+| Real initial scan through ownership, build and stable apply mapping | [Apply composition](elf-initial-inspection-apply.md) |
 | Private scan, broken-list handling, unresolved display and post-build recheck | [ELF scanning](elf-scan-workflow.md) |
 | Cache construction, publication and record-count failures | [ELF cache construction](elf-cache-construction.md) |
 | Cache failure propagation through real dependency/scan/recheck helpers | [ELF cache workflow](elf-cache-workflow.md) |
