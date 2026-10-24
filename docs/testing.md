@@ -8,6 +8,15 @@ Slackware acceptance differ; it does not authorize a system run.
 
 ## Current bounded block and integrated selection
 
+Later checkpoint536: actual535 accepted at
+`99988f1ad8275fc606153c4ee47ed558b2289cba`. Prepared536 adds the
+[exact535 emission audit](reference/elf-emission-status-audit.md),36 observations/
+8 masked failures, not safety passes. Four fresh normal commands; runtime/old
+source/native criteria/root README exact535. Keep this audit's source guard and
+historical defective expectations after repair; exclude it from changed-source
+normal integration. Four accepted actual steps; no new pause/native authority.
+Earlier prepared paragraphs below keep their original checkpoint meanings.
+
 Later checkpoint535: actual534 accepted at
 `c5bbdfa33a3f94f08c38c68c03867886b523bf30`. Prepared535 adds
 [96 initial-scan/apply cases](reference/elf-initial-inspection-apply.md), selecting

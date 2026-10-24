@@ -1,3 +1,42 @@
+## Phase 1 step 536 -- characterize earlier ELF path-emission status loss
+
+- Accept complete supplied actual535 FIRST: HEAD/local origin
+  99988f1ad8275fc606153c4ee47ed558b2289cba, parent
+  c5bbdfa33a3f94f08c38c68c03867886b523bf30, tree
+  e74d130e729a1027dd6532bd43683a7bf72b4039, policy SHA256
+  84804daeda1b836764b9239ff0fb419747e3f781aacc7f772a38ec8aa2ce2e19.
+  Seven ordered outputs/seven paths439add4delete/exact subject/reported push/clean
+  full local refs/source-mode-tree/shared-scaffold hash agree. Full output
+  transcribed from inline return, commands reconstructed from matching template;
+  not original attachment bytes/independent terminal/remote/native capture/Git objects.
+- New exact535-source-bound36-case audit: primary first/last x healthy/missing/error
+  companion x normal/quiet43/full-output43 emission x prior empty/nonempty list.
+  Real find membership checked before supplied deterministic order; real parsers/
+  classifier/path/magic/scan/report/sort/count/copy, supplied cache/readelf/selected
+  printf fault. Eight earlier failures masked/raw-status0 with publication; eight
+  corresponding last failures preserve old list/count. Twelve metadata-error
+  companion cases fail, eight normal nonerror controls publish. Defect observations,
+  not safety passes; canonical hash guard refuses changed source before fixtures.
+- Full stdout/stderr/raw/four fields/exact vectors/order/caller IFS/scalar/flag/
+  private inventory/bytes/modes/links checked. Only exact two trace paths excluded
+  and both full streams checked. Four normal commands FRESH/zero reuse; three
+  syntax-valid controls distinguish sticky failure/final-status loss/premature stop.
+  Private control harness alone rebinds source hash; unchanged guard refusal tested.
+  Same-author finite discrimination, no full86/native run/independent acceptance.
+- Runtime/all old tests/support/fixtures/native criteria/root README exact535.
+  Six changed paths/two new100644 files, old modes preserved. Four actual532-535
+  accepted;536 prepared only, commit/push/full return pending. Proposed537 sticky
+  path-emission failure can follow complete actual536 acceptance, without early
+  input abort; no production repair here. Target532-539/reserve540-543 if needed,
+  538 preintegration/539 final README/integration provisional. No new pause. Whole
+  inherited header/EVERY WHOLE condition/EVERY exact nested original/all-new-effects/
+  obligations/cleanup/failures/limits with original comparisons due AFTER final
+  complete actual acceptance FIRST. No counts/hash/summary substitutes; full bodies
+  preserved. All original failures/unknown extras/incomplete491 binary/UNKNOWN
+  origins/no binary-repair qualifications OPEN. Phase1/kernel/native gates unchanged;
+  evidence/live bindings null; actual host unobserved/global closurefalse. No consumed
+  source/boot/attempt/run/grant/right/binding reuse/revival/renewal or native setup/cleanup.
+
 ## Phase 1 step 535 -- compose initial ELF inspection through apply and stable results
 
 - Accept complete supplied actual534 FIRST: HEAD/local origin

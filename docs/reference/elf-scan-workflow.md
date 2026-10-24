@@ -405,3 +405,12 @@ installed leaves.24 active errors block ownership/build dispatch and preserve
 prior list/count; real apply raw0 differs from stable2.48 disabled controls and
 24 active-complete scans retain existing synchronization/build/recheck policy.
 Runtime unchanged. Stable boot-safe1 is fixture-relative, not native host evidence.
+
+## Earlier emission-status characterization at step536
+
+[The exact535-bound36-case audit](elf-emission-status-audit.md) observes8 earlier
+quiet/late43 emissions masked by a later nonerror iteration. Real private find
+membership is verified before supplied deterministic ordering. Companion metadata
+errors and final emission faults keep their previous failure semantics. Defect
+observations, not current safety passes or an implemented repair. Preserve guard/
+expectations and exclude after source changes. Original criteria remain binding.
