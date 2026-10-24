@@ -1,3 +1,39 @@
+## Phase 1 step 527 -- characterize prior SBo workspace binding replacement
+
+- Accept complete supplied actual526 FIRST: HEAD/local origin
+  82e86ea85d4b14b4cb334017b50530648e71c3a8, parent
+  2c41a146a4c323c1b8f817e296317ce0fe7d4506, tree
+  59897fdf1671d8ff9565eca4a3c01a831c00dddc, policy SHA256
+  81e31d3d5b293a266e25269aa8aa3de553f37ad4b17129918e45e2c1dccceea8.
+  All16 ordered outputs/fivepaths367 additions/new100644 pair/exact subject/
+  reported push/clean full localrefs/source-mode-tree agree. Inline reconstruction
+  is not original terminal bytes or independent terminal/GitHub/native capture.
+- Add exact526-source-bound32-case audit: four preexisting binding shapes x
+  missing/full source x no-fault/count43 x direct/real-sync entry. Twenty-four
+  nonempty-entry observations replace prior metadata while the separate prior
+  resource remains; eight empty-entry controls retain normal publication/failure
+  behavior. New successful preparation publishes its fields, while selected
+  failed counting removes its new workspace and clears fields. Defect observations,
+  not safety passes or evidence that normal main repeats preparation on a host.
+- Preserve status/counters/error/source/config/sqg/copy/removal semantics with ten
+  named globals, seven named logs, exact selected inventory/bytes/modes/link targets
+  and prior/personal/sentinel/caller-environment checks. Reused count scaffold skips
+  all.events names, not just named logs. No OS containment/native/global proof.
+- Four focused normal commands run FRESH, zero reuse: audit32, cleanup-binding32,
+  cleanup-lifecycle72 and count76. Three selected valid-shell controls distinguish
+  hypothetical admission rejection, omitted binding publication and omitted count
+  cleanup; full variants/assertions retained. No full16/82/historical/native rerun.
+  Runtime/all old tests/support/fixtures/native criteria/README remain exact526.
+- Three actual steps524-526 accepted;527 prepared/commit/push/acceptance pending.
+  Planned528 can separately design a nonempty-binding admission guard,529 its
+  caller composition; no repair or production authority is selected here. Setup's
+  intentional state reset, external durability/canonical/race/rights limits stay
+  separate. Target524-531/reserve532-535 only if needed, README due at END.
+  No new pause; final separate whole inherited-condition/nested-original/new-effect
+  review remains due after final actual acceptance. All old failures/unknown extras,
+  incomplete491 binary history and original native/Phase1/kernel gates remain OPEN;
+  no actual live bindings/host closure or consumed-right reuse/renewal is claimed.
+
 ## Phase 1 step 526 -- compose private SBo cleanup lifecycle checks
 
 - Accept complete supplied actual525 FIRST: HEAD/local origin
