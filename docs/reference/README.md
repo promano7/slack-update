@@ -31,36 +31,34 @@ choose a path, approve a migration or grant a native test.
 
 ## Current repository regression coverage
 
-The [524-530 preintegration review](repository-regression-block-524-530-preintegration.md)
-consolidates current guarantees, limits and the repaired personal-queue fixture.
-Six actual steps524-529 are accepted;530 is prepared only. Last qualified outer
-STATIC pause523 remains historical. Runtime remains exact529; README update,
-final integration/actual acceptance and whole-condition/new-effect review remain
-due at block end. No new strong pause or native authority.
+The prepared [524-531 integrated review](repository-regression-block-524-531.md)
+selects86 FRESH current commands: exact ordered82 from523 followed by cleanup
+binding/lifecycle/admission/apply in introduction order. Seven actual steps524-530
+are accepted; final531 actual acceptance and separate whole inherited-condition/
+new-effect review remain due. Runtime/tests/fixtures exact530; root README updated
+in this final preparation, not proof of its later commit or a new strong pause.
+Last qualified outer STATIC pause523 remains historical.
 
-Current checks include [cleanup binding32](sbo-workspace-cleanup-binding.md),
-[lifecycle72](sbo-workspace-cleanup-lifecycle.md),
-[admission96](sbo-workspace-binding-admission.md) and
-[apply composition72](sbo-workspace-binding-apply-composition.md).530 runs19 focused
-commands fresh, including114-check repaired personal-queue isolation.531 plans86
-fresh commands: exact82 from [516-523](repository-regression-block-516-523.md) then
-these four drivers in introduction order. The86 run is not performed in530.
-
-Original detailed scopes/receipts retain their own historical states. Historical
-unsafe source-bound audits512/516/519/524/527 must not run on current source.
-Current cleanup/admission qualifications supersede only their selected older
-implementation expectations, not original native criteria. The
+The [preintegration record](repository-regression-block-524-530-preintegration.md)
+retains530's initial legacy-fixture failure and114-check isolation repair. Current
+scopes are [cleanup binding](sbo-workspace-cleanup-binding.md),
+[lifecycle](sbo-workspace-cleanup-lifecycle.md),
+[admission](sbo-workspace-binding-admission.md) and
+[apply composition](sbo-workspace-binding-apply-composition.md). The
 [testing guide](../testing.md#current-bounded-block-and-integrated-selection)
-distinguishes current commands, supplied/private effects and incomplete coverage.
+records exact current/historical/private/supplied boundaries. Original detailed
+scopes/receipts retain their history; source-bound unsafe512/516/519/524/527 audits
+must not run on repaired source. New summaries do not amend native criteria.
 
-Earlier [508-515](repository-regression-block-508-515.md),
+Earlier [516-523](repository-regression-block-516-523.md),
+[508-515](repository-regression-block-508-515.md),
 [500-507](repository-regression-block-500-507.md),
 [492-499](repository-regression-block-492-499.md),
 [484-491](repository-regression-block-484-491.md) and
-[475-483](repository-regression-block-475-483.md) reviews retain their original
-scope, failures and qualifications. Unknown extra provenance and incomplete491
-binary history remain OPEN; no inventory/checksum establishes historical/global
-absence. All original native decisions/reviews/authority gates remain due.
+[475-483](repository-regression-block-475-483.md) reviews keep original selections,
+failures/repairs/qualifications. Unknown extras/incomplete491 binary history remain
+OPEN; no inventory/checksum establishes historical/global absence. All original
+native decisions/reviews/authority gates remain due.
 
 | Boundary | Detailed current scope |
 | --- | --- |

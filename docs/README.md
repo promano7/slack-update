@@ -18,19 +18,19 @@ acceptance material. For the current phase and unfinished work, use the
 | Contribution, language and documentation rules | [Contributing](../CONTRIBUTING.md) |
 | Detailed contracts, audits and evidence | [Reference documentation](reference/README.md) |
 | Select applicable checks and historical snapshots | [Testing guide](testing.md) |
-| Current preintegration review, cleanup/admission and fixture limits | [524-530 review](reference/repository-regression-block-524-530-preintegration.md) |
+| Current integrated selection, cleanup/admission and fixture limits | [524-531 integrated review](reference/repository-regression-block-524-531.md) |
 | Previous completed integrated selection | [516-523 review](reference/repository-regression-block-516-523.md) |
 | Current bounded regression block and focused workspace checks | [Current testing status](testing.md#current-bounded-block-and-integrated-selection) and [reference index](reference/README.md#current-repository-regression-coverage) |
 | Real Slackware acceptance scenarios | [Acceptance guide](../tests/acceptance/reference/README.md) |
 | Changes by step or version | [CHANGELOG](../CHANGELOG.md) |
 | Earlier README checkpoints and original design text | [Historical README through step 418](reference/readme-through-step418.md) |
 
-Qualified outer STATIC repository pause523 is the last confirmed pause. Six
-actual steps524-529 are accepted;530 is prepared only. The current preintegration
-review records19 fresh focused checks and plans86-command final531 integration.
-Root README update/final actual acceptance and separate whole-condition/new-effect
-review remain due. Repository checks do not close native acceptance or establish
-actual-host safety. Original detailed prepared records remain historical.
+Qualified outer STATIC pause523 is the last confirmed pause. Seven actual steps
+524-530 are accepted; final531 is prepared only. It updates root README and runs86
+selected commands fresh on current source. Complete final actual acceptance and
+separate whole-condition/nested-original/new-effect review remain due before any
+new strong pause. Repository checks do not close native acceptance or establish
+actual-host safety. Original detailed prepared records retain their history.
 
 The design's proposed configuration and result examples describe future
 interfaces. Use the checked-in configuration and the shell reference for the

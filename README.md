@@ -27,10 +27,12 @@ design also has unresolved contract and native implementation requirements.
 All 13 manuscript audit findings remain open; alternatives A/R/D are unselected
 and the original requirements remain binding.
 
-The prepared [516-523 integrated review](docs/reference/repository-regression-block-516-523.md)
-selects82 repository checks. Final actual acceptance and a separate whole-condition
-review remain due before a new scoped STATIC pause; the last confirmed pause is515.
-Incomplete binary history and unknown extra provenance remain open qualifications.
+The prepared [524-531 integrated review](docs/reference/repository-regression-block-524-531.md)
+selects86 current repository checks, including private workspace cleanup/admission
+and their lifecycle/apply compositions. Final actual acceptance and a separate
+whole-condition review remain due before a new scoped STATIC pause; the last
+confirmed outer pause is523. Incomplete binary history and unknown extra provenance
+remain open qualifications.
 
 See the [development roadmap](docs/roadmap.md),
 [remaining acceptance inventory](tests/fixtures/reference/acceptance/phase-1/phase-1-acceptance-matrix-remainder-after-execution-control-closure.tsv)
@@ -101,7 +103,7 @@ carry raw command statuses; the final process/result status uses this table.
 ## Documentation and contributing
 
 - [Development roadmap and phase gates](docs/roadmap.md)
-- [Prepared integrated regression selection and limits](docs/reference/repository-regression-block-516-523.md)
+- [Prepared integrated regression selection and limits](docs/reference/repository-regression-block-524-531.md)
 - [Reference acceptance guide](tests/acceptance/reference/README.md)
 - [Configuration example](data/config/slack-update.conf)
 - [Contribution and documentation policy](CONTRIBUTING.md)

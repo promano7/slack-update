@@ -1,3 +1,45 @@
+## Phase 1 step 531 -- integrate repository block and update README for final review
+
+- Accept complete supplied actual530 FIRST: HEAD/local origin
+  d40daa4daca58813695c25f28b69e9fccce9728c, parent
+  b1a36b7db6bcd3f9c24d305402557989a8fab6e5, tree
+  c4c26c8fba5400381a7948a8a6ecfe13c89a37c1, policy SHA256
+  57c1409e069bcc1b79fbb274dfa5d4a45f5b06ef54dfe62c8248ff7a6c5b110f.
+  All19 ordered outputs/eightpaths370add305delete/new100644 review/exact subject/
+  reported push/clean full localrefs/source-mode-tree agree. Inline reconstruction
+  is not original terminal bytes, independent terminal/GitHub/native capture.
+- Final eighth-step preparation changes documentation only, including root README
+  at END and new524-531 integrated review. Runtime/all tests/support/fixtures/native
+  criteria exact530;2443 source/501 executable/1942 regular, no old removal/mode change.
+  README preserves original phase/native gates/explicit-operation/config/usage/
+  exit meanings. Its new prepared status does not attest later actual commit/pause.
+- Run86 selected normal commands FRESH, zero reused results: exact ordered82 from523
+  on current source, then cleanup-binding32/lifecycle72/admission96/binding-apply72.
+  All19 prior530 vectors are included. Personal-queue51st command has114 checks after
+  fixture repair; preserve explicit original92 comparison. Only named initrd56
+  allows one consistent private-root normalization, retaining both full outputs/
+  expected negative diagnostics/90 checks/zero failures. Delivery31 remains at61.
+  No unsafe source-bound audits/historical snapshots/mutation matrices/native run.
+- Current runtime delta from523 remains only525 retained cleanup fields and528
+  nonempty-binding admission guard. Preserve all private/real/supplied/partial-effect
+  limits, prior-sync43 build policy, raw0/stable2 distinction, metadata/durability/
+  canonical/inode/race/cleanup/parent-removal/setup-reset qualifications. Older six
+  driver expectation changes and530 fixture isolation repair remain separately scoped.
+- Preserve original530 nine-FAIL/missing-fixture/nounset partial failure, first
+  repaired candidate/results and final114 checks;524/525/526 authoring failures,
+  unknown52518,350,080-byte0600 and older extras, incomplete491 binary/failed unread
+  retrieval/UNKNOWN cause/no prefix equivalence/no binary repair remain OPEN.
+  Earlier noncondition truncated preview supplies no complete inherited reading.
+- Seven actual steps524-530 accepted;531 prepared/commit/push/acceptance pending.
+  Actual531 must repeat all86, then complete FINAL actual acceptance FIRST, THEN
+  separate reading of EVERY WHOLE inherited header/condition/EVERY exact nested
+  original and ALL new effects/obligations/cleanup/failures/limits with original
+  comparisons. Counts/hashes/summaries/indices/prior confirmations do not substitute.
+  No new pause here; last qualified outer STATIC pause523 historical. If supported,
+  external closure can confirm scoped STATIC524-531 pause, then STOP/no automatic
+  reserve extension. Original native/Phase1/kernel gates, evidence/live bindings null,
+  actual host unobserved/global closurefalse and no consumed-right renewal persist.
+
 ## Phase 1 step 530 -- isolate legacy SBo fixtures and consolidate block guidance
 
 - Accept complete supplied actual529 FIRST: HEAD/local origin

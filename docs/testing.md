@@ -8,69 +8,52 @@ Slackware acceptance differ; it does not authorize a system run.
 
 ## Current bounded block and integrated selection
 
-The last confirmed qualified STATIC repository pause is outer523. The new block
-has six accepted actual steps524-529, latest HEAD/local origin
-`b1a36b7db6bcd3f9c24d305402557989a8fab6e5`. Prepared530 repairs isolation between
-independent personal-queue fixtures and consolidates current documentation.
-Runtime remains exact529. All other tests/support/fixtures/native criteria and
-root README are unchanged. No new pause or native authority.
+Seven actual steps524-530 are accepted, latest HEAD/local origin
+`d40daa4daca58813695c25f28b69e9fccce9728c`. Prepared final531 updates root README
+and [integrates86 current commands](reference/repository-regression-block-524-531.md):
+exact ordered82 from523, then cleanup-binding32/lifecycle72/admission96/binding-
+apply72 in introduction order. All86 run FRESH, zero reused normal records, and
+actual531 must repeat them before commit/push/clean final source-mode-tree capture.
+Runtime/all tests/support/fixtures/native criteria remain exact530. README's native
+phase/explicit-operation/configuration/usage/exit boundaries remain unchanged.
+No new strong pause or native authority follows from this preparation.
 
 The [preintegration review](reference/repository-regression-block-524-530-preintegration.md)
-records both runtime guards, four new regressions, exact private/supplied limits,
-the original failed legacy fixture and its verified cleanup repair. The repaired
-personal-queue test has114 checks; the failed original did not reach a summary.
-Nineteen normal commands run fresh in530 preparation: that test, then exact18
-from529, zero reused records. Actual530 must repeat all19.
+retains the original legacy-fixture failure and real-cleanup isolation repair.
+Its51st personal-queue command now has114 checks; the failed original did not reach
+its final summary. Six older workspace drivers keep525's narrow metadata expectation
+changes. All earlier detailed scopes/receipts remain immutable historical records.
+This is current-source execution, not rerunning historical523/515 snapshots.
 
-| Boundary | Current scope |
-| --- | --- |
-| Retain unresolved ownership fields after cleanup refusal | [Cleanup binding32](reference/sbo-workspace-cleanup-binding.md) |
-| Cleanup/EXIT/self-SIGTERM/private-lock composition | [Lifecycle72](reference/sbo-workspace-cleanup-lifecycle.md) |
-| Reject preparation before replacing prior metadata | [Admission96](reference/sbo-workspace-binding-admission.md) |
-| Admission through real sync/gate/apply/stable mapping | [Apply composition72](reference/sbo-workspace-binding-apply-composition.md) |
+Python3.11+, Bash,jq,flock,timeout,awk and GNU coreutils/findutils/sed remain required.
+The named56th installed-initrd command retains expected negative diagnostics/90
+checks/zero failures. Comparison preserves both full outputs and permits only its
+one consistent private-root normalization. Personal-queue summary92-to114 is an
+explicit fixture change; no other broad output normalization is permitted.
+Existing31-case delivery-ZIP regression remains included at61. No heterogeneous
+case-total/native coverage sum or historical/native mutation-matrix run.
 
-Planned531 integration selects86 commands: exact ordered82 from the
-[516-523 review](reference/repository-regression-block-516-523.md), then the four
-new drivers in the table's introduction order. They run on current source, not
-historical snapshots. Original51st personal-queue test includes the fixture repair;
-six older workspace drivers retain525's narrow mismatch-field expectation changes.
-The86 selection has not run in530;531 requires fresh preparation and actual runs.
-Python3.11+, Bash, jq, flock, timeout, awk and GNU coreutils/findutils/sed remain
-required. Preserve full installed-initrd negative diagnostics/90 checks; only that
-named command permits its documented single consistent private-root normalization.
+Historical unsafe source-bound audits512/516/519/524/527 MUST NOT run on repaired
+current source. Metadata retention is not resource existence/durable custody or
+removal authority. Parent-runtime removal may follow owned-helper refusal;
+cleanup still suppresses selected errors. Apply raw0/stable2/partial1/fixture-
+relative boot-safe1 remain distinct, and six529 admitted/prior-sync43 cases still
+reach supplied build leaves. Canonical-string/inode/race/output-trust/setup-reset/
+partial-effect limits persist. Shared inventories exclude ALL.events names and
+check named logs; guard/UID0/private teardown is not OS containment or native/host
+conformance. See integrated scope and original records for complete qualifications.
 
-Historical audits512/516/519/524/527 require their matching unsafe source and MUST
-NOT run on repaired current source. Their observations remain defect history.
-Earlier integrated selections keep their original source/evidence limits; counts
-from different matrices are not aggregate native coverage. Their detailed scopes
-and immutable receipts retain their historical prepared/actual states. Current
-navigation does not rewrite them; removed guide status is retained in Git history
-and delivery preimages.
-
-Metadata retention is not resource existence, durable custody or deletion authority.
-General runtime removal may follow owned-helper refusal; cleanup errors remain
-suppressed. Apply raw0/stable2/partial1 and fixture-relative boot-safe1 are distinct.
-Six529 admitted/prior-sync43 cases still reach supplied build leaves. Earlier
-counters/effects are not rollback; canonical-string/inode/race/output-trust limits
-remain. Shared workspace inventories exclude ALL.events names and check named logs
-separately. Named guards/UID0/private teardown are not OS containment, unprivileged/
-Slackware/native conformance or global cleanup proof.
-
-Keep every earlier failure/correction,52518,350,080-byte0600 and older unknown extras,
-incomplete491 saved binary/failed original retrieval/UNKNOWN cause/no prefix
-equivalence/no binary repair OPEN. Canonical equality/CRC/SHA is not historical/
-global absence or provenance closure. Original13 findings/16 gaps/five families20
-native scenarios and all original criteria/gates remain; Phase1/kernel incomplete.
-
-Root README update remains due at END in531. A new pause requires complete FINAL
-actual acceptance FIRST, THEN separate reading of EVERY WHOLE inherited header/
-condition/EVERY exact nested original and ALL new effects/obligations/cleanup/
-failures/limits with stored-original comparison. Hashes/counts/summaries/indices/
-prior confirmations do not substitute. That final reading has not occurred in
-this block. Native decision/review/ACTUAL binding/safe WHOLE review/fresh bounded
-grant BEFORE effects/own-platform conformance stay due in order. No consumed
-source/boot/run/grant/right/binding is reused or renewed. Evidence/live bindings
-null, actual host unobserved/global closurefalse.
+Keep every earlier failure/correction/unknown extra/incomplete491 binary-history
+qualification OPEN. Final whole inherited header/EVERY WHOLE condition/EVERY exact
+nested original reading and ALL-new-effect/cleanup/failure/limit/obligation review
+with original comparisons must follow complete FINAL actual acceptance FIRST.
+That final reading has not occurred in this block; counts/hashes/summaries/indices/
+previous confirmations do not replace it. Last qualified outer STATIC pause523
+remains historical; only later external review can confirm a new scoped pause.
+Phase1/kernel/native/independent decision/review/ACTUAL binding/safe WHOLE review/
+fresh bounded grant BEFORE effects/own-platform conformance gates remain. No
+consumed source/boot/run/grant/right/binding is renewed or reused. Evidence/live
+bindings null, actual host unobserved/global closurefalse.
 
 ## Select the applicable checks
 
