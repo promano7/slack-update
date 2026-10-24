@@ -376,3 +376,15 @@ nonempty-file predicates keep their separate limits. Original native criteria,
 including install-new20 empty AND no-effect and upgrade20 failure, remain binding.
 Phase 1/kernel remain incomplete; A/R/D unselected; schema1/reference-v1/C/Phase2/
 production closed. This repository step grants no native execution authority.
+
+## Initial metadata-error refusal at step533
+
+[The current96-case regression](elf-initial-inspection-errors.md) addresses the
+initial classifier2 omission described by the preceding historical records.
+The producer subshell accumulates metadata failure and returns it through
+pipefail after processing input. Raw/status1 preserves prior published list/count;
+cache/staging/diagnostic effects remain. Classifier0/1, resolver skipping, unknown
+statuses and post-build recheck keep their prior behavior. Historical532 audit
+stays exact/source-bound and must refuse this repaired runtime. Three older scan/
+cache expectation changes retain all cases/assertions; first failures preserved.
+Native criteria, full caller composition, output trust and race limits unchanged.

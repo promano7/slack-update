@@ -8,6 +8,16 @@ Slackware acceptance differ; it does not authorize a system run.
 
 ## Current bounded block and integrated selection
 
+Later checkpoint533: complete actual532 accepted at
+`72bf2e776d145a1d36ebade2605dbdbb9068dfa0`. Prepared533 rejects classifier2 initial
+ELF inspection before list/count publication. Run the
+[96-case current regression](reference/elf-initial-inspection-errors.md) and its
+eleven-command selection. Historical532 audit must refuse repaired source; do not
+change its guard. Three older drivers' initial-error expectations change after
+preserving their first failures. The531 integration paragraphs below keep their
+original preparation context; supplied531 outer continuation records its later
+qualified STATIC pause. New block532-539/reserve540-543 remains open/no new pause.
+
 Seven actual steps524-530 are accepted, latest HEAD/local origin
 `d40daa4daca58813695c25f28b69e9fccce9728c`. Prepared final531 updates root README
 and [integrates86 current commands](reference/repository-regression-block-524-531.md):

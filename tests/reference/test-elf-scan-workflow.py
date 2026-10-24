@@ -207,10 +207,10 @@ def scenario(root, kind, profile, fault, old_errors):
                     expected['clear-target']=('dir',)
                     expected[Path(paths['BROKEN']).name]=('link',str(root/'clear-target'))
                 stderr_pattern=re.escape(str(REFERENCE))+r': line [1-9][0-9]*: '+re.escape(paths['BROKEN'])+r': Is a directory\n'
-            pipeline_failed = fault in ('sort','sort-partial') or (kind == 'scan' and (fault in ('find','find-partial') or profile == 'missing-root'))
+            pipeline_failed = fault in ('sort','sort-partial') or (kind == 'scan' and (fault in ('find','find-partial') or profile == 'missing-root' or bool(errors)))
             if pipeline_failed:
                 status=1;state[0 if kind == 'scan' else 1]='1'
-                output+=('  [ERROR] Cannot enumerate or sort the static ELF scan results\n' if kind == 'scan' else '  [WARN] Cannot sort the static ELF verification results\n')+diagnostics(errors)
+                output+=('  [ERROR] Cannot enumerate, inspect or sort the static ELF scan results\n' if kind == 'scan' else '  [WARN] Cannot sort the static ELF verification results\n')+diagnostics(errors)
                 if profile == 'missing-root':stderr=f"find: '{scan}': No such file or directory\n".encode()
             else:output+=diagnostics(errors)
             if kind == 'scan' and not pipeline_failed:
@@ -282,8 +282,8 @@ def diagnostic_failure_scenario(root, kind, stage, fault, text='one\ntwo\n'):
             call('dependency',obj,paths['ELF_LIBRARY_CACHE'])
             diagnostic=('readelf could not inspect ' if kind == 'scan' else 'readelf could not re-inspect ')+str(obj)+'\n'
             if kind == 'verify':file('STILL_BROKEN',str(obj)+'\n')
-            if stage == 'pipeline':
-                output+='  [ERROR] Cannot enumerate or sort the static ELF scan results\n' if kind == 'scan' else '  [WARN] Cannot sort the static ELF verification results\n'
+            if stage == 'pipeline' or kind == 'scan':
+                output+='  [ERROR] Cannot enumerate, inspect or sort the static ELF scan results\n' if kind == 'scan' else '  [WARN] Cannot sort the static ELF verification results\n'
     if diagnostic:
         file('BROKEN_ERRORS',diagnostic);output+='  [WARN] Static ELF inspection diagnostics:\n'
         call('render','s/^/    /',paths['BROKEN_ERRORS'])
@@ -300,14 +300,9 @@ def diagnostic_failure_scenario(root, kind, stage, fault, text='one\ntwo\n'):
             output+='  [WARN] Cannot clear the static ELF inspection diagnostics\n'
         else:
             assert fault == 'none';file('BROKEN_ERRORS','')
-    if kind != 'report' and stage == 'normal' and fault == 'none':
-        if kind == 'scan':
-            state[0]='0';state[2]='0';raw=0;file('BROKEN','')
-            call('wc','-l');call('cp','-f','--',paths['BROKEN_NEW'],paths['BROKEN'])
-            output+='  Broken ELF objects detected: 0\n'
-        else:
-            output+='  [WARN] ELF objects that still have unresolved dependencies:\n    '+str(obj)+'\n'
-            call('unresolved-render','s/^/    /',paths['STILL_BROKEN']);call('cp','-f','--',paths['STILL_BROKEN'],paths['BROKEN'])
+    if kind == 'verify' and stage == 'normal' and fault == 'none':
+        output+='  [WARN] ELF objects that still have unresolved dependencies:\n    '+str(obj)+'\n'
+        call('unresolved-render','s/^/    /',paths['STILL_BROKEN']);call('cp','-f','--',paths['STILL_BROKEN'],paths['BROKEN'])
     values=paths|dict(FAULT='cache' if stage == 'cache' else 'sort-partial' if stage == 'pipeline' else 'none',
                       DIAGNOSTIC_FAULT=fault,ELF_SCAN_STATUS=9,ELF_VERIFICATION_STATUS=8,BROKEN_COUNT=7,ELF_LIBRARY_CACHE_RECORD_COUNT=6)
     assignments='\n'.join(key+'='+shlex.quote(str(value)) for key,value in values.items())

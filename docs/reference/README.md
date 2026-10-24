@@ -39,9 +39,12 @@ original preparation-time language; the later closure is external to that source
 New block532-539/reserve540-543 starts with the exact-source
 [initial ELF inspection audit](elf-initial-inspection-audit.md). Its48 observations
 include12 known metadata-error omissions by the initial scan, not safety passes.
-532 does not repair runtime or establish a new pause. Root README remains exact531
-until the block-end update. Final whole inherited-condition review remains due
-for this new block, after its final complete actual acceptance.
+Actual532 accepted at `72bf2e776d145a1d36ebade2605dbdbb9068dfa0`.
+Prepared533 [rejects incomplete inspection](elf-initial-inspection-errors.md) before
+count/publication and adds96 current cases. Historical audit must refuse repaired
+source and is excluded from current normal checks. Root README remains exact531
+until block END. No new pause; final whole inherited-condition review remains due
+after final complete actual acceptance.
 
 The [preintegration record](repository-regression-block-524-530-preintegration.md)
 retains530's initial legacy-fixture failure and114-check isolation repair. Current
@@ -80,6 +83,7 @@ native decisions/reviews/authority gates remain due.
 | Compatible/absent/error cache lookup and successful directory-skip repair | [Cache lookup](elf-cache-lookup.md) |
 | ELF magic, reader text, cache identities and dependencies | [ELF metadata](elf-metadata.md) |
 | Known metadata-error omission on exact531 source, before any repair | [Historical initial-inspection audit](elf-initial-inspection-audit.md) |
+| Initial metadata-error refusal before list/count publication | [Current inspection-error regression](elf-initial-inspection-errors.md) |
 | Private scan, broken-list handling, unresolved display and post-build recheck | [ELF scanning](elf-scan-workflow.md) |
 | Cache construction, publication and record-count failures | [ELF cache construction](elf-cache-construction.md) |
 | Cache failure propagation through real dependency/scan/recheck helpers | [ELF cache workflow](elf-cache-workflow.md) |

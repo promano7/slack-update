@@ -154,6 +154,15 @@ neither changes native criteria nor opens consumed authority or a new native run
 
 Before submitting a change to the reference script:
 
+For initial ELF metadata-error handling, also run
+`python3 tests/reference/test-elf-initial-inspection-errors.py`; see its
+[96-case scope](docs/reference/elf-initial-inspection-errors.md). Preserve prior
+published list/count on classifier2 and producer subshell failure status. Keep
+the historical532 audit unchanged: it must refuse repaired source and is excluded
+from current normal checks. Scan/cache-workflow/cache-lookup initial-error
+expectations change in533; preserve their first failures and all remaining cases/
+assertions. Private checks do not change native criteria.
+
 1. Run `bash -n tools/reference/slack-update-reference.sh`.
    Run `python3 tests/reference/test-runtime-lifecycle.py` when real state initialization, early cleanup bindings, setup/EXIT composition or private lock lifecycle changes. Its [lifecycle scope](docs/reference/runtime-lifecycle.md) distinguishes supplied failures, real cleanup and preserved prior resources; keep main, logging, signal and lock tests for their separate boundaries.
 

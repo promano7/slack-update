@@ -119,10 +119,15 @@ def scenario(root, kind, cache_profile, identity, needed, fault):
             value = (str(obj) + '\n') if broken else ''
             if kind == 'scan':
                 text = '[8] Detecting broken ELF objects without executing inspected files\n'
-                if issue: text += '  [WARN] Static ELF inspection diagnostics:\n    readelf could not inspect ' + str(obj) + '\n'
-                text += '  Broken ELF objects detected: ' + str(int(broken)) + '\n'
-                expected['new'] = ('file', value.encode()); expected['broken'] = ('file', value.encode())
-                state = ['0', '8', str(int(broken)), '6']; status = 0
+                expected['new'] = ('file', value.encode())
+                if issue:
+                    text += '  [ERROR] Cannot enumerate, inspect or sort the static ELF scan results\n'
+                    text += '  [WARN] Static ELF inspection diagnostics:\n    readelf could not inspect ' + str(obj) + '\n'
+                    state = ['1', '8', '7', '6']; status = 1
+                else:
+                    text += '  Broken ELF objects detected: ' + str(int(broken)) + '\n'
+                    expected['broken'] = ('file', value.encode())
+                    state = ['0', '8', str(int(broken)), '6']; status = 0
             else:
                 text = '  Verifying rebuilt ELF objects with static inspection...\n'
                 if issue: text += '  [WARN] Static ELF inspection diagnostics:\n    readelf could not re-inspect ' + str(obj) + '\n'

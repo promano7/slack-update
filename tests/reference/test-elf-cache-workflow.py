@@ -161,11 +161,15 @@ def scenario(root, entry, profile, fault, old_errors):
         calls += ['sort 3 -u', 'identity ' + str(obj)]
         if profile != 'error':
             calls.append('needed ' + str(obj))
+        if entry == 'scan' and profile == 'error':
+            output += '  [ERROR] Cannot enumerate, inspect or sort the static ELF scan results\n'
         if profile == 'error':
             output += diagnostic(('readelf could not inspect ' if entry == 'scan' else 'readelf could not re-inspect ') + str(obj))
         unresolved = (str(obj) + '\n').encode() if profile == 'broken' or (profile == 'error' and entry == 'verify') else b''
         expected[result_key] = unresolved
-        if entry == 'scan':
+        if entry == 'scan' and profile == 'error':
+            state[0] = state[1] = 1
+        elif entry == 'scan':
             state[3] = int(bool(unresolved))
             calls += ['wc -l', 'cp -f -- ' + str(paths['BROKEN_NEW']) + ' ' + str(paths['BROKEN'])]
             expected['broken'] = unresolved

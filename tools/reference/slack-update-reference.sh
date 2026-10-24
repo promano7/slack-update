@@ -4255,6 +4255,7 @@ detect_broken_elf_objects() {
     local object
     local inspection_status
     local scan_count
+    local inspection_failed=0
 
     # ---------------------------
     # [8] BROKEN LIBS DETECTION
@@ -4276,23 +4277,26 @@ detect_broken_elf_objects() {
         return 1
     fi
 
-    # With pipefail, any failed traversal or ordering stage invalidates the scan.
+    # With pipefail, failed traversal, inspection or ordering invalidates the scan.
     # Keep the previous published list until the complete pipeline succeeds.
     if ! find "${ELF_SCAN_PATHS[@]}" \( -type f -o -type l \) -print0 |
-    while IFS= read -r -d '' path; do
-        object=$(resolve_static_elf_object_path "$path") || continue
+    {
+        while IFS= read -r -d '' path; do
+            object=$(resolve_static_elf_object_path "$path") || continue
 
-        if static_elf_object_has_missing_dependency "$object" "$ELF_LIBRARY_CACHE"; then
-            printf '%s\n' "$path"
-        else
-            inspection_status=$?
-            if [ "$inspection_status" -eq 2 ]; then
-                printf 'readelf could not inspect %s\n' "$path" >> "$BROKEN_ERRORS"
+            if static_elf_object_has_missing_dependency "$object" "$ELF_LIBRARY_CACHE"; then
+                printf '%s\n' "$path"
+            else
+                inspection_status=$?
+                if [ "$inspection_status" -eq 2 ]; then
+                    inspection_failed=1
+                    printf 'readelf could not inspect %s\n' "$path" >> "$BROKEN_ERRORS"
+                fi
             fi
-        fi
-    done | LC_ALL=C sort -u > "$BROKEN_NEW"; then
+        done && [ "$inspection_failed" -eq 0 ]
+    } | LC_ALL=C sort -u > "$BROKEN_NEW"; then
         ELF_SCAN_STATUS=1
-        echo "  [ERROR] Cannot enumerate or sort the static ELF scan results"
+        echo "  [ERROR] Cannot enumerate, inspect or sort the static ELF scan results"
         report_static_elf_scan_errors
         return 1
     fi

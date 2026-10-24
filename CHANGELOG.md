@@ -1,3 +1,47 @@
+## Phase 1 step 533 -- reject incomplete initial ELF metadata inspection
+
+- Accept complete supplied actual532 FIRST: HEAD/local origin
+  72bf2e776d145a1d36ebade2605dbdbb9068dfa0, parent
+  f2283cfcbb373988a133b58b3a6f92572aad7035, tree
+  694c4b49e8f63d49914f0b15cb1c61703ac52947, policy SHA256
+  3233ff8e3e11ed1783a759f44f957fd7e06ffc31c86545ad35fe4258717539b7.
+  Eight ordered outputs/four paths404add7delete/exact subject/reported push/clean
+  full localrefs/source-mode-tree agree. Inline reconstruction, not original
+  attachment bytes or independent terminal/remote/native capture.
+- Change only initial scan runtime function: local metadata-error flag retained
+  inside producer subshell, final loop AND flag status carried by pipefail.
+  Classifier2 sets flag; later healthy object cannot reset it. Raw/status1 before
+  count/copy preserves published list/count; broadens pipeline diagnostic to include
+  inspection. Cache/staging/diagnostic effects remain real; no rollback/atomicity.
+  Other runtime functions/no-needed/resolver/unknown-status skip/recheck unchanged.
+- New96-case regression composes real parsers/classifier/scan/recheck/private
+  coreutils with supplied cache/readelf;24 initial errors rejected,24 recheck
+  errors retained,48 controls. Full outputs/status/four fields/vectors/order/
+  caller IFS/scalar/same-named flag/private inventory/bytes/modes/links checked.
+  Historical532 audit/scope stay exact; source guard must refuse repaired runtime
+  before fixture creation, excluded from current normal selection.
+- Preserve first three original scan/cache-workflow/cache-lookup failures, full
+  drivers/candidate runtime/stdout/stderr/status/hashes before updating only their
+  expected initial-error status/publication/count/calls and broadened diagnostic.
+  All old cases/assertions/recheck meaning retained; counts133/199/20,60,592.
+  Eleven normal commands FRESH, zero reuse; six valid-shell controls reject old
+  runtime/omitted flag/omitted guard/premature list/count reset/false raw success.
+  Full finite evidence retained, no86 integration/full matrix/native acceptance.
+- Native fixtures/criteria/unselected source/root README exact532; eleven changed
+  paths/two new100644 files, old modes preserved. One actual532 accepted;533
+  prepared only, commit/push/full return pending. Target532-539/reserve540-543 if
+  needed;534 diagnostic/staging,535 caller composition then evidence-led remaining
+  coverage/preintegration/final README. No new pause. Whole inherited header/EVERY
+  WHOLE condition/EVERY exact nested original/all-new-effects/obligations/cleanup/
+  failure/limit review with original comparisons due AFTER final actual acceptance
+  FIRST; no summary/hash substitutes. Entire conditions/history preserved.
+- All532/older failures/unknown extras/incomplete491 binary/UNKNOWN origins/no
+  binary-repair qualifications stay OPEN. Phase1/kernel/native criteria/ordered
+  independent decision/spec-impact/migration/ACTUAL binding/safe WHOLE review/
+  fresh bounded grant BEFORE effects/own-platform conformance gates unchanged.
+  Evidence/live bindings null, actual host unobserved/global closurefalse; no old
+  source/boot/attempt/run/grant/right/binding reuse/revival/renewal or native action.
+
 ## Phase 1 step 532 -- characterize initial ELF metadata-error omission
 
 - Verify supplied531 continuation inventory/CRC/SHA/modes/source blobs/tree.
