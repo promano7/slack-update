@@ -31,67 +31,36 @@ choose a path, approve a migration or grant a native test.
 
 ## Current repository regression coverage
 
-Prepared [529 binding apply composition](sbo-workspace-binding-apply-composition.md)
-checks72 real-coordination/private cases with runtime unchanged from528. Actual524-
-528 are accepted;529 is prepared only. Eighteen normal vectors run fresh. Admission
-blocking/earlier-error precedence/retained fields and separate prior-sync43 build
-policy remain precisely scoped. Root README/final full inherited-condition/new-
-effect review remain due at block end; no new strong pause. Earlier records below
-retain their own preparation/history boundaries.
+The [524-530 preintegration review](repository-regression-block-524-530-preintegration.md)
+consolidates current guarantees, limits and the repaired personal-queue fixture.
+Six actual steps524-529 are accepted;530 is prepared only. Last qualified outer
+STATIC pause523 remains historical. Runtime remains exact529; README update,
+final integration/actual acceptance and whole-condition/new-effect review remain
+due at block end. No new strong pause or native authority.
 
-The prepared [528 binding admission guard](sbo-workspace-binding-admission.md)
-protects unresolved cleanup fields from replacement before new workspace work.
-Actual524-527 are accepted;528 is prepared only. New96-case regression and16
-prior normal vectors run fresh on current source. The
-[527 audit](sbo-workspace-binding-replacement-audit.md) remains historical/source-
-bound and must not run on repaired runtime. Root README/final full inherited-
-condition/new-effect review remain due at block end; no new strong pause.
-The following earlier preparation records retain their own historical states.
+Current checks include [cleanup binding32](sbo-workspace-cleanup-binding.md),
+[lifecycle72](sbo-workspace-cleanup-lifecycle.md),
+[admission96](sbo-workspace-binding-admission.md) and
+[apply composition72](sbo-workspace-binding-apply-composition.md).530 runs19 focused
+commands fresh, including114-check repaired personal-queue isolation.531 plans86
+fresh commands: exact82 from [516-523](repository-regression-block-516-523.md) then
+these four drivers in introduction order. The86 run is not performed in530.
 
-The [526 cleanup lifecycle composition](sbo-workspace-cleanup-lifecycle.md)
-adds72 private cleanup/EXIT/signal/lock cases with runtime unchanged from525.
-Actual524-525 are accepted;526 is prepared only. Retained fields, enclosing-runtime
-removal, suppressed cleanup errors and exit/lock behavior have separate exact
-fixture observations. Sixteen normal commands run fresh. No new strong pause;
-root README and final full inherited-condition/new-effect review remain due.
-The following older prepared status retains its own historical scope.
+Original detailed scopes/receipts retain their own historical states. Historical
+unsafe source-bound audits512/516/519/524/527 must not run on current source.
+Current cleanup/admission qualifications supersede only their selected older
+implementation expectations, not original native criteria. The
+[testing guide](../testing.md#current-bounded-block-and-integrated-selection)
+distinguishes current commands, supplied/private effects and incomplete coverage.
 
-The new524-531 block has accepted actual524, with525 prepared only. The
-[cleanup-binding repair](sbo-workspace-cleanup-binding.md) retains unresolved
-bookkeeping on refusal, adds a32-case regression and adjusts six drivers' narrow
-mismatch-field expectations. See the [testing guide](../testing.md#current-bounded-block-and-integrated-selection)
-for current scope. [Audit524](sbo-workspace-cleanup-binding-audit.md) remains
-historical/source-bound and must not run on repaired runtime. Root README update
-and a separate final whole-condition/new-effect review remain due; no new pause.
-
-The following original prepared523 coverage is historical. Its pending status
-was later resolved by the qualified outer523 closure, not by rewriting receipts.
-
-The prepared [516-523 integrated review](repository-regression-block-516-523.md)
-selects82 fresh commands: the exact78 from [508-515](repository-regression-block-508-515.md)
-followed by four new listing/parent helper/apply drivers in step order. Seven
-actual steps516-522 are accepted; final523 actual acceptance remains pending.
-README is updated in this final preparation. Last qualified STATIC pause515 is
-confirmed externally after its complete actual return and separate whole-condition
-reading; it is not independent semantic/native/host acceptance.
-
-The [testing guide](../testing.md#current-bounded-block-and-integrated-selection)
-tracks current selection and scope. A new pause requires complete FINAL actual
-acceptance FIRST, THEN a separate reading of EVERY WHOLE inherited header/condition/
-EVERY exact nested original and ALL new effects/obligations/cleanup/limits, with
-stored-original comparison. Counts, hashes, summaries, indices and prior reviews do
-not substitute. No new pause follows from prepared523 or from updated navigation.
-
-The [500-507 review](repository-regression-block-500-507.md),
-[492-499 review](repository-regression-block-492-499.md),
-[484-491 review](repository-regression-block-484-491.md),
-[475-483 review](repository-regression-block-475-483.md) and earlier
-[467-474 review](repository-regression-block-467-474.md) retain their historical
-selections, failures and qualifications. Incomplete491 binary history and unknown
-extra provenance remain OPEN. No inventory/checksum establishes historical/global
-absence. These links neither close native acceptance nor select an operational
-contract alternative. Unsafe source-bound512/516/519 audits remain historical and
-must not run on repaired current source.
+Earlier [508-515](repository-regression-block-508-515.md),
+[500-507](repository-regression-block-500-507.md),
+[492-499](repository-regression-block-492-499.md),
+[484-491](repository-regression-block-484-491.md) and
+[475-483](repository-regression-block-475-483.md) reviews retain their original
+scope, failures and qualifications. Unknown extra provenance and incomplete491
+binary history remain OPEN; no inventory/checksum establishes historical/global
+absence. All original native decisions/reviews/authority gates remain due.
 
 | Boundary | Detailed current scope |
 | --- | --- |
@@ -116,14 +85,12 @@ must not run on repaired current source.
 | Detached minimal-environment checks and private mirror preflight | [Cron fixture repair](cron-minimal-environment.md) |
 | Version/scalar/snapshot/output readers and GRUB candidate text | [Boot artifacts and fixture repairs](boot-artifact-validation.md) |
 
-These scopes distinguish real private files/coreutils from supplied operations
-and preserve observed implementation limitations. The historical cron failure
-and its later private-fixture repair remain explicit. The installed-initrd
-expectation was aligned with the accepted partial-path contract in step 476;
-see the [fixture alignment](boot-artifact-validation.md#installed-kernel-fixture-alignment).
-The selected suite is not every historical
-harness. Use the [testing guide](../testing.md) for dependencies and
-interpretation before executing a selected check.
+
+These detailed records distinguish real private coreutils from supplied leaves.
+Current metadata retention/admission/parent cleanup, partial effects and prior-
+sync43 policy limits are reviewed in the preintegration record. Historical cron
+failures/repairs and installed-initrd fixture alignment keep their own scopes.
+No selected repository suite constitutes native acceptance or whole-host safety.
 
 ## Locate the supporting files
 

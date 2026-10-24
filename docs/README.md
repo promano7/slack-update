@@ -18,18 +18,19 @@ acceptance material. For the current phase and unfinished work, use the
 | Contribution, language and documentation rules | [Contributing](../CONTRIBUTING.md) |
 | Detailed contracts, audits and evidence | [Reference documentation](reference/README.md) |
 | Select applicable checks and historical snapshots | [Testing guide](testing.md) |
-| Prepared final integrated selection and known limits | [516-523 review](reference/repository-regression-block-516-523.md) |
-| Previous completed integrated selection | [508-515 review](reference/repository-regression-block-508-515.md) |
+| Current preintegration review, cleanup/admission and fixture limits | [524-530 review](reference/repository-regression-block-524-530-preintegration.md) |
+| Previous completed integrated selection | [516-523 review](reference/repository-regression-block-516-523.md) |
 | Current bounded regression block and focused workspace checks | [Current testing status](testing.md#current-bounded-block-and-integrated-selection) and [reference index](reference/README.md#current-repository-regression-coverage) |
 | Real Slackware acceptance scenarios | [Acceptance guide](../tests/acceptance/reference/README.md) |
 | Changes by step or version | [CHANGELOG](../CHANGELOG.md) |
 | Earlier README checkpoints and original design text | [Historical README through step 418](reference/readme-through-step418.md) |
 
-Qualified STATIC repository pause515 remains the last confirmed pause. Seven
-actual steps516-522 are accepted. Prepared523 updates the root README and selects82
-fresh current regressions; complete final actual523 acceptance and a separate whole-
-condition review remain due. Historical prepared flags retain their original scope.
-Repository checks do not close native acceptance or establish actual-host safety.
+Qualified outer STATIC repository pause523 is the last confirmed pause. Six
+actual steps524-529 are accepted;530 is prepared only. The current preintegration
+review records19 fresh focused checks and plans86-command final531 integration.
+Root README update/final actual acceptance and separate whole-condition/new-effect
+review remain due. Repository checks do not close native acceptance or establish
+actual-host safety. Original detailed prepared records remain historical.
 
 The design's proposed configuration and result examples describe future
 interfaces. Use the checked-in configuration and the shell reference for the

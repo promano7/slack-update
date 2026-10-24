@@ -62,6 +62,26 @@ assert_path_absent() {
     fi
 }
 
+# Release the owned fixture before starting an independent preparation scenario.
+release_fixture_workspace() {
+    local expected_path=$1
+
+    if [ "${SBO_GENERATED_QUEUE_OWNED_PATH:-}" != "$expected_path" ] \
+        || [ "${SBO_GENERATED_QUEUE_OWNED_CANONICAL:-}" != "$(readlink -m -- "$expected_path")" ]; then
+        fail "fixture cleanup binding must identify only its expected workspace: $expected_path"
+        return 1
+    fi
+    if remove_owned_sbo_queue_workspace; then
+        pass
+    else
+        fail "fixture workspace cleanup should succeed: $expected_path"
+        return 1
+    fi
+    assert_path_absent "$expected_path" 'fixture cleanup should remove its owned workspace'
+    assert_equal '' "$SBO_GENERATED_QUEUE_OWNED_PATH" 'fixture cleanup should clear its owned path'
+    assert_equal '' "$SBO_GENERATED_QUEUE_OWNED_CANONICAL" 'fixture cleanup should clear its canonical binding'
+}
+
 TEST_TMP=$(mktemp -d)
 trap 'rm -rf "$TEST_TMP"' EXIT
 
@@ -181,6 +201,8 @@ find "$PERSONAL_QUEUE_DIR" -type f -printf '%P\0' \
 assert_file_equal "$PERSONAL_SNAPSHOT" "$CURRENT_PERSONAL_SNAPSHOT" \
     'preparing the workspace must not modify personal queue contents'
 
+release_fixture_workspace "$PRIVATE_QUEUE_DIR"
+
 SAME_DESTINATION="$PERSONAL_QUEUE_DIR"
 if prepare_private_sbo_queue_workspace "$PERSONAL_QUEUE_DIR" "$SAME_DESTINATION"; then
     fail 'the personal queue directory must never be accepted as the private workspace'
@@ -242,6 +264,8 @@ assert_equal 0 "$SBO_PERSONAL_QUEUE_FILE_COUNT" \
     'a missing personal queue directory should copy zero files'
 assert_equal 0 "$(find "$EMPTY_WORKSPACE" -mindepth 1 -print | wc -l)" \
     'a missing personal queue directory should produce an empty workspace'
+
+release_fixture_workspace "$EMPTY_WORKSPACE"
 
 # Dry-run inspection reads personal queues directly but does not create a generator workspace.
 DRY_QUEUE_CORE="$TEST_TMP/dry-core.sqf"
@@ -374,7 +398,7 @@ assert_equal 1 "$SBO_PERSONAL_QUEUE_SYMLINK_COUNT" \
     'queue parsing should retain the ignored-symlink count'
 
 # A failing sqg command still operates only on a disposable private copy.
-rm -rf "$SBO_GENERATED_QUEUE_DIR"
+release_fixture_workspace "$SBO_GENERATED_QUEUE_DIR"
 SBO_GENERATED_QUEUE_DIR="$TEST_TMP/generated-failure"
 SBO_QUEUE_SOURCE_DIR=
 SBO_PERSONAL_QUEUE_DIR=
@@ -416,14 +440,12 @@ assert_file_equal "$PERSONAL_SNAPSHOT" "$POST_FAILURE_PERSONAL_SNAPSHOT" \
     'failed sqg generation must also leave personal queues unchanged'
 
 # A pre-existing workspace fails closed before sqg is called.
-rm -rf "$SBO_GENERATED_QUEUE_DIR"
+release_fixture_workspace "$SBO_GENERATED_QUEUE_DIR"
 SBO_GENERATED_QUEUE_DIR="$TEST_TMP/existing-workspace"
 mkdir "$SBO_GENERATED_QUEUE_DIR"
 SBO_QUEUE_SOURCE_DIR=
 SBO_PERSONAL_QUEUE_DIR=
 SBODIR=
-SBO_GENERATED_QUEUE_OWNED_PATH=
-SBO_GENERATED_QUEUE_OWNED_CANONICAL=
 SQG_SYNC_STATUS=-1
 SQG_INVOCATIONS=0
 sqg() {
@@ -480,6 +502,7 @@ if prepare_private_sbo_queue_workspace "$CLEANUP_SOURCE" "$SWAPPED_WORKSPACE"; t
 else
     fail "a symlink-swap fixture workspace should be created safely: $SBO_TARGET_SELECTION_ERROR"
 fi
+SWAPPED_CANONICAL_BEFORE_REPLACEMENT=$SBO_GENERATED_QUEUE_OWNED_CANONICAL
 rm -rf "$SWAPPED_WORKSPACE"
 ln -s "$SWAPPED_TARGET" "$SWAPPED_WORKSPACE"
 SBO_GENERATED_QUEUE_DIR=$SWAPPED_WORKSPACE
@@ -491,7 +514,13 @@ if [ -L "$SWAPPED_WORKSPACE" ]; then
 else
     fail 'cleanup should leave an untrusted replacement symlink untouched'
 fi
+assert_equal "$SWAPPED_WORKSPACE" "$SBO_GENERATED_QUEUE_OWNED_PATH" \
+    'rejected symlink cleanup should retain its pending path'
+assert_equal "$SWAPPED_CANONICAL_BEFORE_REPLACEMENT" \
+    "$SBO_GENERATED_QUEUE_OWNED_CANONICAL" \
+    'rejected symlink cleanup should retain its original canonical binding'
 rm -f "$SWAPPED_WORKSPACE"
+release_fixture_workspace "$SWAPPED_WORKSPACE"
 
 SBO_QUEUE_GENERATION_READY=0
 SBO_TARGET_SELECTION_ERROR=

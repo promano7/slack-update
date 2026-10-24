@@ -1,3 +1,46 @@
+## Phase 1 step 530 -- isolate legacy SBo fixtures and consolidate block guidance
+
+- Accept complete supplied actual529 FIRST: HEAD/local origin
+  b1a36b7db6bcd3f9c24d305402557989a8fab6e5, parent
+  49f78aad46ac35c28fa33458860069f4f9a59137, tree
+  8ce8593439ff83c36830c249b7b5ed89cd75c3c2, policy SHA256
+  a9eeb38a22f6a0d62f4ff481c304032360aed0cf6a51e3c8a752f3f803db5475.
+  All18 ordered outputs/fivepaths348 additions/new100644 pair/exact subject/reported
+  push/clean localrefs/source-mode-tree agree. Inline reconstruction is not original
+  terminal bytes or independent terminal/GitHub/native capture/host observation.
+- Preintegration inspection finds the legacy personal-queue test retains owned
+  metadata between independent preparation scenarios. Execute unmodified test on
+  current runtime: nine FAIL diagnostics, missing fixture find/cat diagnostics,
+  then nounset termination before final summary. Retain complete original script/
+  status/stdout/stderr/hashes; do not claim an uninterrupted successful integration.
+- Repair that fixture only: five verified real owned-cleanup releases between
+  independent scenarios, replace two raw removals/remove two manual field clears,
+  preserve every old assertion/diagnostic. Add20 release checks and two symlink-
+  refusal retained-field checks:114 total, zero failures, versus original92-check
+  successful baseline (not the failed partial run). Capture original canonical
+  binding before replacement for a portable retained-value assertion. First repaired
+  candidate/results retained; final19-command run repeats on exact final fixture.
+  No runtime change or production ownership/retry authority from fixture teardown.
+- Consolidate current contribution/navigation/testing/roadmap statuses around six
+  accepted actual steps524-529, prepared530 and planned53186-command integration.
+  Preserve detailed historical scopes/receipts, native roadmap/contribution tails
+  and original criteria; removed current-guide prose remains in Git/preimages.
+  Root README exact529, due at END. New preintegration scope records current guards,
+  private/supplied effects, fixture failure/repair and all still-open limitations.
+- Run19 normal commands FRESH, zero reuse: personal-queue114 first, then exact18
+  from529. Runtime/all other tests/support/fixtures/native criteria exact529. Planned
+  final86 is exact ordered82 from523 plus four new drivers in introduction order;
+  it has not run in530. Historical unsafe audits524/527/older source-bound audits
+  remain excluded. Source/links/status/tail/syntax/mode/tree/archive checks separate.
+- Six actual steps524-529 accepted;530 prepared/commit/push/acceptance pending.
+  Target524-531/reserve532-535 if needed.531 must run86 freshly in preparation and
+  on PC, update README, accept final actual FIRST, THEN separately read EVERY WHOLE
+  inherited header/condition/every exact nested original and ALL new effects/
+  cleanup/failures/limits/obligations with original comparisons. No new pause here.
+  Preserve all old failures/corrections/unknown extras/incomplete491 binary history,
+  original native gates/Phase1/kernel and host-unobserved/global closurefalse.
+  Evidence/live bindings null; no consumed source/boot/run/grant/right reuse/renewal.
+
 ## Phase 1 step 529 -- compose unresolved SBo binding admission through apply
 
 - Accept complete supplied actual528 FIRST: HEAD/local origin

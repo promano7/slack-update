@@ -21,70 +21,40 @@ acceptance does not describe the present state of a machine.
 
 ### Repository verification and next decisions
 
-The prepared [516-523 integrated selection](reference/repository-regression-block-516-523.md)
-contains82 current repository regressions: all78 from508-515 in their recorded
-order, then four listing/parent helper/apply drivers. All82 run fresh, zero reused
-normal records. These cover CLI/configuration, main setup/completion, results/JSON/
-events, package/optional workflows, SBo queues, static ELF helpers, runtime lifecycle/
-logging, private boot validation and delivery ZIP integrity. Historical78/72/66/60/
-56/54 selections keep their original scopes. The [testing guide](testing.md)
-distinguishes real/private/supplied effects. The synthetic GenInitrd test models its
-exact target UID query and non-root rejection, not native ownership conformance.
+Last confirmed qualified STATIC repository pause523 followed complete final actual
+acceptance and separate whole-condition/new-effect review. It does not describe
+a current host or independent/native acceptance. The new block has six accepted
+actual steps524-529, latest `b1a36b7db6bcd3f9c24d305402557989a8fab6e5`;530 is prepared.
 
-Repository coverage has expanded while the native acceptance inventory below
-remains unchanged. The cron mirror dependence was reproduced and repaired in the private test
-fixture in step 475; its [focused scope](reference/cron-minimal-environment.md)
-preserves the historical failure. Step 476 aligns the installed-initrd test
-with the accepted incomplete-path rejection contract and preserves later
-unsafe-data validation; see the [fixture alignment](reference/boot-artifact-validation.md#installed-kernel-fixture-alignment).
-Step482 additionally waits for the private cron logger before fixture assertions;
-its [completion scope](reference/cron-minimal-environment.md#logger-completion-before-assertions)
-retains the initial 55/56 integration and serial diagnostic failures. That
-earlier block closed at the confirmed STATIC repository pause 483.
-Steps477-481 now reject selected ELF traversal/order/publication/count,
-initialization and diagnostic failures; the [scan scope](reference/elf-scan-workflow.md)
-records exact guarantees and partial-effect limits. Steps 484-489 add selected
-unresolved-display, cache-construction/publication/count and early cleanup-binding
-guards, plus real ELF/runtime helper compositions. Their dedicated scopes retain
-partial-publication and untracked-prior-resource limits.
+The [524-530 preintegration review](reference/repository-regression-block-524-530-preintegration.md)
+records retained cleanup bindings, nonempty-binding admission rejection and their
+private helper/lifecycle/apply compositions.530 also repairs isolation between
+independent legacy personal-queue fixtures through verified real fixture cleanup,
+preserving the original failure and all earlier scenario assertions. Runtime and
+all other tests/fixtures/native criteria/root README remain exact529.19 normal
+commands run fresh in530; final531 plans86 fresh commands (original82 from523 plus
+four new drivers in introduction order), then root README update/final actual
+acceptance and a separate complete inherited-condition/new-effect review.
+The86 execution and new pause are not completed in530. See [testing](testing.md).
 
-Qualified STATIC repository pause515 is the last confirmed pause, after complete
-actual515 acceptance/all78 ordered commands and a separate whole-condition review.
-The492-499 block added ZIP validation, literal ELF-owner collection/publication/
-composition and cache lookup/error handling. Original497's GNU awk directory-skip
-failure, repair and prior authoring/transport failures remain distinct. The500-507
-block added SBo count/removal guards and private apply/result compositions;508-515
-added dry-run count guards and private workspace count/apply checks. Their original
-records keep their own prepared/actual scopes and qualifications.
+Repository coverage has expanded; the native inventory below is unchanged.
+Partial publication/cleanup, successful-output trust, canonical-string/inode/input
+races, initial ELF error omission/raw0, external durability/setup field resets,
+general cleanup error suppression/enclosing-runtime removal and prior-sync43
+policy limits remain. Earlier guard/cron/initrd/ELF/SBo failures and their scoped
+repairs retain their detailed records. Historical unsafe audits require their
+matching source, not current execution. Incomplete491 binary history/failed
+original retrieval and unknown extras, including52518,350,080-byte0600, remain OPEN
+with UNKNOWN cause/provenance; current canonical hashes are not history closure.
 
-The current516-523 block has seven accepted actual steps516-522, latest HEAD/local
-origin `b75765c3d4415a3cbe344bfe406d0868c974a6d7`. Actual522 passed all31 selected
-commands. The [listing guard](reference/sbo-workspace-listing-removal.md) and
-[listing apply scope](reference/sbo-workspace-listing-apply-composition.md) cover
-selected final-removal failures. The [parent guard](reference/sbo-workspace-parent-assignment.md)
-and [parent apply scope](reference/sbo-workspace-parent-apply-composition.md) reject
-selected dirname failures before the failed file's mkdir/install/cat, preserving
-earlier-copy counters, status precedence and precise retained-resource obligations.
-Their prior unsafe audits remain source-bound defect history, not safety coverage.
-
-Prepared final523 changes documentation only, including the root README and new
-integrated review. Runtime/tests/fixtures/native criteria remain exact522. All82
-selected commands run fresh on current source; actual523 must repeat all82. Complete
-FINAL actual acceptance must come FIRST, THEN separate reading of EVERY WHOLE
-inherited header/condition/EVERY exact nested original and ALL new effects/
-obligations/cleanup/limits, with stored-original comparison, before any new pause.
-Counts, hashes, summaries, indices and prior reviews do not replace that reading.
-Initial scan error omission/raw0, successful-output trust, partial publication/
-cleanup, resource untracking, input races, incomplete491 saved binary history and
-unknown extra provenance remain OPEN. Passing regressions neither approves native
-criteria nor resolves the operational audit.
-
-After this bounded block, future work requires a new bounded choice of scope: investigate the remaining
-implementation failure projections, or advance an applicable acceptance family
-through its original independent review, binding and authority gates. A
-repository pause permits leaving the static source review complete across a
-Slackware-current refresh; it neither reserves candidates nor renews a consumed
-native grant. Prepared documentation cannot confirm its later commit or pause.
+All original native criteria, independent decisions/reviews/binding/safe WHOLE
+review/fresh bounded authority BEFORE effects and own-platform conformance gates
+remain due in order. Future native work needs its original independent approvals;
+repository continuation does not grant them. A scoped static pause can remain
+complete across a Slackware-current refresh without reserving candidates or
+renewing consumed grants. Actual host unobserved/live evidence-bindings null/
+global closurefalse. Counts, checksums or current guide prose do not replace full
+final inherited-condition/nested-original/new-effect reading after actual acceptance.
 
 ### Remaining Phase 1 work
 

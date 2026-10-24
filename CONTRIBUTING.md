@@ -113,22 +113,28 @@ when their validity is claimed. See the
 [delivery integrity scope](docs/reference/delivery-archive-integrity.md).
 
 The mappings below still govern reference-script changes; frozen historical
-baselines retain their original scope.
-The prepared [516-523 integrated review](docs/reference/repository-regression-block-516-523.md)
-selects82 named commands: all78 from the [508-515 review](docs/reference/repository-regression-block-508-515.md)
-in their original order, then the four listing/parent helper/apply drivers in step
-order. All82 run fresh on current source, with no normal-result reuse. Seven actual
-steps516-522 are accepted; final actual523 and a separate whole-condition review
-remain due. README is updated in this prepared final delivery, not evidence of its
-later actual commit or pause. Last confirmed qualified STATIC repository pause515.
-The [testing guide](docs/testing.md#current-bounded-block-and-integrated-selection)
-records the selection, dependencies and remaining limits.
+baselines retain their original scope. The
+[524-530 preintegration review](docs/reference/repository-regression-block-524-530-preintegration.md)
+records current cleanup/admission guards and helper/lifecycle/apply limits.
+Six actual steps524-529 are accepted;530 is prepared only.19 focused commands run
+fresh in530, including the114-check legacy personal-queue fixture repaired with
+verified real cleanup between independent scenarios. Do not clear metadata to
+bypass the admission guard when a scenario still owns unresolved resources.
 
-Workspace count, final-listing removal and destination-parent failures have
-separate helper/apply regressions below. Their selected private/supplied effects,
-partial copies and cleanup/resource-tracking limits must stay explicit. Do not run
-old512/516/519 unsafe source-bound audits on the repaired current source. Their
-observations remain defect history, not safety-regression passes.
+Planned531 integration selects86 current commands: exact ordered82 from the
+[516-523 review](docs/reference/repository-regression-block-516-523.md) then cleanup
+binding, cleanup lifecycle, binding admission and binding apply in introduction
+order. The [testing guide](docs/testing.md#current-bounded-block-and-integrated-selection)
+tracks current scope/dependencies and planned versus actual outcomes.531 integration
+is not completed in530. Root README update and final separate whole-condition/
+new-effect review remain due; last qualified outer STATIC pause523 is historical.
+
+For cleanup/admission changes run the four named regressions in that current
+review and the personal-queue protection test when fixture boundaries change.
+Workspace count/listing/parent helper and apply checks below retain their own
+selected private/supplied/partial-effect scopes. Historical unsafe source-bound
+512/516/519/524/527 audits must not run on repaired current source; original
+defect observations are not current safety passes. Preserve their exact history.
 
 The [500-507 selection](docs/reference/repository-regression-block-500-507.md),
 [492-499 selection](docs/reference/repository-regression-block-492-499.md),

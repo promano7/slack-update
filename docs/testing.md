@@ -8,151 +8,69 @@ Slackware acceptance differ; it does not authorize a system run.
 
 ## Current bounded block and integrated selection
 
-Prepared529 [binding apply composition](reference/sbo-workspace-binding-apply-composition.md)
-adds72 private cases through real sync/readiness/apply/message/stable-result paths
-with supplied installed leaves. Actual524-528 are accepted, latest
-`49f78aad46ac35c28fa33458860069f4f9a59137`;529 is prepared only. Runtime/all old
-checks/fixtures/native criteria remain exact528. Eighteen normal vectors run fresh:
-new composition then exact17 from528.24 admission failures block supplied builders;
-six admitted/prior-sync43 cases still reach them under existing policy. Raw0 and
-stable2/partial1/fixture-relative boot-safe1 remain distinct. No new strong pause;
-root README and final whole-condition/new-effect review remain due at block end.
-Following older preparation records retain their original historical states.
+The last confirmed qualified STATIC repository pause is outer523. The new block
+has six accepted actual steps524-529, latest HEAD/local origin
+`b1a36b7db6bcd3f9c24d305402557989a8fab6e5`. Prepared530 repairs isolation between
+independent personal-queue fixtures and consolidates current documentation.
+Runtime remains exact529. All other tests/support/fixtures/native criteria and
+root README are unchanged. No new pause or native authority.
 
-The prepared528 [binding admission guard](reference/sbo-workspace-binding-admission.md)
-rejects a new private workspace while either cleanup field is nonempty, before
-path inspection/counter reset or filesystem work. New96-case regression covers
-64 admission rejections and32 empty/unset controls. Actual524-527 are accepted,
-latest `7782fd62abec51864839a52f8513344b1c417ccb`;528 is prepared only. Seventeen
-normal commands run fresh: new admission driver then exact16 from526, all on528
-source. No full82/native run. Historical527 binding-replacement and524 cleanup
-unsafe audits must not run on repaired current runtime. Root README/final whole-
-condition/new-effect review remain due at block end; no new strong pause.
-Earlier prepared526/525 and516-523 records below keep their own historical scope.
+The [preintegration review](reference/repository-regression-block-524-530-preintegration.md)
+records both runtime guards, four new regressions, exact private/supplied limits,
+the original failed legacy fixture and its verified cleanup repair. The repaired
+personal-queue test has114 checks; the failed original did not reach a summary.
+Nineteen normal commands run fresh in530 preparation: that test, then exact18
+from529, zero reused records. Actual530 must repeat all19.
 
-The current526 [cleanup lifecycle composition](reference/sbo-workspace-cleanup-lifecycle.md)
-adds72 private cases through real cleanup/EXIT/self-SIGTERM/private-lock paths.
-Actual524-525 are accepted, latest HEAD/local origin
-`2c41a146a4c323c1b8f817e296317ce0fe7d4506`;526 is prepared only. Runtime and all
-old tests/fixtures remain exact525. Sixteen selected normal commands run fresh,
-zero reused; actual526 must repeat them. Retained metadata can outlive removal of
-its enclosing runtime directory, and suppressed cleanup errors retain the selected
-exit statuses. These limits and the supplied observation boundaries remain open.
-Root README and final whole-condition/new-effect review remain due at block end.
-The following525 preparation and original516-523 records retain their own history.
+| Boundary | Current scope |
+| --- | --- |
+| Retain unresolved ownership fields after cleanup refusal | [Cleanup binding32](reference/sbo-workspace-cleanup-binding.md) |
+| Cleanup/EXIT/self-SIGTERM/private-lock composition | [Lifecycle72](reference/sbo-workspace-cleanup-lifecycle.md) |
+| Reject preparation before replacing prior metadata | [Admission96](reference/sbo-workspace-binding-admission.md) |
+| Admission through real sync/gate/apply/stable mapping | [Apply composition72](reference/sbo-workspace-binding-apply-composition.md) |
 
-The new bounded block targets524-531, reserves532-535 only if needed. Outer
-STATIC repository pause523 was confirmed after final actual acceptance and its
-separate full review; its immutable prepared records below retain their earlier
-pending state. Actual524 is accepted at
-`1713c06049502a4fcc8e3aaf70b1cc96125d57c8`. No new pause or native authority.
+Planned531 integration selects86 commands: exact ordered82 from the
+[516-523 review](reference/repository-regression-block-516-523.md), then the four
+new drivers in the table's introduction order. They run on current source, not
+historical snapshots. Original51st personal-queue test includes the fixture repair;
+six older workspace drivers retain525's narrow mismatch-field expectation changes.
+The86 selection has not run in530;531 requires fresh preparation and actual runs.
+Python3.11+, Bash, jq, flock, timeout, awk and GNU coreutils/findutils/sed remain
+required. Preserve full installed-initrd negative diagnostics/90 checks; only that
+named command permits its documented single consistent private-root normalization.
 
-Prepared525 [retains unresolved cleanup bindings](reference/sbo-workspace-cleanup-binding.md)
-without removing a symlink or mismatched path. The new32-case regression and six
-existing workspace drivers check the retained fields; earlier historical scope
-prose about clearing them describes its original source. Fifteen focused normal
-commands run fresh in preparation; actual525 must repeat them. The historical
-[524 audit](reference/sbo-workspace-cleanup-binding-audit.md) requires old runtime
-bytes and MUST NOT run on repaired source. Its defect observations are not
-safety passes. Root README update remains due at block end; complete final actual
-acceptance and a separate whole inherited-condition/new-effect review remain due.
+Historical audits512/516/519/524/527 require their matching unsafe source and MUST
+NOT run on repaired current source. Their observations remain defect history.
+Earlier integrated selections keep their original source/evidence limits; counts
+from different matrices are not aggregate native coverage. Their detailed scopes
+and immutable receipts retain their historical prepared/actual states. Current
+navigation does not rewrite them; removed guide status is retained in Git history
+and delivery preimages.
 
-### Historical prepared516-523 selection
+Metadata retention is not resource existence, durable custody or deletion authority.
+General runtime removal may follow owned-helper refusal; cleanup errors remain
+suppressed. Apply raw0/stable2/partial1 and fixture-relative boot-safe1 are distinct.
+Six529 admitted/prior-sync43 cases still reach supplied build leaves. Earlier
+counters/effects are not rollback; canonical-string/inode/race/output-trust limits
+remain. Shared workspace inventories exclude ALL.events names and check named logs
+separately. Named guards/UID0/private teardown are not OS containment, unprivileged/
+Slackware/native conformance or global cleanup proof.
 
-The remainder of this subsection retains its original prepared523 status and
-cleanup expectations. The new525 scope above qualifies current-source binding
-retention only; historical receipts, failures and full criteria are unchanged.
+Keep every earlier failure/correction,52518,350,080-byte0600 and older unknown extras,
+incomplete491 saved binary/failed original retrieval/UNKNOWN cause/no prefix
+equivalence/no binary repair OPEN. Canonical equality/CRC/SHA is not historical/
+global absence or provenance closure. Original13 findings/16 gaps/five families20
+native scenarios and all original criteria/gates remain; Phase1/kernel incomplete.
 
-The qualified STATIC repository pause515 is confirmed after complete actual515
-acceptance at `d5e30d580e1420704225f478c624a119ddd151b0`, all78 ordered actual
-commands and a separate post-return reading/review of every whole inherited
-header/condition/exact nested original and new effects/obligations/limits. The
-immutable prepared515 records retain their original pending scope. The external
-confirmation is not independent semantic/native/terminal/GitHub acceptance.
-Incomplete491 binary history and unknown extra provenance remain OPEN.
-
-The first516 private inventory additionally rejected an unmanifested17,039,360-byte
-file. Full bytes and first/corrected comparison records were preserved before
-removing only that extra; all canonical hashes/modes agree. Cause remains unknown.
-See the [516 audit](reference/sbo-workspace-final-listing-audit.md) for the exact
-fixture-prefix comparison and limits. A
-correct canonical projection is not historical/global absence or provenance closure.
-
-The requested516-523 block has seven accepted actual steps516-522, with reserves
-524-527 only if needed. Latest HEAD/local origin is
-`b75765c3d4415a3cbe344bfe406d0868c974a6d7`. Complete supplied actual522 matches all31
-ordered outputs, exact six-existing-document commit/push/clean full refs/source
-modes/tree. Its preparation reused31 exact521 records with zero fresh normal
-commands; actual522 ran all31. Reconstructed inline output/commands are not original
-terminal bytes or independent terminal/GitHub/native capture. Preserve the earlier
-521 rejected push, wrong-cwd Git failures, intermediate capture rejection and later
-correct-checkout success as their complete separate sequence. Last qualified pause515.
-
-Prepared final523 updates root README and the
-[516-523 integrated review](reference/repository-regression-block-516-523.md), plus
-current navigation/testing/CHANGELOG. Eight paths, one new document; runtime, all
-tests/support/fixtures/native criteria remain exact522. The final selection runs82
-commands FRESH: all78 from515 in the original order, then54-case listing helper,
-84-case listing apply,104-case parent helper and176-case parent apply in step order.
-No normal-result reuse; actual523 must repeat all82. Required tools include Python3,
-Bash, jq, flock, timeout, awk and GNU coreutils/findutils/sed. The verifier requires
-Python3.11 or newer. Selected generated initrd paths may differ between executions;
-only that named command permits the documented consistent root normalization,
-preserving full outputs and all diagnostics/90 checks/zero failures.
-
-The [521 parent-error composition](reference/sbo-workspace-parent-apply-composition.md)
-retains176 cases and52 active failures before the failed file's mkdir/install/cat,
-earlier copy0/1 and symlink2, helper1/syncraw0/SQG1/readiness0/selection1/build-1,
-blocked supplied queue/build leaves, and exact prior-sync43 action/error precedence.
-Apply raw0 differs from stable2/partial1 and fixture-relative boot-safe1. Existing
-policy still reaches supplied build leaves in26 prior-sync43 cases with successful
-workspace preparation; no general sync-failure abort was added.
-
-Eight listings and24 workspaces remain in selected cleanup projections; second-file
-retained workspaces have the earlier nested copy. Supplied canonical mismatch clears
-fields while leaving workspace: resource-untracking stays OPEN. No later global
-cleanup/retry, rollback or actual-host safety follows. The individual scopes retain
-selected real/supplied/result/output/vector/private-state/environment boundaries.
-
-Whole historical78 vectors are rerun on current source, not on the historical515
-snapshot. Historical source controls/mutation matrices/native harnesses are not
-rerun. No new permanent test or fixture is added. Documentation checks cover changed
-links/fragments/status/source scope/unchanged normative tails and README usage/phase
-gates. Syntax/executable/archive/index/mode/tree/whitespace checks remain separate;
-the existing31-case delivery-integrity driver is included in the82 selection.
-
-Complete FINAL actual523 acceptance must precede a separate reading of EVERY WHOLE
-inherited header/condition/EVERY exact nested original and ALL new effects/
-obligations/cleanup/limits, with stored-original comparison. Preparation tests,
-counts, hashes, summaries, indices and previous confirmations do not substitute.
-Current prepared/actual flags stay immutable; any later scoped STATIC confirmation
-is external. No new pause is confirmed by this prepared final review.
-
-The [520 helper regression](reference/sbo-workspace-parent-assignment.md) retains
-its104-case scope. The [519 audit](reference/sbo-workspace-parent-assignment-audit.md)
-is historical pre-parent-repair-source-bound and MUST NOT run on521. Its72
-observations/16 ignored failures remain defect history, not safety coverage. Older
-516/512 unsafe source-bound audits must not run either. The
-[517 listing guard](reference/sbo-workspace-listing-removal.md) and
-[518 listing composition](reference/sbo-workspace-listing-apply-composition.md) keep
-separate54/84 scopes; count-apply136 remains separate. Preserve every original
-failure/repair/unknown-extra/comparison/authoring/metadata/receipt qualification.
-The [508-515 integration](reference/repository-regression-block-508-515.md) retains
-its exact78 selection; do not sum heterogeneous counts or infer native acceptance.
-
-Packaging520 rejected an unknown11,272,192-byte0600 extra. Full bytes/first policy/
-index/rejection and exact-fixture strict-prefix comparison were preserved before
-removing only that extra. Origin remains UNKNOWN; no test/user/common-cause proof
-or provenance closure. Its unfinished private receipt draft/correction is also
-retained. Older extras and incomplete491 binary history remain OPEN.
-
-A new pause needs COMPLETE final actual acceptance FIRST, THEN separate reading
-of EVERY WHOLE inherited header/condition/exact nested original AND ALL new
-effects/obligations/cleanup/limits, plus stored-original comparison. Counts, hashes,
-summaries, indices and prior confirmations cannot substitute. Earlier effects,
-cleanup/resource-untracking/partial-publication/input-race/initial-ELF-omission
-limits remain. Static review neither closes Phase1/kernel nor authorizes native
-effects, consumed-right renewal or historical cleanup.
+Root README update remains due at END in531. A new pause requires complete FINAL
+actual acceptance FIRST, THEN separate reading of EVERY WHOLE inherited header/
+condition/EVERY exact nested original and ALL new effects/obligations/cleanup/
+failures/limits with stored-original comparison. Hashes/counts/summaries/indices/
+prior confirmations do not substitute. That final reading has not occurred in
+this block. Native decision/review/ACTUAL binding/safe WHOLE review/fresh bounded
+grant BEFORE effects/own-platform conformance stay due in order. No consumed
+source/boot/run/grant/right/binding is reused or renewed. Evidence/live bindings
+null, actual host unobserved/global closurefalse.
 
 ## Select the applicable checks
 
