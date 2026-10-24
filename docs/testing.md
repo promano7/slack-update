@@ -8,6 +8,17 @@ Slackware acceptance differ; it does not authorize a system run.
 
 ## Current bounded block and integrated selection
 
+The current526 [cleanup lifecycle composition](reference/sbo-workspace-cleanup-lifecycle.md)
+adds72 private cases through real cleanup/EXIT/self-SIGTERM/private-lock paths.
+Actual524-525 are accepted, latest HEAD/local origin
+`2c41a146a4c323c1b8f817e296317ce0fe7d4506`;526 is prepared only. Runtime and all
+old tests/fixtures remain exact525. Sixteen selected normal commands run fresh,
+zero reused; actual526 must repeat them. Retained metadata can outlive removal of
+its enclosing runtime directory, and suppressed cleanup errors retain the selected
+exit statuses. These limits and the supplied observation boundaries remain open.
+Root README and final whole-condition/new-effect review remain due at block end.
+The following525 preparation and original516-523 records retain their own history.
+
 The new bounded block targets524-531, reserves532-535 only if needed. Outer
 STATIC repository pause523 was confirmed after final actual acceptance and its
 separate full review; its immutable prepared records below retain their earlier

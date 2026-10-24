@@ -1,3 +1,42 @@
+## Phase 1 step 526 -- compose private SBo cleanup lifecycle checks
+
+- Accept complete supplied actual525 FIRST: HEAD/local origin
+  2c41a146a4c323c1b8f817e296317ce0fe7d4506, parent
+  1713c06049502a4fcc8e3aaf70b1cc96125d57c8, tree
+  fda1c8593cd366a7923abaa1c5172a20091c8d65, policy SHA256
+  223f7c9337b33722a6ceefa0935743e3fdcde658325873baa6f8f17ebc53a6d5.
+  All15 ordered outputs,12paths/371add/8delete/new100644 pair/exact subject/reported
+  push/clean full localrefs/source-mode-tree agree. Reconstructed inline output
+  is not original terminal bytes, independent terminal/GitHub/native capture.
+- Add72 private lifecycle cases: six owned-cleanup conditions x three workspace/
+  parent-removal profiles x direct/EXIT0/EXIT17/actual self-SIGTERM. Compose real
+  owned/general cleanup, installed traps/signal handler and private flock acquire/
+  release; strict no-effect boot adapters and selected faults supplied. Verify
+  exact helper/cleanup statuses/bindings/argv/private bytes/modes/link targets,
+  one signal cleanup, status143 or prior0/17, released descriptor/lock and private
+  temporary/parent removal behavior. Runtime/all old tests/fixtures/README exact525.
+- Sixty cases retain unresolved metadata but only32 retain a workspace. General
+  parent-runtime removal may follow owned-helper refusal; removal followed by43
+  can also leave binding without a resource. Cleanup still suppresses selected
+  errors and returns0 after lock release; memory at process exit is not a durable
+  production record. Canonical-string/race/overwrite/trust limits remain open.
+- Run16 normal commands FRESH, zero reuse: new72-case driver, then exact15 from525.
+  Four valid-shell selected faulty-source controls reject discarded bindings,
+  missing owned/runtime cleanup and duplicate signal cleanup. Full records/source/
+  overlay/tree/archive checks retained. No full82/historical/native matrix or
+  independent acceptance. Current fixture disposal is not whole-host cleanup.
+- Preserve final synthetic delivery checker's stale525 frame-label parser failure
+  after successful526 capture. Correct only expected frame labels and repeat the
+  private check; runtime, overlay and policy logic unchanged. First script and
+  correction record retained; no actual-user526 result was rejected or changed.
+- Two actual steps524-525 accepted;526 prepared/commit/push/acceptance pending.
+  Target524-531/reserve532-535 only if needed, README due at END. No new pause.
+  Final separate whole inherited-condition/nested-original/new-effect review is
+  still due after final actual acceptance. Retain all earlier failures, unknown
+  extras including52518,350,080-byte0600 and incomplete491 binary history OPEN.
+  Original native criteria/authority gates/Phase1/kernel and global-host closure
+  remain unresolved; no live binding or consumed grant/right is reused/renewed.
+
 ## Phase 1 step 525 -- retain unresolved private SBo cleanup bindings
 
 - Accept supplied actual524 first: HEAD/local origin

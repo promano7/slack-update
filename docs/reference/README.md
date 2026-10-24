@@ -31,6 +31,14 @@ choose a path, approve a migration or grant a native test.
 
 ## Current repository regression coverage
 
+The [526 cleanup lifecycle composition](sbo-workspace-cleanup-lifecycle.md)
+adds72 private cleanup/EXIT/signal/lock cases with runtime unchanged from525.
+Actual524-525 are accepted;526 is prepared only. Retained fields, enclosing-runtime
+removal, suppressed cleanup errors and exit/lock behavior have separate exact
+fixture observations. Sixteen normal commands run fresh. No new strong pause;
+root README and final full inherited-condition/new-effect review remain due.
+The following older prepared status retains its own historical scope.
+
 The new524-531 block has accepted actual524, with525 prepared only. The
 [cleanup-binding repair](sbo-workspace-cleanup-binding.md) retains unresolved
 bookkeeping on refusal, adds a32-case regression and adjusts six drivers' narrow
