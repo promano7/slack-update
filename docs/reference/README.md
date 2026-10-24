@@ -31,13 +31,17 @@ choose a path, approve a migration or grant a native test.
 
 ## Current repository regression coverage
 
-The prepared [524-531 integrated review](repository-regression-block-524-531.md)
-selects86 FRESH current commands: exact ordered82 from523 followed by cleanup
-binding/lifecycle/admission/apply in introduction order. Seven actual steps524-530
-are accepted; final531 actual acceptance and separate whole inherited-condition/
-new-effect review remain due. Runtime/tests/fixtures exact530; root README updated
-in this final preparation, not proof of its later commit or a new strong pause.
-Last qualified outer STATIC pause523 remains historical.
+The supplied531 continuation records the accepted86-command integration and its
+later qualified STATIC pause524-531, with actual reported HEAD
+`f2283cfcbb373988a133b58b3a6f92572aad7035`. The canonical
+[524-531 integrated review](repository-regression-block-524-531.md) keeps its
+original preparation-time language; the later closure is external to that source.
+New block532-539/reserve540-543 starts with the exact-source
+[initial ELF inspection audit](elf-initial-inspection-audit.md). Its48 observations
+include12 known metadata-error omissions by the initial scan, not safety passes.
+532 does not repair runtime or establish a new pause. Root README remains exact531
+until the block-end update. Final whole inherited-condition review remains due
+for this new block, after its final complete actual acceptance.
 
 The [preintegration record](repository-regression-block-524-530-preintegration.md)
 retains530's initial legacy-fixture failure and114-check isolation repair. Current
@@ -75,6 +79,7 @@ native decisions/reviews/authority gates remain due.
 | Literal ELF-owner mapping, collection, count/publication and private apply composition | [Owner mapping](elf-owner-mapping.md) |
 | Compatible/absent/error cache lookup and successful directory-skip repair | [Cache lookup](elf-cache-lookup.md) |
 | ELF magic, reader text, cache identities and dependencies | [ELF metadata](elf-metadata.md) |
+| Known metadata-error omission on exact531 source, before any repair | [Historical initial-inspection audit](elf-initial-inspection-audit.md) |
 | Private scan, broken-list handling, unresolved display and post-build recheck | [ELF scanning](elf-scan-workflow.md) |
 | Cache construction, publication and record-count failures | [ELF cache construction](elf-cache-construction.md) |
 | Cache failure propagation through real dependency/scan/recheck helpers | [ELF cache workflow](elf-cache-workflow.md) |

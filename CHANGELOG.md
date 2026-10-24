@@ -1,3 +1,47 @@
+## Phase 1 step 532 -- characterize initial ELF metadata-error omission
+
+- Verify supplied531 continuation inventory/CRC/SHA/modes/source blobs/tree.
+  Retain its complete original actual return/acceptance/external closure:
+  HEAD/local origin f2283cfcbb373988a133b58b3a6f92572aad7035, parent
+  d40daa4daca58813695c25f28b69e9fccce9728c, tree
+  78c31f92a6210694c7cbb60e22a58ac2ebbfd380, accepted86 ordered outputs,
+  qualified STATIC pause524-531 confirmed externally. Earlier canonical pending
+  language remains immutable history. No independent terminal/remote capture or
+  actual-user commit-object reconstruction is claimed.
+- New bounded8-12-step request: provisional532-539/reserve540-543 only if needed.
+  Add exact531-runtime-bound48-observation audit composing real metadata parsers,
+  classifier and scan/recheck with supplied readelf/cache producer. Twelve initial
+  metadata-error cases omit target and publish empty/partial list with raw/status0;
+  twelve matching rechecks retain target/fail. Other24 are compatible/missing/
+  no-needed controls. Complete bytes/status/four fields/vectors/order/private
+  inventory/modes/link targets/caller IFS/scalar checked. Defect observations,
+  not safety passes; preserve source guard/expectations after a later repair.
+- Runtime/all old tests/support/fixtures/native criteria/root README exact531.
+  Four changed paths: changelog/navigation plus new audit/scope. Eight selected
+  normal commands FRESH, zero reuse; full outputs/hashes retained. Three selected
+  valid-shell controls and changed-source refusal are separate finite checks.
+  No86-command integration, historical/native rerun or independent acceptance.
+- 532 prepared only; no accepted step in new block, commit/push/return pending.
+  Proposed533 narrow scan-failure correction must separately address pipeline
+  subshell status and publication boundary. Subsequent tests/composition and
+  complementary path-skip review depend on evidence; consolidate/integrate/final
+  README and separate whole inherited-condition/nested-original/all-new-effects
+  review follow complete FINAL actual acceptance FIRST. Full conditions preserved;
+  this preparation does not claim a new whole-body review or strong safe pause.
+- First packaging inventory rejects an unmanifested10,747,904-byte0600 extra;
+  preserve full bytes/first inventory/first generator/rejection before removing
+  exactly that saved path. Exact strict-prefix comparison with the separately
+  named18,583,199-byte fixture establishes bytes only; origin/cause UNKNOWN.
+  No pretest physical inventory recorded; no tests/user/copy/common-cause claim.
+  Preserve the following diagnostic's missing-policy failure after its successful
+  link/syntax check. Rejected first attempt generated no delivery or source policy.
+- Preserve all original failures/unknown extras/incomplete491 binary history and
+  no-repair/UNKNOWN-cause qualifications. Phase1/kernel incomplete, native criteria/
+  ordered independent decision/spec/migration/ACTUAL binding/safe WHOLE review/
+  fresh bounded grant BEFORE effects/own-platform conformance gates unchanged.
+  Evidence/live bindings null; actual host unobserved/global closurefalse. No
+  consumed source/boot/attempt/run/grant/right/binding reuse/revival/renewal.
+
 ## Phase 1 step 531 -- integrate repository block and update README for final review
 
 - Accept complete supplied actual530 FIRST: HEAD/local origin
