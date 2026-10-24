@@ -104,83 +104,53 @@ Use the commit body to explain non-obvious decisions, compatibility changes, or 
 
 ## Choosing verification scope
 
-The [testing guide](docs/testing.md) distinguishes documentation checks,
-focused regressions, historical checkpoint snapshots and real acceptance.
-For delivery archive validation changes, run
-`python3 tests/reference/test-delivery-zip.py` and validate the exact final archive
-with `tools/reference/verify-delivery-zip.py`. Explicitly select embedded ZIPs
-when their validity is claimed. See the
-[delivery integrity scope](docs/reference/delivery-archive-integrity.md).
+Use the [testing guide](docs/testing.md) and
+[current preintegration review](docs/reference/repository-regression-block-532-538-preintegration.md).
+Six actual532-537 steps accepted;538 documentation prepared,539 final fresh91
+planned. Last confirmed qualified outer STATIC pause531; no new pause/native gate.
+Current runtime has the533 metadata-error and537 path-emission failure guards in
+initial scan only. Preserve original scenarios/assertions/native criteria and
+real/private/supplied distinctions. README update remains due at block END.
 
-The mappings below still govern reference-script changes; frozen historical
-baselines retain their original scope. The prepared
-[524-531 integrated review](docs/reference/repository-regression-block-524-531.md)
-selects86 current commands FRESH, zero normal-result reuse: exact ordered82 from
-[516-523](docs/reference/repository-regression-block-516-523.md), then cleanup
-binding/lifecycle/admission/apply drivers in introduction order. Seven actual
-steps524-530 are accepted; final531 actual acceptance and separate whole inherited-
-condition/new-effect review remain due. README is updated in this final preparation;
-only later complete actual acceptance/review can confirm a new scoped STATIC pause.
-Last qualified outer pause523 remains historical. No native authority or phase gate.
+Final91 is ordered86 from531 on current source plus five permanent drivers in
+introduction order. Run every command fresh in final preparation and on PC; no
+result reuse. Historical532/536 audit code AND scopes stay frozen and refuse this
+runtime before fixtures; exclude them and earlier unsafe512/516/519/524/527 audits
+from normal integration. First533 old-driver failures and every earlier failure/
+unknown extra/incomplete491 binary/UNKNOWN origin qualification remain preserved.
+Current CRC/SHA/source equality closes no historical/global obligation.
 
-The [preintegration review](docs/reference/repository-regression-block-524-530-preintegration.md)
-retains the original legacy personal-queue fixture failure and its114-check repair
-through verified real cleanup between independent scenarios. Preserve earlier
-assertions and unresolved state; do not clear metadata to bypass admission.
-For cleanup/admission changes run the four named current regressions and the
-personal-queue test when fixture isolation changes. The
-[testing guide](docs/testing.md#current-bounded-block-and-integrated-selection)
-records current commands/dependencies/private-supplied limits and installed-initrd
-negative-output normalization. No historical snapshot/native matrix is implied.
-Workspace count/listing/parent helper and apply checks below retain their exact
-scopes. Unsafe source-bound512/516/519/524/527 audits must not run on repaired current
-source; original observations remain history, not current safety passes.
+For delivery validation changes, use `python3 tests/reference/test-delivery-zip.py`
+and the exact archive verifier. Select embedded ZIPs explicitly before claiming
+inner validity; see [delivery scope](docs/reference/delivery-archive-integrity.md).
+The earlier [524-531 integration](docs/reference/repository-regression-block-524-531.md)
+and [530 fixture repair](docs/reference/repository-regression-block-524-530-preintegration.md)
+retain original preparation meanings and114 personal-queue checks; later531
+acceptance/pause is external. Older detailed scopes/receipts remain authoritative.
 
-The [500-507 selection](docs/reference/repository-regression-block-500-507.md),
-[492-499 selection](docs/reference/repository-regression-block-492-499.md),
-[484-491 selection](docs/reference/repository-regression-block-484-491.md),
-[475-483 selection](docs/reference/repository-regression-block-475-483.md) and earlier
-reviews retain their historical scopes, failures and corrections. Incomplete491
-binary history and unknown extra provenance remain OPEN. An archive checksum or
-correct current inventory does not close those questions.
-
-A new pause needs complete FINAL actual acceptance FIRST, THEN a separate reading
-of EVERY WHOLE inherited header/condition/EVERY exact nested original and ALL new
-effects/obligations/cleanup/limits, with stored-original comparison. Counts, hashes,
-summaries, indices and prior reviews cannot replace it. Static repository work
-neither changes native criteria nor opens consumed authority or a new native run.
+A new pause requires complete FINAL actual acceptance FIRST, THEN separate reading
+of WHOLE inherited header/EVERY WHOLE condition/EVERY exact nested original and ALL
+new effects/obligations/cleanup/failures/limits with original comparisons. Counts,
+hashes,summaries,indices/prior confirmations do not substitute. Same-assistant
+STATIC work grants no native conformance, phase completion or consumed authority.
 
 ## Reference-script changes
 
-For ELF path-emission status, run `python3 tests/reference/test-elf-emission-status.py`
-and `python3 tests/reference/test-elf-emission-apply.py`; see the
-[direct36/apply48 scope](docs/reference/elf-emission-status.md). Retain failures
-across every iteration without stopping input early or publishing/counting a
-failed scan. Historical532/536 audits and scopes stay unchanged and must refuse
-repaired source before fixtures; exclude them from normal integration.
+Apply the detailed mappings below. For the current ELF boundaries also use:
 
-For real initial ELF scan through apply/owner/builder/stable mapping, run
-`python3 tests/reference/test-elf-initial-inspection-apply.py`; see the
-[96-case composition scope](docs/reference/elf-initial-inspection-apply.md).
-Preserve failed-scan owner/builder gates, raw0/stable2 distinction, prior-list
-meaning and exact shared owner-scaffold hash. Installed leaves remain supplied.
+| Boundary | Current checks and scope |
+| --- | --- |
+| Initial metadata errors | `python3 tests/reference/test-elf-initial-inspection-errors.py`; [96 cases](docs/reference/elf-initial-inspection-errors.md) |
+| Diagnostic/staging/final producer status | `python3 tests/reference/test-elf-initial-inspection-diagnostics.py`; [72 cases](docs/reference/elf-initial-inspection-diagnostics.md) |
+| Real scan through owner/builder/result mapping | `python3 tests/reference/test-elf-initial-inspection-apply.py`; [96 cases](docs/reference/elf-initial-inspection-apply.md) |
+| Any ordered path-emission failure, direct and real apply | `python3 tests/reference/test-elf-emission-status.py` and `python3 tests/reference/test-elf-emission-apply.py`; [36/48 cases](docs/reference/elf-emission-status.md) |
 
-For initial ELF diagnostic/staging composition, run
-`python3 tests/reference/test-elf-initial-inspection-diagnostics.py`; see the
-[72-case scope](docs/reference/elf-initial-inspection-diagnostics.md). Preserve
-failed metadata/last-emission status through reporting and prior publication/count.
-These cases leave earlier producer-write masking/resolver skipping separate.
-
-Before submitting a change to the reference script:
-
-For initial ELF metadata-error handling, also run
-`python3 tests/reference/test-elf-initial-inspection-errors.py`; see its
-[96-case scope](docs/reference/elf-initial-inspection-errors.md). Preserve prior
-published list/count on classifier2 and producer subshell failure status. Keep
-the historical532 audit unchanged: it must refuse repaired source and is excluded
-from current normal checks. Scan/cache-workflow/cache-lookup initial-error
-expectations change in533; preserve their first failures and all remaining cases/
-assertions. Private checks do not change native criteria.
+Retain failures until the producer finishes all selected input; count/copy only a
+completed scan. Distinguish raw apply0/stable2 and fixture-relative boot-safe1;
+keep prior-list/count meaning, supplied installed leaves and shared scaffold hash.
+All532/536 historical guards remain unchanged. Older scan/cache expectations
+changed only in533 with original failures retained. These checks do not change
+native criteria or satisfy independent specification/conformance gates.
 
 1. Run `bash -n tools/reference/slack-update-reference.sh`.
    Run `python3 tests/reference/test-runtime-lifecycle.py` when real state initialization, early cleanup bindings, setup/EXIT composition or private lock lifecycle changes. Its [lifecycle scope](docs/reference/runtime-lifecycle.md) distinguishes supplied failures, real cleanup and preserved prior resources; keep main, logging, signal and lock tests for their separate boundaries.

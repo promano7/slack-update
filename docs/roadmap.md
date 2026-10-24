@@ -21,37 +21,40 @@ acceptance does not describe the present state of a machine.
 
 ### Repository verification and next decisions
 
-Qualified outer STATIC repository pause523 is the last confirmed pause. Seven
-actual steps524-530 are accepted, latest `d40daa4daca58813695c25f28b69e9fccce9728c`.
-The prepared [524-531 integrated selection](reference/repository-regression-block-524-531.md)
-runs86 current commands FRESH: exact ordered82 from523 plus four cleanup/admission/
-lifecycle/apply regressions in introduction order. Runtime/all tests/fixtures/native
-criteria remain exact530; README is updated at this final step. Actual531 must
-repeat all86, then complete actual acceptance must precede separate WHOLE inherited-
-condition/nested-original and ALL-new-effect/cleanup/failure/limit review with original
-comparisons. No new strong pause is confirmed by preparation or guide updates.
+Last confirmed qualified outer STATIC pause531 follows accepted86 integration;
+its later external closure is in the supplied continuation, not a rewrite of
+canonical preparation-time documents. Six actual532-537 steps now accepted,
+latest `4d92c7651dfa867c04e1a67caffe942242895b73`. Prepared538 consolidates guides;
+539 fresh91 integration/final README and separate post-actual whole-condition
+review remain due. No new pause. See the
+[current preintegration review](reference/repository-regression-block-532-538-preintegration.md).
 
-The [530 preintegration review](reference/repository-regression-block-524-530-preintegration.md)
-retains the failed legacy personal-queue test, its verified real-cleanup isolation
-repair and114 successful checks. Current metadata retention/admission guards and
-private helper/lifecycle/apply compositions keep explicit supplied/real limits.
-Historical scopes/receipts remain immutable; unsafe source-bound audits require
-matching older runtime, not current execution. See [testing](testing.md).
+Current initial scan rejects classifier2 and any selected path-emission failure
+before counting/publishing, preserving prior list/count while processing all input.
+Five permanent drivers cover metadata96/diagnostic72/apply96/emission-direct36/
+emission-apply48 with exact real/private/supplied limits. Historical532/536 defect
+audits remain unchanged and must refuse current source. Final91 is ordered86 from
+531 on current source plus those five drivers, all FRESH in final preparation and
+on PC, zero reuse. It has not run as an integration in538. Root README due at END.
 
-Repository coverage has expanded; the native inventory below is unchanged. Partial
-publication/cleanup/output trust/canonical-string/inode/input races/initial ELF
-omission/raw0/external durability/setup resets/general cleanup error suppression/
-enclosing-runtime removal and prior-sync43 build policy limits remain. Every earlier
-failure/correction/unknown extra, including52518,350,080-byte0600, and incomplete491
-binary history/failed original retrieval remain OPEN with UNKNOWN cause/provenance.
-Current canonical equality is not historical/global absence or binary-history repair.
+Known initial metadata/emission status losses are repaired in source; native
+acceptance remains unchanged. Resolver/unknown-status skipping, output trust,
+partial publication/cleanup, canonical-string/inode/input races, external durability,
+setup resets, suppressed cleanup/enclosing-parent removal and prior-sync43 build
+policy limits remain. Raw apply0 is not stable success. Preserve every original
+failure/unknown extra/incomplete491 binary/failed unread retrieval/UNKNOWN origin/
+no repair qualification. Current equality is not historical/global absence.
 
-All original native criteria/independent decisions/reviews/ACTUAL binding/safe WHOLE
-review/fresh bounded authority BEFORE effects/own-platform conformance gates remain
-due in order. A/R/D unselected/native repairs inactive. Same-assistant repository
-work neither completes these gates nor renews consumed rights. Actual host
-unobserved/evidence-live bindings null/global closurefalse. A later Slackware-current
-refresh cannot reserve candidates or revive authority through a static pause.
+Final complete actual acceptance FIRST, THEN separately READ WHOLE inherited header/
+EVERY WHOLE condition/EVERY exact nested original/ALL new effects/obligations/
+cleanup/failures/limits with original comparisons; no count/hash/summary substitutes.
+All original native criteria/independent decisions/reviews/ACTUAL binding/safe
+ACTUAL WHOLE review/fresh bounded authority BEFORE effects/OWN-platform gates due
+in order. A/R/D unselected/native repairs inactive. Same-assistant STATIC work
+satisfies none of these gates and does not renew consumed rights. Host unobserved/
+evidence-live bindings
+null/global closurefalse. Later-current refresh cannot invalidate completed scoped
+531 STATIC pause or revive consumed source/boot/run/grant/right/binding authority.
 
 ### Remaining Phase 1 work
 

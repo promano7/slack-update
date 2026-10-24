@@ -8,95 +8,49 @@ Slackware acceptance differ; it does not authorize a system run.
 
 ## Current bounded block and integrated selection
 
-Later checkpoint537: actual536 accepted at
-`6051406e319c154a23cbbd28a5dd11ed64b0599f`. Prepared537 adds one sticky path-emission
-failure guard and [direct36/apply48 regressions](reference/elf-emission-status.md).
-Fifteen current commands fresh; historical532/536 audits must refuse current
-runtime before fixtures and are excluded. Old tests/fixtures/native criteria/root
-README exact536. Planned final91 retains ordered86 from531 plus five permanent
-new drivers in introduction order; not run yet. Five actual steps/no new pause.
-Earlier prepared paragraphs below retain original checkpoint meanings.
+Six actual steps532-537 accepted, latest HEAD/local origin
+`4d92c7651dfa867c04e1a67caffe942242895b73`. Prepared538 consolidates documentation
+only; runtime/all tests/support/fixtures/native criteria/root README exact537.
+[The preintegration review](reference/repository-regression-block-532-538-preintegration.md)
+records the two initial-scan repairs, five permanent regressions and remaining
+private/supplied/trust/cleanup/publication limits. Last confirmed outer qualified
+STATIC pause531 is historical; no new pause in this open532-539 block.
 
-Later checkpoint536: actual535 accepted at
-`99988f1ad8275fc606153c4ee47ed558b2289cba`. Prepared536 adds the
-[exact535 emission audit](reference/elf-emission-status-audit.md),36 observations/
-8 masked failures, not safety passes. Four fresh normal commands; runtime/old
-source/native criteria/root README exact535. Keep this audit's source guard and
-historical defective expectations after repair; exclude it from changed-source
-normal integration. Four accepted actual steps; no new pause/native authority.
-Earlier prepared paragraphs below keep their original checkpoint meanings.
+Planned539 integration is ordered86 from accepted531 on CURRENT source, then
+metadata-error96, diagnostic72, initial-apply96, emission-direct36 and emission-
+apply48 in introduction order:91 commands. All91 must run FRESH in final preparation
+and on the PC, zero reused results. They have NOT run as an integration in538.
+No heterogeneous case-total/native coverage sum or historical snapshot rerun.
+The91 vectors and current driver hashes are reviewed separately from execution.
 
-Later checkpoint535: actual534 accepted at
-`c5bbdfa33a3f94f08c38c68c03867886b523bf30`. Prepared535 adds
-[96 initial-scan/apply cases](reference/elf-initial-inspection-apply.md), selecting
-seven fresh normal commands. Real scan/owner/builder/recheck/stable mapping with
-supplied installed leaves; runtime/old tests/native criteria/root README exact534.
-Preceding prepared paragraphs below keep their original checkpoint meanings.
-Three accepted actual steps in532-539 block; no new pause or native authority.
+Historical source-bound512/516/519/524/527/532/536 audits are excluded. Preserve
+both532/536 code AND scopes, exact hashes/defective expectations; both refuse this
+runtime before fixtures as recorded in537 preparation, not newly rerun by538.
+The three old scan/cache expectation updates occurred in533 after preserving full
+first failures. All later old tests remain unchanged; no native criterion changed.
 
-Later checkpoint534: complete actual533 accepted at
-`678850d838c140f6c587b532c028be37ed6612e5`. Prepared534 adds
-[72 diagnostic/staging cases](reference/elf-initial-inspection-diagnostics.md)
-and freshly selects six normal commands. Runtime/old tests/native criteria/root
-README exact533. Preceding531-533 preparation paragraphs below keep their original
-checkpoint meanings. New532-539 block has two accepted actual steps/no new pause.
+Python3.11+, Bash,jq,flock,timeout,awk and GNU coreutils/findutils/sed remain required
+for full regression selection. Position51 personal-queue retains114 checks after530
+fixture isolation;56 installed-initrd retains expected negative diagnostics/90
+checks and only one consistent private-root normalization with full outputs kept.
+Existing31-case delivery-ZIP check is61. Preserve all previous failures and limits.
 
-Later checkpoint533: complete actual532 accepted at
-`72bf2e776d145a1d36ebade2605dbdbb9068dfa0`. Prepared533 rejects classifier2 initial
-ELF inspection before list/count publication. Run the
-[96-case current regression](reference/elf-initial-inspection-errors.md) and its
-eleven-command selection. Historical532 audit must refuse repaired source; do not
-change its guard. Three older drivers' initial-error expectations change after
-preserving their first failures. The531 integration paragraphs below keep their
-original preparation context; supplied531 outer continuation records its later
-qualified STATIC pause. New block532-539/reserve540-543 remains open/no new pause.
+538 runs documentation-only checks: added links/fragments, exact planned86+5 vectors/
+current driver hashes, source/mode/native guidance-tail preservation and accurate
+current/prepared status, plus syntax/executable/whitespace checks. No permanent
+fixture is added and no unit suite is rerun solely for this numbered docs step.
+Root README update and fresh91 execution remain539 work after complete actual538.
 
-Seven actual steps524-530 are accepted, latest HEAD/local origin
-`d40daa4daca58813695c25f28b69e9fccce9728c`. Prepared final531 updates root README
-and [integrates86 current commands](reference/repository-regression-block-524-531.md):
-exact ordered82 from523, then cleanup-binding32/lifecycle72/admission96/binding-
-apply72 in introduction order. All86 run FRESH, zero reused normal records, and
-actual531 must repeat them before commit/push/clean final source-mode-tree capture.
-Runtime/all tests/support/fixtures/native criteria remain exact530. README's native
-phase/explicit-operation/configuration/usage/exit boundaries remain unchanged.
-No new strong pause or native authority follows from this preparation.
-
-The [preintegration review](reference/repository-regression-block-524-530-preintegration.md)
-retains the original legacy-fixture failure and real-cleanup isolation repair.
-Its51st personal-queue command now has114 checks; the failed original did not reach
-its final summary. Six older workspace drivers keep525's narrow metadata expectation
-changes. All earlier detailed scopes/receipts remain immutable historical records.
-This is current-source execution, not rerunning historical523/515 snapshots.
-
-Python3.11+, Bash,jq,flock,timeout,awk and GNU coreutils/findutils/sed remain required.
-The named56th installed-initrd command retains expected negative diagnostics/90
-checks/zero failures. Comparison preserves both full outputs and permits only its
-one consistent private-root normalization. Personal-queue summary92-to114 is an
-explicit fixture change; no other broad output normalization is permitted.
-Existing31-case delivery-ZIP regression remains included at61. No heterogeneous
-case-total/native coverage sum or historical/native mutation-matrix run.
-
-Historical unsafe source-bound audits512/516/519/524/527 MUST NOT run on repaired
-current source. Metadata retention is not resource existence/durable custody or
-removal authority. Parent-runtime removal may follow owned-helper refusal;
-cleanup still suppresses selected errors. Apply raw0/stable2/partial1/fixture-
-relative boot-safe1 remain distinct, and six529 admitted/prior-sync43 cases still
-reach supplied build leaves. Canonical-string/inode/race/output-trust/setup-reset/
-partial-effect limits persist. Shared inventories exclude ALL.events names and
-check named logs; guard/UID0/private teardown is not OS containment or native/host
-conformance. See integrated scope and original records for complete qualifications.
-
-Keep every earlier failure/correction/unknown extra/incomplete491 binary-history
-qualification OPEN. Final whole inherited header/EVERY WHOLE condition/EVERY exact
-nested original reading and ALL-new-effect/cleanup/failure/limit/obligation review
-with original comparisons must follow complete FINAL actual acceptance FIRST.
-That final reading has not occurred in this block; counts/hashes/summaries/indices/
-previous confirmations do not replace it. Last qualified outer STATIC pause523
-remains historical; only later external review can confirm a new scoped pause.
-Phase1/kernel/native/independent decision/review/ACTUAL binding/safe WHOLE review/
-fresh bounded grant BEFORE effects/own-platform conformance gates remain. No
-consumed source/boot/run/grant/right/binding is renewed or reused. Evidence/live
-bindings null, actual host unobserved/global closurefalse.
+Final complete actual acceptance FIRST, THEN separately READ WHOLE inherited header,
+EVERY WHOLE condition/EVERY exact nested original and ALL new effects/obligations/
+cleanup/failures/limits with stored-original comparisons. Counts/hashes/summaries/
+indices/prior confirmations do not replace pending whole reading. Only if supported
+may later external review confirm a qualified STATIC pause, then STOP. Preserve
+entire original531 continuation/532-537 ZIPs/nested history/unknown extras/incomplete491
+binary/UNKNOWN origins/no repair. Phase1/kernel/native/independent option/spec-impact/
+migration IF norms change/ACTUAL binding/safe ACTUAL WHOLE review/fresh bounded grant
+BEFORE effects/OWN-platform gates remain. No consumed rights renewed. Evidence/live
+bindings null; host unobserved-not-claimed-absent/global closurefalse.
 
 ## Select the applicable checks
 

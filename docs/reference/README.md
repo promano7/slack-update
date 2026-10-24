@@ -31,43 +31,33 @@ choose a path, approve a migration or grant a native test.
 
 ## Current repository regression coverage
 
-The supplied531 continuation records the accepted86-command integration and its
-later qualified STATIC pause524-531, with actual reported HEAD
-`f2283cfcbb373988a133b58b3a6f92572aad7035`. The canonical
-[524-531 integrated review](repository-regression-block-524-531.md) keeps its
-original preparation-time language; the later closure is external to that source.
-New block532-539/reserve540-543 starts with the exact-source
-[initial ELF inspection audit](elf-initial-inspection-audit.md). Its48 observations
-include12 known metadata-error omissions by the initial scan, not safety passes.
-Actual532-536 accepted, latest `6051406e319c154a23cbbd28a5dd11ed64b0599f`.
-Prepared537 [retains every path-emission failure](elf-emission-status.md) through
-scan completion, with direct36/apply48 regressions. Historical
-[536 emission observations](elf-emission-status-audit.md) and532 audit stay frozen
-and must refuse changed runtime. Fifteen current normal commands are selected;
-planned final91 is ordered86 from531 plus five new permanent drivers. Old tests/
-fixtures/native criteria/root README exact536. No new pause; final whole inherited-
-condition review follows complete FINAL actual acceptance.
+Six actual532-537 steps accepted, latest
+`4d92c7651dfa867c04e1a67caffe942242895b73`. Prepared538
+[consolidates the current block](repository-regression-block-532-538-preintegration.md)
+without runtime/test/native-criteria/root README changes. Final539 plans91 FRESH
+commands: ordered86 from531 on current source plus five permanent ELF drivers in
+introduction order. No fresh91 integration or new pause yet. Last confirmed
+qualified outer STATIC pause531 is recorded externally in the supplied continuation.
+Canonical old preparation flags keep their original meanings.
 
-The [preintegration record](repository-regression-block-524-530-preintegration.md)
-retains530's initial legacy-fixture failure and114-check isolation repair. Current
-scopes are [cleanup binding](sbo-workspace-cleanup-binding.md),
-[lifecycle](sbo-workspace-cleanup-lifecycle.md),
-[admission](sbo-workspace-binding-admission.md) and
-[apply composition](sbo-workspace-binding-apply-composition.md). The
-[testing guide](../testing.md#current-bounded-block-and-integrated-selection)
-records exact current/historical/private/supplied boundaries. Original detailed
-scopes/receipts retain their history; source-bound unsafe512/516/519/524/527 audits
-must not run on repaired source. New summaries do not amend native criteria.
+Current source guards initial metadata and path-emission failures before count/
+publication, with explicit private/supplied/result/cleanup/trust limits. Historical
+532/536 defect audits AND scopes stay unchanged and refuse current source; exclude
+them and earlier unsafe512/516/519/524/527 audits from normal integration. Complete
+FINAL actual acceptance must precede separate WHOLE inherited-condition/nested-
+original/all-new-effects review with original comparisons. No summaries substitute.
 
-Earlier [516-523](repository-regression-block-516-523.md),
+Earlier [524-531](repository-regression-block-524-531.md),
+[516-523](repository-regression-block-516-523.md),
 [508-515](repository-regression-block-508-515.md),
 [500-507](repository-regression-block-500-507.md),
 [492-499](repository-regression-block-492-499.md),
 [484-491](repository-regression-block-484-491.md) and
-[475-483](repository-regression-block-475-483.md) reviews keep original selections,
-failures/repairs/qualifications. Unknown extras/incomplete491 binary history remain
-OPEN; no inventory/checksum establishes historical/global absence. All original
-native decisions/reviews/authority gates remain due.
+[475-483](repository-regression-block-475-483.md) keep original scopes/receipts/
+failures/repairs. [530 preintegration](repository-regression-block-524-530-preintegration.md)
+retains the original legacy personal-queue failure and114-check fixture isolation.
+Unknown extras/incomplete491 binary history stay OPEN; source/checksum equality
+is not provenance/global absence or native authority. Original native gates due.
 
 | Boundary | Detailed current scope |
 | --- | --- |
@@ -99,11 +89,10 @@ native decisions/reviews/authority gates remain due.
 | Version/scalar/snapshot/output readers and GRUB candidate text | [Boot artifacts and fixture repairs](boot-artifact-validation.md) |
 
 
-These detailed records distinguish real private coreutils from supplied leaves.
-Current metadata retention/admission/parent cleanup, partial effects and prior-
-sync43 policy limits are reviewed in the preintegration record. Historical cron
-failures/repairs and installed-initrd fixture alignment keep their own scopes.
-No selected repository suite constitutes native acceptance or whole-host safety.
+Detailed records distinguish real private coreutils from supplied leaves. Current
+preintegration covers both ELF guards and preserved workspace/lifecycle/apply/
+partial-effect/cleanup/trust limits. Historical cron/initrd fixture repairs retain
+their own exact scopes. No selected suite establishes native acceptance or host safety.
 
 ## Locate the supporting files
 

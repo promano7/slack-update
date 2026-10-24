@@ -18,19 +18,20 @@ acceptance material. For the current phase and unfinished work, use the
 | Contribution, language and documentation rules | [Contributing](../CONTRIBUTING.md) |
 | Detailed contracts, audits and evidence | [Reference documentation](reference/README.md) |
 | Select applicable checks and historical snapshots | [Testing guide](testing.md) |
-| Current integrated selection, cleanup/admission and fixture limits | [524-531 integrated review](reference/repository-regression-block-524-531.md) |
-| Previous completed integrated selection | [516-523 review](reference/repository-regression-block-516-523.md) |
+| Current ELF block, planned final integration and precise limits | [532-538 preintegration](reference/repository-regression-block-532-538-preintegration.md) |
+| Last completed integration, with later outer531 closure | [524-531 review](reference/repository-regression-block-524-531.md) |
 | Current bounded regression block and focused workspace checks | [Current testing status](testing.md#current-bounded-block-and-integrated-selection) and [reference index](reference/README.md#current-repository-regression-coverage) |
 | Real Slackware acceptance scenarios | [Acceptance guide](../tests/acceptance/reference/README.md) |
 | Changes by step or version | [CHANGELOG](../CHANGELOG.md) |
 | Earlier README checkpoints and original design text | [Historical README through step 418](reference/readme-through-step418.md) |
 
-Qualified outer STATIC pause523 is the last confirmed pause. Seven actual steps
-524-530 are accepted; final531 is prepared only. It updates root README and runs86
-selected commands fresh on current source. Complete final actual acceptance and
-separate whole-condition/nested-original/new-effect review remain due before any
-new strong pause. Repository checks do not close native acceptance or establish
-actual-host safety. Original detailed prepared records retain their history.
+Last confirmed qualified outer STATIC pause531 is recorded in its supplied
+continuation. Six actual532-537 steps accepted;538 documentation prepared,539
+fresh91 integration/final README and separate whole inherited-condition review
+remain due. The five current ELF regressions and original scope limits are linked
+from the preintegration review. Runtime/old tests/native criteria/root README
+remain exact537 in538. No new pause, native conformance or actual-host closure.
+Historical detailed records keep their original preparation-time meanings.
 
 The design's proposed configuration and result examples describe future
 interfaces. Use the checked-in configuration and the shell reference for the

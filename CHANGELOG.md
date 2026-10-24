@@ -1,3 +1,50 @@
+## Phase 1 step 538 -- consolidate current ELF block and review final integration plan
+
+- Accept complete supplied actual537 FIRST: HEAD/local origin
+  4d92c7651dfa867c04e1a67caffe942242895b73, parent
+  6051406e319c154a23cbbd28a5dd11ed64b0599f, tree
+  b0575d8ce42520e5b01529d138eb4e67f3f33005, policy SHA256
+  32b6370296cc1d846827c597e2c52e24d89675b42ba2767f105575d6db868310.
+  Fifteen ordered outputs/nine paths650add12delete/exact subject/reported push/clean
+  full local refs/source-mode-tree/shared hashes agree. Complete inline output
+  transcribed, commands reconstructed from matching template; not original
+  attachment bytes/independent terminal/remote/native capture or actual Git objects.
+- Documentation only: consolidate active contribution/testing/navigation/roadmap
+  into one current state, link new532-538 preintegration review, retain immutable
+  historical scopes. Native contribution prefix/list tail, roadmap native inventory/
+  phase tail, testing guidance tail and reference native-contract/index tails stay
+  exact537; removed current-guide prose preserved in preimages/Git/history.
+- Runtime/ALL old tests/support/fixtures/native criteria/root README exact537;
+  runtime956850b26ef0bcd145c934a3c450853048976546633ec2cce3c0066f835fedd2.
+  Seven Markdown paths/one new100644 review; all old modes preserved. No new
+  permanent test/fixture or unit suite rerun for this numbered documentation step.
+  Run scoped added-link/fragment/status/unchanged-source/native-tail/exact-vector/
+  driver-hash checks plus syntax/executable/whitespace. Four documentation reports,
+  not a regression/native coverage count; full command outputs retained.
+- Review planned91: ordered86 from531 on CURRENT source plus permanent53396/53472/
+  53596/53736/53748 in introduction order. Exclude all unsafe historical audits,
+  preserve532/536 guards/defective expectations. Source vector/hash review only;
+  no91 execution or reuse of537 results. Position51 personal-queue114,56 initrd
+  expected negative diagnostics/90checks/one consistent private-root normalization,
+  61 existing delivery31. Full91 FRESH required in539 preparation and on PC.
+- Preserve533 old-driver first failures and532 full10,747,904-byte extra/first
+  inventory/generator/rejection/missing-policy follow-up/strict-prefix bytes-only
+  comparison/no pretest inventory/UNKNOWN cause. All older failures/unknown extras/
+  incomplete491 binary/failed unread retrieval/no binary repair remain OPEN. No
+  test/user/copy/common-cause attribution or global absence from current integrity.
+- Six actual532-537 accepted;538 prepared seventh, commit/push/full return pending.
+  539 final eighth integration/README planned; reserves540-543 only if evidence
+  needs, no automatic extension. Last confirmed outer scoped STATIC pause531.
+  No new pause: complete FINAL actual acceptance FIRST, THEN separately WHOLE
+  inherited header/EVERY WHOLE condition/EVERY exact nested original/ALL new effects/
+  obligations/cleanup/failures/limits with original comparisons. No count/hash/
+  summary/prior-confirmation substitutes; full bodies/original ZIP history preserved.
+  Phase1/kernel/native criteria/independent ordered option/spec/migration/ACTUAL
+  binding/safe WHOLE review/fresh bounded grant BEFORE effects/OWN-platform gates
+  unchanged. Evidence/live bindings null; host unobserved/global closurefalse.
+  No consumed source/boot/attempt/run/grant/right/binding reuse/revival/renewal or
+  required native setup/cleanup/fresh authority.
+
 ## Phase 1 step 537 -- retain every ELF path-emission failure during scanning
 
 - Accept complete supplied actual536 FIRST: HEAD/local origin
