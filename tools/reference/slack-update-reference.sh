@@ -3716,6 +3716,13 @@ prepare_private_sbo_queue_workspace() {
     local canonical_destination
     local symlink_count
 
+    # Keep unresolved cleanup bookkeeping until its caller resolves it.
+    if [ -n "${SBO_GENERATED_QUEUE_OWNED_PATH:-}" ] \
+        || [ -n "${SBO_GENERATED_QUEUE_OWNED_CANONICAL:-}" ]; then
+        SBO_TARGET_SELECTION_ERROR="cannot replace unresolved private SBo queue workspace binding"
+        return 1
+    fi
+
     SBO_TARGET_SELECTION_ERROR=
     SBO_PERSONAL_QUEUE_FILE_COUNT=0
     SBO_PERSONAL_QUEUE_SYMLINK_COUNT=0

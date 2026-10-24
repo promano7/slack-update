@@ -1,3 +1,40 @@
+## Phase 1 step 528 -- reject replacement of unresolved SBo workspace bindings
+
+- Accept complete supplied actual527 FIRST: HEAD/local origin
+  7782fd62abec51864839a52f8513344b1c417ccb, parent
+  82e86ea85d4b14b4cb334017b50530648e71c3a8, tree
+  e015cb7b8c918784d5081f6dfe368e7f7fa6385e, policy SHA256
+  0b2998f7ab4c3b63d77d2ec8ac1fa3a0863f0f3cf13995aa7288a2a4a28219e1.
+  Four ordered outputs/threepaths265 additions/new100644 pair/exact subject/
+  reported push/clean localrefs/source-mode-tree agree. Inline reconstruction is
+  not original terminal bytes or independent terminal/GitHub/native capture.
+- At private-workspace helper entry, reject if either owned path or canonical
+  binding is nonempty, before error/counter reset, path inspection or filesystem
+  work. Set one admission diagnostic/return1, preserve exact earlier fields,
+  counters and direct source. Empty/unset bindings keep existing validation/copy/
+  count/cleanup behavior. No new global, retry, rebinding, cleanup or authority.
+  Earlier sync/discovery/resolution still precede helper rejection; no rollback.
+- Add96-case regression: six binding states x four profiles x two count selections
+  x direct/sync.64 admission failures preserve fields/counters/resources;32 controls
+  cover empty/unset/missing/full/relative-path/count failure behavior. Check ten
+  globals/eight named logs including every canonicalization call, exact output/
+  argv/status/inventory/modes/bytes/links/prior-personal-sentinel/IFS/caller locals.
+  Shared scaffolding still excludes all.events names, separately checks logs.
+- Run17 normal commands FRESH, zero reuse: new96 driver then exact16 from526 on528
+  source. Six selected valid-shell faulty-source controls reject old527, either
+  missing field check, pre-guard clear/counter reset and missing diagnostic. Full
+  records retained; no full82/historical/native selection or independent acceptance.
+  All old tests/support/fixtures/native criteria/README exact527. Audits527/524
+  remain immutable source-bound history and MUST NOT run on repaired runtime.
+- Four actual steps524-527 accepted;528 prepared/commit/push/acceptance pending.
+  529 caller composition planned after complete actual528 acceptance. Target524-531/
+  reserve532-535 only if needed, README due at END; no new pause. Setup reset/
+  memory durability/canonical-string/race/partial-effect/cleanup limits and every
+  old failure/extra/incomplete491 binary-history/native-gate obligation remain.
+  Final whole inherited-condition/nested-original/new-effect review still due after
+  final actual acceptance. Evidence/live bindings null, actual host unobserved/
+  global closurefalse; no consumed source/boot/run/grant/right reused or renewed.
+
 ## Phase 1 step 527 -- characterize prior SBo workspace binding replacement
 
 - Accept complete supplied actual526 FIRST: HEAD/local origin

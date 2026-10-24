@@ -31,6 +31,15 @@ choose a path, approve a migration or grant a native test.
 
 ## Current repository regression coverage
 
+The prepared [528 binding admission guard](sbo-workspace-binding-admission.md)
+protects unresolved cleanup fields from replacement before new workspace work.
+Actual524-527 are accepted;528 is prepared only. New96-case regression and16
+prior normal vectors run fresh on current source. The
+[527 audit](sbo-workspace-binding-replacement-audit.md) remains historical/source-
+bound and must not run on repaired runtime. Root README/final full inherited-
+condition/new-effect review remain due at block end; no new strong pause.
+The following earlier preparation records retain their own historical states.
+
 The [526 cleanup lifecycle composition](sbo-workspace-cleanup-lifecycle.md)
 adds72 private cleanup/EXIT/signal/lock cases with runtime unchanged from525.
 Actual524-525 are accepted;526 is prepared only. Retained fields, enclosing-runtime

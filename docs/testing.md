@@ -8,6 +8,17 @@ Slackware acceptance differ; it does not authorize a system run.
 
 ## Current bounded block and integrated selection
 
+The prepared528 [binding admission guard](reference/sbo-workspace-binding-admission.md)
+rejects a new private workspace while either cleanup field is nonempty, before
+path inspection/counter reset or filesystem work. New96-case regression covers
+64 admission rejections and32 empty/unset controls. Actual524-527 are accepted,
+latest `7782fd62abec51864839a52f8513344b1c417ccb`;528 is prepared only. Seventeen
+normal commands run fresh: new admission driver then exact16 from526, all on528
+source. No full82/native run. Historical527 binding-replacement and524 cleanup
+unsafe audits must not run on repaired current runtime. Root README/final whole-
+condition/new-effect review remain due at block end; no new strong pause.
+Earlier prepared526/525 and516-523 records below keep their own historical scope.
+
 The current526 [cleanup lifecycle composition](reference/sbo-workspace-cleanup-lifecycle.md)
 adds72 private cases through real cleanup/EXIT/self-SIGTERM/private-lock paths.
 Actual524-525 are accepted, latest HEAD/local origin
