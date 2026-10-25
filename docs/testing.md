@@ -8,52 +8,50 @@ Slackware acceptance differ; it does not authorize a system run.
 
 ## Current bounded block and integrated selection
 
-Complete supplied inline actual550 is accepted FIRST: HEAD/local origin
-`621c93e56cb3b2335e4055cfb4bfc8e940367a6c`, parent
-`0b9d2327014d096576bb9f523da520ea58bc829d`, tree
-`10ac197ae9a5616a204b2f30891162c72302c131`. Six complete outputs, eight-path
-stat, exact policy/modes, clean local refs and reported push match. Terminal
-output is explicitly transcribed from the inline return, not uploaded-file or
-independent custody. Last qualified STATIC pause547; no new pause.
+Complete supplied inline actual551 is accepted FIRST: HEAD/local origin
+`5a221148a60e3c2e89fffa1ba4557cd496fb900f`, parent
+`621c93e56cb3b2335e4055cfb4bfc8e940367a6c`, tree
+`e674c6f766869f8706f7c180850ea71135126bcf`. Seven full ordered outputs,
+eight-path stat, exact policy/modes, clean refs and reported push match. Output
+is explicitly transcribed inline, not uploaded-file/independent custody. Last
+qualified outer STATIC pause547; no new pause or whole inherited reading.
 
-Prepared551 adds [cache-emission/initial-scan composition](reference/elf-cache-scan-emission.md).144 private
-cells include72 active emission refusals and36 empty-cache controls; all108 cache
-blocks preserve prior list/count7, leave cache count0 and bypass object traversal.
-36 normal-cache controls reach real object processing:12 healthy clears,12 missing
-dependency lists,12 metadata failures. Runtime/root README/ALL old tests/support/
-fixtures/native criteria and frozen548 audit/guard/oracle/scope remain exact550.
+Prepared552 adds [cache-emission/post-build recheck composition](reference/elf-cache-recheck-emission.md).156 cells
+include72 active emission refusals,108 total cache blocks,36 object-processing
+controls and12 existing empty/missing-list early returns. Cache blocks preserve
+the exact prior list/count7 and set verification1/raw1/cachecount0. Normal healthy
+rechecks clear the list while count7 remains stale; raw0 is not full apply success.
+Runtime/root README/ALL old tests/support/fixtures/native criteria/frozen548 scope
+and guard remain exact551. No new runtime repair or native norm amendment.
 
-Seven fresh focused commands prepend scan144 to unchanged550 six. New driver
-imports unchanged549 fixture mechanics as declared support; runtime/driver/support
-hashes bind the runs. No fresh96, full apply/JSON or installed/native acceptance.
-Exact548 and four selected scan mutations reject in their finite scopes.
+Eight fresh focused commands prepend recheck156 to unchanged551 seven. New driver
+imports551 callbacks/constants with transitive549 fixture mechanics; BOTH support
+hashes are bound. Exact548 and five finite recheck mutations reject in their stated
+scopes. No fresh96 integration, full apply/JSON or installed/native acceptance.
 
-Retain newly observed UNKNOWN18612224-byte0600 extra, full bytes/inventory/original
-membership rejection/first authored driver/first smoke. Canonical source rebuilt
-from exact550 ZIP policy members/modes plus that intended driver; controls and
-selection fresh afterward. Initial inventory had no extras; origin/time/cause
-UNKNOWN. First driver also retained before assertion-diagnostic refinement.
-All earlier scratch recovery/provenance/incomplete491/failed unread retrieval
-qualifications remain OPEN; no attribution, binary repair or global absence.
+Retain UNKNOWN15466496-byte0600 source extra, full bytes/inventory/original strict
+membership refusal/first authored driver/smoke. Canonical source rebuilt exact551
+ZIP policy members/modes plus one intended driver, then controls and selection
+fresh. Initial inventory had no extras; origin/time/cause UNKNOWN, no attribution,
+prefix/provenance/cleanup/global absence or binary repair. All earlier unknown-
+extra/550 scratch recovery/incomplete491/failed unread qualifications remain OPEN.
 
-Actual551 pending. Continue bounded548-555:552 recheck,553 apply/results,
-554 exact547 ordered96 plus new current drivers,555 useful README/fresh final
-selection/COMPLETE FINAL actual FIRST/separate WHOLE inherited header/EVERY WHOLE
-condition/EVERY exact nested original/ALL new effects, obligations, cleanup,
-failures and limits reading/comparisons. No counts/hashes/prior flags/summaries
-substitute.556-559 justified reserves only. Preserve entire547/nested originals/
-every548+ ZIP; no automatic extension, strong pause or native operation now.
-Phase1/kernel incomplete;original criteria/13findings16gaps/A-R-Dunselected/
-ordered independent-native gates remain. Evidence/livebindingsnull;hostunobserved/
-globalfalse. No old rights revived; later-current refresh cannot invalidate
-completed scoped STATIC547 pause.
+Actual552 pending. Continue bounded548-555:553 apply/results,554 exact547 ordered96
+plus new current drivers,555 useful README/fresh final selection/COMPLETE FINAL
+actual FIRST/separate WHOLE inherited header/EVERY WHOLE condition/EVERY exact
+nested original/ALL new effects, obligations, cleanup, failures and limits reading/
+comparisons. Counts/hashes/prior flags/summaries do not substitute.556-559 justified
+reserves only. Preserve entire547/nested originals/every548+ ZIP. Phase1/kernel
+incomplete;original criteria/13findings16gaps/A-R-Dunselected/independent-native
+ordered gates remain. Evidence/livebindingsnull;hostunobserved/globalfalse. No old
+rights revived or native setup/run/cleanup; later-current refresh cannot invalidate
+completed scoped STATIC547 pause. No automatic extension or new pause.
 
-Run `python3 tests/reference/test-elf-cache-scan-emission.py` for selected551
-cache-failure/initial-scan composition. It imports unchanged549 PREFIX/GUARDS/
-HEADER/inventory, supplies its own reader/find/count/diagnostic callbacks and
-authors its own outcomes. The focused runner binds that support hash. Frozen
-512/516/519/524/527/532/536/540/548 stay excluded; broader old results retain
-their finite scopes. No whole-host cleanup, installed-reader or native evidence.
+Run `python3 tests/reference/test-elf-cache-recheck-emission.py` for552. It imports
+unchanged551 callbacks/constants and transitive549 mechanics, not scenario result
+oracles. The runner binds both support files, plus current runtime/driver hashes.
+Frozen512/516/519/524/527/532/536/540/548 stay excluded. Respect early/inactive
+controls, raw/state/count/list limits, supplied readers and private cleanup scope.
 
 ## Select the applicable checks
 

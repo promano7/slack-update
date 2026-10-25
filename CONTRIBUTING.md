@@ -38,6 +38,13 @@ README archives and per-step summaries do not supersede them.
 
 ## Current cache-record emission regression
 
+For552 cache-emission/post-build recheck composition, run
+`python3 tests/reference/test-elf-cache-recheck-emission.py` and read its
+[recheck scope](docs/reference/elf-cache-recheck-emission.md).156 cases distinguish
+108 cache blocks,36 object controls and12 early returns; counts overlap active
+emission labels. Bind unchanged551 and transitive549 support hashes. No runtime,
+full apply/JSON/native policy or whole cleanup change follows from this driver.
+
 For551 selected cache-failure/initial-scan composition, run
 `python3 tests/reference/test-elf-cache-scan-emission.py` and read its
 [scan scope](docs/reference/elf-cache-scan-emission.md).144 cells separate72 active
