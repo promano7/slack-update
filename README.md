@@ -31,12 +31,13 @@ All 13 manuscript audit findings remain open; alternatives A/R/D are unselected
 and the original requirements remain binding.
 
 The last confirmed qualified outer STATIC repository pause is step555.
-Six steps556-561 are accepted. The prepared [current integration](docs/reference/sbo-emission-integration.md)
-selects106 repository checks: the previous101 with unchanged vectors/full output
-oracles, plus five package-name emission drivers in introduction order. These
-cover the minimal557 writer-status repair and private installed/owner/ABI-dry-run
-selection gates with their recorded limits. Final562/563 acceptance and a separate
-whole inherited/new-effects review remain pending before a new qualified pause.
+Seven steps556-562 are accepted, including the complete106-command integration
+at commit `0536e83`. The minimal557 repair retains failed package-name emissions;
+separate checks cover input layouts and private installed/owner/ABI-dry-run
+selection gates. The [final block reconciliation](docs/reference/sbo-emission-final-review.md)
+keeps the same106 commands, full output oracles, runtime and supports for fresh563
+checks. Complete final PC evidence and a separate whole inherited/new-effects/
+original review remain due before a new qualified STATIC pause.
 Repository reviews are not independent semantic or native platform acceptance.
 
 Unknown source-extra provenance, recording limits and incomplete binary history

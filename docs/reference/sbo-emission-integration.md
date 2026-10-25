@@ -104,3 +104,14 @@ the final block and root overview, repeat the same106 freshly, accept COMPLETE
 FINAL actual FIRST, then perform the separate whole-inherited/new-effects/original
 review before a qualified STATIC pause and STOP. Historical prepared flags and
 actual captures remain immutable; a later outer confirmation is separate.
+
+## Later prepared563 reconciliation
+
+The step562 preparation and then-pending statements above are historical. Complete
+actual562 is now accepted at HEAD/local origin0536e8372bd4c704c332239cd640e4cd34854c3d,
+with all106 ordered outputs and the expected tree/policy/modes/clean refs/stat/
+subject/reported push. Exact uploaded text is retained, not independent terminal/
+remote capture. The [final reconciliation](sbo-emission-final-review.md) leaves
+this plan and runner byte unchanged and repeats106 freshly with labelSTEP563.
+Actual563 and the separate whole inherited/new-effects/original review remain
+due before any qualified STATIC pause. No prepared or historical flag is upgraded.

@@ -31,15 +31,16 @@ choose a path, approve a migration or grant a native test.
 
 ## Current repository regression coverage
 
-Complete supplied inline actual561 is accepted first: HEAD/local origin
-`7d7eab23d1866e6c3e6c7e92fe6ad0c2911b4fd3`, parent
-`03ce242c4eb250438ddcfc3c21a697a73c8e6fcd`, tree
-`6bde585359ac17a10f10f7f19a23f16ceba01764`. Eight complete ordered outputs,
-seven-path316-add3-delete stat/subject/policy/modes/clean local refs/reported push
-agree. Retained inline transcription is not original uploaded-byte or independent
-terminal/GitHub custody. Six actual steps556-561 are accepted;562/final563 and a
-new qualified STATIC pause remain pending. Last qualified outer STATIC pause555
-and all inherited qualifications remain as recorded, not freshly re-reviewed.
+Complete supplied uploaded actual562 is accepted first: HEAD/local origin
+`0536e8372bd4c704c332239cd640e4cd34854c3d`, parent
+`7d7eab23d1866e6c3e6c7e92fe6ad0c2911b4fd3`, tree
+`b4cc0e73340f40c8c1982397206c3c6608b73906`. All106 complete ordered outputs,
+eight-path2281-add156-delete stat/subject/policy/modes/clean local refs/reported
+push agree. Exact uploaded terminal-text bytes are retained; this is not independent
+terminal/GitHub observation or separate stderr custody. Seven actual steps556-562
+are accepted. Final563 and the separate whole inherited/new-effects/original review
+remain pending; no new qualified STATIC pause is confirmed. Last confirmed outer
+STATIC pause555 and its full qualifications remain historical, not freshly reviewed.
 
 Current integration selects106 commands: original101 vectors, driver/support
 identities and complete status/stdout/stderr oracles unchanged, followed by
@@ -76,10 +77,12 @@ a completed qualified STATIC pause or revive authority.
 
 Read the [current integration scope](sbo-emission-integration.md) and the [bounded block](repository-regression-block-556-563.md).
 
-Run from the repository root:
+Read the [final block reconciliation](sbo-emission-final-review.md) for the pending end gate.
+
+Run the unchanged106 plan from the repository root:
 
 ```bash
-python3 tests/reference/run-sbo-emission-integration.py "$PWD" --label STEP562
+python3 tests/reference/run-sbo-emission-integration.py "$PWD" --label STEP563
 ```
 
 The [554 integration](elf-cache-integration.md), [553 apply](elf-cache-apply-emission.md),

@@ -21,38 +21,39 @@ acceptance does not describe the present state of a machine.
 
 ### Repository verification and next decisions
 
-Step 555 is the last confirmed qualified STATIC repository pause, based on
-the separate outer continuity confirmation. Its accepted HEAD is
-`f30c17519bfb9726de95970c3235b37edaa1705b`, tree
-`f867f1ff93ef939c506488820bff8e4ba50a0018`. The imported original continuity
-has SHA256 `80bdc6146865931bde22aa678b031c017655895994d0ef72bfb1ad70abb93281`;
-its finite archive/source/receipt verifier passed after reconstruction.
-This imports the recorded scope; it is not a new whole-condition review or
-independent semantic/native acceptance. Historical prepared555 pending flags,
-captures and the 548-555 scope remain unchanged in their original records.
+Complete supplied uploaded actual562 is accepted first: HEAD/local origin
+`0536e8372bd4c704c332239cd640e4cd34854c3d`, parent
+`7d7eab23d1866e6c3e6c7e92fe6ad0c2911b4fd3`, tree
+`b4cc0e73340f40c8c1982397206c3c6608b73906`. All106 complete ordered outputs,
+eight-path2281-add156-delete stat/subject/policy/modes/clean local refs/reported
+push agree. Exact uploaded terminal-text bytes are retained; this is not independent
+terminal/GitHub observation or separate stderr custody. Seven actual steps556-562
+are accepted. Final563 and the separate whole inherited/new-effects/original review
+remain pending; no new qualified STATIC pause is confirmed. Last confirmed outer
+STATIC pause555 and its full qualifications remain historical, not freshly reviewed.
 
-The new user request opens a bounded STATIC repository block, planned556-563,
-with564-567 reserved only if justified. Step556 characterizes package-name
-emission status loss without modifying runtime or existing tests. Its108 direct
-stream observations include72 active supplied writer failures:64 are masked,
-eight surface, and36 normal controls succeed. A characterization PASS describes
-the defective historical source and is NOT a safety pass.
+The bounded STATIC block556-563 contains one runtime repair in557, preceded by
+frozen historical556 characterization and followed by separate current input,
+installed, owner and ABI/dry-run emission checks. The original101 integration
+plan and all prior tests remain unchanged. Accepted562 integrates their full
+oracles plus five current drivers in a separate106 plan. Final563 changes only
+documentation and repeats the exact same106 selection freshly in preparation
+and on the PC. See the [final reconciliation](reference/sbo-emission-final-review.md).
 
-The original101-command cache integration plan remains byte unchanged.
-The frozen556 audit is separate and must refuse a changed runtime; it must not
-be added as a current safety check after a repair. A fresh integrated plan is
-due near the end of this block, preserving existing vectors/output oracles and
-adding current checks in introduction order. Counts are finite observations,
-not installed-reader coverage or native acceptance.
+Accept COMPLETE final actual563 FIRST; THEN read the whole inherited header,
+every whole condition, every exact original body and all new effects/obligations/
+failures/cleanup/limits, comparing unchanged originals before a qualified STATIC
+pause and STOP. No automatic564; reserves564-567 require a concrete missing
+closure condition. Counts and source hashes cannot replace whole reading.
 
-All inherited provenance, recording, incomplete binary-history, private-tool,
-containment and cleanup qualifications remain open. Exact prior archives must
-be retained for the final continuity; an incremental delivery is not their
-replacement. The new block has no confirmed pause yet. Phase1/kernel remain
-incomplete; original acceptance criteria,13 findings,16 native gaps, unselected
-A/R/D options, inactive repairs and ordered independent native gates remain
-unchanged. No native setup/probe/build/package/boot/network/cleanup is authorized
-by this STATIC continuation, and old consumed authority is not revived.
+All UNKNOWN provenance, recording and incomplete binary-history qualifications,
+private-tool/source trust, containment and cleanup limits remain open. Retain
+entire original555 continuity and every556+ original ZIP, not only summaries or
+hashes. Phase1/kernel/original criteria/findings/gaps/unselected A/R/D/inactive
+repairs and ordered independent native gates remain unchanged. Native evidence
+and actual bindings are null; host state is unobserved, global closure false.
+This STATIC block grants no native setup/probe/build/package/boot/network/cleanup,
+old consumed authority or later-current-refresh right revival.
 
 ### Remaining Phase 1 work
 

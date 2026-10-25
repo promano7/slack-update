@@ -203,3 +203,27 @@ fixtures/native criteria stay exact561. No native count sum or independent trust
 Controller original pipe capture and full per-command report remain separate;
 synthetic commit validation does not require a redundant full106 repetition.
 Final563/complete actual then separate whole review remain mandatory as above.
+
+## Step563 preparation after accepted actual562
+
+Complete supplied uploaded actual562 is accepted first: HEAD/local origin
+`0536e8372bd4c704c332239cd640e4cd34854c3d`, parent
+`7d7eab23d1866e6c3e6c7e92fe6ad0c2911b4fd3`, tree
+`b4cc0e73340f40c8c1982397206c3c6608b73906`. All106 complete ordered outputs,
+eight-path2281-add156-delete stat/subject/policy/modes/clean local refs/reported
+push agree. Exact uploaded terminal-text bytes are retained; this is not independent
+terminal/GitHub observation or separate stderr custody. Seven actual steps556-562
+are accepted. Final563 and the separate whole inherited/new-effects/original review
+remain pending; no new qualified STATIC pause is confirmed. Last confirmed outer
+STATIC pause555 and its full qualifications remain historical, not freshly reviewed.
+
+The [final reconciliation](sbo-emission-final-review.md) updates the root overview,
+roadmap and current guides with all seven accepted steps. Historical preparation
+sections above retain their then-pending statements. Current106 plan/runner,
+runtime and ALL tests/supports/fixtures/native criteria remain exact562;563 is
+documentation only. Fresh complete106 canonical preparation and PC execution use
+the unchanged runner with labelSTEP563. Original pipe capture and full rows stay
+separate; a private synthetic commit is not actual PC evidence. Accept complete
+final actual FIRST, then separately perform the whole inherited/new-effects/
+exact-original review before a qualified STATIC pause and STOP. No new pause,
+whole reading, native authority or inherited-history repair is claimed here.

@@ -1,3 +1,28 @@
+## Phase 1 step 563 -- reconcile final SBo emission block and repeat unchanged106
+
+- Accept complete uploaded actual562 FIRST: HEAD/local origin
+  0536e8372bd4c704c332239cd640e4cd34854c3d, parent
+  7d7eab23d1866e6c3e6c7e92fe6ad0c2911b4fd3, tree
+  b4cc0e73340f40c8c1982397206c3c6608b73906;106 complete ordered outputs,
+  eight-path2281-add156-delete stat/subject/policy/modes/clean refs/reported push.
+  Retain exact uploaded text bytes, not independent terminal/GitHub observation
+  or separate stderr custody. Only position56 retains its existing one-root rule.
+- Reconcile README, roadmap and current guides with seven accepted steps556-562,
+  final563 still pending, sole557 runtime repair and distinct helper/check scopes.
+  Add final reconciliation with the exact post-actual outer-review/STOP sequence;
+  retain historical scopes/prepared pending flags and original records unchanged.
+- Keep runtime/ALL tests/support/fixtures/native criteria/old101 plan/current106
+  plan and runner byte exact562. Repeat the same106 freshly on canonical source
+  and PC using only console labelSTEP563; preserve original pipe bytes separately
+  from full result rows and compare complete source before/after. No native sum.
+- Actual563/new pause pending; last qualified outer STATIC555. COMPLETE final
+  actual must precede the separate whole inherited header/every whole condition/
+  every exact original/all new effects-obligations-failures-cleanup-limits review.
+  Preserve entire555 and every556+ original ZIP with all UNKNOWN provenance,
+  recording/incomplete-history/private-tool/trust/containment/cleanup limits.
+  Phase1/kernel/schema1/reference-v1/C/Phase2/production/native gates unchanged.
+  No native action, global host closure, authority revival or fresh whole review.
+
 ## Phase 1 step 562 -- integrate current SBo emission checks without oracle changes
 
 - Accept complete supplied inline561 FIRST: HEAD/local origin
