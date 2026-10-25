@@ -8,53 +8,52 @@ Slackware acceptance differ; it does not authorize a system run.
 
 ## Current bounded block and integrated selection
 
-Complete supplied inline actual549 is accepted FIRST: HEAD/local origin
-`0b9d2327014d096576bb9f523da520ea58bc829d`, parent
-`131f7dc6613dea157886c12dc92ea4e215f43a77`, tree
-`6d8948ae618ae6767c330fe41858e9864374d581`. Five complete outputs, nine-path
-stat, exact source policy, clean local refs and reported push match. Full output
-is explicitly transcribed from the visible inline return, not uploaded-file or
-independent terminal custody. Last qualified STATIC pause547; no new pause.
+Complete supplied inline actual550 is accepted FIRST: HEAD/local origin
+`621c93e56cb3b2335e4055cfb4bfc8e940367a6c`, parent
+`0b9d2327014d096576bb9f523da520ea58bc829d`, tree
+`10ac197ae9a5616a204b2f30891162c72302c131`. Six complete outputs, eight-path
+stat, exact policy/modes, clean local refs and reported push match. Terminal
+output is explicitly transcribed from the inline return, not uploaded-file or
+independent custody. Last qualified STATIC pause547; no new pause.
 
-Prepared550 adds a [144-cell cache-input regression](reference/elf-cache-inputs.md), without runtime or
-older test/support/fixture changes. It covers selected duplicate/canonical-alias/
-two-soname/skipped/dangling/missing/empty records, input noise and raw final newline.
-56 active emission failures refuse before publication;24 empty-stage refusals and
-64 successful controls retain existing policy.40 additional quiet/late labels
-are INACTIVE controls. These counts are private projections, not native coverage.
+Prepared551 adds [cache-emission/initial-scan composition](reference/elf-cache-scan-emission.md).144 private
+cells include72 active emission refusals and36 empty-cache controls; all108 cache
+blocks preserve prior list/count7, leave cache count0 and bypass object traversal.
+36 normal-cache controls reach real object processing:12 healthy clears,12 missing
+dependency lists,12 metadata failures. Runtime/root README/ALL old tests/support/
+fixtures/native criteria and frozen548 audit/guard/oracle/scope remain exact550.
 
-Six fresh focused commands prepend input144 to unchanged549 five: corrected72,
-construction100,cacheworkflow60,lookup592,recheckemission108. First driver explicitly
-imports unchanged549 fixture mechanics; runtime/driver/declared-support hashes
-are bound. Frozen548 audit/guard/defective expectations/scope stay unchanged and
-excluded. Root README stays unchanged until final useful reconciliation.
+Seven fresh focused commands prepend scan144 to unchanged550 six. New driver
+imports unchanged549 fixture mechanics as declared support; runtime/driver/support
+hashes bind the runs. No fresh96, full apply/JSON or installed/native acceptance.
+Exact548 and four selected scan mutations reject in their finite scopes.
 
-Scratch was empty on resume. Exact original547 transport/407257653-byte inner
-and548/549 ZIP identities were recovered and verified; source rebuilt exclusively
-from exact549 policy members/modes. Unsaved files/metadata and prior observed
-scratch trees are NOT recovered. Their previously observed file bytes remain
-covered by original canonical ZIPs plus retained first-authored files/extras, not
-an atomic metadata image. All UNKNOWN provenance/recovery/incomplete491 binary/
-failed unread retrieval qualifications remain OPEN; no repair or attribution.
+Retain newly observed UNKNOWN18612224-byte0600 extra, full bytes/inventory/original
+membership rejection/first authored driver/first smoke. Canonical source rebuilt
+from exact550 ZIP policy members/modes plus that intended driver; controls and
+selection fresh afterward. Initial inventory had no extras; origin/time/cause
+UNKNOWN. First driver also retained before assertion-diagnostic refinement.
+All earlier scratch recovery/provenance/incomplete491/failed unread retrieval
+qualifications remain OPEN; no attribution, binary repair or global absence.
 
-Actual550 pending. Continue bounded548-555:551 scan,552 recheck,553 apply/results,
+Actual551 pending. Continue bounded548-555:552 recheck,553 apply/results,
 554 exact547 ordered96 plus new current drivers,555 useful README/fresh final
 selection/COMPLETE FINAL actual FIRST/separate WHOLE inherited header/EVERY WHOLE
 condition/EVERY exact nested original/ALL new effects, obligations, cleanup,
 failures and limits reading/comparisons. No counts/hashes/prior flags/summaries
 substitute.556-559 justified reserves only. Preserve entire547/nested originals/
 every548+ ZIP; no automatic extension, strong pause or native operation now.
-Phase1/kernel incomplete; original criteria/13findings16gaps/A-R-Dunselected/
-independent-native ordered gates remain. Evidence/livebindingsnull;hostunobserved/
-globalfalse. No old rights revived; later-current refresh cannot invalidate the
+Phase1/kernel incomplete;original criteria/13findings16gaps/A-R-Dunselected/
+ordered independent-native gates remain. Evidence/livebindingsnull;hostunobserved/
+globalfalse. No old rights revived; later-current refresh cannot invalidate
 completed scoped STATIC547 pause.
 
-Run `python3 tests/reference/test-elf-cache-inputs.py` for550 input composition.
-It imports `tests/reference/test-elf-cache-emission-status.py` only for declared
-fixture constants/wrappers/guards/inventory, with its own input and result oracle.
-The focused runner binds that support hash. Respect each real/private/supplied
-boundary. Frozen512/516/519/524/527/532/536/540/548 stay excluded; no fresh96
-integration, installed-reader acceptance or all-host cleanup is claimed here.
+Run `python3 tests/reference/test-elf-cache-scan-emission.py` for selected551
+cache-failure/initial-scan composition. It imports unchanged549 PREFIX/GUARDS/
+HEADER/inventory, supplies its own reader/find/count/diagnostic callbacks and
+authors its own outcomes. The focused runner binds that support hash. Frozen
+512/516/519/524/527/532/536/540/548 stay excluded; broader old results retain
+their finite scopes. No whole-host cleanup, installed-reader or native evidence.
 
 ## Select the applicable checks
 

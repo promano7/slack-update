@@ -38,6 +38,13 @@ README archives and per-step summaries do not supersede them.
 
 ## Current cache-record emission regression
 
+For551 selected cache-failure/initial-scan composition, run
+`python3 tests/reference/test-elf-cache-scan-emission.py` and read its
+[scan scope](docs/reference/elf-cache-scan-emission.md).144 cells separate72 active
+emission refusals,108 total cache blocks and36 object-processing controls. The
+seven-command selection binds unchanged549 fixture support. No new runtime/native
+policy, recheck/apply/JSON composition or whole cleanup is claimed by this driver.
+
 For550 raw input/duplicate/alias/skipped/empty composition, also run
 `python3 tests/reference/test-elf-cache-inputs.py`. Read its
 [input scope](docs/reference/elf-cache-inputs.md) and six-command focused selection.
