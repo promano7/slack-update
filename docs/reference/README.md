@@ -31,23 +31,16 @@ choose a path, approve a migration or grant a native test.
 
 ## Current repository regression coverage
 
-Seven actual532-538 steps accepted, latest
-`6100e602c3c0a9c8fa30c0aef961e85bf4a96694`. Prepared539
-[integrates the current block](repository-regression-block-532-539.md): root README
-update and91 FRESH current-source commands, ordered86 from531 then five permanent
-ELF drivers. Code/tests/native criteria exact538. Complete actual539 acceptance
-and separate whole inherited-condition/nested-original/new-effects review remain
-due; no new pause. Last confirmed qualified outer STATIC pause531 is external.
-Canonical historical preparation flags keep their original meanings.
+The complete supplied539 continuation confirms its qualified outer STATIC pause
+at `4de6378e1fed912516c05a0b2fd57efd5c66bdd8`. The
+[532-539 review](repository-regression-block-532-539.md) is immutable preparation
+history with its original pending flags and exact91-command selection.
 
-Initial metadata and any path-emission failure prevent count/publication while
-all selected input is processed. Preserve real/private/supplied/result/cleanup/
-trust limits and all earlier failures. Both532/536 audit code AND scopes remain
-frozen and excluded, with earlier unsafe512/516/519/524/527 audits. The
-[538 preintegration](repository-regression-block-532-538-preintegration.md) retains
-its original plan-only meaning. Complete FINAL actual acceptance must precede
-WHOLE inherited-body/original/all-new-effects review with original comparisons;
-no counts/hashes/summaries/prior confirmations substitute.
+New bounded540-547 starts with the [recheck emission defect audit](elf-recheck-emission-audit.md).
+It checks108 cases against exact539 runtime, characterizing60 masked statuses
+and20 false clears; NOT a safety pass. Runtime repair is pending. Actual540/new
+pause remain pending; no new native acceptance or whole-condition reading.
+Freeze the audit and this scope after repair; never weaken its source guard.
 
 Earlier [524-531](repository-regression-block-524-531.md),
 [516-523](repository-regression-block-516-523.md),

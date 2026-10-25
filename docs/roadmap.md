@@ -21,37 +21,25 @@ acceptance does not describe the present state of a machine.
 
 ### Repository verification and next decisions
 
-Last confirmed qualified outer STATIC pause531 follows accepted86 integration;
-its external closure is in the supplied continuation. Seven actual532-538 steps
-accepted, latest `6100e602c3c0a9c8fa30c0aef961e85bf4a96694`. Prepared539 is the
-eighth/final step: root README update and91 fresh commands on CURRENT source.
-Complete actual539 acceptance and separate post-actual whole-condition review
-remain due; no new pause. See the
-[prepared final review](reference/repository-regression-block-532-539.md).
+Qualified outer STATIC pause539 is confirmed in its supplied complete
+continuation, HEAD `4de6378e1fed912516c05a0b2fd57efd5c66bdd8`, after actual91
+outputs and the separate qualified whole-condition review. Original539 prepared
+records retain their preparation-time flags; current work does not rewrite them.
 
-Current initial scan rejects classifier2 and any selected path-emission failure
-before counting/publishing, preserving prior list/count while processing all input.
-Final91 is ordered86 from531 plus metadata96/diagnostic72/apply96/emission-direct36/
-emission-apply48. All commands run FRESH in preparation and on PC, zero result reuse.
-Historical532/536 audits remain frozen and excluded, with earlier source-bound
-512/516/519/524/527 audits. Native criteria and all code/tests remain exact538.
+A NEW user request opens bounded STATIC540-547, reserves548-551 only if needed.
+Prepared540 [characterizes recheck path-emission loss](reference/elf-recheck-emission-audit.md)
+on exact539 runtime:108 observations,60 masked statuses,20 false clears. Runtime
+is unchanged; repair and direct/apply/result/diagnostic regressions are planned,
+then integrated selection/final README/actual acceptance/separate pause review.
+Actual540 is pending, no new pause or fresh91 integration is claimed.
 
-Resolver/unknown-status skipping, output trust, partial publication/cleanup,
-canonical-string/inode/input races, external durability, setup resets, suppressed
-cleanup/enclosing-parent removal and prior-sync43 build policy limits remain.
-Raw apply0 is not stable success. Preserve all original failures/unknown extras/
-incomplete491 binary/failed unread retrieval/UNKNOWN origin/no-repair qualifications.
-Current equality proves no historical/global absence or native authorization.
-
-Final complete actual acceptance FIRST, THEN separately READ WHOLE inherited header/
-EVERY WHOLE condition/EVERY exact nested original/ALL new effects/obligations/
-cleanup/failures/limits with original comparisons; no count/hash/summary substitutes.
-All original native criteria/independent decisions/reviews/ACTUAL binding/safe
-ACTUAL WHOLE review/fresh bounded authority BEFORE effects/OWN-platform gates due
-in order. A/R/D unselected/native repairs inactive. Same-assistant STATIC work
-satisfies none and renews no consumed rights. Host unobserved/evidence-live bindings
-null/global closurefalse. Later-current refresh cannot invalidate completed scoped
-531 STATIC pause or revive consumed source/boot/run/grant/right/binding authority.
+All prior provenance, incomplete491 binary and scratch recovery qualifications
+remain open and preserved. The final whole-header/every-whole-condition/exact-
+nested-original/all-new-effects reading is still required for a later pause;
+counts/hashes/summaries/prior reviews are not substitutes. Phase1/native gates,
+original criteria and independent decisions remain due in order. Host unobserved,
+evidence/live bindings null, global closure false; consumed rights stay consumed.
+Later-current refresh does not invalidate completed scoped539 STATIC pause.
 
 ### Remaining Phase 1 work
 

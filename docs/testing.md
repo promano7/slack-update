@@ -8,43 +8,26 @@ Slackware acceptance differ; it does not authorize a system run.
 
 ## Current bounded block and integrated selection
 
-Seven actual steps532-538 accepted, latest HEAD/local origin
-`6100e602c3c0a9c8fa30c0aef961e85bf4a96694`. Prepared539 is the eighth/final step:
-root README update and91 fresh current-source commands; runtime/ALL tests/support/
-fixtures/native criteria exact538. See the
-[final integrated review](reference/repository-regression-block-532-539.md) for
-exact ordered selection and retained real/private/supplied/trust/cleanup limits.
-Last confirmed outer qualified STATIC pause531; no new pause in this preparation.
+Qualified outer STATIC pause539 is externally confirmed in the complete supplied
+continuation at `4de6378e1fed912516c05a0b2fd57efd5c66bdd8`. Its prepared
+[532-539 integration](reference/repository-regression-block-532-539.md) retains
+its original pending-time meaning and exact91-command selection.
 
-Final91 is exact ordered86 from531 on CURRENT source then metadata-error96,
-diagnostic72, initial-apply96, emission-direct36 and emission-apply48 in introduction
-order. Each command runs FRESH in final preparation and on PC, zero reused results.
-Retain complete stdout/stderr/status and current driver/runtime/support hashes.
-No heterogeneous case-total/native coverage sum or historical snapshot rerun.
+The new user-requested block targets540-547, with548-551 reserved for justified
+repairs. Prepared540 adds the [historical recheck emission audit](reference/elf-recheck-emission-audit.md):
+108 exact-runtime observations,60 masked emission statuses including20 false
+clears. This is defective behavior characterization, NOT a safety pass. Run it
+only on exact539 runtime; freeze and exclude it after repair. The focused540
+selection adds unchanged initial-emission36 and source/syntax/link/overlay/ZIP
+checks; no fresh91 integration is claimed. Actual540 and a new pause are pending.
 
-Historical source-bound512/516/519/524/527/532/536 audits are excluded. Both532/536
-code AND scopes/guards/defective expectations remain frozen; their537 source
-refusals are historical evidence, not newly run by539. Three old scan/cache
-expectation updates occurred in533 after preserving full first failures; all
-later old tests and original native criteria remain unchanged.
-
-Python3.11+, Bash,jq,flock,timeout,awk and GNU coreutils/findutils/sed remain required.
-Position51 personal-queue retains114 checks after530 fixture isolation;56 installed-
-initrd has expected negative diagnostics/90 checks and only one consistent private-
-root normalization with both full outputs retained. Delivery-ZIP31 is61, included
-in91. Preserve every earlier failure and limit. Added-link/fragment/status/source/
-mode/native-tail checks accompany syntax/executable/staged-and-unstaged whitespace.
-
-Final complete actual acceptance FIRST, THEN separately READ WHOLE inherited header,
-EVERY WHOLE condition/EVERY exact nested original and ALL new effects/obligations/
-cleanup/failures/limits with stored-original comparisons. Counts/hashes/summaries/
-indices/prior confirmations do not replace pending whole reading. Only if supported
-may later external review confirm a qualified STATIC pause, then STOP. Original531
-continuation/532-538 ZIPs/nested history/unknown extras/incomplete491 binary/UNKNOWN
-origins/no repair stay preserved. Phase1/kernel/native/independent option/spec-impact/
-migration IF norms change/ACTUAL binding/safe ACTUAL WHOLE review/fresh bounded grant
-BEFORE effects/OWN-platform gates remain. No consumed rights renewed. Evidence/live
-bindings null; host unobserved-not-claimed-absent/global closurefalse.
+Historical512/516/519/524/527/532/536 audits remain frozen and excluded from
+current-source integration. The new540 audit becomes historical on runtime drift.
+All real/private/supplied, trust, partial effects, cleanup, UID0, unknown extras,
+recovery and incomplete491 binary limits remain. Final actual acceptance FIRST,
+then separate WHOLE inherited-header/every-condition/exact-original/new-effect
+review is required before any later qualified STATIC pause. No summary substitutes.
+Phase1/kernel/native gates remain; no host closure or renewed authority.
 
 ## Select the applicable checks
 

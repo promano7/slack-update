@@ -1,3 +1,40 @@
+## Phase 1 step 540 -- characterize post-build ELF path-emission status loss
+
+- Open a NEW user-requested bounded STATIC block540-547, reserves548-551 only
+  if justified, from externally confirmed qualified539 pause at
+  4de6378e1fed912516c05a0b2fd57efd5c66bdd8 (tree
+  47a6157ffea5bf8cae54e472be6a25e5e2e4153d). Verify complete supplied archive
+  manifest/CRC/source modes/tree and accepted91 receipt records before work.
+  No new full inherited-condition reading or native authority claimed.
+- Add exact-runtime historical recheck-emission audit108: missing-dependency,
+  metadata-error and existing-non-ELF branches; two orders; three companions;
+  normal/quiet/late printf; final newline present/absent.72 supplied emission
+  failures:12 producer refusals,60 masked statuses, including20 false clears.
+  Complete output/state/caller/trace/private-inventory checks. Runtime unchanged.
+  After repair freeze this defective characterization and exclude it from current
+  regressions; its source guard must not be weakened.
+- Preserve first authoring driver/failure and reproduced output: nested metadata
+  sorts invalidated the initial final-sort-only trace count. Correct only the
+  oracle, separately check allowed callers/counts and order of all other records.
+- Run focused audit108 plus unchanged initial-emission36 in preparation; retain
+  full outputs and normalized-root rows externally. Additional syntax/links/
+  source-policy/tree/overlay/ZIP checks recorded outside canonical source.
+  No new full91 rerun, real reader/cache/builder/apply or native pass claimed.
+- Preserve a newly observed24903680-byte0600 extra and full observed inventory
+  after source-policy construction refused the ninth unexpected changed path.
+  Extra also in extracted input but absent from exact input ZIP; origin UNKNOWN,
+  no pre-copy physical inventory/no attribution. Rebuild canonical source only
+  from exact original539 ZIP members before final tests, retain full extra outside
+  source. This does not repair provenance or inherited history.
+- Provisional next541 is sticky refusal in all recheck path-emission branches,
+  then direct/apply/result/diagnostic coverage and integrated review toward547.
+  Actual540 application/tests/commit/push/clean capture remain pending; no new
+  pause. README stays unchanged until the final block integration.
+- Preserve complete supplied539/nested originals/failures/unknown extras/recovery
+  qualifications/incomplete491 binary and all original native criteria/gates.
+  Phase1/kernel incomplete; evidence/live bindings null; host unobserved,
+  global closure false; no consumed authority revived or new cleanup authorized.
+
 ## Phase 1 step 539 -- integrate current ELF regressions and update project overview
 
 - Accept complete supplied actual538 FIRST: HEAD/local origin

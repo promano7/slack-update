@@ -36,6 +36,15 @@ README archives and per-step summaries do not supersede them.
   inventories require their matching historical source snapshot. Do not weaken
   frozen baselines or rewrite old fixtures to make them pass on a later checkout.
 
+## Frozen post-build ELF emission characterization
+
+Step540 `tests/reference/test-elf-recheck-emission-audit.py` binds the exact539
+runtime and expects defective historical outcomes. Read its
+[scope](docs/reference/elf-recheck-emission-audit.md) before running it. Preserve
+its guard, assertions and scope after repair; exclude it from later current-source
+integration. Add a separate corrected-behavior driver rather than weakening it.
+This audit is not native acceptance or a safe verification result.
+
 ## Compatibility policy
 
 Slackware 15.0 and Slackware-current are both mandatory targets. Changes to the
