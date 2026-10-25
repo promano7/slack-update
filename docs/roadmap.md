@@ -21,26 +21,38 @@ acceptance does not describe the present state of a machine.
 
 ### Repository verification and next decisions
 
-Qualified outer STATIC pause539 is confirmed in its supplied complete
-continuation, HEAD `4de6378e1fed912516c05a0b2fd57efd5c66bdd8`, after actual91
-outputs and the separate qualified whole-condition review. Original539 prepared
-records retain their preparation-time flags; current work does not rewrite them.
+The supplied complete547 continuation records the accepted eight-step540-547
+chain and the later qualified outer STATIC pause at
+`4b1db071b779970077118453856b6bb21bdb2cd9`. Exact2472-source hashes, Git modes
+and tree `8ccd0bafeae22545c7eb10c35dc98daaf7f244a1` match. Historical547
+preparation-time pending flags and its earlier actual capture remain unchanged;
+the separate outer review supplies the qualified STATIC closure. It is not
+independent semantic/native acceptance or historical binary repair.
 
-Actual546 is accepted at `b4559556f83628717c3adf4a13ba74bad0ace403`: all96
-complete ordered outputs, exact source-policy/tree, seven-path stat, reported push
-and clean local refs match. Prepared547 updates README and the
-[final integrated review](reference/repository-regression-block-540-547.md), then repeats the SAME current96 selection
-freshly. Runtime and ALL tests/fixtures remain exact546; original539 and accepted546
-plans/expected outputs stay unchanged. Actual547 and the separate final whole
-inherited-condition/original/new-effects review remain pending. Last qualified
-outer STATIC pause539; no new pause, native acceptance or renewed authority.
-This is the planned eighth/final step540-547; reserves548-551 only if justified.
+The new bounded user request starts548-555, with556-559 reserved only for
+justified failures or review needs within the requested8-12 steps. Prepared548
+adds a frozen [cache emission audit](reference/elf-cache-emission-audit.md), without runtime or old test changes.
+Its72 observations expose24 masked emission statuses,16 failed emissions
+accepted and4 incomplete cache publications; these overlapping counts are NOT
+safety passes. Actual548 application/tests/commit/push/clean capture are pending.
+Last qualified pause547; no new pause or native authority is claimed.
 
-Keep original criteria/ordered independent gates, full-reading requirements and
-all unknown extra/recovery/incomplete491 qualifications. Evidence/live bindings
-null; actual host unobserved/globalfalse. Later-current refresh cannot invalidate
-completed qualified scoped539 STATIC pause. Current regression does not discharge
-native work or renew consumed authority.
+Plan549 repair plus a separate corrected oracle;550 input/cache-record handling;
+551 scan composition;552 post-build recheck composition;553 apply/result
+composition;554 fresh current regression integration;555 final useful README
+reconciliation, fresh final integration, complete actual acceptance FIRST, then
+separate WHOLE inherited header/EVERY WHOLE condition/EVERY exact nested original/
+ALL new effects, obligations, cleanup, failures and limits review. Counts, hashes,
+summaries and prior confirmations do not replace that reading. Stop after a
+supported qualified STATIC pause; no automatic extension or native operation.
+
+Preserve ENTIRE547 transport/inner/all nested originals and every new original
+delivery. Unknown extra provenance, prior recovery, incomplete491 binary and
+failed unread retrieval qualifications remain OPEN. All original native criteria
+and ordered independent gates remain; phase1/kernel incomplete, A/R/D unselected,
+native evidence/live bindings null, actual host unobserved-not-claimed-absent,
+global closurefalse. No consumed source/boot/run/grant/right/binding is revived.
+Later-current refresh cannot invalidate the completed scoped STATIC547 pause.
 
 ### Remaining Phase 1 work
 

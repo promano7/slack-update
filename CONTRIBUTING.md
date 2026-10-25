@@ -36,6 +36,19 @@ README archives and per-step summaries do not supersede them.
   inventories require their matching historical source snapshot. Do not weaken
   frozen baselines or rewrite old fixtures to make them pass on a later checkout.
 
+## Frozen cache-record emission characterization
+
+Prepared548 `tests/reference/test-elf-cache-emission-audit.py` requires exact547
+runtime SHA256 and expects defective historical observations. Read the
+[cache audit and548-555 plan](docs/reference/elf-cache-emission-audit.md) first.
+Its zero assertion failures mean the characterization matches, not that emission
+is safe. Preserve the audit, guard and scope after repair; exclude it from later
+current-source selection.549 must introduce a separate corrected-behavior driver
+and retain old-source/targeted controls, without relaxing older tests or oracles.
+Five548 focused commands and their real/private/supplied/cleanup limits are in
+that scope. Runtime and all older tests/fixtures remain exact547. No native run,
+new pause, completed phase or renewed authority follows from these source checks.
+
 ## Frozen post-build ELF emission characterization
 
 Step540 `tests/reference/test-elf-recheck-emission-audit.py` binds the exact539

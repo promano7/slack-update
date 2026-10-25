@@ -31,26 +31,45 @@ choose a path, approve a migration or grant a native test.
 
 ## Current repository regression coverage
 
-The complete supplied539 continuation confirms its qualified outer STATIC pause
-at `4de6378e1fed912516c05a0b2fd57efd5c66bdd8`. The
-[532-539 review](repository-regression-block-532-539.md) is immutable preparation
-history with its original pending flags and exact91-command selection.
+The supplied complete547 continuation records the accepted eight-step540-547
+chain and the later qualified outer STATIC pause at
+`4b1db071b779970077118453856b6bb21bdb2cd9`. Exact2472-source hashes, Git modes
+and tree `8ccd0bafeae22545c7eb10c35dc98daaf7f244a1` match. Historical547
+preparation-time pending flags and its earlier actual capture remain unchanged;
+the separate outer review supplies the qualified STATIC closure. It is not
+independent semantic/native acceptance or historical binary repair.
 
-Actual546 is accepted at `b4559556f83628717c3adf4a13ba74bad0ace403`: all96
-complete ordered outputs, exact source-policy/tree, seven-path stat, reported push
-and clean local refs match. Prepared547 updates README and the
-[final integrated review](repository-regression-block-540-547.md), then repeats the SAME current96 selection
-freshly. Runtime and ALL tests/fixtures remain exact546; original539 and accepted546
-plans/expected outputs stay unchanged. Actual547 and the separate final whole
-inherited-condition/original/new-effects review remain pending. Last qualified
-outer STATIC pause539; no new pause, native acceptance or renewed authority.
-This is the planned eighth/final step540-547; reserves548-551 only if justified.
+The new bounded user request starts548-555, with556-559 reserved only for
+justified failures or review needs within the requested8-12 steps. Prepared548
+adds a frozen [cache emission audit](elf-cache-emission-audit.md), without runtime or old test changes.
+Its72 observations expose24 masked emission statuses,16 failed emissions
+accepted and4 incomplete cache publications; these overlapping counts are NOT
+safety passes. Actual548 application/tests/commit/push/clean capture are pending.
+Last qualified pause547; no new pause or native authority is claimed.
 
-The [541 repair](elf-recheck-emission-status.md), [542 inputs](elf-recheck-inputs.md),
-[543 coordinator](elf-recheck-build.md), [544 apply](elf-recheck-apply.md) and frozen
-[540 audit](elf-recheck-emission-audit.md) remain unchanged. Respect each real/
-supplied/fault/output/cleanup scope; retain all earlier failure/extra/recovery/
-incomplete491 qualifications and independent/native gates.
+Plan549 repair plus a separate corrected oracle;550 input/cache-record handling;
+551 scan composition;552 post-build recheck composition;553 apply/result
+composition;554 fresh current regression integration;555 final useful README
+reconciliation, fresh final integration, complete actual acceptance FIRST, then
+separate WHOLE inherited header/EVERY WHOLE condition/EVERY exact nested original/
+ALL new effects, obligations, cleanup, failures and limits review. Counts, hashes,
+summaries and prior confirmations do not replace that reading. Stop after a
+supported qualified STATIC pause; no automatic extension or native operation.
+
+Preserve ENTIRE547 transport/inner/all nested originals and every new original
+delivery. Unknown extra provenance, prior recovery, incomplete491 binary and
+failed unread retrieval qualifications remain OPEN. All original native criteria
+and ordered independent gates remain; phase1/kernel incomplete, A/R/D unselected,
+native evidence/live bindings null, actual host unobserved-not-claimed-absent,
+global closurefalse. No consumed source/boot/run/grant/right/binding is revived.
+Later-current refresh cannot invalidate the completed scoped STATIC547 pause.
+
+The [540-547 integrated scope](repository-regression-block-540-547.md) and
+[532-539 scope](repository-regression-block-532-539.md) remain immutable
+preparation history, including their original pending flags. The exact547
+outer closure, actual receipts and complete96 streams travel in the supplied
+continuation, not reconstructed user Git objects. The new audit does not weaken
+any accepted541-545 driver, old fixture or original native contract.
 
 Earlier [524-531](repository-regression-block-524-531.md),
 [516-523](repository-regression-block-516-523.md),
