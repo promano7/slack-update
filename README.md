@@ -30,13 +30,14 @@ design also has unresolved contract and native implementation requirements.
 All 13 manuscript audit findings remain open; alternatives A/R/D are unselected
 and the original requirements remain binding.
 
-The prepared [548-555 regression review](docs/reference/repository-regression-block-548-555.md)
-selects 101 current repository checks: the original 96 from step 547 and five
-cache-emission drivers in introduction order. Seven steps (548-554) are accepted.
-Final acceptance of step 555 and a separate review of the whole inherited
-conditions, originals and new effects remain pending before a new qualified
-STATIC pause. The last confirmed qualified outer STATIC pause is step 547.
-These repository reviews are not independent semantic or native platform acceptance.
+The last confirmed qualified outer STATIC repository pause is step555.
+The [548-555 regression review](docs/reference/repository-regression-block-548-555.md)
+retains its historical preparation-time pending fields; the later confirmation
+is separate. The [new556-563 block](docs/reference/repository-regression-block-556-563.md)
+begins with a frozen characterization of package-name emission status loss.
+Runtime is unchanged in556; its characterization PASS describes an observed
+defect and is not a safety pass. These repository reviews are not independent
+semantic or native platform acceptance.
 
 Unknown source-extra provenance, recording limits and incomplete binary history
 remain open qualifications. Test success does not close them, establish the
@@ -111,7 +112,7 @@ carry raw command statuses; the final process/result status uses this table.
 ## Documentation and contributing
 
 - [Development roadmap and phase gates](docs/roadmap.md)
-- [Prepared final regression selection and limits](docs/reference/repository-regression-block-548-555.md)
+- [Current bounded regression block and limits](docs/reference/repository-regression-block-556-563.md)
 - [Reference acceptance guide](tests/acceptance/reference/README.md)
 - [Configuration example](data/config/slack-update.conf)
 - [Contribution and documentation policy](CONTRIBUTING.md)

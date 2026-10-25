@@ -21,60 +21,38 @@ acceptance does not describe the present state of a machine.
 
 ### Repository verification and next decisions
 
-Complete actual554 is accepted FIRST from the exact supplied attachment:
-HEAD/local origin `950d096b84500feebdd512e42fed38fbeb46fcf8`, parent
-`120397afb4fe55a59ba48e7afaf591692da287fc`, tree
-`6901d3b6c4e83e1b1c5bc138274891e9f4af53e0`. All101 full ordered outputs,
-eight-path2299add174delete stat/subject/policy/modes/clean local refs/reported
-push agree; only command56 uses one consistent private-root substitution.
-Exact attachment bytes are retained, not independent terminal/GitHub custody.
-The PC attachment is complete; it does not repair or rewrite554 preparation's
-partial aggregate console file or its UNKNOWN cause. Its original complete101
-per-command report and explicitly derived rendering remain separate evidence.
+Step 555 is the last confirmed qualified STATIC repository pause, based on
+the separate outer continuity confirmation. Its accepted HEAD is
+`f30c17519bfb9726de95970c3235b37edaa1705b`, tree
+`f867f1ff93ef939c506488820bff8e4ba50a0018`. The imported original continuity
+has SHA256 `80bdc6146865931bde22aa678b031c017655895994d0ef72bfb1ad70abb93281`;
+its finite archive/source/receipt verifier passed after reconstruction.
+This imports the recorded scope; it is not a new whole-condition review or
+independent semantic/native acceptance. Historical prepared555 pending flags,
+captures and the 548-555 scope remain unchanged in their original records.
 
-Prepared555 reconciles the root README and [548-555 end scope](reference/repository-regression-block-548-555.md). Seven
-actual steps548-554 are accepted. The SAME committed554 plan/order/101 vectors/
-complete output oracles/driver/support hashes are retained byte unchanged and
-run freshly again for555 preparation and on the PC. Runtime/ALL old tests/
-support/fixtures/native criteria/frozen548 audit/guard/defective oracle/scope
-remain exact554; only eight documentation paths change. Original547 ordered96
-plan/oracles/runner remain unchanged; five current drivers549-553 follow in
-introduction order. Only position56 root normalization, with full text/roots
-retained; no other filtering or old-oracle weakening. Frozen512/516/519/524/527/
-532/536/540/548 remain excluded.101 is a command count, not native coverage.
+The new user request opens a bounded STATIC repository block, planned556-563,
+with564-567 reserved only if justified. Step556 characterizes package-name
+emission status loss without modifying runtime or existing tests. Its108 direct
+stream observations include72 active supplied writer failures:64 are masked,
+eight surface, and36 normal controls succeed. A characterization PASS describes
+the defective historical source and is NOT a safety pass.
 
-Actual555 and a new pause are PENDING. Accept COMPLETE FINAL actual FIRST,
-including every full101 stream/stat/subject/parent/tree/policy/modes/clean refs/
-reported push/capture. THEN separately read the WHOLE inherited header, EVERY
-WHOLE condition, EVERY exact nested original body and ALL new effects,
-obligations, cleanup, failures and limits, comparing stored originals. Counts/
-hashes/summaries/prior confirmation are not substitutes. No whole review has
-newly completed in this preparation. Historical prepared pending flags and
-actual captures remain immutable; a later qualified outer review is separate.
-If supported after that review, finish the eight-step548-555 block and STOP;
-556-559 are justified reserves only, with no automatic extension.
+The original101-command cache integration plan remains byte unchanged.
+The frozen556 audit is separate and must refuse a changed runtime; it must not
+be added as a current safety check after a repair. A fresh integrated plan is
+due near the end of this block, preserving existing vectors/output oracles and
+adding current checks in introduction order. Counts are finite observations,
+not installed-reader coverage or native acceptance.
 
-Last confirmed qualified outer STATIC pause547 is repository-scope only,
-same assistant rather than independent semantic/native acceptance. All UNKNOWN
-extra provenance,550 scratch loss/recovery,554 recording limits and incomplete491/
-failed unread-original qualifications remain OPEN. Preserve ENTIRE exact547
-transport/inner/all nested originals and EVERY original548-555 ZIP, not rebuilt
-archives or summaries. No binary repair/atomic metadata image/global absence/
-historical cleanup claim. Evidence/live bindings null; host unobserved-not-claimed-
-absent/globalfalse; unknown host rights are not globally absent or consumed.
-
-Phase1/kernel incomplete; original1286 criteria/13 findings16 gaps/A-R-D unselected/
-four inactive repairs/schema1/reference-v1/C/Phase2/production gates unchanged.
-Separate exact option decision, independent spec-impact acceptance, migration IF
-norms change, ACTUAL composition binding, independent safe ACTUAL WHOLE containment/
-source/trust/guard/fresh baseline/known recovery/storage/fixed clock/finite rights/
-effective independent observation review, THEN a separate FRESH explicit BOUNDED
-native case-platform-run grant BEFORE effects and later independent OWN-platform
-conformance remain due IN ORDER. STATIC satisfies none. No native setup/probe/
-preflight/build/package/boot/network/cleanup or old source/boot/attempt/run/grant/
-right/binding reuse/revival/retry/refund/replay/relaunch/rebind/reacquire/renewal/
-replacement/postrelease authority. A later Slackware-current refresh cannot
-invalidate a completed scoped STATIC pause or revive consumed rights.
+All inherited provenance, recording, incomplete binary-history, private-tool,
+containment and cleanup qualifications remain open. Exact prior archives must
+be retained for the final continuity; an incremental delivery is not their
+replacement. The new block has no confirmed pause yet. Phase1/kernel remain
+incomplete; original acceptance criteria,13 findings,16 native gaps, unselected
+A/R/D options, inactive repairs and ordered independent native gates remain
+unchanged. No native setup/probe/build/package/boot/network/cleanup is authorized
+by this STATIC continuation, and old consumed authority is not revived.
 
 ### Remaining Phase 1 work
 
