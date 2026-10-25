@@ -38,6 +38,13 @@ README archives and per-step summaries do not supersede them.
 
 ## Current cache-record emission regression
 
+For553 real-cache/apply/stable-result/selected JSON composition, run
+`python3 tests/reference/test-elf-cache-apply-emission.py` and read the
+[apply scope](docs/reference/elf-cache-apply-emission.md). Bind the unchanged544
+recheck-apply, initial-emission-apply and owner-composition support files. Raw
+workflow0 is distinct from stable0/2; callback events are not serialized NDJSON.
+No actual build/package/boot/native policy or whole cleanup change is introduced.
+
 For552 cache-emission/post-build recheck composition, run
 `python3 tests/reference/test-elf-cache-recheck-emission.py` and read its
 [recheck scope](docs/reference/elf-cache-recheck-emission.md).156 cases distinguish
