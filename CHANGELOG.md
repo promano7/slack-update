@@ -1,3 +1,43 @@
+## Phase 1 step 550 -- cover raw ELF cache records and input projections
+
+- Accept complete inline actual549 FIRST: HEAD/local origin
+  0b9d2327014d096576bb9f523da520ea58bc829d, parent
+  131f7dc6613dea157886c12dc92ea4e215f43a77, tree
+  6d8948ae618ae6767c330fe41858e9864374d581; five full outputs/stat/subject/policy/
+  clean local refs/reported push match. Output visibly transcribed, not uploaded
+  receipt bytes or independent terminal custody. Last qualified STATIC pause547.
+- Scratch empty on resume: exact original547 transport/407257653-byte inner and
+  original548/549 ZIP hashes recovered/verified. No unsaved files/metadata or
+  prior observed scratch-tree survival claimed; their observed file bytes covered
+  by exact canonical archives plus retained first paths/extras, not atomic image.
+  Canonical source solely exact549 ZIP policy members/modes, physical checks.
+- Add independent input144 using unchanged549 declared fixture mechanics/support:
+  duplicates, same/two-soname canonical aliases, skipped text/identity, dangling/
+  missing candidates, only companion, empty/all-skipped, raw noise/final newline.
+  56 active emission refusals,24 ordinary empty-stage refusals,64 successes;
+  40 quiet/late labels inactive. Full output/raw/count/caller/callback/private
+  bytes-modes-links oracle. Real private helpers/IO; supplied ldconfig/readelf/
+  primary printf43. Runtime/root README/ALL old tests/fixtures/native criteria
+  and frozen548 audit/guard/defective expectations/scope exact549.
+- Exact548 rejects40/144; three finite input-policy mutations reject36/24/144.
+  Full sources/results retained. First smoke driver/output kept before filtered
+  absolute noise sentinel refined to private target for final control safety.
+  Six fresh focused commands: input144 plus unchanged549 corrected72/construction
+  100/cacheworkflow60/lookup592/recheckemission108. Full runtime/driver/support
+  binding, fresh144 rows, syntax/modes/links/overlay/ZIP checks. No fresh96/native
+  installed-reader/full workflow composition or heterogeneous case sum.
+- Actual550 pending;551 scan,552 recheck,553 apply/results,554 integration,
+  555 useful README/fresh final selection/complete actual FIRST/separate WHOLE
+  inherited header/every WHOLE condition/every exact nested original/ALL new
+  effects, obligations, cleanup, failures and limits reading. No new strong pause.
+- Preserve ENTIRE547/nested originals/every548+ ZIP and all unknown extra origin/
+  byte-only/recovery/incomplete491 binary/failed unread retrieval qualifications.
+  No historical repair/attribution/global absence. Phase1/kernel incomplete;
+  original criteria/13findings16gaps/A-R-Dunselected/ordered independent-native
+  gates unchanged. Evidence/livebindingsnull;hostunobserved/globalfalse. No old
+  authority revived/native setup/preflight/run/cleanup. Later-current refresh
+  cannot invalidate completed scoped STATIC547 pause. No new whole reading.
+
 ## Phase 1 step 549 -- retain failed ELF cache record emission
 
 - Accept full supplied inline actual548 FIRST: HEAD/local origin

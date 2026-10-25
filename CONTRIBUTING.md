@@ -38,6 +38,14 @@ README archives and per-step summaries do not supersede them.
 
 ## Current cache-record emission regression
 
+For550 raw input/duplicate/alias/skipped/empty composition, also run
+`python3 tests/reference/test-elf-cache-inputs.py`. Read its
+[input scope](docs/reference/elf-cache-inputs.md) and six-command focused selection.
+The driver imports unchanged549 fixture mechanics as declared support; bind both
+driver and support hashes. Active emission failures, inactive fault labels and
+ordinary empty-stage refusal are separate projections. Runtime and all old tests
+remain exact549; no new native policy, installed composition or whole cleanup.
+
 For549 cache emission behavior run
 `python3 tests/reference/test-elf-cache-emission-status.py` and its four
 complementary [focused checks](docs/reference/elf-cache-emission-status.md#focused-selection-and-next-boundary).
