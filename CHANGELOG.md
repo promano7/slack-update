@@ -1,3 +1,53 @@
+## Phase 1 step 547 -- finalize bounded ELF recheck regression review
+
+- Accept complete uploaded actual546 FIRST, preserving exact attachment bytes:
+  HEAD/local origin b4559556f83628717c3adf4a13ba74bad0ace403, parent
+  1fdf9f1edee1c0ef2f71ec8a48ed62374cbafcd8, tree
+  ac48157aed940708a77212956b5a5e5b3eb4c879. All96 complete ordered outputs match;
+  only original56's single consistent private root normalized with both streams
+  retained. Seven files338 additions50 deletions/exact subject/policy/clean local
+  refs/reported push agree. Last qualified outer STATIC pause539.
+- Update README at END with useful repaired post-build recheck behavior, current
+  selection and remaining phase gate; keep installation/usage/exit/license bytes
+  unchanged. Eight Markdown paths only, one new final integrated scope. Runtime,
+  ALL tests/support/fixtures/native criteria and historical scopes remain exact546.
+- Repeat accepted546 exact ordered current96 FRESH in final preparation and on PC,
+  no result reuse or oracle relaxation. Preserve exact539 originals and accepted546
+  plan/expected outputs. Bind current runtime/driver/declared-support hashes and
+  retain full stdout/stderr/status, with original56-only normalization. Frozen
+  512/516/519/524/527/532/536/540 audits remain unchanged and excluded.
+- Syntax/executable/changed links/fragments/full source hashes/Git modes/tree/
+  staged and unstaged whitespace/synthetic overlay lifecycle/ZIP checks supplement
+  integration. No native acceptance, installed-reader/actual-host evidence or
+  heterogeneous case-total claim. All real/private/supplied boundaries and old
+  count/list/raw/stable/result/cleanup/race/trust limits remain.
+- Preserve original539 wrapper/inner/complete nested history and every original
+  540-547 ZIP, including all candidate failures/source controls, full unknown
+  54024903680-byte/5444718592-byte/5469961472-byte extras and inventories/refused
+  builders/first-authored paths/interrupted partial results, with UNKNOWN origins
+  and byte-only prefix comparisons. Preserve earlier recovery/incomplete491 binary/
+  failed unread retrieval qualifications; no repair/attribution/global closure.
+- Preserve547 initial full-membership rejection of another unknown14155776-byte
+  0600 extra, full bytes/inventory/eight initial authored paths and byte-only
+  strict-prefix comparison. Initial shell lacked set-e and started the runner
+  after the failed check; immediately interrupt130, retain partial output, do
+  not reuse it. Preserve whole observed tree, rebuild exact546 source plus eight
+  intended paths, add qualification and rerun96 fresh after strict checks.
+  Origin UNKNOWN; no test/user/copy/common-cause attribution or historical repair.
+- Actual547 application/tests/commit/push/clean capture pending. Complete FINAL
+  actual acceptance FIRST; only afterward separately READ WHOLE inherited header,
+  EVERY WHOLE condition, EVERY exact nested original and ALL new effects,
+  obligations, cleanup, failures and limits, comparing stored originals. No
+  counts/hashes/summaries/prior confirmations substitute; no new whole review or
+  new strong pause from preparation. If supported, record qualified external
+  STATIC closure without rewriting prepared pending flags, then STOP.
+- Phase1/kernel incomplete; all original1286 native criteria/13findings/16gaps/
+  unselected A-R-D/inactive repairs/ordered independent-native gates remain.
+  Native evidence/live bindings null, actual host unobserved/global closurefalse.
+  No consumed source/boot/run/grant/right/binding authority revived or native
+  setup/preflight/run/cleanup. Later-current refresh cannot invalidate completed
+  scoped539 pause. No automatic548 or extension beyond the requested block.
+
 ## Phase 1 step 546 -- integrate current recheck regression selection
 
 - Accept complete supplied545 FIRST: HEAD/local origin

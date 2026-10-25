@@ -11,7 +11,9 @@ its validation material. The C application is planned work.
 Current repository regressions cover CLI/configuration, workflow and result
 handling, SBo queue selection and ordering, static ELF helpers, runtime logging
 and private boot-artifact validation, including selected private file-operation
-failure paths. See the [testing guide](docs/testing.md)
+failure paths. Post-build ELF rechecks retain path-emission failures before
+publishing verification results. Selected input, build, apply/result and diagnostic
+failure compositions are covered with private fixtures. See the [testing guide](docs/testing.md)
 for the exact integrated selection, dependencies and known limitations. These
 checks complement the remaining real Slackware acceptance work.
 
@@ -27,12 +29,12 @@ design also has unresolved contract and native implementation requirements.
 All 13 manuscript audit findings remain open; alternatives A/R/D are unselected
 and the original requirements remain binding.
 
-The prepared [532-539 integrated review](docs/reference/repository-regression-block-532-539.md)
-selects 91 current repository checks, including initial ELF metadata and path
-emission failures through scanning, apply and stable results. Seven steps are
-accepted; final actual acceptance and a separate whole-condition review remain
-due before a new scoped STATIC pause. The last confirmed outer pause is 531.
-Incomplete binary history and unknown extra provenance remain open qualifications.
+The prepared [540-547 integrated review](docs/reference/repository-regression-block-540-547.md)
+selects 96 current repository checks. Seven steps are accepted; final actual
+acceptance and a separate whole-condition/original/new-effects review remain due
+before a new scoped STATIC pause. The last confirmed qualified outer pause is539.
+Unknown source-extra provenance and incomplete binary history remain open
+qualifications; repository regression does not close those historical limits.
 
 See the [development roadmap](docs/roadmap.md),
 [remaining acceptance inventory](tests/fixtures/reference/acceptance/phase-1/phase-1-acceptance-matrix-remainder-after-execution-control-closure.tsv)
@@ -103,7 +105,7 @@ carry raw command statuses; the final process/result status uses this table.
 ## Documentation and contributing
 
 - [Development roadmap and phase gates](docs/roadmap.md)
-- [Prepared integrated regression selection and limits](docs/reference/repository-regression-block-532-539.md)
+- [Prepared integrated regression selection and limits](docs/reference/repository-regression-block-540-547.md)
 - [Reference acceptance guide](tests/acceptance/reference/README.md)
 - [Configuration example](data/config/slack-update.conf)
 - [Contribution and documentation policy](CONTRIBUTING.md)

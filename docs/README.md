@@ -18,23 +18,22 @@ acceptance material. For the current phase and unfinished work, use the
 | Contribution, language and documentation rules | [Contributing](../CONTRIBUTING.md) |
 | Detailed contracts, audits and evidence | [Reference documentation](reference/README.md) |
 | Select applicable checks and historical snapshots | [Testing guide](testing.md) |
-| New bounded ELF recheck work and defect characterization | [Current96 preintegration](reference/repository-regression-block-540-546-preintegration.md) |
+| New bounded ELF recheck work and defect characterization | [Final96 integration scope](reference/repository-regression-block-540-547.md) |
 | Earlier completed integration, with later outer531 closure | [524-531 review](reference/repository-regression-block-524-531.md) |
 | Current bounded regression block and focused workspace checks | [Current testing status](testing.md#current-bounded-block-and-integrated-selection) and [reference index](reference/README.md#current-repository-regression-coverage) |
 | Real Slackware acceptance scenarios | [Acceptance guide](../tests/acceptance/reference/README.md) |
 | Changes by step or version | [CHANGELOG](../CHANGELOG.md) |
 | Earlier README checkpoints and original design text | [Historical README through step 418](reference/readme-through-step418.md) |
 
-Actual545 is accepted at `1fdf9f1edee1c0ef2f71ec8a48ed62374cbafcd8`, with all
-nine focused outputs, exact source-policy/tree, reported push and clean local refs.
-Prepared546 runs the [current96 preintegration](reference/repository-regression-block-540-546-preintegration.md): exact ordered539 first91
-vectors, followed by the five current541-545 recheck drivers in introduction order.
-Runtime and ALL tests/fixtures remain exact545. Historical539 plan/runner/outputs
-stay unchanged; current hashes bind the repaired runtime and accepted541 warning
-expectations. Actual546/new pause pending; last qualified STATIC pause539.
-Block540-547, reserves548-551 only if justified.547 must update README, repeat
-the final selection and obtain actual acceptance BEFORE the separate whole
-inherited-condition/original/new-effects review. No native acceptance or authority.
+Actual546 is accepted at `b4559556f83628717c3adf4a13ba74bad0ace403`: all96
+complete ordered outputs, exact source-policy/tree, seven-path stat, reported push
+and clean local refs match. Prepared547 updates README and the
+[final integrated review](reference/repository-regression-block-540-547.md), then repeats the SAME current96 selection
+freshly. Runtime and ALL tests/fixtures remain exact546; original539 and accepted546
+plans/expected outputs stay unchanged. Actual547 and the separate final whole
+inherited-condition/original/new-effects review remain pending. Last qualified
+outer STATIC pause539; no new pause, native acceptance or renewed authority.
+This is the planned eighth/final step540-547; reserves548-551 only if justified.
 
 The design's proposed configuration and result examples describe future
 interfaces. Use the checked-in configuration and the shell reference for the

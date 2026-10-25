@@ -8,16 +8,15 @@ Slackware acceptance differ; it does not authorize a system run.
 
 ## Current bounded block and integrated selection
 
-Actual545 is accepted at `1fdf9f1edee1c0ef2f71ec8a48ed62374cbafcd8`, with all
-nine focused outputs, exact source-policy/tree, reported push and clean local refs.
-Prepared546 runs the [current96 preintegration](reference/repository-regression-block-540-546-preintegration.md): exact ordered539 first91
-vectors, followed by the five current541-545 recheck drivers in introduction order.
-Runtime and ALL tests/fixtures remain exact545. Historical539 plan/runner/outputs
-stay unchanged; current hashes bind the repaired runtime and accepted541 warning
-expectations. Actual546/new pause pending; last qualified STATIC pause539.
-Block540-547, reserves548-551 only if justified.547 must update README, repeat
-the final selection and obtain actual acceptance BEFORE the separate whole
-inherited-condition/original/new-effects review. No native acceptance or authority.
+Actual546 is accepted at `b4559556f83628717c3adf4a13ba74bad0ace403`: all96
+complete ordered outputs, exact source-policy/tree, seven-path stat, reported push
+and clean local refs match. Prepared547 updates README and the
+[final integrated review](reference/repository-regression-block-540-547.md), then repeats the SAME current96 selection
+freshly. Runtime and ALL tests/fixtures remain exact546; original539 and accepted546
+plans/expected outputs stay unchanged. Actual547 and the separate final whole
+inherited-condition/original/new-effects review remain pending. Last qualified
+outer STATIC pause539; no new pause, native acceptance or renewed authority.
+This is the planned eighth/final step540-547; reserves548-551 only if justified.
 
 All96 run freshly, sequentially, with full stdout/stderr/status/current runtime,
 driver and declared support hashes. Expected outputs are comparison oracles,
@@ -26,7 +25,9 @@ replacement; both complete streams and roots are retained. Frozen512/516/519/524
 527/532/536/540 audits remain excluded. The selection is repository regression,
 not native acceptance, a whole-host observation or a whole-condition review.
 See the complete ordered vectors and each real/private/supplied boundary in the
-[546 review](reference/repository-regression-block-540-546-preintegration.md). No permanent test is added for this documentation step.
+[546 exact selection](reference/repository-regression-block-540-546-preintegration.md#exact-current96-selection-and-comparison-rules)
+and [547 final scope](reference/repository-regression-block-540-547.md). The96 commands run freshly in final
+preparation and must repeat on PC. No permanent test is added for documentation.
 
 ## Select the applicable checks
 

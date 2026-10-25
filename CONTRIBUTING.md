@@ -81,7 +81,8 @@ blocked publication. It does not rerun full apply/JSON for every diagnostic faul
 Runtime and ALL older tests remain unchanged.
 
 For the bounded block's integrated regression, use the exact ordered current96
-selection in the [546 preintegration review](docs/reference/repository-regression-block-540-546-preintegration.md).
+selection in the [547 final review](docs/reference/repository-regression-block-540-547.md), retaining the
+[546 complete vectors](docs/reference/repository-regression-block-540-546-preintegration.md#exact-current96-selection-and-comparison-rules).
 Its external runner binds current runtime/driver/support hashes, compares full
 fresh outputs and leaves the source-bound original539 runner unchanged. Exclude
 frozen540 and the older source-bound audits. Do not sum heterogeneous case counts
