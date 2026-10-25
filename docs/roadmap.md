@@ -26,20 +26,22 @@ continuation, HEAD `4de6378e1fed912516c05a0b2fd57efd5c66bdd8`, after actual91
 outputs and the separate qualified whole-condition review. Original539 prepared
 records retain their preparation-time flags; current work does not rewrite them.
 
-Actual543 is accepted at `dac286bd19f1273dd095cfab92cd6558d6a4bf4b`, with all
-seven focused outputs, exact source-policy/tree, reported push and clean local refs.
-Prepared544 adds [full private apply/recheck composition](reference/elf-recheck-apply.md):
-96 cases with24 emission refusals,3 stable successes and93 partial results.
-Runtime and ALL older tests remain exact543. Actual544/new pause pending; last
+Actual544 is accepted at `2d59c8cdf6c71a122549cefd9b0e47e9c196c52e`, with all
+eight focused outputs, exact source-policy/tree, reported push and clean local refs.
+Prepared545 adds [recheck diagnostic composition](reference/elf-recheck-diagnostics.md):
+120 private cases,112 blocked publications and8 normal unresolved controls.
+Runtime and ALL older tests remain exact544. Actual545/new pause pending; last
 qualified STATIC pause539. Block540-547, reserves548-551 only if justified.
-Final actual acceptance precedes separate whole-condition/original/new-effects
+Next546 integrates the prior91 selection plus five new current drivers;547 final
+actual acceptance must precede separate whole-condition/original/new-effects
 review. No native acceptance, actual host observation or renewed authority.
 
-Next545 diagnostic interactions,546 preintegration,547 final README and fresh
-final actual acceptance followed by a separate whole-condition review. The plan
-is adaptive and grants no native effects or future acceptance. Keep original
-criteria/ordered independent/native gates, exact archives/unknown extras/recovery/
-incomplete491 qualifications and full-reading requirements. Evidence/live bindings
+546 preintegration must retain the exact539 ordered91 plan and add current541-545
+checks in introduction order for96 commands, excluding frozen audits.547 then
+updates README and repeats final selection before actual acceptance and separate
+whole inherited review. Adaptive plan, no native authority or future acceptance.
+Keep original criteria/ordered independent gates, full-reading requirements and
+all unknown extra/recovery/incomplete491 qualifications. Evidence/live bindings
 null; actual host unobserved/globalfalse. Later-current refresh cannot invalidate
 completed qualified scoped539 STATIC pause.
 

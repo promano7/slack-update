@@ -73,6 +73,13 @@ raw apply0 versus stable results, intermediate versus final module states,
 selected provisional JSON assertions and the remaining list/status coupling.
 Runtime and ALL older tests stay unchanged; this is not native acceptance.
 
+For recheck emission/report interactions also run
+`python3 tests/reference/test-elf-recheck-diagnostics.py`. Its
+[545 scope](docs/reference/elf-recheck-diagnostics.md) separates overlapping
+faults, real private diagnostic-clear open errors, preserved child sentinels and
+blocked publication. It does not rerun full apply/JSON for every diagnostic fault.
+Runtime and ALL older tests remain unchanged.
+
 ## Compatibility policy
 
 Slackware 15.0 and Slackware-current are both mandatory targets. Changes to the

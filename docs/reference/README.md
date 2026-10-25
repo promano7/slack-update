@@ -36,20 +36,21 @@ at `4de6378e1fed912516c05a0b2fd57efd5c66bdd8`. The
 [532-539 review](repository-regression-block-532-539.md) is immutable preparation
 history with its original pending flags and exact91-command selection.
 
-Actual543 is accepted at `dac286bd19f1273dd095cfab92cd6558d6a4bf4b`, with all
-seven focused outputs, exact source-policy/tree, reported push and clean local refs.
-Prepared544 adds [full private apply/recheck composition](elf-recheck-apply.md):
-96 cases with24 emission refusals,3 stable successes and93 partial results.
-Runtime and ALL older tests remain exact543. Actual544/new pause pending; last
+Actual544 is accepted at `2d59c8cdf6c71a122549cefd9b0e47e9c196c52e`, with all
+eight focused outputs, exact source-policy/tree, reported push and clean local refs.
+Prepared545 adds [recheck diagnostic composition](elf-recheck-diagnostics.md):
+120 private cases,112 blocked publications and8 normal unresolved controls.
+Runtime and ALL older tests remain exact544. Actual545/new pause pending; last
 qualified STATIC pause539. Block540-547, reserves548-551 only if justified.
-Final actual acceptance precedes separate whole-condition/original/new-effects
+Next546 integrates the prior91 selection plus five new current drivers;547 final
+actual acceptance must precede separate whole-condition/original/new-effects
 review. No native acceptance, actual host observation or renewed authority.
 
 The [541 repair](elf-recheck-emission-status.md), [542 inputs](elf-recheck-inputs.md),
-[543 coordinator](elf-recheck-build.md) and frozen [540 audit](elf-recheck-emission-audit.md)
-remain unchanged. Full apply raw0/module states do not replace final message/
-stable-result assessment. Preserve all previous failure/extra/recovery/incomplete491
-qualifications and independent/native gates.
+[543 coordinator](elf-recheck-build.md), [544 apply](elf-recheck-apply.md) and frozen
+[540 audit](elf-recheck-emission-audit.md) remain unchanged. Respect each real/
+supplied/fault/output/cleanup scope; retain all earlier failure/extra/recovery/
+incomplete491 qualifications and independent/native gates.
 
 Earlier [524-531](repository-regression-block-524-531.md),
 [516-523](repository-regression-block-516-523.md),
@@ -88,6 +89,7 @@ is not provenance/global absence or native authority. Original native gates due.
 | Recheck duplicates, blanks, links, absent/empty records and selected emission failures | [Expanded input regression](elf-recheck-inputs.md) |
 | Real SBo build coordinator, queue options and post-build recheck failure fields | [Build/recheck composition](elf-recheck-build.md) |
 | Real recheck through full apply, messages, stable results and selected provisional JSON | [Apply/recheck composition](elf-recheck-apply.md) |
+| Recheck emission refusal plus diagnostic rendering/clearing failures | [Diagnostic composition](elf-recheck-diagnostics.md) |
 | Private scan, broken-list handling, unresolved display and post-build recheck | [ELF scanning](elf-scan-workflow.md) |
 | Cache construction, publication and record-count failures | [ELF cache construction](elf-cache-construction.md) |
 | Cache failure propagation through real dependency/scan/recheck helpers | [ELF cache workflow](elf-cache-workflow.md) |

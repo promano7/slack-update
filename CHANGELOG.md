@@ -1,3 +1,36 @@
+## Phase 1 step 545 -- compose recheck emission and diagnostic refusal
+
+- Accept complete supplied544 FIRST: HEAD/local origin
+  2d59c8cdf6c71a122549cefd9b0e47e9c196c52e, parent
+  dac286bd19f1273dd095cfab92cd6558d6a4bf4b, tree
+  f2b97763e6ee9f9a279f74b474a2e650153a59e1; eight exact outputs/stat/policy,
+  clean reported main/push. Last qualified outer STATIC pause539.
+- Add direct diagnostic120: metadata/resolver primary first-last with healthy
+  companion/normal-quiet-late printf/five report modes/final newline variants.
+  80 emission and96 diagnostic refusals overlap64; union112 blocks publication
+  and preserves exact prior list,8 normal unresolved controls publish. Raw1/
+  verification1 ALL120, old count7. Complete selected input still processed.
+- Report render quiet/late retains full diagnostics; real directory/link clearing
+  failures retain saved full diagnostics, replacement target and child sentinel.
+  Cache/staging/diagnostic effects checked, no whole-tree rollback/native cleanup.
+  Full output/raw/four fields/caller/trace/vector/private bytes-modes-links checked;
+  exact stderr runtime/path with only positive source line number variable.
+- Preserve targeted exact old540 masking and ignored report-return controls in
+  full. Runtime and ALL old code/tests/fixtures exact544; frozen540 audit AND scope/
+  guard/defective expectations stay excluded with older frozen audits. Nine fresh
+  focused commands prepend diagnostic120 to unchanged544 eight. No extension of
+  544 apply/JSON claims to every new fault, no full91/96/native rerun claimed.
+- Syntax/docs/source-mode-tree/overlay/ZIP checks external. Actual545 application/
+  tests/commit/push/clean capture pending; no new pause. Next546 exact539 ordered91
+  plus current541-545 in introduction order for96-command preintegration;547 final
+  README/fresh final actual acceptance/separate whole review. Reserves548-551 only
+  if justified. Counts do not replace exact scopes/criteria or whole reading.
+- Preserve ENTIRE539/original540-545 ZIPs/nested originals/failures/full unknown
+  extras including5444718592/54024903680 bytes/recovery/incomplete491 binary.
+  Phase1/kernel incomplete; original criteria/ordered gates unchanged; evidence/
+  live bindings null; actual host unobserved/globalfalse. No consumed rights or
+  native setup/preflight/run/cleanup authority revived. README unchanged until end.
+
 ## Phase 1 step 544 -- propagate repaired ELF recheck through apply and results
 
 - Accept complete supplied543 FIRST: HEAD/local origin

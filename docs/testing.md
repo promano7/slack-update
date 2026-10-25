@@ -8,21 +8,22 @@ Slackware acceptance differ; it does not authorize a system run.
 
 ## Current bounded block and integrated selection
 
-Actual543 is accepted at `dac286bd19f1273dd095cfab92cd6558d6a4bf4b`, with all
-seven focused outputs, exact source-policy/tree, reported push and clean local refs.
-Prepared544 adds [full private apply/recheck composition](reference/elf-recheck-apply.md):
-96 cases with24 emission refusals,3 stable successes and93 partial results.
-Runtime and ALL older tests remain exact543. Actual544/new pause pending; last
+Actual544 is accepted at `2d59c8cdf6c71a122549cefd9b0e47e9c196c52e`, with all
+eight focused outputs, exact source-policy/tree, reported push and clean local refs.
+Prepared545 adds [recheck diagnostic composition](reference/elf-recheck-diagnostics.md):
+120 private cases,112 blocked publications and8 normal unresolved controls.
+Runtime and ALL older tests remain exact544. Actual545/new pause pending; last
 qualified STATIC pause539. Block540-547, reserves548-551 only if justified.
-Final actual acceptance precedes separate whole-condition/original/new-effects
+Next546 integrates the prior91 selection plus five new current drivers;547 final
+actual acceptance must precede separate whole-condition/original/new-effects
 review. No native acceptance, actual host observation or renewed authority.
 
-The eight-command selection prepends apply96 to the unchanged543 seven, all
-fresh in preparation and repeated on PC. All24 active emission failures must
-retain nonempty BROKEN and produce stable2/partialtrue; raw apply0, intermediate
-module states and final provisional JSON fields are checked separately. No
-schema1/native/full91 closure. Frozen512/516/519/524/527/532/536/540 audits stay
-excluded; all older scopes/failures/extras/recovery/incomplete491 limits remain.
+The nine-command focused selection prepends diagnostic120 to unchanged544 eight,
+all fresh in preparation and repeated on PC. Diagnostic and emission fault totals
+overlap;112 publication refusals/8 normal unresolved controls are the actual matrix
+outcomes. No extension of544 apply/JSON assertions to every diagnostic fault.
+Frozen512/516/519/524/527/532/536/540 audits remain excluded. No fresh full91/96 or
+native run claimed. Preserve all earlier scopes/failures/extras/recovery/history.
 
 ## Select the applicable checks
 
