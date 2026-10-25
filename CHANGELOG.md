@@ -1,3 +1,39 @@
+## Phase 1 step 543 -- compose SBo build coordinator and repaired ELF recheck
+
+- Accept complete supplied542 FIRST: HEAD/local origin
+  d50cae36cc3de0ba571f57e7cb659afc4e7b088f, parent
+  d8433d9eda587bdfdd4fb94fe9f5485742fc6827, tree
+  cf7aeed3cb0c8262551f87103d7c666de3fa648e; all six outputs/stat/policy,
+  clean reported main/push. Last qualified outer STATIC pause539.
+- Add real private coordinator96: eight input profiles/normal-quiet-late emission/
+  builder0-43/populated-empty queues. Real order/options/merge/count/recheck,
+  supplied builder/cache/readelf/printf leaves.48 builder calls,36 rechecks,
+  16 active emission refusals preserve old BROKEN, eight normal unresolved cases,
+  twelve successful clears. Empty queues/lists skip as documented. Raw coordinator0
+  ALL96 is distinct from builder43/recheck1/ELF_VERIFICATION_STATUS1; full apply/
+  stable mapping remains separate544 work. BROKEN_COUNT stays7.
+- Check full outputs/nine fields/caller sentinels/allowed vectors/full sort trace
+  counts/ordered other calls/complete private bytes-modes-links-inventory. Retain
+  exact old540 and removed-recheck source-control rejections. Preserve first
+  authoring failure: guard omitted real option normalizer zero-argument sort;
+  correct only exact caller/vector and expected trace, retain all other checks.
+- At entry scratch listed empty, cause UNKNOWN/no attribution. Recover original
+  540/541/542 ZIPs with exact recorded hashes, original539 transport with exact
+  complete inner hash (no earlier wrapper hash comparison claimed). Preserve
+  recovery qualifications; source extracted only from exact542 canonical members
+  and modes. No claim every unsaved scratch file/metadata survived byte-for-byte.
+- Runtime and ALL old code/tests/fixtures unchanged from542; frozen540 audit AND
+  scope/guard/defective expectations excluded with older frozen audits. Seven
+  fresh focused commands prepend coordinator96 to unchanged542 six. Syntax/docs/
+  source-mode-tree/overlay/ZIP checks external. No full91/full apply/native run.
+- Actual543/application/tests/commit/push/clean capture pending, no new pause.
+  Next544 real full apply/result/message propagation, then diagnostics/integration/
+  finalREADME/actual acceptance/separate whole inherited review toward547.
+- Preserve ENTIRE539 and original540-543 deliveries/nested originals/failures/
+  unknown extras/recovery/incomplete491 binary and all original native criteria/
+  ordered independent gates. Phase1/kernel incomplete; evidence/live bindings null;
+  actual host unobserved/globalfalse. No consumed rights/native authority revived.
+
 ## Phase 1 step 542 -- expand post-build ELF input and prior-list regression
 
 - Accept complete supplied541 FIRST: HEAD/local origin

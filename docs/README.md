@@ -18,21 +18,21 @@ acceptance material. For the current phase and unfinished work, use the
 | Contribution, language and documentation rules | [Contributing](../CONTRIBUTING.md) |
 | Detailed contracts, audits and evidence | [Reference documentation](reference/README.md) |
 | Select applicable checks and historical snapshots | [Testing guide](testing.md) |
-| New bounded ELF recheck work and defect characterization | [Recheck inputs and focused verification](reference/elf-recheck-inputs.md) |
+| New bounded ELF recheck work and defect characterization | [Build/recheck composition and focused verification](reference/elf-recheck-build.md) |
 | Earlier completed integration, with later outer531 closure | [524-531 review](reference/repository-regression-block-524-531.md) |
 | Current bounded regression block and focused workspace checks | [Current testing status](testing.md#current-bounded-block-and-integrated-selection) and [reference index](reference/README.md#current-repository-regression-coverage) |
 | Real Slackware acceptance scenarios | [Acceptance guide](../tests/acceptance/reference/README.md) |
 | Changes by step or version | [CHANGELOG](../CHANGELOG.md) |
 | Earlier README checkpoints and original design text | [Historical README through step 418](reference/readme-through-step418.md) |
 
-Actual541 is accepted at `d8433d9eda587bdfdd4fb94fe9f5485742fc6827`, with exact
-source-policy/tree, all five focused outputs, reported push and clean local refs.
-Prepared542 adds [expanded recheck inputs](reference/elf-recheck-inputs.md):144
-private cases, including64 emission refusals. Runtime and ALL older tests remain
-exact541; frozen540 audit/scope stay excluded. Actual542/new pause pending.
-Block540-547, reserves548-551 only if justified; last qualified STATIC pause539.
-Final actual acceptance must precede the separate whole-condition/original/
-new-effects review. No native acceptance, host observation or renewed authority.
+Actual542 is accepted at `d50cae36cc3de0ba571f57e7cb659afc4e7b088f`, with all
+six focused outputs, exact source-policy/tree, reported push and clean local refs.
+Prepared543 adds [build/recheck composition](reference/elf-recheck-build.md):96
+private cases using the real queue coordinator and repaired recheck. Runtime and
+ALL older tests remain exact542. Actual543/new pause pending; last qualified
+STATIC pause539. Block540-547, reserves548-551 only if justified. Final actual
+acceptance must precede separate whole-condition/original/new-effects review.
+No native acceptance, actual Slackware-host observation or renewed authority.
 
 The design's proposed configuration and result examples describe future
 interfaces. Use the checked-in configuration and the shell reference for the

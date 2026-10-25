@@ -26,22 +26,22 @@ continuation, HEAD `4de6378e1fed912516c05a0b2fd57efd5c66bdd8`, after actual91
 outputs and the separate qualified whole-condition review. Original539 prepared
 records retain their preparation-time flags; current work does not rewrite them.
 
-Actual541 is accepted at `d8433d9eda587bdfdd4fb94fe9f5485742fc6827`, with exact
-source-policy/tree, all five focused outputs, reported push and clean local refs.
-Prepared542 adds [expanded recheck inputs](reference/elf-recheck-inputs.md):144
-private cases, including64 emission refusals. Runtime and ALL older tests remain
-exact541; frozen540 audit/scope stay excluded. Actual542/new pause pending.
-Block540-547, reserves548-551 only if justified; last qualified STATIC pause539.
-Final actual acceptance must precede the separate whole-condition/original/
-new-effects review. No native acceptance, host observation or renewed authority.
+Actual542 is accepted at `d50cae36cc3de0ba571f57e7cb659afc4e7b088f`, with all
+six focused outputs, exact source-policy/tree, reported push and clean local refs.
+Prepared543 adds [build/recheck composition](reference/elf-recheck-build.md):96
+private cases using the real queue coordinator and repaired recheck. Runtime and
+ALL older tests remain exact542. Actual543/new pause pending; last qualified
+STATIC pause539. Block540-547, reserves548-551 only if justified. Final actual
+acceptance must precede separate whole-condition/original/new-effects review.
+No native acceptance, actual Slackware-host observation or renewed authority.
 
-Next543 composes the real build/apply coordinator and repaired recheck, then
-result/diagnostic propagation and integrated review toward547. The outline is
-adaptive; no native effects or future steps are accepted by this documentation.
-Original contracts/criteria/independent gates remain due. Preserve exact nested
-history, unknown extras/recovery/incomplete491 qualifications and whole-reading
-requirements. Evidence/live bindings null; host unobserved/globalfalse. Later-
-current refresh cannot invalidate completed scoped539 STATIC pause.
+Next544 composes the real full apply/result/message mapping after recheck,
+then diagnostic interactions and integrated review toward547. This adaptive plan
+accepts no native effects or future results. Original criteria, independent
+reviews/bindings/actual safe-review/fresh bounded grants/own-platform gates remain.
+Preserve whole-reading requirements, unknown extras/recovery/incomplete491 history.
+Evidence/live bindings null; actual host unobserved/globalfalse. Later-current
+refresh cannot invalidate completed qualified scoped539 STATIC pause.
 
 ### Remaining Phase 1 work
 

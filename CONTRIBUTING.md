@@ -59,6 +59,13 @@ Read the [542 scope](docs/reference/elf-recheck-inputs.md) for active versus
 inactive faults, early success/skip limits and the six fresh focused commands.
 Runtime and all older tests remain unchanged by that extension.
 
+For build-coordinator/recheck interactions also run
+`python3 tests/reference/test-elf-recheck-build.py`. Read its
+[543 scope](docs/reference/elf-recheck-build.md) for real queue/options/count/recheck
+operations, inert builder0/43, skipped cases and raw-coordinator0 versus recorded
+failure fields. It does not exercise full apply/final-result/native acceptance.
+Runtime and ALL older tests remain unchanged by this extension.
+
 ## Compatibility policy
 
 Slackware 15.0 and Slackware-current are both mandatory targets. Changes to the

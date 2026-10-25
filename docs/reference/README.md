@@ -36,19 +36,19 @@ at `4de6378e1fed912516c05a0b2fd57efd5c66bdd8`. The
 [532-539 review](repository-regression-block-532-539.md) is immutable preparation
 history with its original pending flags and exact91-command selection.
 
-Actual541 is accepted at `d8433d9eda587bdfdd4fb94fe9f5485742fc6827`, with exact
-source-policy/tree, all five focused outputs, reported push and clean local refs.
-Prepared542 adds [expanded recheck inputs](elf-recheck-inputs.md):144
-private cases, including64 emission refusals. Runtime and ALL older tests remain
-exact541; frozen540 audit/scope stay excluded. Actual542/new pause pending.
-Block540-547, reserves548-551 only if justified; last qualified STATIC pause539.
-Final actual acceptance must precede the separate whole-condition/original/
-new-effects review. No native acceptance, host observation or renewed authority.
+Actual542 is accepted at `d50cae36cc3de0ba571f57e7cb659afc4e7b088f`, with all
+six focused outputs, exact source-policy/tree, reported push and clean local refs.
+Prepared543 adds [build/recheck composition](elf-recheck-build.md):96
+private cases using the real queue coordinator and repaired recheck. Runtime and
+ALL older tests remain exact542. Actual543/new pause pending; last qualified
+STATIC pause539. Block540-547, reserves548-551 only if justified. Final actual
+acceptance must precede separate whole-condition/original/new-effects review.
+No native acceptance, actual Slackware-host observation or renewed authority.
 
-The [541 repair](elf-recheck-emission-status.md) and frozen historical
-[540 audit](elf-recheck-emission-audit.md) retain their original scope. New542
-changes no old tests/runtime/fixtures. Preserve every previous failure, extra,
-recovery/incomplete491 qualification and independent/native gate.
+The [541 repair](elf-recheck-emission-status.md), [542 input scope](elf-recheck-inputs.md)
+and frozen [540 audit](elf-recheck-emission-audit.md) stay unchanged. Coordinator
+raw0 does not replace recheck/build/final status assessment. Earlier failures,
+extra/recovery/incomplete491 qualifications and native gates remain binding.
 
 Earlier [524-531](repository-regression-block-524-531.md),
 [516-523](repository-regression-block-516-523.md),
@@ -85,6 +85,7 @@ is not provenance/global absence or native authority. Original native gates due.
 | Sticky path-emission failure through scanner and real apply/result mapping | [Current emission regressions](elf-emission-status.md) |
 | Retain every post-build selected path-emission failure before publication | [Recheck emission repair](elf-recheck-emission-status.md) |
 | Recheck duplicates, blanks, links, absent/empty records and selected emission failures | [Expanded input regression](elf-recheck-inputs.md) |
+| Real SBo build coordinator, queue options and post-build recheck failure fields | [Build/recheck composition](elf-recheck-build.md) |
 | Private scan, broken-list handling, unresolved display and post-build recheck | [ELF scanning](elf-scan-workflow.md) |
 | Cache construction, publication and record-count failures | [ELF cache construction](elf-cache-construction.md) |
 | Cache failure propagation through real dependency/scan/recheck helpers | [ELF cache workflow](elf-cache-workflow.md) |

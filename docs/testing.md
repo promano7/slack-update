@@ -8,19 +8,21 @@ Slackware acceptance differ; it does not authorize a system run.
 
 ## Current bounded block and integrated selection
 
-Actual541 is accepted at `d8433d9eda587bdfdd4fb94fe9f5485742fc6827`, with exact
-source-policy/tree, all five focused outputs, reported push and clean local refs.
-Prepared542 adds [expanded recheck inputs](reference/elf-recheck-inputs.md):144
-private cases, including64 emission refusals. Runtime and ALL older tests remain
-exact541; frozen540 audit/scope stay excluded. Actual542/new pause pending.
-Block540-547, reserves548-551 only if justified; last qualified STATIC pause539.
-Final actual acceptance must precede the separate whole-condition/original/
-new-effects review. No native acceptance, host observation or renewed authority.
+Actual542 is accepted at `d50cae36cc3de0ba571f57e7cb659afc4e7b088f`, with all
+six focused outputs, exact source-policy/tree, reported push and clean local refs.
+Prepared543 adds [build/recheck composition](reference/elf-recheck-build.md):96
+private cases using the real queue coordinator and repaired recheck. Runtime and
+ALL older tests remain exact542. Actual543/new pause pending; last qualified
+STATIC pause539. Block540-547, reserves548-551 only if justified. Final actual
+acceptance must precede separate whole-condition/original/new-effects review.
+No native acceptance, actual Slackware-host observation or renewed authority.
 
-The six-command selection adds input144 before the five541 checks, all fresh on
-current source in preparation; the PC repeats them. Older frozen512/516/519/524/
-527/532/536/540 audits remain excluded. No full91 or native run claimed. Retain
-all prior failure/extra/recovery/incomplete491 qualifications and native gates.
+The seven-command selection prepends coordinator96 to the six542 commands;
+all run fresh in preparation and must repeat on PC. Coordinator raw0 is checked
+separately from failed recheck and builder43 fields; final apply mapping follows
+in544. Runtime/older tests unchanged. Frozen512/516/519/524/527/532/536/540 audits
+remain excluded. No full91/native/actual-host run claimed. Keep exact originals,
+all failures/extras/recovery/incomplete491 qualifications and original native gates.
 
 ## Select the applicable checks
 
