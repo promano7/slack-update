@@ -838,11 +838,14 @@ capture_validated_package_snapshot() {
 package_names_with_build_suffix_from_stream() {
     local suffix=$1
     local record
+    local emission_failed=0
 
     while IFS= read -r record || [ -n "$record" ]; do
         slackware_package_record_has_build_suffix "$record" "$suffix" || continue
-        printf '%s\n' "$SLACKWARE_PACKAGE_NAME"
+        # Retain failed emissions while processing the remaining selected records.
+        printf '%s\n' "$SLACKWARE_PACKAGE_NAME" || emission_failed=1
     done
+    [ "$emission_failed" -eq 0 ]
 }
 
 is_safe_sbo_target_name() {

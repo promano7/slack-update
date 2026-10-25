@@ -1,3 +1,29 @@
+## Phase 1 step 557 -- retain SBo package-name stream emission failures
+
+- Accept complete supplied inline556 first: HEAD/local origin
+  40de61ffe5c8c15ad7368f61b67701a9a931fcc4, parent
+  f30c17519bfb9726de95970c3235b37edaa1705b, tree
+  6be755987f1152ad6255bc09a09071dde654229e; six full exact outputs,
+  eight-path376-add177-delete stat/subject/policy/modes/clean refs/reported push.
+  Preserve explicit transcription; no uploaded-byte/independent terminal custody.
+- Repair only package_names_with_build_suffix_from_stream: local sticky writer
+  failure, continued selected-record processing, final0/1. Ordinary parser/tag/
+  order/bytes/skips unchanged; no retry/new diagnostic/stable CLI/schema/native
+  policy. Every other runtime byte and ALL existing tests/support/fixtures exact556.
+- Add separate authored current108-case driver:72 active quiet/late writer faults
+  refused after all selected emissions,36 normal controls. Private old556 and
+  early-return mutation variants fail; unchanged frozen556 audit refuses557.
+  No weakened historical characterization or independent semantic claim.
+- Preserve old101 integration plan with historical runtime binding; current-source
+  rebinding/full-oracle integration due562. Existing package/target/count/owner
+  checks remain separate; new-fault installed/owner/ABI/dry-run/apply composition
+  is not established by direct helper checks. No heterogeneous native count sum.
+- Last qualified STATIC pause555;557 actual/new pause pending. Retain exact555
+  continuity and every556+ original delivery, all UNKNOWN provenance/recording/
+  incomplete-history/containment/cleanup limits and original native gates.
+  Phase1/kernel incomplete; no native action, old right revival or new whole
+  inherited-condition review follows from this STATIC repair.
+
 ## Phase 1 step 556 -- characterize SBo package-name emission status loss
 
 - Reconstruct the exact uploaded555 continuity from11 wrapped fragments; full

@@ -25,7 +25,16 @@ stream observations include72 active supplied writer failures:64 are masked,
 eight surface, and36 normal controls succeed. A characterization PASS describes
 the defective historical source and is NOT a safety pass.
 
+Step556's complete supplied inline return is accepted. The [557 repair](reference/sbo-package-name-emission-status.md)
+now retains package-name writer failures through complete stream processing.
+Run `python3 tests/reference/test-sbo-package-name-emission-status.py` for the
+new108-case direct-helper check:72 selected failures refused and36 normal
+controls. The exact old source and early-return variants are detected; unchanged
+frozen556 rejects the repaired source. Actual557/new pause remain pending.
+New-fault installed/owner/ABI/dry-run composition is still planned later.
+
 The original101-command cache integration plan remains byte unchanged.
+Its runtime binding is historical until fresh current integration in562.
 The frozen556 audit is separate and must refuse a changed runtime; it must not
 be added as a current safety check after a repair. A fresh integrated plan is
 due near the end of this block, preserving existing vectors/output oracles and

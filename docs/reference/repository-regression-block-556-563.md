@@ -70,3 +70,25 @@ does not preserve ZIP executable bits; source modes were explicitly restored
 from the verified555 policy before copying the isolated source preparation.
 This is a known local extraction operation, not an unexplained metadata change,
 historical metadata image, archive modification or fresh whole-condition review.
+
+## Step557 preparation after accepted actual556
+
+Complete supplied inline556 output is accepted first at HEAD/local origin
+`40de61ffe5c8c15ad7368f61b67701a9a931fcc4`, parent
+`f30c17519bfb9726de95970c3235b37edaa1705b`, tree
+`6be755987f1152ad6255bc09a09071dde654229e`: six exact complete outputs,
+eight-path376-add177-delete stat, subject/policy/modes/clean refs/reported push.
+This is retained explicit inline transcription, not original uploaded-byte or
+independent terminal/remote capture. Step556 is accepted;557/new pause pending.
+
+The [557 repair](sbo-package-name-emission-status.md) changes only the shared
+package-name stream helper: retain selected writer failures, process remaining
+records, return1 after any failure. New separate108-case driver refuses all72
+writer failures, retains all selected emissions and36 normal controls. Exact old
+runtime and early-return variants are detected; frozen556 audit refuses557.
+ALL old tests/support/fixtures/frozen556/old101 plan remain unchanged. The old plan
+retains its historical runtime binding; fresh current integration is due in562.
+No new-fault installed/owner/ABI/dry-run/apply or native composition is yet claimed.
+
+The scope and qualifications above remain binding; inherited whole-review flags
+are imported history, not a fresh review or substitute for final whole reading.
