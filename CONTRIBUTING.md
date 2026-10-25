@@ -52,6 +52,13 @@ characterization and scope remain unchanged and excluded. A generic warning now
 names read/emission/sort failures; only two old scan-workflow expected literals
 change. Preserve its complete first failure and all old cases/assertions.
 
+For post-build input record handling also run
+`python3 tests/reference/test-elf-recheck-inputs.py`, covering duplicates/blanks/
+links/absent objects/empty and missing lists with normal and failed emission.
+Read the [542 scope](docs/reference/elf-recheck-inputs.md) for active versus
+inactive faults, early success/skip limits and the six fresh focused commands.
+Runtime and all older tests remain unchanged by that extension.
+
 ## Compatibility policy
 
 Slackware 15.0 and Slackware-current are both mandatory targets. Changes to the

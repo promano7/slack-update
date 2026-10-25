@@ -26,24 +26,22 @@ continuation, HEAD `4de6378e1fed912516c05a0b2fd57efd5c66bdd8`, after actual91
 outputs and the separate qualified whole-condition review. Original539 prepared
 records retain their preparation-time flags; current work does not rewrite them.
 
-Actual540 is accepted at `12f4d41bb6e2e8ea544e4597f5dca54a1a2d2189` with clean
-reported main, exact source tree and push. Prepared541 retains every selected
-post-build ELF path-emission error until the input loop completes and refuses
-before list publication/clearing. See the [repair scope](reference/elf-recheck-emission-status.md)
-for108 direct cases, five fresh focused commands, preserved baseline/old-warning
-failures, four source controls and remaining limits. Actual541/new pause pending.
-Last externally confirmed qualified STATIC pause remains539. Block540-547,
-reserves548-551 only if justified; final actual acceptance precedes a separate
-whole-condition/original/new-effects review. No native or host closure claimed.
+Actual541 is accepted at `d8433d9eda587bdfdd4fb94fe9f5485742fc6827`, with exact
+source-policy/tree, all five focused outputs, reported push and clean local refs.
+Prepared542 adds [expanded recheck inputs](reference/elf-recheck-inputs.md):144
+private cases, including64 emission refusals. Runtime and ALL older tests remain
+exact541; frozen540 audit/scope stay excluded. Actual542/new pause pending.
+Block540-547, reserves548-551 only if justified; last qualified STATIC pause539.
+Final actual acceptance must precede the separate whole-condition/original/
+new-effects review. No native acceptance, host observation or renewed authority.
 
-The next542 expands direct recheck input/prior-state cases; subsequent planned
-work covers real coordinator/result/diagnostic composition and final integration.
-This is an adaptive outline, not accepted steps or authority for native effects.
-Preserve all original conditions and nested archives; final review cannot use
-counts/hashes/summaries instead of whole reading. Unknown extras/recovery and
-incomplete491 history remain open. Evidence/live bindings null, host unobserved,
-global closurefalse; consumed rights stay consumed. Later-current refresh does
-not invalidate completed qualified scoped539 STATIC pause.
+Next543 composes the real build/apply coordinator and repaired recheck, then
+result/diagnostic propagation and integrated review toward547. The outline is
+adaptive; no native effects or future steps are accepted by this documentation.
+Original contracts/criteria/independent gates remain due. Preserve exact nested
+history, unknown extras/recovery/incomplete491 qualifications and whole-reading
+requirements. Evidence/live bindings null; host unobserved/globalfalse. Later-
+current refresh cannot invalidate completed scoped539 STATIC pause.
 
 ### Remaining Phase 1 work
 

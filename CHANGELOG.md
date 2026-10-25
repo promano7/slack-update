@@ -1,3 +1,34 @@
+## Phase 1 step 542 -- expand post-build ELF input and prior-list regression
+
+- Accept complete supplied541 FIRST: HEAD/local origin
+  d8433d9eda587bdfdd4fb94fe9f5485742fc6827, parent
+  12f4d41bb6e2e8ea544e4597f5dca54a1a2d2189, tree
+  d3c75d7b9be7c54a1eacf7f206607f552f125a7f; exact ordered outputs/stat/policy,
+  clean reported main/push. Last qualified outer STATIC pause539.
+- Add independent private input144 matrix:12 profiles/two orders/normal-quiet-late
+  emission/final-newline variants.64 active emission refusals preserve complete
+  prior BROKEN and process all input;32 normal unresolved publication controls;
+  24 healthy/absent-record clears;24 early empty/missing-list returns. Fault labels
+  inactive in32 cells, not counted as refusals. Duplicate/link input paths remain
+  literal and sorted-unique only at publication. Old BROKEN_COUNT stays7.
+- Retain full baseline540 rejection, source and new driver. Check exact outputs/
+  raw status/four fields/caller sentinels/callback vectors and sort counts/ordered
+  other trace records/full private bytes-modes-links-inventory. Real private
+  resolver/parsers/lookup/recheck/coreutils, supplied cache/readelf/printf leaves.
+- Runtime and ALL old code/tests/fixtures unchanged from541; historical540 audit
+  AND scope/guard/defective expectations remain frozen and excluded with earlier
+  frozen audits. Six fresh focused commands add input144 to unchanged541 five.
+  Syntax/executable/docs-links/source-mode-tree/overlay/ZIP checks external.
+  No fresh91/apply/native/installed-cache or actual host observation claimed.
+- Actual542/application/tests/commit/push/clean capture remain pending, no new
+  pause. Next543 real coordinator composition, then result/diagnostic/integration/
+  final README/actual acceptance/separate whole inherited review toward547.
+- Preserve ENTIRE539 transport/inner/nested originals and original540/541/542
+  ZIPs, all failures/extras/unknown origins/recovery/incomplete491 binary and
+  original1286 native criteria/ordered independent gates. Phase1/kernel incomplete;
+  evidence/live bindings null; host unobserved/globalfalse. No consumed rights or
+  native setup/preflight/run/cleanup authority revived. README unchanged until end.
+
 ## Phase 1 step 541 -- retain every post-build ELF path-emission failure
 
 - Accept complete supplied actual540 FIRST: HEAD/local origin
