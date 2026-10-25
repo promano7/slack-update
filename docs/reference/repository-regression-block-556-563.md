@@ -158,3 +158,26 @@ current integration562/final563 and separate final whole review remain due.
 The owner-stage global retains a removed private path after entered mapping;
 selected physical removal is not global cleanup. All inherited qualifications and
 exact-original preservation duties above remain binding; no new pause claimed.
+
+## Step561 preparation after accepted actual560
+
+Complete inline560 accepted FIRST at HEAD/local origin
+`03ce242c4eb250438ddcfc3c21a697a73c8e6fcd`, parent
+`a12de9f154dfffe093e079571e97b4ecd9ab56f5`, tree
+`1481d8fd76c5a06abe15236f9d660097d021a166`: nine full exact outputs,
+seven-path399-add5-delete stat/subject/policy/modes/clean refs/reported push.
+Retained explicit transcription is not original uploaded-byte/independent custody.
+Earlier559 literal `ç` stays in its original record with UNKNOWN origin/cause.
+Steps556-560 accepted; actual561/new pause pending, last qualified STATIC555.
+
+The [561 selection matrix](sbo-selection-emission.md) adds240 private helper cases:
+96 active writer refusals block publication/count and retain destination/counts;
+96 inactive-fault and48 normal controls include64 publications/counts and80 real
+disabled-ABI touches.32 multiple-fault cases subset96. Declared unchanged559 setup/
+inventory support is imported; separate names and phase expectations are authored.
+ABI/dry-run caller counts and diagnostics are checked with real installed selection.
+Disabled ABI can create a file/update times and retain old counts/error; no blanket
+no-effect/reset claim. Historical producer/ignored ABI/ignored dry-run controls fail.
+Runtime/all old tests/support/fixtures/frozen556/old101 plan exact560; only the new
+support-map entry is added. Current integration562, final563/complete actual and
+separate final whole review remain due with every inherited limit preserved.

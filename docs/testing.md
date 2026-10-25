@@ -52,7 +52,14 @@ outside ordered streams. The [560 owner matrix](reference/sbo-owner-emission.md)
 refusals through real private manifest lookup, owner selection and queue gates:
 160 cases,64 active refusals,64 inactive-fault and32 normal controls. Run
 `python3 tests/reference/test-sbo-owner-emission.py`. Runtime remains exact559;
-actual560/new pause pending. ABI/dry-run new-fault composition remains due561.
+Step560 is now accepted; its ABI/dry-run limits are historical. New pause pending.
+
+Step560's complete inline return is accepted. The [561 selection matrix](reference/sbo-selection-emission.md)
+adds240 private ABI/dry-run helper cases:96 writer refusals before publication/
+count,96 inactive-fault and48 normal controls. Disabled ABI retains its touch
+branch. Run `python3 tests/reference/test-sbo-selection-emission.py`, which imports
+the declared unchanged559 setup/inventory support. Runtime exact560; actual561/
+new pause pending. Current full integration and final whole review remain due.
 
 The original101-command cache integration plan remains byte unchanged.
 Its runtime binding is historical until fresh current integration in562.

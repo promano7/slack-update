@@ -1,3 +1,28 @@
+## Phase 1 step 561 -- propagate installed-reader emission failure to selection
+
+- Accept complete supplied inline560 FIRST: HEAD/local origin
+  03ce242c4eb250438ddcfc3c21a697a73c8e6fcd, parent
+  a12de9f154dfffe093e079571e97b4ecd9ab56f5, tree
+  1481d8fd76c5a06abe15236f9d660097d021a166; nine full exact outputs,
+  seven-path399-add5-delete stat/subject/policy/modes/clean refs/reported push.
+  Retain explicit transcription, not original uploaded-byte/independent custody.
+- Add240 real private ABI/dry-run selection cases:96 active writer refusals block
+  publication/count and retain prior target or absence/counts;96 inactive-fault
+  and48 normal controls contain64 publications/counts and80 disabled-ABI touches.
+  32 multiple-fault cases subset96,160 failed writes; no native coverage sum.
+- Import declared unchanged559 callback/inventory mechanics with bytecode disabled;
+  author separate profile/phase expected outputs. Real installed collector and
+  following caller counts run; disabled ABI may create/touch a target and retains
+  supplied counts/error. No universal no-effect/reset/all-metadata guarantee.
+- Historical producer and independently selected ignored ABI/dry-run collector
+  branches fail private controls; full bytes/refusals retained. Runtime/ALL old
+  tests/support/fixtures/native criteria/frozen556/old101 plan exact560. Add only
+  the new driver support-map entry; current full integration due562, final563.
+- Last qualified STATIC555; actual561/new pause pending. Earlier559 literal ç,
+  all UNKNOWN provenance/recording/incomplete-history/containment/cleanup/native
+  qualifications and exact555/every556+ originals retained. Phase1/kernel incomplete;
+  no native action, old-right revival or fresh whole inherited review claimed.
+
 ## Phase 1 step 560 -- compose owner-selection package-name writer refusals
 
 - Accept complete supplied inline559 FIRST: HEAD/local origin
