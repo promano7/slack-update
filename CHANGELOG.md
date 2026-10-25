@@ -1,3 +1,46 @@
+## Phase 1 step 554 -- integrate the cache-emission regression block
+
+- Accept complete inline actual553 FIRST: HEAD/local origin
+  120397afb4fe55a59ba48e7afaf591692da287fc, parent
+  bb110eb2efae9d98a0c2012938195df8624c4162, tree
+  cfaf73c20c9797a250d6d178e1d6a645cd8bbd8f; nine exact full outputs,
+  eight-path646add157delete stat/subject/policy/modes/clean refs/reported push.
+  Explicit transcription, not uploaded-byte/independent custody.
+- Recover and retain exact547 ordered96 plan/complete oracles/runner unchanged.
+  Add committed101-command plan: first96 vectors/drivers/supports/oracles exact,
+  five unchanged549-553 drivers in introduction order, current549 runtime binding.
+  Fresh complete101 rows/streams; only position56 one consistent private-root
+  substitution, full expected/actual text and roots retained. Frozen548 excluded
+  with earlier frozen audits; no weakened or replaced historical output oracle.
+- Runtime/root README/ALL existing tests/support/fixtures/native criteria and
+  frozen548 audit/guard/defective oracle/scope exact553. Six guide/changelog paths,
+  one new scope and one JSON plan only; no new runtime/native behavior or grant.
+- Preserve all supplied-leaf/raw-stable/count-file/selected-JSON/event-callback
+  limits, all UNKNOWN extras/550 scratch loss and recovery/incomplete491/failed
+  unread-original qualifications. Record optional-provenance authoring KeyError
+  before plan output/integration and its provenance-only correction.
+- Strict source inventory refused a new UNKNOWN13369344-byte0600 extra SHA256
+  30615745c1a303eed41408ecda64c359f93a350d59493659426db4726985b3f0;
+  full bytes/inventory/original refusal/eight first authored paths/builder kept,
+  whole observed tree retained outside delivery. No integration started. Canonical
+  rebuilt exact553 policy members/Git modes plus intended paths before FRESH101.
+  Origin/time/cause UNKNOWN; no attribution/provenance/cleanup/global absence.
+- All101 per-command full streams/status/oracles match; controller exits0.
+  Separate aggregate stdout is partial3424 bytes through BEGIN19, cause UNKNOWN.
+  Preserve original partial trace/full101 report; separate rendering explicitly
+  derived from result rows, not original console custody. No test/oracle change
+  or result reuse. PC full101 return still required; recording limit retained.
+- Actual554/new pause pending;555 useful README/fresh101/COMPLETE FINAL actual
+  FIRST, then separate WHOLE inherited header/EVERY WHOLE condition/EVERY exact
+  nested original/ALL new effects-obligations-cleanup-failures-limits reading and
+  original comparisons. Hashes/counts/summaries/prior flags do not substitute.
+- Preserve ENTIRE547/nested originals/every548+ ZIP. Phase1/kernel incomplete;
+  all original criteria/findings/gaps/option decisions/ordered independent-native
+  gates unchanged. Evidence/live bindings null;host unobserved/globalfalse.
+  No old authority revived or native setup/probe/preflight/build/package/boot/
+  network/cleanup. Later-current refresh cannot invalidate completed scoped STATIC
+  pause or revive consumed rights; no automatic extension/native execution.
+
 ## Phase 1 step 553 -- compose real cache-emission refusal through apply/results
 
 - Accept complete inline actual552 FIRST: HEAD/local origin

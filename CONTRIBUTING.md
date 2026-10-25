@@ -38,6 +38,14 @@ README archives and per-step summaries do not supersede them.
 
 ## Current cache-record emission regression
 
+For554 integration use the complete delivery runner and committed
+[ordered101 plan](tests/reference/elf-cache-integration-plan.json); read the
+[integration scope](docs/reference/elf-cache-integration.md). Preserve exact547
+first96 oracles and append549-553 in introduction order. Keep full101 output,
+including the one allowed position56 private-root comparison. Root README and
+all existing tests remain unchanged in554.555 final integration and separate
+post-actual whole review are still required; test success does not close them.
+
 For553 real-cache/apply/stable-result/selected JSON composition, run
 `python3 tests/reference/test-elf-cache-apply-emission.py` and read the
 [apply scope](docs/reference/elf-cache-apply-emission.md). Bind the unchanged544

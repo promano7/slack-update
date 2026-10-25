@@ -1,0 +1,1805 @@
+{
+  "appended_introduction_order": [
+    549,
+    550,
+    551,
+    552,
+    553
+  ],
+  "command_count": 101,
+  "commands": [
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-cli-arguments.py"
+      ],
+      "driver_sha256": "fe351eb2fd41bd49311168f175783f9f2c18ece96d34a145f5489f0a90704190",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "CLI argument parser: 138 scenarios, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 1
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-cli-early-exits.py"
+      ],
+      "driver_sha256": "cdaf0e2b2105d4973e9981309ffd921b93d925406365faa553b9d964f6efdc84",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "CLI early exits: 132 scenarios, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 2
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-configuration-parser.py"
+      ],
+      "driver_sha256": "3f2664ffa7d4cf74fc2f1d6fbf9ce81c57d7e906ceeb16d306328342756b1459",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Configuration parser: 72 scenarios, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 3
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-configuration-resolver.py"
+      ],
+      "driver_sha256": "366b4090ec9743ed702cf9f3c72788c9ee9ffbf2e94ab6098316362380fb011f",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Configuration resolver: 84 scenarios, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 4
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-configuration-validation.py"
+      ],
+      "driver_sha256": "4a320bdc7a67fc78e6ccb5d6a839709cc716f8eaffe1950594d33f6a40093d50",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Configuration validation: 163 scenarios, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 5
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-configuration-application.py"
+      ],
+      "driver_sha256": "9f30af17b8c1c2b1530314c1827d3c52e3ebd1cc8e3573561a55f7b39c1645a5",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Configuration application: 288 scenarios, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 6
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-main-configuration-failures.py"
+      ],
+      "driver_sha256": "905398f0de3e899a9ea211e5df8fdc00452c4b07bcd62e7f32490d3c03e790f2",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Main configuration boundaries: 456 scenarios, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 7
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-main-setup-failures.py"
+      ],
+      "driver_sha256": "c33659dc06d43d0353c5687c4a62b82753467d0dabf8e58b7f94e6cef61d7577",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Main setup boundaries: 216 scenarios, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 8
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-main-completion.py"
+      ],
+      "driver_sha256": "73c8d1f24cbf9758fe60e15c9c4ee895c93c5cade5880cbb225750bebfa7cb6f",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Main completion boundaries: 576 scenarios, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 9
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-result-precedence.py"
+      ],
+      "driver_sha256": "fa43807b999691a5e975af9706aec9387302d023dd6b4e3b0936f7636c136f29",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Result precedence: 492 scenarios, 984 mapper calls, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 10
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-instance-lock.py"
+      ],
+      "driver_sha256": "e5e235bf43e4bde7ea4086ba72c30cf60c6550925bbef90947a489e3ef4fc585",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Instance lock helpers: 14 scenarios, 41 helper calls, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 11
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-optional-module-probes.py"
+      ],
+      "driver_sha256": "aa33b0acfe15f87ac15190b2622938acf88d2d880ab39d6fdae533d4b8b379ed",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Optional module probes: 50 scenarios, 100 probe calls, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 12
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-boot-module-policy.py"
+      ],
+      "driver_sha256": "f7147db62bf4d0c2b900db2183134489b46c61b24c690e926b6ad5caf03188de",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Boot module policy: 261 scenarios, 522 entry calls, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 13
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-check-workflow.py"
+      ],
+      "driver_sha256": "34b6042a8d7c8a7b9e53b27cbde6c72a0ddfa52f49eabaf46b5592a90eb61b18",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Check workflow: 32 scenarios, 64 workflow calls, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 14
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-json-control-escaping.py"
+      ],
+      "driver_sha256": "d01b8e2b1e16f5d56e29f5fb09b0795b1af13ff9cca21c586f924e5c2d7b4d37",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "JSON control escaping tests: 113 checks, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 15
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-check-json-result.py"
+      ],
+      "driver_sha256": "29d0b2b110669a973d3c9722a943a7b91c4bcd0ed379b9023ead796d881e9279",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Check JSON result tests: 10 scenarios, 8 negative controls, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 16
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-dry-run-json-result.py"
+      ],
+      "driver_sha256": "a66696556a41636824d463d9c3202898e8b848726bae77e58886ea496f94520e",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Dry-run JSON result tests: 14 scenarios, 8 negative controls, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 17
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-apply-json-result.py"
+      ],
+      "driver_sha256": "d323d917de812b503e937d579a577dd3adea1ea7b4b5aaa8c62ecf328fa5617b",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Apply JSON result tests: 24 scenarios, 8 negative controls, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 18
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-event-ndjson.py"
+      ],
+      "driver_sha256": "7c8c86ad7265e154b05e1613fb6727be01ba56b47f77a5141181e42f83120231",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Event NDJSON tests: 14 scenarios, 8 negative controls, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 19
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-sbo-option-json.py"
+      ],
+      "driver_sha256": "6c40c099704eca612d24a87a24d3d8c702eaf1ee964a7d8b3d391147f8cd22cd",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "SBo option JSON tests: 14 scenarios, 8 negative controls, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 20
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-dry-run-workflow.py"
+      ],
+      "driver_sha256": "53816c170e10879dccfbfc90462b9bdb293f9c8dbcd00f1503b4d8a7eea0d90d",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Dry-run workflow: 250 scenarios, 500 workflow calls, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 21
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-dry-run-environment.py"
+      ],
+      "driver_sha256": "e42166d8fa9b2cb878e0b76431640f14f0175b78f5abc02fdaaf9e2b37ab47c2",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Dry-run environment: 726 scenarios, 1452 inspection calls, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 22
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-dry-run-plan.py"
+      ],
+      "driver_sha256": "f4b904baf7c7e4795d3f64791ba7ef8d19778467ca7973e8023e22e8552f0f4a",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Dry-run plan: 180 scenarios, 360 render calls, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 23
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-package-snapshot-boundaries.py"
+      ],
+      "driver_sha256": "ae26314fe5d7262d72bcd79b2a0faf045b978cdc0d701dd5cc58cd31373680d6",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Package snapshot boundaries: 61 scenarios, 122 entry calls, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 24
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-partial-update-policy.py"
+      ],
+      "driver_sha256": "a00ad75f709cf50b49694e748b315a26c67f57dc5ce1ea6f99366671c27653b5",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Partial update policy: 1044 scenarios, 2088 entry calls, 801 classifier cases, 243 blocker cases, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 25
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-apply-early-exits.py"
+      ],
+      "driver_sha256": "68f118a69073d32a19d1966ceca77abd6325f265167c45894801cdabada761c4",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Apply early exits: 870 scenarios, 1740 workflow entries, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 26
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-apply-secondary-workflow.py"
+      ],
+      "driver_sha256": "31f77de3a7d5edc852cac97af39c4e0f71d06e81dc0363fa0853c5d6d7c6bfd6",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Apply secondary workflow: 472 scenarios, 944 workflow entries, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 27
+    },
+    {
+      "command": [
+        "bash",
+        "tests/reference/test-sbo-options.sh"
+      ],
+      "driver_sha256": "c61bbe26832f1589002e587607751c227b4a60f795bf2f56cd2911216670493e",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "SBo build-option tests: 57 checks, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 28
+    },
+    {
+      "command": [
+        "bash",
+        "tests/reference/test-error-exit-codes.sh"
+      ],
+      "driver_sha256": "70879a0e9559783bb49f2eb9bf2be846672a4e3e9437c820ec41f8c847818f4e",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "PASS: 137 error-exit checks\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 29
+    },
+    {
+      "command": [
+        "bash",
+        "tests/reference/test-signal-cleanup.sh"
+      ],
+      "driver_sha256": "d520d6502c4a0eb60599b298bb011fadf13a98c2c55acd58ae045e5144bc8332",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "PASS: 56 signal-cleanup checks\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 30
+    },
+    {
+      "command": [
+        "bash",
+        "tests/reference/test-current-direct-generic-boot-policy.sh"
+      ],
+      "driver_sha256": "60628a4d8ebf6fef166a48c301ac29c535d286fd09423a274feecd974c755949",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Current direct-generic boot policy harness: 59 checks, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 31
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-boot-preparation-workflow.py"
+      ],
+      "driver_sha256": "6ef957117164ea06a13926d13b5a86ff67e83015ee00f187c100a4997a21e9b4",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Boot preparation workflow tests: 2304 scenarios, 4608 entries, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 32
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-package-change-detection.py"
+      ],
+      "driver_sha256": "235e05d48c2293e6ce798b1ad1b7ead56725770bd345259185c368e0ffc4b146",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Package change detection: 756 ABI scenarios, 3456 kernel scenarios, 8424 detector entries, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 33
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-mirror-probe.py"
+      ],
+      "driver_sha256": "f556e88aa0ab69d7e69385c6ee577a8d72663aad9aab9aae4f127652b7328bdf",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Mirror probe tests: 28 resolver scenarios, 198 probe scenarios, 240 check scenarios, 932 entries, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 34
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-flatpak-update.py"
+      ],
+      "driver_sha256": "a3be011e916f018e62d13b65c096b40bd0d8031206349472a84d13bb961f3d98",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Flatpak update wrapper: 120 scenarios, 336 wrapper entries, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 35
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-cinnamon-rebuild.py"
+      ],
+      "driver_sha256": "f4c292e843dcb6e21b7cadbbe96e399be210e4d60918c2c5ac9df315ece45c08",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Cinnamon rebuild wrapper: 436 scenarios, 872 wrapper entries, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 36
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-slackpkg-update.py"
+      ],
+      "driver_sha256": "b538b8eadca133d97d3b68759d85329d842747c47b6e92f18b358af64cb859a8",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Slackpkg update wrapper: 12 capture scenarios, 576 update scenarios, 1176 entries, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 37
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-human-summary.py"
+      ],
+      "driver_sha256": "ea1b260ef531f4ff73eb96a2249524c9e78619d9cc3c32e46cc5d1ee871ce454",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Human summaries: 388 apply scenarios, 16 check scenarios, 808 entries, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 38
+    },
+    {
+      "command": [
+        "bash",
+        "tests/reference/test-grub-blocked-after-initrd-failure.sh"
+      ],
+      "driver_sha256": "68bc1ac0fc89a8ea44da600ac2a234b20f6d9fec31d03876e29d0260d5ba8302",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "GRUB-after-initrd safety tests: 55 checks, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 39
+    },
+    {
+      "command": [
+        "bash",
+        "tests/reference/test-package-name-parsing.sh"
+      ],
+      "driver_sha256": "18f1885930b782994ffb59a14f485342449108543795cfcdef290edcdbd066c5",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Package parsing tests: 71 checks, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 40
+    },
+    {
+      "command": [
+        "bash",
+        "tests/reference/test-slackpkg-postinstall-policy.sh"
+      ],
+      "driver_sha256": "5da19e01ed7701772c09a84f069c60df8121a4221cfa6f3c9e04070479bb0d87",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Slackpkg post-install policy tests: 23 checks, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 41
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-sbo-queue-graph.py"
+      ],
+      "driver_sha256": "5673a8f16151e56c28d35fd5e7842fd45291aa0a9e3bc793b22de0b590de47b4",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "SBo queue graph tests: 1737 graph entries, 8 record cases, 41 constraint entries, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 42
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-sbo-queue-files.py"
+      ],
+      "driver_sha256": "2f35ff600cec396b5aa2b7e31b7da5c57c8377f1d01c7004ccf433933efee25a",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "SBo queue files tests: 40 collection entries, 56 merge entries, 50 supplied fault entries, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 43
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-sbo-workflow.py"
+      ],
+      "driver_sha256": "3de3743b46559a53108f2cbf580812e194402340f484e9894abd9de7bb331c4d",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "SBo workflow tests: 54 sync entries, 64 core entries, 24 abi entries, 72 gate entries, 96 final entries, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 44
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-elf-metadata.py"
+      ],
+      "driver_sha256": "eba973fb2026818cb88b43ca050835f98b3f866092f5089e6b08c681697e4095",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "ELF metadata tests: 96 magic/path entries, 68 header entries, 44 dynamic entries, 189 cache entries, 560 dependency entries, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 45
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-elf-scan-workflow.py"
+      ],
+      "driver_sha256": "66322f25fde1d853a8d2885e5abea5a5ebeebb6e8db879ef6bf3156c0fbbee54",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "ELF scan workflow tests: 133 scan entries, 199 verify entries, 20 report entries, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 46
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-runtime-logging.py"
+      ],
+      "driver_sha256": "c450ba500b2eab2afb38d04ddd02c6e34db94324732ffbf21b0d501f9a072397",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Runtime/logging tests: 28 setup entries, 46 logging entries, 6 rotation entries, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 47
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-boot-artifact-validation.py"
+      ],
+      "driver_sha256": "7c1d5ea970887ba115661ed6f5b28a68b84df1173d239141034993c31ac9e94d",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Boot artifact validation tests: 20 version entries, 44 scalar entries, 12 snapshot entries, 10 output entries, 34 GRUB entries, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 48
+    },
+    {
+      "command": [
+        "bash",
+        "tests/reference/test-sbo-dependency-order.sh"
+      ],
+      "driver_sha256": "8e5e0a467c44440161a575dbdd9a3ba9e2ca4829f0f6f324090a7fa3020f7ebd",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "SBo dependency-order tests: 32 checks, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 49
+    },
+    {
+      "command": [
+        "bash",
+        "tests/reference/test-sbo-target-selection.sh"
+      ],
+      "driver_sha256": "cdc17a15663d34a436d779d6ab1fc7d1d7510969db47376ef687539b43818715",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "SBo target selection tests: 51 checks, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 50
+    },
+    {
+      "command": [
+        "bash",
+        "tests/reference/test-sbo-personal-queue-protection.sh"
+      ],
+      "driver_sha256": "23739dedc390523b4b1fc8515666f8a5bb3dfbd7ff6a8149614e9bb491d8edcd",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "SBo personal-queue protection tests: 114 checks, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 51
+    },
+    {
+      "command": [
+        "bash",
+        "tests/reference/test-elf-architecture-resolution.sh"
+      ],
+      "driver_sha256": "28443e51a3cc585a04c4488c8f21ae38fbace890c501dda73cf9c9143c790c0c",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "ELF architecture-resolution tests: 43 checks, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 52
+    },
+    {
+      "command": [
+        "bash",
+        "tests/reference/test-grub-atomic-replacement.sh"
+      ],
+      "driver_sha256": "6886904a6333796c621d4ed1b7459f81d3e7e68750dfd140a8431ade3367627f",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "GRUB atomic replacement tests: 87 checks, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 53
+    },
+    {
+      "command": [
+        "bash",
+        "tests/reference/test-current-geninitrd-post-state.sh"
+      ],
+      "driver_sha256": "67a33f18c557847400f56f39c15e0b03e5b2d5cbfec1146ebdb7c0c35d397e8b",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Slackware-current GenInitrd post-state tests: 52 checks, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 54
+    },
+    {
+      "command": [
+        "bash",
+        "tests/reference/test-cron-minimal-environment.sh"
+      ],
+      "driver_sha256": "92754426c783cd4fd0a3e25667ac92617fea67ad6280e60e75c5481e2d118252",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "PASS: 153 cron-environment checks\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 55
+    },
+    {
+      "command": [
+        "bash",
+        "tests/reference/test-initrd-installed-kernel.sh"
+      ],
+      "driver_sha256": "292d7b5a431cdfce072b70d115712cc3081302eaf3d8bebb184b8504fffb59b6",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "[12] Regenerando initrd\n  [OK] Kernel instalado validado: 6.12.21\n  [OK] Modulos instalados validados: /tmp/tmp.8Ej0Q9IS2q/modules/6.12.21\n  [OK] initrd regenerado (/tmp/tmp.8Ej0Q9IS2q/initrd-custom.gz)\n[12] Regenerando initrd\n  [ERROR] Validacion de initrd fallida: configured KERNEL_VERSION does not match the installed kernel-generic package: configured=5.15.0-running installed=6.12.21\n[12] Regenerando initrd\n  [OK] Kernel instalado validado: 6.12.21\n  [OK] Modulos instalados validados: /tmp/tmp.8Ej0Q9IS2q/modules/6.12.21\n  [ERROR] mkinitrd termino sin errores pero /tmp/tmp.8Ej0Q9IS2q/initrd-custom.gz esta vacio o no existe\n[12] Regenerando initrd\n  [ERROR] Validacion de initrd fallida: unsafe KERNEL_VERSION assignment in: /tmp/tmp.8Ej0Q9IS2q/mkinitrd.conf\nInstalled-kernel initrd tests: 90 checks, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 56
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-elf-unresolved-display.py"
+      ],
+      "driver_sha256": "a5797edaa9f576d46eaeab11bae75de8e059329e9d131a4fd50a3071d3a83a2f",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "ELF unresolved display tests: 33 scenarios, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 57
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-elf-cache-construction.py"
+      ],
+      "driver_sha256": "b2db0a0f9e7ec80fe6448adebc4a0c8afa7b86dbe1621b8c714016c1b6c99184",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "ELF cache construction tests: 100 scenarios, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 58
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-elf-cache-workflow.py"
+      ],
+      "driver_sha256": "72c5468cb78783292d359a4969e70f5fa3a4a3709349b789876edb0379cf37cf",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "ELF cache workflow tests: 60 scenarios, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 59
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-runtime-lifecycle.py"
+      ],
+      "driver_sha256": "0b83623a5c56213cdc363a9e392d5860d275c3419174daafdf6a4660eebffb9e",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Runtime lifecycle tests: 40 scenarios, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 60
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-delivery-zip.py"
+      ],
+      "driver_sha256": "fa4a57e43dbecec5d88ebe032fc42a58ec5cc01a792ef38239e094ad9cff7c10",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Delivery ZIP integrity: 31 scenarios PASS\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 61
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-elf-owner-mapping.py"
+      ],
+      "driver_sha256": "c90f103321969fe153ecae90aa659ce083e5d8a77eed0b6274f47da272eb7c61",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "ELF owner mapping: 91 scenarios PASS\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 62
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-elf-owner-collection.py"
+      ],
+      "driver_sha256": "65ce54af4d5aa7bd501bb071a78d4b38747fbc91271418b1ed46c5e558e11140",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "ELF owner collection: 168 scenarios PASS\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 63
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-elf-owner-publication.py"
+      ],
+      "driver_sha256": "8161c799437096c8737393bf68b2927b6216c90b49cd81ac26f45da8e4cc0edc",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "ELF owner publication: 96 scenarios PASS\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 64
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-elf-owner-composition.py"
+      ],
+      "driver_sha256": "1d3359994227c987c0f0f88e00b540dad8f773e8cd2a2676d156417d9604e494",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "ELF owner composition: 192 scenarios PASS\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 65
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-elf-cache-lookup.py"
+      ],
+      "driver_sha256": "c090616c6cae9b1691c186ce90a78056ebd4fb652ac5816e6e51680df352dec1",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "ELF cache lookup: 592 scenarios PASS (432 lookup, 64 object, 48 scan, 48 verification)\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 66
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-sbo-final-queue-count.py"
+      ],
+      "driver_sha256": "166f617e9b23470aa28e3bbf0037e1c72c0c0f480695ad54ff980237fb98b0f6",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "SBo final queue count tests: 288 scenarios, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 67
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-sbo-core-queue-count.py"
+      ],
+      "driver_sha256": "6c1d97012837358e72e2d9b05a4fdd7ce1dca9abaeb319c9151b9ea6b53699eb",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "SBo core queue count tests: 240 scenarios, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 68
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-sbo-abi-queue-count.py"
+      ],
+      "driver_sha256": "932aa55af6dc59c1a2a175a4153fe9cb6759aff9fe7a98c3a1fe1b039237847e",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "SBo ABI queue count tests: 288 scenarios, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 69
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-sbo-option-map-count.py"
+      ],
+      "driver_sha256": "a79531cf7a3eebb99cc9326e4a025002060e041462635fbbacb87015cbe2c937",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "SBo option map count tests: 168 scenarios, 13 diagnostic controls, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 70
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-sbo-count-apply-composition.py"
+      ],
+      "driver_sha256": "399e55b6f2052bf83eae2ca19fd9d57fd10e6ade9c97c3f07e2eecbcb298ab59",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "SBo count/reset apply composition: 192 scenarios, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 71
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-sbo-queue-reset.py"
+      ],
+      "driver_sha256": "182d5a0c9c35a34db91da359adafc00da3b1d128a5279c1a7d0cb6569eedeeda",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "SBo queue reset tests: 96 scenarios, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 72
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-dry-run-sbo-queue-count.py"
+      ],
+      "driver_sha256": "321fee57414bac1b4d6dc520da6c2a3ac362b672a0016d246eb6da64760fa880",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Dry-run SBo queue count tests: 144 scenarios, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 73
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-dry-run-sbo-candidate-count.py"
+      ],
+      "driver_sha256": "723e3bba982174adc6ebad03f6966f843b44a3ce5faddd40b62e98da519c39cd",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Dry-run SBo candidate count tests: 144 scenarios, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 74
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-dry-run-elf-counts.py"
+      ],
+      "driver_sha256": "e30c0f218449c60da96351e016e54ede386b3a59bcc0fd1ecb255b0ff34bdee5",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Dry-run ELF planning count tests: 456 scenarios, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 75
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-dry-run-count-composition.py"
+      ],
+      "driver_sha256": "1b7b2bb317c4bd4fe2394390bd0718590042424947d1218632296b76324d854a",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "Dry-run count composition: 312 scenarios, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 76
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-sbo-workspace-count.py"
+      ],
+      "driver_sha256": "0ee9f4f5525337fe838079a5b64911be46ed4d05927726f78571c6a5dcf72888",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "SBo workspace count tests: 76 scenarios, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 77
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-sbo-workspace-apply-composition.py"
+      ],
+      "driver_sha256": "1b2ebc240986db8c947ac9faac66a8a9c6f75fdf603293f92de63ebc8b5d2a77",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "SBo workspace apply composition: 136 scenarios, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 78
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-sbo-workspace-listing-removal.py"
+      ],
+      "driver_sha256": "e0f31986ad1fc53e81b41be96e453d6c94ae7224574413c9d64f5460ee299405",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "SBo workspace final listing removal: 54 scenarios, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 79
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-sbo-workspace-listing-apply-composition.py"
+      ],
+      "driver_sha256": "032e94e5b7ddf09c56947eab27f4d7227bcc56ca860d4f253f5e332c1ced6416",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "SBo workspace final listing apply composition: 84 scenarios, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 80
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-sbo-workspace-parent-assignment.py"
+      ],
+      "driver_sha256": "317c377b405725b2cea8e62c18dfd919a9971d8bed222fef4a7d9cfe147c545a",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "SBo workspace parent assignment: 104 scenarios, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 81
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-sbo-workspace-parent-apply-composition.py"
+      ],
+      "driver_sha256": "9077b9a793481ee8b8df02d78a23b07bd3657c559a35e833bacb6abe33c8740a",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "SBo workspace parent assignment apply composition: 176 scenarios, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 82
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-sbo-workspace-cleanup-binding.py"
+      ],
+      "driver_sha256": "ec6cf3e00bcd3ddfb94d70fce0556ad42986badd3a5bfcad53076c2cdaebe92c",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "SBo workspace cleanup binding: 32 scenarios, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 83
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-sbo-workspace-cleanup-lifecycle.py"
+      ],
+      "driver_sha256": "295493c4c79574b28c3458ec427621505aca1eda75c7378a09dd0c3c08281f25",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "SBo workspace cleanup lifecycle: 72 scenarios, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 84
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-sbo-workspace-binding-admission.py"
+      ],
+      "driver_sha256": "b30b639d5955c8e1c82b0c85c889f4c9a851b8eb4a58aa4fb307de2ecfe65bfb",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "SBo workspace binding admission: 96 scenarios, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 85
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-sbo-workspace-binding-apply-composition.py"
+      ],
+      "driver_sha256": "2b44125483564f07fab8437d3a6c9c8f908a928d0196e38a7acafe5dcd80ade9",
+      "expected_origin_step": 531,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "SBo workspace binding apply composition: 72 scenarios, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 86
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-elf-initial-inspection-errors.py"
+      ],
+      "driver_sha256": "bbbdd95dd417c2d39e52931555aba9f7d1b630fa1d852e708aaa216cc142b99a",
+      "expected_origin_step": 537,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "ELF initial inspection errors: 96 scenarios, 24 rejected initial errors, 24 retained recheck errors, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 87
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-elf-initial-inspection-diagnostics.py"
+      ],
+      "driver_sha256": "2524a42704da32d4205db024eaefb3ab918a8799aeaa906ff1fc74778b4a29c9",
+      "expected_origin_step": 537,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "ELF initial inspection diagnostics: 72 scenarios, 60 reporting/staging entries, 12 final-producer entries, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 88
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-elf-initial-inspection-apply.py"
+      ],
+      "driver_sha256": "bdd42dfe63cdc62bed525086338d1fd3bfc9514b00f84d3a3fd4ebbef34ea577",
+      "expected_origin_step": 537,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "ELF initial inspection apply: 96 scenarios, 24 rejected active errors, 48 disabled controls, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 89,
+      "support_path": "tests/reference/test-elf-owner-composition.py",
+      "support_sha256": "1d3359994227c987c0f0f88e00b540dad8f773e8cd2a2676d156417d9604e494"
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-elf-emission-status.py"
+      ],
+      "driver_sha256": "13094fd959efe4acfeed86e700c602b48025ff6a49c85ac51c30a6f2b199ba90",
+      "expected_origin_step": 537,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "ELF emission status: 36 scenarios, 24 rejected emission failures, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 90
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-elf-emission-apply.py"
+      ],
+      "driver_sha256": "098352effa71075ee1c2794b0991a004dacf56d555a67966afa5be7ac3b81804",
+      "expected_origin_step": 537,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "ELF emission apply: 48 scenarios, 32 rejected emission failures, 16 normal controls, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 91,
+      "support_path": "tests/reference/test-elf-owner-composition.py",
+      "support_sha256": "1d3359994227c987c0f0f88e00b540dad8f773e8cd2a2676d156417d9604e494"
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-elf-recheck-emission-status.py"
+      ],
+      "driver_sha256": "e7c899026ad61b621c7f75977160362b96d791508c3389c7e54030efaf0c8a62",
+      "expected_origin_step": 547,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "ELF recheck emission status: 108 scenarios, 72 rejected emission failures, 36 normal controls, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 92
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-elf-recheck-inputs.py"
+      ],
+      "driver_sha256": "5aaaf3db4c8a1c8d41d1d8ce28e4d326b7c34690ca59303a2c08388e1120d6cb",
+      "expected_origin_step": 547,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "ELF recheck inputs: 144 scenarios, 64 rejected emission failures, 24 early returns, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 93
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-elf-recheck-build.py"
+      ],
+      "driver_sha256": "f424d023449e09c22a53514bc564058401d9b3ea136773e35a3d81b763f29061",
+      "expected_origin_step": 547,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "ELF recheck build: 96 scenarios, 16 emission refusals, 36 rechecks, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 94,
+      "support_path": "tests/reference/test-elf-recheck-inputs.py",
+      "support_sha256": "5aaaf3db4c8a1c8d41d1d8ce28e4d326b7c34690ca59303a2c08388e1120d6cb"
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-elf-recheck-apply.py"
+      ],
+      "driver_sha256": "252744854189c1db0a8b7644968680f4a78f2fd7b1d9eca9731985981b0d2472",
+      "expected_origin_step": 547,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "ELF recheck apply: 96 scenarios, 24 emission refusals, 3 success/93 partial results, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 95,
+      "support_path": "tests/reference/test-elf-initial-inspection-apply.py",
+      "support_sha256": "bdd42dfe63cdc62bed525086338d1fd3bfc9514b00f84d3a3fd4ebbef34ea577"
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-elf-recheck-diagnostics.py"
+      ],
+      "driver_sha256": "d48bf97e0a36e755abe95da907083746e1d42082dee297abfcd0985798c4285f",
+      "expected_origin_step": 547,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "ELF recheck diagnostics: 120 scenarios, 112 blocked publications, 8 normal unresolved controls, 0 failures\n",
+      "oracle_origin": "Unchanged exact547 expected output",
+      "position": 96,
+      "support_path": "tests/reference/test-elf-recheck-inputs.py",
+      "support_sha256": "5aaaf3db4c8a1c8d41d1d8ce28e4d326b7c34690ca59303a2c08388e1120d6cb"
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-elf-cache-emission-status.py"
+      ],
+      "declared_supports": [],
+      "driver_sha256": "1e03bfffccb01236df14876cc92590202f9a297c627911f6b40b9122c98ea12d",
+      "expected_origin_step": 549,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "ELF cache emission status: 72 scenarios, 48 rejected emission failures, 24 normal controls, 0 failures\n",
+      "oracle_origin": "Unchanged introduction-step full output",
+      "position": 97
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-elf-cache-inputs.py"
+      ],
+      "declared_supports": [
+        {
+          "path": "tests/reference/test-elf-cache-emission-status.py",
+          "sha256": "1e03bfffccb01236df14876cc92590202f9a297c627911f6b40b9122c98ea12d"
+        }
+      ],
+      "driver_sha256": "4e2f8c6a13a88de5f810b9c35f0bd546142ea57ca1d6ac5e537b6c514921fd92",
+      "expected_origin_step": 550,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "ELF cache inputs: 144 scenarios, 56 active emission refusals, 24 empty-stage refusals, 64 successful controls, 0 failures\n",
+      "oracle_origin": "Unchanged introduction-step full output",
+      "position": 98
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-elf-cache-scan-emission.py"
+      ],
+      "declared_supports": [
+        {
+          "path": "tests/reference/test-elf-cache-emission-status.py",
+          "sha256": "1e03bfffccb01236df14876cc92590202f9a297c627911f6b40b9122c98ea12d"
+        }
+      ],
+      "driver_sha256": "93a5ddad9fd6591d0077ac456b2f0ef1caff81b80a136e1bbb0b52c5f2fa892b",
+      "expected_origin_step": 551,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "ELF cache scan emission: 144 scenarios, 72 active emission refusals, 108 cache blocks, 36 object-processing controls, 0 failures\n",
+      "oracle_origin": "Unchanged introduction-step full output",
+      "position": 99
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-elf-cache-recheck-emission.py"
+      ],
+      "declared_supports": [
+        {
+          "path": "tests/reference/test-elf-cache-scan-emission.py",
+          "sha256": "93a5ddad9fd6591d0077ac456b2f0ef1caff81b80a136e1bbb0b52c5f2fa892b"
+        },
+        {
+          "path": "tests/reference/test-elf-cache-emission-status.py",
+          "sha256": "1e03bfffccb01236df14876cc92590202f9a297c627911f6b40b9122c98ea12d"
+        }
+      ],
+      "driver_sha256": "9bc0a419644c369e5ecc644277bb80b835824443e2f29e01f4beba17afc399d8",
+      "expected_origin_step": 552,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "ELF cache recheck emission: 156 scenarios, 72 active emission refusals, 108 cache blocks, 12 early returns, 0 failures\n",
+      "oracle_origin": "Unchanged introduction-step full output",
+      "position": 100
+    },
+    {
+      "command": [
+        "python3",
+        "tests/reference/test-elf-cache-apply-emission.py"
+      ],
+      "declared_supports": [
+        {
+          "path": "tests/reference/test-elf-recheck-apply.py",
+          "sha256": "252744854189c1db0a8b7644968680f4a78f2fd7b1d9eca9731985981b0d2472"
+        },
+        {
+          "path": "tests/reference/test-elf-emission-apply.py",
+          "sha256": "098352effa71075ee1c2794b0991a004dacf56d555a67966afa5be7ac3b81804"
+        },
+        {
+          "path": "tests/reference/test-elf-owner-composition.py",
+          "sha256": "1d3359994227c987c0f0f88e00b540dad8f773e8cd2a2676d156417d9604e494"
+        }
+      ],
+      "driver_sha256": "5c594255011cfec24580443b7d6cd5d89126abf754c06bad221d26040826d0ef",
+      "expected_origin_step": 553,
+      "expected_status": 0,
+      "expected_stderr": "",
+      "expected_stdout": "ELF cache apply emission: 72 scenarios, 48 cache refusals, 2 success/70 partial results, 0 failures\n",
+      "oracle_origin": "Unchanged introduction-step full output",
+      "position": 101
+    }
+  ],
+  "first96_vectors_drivers_supports_and_oracles_unchanged": true,
+  "frozen_audits_excluded": [
+    512,
+    516,
+    519,
+    524,
+    527,
+    532,
+    536,
+    540,
+    548
+  ],
+  "native_acceptance": false,
+  "new_pause_confirmed": false,
+  "normalization": {
+    "position": 56,
+    "rule": "Only one consistent /tmp/tmp.[A-Za-z0-9]+ root; preserve full expected/actual output and both roots; no other normalization"
+  },
+  "ordered_vectors": [
+    [
+      "python3",
+      "tests/reference/test-cli-arguments.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-cli-early-exits.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-configuration-parser.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-configuration-resolver.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-configuration-validation.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-configuration-application.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-main-configuration-failures.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-main-setup-failures.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-main-completion.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-result-precedence.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-instance-lock.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-optional-module-probes.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-boot-module-policy.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-check-workflow.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-json-control-escaping.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-check-json-result.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-dry-run-json-result.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-apply-json-result.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-event-ndjson.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-sbo-option-json.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-dry-run-workflow.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-dry-run-environment.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-dry-run-plan.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-package-snapshot-boundaries.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-partial-update-policy.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-apply-early-exits.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-apply-secondary-workflow.py"
+    ],
+    [
+      "bash",
+      "tests/reference/test-sbo-options.sh"
+    ],
+    [
+      "bash",
+      "tests/reference/test-error-exit-codes.sh"
+    ],
+    [
+      "bash",
+      "tests/reference/test-signal-cleanup.sh"
+    ],
+    [
+      "bash",
+      "tests/reference/test-current-direct-generic-boot-policy.sh"
+    ],
+    [
+      "python3",
+      "tests/reference/test-boot-preparation-workflow.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-package-change-detection.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-mirror-probe.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-flatpak-update.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-cinnamon-rebuild.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-slackpkg-update.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-human-summary.py"
+    ],
+    [
+      "bash",
+      "tests/reference/test-grub-blocked-after-initrd-failure.sh"
+    ],
+    [
+      "bash",
+      "tests/reference/test-package-name-parsing.sh"
+    ],
+    [
+      "bash",
+      "tests/reference/test-slackpkg-postinstall-policy.sh"
+    ],
+    [
+      "python3",
+      "tests/reference/test-sbo-queue-graph.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-sbo-queue-files.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-sbo-workflow.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-elf-metadata.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-elf-scan-workflow.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-runtime-logging.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-boot-artifact-validation.py"
+    ],
+    [
+      "bash",
+      "tests/reference/test-sbo-dependency-order.sh"
+    ],
+    [
+      "bash",
+      "tests/reference/test-sbo-target-selection.sh"
+    ],
+    [
+      "bash",
+      "tests/reference/test-sbo-personal-queue-protection.sh"
+    ],
+    [
+      "bash",
+      "tests/reference/test-elf-architecture-resolution.sh"
+    ],
+    [
+      "bash",
+      "tests/reference/test-grub-atomic-replacement.sh"
+    ],
+    [
+      "bash",
+      "tests/reference/test-current-geninitrd-post-state.sh"
+    ],
+    [
+      "bash",
+      "tests/reference/test-cron-minimal-environment.sh"
+    ],
+    [
+      "bash",
+      "tests/reference/test-initrd-installed-kernel.sh"
+    ],
+    [
+      "python3",
+      "tests/reference/test-elf-unresolved-display.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-elf-cache-construction.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-elf-cache-workflow.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-runtime-lifecycle.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-delivery-zip.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-elf-owner-mapping.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-elf-owner-collection.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-elf-owner-publication.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-elf-owner-composition.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-elf-cache-lookup.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-sbo-final-queue-count.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-sbo-core-queue-count.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-sbo-abi-queue-count.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-sbo-option-map-count.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-sbo-count-apply-composition.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-sbo-queue-reset.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-dry-run-sbo-queue-count.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-dry-run-sbo-candidate-count.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-dry-run-elf-counts.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-dry-run-count-composition.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-sbo-workspace-count.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-sbo-workspace-apply-composition.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-sbo-workspace-listing-removal.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-sbo-workspace-listing-apply-composition.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-sbo-workspace-parent-assignment.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-sbo-workspace-parent-apply-composition.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-sbo-workspace-cleanup-binding.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-sbo-workspace-cleanup-lifecycle.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-sbo-workspace-binding-admission.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-sbo-workspace-binding-apply-composition.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-elf-initial-inspection-errors.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-elf-initial-inspection-diagnostics.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-elf-initial-inspection-apply.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-elf-emission-status.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-elf-emission-apply.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-elf-recheck-emission-status.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-elf-recheck-inputs.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-elf-recheck-build.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-elf-recheck-apply.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-elf-recheck-diagnostics.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-elf-cache-emission-status.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-elf-cache-inputs.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-elf-cache-scan-emission.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-elf-cache-recheck-emission.py"
+    ],
+    [
+      "python3",
+      "tests/reference/test-elf-cache-apply-emission.py"
+    ]
+  ],
+  "original547_files": {
+    "current-96-plan.json": "fd57075d823444bf9b110f7f1f8525d8fdc064cbf4bfb29be30ba0fced5cec8a",
+    "expected-96-outputs.json": "ef4714fe8dddc1f0ce49783bc4480353a7d0f524985788528c5cf31f8f2b2cd9",
+    "run-final-96.py": "0297241a913d81fdd7fdf41f5d0aea152e815e86a19749137edbb591a1aee7a0"
+  },
+  "original547_runtime_sha256": "9ae1a06b2f50159b555c7d80ba3922f6565ad790fafb27bdffc89ebe8566ac72",
+  "runtime_sha256": "52015a485e206993af40a543e0e938052c9e1efa7e5155c475954abf2378c323",
+  "schema": 1,
+  "step": 554
+}

@@ -18,54 +18,81 @@ acceptance material. For the current phase and unfinished work, use the
 | Contribution, language and documentation rules | [Contributing](../CONTRIBUTING.md) |
 | Detailed contracts, audits and evidence | [Reference documentation](reference/README.md) |
 | Select applicable checks and historical snapshots | [Testing guide](testing.md) |
-| Cache-emission failures reaching apply and final results | [553 apply/result composition](reference/elf-cache-apply-emission.md) |
+| Current repository integration after cache-emission repair | [554 integration scope](reference/elf-cache-integration.md) |
 | Earlier completed integration, with later outer531 closure | [524-531 review](reference/repository-regression-block-524-531.md) |
 | Current bounded regression block and focused workspace checks | [Current testing status](testing.md#current-bounded-block-and-integrated-selection) and [reference index](reference/README.md#current-repository-regression-coverage) |
 | Real Slackware acceptance scenarios | [Acceptance guide](../tests/acceptance/reference/README.md) |
 | Changes by step or version | [CHANGELOG](../CHANGELOG.md) |
 | Earlier README checkpoints and original design text | [Historical README through step 418](reference/readme-through-step418.md) |
 
-Complete supplied inline actual552 is accepted FIRST: HEAD/local origin
-`bb110eb2efae9d98a0c2012938195df8624c4162`, parent
-`5a221148a60e3c2e89fffa1ba4557cd496fb900f`, tree
-`ce9bf4b8b838a340c2e66fc63e677a54478ea797`. Eight full ordered outputs,
-eight-path stat, exact policy/modes, clean refs and reported push match. Output
-is visibly transcribed, not uploaded-file/independent custody. Last qualified
-STATIC pause547; actual553/new pause and separate whole inherited reading pending.
+Complete supplied inline actual553 is accepted FIRST: HEAD/local origin
+`120397afb4fe55a59ba48e7afaf591692da287fc`, parent
+`bb110eb2efae9d98a0c2012938195df8624c4162`, tree
+`cfaf73c20c9797a250d6d178e1d6a645cd8bbd8f`. Nine full outputs, eight-path
+stat/subject/policy/modes/clean local refs and reported push match. The receipt
+is an explicit transcription of the visible output, not uploaded-byte custody
+or independent terminal/GitHub/native observation. Last qualified STATIC pause547.
 
-Prepared553 adds [real-cache/full-apply/result composition](reference/elf-cache-apply-emission.md).72 private
-cells select initial-scan or post-build cache failure, normal/quiet/late primary
-emission, three post-object states and inert build/sync0/43.48 cache refusals
-split24 initial blocks and24 post-build blocks; all yield stable partial2.
-Raw workflow return0 all72 is not success: final results are2 success/70 partial.
-Selected real JSON fields/errors and supplied event callback arguments are checked.
-Runtime/root README/ALL old tests/support/fixtures/native criteria/frozen548 remain
-exact552. No actual package/build/boot operation or native policy change occurs.
+Prepared554 records the [current integration selection](reference/elf-cache-integration.md): the exact547
+first96 vectors, driver/support hashes and complete output oracles, followed by
+549 corrected cache emission,550 inputs,551 scan,552 recheck and553 apply.
+All101 run freshly in this delivery and must run freshly on the user's PC.
+The runtime binding is the549 repair; ALL existing tests/support/fixtures,
+frozen548 audit/guard/defective oracle/scope and root README remain exact553.
+Only position56 substitutes one consistent private temporary root; complete
+expected/actual streams and both roots remain recorded. No other normalization.
 
-Nine fresh focused commands prepend apply72 to unchanged552 eight. New driver
-imports unchanged544 fixtures and transitive initial-emission/owner mechanics;
-all three support hashes bind. Old548 plus five finite apply/result mutations
-reject with full sources/results retained. No fresh96/installed-reader/native
-acceptance or new-fault NDJSON serialization claim.
+Frozen512/516/519/524/527/532/536/540/548 stay excluded.101 is a command count,
+not a sum of heterogeneous cases, installed-reader coverage or native acceptance.
+The individual scopes retain supplied leaves, raw/stable/count/file distinctions,
+selected JSON rather than whole-schema checks and callback rather than NDJSON
+limits. No new runtime behavior, native policy, operational grant or repair.
 
-Retain UNKNOWN19136512-byte0600 extra, full bytes/inventory/original strict
-membership refusal/first driver/smoke. Canonical rebuilt exact552 ZIP policy
-members/modes plus intended driver before fresh controls/selection. Initial
-inventory had no extras; origin/time/cause UNKNOWN. No attribution/prefix/
-provenance/cleanup/global absence/binary repair; all earlier unknown-extra/550
-scratch recovery/incomplete491/failed unread qualifications remain OPEN.
+The fresh controller completed101 with status0 and full per-command status/
+stdout/stderr retained in its original JSON report; every oracle matched. The
+separate redirected aggregate console file is PARTIAL:3424 bytes through BEGIN19,
+SHA256 `5c70b70a3c2ebbce22001bc3ad972c8e2717a8f6b318849d838596b402c597b7`. Its cause is
+UNKNOWN; no truncation/creation event or descriptor history was observed. Preserve
+that file and the original complete101 report unchanged. A separately named
+rendering is derived from the captured result rows, never relabeled an original
+console transcript or independent receipt. No test/output oracle was changed,
+no row reused, and no full aggregate-console custody claim is made. PC execution
+still requires all101 complete BEGIN/END outputs. All tested runtime/driver/support
+bytes remain unchanged by this later documentation of the recording limitation.
 
-Continue bounded548-555:554 retain exact547 ordered96 vectors/oracles and append
-five new current drivers in introduction order(exclude frozen548);555 useful
-README/fresh final integration/COMPLETE FINAL actual FIRST, then separate WHOLE
-inherited header/EVERY WHOLE condition/EVERY exact nested original/ALL new effects,
-obligations, cleanup, failures and limits reading/comparisons. Counts/hashes/prior
-flags/summaries do not substitute.556-559 justified reserves only. Preserve ENTIRE
-547/nested originals/every548+ ZIP. Phase1/kernel incomplete;original criteria/
-13findings16gaps/A-R-Dunselected/ordered independent-native gates remain. Evidence/
-livebindingsnull;hostunobserved/globalfalse. No old rights revived or native setup/
-run/cleanup; later-current refresh cannot invalidate completed scoped STATIC547
-pause. No automatic extension or new strong pause now.
+Actual554 and new pause remain pending.555 must update the root README usefully,
+repeat the exact101 selection freshly, and accept COMPLETE FINAL actual FIRST.
+Only then separately read the WHOLE inherited header, EVERY WHOLE condition,
+EVERY exact nested original and ALL new effects/obligations/cleanup/failures/
+limits, with original comparisons. Hashes/counts/summaries/prior confirmation
+do not replace that reading.548-555 is the bounded block;556-559 are justified
+reserves only. No automatic extension or new strong pause from test success.
+
+Strict preparation membership refused a new UNKNOWN13369344-byte0600 extra,
+SHA256 `30615745c1a303eed41408ecda64c359f93a350d59493659426db4726985b3f0`.
+Full bytes/inventory/original stdout-stderr/first eight authored paths/builder
+are retained; whole observed tree remains outside delivery. Integration had
+not started. Canonical source rebuilt directly from exact553 ZIP policy members/
+Git modes plus the eight intended paths; integration then runs FRESH. No creation
+observation or attribution; origin/time/cause UNKNOWN. No provenance, atomic
+metadata image, cleanup, binary repair or all-host absence claim.
+
+Preserve the ENTIRE exact547 transport/inner/nested originals and EVERY548+
+original ZIP. All UNKNOWN-extra provenance,550 scratch-loss/recovery and
+incomplete491/failed-unread-original qualifications remain OPEN. No binary
+repair, global-host absence or cleanup is claimed. Phase1/kernel incomplete;
+all original1286 criteria/13 findings16 gaps/A-R-D unselected/four inactive
+repairs/schema1/reference-v1/C/Phase2/production gates remain unchanged.
+Independent option decision/spec-impact acceptance/migration IF norms change/
+ACTUAL composition binding/independent safe ACTUAL WHOLE review, THEN a separate
+FRESH explicit BOUNDED native grant BEFORE effects and later independent
+OWN-platform conformance remain due IN ORDER. Same-assistant STATIC satisfies
+none. Evidence/live bindings null;host unobserved-not-claimed-absent/globalfalse.
+No old source/boot/attempt/run/grant/right/binding reuse, revival, retry, refund,
+replay, relaunch, rebind, reacquire, renewal, replacement or postrelease authority.
+No native setup/probe/preflight/build/package/boot/network/cleanup. Unknown host
+rights are not globally absent/consumed. Later-current refresh cannot invalidate
+a completed scoped STATIC pause or revive consumed rights.
 
 The design's proposed configuration and result examples describe future
 interfaces. Use the checked-in configuration and the shell reference for the
