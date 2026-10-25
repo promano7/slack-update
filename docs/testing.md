@@ -8,46 +8,58 @@ Slackware acceptance differ; it does not authorize a system run.
 
 ## Current bounded block and integrated selection
 
-The supplied complete547 continuation records the accepted eight-step540-547
-chain and the later qualified outer STATIC pause at
-`4b1db071b779970077118453856b6bb21bdb2cd9`. Exact2472-source hashes, Git modes
-and tree `8ccd0bafeae22545c7eb10c35dc98daaf7f244a1` match. Historical547
-preparation-time pending flags and its earlier actual capture remain unchanged;
-the separate outer review supplies the qualified STATIC closure. It is not
-independent semantic/native acceptance or historical binary repair.
+Complete supplied inline actual548 is accepted FIRST: HEAD/local origin
+`131f7dc6613dea157886c12dc92ea4e215f43a77`, parent
+`4b1db071b779970077118453856b6bb21bdb2cd9`, tree
+`e905f4166144173382fbdbbc7cd01c2d5015990c`. Five complete ordered outputs,
+eight-path stat, exact source policy, clean local refs and reported push match.
+The inline message is retained as a visible-conversation transcription, not an
+uploaded receipt file or independent terminal capture. Last qualified STATIC
+pause547; actual549/new pause remain pending.
 
-The new bounded user request starts548-555, with556-559 reserved only for
-justified failures or review needs within the requested8-12 steps. Prepared548
-adds a frozen [cache emission audit](reference/elf-cache-emission-audit.md), without runtime or old test changes.
-Its72 observations expose24 masked emission statuses,16 failed emissions
-accepted and4 incomplete cache publications; these overlapping counts are NOT
-safety passes. Actual548 application/tests/commit/push/clean capture are pending.
-Last qualified pause547; no new pause or native authority is claimed.
+Prepared549 [retains cache emission failures](reference/elf-cache-emission-status.md) in a producer-local flag
+and requires loop AND flag success before cache publication/counting. A separate
+corrected72-cell driver rejects all48 supplied record-emission failures;24 normal
+controls retain their original behavior. The frozen548 audit/guard/defective
+expectations/scope remain byte unchanged and excluded from current-source runs.
+All older tests/fixtures/native criteria and root README remain exact548.
 
-Plan549 repair plus a separate corrected oracle;550 input/cache-record handling;
-551 scan composition;552 post-build recheck composition;553 apply/result
-composition;554 fresh current regression integration;555 final useful README
-reconciliation, fresh final integration, complete actual acceptance FIRST, then
-separate WHOLE inherited header/EVERY WHOLE condition/EVERY exact nested original/
-ALL new effects, obligations, cleanup, failures and limits review. Counts, hashes,
-summaries and prior confirmations do not replace that reading. Stop after a
-supported qualified STATIC pause; no automatic extension or native operation.
+Five fresh focused commands select corrected72, cache construction100,
+cache workflow60, lookup592 and recheck emission108. Exact548 and five finite
+source mutations are rejected by the corrected oracle, with full sources/results
+retained. This is private repository evidence, not a fresh96 integration, native
+acceptance, installed-reader evidence or a sum of distinct native scenarios.
 
-Preserve ENTIRE547 transport/inner/all nested originals and every new original
-delivery. Unknown extra provenance, prior recovery, incomplete491 binary and
-failed unread retrieval qualifications remain OPEN. All original native criteria
-and ordered independent gates remain; phase1/kernel incomplete, A/R/D unselected,
-native evidence/live bindings null, actual host unobserved-not-claimed-absent,
-global closurefalse. No consumed source/boot/run/grant/right/binding is revived.
-Later-current refresh cannot invalidate the completed scoped STATIC547 pause.
+Preserve the newly observed UNKNOWN19136512-byte0600 source extra, full bytes/
+inventory/original membership failure/two first-authored paths/first smoke and
+controls. Canonical source rebuilt from exact548 ZIP plus those two intended
+paths before fresh controls/selection. Initial inventory had no extras; origin,
+creation time and cause remain UNKNOWN. No attribution, cleanup or absence proof.
+All earlier unknown-extra/recovery/incomplete491 binary/failed unread retrieval
+qualifications remain OPEN. See the detailed scope for exact identities/limits.
 
-Run548's frozen audit only while runtime SHA256 is exact547. After549, keep its
-guard/assertions/scope unchanged and exclude it from current-source integration,
-alongside512/516/519/524/527/532/536/540. Use the separate corrected oracle then.
-The focused548 selection is audit72, existing cache-construction100,
-cache-workflow60, cache-lookup592 and recheck-emission108. Full ordered stdout/
-stderr/status/current runtime/driver hashes are retained. This is not a fresh
-current96 integration, native conformance or a sum of distinct native cases.
+Continue bounded548-555:550 raw inputs,551 scan,552 recheck,553 apply/results,
+554 exact547 ordered96 selection plus new current drivers,555 useful README/
+fresh final integration/complete actual acceptance FIRST/separate WHOLE inherited
+header/EVERY WHOLE condition/EVERY exact nested original/ALL new effects,
+obligations, cleanup, failures and limits reading and stored-original comparisons.
+No counts, hashes, summaries or prior flags replace that reading.556-559 justified
+reserves only; no automatic extension, strong pause or native operation now.
+
+Preserve ENTIRE547 transport/inner/all nested originals and original548+ ZIPs.
+Phase1/kernel incomplete; original1286 criteria/13findings16gaps/A-R-Dunselected/
+inactive repairs/ordered independent-native gates unchanged. Evidence/livebindings
+null;hostunobserved-not-claimed-absent/globalfalse. No consumed native authority
+revived; later-current refresh cannot invalidate completed scoped STATIC547 pause.
+
+Run `python3 tests/reference/test-elf-cache-emission-status.py` for current549
+cache-record behavior. The historical548 audit now intentionally REFUSES changed
+runtime; do not remove its guard or update its expected defect observations.
+Frozen512/516/519/524/527/532/536/540/548 stay excluded from current integration.
+Ordinary missing/unusable cache-record skips remain unchanged; supplied emission
+failure is the repaired boundary. Full output/state/callback/private bytes/modes/
+links are checked; all-globals/fds/ownership/ACL/xattrs/races/native containment
+and cleanup-command failure remain outside the new private oracle.
 
 ## Select the applicable checks
 

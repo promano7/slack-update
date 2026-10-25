@@ -36,6 +36,17 @@ README archives and per-step summaries do not supersede them.
   inventories require their matching historical source snapshot. Do not weaken
   frozen baselines or rewrite old fixtures to make them pass on a later checkout.
 
+## Current cache-record emission regression
+
+For549 cache emission behavior run
+`python3 tests/reference/test-elf-cache-emission-status.py` and its four
+complementary [focused checks](docs/reference/elf-cache-emission-status.md#focused-selection-and-next-boundary).
+The corrected oracle requires all selected input to be processed, any record
+emission failure to block publication/counting, and prior cache/count0 on refusal.
+The old548 audit/guard/defective oracle/scope remain unchanged and excluded after
+repair. Do not weaken old tests or reinterpret normal resolver/identity skips as
+new native policy. Real/private/supplied/cleanup limits remain in each scope.
+
 ## Frozen cache-record emission characterization
 
 Prepared548 `tests/reference/test-elf-cache-emission-audit.py` requires exact547

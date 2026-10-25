@@ -1,3 +1,43 @@
+## Phase 1 step 549 -- retain failed ELF cache record emission
+
+- Accept full supplied inline actual548 FIRST: HEAD/local origin
+  131f7dc6613dea157886c12dc92ea4e215f43a77, parent
+  4b1db071b779970077118453856b6bb21bdb2cd9, tree
+  e905f4166144173382fbdbbc7cd01c2d5015990c. Five full outputs/stat/subject/policy/
+  clean local refs/reported push match. Inline transcription retained, no uploaded
+  receipt or independent terminal capture claimed. Last qualified STATIC pause547.
+- Change ONLY cache builder runtime: local emission_failed flag retains failed
+  record printf; loop AND zero flag required before accepting producer pipeline.
+  Process all selected input, existing stage cleanup/return1 before move/count.
+  Prior cache preserved/count0 on selected refusal; resolver/identity skip policy
+  and diagnostics unchanged. Frozen548 audit/guard/defective oracle/scope plus
+  ALL old tests/support/fixtures/native criteria/root README remain exact548.
+- New separate corrected72:48 supplied quiet/late failures refused,24 normal
+  controls. Full raw/count/output/caller IFS/outer sentinel/callback/private byte-
+  mode-link oracle. Real private helpers/IO with supplied ldconfig/readelf/printf
+  leaves; no installed reader, full scan/recheck/apply composition or native norm.
+- Exact548 plus five syntax-valid source controls reject24/24/48/24/24/48 cells;
+  full sources/results retained. Fresh five-command selection: corrected72,
+  construction100,cacheworkflow60,lookup592,recheckemission108. Frozen548 excluded;
+  guard refusal checked unchanged. No fresh96/full native mutation-matrix claim.
+- Retain strict pre-doc membership refusal of UNKNOWN19136512-byte0600 extra,
+  SHAe558760ddf94d7f5b12c43f4f3a8f3ae681be52dcde38ff22ea342ffd65af375,
+  full bytes/inventory/original stdout-stderr/two first authored paths/first smoke/
+  full first controls. Initial inventory had no extras; no intervening creation
+  observation. Whole observed tree kept; canonical rebuilt exact548 ZIP plus two
+  paths, then controls/selection FRESH. Origin/cause UNKNOWN, no attribution,
+  prefix/provenance/cleanup/host absence or historical binary repair claim.
+- Actual549 pending; next550 inputs,551 scan,552 recheck,553 apply/results,
+  554 integration,555 useful README/fresh final integration/complete actual FIRST/
+  separate WHOLE inherited header/every WHOLE condition/every exact nested original/
+  ALL new effects, obligations, cleanup, failures and limits reading. No new pause.
+- Preserve ENTIRE547 transport/inner/all nested originals and all548+ ZIPs/unknown
+  extras/recovery/incomplete491/failed unread retrieval qualifications. Phase1/
+  kernel incomplete; original criteria/13findings16gaps/A-R-Dunselected/ordered
+  independent-native gates unchanged. Evidence/livebindingsnull;hostunobserved/
+  globalfalse. No old authority revived or native setup/preflight/run/cleanup;
+  later-current refresh cannot invalidate completed scoped STATIC547 pause.
+
 ## Phase 1 step 548 -- characterize cache-record emission status loss
 
 - Inherit complete verified547 transport/inner/canonical2472-source policy and

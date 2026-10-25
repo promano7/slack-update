@@ -4112,6 +4112,7 @@ refresh_static_elf_library_cache() {
     local resolved
     local identity
     local cache_count
+    local emission_failed=0
 
     ELF_LIBRARY_CACHE_RECORD_COUNT=0
     raw_cache=$(mktemp "${destination}.raw.XXXXXX") || return 1
@@ -4127,7 +4128,9 @@ refresh_static_elf_library_cache() {
         return 1
     fi
 
-    if ! while IFS=$'\t' read -r soname candidate; do
+    # Retain every failed record emission until all selected input is processed.
+    if ! {
+    while IFS=$'\t' read -r soname candidate; do
         [ -n "$soname" ] && [ -n "$candidate" ] || continue
 
         if ! resolved=$(resolve_static_elf_object_path "$candidate"); then
@@ -4141,8 +4144,9 @@ refresh_static_elf_library_cache() {
             continue
         fi
 
-        printf '%s\t%s\t%s\n' "$soname" "$identity" "$resolved"
-    done < "$raw_cache" | LC_ALL=C sort -u > "$temporary"; then
+        printf '%s\t%s\t%s\n' "$soname" "$identity" "$resolved" || emission_failed=1
+    done < "$raw_cache" && [ "$emission_failed" -eq 0 ]
+    } | LC_ALL=C sort -u > "$temporary"; then
         rm -f -- "$raw_cache" "$temporary"
         return 1
     fi
