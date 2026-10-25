@@ -53,8 +53,15 @@ now retains package-name writer failures through complete stream processing.
 Run `python3 tests/reference/test-sbo-package-name-emission-status.py` for the
 new108-case direct-helper check:72 selected failures refused and36 normal
 controls. The exact old source and early-return variants are detected; unchanged
-frozen556 rejects the repaired source. Actual557/new pause remain pending.
+frozen556 rejects the repaired source. Step557 is accepted from the complete supplied inline return; a new pause is pending.
 New-fault installed/owner/ABI/dry-run composition is still planned later.
+
+Step557's complete supplied inline return is accepted. The [558 input matrix](sbo-package-name-inputs.md)
+adds480 direct-helper observations, separating160 activated faults,224 inactive
+fault controls and96 normal controls. Literal suffixes/names, duplicate names,
+archive suffixes, skipped records and repeated writer failures are checked with
+authored outputs. Run `python3 tests/reference/test-sbo-package-name-inputs.py`.
+Runtime and all existing tests remain exact557; actual558/new pause pending.
 
 The original101-command cache integration plan remains byte unchanged.
 Its runtime binding is historical until fresh current integration in562.

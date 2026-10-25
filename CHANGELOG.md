@@ -1,3 +1,28 @@
+## Phase 1 step 558 -- expand SBo package-name input and writer-failure checks
+
+- Accept complete supplied inline557 FIRST: HEAD/local origin
+  7ed215280a04d70f97cd0925f1ec3f1f3dc0a4ce, parent
+  40de61ffe5c8c15ad7368f61b67701a9a931fcc4, tree
+  0b560bf60b451777a70f34c426cfd11a78702092; ten full exact outputs,
+  eight-path252-add4-delete stat/subject/policy/modes/clean refs/reported push.
+  Explicit transcription retained, not original uploaded-byte/independent custody.
+- Add separate480-case stream/parser driver with authored selected-name oracles:
+  eight layouts, three literal/empty suffixes, five writers, final newline and
+  direct/conditional callers.160 active fault refusals,224 inactive-fault controls,
+  96 normal controls;48 multiple-fault cases are a subset,208 supplied failed
+  emissions. No heterogeneous/overlapping native-coverage sum.
+- Preserve duplicate/order/archive-basename/tag/skip behavior and literal unsafe
+  name output before downstream normalization. Empty suffix is a helper control,
+  not configuration approval. Regex-suffix and duplicate-skip variants fail;
+  complete variant bytes/outputs retained as expected negative controls.
+- Runtime/ALL existing tests/support/fixtures/native criteria/frozen556/old101
+  plan exact accepted557. No source repair in558. New-fault installed/owner/
+  ABI/dry-run/apply composition and current integration remain later559-562 work.
+- Last qualified STATIC pause555; actual558/new pause pending. Keep complete555
+  continuity/every556+ original ZIP and all inherited provenance/recording/
+  incomplete-history/containment/cleanup/native qualifications. Phase1/kernel
+  incomplete; no native action, old-right revival or fresh whole review claimed.
+
 ## Phase 1 step 557 -- retain SBo package-name stream emission failures
 
 - Accept complete supplied inline556 first: HEAD/local origin

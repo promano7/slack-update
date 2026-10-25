@@ -37,6 +37,8 @@ is separate. The [new556-563 block](docs/reference/repository-regression-block-5
 begins with a frozen characterization of package-name emission status loss.
 Step557 retains package-name writer failures through stream completion; its
 separate current regression checks72 supplied failures and36 normal controls.
+Expanded step558 checks cover record layouts, literal suffixes, duplicate names
+and repeated writer failures with separate active and inactive fault controls.
 The frozen556 characterization remains historical and is not a safety pass. These repository reviews are not independent semantic or
 native platform acceptance.
 

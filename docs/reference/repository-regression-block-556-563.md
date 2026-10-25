@@ -92,3 +92,24 @@ No new-fault installed/owner/ABI/dry-run/apply or native composition is yet clai
 
 The scope and qualifications above remain binding; inherited whole-review flags
 are imported history, not a fresh review or substitute for final whole reading.
+
+## Step558 preparation after accepted actual557
+
+Complete inline actual557 accepted FIRST at HEAD/local origin
+`7ed215280a04d70f97cd0925f1ec3f1f3dc0a4ce`, parent
+`40de61ffe5c8c15ad7368f61b67701a9a931fcc4`, tree
+`0b560bf60b451777a70f34c426cfd11a78702092`: ten full exact outputs,
+eight-path252-add4-delete stat/subject/policy/modes/clean refs/reported push.
+Explicit inline transcription is not original uploaded-byte/independent custody.
+Steps556-557 accepted; actual558/new pause pending, last qualified STATIC555.
+
+The [558 input matrix](sbo-package-name-inputs.md) adds480 direct-helper cases:
+160 activated fault cases,224 inactive-fault controls,96 normal controls;
+48 multiple-fault cases are a subset. Expected names are authored, not obtained
+from the parser being checked. Literal suffixes/names, archive extensions,
+duplicates, filtered tails, final newline and direct/conditional callers retain
+their exact distinctions. Regex-suffix and duplicate-skipping variants fail.
+Runtime/ALL existing tests/support/fixtures/frozen556/old101 plan exact557.
+No new-fault installed/owner/ABI/dry-run/apply or native composition is claimed.
+Inherited qualifications, exact-original preservation and final whole-review
+requirements remain binding as stated above; no fresh whole reading is claimed.
