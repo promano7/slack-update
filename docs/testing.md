@@ -8,26 +8,22 @@ Slackware acceptance differ; it does not authorize a system run.
 
 ## Current bounded block and integrated selection
 
-Qualified outer STATIC pause539 is externally confirmed in the complete supplied
-continuation at `4de6378e1fed912516c05a0b2fd57efd5c66bdd8`. Its prepared
-[532-539 integration](reference/repository-regression-block-532-539.md) retains
-its original pending-time meaning and exact91-command selection.
+Actual540 is accepted at `12f4d41bb6e2e8ea544e4597f5dca54a1a2d2189` with clean
+reported main, exact source tree and push. Prepared541 retains every selected
+post-build ELF path-emission error until the input loop completes and refuses
+before list publication/clearing. See the [repair scope](reference/elf-recheck-emission-status.md)
+for108 direct cases, five fresh focused commands, preserved baseline/old-warning
+failures, four source controls and remaining limits. Actual541/new pause pending.
+Last externally confirmed qualified STATIC pause remains539. Block540-547,
+reserves548-551 only if justified; final actual acceptance precedes a separate
+whole-condition/original/new-effects review. No native or host closure claimed.
 
-The new user-requested block targets540-547, with548-551 reserved for justified
-repairs. Prepared540 adds the [historical recheck emission audit](reference/elf-recheck-emission-audit.md):
-108 exact-runtime observations,60 masked emission statuses including20 false
-clears. This is defective behavior characterization, NOT a safety pass. Run it
-only on exact539 runtime; freeze and exclude it after repair. The focused540
-selection adds unchanged initial-emission36 and source/syntax/link/overlay/ZIP
-checks; no fresh91 integration is claimed. Actual540 and a new pause are pending.
-
-Historical512/516/519/524/527/532/536 audits remain frozen and excluded from
-current-source integration. The new540 audit becomes historical on runtime drift.
-All real/private/supplied, trust, partial effects, cleanup, UID0, unknown extras,
-recovery and incomplete491 binary limits remain. Final actual acceptance FIRST,
-then separate WHOLE inherited-header/every-condition/exact-original/new-effect
-review is required before any later qualified STATIC pause. No summary substitutes.
-Phase1/kernel/native gates remain; no host closure or renewed authority.
+The exact540 audit AND its scope/guard/defective expectations stay frozen and
+excluded on repaired source, alongside512/516/519/524/527/532/536 audits. Its
+source refusal is separate preparation evidence, never a current108-case audit
+run. The final integration will extend the prior91 selection with the new driver;
+no full91 rerun is claimed by541. All older real/private/supplied/cleanup/partial
+publication/trust/provenance/incomplete491/recovery qualifications remain.
 
 ## Select the applicable checks
 

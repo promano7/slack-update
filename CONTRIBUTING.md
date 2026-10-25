@@ -45,6 +45,13 @@ its guard, assertions and scope after repair; exclude it from later current-sour
 integration. Add a separate corrected-behavior driver rather than weakening it.
 This audit is not native acceptance or a safe verification result.
 
+For current post-build emission changes run the separate
+`python3 tests/reference/test-elf-recheck-emission-status.py` and the five-command
+[541 focused selection](docs/reference/elf-recheck-emission-status.md). The old540
+characterization and scope remain unchanged and excluded. A generic warning now
+names read/emission/sort failures; only two old scan-workflow expected literals
+change. Preserve its complete first failure and all old cases/assertions.
+
 ## Compatibility policy
 
 Slackware 15.0 and Slackware-current are both mandatory targets. Changes to the

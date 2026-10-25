@@ -4327,6 +4327,7 @@ verify_broken_elf_objects_after_rebuild() {
     local path
     local object
     local inspection_status
+    local emission_failed=0
 
     if [ ! -s "$BROKEN" ]; then
         ELF_VERIFICATION_STATUS=0
@@ -4348,28 +4349,31 @@ verify_broken_elf_objects_after_rebuild() {
         return 1
     fi
 
-    if ! while IFS= read -r path || [ -n "$path" ]; do
+    # Keep every failed path emission until all selected input has been processed.
+    if ! {
+    while IFS= read -r path || [ -n "$path" ]; do
         [ -n "$path" ] || continue
         if ! object=$(resolve_static_elf_object_path "$path"); then
             if [ -e "$path" ] || [ -L "$path" ]; then
-                printf '%s\n' "$path"
+                printf '%s\n' "$path" || emission_failed=1
                 printf 'cannot statically re-inspect %s\n' "$path" >> "$BROKEN_ERRORS"
             fi
             continue
         fi
 
         if static_elf_object_has_missing_dependency "$object" "$ELF_LIBRARY_CACHE"; then
-            printf '%s\n' "$path"
+            printf '%s\n' "$path" || emission_failed=1
         else
             inspection_status=$?
             if [ "$inspection_status" -eq 2 ]; then
-                printf '%s\n' "$path"
+                printf '%s\n' "$path" || emission_failed=1
                 printf 'readelf could not re-inspect %s\n' "$path" >> "$BROKEN_ERRORS"
             fi
         fi
-    done < "$BROKEN" | LC_ALL=C sort -u > "$STILL_BROKEN"; then
+    done < "$BROKEN" && [ "$emission_failed" -eq 0 ]
+    } | LC_ALL=C sort -u > "$STILL_BROKEN"; then
         ELF_VERIFICATION_STATUS=1
-        echo "  [WARN] Cannot sort the static ELF verification results"
+        echo "  [WARN] Cannot read, emit or sort the static ELF verification results"
         report_static_elf_scan_errors
         return 1
     fi

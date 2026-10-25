@@ -210,7 +210,7 @@ def scenario(root, kind, profile, fault, old_errors):
             pipeline_failed = fault in ('sort','sort-partial') or (kind == 'scan' and (fault in ('find','find-partial') or profile == 'missing-root' or bool(errors)))
             if pipeline_failed:
                 status=1;state[0 if kind == 'scan' else 1]='1'
-                output+=('  [ERROR] Cannot enumerate, inspect or sort the static ELF scan results\n' if kind == 'scan' else '  [WARN] Cannot sort the static ELF verification results\n')+diagnostics(errors)
+                output+=('  [ERROR] Cannot enumerate, inspect or sort the static ELF scan results\n' if kind == 'scan' else '  [WARN] Cannot read, emit or sort the static ELF verification results\n')+diagnostics(errors)
                 if profile == 'missing-root':stderr=f"find: '{scan}': No such file or directory\n".encode()
             else:output+=diagnostics(errors)
             if kind == 'scan' and not pipeline_failed:
@@ -283,7 +283,7 @@ def diagnostic_failure_scenario(root, kind, stage, fault, text='one\ntwo\n'):
             diagnostic=('readelf could not inspect ' if kind == 'scan' else 'readelf could not re-inspect ')+str(obj)+'\n'
             if kind == 'verify':file('STILL_BROKEN',str(obj)+'\n')
             if stage == 'pipeline' or kind == 'scan':
-                output+='  [ERROR] Cannot enumerate, inspect or sort the static ELF scan results\n' if kind == 'scan' else '  [WARN] Cannot sort the static ELF verification results\n'
+                output+='  [ERROR] Cannot enumerate, inspect or sort the static ELF scan results\n' if kind == 'scan' else '  [WARN] Cannot read, emit or sort the static ELF verification results\n'
     if diagnostic:
         file('BROKEN_ERRORS',diagnostic);output+='  [WARN] Static ELF inspection diagnostics:\n'
         call('render','s/^/    /',paths['BROKEN_ERRORS'])

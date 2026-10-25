@@ -18,21 +18,26 @@ acceptance material. For the current phase and unfinished work, use the
 | Contribution, language and documentation rules | [Contributing](../CONTRIBUTING.md) |
 | Detailed contracts, audits and evidence | [Reference documentation](reference/README.md) |
 | Select applicable checks and historical snapshots | [Testing guide](testing.md) |
-| New bounded ELF recheck work and defect characterization | [Step540 scope and block outline](reference/elf-recheck-emission-audit.md) |
+| New bounded ELF recheck work and defect characterization | [Recheck repair and focused verification](reference/elf-recheck-emission-status.md) |
 | Earlier completed integration, with later outer531 closure | [524-531 review](reference/repository-regression-block-524-531.md) |
 | Current bounded regression block and focused workspace checks | [Current testing status](testing.md#current-bounded-block-and-integrated-selection) and [reference index](reference/README.md#current-repository-regression-coverage) |
 | Real Slackware acceptance scenarios | [Acceptance guide](../tests/acceptance/reference/README.md) |
 | Changes by step or version | [CHANGELOG](../CHANGELOG.md) |
 | Earlier README checkpoints and original design text | [Historical README through step 418](reference/readme-through-step418.md) |
 
-The complete supplied539 continuation confirms its qualified outer STATIC pause.
-The new request opens bounded540-547; prepared540 characterizes recheck emission
-status loss without changing runtime. Actual540 and a new pause remain pending.
-See the [new scope](reference/elf-recheck-emission-audit.md) for108 observations,
-60 masked statuses/20 false clears and the provisional work outline. Original
-[539 preparation](reference/repository-regression-block-532-539.md), inherited
-conditions, unknown extras/recovery and incomplete491 history remain preserved.
-No native conformance, host closure or renewed operational authority is claimed.
+Actual540 is accepted at `12f4d41bb6e2e8ea544e4597f5dca54a1a2d2189` with clean
+reported main, exact source tree and push. Prepared541 retains every selected
+post-build ELF path-emission error until the input loop completes and refuses
+before list publication/clearing. See the [repair scope](reference/elf-recheck-emission-status.md)
+for108 direct cases, five fresh focused commands, preserved baseline/old-warning
+failures, four source controls and remaining limits. Actual541/new pause pending.
+Last externally confirmed qualified STATIC pause remains539. Block540-547,
+reserves548-551 only if justified; final actual acceptance precedes a separate
+whole-condition/original/new-effects review. No native or host closure claimed.
+
+The [540 audit](reference/elf-recheck-emission-audit.md) remains immutable history,
+excluded after repair. Keep the entire539 continuation and original deliveries
+with nested history/failures/unknown extras/incomplete491/recovery qualifications.
 
 The design's proposed configuration and result examples describe future
 interfaces. Use the checked-in configuration and the shell reference for the

@@ -36,11 +36,20 @@ at `4de6378e1fed912516c05a0b2fd57efd5c66bdd8`. The
 [532-539 review](repository-regression-block-532-539.md) is immutable preparation
 history with its original pending flags and exact91-command selection.
 
-New bounded540-547 starts with the [recheck emission defect audit](elf-recheck-emission-audit.md).
-It checks108 cases against exact539 runtime, characterizing60 masked statuses
-and20 false clears; NOT a safety pass. Runtime repair is pending. Actual540/new
-pause remain pending; no new native acceptance or whole-condition reading.
-Freeze the audit and this scope after repair; never weaken its source guard.
+Actual540 is accepted at `12f4d41bb6e2e8ea544e4597f5dca54a1a2d2189` with clean
+reported main, exact source tree and push. Prepared541 retains every selected
+post-build ELF path-emission error until the input loop completes and refuses
+before list publication/clearing. See the [repair scope](elf-recheck-emission-status.md)
+for108 direct cases, five fresh focused commands, preserved baseline/old-warning
+failures, four source controls and remaining limits. Actual541/new pause pending.
+Last externally confirmed qualified STATIC pause remains539. Block540-547,
+reserves548-551 only if justified; final actual acceptance precedes a separate
+whole-condition/original/new-effects review. No native or host closure claimed.
+
+The historical [540 audit](elf-recheck-emission-audit.md) remains unchanged and
+excluded on repaired runtime. Its source guard/defective expectations/scope must
+not be weakened; the separate new driver validates corrected behavior. Earlier
+failure/extra/recovery/incomplete491 qualifications and native gates remain.
 
 Earlier [524-531](repository-regression-block-524-531.md),
 [516-523](repository-regression-block-516-523.md),
@@ -75,6 +84,7 @@ is not provenance/global absence or native authority. Original native gates due.
 | Real initial scan through ownership, build and stable apply mapping | [Apply composition](elf-initial-inspection-apply.md) |
 | Earlier path-emission failure masked by a later iteration, exact535 source | [Historical emission audit](elf-emission-status-audit.md) |
 | Sticky path-emission failure through scanner and real apply/result mapping | [Current emission regressions](elf-emission-status.md) |
+| Retain every post-build selected path-emission failure before publication | [Recheck emission repair](elf-recheck-emission-status.md) |
 | Private scan, broken-list handling, unresolved display and post-build recheck | [ELF scanning](elf-scan-workflow.md) |
 | Cache construction, publication and record-count failures | [ELF cache construction](elf-cache-construction.md) |
 | Cache failure propagation through real dependency/scan/recheck helpers | [ELF cache workflow](elf-cache-workflow.md) |

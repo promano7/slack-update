@@ -1,3 +1,35 @@
+## Phase 1 step 541 -- retain every post-build ELF path-emission failure
+
+- Accept complete supplied actual540 FIRST: HEAD/local origin
+  12f4d41bb6e2e8ea544e4597f5dca54a1a2d2189, parent
+  4de6378e1fed912516c05a0b2fd57efd5c66bdd8, tree
+  eeb93b168b55013b3160966b5f641be84304c312, clean reported main/push;
+  exact ordered outputs/stat/source-policy matched. Last qualified pause539.
+- Change ONLY recheck function in runtime: local emission_failed retains each
+  failed selected printf across all three branches and the entire input loop.
+  Producer group refuses before unresolved rendering/copy or BROKEN clearing;
+  raw1/ELF_VERIFICATION_STATUS1, old published list/count preserved. Cache,
+  diagnostics and staging may already change; no whole-tree rollback claim.
+  Runtime SHA256 9ae1a06b2f50159b555c7d80ba3922f6565ad790fafb27bdffc89ebe8566ac72.
+- Add corrected direct108:72 selected emission failures rejected,36 normal
+  unresolved controls; complete output/state/caller/trace/private-inventory checks.
+  Preserve baseline540 rejection and four missing-guard source controls in full.
+  Frozen540 audit AND scope/guard/defective expectations exact; on repaired source
+  it refuses before cases, excluded from current suite with older frozen audits.
+- Preserve full first old scan-driver failure and original driver; update exactly
+  two expected generic recheck-warning literals to name read/emission/sort.
+  All old cases/assertions remain. Five fresh focused commands: direct108,
+  initial36, scan133/verify199/report20, cache60, display33. No fresh91 or real
+  installed/cache/reader/builder/apply/native run in this selection.
+- Record syntax/executable/docs-link/source-mode-tree/overlay/ZIP checks externally.
+  Actual541/application/tests/commit/push/clean capture pending; no new pause.
+  Next542 direct input/prior-state expansion, then coordinator/results/diagnostics,
+  integration/final README/actual acceptance/separate whole review toward547.
+- Preserve entire539 and original540/541 ZIPs, all nested originals/failures/unknown
+  extras/recovery/incomplete491 binary and original1286 native criteria/gates.
+  No native setup/run/cleanup/host observation authorized. Phase1/kernel incomplete;
+  evidence/live bindings null; host unobserved/globalfalse; no consumed rights revived.
+
 ## Phase 1 step 540 -- characterize post-build ELF path-emission status loss
 
 - Open a NEW user-requested bounded STATIC block540-547, reserves548-551 only

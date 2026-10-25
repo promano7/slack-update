@@ -26,20 +26,24 @@ continuation, HEAD `4de6378e1fed912516c05a0b2fd57efd5c66bdd8`, after actual91
 outputs and the separate qualified whole-condition review. Original539 prepared
 records retain their preparation-time flags; current work does not rewrite them.
 
-A NEW user request opens bounded STATIC540-547, reserves548-551 only if needed.
-Prepared540 [characterizes recheck path-emission loss](reference/elf-recheck-emission-audit.md)
-on exact539 runtime:108 observations,60 masked statuses,20 false clears. Runtime
-is unchanged; repair and direct/apply/result/diagnostic regressions are planned,
-then integrated selection/final README/actual acceptance/separate pause review.
-Actual540 is pending, no new pause or fresh91 integration is claimed.
+Actual540 is accepted at `12f4d41bb6e2e8ea544e4597f5dca54a1a2d2189` with clean
+reported main, exact source tree and push. Prepared541 retains every selected
+post-build ELF path-emission error until the input loop completes and refuses
+before list publication/clearing. See the [repair scope](reference/elf-recheck-emission-status.md)
+for108 direct cases, five fresh focused commands, preserved baseline/old-warning
+failures, four source controls and remaining limits. Actual541/new pause pending.
+Last externally confirmed qualified STATIC pause remains539. Block540-547,
+reserves548-551 only if justified; final actual acceptance precedes a separate
+whole-condition/original/new-effects review. No native or host closure claimed.
 
-All prior provenance, incomplete491 binary and scratch recovery qualifications
-remain open and preserved. The final whole-header/every-whole-condition/exact-
-nested-original/all-new-effects reading is still required for a later pause;
-counts/hashes/summaries/prior reviews are not substitutes. Phase1/native gates,
-original criteria and independent decisions remain due in order. Host unobserved,
-evidence/live bindings null, global closure false; consumed rights stay consumed.
-Later-current refresh does not invalidate completed scoped539 STATIC pause.
+The next542 expands direct recheck input/prior-state cases; subsequent planned
+work covers real coordinator/result/diagnostic composition and final integration.
+This is an adaptive outline, not accepted steps or authority for native effects.
+Preserve all original conditions and nested archives; final review cannot use
+counts/hashes/summaries instead of whole reading. Unknown extras/recovery and
+incomplete491 history remain open. Evidence/live bindings null, host unobserved,
+global closurefalse; consumed rights stay consumed. Later-current refresh does
+not invalidate completed qualified scoped539 STATIC pause.
 
 ### Remaining Phase 1 work
 
