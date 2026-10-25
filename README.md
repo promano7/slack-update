@@ -11,9 +11,10 @@ its validation material. The C application is planned work.
 Current repository regressions cover CLI/configuration, workflow and result
 handling, SBo queue selection and ordering, static ELF helpers, runtime logging
 and private boot-artifact validation, including selected private file-operation
-failure paths. Post-build ELF rechecks retain path-emission failures before
-publishing verification results. Selected input, build, apply/result and diagnostic
-failure compositions are covered with private fixtures. See the [testing guide](docs/testing.md)
+failure paths. ELF library-cache construction retains failed record-emission
+statuses even when later records succeed; selected input layouts, initial scans,
+post-build rechecks and apply/results are covered with private supplied-tool
+fixtures. See the [testing guide](docs/testing.md)
 for the exact integrated selection, dependencies and known limitations. These
 checks complement the remaining real Slackware acceptance work.
 
@@ -29,12 +30,17 @@ design also has unresolved contract and native implementation requirements.
 All 13 manuscript audit findings remain open; alternatives A/R/D are unselected
 and the original requirements remain binding.
 
-The prepared [540-547 integrated review](docs/reference/repository-regression-block-540-547.md)
-selects 96 current repository checks. Seven steps are accepted; final actual
-acceptance and a separate whole-condition/original/new-effects review remain due
-before a new scoped STATIC pause. The last confirmed qualified outer pause is539.
-Unknown source-extra provenance and incomplete binary history remain open
-qualifications; repository regression does not close those historical limits.
+The prepared [548-555 regression review](docs/reference/repository-regression-block-548-555.md)
+selects 101 current repository checks: the original 96 from step 547 and five
+cache-emission drivers in introduction order. Seven steps (548-554) are accepted.
+Final acceptance of step 555 and a separate review of the whole inherited
+conditions, originals and new effects remain pending before a new qualified
+STATIC pause. The last confirmed qualified outer STATIC pause is step 547.
+These repository reviews are not independent semantic or native platform acceptance.
+
+Unknown source-extra provenance, recording limits and incomplete binary history
+remain open qualifications. Test success does not close them, establish the
+current state of a host or authorize native setup, execution or cleanup.
 
 See the [development roadmap](docs/roadmap.md),
 [remaining acceptance inventory](tests/fixtures/reference/acceptance/phase-1/phase-1-acceptance-matrix-remainder-after-execution-control-closure.tsv)
@@ -105,7 +111,7 @@ carry raw command statuses; the final process/result status uses this table.
 ## Documentation and contributing
 
 - [Development roadmap and phase gates](docs/roadmap.md)
-- [Prepared integrated regression selection and limits](docs/reference/repository-regression-block-540-547.md)
+- [Prepared final regression selection and limits](docs/reference/repository-regression-block-548-555.md)
 - [Reference acceptance guide](tests/acceptance/reference/README.md)
 - [Configuration example](data/config/slack-update.conf)
 - [Contribution and documentation policy](CONTRIBUTING.md)

@@ -38,13 +38,13 @@ README archives and per-step summaries do not supersede them.
 
 ## Current cache-record emission regression
 
-For554 integration use the complete delivery runner and committed
-[ordered101 plan](tests/reference/elf-cache-integration-plan.json); read the
-[integration scope](docs/reference/elf-cache-integration.md). Preserve exact547
-first96 oracles and append549-553 in introduction order. Keep full101 output,
-including the one allowed position56 private-root comparison. Root README and
-all existing tests remain unchanged in554.555 final integration and separate
-post-actual whole review are still required; test success does not close them.
+For555 final regression use the delivery runner with the SAME unchanged
+[ordered101 plan](tests/reference/elf-cache-integration-plan.json), and read the
+[548-555 end scope](docs/reference/repository-regression-block-548-555.md). Runtime,
+all existing tests/support and native criteria remain exact554. README now points
+to the current block while leaving Phase1/kernel/native gates open. Complete
+actual555 must be accepted FIRST; separate whole-condition/original/new-effects
+review is still required afterward. No strong pause or native grant is implied.
 
 For553 real-cache/apply/stable-result/selected JSON composition, run
 `python3 tests/reference/test-elf-cache-apply-emission.py` and read the

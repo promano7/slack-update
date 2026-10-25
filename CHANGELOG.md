@@ -1,3 +1,36 @@
+## Phase 1 step 555 -- finalize cache-emission regression scope and README
+
+- Accept complete actual554 attachment FIRST: HEAD/local origin
+  950d096b84500feebdd512e42fed38fbeb46fcf8, parent
+  120397afb4fe55a59ba48e7afaf591692da287fc, tree
+  6901d3b6c4e83e1b1c5bc138274891e9f4af53e0; all101 complete outputs,
+  only56 one-root normalization, eight-path2299add174delete stat/subject/policy/
+  modes/clean local refs/reported push. Exact attachment bytes retained; no
+  independent terminal/GitHub custody, prior partial prep trace not repaired.
+- Reconcile root README: current548-555 scope/101-command navigation, minimal549
+  cache-record status fix and private input/scan/recheck/apply limits, seven actual
+  steps accepted, last qualified outer STATIC pause547. Final actual555 and separate
+  whole-condition/original/new-effects review remain PENDING; no pre-confirmation.
+- Add bounded end-scope table and remaining-gate/evidence/UNKNOWN-extra/recording/
+  history qualifications. Six guide/changelog paths + root README + scope only.
+  Runtime/ALL existing tests/support/fixtures/native criteria/frozen548 and SAME
+  committed554 plan/oracles remain byte exact554. Fresh101 required again, original
+  first96 preserved and549-553 appended in introduction order; no native case sum.
+- Preserve554 partial aggregate console/full101 report/derived rendering and all
+  UNKNOWN extras/550 scratch recovery/incomplete491/failed unread-original limits.
+  Preparatory truncated inherited-condition display is NOT final whole reading.
+- COMPLETE FINAL actual555 FIRST, THEN separate WHOLE inherited header/EVERY WHOLE
+  condition/EVERY exact nested original/ALL new effects/obligations/cleanup/failures/
+  limits reading/comparisons, then qualified STATIC pause and STOP only if supported.
+  Preserve ENTIRE547/nested originals/every548-555 original ZIP unchanged. No summary,
+  count, hash, prior confirmation or immutable prepared flag substitutes for review.
+- Phase1/kernel incomplete; original1286 criteria/13findings16gaps/A-R-Dunselected/
+  four inactive repairs/schema1/reference-v1/C/Phase2/production and all ordered
+  independent native gates unchanged. Evidence/live bindings null; host unobserved/
+  globalfalse. No old authority revived/native setup/probe/preflight/build/package/
+  boot/network/cleanup. Later-current refresh cannot invalidate completed scoped
+  STATIC pause or revive consumed rights. No automatic extension/native action.
+
 ## Phase 1 step 554 -- integrate the cache-emission regression block
 
 - Accept complete inline actual553 FIRST: HEAD/local origin
