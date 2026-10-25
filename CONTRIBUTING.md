@@ -80,6 +80,13 @@ faults, real private diagnostic-clear open errors, preserved child sentinels and
 blocked publication. It does not rerun full apply/JSON for every diagnostic fault.
 Runtime and ALL older tests remain unchanged.
 
+For the bounded block's integrated regression, use the exact ordered current96
+selection in the [546 preintegration review](docs/reference/repository-regression-block-540-546-preintegration.md).
+Its external runner binds current runtime/driver/support hashes, compares full
+fresh outputs and leaves the source-bound original539 runner unchanged. Exclude
+frozen540 and the older source-bound audits. Do not sum heterogeneous case counts
+or treat repository regression as native acceptance or a whole-condition review.
+
 ## Compatibility policy
 
 Slackware 15.0 and Slackware-current are both mandatory targets. Changes to the

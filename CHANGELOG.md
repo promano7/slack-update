@@ -1,3 +1,42 @@
+## Phase 1 step 546 -- integrate current recheck regression selection
+
+- Accept complete supplied545 FIRST: HEAD/local origin
+  1fdf9f1edee1c0ef2f71ec8a48ed62374cbafcd8, parent
+  2d59c8cdf6c71a122549cefd9b0e47e9c196c52e, tree
+  e8e254f17f272d8abf3a5b573d42b914297bb240; nine exact outputs/stat/policy,
+  reported push and clean local refs. Last qualified outer STATIC pause539.
+- Preserve exact historical539 ordered91 plan/runner/expected outputs. New
+  current-source96 selection retains its first91 vectors in order and appends
+  direct541/input542/coordinator543/apply544/diagnostics545. Only old driver46
+  differs from539: two accepted541 warning literals, exact delta retained.
+  Runtime and ALL code/tests/fixtures remain exact545; README unchanged until547.
+- Run all96 freshly in preparation and repeat on PC: full stdout/stderr/status/
+  current hashes, exact expected outputs except original position56's single
+  consistent private-root replacement with both streams/roots retained. No
+  frozen audit rerun, result reuse, native acceptance or heterogeneous case sum.
+  Syntax/modes/source-tree/changed links/whitespace/synthetic lifecycle/ZIP checks
+  accompany the integration. New documentation scope lists all ordered vectors.
+- Retain first two plan-authoring failures and candidate scripts: wrong assumed
+  old warning literal, then wrong focused-row key. Correct the external builder
+  from actual preserved bytes/keys; no source/test/oracle change to hide failure.
+- Retain strict source-policy rejection of an unknown9961472-byte0600 extra,
+  complete bytes/inventory/first refused builder and seven first-authored paths.
+  Exact strict-prefix byte comparison to a26424442-byte fixture is not origin or
+  provenance proof. Initial suite interrupted130 after scope rejection; full
+  partial outputs retained, not reused. Whole observed tree retained intact;
+  canonical source rebuilt from exact545 ZIP plus intended paths, qualified
+  documentation updated, then all96 rerun fresh. No test/user/copy attribution,
+  historical binary repair or global absence claim.
+- Actual546 application/tests/commit/push/clean capture pending.547 final README/
+  fresh final selection/actual acceptance must precede separate WHOLE inherited
+  header/every WHOLE condition/every exact nested original/ALL new effects,
+  obligations, cleanup, failures and limits review. No new pause or new whole
+  review. Preserve entire539 and every original540-546 delivery, full unknown
+  extras/recovery/incomplete491 history. Origins UNKNOWN, no repair/attribution.
+  Original native criteria and ordered independent gates remain; phase1/kernel
+  incomplete, evidence/live bindings null, host unobserved/global closurefalse.
+  No native setup/preflight/run/cleanup or consumed authority revival.
+
 ## Phase 1 step 545 -- compose recheck emission and diagnostic refusal
 
 - Accept complete supplied544 FIRST: HEAD/local origin

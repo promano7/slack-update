@@ -36,15 +36,16 @@ at `4de6378e1fed912516c05a0b2fd57efd5c66bdd8`. The
 [532-539 review](repository-regression-block-532-539.md) is immutable preparation
 history with its original pending flags and exact91-command selection.
 
-Actual544 is accepted at `2d59c8cdf6c71a122549cefd9b0e47e9c196c52e`, with all
-eight focused outputs, exact source-policy/tree, reported push and clean local refs.
-Prepared545 adds [recheck diagnostic composition](elf-recheck-diagnostics.md):
-120 private cases,112 blocked publications and8 normal unresolved controls.
-Runtime and ALL older tests remain exact544. Actual545/new pause pending; last
-qualified STATIC pause539. Block540-547, reserves548-551 only if justified.
-Next546 integrates the prior91 selection plus five new current drivers;547 final
-actual acceptance must precede separate whole-condition/original/new-effects
-review. No native acceptance, actual host observation or renewed authority.
+Actual545 is accepted at `1fdf9f1edee1c0ef2f71ec8a48ed62374cbafcd8`, with all
+nine focused outputs, exact source-policy/tree, reported push and clean local refs.
+Prepared546 runs the [current96 preintegration](repository-regression-block-540-546-preintegration.md): exact ordered539 first91
+vectors, followed by the five current541-545 recheck drivers in introduction order.
+Runtime and ALL tests/fixtures remain exact545. Historical539 plan/runner/outputs
+stay unchanged; current hashes bind the repaired runtime and accepted541 warning
+expectations. Actual546/new pause pending; last qualified STATIC pause539.
+Block540-547, reserves548-551 only if justified.547 must update README, repeat
+the final selection and obtain actual acceptance BEFORE the separate whole
+inherited-condition/original/new-effects review. No native acceptance or authority.
 
 The [541 repair](elf-recheck-emission-status.md), [542 inputs](elf-recheck-inputs.md),
 [543 coordinator](elf-recheck-build.md), [544 apply](elf-recheck-apply.md) and frozen

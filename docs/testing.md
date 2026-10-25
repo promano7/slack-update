@@ -8,22 +8,25 @@ Slackware acceptance differ; it does not authorize a system run.
 
 ## Current bounded block and integrated selection
 
-Actual544 is accepted at `2d59c8cdf6c71a122549cefd9b0e47e9c196c52e`, with all
-eight focused outputs, exact source-policy/tree, reported push and clean local refs.
-Prepared545 adds [recheck diagnostic composition](reference/elf-recheck-diagnostics.md):
-120 private cases,112 blocked publications and8 normal unresolved controls.
-Runtime and ALL older tests remain exact544. Actual545/new pause pending; last
-qualified STATIC pause539. Block540-547, reserves548-551 only if justified.
-Next546 integrates the prior91 selection plus five new current drivers;547 final
-actual acceptance must precede separate whole-condition/original/new-effects
-review. No native acceptance, actual host observation or renewed authority.
+Actual545 is accepted at `1fdf9f1edee1c0ef2f71ec8a48ed62374cbafcd8`, with all
+nine focused outputs, exact source-policy/tree, reported push and clean local refs.
+Prepared546 runs the [current96 preintegration](reference/repository-regression-block-540-546-preintegration.md): exact ordered539 first91
+vectors, followed by the five current541-545 recheck drivers in introduction order.
+Runtime and ALL tests/fixtures remain exact545. Historical539 plan/runner/outputs
+stay unchanged; current hashes bind the repaired runtime and accepted541 warning
+expectations. Actual546/new pause pending; last qualified STATIC pause539.
+Block540-547, reserves548-551 only if justified.547 must update README, repeat
+the final selection and obtain actual acceptance BEFORE the separate whole
+inherited-condition/original/new-effects review. No native acceptance or authority.
 
-The nine-command focused selection prepends diagnostic120 to unchanged544 eight,
-all fresh in preparation and repeated on PC. Diagnostic and emission fault totals
-overlap;112 publication refusals/8 normal unresolved controls are the actual matrix
-outcomes. No extension of544 apply/JSON assertions to every diagnostic fault.
-Frozen512/516/519/524/527/532/536/540 audits remain excluded. No fresh full91/96 or
-native run claimed. Preserve all earlier scopes/failures/extras/recovery/history.
+All96 run freshly, sequentially, with full stdout/stderr/status/current runtime,
+driver and declared support hashes. Expected outputs are comparison oracles,
+never reused results. Only position56 allows its single consistent private-root
+replacement; both complete streams and roots are retained. Frozen512/516/519/524/
+527/532/536/540 audits remain excluded. The selection is repository regression,
+not native acceptance, a whole-host observation or a whole-condition review.
+See the complete ordered vectors and each real/private/supplied boundary in the
+[546 review](reference/repository-regression-block-540-546-preintegration.md). No permanent test is added for this documentation step.
 
 ## Select the applicable checks
 

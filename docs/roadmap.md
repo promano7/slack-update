@@ -26,24 +26,22 @@ continuation, HEAD `4de6378e1fed912516c05a0b2fd57efd5c66bdd8`, after actual91
 outputs and the separate qualified whole-condition review. Original539 prepared
 records retain their preparation-time flags; current work does not rewrite them.
 
-Actual544 is accepted at `2d59c8cdf6c71a122549cefd9b0e47e9c196c52e`, with all
-eight focused outputs, exact source-policy/tree, reported push and clean local refs.
-Prepared545 adds [recheck diagnostic composition](reference/elf-recheck-diagnostics.md):
-120 private cases,112 blocked publications and8 normal unresolved controls.
-Runtime and ALL older tests remain exact544. Actual545/new pause pending; last
-qualified STATIC pause539. Block540-547, reserves548-551 only if justified.
-Next546 integrates the prior91 selection plus five new current drivers;547 final
-actual acceptance must precede separate whole-condition/original/new-effects
-review. No native acceptance, actual host observation or renewed authority.
+Actual545 is accepted at `1fdf9f1edee1c0ef2f71ec8a48ed62374cbafcd8`, with all
+nine focused outputs, exact source-policy/tree, reported push and clean local refs.
+Prepared546 runs the [current96 preintegration](reference/repository-regression-block-540-546-preintegration.md): exact ordered539 first91
+vectors, followed by the five current541-545 recheck drivers in introduction order.
+Runtime and ALL tests/fixtures remain exact545. Historical539 plan/runner/outputs
+stay unchanged; current hashes bind the repaired runtime and accepted541 warning
+expectations. Actual546/new pause pending; last qualified STATIC pause539.
+Block540-547, reserves548-551 only if justified.547 must update README, repeat
+the final selection and obtain actual acceptance BEFORE the separate whole
+inherited-condition/original/new-effects review. No native acceptance or authority.
 
-546 preintegration must retain the exact539 ordered91 plan and add current541-545
-checks in introduction order for96 commands, excluding frozen audits.547 then
-updates README and repeats final selection before actual acceptance and separate
-whole inherited review. Adaptive plan, no native authority or future acceptance.
 Keep original criteria/ordered independent gates, full-reading requirements and
 all unknown extra/recovery/incomplete491 qualifications. Evidence/live bindings
 null; actual host unobserved/globalfalse. Later-current refresh cannot invalidate
-completed qualified scoped539 STATIC pause.
+completed qualified scoped539 STATIC pause. Current regression does not discharge
+native work or renew consumed authority.
 
 ### Remaining Phase 1 work
 
