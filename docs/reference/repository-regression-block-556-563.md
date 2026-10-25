@@ -135,3 +135,26 @@ fixtures/frozen556/old101 plan exact558. Owner560 and ABI/dry-run561 new-fault
 composition remain pending; this is not native/platform or full apply acceptance.
 All inherited qualifications/original-preservation/final whole-review obligations
 above remain binding; no fresh whole reading or new pause is claimed.
+
+## Step560 preparation after accepted actual559
+
+Complete inline559 accepted FIRST at HEAD/local origin
+`a12de9f154dfffe093e079571e97b4ecd9ab56f5`, parent
+`f29c39212f190acd8bb1de286dd2ab0b94104a2f`, tree
+`f09d8236331033ff64d4b4d076ffc27551660186`: seven full exact outputs,
+seven-path369-add3-delete stat/subject/policy/modes/clean refs/reported push.
+Retained explicit transcription is not original uploaded-byte/independent custody.
+Initial `ç` outside ordered streams is retained; origin/cause UNKNOWN, no stream
+normalization. Steps556-559 accepted; actual560/new pause pending, last STATIC555.
+
+The [560 owner matrix](sbo-owner-emission.md) adds160 real private owner cases:
+64 activated writer failures block merge/count/publication and preserve queue/count;
+64 inactive-fault and32 normal controls include56 publications/40 empty-list skips.
+24 multiple-fault cases subset64. Real grep order is retained, authored owner-name
+multisets checked, all selected names in the failing stream attempted before later
+broken objects are skipped. Historical-producer and ignored-filter variants fail.
+Runtime/all old tests/support/fixtures/frozen556/old101 plan exact559. ABI/dry-run561,
+current integration562/final563 and separate final whole review remain due.
+The owner-stage global retains a removed private path after entered mapping;
+selected physical removal is not global cleanup. All inherited qualifications and
+exact-original preservation duties above remain binding; no new pause claimed.

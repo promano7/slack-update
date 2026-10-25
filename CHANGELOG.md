@@ -1,3 +1,29 @@
+## Phase 1 step 560 -- compose owner-selection package-name writer refusals
+
+- Accept complete supplied inline559 FIRST: HEAD/local origin
+  a12de9f154dfffe093e079571e97b4ecd9ab56f5, parent
+  f29c39212f190acd8bb1de286dd2ab0b94104a2f, tree
+  f09d8236331033ff64d4b4d076ffc27551660186; seven full exact outputs,
+  seven-path369-add3-delete stat/subject/policy/modes/clean refs/reported push.
+  Explicit transcription retained; initial literal ç outside ordered streams
+  preserved with UNKNOWN origin/cause, no output normalization/independent custody.
+- Add160 real private owner lookup/parser/emission/collection/merge/count/publish
+  cases:64 active refusals block downstream gates and retain queue0640/count9;
+  64 inactive-fault and32 normal controls contain56 publications/40 empty-list
+  skips.24 multiple-fault cases subset64,96 failed writes; no native coverage sum.
+- Drain every selected name in the failing owner stream, then stop before later
+  broken objects. Keep real grep order, authored owner multisets, duplicate/shared
+  ownership, literal path forms and exact private inventory/modes/selected cleanup.
+  Owner-stage global retains removed private path; no global-cleanup claim.
+- Historical producer and ignored owner-filter private variants fail; complete
+  bytes/refusals retained. Runtime/ALL old tests/support/fixtures/native criteria/
+  frozen556/old101 plan exact559. ABI/dry-run561/full apply/output schemas/native
+  composition not established by this matrix; existing owner scopes unchanged.
+- Last qualified STATIC555; actual560/new pause pending. Preserve entire555
+  continuity/every556+ original ZIP and all provenance/recording/incomplete-history/
+  containment/cleanup/native qualifications. Phase1/kernel incomplete; no native
+  action, old-right revival or fresh whole inherited-condition review claimed.
+
 ## Phase 1 step 559 -- compose installed SBo selection emission refusals
 
 - Accept complete supplied inline558 FIRST: HEAD/local origin

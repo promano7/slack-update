@@ -44,8 +44,15 @@ Step558's complete supplied inline return is accepted. The [559 installed matrix
 composes package-name writer failure through real private enumeration, parsing,
 normalization and publication:120 cases,64 active refusals,32 inactive-fault and
 24 normal controls. Run `python3 tests/reference/test-sbo-installed-emission.py`.
-No runtime change; actual559/new pause pending. Owner/ABI/dry-run new-fault
-composition remains later work, separate from prior count regressions.
+No runtime changed in559, now accepted. Its owner/ABI/dry-run composition
+limits remain historical; the current owner scope is linked below.
+
+Step559's complete supplied inline return is accepted, retaining its initial `ç`
+outside ordered streams. The [560 owner matrix](reference/sbo-owner-emission.md) composes writer
+refusals through real private manifest lookup, owner selection and queue gates:
+160 cases,64 active refusals,64 inactive-fault and32 normal controls. Run
+`python3 tests/reference/test-sbo-owner-emission.py`. Runtime remains exact559;
+actual560/new pause pending. ABI/dry-run new-fault composition remains due561.
 
 The original101-command cache integration plan remains byte unchanged.
 Its runtime binding is historical until fresh current integration in562.

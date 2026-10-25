@@ -40,7 +40,8 @@ separate current regression checks72 supplied failures and36 normal controls.
 Expanded step558 checks cover record layouts, literal suffixes, duplicate names
 and repeated writer failures with separate active and inactive fault controls.
 Private installed-selection regressions also check writer-error refusal before
-publishing selected targets. The frozen556 characterization remains historical
+publishing selected targets. Private owner-mapping checks also verify refusal
+before queue merge and publication. The frozen556 characterization remains historical
 and is not a safety pass. These repository reviews are not independent semantic or
 native platform acceptance.
 
