@@ -113,3 +113,25 @@ Runtime/ALL existing tests/support/fixtures/frozen556/old101 plan exact557.
 No new-fault installed/owner/ABI/dry-run/apply or native composition is claimed.
 Inherited qualifications, exact-original preservation and final whole-review
 requirements remain binding as stated above; no fresh whole reading is claimed.
+
+## Step559 preparation after accepted actual558
+
+Complete inline actual558 accepted FIRST at HEAD/local origin
+`f29c39212f190acd8bb1de286dd2ab0b94104a2f`, parent
+`7ed215280a04d70f97cd0925f1ec3f1f3dc0a4ce`, tree
+`e0b2d77025300739f9e554a29a9a236a01427be9`: seven full exact outputs,
+seven-path276-add2-delete stat/subject/policy/modes/clean refs/reported push.
+Retained explicit transcription is not original uploaded-byte/independent custody.
+Steps556-558 accepted; actual559/new pause pending, last qualified STATIC555.
+
+The [559 installed selection matrix](sbo-installed-emission.md) adds120 cases
+using real private enumeration/parser/emission/normalization/sort/publication:
+64 active writer refusals before movement retain prior destination or absence;
+32 inactive-fault and24 normal controls publish their expected targets. Real
+enumeration order is recorded, not imposed. Multiple faults24 are a subset of64.
+Complete private inventory, modes, callbacks and selected cleanup are checked.
+Old-producer and pipefail-disabled controls fail. Runtime/all old tests/support/
+fixtures/frozen556/old101 plan exact558. Owner560 and ABI/dry-run561 new-fault
+composition remain pending; this is not native/platform or full apply acceptance.
+All inherited qualifications/original-preservation/final whole-review obligations
+above remain binding; no fresh whole reading or new pause is claimed.

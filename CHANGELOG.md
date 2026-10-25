@@ -1,3 +1,28 @@
+## Phase 1 step 559 -- compose installed SBo selection emission refusals
+
+- Accept complete supplied inline558 FIRST: HEAD/local origin
+  f29c39212f190acd8bb1de286dd2ab0b94104a2f, parent
+  7ed215280a04d70f97cd0925f1ec3f1f3dc0a4ce, tree
+  e0b2d77025300739f9e554a29a9a236a01427be9; seven full exact outputs,
+  seven-path276-add2-delete stat/subject/policy/modes/clean refs/reported push.
+  Retain explicit transcription, not original uploaded-byte/independent custody.
+- Add120 real private installed-selection cases:64 active writer refusals before
+  movement preserve old destination bytes/mode or absence;32 inactive-fault and
+  24 normal controls publish sorted unique authored targets.24 multiple-fault
+  cases subset64,104 individual failed emissions; no native coverage sum.
+- Exercise real find-H compatibility alias handling, regular-record filtering,
+  parser/emission/normalization/sort/move, selected cleanup and exact private
+  inventory. Real enumeration order retained rather than imposed; emitted name
+  multiset/order indices checked. Only producer writes are supplied faults.
+- Old producer and pipefail-disabled private variants fail; retain complete
+  variant bytes/refusals. Runtime/ALL existing tests/support/fixtures/native
+  criteria/frozen556/old101 plan exact accepted558. Owner560/ABI-dry-run561/full
+  apply/new output-schema/native composition not established by this matrix.
+- Last qualified STATIC555; actual559/new pause pending. Keep entire555 continuity
+  and every556+ original ZIP and inherited provenance/recording/incomplete-history/
+  containment/cleanup/native qualifications. Phase1/kernel incomplete; no native
+  action, old-right revival or fresh whole-inherited-condition review claimed.
+
 ## Phase 1 step 558 -- expand SBo package-name input and writer-failure checks
 
 - Accept complete supplied inline557 FIRST: HEAD/local origin
