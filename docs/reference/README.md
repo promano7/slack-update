@@ -31,77 +31,56 @@ choose a path, approve a migration or grant a native test.
 
 ## Current repository regression coverage
 
-Step 555 is the last confirmed qualified STATIC repository pause, based on
-the separate outer continuity confirmation. Its accepted HEAD is
-`f30c17519bfb9726de95970c3235b37edaa1705b`, tree
-`f867f1ff93ef939c506488820bff8e4ba50a0018`. The imported original continuity
-has SHA256 `80bdc6146865931bde22aa678b031c017655895994d0ef72bfb1ad70abb93281`;
-its finite archive/source/receipt verifier passed after reconstruction.
-This imports the recorded scope; it is not a new whole-condition review or
-independent semantic/native acceptance. Historical prepared555 pending flags,
-captures and the 548-555 scope remain unchanged in their original records.
+Complete supplied inline actual561 is accepted first: HEAD/local origin
+`7d7eab23d1866e6c3e6c7e92fe6ad0c2911b4fd3`, parent
+`03ce242c4eb250438ddcfc3c21a697a73c8e6fcd`, tree
+`6bde585359ac17a10f10f7f19a23f16ceba01764`. Eight complete ordered outputs,
+seven-path316-add3-delete stat/subject/policy/modes/clean local refs/reported push
+agree. Retained inline transcription is not original uploaded-byte or independent
+terminal/GitHub custody. Six actual steps556-561 are accepted;562/final563 and a
+new qualified STATIC pause remain pending. Last qualified outer STATIC pause555
+and all inherited qualifications remain as recorded, not freshly re-reviewed.
 
-The new user request opens a bounded STATIC repository block, planned556-563,
-with564-567 reserved only if justified. Step556 characterizes package-name
-emission status loss without modifying runtime or existing tests. Its108 direct
-stream observations include72 active supplied writer failures:64 are masked,
-eight surface, and36 normal controls succeed. A characterization PASS describes
-the defective historical source and is NOT a safety pass.
+Current integration selects106 commands: original101 vectors, driver/support
+identities and complete status/stdout/stderr oracles unchanged, followed by
+557-561 current drivers in introduction order. The separate historical101 plan
+stays byte unchanged with its old runtime binding. Current runtime is explicitly
+bound in the new plan. Only position56 substitutes one consistent private
+`/tmp/tmp.[A-Za-z0-9]+` root in full stdout, retaining both full outputs and roots;
+there is no other normalization or weakened oracle. Frozen512/516/519/524/527/
+532/536/540/548/556 are excluded. Command counts are not native coverage.
 
-Step556's complete supplied inline return is accepted. The [557 repair](sbo-package-name-emission-status.md)
-now retains package-name writer failures through complete stream processing.
-Run `python3 tests/reference/test-sbo-package-name-emission-status.py` for the
-new108-case direct-helper check:72 selected failures refused and36 normal
-controls. The exact old source and early-return variants are detected; unchanged
-frozen556 rejects the repaired source. Step557 is accepted from the complete supplied inline return; a new pause is pending.
-New-fault installed/owner/ABI/dry-run composition is still planned later.
+The added direct/input/installed/owner/ABI-dry-run helper scopes stay distinct.
+Declared559 setup/inventory support for561 remains unchanged and explicitly
+hashed; importing it is not independent source trust. Earlier supplied-tool,
+raw/stable result, selected JSON/event callback, private IO/inventory/cleanup and
+whole-workflow limits remain binding. Disabled ABI can touch/create a target and
+retain supplied stale counts/error. An owner-stage global can retain a removed
+private path. These are not universal no-effect/reset/containment guarantees.
 
-Step557's complete supplied inline return is accepted. The [558 input matrix](sbo-package-name-inputs.md)
-adds480 direct-helper observations, separating160 activated faults,224 inactive
-fault controls and96 normal controls. Literal suffixes/names, duplicate names,
-archive suffixes, skipped records and repeated writer failures are checked with
-authored outputs. Run `python3 tests/reference/test-sbo-package-name-inputs.py`.
-Runtime and all existing tests remained exact557 in558; step558 is now accepted.
+No new whole-inherited review has completed. All UNKNOWN provenance/recording/
+incomplete binary-history limits, including earlier559's literal initial `ç`,
+remain preserved in exact originals; fresh complete outputs do not repair old
+traces or archives. Retain entire original555 continuity and every556+ original
+ZIP. Final563 complete actual return must precede separate full inherited-header/
+every-condition/every-exact-original/all-new-effects-obligations-failures-cleanup-
+limits reading and comparison before a qualified STATIC pause. Reserves564-567
+are only for justified closure problems, not an automatic extension.
 
-Step558's complete supplied inline return is accepted. The [559 installed matrix](sbo-installed-emission.md)
-composes package-name writer failure through real private enumeration, parsing,
-normalization and publication:120 cases,64 active refusals,32 inactive-fault and
-24 normal controls. Run `python3 tests/reference/test-sbo-installed-emission.py`.
-No runtime changed in559, now accepted. Its owner/ABI/dry-run composition
-limits remain historical; the current owner scope is linked below.
+Phase1/kernel incomplete; all original criteria/13 findings/16 native gaps,
+unselected A/R/D options/inactive repairs/schema1/reference-v1/C/Phase2/production
+and ordered independent native gates unchanged. Native evidence/live bindings
+null, host unobserved/globalfalse. No native setup/probe/build/package/boot/network/
+cleanup or consumed-right revival follows. Later-current refresh cannot invalidate
+a completed qualified STATIC pause or revive authority.
 
-Step559's complete supplied inline return is accepted, retaining its initial `ç`
-outside ordered streams. The [560 owner matrix](sbo-owner-emission.md) composes writer
-refusals through real private manifest lookup, owner selection and queue gates:
-160 cases,64 active refusals,64 inactive-fault and32 normal controls. Run
-`python3 tests/reference/test-sbo-owner-emission.py`. Runtime remains exact559;
-Step560 is now accepted; its ABI/dry-run limits are historical. New pause pending.
+Read the [current integration scope](sbo-emission-integration.md) and the [bounded block](repository-regression-block-556-563.md).
 
-Step560's complete inline return is accepted. The [561 selection matrix](sbo-selection-emission.md)
-adds240 private ABI/dry-run helper cases:96 writer refusals before publication/
-count,96 inactive-fault and48 normal controls. Disabled ABI retains its touch
-branch. Run `python3 tests/reference/test-sbo-selection-emission.py`, which imports
-the declared unchanged559 setup/inventory support. Runtime exact560; actual561/
-new pause pending. Current full integration and final whole review remain due.
+Run from the repository root:
 
-The original101-command cache integration plan remains byte unchanged.
-Its runtime binding is historical until fresh current integration in562.
-The frozen556 audit is separate and must refuse a changed runtime; it must not
-be added as a current safety check after a repair. A fresh integrated plan is
-due near the end of this block, preserving existing vectors/output oracles and
-adding current checks in introduction order. Counts are finite observations,
-not installed-reader coverage or native acceptance.
-
-All inherited provenance, recording, incomplete binary-history, private-tool,
-containment and cleanup qualifications remain open. Exact prior archives must
-be retained for the final continuity; an incremental delivery is not their
-replacement. The new block has no confirmed pause yet. Phase1/kernel remain
-incomplete; original acceptance criteria,13 findings,16 native gaps, unselected
-A/R/D options, inactive repairs and ordered independent native gates remain
-unchanged. No native setup/probe/build/package/boot/network/cleanup is authorized
-by this STATIC continuation, and old consumed authority is not revived.
-
-See the [new bounded block](repository-regression-block-556-563.md) and the [frozen emission audit](sbo-package-name-emission-audit.md) for the exact selection and limits.
+```bash
+python3 tests/reference/run-sbo-emission-integration.py "$PWD" --label STEP562
+```
 
 The [554 integration](elf-cache-integration.md), [553 apply](elf-cache-apply-emission.md),
 [552 recheck](elf-cache-recheck-emission.md), [551 scan](elf-cache-scan-emission.md),

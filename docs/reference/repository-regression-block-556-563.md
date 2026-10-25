@@ -181,3 +181,25 @@ no-effect/reset claim. Historical producer/ignored ABI/ignored dry-run controls 
 Runtime/all old tests/support/fixtures/frozen556/old101 plan exact560; only the new
 support-map entry is added. Current integration562, final563/complete actual and
 separate final whole review remain due with every inherited limit preserved.
+
+## Step562 preparation after accepted actual561
+
+Complete inline561 accepted FIRST at HEAD/local origin
+`7d7eab23d1866e6c3e6c7e92fe6ad0c2911b4fd3`, parent
+`03ce242c4eb250438ddcfc3c21a697a73c8e6fcd`, tree
+`6bde585359ac17a10f10f7f19a23f16ceba01764`: eight full exact outputs,
+seven-path316-add3-delete stat/subject/policy/modes/clean refs/reported push.
+Explicit transcription is not original uploaded-byte/independent custody.
+Steps556-561 accepted; actual562/new pause pending, last qualified STATIC555.
+
+The [562 integration](sbo-emission-integration.md) commits a separate current106
+plan/runner: first101 rows/vectors/oracles/driver-support identities unchanged;
+five557-561 additions use exact full introduction outputs in introduction order.
+The original101 file stays unchanged with historical binding; current runtime and
+runner/support hashes are explicit. Only position56 one-root stdout normalization;
+full originals/roots retained. Frozen556 excluded with earlier frozen audits.
+All106 must run freshly in preparation and PC. Runtime/all old tests/support/
+fixtures/native criteria stay exact561. No native count sum or independent trust.
+Controller original pipe capture and full per-command report remain separate;
+synthetic commit validation does not require a redundant full106 repetition.
+Final563/complete actual then separate whole review remain mandatory as above.

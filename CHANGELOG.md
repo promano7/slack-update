@@ -1,3 +1,28 @@
+## Phase 1 step 562 -- integrate current SBo emission checks without oracle changes
+
+- Accept complete supplied inline561 FIRST: HEAD/local origin
+  7d7eab23d1866e6c3e6c7e92fe6ad0c2911b4fd3, parent
+  03ce242c4eb250438ddcfc3c21a697a73c8e6fcd, tree
+  6bde585359ac17a10f10f7f19a23f16ceba01764; eight full exact outputs,
+  seven-path316-add3-delete stat/subject/policy/modes/clean refs/reported push.
+  Preserve explicit transcription, not original uploaded-byte/independent custody.
+- Add separate committed106 plan/runner: all original101 row values/vectors/full
+  oracles/driver-support identities unchanged;557-561 additions in introduction
+  order retain complete first-step outputs. Keep old101 file/historical binding
+  unchanged; bind current runtime, runner and every declared support explicitly.
+- Only56 one consistent private-root substitution in full stdout, both outputs/
+  roots retained; no other normalization. Frozen556 excluded with earlier frozen
+  audits. Full per-command report and original aggregate pipe capture are separate;
+  no heterogeneous native count sum, old recording/history repair or new trust gate.
+- Runtime/ALL old tests/support/fixtures/native criteria/frozen556 exact561. Reconcile
+  current guides/README with six accepted steps and pending562/563; final same106
+  fresh563 checks/complete PC return THEN separate whole review remain due.
+- Last qualified STATIC555; actual562/new pause pending. Preserve entire555 and
+  every556+ original ZIP/source/receipts/preparation/failures/limits. All UNKNOWN
+  provenance/recording/incomplete-history/containment/cleanup/native qualifications
+  and Phase1/kernel/schema1/reference-v1/C/Phase2/production gates unchanged.
+  No native action, consumed-right revival or fresh whole review claimed.
+
 ## Phase 1 step 561 -- propagate installed-reader emission failure to selection
 
 - Accept complete supplied inline560 FIRST: HEAD/local origin

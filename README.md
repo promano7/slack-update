@@ -31,20 +31,13 @@ All 13 manuscript audit findings remain open; alternatives A/R/D are unselected
 and the original requirements remain binding.
 
 The last confirmed qualified outer STATIC repository pause is step555.
-The [548-555 regression review](docs/reference/repository-regression-block-548-555.md)
-retains its historical preparation-time pending fields; the later confirmation
-is separate. The [new556-563 block](docs/reference/repository-regression-block-556-563.md)
-begins with a frozen characterization of package-name emission status loss.
-Step557 retains package-name writer failures through stream completion; its
-separate current regression checks72 supplied failures and36 normal controls.
-Expanded step558 checks cover record layouts, literal suffixes, duplicate names
-and repeated writer failures with separate active and inactive fault controls.
-Private installed-selection regressions also check writer-error refusal before
-publishing selected targets. Private owner-mapping checks also verify refusal
-before queue merge and publication. Private ABI/dry-run selection checks cover
-the same writer failures. The frozen556 characterization remains historical
-and is not a safety pass. These repository reviews are not independent semantic or
-native platform acceptance.
+Six steps556-561 are accepted. The prepared [current integration](docs/reference/sbo-emission-integration.md)
+selects106 repository checks: the previous101 with unchanged vectors/full output
+oracles, plus five package-name emission drivers in introduction order. These
+cover the minimal557 writer-status repair and private installed/owner/ABI-dry-run
+selection gates with their recorded limits. Final562/563 acceptance and a separate
+whole inherited/new-effects review remain pending before a new qualified pause.
+Repository reviews are not independent semantic or native platform acceptance.
 
 Unknown source-extra provenance, recording limits and incomplete binary history
 remain open qualifications. Test success does not close them, establish the
