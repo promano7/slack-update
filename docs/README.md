@@ -18,21 +18,21 @@ acceptance material. For the current phase and unfinished work, use the
 | Contribution, language and documentation rules | [Contributing](../CONTRIBUTING.md) |
 | Detailed contracts, audits and evidence | [Reference documentation](reference/README.md) |
 | Select applicable checks and historical snapshots | [Testing guide](testing.md) |
-| New bounded ELF recheck work and defect characterization | [Build/recheck composition and focused verification](reference/elf-recheck-build.md) |
+| New bounded ELF recheck work and defect characterization | [Apply/recheck results and focused verification](reference/elf-recheck-apply.md) |
 | Earlier completed integration, with later outer531 closure | [524-531 review](reference/repository-regression-block-524-531.md) |
 | Current bounded regression block and focused workspace checks | [Current testing status](testing.md#current-bounded-block-and-integrated-selection) and [reference index](reference/README.md#current-repository-regression-coverage) |
 | Real Slackware acceptance scenarios | [Acceptance guide](../tests/acceptance/reference/README.md) |
 | Changes by step or version | [CHANGELOG](../CHANGELOG.md) |
 | Earlier README checkpoints and original design text | [Historical README through step 418](reference/readme-through-step418.md) |
 
-Actual542 is accepted at `d50cae36cc3de0ba571f57e7cb659afc4e7b088f`, with all
-six focused outputs, exact source-policy/tree, reported push and clean local refs.
-Prepared543 adds [build/recheck composition](reference/elf-recheck-build.md):96
-private cases using the real queue coordinator and repaired recheck. Runtime and
-ALL older tests remain exact542. Actual543/new pause pending; last qualified
-STATIC pause539. Block540-547, reserves548-551 only if justified. Final actual
-acceptance must precede separate whole-condition/original/new-effects review.
-No native acceptance, actual Slackware-host observation or renewed authority.
+Actual543 is accepted at `dac286bd19f1273dd095cfab92cd6558d6a4bf4b`, with all
+seven focused outputs, exact source-policy/tree, reported push and clean local refs.
+Prepared544 adds [full private apply/recheck composition](reference/elf-recheck-apply.md):
+96 cases with24 emission refusals,3 stable successes and93 partial results.
+Runtime and ALL older tests remain exact543. Actual544/new pause pending; last
+qualified STATIC pause539. Block540-547, reserves548-551 only if justified.
+Final actual acceptance precedes separate whole-condition/original/new-effects
+review. No native acceptance, actual host observation or renewed authority.
 
 The design's proposed configuration and result examples describe future
 interfaces. Use the checked-in configuration and the shell reference for the

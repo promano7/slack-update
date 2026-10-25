@@ -1,3 +1,41 @@
+## Phase 1 step 544 -- propagate repaired ELF recheck through apply and results
+
+- Accept complete supplied543 FIRST: HEAD/local origin
+  dac286bd19f1273dd095cfab92cd6558d6a4bf4b, parent
+  d50cae36cc3de0ba571f57e7cb659afc4e7b088f, tree
+  69e90a1d3675672a743181c1da67752a1e2142fb; seven exact outputs/stat/policy,
+  clean reported main/push. Last qualified outer STATIC pause539.
+- Add full private apply96: resolved/missing/metadata/resolver post-build profiles,
+  normal-quiet-late emission, SBo on/off, builder0/43 and sync0/43. Real scan/
+  owner/merge/coordinator/recheck/apply/messages/stable state/JSON serialization;
+  supplied installed/core/activation/queue/builder/cache/readelf/clock/boot leaves.
+ 24 emission refusals preserve scan-published BROKEN and stable2/partialtrue.
+  Raw apply0 ALL96;3 stable successes/93 partial results checked independently.
+- Check full human/state/array output prefix,18 fields/caller sentinels, complete
+  action/module and inspection traces, real two-member enumeration, private
+  bytes-modes-links-inventory, full JSON parsing and selected root/ELF/SBo fields.
+  Intermediate ELF warning differs from final success after12 clears; SBo state
+  reflects build/sync rather than ELF result. BROKEN_COUNT remains initial1.
+  Result messages inspect BROKEN presence, not status alone; no empty-list/status1
+  guarantee or partial-copy/truncation/input-race repair inferred.
+- Preserve targeted exact old540 metadata/quiet false-clear control and omitted
+  final BROKEN-error control in full. Runtime and ALL old code/tests/fixtures
+  unchanged from543; frozen540 audit AND scope/guard/defective expectations stay
+  excluded with older frozen audits. Eight fresh focused commands prepend apply96
+  to unchanged543 seven. Syntax/docs/source-mode-tree/overlay/ZIP checks external.
+- Preserve newly observed4718592-byte0600 source extra/hash/full inventory and
+  source-policy ninth-path refusal. Absent from exact543 ZIP; initial544 membership
+  passed, no intermediate inventory, origin UNKNOWN/no attribution/no repair.
+  Move observed worktree intact outside source; rebuild canonical tree only from
+  exact543 members/modes plus eight intended files, then rerun final checks.
+- Actual544/application/tests/commit/push/clean capture pending; no new pause.
+  Next545 diagnostic interactions,546 preintegration,547 finalREADME/fresh final
+  actual acceptance/separate whole inherited review; reserves548-551 if justified.
+- Preserve ENTIRE539 and original540-544 ZIPs/nested originals/failures/unknown
+  extras/recovery/incomplete491 binary and all original criteria/ordered gates.
+  Phase1/kernel incomplete; evidence/live bindings null; actual host unobserved/
+  globalfalse. No consumed rights or native setup/preflight/run/cleanup revived.
+
 ## Phase 1 step 543 -- compose SBo build coordinator and repaired ELF recheck
 
 - Accept complete supplied542 FIRST: HEAD/local origin

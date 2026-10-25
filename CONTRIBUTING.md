@@ -66,6 +66,13 @@ operations, inert builder0/43, skipped cases and raw-coordinator0 versus recorde
 failure fields. It does not exercise full apply/final-result/native acceptance.
 Runtime and ALL older tests remain unchanged by this extension.
 
+For repaired recheck propagation through full apply/results run
+`python3 tests/reference/test-elf-recheck-apply.py`. Read its
+[544 scope](docs/reference/elf-recheck-apply.md) for supplied post-build transitions,
+raw apply0 versus stable results, intermediate versus final module states,
+selected provisional JSON assertions and the remaining list/status coupling.
+Runtime and ALL older tests stay unchanged; this is not native acceptance.
+
 ## Compatibility policy
 
 Slackware 15.0 and Slackware-current are both mandatory targets. Changes to the

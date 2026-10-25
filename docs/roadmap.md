@@ -26,22 +26,22 @@ continuation, HEAD `4de6378e1fed912516c05a0b2fd57efd5c66bdd8`, after actual91
 outputs and the separate qualified whole-condition review. Original539 prepared
 records retain their preparation-time flags; current work does not rewrite them.
 
-Actual542 is accepted at `d50cae36cc3de0ba571f57e7cb659afc4e7b088f`, with all
-six focused outputs, exact source-policy/tree, reported push and clean local refs.
-Prepared543 adds [build/recheck composition](reference/elf-recheck-build.md):96
-private cases using the real queue coordinator and repaired recheck. Runtime and
-ALL older tests remain exact542. Actual543/new pause pending; last qualified
-STATIC pause539. Block540-547, reserves548-551 only if justified. Final actual
-acceptance must precede separate whole-condition/original/new-effects review.
-No native acceptance, actual Slackware-host observation or renewed authority.
+Actual543 is accepted at `dac286bd19f1273dd095cfab92cd6558d6a4bf4b`, with all
+seven focused outputs, exact source-policy/tree, reported push and clean local refs.
+Prepared544 adds [full private apply/recheck composition](reference/elf-recheck-apply.md):
+96 cases with24 emission refusals,3 stable successes and93 partial results.
+Runtime and ALL older tests remain exact543. Actual544/new pause pending; last
+qualified STATIC pause539. Block540-547, reserves548-551 only if justified.
+Final actual acceptance precedes separate whole-condition/original/new-effects
+review. No native acceptance, actual host observation or renewed authority.
 
-Next544 composes the real full apply/result/message mapping after recheck,
-then diagnostic interactions and integrated review toward547. This adaptive plan
-accepts no native effects or future results. Original criteria, independent
-reviews/bindings/actual safe-review/fresh bounded grants/own-platform gates remain.
-Preserve whole-reading requirements, unknown extras/recovery/incomplete491 history.
-Evidence/live bindings null; actual host unobserved/globalfalse. Later-current
-refresh cannot invalidate completed qualified scoped539 STATIC pause.
+Next545 diagnostic interactions,546 preintegration,547 final README and fresh
+final actual acceptance followed by a separate whole-condition review. The plan
+is adaptive and grants no native effects or future acceptance. Keep original
+criteria/ordered independent/native gates, exact archives/unknown extras/recovery/
+incomplete491 qualifications and full-reading requirements. Evidence/live bindings
+null; actual host unobserved/globalfalse. Later-current refresh cannot invalidate
+completed qualified scoped539 STATIC pause.
 
 ### Remaining Phase 1 work
 
