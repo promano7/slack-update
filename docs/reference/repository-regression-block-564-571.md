@@ -200,3 +200,30 @@ and gate progression,not universal false success.Full controls retained,no guard
 rebinding.Runtime/ALL old tests/supports/fixtures/native criteria/frozen564/106
 plan+runner exact567.ABI-dryrun569/current integration570/final571/complete actual
 THEN separate whole inherited/new-effects/original review and all end gates due.
+
+## Step569 preparation after accepted actual568
+
+Complete inline actual568 accepted FIRST:HEAD/local origin
+`b049d899b8a54af147453dc8a119dcf6d154061d`,parent
+`4dcdde6aa3d014cc63dd5c7c016083cd810acb70`,tree
+`237f11d156933d953a902de0292804694c3d848a`;five full exact console/status pairs,
+8files473add131delete/subject/policy/modes/cleanrefs/reportedpush match.Inline
+transcription,not original attachment-byte/independent/separate stderr custody.
+Actual564-568 accepted;569/new pause pending,last qualified outerSTATIC563.
+
+The [569 selection matrix](sbo-selection-normalization.md) adds504 private cases:
+192active refusals before publication/count,240inactive-fault/72normal controls,
+144publications/counts,168disabled ABI touches.Shared unchanged567 staging/writer/
+inventory support declared/hashed,bytecode off;separate caller expectations.
+Concurrent upstream pipe effects excluded.Target0640/absence and9/8 counts retain
+on refusal;disabled ABI may create/touch and retain supplied stale counts/error.
+Historical564 and ignored ABI/dry-run collector controls refused.The latter may
+still fail1 at later missing-destination count-open:changed error/diagnostic/gate
+attempt,not blanket status flip.Full controls retained,no guard rebinding.
+
+Runtime/ALL old tests/supports/fixtures/native criteria/frozen564/106plan+runner
+byte exact568.Current integration570 preserves all106 complete rows/vectors/
+oracles/support identities plus565-569 current additions in introduction order,
+excludes frozen564.Final571 repeats unchanged integration freshly;complete final
+actual BEFORE separate whole inherited/new-effects/original review,qualified
+STATIC pause/STOP.All original end gates/UNKNOWN qualifications remain binding.

@@ -31,15 +31,15 @@ All 13 manuscript audit findings remain open; alternatives A/R/D are unselected
 and the original requirements remain binding.
 
 The last confirmed qualified outer STATIC repository pause is imported563.
-Steps564-567 are accepted through `4dcdde6aa3d014cc63dd5c7c016083cd810acb70`.
-The [568 owner checks](docs/reference/sbo-owner-normalization.md) compose
-normalizer writer refusals through private literal owner lookup,merge,count and
-publication,using explicitly declared567 staging support.Concurrent upstream pipe
-failure remains outside that scope.Runtime and all previous tests are unchanged.
-ABI/dry-run composition/current integration/final review remain later
+Steps564-568 are accepted through `b049d899b8a54af147453dc8a119dcf6d154061d`.
+The [569 selection checks](docs/reference/sbo-selection-normalization.md) compose
+normalizer refusals through private ABI/dry-run selection and counts,with explicitly
+declared567 complete-input staging support.Concurrent upstream pipe failures stay
+outside that scope.Disabled ABI can touch/create a target and retain stale counts.
+Runtime and previous tests remain unchanged;current integration570/final571 remain
 [bounded564-571 work](docs/reference/repository-regression-block-564-571.md).
-Actual568/new pause pending;repository checks are not independent native acceptance.
-The original106 plan retains its historical runtime binding.
+Actual569/new pause pending;the original106 plan retains its historical runtime
+binding.Repository checks are not independent semantic/native acceptance.
 
 Unknown source-extra provenance, recording limits and incomplete binary history
 remain open qualifications. Test success does not close them, establish the

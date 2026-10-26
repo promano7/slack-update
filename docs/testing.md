@@ -8,57 +8,55 @@ Slackware acceptance differ; it does not authorize a system run.
 
 ## Current bounded block and integrated selection
 
-Complete supplied inline actual567 accepted FIRST:HEAD/local origin
-`4dcdde6aa3d014cc63dd5c7c016083cd810acb70`,parent
-`ea37515fc95289cceb14f120843d6c182857d917`,tree
-`103dfe7fd3b80212be64119b10499d3d2b95cbf2`;five full exact console/status
-pairs,8files522add122delete/subject/policy/modes/clean localrefs/reportedpush match.
+Complete supplied inline actual568 accepted FIRST:HEAD/local origin
+`b049d899b8a54af147453dc8a119dcf6d154061d`,parent
+`4dcdde6aa3d014cc63dd5c7c016083cd810acb70`,tree
+`237f11d156933d953a902de0292804694c3d848a`;five full exact console/status
+pairs,8files473add131delete/subject/policy/modes/cleanrefs/reportedpush match.
 Explicit inline transcription,not original attachment bytes,independent terminal/
-GitHub or separate stderr custody.Actual564-567 accepted;568/new pause pending,
+GitHub or separate stderr custody.Actual564-568 accepted;569/new pause pending,
 last qualified outerSTATIC563.
 
-The [568 owner-normalizer matrix](reference/sbo-owner-normalization.md) adds448
-private cells:208 active refusals before count/publication,176 inactive-fault/
-64normal controls,128 count/publication successes and112 empty/missing-list skips.
-It runs literal real manifest lookup,package parsing,owner sorting,merge,count
-and publication with the disclosed567 complete-input staging adapter.The unchanged
-567 driver is declared,hashed support for shared adapter/inventory/writer mechanics;
-owner fixtures and expected names/outputs/traces are separately authored.
+The [569 selection-normalizer matrix](reference/sbo-selection-normalization.md)
+adds504 private ABI/dry-run/disabled-ABI cases:192 active refusals before publication/
+count,240 inactive-fault/72normal controls,144 publications/counts and168 disabled
+ABI touches.Unchanged567 staging/writer/inventory support is declared/hashed,
+bytecode disabled;separate caller/phase expectations are authored.Concurrent
+upstream SIGPIPE/backpressure remains OUTSIDE the complete-input staging scope.
 
-A normalization failure retains queue bytes0640/TOTAL_EXTRA9 and blocks later
-count/publication.Entered owner-stage global still names a removed private path;
-success/skip may retain supplied old-error,no universal global/error reset.
-Real upstream concurrent pipe failures remain OUTSIDE the staged-input scope.
-Historical564,ignored-inner-normalizer and ignored-owner-merge variants are refused.
-The last may still return1 via later missing-stage count-open failure;changed
-error/diagnostic/gate progression,not a blanket status flip,is its distinction.
+Enabled refusal retains target0640/absence and counts9/8.Ordinary ABI updates only
+TOTAL_EXTRA;dry-run only PLAN_ABI_SBO_COUNT.Disabled ABI can touch/create a file,
+retain existing bytes/mode and stale counts/error;not universal no-effect/reset.
+Historical564/ignored-ABI/ignored-dry-run collector controls are refused.Ignored
+callers may still return1 via later missing-target count-open;changed diagnostic/
+error/gate attempt,not blanket status flip,is the saved distinction.
 
 Runtime/ALL old tests/supports/fixtures/native criteria/frozen564/original106 plan+
-runner remain byte exact567.ABI/dry-run569/current integration570/final571 and
-new-fault full workflow/schema/native composition remain due.The106 plan remains
-historical563-runtime-bound;future integration preserves all106 original full
-oracles/vectors/support identities,appends current checks,excludes frozen564.
+runner byte exact568.Original106 remains historical563-runtime-bound.Separate
+current integration570 must retain all106 original complete row values/vectors/
+oracles/support identities and append565-569 current checks in introduction order,
+excluding frozen564.Final571 repeats the same integrated selection freshly before
+complete PC return and the separate whole inherited/new-effects/original review.
+No full workflow/stable CLI/entire JSON-NDJSON/schema/native coverage from these helpers.
 
 The [bounded564-571 end gate](reference/repository-regression-block-564-571.md)
-remains:complete final actual THEN separate whole inherited-header/every-condition/
-every-exact-original/all-new-effects-obligations-failures-cleanup-limits reading
+remains:complete final actual THEN whole inherited header/every condition/every
+exact nested original/all new effects-obligations-failures-cleanup-limits reading
 and comparison before qualified STATIC pause/STOP.No fresh whole reading claimed.
 Retain ENTIRE original563/every564+ original ZIP.All UNKNOWN provenance/recording/
-incomplete-history/IO/trust/containment/cleanup qualifications remain OPEN,
-including2unknown564 files and566 extra observed bytes.Phase1/kernel/schema1/
-reference-v1/C/Phase2/production/native gates unchanged;evidence/livebindings null,
-host unobserved/globalfalse,no native authority or old-right revival.
+incomplete-history/IO/trust/containment/cleanup qualifications,including2unknown564
+files and566 observed extra,remain OPEN.Phase1/kernel/schema1/reference-v1/C/Phase2/
+production/native gates unchanged;evidence/livebindings null,hostunobserved/globalfalse.
 
-Run the new owner helper matrix from the repository root:
+Run the new selection helper matrix from the repository root:
 
 ```bash
-python3 tests/reference/test-sbo-owner-normalization.py
+python3 tests/reference/test-sbo-selection-normalization.py
 ```
 
-Python imports unchanged567 support with bytecode disabled;that exact file is
-explicitly declared/hashed.Focused568 also runs unchanged owner-emission160,
-literal owner-mapping91,SBo target selection and shell syntax:five complete fresh
-outputs/statuses.No106 rerun;overlapping counts are not native coverage totals.
+Focused569 also runs unchanged selection-emission240,ABI queue count288,dry-run
+candidate count144 and shell syntax:five complete fresh outputs/statuses.Shared567
+support is explicit,not independent source trust.No106 rerun or native count sum.
 
 ## Select the applicable checks
 

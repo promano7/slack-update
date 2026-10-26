@@ -1,3 +1,26 @@
+## Phase 1 step 569 -- compose installed-normalizer refusal through ABI/dry-run counts
+
+- Accept complete inline568 FIRST:HEAD/local origin
+  b049d899b8a54af147453dc8a119dcf6d154061d,parent4dcdde6aa3d014cc63dd5c7c016083cd810acb70,
+  tree237f11d156933d953a902de0292804694c3d848a.Five full exact console/status pairs,
+  8files473add131delete/subject/policy/modes/cleanrefs/reportedpush match.Inline
+  transcription,not original attachment-byte/independent/separate stderr custody.
+- Add504 ABI/dry-run/disabled-ABI cells:192active refusals before publication/count,
+  240inactive-fault/72normal controls,144publications/counts,168real disabled touches.
+  Shared unchanged567 staging/writer/inventory support declared/hashed,bytecode off;
+  separate phase/count/error/output/traces.Author names bind real enumeration order.
+- Preserve target0640/absence/counts9-8 on refusal;successful counts update only
+  appropriate ABI/dry-run global.Disabled ABI may create/touch target and retain
+  old counts/error.No universal no-effect/reset/metadata restoration claim.
+- Historical564/ignored-ABI/ignored-dry-run controls refused.Last two can still
+  fail1 at later missing-target count-open;different error/stderr/gate attempt,
+  not blanket status flip.Full variants/refusals/finite extracted state retained.
+- Runtime/ALL old tests/supports/fixtures/native criteria/frozen564/106plan+runner
+  byte exact568.Concurrent upstream pipe/full workflow/schema/native composition
+  not established.Current integration570/final571/whole inherited end review due.
+  Retain ENTIRE563/every564+ original and ALL UNKNOWN qualifications.Last outer
+  STATIC563,actual569/new pause pending;Phase1/kernel/native gates unchanged.
+
 ## Phase 1 step 568 -- compose owner normalization refusal before count/publication
 
 - Accept complete inline567 FIRST:HEAD/local origin
