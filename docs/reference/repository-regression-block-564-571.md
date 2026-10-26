@@ -146,3 +146,31 @@ Runtime565/ALL old tests/supports/fixtures/native criteria/frozen564/original106
 plan+runner byte unchanged.New-fault queue/installed/merge567,owner568,ABI-dryrun569,
 current integration570/final571 and complete actual THEN separate whole inherited/
 new-effects/original review remain due,with ALL qualifications/end gates above.
+
+## Step567 preparation after accepted actual566
+
+Complete inline actual566 accepted FIRST:HEAD/local origin
+`ea37515fc95289cceb14f120843d6c182857d917`,parent
+`f2c9faf4aba7b28f80de4cd0c29fa14a910e3e96`,tree
+`1b1f021555f31c3894dc05f41060b57dbcd52a65`;five full exact console/status
+pairs,8files460add135delete/subject/policy/modes/clean refs/reportedpush match.
+Inline transcription,not original attachment-byte/independent/separate stderr
+custody.Actual564-566 accepted;567/new pause pending,last outerSTATIC563.
+
+The [567 helper publication matrix](sbo-normalization-publication.md) adds504
+cells:288active refusals before publication,144inactive-fault/72normal controls,
+216successful publications.Three unordered-queue/installed/set-merge helpers use
+real private producers and a disclosed complete-input staging adapter before
+faulting the otherwise unchanged sourced normalizer body.Concurrent upstream
+pipe break/backpressure/combined producer faults are NOT established.Destination
+bytes0640/absence and selected counts retained on refusal;ordinary publications
+0600,exact private inventory/ordered traces/selected cleanup checked.
+
+Historical564 and separately ignored queue/installed/merge normalizer gates fail
+private controls.Initial unpublished adapter wrongly required find-mindepth1;
+source uses find-H/maxdepth1/typef/printf.Preserve draft/isolated refusal and
+correct ONLY the wrapper before complete504 run;no runtime/oracle weakening.
+Runtime/ALL old tests/supports/fixtures/native criteria/frozen564/106plan+runner
+byte exact566.Owner568/ABI-dryrun569/current integration570/final571/complete
+actual THEN separate whole inherited/new-effects/original review still due,
+with all original end gates and UNKNOWN qualifications above unchanged.

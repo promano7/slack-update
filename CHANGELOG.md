@@ -1,3 +1,28 @@
+## Phase 1 step 567 -- compose normalizer refusals with private publication gates
+
+- Accept complete inline566 FIRST:HEAD/local origin
+  ea37515fc95289cceb14f120843d6c182857d917,parentf2c9faf4aba7b28f80de4cd0c29fa14a910e3e96,
+  tree1b1f021555f31c3894dc05f41060b57dbcd52a65.Five full exact console/status pairs,
+  8files460add135delete/subject/policy/modes/clean refs/reportedpush match.Inline
+  transcription,not original attachment-byte/independent/separate stderr custody.
+- Add standalone504 private unordered-queue/installed/set-merge cells:288active
+  normalizer refusals before publication,144inactive-fault/72normal controls,
+  216successful publications.Prior destination0640/absence and selected counts
+  retained on refusal,exact traces/private inventory/modes/selected cleanup checked.
+- Disclose complete producer-input staging adapter before a renamed unchanged
+  sourced normalizer body.Concurrent upstream SIGPIPE/backpressure/combined
+  producer failures are NOT established.Real producer names/order scoped explicitly.
+- Historical564 and separately ignored queue/installed/merge normalizer variants
+  refused;full bytes/results retained.Initial unpublished wrong find vector caused
+  refusal;preserve draft/isolated result,correct ONLY wrapper to actual maxdepth
+  vector before complete504 run.No runtime change or oracle weakening.
+- Runtime/ALL old tests/supports/fixtures/native criteria/frozen564/original106
+  plan+runner byte exact566.Owner568/ABI-dryrun569/current integration570/final571
+  and whole inherited/new-effects/original end review remain due.All UNKNOWN
+  provenance/recording/history/IO/trust/containment/cleanup/native qualifications
+  OPEN;retain ENTIRE563/every564+ original.Last outerSTATIC563,actual567/new pause
+  pending.Phase1/kernel incomplete;no native action or old-right revival.
+
 ## Phase 1 step 566 -- expand target-normalizer literal and positional checks
 
 - Accept complete supplied inline565 FIRST:HEAD/local origin

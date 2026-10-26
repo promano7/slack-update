@@ -31,14 +31,15 @@ All 13 manuscript audit findings remain open; alternatives A/R/D are unselected
 and the original requirements remain binding.
 
 The last confirmed qualified outer STATIC repository pause is imported563.
-Steps564-565 are accepted through `f2c9faf4aba7b28f80de4cd0c29fa14a910e3e96`.
-The minimal565 normalizer repair stops a failed temporary write before sorting
-or emitting targets. The [566 input matrix](docs/reference/sbo-target-normalization-inputs.md)
-adds positional write faults,literal names and duplicate/invalid-input checks;
-runtime and all previous tests remain unchanged. Current integration and caller
-composition remain later [bounded564-571 work](docs/reference/repository-regression-block-564-571.md).
-The original106 plan retains its historical runtime binding.Actual566/new pause
-are pending;repository checks are not independent semantic/native acceptance.
+Steps564-566 are accepted through `ea37515fc95289cceb14f120843d6c182857d917`.
+The [567 publication checks](docs/reference/sbo-normalization-publication.md)
+compose normalizer writer refusals with three private target-list helpers using
+an explicit complete-input staging adapter.Concurrent upstream pipe failures
+remain outside that scope.Runtime and all previous tests remain unchanged;
+owner/ABI-dry-run composition and current integration remain later
+[bounded564-571 work](docs/reference/repository-regression-block-564-571.md).
+Actual567/new pause are pending;repository checks are not independent native
+acceptance.The original106 plan retains its historical runtime binding.
 
 Unknown source-extra provenance, recording limits and incomplete binary history
 remain open qualifications. Test success does not close them, establish the

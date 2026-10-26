@@ -21,44 +21,45 @@ acceptance does not describe the present state of a machine.
 
 ### Repository verification and next decisions
 
-Complete supplied inline actual565 is accepted FIRST at HEAD/local origin
-`f2c9faf4aba7b28f80de4cd0c29fa14a910e3e96`, parent
-`bb519626e3066f15058abc4e06d6dcfedc6f8309`, tree
-`a8f995f9b45d25a7246e03e65c81418f3fd209e3`: seven exact complete console/
-status pairs, including the expected frozen564 refusal,status1. Nine-file431-add
-120-delete stat/subject/policy/modes/clean matching local refs/reported push agree.
-The saved inline text merges expected stdout/stderr in its console body; it is
-not original attachment bytes, independent terminal/GitHub or separate stderr
-custody. Actual564-565 accepted;566/new pause pending;last qualified outerSTATIC563.
+Complete supplied inline actual566 is accepted FIRST at HEAD/local origin
+`ea37515fc95289cceb14f120843d6c182857d917`,parent
+`f2c9faf4aba7b28f80de4cd0c29fa14a910e3e96`,tree
+`1b1f021555f31c3894dc05f41060b57dbcd52a65`:five complete exact console/
+status pairs;8files460add135delete/subject/policy/modes/clean localrefs/reported
+push agree.Explicit inline transcription is not original attachment bytes,
+independent terminal/GitHub or separate stderr custody.Actual564-566 accepted;
+567/new pause pending,last qualified outerSTATIC563.
 
-The [566 input matrix](reference/sbo-target-normalization-inputs.md) adds448
-direct normalizer cells:184 active positional refusals,200 inactive-fault and64
-normal controls. It covers first/second/third writer faults,literal punctuation,
-ordered duplicate attempts,blank lines,invalid forms,final newline and direct/
-conditional callers. The minimal565 repair is byte unchanged;ALL existing tests/
-supports/fixtures/native criteria/frozen564/106 plan+runner remain exact565.
+The [567 publication matrix](reference/sbo-normalization-publication.md) adds504
+private cases across unordered queue collection,installed-target collection and
+target-set merging:288 active normalizer writer refusals before publication,
+144 inactive-fault/72normal controls with216 successful publications.Inputs are
+real private queue files/package records/merge sets;destination bytes0640 or
+absence are retained on refusal.Selected temporary cleanup,modes,traces and count
+globals are checked.Each helper has168 cells;counts are not native coverage.
 
-One private variant that checks only the first write passes the prior565 first-
-fault matrix but fails the new second-write expectation. A duplicate-skipping
-variant fails the new normal-case trace despite unchanged unique sorted output.
-Both use the unchanged new driver;full bytes/results retained,no guard rebinding.
-These are finite authored private observations,not additional native acceptance.
+A supplied adapter captures the COMPLETE producer input before invoking a renamed,
+otherwise unchanged sourced normalizer body.This deliberately avoids concurrent
+upstream SIGPIPE/backpressure;those unmodified-pipeline effects are NOT covered.
+Real producer bytes are checked against authored names;installed enumeration order
+is observed,not imposed.The [complete scope](reference/sbo-normalization-publication.md)
+identifies every real/supplied operation,retained staging file and remaining limit.
 
-The unchanged106 plan remains historical563-runtime-bound;separate current
-integration due570 will preserve all original106 vectors/full oracles/support
-identities and append introduced current drivers,excluding frozen564. New-fault
-queue/installed/merge/owner/ABI/dry-run/full-workflow/stable-output/schema/native
-composition remains later work,not established by direct565/566 checks.
+Runtime/ALL old tests/supports/fixtures/native criteria/frozen564/original106 plan+
+runner remain byte exact566.Four private controls reject historical564 and each
+separately ignored queue/installed/merge normalizer gate.Owner568/ABI-dryrun569/
+current integration570/final571 and new-fault full workflow/schema/native
+composition remain due.The106 plan is still historical563-runtime-bound.
 
 Keep the [bounded564-571 end gate](reference/repository-regression-block-564-571.md):
 complete final actual THEN separate whole inherited-header/every-condition/every-
 exact-original/all-new-effects-obligations-failures-cleanup-limits reading and
-comparison before qualified STATIC pause/STOP. No fresh whole review is claimed.
-Preserve ENTIRE original563 and every564+ original ZIP,including both564 unknown
-extra-file observations. All inherited UNKNOWN provenance/recording/incomplete-
-history/private IO/trust/containment/cleanup limits and original native gates
-remain OPEN. Phase1/kernel/schema1/reference-v1/C/Phase2/production unchanged;
-native evidence/live bindings null,host unobserved/globalfalse,no native authority.
+comparison before qualified STATIC pause/STOP.No fresh whole review is claimed.
+Retain ENTIRE original563 and every564+ original ZIP.All UNKNOWN provenance/
+recording/incomplete-history/private IO/trust/containment/cleanup qualifications,
+including2unknown564 files and the566 unknown file,remain OPEN.Original native
+gates/Phase1/kernel/schema1/reference-v1/C/Phase2/production unchanged;native
+evidence/livebindings null,host unobserved/globalfalse,no native authority.
 
 ### Remaining Phase 1 work
 
