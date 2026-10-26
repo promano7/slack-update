@@ -31,57 +31,61 @@ choose a path, approve a migration or grant a native test.
 
 ## Current repository regression coverage
 
-The complete supplied inline569 return was accepted first: HEAD/local origin
-`997e8cd13687edbc2d3d8cc2824de69e027b3755`, parent
-`b049d899b8a54af147453dc8a119dcf6d154061d`, tree
-`d26a73b4de58f96a2b9aab15e1df1d89b3b27917`. All five complete console/status
-pairs, the eight-path diff (396 insertions, 113 deletions), subject, policy,
-modes, clean local refs and reported push match. This is an explicit inline
-transcription, without original attachment or independent terminal/GitHub custody.
-Steps564-569 are accepted; actual570 and the new pause remain pending.
+The complete supplied actual570 attachment was accepted first: HEAD/local origin
+`35f250c94c30ff7ad0d9795990d1cb7f58f9ebca`, parent
+`997e8cd13687edbc2d3d8cc2824de69e027b3755`, tree
+`5432aadd04f803cf13d1c1ffa9ecdf5bba81bd3b`. All111 complete command/status pairs
+match; only position56 uses the inherited consistent private-root comparison.
+The nine-path diff (2408 insertions,132 deletions), subject, policy, modes, clean
+local refs and reported push match. Exact supplied attachment bytes are retained;
+this is not independently observed terminal/GitHub evidence. The PC's separate
+capture files were not supplied. Seven actual steps564-570 are accepted.
 
-The separate [570 normalization integration](sbo-normalization-integration.md)
-runs111 fresh ordered commands against the current runtime. It retains every
-entire row, vector, driver/support identity and full output oracle from the
-historical106 plan, then appends the current565-569 tests in introduction order.
-The original106 plan and runner remain byte unchanged with their historical
-runtime binding. Frozen audit564 joins the prior frozen exclusions.
+The [571 final reconciliation](sbo-normalization-final-review.md)
+closes the planned repository scope in documentation and requires the same111
+commands freshly in preparation and on the PC. Documentation is finalized BEFORE
+this preparation run; the complete source inventory, SHA256 values and Git modes
+are compared before and after. Only documentation changes from accepted570.
+Runtime, every test/support/fixture/native criterion, historical106 plan/runner
+and current111 plan/runner remain byte unchanged.
 
-The [new plan](../../tests/reference/sbo-normalization-integration-plan.json) binds
-its [runner](../../tests/reference/run-sbo-normalization-integration.py), current
-runtime and previous106 plan/runner by SHA256. Preparation retains complete
-per-command results and separate aggregate stdout/stderr. Only the inherited
-position56 consistent private root is normalized for comparison; both complete
-outputs and both roots remain recorded. No other output is normalized.
+The [current111 integration](sbo-normalization-integration.md) preserves
+all106 entire historical rows/vectors/full oracles/driver-support identities,
+then appends current565-569 in introduction order. The original106 plan retains
+its historical runtime binding. Only position56 private-root comparison is
+normalized, preserving complete outputs and both roots. Frozen564 and the ten
+previous frozen audits remain excluded; historical characterization is not safety.
+Full fresh per-command results and original separate aggregate stdout/stderr are
+retained. The PC wrapper streams and retains its own complete captures outside
+the project tree. Counts do not establish native or independent semantic coverage.
 
-Runtime and every existing test/support/fixture/native criterion remain exact569.
-The five additions retain their introduction-step outputs and the explicit567
-support for568/569. Their complete-input staging excludes concurrent upstream
-SIGPIPE/backpressure and combined producer failures. Repeating these private
-helpers establishes no independent semantic/native or complete workflow acceptance.
+Actual571 acceptance and the new pause are STILL pending. The final delivery
+and repository capture keep `new_pause_confirmed` false. Accept the COMPLETE final
+return FIRST, then separately read the WHOLE inherited header, EACH whole
+condition, EVERY exact nested original and ALL new effects, obligations, failures,
+cleanup assumptions and limits, and compare preserved originals. Counts, hashes,
+this reconciliation, old flags and successful tests cannot substitute for that
+reading. Only afterwards consider a qualified STATIC repository pause and STOP.
+Last confirmed qualified outer STATIC pause remains563; reserves572-575 are not
+an automatic extension. Retain the ENTIRE original563 and EVERY564-571 exact ZIP.
 
-The [bounded564-571 end gate](repository-regression-block-564-571.md)
-requires571 to repeat the same111 plan, runner, runtime and tests freshly in
-preparation and on the PC. Accept the complete final actual return BEFORE a
-separate whole reading and comparison of the inherited header, every condition,
-every exact nested original and all new effects, obligations, failures, cleanup
-and limits; only then consider a qualified STATIC pause and STOP.
-No fresh whole review or new pause is claimed here. Last confirmed qualified
-outer STATIC pause:563. Retain the entire original563 and every564+ original ZIP.
-All UNKNOWN provenance, recording, incomplete-history, IO, trust, containment and
-cleanup qualifications remain open, including the observed extras at564/566.
+All UNKNOWN provenance, recording, incomplete491-history, IO, trust, containment
+and cleanup qualifications remain open, including observed extras564/566.
+Complete-input staging in567-569 excludes concurrent upstream pipe failure
+composition. Selected cleanup is not all-resource/global reset or host closure.
 Phase1/kernel/schema1/reference-v1/C/Phase2/production/native gates are unchanged;
-evidence/live bindings remain null, host unobserved, global closure false.
+native evidence/live bindings null, host unobserved, global closure false.
 
-Run from the repository root:
+Run the unchanged current runner from the repository root:
 
 ```bash
-python3 tests/reference/run-sbo-normalization-integration.py "$PWD" --label STEP570
+python3 tests/reference/run-sbo-normalization-integration.py "$PWD" --label STEP571
 bash -n tools/reference/slack-update-reference.sh
 ```
 
-Historical frozen audit564 is intentionally excluded from current integration;
-its refusal after the565 repair is expected, not a current regression failure.
+The label changes console/report envelopes only. The current plan/runner are
+exact570, including their current runtime and historical106 ancestry bindings.
+Frozen564's refusal after the565 repair remains expected and outside this run.
 
 The [554 integration](elf-cache-integration.md), [553 apply](elf-cache-apply-emission.md),
 [552 recheck](elf-cache-recheck-emission.md), [551 scan](elf-cache-scan-emission.md),

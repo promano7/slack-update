@@ -1,3 +1,26 @@
+## Phase 1 step 571 -- reconcile the final SBo normalization regression block
+
+- Accept the complete actual570 attachment first: HEAD/local origin
+  35f250c94c30ff7ad0d9795990d1cb7f58f9ebca, parent
+  997e8cd13687edbc2d3d8cc2824de69e027b3755, tree
+  5432aadd04f803cf13d1c1ffa9ecdf5bba81bd3b. All111 full command/status pairs,
+  nine paths (2408 insertions/132 deletions), subject, policy, modes, clean refs
+  and reported push match; only inherited position56 root normalization.
+  Preserve exact supplied bytes; PC capture files and independent custody absent.
+- Reconcile all eight bounded scopes, sole565 runtime repair, declared shared567
+  support, complete-input staging, selected effects/cleanup and all limitations.
+  Preserve every original106 entire row and current565-569 introduction oracle.
+- Change documentation only. Finalize it BEFORE fresh unchanged111 preparation;
+  freeze complete physical inventory/hashes/Git modes across execution. Runtime,
+  ALL tests/supports/fixtures/native criteria and old106/current111 plans/runners
+  remain exact570. Retain complete rows and original separate aggregate channels.
+- Actual571/new pause remain pending. Complete final actual acceptance FIRST,
+  THEN separate WHOLE inherited-header/EACH whole condition/EVERY exact nested
+  original/ALL new-effects-obligations-failures-cleanup-limits reading and byte
+  comparison, THEN consider qualified STATIC pause/STOP. Last confirmed563;
+  ENTIRE563/EVERY564-571 original retained. All UNKNOWN qualifications/native
+  gates remain binding; no automatic reserve step, native action or right revival.
+
 ## Phase 1 step 570 -- integrate current SBo normalization regressions
 
 - Accept the complete inline569 return first: HEAD/local origin

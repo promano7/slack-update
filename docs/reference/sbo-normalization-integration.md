@@ -86,11 +86,26 @@ every exact nested original and all new effects, obligations, failures, cleanup
 and limits. No count, digest, previous PASS or prior read flag substitutes for
 that reading. Only afterwards consider qualified STATIC pause/STOP.
 
-Last confirmed qualified outer STATIC pause remains563; actual570/new pause
-pending. Preserve the entire original563 and every564+ exact delivered ZIP.
+The570 preparation record above is historical. Complete actual570 is now accepted
+in [571 reconciliation](sbo-normalization-final-review.md); actual571/new pause
+remain pending. Last confirmed qualified outer STATIC pause remains563. Preserve the entire original563 and every564+ exact delivered ZIP.
 All UNKNOWN provenance/recording/incomplete491-history/IO/trust/containment/cleanup
 qualifications remain open, including observed extras564/566. Phase1/kernel are
 incomplete; original native scenarios/criteria/findings/gaps, unselected A/R/D,
 dormant repairs, schema1/reference-v1/C/Phase2/production and fresh bounded grant
 requirements remain unchanged. Native evidence/live bindings null, host
 unobserved/global closure false; no native operation or old-right revival.
+
+## Unchanged final571 selection
+
+Final571 changes no bytes in the111 plan/runner, historical106 plan/runner,
+runtime, tests, supports, fixtures or native criteria. It completes documentation
+BEFORE its fresh preparation run; the entire physical source inventory/hashes/Git
+modes must agree before/after and with the final source policy. The PC repeats the
+same111 freshly with label STEP571. Full per-command results and original separate
+aggregate channels remain required. The label changes envelopes only; all complete
+oracles and the sole position56 normalization remain identical to570.
+
+Complete final actual acceptance precedes the separate WHOLE inherited/new-effects/
+exact-original reading and comparison. This is a pending end gate, not a completed
+whole review, independent acceptance or confirmed new pause.

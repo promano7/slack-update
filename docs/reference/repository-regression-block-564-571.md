@@ -24,7 +24,7 @@ independent semantic/native acceptance. Prepared historical flags stay unchanged
 |570| Integrate original106 full oracles and introduced current checks freshly |
 |571| Reconcile final scope, repeat unchanged integration and collect complete PC return |
 
-Only564 is prepared. Later steps depend on complete preceding actual PC output,
+At plan creation only564 was prepared. Each later step depends on complete preceding actual PC output,
 commit, successful reported push and clean matching local refs/source capture.
 572-575 are reserves only for a concrete failure or missing closure condition;
 STOP after the block closes. No future step is already accepted or native-authorized.
@@ -254,3 +254,32 @@ and on the PC. Complete final actual acceptance precedes the separate whole
 inherited-header/every-condition/every-exact-nested-original/new-effects review.
 The new pause remains pending; do not extend automatically to reserves572-575.
 All original end gates and UNKNOWN qualifications remain binding.
+
+## Final571 preparation after accepted actual570
+
+The complete supplied actual570 attachment was accepted first: HEAD/local origin
+`35f250c94c30ff7ad0d9795990d1cb7f58f9ebca`, parent
+`997e8cd13687edbc2d3d8cc2824de69e027b3755`, tree
+`5432aadd04f803cf13d1c1ffa9ecdf5bba81bd3b`. All111 complete command/status pairs
+match; only position56 uses the inherited consistent private-root comparison.
+The nine-path diff (2408 insertions,132 deletions), subject, policy, modes, clean
+local refs and reported push match. Exact supplied attachment bytes are retained;
+this is not independently observed terminal/GitHub evidence. The PC's separate
+capture files were not supplied. Seven actual steps564-570 are accepted.
+
+The [final reconciliation](sbo-normalization-final-review.md) records all eight
+bounded scopes, their distinct faults/effects/limits and exact remaining gate.
+Only documentation changes. Runtime, ALL tests/supports/fixtures/native criteria,
+old106 plan/runner and current111 plan/runner remain exact570. Final documentation
+is authored BEFORE fresh111 preparation; full physical inventory/hashes/Git modes
+must match before/after and agree with the final delivery source policy. The PC
+runs the same111 with label STEP571, which changes envelopes only, and retains
+full rows plus separate aggregate channels outside the project tree.
+
+Actual571 and new pause remain pending; prepared pending flags are not rewritten
+as later actual knowledge. Complete final actual acceptance FIRST, THEN separate
+whole inherited-header/EACH whole condition/EVERY exact nested original/ALL new
+effects-obligations-failures-cleanup-limits reading and preserved-byte comparison,
+THEN consider qualified STATIC pause/STOP. Keep ENTIRE original563 and EVERY
+original564-571 delivery, including initial failures/drafts/unknown observed bytes.
+No automatic reserve572, native action, old-right revival or qualification repair.

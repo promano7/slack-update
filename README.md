@@ -31,13 +31,14 @@ All 13 manuscript audit findings remain open; alternatives A/R/D are unselected
 and the original requirements remain binding.
 
 The last confirmed qualified outer STATIC repository pause is imported563.
-Steps564-569 are accepted through `997e8cd13687edbc2d3d8cc2824de69e027b3755`.
-The separate [570 integration](docs/reference/sbo-normalization-integration.md)
-runs111 ordered commands: every complete historical106 row remains unchanged,
-followed by the five current565-569 checks. Runtime and existing tests remain
-exact569. Actual570, final571 and the separate whole inherited review are pending
-under the [bounded564-571 end gate](docs/reference/repository-regression-block-564-571.md).
-Repository checks provide no independent semantic/native acceptance or new pause.
+Steps564-570 are accepted through `35f250c94c30ff7ad0d9795990d1cb7f58f9ebca`.
+The [571 final reconciliation](docs/reference/sbo-normalization-final-review.md)
+changes documentation and repeats the unchanged111 integration freshly in
+preparation and on the PC. Runtime, tests, supports and both integration plans/
+runners remain exact570. Actual571 and the separate whole inherited review must
+precede any new qualified STATIC pause under the
+[bounded564-571 end gate](docs/reference/repository-regression-block-564-571.md).
+Repository checks provide no independent semantic/native acceptance.
 
 Unknown source-extra provenance, recording limits and incomplete binary history
 remain open qualifications. Test success does not close them, establish the
