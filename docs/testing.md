@@ -8,55 +8,55 @@ Slackware acceptance differ; it does not authorize a system run.
 
 ## Current bounded block and integrated selection
 
-Complete supplied inline actual564 is accepted FIRST at HEAD/local origin
-`bb519626e3066f15058abc4e06d6dcfedc6f8309`, parent
-`b30eff55e821ad7ffef964aa2279b2a6fdbdc0ac`, tree
-`84069e27254bbd0198c70a348b642238af057f49`: six complete exact command
-outputs, eight-file485-add134-delete stat, subject/policy/modes/clean matching local
-refs and reported successful push agree. The saved text is an explicit inline
-transcription, not original attachment bytes, independent terminal/GitHub capture
-or separate stderr custody. Step564 is accepted;565 actual/new pause pending.
-The last confirmed qualified outer STATIC pause remains imported563.
+Complete supplied inline actual565 is accepted FIRST at HEAD/local origin
+`f2c9faf4aba7b28f80de4cd0c29fa14a910e3e96`, parent
+`bb519626e3066f15058abc4e06d6dcfedc6f8309`, tree
+`a8f995f9b45d25a7246e03e65c81418f3fd209e3`: seven exact complete console/
+status pairs, including the expected frozen564 refusal,status1. Nine-file431-add
+120-delete stat/subject/policy/modes/clean matching local refs/reported push agree.
+The saved inline text merges expected stdout/stderr in its console body; it is
+not original attachment bytes, independent terminal/GitHub or separate stderr
+custody. Actual564-565 accepted;566/new pause pending;last qualified outerSTATIC563.
 
-The [565 normalizer repair](reference/sbo-target-normalization-emission-status.md)
-checks only the temporary-file printf: on failure remove that selected temporary
-and return1 immediately, before sort or target output. Ordinary input validation,
-sort semantics and every other runtime byte remain unchanged. A separate authored
-160-case driver checks80 active writer refusals before sort/output,48 inactive-fault
-and32 normal controls, exact traces and finite private cleanup. The frozen564 audit
-and ALL old tests/support/fixtures/native criteria remain byte exact564; its source
-guard now correctly refuses changed runtime. Its historical PASS was NOT safety.
+The [566 input matrix](reference/sbo-target-normalization-inputs.md) adds448
+direct normalizer cells:184 active positional refusals,200 inactive-fault and64
+normal controls. It covers first/second/third writer faults,literal punctuation,
+ordered duplicate attempts,blank lines,invalid forms,final newline and direct/
+conditional callers. The minimal565 repair is byte unchanged;ALL existing tests/
+supports/fixtures/native criteria/frozen564/106 plan+runner remain exact565.
 
-The existing106 plan/runner remain unchanged with their historical563 runtime
-binding. They are not a current-source integration plan for565 and must not be
-silently rebound. Separate current integration is planned570, preserving all106
-original vectors/oracles/support identities and adding new current drivers in
-introduction order. Frozen564 stays excluded. New normalization-fault queue/
-installed/merge/owner/ABI/dry-run/full-workflow/stable-output/schema/native
-composition is not established by direct565 checks; later bounded work remains.
+One private variant that checks only the first write passes the prior565 first-
+fault matrix but fails the new second-write expectation. A duplicate-skipping
+variant fails the new normal-case trace despite unchanged unique sorted output.
+Both use the unchanged new driver;full bytes/results retained,no guard rebinding.
+These are finite authored private observations,not additional native acceptance.
 
-All inherited UNKNOWN provenance/recording/incomplete binary-history/private IO/
-trust/containment/cleanup qualifications, including both new564 undeclared-file
-observations, remain open and exact in original deliveries. Preserve complete
-original563 continuity and every564+ original ZIP. Final COMPLETE actual evidence
-must precede separate whole inherited-header/every-condition/every-exact-original/
-new-effects-obligations-failures-cleanup-limits reading/comparison before a qualified
-STATIC pause and STOP. No fresh whole reading is claimed. Original native gates,
-Phase1/kernel/schema1/reference-v1/C/Phase2/production remain unchanged; native
-execution is not authorized, evidence/live bindings null, host unobserved/globalfalse.
+The unchanged106 plan remains historical563-runtime-bound;separate current
+integration due570 will preserve all original106 vectors/full oracles/support
+identities and append introduced current drivers,excluding frozen564. New-fault
+queue/installed/merge/owner/ABI/dry-run/full-workflow/stable-output/schema/native
+composition remains later work,not established by direct565/566 checks.
 
-The focused565 delivery runner checks the new driver, four unchanged package/SBo
-consumer checks, shell syntax and the expected frozen564 refusal. A refusal is a
-negative source-binding check, not a current safety PASS from the historical audit.
-Run the new current helper driver from the repository root:
+Keep the [bounded564-571 end gate](reference/repository-regression-block-564-571.md):
+complete final actual THEN separate whole inherited-header/every-condition/every-
+exact-original/all-new-effects-obligations-failures-cleanup-limits reading and
+comparison before qualified STATIC pause/STOP. No fresh whole review is claimed.
+Preserve ENTIRE original563 and every564+ original ZIP,including both564 unknown
+extra-file observations. All inherited UNKNOWN provenance/recording/incomplete-
+history/private IO/trust/containment/cleanup limits and original native gates
+remain OPEN. Phase1/kernel/schema1/reference-v1/C/Phase2/production unchanged;
+native evidence/live bindings null,host unobserved/globalfalse,no native authority.
+
+Run the new direct input driver from the repository root:
 
 ```bash
-python3 tests/reference/test-sbo-target-normalization-emission-status.py
+python3 tests/reference/test-sbo-target-normalization-inputs.py
 ```
 
-The [bounded564-571 plan](reference/repository-regression-block-564-571.md) retains
-the remaining stages and end gate. Counts describe overlapping authored cells,
-not additive native acceptance. No full106 rerun is claimed in565.
+The focused566 selection also runs unchanged565 current160,package parsing,
+SBo target selection and shell syntax:five complete command outputs/statuses.
+It does not rerun106 or include a historical defective audit as a safety test.
+Counts overlap and must not be summed into native acceptance coverage.
 
 ## Select the applicable checks
 

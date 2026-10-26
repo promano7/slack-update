@@ -1,3 +1,31 @@
+## Phase 1 step 566 -- expand target-normalizer literal and positional checks
+
+- Accept complete supplied inline565 FIRST:HEAD/local origin
+  f2c9faf4aba7b28f80de4cd0c29fa14a910e3e96,parentbb519626e3066f15058abc4e06d6dcfedc6f8309,
+  treea8f995f9b45d25a7246e03e65c81418f3fd209e3.Seven full console/status pairs include
+  expected frozen564 refusal1;9files431add120delete/subject/policy/modes/cleanrefs/
+  reportedpush match.Inline console merges expected channels;not original attachment
+  bytes/independent terminal-GitHub/separate stderr custody.
+- Add standalone448-case input matrix:184active positional writer refusals
+  (80first/56second/48third),200inactive-fault/64normal controls,224overlapping invalid
+  cells,80sort-success cells.Authored literal sorted outputs and exact duplicate/
+  emission traces,full status/output/private inventories/modes/selected locals checked.
+- First-write-only private variant passes old565 first-fault matrix but fails new
+  literal second-write case;duplicate-skipping variant fails normal attempt trace.
+  Retain full variants/refusals,unchanged new driver,no source-guard rebinding.
+- Assembly refused an undeclared8,650,752-byte preparation file before policy;
+  SHA25619ca44c04e0f7d1776b8bac493dfc5b14585b4e082a82e0fbfb0dbf4db68df31,
+  observed bytes preserved separately/excluded from canonical source,origin UNKNOWN.
+  Move preparation to private temporary area and recheck finite source inventory;
+  no archive/provenance/atomic custody/global cleanup repair claimed.
+- Runtime/ALL old tests/supports/fixtures/native criteria/frozen564/original106 plan+
+  runner byte exact565.New-fault consumer composition/current integration570/final571
+  remain due;direct matrices are not full workflow/schema/native acceptance.
+- Last qualified outerSTATIC563;actual564-565 accepted,actual566/new pause/whole
+  inherited review pending.Retain entire563/every564+ original and ALL UNKNOWN
+  provenance/recording/history/IO/trust/containment/cleanup/native qualifications,
+  including two564 unknown extras.Phase1/kernel incomplete;no native right revival.
+
 ## Phase 1 step 565 -- stop SBo target normalization after a failed write
 
 - Accept complete supplied inline564 FIRST:HEAD/local origin

@@ -116,3 +116,33 @@ is due570 and final unchanged-current integration571. New-fault consumer/full
 workflow/schema/native composition and all inherited whole-review/original-byte/
 UNKNOWN provenance/recording/history/trust/containment/cleanup/native end gates
 above remain due. Proposed repair/private controls confer no native right.
+
+## Step566 preparation after accepted actual565
+
+Complete inline actual565 accepted FIRST at HEAD/local origin
+`f2c9faf4aba7b28f80de4cd0c29fa14a910e3e96`,parent
+`bb519626e3066f15058abc4e06d6dcfedc6f8309`,tree
+`a8f995f9b45d25a7246e03e65c81418f3fd209e3`:seven complete exact console/status
+pairs including expected frozen564 status1;9files431add120delete/subject/policy/
+modes/clean refs/reportedpush.Console text merges expected channels,not separate
+stderr/original attachment-byte/independent custody.Actual564-565 accepted;
+actual566/new pause pending,last qualified outerSTATIC563.
+
+A new undeclared8,650,752-byte preparation file caused assembly refusal before
+policy creation.SHA25619ca44c04e0f7d1776b8bac493dfc5b14585b4e082a82e0fbfb0dbf4db68df31;
+observed bytes preserved separately,origin/cause UNKNOWN,excluded from canonical
+source.Working preparation moved to a private temporary area and source checked
+again.No original archive/provenance/atomic custody/global cleanup repair.
+
+The [566 input matrix](sbo-target-normalization-inputs.md) adds448 direct cases:
+184active positional refusals (80first,56second,48third),200inactive-fault and
+64normal controls.Literal names,duplicates,blank/invalid forms,newline/caller,
+full output/status/exact traces/private inventories checked;not a native sum.
+First-write-only variant passes old565 matrix but fails new literal second-quiet
+expectation;duplicate-skipping variant fails normal duplicate trace.Both full
+private controls retained,unchanged new driver,no guard rebinding.
+
+Runtime565/ALL old tests/supports/fixtures/native criteria/frozen564/original106
+plan+runner byte unchanged.New-fault queue/installed/merge567,owner568,ABI-dryrun569,
+current integration570/final571 and complete actual THEN separate whole inherited/
+new-effects/original review remain due,with ALL qualifications/end gates above.
