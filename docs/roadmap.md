@@ -21,39 +21,38 @@ acceptance does not describe the present state of a machine.
 
 ### Repository verification and next decisions
 
-Complete supplied uploaded actual562 is accepted first: HEAD/local origin
-`0536e8372bd4c704c332239cd640e4cd34854c3d`, parent
-`7d7eab23d1866e6c3e6c7e92fe6ad0c2911b4fd3`, tree
-`b4cc0e73340f40c8c1982397206c3c6608b73906`. All106 complete ordered outputs,
-eight-path2281-add156-delete stat/subject/policy/modes/clean local refs/reported
-push agree. Exact uploaded terminal-text bytes are retained; this is not independent
-terminal/GitHub observation or separate stderr custody. Seven actual steps556-562
-are accepted. Final563 and the separate whole inherited/new-effects/original review
-remain pending; no new qualified STATIC pause is confirmed. Last confirmed outer
-STATIC pause555 and its full qualifications remain historical, not freshly reviewed.
+The last confirmed qualified outer STATIC repository pause is step563,
+imported from the complete original continuity at HEAD/local origin
+`b30eff55e821ad7ffef964aa2279b2a6fdbdc0ac`, tree
+`2aab09ed53cd20250c2a0348ac88ac0ba95c5c5b`. All eight556-563 steps
+are recorded accepted. The reconstructed1,255,354,196-byte original has SHA256
+`86761e13872a6dfab21c21c2f18b2bb8a090ced3fba63929f3ee78b8764e372b`;
+its finite archive/source/receipt verifier passed. This imports the separate
+recorded confirmation; it is not a fresh whole-condition reading or independent
+semantic/native acceptance. Historical prepared563 pending flags remain unchanged.
 
-The bounded STATIC block556-563 contains one runtime repair in557, preceded by
-frozen historical556 characterization and followed by separate current input,
-installed, owner and ABI/dry-run emission checks. The original101 integration
-plan and all prior tests remain unchanged. Accepted562 integrates their full
-oracles plus five current drivers in a separate106 plan. Final563 changes only
-documentation and repeats the exact same106 selection freshly in preparation
-and on the PC. See the [final reconciliation](reference/sbo-emission-final-review.md).
+The new bounded user request opens STATIC564-571, with572-575 reserved only for
+a concrete failure or missing closure condition. The new
+[normalizer audit](reference/sbo-target-normalization-emission-audit.md) freezes160
+direct helper observations:80 active supplied writer faults,48 masked successes,
+32 failures through invalid names,48 inactive-fault and32 normal controls.
+A characterization PASS describes defective historical source, NOT safety.
+Runtime, ALL existing tests/support/fixtures/native criteria and the existing106
+plan/runner remain byte unchanged in564. The frozen audit is separate from106
+and must refuse a changed runtime after repair. No564 PC acceptance or new pause
+yet. See the [bounded plan](reference/repository-regression-block-564-571.md).
 
-Accept COMPLETE final actual563 FIRST; THEN read the whole inherited header,
-every whole condition, every exact original body and all new effects/obligations/
-failures/cleanup/limits, comparing unchanged originals before a qualified STATIC
-pause and STOP. No automatic564; reserves564-567 require a concrete missing
-closure condition. Counts and source hashes cannot replace whole reading.
-
-All UNKNOWN provenance, recording and incomplete binary-history qualifications,
-private-tool/source trust, containment and cleanup limits remain open. Retain
-entire original555 continuity and every556+ original ZIP, not only summaries or
-hashes. Phase1/kernel/original criteria/findings/gaps/unselected A/R/D/inactive
-repairs and ordered independent native gates remain unchanged. Native evidence
-and actual bindings are null; host state is unobserved, global closure false.
-This STATIC block grants no native setup/probe/build/package/boot/network/cleanup,
-old consumed authority or later-current-refresh right revival.
+All inherited UNKNOWN provenance/recording/incomplete binary-history/private IO/
+source-trust/containment/cleanup qualifications remain open. Original559's noisy
+pipefail control and the separate563 active-fault supplement keep their exact
+distinctions; ABI/dry-run ignored-filter controls need not flip stable status.
+Preserve the complete original563 continuity and every564+ original delivery.
+Final complete actual evidence must precede the separate whole inherited-header/
+every-condition/every-exact-original/all-new-effects-obligations-failures-cleanup-
+limits review before confirming a qualified STATIC pause and STOP. No automatic
+continuation or old authority revival follows. Phase1/kernel/schema1/reference-v1/
+C/Phase2/production and the ordered independent native gates remain unchanged.
+Native evidence/live bindings null, host unobserved, global closure false.
 
 ### Remaining Phase 1 work
 

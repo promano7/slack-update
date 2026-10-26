@@ -30,14 +30,15 @@ design also has unresolved contract and native implementation requirements.
 All 13 manuscript audit findings remain open; alternatives A/R/D are unselected
 and the original requirements remain binding.
 
-The last confirmed qualified outer STATIC repository pause is step555.
-Seven steps556-562 are accepted, including the complete106-command integration
-at commit `0536e83`. The minimal557 repair retains failed package-name emissions;
-separate checks cover input layouts and private installed/owner/ABI-dry-run
-selection gates. The [final block reconciliation](docs/reference/sbo-emission-final-review.md)
-keeps the same106 commands, full output oracles, runtime and supports for fresh563
-checks. Complete final PC evidence and a separate whole inherited/new-effects/
-original review remain due before a new qualified STATIC pause.
+The last confirmed qualified outer STATIC repository pause is step563 at
+commit `b30eff55e821ad7ffef964aa2279b2a6fdbdc0ac`, imported from its separately
+confirmed complete continuity. All eight556-563 steps and the unchanged106-command
+selection are recorded accepted in their finite scope. The new
+[bounded564-571 block](docs/reference/repository-regression-block-564-571.md)
+starts with a frozen characterization of unchecked target-normalizer writes:
+48 of80 activated writer-fault observations return success. Runtime and all
+existing tests remain unchanged in564; this audit is NOT a safety pass.
+The recorded563 whole review is imported history, not freshly repeated here.
 Repository reviews are not independent semantic or native platform acceptance.
 
 Unknown source-extra provenance, recording limits and incomplete binary history
@@ -113,7 +114,7 @@ carry raw command statuses; the final process/result status uses this table.
 ## Documentation and contributing
 
 - [Development roadmap and phase gates](docs/roadmap.md)
-- [Current bounded regression block and limits](docs/reference/repository-regression-block-556-563.md)
+- [Current bounded regression block and limits](docs/reference/repository-regression-block-564-571.md)
 - [Reference acceptance guide](tests/acceptance/reference/README.md)
 - [Configuration example](data/config/slack-update.conf)
 - [Contribution and documentation policy](CONTRIBUTING.md)

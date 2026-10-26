@@ -1,3 +1,32 @@
+## Phase 1 step 564 -- characterize unchecked SBo target-normalizer writes
+
+- Reconstruct14 wrappers to exact complete563 continuity,1,255,354,196bytes,
+  SHA25686761e13872a6dfab21c21c2f18b2bb8a090ced3fba63929f3ee78b8764e372b;
+  finite archive/source/receipt verifier PASS. Import recorded qualified STATIC563
+  at b30eff55e821ad7ffef964aa2279b2a6fdbdc0ac/tree2aab09ed53cd20250c2a0348ac88ac0ba95c5c5b.
+  Historical prepared flags unchanged; not fresh whole reading/independent acceptance.
+- Open new user-requested bounded STATIC564-571, reserves572-575 only if justified.
+  Freeze160 direct target-normalizer writer cases:80 active faults,48 masked success,
+  32 invalid-name failures,48 inactive-fault and32 normal controls;120 failed writes,
+  24 multiple-fault subset. Historical characterization PASS is NOT a safety pass.
+- Keep runtime/ALL existing tests/support/fixtures/native criteria/original106 plan
+  and runner byte exact563. Proposed565 minimal repair and later caller composition/
+  current integration remain pending; exclude frozen564 after a runtime change.
+- Preserve new undeclared extraction-area file separately,17,301,504bytes,
+  SHA256beb0a614c34dfa01c9ffcba35db5c64a6c674eba6ef7cb74d6195690b5827bc6;
+  mode-restorer correctly refused extra inventory. Origin/cause UNKNOWN. Canonical
+  copy uses only2504 verified policy names with known executable-mode projection.
+  A second11,272,192-byte undeclared preparation file caused assembly refusal before
+  policy creation; SHA256d36c186e12766dbe058ac12f60f5e45de4035cf89d13eb38b51853081b592fc2,
+  origin/cause UNKNOWN, exact observed bytes preserved separately/excluded from source.
+  Original archives unchanged; no provenance/atomic metadata restoration claimed.
+- Reconcile current navigation with imported outer563 confirmation. Preserve exact
+  entire563 original and every564+ original for final continuity. Final complete
+  actual THEN separate whole inherited/new-effects/original review remains due.
+  All UNKNOWN provenance/recording/incomplete-history/IO/trust/containment/cleanup
+  limits and native gates unchanged. Phase1/kernel incomplete;actual564/new pause
+  pending; no native action, old-right revival or newly completed whole review.
+
 ## Phase 1 step 563 -- reconcile final SBo emission block and repeat unchanged106
 
 - Accept complete uploaded actual562 FIRST: HEAD/local origin
