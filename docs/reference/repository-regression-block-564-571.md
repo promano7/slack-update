@@ -88,3 +88,31 @@ replay/relaunch/rebind/reacquire/renewal/replacement/postrelease or old source/b
 run/grant/right revival. Later-current refresh cannot invalidate completed scoped
 STATIC pauses or revive rights. Spanish conversation; English code/docs/comments/
 commits. No subagents. The user commits/pushes the Arch checkout.
+
+## Step565 preparation after accepted actual564
+
+Complete supplied inline564 accepted FIRST at HEAD/local origin
+`bb519626e3066f15058abc4e06d6dcfedc6f8309`, parent
+`b30eff55e821ad7ffef964aa2279b2a6fdbdc0ac`, tree
+`84069e27254bbd0198c70a348b642238af057f49`: six full exact outputs,
+eight-file485-add134-delete stat/subject/policy/modes/clean local refs/reported push.
+Explicit inline transcription is not original attachment-byte/independent custody.
+The original564 preparation statements above retain their historical meaning.
+Only actual564 is accepted in this new block; actual565/new pause pending.
+
+The [565 repair and checks](sbo-target-normalization-emission-status.md) change only
+normalizer temporary-file printf failure handling. Remove selected temporary and
+return1 at first failure, before sort or target emission. The distinct current
+160-case driver checks80 active writer refusals,48 inactive-fault/32normal controls,
+exact status/full output/traces/private inventory and selected local/IFS scope.
+There are80 failed write attempts, one per active case; this does not rewrite
+historical564's120 emissions or defective oracles. All old tests/support/fixtures/
+native criteria/frozen564/106 plan+runner remain unchanged. Old-source and
+retained-status-but-sorts variants fail the new driver with no guard rebinding.
+The historical564 source guard independently refuses repaired source as intended.
+
+The106 plan remains bound to historical563 runtime; separate current integration
+is due570 and final unchanged-current integration571. New-fault consumer/full
+workflow/schema/native composition and all inherited whole-review/original-byte/
+UNKNOWN provenance/recording/history/trust/containment/cleanup/native end gates
+above remain due. Proposed repair/private controls confer no native right.

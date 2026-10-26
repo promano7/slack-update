@@ -1207,7 +1207,10 @@ normalize_sbo_target_names_from_stream() {
             rm -f "$temporary"
             return 1
         fi
-        printf '%s\n' "$target" >> "$temporary"
+        printf '%s\n' "$target" >> "$temporary" || {
+            rm -f "$temporary"
+            return 1
+        }
     done
 
     LC_ALL=C sort -u "$temporary"

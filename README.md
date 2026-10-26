@@ -30,16 +30,16 @@ design also has unresolved contract and native implementation requirements.
 All 13 manuscript audit findings remain open; alternatives A/R/D are unselected
 and the original requirements remain binding.
 
-The last confirmed qualified outer STATIC repository pause is step563 at
-commit `b30eff55e821ad7ffef964aa2279b2a6fdbdc0ac`, imported from its separately
-confirmed complete continuity. All eight556-563 steps and the unchanged106-command
-selection are recorded accepted in their finite scope. The new
-[bounded564-571 block](docs/reference/repository-regression-block-564-571.md)
-starts with a frozen characterization of unchecked target-normalizer writes:
-48 of80 activated writer-fault observations return success. Runtime and all
-existing tests remain unchanged in564; this audit is NOT a safety pass.
-The recorded563 whole review is imported history, not freshly repeated here.
-Repository reviews are not independent semantic or native platform acceptance.
+The last confirmed qualified outer STATIC repository pause is imported563.
+Step564 is accepted at `bb519626e3066f15058abc4e06d6dcfedc6f8309`.
+The [565 repair](docs/reference/sbo-target-normalization-emission-status.md)
+stops normalization at a failed temporary write, removes its temporary and
+returns1 before sorting or emitting targets. A new direct160-case check covers
+80 active refusals; installed/queue/owner/workflow composition remains later
+work in the [bounded564-571 block](docs/reference/repository-regression-block-564-571.md).
+All old tests and the106 plan stay unchanged; that plan retains its historical
+runtime binding pending separate current integration. Actual565/new pause are
+pending. Repository reviews are not independent semantic/native acceptance.
 
 Unknown source-extra provenance, recording limits and incomplete binary history
 remain open qualifications. Test success does not close them, establish the

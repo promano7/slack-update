@@ -21,38 +21,42 @@ acceptance does not describe the present state of a machine.
 
 ### Repository verification and next decisions
 
-The last confirmed qualified outer STATIC repository pause is step563,
-imported from the complete original continuity at HEAD/local origin
+Complete supplied inline actual564 is accepted FIRST at HEAD/local origin
+`bb519626e3066f15058abc4e06d6dcfedc6f8309`, parent
 `b30eff55e821ad7ffef964aa2279b2a6fdbdc0ac`, tree
-`2aab09ed53cd20250c2a0348ac88ac0ba95c5c5b`. All eight556-563 steps
-are recorded accepted. The reconstructed1,255,354,196-byte original has SHA256
-`86761e13872a6dfab21c21c2f18b2bb8a090ced3fba63929f3ee78b8764e372b`;
-its finite archive/source/receipt verifier passed. This imports the separate
-recorded confirmation; it is not a fresh whole-condition reading or independent
-semantic/native acceptance. Historical prepared563 pending flags remain unchanged.
+`84069e27254bbd0198c70a348b642238af057f49`: six complete exact command
+outputs, eight-file485-add134-delete stat, subject/policy/modes/clean matching local
+refs and reported successful push agree. The saved text is an explicit inline
+transcription, not original attachment bytes, independent terminal/GitHub capture
+or separate stderr custody. Step564 is accepted;565 actual/new pause pending.
+The last confirmed qualified outer STATIC pause remains imported563.
 
-The new bounded user request opens STATIC564-571, with572-575 reserved only for
-a concrete failure or missing closure condition. The new
-[normalizer audit](reference/sbo-target-normalization-emission-audit.md) freezes160
-direct helper observations:80 active supplied writer faults,48 masked successes,
-32 failures through invalid names,48 inactive-fault and32 normal controls.
-A characterization PASS describes defective historical source, NOT safety.
-Runtime, ALL existing tests/support/fixtures/native criteria and the existing106
-plan/runner remain byte unchanged in564. The frozen audit is separate from106
-and must refuse a changed runtime after repair. No564 PC acceptance or new pause
-yet. See the [bounded plan](reference/repository-regression-block-564-571.md).
+The [565 normalizer repair](reference/sbo-target-normalization-emission-status.md)
+checks only the temporary-file printf: on failure remove that selected temporary
+and return1 immediately, before sort or target output. Ordinary input validation,
+sort semantics and every other runtime byte remain unchanged. A separate authored
+160-case driver checks80 active writer refusals before sort/output,48 inactive-fault
+and32 normal controls, exact traces and finite private cleanup. The frozen564 audit
+and ALL old tests/support/fixtures/native criteria remain byte exact564; its source
+guard now correctly refuses changed runtime. Its historical PASS was NOT safety.
+
+The existing106 plan/runner remain unchanged with their historical563 runtime
+binding. They are not a current-source integration plan for565 and must not be
+silently rebound. Separate current integration is planned570, preserving all106
+original vectors/oracles/support identities and adding new current drivers in
+introduction order. Frozen564 stays excluded. New normalization-fault queue/
+installed/merge/owner/ABI/dry-run/full-workflow/stable-output/schema/native
+composition is not established by direct565 checks; later bounded work remains.
 
 All inherited UNKNOWN provenance/recording/incomplete binary-history/private IO/
-source-trust/containment/cleanup qualifications remain open. Original559's noisy
-pipefail control and the separate563 active-fault supplement keep their exact
-distinctions; ABI/dry-run ignored-filter controls need not flip stable status.
-Preserve the complete original563 continuity and every564+ original delivery.
-Final complete actual evidence must precede the separate whole inherited-header/
-every-condition/every-exact-original/all-new-effects-obligations-failures-cleanup-
-limits review before confirming a qualified STATIC pause and STOP. No automatic
-continuation or old authority revival follows. Phase1/kernel/schema1/reference-v1/
-C/Phase2/production and the ordered independent native gates remain unchanged.
-Native evidence/live bindings null, host unobserved, global closure false.
+trust/containment/cleanup qualifications, including both new564 undeclared-file
+observations, remain open and exact in original deliveries. Preserve complete
+original563 continuity and every564+ original ZIP. Final COMPLETE actual evidence
+must precede separate whole inherited-header/every-condition/every-exact-original/
+new-effects-obligations-failures-cleanup-limits reading/comparison before a qualified
+STATIC pause and STOP. No fresh whole reading is claimed. Original native gates,
+Phase1/kernel/schema1/reference-v1/C/Phase2/production remain unchanged; native
+execution is not authorized, evidence/live bindings null, host unobserved/globalfalse.
 
 ### Remaining Phase 1 work
 

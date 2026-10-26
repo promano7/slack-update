@@ -1,3 +1,27 @@
+## Phase 1 step 565 -- stop SBo target normalization after a failed write
+
+- Accept complete supplied inline564 FIRST:HEAD/local origin
+  bb519626e3066f15058abc4e06d6dcfedc6f8309,parent
+  b30eff55e821ad7ffef964aa2279b2a6fdbdc0ac,tree84069e27254bbd0198c70a348b642238af057f49;
+  six full exact outputs,eight-file485add134delete/subject/policy/modes/clean refs/
+  reportedpush. Retain explicit transcription,not original attachment-byte or
+  independent terminal/GitHub/separate stderr custody.
+- Repair only normalizer temporary printf gate:remove selected temporary and
+  return1 at first writer failure,before sort/output. Runtime exactly matches
+  disclosed564 proposed variant;ordinary validation/sort/all other bytes unchanged.
+- Add standalone authored160-case current driver:80active refusals,48inactive-fault/
+  32normal controls,52sort-success cells;80failed writes,one per active case.
+  Check full status/output/traces,real selected private IO/modes/cleanup and locals.
+  Old564 source and status-retaining-but-sorting variants fail unchanged new driver;
+  frozen564 source guard refuses repaired source. Preserve full control bytes.
+- ALL old tests/support/fixtures/native criteria/frozen564/106plan+runner exact564.
+  Old106 remains historical runtime-bound;new current integration due570/final571.
+  New-fault caller/full workflow/schema/native composition not established565.
+- Preserve entire563/every564+ original ZIP,all UNKNOWN provenance/recording/history/
+  private IO/trust/containment/cleanup limits,including two564 unknown extra files.
+  Last qualified outerSTATIC563;actual565/new pause/whole inherited review pending.
+  Phase1/kernel and all native gates unchanged;no native action/old-right revival.
+
 ## Phase 1 step 564 -- characterize unchecked SBo target-normalizer writes
 
 - Reconstruct14 wrappers to exact complete563 continuity,1,255,354,196bytes,
