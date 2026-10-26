@@ -31,55 +31,57 @@ choose a path, approve a migration or grant a native test.
 
 ## Current repository regression coverage
 
-Complete supplied inline actual566 is accepted FIRST at HEAD/local origin
-`ea37515fc95289cceb14f120843d6c182857d917`,parent
-`f2c9faf4aba7b28f80de4cd0c29fa14a910e3e96`,tree
-`1b1f021555f31c3894dc05f41060b57dbcd52a65`:five complete exact console/
-status pairs;8files460add135delete/subject/policy/modes/clean localrefs/reported
-push agree.Explicit inline transcription is not original attachment bytes,
-independent terminal/GitHub or separate stderr custody.Actual564-566 accepted;
-567/new pause pending,last qualified outerSTATIC563.
+Complete supplied inline actual567 accepted FIRST:HEAD/local origin
+`4dcdde6aa3d014cc63dd5c7c016083cd810acb70`,parent
+`ea37515fc95289cceb14f120843d6c182857d917`,tree
+`103dfe7fd3b80212be64119b10499d3d2b95cbf2`;five full exact console/status
+pairs,8files522add122delete/subject/policy/modes/clean localrefs/reportedpush match.
+Explicit inline transcription,not original attachment bytes,independent terminal/
+GitHub or separate stderr custody.Actual564-567 accepted;568/new pause pending,
+last qualified outerSTATIC563.
 
-The [567 publication matrix](sbo-normalization-publication.md) adds504
-private cases across unordered queue collection,installed-target collection and
-target-set merging:288 active normalizer writer refusals before publication,
-144 inactive-fault/72normal controls with216 successful publications.Inputs are
-real private queue files/package records/merge sets;destination bytes0640 or
-absence are retained on refusal.Selected temporary cleanup,modes,traces and count
-globals are checked.Each helper has168 cells;counts are not native coverage.
+The [568 owner-normalizer matrix](sbo-owner-normalization.md) adds448
+private cells:208 active refusals before count/publication,176 inactive-fault/
+64normal controls,128 count/publication successes and112 empty/missing-list skips.
+It runs literal real manifest lookup,package parsing,owner sorting,merge,count
+and publication with the disclosed567 complete-input staging adapter.The unchanged
+567 driver is declared,hashed support for shared adapter/inventory/writer mechanics;
+owner fixtures and expected names/outputs/traces are separately authored.
 
-A supplied adapter captures the COMPLETE producer input before invoking a renamed,
-otherwise unchanged sourced normalizer body.This deliberately avoids concurrent
-upstream SIGPIPE/backpressure;those unmodified-pipeline effects are NOT covered.
-Real producer bytes are checked against authored names;installed enumeration order
-is observed,not imposed.The [complete scope](sbo-normalization-publication.md)
-identifies every real/supplied operation,retained staging file and remaining limit.
+A normalization failure retains queue bytes0640/TOTAL_EXTRA9 and blocks later
+count/publication.Entered owner-stage global still names a removed private path;
+success/skip may retain supplied old-error,no universal global/error reset.
+Real upstream concurrent pipe failures remain OUTSIDE the staged-input scope.
+Historical564,ignored-inner-normalizer and ignored-owner-merge variants are refused.
+The last may still return1 via later missing-stage count-open failure;changed
+error/diagnostic/gate progression,not a blanket status flip,is its distinction.
 
 Runtime/ALL old tests/supports/fixtures/native criteria/frozen564/original106 plan+
-runner remain byte exact566.Four private controls reject historical564 and each
-separately ignored queue/installed/merge normalizer gate.Owner568/ABI-dryrun569/
-current integration570/final571 and new-fault full workflow/schema/native
-composition remain due.The106 plan is still historical563-runtime-bound.
+runner remain byte exact567.ABI/dry-run569/current integration570/final571 and
+new-fault full workflow/schema/native composition remain due.The106 plan remains
+historical563-runtime-bound;future integration preserves all106 original full
+oracles/vectors/support identities,appends current checks,excludes frozen564.
 
-Keep the [bounded564-571 end gate](repository-regression-block-564-571.md):
-complete final actual THEN separate whole inherited-header/every-condition/every-
-exact-original/all-new-effects-obligations-failures-cleanup-limits reading and
-comparison before qualified STATIC pause/STOP.No fresh whole review is claimed.
-Retain ENTIRE original563 and every564+ original ZIP.All UNKNOWN provenance/
-recording/incomplete-history/private IO/trust/containment/cleanup qualifications,
-including2unknown564 files and the566 unknown file,remain OPEN.Original native
-gates/Phase1/kernel/schema1/reference-v1/C/Phase2/production unchanged;native
-evidence/livebindings null,host unobserved/globalfalse,no native authority.
+The [bounded564-571 end gate](repository-regression-block-564-571.md)
+remains:complete final actual THEN separate whole inherited-header/every-condition/
+every-exact-original/all-new-effects-obligations-failures-cleanup-limits reading
+and comparison before qualified STATIC pause/STOP.No fresh whole reading claimed.
+Retain ENTIRE original563/every564+ original ZIP.All UNKNOWN provenance/recording/
+incomplete-history/IO/trust/containment/cleanup qualifications remain OPEN,
+including2unknown564 files and566 extra observed bytes.Phase1/kernel/schema1/
+reference-v1/C/Phase2/production/native gates unchanged;evidence/livebindings null,
+host unobserved/globalfalse,no native authority or old-right revival.
 
-Run the new current helper matrix from the repository root:
+Run the new owner helper matrix from the repository root:
 
 ```bash
-python3 tests/reference/test-sbo-normalization-publication.py
+python3 tests/reference/test-sbo-owner-normalization.py
 ```
 
-The focused567 selection runs this504 matrix,unchanged566 inputs448,package parsing,
-SBo target selection and shell syntax:five fresh complete outputs/statuses.No106
-rerun is claimed,overlapping counts are not summed into native acceptance.
+Python imports unchanged567 support with bytecode disabled;that exact file is
+explicitly declared/hashed.Focused568 also runs unchanged owner-emission160,
+literal owner-mapping91,SBo target selection and shell syntax:five complete fresh
+outputs/statuses.No106 rerun;overlapping counts are not native coverage totals.
 
 The [554 integration](elf-cache-integration.md), [553 apply](elf-cache-apply-emission.md),
 [552 recheck](elf-cache-recheck-emission.md), [551 scan](elf-cache-scan-emission.md),

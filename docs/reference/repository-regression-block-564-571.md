@@ -174,3 +174,29 @@ Runtime/ALL old tests/supports/fixtures/native criteria/frozen564/106plan+runner
 byte exact566.Owner568/ABI-dryrun569/current integration570/final571/complete
 actual THEN separate whole inherited/new-effects/original review still due,
 with all original end gates and UNKNOWN qualifications above unchanged.
+
+## Step568 preparation after accepted actual567
+
+Complete inline actual567 accepted FIRST:HEAD/local origin
+`4dcdde6aa3d014cc63dd5c7c016083cd810acb70`,parent
+`ea37515fc95289cceb14f120843d6c182857d917`,tree
+`103dfe7fd3b80212be64119b10499d3d2b95cbf2`;five full exact console/status pairs,
+8files522add122delete/subject/policy/modes/cleanrefs/reportedpush match.Inline
+transcription,not original attachment-byte/independent/separate stderr custody.
+Actual564-567 accepted;568/new pause pending,last qualified outerSTATIC563.
+
+The [568 owner-normalizer matrix](sbo-owner-normalization.md) adds448 private
+cases:208active refusals,176inactive-fault/64normal controls,128count/publication
+successes,112empty/missing-list skips.Real literal lookup/parser/owner sort/merge/
+count/move with unchanged declared567 staging/inventory/writer support.Owner
+fixtures/oracles are separately authored,no independent source-trust claim.
+Concurrent upstream pipe effects outside scope.Queue0640/count9 retained on
+refusal,entered owner-stage global retains removed path and success/skip may
+retain old-error;selected cleanup is not global reset/native recovery.
+
+Historical564/ignored-inner-normalizer/ignored-owner-merge controls refused.Last
+can still fail1 at later missing merged-stage count-open:changed diagnostic/error
+and gate progression,not universal false success.Full controls retained,no guard
+rebinding.Runtime/ALL old tests/supports/fixtures/native criteria/frozen564/106
+plan+runner exact567.ABI-dryrun569/current integration570/final571/complete actual
+THEN separate whole inherited/new-effects/original review and all end gates due.

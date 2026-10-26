@@ -1,3 +1,26 @@
+## Phase 1 step 568 -- compose owner normalization refusal before count/publication
+
+- Accept complete inline567 FIRST:HEAD/local origin
+  4dcdde6aa3d014cc63dd5c7c016083cd810acb70,parent ea37515fc95289cceb14f120843d6c182857d917,
+  tree103dfe7fd3b80212be64119b10499d3d2b95cbf2.Five full exact console/status pairs,
+  8files522add122delete/subject/policy/modes/cleanrefs/reportedpush match.Inline
+  transcription,not original attachment-byte/independent/separate stderr custody.
+- Add448 owner-normalizer cells:208active refusals before count/publication,
+  176inactive-fault/64normal controls,128count/publication successes,112list skips.
+  Real literal lookup/parser/sort/merge/count/moves;declared unchanged567 staging/
+  inventory/writer support,bytecode disabled.Separate owner fixtures/oracles.
+- Preserve queue0640/count9 on refusal;success0600/count updated;selected other
+  globals unchanged.Entered owner-stage global retains removed private path and
+  success/skip may retain old-error.No universal global/diagnostic reset implied.
+- Historical564/ignored-inner/ignored-owner-merge controls refused.Last can still
+  return1 through later missing-stage count-open;changed error/stderr/gate attempt,
+  not universal status flip.Full controls preserved,no guard rebinding.
+- Runtime/ALL old tests/supports/fixtures/native criteria/frozen564/106plan+runner
+  byte exact567.Concurrent upstream pipe/full workflow/schema/native composition
+  not established.ABI-dryrun569/integration570/final571/whole inherited end review
+  due;last outerSTATIC563,actual568/new pause pending.All UNKNOWN qualifications/
+  exact entire563/every564+ original retained.Phase1/kernel/native gates unchanged.
+
 ## Phase 1 step 567 -- compose normalizer refusals with private publication gates
 
 - Accept complete inline566 FIRST:HEAD/local origin
