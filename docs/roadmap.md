@@ -21,45 +21,47 @@ acceptance does not describe the present state of a machine.
 
 ### Repository verification and next decisions
 
-Complete supplied inline actual568 accepted FIRST:HEAD/local origin
-`b049d899b8a54af147453dc8a119dcf6d154061d`,parent
-`4dcdde6aa3d014cc63dd5c7c016083cd810acb70`,tree
-`237f11d156933d953a902de0292804694c3d848a`;five full exact console/status
-pairs,8files473add131delete/subject/policy/modes/cleanrefs/reportedpush match.
-Explicit inline transcription,not original attachment bytes,independent terminal/
-GitHub or separate stderr custody.Actual564-568 accepted;569/new pause pending,
-last qualified outerSTATIC563.
+The complete supplied inline569 return was accepted first: HEAD/local origin
+`997e8cd13687edbc2d3d8cc2824de69e027b3755`, parent
+`b049d899b8a54af147453dc8a119dcf6d154061d`, tree
+`d26a73b4de58f96a2b9aab15e1df1d89b3b27917`. All five complete console/status
+pairs, the eight-path diff (396 insertions, 113 deletions), subject, policy,
+modes, clean local refs and reported push match. This is an explicit inline
+transcription, without original attachment or independent terminal/GitHub custody.
+Steps564-569 are accepted; actual570 and the new pause remain pending.
 
-The [569 selection-normalizer matrix](reference/sbo-selection-normalization.md)
-adds504 private ABI/dry-run/disabled-ABI cases:192 active refusals before publication/
-count,240 inactive-fault/72normal controls,144 publications/counts and168 disabled
-ABI touches.Unchanged567 staging/writer/inventory support is declared/hashed,
-bytecode disabled;separate caller/phase expectations are authored.Concurrent
-upstream SIGPIPE/backpressure remains OUTSIDE the complete-input staging scope.
+The separate [570 normalization integration](reference/sbo-normalization-integration.md)
+runs111 fresh ordered commands against the current runtime. It retains every
+entire row, vector, driver/support identity and full output oracle from the
+historical106 plan, then appends the current565-569 tests in introduction order.
+The original106 plan and runner remain byte unchanged with their historical
+runtime binding. Frozen audit564 joins the prior frozen exclusions.
 
-Enabled refusal retains target0640/absence and counts9/8.Ordinary ABI updates only
-TOTAL_EXTRA;dry-run only PLAN_ABI_SBO_COUNT.Disabled ABI can touch/create a file,
-retain existing bytes/mode and stale counts/error;not universal no-effect/reset.
-Historical564/ignored-ABI/ignored-dry-run collector controls are refused.Ignored
-callers may still return1 via later missing-target count-open;changed diagnostic/
-error/gate attempt,not blanket status flip,is the saved distinction.
+The [new plan](../tests/reference/sbo-normalization-integration-plan.json) binds
+its [runner](../tests/reference/run-sbo-normalization-integration.py), current
+runtime and previous106 plan/runner by SHA256. Preparation retains complete
+per-command results and separate aggregate stdout/stderr. Only the inherited
+position56 consistent private root is normalized for comparison; both complete
+outputs and both roots remain recorded. No other output is normalized.
 
-Runtime/ALL old tests/supports/fixtures/native criteria/frozen564/original106 plan+
-runner byte exact568.Original106 remains historical563-runtime-bound.Separate
-current integration570 must retain all106 original complete row values/vectors/
-oracles/support identities and append565-569 current checks in introduction order,
-excluding frozen564.Final571 repeats the same integrated selection freshly before
-complete PC return and the separate whole inherited/new-effects/original review.
-No full workflow/stable CLI/entire JSON-NDJSON/schema/native coverage from these helpers.
+Runtime and every existing test/support/fixture/native criterion remain exact569.
+The five additions retain their introduction-step outputs and the explicit567
+support for568/569. Their complete-input staging excludes concurrent upstream
+SIGPIPE/backpressure and combined producer failures. Repeating these private
+helpers establishes no independent semantic/native or complete workflow acceptance.
 
 The [bounded564-571 end gate](reference/repository-regression-block-564-571.md)
-remains:complete final actual THEN whole inherited header/every condition/every
-exact nested original/all new effects-obligations-failures-cleanup-limits reading
-and comparison before qualified STATIC pause/STOP.No fresh whole reading claimed.
-Retain ENTIRE original563/every564+ original ZIP.All UNKNOWN provenance/recording/
-incomplete-history/IO/trust/containment/cleanup qualifications,including2unknown564
-files and566 observed extra,remain OPEN.Phase1/kernel/schema1/reference-v1/C/Phase2/
-production/native gates unchanged;evidence/livebindings null,hostunobserved/globalfalse.
+requires571 to repeat the same111 plan, runner, runtime and tests freshly in
+preparation and on the PC. Accept the complete final actual return BEFORE a
+separate whole reading and comparison of the inherited header, every condition,
+every exact nested original and all new effects, obligations, failures, cleanup
+and limits; only then consider a qualified STATIC pause and STOP.
+No fresh whole review or new pause is claimed here. Last confirmed qualified
+outer STATIC pause:563. Retain the entire original563 and every564+ original ZIP.
+All UNKNOWN provenance, recording, incomplete-history, IO, trust, containment and
+cleanup qualifications remain open, including the observed extras at564/566.
+Phase1/kernel/schema1/reference-v1/C/Phase2/production/native gates are unchanged;
+evidence/live bindings remain null, host unobserved, global closure false.
 
 ### Remaining Phase 1 work
 

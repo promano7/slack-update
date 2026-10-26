@@ -227,3 +227,30 @@ oracles/support identities plus565-569 current additions in introduction order,
 excludes frozen564.Final571 repeats unchanged integration freshly;complete final
 actual BEFORE separate whole inherited/new-effects/original review,qualified
 STATIC pause/STOP.All original end gates/UNKNOWN qualifications remain binding.
+
+## Step570 preparation after accepted actual569
+
+The complete supplied inline569 return was accepted first: HEAD/local origin
+`997e8cd13687edbc2d3d8cc2824de69e027b3755`, parent
+`b049d899b8a54af147453dc8a119dcf6d154061d`, tree
+`d26a73b4de58f96a2b9aab15e1df1d89b3b27917`. All five complete console/status
+pairs, the eight-path diff (396 insertions, 113 deletions), subject, policy,
+modes, clean local refs and reported push match. This is an explicit inline
+transcription, without original attachment or independent terminal/GitHub custody.
+Steps564-569 are accepted; actual570 and the new pause remain pending.
+
+The [separate570 integration](sbo-normalization-integration.md) retains all106
+entire rows/vectors/full oracles/driver-support identities and appends565-569.
+The original106 plan/runner remain byte unchanged; their runtime binding is
+historical. Frozen564 is excluded together with the ten previous frozen audits.
+The new111 plan binds the current runtime, its runner and previous plan/runner.
+Only position56 private-root comparison is normalized, retaining complete outputs
+and roots. Preparation and the PC runner retain full111 rows plus separate
+aggregate channels; neither substitutes a count, digest or selected-line summary.
+No runtime/existing-test/support/fixture/native-criterion change at570.
+
+Final571 must repeat the same111 plan/runner/runtime/tests freshly in preparation
+and on the PC. Complete final actual acceptance precedes the separate whole
+inherited-header/every-condition/every-exact-nested-original/new-effects review.
+The new pause remains pending; do not extend automatically to reserves572-575.
+All original end gates and UNKNOWN qualifications remain binding.

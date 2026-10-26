@@ -1,3 +1,24 @@
+## Phase 1 step 570 -- integrate current SBo normalization regressions
+
+- Accept the complete inline569 return first: HEAD/local origin
+  997e8cd13687edbc2d3d8cc2824de69e027b3755, parent
+  b049d899b8a54af147453dc8a119dcf6d154061d, tree
+  d26a73b4de58f96a2b9aab15e1df1d89b3b27917. Five complete exact console/status
+  pairs, eight paths (396 insertions/113 deletions), subject, modes, policy,
+  clean local refs and reported push match. Explicit inline custody only.
+- Add a separate111 plan/runner: retain every entire106 row/vector/full oracle/
+  driver-support identity, then append current565-569 in introduction order.
+  Preserve the original106 plan/runner bytes and historical runtime binding.
+  Exclude frozen564 alongside prior frozen audits; no current safety claim from it.
+- Bind current runtime, runner and previous plan/runner; verify driver/support
+  hashes before/after fresh execution. Keep full per-command results and separate
+  aggregate stdout/stderr; only inherited position56 private-root normalization.
+- Keep runtime and every existing test/support/fixture/native criterion exact569.
+  Complete-input staging and all inherited limitations remain explicit. Final571
+  repeats the same111 selection freshly, then complete actual acceptance precedes
+  separate whole inherited/new-effects review. Last qualified STATIC pause563;
+  actual570/new pause pending. No native acceptance or automatic reserve step.
+
 ## Phase 1 step 569 -- compose installed-normalizer refusal through ABI/dry-run counts
 
 - Accept complete inline568 FIRST:HEAD/local origin
