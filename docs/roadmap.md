@@ -21,6 +21,24 @@ acceptance does not describe the present state of a machine.
 
 ### Repository verification and next decisions
 
+The [external571 closure](reference/step571-external-closure.md) records accepted
+steps564-571 and their later same-assistant qualified STATIC pause. Direct GitHub
+checks on 2026-10-26 confirm `main` at
+`ee26d0628ae37f1fc55fa526ec04c9c0d6f3e6d6`, with the canonical source tree.
+The historical preparation below remains unchanged evidence of what was pending
+then; its flags do not override the later recorded external confirmation.
+
+The user approved [documentary preparation572-575](reference/repository-continuity-block-572-575.md)
+and [GitHub-first continuity](continuity.md), retaining complete original bytes
+in the baseline plus ordered supplements. This candidate is prepared only:
+application,publication and any new pause remain pending. Runtime/tests/native
+criteria are unchanged. The [closure backlog](reference/phase-1-closure-backlog.md)
+separates work, blockers and final validations; the [next-decision packet](reference/phase-1-next-decision.md)
+prepares an explicit A/R/D discussion without selecting an option or authorizing
+native effects. Accepted work is not reopened by a historical unchecked box.
+
+#### Historical571 preparation
+
 The complete supplied actual570 attachment was accepted first: HEAD/local origin
 `35f250c94c30ff7ad0d9795990d1cb7f58f9ebca`, parent
 `997e8cd13687edbc2d3d8cc2824de69e027b3755`, tree

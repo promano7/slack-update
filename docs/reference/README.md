@@ -31,6 +31,16 @@ choose a path, approve a migration or grant a native test.
 
 ## Current repository regression coverage
 
+The [571 external closure](step571-external-closure.md) records accepted564-571,
+the separate qualified STATIC pause and later direct GitHub identity observation.
+The approved [572-575 documentary preparation](repository-continuity-block-572-575.md)
+adds [continuity](../continuity.md), a [closure backlog](phase-1-closure-backlog.md)
+and the [next-decision packet](phase-1-next-decision.md). It changes no runtime,
+test or native criterion and confirms no new pause. Historical preparation below
+is retained in its original scope; use the later closure for the571 current state.
+
+### Historical571 preparation and unchanged regression selection
+
 The complete supplied actual570 attachment was accepted first: HEAD/local origin
 `35f250c94c30ff7ad0d9795990d1cb7f58f9ebca`, parent
 `997e8cd13687edbc2d3d8cc2824de69e027b3755`, tree

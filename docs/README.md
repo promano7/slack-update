@@ -25,6 +25,19 @@ acceptance material. For the current phase and unfinished work, use the
 | Changes by step or version | [CHANGELOG](../CHANGELOG.md) |
 | Earlier README checkpoints and original design text | [Historical README through step 418](reference/readme-through-step418.md) |
 
+## Current continuity and Phase1 decision
+
+The [571 external closure](reference/step571-external-closure.md) records the
+accepted regression block and its separate qualified STATIC pause. The approved
+[572-575 documentary preparation](reference/repository-continuity-block-572-575.md)
+provides [GitHub-first continuity](continuity.md), the
+[closure backlog](reference/phase-1-closure-backlog.md) and
+[A/R/D next-decision packet](reference/phase-1-next-decision.md). Application,
+publication and any new pause are pending; native and Phase1 gates remain open
+obligations. Use those current routes before historical checkpoint instructions.
+
+## Historical555 preparation
+
 Complete actual554 is accepted FIRST from the exact supplied attachment:
 HEAD/local origin `950d096b84500feebdd512e42fed38fbeb46fcf8`, parent
 `120397afb4fe55a59ba48e7afaf591692da287fc`, tree

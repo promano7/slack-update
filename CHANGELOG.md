@@ -1,3 +1,32 @@
+## Phase 1 steps 572-575 -- prepare GitHub-first continuity and closure decisions
+
+- User approved the new four-item documentary block and packaging transition
+  on 2026-10-26. This is not reuse of old reserves, an A/R/D selection, assistant
+  commit/push authority, a native grant or a new confirmed pause.
+- Record the external571 accepted111 return and subsequent same-assistant
+  qualified STATIC pause separately from immutable historical prepared flags.
+  Direct GitHub checks confirm main at ee26d0628ae37f1fc55fa526ec04c9c0d6f3e6d6,
+  tree38f6c465f6d67862e210848bb41a3a7656776377; finite complete571 verification
+  passed. Missing PC separate captures, initial SSH failure/retry and all original
+  qualifications remain distinct from current remote commit observation.
+- Adopt GitHub as primary source/history with the unchanged complete571 baseline
+  plus ordered supplements retaining full new non-Git evidence. Replace repeated
+  full-history recopying only; preserve all original bytes and obligations.
+- Add the20-scenario acceptance/operational/final-release backlog and exact A/R/D
+  next-decision packet. Preserve16 native gaps,13 findings,all original member/
+  proof/case/raw/relationship criteria and four inactive repairs. Schema v1,
+  reference-v1,C,Phase2 and production gates remain pending or closed.
+- Preserve a newly observed11,796,480-byte out-of-inventory source-area file
+  separately, SHA2568dc591c7794e5ce33b844338a9dac371570be709eff648d9fa3be7e4a7689b29.
+  Origin/cause UNKNOWN; candidate base rebuilt as a named archive projection,
+  matching the GitHub tree. No provenance/history/host-cleanup repair is claimed.
+- Prepare one Markdown-only candidate for items572-575. Runtime,all tests,
+  supports,fixtures,plans/runners and this file's complete earlier suffix remain
+  unchanged. Verify exact scope/modes/preimages/local links without rerunning111
+  or any native workflow. Actual application/commit/publication remains pending;
+  later complete actual acceptance must precede separate WHOLE inherited/nested
+  original/new-effects review and any qualified STATIC pause,then STOP/no576.
+
 ## Phase 1 step 571 -- reconcile the final SBo normalization regression block
 
 - Accept the complete actual570 attachment first: HEAD/local origin

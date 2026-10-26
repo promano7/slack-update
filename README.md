@@ -30,15 +30,17 @@ design also has unresolved contract and native implementation requirements.
 All 13 manuscript audit findings remain open; alternatives A/R/D are unselected
 and the original requirements remain binding.
 
-The last confirmed qualified outer STATIC repository pause is imported563.
-Steps564-570 are accepted through `35f250c94c30ff7ad0d9795990d1cb7f58f9ebca`.
-The [571 final reconciliation](docs/reference/sbo-normalization-final-review.md)
-changes documentation and repeats the unchanged111 integration freshly in
-preparation and on the PC. Runtime, tests, supports and both integration plans/
-runners remain exact570. Actual571 and the separate whole inherited review must
-precede any new qualified STATIC pause under the
-[bounded564-571 end gate](docs/reference/repository-regression-block-564-571.md).
-Repository checks provide no independent semantic/native acceptance.
+The [external571 closure](docs/reference/step571-external-closure.md) records
+accepted564-571 and the later qualified STATIC repository pause at
+`ee26d0628ae37f1fc55fa526ec04c9c0d6f3e6d6`. GitHub `main` was directly checked
+against that identity on 2026-10-26. This imports the recorded same-assistant
+pause; repository checks provide no independent semantic/native acceptance.
+
+The approved [572-575 documentary block](docs/reference/repository-continuity-block-572-575.md)
+is prepared, with application/publication and any new pause still pending.
+Use the [continuity protocol](docs/continuity.md),
+[closure backlog](docs/reference/phase-1-closure-backlog.md) and
+[next-decision packet](docs/reference/phase-1-next-decision.md) for current work.
 
 Unknown source-extra provenance, recording limits and incomplete binary history
 remain open qualifications. Test success does not close them, establish the
@@ -113,7 +115,8 @@ carry raw command statuses; the final process/result status uses this table.
 ## Documentation and contributing
 
 - [Development roadmap and phase gates](docs/roadmap.md)
-- [Current bounded regression block and limits](docs/reference/repository-regression-block-564-571.md)
+- [Current documentary block and limits](docs/reference/repository-continuity-block-572-575.md)
+- [Accepted564-571 regression scope](docs/reference/repository-regression-block-564-571.md)
 - [Reference acceptance guide](tests/acceptance/reference/README.md)
 - [Configuration example](data/config/slack-update.conf)
 - [Contribution and documentation policy](CONTRIBUTING.md)
