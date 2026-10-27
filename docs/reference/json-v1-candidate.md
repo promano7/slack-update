@@ -23,6 +23,11 @@ emitter migration remain pending. No schema/reference freeze is claimed.
 
 ## Prepared steps576-585
 
+The later [596-605 consumer review](json-v1-consumer-review.md) inventories bounded
+source references, validates prospective copies of actual supplied serializers
+and characterizes current acceptance-consumer refusal. It preserves the candidate
+schemas and runtime metadata; semantic acceptance and migration remain pending.
+
 | Step | Completed preparation |
 | --- | --- |
 | 576 | Pin main commit/tree and review contributing and continuity scope |

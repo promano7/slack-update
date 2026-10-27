@@ -1,3 +1,30 @@
+## Phase 1 steps 596-605 -- inventory JSON consumers and check serializer compatibility
+
+- Prepare ten repository steps from accepted main adad1829e07dd25aca499126254f28a455c0d91c
+  and the exact supplied586-595 closure; runtime remains schema0/provisional.
+- Record33 bounded metadata source references, selected dependency hashes and
+  dispositions separating output, configuration and offline evidence namespaces.
+- Compare all48 real supplied result serializations with complete unchanged
+  original expectations; validate metadata-only prospective copies and preserve
+  exact actual v0 identities and payload/null/code/array semantics.
+- Check nine real supplied helper lifecycles/66 events, distinguishing eight
+  complete projected streams from the explicit offset fragment and rejecting
+  current v0, mixed metadata and incomplete prospective streams.
+- Characterize two existing acceptance validators using only their extracted
+  Python readers: three supplied v0 positives and three prospective v1 refusals.
+  No acceptance shell workflow, native action or consumer migration is run.
+- Add source-inventory controls, migration dependencies and focused regression
+  evidence; package exact preimages, full candidate source snapshot, retained
+  closure and PC application/commit instructions. All old source/tests/fixtures
+  and both candidate schemas remain byte unchanged.
+- Preparation only: PC execution/publication acceptance and any new separate
+  whole-condition/original/new-effects qualified STATIC pause remain pending.
+  Last accepted pause575; complete571/original572-575 not reread; STOP, no automatic606.
+- Schema1 acceptance/emitter migration/reference-v1 freeze remain open. A/R/D
+  unselected; P0D unresolved; full original findings/gaps/native obligations and
+  historical failures/unknowns persist. Phase1/kernel incomplete;
+  C/Phase2/production closed. No assistant project commit/push or renewed grant.
+
 ## Phase 1 steps 586-595 -- resolve candidate JSON v1 policy
 
 - Prepare the user-requested ten-step block from main
