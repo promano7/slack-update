@@ -1,3 +1,33 @@
+## Phase 1 steps 606-613 -- prepare the exact JSON v1 semantic decision dossier
+
+- Prepare the user-authorized eight-point documentary block from published main
+  e5a030a69682649a374c73efde9b07cfbd5a1090, tree
+  3f2e87f9d0ea6d2686b1e48681535fbb3b8982c7; compare2542 recovered source blobs
+  and executable modes with GitHub. Import accepted605 setup4/4/repository14/14,
+  qualified STATIC605 and final recovery/download closure without rerunning them.
+- Bind15 exact schema/policy/consumer inputs and prepare12 explicit pending
+  semantic questions. Preserve mathematical integer versus bool, field/null/code/
+  array semantics, opaque timestamps, strict decoding, complete/fragment framing
+  and early-output absence. Generated object surfaces are navigation, not oracles.
+- Record current native-consumer version refusal, weak decoding/status predicates
+  and the separate original native install20/upgrade20 requirements. No existing
+  predicate, native criterion, source, fixture or accepted capture is rewritten.
+- Prepare eight prospective migration units and six separate readiness gates.
+  External consumers remain unknown, with a bounded questionnaire and no absence
+  claim. No exact semantic decision, independent acceptance, switch or freeze.
+- Change only this changelog, reference navigation and three new documentary/data
+  files. Both schemas, runtime, all old tests/supports/fixtures and inventories
+  remain byte/mode unchanged; preserve this file's entire previous suffix.
+- Structural preparation/transport verification is separate from PC application/
+  publication acceptance and any new whole-condition/original/new-effects pause
+  review. Last confirmed qualified STATIC pause605; candidate pause unconfirmed.
+- Retain exact supplied recovery/closure identities and all older provenance,
+  custody, incomplete491, recording/IO/trust/containment/cleanup qualifications.
+  A/R/D unselected; P0D unresolved;13 findings/16 gaps open; four repairs inactive.
+  Runtime0/provisional; schema1/reference-v1 unaccepted/unfrozen; Phase1/kernel
+  incomplete; C/Phase2/production closed. No native or assistant project commit/
+  push authority. STOP after this block; next stage null, no automatic614.
+
 ## Phase 1 steps 596-605 -- inventory JSON consumers and check serializer compatibility
 
 - Prepare ten repository steps from accepted main adad1829e07dd25aca499126254f28a455c0d91c

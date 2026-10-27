@@ -14,6 +14,7 @@ use the [acceptance and evidence guide](acceptance-evidence-guide.md).
 | Review question | Starting record |
 | --- | --- |
 | What does the proposed JSON v1 interface cover? | [Candidate schemas](json-v1-candidate.md) and [586-595 policy resolutions/validator](json-v1-policy-review.md); current output remains provisional v0 |
+| What exact JSON v1 decision remains before migration? | [606-613 semantic decision dossier](json-v1-decision-review.md), [bound questions](../../data/schemas/candidates/decision-review.json) and [prospective migration plan](../../data/schemas/candidates/migration-plan.json); no schema acceptance or producer switch |
 | Which consumers block a later v1 switch? | [596-605 consumer inventory and serializer compatibility](json-v1-consumer-review.md); current acceptance consumers refuse v1 |
 | Which historical acceptance scenarios remain? | [Acceptance-matrix remainder inventory](phase-1-acceptance-matrix-remainder-inventory.md) and the [post-execution-control inventory](../../tests/fixtures/reference/acceptance/phase-1/phase-1-acceptance-matrix-remainder-after-execution-control-closure.tsv) |
 | What happened in configuration and module-mode validation? | [Configuration/module-mode closure checkpoint](configuration-module-mode-workstream-closure-checkpoint.md) |
