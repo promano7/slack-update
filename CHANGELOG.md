@@ -1,3 +1,25 @@
+## Phase 1 steps 586-595 -- resolve candidate JSON v1 policy
+
+- Prepare the user-requested ten-step block from main
+  59c5e00ae24ad27ad0faab64760fefb989d00a8c and verified received585 closure.
+- Specify explicit family/version dispatch, exact-field compatibility, opaque
+  timestamp strings, open diagnostic labels and early-output absence semantics.
+- Tighten prospective final event code/state coherence; distinguish complete
+  streams starting at1 from explicitly offset supplied helper fragments.
+- Add an offline candidate validator and policy controls, including actual
+  supplied v0 check serialization and explicitly labeled in-memory projections.
+- Adapt only nine candidate final-event positive records to coherent states;
+  retain all previous negative controls and every v0 test/runtime byte.
+- Select nine focused repository checks and package exact preimages, changes,
+  complete output/status records and PC application/commit instructions.
+- Preparation only: PC application/execution acceptance/publication and any later
+  whole-condition/original/new-effects qualified STATIC pause remain pending.
+  Last accepted qualified STATIC pause575; STOP, no automatic596.
+- Schema1 semantic acceptance/emitter migration/reference-v1 freeze remain open.
+  A/R/D unselected; P0D protected implementation unresolved; all13 findings,16
+  native gaps and full original obligations remain binding. Phase1/kernel
+  incomplete; C/Phase2/production closed. No native action or grant revival.
+
 ## Phase 1 steps 576-585 -- prepare candidate JSON v1 schemas
 
 - Prepare the user-requested ten-step block on 2026-10-27 from main

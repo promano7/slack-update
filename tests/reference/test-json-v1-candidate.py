@@ -218,7 +218,10 @@ def main():
         positive += 1
     for code in range(9):
         # Shape coverage only; this is not a claim that startup emits a lifecycle.
-        EVENT_VALIDATOR.validate(changed(records[-1], ['exit_code'], code))
+        value = changed(records[-1], ['exit_code'], code)
+        value['state'] = {0: 'success', 1: 'failed', 2: 'warning', 3: 'failed',
+                          4: 'success', 5: 'success', 6: 'failed', 7: 'failed', 8: 'failed'}[code]
+        EVENT_VALIDATOR.validate(value)
         positive += 1
     event_cases = [changed(records[0], ['sequence'], True),
                    changed(records[0], ['sequence'], 0),

@@ -11,6 +11,16 @@ allows schema design before completion of unrelated native work. This block
 selects no A/R/D option, amends no native contract and freezes neither schema1 nor
 `reference-v1`. C, Phase2 and production remain blocked.
 
+## Later candidate policy review
+
+The [586-595 policy review](json-v1-policy-review.md) resolves the previously open
+timestamp, label, early-output and compatibility questions as proposed rules. It
+tightens final event code/state coherence and separates complete streams (initial
+sequence1) from explicitly offset supplied fragments. Use that review and the new
+offline validator for the revised candidate; the original preparation narrative
+below records the earlier proposal. Runtime remains v0; semantic acceptance and
+emitter migration remain pending. No schema/reference freeze is claimed.
+
 ## Prepared steps576-585
 
 | Step | Completed preparation |
