@@ -13,6 +13,7 @@ use the [acceptance and evidence guide](acceptance-evidence-guide.md).
 
 | Review question | Starting record |
 | --- | --- |
+| What does the proposed JSON v1 interface cover? | [Candidate result/event schemas and compatibility](json-v1-candidate.md); current output remains provisional v0 |
 | Which historical acceptance scenarios remain? | [Acceptance-matrix remainder inventory](phase-1-acceptance-matrix-remainder-inventory.md) and the [post-execution-control inventory](../../tests/fixtures/reference/acceptance/phase-1/phase-1-acceptance-matrix-remainder-after-execution-control-closure.tsv) |
 | What happened in configuration and module-mode validation? | [Configuration/module-mode closure checkpoint](configuration-module-mode-workstream-closure-checkpoint.md) |
 | Where were the execution-control failure scenarios reviewed? | [Execution-control runtime validation and pause review](phase-1-execution-control-failure-paths-runtime-validation-review-and-strong-safe-pause.md) |

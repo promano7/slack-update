@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "schema_status": "stable",
+  "operation": "check",
+  "success": true,
+  "partial": false,
+  "reboot": "none",
+  "boot_safe": true,
+  "exit_code": 0,
+  "exit_code_meaning": "success; no reboot required",
+  "exit_code_stable": true,
+  "started_at": "2000-01-01T00:00:00Z",
+  "finished_at": "2000-01-01T00:00:01Z",
+  "log_path": "/supplied/log \"quoted\"\\name",
+  "config_path": "/supplied/España/config",
+  "modules": {
+    "slackware": {
+      "state": "success",
+      "check_exit_code": 100,
+      "updates_available": true
+    }
+  },
+  "warnings": [],
+  "errors": []
+}

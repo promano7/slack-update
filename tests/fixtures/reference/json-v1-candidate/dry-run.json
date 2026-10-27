@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "schema_status": "stable",
+  "operation": "dry-run",
+  "success": true,
+  "partial": false,
+  "reboot": "none",
+  "boot_safe": true,
+  "exit_code": 0,
+  "exit_code_meaning": "success; no reboot required",
+  "exit_code_stable": true,
+  "started_at": "2000-01-01T00:00:00Z",
+  "finished_at": "2000-01-01T00:00:01Z",
+  "log_path": "/supplied/log \"quoted\"\\name",
+  "config_path": "/supplied/España/config",
+  "modules": {
+    "slackware": {
+      "state": "success",
+      "check_exit_code": 0,
+      "updates_available": false,
+      "planned_commands": [
+        "slackpkg -batch=on -default_answer=y update",
+        "slackpkg -batch=on -default_answer=y -postinst=off install-new",
+        "slackpkg -batch=on -default_answer=y -postinst=off upgrade-all"
+      ]
+    },
+    "flatpak": {
+      "mode": "disabled",
+      "activation_state": "disabled",
+      "reason": "supplied disabled",
+      "available": false,
+      "would_update": false
+    },
+    "sbo": {
+      "mode": "disabled",
+      "activation_state": "disabled",
+      "reason": "supplied disabled",
+      "sbopkg_available": false,
+      "sqg_available": false,
+      "queue_directory": "/supplied/queues",
+      "personal_queue_directory": "/supplied/queues",
+      "queue_workspace_isolated": true,
+      "options_file": "/supplied/options.conf",
+      "build_option_record_count": 0,
+      "build_options": [],
+      "target_selection_exit_code": null,
+      "target_selection_error": "",
+      "current_queue_targets": [],
+      "abi_rebuild_candidates": [],
+      "broken_elf_targets": []
+    },
+    "elf": {
+      "mode": "disabled",
+      "activation_state": "disabled",
+      "reason": "supplied disabled",
+      "inspection_method": "readelf+ldconfig-cache",
+      "executes_inspected_objects": false,
+      "architecture_specific_resolution": true,
+      "architecture_match_fields": [
+        "class",
+        "data",
+        "machine"
+      ],
+      "library_cache_records": 0,
+      "readelf_available": false,
+      "ldconfig_available": false,
+      "scan_exit_code": null,
+      "broken_objects": []
+    },
+    "cinnamon": {
+      "mode": "disabled",
+      "activation_state": "disabled",
+      "reason": "supplied disabled",
+      "installation_detected": false,
+      "repository_available": false,
+      "builder_available": false
+    },
+    "boot": {
+      "mode": "disabled",
+      "activation_state": "disabled",
+      "reason": "supplied disabled",
+      "mkinitrd_available": false,
+      "mkinitrd_configured": false,
+      "kernel_version_source": "post-update-package-snapshot",
+      "kernel_package": "kernel-generic",
+      "modules_directory": "/supplied/lib/modules",
+      "kernel_validation_deferred_until_apply": true,
+      "grub_generator_available": false,
+      "grub_validator_available": false,
+      "grub_configured": false,
+      "grub_active_config": "/supplied/grub.cfg",
+      "grub_temporary_generation": true,
+      "grub_validator": "grub-script-check",
+      "grub_atomic_replacement": true
+    }
+  },
+  "warnings": [
+    "Exact Slackware package changes remain unresolved until package metadata is refreshed during apply"
+  ],
+  "errors": []
+}

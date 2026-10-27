@@ -1,4 +1,29 @@
-## Phase 1 steps 572-575 -- prepare GitHub-first continuity and closure decisions
+## Phase 1 steps 576-585 -- prepare candidate JSON v1 schemas
++
++- Prepare the user-requested ten-step block on 2026-10-27 from main
++  3c70e9aec656a18d31008ee1d48a9f11c16f0ce7. Schema design is a separate
++  outstanding Phase1 gate; no A/R/D option or native component is selected.
++- Inventory selected current result/event fields, preserve distinct check,
++  dry-run and apply module shapes, and specify required types, null/status,
++  stable-code and ordered-array semantics in two Draft2020-12 candidates.
++- Document prospective compatibility and migration questions, early exits without
++  JSON, and record shape versus completed-stream framing. Runtime still emits
++  provisional schema0; candidate examples are authored future data, not v1 runs.
++- Add three result fixtures, one supplied event stream and a focused validator
++  using the test-only jsonschema4.x dependency. Check75 positive cases and69
++  negative controls, including48 unchanged authored expectation projections.
++- Select shell syntax plus the unchanged check/dry-run/apply/event regressions;
++  preserve source, all prior tests/fixtures and this complete earlier changelog
++  suffix. Native raw20, boot-safety and evidence contracts remain distinct.
++- Prepare the exact-base overlay, preimages, focused output/status records and
++  application/commit instructions. PC application, complete actual acceptance,
++  publication and any later separate whole-condition qualified STATIC pause
++  remain pending. Last accepted qualified STATIC pause575; no automatic586.
++- Schema1/reference-v1 remain unaccepted/unfrozen; Phase1/kernel incomplete.
++  All13 findings,16 gaps and full original obligations remain open/binding;
++  C/Phase2/production closed. No native grant or consumed right is revived.
++
++## Phase 1 steps 572-575 -- prepare GitHub-first continuity and closure decisions
 
 - User approved the new four-item documentary block and packaging transition
   on 2026-10-26. This is not reuse of old reserves, an A/R/D selection, assistant
