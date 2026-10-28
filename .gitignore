@@ -35,6 +35,9 @@ Testing/
 
 # Sanitizer and crash output
 *.log
+# Preserve exact parser inputs consumed by the normal-update harness.
+!/tests/fixtures/reference/acceptance/normal-update/install-new-probe.log
+!/tests/fixtures/reference/acceptance/normal-update/upgrade-all-probe.log
 core
 core.*
 

@@ -1,3 +1,30 @@
+## Phase 1 steps 614-619 -- prepare reproducible normal-update parser inputs
+
+- Start the authorized 614-621 block from accepted published613 commit
+  b0881aca3bdf3cbb3e9685011e38293450bff96f and qualified STATIC613.
+- Track the exact supplied227-byte install-new and409-byte upgrade-all parser
+  inputs at their existing normal-update fixture paths with regular0644 modes.
+  Add only two path-specific ignore exceptions; preserve all other log ignores.
+- Preserve both input contents, original source/oracles/harness/native criteria
+  and all runtime/schema bytes. These are local parser fixtures, not native
+  command captures; creation/custody history remains independently unestablished.
+- Limit the candidate to this changelog, the ignore policy and two new tracked
+  inputs. Preserve the complete previous changelog suffix and all old Git modes.
+- Verify exact source identities, input preservation, ignore scope and a fresh
+  disposable candidate export using focused structural/delivery checks only.
+  Accepted605 setup4/4 and repository14/14 remain unchanged without repetition.
+- Preserve the initial isolated-worktree inventory refusal and exact extra
+  bytes separately, with unknown cause. Prepare canonical source from the
+  byte-bound Git archive projection; do not delete or normalize the rejected copy.
+- Preparation only: complete PC application/publication acceptance620 and the
+  later separate whole-condition/original/new-effects review621 remain pending.
+  Last confirmed qualified STATIC pause613; no new pause is claimed here.
+- Runtime0/provisional; J01-J12/external inventory pending; A/R/D unselected,
+  P0D unresolved;13 findings/16 native gaps open; four repairs inactive.
+  Phase1/kernel incomplete; schema1/reference-v1 unaccepted/unfrozen;
+  C/Phase2/production closed. No native operation or project commit/push by
+  the assistant. STOP after bounded preparation; no automatic extension.
+
 ## Phase 1 steps 606-613 -- prepare the exact JSON v1 semantic decision dossier
 
 - Prepare the user-authorized eight-point documentary block from published main

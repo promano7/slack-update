@@ -1,0 +1,11 @@
+Looking for packages to upgrade. Please wait... DONE
+
+[ Repository ] [ Package ]
+  slackware64    cmake-4.4.1-x86_64-1.txz
+  slackware64    kernel-generic-6.18.40-x86_64-1.txz
+  slackware64    kernel-headers-6.18.40-x86-1.txz
+  slackware64    openssl-3.5.6-x86_64-2.txz
+  slackware64    pipewire-1.6.8-x86_64-3.txz
+
+Do you wish to upgrade selected packages (Y/n)? n
+No packages selected for upgrade, exiting.
