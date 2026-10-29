@@ -1,12 +1,12 @@
 {
   "kind": "json-v1-prospective-migration-plan-not-authorization",
   "schema": 1,
-  "base_commit": "e5a030a69682649a374c73efde9b07cfbd5a1090",
-  "status": "design-only-no-implementation",
+  "base_commit": "ffd74525b9414fd9973e511b74983f7e48575494",
+  "status": "numeric-reader-candidate-revised-no-producer-migration",
   "exact_inventory": {
     "path": "data/schemas/candidates/consumer-inventory.json",
-    "bytes": 14921,
-    "sha256": "00c7b8e0fbaf23bc7e57789d11fe6ebec6821164fd51f5118ab918e4560012f1"
+    "bytes": 15379,
+    "sha256": "a6cc3a6801fb3d993a4c7deca0d8e71d8fc3051860206dfd0ee7f4abb874ea4f"
   },
   "semantic_decision": null,
   "external_consumer_disposition": null,
@@ -180,8 +180,8 @@
       "sources": [
         {
           "path": "tools/reference/json_v1_candidate.py",
-          "bytes": 4571,
-          "sha256": "82d8dff33a58536f42ff15ca859a1205a1193b9005bd7d796a16808b77a7df37"
+          "bytes": 6540,
+          "sha256": "326104f6e364a492ba2f41455a3fdd69aead7a1fdf22179e30f02ac1be2cac88"
         },
         {
           "path": "tests/reference/test-json-v1-candidate.py",
@@ -210,6 +210,28 @@
         "Historical serializers remain labeled v0",
         "Prospective and actual emitted v1 evidence are distinct",
         "Full reference discovery and every intended source change reviewed"
+      ]
+    },
+    {
+      "id": "exact-numeric-reader-candidate",
+      "sources": [
+        {
+          "path": "tools/reference/json_v1_candidate.py",
+          "bytes": 6540,
+          "sha256": "326104f6e364a492ba2f41455a3fdd69aead7a1fdf22179e30f02ac1be2cac88"
+        },
+        {
+          "path": "tests/reference/test-json-v1-numeric-exactness.py",
+          "bytes": 8131,
+          "sha256": "eb0550852fa87da8a660cb6e5b87978ef07ef0776833a98045db6b1f3e078a8e"
+        }
+      ],
+      "current_status": "offline-candidate-revised-pending-independent-semantic-review",
+      "proposed_work": "Review exact decoding, integer type checking and context-independent sequence offsets before any producer migration.",
+      "required_evidence": [
+        "All focused local results and exact PC source/test/publication review",
+        "Fresh exact J01/J05/J08/J09 semantic review; no inherited acceptance",
+        "External compatibility and all later original gates remain pending"
       ]
     }
   ],
@@ -323,5 +345,6 @@
   "failure_boundary": "Before an authorized future switch, unresolved input drift or missing evidence stops entry. Any later partial switch/failure must retain exact attempted changes and outputs for review; no automatic retry, revert or native action is supplied.",
   "historical_evidence": "Do not edit original expectations, native captures, frozen plans or failed attempts to match a later producer.",
   "current_effects": "Documentation and decision data only. No producer, consumer, test, schema, configuration or native behavior changes.",
-  "next_automatic_step": null
+  "next_automatic_step": null,
+  "historical_pre630_path": "data/schemas/candidates/history/pre630/data/schemas/candidates/migration-plan.json"
 }

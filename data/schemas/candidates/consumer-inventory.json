@@ -1,7 +1,7 @@
 {
   "kind": "bounded-source-metadata-reference-inventory-not-whole-consumer-proof",
-  "base_commit": "adad1829e07dd25aca499126254f28a455c0d91c",
-  "base_tree": "f063e8ba90eed4bf24f9ff096f9806a29fa9921d",
+  "base_commit": "ffd74525b9414fd9973e511b74983f7e48575494",
+  "base_tree": "1f0cdfef3ecac8757a3349e5a8886c7622c74ad2",
   "discovery_scope": "All regular .py/.sh files below tools/ and tests/ containing literal schema_version or schema_status; includes prepared new tests. No dynamic/import/alias or external consumer completeness claim.",
   "runtime_schema_version": 0,
   "schema1_accepted": false,
@@ -80,6 +80,12 @@
       "migration_disposition": "Keep candidate-data/projection provenance explicit; no captured v1 operation is established."
     },
     {
+      "path": "tests/reference/test-json-v1-numeric-exactness.py",
+      "sha256": "eb0550852fa87da8a660cb6e5b87978ef07ef0776833a98045db6b1f3e078a8e",
+      "role": "prospective-candidate-test",
+      "migration_disposition": "Exact-number and stream-offset regressions; authored offline data, no actual emitted v1 or native workflow."
+    },
+    {
       "path": "tests/reference/test-json-v1-policy.py",
       "sha256": "1753059c313aada98464817377761bb91af44705271c291691403fdfde60798e",
       "role": "prospective-candidate-test",
@@ -153,7 +159,7 @@
     },
     {
       "path": "tools/reference/json_v1_candidate.py",
-      "sha256": "82d8dff33a58536f42ff15ca859a1205a1193b9005bd7d796a16808b77a7df37",
+      "sha256": "326104f6e364a492ba2f41455a3fdd69aead7a1fdf22179e30f02ac1be2cac88",
       "role": "offline-v1-candidate-consumer",
       "migration_disposition": "Explicit family/version dispatch; refuses emitted v0; not an automatic adapter."
     },
@@ -239,5 +245,6 @@
       "path": "data/schemas/candidates/event-v1.schema.json",
       "sha256": "9bf55c913cad010f16bb5e8101e2578783effdd12d53f3421d74cc59bda53253"
     }
-  ]
+  ],
+  "revision": "Exact numeric decoder preparation630-637; original inventory retained under history/pre630/"
 }

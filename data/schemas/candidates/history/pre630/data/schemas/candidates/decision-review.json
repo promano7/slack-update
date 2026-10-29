@@ -1,0 +1,925 @@
+{
+  "kind": "json-v1-semantic-decision-dossier-not-acceptance",
+  "schema": 1,
+  "base_commit": "e5a030a69682649a374c73efde9b07cfbd5a1090",
+  "base_tree": "3f2e87f9d0ea6d2686b1e48681535fbb3b8982c7",
+  "prepared_steps": [
+    606,
+    607,
+    608,
+    609,
+    610,
+    611,
+    612,
+    613
+  ],
+  "status": "prepared-for-review",
+  "decision": null,
+  "reviewer": null,
+  "independent_review_evidence": null,
+  "runtime": {
+    "schema_version": 0,
+    "schema_status": "provisional",
+    "producer_migrated": false
+  },
+  "schema1_accepted": false,
+  "schema1_frozen": false,
+  "reference_v1_frozen": false,
+  "exact_inputs": [
+    {
+      "path": "data/schemas/candidates/result-v1.schema.json",
+      "bytes": 36339,
+      "sha256": "bf38ffa59117546f8d3d136043e4df7b7c42d216d94189db8513d91d23d8e14c"
+    },
+    {
+      "path": "data/schemas/candidates/event-v1.schema.json",
+      "bytes": 3527,
+      "sha256": "9bf55c913cad010f16bb5e8101e2578783effdd12d53f3421d74cc59bda53253"
+    },
+    {
+      "path": "docs/reference/json-v1-candidate.md",
+      "bytes": 13578,
+      "sha256": "2039bb4234cff24260f4f556e2a96a2e440d6c150ddba956ebbdc2218a61236a"
+    },
+    {
+      "path": "docs/reference/json-v1-policy-review.md",
+      "bytes": 10741,
+      "sha256": "ddd9d1359254ca43f75b9ee7f6d4a46e0d74a09cae6fddd399b91dfbce9e5c19"
+    },
+    {
+      "path": "docs/reference/json-v1-consumer-review.md",
+      "bytes": 11744,
+      "sha256": "2e2beeac4e44aeaf3a31623111a5b2cebdbaf387301dd89cb10ef35a7dca87e9"
+    },
+    {
+      "path": "tools/reference/json_v1_candidate.py",
+      "bytes": 4571,
+      "sha256": "82d8dff33a58536f42ff15ca859a1205a1193b9005bd7d796a16808b77a7df37"
+    },
+    {
+      "path": "data/schemas/candidates/source-field-inventory.json",
+      "bytes": 7791,
+      "sha256": "e476f36f828ed82779eb4f4bdd003df635cfb5fe3375750630abb9d25b277442"
+    },
+    {
+      "path": "data/schemas/candidates/consumer-inventory.json",
+      "bytes": 14921,
+      "sha256": "00c7b8e0fbaf23bc7e57789d11fe6ebec6821164fd51f5118ab918e4560012f1"
+    },
+    {
+      "path": "tests/reference/json_result_test_support.py",
+      "bytes": 1390,
+      "sha256": "b3989a2c00632c2d9b6568a60b84c9ccf865772658ba1dc103d1ea80d505cd62"
+    },
+    {
+      "path": "tests/acceptance/reference/test-no-updates.sh",
+      "bytes": 23422,
+      "sha256": "f95d99c6a605b1a3fcd213d5db4c260e0f3566fea931b3964ff5bd2a62a99e0b"
+    },
+    {
+      "path": "tests/acceptance/reference/test-normal-update.sh",
+      "bytes": 39892,
+      "sha256": "b17c435fa81c4992befb92175f66670db2353ff0838466ac6a2e18824d618aa6"
+    },
+    {
+      "path": "tests/reference/test-json-v1-candidate.py",
+      "bytes": 10644,
+      "sha256": "9f7c6c5cdee65247c280cf73d0dd296ac6eb103422c6bd2e255a729896f3e86d"
+    },
+    {
+      "path": "tests/reference/test-json-v1-policy.py",
+      "bytes": 8000,
+      "sha256": "1753059c313aada98464817377761bb91af44705271c291691403fdfde60798e"
+    },
+    {
+      "path": "tests/reference/test-json-v1-consumer-inventory.py",
+      "bytes": 6050,
+      "sha256": "cd224bceaac8dd5089f9a70a3fe74b43442d070f1de3340b060b581c129ac3a5"
+    },
+    {
+      "path": "tests/reference/test-json-v1-serializer-compatibility.py",
+      "bytes": 4443,
+      "sha256": "3e23d48aa298376b6a6d2e688b4d26b0a47244d58e38940c793b4034ba7a2fee"
+    }
+  ],
+  "input_precedence": "Exact schemas plus the later586-595 policy/validator define the proposal; earlier narrative and weaker framing readers remain historical, not overrides.",
+  "object_surfaces": {
+    "result": [
+      {
+        "pointer": "/",
+        "required": [
+          "schema_version",
+          "schema_status",
+          "operation",
+          "success",
+          "partial",
+          "reboot",
+          "boot_safe",
+          "exit_code",
+          "exit_code_meaning",
+          "exit_code_stable",
+          "started_at",
+          "finished_at",
+          "log_path",
+          "config_path",
+          "modules",
+          "warnings",
+          "errors"
+        ],
+        "properties": [
+          "schema_version",
+          "schema_status",
+          "operation",
+          "success",
+          "partial",
+          "reboot",
+          "boot_safe",
+          "exit_code",
+          "exit_code_meaning",
+          "exit_code_stable",
+          "started_at",
+          "finished_at",
+          "log_path",
+          "config_path",
+          "modules",
+          "warnings",
+          "errors"
+        ],
+        "additionalProperties": false
+      },
+      {
+        "pointer": "/properties/modules",
+        "required": [],
+        "properties": [],
+        "additionalProperties": "not-specified-locally"
+      },
+      {
+        "pointer": "/$defs/buildOptions/items",
+        "required": [
+          "target",
+          "options"
+        ],
+        "properties": [
+          "target",
+          "options"
+        ],
+        "additionalProperties": false
+      },
+      {
+        "pointer": "/$defs/checkModules",
+        "required": [
+          "slackware"
+        ],
+        "properties": [
+          "slackware"
+        ],
+        "additionalProperties": false
+      },
+      {
+        "pointer": "/$defs/checkModules/properties/slackware",
+        "required": [
+          "state",
+          "check_exit_code",
+          "updates_available"
+        ],
+        "properties": [
+          "state",
+          "check_exit_code",
+          "updates_available"
+        ],
+        "additionalProperties": false
+      },
+      {
+        "pointer": "/$defs/dryRunModules",
+        "required": [
+          "slackware",
+          "flatpak",
+          "sbo",
+          "elf",
+          "cinnamon",
+          "boot"
+        ],
+        "properties": [
+          "slackware",
+          "flatpak",
+          "sbo",
+          "elf",
+          "cinnamon",
+          "boot"
+        ],
+        "additionalProperties": false
+      },
+      {
+        "pointer": "/$defs/dryRunModules/properties/slackware",
+        "required": [
+          "state",
+          "check_exit_code",
+          "updates_available",
+          "planned_commands"
+        ],
+        "properties": [
+          "state",
+          "check_exit_code",
+          "updates_available",
+          "planned_commands"
+        ],
+        "additionalProperties": false
+      },
+      {
+        "pointer": "/$defs/dryRunModules/properties/flatpak",
+        "required": [
+          "mode",
+          "activation_state",
+          "reason",
+          "available",
+          "would_update"
+        ],
+        "properties": [
+          "mode",
+          "activation_state",
+          "reason",
+          "available",
+          "would_update"
+        ],
+        "additionalProperties": false
+      },
+      {
+        "pointer": "/$defs/dryRunModules/properties/sbo",
+        "required": [
+          "mode",
+          "activation_state",
+          "reason",
+          "queue_directory",
+          "personal_queue_directory",
+          "options_file",
+          "target_selection_error",
+          "sbopkg_available",
+          "sqg_available",
+          "build_option_record_count",
+          "target_selection_exit_code",
+          "queue_workspace_isolated",
+          "build_options",
+          "current_queue_targets",
+          "abi_rebuild_candidates",
+          "broken_elf_targets"
+        ],
+        "properties": [
+          "mode",
+          "activation_state",
+          "reason",
+          "queue_directory",
+          "personal_queue_directory",
+          "options_file",
+          "target_selection_error",
+          "sbopkg_available",
+          "sqg_available",
+          "build_option_record_count",
+          "target_selection_exit_code",
+          "queue_workspace_isolated",
+          "build_options",
+          "current_queue_targets",
+          "abi_rebuild_candidates",
+          "broken_elf_targets"
+        ],
+        "additionalProperties": false
+      },
+      {
+        "pointer": "/$defs/dryRunModules/properties/elf",
+        "required": [
+          "mode",
+          "activation_state",
+          "reason",
+          "readelf_available",
+          "ldconfig_available",
+          "library_cache_records",
+          "scan_exit_code",
+          "inspection_method",
+          "executes_inspected_objects",
+          "architecture_specific_resolution",
+          "architecture_match_fields",
+          "broken_objects"
+        ],
+        "properties": [
+          "mode",
+          "activation_state",
+          "reason",
+          "readelf_available",
+          "ldconfig_available",
+          "library_cache_records",
+          "scan_exit_code",
+          "inspection_method",
+          "executes_inspected_objects",
+          "architecture_specific_resolution",
+          "architecture_match_fields",
+          "broken_objects"
+        ],
+        "additionalProperties": false
+      },
+      {
+        "pointer": "/$defs/dryRunModules/properties/cinnamon",
+        "required": [
+          "mode",
+          "activation_state",
+          "reason",
+          "installation_detected",
+          "repository_available",
+          "builder_available"
+        ],
+        "properties": [
+          "mode",
+          "activation_state",
+          "reason",
+          "installation_detected",
+          "repository_available",
+          "builder_available"
+        ],
+        "additionalProperties": false
+      },
+      {
+        "pointer": "/$defs/dryRunModules/properties/boot",
+        "required": [
+          "mode",
+          "activation_state",
+          "reason",
+          "kernel_package",
+          "modules_directory",
+          "grub_active_config",
+          "mkinitrd_available",
+          "mkinitrd_configured",
+          "grub_generator_available",
+          "grub_validator_available",
+          "grub_configured",
+          "kernel_version_source",
+          "kernel_validation_deferred_until_apply",
+          "grub_temporary_generation",
+          "grub_validator",
+          "grub_atomic_replacement"
+        ],
+        "properties": [
+          "mode",
+          "activation_state",
+          "reason",
+          "kernel_package",
+          "modules_directory",
+          "grub_active_config",
+          "mkinitrd_available",
+          "mkinitrd_configured",
+          "grub_generator_available",
+          "grub_validator_available",
+          "grub_configured",
+          "kernel_version_source",
+          "kernel_validation_deferred_until_apply",
+          "grub_temporary_generation",
+          "grub_validator",
+          "grub_atomic_replacement"
+        ],
+        "additionalProperties": false
+      },
+      {
+        "pointer": "/$defs/applyModules",
+        "required": [
+          "slackware",
+          "flatpak",
+          "sbo",
+          "elf",
+          "cinnamon",
+          "boot"
+        ],
+        "properties": [
+          "slackware",
+          "flatpak",
+          "sbo",
+          "elf",
+          "cinnamon",
+          "boot"
+        ],
+        "additionalProperties": false
+      },
+      {
+        "pointer": "/$defs/applyModules/properties/slackware",
+        "required": [
+          "postinstall_policy",
+          "pending_new_config_files_error",
+          "snapshot_before_error",
+          "snapshot_after_error",
+          "secondary_modules_block_reason",
+          "pending_new_config_files_valid",
+          "snapshot_before_valid",
+          "snapshot_after_valid",
+          "secondary_modules_blocked",
+          "abi_changes",
+          "kernel_changes",
+          "pending_new_config_files_count",
+          "snapshot_before_records",
+          "snapshot_after_records",
+          "update_exit_code",
+          "install_new_exit_code",
+          "upgrade_all_exit_code",
+          "state",
+          "postinstall_processing_enabled",
+          "pending_new_config_files",
+          "critical_packages"
+        ],
+        "properties": [
+          "postinstall_policy",
+          "pending_new_config_files_error",
+          "snapshot_before_error",
+          "snapshot_after_error",
+          "secondary_modules_block_reason",
+          "pending_new_config_files_valid",
+          "snapshot_before_valid",
+          "snapshot_after_valid",
+          "secondary_modules_blocked",
+          "abi_changes",
+          "kernel_changes",
+          "pending_new_config_files_count",
+          "snapshot_before_records",
+          "snapshot_after_records",
+          "update_exit_code",
+          "install_new_exit_code",
+          "upgrade_all_exit_code",
+          "state",
+          "postinstall_processing_enabled",
+          "pending_new_config_files",
+          "critical_packages"
+        ],
+        "additionalProperties": false
+      },
+      {
+        "pointer": "/$defs/applyModules/properties/flatpak",
+        "required": [
+          "mode",
+          "activation_state",
+          "reason",
+          "state",
+          "exit_code"
+        ],
+        "properties": [
+          "mode",
+          "activation_state",
+          "reason",
+          "state",
+          "exit_code"
+        ],
+        "additionalProperties": false
+      },
+      {
+        "pointer": "/$defs/applyModules/properties/sbo",
+        "required": [
+          "mode",
+          "activation_state",
+          "reason",
+          "state",
+          "personal_queue_directory",
+          "generated_queue_workspace",
+          "options_file",
+          "target_selection_error",
+          "private_queue_generation_ready",
+          "personal_queue_files_copied",
+          "personal_queue_symlinks_ignored",
+          "build_option_record_count",
+          "core_queue_count",
+          "extra_queue_count",
+          "submitted_queue_count",
+          "sync_exit_code",
+          "queue_generation_exit_code",
+          "target_selection_exit_code",
+          "build_exit_code",
+          "queue_workspace_isolated",
+          "build_options"
+        ],
+        "properties": [
+          "mode",
+          "activation_state",
+          "reason",
+          "state",
+          "personal_queue_directory",
+          "generated_queue_workspace",
+          "options_file",
+          "target_selection_error",
+          "private_queue_generation_ready",
+          "personal_queue_files_copied",
+          "personal_queue_symlinks_ignored",
+          "build_option_record_count",
+          "core_queue_count",
+          "extra_queue_count",
+          "submitted_queue_count",
+          "sync_exit_code",
+          "queue_generation_exit_code",
+          "target_selection_exit_code",
+          "build_exit_code",
+          "queue_workspace_isolated",
+          "build_options"
+        ],
+        "additionalProperties": false
+      },
+      {
+        "pointer": "/$defs/applyModules/properties/elf",
+        "required": [
+          "mode",
+          "activation_state",
+          "reason",
+          "state",
+          "library_cache_records",
+          "scan_exit_code",
+          "verification_exit_code",
+          "inspection_method",
+          "executes_inspected_objects",
+          "architecture_specific_resolution",
+          "architecture_match_fields",
+          "broken_objects"
+        ],
+        "properties": [
+          "mode",
+          "activation_state",
+          "reason",
+          "state",
+          "library_cache_records",
+          "scan_exit_code",
+          "verification_exit_code",
+          "inspection_method",
+          "executes_inspected_objects",
+          "architecture_specific_resolution",
+          "architecture_match_fields",
+          "broken_objects"
+        ],
+        "additionalProperties": false
+      },
+      {
+        "pointer": "/$defs/applyModules/properties/cinnamon",
+        "required": [
+          "mode",
+          "activation_state",
+          "reason",
+          "state"
+        ],
+        "properties": [
+          "mode",
+          "activation_state",
+          "reason",
+          "state"
+        ],
+        "additionalProperties": false
+      },
+      {
+        "pointer": "/$defs/applyModules/properties/boot",
+        "required": [
+          "mode",
+          "activation_state",
+          "reason",
+          "state",
+          "preparation_layout",
+          "direct_generic_reason",
+          "direct_generic_boot_image",
+          "direct_generic_running_kernel_path",
+          "direct_generic_validation_error",
+          "direct_generic_installed_kernel_version",
+          "direct_generic_kernel_path",
+          "direct_generic_modules_path",
+          "geninitrd_policy_path",
+          "geninitrd_policy_override_status",
+          "geninitrd_policy_override_error",
+          "geninitrd_post_state",
+          "geninitrd_post_validation_error",
+          "geninitrd_post_kernel_version",
+          "geninitrd_post_kernel_path",
+          "geninitrd_post_modules_path",
+          "geninitrd_post_initrd_path",
+          "geninitrd_post_named_link",
+          "initrd_state",
+          "kernel_package",
+          "configured_kernel_version",
+          "installed_kernel_version",
+          "modules_directory",
+          "installed_modules_path",
+          "initrd_output",
+          "initrd_validation_error",
+          "grub_state",
+          "grub_active_config",
+          "grub_temporary_config",
+          "grub_validation_error",
+          "grub_block_reason",
+          "direct_generic_available",
+          "geninitrd_policy_override_required",
+          "geninitrd_policy_override_applied",
+          "geninitrd_policy_override_restored",
+          "geninitrd_policy_override_active",
+          "geninitrd_transition_expected",
+          "initrd_required",
+          "grub_required",
+          "grub_command_attempted",
+          "grub_replacement_attempted",
+          "grub_config_replaced",
+          "grub_blocked_by_initrd",
+          "direct_generic_installed_kernel_records",
+          "installed_kernel_records",
+          "direct_generic_validation_exit_code",
+          "geninitrd_post_validation_exit_code",
+          "initrd_validation_exit_code",
+          "grub_generation_exit_code",
+          "grub_validation_exit_code",
+          "grub_install_exit_code",
+          "kernel_version_source",
+          "grub_validator",
+          "grub_atomic_replacement"
+        ],
+        "properties": [
+          "mode",
+          "activation_state",
+          "reason",
+          "state",
+          "preparation_layout",
+          "direct_generic_reason",
+          "direct_generic_boot_image",
+          "direct_generic_running_kernel_path",
+          "direct_generic_validation_error",
+          "direct_generic_installed_kernel_version",
+          "direct_generic_kernel_path",
+          "direct_generic_modules_path",
+          "geninitrd_policy_path",
+          "geninitrd_policy_override_status",
+          "geninitrd_policy_override_error",
+          "geninitrd_post_state",
+          "geninitrd_post_validation_error",
+          "geninitrd_post_kernel_version",
+          "geninitrd_post_kernel_path",
+          "geninitrd_post_modules_path",
+          "geninitrd_post_initrd_path",
+          "geninitrd_post_named_link",
+          "initrd_state",
+          "kernel_package",
+          "configured_kernel_version",
+          "installed_kernel_version",
+          "modules_directory",
+          "installed_modules_path",
+          "initrd_output",
+          "initrd_validation_error",
+          "grub_state",
+          "grub_active_config",
+          "grub_temporary_config",
+          "grub_validation_error",
+          "grub_block_reason",
+          "direct_generic_available",
+          "geninitrd_policy_override_required",
+          "geninitrd_policy_override_applied",
+          "geninitrd_policy_override_restored",
+          "geninitrd_policy_override_active",
+          "geninitrd_transition_expected",
+          "initrd_required",
+          "grub_required",
+          "grub_command_attempted",
+          "grub_replacement_attempted",
+          "grub_config_replaced",
+          "grub_blocked_by_initrd",
+          "direct_generic_installed_kernel_records",
+          "installed_kernel_records",
+          "direct_generic_validation_exit_code",
+          "geninitrd_post_validation_exit_code",
+          "initrd_validation_exit_code",
+          "grub_generation_exit_code",
+          "grub_validation_exit_code",
+          "grub_install_exit_code",
+          "kernel_version_source",
+          "grub_validator",
+          "grub_atomic_replacement"
+        ],
+        "additionalProperties": false
+      }
+    ],
+    "event": [
+      {
+        "pointer": "/",
+        "required": [
+          "schema_version",
+          "schema_status",
+          "sequence",
+          "timestamp",
+          "operation",
+          "type",
+          "module",
+          "action",
+          "state",
+          "message",
+          "exit_code"
+        ],
+        "properties": [
+          "schema_version",
+          "schema_status",
+          "sequence",
+          "timestamp",
+          "operation",
+          "type",
+          "module",
+          "action",
+          "state",
+          "message",
+          "exit_code"
+        ],
+        "additionalProperties": false
+      }
+    ]
+  },
+  "surface_scope": "Generated navigation to direct object declarations only; allOf/oneOf/$ref/if/then constraints remain in the complete unchanged bound schemas. Not a replacement specification or oracle.",
+  "questions": [
+    {
+      "id": "J01",
+      "topic": "Family and numeric version",
+      "proposed_rule": "Select result/event/stream/fragment explicitly; numeric 1 or 1.0 with stable; reject bool, text, v0 and unknown versions without conversion.",
+      "limit_or_risk": "Do not import the strict current Python oracle type identity as an undocumented lexical v1 integer requirement.",
+      "required_review_or_future_evidence": "Explicit family/version/status positives and refusals, preserving current v0 evidence.",
+      "disposition": "pending",
+      "allowed_decisions": [
+        "accept-as-written",
+        "request-revision",
+        "defer"
+      ]
+    },
+    {
+      "id": "J02",
+      "topic": "Exact field sets and operation shapes",
+      "proposed_rule": "Require all 17 result and 11 event fields; operation-specific check/dry-run/apply module shapes and exact build-option objects.",
+      "limit_or_risk": "Adding or removing a field, changing type/null meaning or a closed enum needs a separately reviewed version; inspect every bound schema branch.",
+      "required_review_or_future_evidence": "Full prospective independent expectations for every operation, required/missing/extra fields and cross-operation refusal.",
+      "disposition": "pending",
+      "allowed_decisions": [
+        "accept-as-written",
+        "request-revision",
+        "defer"
+      ]
+    },
+    {
+      "id": "J03",
+      "topic": "Final result projections",
+      "proposed_rule": "Result codes 0-5 constrain operation, success, partial, boot_safe, reboot and English exit_code_meaning exactly as the bound result schema.",
+      "limit_or_risk": "Reported success and boot_safe are data, not independent installed-state, recovery or boot-safety evidence.",
+      "required_review_or_future_evidence": "Original aggregate oracles plus prospective complete objects; preserve code-to-meaning and reboot projections.",
+      "disposition": "pending",
+      "allowed_decisions": [
+        "accept-as-written",
+        "request-revision",
+        "defer"
+      ]
+    },
+    {
+      "id": "J04",
+      "topic": "Raw status and native criteria separation",
+      "proposed_rule": "Raw codes and nullable statuses keep their separate domains. Native install20 requires empty AND no-effect; native upgrade20 is failure.",
+      "limit_or_risk": "Current acceptance predicates admit 20 for install and upgrade; neither this dossier nor accepting a data shape endorses or repairs those predicates.",
+      "required_review_or_future_evidence": "Separate case-specific consumer design must preserve the original raw20 rules and all original native criteria; no blanket metadata replacement.",
+      "disposition": "pending",
+      "allowed_decisions": [
+        "accept-as-written",
+        "request-revision",
+        "defer"
+      ]
+    },
+    {
+      "id": "J05",
+      "topic": "Types, nulls and counters",
+      "proposed_rule": "Booleans are distinct from numbers; JSON Schema mathematical integers permit integral numeric spelling; null, zero, false, empty arrays and absence are distinct.",
+      "limit_or_risk": "Do not coerce missing/null to zero or false; nonnegative counters and nullable action statuses differ from unrestricted raw event/check integers.",
+      "required_review_or_future_evidence": "Independent boundary expectations for bool/int, null/not-run, empty/absent and each actual field constraint.",
+      "disposition": "pending",
+      "allowed_decisions": [
+        "accept-as-written",
+        "request-revision",
+        "defer"
+      ]
+    },
+    {
+      "id": "J06",
+      "topic": "Ordered data and opaque options",
+      "proposed_rule": "Array order and duplicates are significant; options contain exactly string target and options; command-like strings remain inert data.",
+      "limit_or_risk": "No sorting, deduplication, eval, options grammar or generic counter/list equality is promised by the schema.",
+      "required_review_or_future_evidence": "Preserve queue, option quoting, duplicate/order and scenario-specific count relationships in their own tests.",
+      "disposition": "pending",
+      "allowed_decisions": [
+        "accept-as-written",
+        "request-revision",
+        "defer"
+      ]
+    },
+    {
+      "id": "J07",
+      "topic": "Strings and closed vocabularies",
+      "proposed_rule": "Timestamps and paths are opaque strings including empty/non-date text; diagnostic and selected state labels are open; operation/type/mode/reboot and explicit enums are closed.",
+      "limit_or_risk": "No trusted clock, canonical path, file existence, stable diagnostic grammar or automatic localization of exit_code_meaning.",
+      "required_review_or_future_evidence": "Explicit open-label/timestamp positives and closed-enum refusals, with no inferred native truth.",
+      "disposition": "pending",
+      "allowed_decisions": [
+        "accept-as-written",
+        "request-revision",
+        "defer"
+      ]
+    },
+    {
+      "id": "J08",
+      "topic": "Strict decoding and record boundaries",
+      "proposed_rule": "Use strict UTF-8 JSON; refuse duplicate keys, NaN/Infinity constants, concatenated documents and wrong family; internal schema references only.",
+      "limit_or_risk": "The older native validators use permissive json.loads; normal-update omits schema_status and both use equality-based version checks.",
+      "required_review_or_future_evidence": "Separate prospective consumers need explicit strict-decoding and complete-envelope controls; preserve old validators and captures as historical inputs.",
+      "disposition": "pending",
+      "allowed_decisions": [
+        "accept-as-written",
+        "request-revision",
+        "defer"
+      ]
+    },
+    {
+      "id": "J09",
+      "topic": "Complete streams and explicit fragments",
+      "proposed_rule": "Nonempty NDJSON with final LF (CRLF allowed), one initial start and one final completion, constant operation and consecutive positive sequences; complete starts at1, fragment may start later.",
+      "limit_or_risk": "A fragment still needs start and final; arbitrary middle/truncated segments are not accepted. Pairing, transport, drain and durable custody are not certified.",
+      "required_review_or_future_evidence": "Complete/offset/mixed/gap/duplicate-start/missing-final controls; actual emitted v1 streams only after a separately prepared switch.",
+      "disposition": "pending",
+      "allowed_decisions": [
+        "accept-as-written",
+        "request-revision",
+        "defer"
+      ]
+    },
+    {
+      "id": "J10",
+      "topic": "Early absence and final event states",
+      "proposed_rule": "Early help/argument/config/privilege/lock/setup exits may emit no JSON; result codes remain0-5, final event codes0-8 map0/4/5 success,2 warning,1/3/6/7/8 failed.",
+      "limit_or_risk": "Supplied final6/7/8 records are shape coverage, not observed startup lifecycles. Keep process status and stderr apart; never manufacture a missing result.",
+      "required_review_or_future_evidence": "Prospective consumer absence/incomplete-stream behavior and later actual early-output checks with independent process captures.",
+      "disposition": "pending",
+      "allowed_decisions": [
+        "accept-as-written",
+        "request-revision",
+        "defer"
+      ]
+    },
+    {
+      "id": "J11",
+      "topic": "External compatibility",
+      "proposed_rule": "One later explicit switch; no negotiated version, adapter, fallback, dual-output or mixed-version stream is supplied.",
+      "limit_or_risk": "External scripts, CI and downstream clients are unknown. Repository lexical discovery is bounded and cannot prove their absence.",
+      "required_review_or_future_evidence": "Obtain a bounded owner statement or named external consumer inventory and reviewed disposition before switch readiness.",
+      "disposition": "pending",
+      "allowed_decisions": [
+        "accept-as-written",
+        "request-revision",
+        "defer"
+      ]
+    },
+    {
+      "id": "J12",
+      "topic": "Acceptance, migration and release boundaries",
+      "proposed_rule": "Exact semantic decision, prospective consumers/oracles, joint producer plan, actual emitted v1 tests and independent Phase1/native/reference review remain separate gates.",
+      "limit_or_risk": "Same-assistant preparation, structural checks, user authorization to prepare and the literal prospective stable label do not establish independent acceptance or a freeze.",
+      "required_review_or_future_evidence": "An explicit decision tied to these exact inputs and recorded reviewer provenance; unresolved independence remains visible, followed by separately authorized implementation.",
+      "disposition": "pending",
+      "allowed_decisions": [
+        "accept-as-written",
+        "request-revision",
+        "defer"
+      ]
+    }
+  ],
+  "decision_record_requirements": [
+    "Exact dossier and input identities",
+    "Explicit per-question disposition and any exception",
+    "Actual reviewer identity/provenance and basis; independence not inferred from a role label",
+    "No scope extension to native truth, reference freeze or operational authority",
+    "Changed inputs invalidate the old decision binding and require a new review"
+  ],
+  "external_inventory": {
+    "status": "unknown-not-surveyed",
+    "owner_statement": null,
+    "absence_claim": false,
+    "questions": [
+      "Do local scripts or scheduled jobs parse --json or --events?",
+      "Does CI or monitoring outside this repository parse those outputs?",
+      "Are there downstream/manual jq or Python consumers to preserve?",
+      "For each known consumer, what source/version/family and rollout owner apply?"
+    ]
+  },
+  "inherited_acceptance": {
+    "repository_through": 605,
+    "setup_checks": 4,
+    "repository_checks": 14,
+    "original_checks_rerun": false,
+    "last_confirmed_qualified_STATIC_pause": 605,
+    "pause_review_repeated": false,
+    "new_candidate_pause_confirmed": false,
+    "native_acceptance_supplied": false
+  },
+  "remaining": {
+    "A_R_D": null,
+    "P0D": "unresolved",
+    "findings_open": 13,
+    "native_gaps_open": 16,
+    "four_native_repairs": "inactive",
+    "phase1_complete": false,
+    "kernel_complete": false,
+    "C_Phase2_production": "closed",
+    "native_stage": null,
+    "actual_host": "unobserved-not-claimed-absent",
+    "actual_native_evidence": null,
+    "actual_live_bindings": null,
+    "global_host_closure": false
+  },
+  "retention": "Original605 acceptance and recovered-byte/download closure remain unchanged; derived custody, unknown corruption, incomplete491, unknown extras and all original recording/trust/IO/containment/cleanup obligations remain."
+}

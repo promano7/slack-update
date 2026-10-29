@@ -1,3 +1,18 @@
+# Unreleased candidate preparation: exact JSON numbers, steps630-637
+
+- Preserve decimal/exponent tokens in the offline v1 candidate reader; recognize
+  finite mathematical integers without admitting booleans or rounded fractions.
+- Compare stream sequence offsets with exact, private-context decimal subtraction;
+  retain complete/fragment distinctions and valid large integral values.
+- Add15 numerical test methods with600 deterministic integer-oracle comparisons;
+  retain all original schemas, producer bytes and v0 tests/fixtures unchanged.
+- Retain18 exact historical inputs under data/schemas/candidates/history/pre630/;
+  refresh the current inventory,17-input dossier and migration-plan source bindings.
+- Local preparation only: PC application/tests/publication and a new whole-condition
+  pause review remain pending. Last confirmed qualified STATIC pause621.
+- J01-J12 pending, external consumers unknown, A/R/D unselected, P0D unresolved;
+  Phase1/kernel incomplete, schema1/reference-v1 unfrozen, C/Phase2/production closed.
+
 ## Phase 1 steps 614-619 -- prepare reproducible normal-update parser inputs
 
 - Start the authorized 614-621 block from accepted published613 commit

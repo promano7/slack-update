@@ -1,0 +1,243 @@
+{
+  "kind": "bounded-source-metadata-reference-inventory-not-whole-consumer-proof",
+  "base_commit": "adad1829e07dd25aca499126254f28a455c0d91c",
+  "base_tree": "f063e8ba90eed4bf24f9ff096f9806a29fa9921d",
+  "discovery_scope": "All regular .py/.sh files below tools/ and tests/ containing literal schema_version or schema_status; includes prepared new tests. No dynamic/import/alias or external consumer completeness claim.",
+  "runtime_schema_version": 0,
+  "schema1_accepted": false,
+  "external_consumers": "unknown; user scripts, CI outside repository and downstream clients require separate inventory before migration",
+  "metadata_references": [
+    {
+      "path": "tests/acceptance/reference/test-no-updates.sh",
+      "sha256": "f95d99c6a605b1a3fcd213d5db4c260e0f3566fea931b3964ff5bd2a62a99e0b",
+      "role": "current-v0-acceptance-consumer",
+      "migration_disposition": "Current validators explicitly refuse v1; require prospective separate consumer update, preserving original case/native criteria and historical captures."
+    },
+    {
+      "path": "tests/acceptance/reference/test-normal-update.sh",
+      "sha256": "b17c435fa81c4992befb92175f66670db2353ff0838466ac6a2e18824d618aa6",
+      "role": "current-v0-acceptance-consumer",
+      "migration_disposition": "Current validators explicitly refuse v1; require prospective separate consumer update, preserving original case/native criteria and historical captures."
+    },
+    {
+      "path": "tests/reference/test-check-json-result.py",
+      "sha256": "29d0b2b110669a973d3c9722a943a7b91c4bcd0ed379b9023ead796d881e9279",
+      "role": "current-v0-serializer-consumer",
+      "migration_disposition": "Exact or selected current-output assertions need a separate prospective migration; retain complete original oracles."
+    },
+    {
+      "path": "tests/reference/test-configuration-parser.py",
+      "sha256": "3f2664ffa7d4cf74fc2f1d6fbf9ce81c57d7e906ceeb16d306328342756b1459",
+      "role": "configuration-namespace",
+      "migration_disposition": "Matching schema_version is an INI configuration key; do not migrate it with output metadata."
+    },
+    {
+      "path": "tests/reference/test-configuration-validation.py",
+      "sha256": "4a320bdc7a67fc78e6ccb5d6a839709cc716f8eaffe1950594d33f6a40093d50",
+      "role": "configuration-namespace",
+      "migration_disposition": "Matching schema_version is an INI configuration key; do not migrate it with output metadata."
+    },
+    {
+      "path": "tests/reference/test-dry-run-json-result.py",
+      "sha256": "a66696556a41636824d463d9c3202898e8b848726bae77e58886ea496f94520e",
+      "role": "current-v0-serializer-consumer",
+      "migration_disposition": "Exact or selected current-output assertions need a separate prospective migration; retain complete original oracles."
+    },
+    {
+      "path": "tests/reference/test-elf-cache-apply-emission.py",
+      "sha256": "5c594255011cfec24580443b7d6cd5d89126abf754c06bad221d26040826d0ef",
+      "role": "current-v0-serializer-consumer",
+      "migration_disposition": "Exact or selected current-output assertions need a separate prospective migration; retain complete original oracles."
+    },
+    {
+      "path": "tests/reference/test-elf-recheck-apply.py",
+      "sha256": "252744854189c1db0a8b7644968680f4a78f2fd7b1d9eca9731985981b0d2472",
+      "role": "current-v0-serializer-consumer",
+      "migration_disposition": "Exact or selected current-output assertions need a separate prospective migration; retain complete original oracles."
+    },
+    {
+      "path": "tests/reference/test-event-ndjson.py",
+      "sha256": "7c8c86ad7265e154b05e1613fb6727be01ba56b47f77a5141181e42f83120231",
+      "role": "current-v0-serializer-consumer",
+      "migration_disposition": "Exact or selected current-output assertions need a separate prospective migration; retain complete original oracles."
+    },
+    {
+      "path": "tests/reference/test-json-control-escaping.py",
+      "sha256": "d01b8e2b1e16f5d56e29f5fb09b0795b1af13ff9cca21c586f924e5c2d7b4d37",
+      "role": "current-v0-serializer-consumer",
+      "migration_disposition": "Exact or selected current-output assertions need a separate prospective migration; retain complete original oracles."
+    },
+    {
+      "path": "tests/reference/test-json-v1-candidate.py",
+      "sha256": "9f7c6c5cdee65247c280cf73d0dd296ac6eb103422c6bd2e255a729896f3e86d",
+      "role": "prospective-candidate-test",
+      "migration_disposition": "Keep candidate-data/projection provenance explicit; no captured v1 operation is established."
+    },
+    {
+      "path": "tests/reference/test-json-v1-consumer-inventory.py",
+      "sha256": "cd224bceaac8dd5089f9a70a3fe74b43442d070f1de3340b060b581c129ac3a5",
+      "role": "prospective-candidate-test",
+      "migration_disposition": "Keep candidate-data/projection provenance explicit; no captured v1 operation is established."
+    },
+    {
+      "path": "tests/reference/test-json-v1-policy.py",
+      "sha256": "1753059c313aada98464817377761bb91af44705271c291691403fdfde60798e",
+      "role": "prospective-candidate-test",
+      "migration_disposition": "Keep candidate-data/projection provenance explicit; no captured v1 operation is established."
+    },
+    {
+      "path": "tests/reference/test-json-v1-serializer-compatibility.py",
+      "sha256": "3e23d48aa298376b6a6d2e688b4d26b0a47244d58e38940c793b4034ba7a2fee",
+      "role": "prospective-candidate-test",
+      "migration_disposition": "Keep candidate-data/projection provenance explicit; no captured v1 operation is established."
+    },
+    {
+      "path": "tests/reference/test-main-configuration-failures.py",
+      "sha256": "905398f0de3e899a9ea211e5df8fdc00452c4b07bcd62e7f32490d3c03e790f2",
+      "role": "configuration-namespace",
+      "migration_disposition": "Matching schema_version is an INI configuration key; do not migrate it with output metadata."
+    },
+    {
+      "path": "tests/reference/test-no-updates-acceptance-harness.sh",
+      "sha256": "a8366ba8e7d17d5e554337d36d954d6550a741392a2dfe0939ad27c0be9f8a54",
+      "role": "configuration-namespace",
+      "migration_disposition": "Matching schema_version is an INI configuration key; do not migrate it with output metadata."
+    },
+    {
+      "path": "tests/reference/test-normal-update-acceptance-harness.sh",
+      "sha256": "24595a5ecfc398058ef4b5d6b4e1b8c7b3c13386a7a21197117874830fdaed85",
+      "role": "v0-consumer-harness-fixture",
+      "migration_disposition": "Authors current validator subset; preserve historical fixture and add separate prospective tests if migrated."
+    },
+    {
+      "path": "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-adversarial-control-effectiveness-review-harness.sh",
+      "sha256": "5c00b4787ddb7204fbfb937a2b04ac6cfa188da819701cf2b9b3e993495f1012",
+      "role": "independent-offline-evidence-namespace",
+      "migration_disposition": "Envelope/expectation/observation records are separate contracts; no output-schema migration inferred."
+    },
+    {
+      "path": "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-bounded-evidence-schema-review-harness.sh",
+      "sha256": "f925246f175c7e7b7c9c0d8dea6978445c354d3366354c016fc1d92fd2988632",
+      "role": "independent-offline-evidence-namespace",
+      "migration_disposition": "Envelope/expectation/observation records are separate contracts; no output-schema migration inferred."
+    },
+    {
+      "path": "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-captured-observation-index-review-harness.sh",
+      "sha256": "9eeee5dff440102e7af77f1185303c9eed1f90e7d6a040ee2d77120d5465854d",
+      "role": "independent-offline-evidence-namespace",
+      "migration_disposition": "Envelope/expectation/observation records are separate contracts; no output-schema migration inferred."
+    },
+    {
+      "path": "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-independent-expectation-contract-review-harness.sh",
+      "sha256": "0e080fd04a07d09abf9270a89b5ff31f015bb64e4abec3a8eb0d2b405050a81c",
+      "role": "independent-offline-evidence-namespace",
+      "migration_disposition": "Envelope/expectation/observation records are separate contracts; no output-schema migration inferred."
+    },
+    {
+      "path": "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-publication-and-last-receipt-comparison-review-harness.sh",
+      "sha256": "b066d8a5b126093aab89725b18b862b6cd991b0e1f4ddbe1a9bc9d0ae8ec0c5a",
+      "role": "independent-offline-evidence-namespace",
+      "migration_disposition": "Envelope/expectation/observation records are separate contracts; no output-schema migration inferred."
+    },
+    {
+      "path": "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-recovery-and-obligation-comparison-review-harness.sh",
+      "sha256": "b954dab5f583a6f4f68cbf3e2ba293ecd6141c37e8bcc7d6328f599fbef1d0c8",
+      "role": "independent-offline-evidence-namespace",
+      "migration_disposition": "Envelope/expectation/observation records are separate contracts; no output-schema migration inferred."
+    },
+    {
+      "path": "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-selector-and-effect-comparison-review-harness.sh",
+      "sha256": "7e7a969e89909876e0815cb8e86db5ad35e26d239cec9c3edf28d6b7851e77de",
+      "role": "independent-offline-evidence-namespace",
+      "migration_disposition": "Envelope/expectation/observation records are separate contracts; no output-schema migration inferred."
+    },
+    {
+      "path": "tools/reference/json_v1_candidate.py",
+      "sha256": "82d8dff33a58536f42ff15ca859a1205a1193b9005bd7d796a16808b77a7df37",
+      "role": "offline-v1-candidate-consumer",
+      "migration_disposition": "Explicit family/version dispatch; refuses emitted v0; not an automatic adapter."
+    },
+    {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-evidence-envelope.py",
+      "sha256": "b4e3535d5007cfd9145b5aa0d67dc3815049336ac2408859c1ae1793ef943140",
+      "role": "independent-offline-evidence-namespace",
+      "migration_disposition": "Envelope/expectation/observation records are separate contracts; no output-schema migration inferred."
+    },
+    {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-literal-expectations.py",
+      "sha256": "866dcca8c9047d2e76829e6650f76f6a22042efb6ccb1d27bb9918e8683916c9",
+      "role": "independent-offline-evidence-namespace",
+      "migration_disposition": "Envelope/expectation/observation records are separate contracts; no output-schema migration inferred."
+    },
+    {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-observation-index.py",
+      "sha256": "cd8b7cd2dd0bde53254e66027f034b22aca75e40ce7a1475501a3ca258612a30",
+      "role": "independent-offline-evidence-namespace",
+      "migration_disposition": "Envelope/expectation/observation records are separate contracts; no output-schema migration inferred."
+    },
+    {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-publication-receipt-comparator.py",
+      "sha256": "e55d5fae7a69414c6e7da8a4364d34ff522a2095807cc42cb5acfe0ad3af3b5d",
+      "role": "independent-offline-evidence-namespace",
+      "migration_disposition": "Envelope/expectation/observation records are separate contracts; no output-schema migration inferred."
+    },
+    {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-recovery-obligation-comparator.py",
+      "sha256": "0aea9dbe37f1b3e1ea3f4b03bd3535adf2ed1763ba97b75b6cbf976d0fe1aacb",
+      "role": "independent-offline-evidence-namespace",
+      "migration_disposition": "Envelope/expectation/observation records are separate contracts; no output-schema migration inferred."
+    },
+    {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-selector-effect-comparator.py",
+      "sha256": "65b4f29977d6a8de97fda141e266f34a015d3eb9f71e8df63ba10ee52a3e6372",
+      "role": "independent-offline-evidence-namespace",
+      "migration_disposition": "Envelope/expectation/observation records are separate contracts; no output-schema migration inferred."
+    },
+    {
+      "path": "tools/reference/phase-1-operational-effect-lifetime-review.py",
+      "sha256": "63e61c15f6b35888ccc72411910cf180c4dfb5f64184c6bff012a196263d2f5e",
+      "role": "historical-source-bound-inventory",
+      "migration_disposition": "Preserve original source-bound anchors; no blanket edit after later runtime changes."
+    },
+    {
+      "path": "tools/reference/slack-update-reference.sh",
+      "sha256": "eb141d314b3a483285c6d65d430fdd5c56c7492cbf06a10723a33024ab58b8e4",
+      "role": "current-producer-and-independent-configuration-namespace",
+      "migration_disposition": "Later reviewed switch of both result/event metadata sites; configuration schema remains independent."
+    }
+  ],
+  "additional_dependencies": [
+    {
+      "path": "tests/reference/json_result_test_support.py",
+      "sha256": "b3989a2c00632c2d9b6568a60b84c9ccf865772658ba1dc103d1ea80d505cd62"
+    },
+    {
+      "path": "tests/reference/test-apply-json-result.py",
+      "sha256": "d323d917de812b503e937d579a577dd3adea1ea7b4b5aaa8c62ecf328fa5617b"
+    },
+    {
+      "path": "tests/reference/test-sbo-option-json.py",
+      "sha256": "6c40c099704eca612d24a87a24d3d8c702eaf1ee964a7d8b3d391147f8cd22cd"
+    },
+    {
+      "path": "tests/fixtures/reference/apply-json-supplied-baseline.json",
+      "sha256": "dea018e64da670885badfcf2f87ea8e00f7786b02e5f5cf50b4da5a2da2aeb01"
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/no-updates/check-result.json",
+      "sha256": "51e598e586545ad8efb276118bb6be05de83ff9df33372d28eac2c55160d4b7c"
+    },
+    {
+      "path": "tests/fixtures/reference/acceptance/no-updates/apply-result.json",
+      "sha256": "32fe785c3c77f3210dfe70f0aeda7c30454cbe9a2a42d7162597973549249c54"
+    },
+    {
+      "path": "data/schemas/candidates/result-v1.schema.json",
+      "sha256": "bf38ffa59117546f8d3d136043e4df7b7c42d216d94189db8513d91d23d8e14c"
+    },
+    {
+      "path": "data/schemas/candidates/event-v1.schema.json",
+      "sha256": "9bf55c913cad010f16bb5e8101e2578783effdd12d53f3421d74cc59bda53253"
+    }
+  ]
+}

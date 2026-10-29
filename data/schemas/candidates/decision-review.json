@@ -1,19 +1,19 @@
 {
   "kind": "json-v1-semantic-decision-dossier-not-acceptance",
   "schema": 1,
-  "base_commit": "e5a030a69682649a374c73efde9b07cfbd5a1090",
-  "base_tree": "3f2e87f9d0ea6d2686b1e48681535fbb3b8982c7",
+  "base_commit": "ffd74525b9414fd9973e511b74983f7e48575494",
+  "base_tree": "1f0cdfef3ecac8757a3349e5a8886c7622c74ad2",
   "prepared_steps": [
-    606,
-    607,
-    608,
-    609,
-    610,
-    611,
-    612,
-    613
+    630,
+    631,
+    632,
+    633,
+    634,
+    635,
+    636,
+    637
   ],
-  "status": "prepared-for-review",
+  "status": "numeric-reader-revised-prepared-for-fresh-exact-review",
   "decision": null,
   "reviewer": null,
   "independent_review_evidence": null,
@@ -53,8 +53,8 @@
     },
     {
       "path": "tools/reference/json_v1_candidate.py",
-      "bytes": 4571,
-      "sha256": "82d8dff33a58536f42ff15ca859a1205a1193b9005bd7d796a16808b77a7df37"
+      "bytes": 6540,
+      "sha256": "326104f6e364a492ba2f41455a3fdd69aead7a1fdf22179e30f02ac1be2cac88"
     },
     {
       "path": "data/schemas/candidates/source-field-inventory.json",
@@ -63,8 +63,8 @@
     },
     {
       "path": "data/schemas/candidates/consumer-inventory.json",
-      "bytes": 14921,
-      "sha256": "00c7b8e0fbaf23bc7e57789d11fe6ebec6821164fd51f5118ab918e4560012f1"
+      "bytes": 15379,
+      "sha256": "a6cc3a6801fb3d993a4c7deca0d8e71d8fc3051860206dfd0ee7f4abb874ea4f"
     },
     {
       "path": "tests/reference/json_result_test_support.py",
@@ -100,6 +100,16 @@
       "path": "tests/reference/test-json-v1-serializer-compatibility.py",
       "bytes": 4443,
       "sha256": "3e23d48aa298376b6a6d2e688b4d26b0a47244d58e38940c793b4034ba7a2fee"
+    },
+    {
+      "path": "tests/reference/test-json-v1-numeric-exactness.py",
+      "bytes": 8131,
+      "sha256": "eb0550852fa87da8a660cb6e5b87978ef07ef0776833a98045db6b1f3e078a8e"
+    },
+    {
+      "path": "docs/reference/json-v1-numeric-revision.md",
+      "bytes": 6056,
+      "sha256": "180790bfca5b1fef558538303a2a7e4a12201c085f4de9a44f69b346ba6ee509"
     }
   ],
   "input_precedence": "Exact schemas plus the later586-595 policy/validator define the proposal; earlier narrative and weaker framing readers remain historical, not overrides.",
@@ -921,5 +931,13 @@
     "actual_live_bindings": null,
     "global_host_closure": false
   },
-  "retention": "Original605 acceptance and recovered-byte/download closure remain unchanged; derived custody, unknown corruption, incomplete491, unknown extras and all original recording/trust/IO/containment/cleanup obligations remain."
+  "retention": "Original605 acceptance and recovered-byte/download closure remain unchanged; derived custody, unknown corruption, incomplete491, unknown extras and all original recording/trust/IO/containment/cleanup obligations remain.",
+  "historical_pre630_path": "data/schemas/candidates/history/pre630/data/schemas/candidates/decision-review.json",
+  "numeric_revision": {
+    "scope": "offline reader and explicit source bindings only; producer unchanged",
+    "decision": null,
+    "independent_review_evidence": null,
+    "recommendation": "Review J01/J05/J08/J09 against revised exact inputs; all effective dispositions remain pending",
+    "previous_dossier_preserved": true
+  }
 }

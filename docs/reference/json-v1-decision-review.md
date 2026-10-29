@@ -1,3 +1,17 @@
+# Current numeric candidate supplement, steps630–637
+
+The offline reader and current machine bindings were revised after complete
+numeric rejection regressions exposed rounding and fragment-sequence defects.
+Read [the exact numerical revision](json-v1-numeric-revision.md) before making
+any decision. The current dossier binds17 exact inputs. All J01–J12 remain
+pending; the producer remains0/provisional. The exact previous18 input copies
+are under `data/schemas/candidates/history/pre630/`.
+
+The following606–613 narrative is retained as historical preparation text.
+Its earlier source identities and statements of unchanged inputs describe that
+historical block, not the revised reader or the current set of17 bindings.
+No old pending/false state is turned into semantic or PC acceptance.
+
 # JSON v1 semantic decision dossier, steps606-613
 
 This dossier prepares an exact decision. **No semantic decision has been made.**

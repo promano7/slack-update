@@ -1,0 +1,327 @@
+{
+  "kind": "json-v1-prospective-migration-plan-not-authorization",
+  "schema": 1,
+  "base_commit": "e5a030a69682649a374c73efde9b07cfbd5a1090",
+  "status": "design-only-no-implementation",
+  "exact_inventory": {
+    "path": "data/schemas/candidates/consumer-inventory.json",
+    "bytes": 14921,
+    "sha256": "00c7b8e0fbaf23bc7e57789d11fe6ebec6821164fd51f5118ab918e4560012f1"
+  },
+  "semantic_decision": null,
+  "external_consumer_disposition": null,
+  "producer_switch_authorized": false,
+  "units": [
+    {
+      "id": "producer",
+      "sources": [
+        {
+          "path": "tools/reference/slack-update-reference.sh",
+          "bytes": 248754,
+          "sha256": "eb141d314b3a483285c6d65d430fdd5c56c7492cbf06a10723a33024ab58b8e4"
+        }
+      ],
+      "current_status": "not-migrated",
+      "proposed_work": "Review both runtime result/event metadata sites together; preserve payload, routing, early-output absence and configuration namespace. Do not switch either site now.",
+      "required_evidence": [
+        "Exact semantic decision and external disposition first",
+        "Separately reviewed joint switch and full actual emitted v1 results/streams",
+        "No mixed metadata, hidden negotiation or fallback"
+      ]
+    },
+    {
+      "id": "strict-result-oracles",
+      "sources": [
+        {
+          "path": "tests/reference/test-check-json-result.py",
+          "bytes": 5839,
+          "sha256": "29d0b2b110669a973d3c9722a943a7b91c4bcd0ed379b9023ead796d881e9279"
+        },
+        {
+          "path": "tests/reference/test-dry-run-json-result.py",
+          "bytes": 14075,
+          "sha256": "a66696556a41636824d463d9c3202898e8b848726bae77e58886ea496f94520e"
+        },
+        {
+          "path": "tests/reference/test-apply-json-result.py",
+          "bytes": 17159,
+          "sha256": "d323d917de812b503e937d579a577dd3adea1ea7b4b5aaa8c62ecf328fa5617b"
+        },
+        {
+          "path": "tests/reference/json_result_test_support.py",
+          "bytes": 1390,
+          "sha256": "b3989a2c00632c2d9b6568a60b84c9ccf865772658ba1dc103d1ea80d505cd62"
+        }
+      ],
+      "current_status": "not-migrated",
+      "proposed_work": "Retain all48 original v0 expected objects unchanged and add separately identified complete prospective expectations; do not derive the wanted payload from actual producer output.",
+      "required_evidence": [
+        "All48 original payload/null/code/order oracles retained",
+        "Prospective expectations reviewed before switch",
+        "Separate v0 historical and v1 current selections"
+      ]
+    },
+    {
+      "id": "events-and-escaping",
+      "sources": [
+        {
+          "path": "tests/reference/test-event-ndjson.py",
+          "bytes": 8807,
+          "sha256": "7c8c86ad7265e154b05e1613fb6727be01ba56b47f77a5141181e42f83120231"
+        },
+        {
+          "path": "tests/reference/test-json-control-escaping.py",
+          "bytes": 5758,
+          "sha256": "d01b8e2b1e16f5d56e29f5fb09b0795b1af13ff9cca21c586f924e5c2d7b4d37"
+        }
+      ],
+      "current_status": "not-migrated",
+      "proposed_work": "Preserve all existing event/control cases including lifecycle8 offset42; add complete and fragment profiles explicitly without relabeling historical captures.",
+      "required_evidence": [
+        "Final code/state, stream framing, offsets and refusal controls",
+        "Actual new emitted records and complete streams after switch",
+        "No delivery/custody inference"
+      ]
+    },
+    {
+      "id": "elf-compositions",
+      "sources": [
+        {
+          "path": "tests/reference/test-elf-recheck-apply.py",
+          "bytes": 14322,
+          "sha256": "252744854189c1db0a8b7644968680f4a78f2fd7b1d9eca9731985981b0d2472"
+        },
+        {
+          "path": "tests/reference/test-elf-cache-apply-emission.py",
+          "bytes": 15855,
+          "sha256": "5c594255011cfec24580443b7d6cd5d89126abf754c06bad221d26040826d0ef"
+        }
+      ],
+      "current_status": "not-migrated",
+      "proposed_work": "Review each selected root metadata assertion in its original workflow/cache/recheck composition; serializer coverage cannot replace it.",
+      "required_evidence": [
+        "Original full driver/support/payload oracles remain",
+        "Prospective composition-specific assertions and focused checks",
+        "No native ELF acceptance inferred"
+      ]
+    },
+    {
+      "id": "native-consumer-design",
+      "sources": [
+        {
+          "path": "tests/acceptance/reference/test-no-updates.sh",
+          "bytes": 23422,
+          "sha256": "f95d99c6a605b1a3fcd213d5db4c260e0f3566fea931b3964ff5bd2a62a99e0b"
+        },
+        {
+          "path": "tests/acceptance/reference/test-normal-update.sh",
+          "bytes": 39892,
+          "sha256": "b17c435fa81c4992befb92175f66670db2353ff0838466ac6a2e18824d618aa6"
+        }
+      ],
+      "current_status": "not-migrated",
+      "proposed_work": "Prepare separate prospective strict consumers for full envelopes and preserve original scenario, raw20, boot and process-status requirements. Do not source or execute these acceptance scripts during preparation.",
+      "required_evidence": [
+        "Strict version/status/type/duplicate-key and complete-object controls",
+        "Original scenario/native raw20 criteria remain independently binding",
+        "A metadata-only replacement or old partial harness object is insufficient"
+      ]
+    },
+    {
+      "id": "acceptance-harnesses-and-captures",
+      "sources": [
+        {
+          "path": "tests/reference/test-no-updates-acceptance-harness.sh",
+          "bytes": 17909,
+          "sha256": "a8366ba8e7d17d5e554337d36d954d6550a741392a2dfe0939ad27c0be9f8a54"
+        },
+        {
+          "path": "tests/reference/test-normal-update-acceptance-harness.sh",
+          "bytes": 34767,
+          "sha256": "24595a5ecfc398058ef4b5d6b4e1b8c7b3c13386a7a21197117874830fdaed85"
+        },
+        {
+          "path": "tests/fixtures/reference/acceptance/no-updates/check-result.json",
+          "bytes": 707,
+          "sha256": "51e598e586545ad8efb276118bb6be05de83ff9df33372d28eac2c55160d4b7c"
+        },
+        {
+          "path": "tests/fixtures/reference/acceptance/no-updates/apply-result.json",
+          "bytes": 4077,
+          "sha256": "32fe785c3c77f3210dfe70f0aeda7c30454cbe9a2a42d7162597973549249c54"
+        }
+      ],
+      "current_status": "not-migrated",
+      "proposed_work": "Keep historical harness fixtures/captures unchanged. Author separate complete prospective fixtures and preserve the older partial consumer-object scope.",
+      "required_evidence": [
+        "No invented v1 native capture",
+        "New positives and meaningful rejection controls in the new design",
+        "Old native fixtures are not rewritten"
+      ]
+    },
+    {
+      "id": "sbo-options",
+      "sources": [
+        {
+          "path": "tests/reference/test-sbo-option-json.py",
+          "bytes": 5517,
+          "sha256": "6c40c099704eca612d24a87a24d3d8c702eaf1ee964a7d8b3d391147f8cd22cd"
+        }
+      ],
+      "current_status": "not-migrated",
+      "proposed_work": "Trace imported dry-run/apply expectation builders and preserve target/options strings, duplicate/order and selected-field meanings.",
+      "required_evidence": [
+        "Dependent prospective builders named explicitly",
+        "Original quoting/order cases unchanged"
+      ]
+    },
+    {
+      "id": "candidate-tools",
+      "sources": [
+        {
+          "path": "tools/reference/json_v1_candidate.py",
+          "bytes": 4571,
+          "sha256": "82d8dff33a58536f42ff15ca859a1205a1193b9005bd7d796a16808b77a7df37"
+        },
+        {
+          "path": "tests/reference/test-json-v1-candidate.py",
+          "bytes": 10644,
+          "sha256": "9f7c6c5cdee65247c280cf73d0dd296ac6eb103422c6bd2e255a729896f3e86d"
+        },
+        {
+          "path": "tests/reference/test-json-v1-policy.py",
+          "bytes": 8000,
+          "sha256": "1753059c313aada98464817377761bb91af44705271c291691403fdfde60798e"
+        },
+        {
+          "path": "tests/reference/test-json-v1-consumer-inventory.py",
+          "bytes": 6050,
+          "sha256": "cd224bceaac8dd5089f9a70a3fe74b43442d070f1de3340b060b581c129ac3a5"
+        },
+        {
+          "path": "tests/reference/test-json-v1-serializer-compatibility.py",
+          "bytes": 4443,
+          "sha256": "3e23d48aa298376b6a6d2e688b4d26b0a47244d58e38940c793b4034ba7a2fee"
+        }
+      ],
+      "current_status": "not-migrated",
+      "proposed_work": "Retain current source-bound v0 characterization and prospective-copy provenance. A new switch needs a separate selection/design; do not regenerate inventory hashes as semantic approval.",
+      "required_evidence": [
+        "Historical serializers remain labeled v0",
+        "Prospective and actual emitted v1 evidence are distinct",
+        "Full reference discovery and every intended source change reviewed"
+      ]
+    }
+  ],
+  "excluded_namespaces": [
+    {
+      "path": "tests/reference/test-configuration-parser.py",
+      "disposition": "Matching schema_version is an INI configuration key; do not migrate it with output metadata."
+    },
+    {
+      "path": "tests/reference/test-configuration-validation.py",
+      "disposition": "Matching schema_version is an INI configuration key; do not migrate it with output metadata."
+    },
+    {
+      "path": "tests/reference/test-main-configuration-failures.py",
+      "disposition": "Matching schema_version is an INI configuration key; do not migrate it with output metadata."
+    },
+    {
+      "path": "tests/reference/test-no-updates-acceptance-harness.sh",
+      "disposition": "Matching schema_version is an INI configuration key; do not migrate it with output metadata."
+    },
+    {
+      "path": "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-adversarial-control-effectiveness-review-harness.sh",
+      "disposition": "Envelope/expectation/observation records are separate contracts; no output-schema migration inferred."
+    },
+    {
+      "path": "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-bounded-evidence-schema-review-harness.sh",
+      "disposition": "Envelope/expectation/observation records are separate contracts; no output-schema migration inferred."
+    },
+    {
+      "path": "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-captured-observation-index-review-harness.sh",
+      "disposition": "Envelope/expectation/observation records are separate contracts; no output-schema migration inferred."
+    },
+    {
+      "path": "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-independent-expectation-contract-review-harness.sh",
+      "disposition": "Envelope/expectation/observation records are separate contracts; no output-schema migration inferred."
+    },
+    {
+      "path": "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-publication-and-last-receipt-comparison-review-harness.sh",
+      "disposition": "Envelope/expectation/observation records are separate contracts; no output-schema migration inferred."
+    },
+    {
+      "path": "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-recovery-and-obligation-comparison-review-harness.sh",
+      "disposition": "Envelope/expectation/observation records are separate contracts; no output-schema migration inferred."
+    },
+    {
+      "path": "tests/reference/test-phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-selector-and-effect-comparison-review-harness.sh",
+      "disposition": "Envelope/expectation/observation records are separate contracts; no output-schema migration inferred."
+    },
+    {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-evidence-envelope.py",
+      "disposition": "Envelope/expectation/observation records are separate contracts; no output-schema migration inferred."
+    },
+    {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-literal-expectations.py",
+      "disposition": "Envelope/expectation/observation records are separate contracts; no output-schema migration inferred."
+    },
+    {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-observation-index.py",
+      "disposition": "Envelope/expectation/observation records are separate contracts; no output-schema migration inferred."
+    },
+    {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-publication-receipt-comparator.py",
+      "disposition": "Envelope/expectation/observation records are separate contracts; no output-schema migration inferred."
+    },
+    {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-recovery-obligation-comparator.py",
+      "disposition": "Envelope/expectation/observation records are separate contracts; no output-schema migration inferred."
+    },
+    {
+      "path": "tools/reference/phase-1-kernel-package-edge-runtime-transaction-remediation-local-source-v4-operational-offline-selector-effect-comparator.py",
+      "disposition": "Envelope/expectation/observation records are separate contracts; no output-schema migration inferred."
+    },
+    {
+      "path": "tools/reference/phase-1-operational-effect-lifetime-review.py",
+      "disposition": "Preserve original source-bound anchors; no blanket edit after later runtime changes."
+    }
+  ],
+  "coverage_scope": "All33 literal references plus selected additional dependencies retain their original bounded discovery meaning; indirect or external consumers remain unproved.",
+  "gate_order": [
+    {
+      "id": "G1",
+      "requirement": "Explicit exact semantic decision with reviewer provenance; independent acceptance not self-certified",
+      "status": "pending"
+    },
+    {
+      "id": "G2",
+      "requirement": "Bounded external inventory and explicit compatibility disposition; unknown is not absent",
+      "status": "pending"
+    },
+    {
+      "id": "G3",
+      "requirement": "Separate prospective consumers and complete independent expectations, preserving originals and native criteria",
+      "status": "not-prepared"
+    },
+    {
+      "id": "G4",
+      "requirement": "Joint exact producer/consumer switch design and authorized implementation scope",
+      "status": "not-prepared"
+    },
+    {
+      "id": "G5",
+      "requirement": "Actual emitted v1 results/complete streams and early-output/composition regressions, exact publication and acceptance",
+      "status": "not-run"
+    },
+    {
+      "id": "G6",
+      "requirement": "Remaining independent native/semantic Phase1 and whole-reference acceptance before reference-v1 freeze",
+      "status": "pending"
+    }
+  ],
+  "failure_boundary": "Before an authorized future switch, unresolved input drift or missing evidence stops entry. Any later partial switch/failure must retain exact attempted changes and outputs for review; no automatic retry, revert or native action is supplied.",
+  "historical_evidence": "Do not edit original expectations, native captures, frozen plans or failed attempts to match a later producer.",
+  "current_effects": "Documentation and decision data only. No producer, consumer, test, schema, configuration or native behavior changes.",
+  "next_automatic_step": null
+}
