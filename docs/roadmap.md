@@ -6,6 +6,22 @@ records changes, and [reference documentation](reference/README.md)
 preserves historical checkpoint and design material. Moving documentation does
 not amend the original contracts or mark an acceptance scenario complete.
 
+## Current JSON candidate integration, steps743-752
+
+Base main is `3c638394d463e71e17810c832e177484e2b0c198`. After STATIC742,
+the owner adopted S1-S3; [the exact integration guide](reference/json-v1-success-coherence.md)
+records the bounded change. The result candidate appends three clauses, preserving
+all seven existing ones and complete prior changed inputs. Local focused validation
+and review are retained externally. PC application/publication and a subsequent
+applicable pause review remain pending; last confirmed qualified pause is STATIC742.
+No producer/native behavior changes or whole independent acceptance are inferred.
+
+Next: verify/apply this exact candidate on the PC, commit/push its explicit files,
+then review returned evidence and all applicable pause conditions. After that,
+complete independent exact contract/compatibility and prospective consumer/oracle
+work, preserving original raw20 criteria, before any separately approved producer
+switch. The later native/reference gates below remain in force.
+
 ## Current phase and release gate
 
 **Phase 1 is incomplete.** `reference-v1`, the version 1 result schema, C

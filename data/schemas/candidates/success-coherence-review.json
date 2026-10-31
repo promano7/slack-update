@@ -1,0 +1,224 @@
+{
+  "kind": "owner-adopted-S1-S3-candidate-integration-not-independent-acceptance",
+  "base_commit": "3c638394d463e71e17810c832e177484e2b0c198",
+  "base_tree": "31575666eec6f0a2e3087d04ad04b4430fab0b17",
+  "owner_reply": "Sí, adopto las tres",
+  "owner_reply_context": "Explicit adoption of the immediately preceding exact S1-S3 criteria table in this conversation",
+  "date": "2026-10-31",
+  "timezone": "Europe/Madrid",
+  "adopted_criteria": [
+    "S1",
+    "S2",
+    "S3"
+  ],
+  "preparation_authorized": true,
+  "appended_clauses": [
+    {
+      "if": {
+        "properties": {
+          "operation": {
+            "const": "dry-run"
+          },
+          "exit_code": {
+            "const": 0
+          }
+        },
+        "required": [
+          "operation",
+          "exit_code"
+        ]
+      },
+      "then": {
+        "properties": {
+          "errors": {
+            "maxItems": 0
+          },
+          "modules": {
+            "properties": {
+              "slackware": {
+                "properties": {
+                  "check_exit_code": {
+                    "enum": [
+                      0,
+                      100
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "operation": {
+            "const": "apply"
+          },
+          "exit_code": {
+            "enum": [
+              0,
+              4,
+              5
+            ]
+          }
+        },
+        "required": [
+          "operation",
+          "exit_code"
+        ]
+      },
+      "then": {
+        "properties": {
+          "errors": {
+            "maxItems": 0
+          },
+          "modules": {
+            "properties": {
+              "slackware": {
+                "properties": {
+                  "state": {
+                    "const": "success"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "operation": {
+            "const": "apply"
+          },
+          "modules": {
+            "properties": {
+              "boot": {
+                "properties": {
+                  "grub_config_replaced": {
+                    "const": true
+                  }
+                },
+                "required": [
+                  "grub_config_replaced"
+                ]
+              }
+            },
+            "required": [
+              "boot"
+            ]
+          }
+        },
+        "required": [
+          "operation",
+          "modules"
+        ]
+      },
+      "then": {
+        "properties": {
+          "modules": {
+            "properties": {
+              "boot": {
+                "properties": {
+                  "grub_replacement_attempted": {
+                    "const": true
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "previous_result": {
+    "path": "data/schemas/candidates/history/pre743/data/schemas/candidates/result-v1.schema.json",
+    "bytes": 37067,
+    "sha256": "893a192f01c59f08818ff942e6dec13c0d44683dda29055c34cfc4668c5cac87"
+  },
+  "proposed_result": {
+    "path": "data/schemas/candidates/result-v1.schema.json",
+    "bytes": 39473,
+    "sha256": "bb61c2e63dbc9f3f0e21dce0f183782d51072ffa001b452c883b7df3cbb3b52f"
+  },
+  "retained_changed_input_preimages": [
+    {
+      "path": "data/schemas/candidates/history/pre743/CHANGELOG.md",
+      "bytes": 1114150,
+      "sha256": "2282263bb235cf73014012e426d6af45afc1e1fc9d480b219cba3038b633042b"
+    },
+    {
+      "path": "data/schemas/candidates/history/pre743/data/schemas/candidates/result-v1.schema.json",
+      "bytes": 37067,
+      "sha256": "893a192f01c59f08818ff942e6dec13c0d44683dda29055c34cfc4668c5cac87"
+    },
+    {
+      "path": "data/schemas/candidates/history/pre743/docs/reference/README.md",
+      "bytes": 16154,
+      "sha256": "e44b106d20b6c193ca4e388c7fc6d24a6bc70c1529362d553d3b4b4b2f2c45c7"
+    },
+    {
+      "path": "data/schemas/candidates/history/pre743/docs/reference/json-v1-candidate.md",
+      "bytes": 14283,
+      "sha256": "7772626072feae0bb92b272f1a1088d01a06fb3d4c35c082b0dd7b9b469594c6"
+    },
+    {
+      "path": "data/schemas/candidates/history/pre743/docs/reference/json-v1-consumer-review.md",
+      "bytes": 12449,
+      "sha256": "85dccb6c537ecf39c9c09466c16f6965183bc3f7213eb4dcf2f958edf9dcbe99"
+    },
+    {
+      "path": "data/schemas/candidates/history/pre743/docs/reference/json-v1-decision-review.md",
+      "bytes": 14540,
+      "sha256": "7dfe3a6194cba68bc6779aeb250a6aa5078dda4eca68c56a94d1318cb1624a9c"
+    },
+    {
+      "path": "data/schemas/candidates/history/pre743/docs/reference/json-v1-numeric-revision.md",
+      "bytes": 6761,
+      "sha256": "1096a00660d7683ed70fb7c61c082a75a658f78b427cb10fe13fe7bce7effef9"
+    },
+    {
+      "path": "data/schemas/candidates/history/pre743/docs/reference/json-v1-policy-review.md",
+      "bytes": 11446,
+      "sha256": "e26286c61239aafa4fcfe6b65d5b5c197e789b29d121d205b6bdc3e585d47601"
+    },
+    {
+      "path": "data/schemas/candidates/history/pre743/docs/roadmap.md",
+      "bytes": 22575,
+      "sha256": "cd146dfc4cc1577d077b75ba728a37dc40bdb964282ab9ddfda3f00a4e992fe3"
+    },
+    {
+      "path": "data/schemas/candidates/history/pre743/tests/reference/test-json-v1-check-coherence.py",
+      "bytes": 6088,
+      "sha256": "e902deeeb33213fadd7a71611fdc97a24b2be93b773e3616d0a72089d70d1313"
+    },
+    {
+      "path": "data/schemas/candidates/history/pre743/data/schemas/candidates/consumer-inventory.json",
+      "bytes": 16501,
+      "sha256": "cd9195e9da362bb2227aa0045ce61ca1250725dad448e6618807230227261b4b"
+    },
+    {
+      "path": "data/schemas/candidates/history/pre743/data/schemas/candidates/migration-plan.json",
+      "bytes": 19416,
+      "sha256": "8583fc93da2a6a41faa63cc464285921a89d9294eac085852713f054f7fcd0be"
+    },
+    {
+      "path": "data/schemas/candidates/history/pre743/data/schemas/candidates/decision-review.json",
+      "bytes": 35180,
+      "sha256": "26894ba3a3e68ca6db08d7b05859005d7a2e9969ca544d018e93163bd2e96b38"
+    }
+  ],
+  "owner_J11_statement": "Preserved unchanged in current inventory",
+  "whole_independent_semantic_acceptance": false,
+  "native_authorization": false,
+  "producer_migrated": false,
+  "PC_application": false,
+  "publication": false,
+  "new_pause_confirmed": false,
+  "last_confirmed_qualified_STATIC_pause": 742,
+  "native_raw20_rule": "install20 requires empty stdout AND no effects; upgrade20 is failure; S1-S3 do not close this gap",
+  "scope": "Three restrictive-only candidate clauses, regression/history/docs/current bindings; no original v0 oracle or native criterion change"
+}

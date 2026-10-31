@@ -1,3 +1,14 @@
+# Current adopted S1-S3 candidate integration, steps743-752
+
+The owner adopted three additional restrictions. Read the [exact criteria and
+integration](json-v1-success-coherence.md) and current bound dossier. The complete
+prior seven clauses are retained; three clauses are appended. Runtime remains
+0/provisional; event schema, validator and native criteria are unchanged. Whole
+independent acceptance, PC application/publication and the new pause review remain
+pending. Last confirmed qualified pause is STATIC742. The text below records its
+historical preparation and does not override this later supplement; exact pre743
+copies preserve the original bytes.
+
 # Current check-coherence revision, steps665–672
 
 The owner selected J03-2. Read [the exact amendment and impact](json-v1-check-coherence.md)

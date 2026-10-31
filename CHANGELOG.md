@@ -1,3 +1,19 @@
+# Unreleased candidate: adopted S1-S3 success coherence, steps743-752
+
+- Integrate the owner's explicit S1-S3 adoption: dry-run success requires raw0/100
+  and empty errors; apply success0/4/5 requires empty errors and Slackware success;
+  declared GRUB replacement requires a declared replacement attempt.
+- Append exactly three clauses after the complete current seven-clause schema;
+  preserve changed existing inputs under history/pre743 and all older history.
+- Add complete-data old/new rejection contrasts and boundary controls; retain the
+  original check regression using its established clause index and exact history.
+- Renew bounded consumer/source bindings and the exact decision dossier; preserve
+  received principles/A-F/J11 and the unresolved original native raw20 distinction.
+- Isolated candidate preparation only. PC application/publication and subsequent
+  full pause review remain pending; last confirmed qualified pause STATIC742.
+- Runtime0/provisional, producer/event schema/validator/native criteria unchanged;
+  no independent whole-contract/native acceptance, schema/reference freeze or Phase1 closure.
+
 # Unreleased candidate: selected check-result coherence, steps665–672
 
 - Prepare owner-selected J03-2: check/result code0 requires raw0/100 AND empty

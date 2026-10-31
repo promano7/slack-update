@@ -1452,6 +1452,126 @@
           }
         }
       }
+    },
+    {
+      "if": {
+        "properties": {
+          "operation": {
+            "const": "dry-run"
+          },
+          "exit_code": {
+            "const": 0
+          }
+        },
+        "required": [
+          "operation",
+          "exit_code"
+        ]
+      },
+      "then": {
+        "properties": {
+          "errors": {
+            "maxItems": 0
+          },
+          "modules": {
+            "properties": {
+              "slackware": {
+                "properties": {
+                  "check_exit_code": {
+                    "enum": [
+                      0,
+                      100
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "operation": {
+            "const": "apply"
+          },
+          "exit_code": {
+            "enum": [
+              0,
+              4,
+              5
+            ]
+          }
+        },
+        "required": [
+          "operation",
+          "exit_code"
+        ]
+      },
+      "then": {
+        "properties": {
+          "errors": {
+            "maxItems": 0
+          },
+          "modules": {
+            "properties": {
+              "slackware": {
+                "properties": {
+                  "state": {
+                    "const": "success"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "operation": {
+            "const": "apply"
+          },
+          "modules": {
+            "properties": {
+              "boot": {
+                "properties": {
+                  "grub_config_replaced": {
+                    "const": true
+                  }
+                },
+                "required": [
+                  "grub_config_replaced"
+                ]
+              }
+            },
+            "required": [
+              "boot"
+            ]
+          }
+        },
+        "required": [
+          "operation",
+          "modules"
+        ]
+      },
+      "then": {
+        "properties": {
+          "modules": {
+            "properties": {
+              "boot": {
+                "properties": {
+                  "grub_replacement_attempted": {
+                    "const": true
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   ]
 }

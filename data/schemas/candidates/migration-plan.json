@@ -1,12 +1,12 @@
 {
   "kind": "json-v1-prospective-migration-plan-not-authorization",
   "schema": 1,
-  "base_commit": "a41e30e6dc8bb258153569570a03768e74ac3ae4",
-  "status": "selected-check-coherence-candidate-prepared-no-producer-migration",
+  "base_commit": "3c638394d463e71e17810c832e177484e2b0c198",
+  "status": "adopted-S1-S3-candidate-prepared-not-whole-contract-acceptance",
   "exact_inventory": {
     "path": "data/schemas/candidates/consumer-inventory.json",
-    "bytes": 16501,
-    "sha256": "cd9195e9da362bb2227aa0045ce61ca1250725dad448e6618807230227261b4b"
+    "bytes": 16966,
+    "sha256": "606cd3172e80aa38c724177fd81d3d44bffa27b0f68b079bc45a3b5c49054640"
   },
   "semantic_decision": null,
   "external_consumer_disposition": {
@@ -249,13 +249,13 @@
       "sources": [
         {
           "path": "data/schemas/candidates/result-v1.schema.json",
-          "bytes": 37067,
-          "sha256": "893a192f01c59f08818ff942e6dec13c0d44683dda29055c34cfc4668c5cac87"
+          "bytes": 39473,
+          "sha256": "bb61c2e63dbc9f3f0e21dce0f183782d51072ffa001b452c883b7df3cbb3b52f"
         },
         {
           "path": "tests/reference/test-json-v1-check-coherence.py",
-          "bytes": 6088,
-          "sha256": "e902deeeb33213fadd7a71611fdc97a24b2be93b773e3616d0a72089d70d1313"
+          "bytes": 6392,
+          "sha256": "f2729265bf7ecac2fda9de1a43892b28412d1ae487747332ef62aabb7940856e"
         },
         {
           "path": "docs/reference/json-v1-check-coherence.md",
@@ -269,6 +269,22 @@
         "Exact21-input dossier and actual reviewer provenance",
         "Six focused drivers complete with unchanged source before/after",
         "Separate actual PC application/publication return and subsequent pause review"
+      ]
+    },
+    {
+      "id": "S1-S3-offline-regression",
+      "sources": [
+        {
+          "path": "tests/reference/test-json-v1-success-coherence.py",
+          "bytes": 9344,
+          "sha256": "13b0d511f2b4754f950dfd3a2b8c71dcffa42d4ab7b7b7b0273cc19e1e372ffd"
+        }
+      ],
+      "current_status": "candidate-only-not-migrated",
+      "proposed_work": "Preserve complete old/new contrasts and original raw20 native criteria before any future joint producer switch.",
+      "required_evidence": [
+        "Full exact independent semantic/compatibility acceptance remains pending",
+        "Real emitted v1 operation evidence remains pending"
       ]
     }
   ],
@@ -346,7 +362,7 @@
       "disposition": "Preserve original source-bound anchors; no blanket edit after later runtime changes."
     }
   ],
-  "coverage_scope": "All35 literal source references plus selected dependencies, bounded tools/tests discovery only; indirect and unknown external completeness unproved.",
+  "coverage_scope": "All36 literal source references plus8 selected dependencies; bounded tools/tests discovery, no indirect/external completeness proof.",
   "gate_order": [
     {
       "id": "G1",
@@ -381,14 +397,20 @@
   ],
   "failure_boundary": "Before an authorized future switch, unresolved input drift or missing evidence stops entry. Any later partial switch/failure must retain exact attempted changes and outputs for review; no automatic retry, revert or native action is supplied.",
   "historical_evidence": "Do not edit original expectations, native captures, frozen plans or failed attempts to match a later producer.",
-  "current_effects": "Prepared check-only schema amendment, numerical test context, new offline coherence tests and current review/bindings/docs; no producer/native behavior change.",
+  "current_effects": "Adopted S1-S3 result candidate integration, old/new behavior tests, exact pre743 history/docs/bindings; producer/native unchanged.",
   "next_automatic_step": null,
   "historical_pre630_path": "data/schemas/candidates/history/pre630/data/schemas/candidates/migration-plan.json",
-  "revision_base_commit": "a41e30e6dc8bb258153569570a03768e74ac3ae4",
+  "revision_base_commit": "3c638394d463e71e17810c832e177484e2b0c198",
   "selected_bounded_amendment": {
     "path": "data/schemas/candidates/check-coherence-review.json",
     "bytes": 5226,
     "sha256": "a68b0b133048621f801e0591aeaf6745401b318daa39f59541ad9c1eb4165599"
   },
-  "historical_pre665_path": "data/schemas/candidates/history/pre665/data/schemas/candidates/migration-plan.json"
+  "historical_pre665_path": "data/schemas/candidates/history/pre665/data/schemas/candidates/migration-plan.json",
+  "historical_pre743_path": "data/schemas/candidates/history/pre743/data/schemas/candidates/migration-plan.json",
+  "success_coherence_amendment": {
+    "path": "data/schemas/candidates/success-coherence-review.json",
+    "bytes": 6747,
+    "sha256": "bc4145fd50b16e9a793a83129eebad883b801d52628d889184f30fa307c1525a"
+  }
 }

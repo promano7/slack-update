@@ -95,7 +95,7 @@ class CheckCoherence(unittest.TestCase):
 
     def test_clause_is_inactive_outside_check_success(self):
         # Partial objects here test ONLY the added clause, never whole schemas.
-        clause = policy.ExactDraft202012Validator(self.schema['allOf'][-1])
+        clause = policy.ExactDraft202012Validator(self.schema['allOf'][6])
         for operation in ('dry-run', 'apply'):
             for final in (0, 1):
                 with self.subTest(operation=operation, final=final):
@@ -107,7 +107,11 @@ class CheckCoherence(unittest.TestCase):
 
     def test_schema_has_exactly_the_selected_append(self):
         old = copy.deepcopy(self.previous.schema)
-        new = copy.deepcopy(self.schema)
+        retained = policy.decode((ROOT / 'data/schemas/candidates/history/pre743/data/schemas/candidates/result-v1.schema.json').read_bytes())
+        new = copy.deepcopy(retained)
+        current_prefix = copy.deepcopy(self.schema)
+        current_prefix['allOf'] = current_prefix['allOf'][:7]
+        self.assertEqual(current_prefix, retained)
         clause = new['allOf'].pop()
         self.assertEqual(old, new)
         self.assertEqual(clause, dict(

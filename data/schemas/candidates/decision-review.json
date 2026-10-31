@@ -1,19 +1,21 @@
 {
   "kind": "json-v1-semantic-decision-dossier-not-acceptance",
   "schema": 1,
-  "base_commit": "a41e30e6dc8bb258153569570a03768e74ac3ae4",
-  "base_tree": "0447364b5c411e50c3099b247847040d10ada11a",
+  "base_commit": "3c638394d463e71e17810c832e177484e2b0c198",
+  "base_tree": "31575666eec6f0a2e3087d04ad04b4430fab0b17",
   "prepared_steps": [
-    665,
-    666,
-    667,
-    668,
-    669,
-    670,
-    671,
-    672
+    743,
+    744,
+    745,
+    746,
+    747,
+    748,
+    749,
+    750,
+    751,
+    752
   ],
-  "status": "selected-check-coherence-candidate-prepared-not-independently-accepted",
+  "status": "adopted-S1-S3-candidate-integrated-not-independent-whole-contract-acceptance",
   "decision": null,
   "reviewer": null,
   "independent_review_evidence": null,
@@ -28,8 +30,8 @@
   "exact_inputs": [
     {
       "path": "data/schemas/candidates/result-v1.schema.json",
-      "bytes": 37067,
-      "sha256": "893a192f01c59f08818ff942e6dec13c0d44683dda29055c34cfc4668c5cac87"
+      "bytes": 39473,
+      "sha256": "bb61c2e63dbc9f3f0e21dce0f183782d51072ffa001b452c883b7df3cbb3b52f"
     },
     {
       "path": "data/schemas/candidates/event-v1.schema.json",
@@ -38,18 +40,18 @@
     },
     {
       "path": "docs/reference/json-v1-candidate.md",
-      "bytes": 14283,
-      "sha256": "7772626072feae0bb92b272f1a1088d01a06fb3d4c35c082b0dd7b9b469594c6"
+      "bytes": 14945,
+      "sha256": "2f73823a2267d140796a5cd0956640b8522546cb465aa101b22688cf1dcae1dc"
     },
     {
       "path": "docs/reference/json-v1-policy-review.md",
-      "bytes": 11446,
-      "sha256": "e26286c61239aafa4fcfe6b65d5b5c197e789b29d121d205b6bdc3e585d47601"
+      "bytes": 12108,
+      "sha256": "899f87e409feea0b2749f20a6790de6f0623d427b22a5551d788fbe92aaef5b1"
     },
     {
       "path": "docs/reference/json-v1-consumer-review.md",
-      "bytes": 12449,
-      "sha256": "85dccb6c537ecf39c9c09466c16f6965183bc3f7213eb4dcf2f958edf9dcbe99"
+      "bytes": 13111,
+      "sha256": "5cf48ab2356a94d47d0e451e3bbbd46af005fb8de91c54dc172c5c44e57da572"
     },
     {
       "path": "tools/reference/json_v1_candidate.py",
@@ -63,8 +65,8 @@
     },
     {
       "path": "data/schemas/candidates/consumer-inventory.json",
-      "bytes": 16501,
-      "sha256": "cd9195e9da362bb2227aa0045ce61ca1250725dad448e6618807230227261b4b"
+      "bytes": 16966,
+      "sha256": "606cd3172e80aa38c724177fd81d3d44bffa27b0f68b079bc45a3b5c49054640"
     },
     {
       "path": "tests/reference/json_result_test_support.py",
@@ -108,8 +110,8 @@
     },
     {
       "path": "docs/reference/json-v1-numeric-revision.md",
-      "bytes": 6761,
-      "sha256": "1096a00660d7683ed70fb7c61c082a75a658f78b427cb10fe13fe7bce7effef9"
+      "bytes": 7423,
+      "sha256": "def0385e4f86aa2e2e647c250283cce6db0908a1b57ffb225630d91ad5be6d96"
     },
     {
       "path": "docs/reference/json-v1-check-coherence.md",
@@ -118,8 +120,8 @@
     },
     {
       "path": "tests/reference/test-json-v1-check-coherence.py",
-      "bytes": 6088,
-      "sha256": "e902deeeb33213fadd7a71611fdc97a24b2be93b773e3616d0a72089d70d1313"
+      "bytes": 6392,
+      "sha256": "f2729265bf7ecac2fda9de1a43892b28412d1ae487747332ef62aabb7940856e"
     },
     {
       "path": "data/schemas/candidates/check-coherence-review.json",
@@ -128,11 +130,51 @@
     },
     {
       "path": "data/schemas/candidates/migration-plan.json",
-      "bytes": 19416,
-      "sha256": "8583fc93da2a6a41faa63cc464285921a89d9294eac085852713f054f7fcd0be"
+      "bytes": 20350,
+      "sha256": "f0e66c6943a73617a2708e69f17f5b516f02c95a1ba90c98bb33b64d4d69259a"
+    },
+    {
+      "path": "docs/reference/json-v1-success-coherence.md",
+      "bytes": 5647,
+      "sha256": "b69d02f5c7c6d002c960721f1b58680f9d80900b8acd9e902fdf4f1dc294fcc1"
+    },
+    {
+      "path": "tests/reference/test-json-v1-success-coherence.py",
+      "bytes": 9344,
+      "sha256": "13b0d511f2b4754f950dfd3a2b8c71dcffa42d4ab7b7b7b0273cc19e1e372ffd"
+    },
+    {
+      "path": "data/schemas/candidates/success-coherence-review.json",
+      "bytes": 6747,
+      "sha256": "bc4145fd50b16e9a793a83129eebad883b801d52628d889184f30fa307c1525a"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-31-s1-s3.md",
+      "bytes": 5250,
+      "sha256": "f0998fbfc4a6d429526042787768d615fc57925c0f77d77975917c59a1aa3e38"
+    },
+    {
+      "path": "docs/reference/json-v1-decision-review.md",
+      "bytes": 15202,
+      "sha256": "d583656d5e138e9364dc128a6f07bcf876af5be973eb92812d00b9537f976098"
+    },
+    {
+      "path": "docs/reference/README.md",
+      "bytes": 16327,
+      "sha256": "2b234fc08fb0ae6555a3343fd38cc132feac460bc98373422d58fc5611b11fa9"
+    },
+    {
+      "path": "docs/roadmap.md",
+      "bytes": 23603,
+      "sha256": "c8083d11d87e3a82f34d41ea49591830d6ebede4bc5973921993fa1799c785f6"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "bytes": 1115282,
+      "sha256": "dfc036b5e0e16e483a5164991fb3b70aab54b904811104e10e7c27de018e6206"
     }
   ],
-  "input_precedence": "Complete current candidate schemas and exact numeric reader plus the selected check-only amendment/impact govern this proposal. Historical narratives/inputs are retained, not current overrides.",
+  "input_precedence": "Complete bound current schemas and reader, preserved check-only amendment and adopted S1-S3 supplement govern this unaccepted candidate. Historical inputs remain exact history, not overrides.",
   "object_surfaces": {
     "result": [
       {
@@ -780,7 +822,7 @@
     {
       "id": "J03",
       "topic": "Final result projections",
-      "proposed_rule": "Result codes 0-5 constrain operation, success, partial, boot_safe, reboot and English exit_code_meaning exactly as the bound result schema. For operation=check and exit_code=0 also require raw check0/100 AND errors empty (owner selected J03-2).",
+      "proposed_rule": "Result codes 0-5 constrain operation, success, partial, boot_safe, reboot and English exit_code_meaning exactly as the bound result schema. For operation=check and exit_code=0 also require raw check0/100 AND errors empty (owner selected J03-2). Owner additionally adopted S1/S2 success coherence for dry-run/apply; see exact bound supplement. Whole independent disposition remains pending.",
       "limit_or_risk": "Reported success and boot_safe are data, not independent installed-state, recovery or boot-safety evidence.",
       "required_review_or_future_evidence": "Original aggregate oracles plus prospective complete objects; preserve code-to-meaning and reboot projections. Review exact changed clause, input identities and numerical-test impact; whole independent J03 acceptance remains pending.",
       "disposition": "pending",
@@ -982,5 +1024,21 @@
     "independent_acceptance": false,
     "changed_inputs_require_new_review": true,
     "PC_application_and_publication": "pending"
+  },
+  "historical_pre743_path": "data/schemas/candidates/history/pre743/data/schemas/candidates/decision-review.json",
+  "success_coherence_revision": {
+    "review": {
+      "path": "data/schemas/candidates/success-coherence-review.json",
+      "bytes": 6747,
+      "sha256": "bc4145fd50b16e9a793a83129eebad883b801d52628d889184f30fa307c1525a"
+    },
+    "adopted_criteria": [
+      "S1",
+      "S2",
+      "S3"
+    ],
+    "whole_independent_acceptance": false,
+    "PC_application_and_publication": "pending",
+    "last_confirmed_qualified_STATIC_pause": 742
   }
 }

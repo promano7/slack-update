@@ -1,7 +1,7 @@
 {
   "kind": "bounded-source-metadata-reference-inventory-not-whole-consumer-proof",
-  "base_commit": "a41e30e6dc8bb258153569570a03768e74ac3ae4",
-  "base_tree": "0447364b5c411e50c3099b247847040d10ada11a",
+  "base_commit": "3c638394d463e71e17810c832e177484e2b0c198",
+  "base_tree": "31575666eec6f0a2e3087d04ad04b4430fab0b17",
   "discovery_scope": "All regular .py/.sh files below tools/ and tests/ containing literal schema_version or schema_status; includes prepared new tests. No dynamic/import/alias or external consumer completeness claim.",
   "runtime_schema_version": 0,
   "schema1_accepted": false,
@@ -85,7 +85,7 @@
     },
     {
       "path": "tests/reference/test-json-v1-check-coherence.py",
-      "sha256": "e902deeeb33213fadd7a71611fdc97a24b2be93b773e3616d0a72089d70d1313",
+      "sha256": "f2729265bf7ecac2fda9de1a43892b28412d1ae487747332ef62aabb7940856e",
       "role": "prospective-candidate-test",
       "migration_disposition": "Authored check-only coherence/old-schema contrasts; no actual v1 or native workflow. Preserve the prior schema and full test scope."
     },
@@ -112,6 +112,12 @@
       "sha256": "3e23d48aa298376b6a6d2e688b4d26b0a47244d58e38940c793b4034ba7a2fee",
       "role": "prospective-candidate-test",
       "migration_disposition": "Keep candidate-data/projection provenance explicit; no captured v1 operation is established."
+    },
+    {
+      "path": "tests/reference/test-json-v1-success-coherence.py",
+      "role": "prospective-candidate-test",
+      "migration_disposition": "Owner-adopted S1-S3 on complete authored data; historical shape acceptance is not native acceptance.",
+      "sha256": "13b0d511f2b4754f950dfd3a2b8c71dcffa42d4ab7b7b7b0273cc19e1e372ffd"
     },
     {
       "path": "tests/reference/test-main-configuration-failures.py",
@@ -255,14 +261,15 @@
     },
     {
       "path": "data/schemas/candidates/result-v1.schema.json",
-      "sha256": "893a192f01c59f08818ff942e6dec13c0d44683dda29055c34cfc4668c5cac87"
+      "sha256": "bb61c2e63dbc9f3f0e21dce0f183782d51072ffa001b452c883b7df3cbb3b52f"
     },
     {
       "path": "data/schemas/candidates/event-v1.schema.json",
       "sha256": "9bf55c913cad010f16bb5e8101e2578783effdd12d53f3421d74cc59bda53253"
     }
   ],
-  "revision": "Selected check-only J03-2 preparation665-672; pre665 and pre630 inventories retained; bounded discovery only",
-  "revision_base_commit": "a41e30e6dc8bb258153569570a03768e74ac3ae4",
-  "historical_pre665_path": "data/schemas/candidates/history/pre665/data/schemas/candidates/consumer-inventory.json"
+  "revision": "Adopted S1-S3 candidate integration743-752; pre743/pre665/pre630 history retained; bounded lexical inventory only",
+  "revision_base_commit": "3c638394d463e71e17810c832e177484e2b0c198",
+  "historical_pre665_path": "data/schemas/candidates/history/pre665/data/schemas/candidates/consumer-inventory.json",
+  "historical_pre743_path": "data/schemas/candidates/history/pre743/data/schemas/candidates/consumer-inventory.json"
 }
