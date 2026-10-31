@@ -57,8 +57,10 @@ class NumericExactness(unittest.TestCase):
         for token in ('100.000000000000001', '99.99999999999999999', '1e-400', '-1e-400'):
             with self.subTest(token=token), self.assertRaises(ValueError):
                 value = self.result('check_exit_code', '100', token)
-                if '400' in token:
-                    value['modules']['slackware']['updates_available'] = False
+                # Keep this numeric refusal independent of check-success coherence.
+                self.assertFalse(policy.exact_integer(None, value['modules']['slackware']['check_exit_code']))
+                value.update(success=False, exit_code=1, exit_code_meaning='general failure')
+                value['modules']['slackware'].update(state='failed', updates_available=None)
                 self.validator.record(value, 'result')
 
     def test_integral_raw_codes_and_zero_spellings(self):
@@ -82,6 +84,7 @@ class NumericExactness(unittest.TestCase):
                 self.assertEqual(module['check_exit_code'], Decimal(token))
                 self.assertTrue(policy.exact_integer(None, module['check_exit_code']))
                 module.update(state='failed', updates_available=None)
+                value.update(success=False, exit_code=1, exit_code_meaning='general failure')
                 self.validator.record(value, 'result')
 
     def test_decoder_preserves_numbers_without_nonfinite_overflow(self):

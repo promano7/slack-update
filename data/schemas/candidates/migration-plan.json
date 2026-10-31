@@ -1,15 +1,25 @@
 {
   "kind": "json-v1-prospective-migration-plan-not-authorization",
   "schema": 1,
-  "base_commit": "ffd74525b9414fd9973e511b74983f7e48575494",
-  "status": "numeric-reader-candidate-revised-no-producer-migration",
+  "base_commit": "a41e30e6dc8bb258153569570a03768e74ac3ae4",
+  "status": "selected-check-coherence-candidate-prepared-no-producer-migration",
   "exact_inventory": {
     "path": "data/schemas/candidates/consumer-inventory.json",
-    "bytes": 15379,
-    "sha256": "a6cc3a6801fb3d993a4c7deca0d8e71d8fc3051860206dfd0ee7f4abb874ea4f"
+    "bytes": 16501,
+    "sha256": "cd9195e9da362bb2227aa0045ce61ca1250725dad448e6618807230227261b4b"
   },
   "semantic_decision": null,
-  "external_consumer_disposition": null,
+  "external_consumer_disposition": {
+    "author": "Repository owner in this conversation",
+    "date": "2026-10-31",
+    "quote": "Solo he usado las pruebas y comandos que hacemos aquí; no conozco otros consumidores",
+    "scope": "Own use of tests and commands performed together in this chat; no other consumers known",
+    "named_external_consumers": [],
+    "disposition": "No named external consumers to adapt in the declared scope. Preserve bounded knowledge and revisit if consumers are discovered; independent exact compatibility/contract acceptance still pending.",
+    "global_absence_claim": false,
+    "all_equipment_or_CI_surveyed": false,
+    "independent_acceptance": false
+  },
   "producer_switch_authorized": false,
   "units": [
     {
@@ -222,8 +232,8 @@
         },
         {
           "path": "tests/reference/test-json-v1-numeric-exactness.py",
-          "bytes": 8131,
-          "sha256": "eb0550852fa87da8a660cb6e5b87978ef07ef0776833a98045db6b1f3e078a8e"
+          "bytes": 8493,
+          "sha256": "c13e30c1337c24bb2de7e9fc07a3d324e2fb40821ae2e96d1a3f0024bc92c70a"
         }
       ],
       "current_status": "offline-candidate-revised-pending-independent-semantic-review",
@@ -232,6 +242,33 @@
         "All focused local results and exact PC source/test/publication review",
         "Fresh exact J01/J05/J08/J09 semantic review; no inherited acceptance",
         "External compatibility and all later original gates remain pending"
+      ]
+    },
+    {
+      "id": "selected-check-coherence-candidate",
+      "sources": [
+        {
+          "path": "data/schemas/candidates/result-v1.schema.json",
+          "bytes": 37067,
+          "sha256": "893a192f01c59f08818ff942e6dec13c0d44683dda29055c34cfc4668c5cac87"
+        },
+        {
+          "path": "tests/reference/test-json-v1-check-coherence.py",
+          "bytes": 6088,
+          "sha256": "e902deeeb33213fadd7a71611fdc97a24b2be93b773e3616d0a72089d70d1313"
+        },
+        {
+          "path": "docs/reference/json-v1-check-coherence.md",
+          "bytes": 6390,
+          "sha256": "434d615648f73d02cf2f2139123b9941c12d84d35ddf6cc2df50cf446e7089fe"
+        }
+      ],
+      "current_status": "selected-bounded-amendment-prepared-independent-contract-acceptance-pending",
+      "proposed_work": "Validate this exact check-only amendment with the full focused selection on PC; retain prior schema/numerical intent and do not migrate the producer.",
+      "required_evidence": [
+        "Exact21-input dossier and actual reviewer provenance",
+        "Six focused drivers complete with unchanged source before/after",
+        "Separate actual PC application/publication return and subsequent pause review"
       ]
     }
   ],
@@ -309,7 +346,7 @@
       "disposition": "Preserve original source-bound anchors; no blanket edit after later runtime changes."
     }
   ],
-  "coverage_scope": "All33 literal references plus selected additional dependencies retain their original bounded discovery meaning; indirect or external consumers remain unproved.",
+  "coverage_scope": "All35 literal source references plus selected dependencies, bounded tools/tests discovery only; indirect and unknown external completeness unproved.",
   "gate_order": [
     {
       "id": "G1",
@@ -319,7 +356,7 @@
     {
       "id": "G2",
       "requirement": "Bounded external inventory and explicit compatibility disposition; unknown is not absent",
-      "status": "pending"
+      "status": "bounded-owner-statement-received-disposition-recorded-independent-compatibility-acceptance-pending"
     },
     {
       "id": "G3",
@@ -344,7 +381,14 @@
   ],
   "failure_boundary": "Before an authorized future switch, unresolved input drift or missing evidence stops entry. Any later partial switch/failure must retain exact attempted changes and outputs for review; no automatic retry, revert or native action is supplied.",
   "historical_evidence": "Do not edit original expectations, native captures, frozen plans or failed attempts to match a later producer.",
-  "current_effects": "Documentation and decision data only. No producer, consumer, test, schema, configuration or native behavior changes.",
+  "current_effects": "Prepared check-only schema amendment, numerical test context, new offline coherence tests and current review/bindings/docs; no producer/native behavior change.",
   "next_automatic_step": null,
-  "historical_pre630_path": "data/schemas/candidates/history/pre630/data/schemas/candidates/migration-plan.json"
+  "historical_pre630_path": "data/schemas/candidates/history/pre630/data/schemas/candidates/migration-plan.json",
+  "revision_base_commit": "a41e30e6dc8bb258153569570a03768e74ac3ae4",
+  "selected_bounded_amendment": {
+    "path": "data/schemas/candidates/check-coherence-review.json",
+    "bytes": 5226,
+    "sha256": "a68b0b133048621f801e0591aeaf6745401b318daa39f59541ad9c1eb4165599"
+  },
+  "historical_pre665_path": "data/schemas/candidates/history/pre665/data/schemas/candidates/migration-plan.json"
 }

@@ -1,0 +1,1420 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:slack-update:candidate:result:1",
+  "title": "CANDIDATE ONLY: prospective Slack-Update v1 final result",
+  "$comment": "Not accepted, not emitted. Version 0 remains the running interface. See json-v1-candidate.md.",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "schema_status",
+    "operation",
+    "success",
+    "partial",
+    "reboot",
+    "boot_safe",
+    "exit_code",
+    "exit_code_meaning",
+    "exit_code_stable",
+    "started_at",
+    "finished_at",
+    "log_path",
+    "config_path",
+    "modules",
+    "warnings",
+    "errors"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "schema_status": {
+      "const": "stable"
+    },
+    "operation": {
+      "enum": [
+        "check",
+        "dry-run",
+        "apply"
+      ]
+    },
+    "success": {
+      "type": "boolean"
+    },
+    "partial": {
+      "type": "boolean"
+    },
+    "reboot": {
+      "enum": [
+        "none",
+        "recommended",
+        "required",
+        "unsafe"
+      ]
+    },
+    "boot_safe": {
+      "type": "boolean"
+    },
+    "exit_code": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 5
+    },
+    "exit_code_meaning": {
+      "type": "string"
+    },
+    "exit_code_stable": {
+      "const": true
+    },
+    "started_at": {
+      "type": "string"
+    },
+    "finished_at": {
+      "type": "string"
+    },
+    "log_path": {
+      "type": "string"
+    },
+    "config_path": {
+      "type": "string"
+    },
+    "modules": {
+      "type": "object"
+    },
+    "warnings": {
+      "$ref": "#/$defs/stringArray"
+    },
+    "errors": {
+      "$ref": "#/$defs/stringArray"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "count": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "nullableStatus": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "stringArray": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "buildOptions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "target",
+          "options"
+        ],
+        "properties": {
+          "target": {
+            "type": "string"
+          },
+          "options": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "checkModules": {
+      "type": "object",
+      "required": [
+        "slackware"
+      ],
+      "properties": {
+        "slackware": {
+          "type": "object",
+          "required": [
+            "state",
+            "check_exit_code",
+            "updates_available"
+          ],
+          "properties": {
+            "state": {
+              "enum": [
+                "success",
+                "failed"
+              ]
+            },
+            "check_exit_code": {
+              "type": "integer"
+            },
+            "updates_available": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "check_exit_code": {
+                    "const": 0
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "state": {
+                    "const": "success"
+                  },
+                  "updates_available": {
+                    "const": false
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "check_exit_code": {
+                    "const": 100
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "state": {
+                    "const": "success"
+                  },
+                  "updates_available": {
+                    "const": true
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "check_exit_code": {
+                    "not": {
+                      "enum": [
+                        0,
+                        100
+                      ]
+                    }
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "state": {
+                    "const": "failed"
+                  },
+                  "updates_available": {
+                    "type": "null"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "dryRunModules": {
+      "type": "object",
+      "required": [
+        "slackware",
+        "flatpak",
+        "sbo",
+        "elf",
+        "cinnamon",
+        "boot"
+      ],
+      "properties": {
+        "slackware": {
+          "type": "object",
+          "required": [
+            "state",
+            "check_exit_code",
+            "updates_available",
+            "planned_commands"
+          ],
+          "properties": {
+            "state": {
+              "enum": [
+                "success",
+                "failed"
+              ]
+            },
+            "check_exit_code": {
+              "type": "integer"
+            },
+            "updates_available": {
+              "type": [
+                "boolean",
+                "null"
+              ]
+            },
+            "planned_commands": {
+              "$ref": "#/$defs/stringArray"
+            }
+          },
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "check_exit_code": {
+                    "const": 0
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "state": {
+                    "const": "success"
+                  },
+                  "updates_available": {
+                    "const": false
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "check_exit_code": {
+                    "const": 100
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "state": {
+                    "const": "success"
+                  },
+                  "updates_available": {
+                    "const": true
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "check_exit_code": {
+                    "not": {
+                      "enum": [
+                        0,
+                        100
+                      ]
+                    }
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "state": {
+                    "const": "failed"
+                  },
+                  "updates_available": {
+                    "type": "null"
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "flatpak": {
+          "type": "object",
+          "required": [
+            "mode",
+            "activation_state",
+            "reason",
+            "available",
+            "would_update"
+          ],
+          "properties": {
+            "mode": {
+              "enum": [
+                "auto",
+                "enabled",
+                "disabled"
+              ]
+            },
+            "activation_state": {
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            },
+            "available": {
+              "type": "boolean"
+            },
+            "would_update": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
+        "sbo": {
+          "type": "object",
+          "required": [
+            "mode",
+            "activation_state",
+            "reason",
+            "queue_directory",
+            "personal_queue_directory",
+            "options_file",
+            "target_selection_error",
+            "sbopkg_available",
+            "sqg_available",
+            "build_option_record_count",
+            "target_selection_exit_code",
+            "queue_workspace_isolated",
+            "build_options",
+            "current_queue_targets",
+            "abi_rebuild_candidates",
+            "broken_elf_targets"
+          ],
+          "properties": {
+            "mode": {
+              "enum": [
+                "auto",
+                "enabled",
+                "disabled"
+              ]
+            },
+            "activation_state": {
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            },
+            "queue_directory": {
+              "type": "string"
+            },
+            "personal_queue_directory": {
+              "type": "string"
+            },
+            "options_file": {
+              "type": "string"
+            },
+            "target_selection_error": {
+              "type": "string"
+            },
+            "sbopkg_available": {
+              "type": "boolean"
+            },
+            "sqg_available": {
+              "type": "boolean"
+            },
+            "build_option_record_count": {
+              "$ref": "#/$defs/count"
+            },
+            "target_selection_exit_code": {
+              "$ref": "#/$defs/nullableStatus"
+            },
+            "queue_workspace_isolated": {
+              "const": true
+            },
+            "build_options": {
+              "$ref": "#/$defs/buildOptions"
+            },
+            "current_queue_targets": {
+              "$ref": "#/$defs/stringArray"
+            },
+            "abi_rebuild_candidates": {
+              "$ref": "#/$defs/stringArray"
+            },
+            "broken_elf_targets": {
+              "$ref": "#/$defs/stringArray"
+            }
+          },
+          "additionalProperties": false
+        },
+        "elf": {
+          "type": "object",
+          "required": [
+            "mode",
+            "activation_state",
+            "reason",
+            "readelf_available",
+            "ldconfig_available",
+            "library_cache_records",
+            "scan_exit_code",
+            "inspection_method",
+            "executes_inspected_objects",
+            "architecture_specific_resolution",
+            "architecture_match_fields",
+            "broken_objects"
+          ],
+          "properties": {
+            "mode": {
+              "enum": [
+                "auto",
+                "enabled",
+                "disabled"
+              ]
+            },
+            "activation_state": {
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            },
+            "readelf_available": {
+              "type": "boolean"
+            },
+            "ldconfig_available": {
+              "type": "boolean"
+            },
+            "library_cache_records": {
+              "$ref": "#/$defs/count"
+            },
+            "scan_exit_code": {
+              "$ref": "#/$defs/nullableStatus"
+            },
+            "inspection_method": {
+              "const": "readelf+ldconfig-cache"
+            },
+            "executes_inspected_objects": {
+              "const": false
+            },
+            "architecture_specific_resolution": {
+              "const": true
+            },
+            "architecture_match_fields": {
+              "const": [
+                "class",
+                "data",
+                "machine"
+              ]
+            },
+            "broken_objects": {
+              "$ref": "#/$defs/stringArray"
+            }
+          },
+          "additionalProperties": false
+        },
+        "cinnamon": {
+          "type": "object",
+          "required": [
+            "mode",
+            "activation_state",
+            "reason",
+            "installation_detected",
+            "repository_available",
+            "builder_available"
+          ],
+          "properties": {
+            "mode": {
+              "enum": [
+                "auto",
+                "enabled",
+                "disabled"
+              ]
+            },
+            "activation_state": {
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            },
+            "installation_detected": {
+              "type": "boolean"
+            },
+            "repository_available": {
+              "type": "boolean"
+            },
+            "builder_available": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
+        "boot": {
+          "type": "object",
+          "required": [
+            "mode",
+            "activation_state",
+            "reason",
+            "kernel_package",
+            "modules_directory",
+            "grub_active_config",
+            "mkinitrd_available",
+            "mkinitrd_configured",
+            "grub_generator_available",
+            "grub_validator_available",
+            "grub_configured",
+            "kernel_version_source",
+            "kernel_validation_deferred_until_apply",
+            "grub_temporary_generation",
+            "grub_validator",
+            "grub_atomic_replacement"
+          ],
+          "properties": {
+            "mode": {
+              "enum": [
+                "auto",
+                "enabled",
+                "disabled"
+              ]
+            },
+            "activation_state": {
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            },
+            "kernel_package": {
+              "type": "string"
+            },
+            "modules_directory": {
+              "type": "string"
+            },
+            "grub_active_config": {
+              "type": "string"
+            },
+            "mkinitrd_available": {
+              "type": "boolean"
+            },
+            "mkinitrd_configured": {
+              "type": "boolean"
+            },
+            "grub_generator_available": {
+              "type": "boolean"
+            },
+            "grub_validator_available": {
+              "type": "boolean"
+            },
+            "grub_configured": {
+              "type": "boolean"
+            },
+            "kernel_version_source": {
+              "const": "post-update-package-snapshot"
+            },
+            "kernel_validation_deferred_until_apply": {
+              "const": true
+            },
+            "grub_temporary_generation": {
+              "const": true
+            },
+            "grub_validator": {
+              "const": "grub-script-check"
+            },
+            "grub_atomic_replacement": {
+              "const": true
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "applyModules": {
+      "type": "object",
+      "required": [
+        "slackware",
+        "flatpak",
+        "sbo",
+        "elf",
+        "cinnamon",
+        "boot"
+      ],
+      "properties": {
+        "slackware": {
+          "type": "object",
+          "required": [
+            "postinstall_policy",
+            "pending_new_config_files_error",
+            "snapshot_before_error",
+            "snapshot_after_error",
+            "secondary_modules_block_reason",
+            "pending_new_config_files_valid",
+            "snapshot_before_valid",
+            "snapshot_after_valid",
+            "secondary_modules_blocked",
+            "abi_changes",
+            "kernel_changes",
+            "pending_new_config_files_count",
+            "snapshot_before_records",
+            "snapshot_after_records",
+            "update_exit_code",
+            "install_new_exit_code",
+            "upgrade_all_exit_code",
+            "state",
+            "postinstall_processing_enabled",
+            "pending_new_config_files",
+            "critical_packages"
+          ],
+          "properties": {
+            "postinstall_policy": {
+              "type": "string"
+            },
+            "pending_new_config_files_error": {
+              "type": "string"
+            },
+            "snapshot_before_error": {
+              "type": "string"
+            },
+            "snapshot_after_error": {
+              "type": "string"
+            },
+            "secondary_modules_block_reason": {
+              "type": "string"
+            },
+            "pending_new_config_files_valid": {
+              "type": "boolean"
+            },
+            "snapshot_before_valid": {
+              "type": "boolean"
+            },
+            "snapshot_after_valid": {
+              "type": "boolean"
+            },
+            "secondary_modules_blocked": {
+              "type": "boolean"
+            },
+            "abi_changes": {
+              "type": "boolean"
+            },
+            "kernel_changes": {
+              "type": "boolean"
+            },
+            "pending_new_config_files_count": {
+              "$ref": "#/$defs/count"
+            },
+            "snapshot_before_records": {
+              "$ref": "#/$defs/count"
+            },
+            "snapshot_after_records": {
+              "$ref": "#/$defs/count"
+            },
+            "update_exit_code": {
+              "$ref": "#/$defs/nullableStatus"
+            },
+            "install_new_exit_code": {
+              "$ref": "#/$defs/nullableStatus"
+            },
+            "upgrade_all_exit_code": {
+              "$ref": "#/$defs/nullableStatus"
+            },
+            "state": {
+              "enum": [
+                "success",
+                "failed"
+              ]
+            },
+            "postinstall_processing_enabled": {
+              "const": false
+            },
+            "pending_new_config_files": {
+              "$ref": "#/$defs/stringArray"
+            },
+            "critical_packages": {
+              "$ref": "#/$defs/stringArray"
+            }
+          },
+          "additionalProperties": false
+        },
+        "flatpak": {
+          "type": "object",
+          "required": [
+            "mode",
+            "activation_state",
+            "reason",
+            "state",
+            "exit_code"
+          ],
+          "properties": {
+            "mode": {
+              "enum": [
+                "auto",
+                "enabled",
+                "disabled"
+              ]
+            },
+            "activation_state": {
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            },
+            "exit_code": {
+              "$ref": "#/$defs/nullableStatus"
+            }
+          },
+          "additionalProperties": false
+        },
+        "sbo": {
+          "type": "object",
+          "required": [
+            "mode",
+            "activation_state",
+            "reason",
+            "state",
+            "personal_queue_directory",
+            "generated_queue_workspace",
+            "options_file",
+            "target_selection_error",
+            "private_queue_generation_ready",
+            "personal_queue_files_copied",
+            "personal_queue_symlinks_ignored",
+            "build_option_record_count",
+            "core_queue_count",
+            "extra_queue_count",
+            "submitted_queue_count",
+            "sync_exit_code",
+            "queue_generation_exit_code",
+            "target_selection_exit_code",
+            "build_exit_code",
+            "queue_workspace_isolated",
+            "build_options"
+          ],
+          "properties": {
+            "mode": {
+              "enum": [
+                "auto",
+                "enabled",
+                "disabled"
+              ]
+            },
+            "activation_state": {
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            },
+            "personal_queue_directory": {
+              "type": "string"
+            },
+            "generated_queue_workspace": {
+              "type": "string"
+            },
+            "options_file": {
+              "type": "string"
+            },
+            "target_selection_error": {
+              "type": "string"
+            },
+            "private_queue_generation_ready": {
+              "type": "boolean"
+            },
+            "personal_queue_files_copied": {
+              "$ref": "#/$defs/count"
+            },
+            "personal_queue_symlinks_ignored": {
+              "$ref": "#/$defs/count"
+            },
+            "build_option_record_count": {
+              "$ref": "#/$defs/count"
+            },
+            "core_queue_count": {
+              "$ref": "#/$defs/count"
+            },
+            "extra_queue_count": {
+              "$ref": "#/$defs/count"
+            },
+            "submitted_queue_count": {
+              "$ref": "#/$defs/count"
+            },
+            "sync_exit_code": {
+              "$ref": "#/$defs/nullableStatus"
+            },
+            "queue_generation_exit_code": {
+              "$ref": "#/$defs/nullableStatus"
+            },
+            "target_selection_exit_code": {
+              "$ref": "#/$defs/nullableStatus"
+            },
+            "build_exit_code": {
+              "$ref": "#/$defs/nullableStatus"
+            },
+            "queue_workspace_isolated": {
+              "const": true
+            },
+            "build_options": {
+              "$ref": "#/$defs/buildOptions"
+            }
+          },
+          "additionalProperties": false
+        },
+        "elf": {
+          "type": "object",
+          "required": [
+            "mode",
+            "activation_state",
+            "reason",
+            "state",
+            "library_cache_records",
+            "scan_exit_code",
+            "verification_exit_code",
+            "inspection_method",
+            "executes_inspected_objects",
+            "architecture_specific_resolution",
+            "architecture_match_fields",
+            "broken_objects"
+          ],
+          "properties": {
+            "mode": {
+              "enum": [
+                "auto",
+                "enabled",
+                "disabled"
+              ]
+            },
+            "activation_state": {
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            },
+            "library_cache_records": {
+              "$ref": "#/$defs/count"
+            },
+            "scan_exit_code": {
+              "$ref": "#/$defs/nullableStatus"
+            },
+            "verification_exit_code": {
+              "$ref": "#/$defs/nullableStatus"
+            },
+            "inspection_method": {
+              "const": "readelf+ldconfig-cache"
+            },
+            "executes_inspected_objects": {
+              "const": false
+            },
+            "architecture_specific_resolution": {
+              "const": true
+            },
+            "architecture_match_fields": {
+              "const": [
+                "class",
+                "data",
+                "machine"
+              ]
+            },
+            "broken_objects": {
+              "$ref": "#/$defs/stringArray"
+            }
+          },
+          "additionalProperties": false
+        },
+        "cinnamon": {
+          "type": "object",
+          "required": [
+            "mode",
+            "activation_state",
+            "reason",
+            "state"
+          ],
+          "properties": {
+            "mode": {
+              "enum": [
+                "auto",
+                "enabled",
+                "disabled"
+              ]
+            },
+            "activation_state": {
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "boot": {
+          "type": "object",
+          "required": [
+            "mode",
+            "activation_state",
+            "reason",
+            "state",
+            "preparation_layout",
+            "direct_generic_reason",
+            "direct_generic_boot_image",
+            "direct_generic_running_kernel_path",
+            "direct_generic_validation_error",
+            "direct_generic_installed_kernel_version",
+            "direct_generic_kernel_path",
+            "direct_generic_modules_path",
+            "geninitrd_policy_path",
+            "geninitrd_policy_override_status",
+            "geninitrd_policy_override_error",
+            "geninitrd_post_state",
+            "geninitrd_post_validation_error",
+            "geninitrd_post_kernel_version",
+            "geninitrd_post_kernel_path",
+            "geninitrd_post_modules_path",
+            "geninitrd_post_initrd_path",
+            "geninitrd_post_named_link",
+            "initrd_state",
+            "kernel_package",
+            "configured_kernel_version",
+            "installed_kernel_version",
+            "modules_directory",
+            "installed_modules_path",
+            "initrd_output",
+            "initrd_validation_error",
+            "grub_state",
+            "grub_active_config",
+            "grub_temporary_config",
+            "grub_validation_error",
+            "grub_block_reason",
+            "direct_generic_available",
+            "geninitrd_policy_override_required",
+            "geninitrd_policy_override_applied",
+            "geninitrd_policy_override_restored",
+            "geninitrd_policy_override_active",
+            "geninitrd_transition_expected",
+            "initrd_required",
+            "grub_required",
+            "grub_command_attempted",
+            "grub_replacement_attempted",
+            "grub_config_replaced",
+            "grub_blocked_by_initrd",
+            "direct_generic_installed_kernel_records",
+            "installed_kernel_records",
+            "direct_generic_validation_exit_code",
+            "geninitrd_post_validation_exit_code",
+            "initrd_validation_exit_code",
+            "grub_generation_exit_code",
+            "grub_validation_exit_code",
+            "grub_install_exit_code",
+            "kernel_version_source",
+            "grub_validator",
+            "grub_atomic_replacement"
+          ],
+          "properties": {
+            "mode": {
+              "enum": [
+                "auto",
+                "enabled",
+                "disabled"
+              ]
+            },
+            "activation_state": {
+              "type": "string"
+            },
+            "reason": {
+              "type": "string"
+            },
+            "state": {
+              "type": "string"
+            },
+            "preparation_layout": {
+              "type": "string"
+            },
+            "direct_generic_reason": {
+              "type": "string"
+            },
+            "direct_generic_boot_image": {
+              "type": "string"
+            },
+            "direct_generic_running_kernel_path": {
+              "type": "string"
+            },
+            "direct_generic_validation_error": {
+              "type": "string"
+            },
+            "direct_generic_installed_kernel_version": {
+              "type": "string"
+            },
+            "direct_generic_kernel_path": {
+              "type": "string"
+            },
+            "direct_generic_modules_path": {
+              "type": "string"
+            },
+            "geninitrd_policy_path": {
+              "type": "string"
+            },
+            "geninitrd_policy_override_status": {
+              "type": "string"
+            },
+            "geninitrd_policy_override_error": {
+              "type": "string"
+            },
+            "geninitrd_post_state": {
+              "type": "string"
+            },
+            "geninitrd_post_validation_error": {
+              "type": "string"
+            },
+            "geninitrd_post_kernel_version": {
+              "type": "string"
+            },
+            "geninitrd_post_kernel_path": {
+              "type": "string"
+            },
+            "geninitrd_post_modules_path": {
+              "type": "string"
+            },
+            "geninitrd_post_initrd_path": {
+              "type": "string"
+            },
+            "geninitrd_post_named_link": {
+              "type": "string"
+            },
+            "initrd_state": {
+              "type": "string"
+            },
+            "kernel_package": {
+              "type": "string"
+            },
+            "configured_kernel_version": {
+              "type": "string"
+            },
+            "installed_kernel_version": {
+              "type": "string"
+            },
+            "modules_directory": {
+              "type": "string"
+            },
+            "installed_modules_path": {
+              "type": "string"
+            },
+            "initrd_output": {
+              "type": "string"
+            },
+            "initrd_validation_error": {
+              "type": "string"
+            },
+            "grub_state": {
+              "type": "string"
+            },
+            "grub_active_config": {
+              "type": "string"
+            },
+            "grub_temporary_config": {
+              "type": "string"
+            },
+            "grub_validation_error": {
+              "type": "string"
+            },
+            "grub_block_reason": {
+              "type": "string"
+            },
+            "direct_generic_available": {
+              "type": "boolean"
+            },
+            "geninitrd_policy_override_required": {
+              "type": "boolean"
+            },
+            "geninitrd_policy_override_applied": {
+              "type": "boolean"
+            },
+            "geninitrd_policy_override_restored": {
+              "type": "boolean"
+            },
+            "geninitrd_policy_override_active": {
+              "type": "boolean"
+            },
+            "geninitrd_transition_expected": {
+              "type": "boolean"
+            },
+            "initrd_required": {
+              "type": "boolean"
+            },
+            "grub_required": {
+              "type": "boolean"
+            },
+            "grub_command_attempted": {
+              "type": "boolean"
+            },
+            "grub_replacement_attempted": {
+              "type": "boolean"
+            },
+            "grub_config_replaced": {
+              "type": "boolean"
+            },
+            "grub_blocked_by_initrd": {
+              "type": "boolean"
+            },
+            "direct_generic_installed_kernel_records": {
+              "$ref": "#/$defs/count"
+            },
+            "installed_kernel_records": {
+              "$ref": "#/$defs/count"
+            },
+            "direct_generic_validation_exit_code": {
+              "$ref": "#/$defs/nullableStatus"
+            },
+            "geninitrd_post_validation_exit_code": {
+              "$ref": "#/$defs/nullableStatus"
+            },
+            "initrd_validation_exit_code": {
+              "$ref": "#/$defs/nullableStatus"
+            },
+            "grub_generation_exit_code": {
+              "$ref": "#/$defs/nullableStatus"
+            },
+            "grub_validation_exit_code": {
+              "$ref": "#/$defs/nullableStatus"
+            },
+            "grub_install_exit_code": {
+              "$ref": "#/$defs/nullableStatus"
+            },
+            "kernel_version_source": {
+              "const": "post-update-package-snapshot"
+            },
+            "grub_validator": {
+              "const": "grub-script-check"
+            },
+            "grub_atomic_replacement": {
+              "const": true
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "oneOf": [
+    {
+      "properties": {
+        "operation": {
+          "const": "check"
+        },
+        "exit_code": {
+          "enum": [
+            0,
+            1
+          ]
+        },
+        "modules": {
+          "$ref": "#/$defs/checkModules"
+        }
+      }
+    },
+    {
+      "properties": {
+        "operation": {
+          "const": "dry-run"
+        },
+        "exit_code": {
+          "enum": [
+            0,
+            1
+          ]
+        },
+        "modules": {
+          "$ref": "#/$defs/dryRunModules"
+        }
+      }
+    },
+    {
+      "properties": {
+        "operation": {
+          "const": "apply"
+        },
+        "exit_code": {
+          "enum": [
+            0,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "modules": {
+          "$ref": "#/$defs/applyModules"
+        }
+      }
+    }
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "exit_code": {
+            "const": 0
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "exit_code_meaning": {
+            "const": "success; no reboot required"
+          },
+          "success": {
+            "const": true
+          },
+          "partial": {
+            "const": false
+          },
+          "boot_safe": {
+            "const": true
+          },
+          "reboot": {
+            "const": "none"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "exit_code": {
+            "const": 1
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "exit_code_meaning": {
+            "const": "general failure"
+          },
+          "success": {
+            "const": false
+          },
+          "partial": {
+            "const": false
+          },
+          "boot_safe": {
+            "const": true
+          },
+          "reboot": {
+            "const": "none"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "exit_code": {
+            "const": 2
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "exit_code_meaning": {
+            "const": "partial update or verification failure"
+          },
+          "success": {
+            "const": false
+          },
+          "partial": {
+            "const": true
+          },
+          "boot_safe": {
+            "const": true
+          },
+          "reboot": {
+            "enum": [
+              "none",
+              "recommended",
+              "required"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "exit_code": {
+            "const": 3
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "exit_code_meaning": {
+            "const": "critical boot preparation failure; do not reboot"
+          },
+          "success": {
+            "const": false
+          },
+          "partial": {
+            "const": true
+          },
+          "boot_safe": {
+            "const": false
+          },
+          "reboot": {
+            "const": "unsafe"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "exit_code": {
+            "const": 4
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "exit_code_meaning": {
+            "const": "success; reboot recommended"
+          },
+          "success": {
+            "const": true
+          },
+          "partial": {
+            "const": false
+          },
+          "boot_safe": {
+            "const": true
+          },
+          "reboot": {
+            "const": "recommended"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "exit_code": {
+            "const": 5
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "exit_code_meaning": {
+            "const": "success; reboot required"
+          },
+          "success": {
+            "const": true
+          },
+          "partial": {
+            "const": false
+          },
+          "boot_safe": {
+            "const": true
+          },
+          "reboot": {
+            "const": "required"
+          }
+        }
+      }
+    }
+  ]
+}

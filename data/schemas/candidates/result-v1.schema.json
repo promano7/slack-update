@@ -1415,6 +1415,43 @@
           }
         }
       }
+    },
+    {
+      "if": {
+        "properties": {
+          "operation": {
+            "const": "check"
+          },
+          "exit_code": {
+            "const": 0
+          }
+        },
+        "required": [
+          "operation",
+          "exit_code"
+        ]
+      },
+      "then": {
+        "properties": {
+          "modules": {
+            "properties": {
+              "slackware": {
+                "properties": {
+                  "check_exit_code": {
+                    "enum": [
+                      0,
+                      100
+                    ]
+                  }
+                }
+              }
+            }
+          },
+          "errors": {
+            "maxItems": 0
+          }
+        }
+      }
     }
   ]
 }

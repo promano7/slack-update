@@ -1,0 +1,134 @@
+{
+  "kind": "selected-J03-2-bounded-candidate-preparation-not-independent-acceptance",
+  "base_commit": "a41e30e6dc8bb258153569570a03768e74ac3ae4",
+  "base_tree": "0447364b5c411e50c3099b247847040d10ada11a",
+  "J03_owner_choice": "J03-2",
+  "owner_choice_quote": "Lo hacemos según recomiendas",
+  "preparation_authorized": true,
+  "whole_J03_disposition": "pending",
+  "clause": {
+    "if": {
+      "properties": {
+        "operation": {
+          "const": "check"
+        },
+        "exit_code": {
+          "const": 0
+        }
+      },
+      "required": [
+        "operation",
+        "exit_code"
+      ]
+    },
+    "then": {
+      "properties": {
+        "modules": {
+          "properties": {
+            "slackware": {
+              "properties": {
+                "check_exit_code": {
+                  "enum": [
+                    0,
+                    100
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "errors": {
+          "maxItems": 0
+        }
+      }
+    }
+  },
+  "previous_result": {
+    "path": "data/schemas/candidates/history/pre665/data/schemas/candidates/result-v1.schema.json",
+    "bytes": 36339,
+    "sha256": "bf38ffa59117546f8d3d136043e4df7b7c42d216d94189db8513d91d23d8e14c"
+  },
+  "proposed_result": {
+    "path": "data/schemas/candidates/result-v1.schema.json",
+    "bytes": 37067,
+    "sha256": "893a192f01c59f08818ff942e6dec13c0d44683dda29055c34cfc4668c5cac87"
+  },
+  "previous_dossier": {
+    "path": "data/schemas/candidates/history/pre665/data/schemas/candidates/decision-review.json",
+    "bytes": 32787,
+    "sha256": "646aa3201f719d224029bed67710e97d698515094e01e41a525c71e3a7d84761"
+  },
+  "owner_statement": {
+    "author": "Repository owner in this conversation",
+    "date": "2026-10-31",
+    "quote": "Solo he usado las pruebas y comandos que hacemos aquí; no conozco otros consumidores",
+    "scope": "Own use of tests and commands performed together in this chat; no other consumers known",
+    "named_external_consumers": [],
+    "disposition": "No named external consumers to adapt in the declared scope. Preserve bounded knowledge and revisit if consumers are discovered; independent exact compatibility/contract acceptance still pending.",
+    "global_absence_claim": false,
+    "all_equipment_or_CI_surveyed": false,
+    "independent_acceptance": false
+  },
+  "source_application_on_PC": false,
+  "publication": false,
+  "producer_migrated": false,
+  "independent_semantic_acceptance": false,
+  "schema1_accepted": false,
+  "schema1_frozen": false,
+  "native_authorization": false,
+  "retained_changed_input_preimages": [
+    {
+      "path": "data/schemas/candidates/history/pre665/data/schemas/candidates/result-v1.schema.json",
+      "bytes": 36339,
+      "sha256": "bf38ffa59117546f8d3d136043e4df7b7c42d216d94189db8513d91d23d8e14c"
+    },
+    {
+      "path": "data/schemas/candidates/history/pre665/data/schemas/candidates/consumer-inventory.json",
+      "bytes": 15379,
+      "sha256": "a6cc3a6801fb3d993a4c7deca0d8e71d8fc3051860206dfd0ee7f4abb874ea4f"
+    },
+    {
+      "path": "data/schemas/candidates/history/pre665/data/schemas/candidates/decision-review.json",
+      "bytes": 32787,
+      "sha256": "646aa3201f719d224029bed67710e97d698515094e01e41a525c71e3a7d84761"
+    },
+    {
+      "path": "data/schemas/candidates/history/pre665/data/schemas/candidates/migration-plan.json",
+      "bytes": 17005,
+      "sha256": "768b2275cc34b9a26ab327a06adf57113a09e29d3d699ef41d9e85d3363b9ece"
+    },
+    {
+      "path": "data/schemas/candidates/history/pre665/tests/reference/test-json-v1-numeric-exactness.py",
+      "bytes": 8131,
+      "sha256": "eb0550852fa87da8a660cb6e5b87978ef07ef0776833a98045db6b1f3e078a8e"
+    },
+    {
+      "path": "data/schemas/candidates/history/pre665/docs/reference/json-v1-candidate.md",
+      "bytes": 13578,
+      "sha256": "2039bb4234cff24260f4f556e2a96a2e440d6c150ddba956ebbdc2218a61236a"
+    },
+    {
+      "path": "data/schemas/candidates/history/pre665/docs/reference/json-v1-policy-review.md",
+      "bytes": 10741,
+      "sha256": "ddd9d1359254ca43f75b9ee7f6d4a46e0d74a09cae6fddd399b91dfbce9e5c19"
+    },
+    {
+      "path": "data/schemas/candidates/history/pre665/docs/reference/json-v1-consumer-review.md",
+      "bytes": 11744,
+      "sha256": "2e2beeac4e44aeaf3a31623111a5b2cebdbaf387301dd89cb10ef35a7dca87e9"
+    },
+    {
+      "path": "data/schemas/candidates/history/pre665/docs/reference/json-v1-decision-review.md",
+      "bytes": 13835,
+      "sha256": "2884d5a7807b8eb2f4e4681bb66c788c3d7da6a32f9e96f983ed52648140f146"
+    },
+    {
+      "path": "data/schemas/candidates/history/pre665/docs/reference/json-v1-numeric-revision.md",
+      "bytes": 6056,
+      "sha256": "180790bfca5b1fef558538303a2a7e4a12201c085f4de9a44f69b346ba6ee509"
+    }
+  ],
+  "renewed_review_required": "All changed and additional inputs; old exact decisions cannot bind new bytes",
+  "numeric_impact": "Failure envelopes for large/fractional raw codes preserve raw-number testing independently of the new success clause",
+  "source_scope": "One check-only schema clause, numerical test context, authored new offline tests and current review/bindings/docs; no runtime or native criteria change"
+}

@@ -1,19 +1,19 @@
 {
   "kind": "json-v1-semantic-decision-dossier-not-acceptance",
   "schema": 1,
-  "base_commit": "ffd74525b9414fd9973e511b74983f7e48575494",
-  "base_tree": "1f0cdfef3ecac8757a3349e5a8886c7622c74ad2",
+  "base_commit": "a41e30e6dc8bb258153569570a03768e74ac3ae4",
+  "base_tree": "0447364b5c411e50c3099b247847040d10ada11a",
   "prepared_steps": [
-    630,
-    631,
-    632,
-    633,
-    634,
-    635,
-    636,
-    637
+    665,
+    666,
+    667,
+    668,
+    669,
+    670,
+    671,
+    672
   ],
-  "status": "numeric-reader-revised-prepared-for-fresh-exact-review",
+  "status": "selected-check-coherence-candidate-prepared-not-independently-accepted",
   "decision": null,
   "reviewer": null,
   "independent_review_evidence": null,
@@ -28,8 +28,8 @@
   "exact_inputs": [
     {
       "path": "data/schemas/candidates/result-v1.schema.json",
-      "bytes": 36339,
-      "sha256": "bf38ffa59117546f8d3d136043e4df7b7c42d216d94189db8513d91d23d8e14c"
+      "bytes": 37067,
+      "sha256": "893a192f01c59f08818ff942e6dec13c0d44683dda29055c34cfc4668c5cac87"
     },
     {
       "path": "data/schemas/candidates/event-v1.schema.json",
@@ -38,18 +38,18 @@
     },
     {
       "path": "docs/reference/json-v1-candidate.md",
-      "bytes": 13578,
-      "sha256": "2039bb4234cff24260f4f556e2a96a2e440d6c150ddba956ebbdc2218a61236a"
+      "bytes": 14283,
+      "sha256": "7772626072feae0bb92b272f1a1088d01a06fb3d4c35c082b0dd7b9b469594c6"
     },
     {
       "path": "docs/reference/json-v1-policy-review.md",
-      "bytes": 10741,
-      "sha256": "ddd9d1359254ca43f75b9ee7f6d4a46e0d74a09cae6fddd399b91dfbce9e5c19"
+      "bytes": 11446,
+      "sha256": "e26286c61239aafa4fcfe6b65d5b5c197e789b29d121d205b6bdc3e585d47601"
     },
     {
       "path": "docs/reference/json-v1-consumer-review.md",
-      "bytes": 11744,
-      "sha256": "2e2beeac4e44aeaf3a31623111a5b2cebdbaf387301dd89cb10ef35a7dca87e9"
+      "bytes": 12449,
+      "sha256": "85dccb6c537ecf39c9c09466c16f6965183bc3f7213eb4dcf2f958edf9dcbe99"
     },
     {
       "path": "tools/reference/json_v1_candidate.py",
@@ -63,8 +63,8 @@
     },
     {
       "path": "data/schemas/candidates/consumer-inventory.json",
-      "bytes": 15379,
-      "sha256": "a6cc3a6801fb3d993a4c7deca0d8e71d8fc3051860206dfd0ee7f4abb874ea4f"
+      "bytes": 16501,
+      "sha256": "cd9195e9da362bb2227aa0045ce61ca1250725dad448e6618807230227261b4b"
     },
     {
       "path": "tests/reference/json_result_test_support.py",
@@ -103,16 +103,36 @@
     },
     {
       "path": "tests/reference/test-json-v1-numeric-exactness.py",
-      "bytes": 8131,
-      "sha256": "eb0550852fa87da8a660cb6e5b87978ef07ef0776833a98045db6b1f3e078a8e"
+      "bytes": 8493,
+      "sha256": "c13e30c1337c24bb2de7e9fc07a3d324e2fb40821ae2e96d1a3f0024bc92c70a"
     },
     {
       "path": "docs/reference/json-v1-numeric-revision.md",
-      "bytes": 6056,
-      "sha256": "180790bfca5b1fef558538303a2a7e4a12201c085f4de9a44f69b346ba6ee509"
+      "bytes": 6761,
+      "sha256": "1096a00660d7683ed70fb7c61c082a75a658f78b427cb10fe13fe7bce7effef9"
+    },
+    {
+      "path": "docs/reference/json-v1-check-coherence.md",
+      "bytes": 6390,
+      "sha256": "434d615648f73d02cf2f2139123b9941c12d84d35ddf6cc2df50cf446e7089fe"
+    },
+    {
+      "path": "tests/reference/test-json-v1-check-coherence.py",
+      "bytes": 6088,
+      "sha256": "e902deeeb33213fadd7a71611fdc97a24b2be93b773e3616d0a72089d70d1313"
+    },
+    {
+      "path": "data/schemas/candidates/check-coherence-review.json",
+      "bytes": 5226,
+      "sha256": "a68b0b133048621f801e0591aeaf6745401b318daa39f59541ad9c1eb4165599"
+    },
+    {
+      "path": "data/schemas/candidates/migration-plan.json",
+      "bytes": 19416,
+      "sha256": "8583fc93da2a6a41faa63cc464285921a89d9294eac085852713f054f7fcd0be"
     }
   ],
-  "input_precedence": "Exact schemas plus the later586-595 policy/validator define the proposal; earlier narrative and weaker framing readers remain historical, not overrides.",
+  "input_precedence": "Complete current candidate schemas and exact numeric reader plus the selected check-only amendment/impact govern this proposal. Historical narratives/inputs are retained, not current overrides.",
   "object_surfaces": {
     "result": [
       {
@@ -729,7 +749,7 @@
       }
     ]
   },
-  "surface_scope": "Generated navigation to direct object declarations only; allOf/oneOf/$ref/if/then constraints remain in the complete unchanged bound schemas. Not a replacement specification or oracle.",
+  "surface_scope": "Generated direct object navigation unchanged; allOf/oneOf/$ref/if/then remain in the complete current bound schemas, including the selected check-only clause. Not an oracle.",
   "questions": [
     {
       "id": "J01",
@@ -760,9 +780,9 @@
     {
       "id": "J03",
       "topic": "Final result projections",
-      "proposed_rule": "Result codes 0-5 constrain operation, success, partial, boot_safe, reboot and English exit_code_meaning exactly as the bound result schema.",
+      "proposed_rule": "Result codes 0-5 constrain operation, success, partial, boot_safe, reboot and English exit_code_meaning exactly as the bound result schema. For operation=check and exit_code=0 also require raw check0/100 AND errors empty (owner selected J03-2).",
       "limit_or_risk": "Reported success and boot_safe are data, not independent installed-state, recovery or boot-safety evidence.",
-      "required_review_or_future_evidence": "Original aggregate oracles plus prospective complete objects; preserve code-to-meaning and reboot projections.",
+      "required_review_or_future_evidence": "Original aggregate oracles plus prospective complete objects; preserve code-to-meaning and reboot projections. Review exact changed clause, input identities and numerical-test impact; whole independent J03 acceptance remains pending.",
       "disposition": "pending",
       "allowed_decisions": [
         "accept-as-written",
@@ -865,8 +885,8 @@
       "id": "J11",
       "topic": "External compatibility",
       "proposed_rule": "One later explicit switch; no negotiated version, adapter, fallback, dual-output or mixed-version stream is supplied.",
-      "limit_or_risk": "External scripts, CI and downstream clients are unknown. Repository lexical discovery is bounded and cannot prove their absence.",
-      "required_review_or_future_evidence": "Obtain a bounded owner statement or named external consumer inventory and reviewed disposition before switch readiness.",
+      "limit_or_risk": "Owner statement received: only tests/commands used together in this chat; no other consumers known in that bounded scope. No global survey or absence proof.",
+      "required_review_or_future_evidence": "Preserve bounded author/date/scope and recorded disposition; independently review compatibility and revisit newly discovered consumers before switch. Do not reask the received statement as missing.",
       "disposition": "pending",
       "allowed_decisions": [
         "accept-as-written",
@@ -896,15 +916,20 @@
     "Changed inputs invalidate the old decision binding and require a new review"
   ],
   "external_inventory": {
-    "status": "unknown-not-surveyed",
-    "owner_statement": null,
+    "status": "bounded-owner-statement-received",
+    "owner_statement": {
+      "author": "Repository owner in this conversation",
+      "date": "2026-10-31",
+      "quote": "Solo he usado las pruebas y comandos que hacemos aquí; no conozco otros consumidores",
+      "scope": "Own use of tests and commands performed together in this chat; no other consumers known",
+      "named_external_consumers": [],
+      "disposition": "No named external consumers to adapt in the declared scope. Preserve bounded knowledge and revisit if consumers are discovered; independent exact compatibility/contract acceptance still pending.",
+      "global_absence_claim": false,
+      "all_equipment_or_CI_surveyed": false,
+      "independent_acceptance": false
+    },
     "absence_claim": false,
-    "questions": [
-      "Do local scripts or scheduled jobs parse --json or --events?",
-      "Does CI or monitoring outside this repository parse those outputs?",
-      "Are there downstream/manual jq or Python consumers to preserve?",
-      "For each known consumer, what source/version/family and rollout owner apply?"
-    ]
+    "pending": "Independent exact compatibility acceptance and disposition of any newly discovered consumer before producer switch"
   },
   "inherited_acceptance": {
     "repository_through": 605,
@@ -939,5 +964,23 @@
     "independent_review_evidence": null,
     "recommendation": "Review J01/J05/J08/J09 against revised exact inputs; all effective dispositions remain pending",
     "previous_dossier_preserved": true
+  },
+  "historical_pre665_path": "data/schemas/candidates/history/pre665/data/schemas/candidates/decision-review.json",
+  "check_coherence_revision": {
+    "review": {
+      "path": "data/schemas/candidates/check-coherence-review.json",
+      "bytes": 5226,
+      "sha256": "a68b0b133048621f801e0591aeaf6745401b318daa39f59541ad9c1eb4165599"
+    },
+    "previous_dossier": {
+      "path": "data/schemas/candidates/history/pre665/data/schemas/candidates/decision-review.json",
+      "bytes": 32787,
+      "sha256": "646aa3201f719d224029bed67710e97d698515094e01e41a525c71e3a7d84761"
+    },
+    "owner_choice": "J03-2",
+    "whole_independent_J03_disposition": "pending",
+    "independent_acceptance": false,
+    "changed_inputs_require_new_review": true,
+    "PC_application_and_publication": "pending"
   }
 }

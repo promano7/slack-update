@@ -1,11 +1,21 @@
 {
   "kind": "bounded-source-metadata-reference-inventory-not-whole-consumer-proof",
-  "base_commit": "ffd74525b9414fd9973e511b74983f7e48575494",
-  "base_tree": "1f0cdfef3ecac8757a3349e5a8886c7622c74ad2",
+  "base_commit": "a41e30e6dc8bb258153569570a03768e74ac3ae4",
+  "base_tree": "0447364b5c411e50c3099b247847040d10ada11a",
   "discovery_scope": "All regular .py/.sh files below tools/ and tests/ containing literal schema_version or schema_status; includes prepared new tests. No dynamic/import/alias or external consumer completeness claim.",
   "runtime_schema_version": 0,
   "schema1_accepted": false,
-  "external_consumers": "unknown; user scripts, CI outside repository and downstream clients require separate inventory before migration",
+  "external_consumers": {
+    "author": "Repository owner in this conversation",
+    "date": "2026-10-31",
+    "quote": "Solo he usado las pruebas y comandos que hacemos aquí; no conozco otros consumidores",
+    "scope": "Own use of tests and commands performed together in this chat; no other consumers known",
+    "named_external_consumers": [],
+    "disposition": "No named external consumers to adapt in the declared scope. Preserve bounded knowledge and revisit if consumers are discovered; independent exact compatibility/contract acceptance still pending.",
+    "global_absence_claim": false,
+    "all_equipment_or_CI_surveyed": false,
+    "independent_acceptance": false
+  },
   "metadata_references": [
     {
       "path": "tests/acceptance/reference/test-no-updates.sh",
@@ -74,6 +84,12 @@
       "migration_disposition": "Keep candidate-data/projection provenance explicit; no captured v1 operation is established."
     },
     {
+      "path": "tests/reference/test-json-v1-check-coherence.py",
+      "sha256": "e902deeeb33213fadd7a71611fdc97a24b2be93b773e3616d0a72089d70d1313",
+      "role": "prospective-candidate-test",
+      "migration_disposition": "Authored check-only coherence/old-schema contrasts; no actual v1 or native workflow. Preserve the prior schema and full test scope."
+    },
+    {
       "path": "tests/reference/test-json-v1-consumer-inventory.py",
       "sha256": "cd224bceaac8dd5089f9a70a3fe74b43442d070f1de3340b060b581c129ac3a5",
       "role": "prospective-candidate-test",
@@ -81,7 +97,7 @@
     },
     {
       "path": "tests/reference/test-json-v1-numeric-exactness.py",
-      "sha256": "eb0550852fa87da8a660cb6e5b87978ef07ef0776833a98045db6b1f3e078a8e",
+      "sha256": "c13e30c1337c24bb2de7e9fc07a3d324e2fb40821ae2e96d1a3f0024bc92c70a",
       "role": "prospective-candidate-test",
       "migration_disposition": "Exact-number and stream-offset regressions; authored offline data, no actual emitted v1 or native workflow."
     },
@@ -239,12 +255,14 @@
     },
     {
       "path": "data/schemas/candidates/result-v1.schema.json",
-      "sha256": "bf38ffa59117546f8d3d136043e4df7b7c42d216d94189db8513d91d23d8e14c"
+      "sha256": "893a192f01c59f08818ff942e6dec13c0d44683dda29055c34cfc4668c5cac87"
     },
     {
       "path": "data/schemas/candidates/event-v1.schema.json",
       "sha256": "9bf55c913cad010f16bb5e8101e2578783effdd12d53f3421d74cc59bda53253"
     }
   ],
-  "revision": "Exact numeric decoder preparation630-637; original inventory retained under history/pre630/"
+  "revision": "Selected check-only J03-2 preparation665-672; pre665 and pre630 inventories retained; bounded discovery only",
+  "revision_base_commit": "a41e30e6dc8bb258153569570a03768e74ac3ae4",
+  "historical_pre665_path": "data/schemas/candidates/history/pre665/data/schemas/candidates/consumer-inventory.json"
 }

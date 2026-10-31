@@ -1,3 +1,17 @@
+# Unreleased candidate: selected check-result coherence, steps665–672
+
+- Prepare owner-selected J03-2: check/result code0 requires raw0/100 AND empty
+  errors; append exactly one clause and retain the whole previous schema.
+- Add authored offline coherence controls; keep large/fractional raw-number
+  tests independent of success coherence using failure envelopes.
+- Retain ten exact pre665 inputs, all older history and current v0 oracles;
+  record the bounded J11 owner statement and renew current input bindings.
+- Preparation only. PC full focused checks/application/publication and exact
+  independent contract acceptance remain pending; runtime0/provisional unchanged.
+- No native criteria/operation, producer migration, schema/reference freeze,
+  Phase1/kernel closure or C/Phase2/production opening. No new strong safe pause
+  is certified by this candidate; last confirmed qualified pause remains STATIC664.
+
 # Unreleased candidate preparation: exact JSON numbers, steps630-637
 
 - Preserve decimal/exponent tokens in the offline v1 candidate reader; recognize

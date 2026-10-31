@@ -1,3 +1,14 @@
+# Current check-coherence revision, steps665–672
+
+The owner selected J03-2. Read [the exact amendment and impact](json-v1-check-coherence.md)
+and the rebound machine dossier. Check/result code0 now requires raw0/100 AND
+empty errors in the prepared candidate. J11's bounded owner statement is received;
+no other consumers are known within the described use, with no global absence
+claim. Whole independent contract acceptance and producer migration remain pending.
+Runtime remains0/provisional. The text below is retained historical preparation:
+its earlier unchanged-schema, unknown-owner-answer and input-count statements
+describe their original blocks. Exact pre665 copies are preserved separately.
+
 # JSON v1 candidate policy review, steps 586-595
 
 This is a revised **candidate**, prepared from published main
