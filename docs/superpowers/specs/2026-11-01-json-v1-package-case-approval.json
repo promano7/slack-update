@@ -1,0 +1,32 @@
+{
+  "kind": "owner-approval-of-exact-offline-design-not-native-authority",
+  "date": "2026-11-01",
+  "timezone": "Europe/Madrid",
+  "author": "Repository owner in this conversation",
+  "quote": "Sí, apruebo el diseño",
+  "approved": true,
+  "approval_context": "Reply to the exact STATIC770 handoff question approving only the offline assessor, tests and documentation while producer/native changes remain pending",
+  "inputs": [
+    {
+      "path": "proposal/PACKAGE-CASE-DESIGN.md",
+      "bytes": 19991,
+      "sha256": "6db49bd51fd5dd3d82c9d0dedb453d6dce4f1527acc4888f03e0b014f5e05926"
+    },
+    {
+      "path": "proposal/CASE-MATRIX.json",
+      "bytes": 8166,
+      "sha256": "3e72589b251a16e6419078debc4f55eb09ddd135ccd2f5d03c978ec9a09faee4"
+    },
+    {
+      "path": "proposal/DECISION-PARA-PABLO.md",
+      "bytes": 2464,
+      "sha256": "7db124ce8a10f996396376eb378c5af4c7435930e8dd9a715b1d287a32b0bc5f"
+    }
+  ],
+  "whole_independent_semantic_acceptance": false,
+  "native_authority": false,
+  "producer_switch_authorized": false,
+  "schema_amendment_authorized": false,
+  "plan_review_and_execution_method": "Not yet supplied; prepare concrete plan then apply writing-plans handoff",
+  "last_confirmed_qualified_STATIC_pause": 770
+}

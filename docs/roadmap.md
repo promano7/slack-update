@@ -1,3 +1,12 @@
+## Prepared offline package-case candidate
+
+The owner-approved offline case assessor is prepared on
+95b3901905d4399fb767d275fc6d7581f12396d0. See
+[the exact API/scope guide](reference/json-v1-package-case.md) in the reference directory.
+P01-P28 are authored data cases, not native runs; all original gates remain.
+PC application/publication and a new applicable pause review remain pending.
+Last confirmed qualified pause is STATIC770; no producer/schema/native change.
+
 # Development roadmap
 
 This document holds the project roadmap previously embedded in the README.

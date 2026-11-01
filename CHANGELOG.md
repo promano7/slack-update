@@ -1,3 +1,14 @@
+# Unreleased candidate: offline prospective package-case assessor
+
+- Implement the owner-approved import-only offline design with explicit unknown,
+  applicability, byte/effect, process/result and package-failure relations.
+- Add28 authored prospective cases and focused private/decoder/capability controls;
+  retain all currentv0 oracles, producer, candidate schemas and reader unchanged.
+- Record exact new consumer/input bindings and preserve complete pre771 preimages.
+- Isolated preparation only; PC application/publication/new pause review pending.
+  Last confirmed qualified pause STATIC770; no whole independent/native acceptance,
+  producer switch, schema/reference freeze or Phase1 closure.
+
 # Unreleased candidate: adopted S1-S3 success coherence, steps743-752
 
 - Integrate the owner's explicit S1-S3 adoption: dry-run success requires raw0/100

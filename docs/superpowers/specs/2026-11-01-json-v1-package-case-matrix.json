@@ -1,0 +1,242 @@
+{
+  "kind": "proposed-data-scenario-design-not-test-results",
+  "owner_approved": false,
+  "executed_scenarios": 0,
+  "native_runs": 0,
+  "actual_v1_operations": 0,
+  "case_count": 28,
+  "all_cases_require": [
+    "complete prospective result except explicit absence/wrong-version controls",
+    "literal expected scoped assessment authored before observations",
+    "original native obligation references retained",
+    "native_acceptance=false",
+    "independence_verified=false",
+    "runtime_authority=false"
+  ],
+  "cases": [
+    {
+      "id": "P01",
+      "name": "required-install20-upgrade0",
+      "desired_scoped_data_disposition": "match",
+      "criterion": "all scoped raw/stream/selector/effect/result data supplied and matching; native acceptance remains false",
+      "implemented": false,
+      "executed": false
+    },
+    {
+      "id": "P02",
+      "name": "install20-newline-stdout",
+      "desired_scoped_data_disposition": "mismatch",
+      "criterion": "complete stdout is one LF, not empty bytes",
+      "implemented": false,
+      "executed": false
+    },
+    {
+      "id": "P03",
+      "name": "install20-nonempty-selector",
+      "desired_scoped_data_disposition": "mismatch",
+      "criterion": "complete selector contains a target",
+      "implemented": false,
+      "executed": false
+    },
+    {
+      "id": "P04",
+      "name": "install20-target-effect",
+      "desired_scoped_data_disposition": "mismatch",
+      "criterion": "known target effect violates original empty install case",
+      "implemented": false,
+      "executed": false
+    },
+    {
+      "id": "P05",
+      "name": "install20-owned-effect",
+      "desired_scoped_data_disposition": "mismatch",
+      "criterion": "known owned effect violates original empty install case",
+      "implemented": false,
+      "executed": false
+    },
+    {
+      "id": "P06",
+      "name": "install20-stdout-unknown",
+      "desired_scoped_data_disposition": "pending",
+      "criterion": "missing complete stdout is not empty",
+      "implemented": false,
+      "executed": false
+    },
+    {
+      "id": "P07",
+      "name": "install20-effects-unknown",
+      "desired_scoped_data_disposition": "pending",
+      "criterion": "missing effect vectors are not no-effect observations",
+      "implemented": false,
+      "executed": false
+    },
+    {
+      "id": "P08",
+      "name": "install20-mismatch-and-unknown",
+      "desired_scoped_data_disposition": "mismatch",
+      "criterion": "newline conflict retained alongside unknown effects in pending_checks",
+      "implemented": false,
+      "executed": false
+    },
+    {
+      "id": "P09",
+      "name": "mandatory-upgrade20-json0",
+      "desired_scoped_data_disposition": "mismatch",
+      "criterion": "known original action failure conflicts with declared success0",
+      "implemented": false,
+      "executed": false
+    },
+    {
+      "id": "P10",
+      "name": "mandatory-upgrade20-json4",
+      "desired_scoped_data_disposition": "mismatch",
+      "criterion": "reboot recommendation cannot erase known original action failure",
+      "implemented": false,
+      "executed": false
+    },
+    {
+      "id": "P11",
+      "name": "mandatory-upgrade20-json5",
+      "desired_scoped_data_disposition": "mismatch",
+      "criterion": "reboot requirement cannot erase known original action failure",
+      "implemented": false,
+      "executed": false
+    },
+    {
+      "id": "P12",
+      "name": "mandatory-upgrade20-failed-oracle",
+      "desired_scoped_data_disposition": "match",
+      "criterion": "literal expected failed result2 agrees; forward_failure_known remains true",
+      "implemented": false,
+      "executed": false
+    },
+    {
+      "id": "P13",
+      "name": "mandatory-upgrade20-boot-unsafe",
+      "desired_scoped_data_disposition": "match",
+      "criterion": "literal failed result3 agrees; original forward failure remains true",
+      "implemented": false,
+      "executed": false
+    },
+    {
+      "id": "P14",
+      "name": "mandatory-upgrade-not-attempted",
+      "desired_scoped_data_disposition": "mismatch",
+      "criterion": "raw-1 and result null cannot satisfy required action",
+      "implemented": false,
+      "executed": false
+    },
+    {
+      "id": "P15",
+      "name": "disabled-upgrade-not-attempted",
+      "desired_scoped_data_disposition": "match",
+      "criterion": "declared matching configuration, non-execution/effects and null result agree; no command stdout fabricated",
+      "implemented": false,
+      "executed": false
+    },
+    {
+      "id": "P16",
+      "name": "disabled-upgrade-executed",
+      "desired_scoped_data_disposition": "mismatch",
+      "criterion": "known raw20 means action was attempted despite disabled profile",
+      "implemented": false,
+      "executed": false
+    },
+    {
+      "id": "P17",
+      "name": "blocked-upgrade-after-update42",
+      "desired_scoped_data_disposition": "match",
+      "criterion": "expected update failure2 and later unattempted action agree, forward failure stays true",
+      "implemented": false,
+      "executed": false
+    },
+    {
+      "id": "P18",
+      "name": "later-action-after-update42",
+      "desired_scoped_data_disposition": "mismatch",
+      "criterion": "observed later raw0 preserved as conflict, never rewritten-1",
+      "implemented": false,
+      "executed": false
+    },
+    {
+      "id": "P19",
+      "name": "null-with-unknown-applicability",
+      "desired_scoped_data_disposition": "pending",
+      "criterion": "null cannot select disabled or blocked profile",
+      "implemented": false,
+      "executed": false
+    },
+    {
+      "id": "P20",
+      "name": "cross-run-and-other-unknown",
+      "desired_scoped_data_disposition": "mismatch",
+      "criterion": "known identity conflict and other pending components both retained",
+      "implemented": false,
+      "executed": false
+    },
+    {
+      "id": "P21",
+      "name": "observed-raw0-result-null",
+      "desired_scoped_data_disposition": "mismatch",
+      "criterion": "known action raw0 contradicts nullable result report",
+      "implemented": false,
+      "executed": false
+    },
+    {
+      "id": "P22",
+      "name": "boolean-raw-result",
+      "desired_scoped_data_disposition": "mismatch",
+      "criterion": "complete candidate shape refuses bool as numeric action status",
+      "implemented": false,
+      "executed": false
+    },
+    {
+      "id": "P23",
+      "name": "v0-result-not-converted",
+      "desired_scoped_data_disposition": "mismatch",
+      "criterion": "wrong prospective family/version refused without rewriting old oracle",
+      "implemented": false,
+      "executed": false
+    },
+    {
+      "id": "P24",
+      "name": "absent-result-early-status7",
+      "desired_scoped_data_disposition": "pending",
+      "criterion": "captured process/stderr retained; no fabricated result or package completion",
+      "implemented": false,
+      "executed": false
+    },
+    {
+      "id": "P25",
+      "name": "equal-snapshot-counts-missing-effects",
+      "desired_scoped_data_disposition": "pending",
+      "criterion": "equal counts do not establish no effects; known other fields remain",
+      "implemented": false,
+      "executed": false
+    },
+    {
+      "id": "P26",
+      "name": "upgrade0-wrong-approved-target",
+      "desired_scoped_data_disposition": "mismatch",
+      "criterion": "one selected target is not enough if exact approved target differs",
+      "implemented": false,
+      "executed": false
+    },
+    {
+      "id": "P27",
+      "name": "mandatory-upgrade20-json2-slackware-success",
+      "desired_scoped_data_disposition": "mismatch",
+      "criterion": "An unrelated aggregate failure2 cannot hide known package failure declared as Slackware success",
+      "implemented": false,
+      "executed": false
+    },
+    {
+      "id": "P28",
+      "name": "mandatory-upgrade20-case-diagnostic-mismatch",
+      "desired_scoped_data_disposition": "mismatch",
+      "criterion": "Complete ordered errors differs from the exact case-local literal; no global diagnostic grammar or errors-nonempty rule is inferred",
+      "implemented": false,
+      "executed": false
+    }
+  ]
+}

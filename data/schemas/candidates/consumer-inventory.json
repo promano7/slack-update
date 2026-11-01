@@ -1,14 +1,14 @@
 {
   "kind": "bounded-source-metadata-reference-inventory-not-whole-consumer-proof",
-  "base_commit": "3c638394d463e71e17810c832e177484e2b0c198",
-  "base_tree": "31575666eec6f0a2e3087d04ad04b4430fab0b17",
+  "base_commit": "95b3901905d4399fb767d275fc6d7581f12396d0",
+  "base_tree": "8622a4d5b825c61aac6d9135ea17432ef9935a21",
   "discovery_scope": "All regular .py/.sh files below tools/ and tests/ containing literal schema_version or schema_status; includes prepared new tests. No dynamic/import/alias or external consumer completeness claim.",
   "runtime_schema_version": 0,
   "schema1_accepted": false,
   "external_consumers": {
     "author": "Repository owner in this conversation",
     "date": "2026-10-31",
-    "quote": "Solo he usado las pruebas y comandos que hacemos aquí; no conozco otros consumidores",
+    "quote": "Solo he usado las pruebas y comandos que hacemos aqu\u00ed; no conozco otros consumidores",
     "scope": "Own use of tests and commands performed together in this chat; no other consumers known",
     "named_external_consumers": [],
     "disposition": "No named external consumers to adapt in the declared scope. Preserve bounded knowledge and revisit if consumers are discovered; independent exact compatibility/contract acceptance still pending.",
@@ -232,6 +232,12 @@
       "sha256": "eb141d314b3a483285c6d65d430fdd5c56c7492cbf06a10723a33024ab58b8e4",
       "role": "current-producer-and-independent-configuration-namespace",
       "migration_disposition": "Later reviewed switch of both result/event metadata sites; configuration schema remains independent."
+    },
+    {
+      "path": "tests/reference/test-json-v1-package-case.py",
+      "sha256": "0b829692d154d0188acab008349dd1a2808f2d748ce802544baa1160a5e65293",
+      "role": "prospective-package-case-test",
+      "migration_disposition": "Separate authored R3 data checks; no whole independent/native acceptance or producer switch."
     }
   ],
   "additional_dependencies": [
@@ -266,6 +272,18 @@
     {
       "path": "data/schemas/candidates/event-v1.schema.json",
       "sha256": "9bf55c913cad010f16bb5e8101e2578783effdd12d53f3421d74cc59bda53253"
+    },
+    {
+      "path": "tools/reference/json_v1_package_case.py",
+      "sha256": "30a5fc5ae7e21e18e938b2f1af992bd9d9ba1a42a99e0382ada10ae8b0a2f1c6",
+      "role": "prospective-offline-package-case-input",
+      "migration_disposition": "Semantic consumer/dependency explicitly registered beyond literal metadata discovery; no runtime/native activation."
+    },
+    {
+      "path": "data/schemas/candidates/package-case-inputs.json",
+      "sha256": "ad1b6ad5f922af4a6b1d838ae6f80b4afa2e733ab62d604f4a33fcd4b06f1488",
+      "role": "prospective-offline-package-case-input",
+      "migration_disposition": "Semantic consumer/dependency explicitly registered beyond literal metadata discovery; no runtime/native activation."
     }
   ],
   "revision": "Adopted S1-S3 candidate integration743-752; pre743/pre665/pre630 history retained; bounded lexical inventory only",

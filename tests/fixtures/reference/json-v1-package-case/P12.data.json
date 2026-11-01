@@ -1,0 +1,264 @@
+{
+  "profile": {
+    "identity": {
+      "case_id": "private-case",
+      "platform": "Slackware-current",
+      "platform_version": "private-version",
+      "source_epoch": "private-source",
+      "boot_id": "private-boot",
+      "attempt_id": "private-attempt",
+      "run_id": "private-run"
+    },
+    "configuration": {
+      "identity": "private-config",
+      "install_new": true,
+      "upgrade_all": true
+    },
+    "boot_unsafe": false,
+    "actions": [
+      {
+        "name": "update",
+        "applicability": "required",
+        "criterion": "original-update"
+      },
+      {
+        "name": "install-new",
+        "applicability": "required",
+        "criterion": "empty-install20"
+      },
+      {
+        "name": "upgrade-all",
+        "applicability": "required",
+        "criterion": "mandatory-upgrade"
+      }
+    ]
+  },
+  "expectations": {
+    "evidence": {
+      "identity": {
+        "case_id": "private-case",
+        "platform": "Slackware-current",
+        "platform_version": "private-version",
+        "source_epoch": "private-source",
+        "boot_id": "private-boot",
+        "attempt_id": "private-attempt",
+        "run_id": "private-run"
+      },
+      "configuration": {
+        "identity": "private-config",
+        "install_new": true,
+        "upgrade_all": true
+      },
+      "actions": [
+        {
+          "name": "update",
+          "raw_status": 0,
+          "stdout": {
+            "state": "complete",
+            "hex": "6d65746164617461",
+            "declared_size": 8,
+            "declared_sha256": "45447b7afbd5e544f7d0f1df0fccd26014d9850130abd3f020b89ff96b82079f"
+          },
+          "stderr": {
+            "state": "complete",
+            "hex": "",
+            "declared_size": 0,
+            "declared_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "selector": [],
+          "target_effects": [],
+          "owned_effects": [],
+          "unexpected_effects": []
+        },
+        {
+          "name": "install-new",
+          "raw_status": 20,
+          "stdout": {
+            "state": "complete",
+            "hex": "",
+            "declared_size": 0,
+            "declared_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "stderr": {
+            "state": "complete",
+            "hex": "",
+            "declared_size": 0,
+            "declared_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "selector": [],
+          "target_effects": [],
+          "owned_effects": [],
+          "unexpected_effects": []
+        },
+        {
+          "name": "upgrade-all",
+          "raw_status": 20,
+          "stdout": {
+            "state": "complete",
+            "hex": "6e6f206d61746368",
+            "declared_size": 8,
+            "declared_sha256": "9bc94ab9b39bfff44297d99f66b2d1dc08ba96658be582098c879d223aa84283"
+          },
+          "stderr": {
+            "state": "complete",
+            "hex": "",
+            "declared_size": 0,
+            "declared_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+          },
+          "selector": [],
+          "target_effects": [],
+          "owned_effects": [],
+          "unexpected_effects": []
+        }
+      ],
+      "update_streams_error_free": true,
+      "raw_pkglist": {
+        "state": "complete",
+        "hex": "617070726f7665642d7061636b616765206d657461646174610a",
+        "declared_size": 26,
+        "declared_sha256": "bba9197c211e416d72cabe7ac696a88a2c28993a826788a651ff288743ebf098"
+      },
+      "pin_identity": {
+        "case_id": "private-case",
+        "platform": "Slackware-current",
+        "platform_version": "private-version",
+        "source_epoch": "private-source",
+        "boot_id": "private-boot",
+        "attempt_id": "private-attempt",
+        "run_id": "private-run"
+      },
+      "pin_artifact_id": "private-pin",
+      "process": {
+        "origin": "authored-fixture",
+        "status": 0,
+        "stdout": {
+          "state": "complete",
+          "hex": "617574686f7265642d6f7574707574",
+          "declared_size": 15,
+          "declared_sha256": "b1473dab279abc8a76682dd58b715a564e1b0e6d3175bda5009ee3a5a0e10f2c"
+        },
+        "stderr": {
+          "state": "complete",
+          "hex": "",
+          "declared_size": 0,
+          "declared_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      }
+    },
+    "result_file": "P12.expected-result.json",
+    "outcome": "failure",
+    "forward_failure_expected": true
+  },
+  "observations": {
+    "identity": {
+      "case_id": "private-case",
+      "platform": "Slackware-current",
+      "platform_version": "private-version",
+      "source_epoch": "private-source",
+      "boot_id": "private-boot",
+      "attempt_id": "private-attempt",
+      "run_id": "private-run"
+    },
+    "configuration": {
+      "identity": "private-config",
+      "install_new": true,
+      "upgrade_all": true
+    },
+    "actions": [
+      {
+        "name": "update",
+        "raw_status": 0,
+        "stdout": {
+          "state": "complete",
+          "hex": "6d65746164617461",
+          "declared_size": 8,
+          "declared_sha256": "45447b7afbd5e544f7d0f1df0fccd26014d9850130abd3f020b89ff96b82079f"
+        },
+        "stderr": {
+          "state": "complete",
+          "hex": "",
+          "declared_size": 0,
+          "declared_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "selector": [],
+        "target_effects": [],
+        "owned_effects": [],
+        "unexpected_effects": []
+      },
+      {
+        "name": "install-new",
+        "raw_status": 20,
+        "stdout": {
+          "state": "complete",
+          "hex": "",
+          "declared_size": 0,
+          "declared_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "stderr": {
+          "state": "complete",
+          "hex": "",
+          "declared_size": 0,
+          "declared_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "selector": [],
+        "target_effects": [],
+        "owned_effects": [],
+        "unexpected_effects": []
+      },
+      {
+        "name": "upgrade-all",
+        "raw_status": 20,
+        "stdout": {
+          "state": "complete",
+          "hex": "6e6f206d61746368",
+          "declared_size": 8,
+          "declared_sha256": "9bc94ab9b39bfff44297d99f66b2d1dc08ba96658be582098c879d223aa84283"
+        },
+        "stderr": {
+          "state": "complete",
+          "hex": "",
+          "declared_size": 0,
+          "declared_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "selector": [],
+        "target_effects": [],
+        "owned_effects": [],
+        "unexpected_effects": []
+      }
+    ],
+    "update_streams_error_free": true,
+    "raw_pkglist": {
+      "state": "complete",
+      "hex": "617070726f7665642d7061636b616765206d657461646174610a",
+      "declared_size": 26,
+      "declared_sha256": "bba9197c211e416d72cabe7ac696a88a2c28993a826788a651ff288743ebf098"
+    },
+    "pin_identity": {
+      "case_id": "private-case",
+      "platform": "Slackware-current",
+      "platform_version": "private-version",
+      "source_epoch": "private-source",
+      "boot_id": "private-boot",
+      "attempt_id": "private-attempt",
+      "run_id": "private-run"
+    },
+    "pin_artifact_id": "private-pin",
+    "process": {
+      "origin": "authored-fixture",
+      "status": 0,
+      "stdout": {
+        "state": "complete",
+        "hex": "617574686f7265642d6f7574707574",
+        "declared_size": 15,
+        "declared_sha256": "b1473dab279abc8a76682dd58b715a564e1b0e6d3175bda5009ee3a5a0e10f2c"
+      },
+      "stderr": {
+        "state": "complete",
+        "hex": "",
+        "declared_size": 0,
+        "declared_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  "result_file": "P12.result.json"
+}

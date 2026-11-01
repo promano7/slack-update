@@ -1,0 +1,12 @@
+{
+  "kind": "owner-plan-and-method-handoff-not-native-authority",
+  "author": "Repository owner in this conversation",
+  "date": "2026-11-01",
+  "timezone": "Europe/Madrid",
+  "quote": "Hacemos Ejecución directa con TDD y revisión final",
+  "execution_method": "direct-TDD-fresh-final-code-review",
+  "plan_sha256": "e5f3ec7662aa13a84c75dc3b7cda003b0027abb79b313ab1093dd3a516941096",
+  "scope": "Approved offline assessor/tests/documentation only; owner project commit/push",
+  "native_authority": false,
+  "producer_switch": false
+}

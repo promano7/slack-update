@@ -65,8 +65,8 @@
     },
     {
       "path": "data/schemas/candidates/consumer-inventory.json",
-      "bytes": 16966,
-      "sha256": "606cd3172e80aa38c724177fd81d3d44bffa27b0f68b079bc45a3b5c49054640"
+      "bytes": 18029,
+      "sha256": "2da769680173e2444049aea6fba9b8f94d40b620344738a2ebaaad853ec68974"
     },
     {
       "path": "tests/reference/json_result_test_support.py",
@@ -130,8 +130,8 @@
     },
     {
       "path": "data/schemas/candidates/migration-plan.json",
-      "bytes": 20350,
-      "sha256": "f0e66c6943a73617a2708e69f17f5b516f02c95a1ba90c98bb33b64d4d69259a"
+      "bytes": 21059,
+      "sha256": "8f04f0fe46016dd7162285f6d7a7ee51914a59ba821c72782f120375198ad7af"
     },
     {
       "path": "docs/reference/json-v1-success-coherence.md",
@@ -160,18 +160,36 @@
     },
     {
       "path": "docs/reference/README.md",
-      "bytes": 16327,
-      "sha256": "2b234fc08fb0ae6555a3343fd38cc132feac460bc98373422d58fc5611b11fa9"
+      "bytes": 16788,
+      "sha256": "9912d92f0624d5596cef3465a354dd643d22a75730ae2e3cfcfd27e9f22c62a8"
     },
     {
       "path": "docs/roadmap.md",
-      "bytes": 23603,
-      "sha256": "c8083d11d87e3a82f34d41ea49591830d6ebede4bc5973921993fa1799c785f6"
+      "bytes": 24074,
+      "sha256": "f3a4304a6074dfe6de8deae09fd99c4f32d9049dfe2ca85e4d46daa0d5853883"
     },
     {
       "path": "CHANGELOG.md",
-      "bytes": 1115282,
-      "sha256": "dfc036b5e0e16e483a5164991fb3b70aab54b904811104e10e7c27de018e6206"
+      "bytes": 1115984,
+      "sha256": "1870f9ff9789e3865ef2f7733596f0b3c215818b6510c9a183abc627b3f0ec96"
+    },
+    {
+      "path": "data/schemas/candidates/package-case-inputs.json",
+      "bytes": 769526,
+      "sha256": "ad1b6ad5f922af4a6b1d838ae6f80b4afa2e733ab62d604f4a33fcd4b06f1488",
+      "git_mode": "100644"
+    },
+    {
+      "path": "docs/reference/json-v1-package-case.md",
+      "bytes": 6373,
+      "sha256": "b588d9b237fd857b0330bc64ede02a716ec440fa025687d7f49db32e04b1bc4f",
+      "git_mode": "100644"
+    },
+    {
+      "path": "docs/superpowers/specs/2026-11-01-json-v1-package-case-approval.json",
+      "bytes": 1250,
+      "sha256": "1c6bfe0bcda93bcf667e570714c63e1fd91fb6692b772a96fdc0240a53290c5d",
+      "git_mode": "100644"
     }
   ],
   "input_precedence": "Complete bound current schemas and reader, preserved check-only amendment and adopted S1-S3 supplement govern this unaccepted candidate. Historical inputs remain exact history, not overrides.",
@@ -962,7 +980,7 @@
     "owner_statement": {
       "author": "Repository owner in this conversation",
       "date": "2026-10-31",
-      "quote": "Solo he usado las pruebas y comandos que hacemos aquí; no conozco otros consumidores",
+      "quote": "Solo he usado las pruebas y comandos que hacemos aqu\u00ed; no conozco otros consumidores",
       "scope": "Own use of tests and commands performed together in this chat; no other consumers known",
       "named_external_consumers": [],
       "disposition": "No named external consumers to adapt in the declared scope. Preserve bounded knowledge and revisit if consumers are discovered; independent exact compatibility/contract acceptance still pending.",
@@ -1040,5 +1058,14 @@
     "whole_independent_acceptance": false,
     "PC_application_and_publication": "pending",
     "last_confirmed_qualified_STATIC_pause": 742
+  },
+  "package_case_increment": {
+    "owner_design_approved": true,
+    "whole_independent_acceptance": false,
+    "producer_switch": false,
+    "PC_application_publication": "pending",
+    "last_confirmed_qualified_pause": 770,
+    "execution_method": "direct-TDD-fresh-final-code-review",
+    "owner_plan_handoff_received": true
   }
 }

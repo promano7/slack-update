@@ -1,0 +1,891 @@
+{
+  "shape": "valid",
+  "checks": [
+    {
+      "key": "shape",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "result.literal",
+      "state": "mismatch",
+      "detail": ""
+    },
+    {
+      "key": "identity.profile.case_id",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "identity.profile.platform",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "identity.profile.platform_version",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "identity.profile.source_epoch",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "identity.profile.boot_id",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "identity.profile.attempt_id",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "identity.profile.run_id",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "identity.expected.case_id",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "identity.expected.platform",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "identity.expected.platform_version",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "identity.expected.source_epoch",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "identity.expected.boot_id",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "identity.expected.attempt_id",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "identity.expected.run_id",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "config.profile.identity",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "config.profile.install_new",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "config.profile.upgrade_all",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "config.expected.identity",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "config.expected.install_new",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "config.expected.upgrade_all",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "pin.profile.case_id",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "pin.profile.platform",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "pin.profile.platform_version",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "pin.profile.source_epoch",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "pin.profile.boot_id",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "pin.profile.attempt_id",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "pin.profile.run_id",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "pin.expected.case_id",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "pin.expected.platform",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "pin.expected.platform_version",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "pin.expected.source_epoch",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "pin.expected.boot_id",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "pin.expected.attempt_id",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "pin.expected.run_id",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "pin.artifact",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "update.error_free",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "pin.raw.integrity",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "pin.raw.expected",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "update.raw.expected",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "update.stdout.integrity",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "update.stdout.expected",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "update.stderr.integrity",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "update.stderr.expected",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "update.selector",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "update.target_effects",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "update.owned_effects",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "update.unexpected_effects",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "update.admission",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "update.latch",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "update.result_raw",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "install-new.raw.expected",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "install-new.stdout.integrity",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "install-new.stdout.expected",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "install-new.stderr.integrity",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "install-new.stderr.expected",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "install-new.selector",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "install-new.target_effects",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "install-new.owned_effects",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "install-new.unexpected_effects",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "install-new.admission",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "install-new.latch",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "install-new.result_raw",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "upgrade-all.raw.expected",
+      "state": "mismatch",
+      "detail": ""
+    },
+    {
+      "key": "upgrade-all.stdout.integrity",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "upgrade-all.stdout.expected",
+      "state": "mismatch",
+      "detail": ""
+    },
+    {
+      "key": "upgrade-all.stderr.integrity",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "upgrade-all.stderr.expected",
+      "state": "mismatch",
+      "detail": ""
+    },
+    {
+      "key": "upgrade-all.selector",
+      "state": "mismatch",
+      "detail": ""
+    },
+    {
+      "key": "upgrade-all.target_effects",
+      "state": "mismatch",
+      "detail": ""
+    },
+    {
+      "key": "upgrade-all.owned_effects",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "upgrade-all.unexpected_effects",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "upgrade-all.admission",
+      "state": "mismatch",
+      "detail": ""
+    },
+    {
+      "key": "upgrade-all.latch",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "upgrade-all.result_raw",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "process.origin",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "process.status",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "process.stdout.integrity",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "process.stdout.expected",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "process.stderr.integrity",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "process.stderr.expected",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "process.result_relation",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "forward.expected",
+      "state": "mismatch",
+      "detail": ""
+    },
+    {
+      "key": "result.package_failure",
+      "state": "mismatch",
+      "detail": ""
+    },
+    {
+      "key": "result.outcome",
+      "state": "match",
+      "detail": ""
+    }
+  ],
+  "matched_checks": [
+    {
+      "key": "shape",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "identity.profile.case_id",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "identity.profile.platform",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "identity.profile.platform_version",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "identity.profile.source_epoch",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "identity.profile.boot_id",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "identity.profile.attempt_id",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "identity.profile.run_id",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "identity.expected.case_id",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "identity.expected.platform",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "identity.expected.platform_version",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "identity.expected.source_epoch",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "identity.expected.boot_id",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "identity.expected.attempt_id",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "identity.expected.run_id",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "config.profile.identity",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "config.profile.install_new",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "config.profile.upgrade_all",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "config.expected.identity",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "config.expected.install_new",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "config.expected.upgrade_all",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "pin.profile.case_id",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "pin.profile.platform",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "pin.profile.platform_version",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "pin.profile.source_epoch",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "pin.profile.boot_id",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "pin.profile.attempt_id",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "pin.profile.run_id",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "pin.expected.case_id",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "pin.expected.platform",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "pin.expected.platform_version",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "pin.expected.source_epoch",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "pin.expected.boot_id",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "pin.expected.attempt_id",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "pin.expected.run_id",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "pin.artifact",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "update.error_free",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "pin.raw.integrity",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "pin.raw.expected",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "update.raw.expected",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "update.stdout.integrity",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "update.stdout.expected",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "update.stderr.integrity",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "update.stderr.expected",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "update.selector",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "update.target_effects",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "update.owned_effects",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "update.unexpected_effects",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "update.admission",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "update.latch",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "update.result_raw",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "install-new.raw.expected",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "install-new.stdout.integrity",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "install-new.stdout.expected",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "install-new.stderr.integrity",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "install-new.stderr.expected",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "install-new.selector",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "install-new.target_effects",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "install-new.owned_effects",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "install-new.unexpected_effects",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "install-new.admission",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "install-new.latch",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "install-new.result_raw",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "upgrade-all.stdout.integrity",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "upgrade-all.stderr.integrity",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "upgrade-all.owned_effects",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "upgrade-all.unexpected_effects",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "upgrade-all.latch",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "upgrade-all.result_raw",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "process.origin",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "process.status",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "process.stdout.integrity",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "process.stdout.expected",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "process.stderr.integrity",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "process.stderr.expected",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "process.result_relation",
+      "state": "match",
+      "detail": ""
+    },
+    {
+      "key": "result.outcome",
+      "state": "match",
+      "detail": ""
+    }
+  ],
+  "mismatched_checks": [
+    {
+      "key": "result.literal",
+      "state": "mismatch",
+      "detail": ""
+    },
+    {
+      "key": "upgrade-all.raw.expected",
+      "state": "mismatch",
+      "detail": ""
+    },
+    {
+      "key": "upgrade-all.stdout.expected",
+      "state": "mismatch",
+      "detail": ""
+    },
+    {
+      "key": "upgrade-all.stderr.expected",
+      "state": "mismatch",
+      "detail": ""
+    },
+    {
+      "key": "upgrade-all.selector",
+      "state": "mismatch",
+      "detail": ""
+    },
+    {
+      "key": "upgrade-all.target_effects",
+      "state": "mismatch",
+      "detail": ""
+    },
+    {
+      "key": "upgrade-all.admission",
+      "state": "mismatch",
+      "detail": ""
+    },
+    {
+      "key": "forward.expected",
+      "state": "mismatch",
+      "detail": ""
+    },
+    {
+      "key": "result.package_failure",
+      "state": "mismatch",
+      "detail": ""
+    }
+  ],
+  "pending_checks": [],
+  "forward_failure_known": true,
+  "outcome_agreement": "match",
+  "data_disposition": "mismatch",
+  "native_acceptance": false,
+  "independence_verified": false,
+  "runtime_authority": false,
+  "phase1_complete": false,
+  "outstanding_native_obligations": [
+    "subject-source-graph",
+    "platform-original-authority",
+    "independent-provenance",
+    "original-identity-timeline",
+    "raw-status-selector-vector",
+    "target-owned-effect-vector",
+    "writer-child-lifetimes",
+    "time-fence-recovery-budget",
+    "original-restoration-verification",
+    "publication-last-receipt",
+    "positive-negative-fault-controls",
+    "scoped-closure-or-pending"
+  ]
+}
