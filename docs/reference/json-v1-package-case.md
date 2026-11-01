@@ -1,3 +1,27 @@
+# Known-conflict repairs, steps801-810
+
+The published base4971a197546579b643bb16caeddac892db07d3b9 was accepted in
+qualified STATIC790; the later immutable review stopped at STATIC800 with three
+Important assessor defects. This candidate repairs those exact scoped relations:
+known disabled/blocked effects survive unknown raw status; known required raw-1
+absence survives an unknown criterion; known profile/expected identity,
+configuration and pin conflicts survive unknown observations. Unknown criterion
+facts remain pending even beside a known admission mismatch.
+
+Eight added regression/control methods exercise the unchanged private API and
+retain literal old P01-P28 assessment files byte-for-byte. New checks only add a
+known declaration-conflict mismatch when declarations actually disagree; no new
+public schema, producer behavior, command interface or native rule is introduced.
+Existing install0 and process-stdout/result-channel limits remain explicit in the
+external review; no native truth or independent-oracle acceptance is inferred.
+
+This is a new repair candidate, not a publication or a new qualified pause.
+Last confirmed qualified pause remains STATIC800. PC application/publication,
+return review and all applicable pause conditions remain pending. Original text
+below describes earlier preparation and is retained historically; exact pre801
+copies preserve every changed existing input. Original source/fixtures/v0/native
+requirements stay exact. See the repair plan under docs/superpowers/plans.
+
 # Offline prospective package-case assessment
 
 The owner approved the exact design770 and its implementation plan for a separate

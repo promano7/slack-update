@@ -1,3 +1,15 @@
+# Unreleased candidate: preserve known package-case conflicts
+
+- Repair three offline assessor defects diagnosed in STATIC800: known forbidden
+  effects versus unknown raw, required absence versus unknown criterion, and
+  known declaration conflicts versus missing observation.
+- Add eight TDD regression/control methods without rewriting the28 authored
+  fixture expectations or originalv0/native criteria. Keep unknown facts pending.
+- Preserve all changed preimages under history/pre801 and bind the current bytes.
+- Preparation only on4971a197; owner PC application/commit/push/return and a new
+  full applicable pause review remain pending. Last qualified pause STATIC800.
+- No producer/schema/reader change, native operation or independent acceptance.
+
 # Unreleased candidate: offline prospective package-case assessor
 
 - Implement the owner-approved import-only offline design with explicit unknown,

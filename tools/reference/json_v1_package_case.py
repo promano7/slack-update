@@ -279,10 +279,12 @@ def _known_failure(rule, actual, expected, error_free):
     if rule.applicability in ('disabled', 'blocked'):
         return (raw is not None and raw != -1) or any(
             getattr(actual, k) is not None and bool(getattr(actual, k)) for k in VECTOR_FIELDS)
-    if rule.applicability != 'required' or rule.criterion == 'unknown':
+    if rule.applicability != 'required':
         return False
     if raw == -1:
         return True
+    if rule.criterion == 'unknown':
+        return False
     if rule.name == 'update':
         return raw is not None and raw != 0 or error_free is False
     if rule.name == 'install-new':
@@ -344,6 +346,17 @@ def assess_package_case(result_bytes, profile, expectations, observations):
     note('shape', True if shape == 'valid' else False if shape == 'invalid' else None)
     note('result.literal', None if value is None or literal is None else _same_json(value, literal))
     wanted = expectations.evidence
+    # Known declaration conflicts do not depend on a third observed value.
+    # Emit only conflicts here, retaining the existing complete case assessments
+    # and their independently reported unknown observation checks.
+    for prefix, left, right, fields in (
+            ('identity', profile.identity, wanted.identity, IDENTITY_FIELDS),
+            ('config', profile.configuration, wanted.configuration, CONFIG_FIELDS),
+            ('pin', profile.identity, wanted.pin_identity, IDENTITY_FIELDS)):
+        for name in fields:
+            first, second = getattr(left, name), getattr(right, name)
+            if first is not None and second is not None and first != second:
+                note(prefix + '.declarations.' + name, False)
     for prefix, expected in (('identity.profile', profile.identity), ('identity.expected', wanted.identity)):
         for name in IDENTITY_FIELDS:
             compare(prefix + '.' + name, getattr(expected, name), getattr(observations.identity, name))
@@ -376,7 +389,13 @@ def assess_package_case(result_bytes, profile, expectations, observations):
                 if facts.raw_status is not None and ((facts.raw_status >= 0 and capture.state == 'not-produced') or
                         (facts.raw_status == -1 and capture.state in ('complete', 'incomplete'))):
                     note(name + '.' + key + '.' + label + '.production', False)
-        if mode == 'unknown' or rule.criterion == 'unknown' or raw is None:
+        vectors = tuple(getattr(actual, k) for k in VECTOR_FIELDS)
+        if mode in ('disabled', 'blocked') and (
+                raw is not None and raw != -1 or any(v is not None and len(v) for v in vectors)):
+            admission = False
+        elif mode == 'required' and raw == -1:
+            admission = False
+        elif mode == 'unknown' or rule.criterion == 'unknown' or raw is None:
             admission = None
         elif mode == 'required':
             admission = raw != -1
@@ -402,6 +421,8 @@ def assess_package_case(result_bytes, profile, expectations, observations):
             elif None in values and admission is True:
                 admission = None
         note(name + '.admission', admission)
+        if admission is False and rule.criterion == 'unknown':
+            note(name + '.criterion', None)
         note(name + '.latch', None if forward_failure and raw is None else raw == -1 if forward_failure else True)
         if value is None or raw is None:
             note(name + '.result_raw', None)

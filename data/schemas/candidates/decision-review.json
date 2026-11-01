@@ -65,8 +65,8 @@
     },
     {
       "path": "data/schemas/candidates/consumer-inventory.json",
-      "bytes": 18029,
-      "sha256": "2da769680173e2444049aea6fba9b8f94d40b620344738a2ebaaad853ec68974"
+      "bytes": 18119,
+      "sha256": "39dd890c9a6ef3386217844bf17c03277472d8f2ea9a2a472fb00bb0edfaf7dd"
     },
     {
       "path": "tests/reference/json_result_test_support.py",
@@ -130,8 +130,8 @@
     },
     {
       "path": "data/schemas/candidates/migration-plan.json",
-      "bytes": 21059,
-      "sha256": "8f04f0fe46016dd7162285f6d7a7ee51914a59ba821c72782f120375198ad7af"
+      "bytes": 21641,
+      "sha256": "264c389c7aa66bd4480984ca64903f5dcb3f94e3346ad353f114f0db90472adb"
     },
     {
       "path": "docs/reference/json-v1-success-coherence.md",
@@ -165,30 +165,36 @@
     },
     {
       "path": "docs/roadmap.md",
-      "bytes": 24074,
-      "sha256": "f3a4304a6074dfe6de8deae09fd99c4f32d9049dfe2ca85e4d46daa0d5853883"
+      "bytes": 24780,
+      "sha256": "757666ac782873503b430ec11082615609081a2413dccf63cfafdc52a2148ab0"
     },
     {
       "path": "CHANGELOG.md",
-      "bytes": 1115984,
-      "sha256": "1870f9ff9789e3865ef2f7733596f0b3c215818b6510c9a183abc627b3f0ec96"
+      "bytes": 1116743,
+      "sha256": "91926e2f021bfce7880621f83a356fa5e5f8b5a87a94be3f6346860f331b81f0"
     },
     {
       "path": "data/schemas/candidates/package-case-inputs.json",
-      "bytes": 769526,
-      "sha256": "ad1b6ad5f922af4a6b1d838ae6f80b4afa2e733ab62d604f4a33fcd4b06f1488",
+      "bytes": 772070,
+      "sha256": "42004f4c27d58e7c54f1c6ffe74b63d0ff33a5191d35731546dbc4165ec88b87",
       "git_mode": "100644"
     },
     {
       "path": "docs/reference/json-v1-package-case.md",
-      "bytes": 6373,
-      "sha256": "b588d9b237fd857b0330bc64ede02a716ec440fa025687d7f49db32e04b1bc4f",
+      "bytes": 7896,
+      "sha256": "4cd500273a4d2e8bbf19c128a1c19935f5f266a922537e65ce43579cadb9a52f",
       "git_mode": "100644"
     },
     {
       "path": "docs/superpowers/specs/2026-11-01-json-v1-package-case-approval.json",
       "bytes": 1250,
       "sha256": "1c6bfe0bcda93bcf667e570714c63e1fd91fb6692b772a96fdc0240a53290c5d",
+      "git_mode": "100644"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-01-package-case-conflict-repair.md",
+      "bytes": 3050,
+      "sha256": "901be7fcfde8eb9a687aa21eb9a3b94b15e01b1250cc894b88b4b94db437b322",
       "git_mode": "100644"
     }
   ],
@@ -980,7 +986,7 @@
     "owner_statement": {
       "author": "Repository owner in this conversation",
       "date": "2026-10-31",
-      "quote": "Solo he usado las pruebas y comandos que hacemos aqu\u00ed; no conozco otros consumidores",
+      "quote": "Solo he usado las pruebas y comandos que hacemos aquí; no conozco otros consumidores",
       "scope": "Own use of tests and commands performed together in this chat; no other consumers known",
       "named_external_consumers": [],
       "disposition": "No named external consumers to adapt in the declared scope. Preserve bounded knowledge and revisit if consumers are discovered; independent exact compatibility/contract acceptance still pending.",
@@ -1067,5 +1073,18 @@
     "last_confirmed_qualified_pause": 770,
     "execution_method": "direct-TDD-fresh-final-code-review",
     "owner_plan_handoff_received": true
+  },
+  "package_case_conflict_repair": {
+    "findings": [
+      "F1",
+      "F2",
+      "F3"
+    ],
+    "status": "prepared-not-independent-acceptance",
+    "base_commit": "4971a197546579b643bb16caeddac892db07d3b9",
+    "PC_application_publication": "pending",
+    "last_confirmed_qualified_pause": 800,
+    "whole_independent_acceptance": false,
+    "native_authorization": false
   }
 }

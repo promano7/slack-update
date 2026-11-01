@@ -1,3 +1,14 @@
+## Prepared F1-F3 offline assessor repairs, steps801-810
+
+On published4971a197, qualified STATIC800 diagnosed three Important known-conflict
+losses. This candidate repairs them with TDD and eight added regression/control
+methods; the28 original complete authored fixture expectations remain exact.
+No independent contract/native acceptance or producer switch follows. Last
+confirmed qualified pause is800; new PC application/publication and return review
+remain pending. Remaining R2/R3/R4, J01-J12, A/R/D/P0D/native/platform/Phase1 gates
+retain their original distinct scopes. Previous preparation statuses below are
+historical; the exact pre801 source is retained under data/schemas/candidates/history.
+
 ## Prepared offline package-case candidate
 
 The owner-approved offline case assessor is prepared on

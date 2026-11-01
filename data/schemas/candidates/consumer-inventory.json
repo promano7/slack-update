@@ -8,7 +8,7 @@
   "external_consumers": {
     "author": "Repository owner in this conversation",
     "date": "2026-10-31",
-    "quote": "Solo he usado las pruebas y comandos que hacemos aqu\u00ed; no conozco otros consumidores",
+    "quote": "Solo he usado las pruebas y comandos que hacemos aquí; no conozco otros consumidores",
     "scope": "Own use of tests and commands performed together in this chat; no other consumers known",
     "named_external_consumers": [],
     "disposition": "No named external consumers to adapt in the declared scope. Preserve bounded knowledge and revisit if consumers are discovered; independent exact compatibility/contract acceptance still pending.",
@@ -235,7 +235,7 @@
     },
     {
       "path": "tests/reference/test-json-v1-package-case.py",
-      "sha256": "0b829692d154d0188acab008349dd1a2808f2d748ce802544baa1160a5e65293",
+      "sha256": "fc34fb6e43b718c677b670c11643e538fa12f6ec4057cec8c342771c27b9784d",
       "role": "prospective-package-case-test",
       "migration_disposition": "Separate authored R3 data checks; no whole independent/native acceptance or producer switch."
     }
@@ -275,13 +275,13 @@
     },
     {
       "path": "tools/reference/json_v1_package_case.py",
-      "sha256": "30a5fc5ae7e21e18e938b2f1af992bd9d9ba1a42a99e0382ada10ae8b0a2f1c6",
+      "sha256": "3212ab05676815a91e6c7e5d81d379c6a8c43c1de70e5c2bc8f4f98eb10f0140",
       "role": "prospective-offline-package-case-input",
       "migration_disposition": "Semantic consumer/dependency explicitly registered beyond literal metadata discovery; no runtime/native activation."
     },
     {
       "path": "data/schemas/candidates/package-case-inputs.json",
-      "sha256": "ad1b6ad5f922af4a6b1d838ae6f80b4afa2e733ab62d604f4a33fcd4b06f1488",
+      "sha256": "42004f4c27d58e7c54f1c6ffe74b63d0ff33a5191d35731546dbc4165ec88b87",
       "role": "prospective-offline-package-case-input",
       "migration_disposition": "Semantic consumer/dependency explicitly registered beyond literal metadata discovery; no runtime/native activation."
     }
@@ -289,5 +289,6 @@
   "revision": "Adopted S1-S3 candidate integration743-752; pre743/pre665/pre630 history retained; bounded lexical inventory only",
   "revision_base_commit": "3c638394d463e71e17810c832e177484e2b0c198",
   "historical_pre665_path": "data/schemas/candidates/history/pre665/data/schemas/candidates/consumer-inventory.json",
-  "historical_pre743_path": "data/schemas/candidates/history/pre743/data/schemas/candidates/consumer-inventory.json"
+  "historical_pre743_path": "data/schemas/candidates/history/pre743/data/schemas/candidates/consumer-inventory.json",
+  "repair_revision": "F1-F3 known-conflict repair on4971a197; bounded lexical set unchanged"
 }

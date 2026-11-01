@@ -5,15 +5,15 @@
   "status": "adopted-S1-S3-candidate-prepared-not-whole-contract-acceptance",
   "exact_inventory": {
     "path": "data/schemas/candidates/consumer-inventory.json",
-    "bytes": 18029,
-    "sha256": "2da769680173e2444049aea6fba9b8f94d40b620344738a2ebaaad853ec68974",
+    "bytes": 18119,
+    "sha256": "39dd890c9a6ef3386217844bf17c03277472d8f2ea9a2a472fb00bb0edfaf7dd",
     "git_mode": "100644"
   },
   "semantic_decision": null,
   "external_consumer_disposition": {
     "author": "Repository owner in this conversation",
     "date": "2026-10-31",
-    "quote": "Solo he usado las pruebas y comandos que hacemos aqu\u00ed; no conozco otros consumidores",
+    "quote": "Solo he usado las pruebas y comandos que hacemos aquí; no conozco otros consumidores",
     "scope": "Own use of tests and commands performed together in this chat; no other consumers known",
     "named_external_consumers": [],
     "disposition": "No named external consumers to adapt in the declared scope. Preserve bounded knowledge and revisit if consumers are discovered; independent exact compatibility/contract acceptance still pending.",
@@ -418,8 +418,8 @@
     "status": "prepared-offline-only-not-whole-acceptance",
     "inputs": {
       "path": "data/schemas/candidates/package-case-inputs.json",
-      "bytes": 769526,
-      "sha256": "ad1b6ad5f922af4a6b1d838ae6f80b4afa2e733ab62d604f4a33fcd4b06f1488",
+      "bytes": 772070,
+      "sha256": "42004f4c27d58e7c54f1c6ffe74b63d0ff33a5191d35731546dbc4165ec88b87",
       "git_mode": "100644"
     },
     "owner_design_approval": {
@@ -431,5 +431,24 @@
     "producer_switch_authorized": false,
     "PC_application": "pending",
     "native_acceptance": false
+  },
+  "package_case_conflict_repair": {
+    "base_commit": "4971a197546579b643bb16caeddac892db07d3b9",
+    "findings": [
+      "F1",
+      "F2",
+      "F3"
+    ],
+    "status": "prepared-offline-repair-candidate",
+    "inputs": {
+      "path": "data/schemas/candidates/package-case-inputs.json",
+      "bytes": 772070,
+      "sha256": "42004f4c27d58e7c54f1c6ffe74b63d0ff33a5191d35731546dbc4165ec88b87",
+      "git_mode": "100644"
+    },
+    "producer_switch_authorized": false,
+    "PC_application": "pending",
+    "native_acceptance": false,
+    "last_confirmed_qualified_pause": 800
   }
 }

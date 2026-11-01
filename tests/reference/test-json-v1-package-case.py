@@ -340,5 +340,96 @@ class FinalReviewRegression(unittest.TestCase):
                 m.assess_package_case(raw,replace(p,actions=tuple(rules)),e,o)
 
 
+class KnownConflictRepair(unittest.TestCase):
+    """Unknown facts must not suppress contradictions already present in supplied data."""
+
+    def test_forbidden_effect_survives_unknown_raw(self):
+        m=subject()
+        for case_id,index in (('P17',1),('P15',2)):
+            for vector in ('selector','target_effects','owned_effects','unexpected_effects'):
+                raw,p,e,o,_=load_case(case_id,m)
+                def changed(facts):
+                    actions=list(facts.actions)
+                    actions[index]=replace(actions[index],raw_status=None,**{vector:('known-later-effect',)})
+                    return replace(facts,actions=tuple(actions))
+                result=m.assess_package_case(raw,p,replace(e,evidence=changed(e.evidence)),changed(o))
+                states={check.key:check.state for check in result.checks}
+                with self.subTest(case=case_id,vector=vector):
+                    self.assertEqual(states[p.actions[index].name+'.admission'],'mismatch')
+                    self.assertEqual(result.data_disposition,'mismatch')
+                    self.assertTrue(result.pending_checks)
+
+    def test_required_absence_survives_unknown_criterion(self):
+        m=subject()
+        for case_id,index in (('P15',2),('P17',1)):
+            raw,p,e,o,_=load_case(case_id,m)
+            rules=list(p.actions)
+            rules[index]=replace(rules[index],applicability='required',criterion='unknown')
+            key='upgrade_all' if index==2 else 'install_new'
+            p=replace(p,actions=tuple(rules),configuration=replace(p.configuration,**{key:True}))
+            e=replace(e,evidence=replace(e.evidence,configuration=replace(e.evidence.configuration,**{key:True})))
+            o=replace(o,configuration=replace(o.configuration,**{key:True}))
+            result=m.assess_package_case(raw,p,e,o)
+            states={check.key:check.state for check in result.checks}
+            with self.subTest(case=case_id):
+                self.assertEqual(states[p.actions[index].name+'.admission'],'mismatch')
+                self.assertTrue(result.forward_failure_known)
+                self.assertTrue(result.pending_checks)
+
+    def test_profile_expected_identity_conflict_survives_unknown_observation(self):
+        m=subject()
+        for name in ('case_id','platform','platform_version','source_epoch','boot_id','attempt_id','run_id'):
+            raw,p,e,o,_=load_case('P01',m)
+            e=replace(e,evidence=replace(e.evidence,identity=replace(e.evidence.identity,**{name:'known-other-identity'})))
+            o=replace(o,identity=replace(o.identity,**{name:None}))
+            result=m.assess_package_case(raw,p,e,o)
+            with self.subTest(component=name):
+                self.assertEqual(result.data_disposition,'mismatch')
+                self.assertTrue(result.mismatched_checks)
+                self.assertTrue(result.pending_checks)
+
+    def test_profile_expected_configuration_identity_conflict_survives_unknown_observation(self):
+        m=subject();raw,p,e,o,_=load_case('P01',m)
+        e=replace(e,evidence=replace(e.evidence,configuration=replace(e.evidence.configuration,identity='known-other-config')))
+        o=replace(o,configuration=replace(o.configuration,identity=None))
+        result=m.assess_package_case(raw,p,e,o)
+        self.assertEqual(result.data_disposition,'mismatch')
+        self.assertTrue(result.pending_checks)
+
+    def test_profile_expected_pin_conflict_survives_unknown_observation(self):
+        m=subject()
+        for name in ('case_id','platform','platform_version','source_epoch','boot_id','attempt_id','run_id'):
+            raw,p,e,o,_=load_case('P01',m)
+            e=replace(e,evidence=replace(e.evidence,pin_identity=replace(e.evidence.pin_identity,**{name:'known-other-pin'})))
+            o=replace(o,pin_identity=replace(o.pin_identity,**{name:None}))
+            result=m.assess_package_case(raw,p,e,o)
+            with self.subTest(component=name):
+                self.assertEqual(result.data_disposition,'mismatch')
+                self.assertTrue(result.pending_checks)
+
+    def test_unknown_raw_without_known_forbidden_effect_stays_pending(self):
+        m=subject();raw,p,e,o,_=load_case('P15',m)
+        def changed(facts):
+            actions=list(facts.actions);actions[2]=replace(actions[2],raw_status=None)
+            return replace(facts,actions=tuple(actions))
+        result=m.assess_package_case(raw,p,replace(e,evidence=changed(e.evidence)),changed(o))
+        self.assertEqual(result.data_disposition,'pending')
+        self.assertFalse(result.mismatched_checks)
+
+    def test_agreeing_declarations_with_unknown_observation_do_not_invent_conflict(self):
+        m=subject();raw,p,e,o,_=load_case('P01',m)
+        result=m.assess_package_case(raw,p,e,replace(o,identity=replace(o.identity,run_id=None)))
+        self.assertEqual(result.data_disposition,'pending')
+        self.assertFalse(result.mismatched_checks)
+
+    def test_unknown_criterion_does_not_borrow_native_success_semantics(self):
+        m=subject();raw,p,e,o,_=load_case('P01',m)
+        rules=list(p.actions);rules[2]=replace(rules[2],criterion='unknown')
+        result=m.assess_package_case(raw,replace(p,actions=tuple(rules)),e,o)
+        self.assertEqual(result.data_disposition,'pending')
+        self.assertFalse(result.mismatched_checks)
+        self.assertFalse(result.forward_failure_known)
+
+
 if __name__ == '__main__':
     unittest.main()

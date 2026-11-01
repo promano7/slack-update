@@ -4,8 +4,8 @@
   "files": [
     {
       "path": "docs/reference/json-v1-package-case.md",
-      "bytes": 6373,
-      "sha256": "b588d9b237fd857b0330bc64ede02a716ec440fa025687d7f49db32e04b1bc4f",
+      "bytes": 7896,
+      "sha256": "4cd500273a4d2e8bbf19c128a1c19935f5f266a922537e65ce43579cadb9a52f",
       "git_mode": "100644"
     },
     {
@@ -694,20 +694,80 @@
     },
     {
       "path": "tests/reference/test-json-v1-package-case.py",
-      "bytes": 18792,
-      "sha256": "0b829692d154d0188acab008349dd1a2808f2d748ce802544baa1160a5e65293",
+      "bytes": 24187,
+      "sha256": "fc34fb6e43b718c677b670c11643e538fa12f6ec4057cec8c342771c27b9784d",
       "git_mode": "100644"
     },
     {
       "path": "tools/reference/json_v1_package_case.py",
-      "bytes": 21192,
-      "sha256": "30a5fc5ae7e21e18e938b2f1af992bd9d9ba1a42a99e0382ada10ae8b0a2f1c6",
+      "bytes": 22389,
+      "sha256": "3212ab05676815a91e6c7e5d81d379c6a8c43c1de70e5c2bc8f4f98eb10f0140",
       "git_mode": "100644"
     },
     {
       "path": "docs/superpowers/specs/2026-11-01-json-v1-package-case-execution-approval.json",
       "bytes": 536,
       "sha256": "b6e684c7ca3d80503531ddba2d96bfc9a70f309eb420703084037c9851e30493",
+      "git_mode": "100644"
+    },
+    {
+      "path": "docs/superpowers/plans/2026-11-01-package-case-conflict-repair.md",
+      "bytes": 3050,
+      "sha256": "901be7fcfde8eb9a687aa21eb9a3b94b15e01b1250cc894b88b4b94db437b322",
+      "git_mode": "100644"
+    },
+    {
+      "path": "data/schemas/candidates/history/pre801/tools/reference/json_v1_package_case.py",
+      "bytes": 21192,
+      "sha256": "30a5fc5ae7e21e18e938b2f1af992bd9d9ba1a42a99e0382ada10ae8b0a2f1c6",
+      "git_mode": "100644"
+    },
+    {
+      "path": "data/schemas/candidates/history/pre801/tests/reference/test-json-v1-package-case.py",
+      "bytes": 18792,
+      "sha256": "0b829692d154d0188acab008349dd1a2808f2d748ce802544baa1160a5e65293",
+      "git_mode": "100644"
+    },
+    {
+      "path": "data/schemas/candidates/history/pre801/docs/reference/json-v1-package-case.md",
+      "bytes": 6373,
+      "sha256": "b588d9b237fd857b0330bc64ede02a716ec440fa025687d7f49db32e04b1bc4f",
+      "git_mode": "100644"
+    },
+    {
+      "path": "data/schemas/candidates/history/pre801/CHANGELOG.md",
+      "bytes": 1115984,
+      "sha256": "1870f9ff9789e3865ef2f7733596f0b3c215818b6510c9a183abc627b3f0ec96",
+      "git_mode": "100644"
+    },
+    {
+      "path": "data/schemas/candidates/history/pre801/docs/roadmap.md",
+      "bytes": 24074,
+      "sha256": "f3a4304a6074dfe6de8deae09fd99c4f32d9049dfe2ca85e4d46daa0d5853883",
+      "git_mode": "100644"
+    },
+    {
+      "path": "data/schemas/candidates/history/pre801/data/schemas/candidates/package-case-inputs.json",
+      "bytes": 769526,
+      "sha256": "ad1b6ad5f922af4a6b1d838ae6f80b4afa2e733ab62d604f4a33fcd4b06f1488",
+      "git_mode": "100644"
+    },
+    {
+      "path": "data/schemas/candidates/history/pre801/data/schemas/candidates/consumer-inventory.json",
+      "bytes": 18029,
+      "sha256": "2da769680173e2444049aea6fba9b8f94d40b620344738a2ebaaad853ec68974",
+      "git_mode": "100644"
+    },
+    {
+      "path": "data/schemas/candidates/history/pre801/data/schemas/candidates/migration-plan.json",
+      "bytes": 21059,
+      "sha256": "8f04f0fe46016dd7162285f6d7a7ee51914a59ba821c72782f120375198ad7af",
+      "git_mode": "100644"
+    },
+    {
+      "path": "data/schemas/candidates/history/pre801/data/schemas/candidates/decision-review.json",
+      "bytes": 38255,
+      "sha256": "a2be00799e00c14b51c9fac6eb8c71d01d01a7c66a054b6cedb26afe19e70244",
       "git_mode": "100644"
     }
   ],
@@ -16261,5 +16321,7 @@
   ],
   "authority": false,
   "case_definitions": 28,
-  "new_native_runs": 0
+  "new_native_runs": 0,
+  "repair_base_commit": "4971a197546579b643bb16caeddac892db07d3b9",
+  "repair_scope": "F1-F3 only; candidate preparation, no independent/native acceptance"
 }
