@@ -97,26 +97,56 @@ fixtures.
 
 ## Normal official-package update
 
-`test-normal-update.sh` stages the next acceptance scenario. It is suitable for
-an explicitly recoverable physical host as well as a disposable VM, but apply
-mode performs real package and potentially boot changes.
+`test-normal-update.sh` currently supports diagnostic preflight only. Its
+`--execute-apply` entry point rejects every invocation before privilege checks,
+metadata refresh, probing or the reference launcher. P1 is contained through this
+entry; selection/consumption binding remains unresolved. Invoking historical
+helpers or the reference script directly is outside this protection.
 
-Always begin with the non-destructive preflight:
+Always begin with a separately reviewed case. Main requires `--diagnostic-policy`
+with schema 1: target, hostname, boot ID, exact backend/configuration hashes,
+mirror, pinned public keyring and fingerprint, boot profile, required mounts and
+explicit extra boot files. `normal-update-profiles.json` recognizes the examined
+Slackpkg15.0.10 toolset by exact hashes, not its version label alone. Unknown toolsets
+(including16), changed configurations, unbound hosts or incomplete boot layouts
+fail before backend calls. The fixture policy example is deliberately non-operational.
+These records do not authorize a new case or establish independent key provenance.
 
-```bash
-sudo bash tests/acceptance/reference/test-normal-update.sh \
-    --target slackware-current \
-    --preflight
-```
+The diagnostic path uses dialog-off/batch/negative-answer/postinst-off commands,
+retains stdout/stderr/raw status separately and stops at the first failed stage.
+A process exit0 is not evidence of effective refresh: the catalog is acquired via
+HTTPS and checked against its pinned signature, FILELIST date/checksum and complete
+regenerated effective pkglist. Equal coherent dates are allowed; global freshness
+is not claimed. The catalog and installed/configuration state must remain coherent
+for both probes. Candidate parsing accepts only the pinned count/list/prompt
+protocol, verifies count/status/index membership and never mines stderr for names.
+Both lists empty is `no-candidates`, not a successful normal-update scenario.
 
-Preflight first refreshes package metadata with non-interactive `slackpkg update`,
-then runs `slackpkg install-new` and `slackpkg upgrade-all` with dialog output
-disabled, batch mode enabled, and a negative default answer. It stores all raw
-output, extracts candidate package filenames, classifies kernel and critical
-packages, and proves that neither `/var/log/packages` nor the observed initrd and
-GRUB configuration changed. Apply repeats this refresh-and-classify boundary
-immediately before authorization, preventing stale local metadata from bypassing
-the kernel safety gate.
+The observed boot manifest covers `/boot` (including declared EFI mounts), relevant
+GRUB/GenInitrd configuration or a separate ELILO profile, explicit symlinks and
+versioned files. Missing/changed mounts, broken/external undeclared links and read
+errors prevent PASS. Equality concerns only the declared manifests, not menu
+selection, future boot, recovery, transient effects or the complete host.
+
+Evidence includes per-stage states, first failure and finalization errors, unknown
+counts as `not-calculated`, code/policy/backend identities, complete channels,
+catalog validation, candidate lists and a portable archive/sidecar. Failed cases
+retain their directory; a packaging failure is not announced as successful
+publication. If a signal interrupts finalization, the enclosing summary is FAIL,
+the reviewed digest is cleared and any newly attempted archive/sidecar is retained
+under `interrupted-publication/`, outside the normal publication path. That raw
+archive can contain the earlier pre-signal snapshot; it is not a completed result.
+Existing archive names are rejected rather than overwritten.
+New code is covered by the private-flow and Python diagnostic suites.
+The existing118-control harness and its legacy helper contracts remain unchanged;
+those helper tests alone do not validate the new main flow. Historical raw20
+observations do not replace the original install20/upgrade20 acceptance criteria.
+
+The following accepted records and commands are historical boundaries. They remain
+intact and do not enable apply in this diagnostic revision. Recovery and native/
+platform/Phase1 gates remain separate. For the identified current VM, a future
+kernel update requires explicit successful `sudo update-grub` and configuration
+verification before reboot.
 
 The Slackware-current preflight captured on 2026-07-29 is accepted. It reported
 ten `upgrade-all` candidates, no `install-new` candidates, no kernel candidates,
