@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "target": "slackware-current",
+  "hostname": "NOT-REVIEWED",
+  "boot_id": "NOT-REVIEWED",
+  "backend_profile": "slackpkg-15.0.10-count-v1",
+  "backend_sha256": {},
+  "configuration_sha256": {},
+  "mirror": "https://fixture.invalid/not-an-operational-case/",
+  "public_keyring": "/NOT-REVIEWED/public-keyring.gpg",
+  "public_keyring_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "primary_fingerprint": "0000000000000000000000000000000000000000",
+  "boot_profile": "current-grub",
+  "required_mounts": {},
+  "extra_boot_files": []
+}

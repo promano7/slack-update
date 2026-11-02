@@ -1,0 +1,4 @@
+# Preserve byte-exact historical output and backend source, including whitespace.
+install-new-900.stdout whitespace=-blank-at-eof
+upgrade-all-900.stdout whitespace=-blank-at-eof
+metadata/pkglist.awk whitespace=-blank-at-eol

@@ -1,0 +1,21 @@
+{
+  "slackpkg-15.0.10-count-v1": {
+    "backend_sha256": {
+      "/usr/sbin/slackpkg": "30c1a56d5f1318a9e3fdc0bc7be299e22f58ba17192d14c6a8067a75b6a8966d",
+      "/usr/libexec/slackpkg/core-functions.sh": "78e9bd452c7c878a2b4e60604f0d02063dcf167bd77ce46e70cbad280cf40cf6",
+      "/usr/libexec/slackpkg/cutpkg.awk": "39d08ff62dd58c3074df958ce08e373e85aaf6fb62b7a1efd7c32a766c829bae",
+      "/usr/libexec/slackpkg/filelist.awk": "aea1b45dd9cf721945ff909c4221bbec64d4b75ae4ae5cf74503fb28f3066a9d",
+      "/usr/libexec/slackpkg/functions.d/dialog-functions.sh": "eeebc5e2d63b858f5f2c7da178aa0d63ca97a366cc9c47f8d5d4dbb91a5639a8",
+      "/usr/libexec/slackpkg/functions.d/post-functions.sh": "8429af6a6c5b898d954ac8336b45b5b952f267c9453f78de96597a100e834ce8",
+      "/usr/libexec/slackpkg/install-new.awk": "6d91eec5569fe9f5e8ee4ff1170c3f81a6ceb62955cb9bc8364df201310a04ba",
+      "/usr/libexec/slackpkg/pkglist.awk": "05a0d78061864d2c3babba9011b5f788830b45bf51d1de07a0385f57323e8ea5"
+    },
+    "executable_extensions": [
+      "dialog-functions.sh",
+      "post-functions.sh"
+    ],
+    "pkglist_awk": "/usr/libexec/slackpkg/pkglist.awk",
+    "workdir": "/var/lib/slackpkg",
+    "source": "Observed local backend, reconciled with PAUSA900/920; no G1 or native acceptance"
+  }
+}

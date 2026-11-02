@@ -1,0 +1,47 @@
+{
+  "CHECKSUMS.md5.gz": {
+    "source": "/home/promano/Documentos/ChatGPT/slack-update/runs/current-911-920/CHECKSUMS.md5",
+    "source_bytes": 1469609,
+    "source_sha256": "4f9ab3bbd266fb7489f5b2c377b9bab5ed573cb653cc6bac45e05010524966a1",
+    "fixture_sha256": "710166b08b538eb42e5f5c73f42c6e33f1053e548d7b1e38db2587f52a5ec3da",
+    "public_only": true
+  },
+  "FILELIST.TXT.gz": {
+    "source": "/home/promano/Documentos/ChatGPT/slack-update/runs/current-911-920/FILELIST.TXT",
+    "source_bytes": 1914890,
+    "source_sha256": "199f08011e41ad42b06d96ab2fa62e2851b40c23ffc644e540f28b3b3d9586bd",
+    "fixture_sha256": "899f9d49feb42648eecf33d4fe37f4a71f1f8b1735ea46e0f7f7324e48516930",
+    "public_only": true
+  },
+  "CHECKSUMS.md5.asc": {
+    "source": "/home/promano/Documentos/ChatGPT/slack-update/runs/current-911-920/CHECKSUMS.md5.asc",
+    "source_bytes": 232,
+    "source_sha256": "190767bbec82611f253662f9827046365603080f882758c43d058f3dde2777d0",
+    "fixture_sha256": "190767bbec82611f253662f9827046365603080f882758c43d058f3dde2777d0",
+    "public_only": true
+  },
+  "slackware.gpg": {
+    "source": "/home/promano/Documentos/ChatGPT/slack-update/runs/current-911-920/public-keyring/slackware.gpg",
+    "source_bytes": 918,
+    "source_sha256": "04914ffd333677bd10715c838c40cc348fcace22ac289d8556632e56d3c1601d",
+    "fixture_sha256": "04914ffd333677bd10715c838c40cc348fcace22ac289d8556632e56d3c1601d",
+    "public_only": true
+  },
+  "pkglist.awk": {
+    "source": "/usr/libexec/slackpkg/pkglist.awk",
+    "source_bytes": 815,
+    "source_sha256": "05a0d78061864d2c3babba9011b5f788830b45bf51d1de07a0385f57323e8ea5",
+    "fixture_sha256": "05a0d78061864d2c3babba9011b5f788830b45bf51d1de07a0385f57323e8ea5",
+    "public_only": true
+  },
+  "install-new-900.stdout": {
+    "source": "/home/promano/Documentos/ChatGPT/slack-update/runs/current-892-900/probe-install-new.stdout",
+    "sha256": "6d02e1297402b46b25f9c41a5741c6fba633a3af2357456821c6b5a00e854c90",
+    "historical": true
+  },
+  "upgrade-all-900.stdout": {
+    "source": "/home/promano/Documentos/ChatGPT/slack-update/runs/current-892-900/probe-upgrade-all.stdout",
+    "sha256": "c869abd39cade6f8432d83431d8a2c7b143c54b4eb0c0e56dee0ddc47912f03c",
+    "historical": true
+  }
+}

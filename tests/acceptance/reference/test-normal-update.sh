@@ -18,6 +18,7 @@ OUTPUT_DIR=
 REFERENCE_SCRIPT=$DEFAULT_REFERENCE_SCRIPT
 CONFIG_TEMPLATE=$DEFAULT_CONFIG_TEMPLATE
 CONFIRM_HOSTNAME=
+DIAGNOSTIC_POLICY=
 CONFIRM_CANDIDATES_SHA256=
 CONFIRM_KERNEL_BOOT_PREFLIGHT_SHA256=
 ALLOW_KERNEL_UPDATE=0
@@ -42,19 +43,21 @@ Usage: ${0##*/} --target slackware-15.0|slackware-current --preflight [options]
                      --confirm-hostname HOSTNAME \\
                      --confirm-candidates-sha256 SHA256 [options]
 
-Run the real-system acceptance scenario for a normal Slackware package update.
-Always run --preflight first. Each mode refreshes Slackware package metadata,
-then asks slackpkg to generate the actual install-new and upgrade-all candidate
-lists with a negative default answer. Preflight proves that the installed
-package database and observed boot files were not modified.
+Run the diagnostic preflight for a normal Slackware package update.
+Always run --preflight first. Only preflight is available in this revision.
+A newly reviewed --diagnostic-policy file is required before any backend call.
+The preflight validates the observed catalog and candidate protocol and compares
+installed-package and declared boot manifests. It can change metadata; it does
+not prove global host immutability, recovery, or native contract acceptance.
 
-The apply mode performs real package changes. On physical hardware, review the
-preflight evidence and have a tested recovery path before using it.
+The apply mode is suspended until selection and consumption are bound (P1).
+No confirmation option enables apply in this diagnostic-only revision.
 
 Required options:
       --target TARGET          Declare slackware-15.0 or slackware-current
       --preflight              Detect candidates without installing them
-      --execute-apply          Run the real Slack-Update apply workflow
+      --diagnostic-policy PATH Case-bound schema-1 policy; required by main
+      --execute-apply          Disabled until selection/consumption binding is fixed
       --confirm-hostname NAME  Required with --execute-apply; must match hostname
       --confirm-candidates-sha256 SHA256
                               Require the exact reviewed candidate-set digest
@@ -70,9 +73,9 @@ Optional arguments:
       --config-template PATH   Select the schema-1 configuration template
   -h, --help                   Show this help and exit
 
-The generated configuration disables Flatpak, SBo, ELF, and Cinnamon so this
-scenario isolates official Slackware packages. Boot preparation remains in auto
-mode so kernel changes fail closed unless initrd and GRUB handling is available.
+The generated configuration disables Flatpak, SBo, ELF, and Cinnamon. Automatic
+boot preparation remains a historical apply configuration; this diagnostic main
+never invokes the reference apply engine, initrd tools, GRUB generation or reboot.
 EOF_USAGE
 }
 
@@ -182,6 +185,11 @@ parse_arguments() {
                     return 1
                 }
                 TARGET=$2
+                shift 2
+                ;;
+            --diagnostic-policy)
+                [ "$#" -ge 2 ] || { error '--diagnostic-policy requires a value'; return 1; }
+                DIAGNOSTIC_POLICY=$2
                 shift 2
                 ;;
             --preflight)
@@ -712,6 +720,18 @@ capture_host_metadata() {
         printf 'uname=%s\n' "$(uname -a)"
         printf 'package_database=%s\n' /var/log/packages
         printf 'package_database_resolved=%s\n' "$(readlink -f -- /var/log/packages 2>/dev/null || printf unresolved)"
+        printf 'diagnostic_harness_sha256=%s\n' "$(sha256sum -- "$TEST_DIR/test-normal-update.sh" | awk '{print $1}')"
+        local helper
+        for helper in normal_update_protocol.py normal_update_metadata.py normal_update_boot.py normal-update-profiles.json; do
+            printf 'diagnostic_%s_sha256=%s\n' "$helper" "$(sha256sum -- "$TEST_DIR/$helper" | awk '{print $1}')"
+        done
+        printf 'diagnostic_policy=%s\n' "${DIAGNOSTIC_POLICY:-not-provided}"
+        if [ -n "${DIAGNOSTIC_POLICY:-}" ] && [ -r "$DIAGNOSTIC_POLICY" ]; then
+            printf 'diagnostic_policy_sha256=%s\n' "$(sha256sum -- "$DIAGNOSTIC_POLICY" | awk '{print $1}')"
+        fi
+        printf 'backend_slackpkg_sha256=%s\n' "$(sha256sum -- /usr/sbin/slackpkg | awk '{print $1}')"
+        printf 'boot_id=%s\n' "$(cat /proc/sys/kernel/random/boot_id)"
+        printf 'cmdline=%s\n' "$(cat /proc/cmdline)"
         printf 'reference_script=%s\n' "$REFERENCE_SCRIPT"
         printf 'reference_sha256=%s\n' "$(sha256sum -- "$REFERENCE_SCRIPT" | awk '{print $1}')"
         printf 'config_template=%s\n' "$CONFIG_TEMPLATE"
@@ -741,14 +761,23 @@ write_summary() {
         printf 'result=%s\n' "$result"
         printf 'passes=%d\n' "$PASS_COUNT"
         printf 'failures=%d\n' "$FAILURE_COUNT"
-        printf 'install_new_candidates=%d\n' "$INSTALL_NEW_CANDIDATE_COUNT"
-        printf 'upgrade_candidates=%d\n' "$UPGRADE_CANDIDATE_COUNT"
-        printf 'total_candidates=%d\n' "$TOTAL_CANDIDATE_COUNT"
+        printf 'install_new_candidates=%s\n' "$INSTALL_NEW_CANDIDATE_COUNT"
+        printf 'upgrade_candidates=%s\n' "$UPGRADE_CANDIDATE_COUNT"
+        printf 'total_candidates=%s\n' "$TOTAL_CANDIDATE_COUNT"
         printf 'candidate_set_sha256=%s\n' "${CANDIDATE_SET_SHA256:-not-calculated}"
-        printf 'kernel_candidates=%d\n' "$KERNEL_CANDIDATE_COUNT"
-        printf 'critical_candidates=%d\n' "$CRITICAL_CANDIDATE_COUNT"
+        printf 'kernel_candidates=%s\n' "$KERNEL_CANDIDATE_COUNT"
+        printf 'critical_candidates=%s\n' "$CRITICAL_CANDIDATE_COUNT"
         printf 'metadata_update_exit_code=%s\n' "$(cat "$OUTPUT_DIR/metadata.update.exit" 2>/dev/null || printf 'not-run')"
         printf 'apply_exit_code=%s\n' "$(cat "$OUTPUT_DIR/apply.exit" 2>/dev/null || printf 'not-run')"
+        if [ "${DIAGNOSTIC_ACTIVE:-0}" -eq 1 ]; then
+            printf 'terminal_stage=%s\n' "$TERMINAL_STAGE"
+            printf 'failure_reason=%s\n' "${FIRST_FAILURE_REASON:-none}"
+            printf 'finalization_errors=%s\n' "${FINALIZATION_ERRORS:-none}"
+            local stage
+            for stage in policy boot-before refresh catalog install-new upgrade-all classification final-capture; do
+                printf 'stage_%s=%s\n' "$stage" "${DIAGNOSTIC_STAGES[$stage]:-not-run}"
+            done
+        fi
         printf 'evidence_directory=%s\n' "$OUTPUT_DIR"
     } > "$summary_path"
 }
@@ -835,6 +864,217 @@ finish_with_evidence() {
     [ "$FAILURE_COUNT" -eq 0 ]
 }
 
+
+# Native diagnostic boundaries. Legacy helpers above remain fixture APIs only.
+validate_diagnostic_policy() { python3 -B "$TEST_DIR/normal_update_metadata.py" --operation policy --policy "$1" --output "$2"; }
+validate_diagnostic_catalog() { python3 -B "$TEST_DIR/normal_update_metadata.py" --operation catalog --policy "$1" --before "$2" --evidence "$3"; }
+validate_diagnostic_probe() { python3 -B "$TEST_DIR/normal_update_protocol.py" --action "$1" --prefix "$2" --catalog "$3" --output-prefix "$4"; }
+establish_diagnostic_baseline() { python3 -B "$TEST_DIR/normal_update_metadata.py" --operation baseline --policy "$1" --catalog "$2" --output "$3"; }
+capture_selection_state() { python3 -B "$TEST_DIR/normal_update_metadata.py" --operation selection --policy "$1" --output "$2"; }
+capture_diagnostic_boot() { python3 -B "$TEST_DIR/normal_update_boot.py" --policy "$1" --output "$2"; }
+
+run_diagnostic_command() {
+    local action=$1 prefix=$2 raw
+    python3 -B "$TEST_DIR/normal_update_metadata.py" --backend-action "$action" \
+        --policy "$DIAGNOSTIC_POLICY" --prefix "$prefix" &
+    DIAGNOSTIC_RUNNER_PID=$!
+    wait "$DIAGNOSTIC_RUNNER_PID"
+    raw=$?
+    DIAGNOSTIC_RUNNER_PID=
+    return "$raw"
+}
+
+diagnostic_fail() {
+    local stage=$1 reason=$2
+    if [ -z "$FIRST_FAILURE_REASON" ]; then
+        FIRST_FAILURE_REASON=$reason
+        TERMINAL_STAGE=$stage
+    fi
+    DIAGNOSTIC_STAGES[$stage]=failed
+    CANDIDATE_SET_SHA256=
+    record_failure "$reason"
+}
+
+finish_diagnostic() {
+    local stage=$1 reason=$2 archive
+    if [ "${DIAGNOSTIC_FINISHED:-0}" -eq 1 ]; then
+        [ "$FAILURE_COUNT" -eq 0 ]
+        return $?
+    fi
+    [ "${DIAGNOSTIC_FINALIZING:-0}" -eq 0 ] || return 1
+    DIAGNOSTIC_FINALIZING=1
+    [ -z "$reason" ] || diagnostic_fail "$stage" "$reason"
+    if ! capture_package_database /var/log/packages "$OUTPUT_DIR/packages.after-preflight.sha256"; then
+        FINALIZATION_ERRORS="${FINALIZATION_ERRORS} packages-after-failed"
+        diagnostic_fail final-capture packages-after-failed
+    elif [ -f "$OUTPUT_DIR/packages.before.sha256" ]; then
+        if cmp -s "$OUTPUT_DIR/packages.before.sha256" "$OUTPUT_DIR/packages.after-preflight.sha256"; then
+            : > "$OUTPUT_DIR/packages.preflight.diff"
+            record_pass 'candidate probing did not modify the installed package database'
+        else
+            diff -u "$OUTPUT_DIR/packages.before.sha256" "$OUTPUT_DIR/packages.after-preflight.sha256" > "$OUTPUT_DIR/packages.preflight.diff" 2>&1 || true
+            diagnostic_fail final-capture package-state-drift
+        fi
+    fi
+    if ! capture_diagnostic_boot "$DIAGNOSTIC_POLICY" "$OUTPUT_DIR/boot.after-preflight.txt"; then
+        FINALIZATION_ERRORS="${FINALIZATION_ERRORS} boot-after-failed"
+        diagnostic_fail final-capture boot-after-failed
+    elif [ -f "$OUTPUT_DIR/boot.before.txt" ]; then
+        if cmp -s "$OUTPUT_DIR/boot.before.txt" "$OUTPUT_DIR/boot.after-preflight.txt"; then
+            : > "$OUTPUT_DIR/boot.preflight.diff"
+            record_pass 'candidate probing did not modify initrd or GRUB state within the declared boot manifest'
+        else
+            diff -u "$OUTPUT_DIR/boot.before.txt" "$OUTPUT_DIR/boot.after-preflight.txt" > "$OUTPUT_DIR/boot.preflight.diff" 2>&1 || true
+            diagnostic_fail final-capture boot-state-drift
+        fi
+    fi
+    if [ -f "$OUTPUT_DIR/selection.baseline.json" ]; then
+        if ! capture_selection_state "$DIAGNOSTIC_POLICY" "$OUTPUT_DIR/selection.final.json" || \
+            ! cmp -s "$OUTPUT_DIR/selection.baseline.json" "$OUTPUT_DIR/selection.final.json"; then
+            diagnostic_fail final-capture selection-drift
+        fi
+    fi
+    [ "$FAILURE_COUNT" -eq 0 ] || CANDIDATE_SET_SHA256=
+    if [ "$FAILURE_COUNT" -eq 0 ]; then
+        TERMINAL_STAGE=complete
+        DIAGNOSTIC_STAGES[final-capture]=passed
+    fi
+    write_summary "$OUTPUT_DIR/summary.txt" || return 1
+    local collision=0 artifact
+    for artifact in "$OUTPUT_DIR.tar.gz" "$OUTPUT_DIR.tar.gz.sha256"; do
+        if [ -e "$artifact" ] || [ -L "$artifact" ]; then collision=1; fi
+    done
+    if [ "$collision" -eq 1 ]; then
+        diagnostic_fail final-capture archive-output-exists
+        write_summary "$OUTPUT_DIR/summary.txt" || true
+    else
+        DIAGNOSTIC_ARCHIVE_ATTEMPTED=1
+        if archive=$(create_evidence_archive); then
+            printf 'Evidence archive: %s\n' "$archive"
+            print_evidence_copy_command "$archive"
+            print_evidence_verification_command "$archive"
+        else
+            FINALIZATION_ERRORS="${FINALIZATION_ERRORS} archive-failed"
+            diagnostic_fail final-capture archive-failed
+            write_summary "$OUTPUT_DIR/summary.txt" || true
+        fi
+    fi
+    DIAGNOSTIC_FINISHED=1
+    DIAGNOSTIC_FINALIZING=0
+    trap - INT TERM
+    [ "$FAILURE_COUNT" -eq 0 ]
+}
+
+diagnostic_signal() {
+    trap '' INT TERM
+    if [ -n "${DIAGNOSTIC_RUNNER_PID:-}" ]; then
+        kill -TERM "$DIAGNOSTIC_RUNNER_PID" 2>/dev/null || true
+        wait "$DIAGNOSTIC_RUNNER_PID" 2>/dev/null || true
+    fi
+    if [ "${DIAGNOSTIC_FINALIZING:-0}" -eq 1 ]; then
+        diagnostic_fail final-capture "signal-$1"
+        FINALIZATION_ERRORS="${FINALIZATION_ERRORS} signal-$1"
+        # Publication did not complete: preserve old snapshot bytes as unpublished.
+        if [ "${DIAGNOSTIC_ARCHIVE_ATTEMPTED:-0}" -eq 1 ]; then
+            local quarantine="$OUTPUT_DIR/interrupted-publication" artifact
+            if mkdir -m 0700 -- "$quarantine"; then
+                for artifact in "$OUTPUT_DIR.tar.gz" "$OUTPUT_DIR.tar.gz.sha256"; do
+                    if [ -e "$artifact" ] || [ -L "$artifact" ]; then
+                        mv -- "$artifact" "$quarantine/${artifact##*/}" || FINALIZATION_ERRORS="${FINALIZATION_ERRORS} quarantine-failed"
+                    fi
+                done
+            else FINALIZATION_ERRORS="${FINALIZATION_ERRORS} quarantine-failed"; fi
+        fi
+        write_summary "$OUTPUT_DIR/summary.txt" || true
+    else
+        finish_diagnostic "${CURRENT_DIAGNOSTIC_STAGE:-initialization}" "signal-$1"
+    fi
+    exit 1
+}
+
+diagnostic_preflight() {
+    DIAGNOSTIC_ACTIVE=1
+    DIAGNOSTIC_FINISHED=0
+    DIAGNOSTIC_FINALIZING=0
+    DIAGNOSTIC_ARCHIVE_ATTEMPTED=0
+    FIRST_FAILURE_REASON=
+    FINALIZATION_ERRORS=
+    TERMINAL_STAGE=initialization
+    DIAGNOSTIC_RUNNER_PID=
+    declare -gA DIAGNOSTIC_STAGES=()
+    INSTALL_NEW_CANDIDATE_COUNT=not-calculated
+    UPGRADE_CANDIDATE_COUNT=not-calculated
+    TOTAL_CANDIDATE_COUNT=not-calculated
+    KERNEL_CANDIDATE_COUNT=not-calculated
+    CRITICAL_CANDIDATE_COUNT=not-calculated
+    CANDIDATE_SET_SHA256=
+    trap 'diagnostic_signal INT' INT
+    trap 'diagnostic_signal TERM' TERM
+    CURRENT_DIAGNOSTIC_STAGE=policy
+    if [ -z "$DIAGNOSTIC_POLICY" ] || ! validate_diagnostic_policy "$DIAGNOSTIC_POLICY" "$OUTPUT_DIR/policy.json"; then
+        finish_diagnostic policy policy-invalid; return 1
+    fi
+    DIAGNOSTIC_STAGES[policy]=passed
+    if ! capture_package_database /var/log/packages "$OUTPUT_DIR/packages.before.sha256"; then
+        finish_diagnostic boot-before packages-before-failed; return 1
+    fi
+    if ! capture_diagnostic_boot "$DIAGNOSTIC_POLICY" "$OUTPUT_DIR/boot.before.txt"; then
+        finish_diagnostic boot-before boot-before-failed; return 1
+    fi
+    DIAGNOSTIC_STAGES[boot-before]=passed
+    CURRENT_DIAGNOSTIC_STAGE=refresh
+    run_diagnostic_command update "$OUTPUT_DIR/metadata.update"
+    local raw=$?
+    if [ "$raw" -ne 0 ]; then finish_diagnostic refresh refresh-failed; return 1; fi
+    DIAGNOSTIC_STAGES[refresh]=passed
+    mkdir -- "$OUTPUT_DIR/catalog" || { finish_diagnostic catalog catalog-directory-failed; return 1; }
+    CURRENT_DIAGNOSTIC_STAGE=catalog
+    if ! validate_diagnostic_catalog "$DIAGNOSTIC_POLICY" "$OUTPUT_DIR/policy.json" "$OUTPUT_DIR/catalog"; then
+        finish_diagnostic catalog catalog-invalid; return 1
+    fi
+    if ! establish_diagnostic_baseline "$DIAGNOSTIC_POLICY" "$OUTPUT_DIR/catalog/catalog.json" "$OUTPUT_DIR/selection.baseline.json"; then
+        finish_diagnostic catalog selection-baseline-failed; return 1
+    fi
+    DIAGNOSTIC_STAGES[catalog]=passed
+    local action prefix
+    for action in install-new upgrade-all; do
+        CURRENT_DIAGNOSTIC_STAGE=$action
+        prefix="$OUTPUT_DIR/$action.probe"
+        if ! capture_selection_state "$DIAGNOSTIC_POLICY" "$OUTPUT_DIR/$action.selection.before.json" || \
+            ! cmp -s "$OUTPUT_DIR/selection.baseline.json" "$OUTPUT_DIR/$action.selection.before.json"; then
+            finish_diagnostic "$action" selection-drift; return 1
+        fi
+        run_diagnostic_command "$action" "$prefix"
+        raw=$?
+        case "$raw" in 0|20) ;; *) finish_diagnostic "$action" "$action-failed"; return 1 ;; esac
+        if ! validate_diagnostic_probe "$action" "$prefix" "$OUTPUT_DIR/catalog/catalog.json" "$OUTPUT_DIR/$action"; then
+            finish_diagnostic "$action" "$action-invalid"; return 1
+        fi
+        if ! capture_selection_state "$DIAGNOSTIC_POLICY" "$OUTPUT_DIR/$action.selection.after.json" || \
+            ! cmp -s "$OUTPUT_DIR/selection.baseline.json" "$OUTPUT_DIR/$action.selection.after.json"; then
+            finish_diagnostic "$action" selection-drift; return 1
+        fi
+        DIAGNOSTIC_STAGES[$action]=passed
+    done
+    CURRENT_DIAGNOSTIC_STAGE=classification
+    cat "$OUTPUT_DIR/install-new.candidates.txt" "$OUTPUT_DIR/upgrade-all.candidates.txt" | LC_ALL=C sort -u > "$OUTPUT_DIR/all.candidates.txt" || {
+        finish_diagnostic classification candidate-union-failed; return 1;
+    }
+    if ! classify_candidates "$OUTPUT_DIR/all.candidates.txt" "$OUTPUT_DIR/candidate-package-names.txt" \
+        "$OUTPUT_DIR/kernel.candidates.txt" "$OUTPUT_DIR/critical.candidates.txt"; then
+        finish_diagnostic classification classification-failed; return 1
+    fi
+    INSTALL_NEW_CANDIDATE_COUNT=$(wc -l < "$OUTPUT_DIR/install-new.candidates.txt")
+    UPGRADE_CANDIDATE_COUNT=$(wc -l < "$OUTPUT_DIR/upgrade-all.candidates.txt")
+    TOTAL_CANDIDATE_COUNT=$(wc -l < "$OUTPUT_DIR/all.candidates.txt")
+    KERNEL_CANDIDATE_COUNT=$(wc -l < "$OUTPUT_DIR/kernel.candidates.txt")
+    CRITICAL_CANDIDATE_COUNT=$(wc -l < "$OUTPUT_DIR/critical.candidates.txt")
+    if [ "$TOTAL_CANDIDATE_COUNT" -eq 0 ]; then finish_diagnostic classification no-candidates; return 1; fi
+    CANDIDATE_SET_SHA256=$(sha256sum -- "$OUTPUT_DIR/all.candidates.txt" | awk '{print $1}')
+    DIAGNOSTIC_STAGES[classification]=passed
+    finish_diagnostic complete ''
+}
+
 main() {
     local timestamp
     local metadata_update_status
@@ -846,12 +1086,16 @@ main() {
         print_usage >&2
         return 2
     }
+    if [ "$MODE" = apply ]; then
+        error 'apply-disabled-until-selection-consumption-binding'
+        return 2
+    fi
     [ "$(id -u)" -eq 0 ] || {
         error 'this real-system acceptance scenario requires root'
         return 2
     }
 
-    for command_name in awk cmp date diff find grep hostname python3 readlink sed sha256sum sort stat tar; do
+    for command_name in awk cmp date diff find grep hostname mv python3 readlink sed sha256sum sort stat tar; do
         require_command "$command_name" || return 2
     done
     require_command slackpkg || return 2
@@ -911,86 +1155,11 @@ main() {
         return 2
     }
     capture_host_metadata "$OUTPUT_DIR/host.txt" || return 2
-    capture_package_database /var/log/packages "$OUTPUT_DIR/packages.before.sha256" || return 2
-    capture_boot_state "$OUTPUT_DIR/boot.before.txt" || return 2
+    diagnostic_preflight
+    return $?
 
-    printf 'Refreshing Slackware package metadata before candidate classification...\n'
-    run_metadata_refresh "$OUTPUT_DIR/metadata.update.log" "$OUTPUT_DIR/metadata.update.exit"
-    metadata_update_status=$?
-    case "$metadata_update_status" in
-        0) record_pass 'Slackware package metadata was refreshed before candidate classification' ;;
-        *) record_failure "Slackware package metadata refresh failed with status $metadata_update_status" ;;
-    esac
-
-    printf 'Detecting real install-new candidates without installing them...\n'
-    run_candidate_probe install-new "$OUTPUT_DIR/install-new.probe.log" "$OUTPUT_DIR/install-new.probe.exit"
-    install_probe_status=$?
-    case "$install_probe_status" in
-        0) record_pass 'the install-new candidate probe completed safely' ;;
-        *) record_failure "the install-new candidate probe failed with status $install_probe_status" ;;
-    esac
-
-    printf 'Detecting real upgrade-all candidates without installing them...\n'
-    run_candidate_probe upgrade-all "$OUTPUT_DIR/upgrade-all.probe.log" "$OUTPUT_DIR/upgrade-all.probe.exit"
-    upgrade_probe_status=$?
-    case "$upgrade_probe_status" in
-        0) record_pass 'the upgrade-all candidate probe completed safely' ;;
-        *) record_failure "the upgrade-all candidate probe failed with status $upgrade_probe_status" ;;
-    esac
-
-    extract_slackpkg_candidates "$OUTPUT_DIR/install-new.probe.log" "$OUTPUT_DIR/install-new.candidates.txt" || \
-        record_failure 'install-new candidate output could not be parsed'
-    extract_slackpkg_candidates "$OUTPUT_DIR/upgrade-all.probe.log" "$OUTPUT_DIR/upgrade-all.candidates.txt" || \
-        record_failure 'upgrade-all candidate output could not be parsed'
-    cat "$OUTPUT_DIR/install-new.candidates.txt" "$OUTPUT_DIR/upgrade-all.candidates.txt" \
-        | LC_ALL=C sort -u > "$OUTPUT_DIR/all.candidates.txt"
-
-    classify_candidates \
-        "$OUTPUT_DIR/all.candidates.txt" \
-        "$OUTPUT_DIR/candidate-package-names.txt" \
-        "$OUTPUT_DIR/kernel.candidates.txt" \
-        "$OUTPUT_DIR/critical.candidates.txt" || \
-        record_failure 'candidate package filenames could not be classified'
-
-    INSTALL_NEW_CANDIDATE_COUNT=$(wc -l < "$OUTPUT_DIR/install-new.candidates.txt")
-    UPGRADE_CANDIDATE_COUNT=$(wc -l < "$OUTPUT_DIR/upgrade-all.candidates.txt")
-    TOTAL_CANDIDATE_COUNT=$(wc -l < "$OUTPUT_DIR/all.candidates.txt")
-    KERNEL_CANDIDATE_COUNT=$(wc -l < "$OUTPUT_DIR/kernel.candidates.txt")
-    CRITICAL_CANDIDATE_COUNT=$(wc -l < "$OUTPUT_DIR/critical.candidates.txt")
-    CANDIDATE_SET_SHA256=$(sha256sum -- "$OUTPUT_DIR/all.candidates.txt" | awk '{print $1}')
-
-    if [ "$TOTAL_CANDIDATE_COUNT" -gt 0 ]; then
-        record_pass "slackpkg reports $TOTAL_CANDIDATE_COUNT real package candidate(s)"
-    else
-        record_failure 'slackpkg did not expose any parseable package candidates'
-    fi
-
-    capture_package_database /var/log/packages "$OUTPUT_DIR/packages.after-preflight.sha256" || \
-        record_failure 'the package database could not be captured after candidate probing'
-    capture_boot_state "$OUTPUT_DIR/boot.after-preflight.txt" || \
-        record_failure 'the boot state could not be captured after candidate probing'
-    assert_files_equal \
-        "$OUTPUT_DIR/packages.before.sha256" \
-        "$OUTPUT_DIR/packages.after-preflight.sha256" \
-        "$OUTPUT_DIR/packages.preflight.diff" \
-        'candidate probing did not modify the installed package database'
-    assert_files_equal \
-        "$OUTPUT_DIR/boot.before.txt" \
-        "$OUTPUT_DIR/boot.after-preflight.txt" \
-        "$OUTPUT_DIR/boot.preflight.diff" \
-        'candidate probing did not modify initrd or GRUB state'
-
-    printf 'Candidate summary: install-new=%d, upgrade-all=%d, total=%d, kernel=%d, critical=%d\n' \
-        "$INSTALL_NEW_CANDIDATE_COUNT" "$UPGRADE_CANDIDATE_COUNT" "$TOTAL_CANDIDATE_COUNT" \
-        "$KERNEL_CANDIDATE_COUNT" "$CRITICAL_CANDIDATE_COUNT"
-    printf 'Candidate set SHA-256: %s\n' "$CANDIDATE_SET_SHA256"
-
-    if [ "$MODE" = preflight ]; then
-        printf 'Preflight only: no package installation was authorized.\n'
-        finish_with_evidence
-        return $?
-    fi
-
+    # Dormant historical apply checks, retained for helper-contract compatibility.
+    # Main rejects apply before any effect; reopening this path requires stage B.
     if [ "$FAILURE_COUNT" -ne 0 ]; then
         error 'preflight validation failed; real apply was not executed'
         finish_with_evidence

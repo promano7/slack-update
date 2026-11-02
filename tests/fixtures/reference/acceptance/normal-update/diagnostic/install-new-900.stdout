@@ -1,0 +1,29 @@
+
+Looking for NEW packages to install. Please wait... DONE
+
+bdf2psf-1.249-noarch-1.txz
+blake3-1.8.7-x86_64-1.txz
+btop-1.4.8-x86_64-1.txz
+cpufetch-1.07-x86_64-1.txz
+f3-10.0-x86_64-1.txz
+fonts-uw-ttyp0-2.1-noarch-2.txz
+fwupd-2.1.9-x86_64-1.txz
+fwupd-efi-1.9-x86_64-1.txz
+highway-1.4.0-x86_64-2.txz
+kexec-tools-2.0.32-x86_64-5.txz
+kio-snapshot-1.1.0-x86_64-1.txz
+kmscon-10.1.0-x86_64-1.txz
+kweather-26.08.2-x86_64-1.txz
+libgit2-1.9.7-x86_64-1.txz
+libjxl-0.12.0-x86_64-4.txz
+libtatsu-1.0.5-x86_64-1.txz
+libtsm-4.8.0-x86_64-1.txz
+libvips-8.18.7-x86_64-1.txz
+pdfio-1.6.6-x86_64-1.txz
+spleen-2.2.0-noarch-1.txz
+xf86-video-cirrus-1.6.0-x86_64-1.txz
+
+Total package(s): 21
+
+Do you wish to install selected packages (Y/n)? n
+
