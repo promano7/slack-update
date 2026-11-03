@@ -132,10 +132,12 @@ Evidence includes per-stage states, first failure and finalization errors, unkno
 counts as `not-calculated`, code/policy/backend identities, complete channels,
 catalog validation, candidate lists and a portable archive/sidecar. Failed cases
 retain their directory; a packaging failure is not announced as successful
-publication. If a signal interrupts finalization, the enclosing summary is FAIL,
-the reviewed digest is cleared and any newly attempted archive/sidecar is retained
-under `interrupted-publication/`, outside the normal publication path. That raw
-archive can contain the earlier pre-signal snapshot; it is not a completed result.
+publication. If packaging/publication fails or a signal interrupts finalization,
+the enclosing summary is FAIL, the reviewed digest is cleared and any newly
+attempted archive/sidecar is retained under `interrupted-publication/`, outside
+the normal publication path. That raw archive can contain an earlier snapshot
+with PASS; it is not a completed result. A quarantine failure is recorded in
+`finalization_errors` and does not make any remaining snapshot authoritative.
 Existing archive names are rejected rather than overwritten.
 New code is covered by the private-flow and Python diagnostic suites.
 The existing118-control harness and its legacy helper contracts remain unchanged;

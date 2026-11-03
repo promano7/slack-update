@@ -895,6 +895,19 @@ diagnostic_fail() {
     record_failure "$reason"
 }
 
+quarantine_diagnostic_archive() {
+    # Only move artifacts from our own attempt, never an earlier collision.
+    [ "${DIAGNOSTIC_ARCHIVE_ATTEMPTED:-0}" -eq 1 ] || return 0
+    local quarantine="$OUTPUT_DIR/interrupted-publication" artifact
+    if mkdir -m 0700 -- "$quarantine"; then
+        for artifact in "$OUTPUT_DIR.tar.gz" "$OUTPUT_DIR.tar.gz.sha256"; do
+            if [ -e "$artifact" ] || [ -L "$artifact" ]; then
+                mv -- "$artifact" "$quarantine/${artifact##*/}" || FINALIZATION_ERRORS="${FINALIZATION_ERRORS} quarantine-failed"
+            fi
+        done
+    else FINALIZATION_ERRORS="${FINALIZATION_ERRORS} quarantine-failed"; fi
+}
+
 finish_diagnostic() {
     local stage=$1 reason=$2 archive
     if [ "${DIAGNOSTIC_FINISHED:-0}" -eq 1 ]; then
@@ -956,6 +969,7 @@ finish_diagnostic() {
         else
             FINALIZATION_ERRORS="${FINALIZATION_ERRORS} archive-failed"
             diagnostic_fail final-capture archive-failed
+            quarantine_diagnostic_archive
             write_summary "$OUTPUT_DIR/summary.txt" || true
         fi
     fi
@@ -975,16 +989,7 @@ diagnostic_signal() {
         diagnostic_fail final-capture "signal-$1"
         FINALIZATION_ERRORS="${FINALIZATION_ERRORS} signal-$1"
         # Publication did not complete: preserve old snapshot bytes as unpublished.
-        if [ "${DIAGNOSTIC_ARCHIVE_ATTEMPTED:-0}" -eq 1 ]; then
-            local quarantine="$OUTPUT_DIR/interrupted-publication" artifact
-            if mkdir -m 0700 -- "$quarantine"; then
-                for artifact in "$OUTPUT_DIR.tar.gz" "$OUTPUT_DIR.tar.gz.sha256"; do
-                    if [ -e "$artifact" ] || [ -L "$artifact" ]; then
-                        mv -- "$artifact" "$quarantine/${artifact##*/}" || FINALIZATION_ERRORS="${FINALIZATION_ERRORS} quarantine-failed"
-                    fi
-                done
-            else FINALIZATION_ERRORS="${FINALIZATION_ERRORS} quarantine-failed"; fi
-        fi
+        quarantine_diagnostic_archive
         write_summary "$OUTPUT_DIR/summary.txt" || true
     else
         finish_diagnostic "${CURRENT_DIAGNOSTIC_STAGE:-initialization}" "signal-$1"

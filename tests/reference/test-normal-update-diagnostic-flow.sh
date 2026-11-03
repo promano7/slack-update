@@ -68,7 +68,7 @@ flow_case() {
         run_diagnostic_command() {
             printf '%s\n' "$1" >> "$TMP/$fixture.trace"
             local raw=0
-            case "$fixture:$1" in refresh30-stops:update|refresh-and-archive-failure:update|refresh-signal-archive:update) raw=30 ;;
+            case "$fixture:$1" in refresh30-stops:update|refresh-and-archive-failure:update|refresh-signal-archive:update|refresh-publication-failure:update) raw=30 ;;
                 install42-stops:install-new|upgrade42-no-digest:upgrade-all) raw=42 ;;
                 signal-stops:update) kill -TERM "$BASHPID" ;; esac
             printf '%s\n' "$raw" > "$2.exit"
@@ -76,6 +76,15 @@ flow_case() {
             return "$raw"
         }
         publish_evidence_archive() { :; }
+        if [ "$fixture" = publication-failure ] || [ "$fixture" = refresh-publication-failure ]; then
+            publish_evidence_archive() { return 80; }
+        fi
+        if [ "$fixture" = tar-partial-failure ]; then
+            tar() { command tar "$@" || return; return 80; }
+        fi
+        if [ "$fixture" = checksum-failure ]; then
+            sha256sum() { command sha256sum "$@" || return; return 80; }
+        fi
         print_evidence_copy_command() { :; }
         print_evidence_verification_command() { :; }
         if [ "$fixture" = archive-failure ] || [ "$fixture" = refresh-and-archive-failure ]; then
@@ -101,14 +110,22 @@ flow_case() {
     check cmp -s "$TMP/expected-trace" "$TMP/$fixture.trace"
     check grep -q "failure_reason=$reason" "$TMP/$fixture/summary.txt"
     check grep -q 'candidate_set_sha256=not-calculated' "$TMP/$fixture/summary.txt"
-    if [ "$fixture" = signal-archive ] || [ "$fixture" = refresh-signal-archive ]; then
+    if [ "$fixture" = signal-archive ] || [ "$fixture" = refresh-signal-archive ] || \
+        [ "$fixture" = publication-failure ] || [ "$fixture" = refresh-publication-failure ] || \
+        [ "$fixture" = tar-partial-failure ] || [ "$fixture" = checksum-failure ]; then
         check test ! -e "$TMP/$fixture.tar.gz"
         check test -e "$TMP/$fixture/interrupted-publication/$fixture.tar.gz"
         check test ! -e "$TMP/$fixture.tar.gz.sha256"
     fi
+    if [ "$fixture" = publication-failure ] || [ "$fixture" = refresh-publication-failure ]; then
+        check test -e "$TMP/$fixture/interrupted-publication/$fixture.tar.gz.sha256"
+        check grep -q 'result=FAIL' "$TMP/$fixture/summary.txt"
+        # The old snapshot is retained only under the unpublished directory.
+        check test -z "$(grep '^Evidence archive:' "$TMP/$fixture.out")"
+    fi
     if [ "$fixture" = archive-collision ]; then check grep -q 'prior evidence' "$TMP/$fixture.tar.gz"; fi
 }
-for c in refresh30-stops install42-stops upgrade42-no-digest capture-failure archive-failure refresh-and-archive-failure signal-stops final-package-drift signal-final-capture signal-archive refresh-signal-archive archive-collision; do
+for c in refresh30-stops install42-stops upgrade42-no-digest capture-failure archive-failure refresh-and-archive-failure signal-stops final-package-drift signal-final-capture signal-archive refresh-signal-archive archive-collision publication-failure refresh-publication-failure tar-partial-failure checksum-failure; do
     if [ "$case_name" = all ] || [ "$case_name" = "$c" ]; then
         case "$c" in
             refresh30-stops|refresh-and-archive-failure) flow_case "$c" $'update\n' refresh-failed ;;
@@ -116,6 +133,8 @@ for c in refresh30-stops install42-stops upgrade42-no-digest capture-failure arc
             upgrade42-no-digest) flow_case "$c" $'update\ninstall-new\nupgrade-all\n' upgrade-all-failed ;;
             capture-failure) flow_case "$c" '' boot-before-failed ;;
             archive-failure) flow_case "$c" $'update\ninstall-new\nupgrade-all\n' archive-failed ;;
+            publication-failure|tar-partial-failure|checksum-failure) flow_case "$c" $'update\ninstall-new\nupgrade-all\n' archive-failed ;;
+            refresh-publication-failure) flow_case "$c" $'update\n' refresh-failed ;;
             final-package-drift) flow_case "$c" $'update\ninstall-new\nupgrade-all\n' package-state-drift ;;
             signal-final-capture|signal-archive) flow_case "$c" $'update\ninstall-new\nupgrade-all\n' signal-TERM ;;
             refresh-signal-archive) flow_case "$c" $'update\n' refresh-failed ;;
